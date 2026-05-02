@@ -16,11 +16,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All characters add -1 %game.action.move% to all their move abilities."
+          "value": "All characters add %game.action.move.valueSign:-1% to all their move abilities."
         },
         {
           "type": "custom",
-          "value": "All monsters add +1 %game.action.move% to all their move abilities."
+          "value": "All monsters add %game.action.move.valueSign:1% to all their move abilities."
         }
       ]
     }

@@ -38,19 +38,19 @@
     },
     "cs-101": {
       "": "바위등뼈 방벽",
-      "1": "앞으로 3회 동안, 자신 또는 인접한 아군을 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 획득."
+      "1": "앞으로 3회 동안, 자신 또는 인접한 아군을 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield:1% 획득."
     },
     "cs-102": {
       "": "유령잔상 꿀",
-      "1": "장착자의 차례중, 다음을 수행한다. %game.action.heal%3, %game.condition.regenerate% 자신 및 인접한 아군 하나"
+      "1": "장착자의 차례중, 다음을 수행한다. %game.action.heal:3%, %game.condition.regenerate% 자신 및 인접한 아군 하나"
     },
     "cs-104": {
       "": "전력 변조기",
-      "1": "장착자의 차례 중, 상단 행동을 포기하고 다음을 수행할 수 있다.%game.action.attack%X+1%game.action.range:2% %game.action.target%4-X. 여기에서 X는 1, 2, 3"
+      "1": "장착자의 차례 중, 상단 행동을 포기하고 다음을 수행할 수 있다.%game.action.attack:X+1%%game.action.range:2% %game.action.target:4-X%. 여기에서 X는 1, 2, 3"
     },
     "cs-105": {
       "": "증기 피스톤 망치",
-      "1": "장착자의 단일 공격에%game.condition.muddle%및%game.action.push%1추가"
+      "1": "장착자의 단일 공격에%game.condition.muddle%및%game.action.push:1%추가"
     },
     "cs-106": {
       "": "거미 등반 장갑",
@@ -70,11 +70,11 @@
     },
     "cs-111": {
       "": "불쾌한 부츠",
-      "1": "장착자가 이동 능력 수행 후, 다음을 수행한다.%game.action.push%1, 인접한 적 하나. 이번 라운드중 네 칸 이상 이동했을 경우 %game.action.push%1 추가."
+      "1": "장착자가 이동 능력 수행 후, 다음을 수행한다.%game.action.push:1%, 인접한 적 하나. 이번 라운드중 네 칸 이상 이동했을 경우 %game.action.push:1% 추가."
     },
     "cs-112": {
       "": "공포비늘 세이버",
-      "1": "장착자가%game.condition.wound%또는%game.condition.rupture%상태인 적을 대상으로 하는 근접 공격에%game.action.attack%+1 및%game.action.pierce%2 추가."
+      "1": "장착자가%game.condition.wound%또는%game.condition.rupture%상태인 적을 대상으로 하는 근접 공격에%game.action.attack:1% 및%game.action.pierce:2% 추가."
     },
     "cs-113": {
       "": "공포비늘 크로스블레이드",
@@ -90,11 +90,11 @@
     },
     "cs-13": {
       "": "전쟁 곡괭이",
-      "1": "장착자의 근접 공격 하나에%game.action.pierce%4 추가."
+      "1": "장착자의 근접 공격 하나에%game.action.pierce:4% 추가."
     },
     "cs-14": {
       "": "사슬 철퇴",
-      "1": "장착자의 차례 중에 %game.action.attack% 3, %game.action.range:2% 수행."
+      "1": "장착자의 차례 중에 %game.action.attack:3%, %game.action.range:2% 수행."
     },
     "cs-15": {
       "": "소모시키는 정강이받이",
@@ -106,15 +106,15 @@
     },
     "cs-17": {
       "": "경량 부츠",
-      "1": "장착자의 이동 능력 수행 동안%game.action.move%+2및%game.action.jump% 추가."
+      "1": "장착자의 이동 능력 수행 동안%game.action.move:+2%및%game.action.jump% 추가."
     },
     "cs-18": {
       "": "병에 담긴 불빛",
-      "1": "장착자의 치료 능력 수행 동안, 각 치료에%game.action.heal%2및%game.condition.strengthen%추가."
+      "1": "장착자의 치료 능력 수행 동안, 각 치료에%game.action.heal:2%및%game.condition.strengthen%추가."
     },
     "cs-19": {
       "": "영속의 부츠",
-      "1": "장착자는 %game.condition.immobilize%면역을 갖는다. 차례 종료 후, 장착자의 차례 동안 이동능력을 수행하지 않았을 경우%game.action.move%1 수행"
+      "1": "장착자는 %game.condition.immobilize%면역을 갖는다. 차례 종료 후, 장착자의 차례 동안 이동능력을 수행하지 않았을 경우%game.action.move:1% 수행"
     },
     "cs-2": {
       "": "기세의 구슬",
@@ -134,7 +134,7 @@
     },
     "cs-23": {
       "": "누빔 판금 갑옷",
-      "1": "공격을 받을 때, 공격자는 불이익을 받고 장착자는 해당 공격에%game.action.shield%2획득."
+      "1": "공격을 받을 때, 공격자는 불이익을 받고 장착자는 해당 공격에%game.action.shield:2%획득."
     },
     "cs-24": {
       "": "순수의 망토",
@@ -142,7 +142,7 @@
     },
     "cs-25": {
       "": "뼈를 덮은 어깨걸이",
-      "1": "앞으로 2회 동안, 인접한 적의 공격에 대해 %game.action.retaliate% 2 획득."
+      "1": "앞으로 2회 동안, 인접한 적의 공격에 대해 %game.action.retaliate:2% 획득."
     },
     "cs-26": {
       "": "실루엣 흉갑",
@@ -158,7 +158,7 @@
     },
     "cs-29": {
       "": "취하게 하는 물약",
-      "1": "장착자의 차례중, 다음을 수행한다.%game.action.heal% 5, %game.condition.poison%, 자신."
+      "1": "장착자의 차례중, 다음을 수행한다.%game.action.heal:5%, %game.condition.poison%, 자신."
     },
     "cs-30": {
       "": "철제 올가미",
@@ -170,15 +170,15 @@
     },
     "cs-32": {
       "": "이동 나침반",
-      "1": "장착자의 차례중,%game.action.range:5%내의 적 하나를 조종하여%game.action.move% 2, %game.action.jump%을 수행하게 한다."
+      "1": "장착자의 차례중,%game.action.range:5%내의 적 하나를 조종하여%game.action.move:2%, %game.action.jump%을 수행하게 한다."
     },
     "cs-33": {
       "": "공성추",
-      "1": "장착자의 모든 근접 공격에,%game.condition.muddle%및%game.action.push% 2추가."
+      "1": "장착자의 모든 근접 공격에,%game.condition.muddle%및%game.action.push:2%추가."
     },
     "cs-35": {
       "": "보복의 지팡이",
-      "1": "공격을 당할 때, 해당 공격에%game.action.retaliate% 1, %game.action.range:3%획득."
+      "1": "공격을 당할 때, 해당 공격에%game.action.retaliate:1%, %game.action.range:3%획득."
     },
     "cs-36": {
       "": "저주받은 피의 칼",

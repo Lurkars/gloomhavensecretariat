@@ -432,7 +432,7 @@
   "custom": {
     "cs": {
       "ancient-artillery-scenario-32": {
-        "1": "โจมตีศัตรูทั้งหมดที่ %game.action.range%2 หรือมากกว่า",
+        "1": "โจมตีศัตรูทั้งหมดที่ %game.action.range:2% หรือมากกว่า",
         "2": "โดย X คือจำนวนหกเหลี่ยมระหว่างปืนใหญ่กับเป้าหมาย"
       },
       "blood-ooze": {
@@ -440,7 +440,7 @@
         "2": "ค่าคะแนนชีวิตเท่ากับสามแทน",
         "3": "ศัตรูที่ติดกันทั้งหมดได้รับ %game.damage:1%",
         "4": "โจมตี %data.monster.blood-ooze% ที่ติดกันทั้งหมด",
-        "5": "เพิ่ม +2 %game.action.attack% ถ้าเป้าหมายติดกับ %data.monster.blood-ooze% อย่างน้อยสองตัว",
+        "5": "เพิ่ม %game.action.attack.valueSign:2% ถ้าเป้าหมายติดกับ %data.monster.blood-ooze% อย่างน้อยสองตัว",
         "6": "ถ้าเก็บเหรียญได้อย่างน้อยหนึ่งเหรียญ:"
       },
       "brood-mother": {
@@ -473,17 +473,17 @@
       "frozen-cadaver": {
         "1": "โจมตีศัตรูที่ติดกันทั้งหมดที่ไม่มีโทเค็น %game.condition.chill%",
         "2": "ศัตรูที่ติดกันทั้งหมดที่มี %game.condition.chill% จะได้รับ %game.damage:1%",
-        "3": "เพิ่ม +2 %game.action.attack% ถ้าเป้าหมายมี %game.condition.chill%"
+        "3": "เพิ่ม %game.action.attack.valueSign:2% ถ้าเป้าหมายมี %game.condition.chill%"
       },
       "gelatinous-giant": {
         "1": "%data.monster.blood-ooze% ทั้งหมดดำเนินการ:"
       },
       "ghost-viper": {
-        "1": "+1 %game.action.attack% ในการโจมตีแต่ละครั้งที่มุ่งเป้าไปที่ตัวละครที่มี %game.condition.poison%",
+        "1": "%game.action.attack.valueSign:1% ในการโจมตีแต่ละครั้งที่มุ่งเป้าไปที่ตัวละครที่มี %game.condition.poison%",
         "extra": "Ghost Viper เลขคู่ดำเนินการตามการ์ดความสามารถที่จั่วได้ใบแรก และ Ghost Viper เลขคี่ดำเนินการตามการ์ดความสามารถที่จั่วได้ใบที่สอง"
       },
       "gnashing-drake": {
-        "1": "เพิ่ม +1 %game.action.attack% ถ้าค่าคะแนนชีวิตปัจจุบันของเป้าหมายน้อยกว่าค่าสูงสุด"
+        "1": "เพิ่ม %game.action.attack.valueSign:1% ถ้าค่าคะแนนชีวิตปัจจุบันของเป้าหมายน้อยกว่าค่าสูงสุด"
       },
       "goremyon-shatter-mind": {
         "1": "พรรคพวกปกติที่มีคะแนนชีวิตน้อยที่สุดดำเนินการ:",
@@ -503,7 +503,7 @@
       },
       "harrower-aegis": {
         "1": "ส่งผลต่อพรรคพวกหนึ่งตัวภายใน %game.action.range:3%",
-        "2": "พรรคพวกที่ได้รับผลจะได้ \"%game.action.retaliate% 1\"",
+        "2": "พรรคพวกที่ได้รับผลจะได้ \"%game.action.retaliate:1%\"",
         "3": "เป้าหมายทั้งหมดได้รับ %game.damage:1%",
         "4": "ลบ %game.condition.poison% จากตัวเอง",
         "5": "โจมตีศัตรูทั้งหมดภายในหนึ่งหกเหลี่ยมตามเส้นทางที่เคลื่อนที่"
@@ -574,13 +574,13 @@
         "2": "ทำลายอุปสรรคที่ครอบครอง"
       },
       "toxic-imp": {
-        "1": "เพิ่ม +1 %game.action.attack% ถ้าเป้าหมายมี %game.condition.infect%",
+        "1": "เพิ่ม %game.action.attack.valueSign:1% ถ้าเป้าหมายมี %game.condition.infect%",
         "2": "ถ้าศัตรูโจมตี %data.monster.toxic-imp% ศัตรูนั้นจะได้ %game.condition.infect%",
         "3": "ถ้าสภาวะลบถูกลบด้วยการรักษานี้ เป้าหมายจะได้ %game.condition.strengthen%"
       },
       "water-spirit": {
         "1": "โล่ใช้ได้เฉพาะก่อนเทิร์นของมัน",
-        "2": "เพิ่ม +2 %game.action.attack% ถ้าเป้าหมายอยู่บนแผ่นน้ำ",
+        "2": "เพิ่ม %game.action.attack.valueSign:2% ถ้าเป้าหมายอยู่บนแผ่นน้ำ",
         "3": "โดย X เท่ากับจำนวนแผ่นน้ำภายใน %game.action.range:1%",
         "4": "ศัตรูทั้งหมดที่อยู่บนแผ่นน้ำได้รับ %game.damage:1%",
         "5": "สร้างแผ่นน้ำในหกเหลี่ยมทั้งหมดที่เป้าหมายครอบครองที่ไม่มีแผ่นทับ",
@@ -643,7 +643,7 @@
       "toolstwo": {
         "1": "ได้ 1 %data.action.custom.cs-tool%",
         "2": "ถ้าจั่วโดยตัวเรียก",
-        "3": "สร้างกับดัก %game.action.damage% 2 หนึ่งอันในหกเหลี่ยมว่างที่ติดกับเป้าหมาย",
+        "3": "สร้างกับดัก %game.action.damage:2% หนึ่งอันในหกเหลี่ยมว่างที่ติดกับเป้าหมาย",
         "4": "เมื่อเริ่มแต่ละสถานการณ์ คุณอาจทิ้งไอเทม %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand% หรือ %game.items.slots.twohand% หนึ่งชิ้นโดยไม่มีผลเพื่อได้ 2 %data.action.custom.cs-tool%",
         "5": "เมื่อใดก็ตามที่คุณพักสั้น คุณอาจ %game.action.card.recover% ไอเทม %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand% หรือ %game.items.slots.twohand% ที่ใช้แล้ว",
         "6": "เมื่อใดก็ตามที่คุณพักยาว คุณอาจใช้ 1 %data.action.custom.cs-tool% เพื่อ %game.action.card.recover% ไอเทม %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand% หรือ %game.items.slots.twohand% ที่ทิ้งแล้วหนึ่งชิ้น"

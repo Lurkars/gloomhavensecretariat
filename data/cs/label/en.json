@@ -432,7 +432,7 @@
   "custom": {
     "cs": {
       "ancient-artillery-scenario-32": {
-        "1": "Target all enemies at %game.action.range%2 or higher",
+        "1": "Target all enemies at %game.action.range:2% or higher",
         "2": "where X is the number of hexes between the Artillery and the target"
       },
       "blood-ooze": {
@@ -440,7 +440,7 @@
         "2": "Hit point value equal to three instead",
         "3": "All adjacent enemies suffer %game.damage:1%.",
         "4": "Target all adjacent %data.monster.blood-ooze%s",
-        "5": "Add +2 %game.action.attack% if the target is adjacent to at least two %data.monster.blood-ooze%s",
+        "5": "Add %game.action.attack.valueSign:2% if the target is adjacent to at least two %data.monster.blood-ooze%s",
         "6": "If at least one money token was looted:"
       },
       "brood-mother": {
@@ -473,17 +473,17 @@
       "frozen-cadaver": {
         "1": "Target all adjacent enemies that do not have any %game.condition.chill% tokens",
         "2": "All adjacent enemies with %game.condition.chill% suffer %game.damage:1%.",
-        "3": "Add +2 %game.action.attack% if the target has %game.condition.chill%"
+        "3": "Add %game.action.attack.valueSign:2% if the target has %game.condition.chill%"
       },
       "gelatinous-giant": {
         "1": "All %data.monster.blood-ooze% perform:"
       },
       "ghost-viper": {
-        "1": "+1 %game.action.attack% on each attack targeting a figure with %game.condition.poison%",
+        "1": "%game.action.attack.valueSign:1% on each attack targeting a figure with %game.condition.poison%",
         "extra": "Even numbered Ghost Vipers act according to the first drawn ability card and odd numbered Ghost Vipers act according to the second drawn ability card."
       },
       "gnashing-drake": {
-        "1": "Add +1 %game.action.attack% if the target's current hit point value is less than maximum."
+        "1": "Add %game.action.attack.valueSign:1% if the target's current hit point value is less than maximum."
       },
       "goremyon-shatter-mind": {
         "1": "Normal ally with the fewest hit points performs:",
@@ -503,7 +503,7 @@
       },
       "harrower-aegis": {
         "1": "Affect one ally within %game.action.range:3%",
-        "2": "The affected ally gains \"%game.action.retaliate% 1\".",
+        "2": "The affected ally gains \"%game.action.retaliate:1%\".",
         "3": "All targets suffer %game.damage:1%.",
         "4": "Remove %game.condition.poison% from self.",
         "5": "Target all enemies within one hex along the path moved"
@@ -558,8 +558,8 @@
       },
       "ruinmaw-section-4": {
         "1": "Where X is the number of Vermling Shamans alive",
-        "2": "%game.action.custom.cs-sated%: %game.action.push%2, +1 %game.action.attack%, %game.action.pierce%2",
-        "3": "%game.action.custom.cs-sated%: +2 %game.action.move%, +2 %game.action.attack%, Advantage, %game.condition.empower%"
+        "2": "%game.action.custom.cs-sated%: %game.action.push:2%, %game.action.attack.valueSign:1%, %game.action.pierce:2%",
+        "3": "%game.action.custom.cs-sated%: %game.action.move.valueSign:2%, %game.action.attack.valueSign:2%, Advantage, %game.condition.empower%"
       },
       "savvas-icebound": {
         "1": "If occupying tile A2b, jump to %game.mapMarker.e% <br>If occupying tile A3a, jump to %game.mapMarker.d%"
@@ -576,13 +576,13 @@
         "2": "destroy the occupied obstacle"
       },
       "toxic-imp": {
-        "1": "Add +1 %game.action.attack% if the target has %game.condition.infect%",
+        "1": "Add %game.action.attack.valueSign:1% if the target has %game.condition.infect%",
         "2": "If an enemy targets %data.monster.toxic-imp% with an attack, that enemy gains %game.condition.infect%.",
         "3": "If a negative condition was removed with this heal, the target gains %game.condition.strengthen%."
       },
       "water-spirit": {
         "1": "Shield only applies before its turn.",
-        "2": "Add +2 %game.action.attack% if the target is occupying a water tile",
+        "2": "Add %game.action.attack.valueSign:2% if the target is occupying a water tile",
         "3": "where X is equal to the number of water tiles within %game.action.range:1%.",
         "4": "All enemies occupying a water tile suffer %game.damage:1%.",
         "5": "Create a water tile in all hexes occupied by a target containing no overlay tiles.",
@@ -646,7 +646,7 @@
       "toolstwo": {
         "1": "Gain 1 %data.action.custom.cs-tool%",
         "2": "if drawn by summon",
-        "3": "Create one %game.action.damage% 2 trap in an empty hex adjacent to the target",
+        "3": "Create one %game.action.damage:2% trap in an empty hex adjacent to the target",
         "4": "At the start of each scenario, you may lose one %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item for no effect to gain 2 %data.action.custom.cs-tool%",
         "5": "Wenever you short rest, you may %game.action.card.recover% on spent %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item",
         "6": "Wenever you long rest, you may spend 1 %data.action.custom.cs-tool% to %game.action.card.recover% one lost %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item"

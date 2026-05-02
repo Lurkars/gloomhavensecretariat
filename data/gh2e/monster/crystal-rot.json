@@ -8,7 +8,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Living Bones, Living Corpses, and Living Spirits within %game.action.range% 3 gain advantage on all of their attacks"
+        "value": "Living Bones, Living Corpses, and Living Spirits within %game.action.range:3% gain advantage on all of their attacks"
       }
     ]
   },

@@ -622,7 +622,7 @@
             "2": "X 是這個回合中，到目前為止你所造成的 %game.damage% 數值。"
           },
           "13": {
-            "1": "這回合中你的所有攻擊額外添加 +1 %game.action.attack% 。"
+            "1": "這回合中你的所有攻擊額外添加 %game.action.attack.valueSign:1% 。"
           },
           "14": {
             "1": "立即殺死一個相鄰普通級別的敵人。"
@@ -642,13 +642,13 @@
           },
           "22": {
             "1": "立即殺死一個相鄰，且處於 %game.condition.stun% 狀態的普通級別敵人。",
-            "2": "這回合中你的所有攻擊額外添加 +1 %game.action.attack% 。"
+            "2": "這回合中你的所有攻擊額外添加 %game.action.attack.valueSign:1% 。"
           },
           "23": {
             "1": "你可以將所有 %game.action.move% 能力視為數值相等的 %game.action.attack% 能力。"
           },
           "26": {
-            "1": "本回合內若你的攻擊目標處於 %game.condition.disarm%、%game.condition.immobilize% 或 %game.condition.stun% 狀態，則你對其所有的攻擊額外 +3 %game.action.attack%。"
+            "1": "本回合內若你的攻擊目標處於 %game.condition.disarm%、%game.condition.immobilize% 或 %game.condition.stun% 狀態，則你對其所有的攻擊額外 %game.action.attack.valueSign:3%。"
           },
           "28": {
             "1": "每個成為目標的敵人能讓你獲得 %game.card.experience:1% 。"
@@ -665,7 +665,7 @@
         }
       },
       "captain-of-the-guard": {
-        "1": "本回合內，所有盟友的所有攻擊附加 +1 %game.action.attack%"
+        "1": "本回合內，所有盟友的所有攻擊附加 %game.action.attack.valueSign:1%"
       },
       "cragheart": {
         "abilities": {
@@ -704,15 +704,15 @@
           },
           "127": {
             "1": "你可以將攻擊標推至有障礙物的格子中。若這麼做，該障礙物會被摧毀，且攻擊目標遭受 2 傷害，並讓你獲得 %game.card.experience:1%。",
-            "2": "這回合內以的所有遠距離攻擊額外 +1 %game.action.attack% 。"
+            "2": "這回合內以的所有遠距離攻擊額外 %game.action.attack.valueSign:1% 。"
           },
           "128": {
             "1": "每當指定一個目標，獲得 %game.card.experience:1%",
             "2": "目標為被指定的敵人。",
-            "3": "這回合中你的所有近戰攻擊額外 +2 %game.action.attack% 。"
+            "3": "這回合中你的所有近戰攻擊額外 %game.action.attack.valueSign:2% 。"
           },
           "129": {
-            "1": "在你接下來的六個遠距攻擊行動，若%game.element.air%處於強烈或弱化，%game.element.consume.air%來額外 +2 %game.action.range%。"
+            "1": "在你接下來的六個遠距攻擊行動，若%game.element.air%處於強烈或弱化，%game.element.consume.air%來額外 %game.action.range.valueSign:2%。"
           },
           "130": {
             "1": "摧毀一個相鄰的障礙物。",
@@ -763,7 +763,7 @@
         "voice": "神秘之聲"
       },
       "giant-viper": {
-        "1": "若目標與任何 %data.monster.giant-viper% 的盟友相鄰，增加 +2 %game.action.attack%。"
+        "1": "若目標與任何 %data.monster.giant-viper% 的盟友相鄰，增加 %game.action.attack.valueSign:2%。"
       },
       "merciless-overseer": {
         "1": "所有斥候再次行動",
@@ -1143,7 +1143,7 @@
           "1": "朝著場景地圖板塊D上的羚牛族薩滿移動"
         },
         "42": {
-          "1": "所有怪物的所有攻擊添加+1 %game.action.attack%"
+          "1": "所有怪物的所有攻擊添加%game.action.attack.valueSign:1%"
         },
         "71": {
           "1": "強制向左移動",

@@ -23,16 +23,16 @@
   "custom": {
     "perks": {
       "anaphi": {
-        "3": "Add +1%game.action.attack% when drawn by a summon",
+        "3": "Add %game.action.attack.valueSign:1% when drawn by a summon",
         "9": "Whenever you long rest, you may %game.elementHalf:air|dark%",
-        "10": "Once each scenario, during your turn, all enemies adjacent to a wall suffer %game.action.damage% 1",
-        "11": "At the start of the first round of each scenario, after all ability cards have been revealed, control one enemy within %game.action.range% 5: %game.action.move% 2"
+        "10": "Once each scenario, during your turn, all enemies adjacent to a wall suffer %game.action.damage:1%",
+        "11": "At the start of the first round of each scenario, after all ability cards have been revealed, control one enemy within %game.action.range:5%: %game.action.move:2%"
       },
       "cassandra": {
-        "4": "Add +1 %game.action.attack% if the top card of the monster attack modifier deck is revealed",
-        "6": "Place this card in your active area. When you next place a %data.action.custom.mp-rift%, discard this card to place another %data.action.custom.mp-rift% within %game.action.range% 1 of it",
+        "4": "Add %game.action.attack.valueSign:1% if the top card of the monster attack modifier deck is revealed",
+        "6": "Place this card in your active area. When you next place a %data.action.custom.mp-rift%, discard this card to place another %data.action.custom.mp-rift% within %game.action.range:1% of it",
         "8": "Whenever you long rest, you may read one unread %data.action.custom.section% from the current scenario's \"Section Links\"",
-        "9": "Whenever you place a %data.action.custom.mp-rift%, you may perform \"%game.action.pull% 1, %game.action.target% 1 ally or enemy, %game.action.range% 1\" as if you occupied a hex containing a %data.action.custom.mp-rift%",
+        "9": "Whenever you place a %data.action.custom.mp-rift%, you may perform \"%game.action.pull:1%, %game.action.target:1% ally or enemy, %game.action.range:1%\" as if you occupied a hex containing a %data.action.custom.mp-rift%",
         "10": "Whenever a deck is shuffled, you may set aside all revealed cards from that deck and place them back on top after shuffling"
       },
       "hail": {
@@ -41,12 +41,12 @@
         "12": "%game.characterIcon.hail% gains 1 %data.action.custom.mp-resolve%"
       },
       "satha": {
-        "6": "Grant one ally within %game.action.range% 3: %game.action.attack% 2 %game.action.range% 3 or %game.action.attack% 3",
-        "7": "Grant one ally within %game.action.range% 3: %game.action.move% 2",
+        "6": "Grant one ally within %game.action.range:3%: %game.action.attack:2% %game.action.range:3% or %game.action.attack:3%",
+        "7": "Grant one ally within %game.action.range:3%: %game.action.move:2%",
         "9": "and whenever you would gain %game.condition.stun%, prevent the condition",
-        "10": "Whenever you long rest, perform: %game.condition.strengthen%, %game.action.target% 1 ally, %game.action.range% 3",
+        "10": "Whenever you long rest, perform: %game.condition.strengthen%, %game.action.target:1% ally, %game.action.range:3%",
         "11": "All initiative values may be discussed freely and precisely",
-        "12": "The first time each scenario that you or an ally exhaust, perform: %game.action.heal% 3, %game.action.target% all, %game.condition.ward%, %game.condition.strengthen%"
+        "12": "The first time each scenario that you or an ally exhaust, perform: %game.action.heal:3%, %game.action.target% all, %game.condition.ward%, %game.condition.strengthen%"
       }
     },
     "mastery": {
@@ -69,7 +69,7 @@
     },
     "summon": {
       "anaphi": {
-        "1": "At end of turn, grant one adjacent ally: %game.action.attack% 3"
+        "1": "At end of turn, grant one adjacent ally: %game.action.attack:3%"
       }
     }
   },

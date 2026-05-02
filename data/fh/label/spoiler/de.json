@@ -6,7 +6,7 @@
     "fh": {
       "1482": {
         "": "Rüstungstest",
-        "text": "Wann immer ein Charakter durch einen Angriff %game.damage% erleidet, der nicht durch ein %game.action.shield% reduziert wird, wird dem Angriff %game.action.push%2 hinzugefügt."
+        "text": "Wann immer ein Charakter durch einen Angriff %game.damage% erleidet, der nicht durch ein %game.action.shield% reduziert wird, wird dem Angriff %game.action.push:2% hinzugefügt."
       },
       "1483": {
         "": "Empathie",
@@ -30,7 +30,7 @@
       },
       "1488": {
         "": "Gegenwind",
-        "text": "Alle gegnerischen Fernangriffe haben +1%game.action.range%. Fügt allen gegnerischen Bewegungsfertigkeiten +1%game.action.move% hinzu."
+        "text": "Alle gegnerischen Fernangriffe haben %game.action.range.valueSign:1%. Fügt allen gegnerischen Bewegungsfertigkeiten %game.action.move.valueSign:1% hinzu."
       },
       "1489": {
         "": "Schlafstörung",
@@ -38,7 +38,7 @@
       },
       "1490": {
         "": "Gute Gier",
-        "text": "Alle Gegner führen am Ende ihres Zugs jeweils %game.action.loot%1 aus. Wann immer ein Gegner einen Beutemarker erbeutet, erhält er %game.condition.strengthen%. Zieht in Szenarien ohne Beutedeck eine neue Herausforderung und legt diese Karte unter das Deck."
+        "text": "Alle Gegner führen am Ende ihres Zugs jeweils %game.action.loot:1% aus. Wann immer ein Gegner einen Beutemarker erbeutet, erhält er %game.condition.strengthen%. Zieht in Szenarien ohne Beutedeck eine neue Herausforderung und legt diese Karte unter das Deck."
       },
       "1491": {
         "": "Taktikwechsel",
@@ -46,7 +46,7 @@
       },
       "1492": {
         "": "Wehrhaft",
-        "text": "Alle unverletzten Gegner haben %game.action.retaliate%2."
+        "text": "Alle unverletzten Gegner haben %game.action.retaliate:2%."
       },
       "1493": {
         "": "Abgehärtet",
@@ -70,7 +70,7 @@
       },
       "1498": {
         "": "Verführerische Macht",
-        "text": "Alle gegnerischen Fernangriffe haben %game.action.push%1."
+        "text": "Alle gegnerischen Fernangriffe haben %game.action.push:1%."
       },
       "1499": {
         "": "Auffällige Ablenkung",
@@ -103,7 +103,7 @@
       },
       "1506": {
         "": "Geschlossene Formation",
-        "text": "Fügt allen Angriffen von Charakteren, die nicht an mindestens einen Verbündeten angrenzen -1%game.action.attack% hinzu."
+        "text": "Fügt allen Angriffen von Charakteren, die nicht an mindestens einen Verbündeten angrenzen %game.action.attack.valueSign:-1% hinzu."
       },
       "1507": {
         "": "Miese Qualität",
@@ -127,7 +127,7 @@
       },
       "1512": {
         "": "Stachelrüstung",
-        "text": "Alle Charaktere erhalten %game.action.retaliate%X,%game.action.range%3. X ist der %game.action.shield% Wert des Charakters. Fügt allen Angriffen von Charakteren -1%game.action.attack% hinzu."
+        "text": "Alle Charaktere erhalten %game.action.retaliate:X%,%game.action.range:3%. X ist der %game.action.shield% Wert des Charakters. Fügt allen Angriffen von Charakteren %game.action.attack.valueSign:-1% hinzu."
       },
       "1513": {
         "": "Fairer Kampf",
@@ -135,11 +135,11 @@
       },
       "1514": {
         "": "Phalanx",
-        "text": "Jeder Gegner erhält %game.action.shield%1, während er an mindestens einen seiner Verbündeten angrenzt."
+        "text": "Jeder Gegner erhält %game.action.shield:1%, während er an mindestens einen seiner Verbündeten angrenzt."
       },
       "1515": {
         "": "Vorbildwirkung",
-        "text": "Wann immer ein Elite-Gegner auf der Karte ist, erhalten alle normalen Gegner desselben Typs %game.action.shield%1."
+        "text": "Wann immer ein Elite-Gegner auf der Karte ist, erhalten alle normalen Gegner desselben Typs %game.action.shield:1%."
       },
       "1516": {
         "": "Arkane Taktiken",
@@ -151,7 +151,7 @@
       },
       "1518": {
         "": "Blutsverbindung",
-        "text": "Wann immer in einer Runde erstmals ein Gegner %game.damage% erleidet, wendet ein anderer verletzter Gegner \"%game.action.heal%X, selbst\" an, wobei X dem erlittenen Schaden entspricht."
+        "text": "Wann immer in einer Runde erstmals ein Gegner %game.damage% erleidet, wendet ein anderer verletzter Gegner \"%game.action.heal:X%, selbst\" an, wobei X dem erlittenen Schaden entspricht."
       },
       "1519": {
         "": "Krähenfüße",
@@ -168,7 +168,7 @@
       "1522": {
         "": "Angriffsstreuung",
         "hint": "Wird nur bei Monstern angewendet!",
-        "text": "Alle Figuren fügen ihren Einzelziel-Angriffsfertigkeiten -1%game.action.attack% und +1%game.action.target% hinzu."
+        "text": "Alle Figuren fügen ihren Einzelziel-Angriffsfertigkeiten %game.action.attack.valueSign:-1% und %game.action.target.valueSign:1% hinzu."
       },
       "1523": {
         "": "Im Rudel",
@@ -176,7 +176,7 @@
       },
       "1524": {
         "": "Voller Elan",
-        "text": "Jeder Gegner erhält %game.action.shield%1, solange er keine negativen Zustände hat. Wann immer ein Gegner am Ende seines Zugs mindestens einen negativen Zustand verliert, erleidet er %game.damage:1%."
+        "text": "Jeder Gegner erhält %game.action.shield:1%, solange er keine negativen Zustände hat. Wann immer ein Gegner am Ende seines Zugs mindestens einen negativen Zustand verliert, erleidet er %game.damage:1%."
       },
       "1525": {
         "": "Schadenfroh",
@@ -230,7 +230,7 @@
     },
     "fh-101": {
       "": "Großer Krafttrank",
-      "1": "Füge während deines Zugs allen deinen Angriffen +2 %game.action.attack% hinzu."
+      "1": "Füge während deines Zugs allen deinen Angriffen %game.action.attack.valueSign:2% hinzu."
     },
     "fh-102": {
       "": "Großer Elementtrank",
@@ -242,23 +242,23 @@
     },
     "fh-104": {
       "": "Flinkheitstrank",
-      "1": "Füge bei deiner Bewegungsfertigkeit +3 %game.action.move% und %game.action.jump%. hinzu."
+      "1": "Füge bei deiner Bewegungsfertigkeit %game.action.move.valueSign:3% und %game.action.jump%. hinzu."
     },
     "fh-105": {
       "": "Großer Feuerschild",
-      "1": "Führe während deines Zugs aus: %game.action.retaliate% 2 %game.action.range:3%"
+      "1": "Führe während deines Zugs aus: %game.action.retaliate:2% %game.action.range:3%"
     },
     "fh-106": {
       "": "Steinmauertrank",
-      "1": "Führe während deines Zugs aus: %game.condition.ward% %game.action.target% 2 angrenzende Verbündete und Selbst"
+      "1": "Führe während deines Zugs aus: %game.condition.ward% %game.action.target:2% angrenzende Verbündete und Selbst"
     },
     "fh-107": {
       "": "Elantrank",
-      "1": "Führe während deines Zugs aus: %game.condition.strengthen% %game.action.target% 2 angrenzende Verbündete und Selbst"
+      "1": "Führe während deines Zugs aus: %game.condition.strengthen% %game.action.target:2% angrenzende Verbündete und Selbst"
     },
     "fh-108": {
       "": "Heiliger Regen",
-      "1": "Führe während deines Zugs aus: %game.condition.bless% %game.action.target% 2 angrenzende Verbündete und Selbst"
+      "1": "Führe während deines Zugs aus: %game.condition.bless% %game.action.target:2% angrenzende Verbündete und Selbst"
     },
     "fh-109": {
       "": "Großer Erneuerungstrank",
@@ -354,7 +354,7 @@
     },
     "fh-14": {
       "": "Schweres Schwert",
-      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff +1 %game.action.attack% hinzu."
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.attack.valueSign:1% hinzu."
     },
     "fh-15": {
       "": "Verstärkter Schild",
@@ -362,7 +362,7 @@
     },
     "fh-16": {
       "": "Inspirierender Helm",
-      "1": "Gewähre während deines Zugs allen angrenzenden Verbündeten: %game.action.move% 2"
+      "1": "Gewähre während deines Zugs allen angrenzenden Verbündeten: %game.action.move:2%"
     },
     "fh-169": {
       "": "Schicksalsamulett",
@@ -382,7 +382,7 @@
     },
     "fh-18": {
       "": "Spröde Stiefel",
-      "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten +1 %game.action.move% hinzu."
+      "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten %game.action.move.valueSign:1% hinzu."
     },
     "fh-182": {
       "": "Stutzschere",
@@ -406,7 +406,7 @@
     },
     "fh-20": {
       "": "Getillerter Bogen",
-      "1": "DFüge während deines Zugs allen deinen Fernangriffen +1 %game.action.range% hinzu."
+      "1": "DFüge während deines Zugs allen deinen Fernangriffen %game.action.range.valueSign:1% hinzu."
     },
     "fh-21": {
       "": "Kettenhaube",
@@ -422,7 +422,7 @@
     },
     "fh-221": {
       "": "Eisklinge",
-      "1": "%game.element.consume.ice% bei deiner Nahkampf-Angriffsfertigkeit, um einem Angriff %game.action.pierce% 3 hinzuzufügen."
+      "1": "%game.element.consume.ice% bei deiner Nahkampf-Angriffsfertigkeit, um einem Angriff %game.action.pierce:3% hinzuzufügen."
     },
     "fh-222": {
       "": "Schwarze Kiste",
@@ -434,7 +434,7 @@
     },
     "fh-23": {
       "": "Robuster Beinpanzer",
-      "1": "Füge zu Beginn deines Zugs allen deinen Bewegungsfertigkeiten -2 %game.action.move% hinzu, um in dieser Runden %game.action.shield% zu erhalten. "
+      "1": "Füge zu Beginn deines Zugs allen deinen Bewegungsfertigkeiten %game.action.move.valueSign:-2% hinzu, um in dieser Runden %game.action.shield% zu erhalten. "
     },
     "fh-233": {
       "": "Toter Rabe",
@@ -459,7 +459,7 @@
     },
     "fh-25": {
       "": "Sanftes Szepter",
-      "1": "Füge während deines Zugs aus: %game.condition.regenerate% %game.action.target% 1 ally, %game.action.range:2%"
+      "1": "Füge während deines Zugs aus: %game.condition.regenerate% %game.action.target:1% ally, %game.action.range:2%"
     },
     "fh-26": {
       "": "Wahrsichtbrille",
@@ -467,11 +467,11 @@
     },
     "fh-27": {
       "": "Schutzmantel",
-      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.push% 1 %game.action.target% dieser Gegner"
+      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.push:1% %game.action.target% dieser Gegner"
     },
     "fh-28": {
       "": "Robuste Stiefel",
-      "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten +1 %game.action.move% hinzu und ignoriere schwieriges Gelände."
+      "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten %game.action.move.valueSign:1% hinzu und ignoriere schwieriges Gelände."
     },
     "fh-29": {
       "": "Spaltaxt",
@@ -483,7 +483,7 @@
     },
     "fh-30": {
       "": "Parrierstulpe",
-      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.attack% 3 %game.action.target% dieser Gegner"
+      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.attack:3% %game.action.target% dieser Gegner"
     },
     "fh-31": {
       "": "Todesschutz-Amulett",
@@ -495,7 +495,7 @@
     },
     "fh-33": {
       "": "Instabile Stiefel",
-      "1": "Füge bei deiner Bewegungsfertigkeit bis zu einmal pro Zug +1 %game.action.move% hinzu. Drehe dann die Karte am Ende deines Zugs um.",
+      "1": "Füge bei deiner Bewegungsfertigkeit bis zu einmal pro Zug %game.action.move.valueSign:1% hinzu. Drehe dann die Karte am Ende deines Zugs um.",
       "2": "Erleide bei deiner Bewegungsfertigkeit bis zu einmal pro Zug %game.damage:1%. Drehe dann die Karte am Ende deines Zugs um."
     },
     "fh-34": {
@@ -516,11 +516,11 @@
     },
     "fh-38": {
       "": "Duellschuhe",
-      "1": "Führe während deines Zugs aus: %game.action.move% 2 Diese Bewegung muss an einen Gegner angrenzend enden."
+      "1": "Führe während deines Zugs aus: %game.action.move:2% Diese Bewegung muss an einen Gegner angrenzend enden."
     },
     "fh-39": {
       "": "Abgrundaxt",
-      "1": "Füge bei deiner Angriffsfertigkeit einem Angriff, der Gefrorene Leichen, Eisspuke oder Wandelnde Schicksale anvisiert +3 %game.action.attack% und %game.action.pierce%1."
+      "1": "Füge bei deiner Angriffsfertigkeit einem Angriff, der Gefrorene Leichen, Eisspuke oder Wandelnde Schicksale anvisiert %game.action.attack.valueSign:3% und %game.action.pierce:1%."
     },
     "fh-4": {
       "": "Grobe Fellrüstung",
@@ -528,7 +528,7 @@
     },
     "fh-40": {
       "": "Herzschlagbogen",
-      "1": "Füge während deines Zugs einem deiner Fernangriffe +1 %game.action.attack% und +2 %game.action.range% hinzu."
+      "1": "Füge während deines Zugs einem deiner Fernangriffe %game.action.attack.valueSign:1% und %game.action.range.valueSign:2% hinzu."
     },
     "fh-41": {
       "": "Schnörkelamulett",
@@ -540,7 +540,7 @@
     },
     "fh-43": {
       "": "Trittstiefel",
-      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.push% 2 hinzu."
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.push:2% hinzu."
     },
     "fh-44": {
       "": "Schwert der Absolution",
@@ -564,16 +564,16 @@
     },
     "fh-49": {
       "": "Grauensdolch",
-      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff +1 %game.action.attack% und %game.condition.wound% hinzu."
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.attack.valueSign:1% und %game.condition.wound% hinzu."
     },
     "fh-5": {
       "": "Grobe Stiefel",
-      "1": "Füge bei deiner Bewegungsfertigkeit +1 %game.action.move% hinzu"
+      "1": "Füge bei deiner Bewegungsfertigkeit %game.action.move.valueSign:1% hinzu"
     },
     "fh-50": {
       "": "Wechselschild",
       "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:1%. Drehe dann diese Karte um.",
-      "2": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.pierce% 1 hinzu und drehe diese Karte um."
+      "2": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.pierce:1% hinzu und drehe diese Karte um."
     },
     "fh-51": {
       "": "Stachelhalsband",
@@ -585,7 +585,7 @@
     },
     "fh-53": {
       "": "Nagelstiefel",
-      "1": "Erhalte, nachdem du dich während deines Zugs mindestens 4 Felder weit bewegt hast, %game.action.retaliate% 1 für die Runde."
+      "1": "Erhalte, nachdem du dich während deines Zugs mindestens 4 Felder weit bewegt hast, %game.action.retaliate:1% für die Runde."
     },
     "fh-54": {
       "": "Wohlfühlschuhe",
@@ -593,7 +593,7 @@
     },
     "fh-55": {
       "": "Stachelstulpe",
-      "1": "Wenn du von einem angrenzenden Gegner angegriffen wirst, erhältst du für den Angriff %game.action.retaliate% 2."
+      "1": "Wenn du von einem angrenzenden Gegner angegriffen wirst, erhältst du für den Angriff %game.action.retaliate:2%."
     },
     "fh-56": {
       "": "Magnetsammler",
@@ -605,7 +605,7 @@
     },
     "fh-58": {
       "": "Glitschiges Schwert",
-      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff +2 %game.action.attack% hinzu. Erhalte nach der Fertigkeit %game.condition.disarm%."
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.attack.valueSign:2% hinzu. Erhalte nach der Fertigkeit %game.condition.disarm%."
     },
     "fh-59": {
       "": "Amulett der Kompetenz",
@@ -625,11 +625,11 @@
     },
     "fh-62": {
       "": "Ewige Stiefel",
-      "1": "Füge bei deiner Bewegungsfertigkeit +1 %game.action.move% hinzu und erhalte %game.condition.regenerate%"
+      "1": "Füge bei deiner Bewegungsfertigkeit %game.action.move.valueSign:1% hinzu und erhalte %game.condition.regenerate%"
     },
     "fh-63": {
       "": "Schattenstampfer",
-      "1": "%game.element.consume.dark% bei deiner Bewegungsfertigkeit, um +2 %game.action.move% hinzuzufügen"
+      "1": "%game.element.consume.dark% bei deiner Bewegungsfertigkeit, um %game.action.move.valueSign:2% hinzuzufügen"
     },
     "fh-64": {
       "": "Zünder",
@@ -637,7 +637,7 @@
     },
     "fh-65": {
       "": "Rostpulver",
-      "1": "Lege während deines Zugs einen Charaktermarker auf einen normalen oder Elite-Gegner in %game.action.range:3%. Dieser Gegner erhält -1 %game.action.shield% für das Szenario."
+      "1": "Lege während deines Zugs einen Charaktermarker auf einen normalen oder Elite-Gegner in %game.action.range:3%. Dieser Gegner erhält %game.action.shield.valueSign:-1% für das Szenario."
     },
     "fh-66": {
       "": "Amulett des ewigen Lebens",
@@ -645,8 +645,8 @@
     },
     "fh-67": {
       "": "Samellinsen",
-      "1": "Füge, wenn du angegriffen wirst, +1 %game.action.attack% hinzu, statt eine Angriffsmodifikator-Karte zu ziehen, und drehe diese Karte um.",
-      "2": "Füge bei deiner Angriffsfertigkeit einem Angriff +1 %game.action.attack% hinzu, statt eine Angriffsmodifikator-Karte zu tiehen, und drehe diese Karte um."
+      "1": "Füge, wenn du angegriffen wirst, %game.action.attack.valueSign:1% hinzu, statt eine Angriffsmodifikator-Karte zu ziehen, und drehe diese Karte um.",
+      "2": "Füge bei deiner Angriffsfertigkeit einem Angriff %game.action.attack.valueSign:1% hinzu, statt eine Angriffsmodifikator-Karte zu tiehen, und drehe diese Karte um."
     },
     "fh-68": {
       "": "Schuppenrüstung",
@@ -658,7 +658,7 @@
     },
     "fh-7": {
       "": "Grober Bogen",
-      "1": "Füge während deines Zugs einem deiner Fernangriffe +1 %game.action.range% hinzu."
+      "1": "Füge während deines Zugs einem deiner Fernangriffe %game.action.range.valueSign:1% hinzu."
     },
     "fh-70": {
       "": "Aesther-Robe",
@@ -699,7 +699,7 @@
     },
     "fh-79": {
       "": "Brathähnchen",
-      "1": "Füge während deines Zugs allen deinen Angriffen +1 %game.action.attack% hinzu und führe aus:"
+      "1": "Füge während deines Zugs allen deinen Angriffen %game.action.attack.valueSign:1% hinzu und führe aus:"
     },
     "fh-8": {
       "": "Grober Speer",
@@ -707,7 +707,7 @@
     },
     "fh-80": {
       "": "Lebender Stein",
-      "1": "Wenn du maximal 4 %game.damage% durch einen Angriff erleiden würdest, negiere den %game.damage% und führe aus: %game.action.heal% X Selbst. X ist der Schaden, den du erlitten hättest."
+      "1": "Wenn du maximal 4 %game.damage% durch einen Angriff erleiden würdest, negiere den %game.damage% und führe aus: %game.action.heal:X% Selbst. X ist der Schaden, den du erlitten hättest."
     },
     "fh-81": {
       "": "Schmerzpuppe",
@@ -719,7 +719,7 @@
     },
     "fh-83": {
       "": "Heiltrank",
-      "1": "Führe während deines Zugs aus: %game.action.heal% 3 Selbst"
+      "1": "Führe während deines Zugs aus: %game.action.heal:3% Selbst"
     },
     "fh-84": {
       "": "Ausdauertrank",
@@ -727,7 +727,7 @@
     },
     "fh-85": {
       "": "Krafttrank",
-      "1": "Füge während deines Zugs allen deinen Angriffen +1 %game.action.attack% hinzu."
+      "1": "Füge während deines Zugs allen deinen Angriffen %game.action.attack.valueSign:1% hinzu."
     },
     "fh-86": {
       "": "Elementtrank",
@@ -739,7 +739,7 @@
     },
     "fh-88": {
       "": "Feuerschildtrank",
-      "1": "Führe während deines Zugs aus: %game.action.retaliate% 1 %game.action.range:3% "
+      "1": "Führe während deines Zugs aus: %game.action.retaliate:1% %game.action.range:3% "
     },
     "fh-89": {
       "": "Steinhauttrank",
@@ -787,7 +787,7 @@
     },
     "fh-99": {
       "": "Großer Heiltrank",
-      "1": "Führe während deines Zugs aus: %game.action.heal% 6 Selbst"
+      "1": "Führe während deines Zugs aus: %game.action.heal:6% Selbst"
     }
   },
   "summon": {

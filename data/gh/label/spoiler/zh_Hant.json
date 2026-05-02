@@ -57,7 +57,7 @@
             "1": "一名距離 %game.action.range:3% 內的盟友可以執行"
           },
           "184": {
-            "1": "你所有的移動減少 -1 %game.action.move%。"
+            "1": "你所有的移動減少 %game.action.move.valueSign:-1%。"
           },
           "185": {
             "1": "治療一名相鄰盟友的所有傷害。",
@@ -82,11 +82,11 @@
             "1": "影響所有被穿越的盟友"
           },
           "196": {
-            "1": "你所有的攻擊減少 -1 %game.action.attack%。"
+            "1": "你所有的攻擊減少 %game.action.attack.valueSign:-1%。"
           },
           "197": {
-            "1": "本回合內，所有盟友的攻擊皆添加 +1 %game.action.attack%。",
-            "2": "本回合內，所有盟友的移動皆添加 +2 %game.action.move%。"
+            "1": "本回合內，所有盟友的攻擊皆添加 %game.action.attack.valueSign:1%。",
+            "2": "本回合內，所有盟友的移動皆添加 %game.action.move.valueSign:2%。"
           },
           "198": {
             "1": "一名相鄰盟友可以執行"
@@ -117,14 +117,14 @@
     },
     "gh-12": {
       "": "次及治療藥水",
-      "1": "在你的回合中，執行\"%game.action.heal% 3，自身\"的動作。"
+      "1": "在你的回合中，執行\"%game.action.heal:3%，自身\"的動作。"
     },
     "gh-13": {
       "": "次級活力藥水"
     },
     "gh-14": {
       "": "次級威力藥水",
-      "1": "在你的攻擊行動中，為整個攻擊動作附加 +1 %game.action.attack%。"
+      "1": "在你的攻擊行動中，為整個攻擊動作附加 %game.action.attack.valueSign:1%。"
     },
     "gh-18": {
       "": "戰斧",
@@ -149,15 +149,15 @@
     },
     "gh-29": {
       "": "舒適鞋",
-      "1": "每當你使用能力牌的預設下方動作時，將原本的%game.action.move% 2動作改為%game.action.move% 3。"
+      "1": "每當你使用能力牌的預設下方動作時，將原本的%game.action.move:2%動作改為%game.action.move:3%。"
     },
     "gh-31": {
       "": "獵鷹頭盔",
-      "1": "在你的遠程攻擊行動中，為整個攻擊動作附加 +1 %game.action.range%。"
+      "1": "在你的遠程攻擊行動中，為整個攻擊動作附加 %game.action.range.valueSign:1%。"
     },
     "gh-32": {
       "": "塔盾",
-      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield% 2。"
+      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield:2%。"
     },
     "gh-33": {
       "": "烈性炸彈",
@@ -168,7 +168,7 @@
     },
     "gh-37": {
       "": "聖能長袍",
-      "1": "在你的攻擊行動中，%game.element.consume.wild% 以為整個攻擊動作附加 +1 %game.action.attack%。"
+      "1": "在你的攻擊行動中，%game.element.consume.wild% 以為整個攻擊動作附加 %game.action.attack.valueSign:1%。"
     },
     "gh-47": {
       "1": "在你對單一目標的近戰攻擊行動中，將該攻擊轉化為以下形式："
@@ -178,7 +178,7 @@
       "1": "在你的攻擊行動中，整個攻擊動作獲得優勢。"
     },
     "gh-61": {
-      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield% 4。"
+      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield:4%。"
     },
     "gh-7": {
       "": "鐵質頭盔",
@@ -186,7 +186,7 @@
     },
     "gh-8": {
       "": "熨斗盾",
-      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield% 1。"
+      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield:1%。"
     }
   },
   "treasures": {

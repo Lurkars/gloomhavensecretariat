@@ -7,7 +7,7 @@
         "": "Sprengmeisterin",
         "mech": {
           "": "Mechanikanzug",
-          "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
+          "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal:10%, selbst."
         }
       },
       "diviner": "Prophetin",

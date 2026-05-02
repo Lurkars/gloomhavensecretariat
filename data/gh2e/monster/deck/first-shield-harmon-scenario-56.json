@@ -15,7 +15,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Grant all allies: %game.action.shield% 1",
+              "value": "Grant all allies: %game.action.shield:1%",
               "small": true
             }
           ]
@@ -27,7 +27,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Grant all allies: %game.action.retaliate% 1",
+              "value": "Grant all allies: %game.action.retaliate:1%",
               "small": true
             }
           ]

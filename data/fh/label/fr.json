@@ -505,10 +505,10 @@
     },
     "barracks": {
       "": "Caserne",
-      "1": "Entraînez collectivement jusqu'à 1 soldat en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 4<br><i>Effet:</i> Avantage et -5 %game.action.attack%",
-      "2": "Entraînez collectivement jusqu'à 1 soldat en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 6<br><i>Effet:</i> Avantage et -15 %game.action.attack%",
-      "3": "Entraînez collectivement jusqu'à 2 soldats en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 8<br><i>Effet:</i> Avantage et -25 %game.action.attack%",
-      "4": "Entraînez collectivement jusqu'à 2 soldats en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 10<br><i>Effet:</i> Avantage et -35 %game.action.attack%",
+      "1": "Entraînez collectivement jusqu'à 1 soldat en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 4<br><i>Effet:</i> Avantage et %game.action.attack.valueSign:-5%",
+      "2": "Entraînez collectivement jusqu'à 1 soldat en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 6<br><i>Effet:</i> Avantage et %game.action.attack.valueSign:-15%",
+      "3": "Entraînez collectivement jusqu'à 2 soldats en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 8<br><i>Effet:</i> Avantage et %game.action.attack.valueSign:-25%",
+      "4": "Entraînez collectivement jusqu'à 2 soldats en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 10<br><i>Effet:</i> Avantage et %game.action.attack.valueSign:-35%",
       "5": "Désavantage pour toutes les résolutions d'événements d'assaut.<br>Utilisation de soldats impossible.",
       "soldiers": "Former 1 Soldat"
     },
@@ -603,10 +603,10 @@
         "": "Marionnettiste",
         "solid-bones": {
           "": "Os Solides",
-          "hint": "Tous les Squelettes Titubants ont +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+          "hint": "Tous les Squelettes Titubants ont %game.action.heal.valueSign:1%, %game.action.move.valueSign:1%, %game.action.pierce:1%."
         },
         "unholy-prowess": {
-          "hint": "Tous les Squelettes Titubants ont +1 %game.action.heal%."
+          "hint": "Tous les Squelettes Titubants ont %game.action.heal.valueSign:1%."
         }
       },
       "deathwalker": "Arpenteuse des Ombres",
@@ -659,34 +659,34 @@
         "1": "Créer un piège %game.damage:3% sur l'hexagone vide adjacent le plus proche de l'adversaire."
       },
       "banner-spear": {
-        "1": "Tous les alliés à %game.range:2% ou moins ajoutent +1 %game.action.attack% à une attaques chaque tour.",
+        "1": "Tous les alliés à %game.range:2% ou moins ajoutent %game.action.attack.valueSign:1% à une attaques chaque tour.",
         "10": "Attaquer au moins trois adversaires avec trois différentes capacités d'attaque à zone d'effet",
         "11": "Effectuer une capacité d'invocation de Bannière lors de votre premier tour, garder la Bannière en vie et à %game.action.range:3% ou moins de vous jusqu'à la fin du scénario",
         "2": "Au début de leurs tours, octroie aux alliés à %game.range:3% ou moins :",
         "3": "Tous les alliés adjacents gagnent %game.shield% 1.",
         "4": "Annule la première source de %game.damage% infligés à un allié adjacent chaque round.",
-        "5": "Tout adv. à %game.action.range%4 ou moins subit %game.damage:1% au début de son tour.",
-        "6": "Ajouter +1 %game.action.attack% par allié adjacent à la cible",
-        "7": "À la fin de chacun de vos repos long octroyer à un allié à %game.action.range:3% ou moins : %game.action.move% 2",
-        "8": "Quand vous ouvrez une porte avec une capacité de déplacement, ajouter +3 %game.action.move%",
-        "9": "Une fois par scénario, pendant votre tour, gagner %game.action.shield% 2 pour le round"
+        "5": "Tout adv. à %game.action.range:4% ou moins subit %game.damage:1% au début de son tour.",
+        "6": "Ajouter %game.action.attack.valueSign:1% par allié adjacent à la cible",
+        "7": "À la fin de chacun de vos repos long octroyer à un allié à %game.action.range:3% ou moins : %game.action.move:2%",
+        "8": "Quand vous ouvrez une porte avec une capacité de déplacement, ajouter %game.action.move.valueSign:3%",
+        "9": "Une fois par scénario, pendant votre tour, gagner %game.action.shield:2% pour le round"
       },
       "black-imp": {
         "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
-        "1": "Lors de votre prochaine attaque, défaussez cette carte pour ajouter +2 %game.action.attack%.<br>%game.card.persistent%",
-        "2": "Placez cette carte dans votre zone active. À votre prochaine attaque, défaussez-vous de cette carte pour ajouter +2 %game.action.attack%",
+        "1": "Lors de votre prochaine attaque, défaussez cette carte pour ajouter %game.action.attack.valueSign:2%.<br>%game.card.persistent%",
+        "2": "Placez cette carte dans votre zone active. À votre prochaine attaque, défaussez-vous de cette carte pour ajouter %game.action.attack.valueSign:2%",
         "3": "Gagner 1 %data.characterToken.blinkblade.time%",
         "4": "Gagner 1 %data.action.custom.fh-hourglass%",
         "5": "Lors de vos repos courts, pouvoir dépenser un objet non dépensé %game.card.spent% sans déclencher son effet pour %game.card.recover% un autre objet dépensé",
-        "6": "À chaque scénario, au début de votre premier tour, pouvoir effectuer : %game.action.move% 3",
+        "6": "À chaque scénario, au début de votre premier tour, pouvoir effectuer : %game.action.move:3%",
         "7": "Lorsque vous devriez gagner %game.condition.immobilize%, bloquer cet état",
         "8": "Vous déclarer Rapide pour sept rounds consécutifs",
         "9": "Ne jamais être ciblé par une attaque"
       },
       "boneshaper": {
-        "1": "+1 %game.action.attack% pour chaque pion sur cette carte.",
+        "1": "%game.action.attack.valueSign:1% pour chaque pion sur cette carte.",
         "2": "Éliminez l'invocation attaquante pour ajouter %game.attackmodifier.plus4% à la place",
         "3": "Juste avant chacun de vos repos, pouvoir éliminer une de vos invocations pour effectuer %game.condition.bless%, sur vous-même",
         "4": "Une fois par scénario, quand un personnage allié devrait devenir épuisé à cause de %game.damage% subis, pouvoir subir %game.damage:2% pour réduire son nombre de PV à 1 à la place",
@@ -774,10 +774,10 @@
         "2": "Le Boss %data.monster.harbinger-of-shadow-2% n'agit pas."
       },
       "harrower-infester": {
-        "1": "Effectue \"%game.action.heal% X, sur lui-même\", où X<br>est deux fois le nombre d'adversaires<br>ciblés par la capacité d'attaque."
+        "1": "Effectue \"%game.action.heal:X%, sur lui-même\", où X<br>est deux fois le nombre d'adversaires<br>ciblés par la capacité d'attaque."
       },
       "hound": {
-        "1": "Ajoute +2 %game.action.attack% si la cible est<br>adjacente à un allié du Loup."
+        "1": "Ajoute %game.action.attack.valueSign:2% si la cible est<br>adjacente à un allié du Loup."
       },
       "ice-wraith": {
         "1": "Tous les Spectres des Glaces d'élite<br>deviennent normaux, et tous les Spectres<br>des Glaces normaux deviennent d'élite."
@@ -821,9 +821,9 @@
         "1": "sur lui-même ou Orbe Lumineux"
       },
       "piranha-pig": {
-        "1": "Ajoute 1 %game.action.attack% si la cible est adjacente<br>à un allié du Cochon Piranha.",
-        "2": "Ajoute +2 %game.action.attack% si la cible a %game.condition.wound%.",
-        "3": "Ajoute +1 %game.action.attack% si la cible occupe un<br>hexagone contenant une tuile Eau.",
+        "1": "Ajoute %game.action.attack.valueSign:1% si la cible est adjacente<br>à un allié du Cochon Piranha.",
+        "2": "Ajoute %game.action.attack.valueSign:2% si la cible a %game.condition.wound%.",
+        "3": "Ajoute %game.action.attack.valueSign:1% si la cible occupe un<br>hexagone contenant une tuile Eau.",
         "4": "où X est le nombre de dégâts subis par la<br>cible de la capacité d'attaque."
       },
       "prince-of-frost": {
@@ -855,7 +855,7 @@
       "seeker-of-the-abyss": {
         "1": "Les cibles perdent une carte.",
         "2": "Crée un piège %game.condition.immobilize% sur un hexagone vide adjacent.",
-        "3": "Tous les alliés ajoutent +1 %game.action.attack% à toutes leurs attaques."
+        "3": "Tous les alliés ajoutent %game.action.attack.valueSign:1% à toutes leurs attaques."
       },
       "shrike-fiend": {
         "1": "Tous les adversaires à %game.action.range:3% ou moins subissent %game.damage:2%."

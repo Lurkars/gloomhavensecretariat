@@ -784,7 +784,7 @@
       },
       "poison": {
         "": "中毒",
-        "hint": "%game.conditionIcon.poison% 中毒：所有攻击者获得 +1 %game.action.attack%。受到治疗时移除该状态，但不会加血。"
+        "hint": "%game.conditionIcon.poison% 中毒：所有攻击者获得 %game.action.attack.valueSign:1%。受到治疗时移除该状态，但不会加血。"
       },
       "poison_x": {
         "": "中毒 {0}",
@@ -792,7 +792,7 @@
       },
       "regenerate": {
         "": "再生",
-        "hint": "%game.conditionIcon.regenerate% 再生：回合开始时 %game.action.heal% 1。受到伤害时移除。"
+        "hint": "%game.conditionIcon.regenerate% 再生：回合开始时 %game.action.heal:1%。受到伤害时移除。"
       },
       "roundExpire": {
         "hint": "轮次结束时移除状态"
@@ -2380,7 +2380,7 @@
         "": "某些状态需要确认以进行应用,例如当具有中毒状态的个体血量减少时确认是否丢失1点额外的生命值",
         "brittle": "当承受伤害时, 询问应用 %game.condition.brittle% 并增加伤害.",
         "heal": "无状态,但当血量值增加时如果 %game.action.heal% 应该被应用,会显示帮助信息.",
-        "poison": "当承受伤害时, 询问是否从 %game.condition.poison% 中应用 %game.action.attack% +1 (包括 %game.attackmodifier.double%).",
+        "poison": "当承受伤害时, 询问是否从 %game.condition.poison% 中应用 %game.action.attack:+1% (包括 %game.attackmodifier.double%).",
         "poison_x": "当承受伤害时,询问是否从 %game.condition.poison_x:X% (包括 %game.attackmodifier.double%) 中应用 %game.action.attack% +X.",
         "shield": "无状态,但当承受伤害时如果 %game.action.shield% 应该被应用并降低所受伤害,会显示帮助信息.",
         "ward": "当承受伤害时,询问是否应用 %game.condition.ward% 并降低所受伤害."
@@ -2468,7 +2468,7 @@
     },
     "applyLongRest": {
       "": "应用长休",
-      "hint": "当处于长休时,在角色回合结束自动执行 %game.action.heal% 2"
+      "hint": "当处于长休时,在角色回合结束自动执行 %game.action.heal:2%"
     },
     "applyLoot": {
       "": "应用角色拾取归属",

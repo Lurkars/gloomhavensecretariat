@@ -50,7 +50,7 @@
         },
         {
           "type": "custom",
-          "value": "The Tendril of Corruption and the summoned Deep Terror gain %game.action.shield% 1 for the round"
+          "value": "The Tendril of Corruption and the summoned Deep Terror gain %game.action.shield:1% for the round"
         }
       ]
     ]

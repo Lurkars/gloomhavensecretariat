@@ -15,7 +15,7 @@
   "items": {
     "bb-1": {
       "": "玫刺刀",
-      "1": "在你的攻擊行動中， %game.elementHalf.consume:ice|earth% 來增加%game.action.pierce% 1。"
+      "1": "在你的攻擊行動中， %game.elementHalf.consume:ice|earth% 來增加%game.action.pierce:1%。"
     },
     "bb-10": {
       "": "藤蔓鞭",
@@ -23,15 +23,15 @@
     },
     "bb-11": {
       "": "強磁指針",
-      "1": "在你的回合中，控制一名在 %game.action.range% 5裏的敵人執行%game.action.move% 2。"
+      "1": "在你的回合中，控制一名在 %game.action.range:5%裏的敵人執行%game.action.move:2%。"
     },
     "bb-12": {
       "": "殘羹冷炙",
-      "1": "在你的回合中以自己為目標執行%game.action.heal% 1。"
+      "1": "在你的回合中以自己為目標執行%game.action.heal:1%。"
     },
     "bb-13": {
       "": "俠盜羽箭",
-      "1": "當你進行單次遠程攻擊時， %game.elementHalf.consume:fire|air%附加 +1 %game.action.range%和%game.action.pierce% 1。"
+      "1": "當你進行單次遠程攻擊時， %game.elementHalf.consume:fire|air%附加 %game.action.range.valueSign:1%和%game.action.pierce:1%。"
     },
     "bb-14": {
       "": "龍葵粉",
@@ -47,11 +47,11 @@
     },
     "bb-17": {
       "": "魚鈎和魚線",
-      "1": "當你進行遠程攻擊時附加%game.action.pierce% 2， %game.action.pull% 2。"
+      "1": "當你進行遠程攻擊時附加%game.action.pierce:2%， %game.action.pull:2%。"
     },
     "bb-18": {
       "": "栗殼盾",
-      "1": "當你收到敵人攻擊時，獲得%game.action.shield% 1 和 %game.action.retaliate% 1。"
+      "1": "當你收到敵人攻擊時，獲得%game.action.shield:1% 和 %game.action.retaliate:1%。"
     },
     "bb-19": {
       "": "黃銅齒輪",
@@ -63,7 +63,7 @@
     },
     "bb-20": {
       "": "潤滑油",
-      "1": "在你執行移動行動時增加+2 %game.action.move%。"
+      "1": "在你執行移動行動時增加%game.action.move.valueSign:2%。"
     },
     "bb-21": {
       "": "元素藥水",
@@ -79,7 +79,7 @@
     },
     "bb-24": {
       "": "縫衣針",
-      "1": "在你的攻擊行動中，附加 %game.action.pierce% 1。"
+      "1": "在你的攻擊行動中，附加 %game.action.pierce:1%。"
     },
     "bb-25": {
       "": "尖銳鉛筆",
@@ -87,15 +87,15 @@
     },
     "bb-26": {
       "": "硬幣盾",
-      "1": "在敵人的攻擊期間，獲得 %game.action.shield% 2。"
+      "1": "在敵人的攻擊期間，獲得 %game.action.shield:2%。"
     },
     "bb-27": {
       "": "乾癟長弓",
-      "1": "在你的遠程攻擊行動中，附加 +1 %game.action.attack%、%game.action.pierce% 1。"
+      "1": "在你的遠程攻擊行動中，附加 %game.action.attack.valueSign:1%、%game.action.pierce:1%。"
     },
     "bb-28": {
       "": "乾癟長劍",
-      "1": "在你的近戰攻擊行動中，附加 +1 %game.action.attack%。"
+      "1": "在你的近戰攻擊行動中，附加 %game.action.attack.valueSign:1%。"
     },
     "bb-29": {
       "": "餘燼",
@@ -103,7 +103,7 @@
     },
     "bb-3": {
       "": "風蝕長靴",
-      "1": "在你的移動行動中，附加 +1 %game.action.move%。"
+      "1": "在你的移動行動中，附加 %game.action.move.valueSign:1%。"
     },
     "bb-30": {
       "": "幸運貓眼石",
@@ -115,7 +115,7 @@
     },
     "bb-32": {
       "": "護盾撲克",
-      "1": "在敵人的攻擊期間，獲得 %game.action.shield% 4。"
+      "1": "在敵人的攻擊期間，獲得 %game.action.shield:4%。"
     },
     "bb-33": {
       "": "速度靈藥",
@@ -127,7 +127,7 @@
     },
     "bb-35": {
       "": "棱鏡寶石",
-      "1": "在你的攻擊行動中，%game.element.consume.wild% 來增加 %game.action.attack% 1。"
+      "1": "在你的攻擊行動中，%game.element.consume.wild% 來增加 %game.action.attack:1%。"
     },
     "bb-36": {
       "": "強壯藥水",
@@ -135,15 +135,15 @@
     },
     "bb-37": {
       "": "黃昏寶石",
-      "1": "在敵人的攻擊期間，%game.elementHalf.consume:air|dark% 來獲得 %game.action.shield% 1，並對該敵人附加 %game.condition.muddle%。"
+      "1": "在敵人的攻擊期間，%game.elementHalf.consume:air|dark% 來獲得 %game.action.shield:1%，並對該敵人附加 %game.condition.muddle%。"
     },
     "bb-38": {
       "": "明媚寶石",
-      "1": "在你的攻擊後，%game.elementHalf.consume:air|light% 來控制攻擊目標：%game.action.move% 1。"
+      "1": "在你的攻擊後，%game.elementHalf.consume:air|light% 來控制攻擊目標：%game.action.move:1%。"
     },
     "bb-39": {
       "": "彩貝盾",
-      "1": "在你的回合中獲得 %game.action.shield% 1，本回合有效。創造 %game.element.wild%。"
+      "1": "在你的回合中獲得 %game.action.shield:1%，本回合有效。創造 %game.element.wild%。"
     },
     "bb-4": {
       "": "舊彈簧",
@@ -151,7 +151,7 @@
     },
     "bb-40": {
       "": "折疊刀",
-      "1": "在你的近戰攻擊行動中，附加 +1 %game.action.attack%、%game.action.pierce% 2、%game.condition.wound%。"
+      "1": "在你的近戰攻擊行動中，附加 %game.action.attack.valueSign:1%、%game.action.pierce:2%、%game.condition.wound%。"
     },
     "bb-41": {
       "": "瓶蓋頭盔",
@@ -163,7 +163,7 @@
     },
     "bb-5": {
       "": "力量藥水",
-      "1": "在你的回合中，為所有攻擊附加 +1 %game.action.attack%。"
+      "1": "在你的回合中，為所有攻擊附加 %game.action.attack.valueSign:1%。"
     },
     "bb-6": {
       "": "淨化藥水",
@@ -171,15 +171,15 @@
     },
     "bb-7": {
       "": "彈簧錘",
-      "1": "在你的近戰攻擊行動中，附加 %game.action.push% 2。"
+      "1": "在你的近戰攻擊行動中，附加 %game.action.push:2%。"
     },
     "bb-8": {
       "": "鈕扣盾",
-      "1": "在敵人的攻擊期間，獲得 %game.action.shield% 1。"
+      "1": "在敵人的攻擊期間，獲得 %game.action.shield:1%。"
     },
     "bb-9": {
       "": "鋼釘",
-      "1": "在你的回合中，為所有近戰攻擊附加 %game.action.pierce% 2。"
+      "1": "在你的回合中，為所有近戰攻擊附加 %game.action.pierce:2%。"
     }
   },
   "monster": {

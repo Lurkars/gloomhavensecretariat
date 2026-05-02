@@ -317,7 +317,7 @@
         "": "爆破手",
         "mech": {
           "": "機械裝甲",
-          "hint": "你的最大生命值增加 5 點。治療自己 %game.action.heal% 10。"
+          "hint": "你的最大生命值增加 5 點。治療自己 %game.action.heal:10%。"
         }
       },
       "hatchet": "飛斧手",
@@ -337,7 +337,7 @@
         "1": "視線內最近的敵人承受 [1+L/2{$math.ceil}] 點 %game.damage% ，無視射程"
       },
       "blood-horror": {
-        "1": "跳躍到最遠且死亡 %data.monster.zealot% 並將其復活，或跳向最遠的角色並執行 %game.action.attack%+0",
+        "1": "跳躍到最遠且死亡 %data.monster.zealot% 並將其復活，或跳向最遠的角色並執行 %game.action.attack:+0%",
         "2": "復活房間內所有死亡的 %data.monster.zealot%"
       },
       "blood-monstrosity": {
@@ -364,7 +364,7 @@
             "1": "所有在 %game.action.range:3% 範圍內的目標物受到 %game.damage:3% 。"
           },
           "105": {
-            "1": "<small>你接下來三次針對本回合內曾攻擊過的敵人所進行的攻擊，附加 +3 %game.action.attack%。</small>",
+            "1": "<small>你接下來三次針對本回合內曾攻擊過的敵人所進行的攻擊，附加 %game.action.attack.valueSign:3%。</small>",
             "2": "本回合你所有的攻擊皆附加 %game.condition.immobilize%。",
             "3": "另附加 %game.condition.muddle%、%game.card.experience:1%"
           },
@@ -415,11 +415,11 @@
             "bottomHint": "一名相鄰敵人承受 %game.damage:1%（加上攻擊修正）傷害，然後拾取你所在格子內或相鄰格子的所有金幣標記與寶藏標記。"
           },
           "82": {
-            "1": "在你接下來的兩次攻擊中，添加 +2 %game.action.attack%。",
+            "1": "在你接下來的兩次攻擊中，添加 %game.action.attack.valueSign:2%。",
             "2": "使你下一次移動能力的數值加倍。"
           },
           "83": {
-            "1": "若目標相鄰牆面，則此攻擊額外添加 +2 %game.action.attack%， %game.card.experience:1%。",
+            "1": "若目標相鄰牆面，則此攻擊額外添加 %game.action.attack.valueSign:2%， %game.card.experience:1%。",
             "2": "一名與牆面相鄰的相鄰敵人承受 %game.damage:2%。"
           },
           "84": {
@@ -448,8 +448,8 @@
             "2": "在一個相鄰且包含摧毀標記的空格中創造一個造成2點傷害的陷阱。"
           },
           "92": {
-            "1": "若目標為目標物，則此攻擊添加 +3 %game.action.attack%，獲得 %game.card.experience:1%。",
-            "2": "本輪你所有的近戰攻擊額外添加 +1 %game.action.attack%。"
+            "1": "若目標為目標物，則此攻擊添加 %game.action.attack.valueSign:3%，獲得 %game.card.experience:1%。",
+            "2": "本輪你所有的近戰攻擊額外添加 %game.action.attack.valueSign:1%。"
           },
           "93": {
             "1": "在 %game.action.range:3% 內的一個空格中，創造一個造成3點傷害並附加 %game.condition.muddle% 的陷阱。",
@@ -460,15 +460,15 @@
             "1": "此移動不受困難地形影響。"
           },
           "95": {
-            "1": "在你接下來的四次針對與牆面相鄰敵人的攻擊中，額外增加 +2 %game.action.attack%。",
-            "2": "每當你在此次移動中進入一個包含障礙物的格子時，摧毀該障礙物並額外增加 +1 %game.action.move%。",
+            "1": "在你接下來的四次針對與牆面相鄰敵人的攻擊中，額外增加 %game.action.attack.valueSign:2%。",
+            "2": "每當你在此次移動中進入一個包含障礙物的格子時，摧毀該障礙物並額外增加 %game.action.move.valueSign:1%。",
             "3": "所有被穿越的敵人各自承受 %game.damage:1%， %game.card.experience:1%。"
           },
           "96": {
             "1": "摧毀一個相鄰的障礙物。若你這麼做，獲得 %game.card.experience:1%，且所有與被摧毀障礙物相鄰的敵人各自承受 %game.damage:2%。"
           },
           "97": {
-            "1": "目標每相鄰一個牆面、障礙物、目標物、個體或陷阱，此攻擊額外增加 +1 %game.action.attack%。",
+            "1": "目標每相鄰一個牆面、障礙物、目標物、個體或陷阱，此攻擊額外增加 %game.action.attack.valueSign:1%。",
             "2": "將一個相鄰的陷阱移動到一個相鄰敵人的格子中。"
           },
           "98": {
@@ -477,7 +477,7 @@
             "3": "在距離 %game.action.range:4% 內的一個空格中創造三個造成3點傷害的陷阱。"
           },
           "99": {
-            "1": "若目標與牆面相鄰，添加 +2 %game.action.attack%、添加 %game.condition.wound%，獲得 %game.card.experience:1%。"
+            "1": "若目標與牆面相鄰，添加 %game.action.attack.valueSign:2%、添加 %game.condition.wound%，獲得 %game.card.experience:1%。"
           }
         }
       },
@@ -493,7 +493,7 @@
       },
       "giant-viper": {
         "1": "本輪所有以 %data.monster.giant-viper% 為目標的攻擊獲得劣勢。",
-        "2": "若目標與任何 %data.monster.giant-viper% 的盟友相鄰，增加 +2 %game.action.attack%。"
+        "2": "若目標與任何 %data.monster.giant-viper% 的盟友相鄰，增加 %game.action.attack.valueSign:2%。"
       },
       "giant-viper-scenario-21": {
         "1": "每當有個體攻擊巨型蝰蛇後，該個體承受 %game.damage:L%"
@@ -501,7 +501,7 @@
       "hatchet": {
         "abilities": {
           "10": {
-            "1": "<small>將你的一個角色標記放置在此卡牌上。將該標記從此卡牌移到目標上，來為任意遠程攻擊添加 +3 %game.action.attack%。當目標死亡時，將該標記放置在其死亡的格子中。若拾取該格子，則將標記歸回此卡牌。</small>"
+            "1": "<small>將你的一個角色標記放置在此卡牌上。將該標記從此卡牌移到目標上，來為任意遠程攻擊添加 %game.action.attack.valueSign:3%。當目標死亡時，將該標記放置在其死亡的格子中。若拾取該格子，則將標記歸回此卡牌。</small>"
           },
           "11": {
             "1": "若目標擁有你的愛斧標記，則將該標記歸回其卡牌上。"
@@ -517,22 +517,22 @@
             "2": "所有相鄰敵人各自承受 %game.damage:2%。"
           },
           "18": {
-            "1": "若目標身上有你的愛斧標記，添加 +2 %game.action.attack%，獲得 %game.card.experience:1%。"
+            "1": "若目標身上有你的愛斧標記，添加 %game.action.attack.valueSign:2%，獲得 %game.card.experience:1%。"
           },
           "19": {
-            "1": "若本輪中擊殺過敵人，添加 +2 %game.action.move%，獲得 %game.card.experience:1%。"
+            "1": "若本輪中擊殺過敵人，添加 %game.action.move.valueSign:2%，獲得 %game.card.experience:1%。"
           },
           "20": {
             "1": "指定一名與攻擊目標相鄰的盟友"
           },
           "21": {
-            "1": "在接下來的四次移動能力中，添加 +2 %game.action.move%。"
+            "1": "在接下來的四次移動能力中，添加 %game.action.move.valueSign:2%。"
           },
           "22": {
-            "1": "這回合中你的所有攻擊額外添加 +1 %game.action.attack% 。"
+            "1": "這回合中你的所有攻擊額外添加 %game.action.attack.valueSign:1% 。"
           },
           "23": {
-            "1": "若目標有愛斧標記，添加 +2 %game.action.attack%，獲得 %game.card.experience:1%。"
+            "1": "若目標有愛斧標記，添加 %game.action.attack.valueSign:2%，獲得 %game.card.experience:1%。"
           },
           "24": {
             "1": "指定一名距離前一個攻擊目標 %game.action.range:2% 內的不同敵人為目標",
@@ -540,10 +540,10 @@
           },
           "25": {
             "1": "<small>若此攻擊殺死目標，一名與其死亡格子相鄰的敵人承受 X 點傷害，其中 X 為該目標超過其死亡所需的傷害值。</small>",
-            "2": "\"若本輪中擊殺過敵人，添加 +2 %game.action.attack%，獲得 %game.card.experience:1%。"
+            "2": "\"若本輪中擊殺過敵人，添加 %game.action.attack.valueSign:2%，獲得 %game.card.experience:1%。"
           },
           "26": {
-            "1": "在接下來的五次攻擊中，添加 +1 %game.action.attack%，附加 %game.condition.wound%"
+            "1": "在接下來的五次攻擊中，添加 %game.action.attack.valueSign:1%，附加 %game.condition.wound%"
           },
           "27": {
             "1": "若有相鄰敵人擁有愛斧標記，可以選擇將該標記歸回其卡牌上。若這麼做，該敵人承受 %game.damage:2%，附加 %game.condition.wound%。",
@@ -553,7 +553,7 @@
             "1": "<small>在接下來的五次中，有敵人在移動能力結束時位於距離 %game.action.range:5% 內，即對該敵人執行一次\"%game.action.attack:2%、%game.action.range:5%\"的動作。</small>"
           },
           "30": {
-            "1": "<small>將斧頭標記放置在此卡牌上。在解決攻擊後，將該標記從此卡牌移到目標上，來為任意遠程攻擊添加 +3 %game.action.attack%、%game.condition.wound% 和 %game.action.push:1%。當該目標死亡時，將標記放置在其死亡的格子中。若拾取該格子，則將標記歸回此卡牌。當「趁手飛斧」卡片啟動時，此卡片無法同時啟動。</small>"
+            "1": "<small>將斧頭標記放置在此卡牌上。在解決攻擊後，將該標記從此卡牌移到目標上，來為任意遠程攻擊添加 %game.action.attack.valueSign:3%、%game.condition.wound% 和 %game.action.push:1%。當該目標死亡時，將標記放置在其死亡的格子中。若拾取該格子，則將標記歸回此卡牌。當「趁手飛斧」卡片啟動時，此卡片無法同時啟動。</small>"
           },
           "31": {
             "1": "所有相鄰敵人承受 %game.damage:1%。"
@@ -562,16 +562,16 @@
             "1": "若你的愛斧標記位於所在格子或相鄰格子中，執行"
           },
           "33": {
-            "1": "在接下來的五次針對擁有愛斧標記之敵人的攻擊中，添加 +2 %game.action.attack%。"
+            "1": "在接下來的五次針對擁有愛斧標記之敵人的攻擊中，添加 %game.action.attack.valueSign:2%。"
           },
           "34": {
-            "1": "若目標擁有愛斧標記，添加+2 %game.action.attack%，獲得 %game.card.experience:1%，將該標記歸回其卡牌上。"
+            "1": "若目標擁有愛斧標記，添加%game.action.attack.valueSign:2%，獲得 %game.card.experience:1%，將該標記歸回其卡牌上。"
           },
           "35": {
             "1": "<small>在接下來的五次中，只要殺死一名敵人，所有與其死亡格子相鄰的敵人自承受 %game.damage:2%。</small>"
           },
           "36": {
-            "1": "若與一名盟友相鄰，則本回合的下一次攻擊添加+2 %game.action.attack%。"
+            "1": "若與一名盟友相鄰，則本回合的下一次攻擊添加%game.action.attack.valueSign:2%。"
           },
           "37": {
             "1": "一名相鄰的普通或精英敵人承受 %game.damage:12%。",
@@ -593,7 +593,7 @@
       },
       "monstrosity": {
         "1": "若執行攻擊行動， %data.monster.monstrosity% 承受 %game.damage:1%。",
-        "2": "與 %data.monster.monstrosity% 的相鄰盟友，添加 +1 %game.action.attack%。",
+        "2": "與 %data.monster.monstrosity% 的相鄰盟友，添加 %game.action.attack.valueSign:1%。",
         "3": "本輪中，任何個體攻擊 %data.monster.monstrosity% 時，該個體承受 %game.damage:2%。",
         "4": "%data.monster.monstrosity% 承受 %game.damage:1%"
       },
@@ -625,7 +625,7 @@
             "2": "改為承受 2 點傷害"
           },
           "236": {
-            "1": "若目標具有負面狀態，添加 +3 %game.action.attack%。",
+            "1": "若目標具有負面狀態，添加 %game.action.attack.valueSign:3%。",
             "2": "優勢"
           },
           "237": {

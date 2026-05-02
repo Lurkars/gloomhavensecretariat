@@ -97,7 +97,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%game.action.move%+2, %game.action.jump%",
+                  "value": "%game.action.move:+2%, %game.action.jump%",
                   "small": true
                 },
                 {

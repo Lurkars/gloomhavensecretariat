@@ -13,7 +13,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "All Algox Scouts, then Algox Guards, immediately perform %game.action.move%9 focusing on moving toward %game.mapMarker.a%"
+      "note": "All Algox Scouts, then Algox Guards, immediately perform %game.action.move:9% focusing on moving toward %game.mapMarker.a%"
     },
     {
       "round": "true",

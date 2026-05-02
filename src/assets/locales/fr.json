@@ -747,7 +747,7 @@
       },
       "poison": {
         "": "Empoisonnement",
-        "hint": "%game.conditionIcon.poison% Empoisonnement : Tous les attaquants gagnent +1 %game.action.attack%. Empêche la guérison. S'enlève une fois guéri."
+        "hint": "%game.conditionIcon.poison% Empoisonnement : Tous les attaquants gagnent %game.action.attack.valueSign:1%. Empêche la guérison. S'enlève une fois guéri."
       },
       "poison_x": {
         "": "Empoisonnement {0}",
@@ -755,7 +755,7 @@
       },
       "regenerate": {
         "": "Régénération",
-        "hint": "%game.conditionIcon.regenerate% Régénération : %game.action.heal% 1 au début du tour. Supprimer en cas de dégâts."
+        "hint": "%game.conditionIcon.regenerate% Régénération : %game.action.heal:1% au début du tour. Supprimer en cas de dégâts."
       },
       "roundExpire": {
         "hint": "Supprimer la condition à la fin du round"
@@ -1978,7 +1978,7 @@
         "": "Certaines conditions nécessitent une confirmation pour être appliquées, par exemple lorsque vous diminuez les HP avec Poison, confirmez la perte de 1 HP supplémentaire",
         "brittle": "Si vous subissez des dégâts, demandez à appliquer %game.condition.brittle% et augmentez les dégâts.",
         "heal": "Pas de condition, mais une aide si %game.action.heal% doit être appliqué lors de l'augmentation des points de vie.",
-        "poison": "Lorsqu'il subit des dégâts, il demande à appliquer %game.action.attack% +1 de %game.condition.poison% (y compris %game.attackmodifier.double%).",
+        "poison": "Lorsqu'il subit des dégâts, il demande à appliquer %game.action.attack:+1% de %game.condition.poison% (y compris %game.attackmodifier.double%).",
         "poison_x": "Lorsqu'il subit des dégâts, il demande à appliquer %game.action.attack% +X de %game.condition.poison_x:X% (y compris %game.modificateur.d'attaque.double%).",
         "shield": "Pas de condition, mais une aide si %game.action.shield% doit être appliqué lorsque l'on subit des dégâts.",
         "ward": "Si vous subissez des dégâts, demandez à appliquer %game.condition.ward% et à réduire les dégâts."
@@ -2041,7 +2041,7 @@
     },
     "applyLongRest": {
       "": "Appliquer repos long",
-      "hint": "Effectuer automatiquement %game.action.heal% 2 au tour du personnage en repos long"
+      "hint": "Effectuer automatiquement %game.action.heal:2% au tour du personnage en repos long"
     },
     "applyLoot": {
       "": "Appliquer le butin au personnage",

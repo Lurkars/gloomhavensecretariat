@@ -78,7 +78,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "%game.action.target%2"
+                    "value": "%game.action.target:2%"
                   }
                 ]
               }

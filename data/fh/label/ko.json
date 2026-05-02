@@ -835,10 +835,10 @@
     },
     "barracks": {
       "": "병영",
-      "1": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>4<br><i>효과:</i> 이익 및 -5 %game.action.attack%",
-      "2": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>6<br><i>효과:</i> 이익 및 -15 %game.action.attack%",
-      "3": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>8<br><i>효과:</i> 이익 및 -25 %game.action.attack%",
-      "4": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>10<br><i>효과:</i> 이익 및 -35 %game.action.attack%",
+      "1": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>4<br><i>효과:</i> 이익 및 %game.action.attack.valueSign:-5%",
+      "2": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>6<br><i>효과:</i> 이익 및 %game.action.attack.valueSign:-15%",
+      "3": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>8<br><i>효과:</i> 이익 및 %game.action.attack.valueSign:-25%",
+      "4": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i>10<br><i>효과:</i> 이익 및 %game.action.attack.valueSign:-35%",
       "5": "모든 공격 이벤트 처리 시 불이익.<br>병사 사용 불가.",
       "soldiers": "병사 1명 훈련"
     },
@@ -1063,11 +1063,11 @@
         "": "뼈 조각사",
         "solid-bones": {
           "": "Solid Bones",
-          "hint": "모든 비틀거리는 해골에 +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+          "hint": "모든 비틀거리는 해골에 %game.action.heal.valueSign:1%, %game.action.move.valueSign:1%, %game.action.pierce:1%."
         },
         "unholy-prowess": {
           "": "불경한 솜씨",
-          "hint": "모든 비틀거리는 해골에 +1%game.action.heal%."
+          "hint": "모든 비틀거리는 해골에 %game.action.heal.valueSign:1%."
         }
       },
       "deathwalker": {
@@ -1125,27 +1125,27 @@
         "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에%game.damage:3% 함정을 생성한다."
       },
       "banner-spear": {
-        "1": "매번 %game.range:2% 내의 모든 아군의 공격 중 하나에 +1%game.action.attack% 추가.",
+        "1": "매번 %game.range:2% 내의 모든 아군의 공격 중 하나에 %game.action.attack.valueSign:1% 추가.",
         "10": "서로 별개인 범위 효과 공격 능력 세 번에 걸쳐 매번 적을 셋 이상씩 공격",
         "11": "자신의 첫 번째 차례에 깃발 소환 능력을 수행하고, 시나리오 내내 그 깃발을 자신과 %game.action.range:3% 내에, 생존한 상태로 유지",
         "2": "매번 자신의 긴 휴식 종료 시, %game.action.range:3% 내의 아군 하나에게:",
         "3": "모든 인접한 아군은 %game.shield% 1 획득.",
         "4": "매번 인접한 아군에게 첫 번째%game.damage% 무효",
-        "5": "%game.action.range%4 내에 있는 모든 적은 차례 시작 시%game.damage:1%을 입음.",
-        "6": "대상에 인접한 아군마다 +1%game.action.attack% 추가",
-        "7": "매번 자신의 긴 휴식 종료 시, %game.action.range:3% 내의 아군 하나에게 %game.action.move% 2를 지시",
-        "8": "자신의 이동 능력으로 문을 열 때마다, +3 %game.action.move% 추가",
-        "9": "시나리오마다 한 번, 자신의 차례에, 그 라운드 동안 %game.action.shield% 2를 얻음",
+        "5": "%game.action.range:4% 내에 있는 모든 적은 차례 시작 시%game.damage:1%을 입음.",
+        "6": "대상에 인접한 아군마다 %game.action.attack.valueSign:1% 추가",
+        "7": "매번 자신의 긴 휴식 종료 시, %game.action.range:3% 내의 아군 하나에게 %game.action.move:2%를 지시",
+        "8": "자신의 이동 능력으로 문을 열 때마다, %game.action.move.valueSign:3% 추가",
+        "9": "시나리오마다 한 번, 자신의 차례에, 그 라운드 동안 %game.action.shield:2%를 얻음",
         "abilities": {
           "61": {
             "1": "치료한 아군 한 명당%game.damage:1%를 입습니다.",
             "2": "이 소환물의 행동을 조종합니다"
           },
           "62": {
-            "1": "%game.action.range%2내의 모든 아군은 매 차례마다 공격 하나에%game.action.attack%+1 추가."
+            "1": "%game.action.range:2%내의 모든 아군은 매 차례마다 공격 하나에%game.action.attack:+1% 추가."
           },
           "63": {
-            "1": "자신의 모든 원거리 공격에%game.action.range%-1 적용."
+            "1": "자신의 모든 원거리 공격에%game.action.range:-1% 적용."
           }
         }
       },
@@ -1157,18 +1157,18 @@
         "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
-        "1": "자신의 다음 공격에, 이 카드를 버려 +2 %game.action.attack% 추가.<br>%game.card.persistent%",
-        "2": "이 카드를 자신의 활성화 영역에 놓는다. 자신의 다음 공격에, 이 카드를 버려 +2%game.action.attack%추가",
+        "1": "자신의 다음 공격에, 이 카드를 버려 %game.action.attack.valueSign:2% 추가.<br>%game.card.persistent%",
+        "2": "이 카드를 자신의 활성화 영역에 놓는다. 자신의 다음 공격에, 이 카드를 버려 %game.action.attack.valueSign:2%추가",
         "3": "%data.characterToken.blinkblade.time% 1 얻음",
         "4": "%data.action.custom.fh-hourglass% 1 얻음",
         "5": "자신이 짧은 휴식을 취할 때마다, 소모되지 않은%game.card.spent%아이템 하나를 효과 없이 소모하여 소모된 다른 아이템 하나를%game.card.recover%할 수 있음",
-        "6": "매번 시나리오의 첫 번째 자기 차례 시작 시,%game.action.move%3을 수행 가능",
+        "6": "매번 시나리오의 첫 번째 자기 차례 시작 시,%game.action.move:3%을 수행 가능",
         "7": "자신이%game.condition.immobilize%를 얻으려 할 때마다, 그 상태를 방지",
         "8": "7라운드 연속으로 고속을 선언",
         "9": "절대로 공격의 대상이 되지 않음"
       },
       "boneshaper": {
-        "1": "이 카드에 있는 토큰 하나당 +1 %game.action.attack%.",
+        "1": "이 카드에 있는 토큰 하나당 %game.action.attack.valueSign:1%.",
         "2": "공격 중인 소환물을 죽여 대신 %game.attackmodifier.plus4% 추가",
         "3": "매번 자신의 휴식 바로 직전에, 자기 소환물을 죽여 %game.condition.bless% , 자신을 수행할 수 있음",
         "4": "시나리오마다 한 번, 아군 캐릭터가 %game.damage% 를 입어 탈진하려 할 때, 대신 자신이 %game.damage% 2점을 입어 해당 캐릭터의 체력을 1로 줄일 수 있음",
@@ -1305,7 +1305,7 @@
         "1": "\"game.action.heal% X,자신\" 수행<br>여기에서 X는 공격 능력의 대상이 된<br>적의 숫자에 2를 곱한 값."
       },
       "hound": {
-        "1": "대상이 사냥개의 아군에 인접해 있다면 +2%game.action.attack% 추가."
+        "1": "대상이 사냥개의 아군에 인접해 있다면 %game.action.attack.valueSign:2% 추가."
       },
       "ice-wraith": {
         "1": "모든 정예 얼음 망령이 일반이 되며,<br>모든 일반 얼음 망령이 정예가 된다."
@@ -1361,9 +1361,9 @@
         "1": "자신 또는 찬란한 구체"
       },
       "piranha-pig": {
-        "1": "대상이 피라냐돈의 아군에게 인접해 있다면 +1%game.action.attack%추가.",
-        "2": "공격 대상이 부상 상태일 경우 %game.action.attack%+2 추가.",
-        "3": "공격 대상이 물 타일에 인접해있을 경우 %game.action.attack% +1 추가.",
+        "1": "대상이 피라냐돈의 아군에게 인접해 있다면 %game.action.attack.valueSign:1%추가.",
+        "2": "공격 대상이 부상 상태일 경우 %game.action.attack:+2% 추가.",
+        "3": "공격 대상이 물 타일에 인접해있을 경우 %game.action.attack:+1% 추가.",
         "4": "여기에서 X는<br>공격 능력의 대상이 입은 피해."
       },
       "prince-of-frost": {
@@ -1395,7 +1395,7 @@
       "seeker-of-the-abyss": {
         "1": "대상이 카드 1장 소실.",
         "2": "인접한 빈칸 하나에%game.condition.immobilize%함정 생성",
-        "3": "모든 아군은 자신의 모든 공격에 +1%game.action.attack% 추가"
+        "3": "모든 아군은 자신의 모든 공격에 %game.action.attack.valueSign:1% 추가"
       },
       "shrike-fiend": {
         "1": "%game.action.range:3% 내의 모든 적이%game.damage:2% 점을 입는다."
@@ -1706,30 +1706,30 @@
     },
     "rules": {
       "fh": {
-        "0": "모든 사냥개는 매 라운드 주도권 수치 26으로%game.action.move%2및%game.action.attack%2를 수행합니다.",
-        "1": "도시 경비병은 차례를 수행하지 않는 대신%game.action.shield%1및%game.action.retaliate%2를 추가로 얻고 주도권 50으로 고정됩니다.",
+        "0": "모든 사냥개는 매 라운드 주도권 수치 26으로%game.action.move:2%및%game.action.attack:2%를 수행합니다.",
+        "1": "도시 경비병은 차례를 수행하지 않는 대신%game.action.shield:1%및%game.action.retaliate:2%를 추가로 얻고 주도권 50으로 고정됩니다.",
         "110": "망가진 기계가 얼음 기둥에 인접한 상태로 죽을 때 파괴됩니다",
         "112": "두 사냥개의 체력은 자기 최대 체력의 두 배입니다.",
         "115": "파괴될 때마다, 돌무더기로 교체하고 인접한 칸에 있는 모든 피규어가 함정 피해를 입습니다",
         "116": "%game.mapMarker.b%방향으로 이동",
         "119": {
           "1": "차례 종료 시, 가루를 소모합니다:",
-          "2": "1개 소모: %game.action.move%2",
+          "2": "1개 소모: %game.action.move:2%",
           "3": "2개 소모:",
-          "4": "5개 소모: %game.action.range%2 이내의 몬스터 하나를 전향"
+          "4": "5개 소모: %game.action.range:2% 이내의 몬스터 하나를 전향"
         },
         "128": {
           "1": "모든 강철 자동인형은 임프 몬스터 능력 카드 덱을 사용합니다.",
           "2": "잠복자 파도투척자가 번개뱀장어를 소환하는 대신에, 체력이 1인 버믈링 정찰병 하나를 소환합니다."
         },
         "129": "모든 도시 경비병은 자신의 카드 대신 궁수 몬스터 능력 카드를 사용합니다.",
-        "131": "잠복자 파도투척자는 자신의 모든 공격에 +1%game.action.attack%을 추가하며, 번개뱀장어를 소환하지 않습니다. 대신 아래로부터의 도움이 수행되면, 모든 잠복자 파도투척자는 다음을 수행합니다. \"%game.action.attack% +1, %game.action.range% 4, 홀수 라운드면 가장 오른쪽 빈칸으로, 짝수 라운드면 가장 오른쪽 빈칸으로%game.action.teleport%. 전이할 유효한 칸이 여럿이면, 캐릭터로부터 가장 멀리 떨어진 칸을 선택\"",
+        "131": "잠복자 파도투척자는 자신의 모든 공격에 %game.action.attack.valueSign:1%을 추가하며, 번개뱀장어를 소환하지 않습니다. 대신 아래로부터의 도움이 수행되면, 모든 잠복자 파도투척자는 다음을 수행합니다. \"%game.action.attack:+1%, %game.action.range:4%, 홀수 라운드면 가장 오른쪽 빈칸으로, 짝수 라운드면 가장 오른쪽 빈칸으로%game.action.teleport%. 전이할 유효한 칸이 여럿이면, 캐릭터로부터 가장 멀리 떨어진 칸을 선택\"",
         "134": "이 강철 자동인형의 체력은 HxC/2(올림).",
         "27": "제단이 파괴한 캐릭터는 자신의 뺏긴 카드를 모두 손으로 되돌릴 수 있습니다",
-        "44": "파괴되면, 해당 수납장에서 %game.action.range%2 내에 있는모든 몬스터가 함정 피해를 입습니다",
+        "44": "파괴되면, 해당 수납장에서 %game.action.range:2% 내에 있는모든 몬스터가 함정 피해를 입습니다",
         "54": "파괴될 때, 숫자 토큰 1개를 공개하고 지정된 몬스터가 출현합니다",
-        "60": "13-B와 13-D 타일에 있는 잠복자 여섯은 모두 균열의 부관이고, 이들은 자신의 모든 공격에 +1 %game.action.attack%을 추가합니다.",
-        "65": "모든 몬스터는 자신의 모든 공격에 %game.action.push%1을 추가합니다. (시나리오 레벨이 4 이상이라면, %game.action.push% 2를 추가합니다).",
+        "60": "13-B와 13-D 타일에 있는 잠복자 여섯은 모두 균열의 부관이고, 이들은 자신의 모든 공격에 %game.action.attack.valueSign:1%을 추가합니다.",
+        "65": "모든 몬스터는 자신의 모든 공격에 %game.action.push:1%을 추가합니다. (시나리오 레벨이 4 이상이라면, %game.action.push:2%를 추가합니다).",
         "76": "물고기 왕의 최대 체력을 2로 나눕니다(내림). 물고기 왕은 행동하지 않으며, 치료 능력의 대상이 되지 않고, 모든 상태에 면역이며, 주도권을 01로 고정합니다.",
         "77": {
           "1": "물고기 왕은 이동 능력을 수행할 수 없으며 강제 이동에 면역입니다",
@@ -1740,7 +1740,7 @@
           "2": "주요 주목 대상에게 하는 모든 공격에%game.condition.immobilize%추가",
           "3": "특수 1을 다음으로 변경:",
           "4": "공격할 수 있는 가장 먼 적에게 주목하고 다음을 수행:",
-          "5": "%game.action.attack%+0, %game.action.target% 주목 대상(인접한 경우) 및 이동 도중 진입한 칸을 점유하거나 그러한 칸에 인접한 모든 적",
+          "5": "%game.action.attack:+0%, %game.action.target% 주목 대상(인접한 경우) 및 이동 도중 진입한 칸을 점유하거나 그러한 칸에 인접한 모든 적",
           "6": "특수 2를 다음으로 변경:"
         },
         "86": "피해를 입었지만 파괴되지 않았다면:",

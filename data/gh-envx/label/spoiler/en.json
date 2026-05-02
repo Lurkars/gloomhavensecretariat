@@ -54,7 +54,7 @@
           "644": {
             "1": "All summoned allies you own perform",
             "2": "with you controlling the actions.",
-            "3": "All adjacent summoned allies add +1 %game.action.attack% to all their attacks"
+            "3": "All adjacent summoned allies add %game.action.attack.valueSign:1% to all their attacks"
           }
         }
       }

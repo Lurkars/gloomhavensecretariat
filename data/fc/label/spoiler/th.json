@@ -14,23 +14,23 @@
     },
     "fc-155": {
       "": "เกราะกันคำสาป",
-      "1": "คุณมีภูมิคุ้มกันต่อ %game.condition.curse% แม้ว่าไอเทมจะถูกใช้แล้ว ในแหล่งความเสียหายสามแหล่งถัดไปจากการโจมตีที่มุ่งมาที่คุณ ให้ได้รับ %game.action.shield% 1"
+      "1": "คุณมีภูมิคุ้มกันต่อ %game.condition.curse% แม้ว่าไอเทมจะถูกใช้แล้ว ในแหล่งความเสียหายสามแหล่งถัดไปจากการโจมตีที่มุ่งมาที่คุณ ให้ได้รับ %game.action.shield:1%"
     },
     "fc-156": {
       "": "ดาบคลีมอร์ธาตุ",
-      "1": "ในการโจมตีประชิดของคุณ %game.element.consume.wild% เพื่อเพิ่ม +2 %game.action.attack% ให้กับการโจมตีครั้งเดียว"
+      "1": "ในการโจมตีประชิดของคุณ %game.element.consume.wild% เพื่อเพิ่ม %game.action.attack.valueSign:2% ให้กับการโจมตีครั้งเดียว"
     },
     "fc-157": {
       "": "ธนูโบราณ",
-      "1": "ในการโจมตีระยะไกลของคุณ เพิ่ม +2 %game.action.attack%, %game.condition.curse% และ %game.condition.wound% ให้กับการโจมตีครั้งเดียว"
+      "1": "ในการโจมตีระยะไกลของคุณ เพิ่ม %game.action.attack.valueSign:2%, %game.condition.curse% และ %game.condition.wound% ให้กับการโจมตีครั้งเดียว"
     },
     "fc-158": {
       "": "สนับแข้งฟื้นฟู",
-      "1": "ในการเคลื่อนที่ของคุณ เพิ่ม +2 %game.action.move% ให้กับการเคลื่อนที่และได้รับ %game.condition.regenerate%"
+      "1": "ในการเคลื่อนที่ของคุณ เพิ่ม %game.action.move.valueSign:2% ให้กับการเคลื่อนที่และได้รับ %game.condition.regenerate%"
     },
     "fc-159": {
       "": "ม้วนความเร็ว",
-      "1": "ในการเคลื่อนที่ของพรรคพวกหนึ่งคน เพิ่ม +2 %game.action.move% ให้กับการเคลื่อนที่"
+      "1": "ในการเคลื่อนที่ของพรรคพวกหนึ่งคน เพิ่ม %game.action.move.valueSign:2% ให้กับการเคลื่อนที่"
     },
     "fc-160": {
       "": "มีดตัดกระเป๋า",
@@ -53,7 +53,7 @@
     },
     "fc-165": {
       "": "เกราะมีชีวิต",
-      "1": "คุณมีภูมิคุ้มกันต่อ %game.condition.poison% และ %game.enhancement.circle% เมื่อรับความเสียหายจากการโจมตี ให้ได้รับ %game.action.shield% 0 %game.enhancement.circle% สำหรับการโจมตีนั้น"
+      "1": "คุณมีภูมิคุ้มกันต่อ %game.condition.poison% และ %game.enhancement.circle% เมื่อรับความเสียหายจากการโจมตี ให้ได้รับ %game.action.shield:0% %game.enhancement.circle% สำหรับการโจมตีนั้น"
     }
   },
   "summon": {

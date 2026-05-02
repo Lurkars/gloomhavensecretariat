@@ -40,7 +40,7 @@
       [
         {
           "type": "custom",
-          "value": "Move as far from focus as possible while still within %game.action.range% 3 of them",
+          "value": "Move as far from focus as possible while still within %game.action.range:3% of them",
           "small": true
         },
         {

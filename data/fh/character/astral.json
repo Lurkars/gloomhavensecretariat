@@ -13,7 +13,6 @@
   "specialActions": [
     {
       "name": "imbue-with-life",
-      "expire": true,
       "level": 1
     },
     {

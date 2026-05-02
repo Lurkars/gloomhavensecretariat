@@ -12,7 +12,7 @@
         "1": "Emballer"
       },
       "sand-spider": {
-        "1": "Obtenez +3%game.action.attack% si la cible est affectée à %game.condition.immobilize%.",
+        "1": "Obtenez %game.action.attack.valueSign:3% si la cible est affectée à %game.condition.immobilize%.",
         "2": "Toutes les attaques ciblant %data.monster.sand-spider% dans ce tour seront désavantagées.",
         "3": "Créez un piège %game.condition.immobilize% sur un terrain adjacent le plus proche d'un adversaire."
       }

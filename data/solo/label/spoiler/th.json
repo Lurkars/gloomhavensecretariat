@@ -160,7 +160,7 @@
     },
     "gh2e-154": {
       "": "Focusing Ray",
-      "1": "ระหว่างความสามารถรักษา เพิ่ม +1 %game.action.heal% และ %game.condition.strengthen% ในการรักษาหนึ่งครั้งที่เล็งพรรคพวก"
+      "1": "ระหว่างความสามารถรักษา เพิ่ม %game.action.heal.valueSign:1% และ %game.condition.strengthen% ในการรักษาหนึ่งครั้งที่เล็งพรรคพวก"
     },
     "gh2e-155": {
       "": "Etheric Elixir",
@@ -168,7 +168,7 @@
     },
     "gh2e-156": {
       "": "Silent Stiletto",
-      "1": "เพิ่ม %game.action.pierce% 1 ในการโจมตีทั้งหมดของคุณ"
+      "1": "เพิ่ม %game.action.pierce:1% ในการโจมตีทั้งหมดของคุณ"
     },
     "gh2e-157": {
       "": "Stone Charm",
@@ -176,7 +176,7 @@
     },
     "gh2e-158": {
       "": "Psychic Knife",
-      "1": "เพิ่ม +1 %game.action.attack% ในการโจมตีทั้งหมดของคุณจากแอ็กชัน %data.action.custom.gh2e-augment% ของคุณ"
+      "1": "เพิ่ม %game.action.attack.valueSign:1% ในการโจมตีทั้งหมดของคุณจากแอ็กชัน %data.action.custom.gh2e-augment% ของคุณ"
     },
     "gh2e-159": {
       "": "Insignia of the Divine",
@@ -198,11 +198,11 @@
     "gh2e-163": {
       "": "Pendant of the Plague",
       "1": "ระหว่างเทิร์นของคุณ ดำเนินการ:",
-      "2": "คุณอาจให้พรรคพวกหนึ่งตัวภายใน %game.action.range:3% (จากคุณ) %game.condition.poison% เพื่อเพิ่ม +1 %game.action.target%"
+      "2": "คุณอาจให้พรรคพวกหนึ่งตัวภายใน %game.action.range:3% (จากคุณ) %game.condition.poison% เพื่อเพิ่ม %game.action.target.valueSign:1%"
     },
     "gh2e-164": {
       "": "Mask of Death",
-      "1": "เพิ่ม +2 %game.action.attack% ในการโจมตีประชิดทั้งหมดขณะค่าพอยท์เลือดปัจจุบันของคุณเป็น 1"
+      "1": "เพิ่ม %game.action.attack.valueSign:2% ในการโจมตีประชิดทั้งหมดขณะค่าพอยท์เลือดปัจจุบันของคุณเป็น 1"
     },
     "gh2e-165": {
       "": "Master's Lute",
@@ -261,10 +261,10 @@
       "1": "ระหว่างเทิร์นของคุณ ยกเลิกแอ็กชันบนเพื่อเล่นแอ็กชันเรียกจากการ์ดในกองทิ้ง โดยไม่สนใจ ^scrapx^ สองอัน"
     },
     "solo-114": {
-      "1": "ระหว่างความสามารถโจมตี ได้รับ %game.condition.wound% เพื่อเพิ่ม +3 %game.action.attack% ในการโจมตีหนึ่งครั้ง ถ้าฆ่าเป้าหมาย ดำเนินการ \"%game.action.heal% 3, Self\""
+      "1": "ระหว่างความสามารถโจมตี ได้รับ %game.condition.wound% เพื่อเพิ่ม %game.action.attack.valueSign:3% ในการโจมตีหนึ่งครั้ง ถ้าฆ่าเป้าหมาย ดำเนินการ \"%game.action.heal:3%, Self\""
     },
     "solo-119": {
-      "1": "ระหว่างความสามารถโจมตี เพิ่ม +1 %game.action.attack% ในการโจมตีหนึ่งครั้ง ทุกครั้งที่ไอเทมนี้ถูก refresh ศัตรูที่ติดกันหนึ่งตัวได้รับความเสียหาย 1"
+      "1": "ระหว่างความสามารถโจมตี เพิ่ม %game.action.attack.valueSign:1% ในการโจมตีหนึ่งครั้ง ทุกครั้งที่ไอเทมนี้ถูก refresh ศัตรูที่ติดกันหนึ่งตัวได้รับความเสียหาย 1"
     },
     "solo-120": {
       "1": "ระหว่างความสามารถโจมตีประชิด ได้รับ %game.condition.chill% เพื่อเพิ่ม %game.condition.chill% ในการโจมตี หลังการโจมตี พลิกการ์ดนี้",
@@ -277,28 +277,28 @@
       "1": "ทุกครั้งที่คุณ %game.condition.dodge% การโจมตี คุณอาจใช้ไอเทมนี้แทนการทิ้งการ์ดจากมือ"
     },
     "solo-128": {
-      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\""
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ \"%game.action.pull:1%, %game.condition.muddle%, %game.action.range:3%\""
     },
     "solo-134": {
-      "1": "ทุกครั้งที่ฆ่าศัตรูระหว่างเทิร์น ได้รับ %game.action.shield% 1 สำหรับรอบที่เหลือ"
+      "1": "ทุกครั้งที่ฆ่าศัตรูระหว่างเทิร์น ได้รับ %game.action.shield:1% สำหรับรอบที่เหลือ"
     },
     "solo-135": {
       "1": "ระหว่างแอ็กชัน Heal เพิ่มค่าการรักษาเป็นสองเท่า"
     },
     "solo-136": {
-      "1": "ระหว่างการโจมตีระยะไกล เพิ่ม +2 %game.action.attack% และได้เปรียบในการโจมตีทั้งหมด แต่ได้รับความเสียหาย 2 สำหรับการโจมตีแต่ละครั้ง"
+      "1": "ระหว่างการโจมตีระยะไกล เพิ่ม %game.action.attack.valueSign:2% และได้เปรียบในการโจมตีทั้งหมด แต่ได้รับความเสียหาย 2 สำหรับการโจมตีแต่ละครั้ง"
     },
     "solo-137": {
-      "1": "ทุกครั้งที่ดำเนินการโจมตีประชิด เพิ่ม %game.action.pierce% 1 ในการโจมตี"
+      "1": "ทุกครั้งที่ดำเนินการโจมตีประชิด เพิ่ม %game.action.pierce:1% ในการโจมตี"
     },
     "solo-138": {
       "1": "ระหว่างแอ็กชันที่สร้างสิ่งกีดขวาง สร้างสิ่งกีดขวางเพิ่มอีกหนึ่งอันและใช้ผลทั้งหมดของแอ็กชันกับมัน"
     },
     "solo-139": {
-      "1": "ทุกครั้งที่ดำเนินการแอ็กชัน %data.characterColored.mindthief:Augment% เพิ่ม +1 %game.action.attack% ในแอ็กชันทั้งหมด"
+      "1": "ทุกครั้งที่ดำเนินการแอ็กชัน %data.characterColored.mindthief:Augment% เพิ่ม %game.action.attack.valueSign:1% ในแอ็กชันทั้งหมด"
     },
     "solo-140": {
-      "1": "เมื่อได้รับความเสียหายจากการโจมตี คุณอาจ %game.element.consume.light% เพื่อได้รับ %game.action.shield% 3 สำหรับการโจมตี"
+      "1": "เมื่อได้รับความเสียหายจากการโจมตี คุณอาจ %game.element.consume.light% เพื่อได้รับ %game.action.shield:3% สำหรับการโจมตี"
     },
     "solo-141": {
       "1": "ระหว่างเทิร์นของคุณ คุณหรือพรรคพวกหนึ่งตัวอาจ Refresh %game.card.refresh% ไอเทมที่ใช้หรือใช้แล้วหนึ่งชิ้นของคุณ"
@@ -313,16 +313,16 @@
       "1": "ระหว่างเทิร์นของคุณ ให้ %game.condition.poison% และ %game.condition.curse% ศัตรูหนึ่งตัวภายใน %game.action.range:3%"
     },
     "solo-145": {
-      "1": "ทุกครั้งที่ดำเนินการโจมตีประชิดและคุณมีพอยท์เลือดพอดี 1 เพิ่ม +2 %game.action.attack% ในการโจมตี"
+      "1": "ทุกครั้งที่ดำเนินการโจมตีประชิดและคุณมีพอยท์เลือดพอดี 1 เพิ่ม %game.action.attack.valueSign:2% ในการโจมตี"
     },
     "solo-146": {
-      "1": "หลังดำเนินการแอ็กชัน %data.characterColored.music-note:Song% ใดๆ ดำเนินการแอ็กชัน %game.action.attack% 2 หรือ %game.action.move% 2 ทันที"
+      "1": "หลังดำเนินการแอ็กชัน %data.characterColored.music-note:Song% ใดๆ ดำเนินการแอ็กชัน %game.action.attack:2% หรือ %game.action.move:2% ทันที"
     },
     "solo-147": {
       "1": "ทุกครั้งที่ดำเนินการแอ็กชัน %data.characterColored.angry-face:Doom% ให้ %game.condition.muddle% เป้าหมายของ %data.characterColored.angry-face:Doom%"
     },
     "solo-148": {
-      "1": "ทุกครั้งที่พรรคพวกดำเนินการแอ็กชัน Medical Pack หรือ Large Medical Pack พวกเขาเพิ่ม +1 %game.action.heal% ในการรักษาของพวกเขา"
+      "1": "ทุกครั้งที่พรรคพวกดำเนินการแอ็กชัน Medical Pack หรือ Large Medical Pack พวกเขาเพิ่ม %game.action.heal.valueSign:1% ในการรักษาของพวกเขา"
     },
     "solo-149": {
       "1": "ถ้าคุณเคลื่อนที่ 5 หกเหลี่ยมขึ้นไปในเทิร์น สร้างธาตุใดก็ได้"
@@ -374,8 +374,8 @@
       "2": "การรักษานี้ไม่ได้รับผลจากและไม่สามารถเอาเงื่อนไขลบออกได้"
     },
     "solo-259": {
-      "1": "ระหว่างความสามารถโจมตีที่คุณให้พรรคพวก เพิ่ม %game.action.push% 2 ในการโจมตีหนึ่งครั้งของพวกเขา แล้วพลิกการ์ดนี้",
-      "2": "ระหว่างความสามารถโจมตีของคุณ เพิ่ม %game.action.pull% 2 ในการโจมตีหนึ่งครั้ง แล้วพลิกการ์ดนี้"
+      "1": "ระหว่างความสามารถโจมตีที่คุณให้พรรคพวก เพิ่ม %game.action.push:2% ในการโจมตีหนึ่งครั้งของพวกเขา แล้วพลิกการ์ดนี้",
+      "2": "ระหว่างความสามารถโจมตีของคุณ เพิ่ม %game.action.pull:2% ในการโจมตีหนึ่งครั้ง แล้วพลิกการ์ดนี้"
     },
     "solo-260": {
       "1": "ระหว่างความสามารถโจมตี เพิ่ม %game.condition.brittle% ในการโจมตีหนึ่งครั้งและสร้างแผ่นภูมิประเทศน้ำแข็ง 1 หกเหลี่ยมในหกเหลี่ยมว่างที่เป้าหมายอยู่"
@@ -384,7 +384,7 @@
       "1": "เอาความเสียหายและเงื่อนไขลบทั้งหมดออกจากสิ่งเรียกของคุณหนึ่งตัว แล้ว %data.action.custom.fh-mode% ให้สิ่งเรียกนั้น"
     },
     "solo-262": {
-      "1": "ระหว่างความสามารถเคลื่อนที่ เมื่อคุณมี %game.characterIconIdentityColored.drill.1% หรือ %game.characterIconIdentityColored.drill.2% เพิ่ม +1 %game.action.move% แล้วพลิกการ์ดนี้เมื่อสิ้นสุดเทิร์น",
+      "1": "ระหว่างความสามารถเคลื่อนที่ เมื่อคุณมี %game.characterIconIdentityColored.drill.1% หรือ %game.characterIconIdentityColored.drill.2% เพิ่ม %game.action.move.valueSign:1% แล้วพลิกการ์ดนี้เมื่อสิ้นสุดเทิร์น",
       "2": "ระหว่างเทิร์นของคุณเมื่อคุณมี %game.characterIconIdentityColored.drill.3% ดำเนินการ:",
       "4": "แล้วพลิกการ์ดนี้เมื่อสิ้นสุดเทิร์น"
     },
@@ -398,28 +398,28 @@
       "1": "เมื่อสิ้นสุดเทิร์น สร้างกับดัก %game.condition.poison% ความเสียหาย 4 หนึ่งอันในหกเหลี่ยมว่างที่ติดกัน"
     },
     "solo-40": {
-      "1": "เพิ่ม +1 %game.action.move% ในการเคลื่อนที่ทั้งหมดขณะคุณมีสุขภาพเต็ม"
+      "1": "เพิ่ม %game.action.move.valueSign:1% ในการเคลื่อนที่ทั้งหมดขณะคุณมีสุขภาพเต็ม"
     },
     "solo-41": {
       "1": "ระหว่างเทิร์นของคุณ เอา damage token หนึ่งอันออกจาก %data.characterColored.skull:Spirit% %data.characterIconColoredBg.skull% หนึ่งตัว %data.characterColored.skull:Spirit% นี้อาจดำเนินเทิร์นทันทีโดยไม่ได้รับ damage token"
     },
     "solo-42": {
-      "1": "ทุกครั้งที่ให้พรรคพวกการ์ดความสามารถ %data.characterColored.leaf:Prayer% พรรคพวกนั้นอาจดำเนินการ \"%game.action.heal% 2, Self\""
+      "1": "ทุกครั้งที่ให้พรรคพวกการ์ดความสามารถ %data.characterColored.leaf:Prayer% พรรคพวกนั้นอาจดำเนินการ \"%game.action.heal:2%, Self\""
     },
     "solo-45": {
-      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ \"%game.action.pull% 2, Self ไปทางศัตรูหนึ่งตัวภายใน %game.action.range:3%\""
+      "1": "ระหว่างเทิร์นของคุณ ดำเนินการ \"%game.action.pull:2%, Self ไปทางศัตรูหนึ่งตัวภายใน %game.action.range:3%\""
     },
     "solo-47": {
       "1": "ขณะ %data.characterColored.tusks:Mounted% บนสิ่งเรียก คุณสามารถใช้ผลไอเทม %game.items.slots.small% ของคุณกับสิ่งเรียกแทนได้"
     },
     "solo-48": {
-      "1": "ระหว่างเทิร์นของคุณ %game.element.consume.wild% เพื่อดำเนินการอย่างใดอย่างหนึ่งต่อไปนี้: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%"
+      "1": "ระหว่างเทิร์นของคุณ %game.element.consume.wild% เพื่อดำเนินการอย่างใดอย่างหนึ่งต่อไปนี้: %game.action.move:2%, %game.action.jump%, %game.element.air% | %game.action.heal:3%, Self, %game.element.light% | %game.action.attack:2%, %game.element.fire%"
     },
     "solo-50": {
       "1": "ระหว่างเทิร์นของคุณ เมื่อคุณ %game.element.consume.wild% ธาตุ อย่าย้ายธาตุที่ใช้ไปคอลัมน์ Inert"
     },
     "solo-51": {
-      "1": "เมื่อถูกโจมตี คุณอาจ %game.element.consume.fire% เพื่อได้รับ %game.action.retaliate% 3 สำหรับการโจมตี"
+      "1": "เมื่อถูกโจมตี คุณอาจ %game.element.consume.fire% เพื่อได้รับ %game.action.retaliate:3% สำหรับการโจมตี"
     },
     "solo-53": {
       "1": "ครั้งเดียวต่อเทิร์น ระหว่างเทิร์นของคุณ คุณอาจเอาเงื่อนไขหนึ่งอย่างออกจากตัวละครที่ติดกันและวางเงื่อนไขนั้นบนการ์ดนี้ถ้ามันยังไม่อยู่บนการ์ดนี้ ระหว่างเทิร์นของคุณ ตัวละครที่ติดกันหนึ่งตัวได้รับเงื่อนไขทั้งหมดบนการ์ดนี้ แล้วใช้ %game.card.lost% ไอเทมนี้"

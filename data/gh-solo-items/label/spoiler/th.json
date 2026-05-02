@@ -37,19 +37,19 @@
       "": "คฑาแห่งการบงการ"
     },
     "solo-digital-135": {
-      "1": "ระหว่างความสามารถ Heal ของคุณที่กำหนดเป้าหมายพรรคพวก ให้เพิ่ม +1 %game.action.heal% และ %game.condition.strengthen%"
+      "1": "ระหว่างความสามารถ Heal ของคุณที่กำหนดเป้าหมายพรรคพวก ให้เพิ่ม %game.action.heal.valueSign:1% และ %game.condition.strengthen%"
     },
     "solo-digital-137": {
-      "1": "เมื่อใดก็ตามที่คุณดำเนินการโจมตี ให้เพิ่ม %game.action.pierce% 1 ให้กับการโจมตี"
+      "1": "เมื่อใดก็ตามที่คุณดำเนินการโจมตี ให้เพิ่ม %game.action.pierce:1% ให้กับการโจมตี"
     },
     "solo-digital-138": {
       "1": "เมื่อใดก็ตามที่คุณสร้างสิ่งกีดขวาง ศัตรูทั้งหมดที่ติดกับสิ่งกีดขวางได้รับ %game.condition.muddle%"
     },
     "solo-digital-139": {
-      "1": "เมื่อใดก็ตามที่คุณดำเนินการแอ็กชัน %data.characterColored.mindthief:Augment% ให้เพิ่ม +2 %game.action.attack% ให้กับแอ็กชันทั้งหมด"
+      "1": "เมื่อใดก็ตามที่คุณดำเนินการแอ็กชัน %data.characterColored.mindthief:Augment% ให้เพิ่ม %game.action.attack.valueSign:2% ให้กับแอ็กชันทั้งหมด"
     },
     "solo-digital-140": {
-      "1": "เมื่อรับความเสียหายจากการโจมตี คุณอาจ %game.element.consume.light% เพื่อได้รับ %game.action.shield% 2 และ %game.action.retaliate% 1 สำหรับการโจมตี"
+      "1": "เมื่อรับความเสียหายจากการโจมตี คุณอาจ %game.element.consume.light% เพื่อได้รับ %game.action.shield:2% และ %game.action.retaliate:1% สำหรับการโจมตี"
     },
     "solo-digital-143": {
       "1": "ระหว่างเทิร์นของคุณ ได้รับ %game.condition.invisible%"
@@ -58,10 +58,10 @@
       "1": "ระหว่างเทิร์นของคุณ ให้ %game.condition.poison% และ %game.condition.curse% แก่ศัตรูหนึ่งตัวภายใน %game.action.range:3%"
     },
     "solo-digital-146": {
-      "1": "หลังดำเนินการแอ็กชัน %data.characterColored.music-note:Song% ใดๆ ให้ดำเนินการแอ็กชัน %game.action.attack% 2 หรือ %game.action.move% 2 ทันที"
+      "1": "หลังดำเนินการแอ็กชัน %data.characterColored.music-note:Song% ใดๆ ให้ดำเนินการแอ็กชัน %game.action.attack:2% หรือ %game.action.move:2% ทันที"
     },
     "solo-digital-147": {
-      "1": "เมื่อใดก็ตามที่คุณดำเนินการแอ็กชัน %data.characterColored.angry-face:Doom% ทันทีหลังจากนั้นคุณอาจดำเนินการ \"%game.action.move% 1\""
+      "1": "เมื่อใดก็ตามที่คุณดำเนินการแอ็กชัน %data.characterColored.angry-face:Doom% ทันทีหลังจากนั้นคุณอาจดำเนินการ \"%game.action.move:1%\""
     },
     "solo-digital-148": {
       "1": "เมื่อคุณให้การ์ดความสามารถ Medical Pack หรือ Large Medical Pack แก่พรรคพวกหนึ่งตัวขึ้นไป ให้ได้รับการ์ดความสามารถ Medical Pack หนึ่งใบ"

@@ -12,7 +12,7 @@
         "1": "Rudel"
       },
       "sand-spider": {
-        "1": "Erhalte +3 %game.action.attack%, wenn das Ziel mit %game.condition.immobilize% belegt ist.",
+        "1": "Erhalte %game.action.attack.valueSign:3%, wenn das Ziel mit %game.condition.immobilize% belegt ist.",
         "2": "Alle Angriffe, die in dieser Runde die %data.monster.sand-spider% anvisieren, erhalten Nachteil.",
         "3": "Erstelle eine %game.condition.immobilize% Falle auf einem angrenzenden Feld, das einem Gegner am nächsten ist."
       }

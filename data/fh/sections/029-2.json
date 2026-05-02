@@ -45,7 +45,7 @@
           "value": "2"
         }
       ],
-      "noteTop": "The Blacksmith performs %game.action.push%1, %game.action.target% all characters, %game.action.range%5, %game.condition.muddle%"
+      "noteTop": "The Blacksmith performs %game.action.push:1%, %game.action.target% all characters, %game.action.range:5%, %game.condition.muddle%"
     }
   ],
   "rooms": [

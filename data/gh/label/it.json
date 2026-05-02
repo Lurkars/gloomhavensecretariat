@@ -131,7 +131,7 @@
             "2": "dove X è l'ammontare di %game.damage% che hai inflitto in questo turno."
           },
           "13": {
-            "1": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi in questo turno."
+            "1": "Aggiungi %game.action.attack.valueSign:1% a tutti i tuoi attacchi in questo turno."
           },
           "14": {
             "1": "Uccidi un nemico normale adiacente."
@@ -151,13 +151,13 @@
           },
           "22": {
             "1": "Uccidi un nemico normale adiacente con %game.condition.stun%.",
-            "2": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi in questo turno."
+            "2": "Aggiungi %game.action.attack.valueSign:1% a tutti i tuoi attacchi in questo turno."
           },
           "23": {
             "1": "Puoi considerare tutte le abilità %game.action.move% come abilità %game.action.attack% di valore equivalente."
           },
           "26": {
-            "1": "Aggiungi +3 %game.action.attack% a tutti i tuoi attacchi contro nemici con %game.condition.disarm%, %game.condition.immobilize% o %game.condition.stun% in questo turno."
+            "1": "Aggiungi %game.action.attack.valueSign:3% a tutti i tuoi attacchi contro nemici con %game.condition.disarm%, %game.condition.immobilize% o %game.condition.stun% in questo turno."
           },
           "28": {
             "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
@@ -169,12 +169,12 @@
             "1": "Ogni nemico che bersaglia un tuo alleato adiacente con un attacco in questo turno, bersaglia te con quell'attacco invece, indipendentemente dalla gittata."
           },
           "7": {
-            "1": "Sulle prossime sei fonti di %game.damage% da attacchi che ti bersagliano, ottieni %game.action.shield%1."
+            "1": "Sulle prossime sei fonti di %game.damage% da attacchi che ti bersagliano, ottieni %game.action.shield:1%."
           }
         }
       },
       "captain-of-the-guard": {
-        "1": "Tutti gli alleati aggiungono +1 %game.action.attack% a tutti gli attacchi in questo turno"
+        "1": "Tutti gli alleati aggiungono %game.action.attack.valueSign:1% a tutti gli attacchi in questo turno"
       },
       "cragheart": {
         "abilities": {
@@ -205,12 +205,12 @@
             "5": "Colpisci tutti gli alleati"
           },
           "124": {
-            "1": "%game.action.push% 2, %game.card.experience:1%",
+            "1": "%game.action.push:2%, %game.card.experience:1%",
             "2": "Tutti gli alleati e nemici adiacenti subiscono 1 danno.",
             "3": "2 danni invece, %game.card.experience:1%"
           },
           "125": {
-            "1": "+1 %game.action.attack%, %game.card.experience:1%",
+            "1": "%game.action.attack.valueSign:1%, %game.card.experience:1%",
             "2": "%game.condition.muddle% tutti gli alleati e nemici nell'area bersagliata."
           },
           "126": {
@@ -218,15 +218,15 @@
           },
           "127": {
             "1": "Puoi spingere il bersaglio in esagoni contenenti ostacoli. In ogni caso, distruggi l'ostacolo, il bersaglio subisce 2 danni e ottieni %game.card.experience:1%.",
-            "2": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi a distanza in questo turno."
+            "2": "Aggiungi %game.action.attack.valueSign:1% a tutti i tuoi attacchi a distanza in questo turno."
           },
           "128": {
             "1": "Ottieni %game.card.experience:1% per ogni",
             "2": "nemico bersagliato.",
-            "3": "Aggiungi +2 %game.action.attack% a tutti i tuoi attacchi in mischia in questo turno."
+            "3": "Aggiungi %game.action.attack.valueSign:2% a tutti i tuoi attacchi in mischia in questo turno."
           },
           "129": {
-            "1": "Nelle tue prossime sei azioni di Attacco a distanza quando %game.element.air% è Forte o Calante, %game.element.consume.air% per aggiungere +2 %game.action.range%."
+            "1": "Nelle tue prossime sei azioni di Attacco a distanza quando %game.element.air% è Forte o Calante, %game.element.consume.air% per aggiungere %game.action.range.valueSign:2%."
           },
           "130": {
             "1": "Distruggi un ostacolo adiacente.",
@@ -251,7 +251,7 @@
             "2": "Crea un ostacolo a singolo esagono nell'esagono in cui il nemico è morto."
           },
           "137": {
-            "1": "Nei tuoi prossimi quattro attacchi in mischia quando possibile, distruggi un ostacolo adiacente per aggiungere +3 %game.action.attack%."
+            "1": "Nei tuoi prossimi quattro attacchi in mischia quando possibile, distruggi un ostacolo adiacente per aggiungere %game.action.attack.valueSign:3%."
           },
           "138": {
             "1": "Crea una trappola da 2 danni %game.condition.stun% in un esagono vuoto adiacente."
@@ -260,16 +260,16 @@
             "1": "%game.condition.immobilize% tutti gli alleati e nemici nell'area bersagliata."
           },
           "140": {
-            "1": "Crea un ostacolo triangolare di tre esagoni in esagoni vuoti entro %game.action.range% 3.",
+            "1": "Crea un ostacolo triangolare di tre esagoni in esagoni vuoti entro %game.action.range:3%.",
             "2": "Bersaglia tutti i nemici adiacenti all'ostacolo."
           },
           "141": {
             "1": "Per ogni esagono in cui non puoi spingere il bersaglio a causa di un muro o ostacolo, il bersaglio subisce 2 danni e ottieni %game.card.experience:1%.",
-            "2": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi a distanza in questo turno.",
-            "3": "Aggiungi +2 %game.action.attack% invece, %game.card.experience:1%."
+            "2": "Aggiungi %game.action.attack.valueSign:1% a tutti i tuoi attacchi a distanza in questo turno.",
+            "3": "Aggiungi %game.action.attack.valueSign:2% invece, %game.card.experience:1%."
           },
           "142": {
-            "1": "Distruggi tutti gli ostacoli entro %game.action.range% 2",
+            "1": "Distruggi tutti gli ostacoli entro %game.action.range:2%",
             "2": "Dove X è il doppio del numero",
             "3": "di esagoni occupati dagli ostacoli",
             "4": "distrutti.",
@@ -318,14 +318,14 @@
         "voice": "Voce"
       },
       "giant-viper": {
-        "1": "Aggiungi +2 %game.action.attack% se il bersaglio è adiacente a qualsiasi alleato del %data.monster.giant-viper%.",
+        "1": "Aggiungi %game.action.attack.valueSign:2% se il bersaglio è adiacente a qualsiasi alleato del %data.monster.giant-viper%.",
         "2": "Tutti gli attacchi che bersagliano %data.monster.giant-viper% in questo turno ottengono Svantaggio."
       },
       "harrower-infester": {
-        "1": "Esegui \"%game.action.heal% 2, %game.specialTarget.self%\" per ogni bersaglio danneggiato"
+        "1": "Esegui \"%game.action.heal:2%, %game.specialTarget.self%\" per ogni bersaglio danneggiato"
       },
       "hound": {
-        "1": "Aggiungi +2 %game.action.attack% se il bersaglio è adiacente a qualsiasi alleato del %data.monster.hound%."
+        "1": "Aggiungi %game.action.attack.valueSign:2% se il bersaglio è adiacente a qualsiasi alleato del %data.monster.hound%."
       },
       "merciless-overseer": {
         "1": "Tutti gli Esploratori agiscono di nuovo",
@@ -335,19 +335,19 @@
         "1": "X è la metà del valore attuale dei punti ferita del ratto (arrotondato per eccesso).",
         "abilities": {
           "146": {
-            "1": "Aggiungi +1 %game.action.attack% per ogni condizione negativa sul bersaglio",
+            "1": "Aggiungi %game.action.attack.valueSign:1% per ogni condizione negativa sul bersaglio",
             "2": "Forza un nemico entro %game.action.range:5% a eseguire",
             "3": "bersagliando un altro nemico con te che controlli l'azione."
           },
           "149": {
             "1": "Sui tuoi attacchi in mischia:",
-            "2": "Ottieni %game.action.shield% 1",
+            "2": "Ottieni %game.action.shield:1%",
             "3": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta.",
             "4": "Se termini il movimento nello stesso esagono in cui hai iniziato, esegui"
           },
           "151": {
             "1": "Sui tuoi attacchi in mischia:",
-            "2": "Aggiungi +2 %game.action.attack%",
+            "2": "Aggiungi %game.action.attack.valueSign:2%",
             "3": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta."
           },
           "152": {
@@ -357,7 +357,7 @@
             "4": "con te che controlli l'azione."
           },
           "154": {
-            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% per ogni condizione negativa sul bersaglio."
+            "1": "Aggiungi %game.action.attack.valueSign:2% e ottieni %game.card.experience:1% per ogni condizione negativa sul bersaglio."
           },
           "156": {
             "1": "Sui tuoi attacchi in mischia:",
@@ -438,27 +438,27 @@
             "1": "Aggiungi %game.condition.wound% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato."
           },
           "103": {
-            "1": "Aggiungi +2 %game.action.attack% a tutti i tuoi attacchi in questo turno a nemici non adiacenti a nessun loro alleato."
+            "1": "Aggiungi %game.action.attack.valueSign:2% a tutti i tuoi attacchi in questo turno a nemici non adiacenti a nessun loro alleato."
           },
           "104": {
             "1": "Ottieni Vantaggio su tutti i tuoi attacchi in questo turno."
           },
           "105": {
-            "1": "Aggiungi +3 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
-            "2": "Aggiungi +3 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio non è adiacente a nessun suo alleato."
+            "1": "Aggiungi %game.action.attack.valueSign:3% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Aggiungi %game.action.attack.valueSign:3% e ottieni %game.card.experience:1% quando il bersaglio non è adiacente a nessun suo alleato."
           },
           "106": {
-            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
-            "2": "Nei tuoi prossimi sei attacchi a nemici con %game.condition.disarm%, %game.condition.immobilize% o %game.condition.stun%, aggiungi +2 %game.action.attack%"
+            "1": "Aggiungi %game.action.attack.valueSign:2% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Nei tuoi prossimi sei attacchi a nemici con %game.condition.disarm%, %game.condition.immobilize% o %game.condition.stun%, aggiungi %game.action.attack.valueSign:2%"
           },
           "107": {
             "1": "Uccidi un nemico normale adiacente che non è adiacente a nessun suo alleato ed è adiacente a qualsiasi tuo alleato."
           },
           "108": {
-            "1": "Aggiungi +2 %game.action.attack% a tutti i tuoi attacchi a nemici con %game.condition.poison%."
+            "1": "Aggiungi %game.action.attack.valueSign:2% a tutti i tuoi attacchi a nemici con %game.condition.poison%."
           },
           "110": {
-            "1": "Aggiungi +4 %game.action.attack% e ottieni %game.card.experience:2% quando il bersaglio è adiacente a qualsiasi tuo alleato."
+            "1": "Aggiungi %game.action.attack.valueSign:4% e ottieni %game.card.experience:2% quando il bersaglio è adiacente a qualsiasi tuo alleato."
           },
           "111": {
             "1": "Disinnesca una trappola adiacente.",
@@ -476,25 +476,25 @@
             "1": "Aggiungi %game.condition.poison% e %game.condition.wound% a tutti i tuoi attacchi."
           },
           "88": {
-            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
-            "2": "Nei tuoi prossimi quattro attacchi a nemici non adiacenti a nessun loro alleato, aggiungi +2 %game.action.attack%"
+            "1": "Aggiungi %game.action.attack.valueSign:2% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Nei tuoi prossimi quattro attacchi a nemici non adiacenti a nessun loro alleato, aggiungi %game.action.attack.valueSign:2%"
           },
           "89": {
-            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato."
+            "1": "Aggiungi %game.action.attack.valueSign:2% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato."
           },
           "90": {
             "1": "Nel tuo prossimo attacco mentre sei %game.condition.invisible%, raddoppia il valore dell'attacco."
           },
           "91": {
-            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
-            "2": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio non è adiacente a nessun suo alleato."
+            "1": "Aggiungi %game.action.attack.valueSign:2% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Aggiungi %game.action.attack.valueSign:2% e ottieni %game.card.experience:1% quando il bersaglio non è adiacente a nessun suo alleato."
           },
           "92": {
             "1": "Disinnesca una trappola adiacente."
           },
           "97": {
-            "1": "Aggiungi +1 %game.action.attack% per ogni tuo alleato adiacente al bersaglio.",
-            "2": "Aggiungi +2 %game.action.attack% invece, %game.card.experience:1%",
+            "1": "Aggiungi %game.action.attack.valueSign:1% per ogni tuo alleato adiacente al bersaglio.",
+            "2": "Aggiungi %game.action.attack.valueSign:2% invece, %game.card.experience:1%",
             "3": "Forza un nemico adiacente a eseguire",
             "4": "con te che controlli l'azione, e terminando in un esagono adiacente a te."
           },
@@ -523,8 +523,8 @@
             "1": "Sulle prossime due fonti di danni a te, non subire danni invece."
           },
           "69": {
-            "1": "Nei tuoi prossimi quattro attacchi, aggiungi +1 %game.action.attack%.",
-            "2": "Aggiungi +2 %game.action.attack% invece."
+            "1": "Nei tuoi prossimi quattro attacchi, aggiungi %game.action.attack.valueSign:1%.",
+            "2": "Aggiungi %game.action.attack.valueSign:2% invece."
           },
           "75": {
             "1": "Colpisci un qualsiasi alleato",
@@ -586,7 +586,7 @@
             "1": "Un alleato adiacente può Recuperare %game.card.recover% tutte le sue carte scartate."
           },
           "40": {
-            "1": "Tu e tutti gli alleati adiacenti aggiungete +1 %game.action.attack% a tutti i vostri attacchi in questo turno."
+            "1": "Tu e tutti gli alleati adiacenti aggiungete %game.action.attack.valueSign:1% a tutti i vostri attacchi in questo turno."
           },
           "43": {
             "1": "Crea una trappola da 2 danni %game.condition.poison% in un esagono vuoto adiacente.",
@@ -594,7 +594,7 @@
             "3": "Fino a due carte scartate invece"
           },
           "44": {
-            "1": "Nelle tue prossime quattro azioni di Cura, aggiungi +2 %game.action.heal%."
+            "1": "Nelle tue prossime quattro azioni di Cura, aggiungi %game.action.heal.valueSign:2%."
           },
           "45": {
             "1": "Un alleato entro %game.action.range:3% può Recuperare %game.card.recover% una delle sue carte perse."
@@ -624,7 +624,7 @@
           },
           "58": {
             "1": "Subisci 2 danni",
-            "2": "Tutti gli alleati adiacenti aggiungono +2 %game.action.attack% a tutti i loro attacchi in questo turno.",
+            "2": "Tutti gli alleati adiacenti aggiungono %game.action.attack.valueSign:2% a tutti i loro attacchi in questo turno.",
             "3": "Tutti gli alleati adiacenti subiscono 2 danni."
           },
           "59": {

@@ -59,7 +59,7 @@
         },
         {
           "type": "custom",
-          "value": "All Harrower Infesters gain %game.action.range%3 on all their %game.action.retaliate% abilities this round"
+          "value": "All Harrower Infesters gain %game.action.range:3% on all their %game.action.retaliate% abilities this round"
         }
       ]
     ]

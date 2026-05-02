@@ -154,7 +154,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The highest health enemy within %game.action.range% 5 and within line-of-sight suffers Damage X."
+          "value": "The highest health enemy within %game.action.range:5% and within line-of-sight suffers Damage X."
         },
         {
           "type": "grid",
@@ -188,7 +188,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The highest health enemy within %game.action.range% 5 and within line-of-sight suffers Damage X."
+          "value": "The highest health enemy within %game.action.range:5% and within line-of-sight suffers Damage X."
         },
         {
           "type": "grid",

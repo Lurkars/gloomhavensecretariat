@@ -138,7 +138,7 @@
         "": "Demoledora",
         "mech": {
           "": "Armadura mecanizada",
-          "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
+          "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal:10%, Personal."
         }
       },
       "hatchet": "Ejecutor",
@@ -158,7 +158,7 @@
         "1": "El enemigo más cercano dentro de la línea de visión, sin importar el Alcance, sufre [1+L/2{$math.ceil}] %game.damage%"
       },
       "blood-horror": {
-        "1": "Salta hasta el %data.monster.zealot% muerto más lejano y lo revive o Salta hasta el personaje más lejano y %game.action.attack%+0",
+        "1": "Salta hasta el %data.monster.zealot% muerto más lejano y lo revive o Salta hasta el personaje más lejano y %game.action.attack:+0%",
         "2": "Revive a todos los %data.monster.zealot% muertos de la sala"
       },
       "blood-monstrosity": {
@@ -183,7 +183,7 @@
       },
       "giant-viper": {
         "1": "Todos los ataques que tomen como objetivo a la %data.monster.giant-viper% sufren Desventaja durante esta ronda.",
-        "2": "Añade %game.action.attack% +2 si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.giant-viper%."
+        "2": "Añade %game.action.attack:+2% si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.giant-viper%."
       },
       "giant-viper-scenario-21": {
         "1": "Cada vez que cualquier figura ataque a la Víbora gigante, esa figura sufre %game.damage:L%"
@@ -195,7 +195,7 @@
       },
       "monstrosity": {
         "1": "Si la %data.monster.monstrosity% realiza este ataque, sufre %game.damage:1%.",
-        "2": "Añade %game.action.attack% +1 si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.monstrosity%.",
+        "2": "Añade %game.action.attack:+1% si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.monstrosity%.",
         "3": "Cada vez que una figura ataque a la %data.monster.monstrosity% esta ronda, dicha figura sufre %game.damage:2%.",
         "4": "La %data.monster.monstrosity% sufre %game.damage:1%"
       },

@@ -241,41 +241,12 @@ export class CharacterManager {
 
     character.summons.push(summon);
 
-    if (character.name === 'boneshaper') {
-      if (character.tags.includes('solid-bones') || character.tags.includes('unholy-prowess')) {
-        if (summon.name === 'shambling-skeleton') {
-          summon.maxHealth += 1;
-          if (summon.health === summon.maxHealth - 1) {
-            summon.health = summon.maxHealth;
-          } else {
-            summon.health += 1;
-          }
-          gameManager.entityManager.checkHealth(summon, character);
-          if (character.tags.includes('solid-bones')) {
-            summon.movement += 1;
-            summon.action = new Action(ActionType.pierce, 1);
-          }
-        }
-      }
-    }
-
-    if (character.name === 'astral' && character.tags.includes('veil-of-protection')) {
-      summon.health += 3;
-      summon.maxHealth += 3;
-    }
+    gameManager.specialActionsManager.addSummon(character, summon);
   }
 
   removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
-
-    if (character.name === 'astral' && character.tags.includes('imbue-with-life') && summon.name === 'animated-claymore') {
-      const disarm = character.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.disarm);
-      character.tags = character.tags.filter((tag) => tag !== 'imbue-with-life');
-      if (disarm) {
-        disarm.permanent = false;
-        disarm.state = EntityConditionState.expire;
-      }
-    }
+    gameManager.specialActionsManager.removeSummon(character, summon);
   }
 
   addXP(character: Character, value: number, levelUp: boolean = true) {

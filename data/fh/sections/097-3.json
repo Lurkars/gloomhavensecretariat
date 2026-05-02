@@ -63,13 +63,13 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "All characters and character summons add -1 %game.action.attack% to all their attacks and -1 %game.action.move% to all their move abilities"
+      "note": "All characters and character summons add %game.action.attack.valueSign:-1% to all their attacks and %game.action.move.valueSign:-1% to all their move abilities"
     },
     {
       "round": "true",
       "always": true,
       "once": true,
-      "note": "All monsters add +1 %game.action.attack% to all their attacks targeting characters or character summons"
+      "note": "All monsters add %game.action.attack.valueSign:1% to all their attacks targeting characters or character summons"
     }
   ],
   "rooms": [

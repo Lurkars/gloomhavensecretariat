@@ -6,7 +6,7 @@
     "fh": {
       "1482": {
         "": "Test Pancerza",
-        "text": "Za każdym razem, gdy dowolna postać otrzymuje %game.damage% od ataku i nie redukuje ich przez żadną %game.action.shield%, do tego ataku zostaje dodane %game.action.push%2."
+        "text": "Za każdym razem, gdy dowolna postać otrzymuje %game.damage% od ataku i nie redukuje ich przez żadną %game.action.shield%, do tego ataku zostaje dodane %game.action.push:2%."
       },
       "1483": {
         "": "Empatia",
@@ -30,7 +30,7 @@
       },
       "1488": {
         "": "Z Wiatrem",
-        "text": "Wszyscy wrogowie dodają +1%game.action.range% do wszystkich swoich ataków dystansowych.<br>Dodaj +1%game.action.move% do wszystkich wrogich zdolności ruchu."
+        "text": "Wszyscy wrogowie dodają %game.action.range.valueSign:1% do wszystkich swoich ataków dystansowych.<br>Dodaj %game.action.move.valueSign:1% do wszystkich wrogich zdolności ruchu."
       },
       "1489": {
         "": "Plugawy Sen",
@@ -38,7 +38,7 @@
       },
       "1490": {
         "": "Chciwość Jest Dobra",
-        "text": "Wrogowie wykonują %game.action.loot%1 na koniec każdej swojej tury. Za każdym razem, gdy wróg zbiera żeton łupu, zyskuje %game.condition.strengthen%. Jeśli w tym scenariuszu nie ma talii łupów, dobierz nową kartę wyzwania, a tę odłóż na spód talii."
+        "text": "Wrogowie wykonują %game.action.loot:1% na koniec każdej swojej tury. Za każdym razem, gdy wróg zbiera żeton łupu, zyskuje %game.condition.strengthen%. Jeśli w tym scenariuszu nie ma talii łupów, dobierz nową kartę wyzwania, a tę odłóż na spód talii."
       },
       "1491": {
         "": "Taktyki Alternatywne",
@@ -46,7 +46,7 @@
       },
       "1492": {
         "": "Kolczatka",
-        "text": "Wszyscy niezranieni wrogowie mają %game.action.retaliate%2."
+        "text": "Wszyscy niezranieni wrogowie mają %game.action.retaliate:2%."
       },
       "1493": {
         "": "Twardziele",
@@ -70,7 +70,7 @@
       },
       "1498": {
         "": "Porywcza Siła",
-        "text": "Wszystkie wrogie ataki dystansowe mają %game.action.push%1."
+        "text": "Wszystkie wrogie ataki dystansowe mają %game.action.push:1%."
       },
       "1499": {
         "": "Lśniące Rozproszenie",
@@ -103,7 +103,7 @@
       },
       "1506": {
         "": "Zwarta Formacja",
-        "text": "Gdy dowolna postać wykonuje atak nie sąsiadując z sojusznikiem, dodaj -1%game.action.attack% do tego ataku."
+        "text": "Gdy dowolna postać wykonuje atak nie sąsiadując z sojusznikiem, dodaj %game.action.attack.valueSign:-1% do tego ataku."
       },
       "1507": {
         "": "Tandetne Rzemiosło",
@@ -127,7 +127,7 @@
       },
       "1512": {
         "": "Kolczasta Zbroja",
-        "text": "Wszystkie postacie zyskują %game.action.retaliate%X, %game.action.range%3, gdzie X to ich wartość %game.action.shield%.<br>Dodaj -1%game.action.attack% do wszystkich ataków postaci."
+        "text": "Wszystkie postacie zyskują %game.action.retaliate:X%, %game.action.range:3%, gdzie X to ich wartość %game.action.shield%.<br>Dodaj %game.action.attack.valueSign:-1% do wszystkich ataków postaci."
       },
       "1513": {
         "": "Uczciwa Walka",
@@ -135,11 +135,11 @@
       },
       "1514": {
         "": "Falanga",
-        "text": "Wszyscy wrogowie zyskują %game.action.shield% 1, gdy sąsiadują z co najmniej jednym ze swoich sojuszników."
+        "text": "Wszyscy wrogowie zyskują %game.action.shield:1%, gdy sąsiadują z co najmniej jednym ze swoich sojuszników."
       },
       "1515": {
         "": "Dominująca Obecność",
-        "text": "Gdy na mapie obecny jest dowolny elitarny wróg, wszyscy zwykli wrogowie tego samego typu zyskują %game.action.shield%1."
+        "text": "Gdy na mapie obecny jest dowolny elitarny wróg, wszyscy zwykli wrogowie tego samego typu zyskują %game.action.shield:1%."
       },
       "1516": {
         "": "Tajemna Taktyka",
@@ -151,7 +151,7 @@
       },
       "1518": {
         "": "Więzy Krwi",
-        "text": "Za pierwszym razem, gdy w trakcie rundy dowolny wróg otrzymuje %game.damage%, jeden inny ranny wróg wykonuje %game.action.heal%X na siebie, gdzie X to wartość zadanych obrażeń."
+        "text": "Za pierwszym razem, gdy w trakcie rundy dowolny wróg otrzymuje %game.damage%, jeden inny ranny wróg wykonuje %game.action.heal:X% na siebie, gdzie X to wartość zadanych obrażeń."
       },
       "1519": {
         "": "Kolczatki",
@@ -168,7 +168,7 @@
       "1522": {
         "": "Ofensywne Rozprzestrzenienie",
         "hint": "Zastosowano tylko dla potworów!",
-        "text": "Wszystkie figurki dodają -1%game.action.attack% i +1%game.action.target% do wszystkich swoich zdolności ataku skierowanych w jeden cel."
+        "text": "Wszystkie figurki dodają %game.action.attack.valueSign:-1% i %game.action.target.valueSign:1% do wszystkich swoich zdolności ataku skierowanych w jeden cel."
       },
       "1523": {
         "": "Polowanie w Stadzie",
@@ -176,7 +176,7 @@
       },
       "1524": {
         "": "Zdrowotny Wigor",
-        "text": "Wszyscy wrogowie zyskują %game.action.shield%1, gdy nie mają negatywnych stanów. Za każdym razem, gdy na koniec swojej tury wróg traci co najmniej jeden negatywny stan, otrzymuje %game.damage:1%."
+        "text": "Wszyscy wrogowie zyskują %game.action.shield:1%, gdy nie mają negatywnych stanów. Za każdym razem, gdy na koniec swojej tury wróg traci co najmniej jeden negatywny stan, otrzymuje %game.damage:1%."
       },
       "1525": {
         "": "Złośliwa Zemsta",
@@ -214,7 +214,7 @@
     "fh": {
       "astral": {
         "1": "Przesuń jeden słabnący żywioł do silnej kolumny",
-        "2": "+1 %game.action.attack% za każdą parę aktywnych premii %game.action.custom.fh-infusion%",
+        "2": "%game.action.attack.valueSign:1% za każdą parę aktywnych premii %game.action.custom.fh-infusion%",
         "3": "Za każdym razem, gdy staniesz się wyczerpany, zachowaj wszystkie swoje aktywne premie w grze, a twoje przywołania działają z inicjatywą 99 w każdej rundzie",
         "4": "Za każdym razem, gdy wykonujesz krótki odpoczynek, możesz %game.element.consume.wild%, aby %game.card.recover% jeden zużyty przedmiot %game.items.slots.onehand% lub %game.items.slots.twohand%",
         "5": "Raz na scenariusz, podczas ustalania inicjatywy, po tym, jak wszystkie kart zdolności zostały ujawnione, %game.element.wild%",
@@ -243,7 +243,7 @@
       "shackles": {
         "1": "Gdy atakuje, ignoruj %game.action.retaliate%",
         "2": "Wszyscy wrogowie w zasięgu 2 pól",
-        "3": "Dodaj +1 %game.action.attack% za każdy posiadany negatywny stan",
+        "3": "Dodaj %game.action.attack.valueSign:1% za każdy posiadany negatywny stan",
         "4": "W każdej rundzie, w której wykonujesz długi odpoczynek możesz zignorować wszystkie negatywne stany. Jeżeli to zrobisz, nie mogą być one usunięte w tej rundzie",
         "5": "Za każdym razem, gdy staniesz się wyczerpany, najpierw wykonaj %game.condition.curse%, %game.action.target% wszyscy, %game.action.range:3%",
         "6": "Zwiększ swoją maksymalną wartość punktów życia o 5",
@@ -264,10 +264,10 @@
       "trap": {
         "1": "Na koniec tury, stwórz jedną pułapkę %game.damage:2% na pustym sąsiadującym polu.",
         "10": "Za pomocą jednej zdolności, przemieść wrogów przez co najmniej siedem pułapek",
-        "2": "Stwórz jedną pułapkę %game.action.heal% 2 na pustym polu sąsiadującym z celem",
+        "2": "Stwórz jedną pułapkę %game.action.heal:2% na pustym polu sąsiadującym z celem",
         "3": "Stwórz jedną pułapkę %game.damage:1% na pustym polu sąsiadującym z celem",
-        "4": "Dodaj %game.damage:2% lub %game.action.heal% 2 do pułapki w zasięgu %game.action.range:2% od ciebie",
-        "5": "Dodaj %game.action.push% 2 lub %game.action.pull% 2",
+        "4": "Dodaj %game.damage:2% lub %game.action.heal:2% do pułapki w zasięgu %game.action.range:2% od ciebie",
+        "5": "Dodaj %game.action.push:2% lub %game.action.pull:2%",
         "6": "Za każdym razem, gdy wykonujesz długi odpoczynek, możesz stworzyć jedną pułapkę %game.damage:1% na sąsiednim pustym polu",
         "7": "Za każdym razem gdy wchodzisz na pole z pułapką, możesz zdecydować, że nie aktywujesz danej pułapki",
         "8": "Na początku każdego scenariusza, możesz stworzyć jedną pułapkę %game.damage:2% na sąsiednim pustym polu",
@@ -305,7 +305,7 @@
     },
     "fh-101": {
       "": "Mikstura Większej Mocy",
-      "1": "Podczas twojej tury dodaj +2 %game.action.attack% do wszystkich twoich ataków."
+      "1": "Podczas twojej tury dodaj %game.action.attack.valueSign:2% do wszystkich twoich ataków."
     },
     "fh-102": {
       "": "Mikstura Większych Żywiołów",
@@ -317,23 +317,23 @@
     },
     "fh-104": {
       "": "Mikstura Szybkości",
-      "1": "Podczas twojej zdolności ruchu dodaj +3 %game.action.move% i %game.action.jump%."
+      "1": "Podczas twojej zdolności ruchu dodaj %game.action.move.valueSign:3% i %game.action.jump%."
     },
     "fh-105": {
       "": "Mikstura Większej Ogniowej Tarczy",
-      "1": "Podczas twojej tury wykonaj: %game.action.retaliate% 2 %game.action.range:3%"
+      "1": "Podczas twojej tury wykonaj: %game.action.retaliate:2% %game.action.range:3%"
     },
     "fh-106": {
       "": "Mikstura Kamiennej Ściany",
-      "1": "Podczas twojej tury wykonaj %game.condition.ward% %game.action.target% 2 sąsiadujących sojuszników oraz na siebie"
+      "1": "Podczas twojej tury wykonaj %game.condition.ward% %game.action.target:2% sąsiadujących sojuszników oraz na siebie"
     },
     "fh-107": {
       "": "Mikstura Wigoru",
-      "1": "Podczas twojej tury wykonaj %game.condition.strengthen% %game.action.target% 2 sąsiadujących sojuszników oraz na siebie"
+      "1": "Podczas twojej tury wykonaj %game.condition.strengthen% %game.action.target:2% sąsiadujących sojuszników oraz na siebie"
     },
     "fh-108": {
       "": "Święty Deszcz",
-      "1": "Podczas twojej tury wykonaj: %game.condition.bless% %game.action.target% 2 sąsiadujących sojuszników oraz na siebie"
+      "1": "Podczas twojej tury wykonaj: %game.condition.bless% %game.action.target:2% sąsiadujących sojuszników oraz na siebie"
     },
     "fh-109": {
       "": "Mikstura Większego Odnowienia",
@@ -377,7 +377,7 @@
     },
     "fh-118": {
       "": "Piorunująca Fiolka",
-      "1": "Podczas twojej tury jeden wróg w promieniu %game.action.range% 2 otrzymuje %game.damage% 4."
+      "1": "Podczas twojej tury jeden wróg w promieniu %game.action.range:2% otrzymuje %game.damage% 4."
     },
     "fh-119": {
       "": "Zabójczy Wywar",
@@ -449,11 +449,11 @@
     },
     "fh-134": {
       "": "Wygodne Buty",
-      "1": "Kiedy używasz podstawowej dolnej akcji karty zdolności, wykonaj %game.action.move% 3 zamiast %game.action.move% 2."
+      "1": "Kiedy używasz podstawowej dolnej akcji karty zdolności, wykonaj %game.action.move:3% zamiast %game.action.move:2%."
     },
     "fh-135": {
       "": "Przebijający Łuk",
-      "1": "Podczas twojej tury dodaj %game.action.pierce% 3 do wszystkich twoich ataków dystansowych."
+      "1": "Podczas twojej tury dodaj %game.action.pierce:3% do wszystkich twoich ataków dystansowych."
     },
     "fh-136": {
       "": "Topór Bojowy",
@@ -469,11 +469,11 @@
     },
     "fh-139": {
       "": "Rogaty Hełm",
-      "1": "Po poruszeniu się o 4 lub więcej pól w twojej turze dodaj +1 %game.action.attack% do twojego następnego ataku w walce wręcz w tej turze."
+      "1": "Po poruszeniu się o 4 lub więcej pól w twojej turze dodaj %game.action.attack.valueSign:1% do twojego następnego ataku w walce wręcz w tej turze."
     },
     "fh-14": {
       "": "Ciężki Miecz",
-      "1": "Podczas twojej zdolności ataku wręcz dodaj +1 %game.action.attack% do jednego ataku."
+      "1": "Podczas twojej zdolności ataku wręcz dodaj %game.action.attack.valueSign:1% do jednego ataku."
     },
     "fh-140": {
       "": "Opończa Przywołania",
@@ -493,23 +493,23 @@
     },
     "fh-144": {
       "": "Kostur Eminencji",
-      "1": "Podczas twojej tury %game.element.consume.wild% dodaj +1 %game.action.attack% do wszystkich twoich ataków."
+      "1": "Podczas twojej tury %game.element.consume.wild% dodaj %game.action.attack.valueSign:1% do wszystkich twoich ataków."
     },
     "fh-145": {
       "": "Wszechstronny Sztylet",
-      "1": "Kiedy używasz podstawowej górnej akcji karty zdolności, wykonaj %game.action.attack% 3 zamiast %game.action.attack% 2."
+      "1": "Kiedy używasz podstawowej górnej akcji karty zdolności, wykonaj %game.action.attack:3% zamiast %game.action.attack:2%."
     },
     "fh-146": {
       "": "Hak na Łańcuchu",
-      "1": "Podczas twojej tury dodaj %game.action.pull% 2 do wszystkich twoich ataków dystansowych."
+      "1": "Podczas twojej tury dodaj %game.action.pull:2% do wszystkich twoich ataków dystansowych."
     },
     "fh-147": {
       "": "Maska Grozy",
-      "1": "Podczas twojego ataku wręcz dodaj %game.action.push% 1."
+      "1": "Podczas twojego ataku wręcz dodaj %game.action.push:1%."
     },
     "fh-148": {
       "": "Diadem Świętości",
-      "1": "Po kolejnych trzech atakach, których celem będzie sojusznik w promieniu %game.action.range% 2, odwróć tę kartę.",
+      "1": "Po kolejnych trzech atakach, których celem będzie sojusznik w promieniu %game.action.range:2%, odwróć tę kartę.",
       "2": "Podczas twojej tury wykonaj:",
       "4": "następnie odwróć tę kartę."
     },
@@ -527,7 +527,7 @@
     },
     "fh-151": {
       "": "Chyże Sandały",
-      "1": "Kiedy używasz podstawowej dolnej akcji karty zdolności, wykonaj %game.action.move% 4 zamiast %game.action.move% 2."
+      "1": "Kiedy używasz podstawowej dolnej akcji karty zdolności, wykonaj %game.action.move:4% zamiast %game.action.move:2%."
     },
     "fh-152": {
       "": "Stalowe Sabatony",
@@ -563,7 +563,7 @@
     },
     "fh-16": {
       "": "Inspirujący Hełm",
-      "1": "Podczas twojej tury daj wszystkim sąsiadującym sojusznikom: %game.action.move% 2"
+      "1": "Podczas twojej tury daj wszystkim sąsiadującym sojusznikom: %game.action.move:2%"
     },
     "fh-160": {
       "": "Kolczyk Słońca",
@@ -600,7 +600,7 @@
     },
     "fh-168": {
       "": "Diadem Oczu",
-      "1": "Podczas twojej zdolności ataku dystansowego dodaj +1 %game.action.target%."
+      "1": "Podczas twojej zdolności ataku dystansowego dodaj %game.action.target.valueSign:1%."
     },
     "fh-169": {
       "": "Znamienny Talizman",
@@ -628,7 +628,7 @@
     },
     "fh-174": {
       "": "Magnetyczna Peleryna",
-      "1": "Podczas twojej tury wykonaj: %game.action.teleport% 20 Ten teleport musi zakończyć się na polu sąsiadującym z jednym z twoich sojuszników."
+      "1": "Podczas twojej tury wykonaj: %game.action.teleport:20% Ten teleport musi zakończyć się na polu sąsiadującym z jednym z twoich sojuszników."
     },
     "fh-175": {
       "": "Lustrzana Zbroja",
@@ -636,7 +636,7 @@
     },
     "fh-176": {
       "": "Migająca Peleryna",
-      "1": "Podczas twojej tury wykonaj: %game.action.teleport% 4 Ten teleport musi zakończyć się na polu sąsiadującym z wrogiem."
+      "1": "Podczas twojej tury wykonaj: %game.action.teleport:4% Ten teleport musi zakończyć się na polu sąsiadującym z wrogiem."
     },
     "fh-177": {
       "": "Buty Przeniesienia",
@@ -644,15 +644,15 @@
     },
     "fh-178": {
       "": "Spokojne Buty",
-      "1": "Na początku twojej tury, w której twoja inicjatywa wynosi 60 lub więcej i nie wykonujesz długiego odpoczynku, wykonaj: %game.action.heal% 1 na siebie."
+      "1": "Na początku twojej tury, w której twoja inicjatywa wynosi 60 lub więcej i nie wykonujesz długiego odpoczynku, wykonaj: %game.action.heal:1% na siebie."
     },
     "fh-179": {
       "": "Zrywne Buty",
-      "1": "Podczas twojej zdolności ruchu dodaj +4 %game.action.move%. Po wykonaniu zdolności ruchu otrzymujesz %game.condition.immobilize%."
+      "1": "Podczas twojej zdolności ruchu dodaj %game.action.move.valueSign:4%. Po wykonaniu zdolności ruchu otrzymujesz %game.condition.immobilize%."
     },
     "fh-18": {
       "": "Twarde Buty",
-      "1": "Podczas twojej tury dodaj +1 %game.action.move% do wszystkich twoich zdolności ruchu."
+      "1": "Podczas twojej tury dodaj %game.action.move.valueSign:1% do wszystkich twoich zdolności ruchu."
     },
     "fh-180": {
       "": "Buty Chciwości",
@@ -668,11 +668,11 @@
     },
     "fh-183": {
       "": "Karafka Mgieł",
-      "1": "Podczas twojej tury wszystkie figurki otrzymują niekorzyść i dodają -1 %game.action.range% do wszystkich ataków dystansowych w tej rundzie. "
+      "1": "Podczas twojej tury wszystkie figurki otrzymują niekorzyść i dodają %game.action.range.valueSign:-1% do wszystkich ataków dystansowych w tej rundzie. "
     },
     "fh-184": {
       "": "Błyskający Topór",
-      "1": "Podczas twojej zdolności ataku wręcz skierowanej w wiele celów dodaj +1 %game.action.target%."
+      "1": "Podczas twojej zdolności ataku wręcz skierowanej w wiele celów dodaj %game.action.target.valueSign:1%."
     },
     "fh-185": {
       "": "Lustrzany Nóż",
@@ -700,7 +700,7 @@
     },
     "fh-190": {
       "": "Biała Karta",
-      "1": "Podczas twojej tury umieść żeton postaci na jednym zwykłym lub elitarnym wrogu w promieniu %game.action.range:3%. Ten wróg dodaje -1 %game.action.attack% do wszystkich swoich ataków."
+      "1": "Podczas twojej tury umieść żeton postaci na jednym zwykłym lub elitarnym wrogu w promieniu %game.action.range:3%. Ten wróg dodaje %game.action.attack.valueSign:-1% do wszystkich swoich ataków."
     },
     "fh-191": {
       "": "Spaczony Zwój",
@@ -720,7 +720,7 @@
     },
     "fh-195": {
       "": "Trójgraniasty Kapelusz",
-      "1": "Podczas twojej tury dodaj +1 %game.action.range% i %game.action.pierce% 1 do jednego z twoich ataków dystansowych."
+      "1": "Podczas twojej tury dodaj %game.action.range.valueSign:1% i %game.action.pierce:1% do jednego z twoich ataków dystansowych."
     },
     "fh-196": {
       "": "Naszyjnik Poświęcenia",
@@ -744,7 +744,7 @@
     },
     "fh-20": {
       "": "Dobrze Napięty Łuk",
-      "1": "Podczas swojej tury dodaj +1 %game.action.range% do wszystkich twoich ataków dystansowych."
+      "1": "Podczas swojej tury dodaj %game.action.range.valueSign:1% do wszystkich twoich ataków dystansowych."
     },
     "fh-200": {
       "": "Berło Wieczoru",
@@ -753,7 +753,7 @@
     },
     "fh-201": {
       "": "Ostrze Fali",
-      "1": "Podczas twojej zdolności ataku wręcz wykonywanej w czasie przebywania na polu kafelka wody lub sąsiadowania z nim, dodaj %game.action.push% 1 i %game.condition.immobilize% do jednego ataku."
+      "1": "Podczas twojej zdolności ataku wręcz wykonywanej w czasie przebywania na polu kafelka wody lub sąsiadowania z nim, dodaj %game.action.push:1% i %game.condition.immobilize% do jednego ataku."
     },
     "fh-202": {
       "": "Kręgosłup Olbrzymiej Świniopiranii",
@@ -773,7 +773,7 @@
     },
     "fh-206": {
       "": "Olbrzymi Miecz",
-      "1": "Podczas twojej zdolności ataku wręcz, jeśli nie poruszyłeś się w tej rundzie, dodaj +2 %game.action.attack% do jednego ataku. Wtedy nie możesz wykonywać innych zdolności ruchu w tej rundzie."
+      "1": "Podczas twojej zdolności ataku wręcz, jeśli nie poruszyłeś się w tej rundzie, dodaj %game.action.attack.valueSign:2% do jednego ataku. Wtedy nie możesz wykonywać innych zdolności ruchu w tej rundzie."
     },
     "fh-207": {
       "": "Rybi Haczyk",
@@ -781,11 +781,11 @@
     },
     "fh-208": {
       "": "Gwóźdź Tytana",
-      "1": "Podczas twojej zdolności ataku dodaj %game.action.pierce% 3 do jednego ataku skierowanego we wroga, którego aktualna wartość punktów życia wynosi 4 lub mniej."
+      "1": "Podczas twojej zdolności ataku dodaj %game.action.pierce:3% do jednego ataku skierowanego we wroga, którego aktualna wartość punktów życia wynosi 4 lub mniej."
     },
     "fh-209": {
       "": "Miecz Biegłości",
-      "1": "Podczas twojej zdolności ataku wręcz otrzymujesz korzyść przy jednym ataku. Za każdą ukończoną biegłość dodaj do ataku jedną z poniższych cech: +1 %game.action.attack%, %game.condition.wound% lub %game.condition.poison%. "
+      "1": "Podczas twojej zdolności ataku wręcz otrzymujesz korzyść przy jednym ataku. Za każdą ukończoną biegłość dodaj do ataku jedną z poniższych cech: %game.action.attack.valueSign:1%, %game.condition.wound% lub %game.condition.poison%. "
     },
     "fh-21": {
       "": "Kolczy Kaptur",
@@ -793,7 +793,7 @@
     },
     "fh-210": {
       "": "Tandżo",
-      "1": "Podczas twojej tury dodaj -3 %game.action.attack% do wszystkich ataków Czychaczy, które w tej rundzie wycelują w ciebie. "
+      "1": "Podczas twojej tury dodaj %game.action.attack.valueSign:-3% do wszystkich ataków Czychaczy, które w tej rundzie wycelują w ciebie. "
     },
     "fh-211": {
       "": "Wybuchowa Beczka",
@@ -814,7 +814,7 @@
     },
     "fh-215": {
       "": "Mącący Kufel",
-      "1": "Podczas twojej tury dodaj +1 %game.action.attack% i %game.condition.muddle% do wszystkich twoich ataków. Na koniec twojej tury wykonaj:"
+      "1": "Podczas twojej tury dodaj %game.action.attack.valueSign:1% i %game.condition.muddle% do wszystkich twoich ataków. Na koniec twojej tury wykonaj:"
     },
     "fh-216": {
       "": "Księga Żywiołów",
@@ -843,7 +843,7 @@
     },
     "fh-221": {
       "": "Lodowy Kosior",
-      "1": "Podczas twojej zdolności ataku wręcz %game.element.consume.ice%, aby dodać %game.action.pierce% 3 do jednego ataku."
+      "1": "Podczas twojej zdolności ataku wręcz %game.element.consume.ice%, aby dodać %game.action.pierce:3% do jednego ataku."
     },
     "fh-222": {
       "": "Czarna Skrzynka",
@@ -861,8 +861,8 @@
     },
     "fh-225": {
       "": "Rzeźba Algoksów",
-      "1": "Podczas twojej zdolności ataku wręcz %game.element.consume.earth%, aby dodać +1 %game.action.attack% i odwróć tę kartę.",
-      "2": "Podczas twojej zdolności ataku dystansowego %game.element.consume.air%, aby dodać %game.action.push% 2 i odwróć tę kartę."
+      "1": "Podczas twojej zdolności ataku wręcz %game.element.consume.earth%, aby dodać %game.action.attack.valueSign:1% i odwróć tę kartę.",
+      "2": "Podczas twojej zdolności ataku dystansowego %game.element.consume.air%, aby dodać %game.action.push:2% i odwróć tę kartę."
     },
     "fh-226": {
       "": "Ramię Nieposkromionego",
@@ -882,7 +882,7 @@
     },
     "fh-23": {
       "": "Solidne Nagolenniki",
-      "1": "Na początku twojej tury dodaj -2 %game.action.move% do wszystkich twoich zdolności ruchu, aby w tej rundzie zyskać %game.action.shield:1%. "
+      "1": "Na początku twojej tury dodaj %game.action.move.valueSign:-2% do wszystkich twoich zdolności ruchu, aby w tej rundzie zyskać %game.action.shield:1%. "
     },
     "fh-230": {
       "": "Lupa Badacza",
@@ -961,7 +961,7 @@
     },
     "fh-25": {
       "": "Kojące Berło",
-      "1": "Podczas twojej tury wykonaj: %game.condition.regenerate% %game.action.target% 1 sojusznik, %game.action.range:2%"
+      "1": "Podczas twojej tury wykonaj: %game.condition.regenerate% %game.action.target:1% sojusznik, %game.action.range:2%"
     },
     "fh-26": {
       "": "Okulary Prawdziwego Widzenia",
@@ -969,11 +969,11 @@
     },
     "fh-27": {
       "": "Płaszcz Osłony",
-      "1": "Natychmiast po tym, jak wróg zakończy swoją zdolność ruchu, sąsiadując z tobą, wykonaj: %game.action.push% 1 %game.action.target% ten wróg"
+      "1": "Natychmiast po tym, jak wróg zakończy swoją zdolność ruchu, sąsiadując z tobą, wykonaj: %game.action.push:1% %game.action.target% ten wróg"
     },
     "fh-28": {
       "": "Solidne Buty",
-      "1": "Podczas twojej tury dodaj +1 %game.action.move% do wszystkich twoich zdolności ruchu oraz ignoruj trudny teren."
+      "1": "Podczas twojej tury dodaj %game.action.move.valueSign:1% do wszystkich twoich zdolności ruchu oraz ignoruj trudny teren."
     },
     "fh-29": {
       "": "Rozłupujący Topór",
@@ -985,7 +985,7 @@
     },
     "fh-30": {
       "": "Rękawica Parowania",
-      "1": "Natychmiast po tym, jak wróg zakończy swoją zdolność ruchu, sąsiadując z tobą, wykonaj: %game.action.attack% 3, %game.action.target% ten wróg"
+      "1": "Natychmiast po tym, jak wróg zakończy swoją zdolność ruchu, sąsiadując z tobą, wykonaj: %game.action.attack:3%, %game.action.target% ten wróg"
     },
     "fh-31": {
       "": "Talizman Negacji Śmierci",
@@ -997,7 +997,7 @@
     },
     "fh-33": {
       "": "Niestabilne Buty",
-      "1": "Maksymalnie raz na turę podczas twojej zdolności ruchu dodaj +1 %game.action.move% . Następnie odwróć tę kartę na koniec twojej tury.",
+      "1": "Maksymalnie raz na turę podczas twojej zdolności ruchu dodaj %game.action.move.valueSign:1% . Następnie odwróć tę kartę na koniec twojej tury.",
       "2": "Maksymalnie raz na turę podczas twojej zdolności ruchu otrzymaj %game.damage:1%. Następnie odwróć tę kartę na koniec twojej tury."
     },
     "fh-34": {
@@ -1018,11 +1018,11 @@
     },
     "fh-38": {
       "": "Trzewiki Szampierza",
-      "1": "Podczas twojej tury wykonaj: %game.action.move% 2 Ten ruch musi zakończyć się w sąsiedztwie wroga."
+      "1": "Podczas twojej tury wykonaj: %game.action.move:2% Ten ruch musi zakończyć się w sąsiedztwie wroga."
     },
     "fh-39": {
       "": "Topór Otchłani",
-      "1": "Podczas twojej zdolności ataku dodaj +3 %game.action.attack% i %game.action.pierce% 1 do jednego ataku, którego celem są Zamarznięte Zwłoki, Lodowy Upiór lub Ożywiona Zagłada."
+      "1": "Podczas twojej zdolności ataku dodaj %game.action.attack.valueSign:3% i %game.action.pierce:1% do jednego ataku, którego celem są Zamarznięte Zwłoki, Lodowy Upiór lub Ożywiona Zagłada."
     },
     "fh-4": {
       "": "Siermiężna Skórzana Zbroja",
@@ -1030,7 +1030,7 @@
     },
     "fh-40": {
       "": "Nieomylny Łuk",
-      "1": "Podczas twojej tury dodaj +1 %game.action.attack% i +2 %game.action.range% do jednego z twoich ataków dystansowych."
+      "1": "Podczas twojej tury dodaj %game.action.attack.valueSign:1% i %game.action.range.valueSign:2% do jednego z twoich ataków dystansowych."
     },
     "fh-41": {
       "": "Misterny Wisiorek",
@@ -1042,7 +1042,7 @@
     },
     "fh-43": {
       "": "Kopiące Buty",
-      "1": "Podczas twojej zdolności ataku wręcz dodaj %game.action.push% 2 do jednego ataku."
+      "1": "Podczas twojej zdolności ataku wręcz dodaj %game.action.push:2% do jednego ataku."
     },
     "fh-44": {
       "": "Miecz Rozgrzeszenia",
@@ -1066,16 +1066,16 @@
     },
     "fh-49": {
       "": "Okrutny Sztylet",
-      "1": "Podczas twojej zdolności ataku wręcz dodaj +1 %game.action.attack% i %game.condition.wound% do jednego ataku."
+      "1": "Podczas twojej zdolności ataku wręcz dodaj %game.action.attack.valueSign:1% i %game.condition.wound% do jednego ataku."
     },
     "fh-5": {
       "": "Siermiężne Buty",
-      "1": "Podczas twojej zdolności ruchu dodaj +1 %game.action.move%"
+      "1": "Podczas twojej zdolności ruchu dodaj %game.action.move.valueSign:1%"
     },
     "fh-50": {
       "": "Tarcza Wzajemności",
       "1": "Kiedy otrzymujesz %game.damage% z ataku, zyskujesz %game.action.shield:1% na ten atak i odwracasz tę kartę.",
-      "2": "Podczas twojej zdolności ataku wręcz dodaj %game.action.pierce% 1 i odwróć tę kartę."
+      "2": "Podczas twojej zdolności ataku wręcz dodaj %game.action.pierce:1% i odwróć tę kartę."
     },
     "fh-51": {
       "": "Kolczasta Obroża",
@@ -1087,7 +1087,7 @@
     },
     "fh-53": {
       "": "Ćwiekowane Buty",
-      "1": "Po poruszeniu się o co najmniej 4 pola podczas twojej tury otrzymujesz %game.action.retaliate% 1 na tę rundę."
+      "1": "Po poruszeniu się o co najmniej 4 pola podczas twojej tury otrzymujesz %game.action.retaliate:1% na tę rundę."
     },
     "fh-54": {
       "": "Wygodne Pantofle",
@@ -1095,7 +1095,7 @@
     },
     "fh-55": {
       "": "Kąsająca Rękawica",
-      "1": "Kiedy jesteś atakowany przez sąsiadującego wroga, zyskujesz %game.action.retaliate% 2 na ten atak."
+      "1": "Kiedy jesteś atakowany przez sąsiadującego wroga, zyskujesz %game.action.retaliate:2% na ten atak."
     },
     "fh-56": {
       "": "Magnes Poszukiwacza",
@@ -1107,7 +1107,7 @@
     },
     "fh-58": {
       "": "Śliski Miecz",
-      "1": "Podczas twojej zdolności ataku wręcz dodaj +2 %game.action.attack% do jednego ataku. Po zakończeniu zdolności otrzymujesz %game.condition.disarm%."
+      "1": "Podczas twojej zdolności ataku wręcz dodaj %game.action.attack.valueSign:2% do jednego ataku. Po zakończeniu zdolności otrzymujesz %game.condition.disarm%."
     },
     "fh-59": {
       "": "Wisiorek Ekspertyzy",
@@ -1127,11 +1127,11 @@
     },
     "fh-62": {
       "": "Wieczne Buty",
-      "1": "Podczas twojej zdolności ruchu dodaj +1 %game.action.move% i zyskaj %game.condition.regenerate%"
+      "1": "Podczas twojej zdolności ruchu dodaj %game.action.move.valueSign:1% i zyskaj %game.condition.regenerate%"
     },
     "fh-63": {
       "": "Trzewiki Cienia",
-      "1": "Podczas twojej zdolności ruchu %game.element.consume.dark% aby dodać +2 %game.action.move%"
+      "1": "Podczas twojej zdolności ruchu %game.element.consume.dark% aby dodać %game.action.move.valueSign:2%"
     },
     "fh-64": {
       "": "Detonator",
@@ -1139,7 +1139,7 @@
     },
     "fh-65": {
       "": "Rdzawy Pył",
-      "1": "Podczas twojej tury umieść żeton postaci na jednym zwykłym lub elitarnym wrogu w promieniu %game.action.range:3%. Ten wróg otrzymuje -1 %game.action.shield% na ten scenariusz."
+      "1": "Podczas twojej tury umieść żeton postaci na jednym zwykłym lub elitarnym wrogu w promieniu %game.action.range:3%. Ten wróg otrzymuje %game.action.shield.valueSign:-1% na ten scenariusz."
     },
     "fh-66": {
       "": "Amulet Wiecznego Życia",
@@ -1147,8 +1147,8 @@
     },
     "fh-67": {
       "": "Zbieżne Soczewki",
-      "1": "Kiedy jesteś atakowany, zamiast dobierać kartę modyfikatora ataku, dodaj +1 %game.action.attack% do ataku i odwróć tę kartę.",
-      "2": "Podczas twojej zdolności ataku, zamiast dobierać kartę modyfikatora ataku, dodaj +1 %game.action.attack% do ataku i odwróć tę kartę."
+      "1": "Kiedy jesteś atakowany, zamiast dobierać kartę modyfikatora ataku, dodaj %game.action.attack.valueSign:1% do ataku i odwróć tę kartę.",
+      "2": "Podczas twojej zdolności ataku, zamiast dobierać kartę modyfikatora ataku, dodaj %game.action.attack.valueSign:1% do ataku i odwróć tę kartę."
     },
     "fh-68": {
       "": "Zbroja Łuskowa",
@@ -1160,7 +1160,7 @@
     },
     "fh-7": {
       "": "Siermiężny Łuk",
-      "1": "Podczas twojej tury dodaj +1 %game.action.range% do jednego z twoich ataków dystansowych."
+      "1": "Podczas twojej tury dodaj %game.action.range.valueSign:1% do jednego z twoich ataków dystansowych."
     },
     "fh-70": {
       "": "Szata Estera",
@@ -1202,7 +1202,7 @@
     },
     "fh-79": {
       "": "Pieczony Drób",
-      "1": "Podczas twojej tury dodaj +1 %game.action.attack% do wszystkich twoich ataków i wykonaj:"
+      "1": "Podczas twojej tury dodaj %game.action.attack.valueSign:1% do wszystkich twoich ataków i wykonaj:"
     },
     "fh-8": {
       "": "Siermiężna Włócznia",
@@ -1210,7 +1210,7 @@
     },
     "fh-80": {
       "": "Żyjący Kamień",
-      "1": "Kiedy masz otrzymać 4 lub mniej %game.damage% od ataku, zaneguj te %game.damage% i wykonaj: %game.action.heal% X na siebie, gdzie X to liczba obrażeń, które miałbyś otrzymać."
+      "1": "Kiedy masz otrzymać 4 lub mniej %game.damage% od ataku, zaneguj te %game.damage% i wykonaj: %game.action.heal:X% na siebie, gdzie X to liczba obrażeń, które miałbyś otrzymać."
     },
     "fh-81": {
       "": "Symulator Bólu",
@@ -1222,7 +1222,7 @@
     },
     "fh-83": {
       "": "Mikstura Leczenia",
-      "1": "Podczas twojej tury wykonaj %game.action.heal% 3 na siebie"
+      "1": "Podczas twojej tury wykonaj %game.action.heal:3% na siebie"
     },
     "fh-84": {
       "": "Mikstura Wytrzymałości",
@@ -1230,7 +1230,7 @@
     },
     "fh-85": {
       "": "Mikstura Mocy",
-      "1": "Podczas twojej tury dodaj +1 %game.action.attack% do wszystkich twoich ataków."
+      "1": "Podczas twojej tury dodaj %game.action.attack.valueSign:1% do wszystkich twoich ataków."
     },
     "fh-86": {
       "": "Mikstura Żywiołów",
@@ -1242,7 +1242,7 @@
     },
     "fh-88": {
       "": "Mikstura Ogniowej Tarczy",
-      "1": "Podczas twojej tury wykonaj: %game.action.retaliate% 1 %game.action.range:3% "
+      "1": "Podczas twojej tury wykonaj: %game.action.retaliate:1% %game.action.range:3% "
     },
     "fh-89": {
       "": "Mikstura Kamiennej Skóry",
@@ -1250,7 +1250,7 @@
     },
     "fh-9": {
       "": "Ochronne Berło",
-      "1": "Podczas twojej tury daj jednemu sojusznikowi w promieniu %game.action.range% 2:"
+      "1": "Podczas twojej tury daj jednemu sojusznikowi w promieniu %game.action.range:2%:"
     },
     "fh-90": {
       "": "Mikstura Siły",
@@ -1290,7 +1290,7 @@
     },
     "fh-99": {
       "": "Mikstura Większego Leczenia",
-      "1": "Podczas twojej tury wykonaj: %game.action.heal% 6 na siebie"
+      "1": "Podczas twojej tury wykonaj: %game.action.heal:6% na siebie"
     }
   },
   "pets": {
@@ -1300,7 +1300,7 @@
     },
     "fh-02": {
       "": "Ogar",
-      "1": "W tej rundzie, wszystkie postacie dodają +1%game.action.attack% do wszystkich swoich ataków wręcz, wymierzonych we wrogów sąsiadujących z dowolnym sojusznikiem postaci."
+      "1": "W tej rundzie, wszystkie postacie dodają %game.action.attack.valueSign:1% do wszystkich swoich ataków wręcz, wymierzonych we wrogów sąsiadujących z dowolnym sojusznikiem postaci."
     },
     "fh-03": {
       "": "Plujący Drakon",

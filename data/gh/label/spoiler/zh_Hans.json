@@ -60,7 +60,7 @@
             "1": "一名%game.action.range:3%以内的盟友可以执行"
           },
           "184": {
-            "1": "你的所有移动都 -1 %game.action.move%。"
+            "1": "你的所有移动都 %game.action.move.valueSign:-1%。"
           },
           "185": {
             "1": "令一名相邻的盟友治疗所有伤害。",
@@ -85,17 +85,17 @@
             "1": "影响本次移动所经过的所有盟友"
           },
           "196": {
-            "1": "你的所有攻击都 -1 %game.action.attack%。"
+            "1": "你的所有攻击都 %game.action.attack.valueSign:-1%。"
           },
           "197": {
-            "1": "这回合内所有盟友的所有攻击都额外 +1 %game.action.attack%。",
-            "2": "这回合内所有盟友的所有移动都额外 +2 %game.action.move%。"
+            "1": "这回合内所有盟友的所有攻击都额外 %game.action.attack.valueSign:1%。",
+            "2": "这回合内所有盟友的所有移动都额外 %game.action.move.valueSign:2%。"
           },
           "198": {
             "1": "一名相邻的盟友可以执行"
           },
           "199": {
-            "1": "在你任何%game.action.attack%actions 中，你可以%game.element.consume.light%来额外 +2 %game.action.attack%，获得%game.custom.advantage%并获得%game.card.experience:1%"
+            "1": "在你任何%game.action.attack%actions 中，你可以%game.element.consume.light%来额外 %game.action.attack.valueSign:2%，获得%game.custom.advantage%并获得%game.card.experience:1%"
           },
           "200": {
             "1": "一名相邻的盟友可以从他的移除区中回收%game.card.recover%一张技能卡。",
@@ -108,7 +108,7 @@
             "4": "盟友的每次攻击让你获得%game.card.experience:1%。"
           },
           "203": {
-            "1": "在你接下来的四个%game.action.attack%中，额外 +3 %game.action.attack%，附加%game.condition.wound%效果，并获得%game.custom.advantage%。"
+            "1": "在你接下来的四个%game.action.attack%中，额外 %game.action.attack.valueSign:3%，附加%game.condition.wound%效果，并获得%game.custom.advantage%。"
           },
           "204": {
             "1": "任何时候当你的盟友遭受伤害时，你可以将伤害值减 1 并代替盟友遭受次伤害。"
@@ -120,7 +120,7 @@
         "2": "当%game.action.attack%被执行"
       },
       "two-mini": {
-        "1": "所有相邻盟友的所有攻击额外 +2 %game.action.attack%。"
+        "1": "所有相邻盟友的所有攻击额外 %game.action.attack.valueSign:2%。"
       }
     }
   },
@@ -265,7 +265,7 @@
   "items": {
     "gh-1": {
       "": "阔步靴",
-      "1": "在你移动时，额外 +2 %game.action.move%到单次移动。"
+      "1": "在你移动时，额外 %game.action.move.valueSign:2%到单次移动。"
     },
     "gh-10": {
       "": "战锤",
@@ -273,7 +273,7 @@
     },
     "gh-100": {
       "": "召唤长袍",
-      "1": "在你的回合，执行执行一次“%game.action.heal% 2，以任意一个友方召唤物为目标”的行动。"
+      "1": "在你的回合，执行执行一次“%game.action.heal:2%，以任意一个友方召唤物为目标”的行动。"
     },
     "gh-101": {
       "": "第二肌肤",
@@ -288,7 +288,7 @@
     },
     "gh-3": {
       "": "兽皮甲",
-      "1": "下两次以你为攻击目标的伤害，各获得%game.action.shield% 1。"
+      "1": "下两次以你为攻击目标的伤害，各获得%game.action.shield:1%。"
     },
     "gh-4": {
       "": "软皮甲",
@@ -308,7 +308,7 @@
     },
     "gh-8": {
       "": "斗盾",
-      "1": "当你因为攻击而遭受伤害时，对此次攻击获得%game.action.shield% 1。"
+      "1": "当你因为攻击而遭受伤害时，对此次攻击获得%game.action.shield:1%。"
     }
   },
   "summon": {

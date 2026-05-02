@@ -12,7 +12,7 @@
         "1": "包"
       },
       "sand-spider": {
-        "1": "如果目标是 %game.condition.immobilize%，则添加 +3 %game.action.attack%。",
+        "1": "如果目标是 %game.condition.immobilize%，则添加 %game.action.attack.valueSign:3%。",
         "2": "本轮所有针对 %data.monster.sand-spider% 的攻击都会获得劣势检定。",
         "3": "在一个临近敌人的空格放置%game.condition.immobilize%陷阱。"
       }

@@ -23,7 +23,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When attacked within %game.action.range% 3, enemy gains %game.condition.curse%",
+          "value": "When attacked within %game.action.range:3%, enemy gains %game.condition.curse%",
           "small": true
         }
       ]

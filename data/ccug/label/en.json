@@ -45,7 +45,7 @@
   "custom": {
     "perks": {
       "alchemancer": {
-        "1": "+2 %game.action.attack%",
+        "1": "%game.action.attack.valueSign:2%",
         "2": "Add a %data.action.custom.ccug-vial-token% to an active %data.action.custom.ccug-experiment%",
         "3": "If you drew this as part of a %data.action.custom.ccug-experiment% ability, %game.attackmodifier.plus2% instead",
         "4": "Whenever you rest, you may %game.element.consume.wild%: %game.element.wild%",
@@ -55,7 +55,7 @@
         "8": "Consume six elements in one turn twice during a single scenario"
       },
       "core": {
-        "1": "Add +1 %game.action.attack% for each condition you have",
+        "1": "Add %game.action.attack.valueSign:1% for each condition you have",
         "2": "At the start of each scenario you may perform \"%game.condition.strengthen%, %game.condition.wound%, Self\" or \"%game.condition.ward%, %game.condition.immobilize%, Self\"",
         "3": "Once each scenario, avoid an Overdrive exhaustion check",
         "4": "Once each scenario, during your turn, remove any number of negative conditions you have",
@@ -63,9 +63,9 @@
         "6": "Trigger an ongoing effect on Chaotic Recursion six or more times in one round"
       },
       "dome": {
-        "1": "Grant the ally with %data.action.custom.ccug-dome%: %game.action.attack% 2",
-        "2": "Place this card in your active area. On your next attack granting ability, discard this card to add +2%game.action.attack%",
-        "3": "Your summons gain %game.action.retaliate%1.<br>Whenever one of your summons dies, perform: %data.action.custom.ccug-dome-plus% 3",
+        "1": "Grant the ally with %data.action.custom.ccug-dome%: %game.action.attack:2%",
+        "2": "Place this card in your active area. On your next attack granting ability, discard this card to add %game.action.attack.valueSign:2%",
+        "3": "Your summons gain %game.action.retaliate:1%.<br>Whenever one of your summons dies, perform: %data.action.custom.ccug-dome-plus% 3",
         "4": "At the end of each of your rests, perform: %data.action.custom.ccug-dome-plus% 1 and %data.action.custom.ccug-dome% %game.action.range:4%",
         "5": "Once each scenario, at the end of an ally's turn, perform: %data.action.custom.ccug-dome-plus% 5 and %data.action.custom.ccug-dome%, %game.action.target% that ally",
         "6": "Only declare rests while your helper bot is adjacent to a figure, but not adjacent to you.",
@@ -73,11 +73,11 @@
       },
       "echowight": {
         "1": "One enemy adjacent to %data.action.custom.ccug-fog% suffers %game.damage:1%",
-        "2": "+1%game.action.attack% for each %data.action.custom.ccug-fog% adjacent to the target",
+        "2": "%game.action.attack.valueSign:1% for each %data.action.custom.ccug-fog% adjacent to the target",
         "3": "Place one %data.action.custom.ccug-fog% in a hex adjacent to the target",
-        "4": "At the end of your turn, if you are adjacent to %data.action.custom.ccug-fog% and have not moved this turn, you may perform: %game.action.move% 1",
+        "4": "At the end of your turn, if you are adjacent to %data.action.custom.ccug-fog% and have not moved this turn, you may perform: %game.action.move:1%",
         "5": "Once per round, when a door is opened, you may relocate a %data.action.custom.ccug-fog% to a hex within %game.action.range:1% of the opened door",
-        "6": "Enemies gain -1 %game.action.retaliate% for each adjacent %data.action.custom.ccug-fog%",
+        "6": "Enemies gain %game.action.retaliate.valueSign:-1% for each adjacent %data.action.custom.ccug-fog%",
         "7": "Have at least one enemy adjacent to %data.action.custom.ccug-fog% at the end of every turn there are enemies present on the map",
         "8": "Perform 7 different abilities that place %data.action.custom.ccug-fog% on your first turn",
         "9": "If %game.element.air% is strong or waning, place one %data.action.custom.ccug-fog% in or adjacent to the target's hex.",
@@ -107,7 +107,7 @@
       },
       "lifespeaker": {
         "1": "Place this card in your active area. The next time you trigger an element consumption effect, discard this card to gain the effect an additional time",
-        "2": "Add +2 %game.action.attack% and suffer %game.damage:1% if %game.characterIcon.lifespeaker% has at least 2 %data.action.custom.ccug-icon%",
+        "2": "Add %game.action.attack.valueSign:2% and suffer %game.damage:1% if %game.characterIcon.lifespeaker% has at least 2 %data.action.custom.ccug-icon%",
         "3": "and, at the start of each of your turns, any number of times, perform: -1 %data.action.custom.ccug-icon%: Move the character token on one of your persistent abilities backwards one slot.",
         "4": "Once each scenario, you may gain up to three %game.condition.enfeeble% cards to gain the same number of %data.action.custom.ccug-icon%",
         "5": "Whenever an enemy draws an %game.condition.enfeeble% card, that enemy reduces the value of their attack by 1 and suffers %game.damage:1% after the attack.",
@@ -117,16 +117,16 @@
         "9": "Treat all %game.condition.enfeeble% cards drawn as %game.attackmodifier.plus3% instead."
       },
       "lightracer": {
-        "1": "You may discard a Speed card to add +1 %game.action.attack% and %game.condition.muddle%",
+        "1": "You may discard a Speed card to add %game.action.attack.valueSign:1% and %game.condition.muddle%",
         "2": "and when you suffer damage during your turn, you may ignore %game.condition.ward%",
-        "3": "Whenever you draw a %game.condition.bless%, perform %game.condition.ward% %game.action.target% 1 ally. If that ally already had %game.condition.ward%, %game.action.heal:1% that ally",
+        "3": "Whenever you draw a %game.condition.bless%, perform %game.condition.ward% %game.action.target:1% ally. If that ally already had %game.condition.ward%, %game.action.heal:1% that ally",
         "4": "Once each scenario, you may use all of your played cards for their standard action and ignore damage from Speeds that turn",
         "5": "Play 8 unique Speed actions during your first turn across multiple scenarios.",
         "6": "For an entire scenario, have at least 2 Speed cards in your active area at the end of each of your turns."
       },
       "powdercoat": {
         "1": "At end of turn, all adjacent enemies suffer %game.damage:1%.",
-        "2": "Add +2 %game.action.attack% if drawn during a %data.action.custom.ccug-munition% ability",
+        "2": "Add %game.action.attack.valueSign:2% if drawn during a %data.action.custom.ccug-munition% ability",
         "3": "All enemies adjacent to the target suffer %game.damage:1%.",
         "4": "You may place %data.action.custom.ccug-keg% in hexes containing difficult terrain",
         "5": "Whenever one of your allies destroys a %data.action.custom.ccug-keg%, that figure may perform %game.action.heal:2%, self",
@@ -157,11 +157,11 @@
       },
       "rekindled": {
         "1": "This summon is an active %data.action.custom.ccug-bonfire%",
-        "2": "Add +1 %game.action.attack% for each pair of active %data.action.custom.ccug-bonfire%",
+        "2": "Add %game.action.attack.valueSign:1% for each pair of active %data.action.custom.ccug-bonfire%",
         "3": "Grant one ally: %game.action.attack:2%",
-        "4": "Add +2 %game.action.attack% if you have two or more %data.action.custom.ccug-bonfire% in your active area",
+        "4": "Add %game.action.attack.valueSign:2% if you have two or more %data.action.custom.ccug-bonfire% in your active area",
         "5": "Place a %data.action.custom.ccug-bonfire% in a hex adjacent to or occupied by the target of the attack",
-        "6": "Whenever you rest, perform: %game.condition.strengthen%, %game.action.target% 1 ally within %game.action.range:2% of a %data.action.custom.ccug-bonfire%",
+        "6": "Whenever you rest, perform: %game.condition.strengthen%, %game.action.target:1% ally within %game.action.range:2% of a %data.action.custom.ccug-bonfire%",
         "7": "On your first turn each scenario, you may play three cards instead of two",
         "8": "Once per scenario, when you would suffer damage, you may %game.action.teleport% to an unoccupied %data.action.custom.ccug-bonfire% to negate the damage",
         "9": "Have 5 %data.action.custom.ccug-bonfire% in your active area simultaneously",
@@ -178,10 +178,10 @@
         "7": "Have at least one Latched summon on four different enemies",
         "8": "Have your summons perform twelve attacks in one round",
         "9": "All attacks targeting the Latched enemy add %game.action.pierce:1%.",
-        "10": "+1 %game.action.attack% for each Latched summon on self."
+        "10": "%game.action.attack.valueSign:1% for each Latched summon on self."
       },
       "swarmshift": {
-        "1": "Add +1 %game.action.attack% for each active Hivecall",
+        "1": "Add %game.action.attack.valueSign:1% for each active Hivecall",
         "2": "Gain 1 %data.action.custom.ccug-hive%",
         "3": "Whenever you complete a long rest, you may gain %game.condition.poison% to gain 1 %data.action.custom.ccug-hive%.",
         "4": "Whenever you short rest, you may -1 %data.action.custom.ccug-hive% to %game.card.recover% two of your spent items.",
@@ -191,9 +191,9 @@
       },
       "wildborn": {
         "1": "instead if you suffer %game.damage:2%",
-        "2": "Add +1 %game.action.attack% per collected %data.action.custom.ccug-essence%",
-        "3": "Place this card in your active area. On your next commanded attack, discard this card to add +2 %game.action.attack%",
-        "4": "On your next commanded attack, discard this card to add +2 %game.action.attack%",
+        "2": "Add %game.action.attack.valueSign:1% per collected %data.action.custom.ccug-essence%",
+        "3": "Place this card in your active area. On your next commanded attack, discard this card to add %game.action.attack.valueSign:2%",
+        "4": "On your next commanded attack, discard this card to add %game.action.attack.valueSign:2%",
         "5": "%game.custom.perks.ignoreNegativeScenario% and treat all %data.action.custom.ccug-essence% as Stable during one round each scenario",
         "6": "Whenever you or one of your allies would suffer exactly %game.damage:2%, that figure may lose %game.condition.ward% to suffer no %game.damage% instead",
         "7": "At the start of each scenario, you may %game.element.wild%",
@@ -206,12 +206,12 @@
         "3": "At the start of each scenario, %game.element.wild%",
         "4": "Whenever you long rest, %game.element.wild%",
         "5": "Consume at least three elements on each of your turns after the first round, without exhausting",
-        "6": "Have %game.action.shield% 2 on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
+        "6": "Have %game.action.shield:2% on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
       },
       "veilpiercer": {
         "1": "The target and all enemies adjacent to it suffer %game.damage:1%",
         "2": "Unlock <b>The Astral Plane</b>, and start each scenario with %game.condition.invisible%",
-        "3": "Whenever you long rest, you may perform \"%game.action.teleport% 2\"",
+        "3": "Whenever you long rest, you may perform \"%game.action.teleport:2%\"",
         "4": "Once each scenario, during your turn, place one %data.action.custom.ccug-veil% in a hex within %game.action.range:4%",
         "5": "Complete 5 Plane cards in a single scenario",
         "6": "Never attack an enemy adjacent to you or be attacked by an enemy adjacent to you in a single scenario"

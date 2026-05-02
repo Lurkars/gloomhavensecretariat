@@ -12,7 +12,7 @@
     "toa": {
       "gemstone": {
         "1": "and at the start of each scenario, you may play a level 1 card from your hand to perform a Crystallize %game.characterIconColoredBg.gemstone% action of the card.",
-        "2": "Once each scenario, when you would suffer damage from an attack, gain \"%game.action.shield% 3\" for that attack",
+        "2": "Once each scenario, when you would suffer damage from an attack, gain \"%game.action.shield:3%\" for that attack",
         "3": "Each time you long rest, perform \"%game.condition.regenerate%, Self\""
       },
       "ice-meteor": {
@@ -21,10 +21,10 @@
       "lightning-ball": {
         "1": "Whenever you dodge an attack, gain one Spark %game.characterIconColoredBg.lightning-ball%",
         "2": "Whenever you long rest, you may gain %game.condition.dodge%",
-        "3": "Whenever you short rest, you may spent one Spark %game.characterIconColoredBg.lightning-ball%. If you do, one enemy within %game.action.range% 2 suffers one damage."
+        "3": "Whenever you short rest, you may spent one Spark %game.characterIconColoredBg.lightning-ball%. If you do, one enemy within %game.action.range:2% suffers one damage."
       },
       "spiked-ring": {
-        "1": "Gain %game.action.shield% 1 while you occupy hazardous terrain"
+        "1": "Gain %game.action.shield:1% while you occupy hazardous terrain"
       },
       "three-eyes": {
         "1": "Each time you long rest, perform: %game.coloredToken.5cac66.toa-reaver% %game.coloredToken.c7386a.toa-ritualist% %game.coloredToken.336fa2.toa-conquerer%",
@@ -44,7 +44,7 @@
     },
     "toa-103": {
       "": "Magnetic Relocator",
-      "1": "During your turn perform \"%game.action.teleport% 5\". This Teleport must end in a hex containing a treasure tile or money token."
+      "1": "During your turn perform \"%game.action.teleport:5%\". This Teleport must end in a hex containing a treasure tile or money token."
     },
     "toa-104": {
       "": "Shepherd's Flute"
@@ -55,7 +55,7 @@
     },
     "toa-106": {
       "": "Crushing Mace",
-      "1": "During your melee attack ability, add +2 %game.action.attack% and %game.condition.stun% to one attack."
+      "1": "During your melee attack ability, add %game.action.attack.valueSign:2% and %game.condition.stun% to one attack."
     },
     "toa-107": {
       "": "Chief's Garb",
@@ -63,8 +63,8 @@
     },
     "toa-108": {
       "": "Iridescent Bracer",
-      "1": "When attacked, you may %game.element.consume.ice% to gain %game.action.shield% 1 for the attack and flip this card over.",
-      "2": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate% 1 for the attack and flip this card over."
+      "1": "When attacked, you may %game.element.consume.ice% to gain %game.action.shield:1% for the attack and flip this card over.",
+      "2": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate:1% for the attack and flip this card over."
     },
     "toa-109": {
       "": "Talo's Staff",
@@ -72,19 +72,19 @@
     },
     "toa-110": {
       "": "Mask of Cruelty",
-      "1": "When you are adjacent to two or more enemies gain %game.action.retaliate% 1."
+      "1": "When you are adjacent to two or more enemies gain %game.action.retaliate:1%."
     },
     "toa-111": {
       "": "Staff of Equilibrium",
-      "1": "When damaged by an attack perform a \"%game.action.heal% X, %game.action.range:3%\" ability after the attack, where X is the damage you suffered."
+      "1": "When damaged by an attack perform a \"%game.action.heal:X%, %game.action.range:3%\" ability after the attack, where X is the damage you suffered."
     },
     "toa-112": {
       "": "Voyager's Blade",
-      "1": "During your melee Attack ability, before modifiers are draw, add +2 %game.action.attack% to one attack if your first modifier drawn is positive."
+      "1": "During your melee Attack ability, before modifiers are draw, add %game.action.attack.valueSign:2% to one attack if your first modifier drawn is positive."
     },
     "toa-113": {
       "": "Looking Glass",
-      "1": "During your turn, add +1 %game.action.range% to your next ranged ability."
+      "1": "During your turn, add %game.action.range.valueSign:1% to your next ranged ability."
     },
     "toa-114": {
       "": "Runic Boots of Travel",
@@ -92,7 +92,7 @@
     },
     "toa-115": {
       "": "Battle Standard",
-      "1": "During your turn, one ally within %game.action.range:2% may perform \"%game.action.attack% 2\"."
+      "1": "During your turn, one ally within %game.action.range:2% may perform \"%game.action.attack:2%\"."
     },
     "toa-116": {
       "": "Matriarch's Warhorn",
@@ -108,7 +108,7 @@
     },
     "toa-119": {
       "": "Thrice-Souled Warsword",
-      "1": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."
+      "1": "During your Attack ability, add %game.action.attack.valueSign:1% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."
     },
     "toa-120": {
       "": "Rekindled Core",
@@ -121,7 +121,7 @@
     },
     "toa-122": {
       "": "Crystal Spike",
-      "1": "During your melee Attack ability, add %game.action.pierce% 1 and %game.condition.wound% to one attack."
+      "1": "During your melee Attack ability, add %game.action.pierce:1% and %game.condition.wound% to one attack."
     },
     "toa-123": {
       "": "Arclight Cladding",
@@ -145,15 +145,15 @@
     },
     "toa-128": {
       "": "Barbed Whip",
-      "1": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\"."
+      "1": "During your turn, perform \"%game.action.pull:1%, %game.condition.muddle%, %game.action.range:3%\"."
     },
     "toa-129": {
       "": "Talo's Rosary",
-      "1": "During your turn, remove negative condition from Self and perform \"%game.action.heal% 3, Self\". This can be used while you have %game.condition.stun%."
+      "1": "During your turn, remove negative condition from Self and perform \"%game.action.heal:3%, Self\". This can be used while you have %game.condition.stun%."
     },
     "toa-130": {
       "": "Dynamic Sickle",
-      "1": "During your melee Attack ability, %game.element.consume.wild% to add +2 %game.action.attack% and %game.condition.muddle% to one attack."
+      "1": "During your melee Attack ability, %game.element.consume.wild% to add %game.action.attack.valueSign:2% and %game.condition.muddle% to one attack."
     }
   },
   "treasures": {

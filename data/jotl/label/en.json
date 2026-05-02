@@ -317,7 +317,7 @@
         "": "Demolitionist",
         "mech": {
           "": "Mech Suit",
-          "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
+          "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal:10%, self."
         }
       },
       "hatchet": "Hatchet",
@@ -337,7 +337,7 @@
         "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{$math.ceil}] %game.damage%"
       },
       "blood-horror": {
-        "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
+        "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack:+0%",
         "2": "Revive all dead %data.monster.zealot% in room"
       },
       "blood-monstrosity": {
@@ -364,7 +364,7 @@
             "1": "All objectives within %game.action.range:3% suffer %game.damage:3%."
           },
           "105": {
-            "1": "<small>On your next three attacks targeting enemies you attacked earlier in the same round, add +3 %game.action.attack%.</small>",
+            "1": "<small>On your next three attacks targeting enemies you attacked earlier in the same round, add %game.action.attack.valueSign:3%.</small>",
             "2": "Add %game.condition.immobilize% to all your attacks this round.",
             "3": "Also add %game.condition.muddle%, %game.card.experience:1%"
           },
@@ -415,11 +415,11 @@
             "bottomHint": "One adjacent enemy suffers %game.damage:1% (plus modifier), then collect all money tokens and treasure tiles in or adjacent to your hex."
           },
           "82": {
-            "1": "On your next two attacks, add +2 %game.action.attack%.",
+            "1": "On your next two attacks, add %game.action.attack.valueSign:2%.",
             "2": "Double the value of your next Move ability."
           },
           "83": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is adjacent to a wall.",
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target is adjacent to a wall.",
             "2": "One adjacent enemy that is adjacent to a wall suffers %game.damage:2%."
           },
           "84": {
@@ -448,8 +448,8 @@
             "2": "Create one 2-damage trap in an adjacent empty hex containing a destruction token."
           },
           "92": {
-            "1": "Add +3 %game.action.attack% and gain %game.card.experience:1% if the target is an objective.",
-            "2": "Add +1 %game.action.attack% to all your melee attacks this round."
+            "1": "Add %game.action.attack.valueSign:3% and gain %game.card.experience:1% if the target is an objective.",
+            "2": "Add %game.action.attack.valueSign:1% to all your melee attacks this round."
           },
           "93": {
             "1": "Create one 3-damage %game.condition.muddle% trap in an empty hex within %game.action.range:3%.",
@@ -460,15 +460,15 @@
             "1": "This movement is unaffected by difficult terrain."
           },
           "95": {
-            "1": "On your next four attacks targeting enemies adjacent to a wall, add +2 %game.action.attack%.",
-            "2": "Each time you enter a hex containing an obstacle with this movement, destroy that obstacle and add +1 %game.action.move%.",
+            "1": "On your next four attacks targeting enemies adjacent to a wall, add %game.action.attack.valueSign:2%.",
+            "2": "Each time you enter a hex containing an obstacle with this movement, destroy that obstacle and add %game.action.move.valueSign:1%.",
             "3": "All enemies moved through suffer %game.damage:1%, %game.card.experience:1%."
           },
           "96": {
             "1": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and all enemies adjacent to the destroyed obstacle suffer %game.damage:2%."
           },
           "97": {
-            "1": "Add +1 %game.action.attack% for each wall hex, obstacle hex, objective, figure, or trap adjacent to the target.",
+            "1": "Add %game.action.attack.valueSign:1% for each wall hex, obstacle hex, objective, figure, or trap adjacent to the target.",
             "2": "Move one adjacent trap to an enemy hex adjacent to you."
           },
           "98": {
@@ -477,7 +477,7 @@
             "3": "Create three 3-damage traps in an empty hex within %game.action.range:4%."
           },
           "99": {
-            "1": "Add +2 %game.action.attack%, %game.condition.wound% and gain %game.card.experience:1% if the target is adjacent to a wall."
+            "1": "Add %game.action.attack.valueSign:2%, %game.condition.wound% and gain %game.card.experience:1% if the target is adjacent to a wall."
           }
         }
       },
@@ -493,7 +493,7 @@
       },
       "giant-viper": {
         "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
-        "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
+        "2": "Add %game.action.attack.valueSign:2% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
       },
       "giant-viper-scenario-21": {
         "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
@@ -501,7 +501,7 @@
       "hatchet": {
         "abilities": {
           "10": {
-            "1": "<small>Place one of your character tokens on this card. You may add +3 %game.action.attack% to any of your ranged attacks by moving the token from this card to the target after the attack ability is resolved. When the target dies, place the token on the hex in which it died. If you loot that hex, return the token to this card.</small>"
+            "1": "<small>Place one of your character tokens on this card. You may add %game.action.attack.valueSign:3% to any of your ranged attacks by moving the token from this card to the target after the attack ability is resolved. When the target dies, place the token on the hex in which it died. If you loot that hex, return the token to this card.</small>"
           },
           "11": {
             "1": "If the target has your Favorite token, return the token to its card."
@@ -517,10 +517,10 @@
             "2": "All adjacent enemies suffer %game.damage:2%."
           },
           "18": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target has your Favorite token."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target has your Favorite token."
           },
           "19": {
-            "1": "Add +2 %game.action.move% and gain %game.card.experience:1% if you killed an enemy this round."
+            "1": "Add %game.action.move.valueSign:2% and gain %game.card.experience:1% if you killed an enemy this round."
           },
           "2": {
             "bottomHint": "One adjacent enemy cannot move until the end of its next turn, then move up to 3 hexes away.",
@@ -530,13 +530,13 @@
             "1": "Target one ally adjacent to the target of the attack"
           },
           "21": {
-            "1": "On your next four Move abilities, add +2 %game.action.move%."
+            "1": "On your next four Move abilities, add %game.action.move.valueSign:2%."
           },
           "22": {
-            "1": "Add +1 %game.action.attack% to all your attacks this round."
+            "1": "Add %game.action.attack.valueSign:1% to all your attacks this round."
           },
           "23": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target has your Favorite token."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target has your Favorite token."
           },
           "24": {
             "1": "Target a different enemy within %game.action.range:2% of the target of the previous Attack ability",
@@ -544,10 +544,10 @@
           },
           "25": {
             "1": "<small>If this attack kills the target, one enemy adjacent to the hex in which it died suffers X damage, where X is the amount of damage the target would have suffered in excess of what was needed to kill it.</small>",
-            "2": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you killed an enemy this round."
+            "2": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if you killed an enemy this round."
           },
           "26": {
-            "1": "On your next five attacks, add +1 %game.action.attack% and %game.condition.wound%"
+            "1": "On your next five attacks, add %game.action.attack.valueSign:1% and %game.condition.wound%"
           },
           "27": {
             "1": "If an adjacent enemy has your Favorite token, you may return the token to its card. If you do, the adjacent enemy suffers %game.damage:2% and gains %game.condition.wound%.",
@@ -557,11 +557,11 @@
             "1": "<small>The next five times an enemy ends a Move ability within %game.action.range:5%, perform an \"%game.action.attack:2%, %game.action.range:5%\" action targeting that enemy.</small>"
           },
           "3": {
-            "1": "Add +1 %game.action.attack% to all your attacks this turn.",
+            "1": "Add %game.action.attack.valueSign:1% to all your attacks this turn.",
             "hint": "Up to two enemies within 3 hexes suffer %game.damage:2% (plus a separate modifier for each&mdash;Disadvantage if adjacent)."
           },
           "30": {
-            "1": "<small>Place the Axe token on this card. You may add +3 %game.action.attack%, %game.condition.wound%, and %game.action.push:1% to any of your ranged attacks by moving the token from this card to the target after the attack ability is resolved. When the target dies, place the token on the hex in which it died. If you loot that hex, return the token to this card. This card cannot be active while \"The Favorite\" is active.</small>"
+            "1": "<small>Place the Axe token on this card. You may add %game.action.attack.valueSign:3%, %game.condition.wound%, and %game.action.push:1% to any of your ranged attacks by moving the token from this card to the target after the attack ability is resolved. When the target dies, place the token on the hex in which it died. If you loot that hex, return the token to this card. This card cannot be active while \"The Favorite\" is active.</small>"
           },
           "31": {
             "1": "All adjacent enemies suffer %game.damage:1%."
@@ -570,16 +570,16 @@
             "1": "If your Favorite token is in or adjacent to your hex, you may perform"
           },
           "33": {
-            "1": "On your next five attacks targeting an enemy that has your Favorite token, add +2 %game.action.attack%."
+            "1": "On your next five attacks targeting an enemy that has your Favorite token, add %game.action.attack.valueSign:2%."
           },
           "34": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target has your Favorite token, then return the token to its card."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target has your Favorite token, then return the token to its card."
           },
           "35": {
             "1": "<small>The next five times you kill an enemy, all enemies adjacent to the hex in which it died suffer %game.damage:2%.</small>"
           },
           "36": {
-            "1": "Add +2 %game.action.attack% to your next attack this turn if you are adjacent to an ally."
+            "1": "Add %game.action.attack.valueSign:2% to your next attack this turn if you are adjacent to an ally."
           },
           "37": {
             "1": "One adjacent normal or elite enemy suffers %game.damage:12%.",
@@ -622,7 +622,7 @@
       },
       "monstrosity": {
         "1": "If this attack is performed, the %data.monster.monstrosity% suffers %game.damage:1%.",
-        "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
+        "2": "Add %game.action.attack.valueSign:1% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
         "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers %game.damage:2%.",
         "4": "%data.monster.monstrosity% suffers %game.damage:1%"
       },
@@ -694,7 +694,7 @@
             "2": "2 damage instead"
           },
           "236": {
-            "1": "Add +3 %game.action.attack% if the target has a negative condition.",
+            "1": "Add %game.action.attack.valueSign:3% if the target has a negative condition.",
             "2": "Advantage"
           },
           "237": {
@@ -825,7 +825,7 @@
             "4": "If they do, gain %game.card.experience:1% and this ally suffers %game.damage:2%."
           },
           "160": {
-            "1": "The first attack performed in each of your attack granting actions gains Advantage, and you may %game.element.consume.wild% to add +1 %game.action.attack% to it. In addition, when you grant monsters attacks, they use your attack modifier deck."
+            "1": "The first attack performed in each of your attack granting actions gains Advantage, and you may %game.element.consume.wild% to add %game.action.attack.valueSign:1% to it. In addition, when you grant monsters attacks, they use your attack modifier deck."
           },
           "161": {
             "1": "<small>Force one enemy within %game.action.range:4% to perform</small>",
@@ -854,9 +854,9 @@
           },
           "167": {
             "1": "Shuffle one %game.condition.bless% card into the monster attack modifier deck.",
-            "2": "<small>The next time you grant an attack this turn, add +1 %game.action.attack% to the entire Attack action.</small>",
-            "3": "Add +2 %game.action.attack% instead",
-            "4": "<small>All attacks targeting you add +2 %game.action.attack% this round. This card cannot be discarded before the end of the round.</small>"
+            "2": "<small>The next time you grant an attack this turn, add %game.action.attack.valueSign:1% to the entire Attack action.</small>",
+            "3": "Add %game.action.attack.valueSign:2% instead",
+            "4": "<small>All attacks targeting you add %game.action.attack.valueSign:2% this round. This card cannot be discarded before the end of the round.</small>"
           },
           "168": {
             "1": "<small>At the start of your next five turns, one ally within %game.action.range:3% may perform an \"%game.action.attack:2%\" action.</small>",

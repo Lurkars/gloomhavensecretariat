@@ -10,7 +10,7 @@
     },
     "jotl-11": {
       "": "Heiltrank",
-      "1": "Wende während deines Zugs \"%game.action.heal% 3\" bei dir an."
+      "1": "Wende während deines Zugs \"%game.action.heal:3%\" bei dir an."
     },
     "jotl-12": {
       "": "Ausdauertrank",
@@ -18,7 +18,7 @@
     },
     "jotl-13": {
       "": "Krafttrank",
-      "1": "Füge bei deinem Angriff der gesamten Aktion +1 %game.action.attack% hinzu."
+      "1": "Füge bei deinem Angriff der gesamten Aktion %game.action.attack.valueSign:1% hinzu."
     },
     "jotl-14": {
       "": "Manatrank",
@@ -26,15 +26,15 @@
     },
     "jotl-15": {
       "": "Amulett des Lebens",
-      "1": "Wende während deines Zugs \"%game.action.heal% 1\" bei dir an."
+      "1": "Wende während deines Zugs \"%game.action.heal:1%\" bei dir an."
     },
     "jotl-16": {
       "": "Robe der Anrufung",
-      "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen."
+      "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion %game.action.attack.valueSign:1% hinzuzufügen."
     },
     "jotl-17": {
       "": "Bequeme Schuhe",
-      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move% 3\" statt \"%game.action.move% 2\"."
+      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move:3%\" statt \"%game.action.move:2%\"."
     },
     "jotl-18": {
       "": "Streitaxt",
@@ -54,15 +54,15 @@
     },
     "jotl-21": {
       "": "Falkenhelm",
-      "1": "Füge bei deinem Fernangriff der gesamten Aktion +1 %game.action.range% hinzu."
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.action.range.valueSign:1% hinzu."
     },
     "jotl-22": {
       "": "Klingenrüstung",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du%game.action.shield% 2 für den Angriff und der Angreifer erleidet 2 Schaden."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du%game.action.shield:2% für den Angriff und der Angreifer erleidet 2 Schaden."
     },
     "jotl-23": {
       "": "Wanderstiefel",
-      "1": "Füge einer deiner Einzelbewegungen +2 %game.action.move% hinzu."
+      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:2% hinzu."
     },
     "jotl-24": {
       "": "Wurfbombe",
@@ -70,7 +70,7 @@
     },
     "jotl-25": {
       "": "Hakenkette",
-      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.action.pull% 2 hinzu."
+      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.action.pull:2% hinzu."
     },
     "jotl-26": {
       "": "Eichenamulett",
@@ -78,7 +78,7 @@
     },
     "jotl-27": {
       "": "Schicksalskompass",
-      "1": "Zwinge während deines Zugs einen Gegner in %game.action.range:3%, nach deinem Wunsch \"%game.action.move% 2\" anzuwenden."
+      "1": "Zwinge während deines Zugs einen Gegner in %game.action.range:3%, nach deinem Wunsch \"%game.action.move:2%\" anzuwenden."
     },
     "jotl-28": {
       "": "Schäbiges Schultertuch",
@@ -86,11 +86,11 @@
     },
     "jotl-29": {
       "": "Turmschild",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 2 für den Angriff."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield:2% für den Angriff."
     },
     "jotl-3": {
       "": "Kettenrüstung",
-      "1": "Erhalte während deines Zugs %game.action.shield% 1 für den Rest der Runde"
+      "1": "Erhalte während deines Zugs %game.action.shield:1% für den Rest der Runde"
     },
     "jotl-30": {
       "": "Ring der Eile",
@@ -102,11 +102,11 @@
     },
     "jotl-32": {
       "": "Ring der Erholung",
-      "1": "Wende während deines Zugs \"%game.action.heal% 3, %game.action.range:5%\" an."
+      "1": "Wende während deines Zugs \"%game.action.heal:3%, %game.action.range:5%\" an."
     },
     "jotl-33": {
       "": "Stahlring",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 4 für den Angriff."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield:4% für den Angriff."
     },
     "jotl-34": {
       "": "Zackenaxt",
@@ -114,19 +114,19 @@
     },
     "jotl-35": {
       "": "Befehlsrobe",
-      "1": "Während deines Zugs darf ein angrenzender Verbündeter \"%game.action.attack% 2\" ausführen."
+      "1": "Während deines Zugs darf ein angrenzender Verbündeter \"%game.action.attack:2%\" ausführen."
     },
     "jotl-36": {
       "": "Raketenstiefel",
-      "1": "Füge einer deiner Einzelbewegungen +1 %game.action.move% und %game.action.jump% hinzu."
+      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:1% und %game.action.jump% hinzu."
     },
     "jotl-4": {
       "": "Nietenrüstung",
-      "1": "Wenn du angegriffen wirst, erhältst du, bevor Angriffsmodifikator-Karten gezogen werden, für diesen Angriff %game.action.shield% 1 und der Angreifer Nachteil."
+      "1": "Wenn du angegriffen wirst, erhältst du, bevor Angriffsmodifikator-Karten gezogen werden, für diesen Angriff %game.action.shield:1% und der Angreifer Nachteil."
     },
     "jotl-5": {
       "": "Abgewetzte Stiefel",
-      "1": "Füge einer deiner Einzelbewegungen +1 %game.action.move% hinzu."
+      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:1% hinzu."
     },
     "jotl-6": {
       "": "Flügelschuhe",
@@ -134,7 +134,7 @@
     },
     "jotl-7": {
       "": "Dreieckschild",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 1 für den Angriff."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield:1% für den Angriff."
     },
     "jotl-8": {
       "": "Wurfhammer",

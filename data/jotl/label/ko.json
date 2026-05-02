@@ -317,7 +317,7 @@
         "": "철거전문가",
         "mech": {
           "": "기계 강화복",
-          "hint": "카드 사용자의 최대 체력이 5점 증가한다. 치료 %game.action.heal% 10, 자신."
+          "hint": "카드 사용자의 최대 체력이 5점 증가한다. 치료 %game.action.heal:10%, 자신."
         }
       },
       "hatchet": "도끼투척수",
@@ -337,7 +337,7 @@
         "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{$math.ceil}] %game.damage%"
       },
       "blood-horror": {
-        "1": "가장 멀리 있는 죽은 %data.monster.zealot%에게 도약 또는, 가장 멀리 있는 적에게 도약 후 %game.action.attack% +0",
+        "1": "가장 멀리 있는 죽은 %data.monster.zealot%에게 도약 또는, 가장 멀리 있는 적에게 도약 후 %game.action.attack:+0%",
         "2": "같은 방에 죽은 모든 %data.monster.zealot%들을 부활"
       },
       "blood-monstrosity": {
@@ -364,7 +364,7 @@
             "1": "%game.action.range:3% 내에 있는 모든 목표물이 %game.damage:3%점을 입는다."
           },
           "105": {
-            "1": "<small>앞으로 3회 동안, 같은 라운드 중 카드 사용자가 먼저 공격했던 적을 대상으로 하는 카드 사용자의 공격에 +3 %game.action.attack% 추가.</small>",
+            "1": "<small>앞으로 3회 동안, 같은 라운드 중 카드 사용자가 먼저 공격했던 적을 대상으로 하는 카드 사용자의 공격에 %game.action.attack.valueSign:3% 추가.</small>",
             "2": "이번 라운드 중 카드 사용자의 모든 공격에 %game.condition.immobilize% 추가.",
             "3": "%game.condition.muddle% 도 추가, %game.card.experience:1%"
           },
@@ -415,11 +415,11 @@
             "bottomHint": "인접한 적 하나가 %game.damage:1%점을 입습니다(보정치 적용). <br>그런 다음 카드 사용자가 있는 칸 및 인접한 칸에 있는 모든 돈 토큰과 보물 타일을 획득합니다."
           },
           "82": {
-            "1": "앞으로 2회 동안, 공격 시, +2 %game.action.attack% 추가.",
+            "1": "앞으로 2회 동안, 공격 시, %game.action.attack.valueSign:2% 추가.",
             "2": "다음번 이동 능력의 이동 수치가 2배가 된다."
           },
           "83": {
-            "1": "대상이 벽에 인접해 있다면 +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득.",
+            "1": "대상이 벽에 인접해 있다면 %game.action.attack.valueSign:2% 추가 및 %game.card.experience:1% 획득.",
             "2": "카드 사용자에 인접한 동시에 벽에 인접한 적 하나가 %game.damage:2%점을 입는다."
           },
           "84": {
@@ -448,8 +448,8 @@
             "2": "철거 타일이 놓인 인접한 빈칸 하나에 피해 2점짜리 함정을 생성한다."
           },
           "92": {
-            "1": "대상이 목표물이라면 +3 %game.action.attack% 추가 및 %game.card.experience:1% 획득.",
-            "2": "이번 라운드 중 카드 사용자의 모든 근접 공격에 +1 %game.action.attack% 추가."
+            "1": "대상이 목표물이라면 %game.action.attack.valueSign:3% 추가 및 %game.card.experience:1% 획득.",
+            "2": "이번 라운드 중 카드 사용자의 모든 근접 공격에 %game.action.attack.valueSign:1% 추가."
           },
           "93": {
             "1": "%game.action.range:3% 내에 있는 빈칸 하나에 피해 3점짜리 %game.condition.muddle% 함정을 생성한다.",
@@ -460,15 +460,15 @@
             "1": "이 이동은 험난지형의 영향을 받지 않는다."
           },
           "95": {
-            "1": "<small>앞으로 4회 동안, 공격이 벽에 인접한 적을 대상으로 하는 경우, +2 %game.action.attack% 추가.</small>",
-            "2": "이동 중 장애물이 있는 칸에 진입할 때마다, 장애물이 파괴되고 +1 %game.action.move% 추가.",
+            "1": "<small>앞으로 4회 동안, 공격이 벽에 인접한 적을 대상으로 하는 경우, %game.action.attack.valueSign:2% 추가.</small>",
+            "2": "이동 중 장애물이 있는 칸에 진입할 때마다, 장애물이 파괴되고 %game.action.move.valueSign:1% 추가.",
             "3": "이동 경로에 있는 모든 적이 %game.damage:1%점을 입고, %game.card.experience:1%."
           },
           "96": {
             "1": "인접한 장애물 1개를 파괴한다. 그렇게 하면, %game.card.experience:1% 을 획득하고 파괴된 장애물에 인접한 모든 적이 %game.damage:2%점을 입는다."
           },
           "97": {
-            "1": "대상에게 인접한 각 벽 칸, 장애물 칸, 목표물, 피규어, 함정 하나당 +1 %game.action.attack% 추가.",
+            "1": "대상에게 인접한 각 벽 칸, 장애물 칸, 목표물, 피규어, 함정 하나당 %game.action.attack.valueSign:1% 추가.",
             "2": "인접한 함정 1개를 카드 사용자에게 인접한 빈칸으로 이동시킨다."
           },
           "98": {
@@ -477,7 +477,7 @@
             "3": "%game.action.range:4% 내에 있는 빈칸 셋에 피해 3점짜리 함정을 생성한다."
           },
           "99": {
-            "1": "대상이 벽에 인접해 있다면 +2 %game.action.attack% 및 %game.condition.wound% 추가, %game.card.experience:1% 획득."
+            "1": "대상이 벽에 인접해 있다면 %game.action.attack.valueSign:2% 및 %game.condition.wound% 추가, %game.card.experience:1% 획득."
           }
         }
       },
@@ -493,7 +493,7 @@
       },
       "giant-viper": {
         "1": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익.",
-        "2": "대상이 %data.monster.giant-viper%의 아군에게 인접해 있다면 +2 %game.action.attack%추가."
+        "2": "대상이 %data.monster.giant-viper%의 아군에게 인접해 있다면 %game.action.attack.valueSign:2%추가."
       },
       "giant-viper-scenario-21": {
         "1": "피규어가 거대 독사를 공격할 때마다, 해당 피규어는 %game.damage:L%점 입음"
@@ -501,7 +501,7 @@
       "hatchet": {
         "abilities": {
           "10": {
-            "1": "<small>이 카드 위에 카드 사용자의 캐릭터 토큰 1개를 올려놓는다. 카드 사용자의 원거리 공격 시, 카드 위의 캐릭터 토큰을 대상에게 옮길 수 있다. 그러기로 하면, 해당 공격에 +3 %game.action.attack% 을 추가하고, 공격 능력을 해결한 다음 토큰을 대상에게 올려놓는다. 대상이 죽으면, 그 칸에 이 캐릭터 토큰을 올려놓는다. 카드 사용자가 해당 칸을 노획하면 토큰을 이 카드 위에 되돌려 놓는다.</small>"
+            "1": "<small>이 카드 위에 카드 사용자의 캐릭터 토큰 1개를 올려놓는다. 카드 사용자의 원거리 공격 시, 카드 위의 캐릭터 토큰을 대상에게 옮길 수 있다. 그러기로 하면, 해당 공격에 %game.action.attack.valueSign:3% 을 추가하고, 공격 능력을 해결한 다음 토큰을 대상에게 올려놓는다. 대상이 죽으면, 그 칸에 이 캐릭터 토큰을 올려놓는다. 카드 사용자가 해당 칸을 노획하면 토큰을 이 카드 위에 되돌려 놓는다.</small>"
           },
           "11": {
             "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, 그 토큰을 원래 카드 위에 되돌려 놓는다."
@@ -517,10 +517,10 @@
             "2": "인접한 모든 적이 %game.damage:2%을 입는다."
           },
           "18": {
-            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득."
+            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, %game.action.attack.valueSign:2% 추가 및 %game.card.experience:1% 획득."
           },
           "19": {
-            "1": "이번 라운드에 적을 죽였다면, +2 %game.action.move% 추가 및 %game.card.experience:1% 획득."
+            "1": "이번 라운드에 적을 죽였다면, %game.action.move.valueSign:2% 추가 및 %game.card.experience:1% 획득."
           },
           "2": {
             "bottomHint": "인접한 적 하나가 자신의 다음 차례 종료 시까지 이동할 수 없습니다. 그런 다음 최대 3칸까지 이동합니다.",
@@ -530,13 +530,13 @@
             "1": "공격의 대상에게 인접한 아군 하나 대상"
           },
           "21": {
-            "1": "앞으로 4회 동안, 이동 능력 중, +2 %game.action.move% 추가."
+            "1": "앞으로 4회 동안, 이동 능력 중, %game.action.move.valueSign:2% 추가."
           },
           "22": {
-            "1": "이번 라운드 중 카드 사용자의 모든 공격에 +1 %game.action.attack% 추가."
+            "1": "이번 라운드 중 카드 사용자의 모든 공격에 %game.action.attack.valueSign:1% 추가."
           },
           "23": {
-            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득."
+            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, %game.action.attack.valueSign:2% 추가 및 %game.card.experience:1% 획득."
           },
           "24": {
             "1": "위 공격 능력의 대상으로부터 %game.action.range:2% 내에 있는 다른 적 하나 대상",
@@ -544,10 +544,10 @@
           },
           "25": {
             "1": "<small>이 공격으로 대상이 죽으면, 대상이 죽은 칸에 인접한 적 하나가 피해 X점을 입는다. 여기에서 X는 대상이 남은 체력을 초과해서 입은 피해이다.</small>",
-            "2": "이번 라운드에 적을 죽였다면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득."
+            "2": "이번 라운드에 적을 죽였다면, %game.action.attack.valueSign:2% 추가 및 %game.card.experience:1% 획득."
           },
           "26": {
-            "1": "앞으로 5회 동안, 공격 시, +1 %game.action.attack% 및 %game.condition.wound% 추가."
+            "1": "앞으로 5회 동안, 공격 시, %game.action.attack.valueSign:1% 및 %game.condition.wound% 추가."
           },
           "27": {
             "1": "인접한 적이 카드 사용자의 믿는 도끼 토큰을 가지고 있다면, 그 토큰을 원래 카드 위로 되돌려 놓을 수 있다. 그렇게 하면, 해당 적이 %game.damage:2%점을 입고 %game.condition.wound% 상태를 얻는다.",
@@ -557,11 +557,11 @@
             "1": "<small>앞으로 5회 동안, 적이 %game.action.range:5% 내에서 이동을 마쳤을 경우, 해당 적을 대상으로 '%game.action.attack:2%, %game.action.range:5%' 행동을 수행한다.</small>"
           },
           "3": {
-            "1": "이번 차례 중 카드 사용자의 모든 공격에 +1 %game.action.attack% 추가.",
+            "1": "이번 차례 중 카드 사용자의 모든 공격에 %game.action.attack.valueSign:1% 추가.",
             "hint": "3칸 이내에 있는 적 최대 둘까지가 %game.damage:2%점을 입습니다(대상마다 별개의 보정치 적용 및 인접한 적이 대상일 경우 불이익)."
           },
           "30": {
-            "1": "<small>이 카드 위에 도끼 토큰을 올려놓는다. 카드 사용자의 원거리 공격시, 카드 위의 도끼 토큰을 대상에게 옮길 수 있다. 그러기로 하면, 해당 공격에 +3 %game.action.attack%, %game.condition.wound% 및 %game.action.push:1%을 추가하고, 공격 능력을 해결한 다음 토큰을 대상에게 올려놓는다. 대상이 죽으면, 그 칸에 도끼 토큰을 올려놓는다. 카드 사용자가 해당 칸을 노획하면 토큰을 이 카드 위에 되돌려 놓는다. 이 카드는 '믿는 도끼'가 활성화된 동안에는 활성화되지 않는다.</small>"
+            "1": "<small>이 카드 위에 도끼 토큰을 올려놓는다. 카드 사용자의 원거리 공격시, 카드 위의 도끼 토큰을 대상에게 옮길 수 있다. 그러기로 하면, 해당 공격에 %game.action.attack.valueSign:3%, %game.condition.wound% 및 %game.action.push:1%을 추가하고, 공격 능력을 해결한 다음 토큰을 대상에게 올려놓는다. 대상이 죽으면, 그 칸에 도끼 토큰을 올려놓는다. 카드 사용자가 해당 칸을 노획하면 토큰을 이 카드 위에 되돌려 놓는다. 이 카드는 '믿는 도끼'가 활성화된 동안에는 활성화되지 않는다.</small>"
           },
           "31": {
             "1": "인접한 모든 적이 %game.damage:1%점을 입는다."
@@ -570,16 +570,16 @@
             "1": "믿는 도끼 토큰이 카드 사용자가 있는 칸 또는 인접한 칸에 있다면 다음을 수행할 수 있다."
           },
           "33": {
-            "1": "앞으로 5회 동안, 카드 사용자의 믿는 도끼 토큰을 가진 적을 대상으로 하는 카드 사용자의 공격에 +2 %game.action.attack% 추가."
+            "1": "앞으로 5회 동안, 카드 사용자의 믿는 도끼 토큰을 가진 적을 대상으로 하는 카드 사용자의 공격에 %game.action.attack.valueSign:2% 추가."
           },
           "34": {
-            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있으면, +2 %game.action.attack% 추가 및 %game.card.experience:1% 획득. <br>그런 다음 그 토큰을 원래 카드 위에 되돌려 놓는다."
+            "1": "대상이 카드 사용자의 믿는 도끼 토큰을 가지고 있으면, %game.action.attack.valueSign:2% 추가 및 %game.card.experience:1% 획득. <br>그런 다음 그 토큰을 원래 카드 위에 되돌려 놓는다."
           },
           "35": {
             "1": "<small>앞으로 5회 동안, 카드 사용자가 적을 죽인 경우, 해당 칸에 인접한 모든 적이 %game.damage:2%점을 입는다.</small>"
           },
           "36": {
-            "1": "이번 차례 중 카드 사용자의 다음번 공격 시, 아군이 인접해 있다면, 해당 공격에 +2 %game.action.attack% 추가."
+            "1": "이번 차례 중 카드 사용자의 다음번 공격 시, 아군이 인접해 있다면, 해당 공격에 %game.action.attack.valueSign:2% 추가."
           },
           "37": {
             "1": "인접한 일반 또는 정예 적 하나가 %game.damage:12%점을 입는다.",
@@ -622,7 +622,7 @@
       },
       "monstrosity": {
         "1": "이 공격이 수행되면, %data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음.",
-        "2": "대상이 %data.monster.monstrosity%의 아군에게 인접해 있다면 +1 %game.action.attack% 추가.",
+        "2": "대상이 %data.monster.monstrosity%의 아군에게 인접해 있다면 %game.action.attack.valueSign:1% 추가.",
         "3": "이번 라운드 중 피규어가 %data.monster.monstrosity%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
         "4": "%data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음"
       },
@@ -694,7 +694,7 @@
             "2": "대신 피해 2점"
           },
           "236": {
-            "1": "대상이 부정적 상태를 가지고 있다면, +3 %game.action.attack% 추가.",
+            "1": "대상이 부정적 상태를 가지고 있다면, %game.action.attack.valueSign:3% 추가.",
             "2": "이익"
           },
           "237": {
@@ -825,7 +825,7 @@
             "4": "그렇게 하면, %game.card.experience:1% 을 획득하고 해당 아군이 %game.damage:2%점을 입는다."
           },
           "160": {
-            "1": "카드 사용자의 공격 지시 행동 중 첫 번째 공격은 이익을 받으며, %game.element.consume.wild% 를 통해 해당 공격에 +1 %game.action.attack% 을 추가할 수 있다. 또한, 몬스터에게 공격을 지시할 때 해당 몬스터는 카드 사용자의 공격 보정 카드 덱을 사용한다."
+            "1": "카드 사용자의 공격 지시 행동 중 첫 번째 공격은 이익을 받으며, %game.element.consume.wild% 를 통해 해당 공격에 %game.action.attack.valueSign:1% 을 추가할 수 있다. 또한, 몬스터에게 공격을 지시할 때 해당 몬스터는 카드 사용자의 공격 보정 카드 덱을 사용한다."
           },
           "161": {
             "1": "<small>%game.action.range:4% 내에 있는 적 하나가 카드 사용자의 조종에 따라 다음을 수행하도록 한다.</small>",
@@ -854,9 +854,9 @@
           },
           "167": {
             "1": "몬스터 공격 보정 카드 덱에 %game.condition.bless% 카드 1장을 섞어넣는다.",
-            "2": "<small>이번 차례에 지시하는 다음번 공격 행동 전체에 +1 %game.action.attack% 을 추가한다.</small>",
-            "3": "대신 +2 %game.action.attack% 추가",
-            "4": "<small>이번 라운드 중 카드 사용자를 대상으로 하는 모든 공격에 +2 %game.action.attack% 을 추가한다. 이 카드는 라운드 종료 전에 버려질 수 없다.</small>"
+            "2": "<small>이번 차례에 지시하는 다음번 공격 행동 전체에 %game.action.attack.valueSign:1% 을 추가한다.</small>",
+            "3": "대신 %game.action.attack.valueSign:2% 추가",
+            "4": "<small>이번 라운드 중 카드 사용자를 대상으로 하는 모든 공격에 %game.action.attack.valueSign:2% 을 추가한다. 이 카드는 라운드 종료 전에 버려질 수 없다.</small>"
           },
           "168": {
             "1": "<small>앞으로 5회 동안, 카드 사용자의 차례 시작 시, %game.action.range:3% 내에 있는 아군 하나가 '%game.action.attack:2%' 행동을 수행할 수 있다.</small>",

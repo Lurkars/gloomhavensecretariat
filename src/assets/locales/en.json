@@ -794,7 +794,7 @@
       },
       "poison": {
         "": "Poison",
-        "hint": "%game.conditionIcon.poison% Poison: All attackers gain +1 %game.action.attack%. Prevents healing. Remove when healed."
+        "hint": "%game.conditionIcon.poison% Poison: All attackers gain %game.action.attack.valueSign:1%. Prevents healing. Remove when healed."
       },
       "poison_x": {
         "": "Poison {0}",
@@ -802,7 +802,7 @@
       },
       "regenerate": {
         "": "Regenerate",
-        "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal% 1 at start of turn. Removed when damaged."
+        "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal:1% at start of turn. Removed when damaged."
       },
       "roundExpire": {
         "hint": "Remove condition at end of round"
@@ -2384,7 +2384,7 @@
         "": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP",
         "brittle": "On suffering damage, ask to apply %game.condition.brittle% and increase damage.",
         "heal": "No condition, but helper if %game.action.heal% should be applied when increasing hitpoints.",
-        "poison": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison% (including %game.attackmodifier.double%).",
+        "poison": "On suffering damage, ask to apply %game.action.attack:+1% from %game.condition.poison% (including %game.attackmodifier.double%).",
         "poison_x": "On suffering damage, ask to apply %game.action.attack% +X from %game.condition.poison_x:X% (including %game.attackmodifier.double%).",
         "shield": "No condition, but helper if %game.action.shield% should be applied when taking damage and lower damage.",
         "ward": "On suffering damage, ask to apply %game.condition.ward% and lower damage."
@@ -2472,7 +2472,7 @@
     },
     "applyLongRest": {
       "": "Apply Long Rest",
-      "hint": "Automatically perform %game.action.heal% 2 on turn of character while long resting"
+      "hint": "Automatically perform %game.action.heal:2% on turn of character while long resting"
     },
     "applyLoot": {
       "": "Apply Loot to Character",

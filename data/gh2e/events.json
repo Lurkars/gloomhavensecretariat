@@ -11183,7 +11183,7 @@
           {
             "narrative": "It doesn't take long to find the shepherd-the hundreds of kivak following behind him was a dead giveaway. \"Ho there! Is that Grump? Grump, what are you doing way out here?\" You explain, and the shepherd gives you his thanks. \"We wander out around these parts, far and wide. If it'd be useful to you, you can take one of them along for your trip. Not Grump, obviously, he'll need some time to heal up. But they're good for carrying you and your companions.\"",
             "effects": [
-              "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move% 3 from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex.",
+              "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move:3% from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex.",
               {
                 "type": "event",
                 "alt": "gh2e",
@@ -11203,7 +11203,7 @@
           {
             "narrative": "You bandage the kivak's leg and it dutifully follows you towards your destination, stopping periodically to graze on wildflowers. Keeping track of it is exhausting, but perhaps this beast can help you.",
             "effects": [
-              "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move% 3 from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex.",
+              "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move:3% from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex.",
               {
                 "type": "discard",
                 "alt": "gh2e",
@@ -11243,7 +11243,7 @@
             },
             "narrative": "\"There you are, this is the finest kivak in the herd that also happened to be the closest one when you asked for one. It'll carry you along. No need to bring 'im back, they always find their way eventually.\"",
             "effects": [
-              "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move% 3 from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex."
+              "At the start of the next scenario, designate an empty hex that can be reached by performing %game.action.move:3% from a starting hex. Characters may choose to start in that hex or an empty hex adjacent to it instead of a starting hex."
             ]
           },
           {

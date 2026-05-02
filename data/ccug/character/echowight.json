@@ -276,7 +276,7 @@
                 "effects": [
                   {
                     "type": "specialTarget",
-                    "value": "%game.action.target% 1 figure adjacent to %data.action.custom.ccug-fog%"
+                    "value": "%game.action.target:1% figure adjacent to %data.action.custom.ccug-fog%"
                   }
                 ]
               }

@@ -40,16 +40,16 @@
       "1": "치료 행동 중, 해당 %game.action.heal% 에 +1을 하고, 해당 아군에게 %game.condition.strengthen% 적용."
     },
     "solo-digital-137": {
-      "1": "공격을 수행할 때마다, 해당 공격에 %game.action.pierce% 1 추가."
+      "1": "공격을 수행할 때마다, 해당 공격에 %game.action.pierce:1% 추가."
     },
     "solo-digital-138": {
       "1": "매번 장애물을 생성하는 행동을 할 때마다, 해당 장애물에 인접한 모든 적에게 %game.condition.muddle% 상태 적용."
     },
     "solo-digital-139": {
-      "1": "[명령] 행동을 수행할 때마다, 해당 행동 전체에%game.action.attack%+2 추가."
+      "1": "[명령] 행동을 수행할 때마다, 해당 행동 전체에%game.action.attack:+2% 추가."
     },
     "solo-digital-140": {
-      "1": "공격에 의해 피해를 입게 될 때, %game.element.consume.light% 를 통해 해당 공격에 대해 %game.action.shield% 2 및 %game.action.retaliate% 1 획득 가능."
+      "1": "공격에 의해 피해를 입게 될 때, %game.element.consume.light% 를 통해 해당 공격에 대해 %game.action.shield:2% 및 %game.action.retaliate:1% 획득 가능."
     },
     "solo-digital-143": {
       "1": "차례 중, %game.condition.invisible% 획득."
@@ -58,10 +58,10 @@
       "1": "차례 중, %game.action.range:3% 내에 있는 적 하나에게 %game.condition.poison% 및 %game.condition.curse% 적용."
     },
     "solo-digital-146": {
-      "1": "매번 [노래] 행동 수행 후, 즉시%game.action.attack% 2또는%game.action.move%2 수행."
+      "1": "매번 [노래] 행동 수행 후, 즉시%game.action.attack:2%또는%game.action.move:2% 수행."
     },
     "solo-digital-147": {
-      "1": "매번 [파멸] 행동 수행한 후, 즉시%game.action.move%1수행 가능."
+      "1": "매번 [파멸] 행동 수행한 후, 즉시%game.action.move:1%수행 가능."
     },
     "solo-digital-148": {
       "1": "하나 이상의 아군에게<br>'의료품 꾸러미' 또는<br>'큰 의료품 꾸러미'를 줄 때,<br>착용자도 “의료품 꾸러미” 한 장을 획득 가능."

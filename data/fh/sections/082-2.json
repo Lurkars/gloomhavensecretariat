@@ -63,7 +63,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "All monsters add +1 %game.action.attack% to all their attacks targeting characters or character summons"
+      "note": "All monsters add %game.action.attack.valueSign:1% to all their attacks targeting characters or character summons"
     }
   ],
   "rooms": [

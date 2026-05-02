@@ -160,7 +160,7 @@
     },
     "gh2e-154": {
       "": "Focusing Ray",
-      "1": "During your heal ability, add +1 %game.action.heal% and %game.condition.strengthen% one heal targeting an ally."
+      "1": "During your heal ability, add %game.action.heal.valueSign:1% and %game.condition.strengthen% one heal targeting an ally."
     },
     "gh2e-155": {
       "": "Etheric Elixir",
@@ -168,7 +168,7 @@
     },
     "gh2e-156": {
       "": "Silent Stiletto",
-      "1": "Add %game.action.pierce% 1 to all your attacks."
+      "1": "Add %game.action.pierce:1% to all your attacks."
     },
     "gh2e-157": {
       "": "Stone Charm",
@@ -176,7 +176,7 @@
     },
     "gh2e-158": {
       "": "Psychic Knife",
-      "1": "Add +1 %game.action.attack% to all your attacks from your %data.action.custom.gh2e-augment% actions."
+      "1": "Add %game.action.attack.valueSign:1% to all your attacks from your %data.action.custom.gh2e-augment% actions."
     },
     "gh2e-159": {
       "": "Insignia of the Divine",
@@ -198,11 +198,11 @@
     "gh2e-163": {
       "": "Pendant of the Plague",
       "1": "During your turn, perform:",
-      "2": "You may give one ally within %game.action.range:3% (of you) %game.condition.poison% to add +1 %game.action.target%."
+      "2": "You may give one ally within %game.action.range:3% (of you) %game.condition.poison% to add %game.action.target.valueSign:1%."
     },
     "gh2e-164": {
       "": "Mask of Death",
-      "1": "Add +2 %game.action.attack% to all your melee attacks while your current hit point value is 1."
+      "1": "Add %game.action.attack.valueSign:2% to all your melee attacks while your current hit point value is 1."
     },
     "gh2e-165": {
       "": "Master's Lute",
@@ -261,10 +261,10 @@
       "1": "During your turn, forgo your top action to play a summon action from a card in your lost pile, ignoring two ^scrapx^."
     },
     "solo-114": {
-      "1": "During your attack ability gain %game.condition.wound% to add +3 %game.action.attack% to one attack. If you kill the target perform \"%game.action.heal% 3, Self\"."
+      "1": "During your attack ability gain %game.condition.wound% to add %game.action.attack.valueSign:3% to one attack. If you kill the target perform \"%game.action.heal:3%, Self\"."
     },
     "solo-119": {
-      "1": "During your Attack ability, add +1 %game.action.attack% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."
+      "1": "During your Attack ability, add %game.action.attack.valueSign:1% to one attack. Whenever this item is refreshed, one adjacent enemy suffers 1 damage."
     },
     "solo-120": {
       "1": "During your melee Attack ability, gain %game.condition.chill% to add %game.condition.chill% to the attack. After the attack flip, this card.",
@@ -277,28 +277,28 @@
       "1": "Whenever you %game.condition.dodge% an attack, you may spend this item instead of discarding a card from your hand."
     },
     "solo-128": {
-      "1": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\"."
+      "1": "During your turn, perform \"%game.action.pull:1%, %game.condition.muddle%, %game.action.range:3%\"."
     },
     "solo-134": {
-      "1": "Any time you kill an enemy during your turn, gain %game.action.shield% 1 for the rest of the round."
+      "1": "Any time you kill an enemy during your turn, gain %game.action.shield:1% for the rest of the round."
     },
     "solo-135": {
       "1": "During your Heal action, double the value of the Heal."
     },
     "solo-136": {
-      "1": "During your ranged attack, add +2 %game.action.attack% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made."
+      "1": "During your ranged attack, add %game.action.attack.valueSign:2% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made."
     },
     "solo-137": {
-      "1": "Any time you perform a melee attack, add %game.action.pierce% 1 to the Attack."
+      "1": "Any time you perform a melee attack, add %game.action.pierce:1% to the Attack."
     },
     "solo-138": {
       "1": "During your action where an obstacle is created, create one additional obstacle and apply all effects of the action to it."
     },
     "solo-139": {
-      "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add +1 %game.action.attack% to the entire action."
+      "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add %game.action.attack.valueSign:1% to the entire action."
     },
     "solo-140": {
-      "1": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield% 3 for the attack."
+      "1": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield:3% for the attack."
     },
     "solo-141": {
       "1": "During your turn, you or any one ally may Refresh %game.card.refresh% one of your spent or consumed items."
@@ -313,16 +313,16 @@
       "1": "During your turn, %game.condition.poison% and %game.condition.curse% one enemy within %game.action.range:3%."
     },
     "solo-145": {
-      "1": "Any time you perform a melee attack and you have exactly 1 hit point, add +2 %game.action.attack% to the Attack."
+      "1": "Any time you perform a melee attack and you have exactly 1 hit point, add %game.action.attack.valueSign:2% to the Attack."
     },
     "solo-146": {
-      "1": "After performing any %data.characterColored.music-note:Song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action."
+      "1": "After performing any %data.characterColored.music-note:Song% action, immediately perform an %game.action.attack:2% or %game.action.move:2% action."
     },
     "solo-147": {
       "1": "Any time you perform a %data.characterColored.angry-face:Doom% action, %game.condition.muddle% the target of the %data.characterColored.angry-face:Doom%."
     },
     "solo-148": {
-      "1": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add +1 %game.action.heal% to their Heal."
+      "1": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add %game.action.heal.valueSign:1% to their Heal."
     },
     "solo-149": {
       "1": "If you move 5 or more hexes on your turn, create any element."
@@ -374,8 +374,8 @@
       "2": "This heal is not affect by and cannot remove negative conditions."
     },
     "solo-259": {
-      "1": "During an attack ability you grant an ally, add %game.action.push% 2 to one of their attacks, then flip this card over.",
-      "2": "During your attack ability you, add %game.action.pull% 2 to one attack, then flip this card over."
+      "1": "During an attack ability you grant an ally, add %game.action.push:2% to one of their attacks, then flip this card over.",
+      "2": "During your attack ability you, add %game.action.pull:2% to one attack, then flip this card over."
     },
     "solo-260": {
       "1": "During your attack ability, add %game.condition.brittle% one attack and create one 1-hex icy terrain tile in the featureless hex occupied by the target."
@@ -384,7 +384,7 @@
       "1": "Remove all damage and negative conditions from one of your summons, then %data.action.custom.fh-mode% to that summon."
     },
     "solo-262": {
-      "1": "During your move ability, when you have %game.characterIconIdentityColored.drill.1% or %game.characterIconIdentityColored.drill.2%, add +1 %game.action.move%, then flip this card over at the end of your turn.",
+      "1": "During your move ability, when you have %game.characterIconIdentityColored.drill.1% or %game.characterIconIdentityColored.drill.2%, add %game.action.move.valueSign:1%, then flip this card over at the end of your turn.",
       "2": "During your turn when you have %game.characterIconIdentityColored.drill.3%, perform:",
       "4": "then flip this card over at the end of your turn."
     },
@@ -398,28 +398,28 @@
       "1": "At the end of your turn, create one 4 damage %game.condition.poison% trap in an adjacent empty hex."
     },
     "solo-40": {
-      "1": "Add +1 %game.action.move% to all your movement while you are at full health."
+      "1": "Add %game.action.move.valueSign:1% to all your movement while you are at full health."
     },
     "solo-41": {
       "1": "During your turn remove one damage token from one %data.characterColored.skull:Spirit% %data.characterIconColoredBg.skull%. This %data.characterColored.skull:Spirit% may immediately take a turn without receiving a damage token."
     },
     "solo-42": {
-      "1": "Whenever you given an ally a %data.characterColored.leaf:Prayer% ability card, that ally may perform \"%game.action.heal% 2, Self\"."
+      "1": "Whenever you given an ally a %data.characterColored.leaf:Prayer% ability card, that ally may perform \"%game.action.heal:2%, Self\"."
     },
     "solo-45": {
-      "1": "During your turn, perform \"%game.action.pull% 2, Self toward one enemy within %game.action.range:3%\"."
+      "1": "During your turn, perform \"%game.action.pull:2%, Self toward one enemy within %game.action.range:3%\"."
     },
     "solo-47": {
       "1": "While %data.characterColored.tusks:Mounted% on a summon, you can apply your %game.items.slots.small% items item effects to the summon instead."
     },
     "solo-48": {
-      "1": "During your turn, %game.element.consume.wild% to perform one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%."
+      "1": "During your turn, %game.element.consume.wild% to perform one of the following: %game.action.move:2%, %game.action.jump%, %game.element.air% | %game.action.heal:3%, Self, %game.element.light% | %game.action.attack:2%, %game.element.fire%."
     },
     "solo-50": {
       "1": "During your turn, when you %game.element.consume.wild% an element, do not move the consumed element to the Inert column."
     },
     "solo-51": {
-      "1": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate% 3 for the attack."
+      "1": "When attacked, you may %game.element.consume.fire% to gain %game.action.retaliate:3% for the attack."
     },
     "solo-53": {
       "1": "Once each turn, during your turn, you may remove one condition from an adjacent figure and place that condition on this card if it is not already on this card. During your turn, one adjacent figure gains all conditions on this card, then consume %game.card.lost% this item."

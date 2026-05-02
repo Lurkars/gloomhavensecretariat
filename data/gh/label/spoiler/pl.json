@@ -13,7 +13,7 @@
     },
     "gh-37": {
       "": "Szata Ewokacji",
-      "1": "Podczas twojego ataku, %game.element.consume.wild%, aby dodać +1 %game.action.attack% do całej akcji Ataku."
+      "1": "Podczas twojego ataku, %game.element.consume.wild%, aby dodać %game.action.attack.valueSign:1% do całej akcji Ataku."
     },
     "gh-53": {
       "": "Czarny Sztylet",
@@ -21,7 +21,7 @@
     },
     "gh-93": {
       "": "Zwój Mocy",
-      "1": "Podczas ataku sojusznika dodaj +1 %game.action.attack% do całej jego akcji ataku"
+      "1": "Podczas ataku sojusznika dodaj %game.action.attack.valueSign:1% do całej jego akcji ataku"
     },
     "gh-94": {
       "": "Zwój Leczenia",

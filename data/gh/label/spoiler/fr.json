@@ -22,16 +22,16 @@
             "1": "Appliquez %game.condition.poison% à tous les adversaires et alliés dans la zone ciblée."
           },
           "290": {
-            "1": "Retirez -1 %game.action.range% à toutes vos attaques à distance."
+            "1": "Retirez %game.action.range.valueSign:-1% à toutes vos attaques à distance."
           },
           "292": {
-            "1": "Une fois pendant chacune de vos actions d'Attaque, vous pouvez appliquer %game.condition.poison% à un allié à %game.action.range:2% (ou lui infliger 3 dégâts s'il a déjà %game.condition.poison%) pour ajouter +1 %game.action.attack% à la totalité de votre action d'Attaque."
+            "1": "Une fois pendant chacune de vos actions d'Attaque, vous pouvez appliquer %game.condition.poison% à un allié à %game.action.range:2% (ou lui infliger 3 dégâts s'il a déjà %game.condition.poison%) pour ajouter %game.action.attack.valueSign:1% à la totalité de votre action d'Attaque."
           },
           "294": {
             "1": "Gagnez %game.action.fly%"
           },
           "298": {
-            "1": "Durant vos six prochaines actions d'Attaque lors desquelles %game.element.air% est Fort ou Faible, vous pouvez %game.element.consume.air% pour ajouter +1 %game.action.attack% à la totalité de l'action d'Attaque."
+            "1": "Durant vos six prochaines actions d'Attaque lors desquelles %game.element.air% est Fort ou Faible, vous pouvez %game.element.consume.air% pour ajouter %game.action.attack.valueSign:1% à la totalité de l'action d'Attaque."
           },
           "299": {
             "1": "Toutes les attaques vous ciblant gagnent Désavantage ce round."
@@ -47,7 +47,7 @@
             "1": "Appliquez %game.condition.poison% à tous les alliés adjacents à la cible."
           },
           "305": {
-            "1": "Éliminez un adversaire normal avec %game.condition.poison% et à %game.action.range% 3."
+            "1": "Éliminez un adversaire normal avec %game.condition.poison% et à %game.action.range:3%."
           },
           "307": {
             "1": "De plus, ciblez tous les adversaires sur le chemin vers votre première cible"
@@ -65,7 +65,7 @@
             "1": "Si un adversaire n'inflige pas de dégâts durant son attaque à cause d'une %game.condition.curse%, cet adversaire subit %game.damage:3%."
           },
           "316": {
-            "1": "Durant vos six prochaines actions d'Attaque, appliquez %game.condition.curse% à un allié à %game.action.range% 2 pour gagner 2 effets %game.action.target%.",
+            "1": "Durant vos six prochaines actions d'Attaque, appliquez %game.condition.curse% à un allié à %game.action.range:2% pour gagner 2 effets %game.action.target%.",
             "2": "Doublez la valeur de votre prochaine action d'Attaque ce round."
           },
           "317": {
@@ -74,7 +74,7 @@
           },
           "318": {
             "1": "Tous les alliés avec %game.condition.poison% subissent %game.damage:2%.",
-            "2": "Pour toute paire d'alliés ayant subi des dégâts, ajoutez +1 %game.action.attack% à toutes vos attaques ce round et gagnez %game.card.experience:1%."
+            "2": "Pour toute paire d'alliés ayant subi des dégâts, ajoutez %game.action.attack.valueSign:1% à toutes vos attaques ce round et gagnez %game.card.experience:1%."
           }
         }
       },
@@ -98,7 +98,7 @@
             "1": "Un allié à %game.action.range:3% peut effectuer"
           },
           "184": {
-            "1": "Retirez -1 %game.action.move% à tous vos déplacements."
+            "1": "Retirez %game.action.move.valueSign:-1% à tous vos déplacements."
           },
           "185": {
             "1": "Soignez tous les dégâts sur un allié adjacent.",
@@ -123,17 +123,17 @@
             "1": "Affectez tous les alliés franchis"
           },
           "196": {
-            "1": "Retirez -1 %game.action.attack% à toutes vos attaques."
+            "1": "Retirez %game.action.attack.valueSign:-1% à toutes vos attaques."
           },
           "197": {
-            "1": "Tous les alliés ajoutent +1 %game.action.attack% à toutes leurs attaques ce round.",
-            "2": "Tous les alliés ajoutent +2 %game.action.move% à tous leurs déplacements ce round."
+            "1": "Tous les alliés ajoutent %game.action.attack.valueSign:1% à toutes leurs attaques ce round.",
+            "2": "Tous les alliés ajoutent %game.action.move.valueSign:2% à tous leurs déplacements ce round."
           },
           "198": {
             "1": "Un allié adjacent peut effectuer"
           },
           "199": {
-            "1": "Durant n'importe lesquelles de vos actions d'Attaque, vous pouvez %game.element.consume.light% pour ajouter +2 %game.action.attack%, gagnez %game.custom.advantage% et %game.card.experience:1%"
+            "1": "Durant n'importe lesquelles de vos actions d'Attaque, vous pouvez %game.element.consume.light% pour ajouter %game.action.attack.valueSign:2%, gagnez %game.custom.advantage% et %game.card.experience:1%"
           },
           "200": {
             "1": "Un allié adjacent peut Récupérer %game.card.recover% une de ses cartes perdues.",
@@ -146,7 +146,7 @@
             "4": "Gagnez %game.card.experience:1% pour chaque attaque effectuée."
           },
           "203": {
-            "1": "Pour vos quatre prochaines actions d'Attaque, ajoutez +3 %game.action.attack%, %game.condition.wound%, et gagnez %game.custom.advantage%."
+            "1": "Pour vos quatre prochaines actions d'Attaque, ajoutez %game.action.attack.valueSign:3%, %game.condition.wound%, et gagnez %game.custom.advantage%."
           },
           "204": {
             "1": "Quand un allié subit des dégâts, vous pouvez subir ces dégâts réduits de 1 à la place."
@@ -177,7 +177,7 @@
   "items": {
     "gh-1": {
       "": "Bottes de Voyage",
-      "1": "Pendant votre déplacement, ajoutez +2 %game.action.move% à un seul déplacement."
+      "1": "Pendant votre déplacement, ajoutez %game.action.move.valueSign:2% à un seul déplacement."
     },
     "gh-10": {
       "": "Marteau de Guerre",
@@ -185,7 +185,7 @@
     },
     "gh-100": {
       "": "Robes d'Invocation",
-      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 2, ciblez un allié invoqué\"."
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal:2%, ciblez un allié invoqué\"."
     },
     "gh-101": {
       "": "Deuxième Peau",
@@ -197,7 +197,7 @@
     },
     "gh-107": {
       "": "Casque à Cornes",
-      "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour-ci."
+      "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez %game.action.attack.valueSign:1% à votre prochaine attaque de mêlée ce tour-ci."
     },
     "gh-108": {
       "": "Heaume d'Écailles de Wyverne",
@@ -209,11 +209,11 @@
     },
     "gh-112": {
       "": "Ancienne Chignole",
-      "1": "Pendant votre attaque de mêlée, ajoutez +2 %game.action.attack% et %game.action.pierce% 2 à la totalité de l'action d'Attaque"
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.action.attack.valueSign:2% et %game.action.pierce:2% à la totalité de l'action d'Attaque"
     },
     "gh-113": {
       "": "Hache Fléau des Crânes",
-      "1": "Pendant votre attaque de mêlée ciblant un Cadavre Réanimé, Esprit Réanimé ou Squelette Réanimé, ajoutez +5 %game.action.attack% à une seule attaque."
+      "1": "Pendant votre attaque de mêlée ciblant un Cadavre Réanimé, Esprit Réanimé ou Squelette Réanimé, ajoutez %game.action.attack.valueSign:5% à une seule attaque."
     },
     "gh-116": {
       "": "Fauchon Attisé",
@@ -221,14 +221,14 @@
     },
     "gh-12": {
       "": "Potion de Soin Mineure",
-      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 3, Sur vous-même\"."
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal:3%, Sur vous-même\"."
     },
     "gh-123": {
       "": "Anneau de Crânes"
     },
     "gh-124": {
       "": "Compas Maudit",
-      "1": "Pendant votre tour, forcez un adversaire à %game.action.range:5% à effectuer une action de \"%game.action.move% 2\". Vous contrôlez cette action."
+      "1": "Pendant votre tour, forcez un adversaire à %game.action.range:5% à effectuer une action de \"%game.action.move:2%\". Vous contrôlez cette action."
     },
     "gh-13": {
       "": "Potion d'Endurance Mineure",
@@ -237,11 +237,11 @@
     "gh-130": {
       "": "Anneau Spiralé",
       "1": "Pendant votre tour,",
-      "3": "pour effectuer une action de \"%game.action.heal% 25, Sur vous-même\""
+      "3": "pour effectuer une action de \"%game.action.heal:25%, Sur vous-même\""
     },
     "gh-14": {
       "": "Potion de Puissance Mineure",
-      "1": "Pendant votre attaque, ajoutez +1 %game.action.attack% à la totalité de votre action d'Attaque."
+      "1": "Pendant votre attaque, ajoutez %game.action.attack.valueSign:1% à la totalité de votre action d'Attaque."
     },
     "gh-15": {
       "": "Bottes de Célérité",
@@ -281,11 +281,11 @@
     },
     "gh-23": {
       "": "Cotte de Maille",
-      "1": "Pour les trois prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield% 1."
+      "1": "Pour les trois prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield:1%."
     },
     "gh-24": {
       "": "Amulette de Vie",
-      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 1, Sur vous-même\"."
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal:1%, Sur vous-même\"."
     },
     "gh-25": {
       "": "Épée Dentelée",
@@ -297,7 +297,7 @@
     },
     "gh-27": {
       "": "Potion de Soin Majeure",
-      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 5, Sur vous-même\"."
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal:5%, Sur vous-même\"."
     },
     "gh-28": {
       "": "Boucle d'Oreille Lunaire",
@@ -305,11 +305,11 @@
     },
     "gh-3": {
       "": "Armure de Peaux",
-      "1": "Pour les deux prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield% 1."
+      "1": "Pour les deux prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield:1%."
     },
     "gh-32": {
       "": "Pavois",
-      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 2 pour cette attaque."
+      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield:2% pour cette attaque."
     },
     "gh-33": {
       "": "Bombe Explosive",
@@ -346,11 +346,11 @@
     },
     "gh-8": {
       "": "Écu",
-      "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield% 1 pour cette attaque."
+      "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield:1% pour cette attaque."
     },
     "gh-80": {
       "": "Lame Sismique",
-      "1": "Pendant votre attaque de mêlée, %game.element.consume.earth% pour ajouter +2 %game.action.attack% à une seule attaque."
+      "1": "Pendant votre attaque de mêlée, %game.element.consume.earth% pour ajouter %game.action.attack.valueSign:2% à une seule attaque."
     },
     "gh-86": {
       "": "Baguette de Séisme",
@@ -366,7 +366,7 @@
     },
     "gh-97": {
       "": "Guêtres d’Endurance",
-      "1": "Si vous vous déplacez d'au moins 4 hexagones lors de votre tour, effectuez une action \"\"%game.action.heal% 1, Sur vous-même\"\"."
+      "1": "Si vous vous déplacez d'au moins 4 hexagones lors de votre tour, effectuez une action \"\"%game.action.heal:1%, Sur vous-même\"\"."
     },
     "gh-98": {
       "": "Bottes d'Écailles de Wyverne",
@@ -374,11 +374,11 @@
     },
     "gh-134": {
       "": "Lame Imposante",
-      "1": "À chaque fois que vous tuez un adversaire pendant votre tour, gagnez %game.action.shield% 1 pour le reste du round."
+      "1": "À chaque fois que vous tuez un adversaire pendant votre tour, gagnez %game.action.shield:1% pour le reste du round."
     },
     "gh-136": {
       "": "Elixir Volatile",
-      "1": "Pendant votre attaque à distance, ajoutez +2 %game.action.attack% et gagnez Avantage pour la totalité de l'action d'Attaque, mais subissez 2 dégâts pour chaque attaque réalisée."
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.attack.valueSign:2% et gagnez Avantage pour la totalité de l'action d'Attaque, mais subissez 2 dégâts pour chaque attaque réalisée."
     },
     "gh-141": {
       "": "Ceinture Logistique",
@@ -390,22 +390,22 @@
     },
     "gh-145": {
       "": "Masque de la Mort",
-      "1": "À chaque fois que vous réalisez une attaque de mêlée et que vous avez exactement 1 point de vie, ajoutez +2 %game.action.attack% à l'Attaque."
+      "1": "À chaque fois que vous réalisez une attaque de mêlée et que vous avez exactement 1 point de vie, ajoutez %game.action.attack.valueSign:2% à l'Attaque."
     },
     "gh-135": {
       "1": "Pendant votre action de Soin, doublez la valeur du Soin."
     },
     "gh-137": {
-      "1": "À chaque fois que vous réalisez une attaque de mêlée, ajoutez %game.action.pierce% 1 à l'Attaque."
+      "1": "À chaque fois que vous réalisez une attaque de mêlée, ajoutez %game.action.pierce:1% à l'Attaque."
     },
     "gh-138": {
       "1": "Pendant l'action lors de laquelle un obstacle est créé, créez un obstacle additionnel et appliquez tous les effets de l'action à celui-ci."
     },
     "gh-139": {
-      "1": "À chaque fois que vous réalisez une action %data.characterColored.mindthief:Augment%, ajoutez +1 %game.action.attack% à la totalité de l'action."
+      "1": "À chaque fois que vous réalisez une action %data.characterColored.mindthief:Augment%, ajoutez %game.action.attack.valueSign:1% à la totalité de l'action."
     },
     "gh-140": {
-      "1": "Lorsque vous êtes blessé par une attaque, vous pouvez %game.element.consume.light% pour gagner %game.action.shield% 3 pour l'attaque."
+      "1": "Lorsque vous êtes blessé par une attaque, vous pouvez %game.element.consume.light% pour gagner %game.action.shield:3% pour l'attaque."
     },
     "gh-143": {
       "1": "Durant votre tour, devenez %game.condition.invisible% et créez %game.element.dark%"
@@ -414,13 +414,13 @@
       "1": "Pendant votre tour, empoisonnez %game.condition.poison% et maudissez %game.condition.curse% un adversaire à portée %game.action.range:3%."
     },
     "gh-146": {
-      "1": "Après avoir réalisé une action Chanson %data.characterColored.music-note:Song%, réalisez immédiatement une action %game.action.attack% 2 ou une action %game.action.move% 2."
+      "1": "Après avoir réalisé une action Chanson %data.characterColored.music-note:Song%, réalisez immédiatement une action %game.action.attack:2% ou une action %game.action.move:2%."
     },
     "gh-147": {
       "1": "À chaque fois que vous réalisez une action Jugement %data.characterColored.angry-face:Doom%, infligez %game.condition.muddle% à la cible du jugement."
     },
     "gh-148": {
-      "1": "À chaque fois qu'un allié réalise une action Kit de Soins ou Grand Kit de Soins, il ajoute +1 %game.action.heal% à leur soin."
+      "1": "À chaque fois qu'un allié réalise une action Kit de Soins ou Grand Kit de Soins, il ajoute %game.action.heal.valueSign:1% à leur soin."
     },
     "gh-149": {
       "1": "Si vous vous déplacez de 5 hexagones ou plus pendant votre tour, créez n'importe quel élément."

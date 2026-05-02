@@ -30,7 +30,7 @@
         "1": "Acts immediately after %game.characterIcon.sun%."
       },
       "hawthorne": {
-        "1": "Adds +1 %game.action.attack% to all attacks while undamaged"
+        "1": "Adds %game.action.attack.valueSign:1% to all attacks while undamaged"
       },
       "living-spirit-squidface-solo": {
         "1": "Base armor is 0 while %data.monster.living-spirit-squidface-solo% does not have %game.condition.poison%",

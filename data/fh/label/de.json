@@ -273,10 +273,10 @@
     },
     "barracks": {
       "": "Kaserne",
-      "1": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 4<br><i>Effect:</i> Vorteil und -5 %game.action.attack%",
-      "2": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 6<br><i>Effect:</i> Vorteil und -15 %game.action.attack%",
-      "3": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 8<br><i>Effect:</i> Vorteil und -25 %game.action.attack%",
-      "4": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 10<br><i>Effect:</i> Vorteil und -35 %game.action.attack%",
+      "1": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 4<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-5%",
+      "2": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 6<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-15%",
+      "3": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 8<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-25%",
+      "4": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 10<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-35%",
       "5": "Nachteil bei der Berechnung aller Bedrohungen.<br>Einsatz von Soldaten nicht möglich."
     },
     "boat": {
@@ -463,17 +463,17 @@
         "1": "Erstelle eine %game.damage:3% Falle auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist."
       },
       "banner-spear": {
-        "1": "Alle Verbündeten innerhalb von %game.range:2% addieren in jeder Runde +1 %game.action.attack% zu einem ihrer Angriffe.",
+        "1": "Alle Verbündeten innerhalb von %game.range:2% addieren in jeder Runde %game.action.attack.valueSign:1% zu einem ihrer Angriffe.",
         "10": "Greife mit 3 unterschiedlichen Wirkungsbereich-Angriffsfertigkeiten jeweils mindestens 3 Gegner an",
         "11": "Beschwöre während deines ersten Zugs 1 Banner und halte es während des gesamten Szenarios am Leben und in %game.action.range:3% zu dir",
         "2": "Gewähre zu Beginn ihres Zuges Verbündeten im Umkreis von %game.range:3%:",
         "3": "Alle benachbarten Verbündeten erhalten %game.shield% 1.",
         "4": "Negieren Sie in jeder Runde die erste Quelle von %game.damage% für einen benachbarten Verbündeten",
-        "5": "Alle Feinde innerhalb von %game.action.range%4 erleiden zu Beginn ihres Zuges %game.damage:1%.",
-        "6": "Füge für jeden an das Ziel angrenzenden Verbündeten +1 %game.action.attack% hinzu",
-        "7": "Gewähre am Ende deiner langen Rast einem Verbündeten in %game.action.range:3%: %game.action.move% 2",
-        "8": "Füge, wenn du eine Tür durch eine Bewegungsfertigkeit öffnest, +3 %game.action.move% hinzu",
-        "9": "Erhalte einmal pro Szenario während deines Zugs %game.action.shield% 2 für die Runde"
+        "5": "Alle Feinde innerhalb von %game.action.range:4% erleiden zu Beginn ihres Zuges %game.damage:1%.",
+        "6": "Füge für jeden an das Ziel angrenzenden Verbündeten %game.action.attack.valueSign:1% hinzu",
+        "7": "Gewähre am Ende deiner langen Rast einem Verbündeten in %game.action.range:3%: %game.action.move:2%",
+        "8": "Füge, wenn du eine Tür durch eine Bewegungsfertigkeit öffnest, %game.action.move.valueSign:3% hinzu",
+        "9": "Erhalte einmal pro Szenario während deines Zugs %game.action.shield:2% für die Runde"
       },
       "belara": {
         "1": "Alle Verbündete und Gegner angrenzend<br>zum Ziel erleiden %game.damage:2%",
@@ -483,18 +483,18 @@
         "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
-        "1": "Lege diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen.<br>%game.card.persistent%",
-        "2": "Lege diese Karte in deinen aktiven Bereich. Wirf diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen",
+        "1": "Lege diese Karte bei deinem nächsten Angriff ab, um %game.action.attack.valueSign:2% hinzuzufügen.<br>%game.card.persistent%",
+        "2": "Lege diese Karte in deinen aktiven Bereich. Wirf diese Karte bei deinem nächsten Angriff ab, um %game.action.attack.valueSign:2% hinzuzufügen",
         "3": "Erhalte 1 %data.characterToken.blinkblade.time%",
         "4": "Erhalte 1 %data.action.custom.fh-hourglass%",
         "5": "Bei deiner kurzen Rast kannst du 1 nicht abgenutzten Gegenstand ohne Effekt %game.card.spent%, um 1 anderen abgenutzten Gegenstand %game.card.recover%",
-        "6": "In jedem Szenario kannst du zu Beginn deines ersten Zugs %game.action.move% 3 ausführen",
+        "6": "In jedem Szenario kannst du zu Beginn deines ersten Zugs %game.action.move:3% ausführen",
         "7": "Wann immer du %game.condition.immobilize% erhalten würdest, wird der Zustand verhindert",
         "8": "Kündige in 7 aufeinanderfolgenden Runden „schnell“ an",
         "9": "Sei nie das anvisierte Ziel eines Angriffs"
       },
       "boneshaper": {
-        "1": "+1 %game.action.attack% für jeden Marker auf dieser Karte.",
+        "1": "%game.action.attack.valueSign:1% für jeden Marker auf dieser Karte.",
         "2": "Töte den angreifenden Beschworenen, um stattdessen %game.attack modifier.plus4% hinzuzufügen",
         "3": "Bevor du rastest kannst du einen deiner Beschworenen töten, um %game.condition.bless% Selbst auszuführen",
         "4": "Du kannst einmal pro Szenario, wenn ein verbündeter Charakter durch Erleiden von %game.damage% erschöpft würde, %game.damage:2% erleiden, um seinen TP-Wert stattdessen auf 1 zu senken",
@@ -602,7 +602,7 @@
         "2": "Der %data.monster.harbinger-of-shadow-2% macht nichts."
       },
       "harrower-infester": {
-        "1": "Führe \"%game.action.heal% X, Selbst\"aus. X ist<br>die doppelte Anzahl der mit der<br>Angriffsfertigkeit anvisierten Gegner."
+        "1": "Führe \"%game.action.heal:X%, Selbst\"aus. X ist<br>die doppelte Anzahl der mit der<br>Angriffsfertigkeit anvisierten Gegner."
       },
       "laser-spires": {
         "1": "Drehe jeden Laserturm im Uhrzeigersinn (wenn möglich)",
@@ -655,9 +655,9 @@
         "1": "Selbst oder leuchtende Kugel"
       },
       "piranha-pig": {
-        "1": "Füge +1 %game.action.attack% hinzu, wenn das Ziel an einen Verbündeten<br>des Piranhaschweins angrenzt.",
-        "2": "Füge +2 %game.action.attack% hinzu, wenn das Ziel %game.condition.wound% hat.",
-        "3": "Füge +1 %game.action.attack% hinzu, wenn das Ziel ein Feld mit<br>Wasseraufleger besetzt.",
+        "1": "Füge %game.action.attack.valueSign:1% hinzu, wenn das Ziel an einen Verbündeten<br>des Piranhaschweins angrenzt.",
+        "2": "Füge %game.action.attack.valueSign:2% hinzu, wenn das Ziel %game.condition.wound% hat.",
+        "3": "Füge %game.action.attack.valueSign:1% hinzu, wenn das Ziel ein Feld mit<br>Wasseraufleger besetzt.",
         "4": "X ist die Menge des Schadens,<br>den das Ziel der<br>Angriffsfertigkeit erlitten hat."
       },
       "prince-of-frost": {
@@ -689,7 +689,7 @@
       "seeker-of-the-abyss": {
         "1": "Alle Ziele verlieren eine Karte.",
         "2": "Erstelle eine %game.condition.immobilize% Falle in einem angrenzenden freien Hex-Feld.",
-        "3": "Alle Verbündete bekommen +1 %game.action.attack% auf alle ihre Angriffe in dieser Runde."
+        "3": "Alle Verbündete bekommen %game.action.attack.valueSign:1% auf alle ihre Angriffe in dieser Runde."
       },
       "shrike-fiend": {
         "1": "Alle Gegner in %game.action.range:3% erleiden %game.damage:2%."
@@ -889,10 +889,10 @@
     },
     "rules": {
       "fh": {
-        "0": "Bereitet das Grimmwolf-Fertigkeitsdeck nicht vor. Stattdessen führen alle Grimmwölfe in jeder Runde mit Initiative-Wert 26 %game.action.move% 2, %game.action.attack% 2 aus.",
-        "1": "Stadtwachen gelten als eure Verbündeten und Gegner aller anderen Monstertypen. Sie führen keine Züge aus, sondern erhalten stattdessen die zusätzlichen inhärenten Fertigkeiten %game.action.shield% 1 (für insgesamt %game.action.shield% 2 auf Stufe 1) und %game.action.retaliate% 2, und haben für die Berechnung des Fokus eine Initiative von 50.",
-        "60": "Alle 6 Pirscher auf Elementen 13-B und 13-D sind Gebrochene Leutnants und fügen ihren Angriffen +1 %game.action.attack% hinzu.",
-        "65": "Alle Monster fügen ihren Angriffen %game.action.push% 1 hinzu, ab einer Szenariostufe von 4 stattdessen %game.action.push% 2."
+        "0": "Bereitet das Grimmwolf-Fertigkeitsdeck nicht vor. Stattdessen führen alle Grimmwölfe in jeder Runde mit Initiative-Wert 26 %game.action.move:2%, %game.action.attack:2% aus.",
+        "1": "Stadtwachen gelten als eure Verbündeten und Gegner aller anderen Monstertypen. Sie führen keine Züge aus, sondern erhalten stattdessen die zusätzlichen inhärenten Fertigkeiten %game.action.shield:1% (für insgesamt %game.action.shield:2% auf Stufe 1) und %game.action.retaliate:2%, und haben für die Berechnung des Fokus eine Initiative von 50.",
+        "60": "Alle 6 Pirscher auf Elementen 13-B und 13-D sind Gebrochene Leutnants und fügen ihren Angriffen %game.action.attack.valueSign:1% hinzu.",
+        "65": "Alle Monster fügen ihren Angriffen %game.action.push:1% hinzu, ab einer Szenariostufe von 4 stattdessen %game.action.push:2%."
       }
     },
     "title": {

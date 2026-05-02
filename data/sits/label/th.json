@@ -10,9 +10,9 @@
     },
     "rules": {
       "sits": {
-        "1": "City Guards ดำเนินการที่ความริเริ่ม 50 ในแต่ละรอบ โดยทำ %game.action.move% +0 %game.action.attack% +0 ที่คุณควบคุม พวกเขาเพิ่มโบนัสสองเท่าสำหรับการอยู่บนหกเหลี่ยมบันได",
-        "2": "Vermling Scout คือ Frenzied Sniper พวกเขามีพอยท์เลือด HxC และ %game.action.shield% 1",
-        "3": "แฮร์โรเวอร์อินเฟสเตอร์เอลิททั้งหมดเพิ่ม +1 %game.action.move% ในการเคลื่อนที่ทั้งหมด",
+        "1": "City Guards ดำเนินการที่ความริเริ่ม 50 ในแต่ละรอบ โดยทำ %game.action.move% %game.action.attack.valueSign:0% +0 ที่คุณควบคุม พวกเขาเพิ่มโบนัสสองเท่าสำหรับการอยู่บนหกเหลี่ยมบันได",
+        "2": "Vermling Scout คือ Frenzied Sniper พวกเขามีพอยท์เลือด HxC และ %game.action.shield:1%",
+        "3": "แฮร์โรเวอร์อินเฟสเตอร์เอลิททั้งหมดเพิ่ม %game.action.move.valueSign:1% ในการเคลื่อนที่ทั้งหมด",
         "7": "ติดกับเศษซาก %game.mapMarker.b%"
       }
     },

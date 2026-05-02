@@ -15,7 +15,7 @@
   "items": {
     "bb-1": {
       "": "Coutelas Épine-de-rose",
-      "1": "Pendant votre attaque, pour %game.elementHalf.consume:ice|earth% ajouter 1 %game.action.pierce%."
+      "1": "Pendant votre attaque, pour %game.elementHalf.consume:ice|earth% ajouter %game.action.pierce.valueSign:1%."
     },
     "bb-10": {
       "": "Fouet de Racines",
@@ -23,15 +23,15 @@
     },
     "bb-11": {
       "": "Aiguille Aimantée",
-      "1": "Pendant votre tour, contrôlez un adversaire à %game.action.range% 5 ou moins : %game.action.move% 2."
+      "1": "Pendant votre tour, contrôlez un adversaire à %game.action.range:5% ou moins : %game.action.move:2%."
     },
     "bb-12": {
       "": "Reliefs de Repas",
-      "1": "Pendant votre tour, %game.action.heal% 1 sur vous-même."
+      "1": "Pendant votre tour, %game.action.heal:1% sur vous-même."
     },
     "bb-13": {
       "": "Flèches à Plumes de Rouge-gorge",
-      "1": "Pendant votre attaque à distance sur une seule cible, %game.elementHalf.consume:fire|air% pour ajouter +1 %game.action.range%, %game.action.pierce% 1."
+      "1": "Pendant votre attaque à distance sur une seule cible, %game.elementHalf.consume:fire|air% pour ajouter %game.action.range.valueSign:1%, %game.action.pierce:1%."
     },
     "bb-14": {
       "": "Pollen de Belladone",
@@ -39,7 +39,7 @@
     },
     "bb-15": {
       "": "Goutte de Potion de Soin",
-      "1": "Pendant votre tour, %game.action.heal% 3 sur vous-même."
+      "1": "Pendant votre tour, %game.action.heal:3% sur vous-même."
     },
     "bb-16": {
       "": "Poudre Explosive",
@@ -47,11 +47,11 @@
     },
     "bb-17": {
       "": "Hameçon et Fil de Pêche",
-      "1": "Pendant votre attaque à distance, ajoutez %game.action.pierce% 2, %game.action.pull% 2."
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.pierce:2%, %game.action.pull:2%."
     },
     "bb-18": {
       "": "Bouclier Bogue-de-marron",
-      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 1 et %game.action.retaliate% 1."
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield:1% et %game.action.retaliate:1%."
     },
     "bb-19": {
       "": "Rouage en Laiton",
@@ -63,7 +63,7 @@
     },
     "bb-20": {
       "": "Huile Lubrifiante",
-      "1": "Pendant votre déplacement, ajoutez +2 %game.action.move%."
+      "1": "Pendant votre déplacement, ajoutez %game.action.move.valueSign:2%."
     },
     "bb-21": {
       "": "Goutte de Potion Élémentaire",
@@ -79,7 +79,7 @@
     },
     "bb-24": {
       "": "Aiguilles à Coudre",
-      "1": "Pendant votre attaque, ajoutez %game.action.pierce% 1."
+      "1": "Pendant votre attaque, ajoutez %game.action.pierce:1%."
     },
     "bb-25": {
       "": "Crayon Pointu",
@@ -87,15 +87,15 @@
     },
     "bb-26": {
       "": "Écu- monnaie",
-      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 2."
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield:2%."
     },
     "bb-27": {
       "": "Arc Long Rétréci",
-      "1": "Pendant l’attaque d’un adversaire, gagnez +1 %game.action.attack%, %game.action.pierce% 1."
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.attack.valueSign:1%, %game.action.pierce:1%."
     },
     "bb-28": {
       "": "Épée Longue Rétrécie",
-      "1": "Pendant votre attaque à distance, ajoutez +1 %game.action.attack%."
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.attack.valueSign:1%."
     },
     "bb-29": {
       "": "Chardon Ardent",
@@ -103,7 +103,7 @@
     },
     "bb-3": {
       "": "Bottes Patinées Rétrécies",
-      "1": "Pendant votre déplacement, ajoutez +1 %game.action.move%."
+      "1": "Pendant votre déplacement, ajoutez %game.action.move.valueSign:1%."
     },
     "bb-30": {
       "": "Bille OEil-de-chat",
@@ -115,7 +115,7 @@
     },
     "bb-32": {
       "": "Bouclier Carte-à-jouer",
-      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 4."
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield:4%."
     },
     "bb-33": {
       "": "Goutte d’Élixir de Hâte",
@@ -127,7 +127,7 @@
     },
     "bb-35": {
       "": "Gemme Iridescente",
-      "1": "Pendant votre attaque, %game.element.consume.wild% pour ajouter +1 %game.action.attack%."
+      "1": "Pendant votre attaque, %game.element.consume.wild% pour ajouter %game.action.attack.valueSign:1%."
     },
     "bb-36": {
       "": "Goutte de Potion de Force",
@@ -135,15 +135,15 @@
     },
     "bb-37": {
       "": "Gemme de Brume Crépusculaire",
-      "1": "Pendant l’attaque d’un adversaire, %game.elementHalf.consume:air|dark% pour gagner %game.action.shield% 1 et %game.condition.muddle% cet adversaire."
+      "1": "Pendant l’attaque d’un adversaire, %game.elementHalf.consume:air|dark% pour gagner %game.action.shield:1% et %game.condition.muddle% cet adversaire."
     },
     "bb-38": {
       "": "Gemme Lumineuse Envoûtante",
-      "1": "Après votre attaque, %game.elementHalf.consume:air|light% pour contrôler la cible de l’attaque : %game.action.move% 1."
+      "1": "Après votre attaque, %game.elementHalf.consume:air|light% pour contrôler la cible de l’attaque : %game.action.move:1%."
     },
     "bb-39": {
       "": "Bouclier Coquillage Nacré",
-      "1": "Pendant votre tour, gagnez %game.action.shield% 1 pour tout le round. Générez %game.element.wild%."
+      "1": "Pendant votre tour, gagnez %game.action.shield:1% pour tout le round. Générez %game.element.wild%."
     },
     "bb-4": {
       "": "Vieux Ressort",
@@ -151,7 +151,7 @@
     },
     "bb-40": {
       "": "Couteau de Poche",
-      "1": "Pendant votre attaque de mêlée, ajoutez +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.action.attack.valueSign:1%, %game.action.pierce:2%, %game.condition.wound%."
     },
     "bb-41": {
       "": "Casque Dé-à-coudre",
@@ -163,7 +163,7 @@
     },
     "bb-5": {
       "": "Goutte de Potion de Puissance",
-      "1": "Pendant votre tour, ajoutez +1 %game.action.attack% à toutes vos attaques."
+      "1": "Pendant votre tour, ajoutez %game.action.attack.valueSign:1% à toutes vos attaques."
     },
     "bb-6": {
       "": "Goutte d’Eau Pure",
@@ -171,15 +171,15 @@
     },
     "bb-7": {
       "": "Marteau Ressort",
-      "1": "Pendant votre attaque de mêlée, ajoutez %game.action.push% 2."
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.action.push:2%."
     },
     "bb-8": {
       "": "Bouclier Bouton",
-      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield% 1."
+      "1": "Pendant l’attaque d’un adversaire, gagnez %game.action.shield:1%."
     },
     "bb-9": {
       "": "Clou de Fer",
-      "1": "Pendant votre tour, ajoutez %game.action.pierce% 2 à toutes vos attaques de mêlée."
+      "1": "Pendant votre tour, ajoutez %game.action.pierce:2% à toutes vos attaques de mêlée."
     }
   },
   "monster": {

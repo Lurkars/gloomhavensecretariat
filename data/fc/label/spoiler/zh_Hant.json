@@ -14,23 +14,23 @@
     },
     "fc-155": {
       "": "防護詛咒鎧甲",
-      "1": "對 %game.condition.curse% 免疫，即使此物品已被消耗。在接下來三次以你為目標的攻擊造成傷害時，獲得 %game.action.shield% 1。"
+      "1": "對 %game.condition.curse% 免疫，即使此物品已被消耗。在接下來三次以你為目標的攻擊造成傷害時，獲得 %game.action.shield:1%。"
     },
     "fc-156": {
       "": "元素闊劍",
-      "1": "進行近戰攻擊中，%game.element.consume.wild% 為單次次攻擊附加 +2 %game.action.attack%。"
+      "1": "進行近戰攻擊中，%game.element.consume.wild% 為單次次攻擊附加 %game.action.attack.valueSign:2%。"
     },
     "fc-157": {
       "": "遠古弓",
-      "1": "進行遠程攻擊中，單次攻擊附加 +2 %game.action.attack%、%game.condition.curse% 和 %game.condition.wound%。"
+      "1": "進行遠程攻擊中，單次攻擊附加 %game.action.attack.valueSign:2%、%game.condition.curse% 和 %game.condition.wound%。"
     },
     "fc-158": {
       "": "回春護脛",
-      "1": "進行移動時，本次移動附加 +2 %game.action.move%，並獲得 %game.condition.regenerate%。"
+      "1": "進行移動時，本次移動附加 %game.action.move.valueSign:2%，並獲得 %game.condition.regenerate%。"
     },
     "fc-159": {
       "": "加速卷軸",
-      "1": "任意盟友進行移動時，本次移動附加 +2 %game.action.move%。"
+      "1": "任意盟友進行移動時，本次移動附加 %game.action.move.valueSign:2%。"
     },
     "fc-160": {
       "": "扒手短匕",
@@ -50,7 +50,7 @@
     },
     "fc-165": {
       "": "活化盔甲",
-      "1": "對 %game.condition.poison%（中毒）和 %game.enhancement.circle% 免疫。受到攻擊傷害時，針對本次攻擊獲得 %game.action.shield% 0 %game.enhancement.circle%"
+      "1": "對 %game.condition.poison%（中毒）和 %game.enhancement.circle% 免疫。受到攻擊傷害時，針對本次攻擊獲得 %game.action.shield:0% %game.enhancement.circle%"
     },
     "fc-164": {
       "": "預言之盆"

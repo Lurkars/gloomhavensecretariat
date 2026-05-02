@@ -6,7 +6,7 @@
     "fh": {
       "1482": {
         "": "갑옷 성능 시험",
-        "text": "캐릭터가%game.action.shield%로 감소되지 않은%game.damage%를 공격으로 입을 때마다 해당 공격에%game.action.push%2를 추가한다."
+        "text": "캐릭터가%game.action.shield%로 감소되지 않은%game.damage%를 공격으로 입을 때마다 해당 공격에%game.action.push:2%를 추가한다."
       },
       "1483": {
         "": "공감 능력",
@@ -30,7 +30,7 @@
       },
       "1488": {
         "": "맞바람",
-        "text": "모든 적의 원거리 공격에 +1%game.action.range%,<br>모든 적의 이동 능력에+1%game.action.move%추가."
+        "text": "모든 적의 원거리 공격에 %game.action.range.valueSign:1%,<br>모든 적의 이동 능력에%game.action.move.valueSign:1%추가."
       },
       "1489": {
         "": "고약한 잠버릇",
@@ -38,7 +38,7 @@
       },
       "1490": {
         "": "탐욕은 좋은 것",
-        "text": "모든 적이 매번 자신의 차례 종료 시%game.action.loot%1을 수행한다. 적은 노획 토큰을 얻을때마다%game.condition.strengthen%를 얻는다. 시나리오에 노획 덱이 없다면, 새로운 도전 카드를 뽑고 이 카드를 덱의 맨 밑에 놓는다."
+        "text": "모든 적이 매번 자신의 차례 종료 시%game.action.loot:1%을 수행한다. 적은 노획 토큰을 얻을때마다%game.condition.strengthen%를 얻는다. 시나리오에 노획 덱이 없다면, 새로운 도전 카드를 뽑고 이 카드를 덱의 맨 밑에 놓는다."
       },
       "1491": {
         "": "대안 전술",
@@ -46,7 +46,7 @@
       },
       "1492": {
         "": "가시투성이",
-        "text": "피해를 입지 않은 모든 적이%game.action.retaliate%2를 가진다."
+        "text": "피해를 입지 않은 모든 적이%game.action.retaliate:2%를 가진다."
       },
       "1493": {
         "": "통뼈",
@@ -70,7 +70,7 @@
       },
       "1498": {
         "": "기만하는 힘",
-        "text": "적의 모든 원거리 공격은%game.action.push%1을 가진다."
+        "text": "적의 모든 원거리 공격은%game.action.push:1%을 가진다."
       },
       "1499": {
         "": "반짝이!",
@@ -103,7 +103,7 @@
       },
       "1506": {
         "": "빽뺵한 진형",
-        "text": "캐릭터가 아군에 인접해 있지 않을 경우 공격을 수행할 때마다, 해당 공격에 -1%game.action.attack%을 적용한다."
+        "text": "캐릭터가 아군에 인접해 있지 않을 경우 공격을 수행할 때마다, 해당 공격에 %game.action.attack.valueSign:-1%을 적용한다."
       },
       "1507": {
         "": "조악한 솜씨",
@@ -127,7 +127,7 @@
       },
       "1512": {
         "": "가시 갑옷",
-        "text": "모든 캐릭터는%game.action.retaliate%X,%game.action.range%3을 얻는다. 여기에서 X는 자신의%game.action.shield%수치다. 모든 캐릭터는 자신의 공격에-1%game.action.attack%을 적용한다."
+        "text": "모든 캐릭터는%game.action.retaliate:X%,%game.action.range:3%을 얻는다. 여기에서 X는 자신의%game.action.shield%수치다. 모든 캐릭터는 자신의 공격에%game.action.attack.valueSign:-1%을 적용한다."
       },
       "1513": {
         "": "정당한 싸움",
@@ -135,11 +135,11 @@
       },
       "1514": {
         "": "밀집대형",
-        "text": "모든 적은 하나 이상의 자기 아군과 인접해 있는 동안%game.action.shield%1을 얻는다."
+        "text": "모든 적은 하나 이상의 자기 아군과 인접해 있는 동안%game.action.shield:1%을 얻는다."
       },
       "1515": {
         "": "압도적인 존재감",
-        "text": "게임판에 정예 적이 존재하는 동안, 그 적과 종류가 같은 모든 일반 적은%game.action.shield%1을 얻는다."
+        "text": "게임판에 정예 적이 존재하는 동안, 그 적과 종류가 같은 모든 일반 적은%game.action.shield:1%을 얻는다."
       },
       "1516": {
         "": "신비로운 전술",
@@ -151,7 +151,7 @@
       },
       "1518": {
         "": "피의 연결",
-        "text": "매 라운드 처음으로, 어떤 적이%game.damage%를 입을 때 피해를 입은 다른 적 하나가 \"%game.action.heal%X, 자신\"을 수행한다. 여기에서 X는 첫 번째 적이 입은 피해이다."
+        "text": "매 라운드 처음으로, 어떤 적이%game.damage%를 입을 때 피해를 입은 다른 적 하나가 \"%game.action.heal:X%, 자신\"을 수행한다. 여기에서 X는 첫 번째 적이 입은 피해이다."
       },
       "1519": {
         "": "마름쇠",
@@ -168,7 +168,7 @@
       "1522": {
         "": "확산되는 공격",
         "hint": "몬스터에게만 적용!",
-        "text": "모든 피규어는 모든 단일 대상 공격 능력에 -1%game.action.attack%과 +1%game.action.target%을 추가한다."
+        "text": "모든 피규어는 모든 단일 대상 공격 능력에 %game.action.attack.valueSign:-1%과 %game.action.target.valueSign:1%을 추가한다."
       },
       "1523": {
         "": "무리 사냥",
@@ -176,7 +176,7 @@
       },
       "1524": {
         "": "건강과 활력",
-        "text": "모든 적은 부정적 상태가 없는 동안%game.action.shield%1을 얻는다. 적은 자신의 차례 종료 시에 부정적 상태를 하나 이상 상실할 때마다%game.damage:1%점을 입는다."
+        "text": "모든 적은 부정적 상태가 없는 동안%game.action.shield:1%을 얻는다. 적은 자신의 차례 종료 시에 부정적 상태를 하나 이상 상실할 때마다%game.damage:1%점을 입는다."
       },
       "1525": {
         "": "앙심에 찬 복수",
@@ -217,7 +217,7 @@
         },
         "repair_mode": {
           "": "재구축 지원",
-          "hint": "%data.characterToken.prism.mode% 수리 드론 모드: 매번 카드 사용자의 차례 시작 시, 수행:%game.action.heal% 2, 자신"
+          "hint": "%data.characterToken.prism.mode% 수리 드론 모드: 매번 카드 사용자의 차례 시작 시, 수행:%game.action.heal:2%, 자신"
         }
       },
       "shackles": "고통전달자",
@@ -237,7 +237,7 @@
     "fh": {
       "astral": {
         "1": "약화 원소 하나를 강함으로 움직임",
-        "2": "활성화된%game.action.custom.fh-infusion%한 쌍당 +1%game.action.attack%추가",
+        "2": "활성화된%game.action.custom.fh-infusion%한 쌍당 %game.action.attack.valueSign:1%추가",
         "3": "매번 자신이 탈진할 때마다 자신의 활성화 보너스를 모두 유지하며 자신의 소환물은 매 라운드 주도권 수치 99로 행동",
         "4": "자신이 짧은 휴식을 취할 때마다,%game.element.consume.wild%를 하여 소모된%game.items.slots.onehand%또는%game.items.slots.twohand%아이템 하나를%game.card.recover%할 수 있음",
         "5": "시나리오마다 한 번, 주도권 결정 동안 모든 능력 카드가 공개된 다음,%game.element.wild%",
@@ -263,8 +263,8 @@
       },
       "fist": {
         "1": "대상에 인접한 특색 없는 칸 하나에 1칸짜리 결빙지형 타일 하나 생성",
-        "2": "그리고 이동 행동을 통해 결빙지형에 진입할 때마다 그 효과를 무시하여 +1 %game.action.move% 을 추가할 수 있음",
-        "3": "긴 휴식으로 치료를 받을 때마다, %game.elementHalf.consume:ice|earth% 를 하여 +2 %game.action.heal% 를 추가할 수 있음",
+        "2": "그리고 이동 행동을 통해 결빙지형에 진입할 때마다 그 효과를 무시하여 %game.action.move.valueSign:1% 을 추가할 수 있음",
+        "3": "긴 휴식으로 치료를 받을 때마다, %game.elementHalf.consume:ice|earth% 를 하여 %game.action.heal.valueSign:2% 를 추가할 수 있음",
         "4": "시나리오마다 한 번, %game.damage%를 입으려 할 때 그 %game.damage% 를 무효화 할 수 있음",
         "5": "매 라운드 자신의 버린 카드 더미에서 카드 1장 이상씩 %game.card.recover%",
         "6": "이동 능력 하나로 10개 이상의 서로 다른 칸에 진입, 그런 다음 같은 차례에 공격 능력 하나로 적 하나가 %game.damage:10%점 이상을 입도록 만듦"
@@ -292,7 +292,7 @@
         "11": "매 라운드마다 %game.action.custom.fh-mode%",
         "12": "한 라운드에 서로 다른 소환물 4개로 %game.action.custom.fh-mode%",
         "2": "모방군집에게서 가장 멀리 있는 적에게 주목.",
-        "3": "인접한 모든 아군이%game.action.shield%1을 얻음.",
+        "3": "인접한 모든 아군이%game.action.shield:1%을 얻음.",
         "4": "공격 받을 때, 공격자의 부정적 상태마다%game.damage%1점을 줄임.",
         "5": "차례 종료 시, 인접한 모든 피규어 및 자신에게%game.condition.wound%을 줌.",
         "6": "이 공격 능력 후에, 자신의 소환물 하나에게 다음을 지시:%game.action.move:2%",
@@ -301,7 +301,7 @@
         "9": "매번 자신의 짧은 휴식 종료 시,%game.action.custom.fh-mode%을 할 수 있음"
       },
       "shackles": {
-        "3": "자신의 부정적 상태당 +1%game.action.attack%추가",
+        "3": "자신의 부정적 상태당 %game.action.attack.valueSign:1%추가",
         "4": "매번 자신이 긴 휴식을 취하는 라운드에, 자신의 모든 부정적 상태를 무시할 수 있음.<br>그렇게 한다면, 이번 라운드에 그 상태들은 제거될 수 없음",
         "5": "자신이 탈진할 때마다, 먼저 다음을 수행:%game.condition.curse%, %game.action.target% all, %game.action.range:3%",
         "6": "자신의 최대 체력이 5만큼 증가",
@@ -329,10 +329,10 @@
       "trap": {
         "1": "대상에 인접한 빈칸 하나에%game.damage:2%함정 하나 생성.",
         "10": "하나의 능력으로, 함정 7개 이상을 통과하도록 적들을 이동",
-        "2": "대상에 인접한 빈칸 하나에 %game.action.heal%2 함정 하나 생성",
+        "2": "대상에 인접한 빈칸 하나에 %game.action.heal:2% 함정 하나 생성",
         "3": "대상에 인접한 빈칸 하나에%game.damage:1%함정 하나 생성",
-        "4": "자신으로부터%game.action.range:2%내의 함정 하나에%game.damage:2%또는%game.action.heal%2 추가",
-        "5": "%game.action.push%2또는%game.action.pull%2 추가",
+        "4": "자신으로부터%game.action.range:2%내의 함정 하나에%game.damage:2%또는%game.action.heal:2% 추가",
+        "5": "%game.action.push:2%또는%game.action.pull:2% 추가",
         "6": "긴 휴식을 취할 때마다, 인접한 빈칸 하나에%game.damage:1%함정 하나를 생성 가능",
         "7": "자신이 함정에 있는 칸에 진입할 때마다, 함정이 발동하지 않도록 선택 가능",
         "8": "시나리오 시작 시, 인접한 빈칸 하나에%game.damage:2%함정 하나를 생성할 수 있음",
@@ -392,7 +392,7 @@
     },
     "fh-101": {
       "": "대형 힘 물약",
-      "1": "장착자의 차례 중, 장착자의 모든 공격에 +2%game.action.attack%추가."
+      "1": "장착자의 차례 중, 장착자의 모든 공격에 %game.action.attack.valueSign:2%추가."
     },
     "fh-102": {
       "": "대형 원소 물약",
@@ -404,11 +404,11 @@
     },
     "fh-104": {
       "": "기민의 물약",
-      "1": "장착자의 이동 능력에, +3%game.action.move%및%game.action.jump%추가."
+      "1": "장착자의 이동 능력에, %game.action.move.valueSign:3%및%game.action.jump%추가."
     },
     "fh-105": {
       "": "대형 화염방패 물약",
-      "1": "장착자의 차례중 다음을 수행,%game.action.retaliate%2 %game.action.range:3%"
+      "1": "장착자의 차례중 다음을 수행,%game.action.retaliate:2% %game.action.range:3%"
     },
     "fh-106": {
       "": "돌방벽 물약",
@@ -536,11 +536,11 @@
     },
     "fh-134": {
       "": "편안한 신발",
-      "1": "장착자가 능력 카드를 기본 하단 행동으로 사용할 때,%game.action.move%2 대신%game.action.move%3을수행."
+      "1": "장착자가 능력 카드를 기본 하단 행동으로 사용할 때,%game.action.move:2% 대신%game.action.move:3%을수행."
     },
     "fh-135": {
       "": "갑옷잡이 활",
-      "1": "장착자의 차례 중, 장착자의 모든 원거리 공격에%game.action.pierce%3 추가."
+      "1": "장착자의 차례 중, 장착자의 모든 원거리 공격에%game.action.pierce:3% 추가."
     },
     "fh-136": {
       "": "전투 도끼",
@@ -556,11 +556,11 @@
     },
     "fh-139": {
       "": "뿔 달린 투구",
-      "1": "장착자가 차례 중 4칸 이상을 이동한 후, 이번 차례 중 다음번 근접 공격에+1%game.action.attack%추가."
+      "1": "장착자가 차례 중 4칸 이상을 이동한 후, 이번 차례 중 다음번 근접 공격에%game.action.attack.valueSign:1%추가."
     },
     "fh-14": {
       "": "육중한 검",
-      "1": "당신의 근접 공격 능력 중, 공격 한 번에 +1%game.action.attack%추가."
+      "1": "당신의 근접 공격 능력 중, 공격 한 번에 %game.action.attack.valueSign:1%추가."
     },
     "fh-140": {
       "": "소환의 외투",
@@ -580,19 +580,19 @@
     },
     "fh-144": {
       "": "명성의 지팡이",
-      "1": "장착자의 차례 중,%game.element.consume.wild%를 하여 장착자의 모든 공격에 +1%game.action.attack%추가."
+      "1": "장착자의 차례 중,%game.element.consume.wild%를 하여 장착자의 모든 공격에 %game.action.attack.valueSign:1%추가."
     },
     "fh-145": {
       "": "다목적 단검",
-      "1": "장착자가 능력 카드를 기본 상단 행동으로 사용할 때,%game.action.attack%2 대신%game.action.attack%3 수행."
+      "1": "장착자가 능력 카드를 기본 상단 행동으로 사용할 때,%game.action.attack:2% 대신%game.action.attack:3% 수행."
     },
     "fh-146": {
       "": "갈고리 사슬",
-      "1": "장착자의 차례 중, 장착자의 모든 원거리 공격에 %game.action.pull%2 추가."
+      "1": "장착자의 차례 중, 장착자의 모든 원거리 공격에 %game.action.pull:2% 추가."
     },
     "fh-147": {
       "": "공포의 가면",
-      "1": "장착자의 근접 공격 중,%game.action.push%1 추가."
+      "1": "장착자의 근접 공격 중,%game.action.push:1% 추가."
     },
     "fh-148": {
       "": "고결한 머리띠",
@@ -614,7 +614,7 @@
     },
     "fh-151": {
       "": "평온의 샌들",
-      "1": "장착자가 능력 카드를 기본 하단 행동으로 사용할 때,%game.action.move%2 대신%game.action.move%4 수행."
+      "1": "장착자가 능력 카드를 기본 하단 행동으로 사용할 때,%game.action.move:2% 대신%game.action.move:4% 수행."
     },
     "fh-152": {
       "": "강철 발덮개",
@@ -650,7 +650,7 @@
     },
     "fh-16": {
       "": "사기를 복돋는 투구",
-      "1": "장착자의 차례 중, 인접한 모든 아군에게 다음을 지시:%game.action.move% 2"
+      "1": "장착자의 차례 중, 인접한 모든 아군에게 다음을 지시:%game.action.move:2%"
     },
     "fh-160": {
       "": "태양 귀걸이",
@@ -686,7 +686,7 @@
     },
     "fh-168": {
       "": "눈알 머리띠",
-      "1": "장착자의 원거리 공격 능력 중, +1%game.action.target%추가."
+      "1": "장착자의 원거리 공격 능력 중, %game.action.target.valueSign:1%추가."
     },
     "fh-169": {
       "": "운명의 부적",
@@ -714,7 +714,7 @@
     },
     "fh-174": {
       "": "자석 망토",
-      "1": "장착자의 차례 중, 다음을 수행:%game.action.teleport%20이 전이는 장착자의 아군에 인접한 칸에서 마쳐야함."
+      "1": "장착자의 차례 중, 다음을 수행:%game.action.teleport:20%이 전이는 장착자의 아군에 인접한 칸에서 마쳐야함."
     },
     "fh-175": {
       "": "거울광택 갑옷",
@@ -722,7 +722,7 @@
     },
     "fh-176": {
       "": "깜박이는 망토",
-      "1": "장착자의 차례 중, 다음을 수행:%game.action.teleport%4이 전이는 적에 인접한 칸에서 마쳐야함."
+      "1": "장착자의 차례 중, 다음을 수행:%game.action.teleport:4%이 전이는 적에 인접한 칸에서 마쳐야함."
     },
     "fh-177": {
       "": "이송의 장화",
@@ -730,15 +730,15 @@
     },
     "fh-178": {
       "": "평정의 신발",
-      "1": "장착자가 긴 휴식을 취하지 않으면서 주도권 수치가 60이상인 장착자의 차례 시작 시, 다음을 수행: %game.action.heal%1%game.specialTarget.self%."
+      "1": "장착자가 긴 휴식을 취하지 않으면서 주도권 수치가 60이상인 장착자의 차례 시작 시, 다음을 수행: %game.action.heal:1%%game.specialTarget.self%."
     },
     "fh-179": {
       "": "파열 장화",
-      "1": "장착자의 이동 능력 중, +4%game.action.move% 추가. 해당 이동 능력 후에%game.condition.immobilize%를 얻음."
+      "1": "장착자의 이동 능력 중, %game.action.move.valueSign:4% 추가. 해당 이동 능력 후에%game.condition.immobilize%를 얻음."
     },
     "fh-18": {
       "": "거친 장화",
-      "1": "장착자의 차례 중, 장착자의 모든 이동 능력에 +1%game.action.move% 추가."
+      "1": "장착자의 차례 중, 장착자의 모든 이동 능력에 %game.action.move.valueSign:1% 추가."
     },
     "fh-180": {
       "": "탐욕의 장화",
@@ -754,11 +754,11 @@
     },
     "fh-183": {
       "": "안개 디캔터",
-      "1": "장착자의 차례 중, 이번 라운드에 모든 피규어는 모든 원거리 공격에 -1%game.action.range%추가 및 불이익을 받음. "
+      "1": "장착자의 차례 중, 이번 라운드에 모든 피규어는 모든 원거리 공격에 %game.action.range.valueSign:-1%추가 및 불이익을 받음. "
     },
     "fh-184": {
       "": "반짝이는 도끼",
-      "1": "장착자의 다수를 대상으로 하는 근접 공격에 +1%game.action.target%추가."
+      "1": "장착자의 다수를 대상으로 하는 근접 공격에 %game.action.target.valueSign:1%추가."
     },
     "fh-185": {
       "": "거울광택 칼",
@@ -786,7 +786,7 @@
     },
     "fh-190": {
       "": "하얀색 카드",
-      "1": "장착자의 차례 중,%game.action.range:3%내의 일반 또는 정예 적 하나에 캐릭터 토큰을 놓음. 해당 적의 모든 공격에 -1%game.action.attack% 추가."
+      "1": "장착자의 차례 중,%game.action.range:3%내의 일반 또는 정예 적 하나에 캐릭터 토큰을 놓음. 해당 적의 모든 공격에 %game.action.attack.valueSign:-1% 추가."
     },
     "fh-191": {
       "": "타락한 두루마리",
@@ -806,7 +806,7 @@
     },
     "fh-195": {
       "": "삼각 모자",
-      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 +1%game.action.range% 및 %game.action.pierce%1 추가."
+      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 %game.action.range.valueSign:1% 및 %game.action.pierce:1% 추가."
     },
     "fh-196": {
       "": "희생의 목장식",
@@ -830,7 +830,7 @@
     },
     "fh-20": {
       "": "일품시위 활",
-      "1": "장착자의 차례중, 장착자의 모든 원거리 공격에 +1%game.action.range%추가."
+      "1": "장착자의 차례중, 장착자의 모든 원거리 공격에 %game.action.range.valueSign:1%추가."
     },
     "fh-200": {
       "": "황혼녘 홀",
@@ -839,11 +839,11 @@
     },
     "fh-201": {
       "": "파도의 창",
-      "1": "물 타일이나 그에 인접한 칸을 점유하고 있는 동안 수행하는 장착자의 근접 공격 능력 중, 공격 한 번에%game.action.push%1및%game.condition.immobilize%추가."
+      "1": "물 타일이나 그에 인접한 칸을 점유하고 있는 동안 수행하는 장착자의 근접 공격 능력 중, 공격 한 번에%game.action.push:1%및%game.condition.immobilize%추가."
     },
     "fh-202": {
       "": "거대 피라냐돈 척추",
-      "1": "장착자의 근접 공격 능력 중, 공격 한 번에%game.action.pierce%2 및%game.condition.wound%."
+      "1": "장착자의 근접 공격 능력 중, 공격 한 번에%game.action.pierce:2% 및%game.condition.wound%."
     },
     "fh-203": {
       "": "조종의 홀",
@@ -859,7 +859,7 @@
     },
     "fh-206": {
       "": "거대한 검",
-      "1": "장착자가 이번 라운드에 이동하지 않은 경우, 근접 공격 한 번에 +2%game.action.attack%추가 및 이번 차례에 이동 능력을 수행할 수 없음."
+      "1": "장착자가 이번 라운드에 이동하지 않은 경우, 근접 공격 한 번에 %game.action.attack.valueSign:2%추가 및 이번 차례에 이동 능력을 수행할 수 없음."
     },
     "fh-207": {
       "": "낚시바늘",
@@ -867,11 +867,11 @@
     },
     "fh-208": {
       "": "거인의 바늘",
-      "1": "장착자의 공격 능력 중, 현재 체력 수치가 4이하인 적을 대상으로 하는 공격 한 번에%game.action.pierce%3 추가."
+      "1": "장착자의 공격 능력 중, 현재 체력 수치가 4이하인 적을 대상으로 하는 공격 한 번에%game.action.pierce:3% 추가."
     },
     "fh-209": {
       "": "마스터리 검",
-      "1": "장착자의 근접 공격 능력 중, 공격 한 번에 이익을 받음. 장착자가 달성한 마스터리마다 해당 공격에 다음 중 하나도 추가: +1%game.action.attack%,%game.condition.wound%,%game.condition.poison% "
+      "1": "장착자의 근접 공격 능력 중, 공격 한 번에 이익을 받음. 장착자가 달성한 마스터리마다 해당 공격에 다음 중 하나도 추가: %game.action.attack.valueSign:1%,%game.condition.wound%,%game.condition.poison% "
     },
     "fh-21": {
       "": "사슬 두건",
@@ -879,7 +879,7 @@
     },
     "fh-210": {
       "": "단봉",
-      "1": "장착자의 차례중, 이번 라운드에 잠복자가 장착자를 대상으로 하는 모든 공격에 -3%game.action.attack%추가. "
+      "1": "장착자의 차례중, 이번 라운드에 잠복자가 장착자를 대상으로 하는 모든 공격에 %game.action.attack.valueSign:-3%추가. "
     },
     "fh-211": {
       "": "폭발 화약통",
@@ -900,7 +900,7 @@
     },
     "fh-215": {
       "": "정신혼미 술잔",
-      "1": "장착자의 차례 중, 장착자의 모든 공격에+1%game.action.attack%및%game.condition.muddle%추가. 장착자의 차례 종료 시, 다음을 수행:"
+      "1": "장착자의 차례 중, 장착자의 모든 공격에%game.action.attack.valueSign:1%및%game.condition.muddle%추가. 장착자의 차례 종료 시, 다음을 수행:"
     },
     "fh-216": {
       "": "원소의 고서",
@@ -929,7 +929,7 @@
     },
     "fh-221": {
       "": "얼음 날붙이",
-      "1": "장착자의 근접 공격 능력 중,%game.element.consume.ice%를 하여%game.action.pierce%3 추가."
+      "1": "장착자의 근접 공격 능력 중,%game.element.consume.ice%를 하여%game.action.pierce:3% 추가."
     },
     "fh-222": {
       "": "검은 상자",
@@ -947,8 +947,8 @@
     },
     "fh-225": {
       "": "알곡스 조각상",
-      "1": "장착자의 근접 공격 능력 중,%game.element.consume.earth%를 하여 공격 한 번에 +1%game.action.attack%추가하고 이 카드를 뒤집음.",
-      "2": "장착자의 원거리 공격 능력 중,%game.element.consume.air%를 하여 공격 한 번에%game.action.push% 2 추가하고 이 카드를 뒤집음."
+      "1": "장착자의 근접 공격 능력 중,%game.element.consume.earth%를 하여 공격 한 번에 %game.action.attack.valueSign:1%추가하고 이 카드를 뒤집음.",
+      "2": "장착자의 원거리 공격 능력 중,%game.element.consume.air%를 하여 공격 한 번에%game.action.push:2% 추가하고 이 카드를 뒤집음."
     },
     "fh-226": {
       "": "자율객체 팔",
@@ -968,7 +968,7 @@
     },
     "fh-23": {
       "": "견고한 정강이받이",
-      "1": "장착자의 차례 시작 시, 이번 라운드 장착자의 모든 이동 능력에 -2%game.action.move%을 추가하여%game.action.shield%1 얻음. "
+      "1": "장착자의 차례 시작 시, 이번 라운드 장착자의 모든 이동 능력에 %game.action.move.valueSign:-2%을 추가하여%game.action.shield:1% 얻음. "
     },
     "fh-230": {
       "": "검사용 돋보기",
@@ -1097,11 +1097,11 @@
     },
     "fh-27": {
       "": "가호의 망토",
-      "1": "적이 장착자에 인접한 곳에서 이동 능력을 마친 직후, 다음을 수행: %game.action.push%1 %game.action.target%해당 적"
+      "1": "적이 장착자에 인접한 곳에서 이동 능력을 마친 직후, 다음을 수행: %game.action.push:1% %game.action.target%해당 적"
     },
     "fh-28": {
       "": "견고한 장화",
-      "1": "장착자의 차례 중, 장착자의 모든 이동 능력에 +1 %game.action.move% 추가 및 험난지형 무시."
+      "1": "장착자의 차례 중, 장착자의 모든 이동 능력에 %game.action.move.valueSign:1% 추가 및 험난지형 무시."
     },
     "fh-29": {
       "": "둘러 베는 도끼",
@@ -1113,7 +1113,7 @@
     },
     "fh-30": {
       "": "무기막이 건틀릿",
-      "1": "적이 장착자의 인접한 곳에서 이동 능력을 마친 직후, 다음을 수행:%game.action.attack%3%game.action.target%해당 적"
+      "1": "적이 장착자의 인접한 곳에서 이동 능력을 마친 직후, 다음을 수행:%game.action.attack:3%%game.action.target%해당 적"
     },
     "fh-31": {
       "": "죽음막이 부적",
@@ -1125,7 +1125,7 @@
     },
     "fh-33": {
       "": "불안정한 장화",
-      "1": "차례마다 최대 1번, 장착자의 이동 능력 중, +1%game.action.move%추가, 그런 다음 장착자의 차례 종료 시 이 카드를 뒤집음.",
+      "1": "차례마다 최대 1번, 장착자의 이동 능력 중, %game.action.move.valueSign:1%추가, 그런 다음 장착자의 차례 종료 시 이 카드를 뒤집음.",
       "2": "차례마다 최대 1번, 장착자의 이동 능력 중, %game.damage:1%점을 입음. 그런 다음 장착자의 차례 종료 시 이 카드를 뒤집음."
     },
     "fh-34": {
@@ -1146,11 +1146,11 @@
     },
     "fh-38": {
       "": "결투가의 신발",
-      "1": "장착자의 차례 중, 다음을 수행:%game.action.move%2이 이동은 반드시 적에 인접한 칸에서 마쳐야 함."
+      "1": "장착자의 차례 중, 다음을 수행:%game.action.move:2%이 이동은 반드시 적에 인접한 칸에서 마쳐야 함."
     },
     "fh-39": {
       "": "심연의 도끼",
-      "1": "장착자의 공격 능력 중, 얼어붙은 시체, 얼음 망령, 또는 살아있는 파멸을 대상으로 하는 공격 한 번에 +3%game.action.attack%및%game.action.pierce%1 추가."
+      "1": "장착자의 공격 능력 중, 얼어붙은 시체, 얼음 망령, 또는 살아있는 파멸을 대상으로 하는 공격 한 번에 %game.action.attack.valueSign:3%및%game.action.pierce:1% 추가."
     },
     "fh-4": {
       "": "투박한 가죽 갑옷",
@@ -1158,7 +1158,7 @@
     },
     "fh-40": {
       "": "심장을 노리는 활",
-      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 +1%game.action.attack%및+2%game.action.range%추가."
+      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 %game.action.attack.valueSign:1%및%game.action.range.valueSign:2%추가."
     },
     "fh-41": {
       "": "뒤얽힌 부적",
@@ -1170,7 +1170,7 @@
     },
     "fh-43": {
       "": "발길질 장화",
-      "1": "장착자의 근접 공격 능력 중, 공격 한 번에%game.action.push%2 추가."
+      "1": "장착자의 근접 공격 능력 중, 공격 한 번에%game.action.push:2% 추가."
     },
     "fh-44": {
       "": "면죄의 검",
@@ -1194,16 +1194,16 @@
     },
     "fh-49": {
       "": "잔혹한 단검",
-      "1": "장착자의 근접 공격 능력 중, 공격 한 번에 +1%game.action.attack%및%game.condition.wound%추가."
+      "1": "장착자의 근접 공격 능력 중, 공격 한 번에 %game.action.attack.valueSign:1%및%game.condition.wound%추가."
     },
     "fh-5": {
       "": "투박한 장화",
-      "1": "장착자의 이동 능력 중, +1 %game.action.move% 추가"
+      "1": "장착자의 이동 능력 중, %game.action.move.valueSign:1% 추가"
     },
     "fh-50": {
       "": "등가 교환의 방패",
       "1": "장착자가 공격으로%game.damage%를 입을 때, 해당 공격에 대해%game.action.shield:1% 얻고 이 카드를 뒤집음.",
-      "2": "장착자의 근접 공격 능력 중, 공격 한 번에%game.action.pierce%1 추가하고 이 카드를 뒤집음."
+      "2": "장착자의 근접 공격 능력 중, 공격 한 번에%game.action.pierce:1% 추가하고 이 카드를 뒤집음."
     },
     "fh-51": {
       "": "가시 목줄",
@@ -1215,7 +1215,7 @@
     },
     "fh-53": {
       "": "정 박은 장화",
-      "1": "장착자가 차례중 4칸 이상을 이동한 후, 해당 라운드 동안%game.action.retaliate%1 얻음."
+      "1": "장착자가 차례중 4칸 이상을 이동한 후, 해당 라운드 동안%game.action.retaliate:1% 얻음."
     },
     "fh-54": {
       "": "안락한 끌신",
@@ -1223,7 +1223,7 @@
     },
     "fh-55": {
       "": "깨무는 건틀릿",
-      "1": "장착자가 인접한 적에게 공격받을 때, 해당 공격에 대해%game.action.retaliate%2 얻음."
+      "1": "장착자가 인접한 적에게 공격받을 때, 해당 공격에 대해%game.action.retaliate:2% 얻음."
     },
     "fh-56": {
       "": "넝마주이의 자석",
@@ -1235,7 +1235,7 @@
     },
     "fh-58": {
       "": "미끄러지는 검",
-      "1": "장착자의 근접 공격에 +2%game.action.attack%추가. 해당 능력 후에,%game.condition.disarm%얻음."
+      "1": "장착자의 근접 공격에 %game.action.attack.valueSign:2%추가. 해당 능력 후에,%game.condition.disarm%얻음."
     },
     "fh-59": {
       "": "전문가의 부적",
@@ -1255,11 +1255,11 @@
     },
     "fh-62": {
       "": "영속의 장화",
-      "1": "캐릭터의 이동 능력 중, +1%game.action.move%추가 및%game.condition.regenerate%얻음"
+      "1": "캐릭터의 이동 능력 중, %game.action.move.valueSign:1%추가 및%game.condition.regenerate%얻음"
     },
     "fh-63": {
       "": "그림자 부츠",
-      "1": "장착자의 이동 능력 중,%game.element.consume.dark%를 하여 +2%game.action.move%추가"
+      "1": "장착자의 이동 능력 중,%game.element.consume.dark%를 하여 %game.action.move.valueSign:2%추가"
     },
     "fh-64": {
       "": "기폭 장치",
@@ -1267,7 +1267,7 @@
     },
     "fh-65": {
       "": "녹 가루",
-      "1": "장착자의 차례 중,%game.action.range:3%내의 일반 또는 정예 적 하나에 캐릭터 토큰을 놓음. 해당 적이 해당 시나리오 동안 -1%game.action.shield%얻음."
+      "1": "장착자의 차례 중,%game.action.range:3%내의 일반 또는 정예 적 하나에 캐릭터 토큰을 놓음. 해당 적이 해당 시나리오 동안 %game.action.shield.valueSign:-1%얻음."
     },
     "fh-66": {
       "": "영원한 생명의 부적",
@@ -1275,7 +1275,7 @@
     },
     "fh-67": {
       "": "볼록 렌즈",
-      "1": "장착자가 공격을 받을 때, 공격 보정 카드를 뽑지 않고 대신 해당 공격에 +1%game.action.attack%을 추가하고 이 카드를 뒤집음.",
+      "1": "장착자가 공격을 받을 때, 공격 보정 카드를 뽑지 않고 대신 해당 공격에 %game.action.attack.valueSign:1%을 추가하고 이 카드를 뒤집음.",
       "2": "장착자의 공격 능력 중, 공격 보정 카드를 뽑지 않고 대신 공격 한 번에+1%game.action.attack을 추가하고 이 카드를 뒤집음."
     },
     "fh-68": {
@@ -1288,7 +1288,7 @@
     },
     "fh-7": {
       "": "투박한 활",
-      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 +1 %game.action.range% 추가."
+      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 %game.action.range.valueSign:1% 추가."
     },
     "fh-70": {
       "": "에스더 로브",
@@ -1304,7 +1304,7 @@
     },
     "fh-73": {
       "": "격려의 지휘봉",
-      "1": "장착자가 아군에게 긍정적 상태를 적용할 때,%game.action.range%3 내의 다른 아군 하나도 같은 상태를 얻음."
+      "1": "장착자가 아군에게 긍정적 상태를 적용할 때,%game.action.range:3% 내의 다른 아군 하나도 같은 상태를 얻음."
     },
     "fh-74": {
       "": "충격 수류탄",
@@ -1329,7 +1329,7 @@
     },
     "fh-79": {
       "": "구워진 새고기",
-      "1": "장착자의 차례 중, 장착자의 모든 공격에+1%game.action.attack%을 추가하고 다음을 수행:"
+      "1": "장착자의 차례 중, 장착자의 모든 공격에%game.action.attack.valueSign:1%을 추가하고 다음을 수행:"
     },
     "fh-8": {
       "": "투박한 창",
@@ -1337,7 +1337,7 @@
     },
     "fh-80": {
       "": "살아있는 돌",
-      "1": "장착자가 공격으로 4점 이하의%game.damage%를 입으려 할 때, 해당%game.damage%를 무효화하고 다음을 수행:<br>%game.action.heal%X 자신<br>여기에서 X는 장착자가 입으려 했던 피해의 양."
+      "1": "장착자가 공격으로 4점 이하의%game.damage%를 입으려 할 때, 해당%game.damage%를 무효화하고 다음을 수행:<br>%game.action.heal:X% 자신<br>여기에서 X는 장착자가 입으려 했던 피해의 양."
     },
     "fh-81": {
       "": "고통의 모사물",
@@ -1349,7 +1349,7 @@
     },
     "fh-83": {
       "": "치료 물약",
-      "1": "장착자의 차례 중, 다음을 수행:%game.action.heal%3 자신"
+      "1": "장착자의 차례 중, 다음을 수행:%game.action.heal:3% 자신"
     },
     "fh-84": {
       "": "활력 물약",
@@ -1357,7 +1357,7 @@
     },
     "fh-85": {
       "": "힘 물약",
-      "1": "장착자의 차례 중, 장착자의 모든 공격에 +1%game.action.attack%추가."
+      "1": "장착자의 차례 중, 장착자의 모든 공격에 %game.action.attack.valueSign:1%추가."
     },
     "fh-86": {
       "": "원소 물약",
@@ -1369,7 +1369,7 @@
     },
     "fh-88": {
       "": "화염방패 물약",
-      "1": "장착자의 차례 중, 다음을 수행: %game.action.retaliate% 1 %game.action.range:3% "
+      "1": "장착자의 차례 중, 다음을 수행: %game.action.retaliate:1% %game.action.range:3% "
     },
     "fh-89": {
       "": "돌가죽 물약",
@@ -1377,7 +1377,7 @@
     },
     "fh-9": {
       "": "보호의 홀",
-      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 +1 %game.action.range% 추가."
+      "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 %game.action.range.valueSign:1% 추가."
     },
     "fh-90": {
       "": "근력 물약",
@@ -1417,7 +1417,7 @@
     },
     "fh-99": {
       "": "대형 치료 물약",
-      "1": "장착자의 차례 중, 다음을 수행:%game.action.heal%6 자신"
+      "1": "장착자의 차례 중, 다음을 수행:%game.action.heal:6% 자신"
     }
   },
   "pets": {
@@ -1427,7 +1427,7 @@
     },
     "fh-02": {
       "": "사냥개",
-      "1": "이번 라운드, 모든 캐릭터는 그 캐릭터의 아군과 하나라도 인접한 적을 대상으로 하는 자신의 모든 근접 공격에+1%game.action.attack%을 추가."
+      "1": "이번 라운드, 모든 캐릭터는 그 캐릭터의 아군과 하나라도 인접한 적을 대상으로 하는 자신의 모든 근접 공격에%game.action.attack.valueSign:1%을 추가."
     },
     "fh-03": {
       "": "분비액 드레이크",

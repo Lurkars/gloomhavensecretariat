@@ -10,19 +10,19 @@
       "1": "앞으로 5회 동안, 장착자에게 %game.condition.poison%이 적용될 때, 그것을 방지."
     },
     "fc-155": {
-      "1": "%game.condition.curse% 면역. 이는 이 아이템이 소모되어도 유효. 앞으로 3회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 획득."
+      "1": "%game.condition.curse% 면역. 이는 이 아이템이 소모되어도 유효. 앞으로 3회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield:1% 획득."
     },
     "fc-156": {
-      "1": "근접 공격 중, %game.element.consume.wild% 를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+      "1": "근접 공격 중, %game.element.consume.wild% 를 통해 한 번의 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "fc-157": {
-      "1": "원거리 공격 중, 한 번의 공격에 +2 %game.action.attack%, %game.condition.curse%, %game.condition.wound% 추가."
+      "1": "원거리 공격 중, 한 번의 공격에 %game.action.attack.valueSign:2%, %game.condition.curse%, %game.condition.wound% 추가."
     },
     "fc-158": {
-      "1": "이동 중, 한 번의 이동에 +2 %game.action.move% 추가 및 %game.condition.regenerate% 획득."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:2% 추가 및 %game.condition.regenerate% 획득."
     },
     "fc-159": {
-      "1": "아군 한 명의 이동 중, 한 번의 이동에 +2 %game.action.move% 추가."
+      "1": "아군 한 명의 이동 중, 한 번의 이동에 %game.action.move.valueSign:2% 추가."
     },
     "fc-160": {
       "1": "차례 중 적을 죽였을 때, 돈 토큰 1개 획득."

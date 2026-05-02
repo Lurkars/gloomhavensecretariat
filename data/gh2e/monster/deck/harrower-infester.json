@@ -194,7 +194,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Perform \"%game.action.heal% X, self\" where X is twice the number of enemies targeted by the attack ability."
+              "value": "Perform \"%game.action.heal:X%, self\" where X is twice the number of enemies targeted by the attack ability."
             }
           ]
         }

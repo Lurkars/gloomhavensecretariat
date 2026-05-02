@@ -12,7 +12,7 @@
         "1": "Fai i bagagli"
       },
       "sand-spider": {
-        "1": "Aggiungi +3 %game.action.attack% se il bersaglio è %game.condition.immobilize%.",
+        "1": "Aggiungi %game.action.attack.valueSign:3% se il bersaglio è %game.condition.immobilize%.",
         "2": "Tutti gli attacchi mirati a %data.monster.sand-spider% questo round guadagnano Svantaggio.",
         "3": "Crea una %game.condition.immobilize% trappola in un esagono vuoto adiacente più vicino a un nemico."
       }

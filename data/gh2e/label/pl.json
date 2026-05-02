@@ -7,7 +7,7 @@
   "custom": {
     "gh2e": {
       "hound": {
-        "1": "Dodaj +2 %game.action.attack% jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Ogara."
+        "1": "Dodaj %game.action.attack.valueSign:2% jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Ogara."
       }
     }
   },

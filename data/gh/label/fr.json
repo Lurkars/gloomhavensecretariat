@@ -362,7 +362,7 @@
             "2": "où X est le montant de dégâts que vous avez infligé jusqu’à présent, ce tour."
           },
           "13": {
-            "1": "Ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
+            "1": "Ajoutez %game.action.attack.valueSign:1% à toutes vos attaques ce round."
           },
           "14": {
             "1": "Éliminez un adversaire normal adjacent."
@@ -382,13 +382,13 @@
           },
           "22": {
             "1": "Éliminez un adversaire adjacent normal avec %game.condition.stun%.",
-            "2": "Ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
+            "2": "Ajoutez %game.action.attack.valueSign:1% à toutes vos attaques ce round."
           },
           "23": {
             "1": "Vous pouvez traiter toutes les capacités de %game.action.move% comme des capacités d'%game.action.attack% de valeur égale."
           },
           "26": {
-            "1": "Ajoutez +3 %game.action.attack% à toutes vos attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize%, ou %game.condition.stun% ce round."
+            "1": "Ajoutez %game.action.attack.valueSign:3% à toutes vos attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize%, ou %game.condition.stun% ce round."
           },
           "28": {
             "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
@@ -400,12 +400,12 @@
             "1": "Tout adversaire ciblant un de vos alliés adjacents avec une attaque ce round vous cible à la place avec cette attaque, quelle que soit la portée de celle-ci."
           },
           "7": {
-            "1": "Pour les six prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield%1."
+            "1": "Pour les six prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield:1%."
           }
         }
       },
       "captain-of-the-guard": {
-        "1": "Tous les alliés ajoutent +1 %game.action.attack% à toutes leurs attaques ce round"
+        "1": "Tous les alliés ajoutent %game.action.attack.valueSign:1% à toutes leurs attaques ce round"
       },
       "cragheart": {
         "abilities": {
@@ -436,12 +436,12 @@
             "5": "Affectez tous les alliés"
           },
           "124": {
-            "1": "%game.action.push% 2, %game.card.experience:1%",
+            "1": "%game.action.push:2%, %game.card.experience:1%",
             "2": "Tous les alliés et adversaires adjacents subissent 1 dégât.",
             "3": "2 dégâts à la place, %game.card.experience:1%"
           },
           "125": {
-            "1": "+1 %game.action.attack%, %game.card.experience:1%",
+            "1": "%game.action.attack.valueSign:1%, %game.card.experience:1%",
             "2": "Appliquez %game.condition.muddle% à tous les alliés et adversaires dans la zone ciblée."
           },
           "126": {
@@ -449,15 +449,15 @@
           },
           "127": {
             "1": "Vous pouvez pousser la cible sur un hexagone contenant un obstacle. Dans ce cas, détruisez l'obstacle, la cible subit 2 dégâts et vous gagnez %game.card.experience:1%.",
-            "2": "Ajoutez +1 %game.action.attack% à toutes vos attaques à distance ce round."
+            "2": "Ajoutez %game.action.attack.valueSign:1% à toutes vos attaques à distance ce round."
           },
           "128": {
             "1": "Gagnez %game.card.experience:1% pour chaque",
             "2": "adversaire ciblé.",
-            "3": "Ajoutez +2 %game.action.attack% à toutes vos attaques de mêlée ce round."
+            "3": "Ajoutez %game.action.attack.valueSign:2% à toutes vos attaques de mêlée ce round."
           },
           "129": {
-            "1": "Pour vos six prochaines actions d'Attaque à distance lors desquelles %game.element.air% est Fort ou Faible, %game.element.consume.air% pour ajouter +2 %game.action.range%."
+            "1": "Pour vos six prochaines actions d'Attaque à distance lors desquelles %game.element.air% est Fort ou Faible, %game.element.consume.air% pour ajouter %game.action.range.valueSign:2%."
           },
           "130": {
             "1": "Détruisez un obstacle adjacent.",
@@ -482,7 +482,7 @@
             "2": "Créez un obstacle de la taille d'un hexagone sur l'hexagone où l'adversaire a été éliminé."
           },
           "137": {
-            "1": "Pour vos quatre prochaines attaques de mêlée, si possible, détruisez un obstacle adjacent pour ajouter +3 %game.action.attack%."
+            "1": "Pour vos quatre prochaines attaques de mêlée, si possible, détruisez un obstacle adjacent pour ajouter %game.action.attack.valueSign:3%."
           },
           "138": {
             "1": "Créez un piège à 2 dégâts et %game.condition.stun% sur un hexagone vide adjacent."
@@ -491,16 +491,16 @@
             "1": "Appliquez %game.condition.immobilize% à tous les alliés et adversaires dans la zone ciblée."
           },
           "140": {
-            "1": "Créez un obstacle triangulaire de trois hexagones sure des hexagones vides à %game.action.range% 3.",
+            "1": "Créez un obstacle triangulaire de trois hexagones sure des hexagones vides à %game.action.range:3%.",
             "2": "Ciblez tous les adversaires adjacents à l'obstacle."
           },
           "141": {
             "1": "Pour chaque hexagone sur lequel vous ne pouvez pas pousser la cible du fait d'un mur ou d'un obstacle, la cible subit 2 dégâts et vous gagnez %game.card.experience:1%.",
-            "2": "Ajoutez +1 %game.action.attack% à toutes vos attaques à distance ce round.",
-            "3": "Ajoutez +2 %game.action.attack% à la place, %game.card.experience:1%."
+            "2": "Ajoutez %game.action.attack.valueSign:1% à toutes vos attaques à distance ce round.",
+            "3": "Ajoutez %game.action.attack.valueSign:2% à la place, %game.card.experience:1%."
           },
           "142": {
-            "1": "Détruisez tous les obstacles à %game.action.range% 2",
+            "1": "Détruisez tous les obstacles à %game.action.range:2%",
             "2": "où X est le double du nombre",
             "3": "d'hexagones que les obstacles détruits",
             "4": "occupaient.",
@@ -537,14 +537,14 @@
         "road-events": "Événements de Route"
       },
       "giant-viper": {
-        "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.giant-viper%.",
+        "1": "Ajoute %game.action.attack.valueSign:2% si la cible est adjacente à un allié de la %data.monster.giant-viper%.",
         "2": "Toutes les attaques ciblant la %data.monster.giant-viper% ce round gagnent Désavantage."
       },
       "harrower-infester": {
-        "1": "Effectue une action de %game.action.heal% 2 sur lui-même pour chaque cible ayant subi des dégâts"
+        "1": "Effectue une action de %game.action.heal:2% sur lui-même pour chaque cible ayant subi des dégâts"
       },
       "hound": {
-        "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié du %data.monster.hound%."
+        "1": "Ajoute %game.action.attack.valueSign:2% si la cible est adjacente à un allié du %data.monster.hound%."
       },
       "merciless-overseer": {
         "1": "Tous les Éclaireurs agissent de nouveau",
@@ -553,19 +553,19 @@
       "mindthief": {
         "abilities": {
           "146": {
-            "1": "Ajoutez +1 %game.action.attack% pour chaque État négatif sur la cible",
+            "1": "Ajoutez %game.action.attack.valueSign:1% pour chaque État négatif sur la cible",
             "2": "Forcez un adversaire à %game.action.range:5% à effectuer",
             "3": "Ciblant un autre adversaire. Vous contrôlez cette action."
           },
           "149": {
             "1": "Pour vos attaques de mêlée :",
-            "2": "Gagnez %game.action.shield% 1",
+            "2": "Gagnez %game.action.shield:1%",
             "3": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte.",
             "4": "Si vous terminez votre déplacement sur le même hexagone où vous l'avez commencé effectuez"
           },
           "151": {
             "1": "Pour vos attaques de mêlée :",
-            "2": "Ajoutez +2 %game.action.attack%",
+            "2": "Ajoutez %game.action.attack.valueSign:2%",
             "3": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte."
           },
           "152": {
@@ -575,7 +575,7 @@
             "4": "Vous contrôlez cette action."
           },
           "154": {
-            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% pour chaque État négatif sur la cible."
+            "1": "Ajoutez %game.action.attack.valueSign:2% et gagnez %game.card.experience:1% pour chaque État négatif sur la cible."
           },
           "156": {
             "1": "Pour vos attaques de mêlée :",
@@ -656,27 +656,27 @@
             "1": "Ajoutez %game.condition.wound% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
           },
           "103": {
-            "1": "Ajoutez +2 %game.action.attack% à toutes vos attaques ce round ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés."
+            "1": "Ajoutez %game.action.attack.valueSign:2% à toutes vos attaques ce round ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés."
           },
           "104": {
             "1": "Gagnez Avantage pour toutes vos attaques ce round."
           },
           "105": {
-            "1": "Ajoutez +3 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
-            "2": "Ajoutez +3 %game.action.attack% et gagnez %game.card.experience:1% quand la cible n'est adjacente à aucun de ses alliés."
+            "1": "Ajoutez %game.action.attack.valueSign:3% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Ajoutez %game.action.attack.valueSign:3% et gagnez %game.card.experience:1% quand la cible n'est adjacente à aucun de ses alliés."
           },
           "106": {
-            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
-            "2": "Pour vos 6 prochaines attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize% ou %game.condition.stun%, ajoutez +2 %game.action.attack%"
+            "1": "Ajoutez %game.action.attack.valueSign:2% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Pour vos 6 prochaines attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize% ou %game.condition.stun%, ajoutez %game.action.attack.valueSign:2%"
           },
           "107": {
             "1": "Éliminez un adversaire adjacent normal qui n'est adjacent à aucun de ses alliés et adjacent à l'un des vôtres."
           },
           "108": {
-            "1": "Ajoutez +2 %game.action.attack% à toutes vos attaques ciblant des adversaires avec %game.condition.poison%."
+            "1": "Ajoutez %game.action.attack.valueSign:2% à toutes vos attaques ciblant des adversaires avec %game.condition.poison%."
           },
           "110": {
-            "1": "Ajoutez +4 %game.action.attack% et gagnez %game.card.experience:2% quand la cible est adjacente à un de vos alliés."
+            "1": "Ajoutez %game.action.attack.valueSign:4% et gagnez %game.card.experience:2% quand la cible est adjacente à un de vos alliés."
           },
           "111": {
             "1": "Désarmez un piège adjacent.",
@@ -694,25 +694,25 @@
             "1": "Ajoutez %game.condition.poison% et %game.condition.wound% à toutes vos attaques."
           },
           "88": {
-            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
-            "2": "Pour vos quatre prochaines attaques ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés, ajoutez +2 %game.action.attack%"
+            "1": "Ajoutez %game.action.attack.valueSign:2% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Pour vos quatre prochaines attaques ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés, ajoutez %game.action.attack.valueSign:2%"
           },
           "89": {
-            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
+            "1": "Ajoutez %game.action.attack.valueSign:2% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
           },
           "90": {
             "1": "Pour votre prochaine Attaque avec %game.condition.invisible%, doublez la valeur de l'attaque."
           },
           "91": {
-            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
-            "2": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible n'est adjacente à aucun de ses alliés."
+            "1": "Ajoutez %game.action.attack.valueSign:2% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Ajoutez %game.action.attack.valueSign:2% et gagnez %game.card.experience:1% quand la cible n'est adjacente à aucun de ses alliés."
           },
           "92": {
             "1": "Désarmez un piège adjacent."
           },
           "97": {
-            "1": "Ajoutez +1 %game.action.attack% pour chacun de vos alliés adjacents à la cible.",
-            "2": "Ajoutez +2 %game.action.attack% à la place, %game.card.experience:1%",
+            "1": "Ajoutez %game.action.attack.valueSign:1% pour chacun de vos alliés adjacents à la cible.",
+            "2": "Ajoutez %game.action.attack.valueSign:2% à la place, %game.card.experience:1%",
             "3": "Forcez un adversaire adjacent à effectuer",
             "4": "Vous contrôlez cette action. Le déplacement se termine sur un hexagone qui vous est adjacent."
           },
@@ -741,8 +741,8 @@
             "1": "Les deux prochaines fois qu'une source vous inflige des dégâts, ne subissez pas de dégâts à la place."
           },
           "69": {
-            "1": "Pour vos 4 prochaines attaques, ajoutez +1 %game.action.attack%.",
-            "2": "Ajoutez +2 %game.action.attack% à la place."
+            "1": "Pour vos 4 prochaines attaques, ajoutez %game.action.attack.valueSign:1%.",
+            "2": "Ajoutez %game.action.attack.valueSign:2% à la place."
           },
           "75": {
             "1": "Affectez un allié",
@@ -804,7 +804,7 @@
             "1": "Un allié adjacent peut Récupérer %game.card.recover% toutes ses cartes défaussées."
           },
           "40": {
-            "1": "Vous et tous les alliés adjacents ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
+            "1": "Vous et tous les alliés adjacents ajoutez %game.action.attack.valueSign:1% à toutes vos attaques ce round."
           },
           "43": {
             "1": "Créez un piège à 2 dégâts et %game.condition.poison% sur un hexagone vide adjacent.",
@@ -812,7 +812,7 @@
             "3": "À la place, jusqu'à 2 cartes défaussées"
           },
           "44": {
-            "1": "Pour vos 4 prochaines actions de Soin, ajoutez +2 %game.action.heal%."
+            "1": "Pour vos 4 prochaines actions de Soin, ajoutez %game.action.heal.valueSign:2%."
           },
           "45": {
             "1": "Un allié à %game.action.range:3% peut Récupérer %game.card.recover% une des ses cartes perdues."
@@ -842,7 +842,7 @@
           },
           "58": {
             "1": "Subissez 2 dégâts",
-            "2": "Tous les alliés adjacents ajoutent +2 %game.action.attack% à toutes leurs attaques ce round.",
+            "2": "Tous les alliés adjacents ajoutent %game.action.attack.valueSign:2% à toutes leurs attaques ce round.",
             "3": "Tous les alliés adjacents subissent 2 dégâts."
           },
           "59": {
@@ -1065,7 +1065,7 @@
           "1": "dans la direction du Chaman situé sur la tuile D"
         },
         "42": {
-          "1": "Tous les monstres ajoutent +1 %game.action.attack% à toutes leurs attaques",
+          "1": "Tous les monstres ajoutent %game.action.attack.valueSign:1% à toutes leurs attaques",
           "2": "Tous les monstres gagnent Avantage pour toutes leurs attaques",
           "3": "Chaque monstre regagne 1 point de vie au début de chacun de ses tours",
           "4": "Chaque aventurier et invocation d'un aventurier subit 1 dégât au début de chacun de ses tours.",

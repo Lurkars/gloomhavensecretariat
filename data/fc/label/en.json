@@ -187,20 +187,20 @@
         "1": "Play top two cards, using the first card as initiative. Perform the bottom action of the first card, then the top action of the second card",
         "10": "Summon two %data.monster.black-imp%s: both normal for two characters; one normal, one elite for three characters; both elite for four characters.",
         "11": "Summon one additional elite %data.monster.black-imp%",
-        "12": "Target all enemies within %game.action.range%4",
+        "12": "Target all enemies within %game.action.range:4%",
         "13": "All adjacent enemies suffer %game.damage:3%.",
-        "14": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 3.",
+        "14": "On the next three sources of damage from attacks targeting you, gain %game.action.shield:3%.",
         "15": "Create one %game.condition.disarm% and %game.condition.poison% trap in each adjacent empty hex.",
-        "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range%+1 and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
-        "17": "adjacent to each enemy character within %game.action.range%5.",
+        "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range:+1% and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
+        "17": "adjacent to each enemy character within %game.action.range:5%.",
         "18": "All attackers targeting you gain %game.condition.curse%.",
         "19": "All attackers targeting you gain Disadvantage for the attack.",
         "2": "Perform this action immediately when revealed, not in normal initiative order.",
-        "20": "%game.action.attack%-1 on a new enemy within %game.action.range%4 of the first target, then %game.action.attack%-2 on a third enemy within %game.action.range%3 of the second target.",
+        "20": "%game.action.attack:-1% on a new enemy within %game.action.range:4% of the first target, then %game.action.attack:-2% on a third enemy within %game.action.range:3% of the second target.",
         "21": "Summon one %game.monster.aesther-scout%: normal for two or three characters, elite for four characters.",
         "22": "On the next three sources of damage to you, suffer no damage instead.",
         "23": "(Elite Aesther Ashblade with [H/2xC] hit points, where H is an elite Aesther Ashlblade's regular hit point value.<br>Immunte to %game.condition.stun%, %game.condition.disarm%, %game.condition.poison%, and %game.condition.immobilize%)",
-        "3": "The character with the highest initiative is forced to act as if their enemies were allies and their allies were enemies this round. On their turn, they will perform \"%game.action.move%2\" and then the top action of their leading initiative card. Afterwards, they discard both played cards, regardless of wherever the cards would normally be lost.",
+        "3": "The character with the highest initiative is forced to act as if their enemies were allies and their allies were enemies this round. On their turn, they will perform \"%game.action.move:2%\" and then the top action of their leading initiative card. Afterwards, they discard both played cards, regardless of wherever the cards would normally be lost.",
         "4": "All attackers targeting you gain %game.condition.curse% this round.",
         "5": "Summon one %data.monster.flame-demon%: normal for two or three characters, elite for four characters.<br>Summon one %data.monster.night-demon%: normal for two characters, elite for three or four characters.",
         "7": "Summon one additional %data.monster.night-demon%",
@@ -223,8 +223,8 @@
         "1": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
       },
       "valrath-savage": {
-        "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
-        "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
+        "1": "All adjacent allies add %game.action.attack.valueSign:1% to all attacks",
+        "2": "All adjacent allies add %game.action.attack.valueSign:2% to all attacks"
       }
     }
   },
@@ -325,16 +325,16 @@
           "1": "All characters must discard one card from their hand or lose one at random from their discard pile."
         },
         "110": {
-          "1": "The Valrath Tracker is Selah Naberis and has hit points equal to an elite Valrath Tracker's regular hit point value. He adds \"%game.target% C\" and \"%game.action.pierce% 10\" to all his attacks.",
+          "1": "The Valrath Tracker is Selah Naberis and has hit points equal to an elite Valrath Tracker's regular hit point value. He adds \"%game.target% C\" and \"%game.action.pierce:10%\" to all his attacks.",
           "2": "The Vermling Shaman is Sraka the Wise and has CxH/2 (rounded up) hit points, where H is an elite Vermling Shaman's regular hit point value. The value of all her heals are doubled, and all %game.condition.curse% and %game.condition.bless% conditions she applies are applied twice. Any time she performs a Heal action, if the City Guard is within range and is damaged, she will prioritize healing him.",
-          "3": "The City Guard is The Steel Lion and has CxH/2 (rounded up) hit points, where H is an elite City Guard's regular hit point value. He adds +1 to all his Move actions. As long as he is alive, all his allies gain \"%game.action.shield% X\", where X is the shield value printed on his stat card. The first C times he suffers 6 or more damage from a single source, he suffers no damage instead. All attacks targeting his allies when they are adjacent to him, target him instead, regardless of range.",
+          "3": "The City Guard is The Steel Lion and has CxH/2 (rounded up) hit points, where H is an elite City Guard's regular hit point value. He adds +1 to all his Move actions. As long as he is alive, all his allies gain \"%game.action.shield:X%\", where X is the shield value printed on his stat card. The first C times he suffers 6 or more damage from a single source, he suffers no damage instead. All attacks targeting his allies when they are adjacent to him, target him instead, regardless of range.",
           "4": "The Savvas Lavaflow is Uyart Ikkuma and has CxH/2 (rounded up) hit points, where H is an elite Savvas Lavaflow's regular hit point value. All its summons are elite for three or four characters. Any consume element effects on its ability cards are applied if the element's corresponding demon is present on the map."
         },
         "111": {
           "1": "The elite Aesther Ashblade is the Husk. It has HxC hit points, where H is an elite Aesther Ashblade's regular hit point value, and is immune to %game.condition.stun%, %game.condition.disarm%, %game.condition.immobilize%, and all forced movement",
           "2": "Immune to forced movement",
-          "3": "The Husk is now considered to have %game.action.shield% 1 and adds +1 %game.action.attack% to all its attacks.",
-          "4": "The Husk is now considered to have %game.action.shield% 2 and adds +3 %game.action.attack% to all its attacks."
+          "3": "The Husk is now considered to have %game.action.shield:1% and adds %game.action.attack.valueSign:1% to all its attacks.",
+          "4": "The Husk is now considered to have %game.action.shield:2% and adds %game.action.attack.valueSign:3% to all its attacks."
         },
         "113": "The Stone Golem is the Warden. It cannot be damaged in any way.",
         "115": {
@@ -399,7 +399,7 @@
           "2": "After ability is resolved:"
         },
         "133": {
-          "1": "The Ancient Artillery has %game.action.shield% 2 and is immune to all forced movement.",
+          "1": "The Ancient Artillery has %game.action.shield:2% and is immune to all forced movement.",
           "2": "Immune to all forced movement"
         },
         "17": "Unaffected by difficult terrain",

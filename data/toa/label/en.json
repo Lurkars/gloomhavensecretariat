@@ -199,7 +199,7 @@
         "2": "Create a hazardous terrain tile in the<br>hex occupied by the target if it contains<br>no overlay tiles.",
         "3": "Create a hazardous terrain tile in<br>all hexes occupied by a target if<br>it contains no overlay tiles.",
         "4": "%game.action.target% one enemy within two hexes",
-        "5": "If the target of the attack ability is adjacent,<br>add %game.action.push% 2 to the attack.",
+        "5": "If the target of the attack ability is adjacent,<br>add %game.action.push:2% to the attack.",
         "6": "Create a hazardous terrain tile in the hex<br>the Smoke Spirit is occupying if it contains<br>no overlay tiles.",
         "7": "Create a hazardous terrain tile in an empty<br>adjacent hex closest to an enemy."
       },

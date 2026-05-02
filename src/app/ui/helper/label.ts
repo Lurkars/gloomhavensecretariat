@@ -12,18 +12,20 @@ import {
 } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionType } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from 'src/app/game/model/Entity';
+import { ghsValueSign } from './Static';
 
 export const ghsLabelRegex = /\%((\w+|\s|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
 export const applyPlaceholder = function (
-  value: string,
+  input: string,
   placeholder: string[] = [],
   relative: boolean = false,
   style: 'gh' | 'fh' | false = false
 ): string {
   const fh = (!style && settingsManager.settings.fhStyle) || style === 'fh';
-  while (value.match(ghsLabelRegex)) {
-    value = value.replace(ghsLabelRegex, (match, ...args) => {
+  let output = input;
+  while (output.match(ghsLabelRegex)) {
+    output = output.replace(ghsLabelRegex, (match, ...args) => {
       let label: string = args[0];
       let value = '';
       if (label.includes(':')) {
@@ -87,6 +89,27 @@ export const applyPlaceholder = function (
           '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
         replace =
           '&#8203;<span class="placeholder-action">' + (fh ? '&#8203;' : settingsManager.getLabel(label)) + image + value + '</span>';
+      } else if (
+        type === 'action' &&
+        split.length === 4 &&
+        !isNaN(+value) &&
+        !split[2].startsWith('specialTarget') &&
+        !split[2].startsWith('summon') &&
+        !split[2].startsWith('area') &&
+        split[3] === 'valueSign'
+      ) {
+        split.splice(0, 1);
+        split.splice(-1, 1);
+        const ghsSvg = ActionTypesIcons.includes(split[split.length - 1] as ActionType);
+        image =
+          '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
+        replace =
+          '&#8203;<span class="placeholder-action">' +
+          ghsValueSign(+value) +
+          '&nbsp;' +
+          (fh ? '' : settingsManager.getLabel('game.action.' + split[1])) +
+          image +
+          '</span>';
       } else if (
         type === 'actionIcon' &&
         split.length === 3 &&
@@ -421,9 +444,9 @@ export const applyPlaceholder = function (
     });
   }
 
-  value = applyValueCalc(value, relative);
+  output = applyValueCalc(output, relative);
 
-  return value;
+  return output;
 };
 
 export const applyValueCalc = function (value: string, relative: boolean): string {

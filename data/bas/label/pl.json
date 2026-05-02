@@ -12,7 +12,7 @@
         "1": "Sfora"
       },
       "sand-spider": {
-        "1": "Dodaj +3 %game.action.attack%, jeśli cel jest %game.condition.immobilize%.",
+        "1": "Dodaj %game.action.attack.valueSign:3%, jeśli cel jest %game.condition.immobilize%.",
         "2": "Wszystkie ataki wymierzone w %data.monster.sand-spider% w tej rundzie mają Niekorzyść.",
         "3": "Utwórz pułapkę %game.condition.immobilize% w sąsiadującym pustym heksie najbliżej wroga."
       }

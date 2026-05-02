@@ -1013,10 +1013,10 @@
     },
     "barracks": {
       "": "Koszary",
-      "1": "Wspólnie wyszkolcie do 1 żołnierza za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 4<br><i>Efekt:</i> przewaga i -5 %game.action.attack%",
-      "2": "Wspólnie wyszkolcie do 1 żołnierza za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 6<br><i>Efekt:</i> korzyść i -15 %game.action.attack%",
-      "3": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 8<br><i>Efekt:</i> korzyść i -25 %game.action.attack%",
-      "4": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 10<br><i>Efekt:</i> korzyść i -35 %game.action.attack%",
+      "1": "Wspólnie wyszkolcie do 1 żołnierza za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 4<br><i>Efekt:</i> przewaga i %game.action.attack.valueSign:-5%",
+      "2": "Wspólnie wyszkolcie do 1 żołnierza za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 6<br><i>Efekt:</i> korzyść i %game.action.attack.valueSign:-15%",
+      "3": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 8<br><i>Efekt:</i> korzyść i %game.action.attack.valueSign:-25%",
+      "4": "Wspólnie wyszkolcie do 2 żołnierzy za 3 złota i 1 surowiec materiałowy<br><br><i>Pojemność:</i> 10<br><i>Efekt:</i> korzyść i %game.action.attack.valueSign:-35%",
       "5": "Niekorzyść przy wszystkich rozstrzygnięciach wydarzeń ataku.<br>Nie można używać żołnierzy.",
       "soldiers": "Wyszkol 1 żołnierza"
     },
@@ -1245,11 +1245,11 @@
         "": "Kościodziej",
         "solid-bones": {
           "": "Twarde Kości",
-          "hint": "Wszystkie Człapiące Szkielety mają +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+          "hint": "Wszystkie Człapiące Szkielety mają %game.action.heal.valueSign:1%, %game.action.move.valueSign:1%, %game.action.pierce:1%."
         },
         "unholy-prowess": {
           "": "Bezbożna Moc",
-          "hint": "Wszystkie Człapiące Szkielety mają +1 %game.action.heal%."
+          "hint": "Wszystkie Człapiące Szkielety mają %game.action.heal.valueSign:1%."
         }
       },
       "deathwalker": {
@@ -1314,27 +1314,27 @@
         "1": "Stwórz jedną pułapkę %game.damage:3% na sąsiednim<br>pustym polu najbliżej wroga."
       },
       "banner-spear": {
-        "1": "Wszyscy sojusznicy w %game.range:2% dodają +1 %game.action.attack% do jednego swojego ataku w każdej turze.",
+        "1": "Wszyscy sojusznicy w %game.range:2% dodają %game.action.attack.valueSign:1% do jednego swojego ataku w każdej turze.",
         "10": "Za pomocą trzech różnych ataków obszarowych traf co najmniej trzech wrogów każdym z nich",
         "11": "Wykonaj przywołanie Sztandaru w swojej pierwszej turze, utrzymaj go przy życiu i w %game.action.range:3% przez cały scenariusz",
         "2": "Na początku swoich tur przyznaj sojusznikom w %game.range:3%:",
         "3": "Wszyscy sąsiadujący sojusznicy zyskują %game.shield% 1.",
         "4": "Niweluj pierwsze źródło %game.damage% zadane sąsiadującemu sojusznikowi w każdej rundzie",
-        "5": "Wszyscy wrogowie w %game.action.range%4 otrzymują %game.damage:1% na początku swoich tur.",
-        "6": "Dodaj +1 %game.action.attack% za każdego sojusznika sąsiadującego z celem",
-        "7": "Na końcu każdego długiego odpoczynku przyznaj jednemu sojusznikowi w %game.action.range:3%: %game.action.move% 2",
-        "8": "Gdy otwierasz drzwi akcją ruchu, dodaj +3 %game.action.move%",
-        "9": "Raz na scenariusz, podczas swojej tury, zyskaj %game.action.shield% 2 na rundę",
+        "5": "Wszyscy wrogowie w %game.action.range:4% otrzymują %game.damage:1% na początku swoich tur.",
+        "6": "Dodaj %game.action.attack.valueSign:1% za każdego sojusznika sąsiadującego z celem",
+        "7": "Na końcu każdego długiego odpoczynku przyznaj jednemu sojusznikowi w %game.action.range:3%: %game.action.move:2%",
+        "8": "Gdy otwierasz drzwi akcją ruchu, dodaj %game.action.move.valueSign:3%",
+        "9": "Raz na scenariusz, podczas swojej tury, zyskaj %game.action.shield:2% na rundę",
         "abilities": {
           "61": {
             "1": "Otrzymujesz %game.damage:1% za każdego sojusznika, którego wartość punktów życia wzrosła dzięki tej akcji leczenia.",
             "2": "Kontrolujesz ruch tego przywołańca"
           },
           "62": {
-            "1": "Wszyscy sojusznicy w %game.action.range%2 dodają +1 %game.action.attack% do jednego swojego ataku w każdej turze."
+            "1": "Wszyscy sojusznicy w %game.action.range:2% dodają %game.action.attack.valueSign:1% do jednego swojego ataku w każdej turze."
           },
           "63": {
-            "1": "Wszystkie twoje ataki dystansowe mają -1 %game.action.range%."
+            "1": "Wszystkie twoje ataki dystansowe mają %game.action.range.valueSign:-1%."
           }
         }
       },
@@ -1346,18 +1346,18 @@
         "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
-        "1": "Przy następnym ataku odrzuć tę kartę, aby dodać +2 %game.action.attack%.<br>%game.card.persistent%",
-        "2": "Umieść tę kartę w obszarze aktywnym. Przy następnym ataku odrzuć ją, aby dodać +2 %game.action.attack%",
+        "1": "Przy następnym ataku odrzuć tę kartę, aby dodać %game.action.attack.valueSign:2%.<br>%game.card.persistent%",
+        "2": "Umieść tę kartę w obszarze aktywnym. Przy następnym ataku odrzuć ją, aby dodać %game.action.attack.valueSign:2%",
         "3": "Zyskaj 1 %data.characterToken.blinkblade.time%",
         "4": "Zyskaj 1 %data.action.custom.fh-hourglass%",
         "5": "Gdy wykonujesz krótki odpoczynek, możesz wydać jeden niewydany przedmiot %game.card.spent% bez efektu, aby %game.card.recover% inny wydany przedmiot",
-        "6": "Na początku swojej pierwszej tury w każdym scenariuszu możesz wykonać %game.action.move% 3",
+        "6": "Na początku swojej pierwszej tury w każdym scenariuszu możesz wykonać %game.action.move:3%",
         "7": "Gdy miałbyś otrzymać %game.condition.immobilize%, zapobiegasz temu",
         "8": "Zadeklaruj tryb Szybki przez siedem kolejnych rund",
         "9": "Nigdy nie bądź celem ataku"
       },
       "boneshaper": {
-        "1": "+1 %game.action.attack% za każdy żeton na tej karcie.",
+        "1": "%game.action.attack.valueSign:1% za każdy żeton na tej karcie.",
         "2": "Zabij atakującego przywołańca, aby zamiast tego dodać %game.attackmodifier.plus4%",
         "3": "Bezpośrednio przed każdym odpoczynkiem możesz zabić jednego ze swoich przywołańców, aby wykonać %game.condition.bless%, na siebie",
         "4": "Raz na scenariusz, gdy sojusznik miałby zostać wycieńczony przez %game.damage%, możesz otrzymać %game.damage:2%, aby ustawić jego punkty życia na 1",
@@ -1408,28 +1408,28 @@
         "6": "Nigdy nie wykonuj zdolności ruchu ani ataku o wartości mniejszej niż 4 i w każdej rundzie wykonuj co najmniej jedną zdolność ruchu lub ataku",
         "abilities": {
           "1": {
-            "1": "Do twoich kolejnych sześciu ataków wręcz dodaj +2%game.action.attack%.",
+            "1": "Do twoich kolejnych sześciu ataków wręcz dodaj %game.action.attack.valueSign:2%.",
             "2": "Przesuń żeton postaci na jednej ze swoich stałych zdolności o jedno miejsce do tyłu."
           },
           "11": {
             "1": "Jeśli zabiłeś wroga zdolnością ataku, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz."
           },
           "13": {
-            "1": "Zanim zastosujesz jakiekolwiek inne premie, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce w przód: +2%game.action.range%.",
+            "1": "Zanim zastosujesz jakiekolwiek inne premie, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce w przód: %game.action.range.valueSign:2%.",
             "2": "Za każdym razem, gdy zabijesz wroga, przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz."
           },
           "16": {
-            "1": "Podczas twoich następnych sześciu ataków wręcz wymierzonych we wroga sąsiadującego z dowolnym innym wrogiem, jeden wróg sąsiadujący z celem otrzymuje %game.action.damage%2."
+            "1": "Podczas twoich następnych sześciu ataków wręcz wymierzonych we wroga sąsiadującego z dowolnym innym wrogiem, jeden wróg sąsiadujący z celem otrzymuje %game.action.damage:2%."
           },
           "18": {
-            "2": "Podczas twoich następnych sześciu zdolności ataku dystansowego dodaj +1%game.action.target%."
+            "2": "Podczas twoich następnych sześciu zdolności ataku dystansowego dodaj %game.action.target.valueSign:1%."
           },
           "19": {
             "2": "Przesuń żetony postaci na dwóch ze swoich zdolności trwałych o jedno miejsce wstecz."
           },
           "2": {
             "1": "Przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz.",
-            "2": "Podczas twoich następnych sześciu zdolności ruchu dodaj +2%game.action.move%."
+            "2": "Podczas twoich następnych sześciu zdolności ruchu dodaj %game.action.move.valueSign:2%."
           },
           "20": {
             "1": "Przesuń żeton postaci na jednej ze swoich zdolności trwałych o jedno miejsce wstecz.",
@@ -1583,10 +1583,10 @@
         "2": "%data.monster.harbinger-of-shadow-2% nie wykonuje akcji."
       },
       "harrower-infester": {
-        "1": "Wykonaj \"%game.action.heal% X, na siebie\", gdzie X to<br>dwukrotność liczby wrogów<br>będących celem umiejętności ataku."
+        "1": "Wykonaj \"%game.action.heal:X%, na siebie\", gdzie X to<br>dwukrotność liczby wrogów<br>będących celem umiejętności ataku."
       },
       "hound": {
-        "1": "Dodaj +2 %game.action.attack% jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Ogara."
+        "1": "Dodaj %game.action.attack.valueSign:2% jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Ogara."
       },
       "ice-wraith": {
         "1": "Wszystkie elitarne Lodowe Upiory stają się normalne, a wszystkie normalne Lodowe Upiory stają się elitarne."
@@ -1642,9 +1642,9 @@
         "1": ""
       },
       "piranha-pig": {
-        "1": "Dodaj +1 %game.action.attack%, jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Świni Piranii.",
-        "2": "Dodaj +2 %game.action.attack% jeśli cel ma %game.condition.wound%.",
-        "3": "Dodaj +1 %game.action.attack%, jeśli cel zajmuje<br> pole z wodą.",
+        "1": "Dodaj %game.action.attack.valueSign:1%, jeśli cel sąsiaduje<br>z którymkolwiek z sojuszników Świni Piranii.",
+        "2": "Dodaj %game.action.attack.valueSign:2% jeśli cel ma %game.condition.wound%.",
+        "3": "Dodaj %game.action.attack.valueSign:1%, jeśli cel zajmuje<br> pole z wodą.",
         "4": "gdzie X to ilość obrażeń zadanych<br>celowi umiejętności ataku."
       },
       "prince-of-frost": {
@@ -1676,7 +1676,7 @@
       "seeker-of-the-abyss": {
         "1": "Wszystkie cele tracą jedną kartę.",
         "2": "Stwórz jedną pułapkę %game.condition.immobilize% na sąsiednim pustym polu.",
-        "3": "Wszyscy sojusznicy dodają +1 %game.action.attack% do wszystkich swoich ataków w tej rundzie."
+        "3": "Wszyscy sojusznicy dodają %game.action.attack.valueSign:1% do wszystkich swoich ataków w tej rundzie."
       },
       "shrike-fiend": {
         "1": "Wszyscy wrogowie w %game.action.range:3% otrzymują %game.damage:2%."
@@ -1997,8 +1997,8 @@
     },
     "rules": {
       "fh": {
-        "0": "Nie przygotowuj talii zdolności potworów Ogarów. Zamiast tego, w każdej rundzie przy inicjatywie 26, wszystkie Ogary wykonują %game.action.move% 2; %game.action.attack% 2.",
-        "1": "Strażnicy Miejscy nie wykonują tur, ale zamiast tego zyskują dodatkowe wrodzone %game.action.shield% 1 (w sumie %game.action.shield% 2 na poziomie 1) i %game.action.retaliate% 2, a ich inicjatywa wynosi 50 dla celów skupienia.",
+        "0": "Nie przygotowuj talii zdolności potworów Ogarów. Zamiast tego, w każdej rundzie przy inicjatywie 26, wszystkie Ogary wykonują %game.action.move:2%; %game.action.attack:2%.",
+        "1": "Strażnicy Miejscy nie wykonują tur, ale zamiast tego zyskują dodatkowe wrodzone %game.action.shield:1% (w sumie %game.action.shield:2% na poziomie 1) i %game.action.retaliate:2%, a ich inicjatywa wynosi 50 dla celów skupienia.",
         "10": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%",
         "110": "Może zostać zniszczona tylko wtedy, gdy zrujnowana maszyna zginie na sąsiednim polu",
         "112": "Oba ogary mają podwojoną maksymalną wartość punktów życia.",
@@ -2009,22 +2009,22 @@
         "116": "Skupia się na poruszaniu się w kierunku %game.mapMarker.b%",
         "119": {
           "1": "Na koniec tury wydaj pył, aby:",
-          "2": "Wydaj 1: %game.action.move%2",
+          "2": "Wydaj 1: %game.action.move:2%",
           "3": "Wydaj 2:",
-          "4": "Wydaj 5: Zmień nastawienie potwora w zasięgu %game.action.range%2"
+          "4": "Wydaj 5: Zmień nastawienie potwora w zasięgu %game.action.range:2%"
         },
         "128": {
           "1": "Wszystkie Stalowe Automaty używają talii zdolności potworów Chochlik.",
           "2": "Ilekroć jakikolwiek Czychacz Falomiot miałby przyzwać Elektrycznego Węgorza, zamiast tego przyzywa jednego Szczurka Zwiadowcę z aktualną wartością 1 punktu życia."
         },
         "129": "Wszyscy Strażnicy Miejscy używają kart zdolności potworów Łucznika zamiast własnych.",
-        "131": "Czychacze Falomioci dodają +1 %game.action.attack% do wszystkich swoich ataków i nie przyzywają Elektrycznych Węgorzy. Zamiast tego, ilekroć wykonywana jest akcja [Aid from Below], wszyscy Czychacze Falomioci wykonują: \"%game.action.attack% +1, %game.action.range% 4; %game.action.teleport% na najbardziej wysunięte w lewo puste pole, jeśli jest to runda nieparzysta, lub najbardziej wysunięte w prawo, jeśli jest parzysta. Jeśli istnieje kilka poprawnych pól do teleportacji, wybierz pole znajdujące się najdalej od dowolnej postaci.\"",
+        "131": "Czychacze Falomioci dodają %game.action.attack.valueSign:1% do wszystkich swoich ataków i nie przyzywają Elektrycznych Węgorzy. Zamiast tego, ilekroć wykonywana jest akcja [Aid from Below], wszyscy Czychacze Falomioci wykonują: \"%game.action.attack:+1%, %game.action.range:4%; %game.action.teleport% na najbardziej wysunięte w lewo puste pole, jeśli jest to runda nieparzysta, lub najbardziej wysunięte w prawo, jeśli jest parzysta. Jeśli istnieje kilka poprawnych pól do teleportacji, wybierz pole znajdujące się najdalej od dowolnej postaci.\"",
         "134": "Stalowy Automaton ma HxC/2 punktów życia (zaokrąglone w górę).",
         "27": "Po zniszczeniu, niszcząca postać może zwrócić wszystkie swoje ukradzione karty do ręki",
         "44": "Po zniszczeniu wszystkie potwory w zasięgu %game.action.range:2% otrzymują obrażenia od pułapki",
         "54": "Po zniszczeniu, odkryj jeden numerowany żeton i przyzwij wskazanego potwora",
         "60": "",
-        "65": "Wszyscy przeciwnicy dodają %game.action.push% 1 do swoich ataków. Jeżeli poziom scenariusza jest równy 4 albo wyższy, zwiększ tę wartość do %game.action.push% 2.",
+        "65": "Wszyscy przeciwnicy dodają %game.action.push:1% do swoich ataków. Jeżeli poziom scenariusza jest równy 4 albo wyższy, zwiększ tę wartość do %game.action.push:2%.",
         "76": "Podziel maksymalną wartość punktów życia Rybiego Króla przez 2 (zaokrąglone w dół). Rybi Król nie wykonuje akcji, nie może być celem zdolności leczenia, jest odporny na wszystkie stany i ma inicjatywę 01 na potrzeby skupienia.",
         "77": {
           "1": "Rybi Król nie może wykonywać żadnych zdolności ruchu i jest odporny na wymuszony ruch. (Dostosowano również Umiejętność specjalną Bossa!)",
@@ -2035,7 +2035,7 @@
           "2": "Dodaj %game.condition.immobilize% do wszystkich ataków wymierzonych w główny cel skupienia",
           "3": "Zmień Umiejętność specjalną 1 Reliktu na:",
           "4": "Skup się na najdalszym wrogu którego może być celem skupienia i wykonaj:",
-          "5": "%game.action.attack%+0, %game.action.target% cel skupienia (jeśli sąsiaduje) oraz wszyscy wrogowie na polach przebytych podczas ruchu lub z nimi sąsiadujących",
+          "5": "%game.action.attack:+0%, %game.action.target% cel skupienia (jeśli sąsiaduje) oraz wszyscy wrogowie na polach przebytych podczas ruchu lub z nimi sąsiadujących",
           "6": "Zmień Umiejętność specjalną 2 Reliktu na:"
         },
         "86": "Gdy otrzymuje obrażenia, ale nie zostaje zniszczony:",

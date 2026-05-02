@@ -18,7 +18,7 @@
     },
     "jotl-13": {
       "": "힘 물약",
-      "1": "공격 중, 해당 공격 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "공격 중, 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "jotl-14": {
       "": "마나 물약",
@@ -26,15 +26,15 @@
     },
     "jotl-15": {
       "": "생명의 부적",
-      "1": "차례 중, '%game.action.heal% 1, 자신' 행동 수행."
+      "1": "차례 중, '%game.action.heal:1%, 자신' 행동 수행."
     },
     "jotl-16": {
       "": "초혼의 로브",
-      "1": "공격 중, %game.element.consume.wild% 를 통해 해당 공격 행동 전체에 +1 %game.action.attack% 능력 추가."
+      "1": "공격 중, %game.element.consume.wild% 를 통해 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 능력 추가."
     },
     "jotl-17": {
       "": "편안한 신발",
-      "1": "능력 카드를 기본 하단 행동으로 사용할 때마다, '%game.action.move% 2' 행동 대신 '%game.action.move% 3' 행동 수행."
+      "1": "능력 카드를 기본 하단 행동으로 사용할 때마다, '%game.action.move:2%' 행동 대신 '%game.action.move:3%' 행동 수행."
     },
     "jotl-18": {
       "": "전투 도끼",
@@ -54,15 +54,15 @@
     },
     "jotl-21": {
       "": "송골매 투구",
-      "1": "원거리 공격 중, 해당 공격 행동 전체에 +1 %game.action.range% 추가."
+      "1": "원거리 공격 중, 해당 공격 행동 전체에 %game.action.range.valueSign:1% 추가."
     },
     "jotl-22": {
       "": "날붙이 갑옷",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 2 획득 및 공격자가 피해 2점을 입음."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:2% 획득 및 공격자가 피해 2점을 입음."
     },
     "jotl-23": {
       "": "활보의 장화",
-      "1": "이동 중, 한 번의 이동에 +2 %game.action.move% 추가."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:2% 추가."
     },
     "jotl-24": {
       "": "휘발성 폭탄",
@@ -70,7 +70,7 @@
     },
     "jotl-25": {
       "": "가시 돋친 사슬",
-      "1": "원거리 공격 중, 한 번의 공격에 %game.action.pull% 2 추가."
+      "1": "원거리 공격 중, 한 번의 공격에 %game.action.pull:2% 추가."
     },
     "jotl-26": {
       "": "떡갈나무 부적",
@@ -78,7 +78,7 @@
     },
     "jotl-27": {
       "": "운명 나침반",
-      "1": "차례 중, %game.action.range:3% 내에 있는 적 하나가 장착자의 조종에 따라 '%game.action.move% 2' 행동을 수행하도록 함."
+      "1": "차례 중, %game.action.range:3% 내에 있는 적 하나가 장착자의 조종에 따라 '%game.action.move:2%' 행동을 수행하도록 함."
     },
     "jotl-28": {
       "": "벼룩투성이 숄",
@@ -86,11 +86,11 @@
     },
     "jotl-29": {
       "": "대형 방패",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 2 획득."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:2% 획득."
     },
     "jotl-3": {
       "": "쇠사슬 갑옷",
-      "1": "차례 중, 라운드 종료 시까지 %game.action.shield% 1 획득."
+      "1": "차례 중, 라운드 종료 시까지 %game.action.shield:1% 획득."
     },
     "jotl-30": {
       "": "신속의 반지",
@@ -102,11 +102,11 @@
     },
     "jotl-32": {
       "": "회복의 반지",
-      "1": "차례 중, '%game.action.heal% 3, %game.action.range:5%' 행동 수행."
+      "1": "차례 중, '%game.action.heal:3%, %game.action.range:5%' 행동 수행."
     },
     "jotl-33": {
       "": "강철 반지",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 4 획득."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:4% 획득."
     },
     "jotl-34": {
       "": "가시 돋친 도끼",
@@ -114,19 +114,19 @@
     },
     "jotl-35": {
       "": "명령의 로브",
-      "1": "차례 중, 인접한 아군 하나가 '%game.action.attack% 2' 행동 수행 가능."
+      "1": "차례 중, 인접한 아군 하나가 '%game.action.attack:2%' 행동 수행 가능."
     },
     "jotl-36": {
       "": "제트 장화",
-      "1": "이동 중, 한 번의 이동에 +1 %game.action.move% 및 %game.action.jump% 추가."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:1% 및 %game.action.jump% 추가."
     },
     "jotl-4": {
       "": "징 박은 가죽 갑옷",
-      "1": "공격을 받을 때, 공격 보정 카드를 뽑기 전에, 공격자가 해당 공격에 불이익을 받고 장착자는 해당 공격에 대해 %game.action.shield% 1 획득."
+      "1": "공격을 받을 때, 공격 보정 카드를 뽑기 전에, 공격자가 해당 공격에 불이익을 받고 장착자는 해당 공격에 대해 %game.action.shield:1% 획득."
     },
     "jotl-5": {
       "": "낡은 장화",
-      "1": "이동 중, 한 번의 이동에 +1 %game.action.move% 추가."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:1% 추가."
     },
     "jotl-6": {
       "": "날개달린 신발",
@@ -134,7 +134,7 @@
     },
     "jotl-7": {
       "": "다리미꼴 방패",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 1 획득."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:1% 획득."
     },
     "jotl-8": {
       "": "투척용 망치",

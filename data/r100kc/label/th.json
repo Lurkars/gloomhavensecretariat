@@ -4,7 +4,7 @@
       "black-cat": {
         "1": "โฟกัสที่สิ่งกีดขวางที่ว่างและใกล้ที่สุด<br>จนถึงต้นเทิร์นถัดไป Black Cat สามารถอยู่บน hex นั้นได้ จากนั้นเคลื่อนไปยัง hex ว่างถัดไป<br><br>ถ้าไม่มีสิ่งกีดขวาง ให้โฟกัส hex ว่างที่ไกลจากตัวละครทั้งหมดมากที่สุด",
         "2": "%game.action.target% Black Cat ที่อยู่ติดกันทั้งหมด",
-        "3": "%game.action.target% Black Cat ทั้งหมดใน %game.action.range% 2"
+        "3": "%game.action.target% Black Cat ทั้งหมดใน %game.action.range:2%"
       },
       "evil-eyeball": {
         "1": "บน hex เดียวกับที่เอลิทตาย"

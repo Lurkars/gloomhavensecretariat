@@ -14,7 +14,7 @@
   "items": {
     "gh-1": {
       "": "Stivali dei Lunghi Passi",
-      "1": "Durante il tuo movimento, aggiungi +2 %game.action.move% al movimento."
+      "1": "Durante il tuo movimento, aggiungi %game.action.move.valueSign:2% al movimento."
     },
     "gh-10": {
       "": "Martello da Guerra",
@@ -22,7 +22,7 @@
     },
     "gh-100": {
       "": "Vesti dell'Evocazione",
-      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 2, bersaglia un qualsiasi alleato evocato\"."
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal:2%, bersaglia un qualsiasi alleato evocato\"."
     },
     "gh-101": {
       "": "Seconda Pelle",
@@ -30,7 +30,7 @@
     },
     "gh-102": {
       "": "Vesti Sacrificali",
-      "1": "Durante il tuo attacco a distanza, subisci %game.damage:3% per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+      "1": "Durante il tuo attacco a distanza, subisci %game.damage:3% per aggiungere %game.action.attack.valueSign:1% all'intera azione di Attacco."
     },
     "gh-103": {
       "": "Armatura di Scaglie di Draco",
@@ -38,7 +38,7 @@
     },
     "gh-104": {
       "": "Armatura a Vapore",
-      "1": "Per le prossime cinque fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1."
+      "1": "Per le prossime cinque fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield:1%."
     },
     "gh-105": {
       "": "Scialle Pulcioso",
@@ -46,11 +46,11 @@
     },
     "gh-106": {
       "": "Collana di Denti",
-      "1": "Ogni volta che uccidi un nemico durante il tuo turno, effettua un'azione \"%game.action.heal% 1, Se Stesso\"."
+      "1": "Ogni volta che uccidi un nemico durante il tuo turno, effettua un'azione \"%game.action.heal:1%, Se Stesso\"."
     },
     "gh-107": {
       "": "Elmo Cornuto",
-      "1": "Dopo esserti mosso di 4 o più esagoni nel tuo turno, aggiungi +1 %game.action.attack% al tuo prossimo attacco in mischia in questo turno."
+      "1": "Dopo esserti mosso di 4 o più esagoni nel tuo turno, aggiungi %game.action.attack.valueSign:1% al tuo prossimo attacco in mischia in questo turno."
     },
     "gh-108": {
       "": "Elmo di Scaglie di Draco",
@@ -58,7 +58,7 @@
     },
     "gh-109": {
       "": "Cappuccio da Ladro",
-      "1": "Durante la tua capacità \"%game.action.loot% 1\", effettua invece una capacità \"%game.action.loot% 2\"."
+      "1": "Durante la tua capacità \"%game.action.loot:1%\", effettua invece una capacità \"%game.action.loot:2%\"."
     },
     "gh-11": {
       "": "Pugnale Avvelenato",
@@ -70,15 +70,15 @@
     },
     "gh-111": {
       "": "Monile dell'Onda",
-      "1": "Quando sei attaccato, se %game.element.ice% è Forte, esegui un'azione \"%game.action.push% 2\" bersagliando l'attaccante."
+      "1": "Quando sei attaccato, se %game.element.ice% è Forte, esegui un'azione \"%game.action.push:2%\" bersagliando l'attaccante."
     },
     "gh-112": {
       "": "Trivella Antica",
-      "1": "Durante il tuo attacco in mischia, aggiungi +2 %game.action.attack% e %game.action.pierce% 2 all'intera azione di Attacco"
+      "1": "Durante il tuo attacco in mischia, aggiungi %game.action.attack.valueSign:2% e %game.action.pierce:2% all'intera azione di Attacco"
     },
     "gh-113": {
       "": "Ascia Anatema dei Teschi",
-      "1": "Durante il tuo attacco in mischia che bersaglia un Cadavere Vivente, uno Spirito Vivente o un Ossa Viventi, aggiungi +5 %game.action.attack% a un singolo attacco."
+      "1": "Durante il tuo attacco in mischia che bersaglia un Cadavere Vivente, uno Spirito Vivente o un Ossa Viventi, aggiungi %game.action.attack.valueSign:5% a un singolo attacco."
     },
     "gh-114": {
       "": "Bastone di Xorn",
@@ -93,7 +93,7 @@
     },
     "gh-117": {
       "": "Ascia Sanguinaria",
-      "1": "Durante il tuo attacco in mischia, subisci %game.damage:2% per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+      "1": "Durante il tuo attacco in mischia, subisci %game.damage:2% per aggiungere %game.action.attack.valueSign:1% all'intera azione di Attacco."
     },
     "gh-118": {
       "": "Bastone degli Elementi",
@@ -105,11 +105,11 @@
     },
     "gh-12": {
       "": "Pozione di Guarigione Minore",
-      "1": "Durante il tuo turno, esegui un'azione \"%game.action.heal% 3\", su te stesso."
+      "1": "Durante il tuo turno, esegui un'azione \"%game.action.heal:3%\", su te stesso."
     },
     "gh-120": {
       "": "Bastone dell'Evocazione",
-      "1": "Durante il tuo turno, un alleato evocato entro %game.action.range:3% effettua un'azione \"%game.action.move% 3\"; sei tu a controllare l'azione."
+      "1": "Durante il tuo turno, un alleato evocato entro %game.action.range:3% effettua un'azione \"%game.action.move:3%\"; sei tu a controllare l'azione."
     },
     "gh-121": {
       "": "Globo dell'Alba",
@@ -124,7 +124,7 @@
     },
     "gh-124": {
       "": "Bussola del Destino",
-      "1": "Durante il tuo turno, obbliga un nemico entro %game.action.range:5% a effettuare un'azione \"%game.action.move% 2\"; sei tu a controllare l'azione."
+      "1": "Durante il tuo turno, obbliga un nemico entro %game.action.range:5% a effettuare un'azione \"%game.action.move:2%\"; sei tu a controllare l'azione."
     },
     "gh-125": {
       "": "Ingranaggio Curioso",
@@ -136,7 +136,7 @@
     },
     "gh-127": {
       "": "Ragno Meccanico Gigante",
-      "1": "Durante il tuo turno, effettua un'azione \"%game.action.loot% 1\"."
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.loot:1%\"."
     },
     "gh-128": {
       "": "Incensiere Nero",
@@ -153,7 +153,7 @@
     "gh-130": {
       "": "Anello a Elica",
       "1": "Durante il tuo turno,",
-      "3": "per effettuare un'azione \"%game.action.heal% 25, Se stesso\""
+      "3": "per effettuare un'azione \"%game.action.heal:25%, Se stesso\""
     },
     "gh-131": {
       "": "Cuore del Traditore",
@@ -168,7 +168,7 @@
     },
     "gh-14": {
       "": "Pozione del Potere Minore",
-      "1": "Durante il tuo attacco, aggiungi +1 %game.action.attack% alla tua intera azione di Attacco."
+      "1": "Durante il tuo attacco, aggiungi %game.action.attack.valueSign:1% alla tua intera azione di Attacco."
     },
     "gh-15": {
       "": "Stivali della Velocità",
@@ -208,11 +208,11 @@
     },
     "gh-23": {
       "": "Cotta di Maglia",
-      "1": "Sulle prossime tre fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1."
+      "1": "Sulle prossime tre fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield:1%."
     },
     "gh-24": {
       "": "Amuleto della Vita",
-      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 1, Se Stesso\"."
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal:1%, Se Stesso\"."
     },
     "gh-25": {
       "": "Spada Seghettata",
@@ -224,7 +224,7 @@
     },
     "gh-27": {
       "": "Pozione di Guarigione Maggiore",
-      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 5, Se Stesso\"."
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal:5%, Se Stesso\"."
     },
     "gh-28": {
       "": "Orecchino della Luna",
@@ -236,19 +236,19 @@
     },
     "gh-3": {
       "": "Armatura di Pelle",
-      "1": "Per le prossime due fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1."
+      "1": "Per le prossime due fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield:1%."
     },
     "gh-30": {
       "": "Cuoio Borchiato",
-      "1": "Quando sei attaccato, l'attaccante ottiene Svantaggio all'attacco e tu ottieni %game.action.shield% 1 per quell'attacco."
+      "1": "Quando sei attaccato, l'attaccante ottiene Svantaggio all'attacco e tu ottieni %game.action.shield:1% per quell'attacco."
     },
     "gh-31": {
       "": "Elmo del Falco",
-      "1": "Durante il tuo attacco a distanza, aggiungi il +1 %game.action.range% all'intera azione di Attacco."
+      "1": "Durante il tuo attacco a distanza, aggiungi il %game.action.range.valueSign:1% all'intera azione di Attacco."
     },
     "gh-32": {
       "": "Scudo Torre",
-      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield% 2 per quell'attacco."
+      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield:2% per quell'attacco."
     },
     "gh-33": {
       "": "Bomba Esplosiva",
@@ -263,11 +263,11 @@
     },
     "gh-36": {
       "": "Stivali dello Scatto",
-      "1": "Durante il tuo movimento, aggiungi +3 %game.action.move% a un singolo movimento."
+      "1": "Durante il tuo movimento, aggiungi %game.action.move.valueSign:3% a un singolo movimento."
     },
     "gh-37": {
       "": "Veste dell'Invocazione",
-      "1": "Durante il tuo attacco, %game.element.consume.wild% per aggiungere +1 %game.action.attack% all'intera azione di attacco."
+      "1": "Durante il tuo attacco, %game.element.consume.wild% per aggiungere %game.action.attack.valueSign:1% all'intera azione di attacco."
     },
     "gh-38": {
       "": "Gran Bacinetto",
@@ -275,7 +275,7 @@
     },
     "gh-39": {
       "": "Catena Uncinata",
-      "1": "Durante il tuo attacco a distanza, aggiungi %game.action.pull% 2 all'intera azione di Attacco."
+      "1": "Durante il tuo attacco a distanza, aggiungi %game.action.pull:2% all'intera azione di Attacco."
     },
     "gh-4": {
       "": "Armatura di Cuoio",
@@ -283,11 +283,11 @@
     },
     "gh-40": {
       "": "Pugnale Versatile",
-      "1": "Ogni volta che usi l'azione base superiore di una carta capacità, effettua un'azione \"%game.action.attack% 3\" invece di un'azione \"%game.action.attack% 2\"."
+      "1": "Ogni volta che usi l'azione base superiore di una carta capacità, effettua un'azione \"%game.action.attack:3%\" invece di un'azione \"%game.action.attack:2%\"."
     },
     "gh-41": {
       "": "Pozione del Potere Maggiore",
-      "1": "Durante il tuo attacco, aggiungi +2 %game.action.attack% alla tua intera azione di Attacco."
+      "1": "Durante il tuo attacco, aggiungi %game.action.attack.valueSign:2% alla tua intera azione di Attacco."
     },
     "gh-42": {
       "": "Anello della Velocità",
@@ -299,7 +299,7 @@
     },
     "gh-44": {
       "": "Corazza di Strisce",
-      "1": "Per le prossime quattro fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1."
+      "1": "Per le prossime quattro fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield:1%."
     },
     "gh-45": {
       "": "Pendente dei Patti Oscuri",
@@ -319,7 +319,7 @@
     },
     "gh-49": {
       "": "Orecchino del Sole",
-      "1": "Durante il tuo turno, ripristina %game.card.refresh% tutti i tuoi oggetti spesi ed effettua un'azione \"%game.action.heal% 3, Se Stesso\"."
+      "1": "Durante il tuo turno, ripristina %game.card.refresh% tutti i tuoi oggetti spesi ed effettua un'azione \"%game.action.heal:3%, Se Stesso\"."
     },
     "gh-5": {
       "": "Mantello dell'Invisibilità",
@@ -327,7 +327,7 @@
     },
     "gh-50": {
       "": "Scarpa d'Arme",
-      "1": "Se ti muovi di 1 o meno esagoni nel tuo turno, ottieni %game.action.shield% 1 per il round."
+      "1": "Se ti muovi di 1 o meno esagoni nel tuo turno, ottieni %game.action.shield:1% per il round."
     },
     "gh-51": {
       "": "Armatura d'Ombra",
@@ -343,11 +343,11 @@
     },
     "gh-54": {
       "": "Bastone dell'Eminenza",
-      "1": "Durante il tuo attacco a distanza, %game.element.consume.wild% per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+      "1": "Durante il tuo attacco a distanza, %game.element.consume.wild% per aggiungere %game.action.attack.valueSign:1% all'intera azione di Attacco."
     },
     "gh-55": {
       "": "Pozione di Guarigione Superiore",
-      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 7, Se Stesso\"."
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal:7%, Se Stesso\"."
     },
     "gh-56": {
       "": "Anello della Brutalità",
@@ -355,7 +355,7 @@
     },
     "gh-57": {
       "": "Sandali Semplici",
-      "1": "Ogni volta che usi l'azione base inferiore di una carta capacità, effettua un'azione \"%game.action.move% 4\" invece di un'azione \"%game.action.move% 2\"."
+      "1": "Ogni volta che usi l'azione base inferiore di una carta capacità, effettua un'azione \"%game.action.move:4%\" invece di un'azione \"%game.action.move:2%\"."
     },
     "gh-58": {
       "": "Mantello dell'Intangibilità",
@@ -364,7 +364,7 @@
     },
     "gh-59": {
       "": "Lenti Telescopiche",
-      "1": "Durante il tuo attacco a distanza, aggiungi +2 %game.action.range% all'intera azione di Attacco"
+      "1": "Durante il tuo attacco a distanza, aggiungi %game.action.range.valueSign:2% all'intera azione di Attacco"
     },
     "gh-6": {
       "": "Occhiali dell'Aquila",
@@ -377,7 +377,7 @@
     },
     "gh-61": {
       "": "Scudo a Muro",
-      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield% 4 per quell'attacco."
+      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield:4% per quell'attacco."
     },
     "gh-62": {
       "": "Polvere del Destino",
@@ -389,19 +389,19 @@
     },
     "gh-64": {
       "": "Stivali della Corsa",
-      "1": "Durante il tuo movimento, aggiungi +4 %game.action.move% a un singolo movimento."
+      "1": "Durante il tuo movimento, aggiungi %game.action.move.valueSign:4% a un singolo movimento."
     },
     "gh-65": {
       "": "Corazza di Piastre",
-      "1": "Per le prossime cinque fonti di danno dagli attacchi, ottieni %game.action.shield% 1."
+      "1": "Per le prossime cinque fonti di danno dagli attacchi, ottieni %game.action.shield:1%."
     },
     "gh-66": {
       "": "Maschera del Terrore",
-      "1": "Durante il tuo attacco in mischia, aggiungi %game.action.push% 1."
+      "1": "Durante il tuo attacco in mischia, aggiungi %game.action.push:1%."
     },
     "gh-67": {
       "": "Lama Bilanciata",
-      "1": "Ogni volta che usi l'azione base superiore di una carta capacità, effettua un'azione \"%game.action.attack% 4\" invece di un'azione \"%game.action.attack% 2\"."
+      "1": "Ogni volta che usi l'azione base superiore di una carta capacità, effettua un'azione \"%game.action.attack:4%\" invece di un'azione \"%game.action.attack:2%\"."
     },
     "gh-68": {
       "": "Alabarda",
@@ -409,7 +409,7 @@
     },
     "gh-69": {
       "": "Orecchino della Stella",
-      "1": "Durante il tuo turno, ripristina %game.card.refresh% tutti i tuoi oggetti spesi, effettua un'azione \"%game.action.heal% 3, Se Stesso\" e recupera %game.card.recover% fino a due tue carte scartate."
+      "1": "Durante il tuo turno, ripristina %game.card.refresh% tutti i tuoi oggetti spesi, effettua un'azione \"%game.action.heal:3%, Se Stesso\" e recupera %game.card.recover% fino a due tue carte scartate."
     },
     "gh-7": {
       "": "Elmo di Ferro",
@@ -429,11 +429,11 @@
     },
     "gh-73": {
       "": "Mantello Intermittente",
-      "1": "Durante il tuo turno, effettua un'azione \"%game.action.move%4,%game.act.jump%\""
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.move:4%,%game.act.jump%\""
     },
     "gh-74": {
       "": "Armatura Affilata",
-      "1": "Per le prossime tre fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1, %game.action.retaliate% 1"
+      "1": "Per le prossime tre fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield:1%, %game.action.retaliate:1%"
     },
     "gh-75": {
       "": "Diadema degli Elementi",
@@ -441,35 +441,35 @@
     },
     "gh-76": {
       "": "Cappuccio di Maglia",
-      "1": "Mentre sei adiacente a tre o più mostri, ottieni %game.action.shield% 1"
+      "1": "Mentre sei adiacente a tre o più mostri, ottieni %game.action.shield:1%"
     },
     "gh-77": {
       "": "Lama del Ghiaccio",
-      "1": "Durante il tuo attacco in mischia, %game.element.consume.ice% per aggiungere +2 %game.action.attack% a un singolo attacco."
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.ice% per aggiungere %game.action.attack.valueSign:2% a un singolo attacco."
     },
     "gh-78": {
       "": "Lama della Tempesta",
-      "1": "Durante il tuo attacco in mischia, %game.element.consume.air% per aggiungere +2 %game.action.attack% a un singolo attacco."
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.air% per aggiungere %game.action.attack.valueSign:2% a un singolo attacco."
     },
     "gh-79": {
       "": "Lama dell'Inferno",
-      "1": "Durante il tuo attacco in mischia, %game.element.consume.fire% per aggiungere +2 %game.action.attack% a un singolo attacco."
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.fire% per aggiungere %game.action.attack.valueSign:2% a un singolo attacco."
     },
     "gh-8": {
       "": "Scudo Triangolare",
-      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield% 1 per quell'attacco."
+      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield:1% per quell'attacco."
     },
     "gh-80": {
       "": "Lama del Tremito",
-      "1": "Durante il tuo attacco in mischia, %game.element.consume.earth% per aggiungere +2 %game.action.attack% a un singolo attacco."
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.earth% per aggiungere %game.action.attack.valueSign:2% a un singolo attacco."
     },
     "gh-81": {
       "": "Lama del Bagliore",
-      "1": "Durante il tuo attacco in mischia, %game.element.consume.light% per aggiungere +2 %game.action.attack% a un singolo attacco."
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.light% per aggiungere %game.action.attack.valueSign:2% a un singolo attacco."
     },
     "gh-82": {
       "": "Lama della Notte",
-      "1": "Durante il tuo attacco in mischia, %game.element.consume.dark% per aggiungere +2 %game.action.attack% a un singolo attacco."
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.dark% per aggiungere %game.action.attack.valueSign:2% a un singolo attacco."
     },
     "gh-83": {
       "": "Bacchetta del Gelo",
@@ -509,7 +509,7 @@
     },
     "gh-91": {
       "": "Anello d'Acciaio",
-      "1": "Quando sei danneggiato da un attacco che ti bersaglia, ottieni %game.action.shield% 4 per quell'attacco."
+      "1": "Quando sei danneggiato da un attacco che ti bersaglia, ottieni %game.action.shield:4% per quell'attacco."
     },
     "gh-92": {
       "": "Anello della Soppressione",
@@ -517,11 +517,11 @@
     },
     "gh-93": {
       "": "Pergamena del Potere",
-      "1": "Durante l'attacco di un alleato, aggiungi +1 %game.action.attack% all'intera azione di Attacco"
+      "1": "Durante l'attacco di un alleato, aggiungi %game.action.attack.valueSign:1% all'intera azione di Attacco"
     },
     "gh-94": {
       "": "Pergamena della Guarigione",
-      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 3, %game.action.range:5%\""
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal:3%, %game.action.range:5%\""
     },
     "gh-95": {
       "": "Pergamena del Vigore",
@@ -529,11 +529,11 @@
     },
     "gh-96": {
       "": "Stivali a Razzo",
-      "1": "Durante il tuo movimento, aggiungi +3 %game.action.move% e %game.action.jump% a un singolo movimento"
+      "1": "Durante il tuo movimento, aggiungi %game.action.move.valueSign:3% e %game.action.jump% a un singolo movimento"
     },
     "gh-97": {
       "": "Calzari della Tenacia",
-      "1": "Se ti muovi di 4 o più esagoni nel tuo turno, effettua un'azione \"%game.action.heal% 1, Se Stesso\"."
+      "1": "Se ti muovi di 4 o più esagoni nel tuo turno, effettua un'azione \"%game.action.heal:1%, Se Stesso\"."
     },
     "gh-98": {
       "": "Stivali di Scaglie di Draco",
@@ -541,7 +541,7 @@
     },
     "gh-99": {
       "": "Stivali di Magma",
-      "1": "Ignora gli effetti dannosi del terreno pericoloso ed effettua un'azione \"%game.action.heal% 2, Se Stesso\" in un qualsiasi turno in cui sei entrato in un esagono di terreno pericoloso."
+      "1": "Ignora gli effetti dannosi del terreno pericoloso ed effettua un'azione \"%game.action.heal:2%, Se Stesso\" in un qualsiasi turno in cui sei entrato in un esagono di terreno pericoloso."
     }
   }
 }

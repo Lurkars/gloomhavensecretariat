@@ -15,7 +15,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All characters add -1 %game.action.attack% to all their attacks."
+          "value": "All characters add %game.action.attack.valueSign:-1% to all their attacks."
         }
       ]
     },
@@ -25,7 +25,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All monsters add +1 %game.action.attack% to all their attacks."
+          "value": "All monsters add %game.action.attack.valueSign:1% to all their attacks."
         }
       ]
     }

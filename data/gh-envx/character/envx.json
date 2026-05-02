@@ -61,7 +61,7 @@
       "movement": 2,
       "action": {
         "type": "custom",
-        "value": "All adjacent allies may perform \"%game.action.move%1\" at end of turn.",
+        "value": "All adjacent allies may perform \"%game.action.move:1%\" at end of turn.",
         "small": true
       }
     },
@@ -92,7 +92,7 @@
       },
       "additionalAction": {
         "type": "custom",
-        "value": "All adjacent allies gain %game.action.shield% 1."
+        "value": "All adjacent allies gain %game.action.shield:1%."
       }
     },
     {
@@ -118,7 +118,7 @@
       "count": 3,
       "action": {
         "type": "custom",
-        "value": "All adjacent enemies deduct -1 %game.action.attack% from all their attacks.",
+        "value": "All adjacent enemies deduct %game.action.attack.valueSign:-1% from all their attacks.",
         "small": true
       }
     },
@@ -132,7 +132,7 @@
       "count": 2,
       "action": {
         "type": "custom",
-        "value": "All adjacent summoned allies add +1 %game.action.attack% to all their attacks",
+        "value": "All adjacent summoned allies add %game.action.attack.valueSign:1% to all their attacks",
         "small": true
       }
     },
@@ -146,7 +146,7 @@
       "flying": true,
       "action": {
         "type": "custom",
-        "value": "Add +2 %game.action.attack% when the target is adjacent to any of your allies",
+        "value": "Add %game.action.attack.valueSign:2% when the target is adjacent to any of your allies",
         "small": true
       }
     },

@@ -662,12 +662,12 @@
             "1": "이번 라운드 중 적이 카드 사용자에 인접한 아군을 공격 대상으로 삼는 경우, 해당 공격의 사정거리에 관계없이 카드 사용자가 대신 공격 대상이 된다."
           },
           "7": {
-            "1": "앞으로 6회 동안, 카드 사용자를 대상으로 하는 공격으로 인한 피해 원천에 대해, 방어 %game.action.shield% 1 획득."
+            "1": "앞으로 6회 동안, 카드 사용자를 대상으로 하는 공격으로 인한 피해 원천에 대해, 방어 %game.action.shield:1% 획득."
           }
         }
       },
       "captain-of-the-guard": {
-        "1": "모든 아군이 이번 라운드 중 모든 공격에 +1 %game.action.attack% 추가"
+        "1": "모든 아군이 이번 라운드 중 모든 공격에 %game.action.attack.valueSign:1% 추가"
       },
       "dark-rider": {
         "1": "X = 이동한 칸 수"
@@ -700,14 +700,14 @@
         "voice": "목소리"
       },
       "giant-viper": {
-        "1": "대상이 %data.monster.giant-viper%의 아군에 인접해 있다면 +2 %game.action.attack% 추가",
+        "1": "대상이 %data.monster.giant-viper%의 아군에 인접해 있다면 %game.action.attack.valueSign:2% 추가",
         "2": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익을 받는다."
       },
       "harrower-infester": {
-        "1": "피해를 입은 대상 하나당 \"%game.action.heal% 2, %game.specialTarget.self%\" 수행"
+        "1": "피해를 입은 대상 하나당 \"%game.action.heal:2%, %game.specialTarget.self%\" 수행"
       },
       "hound": {
-        "1": "대상이 %data.monster.hound%의 아군에 인접해 있다면 +2 %game.action.attack% 추가."
+        "1": "대상이 %data.monster.hound%의 아군에 인접해 있다면 %game.action.attack.valueSign:2% 추가."
       },
       "merciless-overseer": {
         "1": "모든 버믈링 정찰병이 즉시 추가 차례를 진행",

@@ -29,7 +29,7 @@
         "2": "wenn %game.action.attack% durchgeführt"
       },
       "two-mini": {
-        "1": "Alle benachbarten Verbündeten fügen +2 %game.action.attack% zu ihren Angriffen hinzu."
+        "1": "Alle benachbarten Verbündeten fügen %game.action.attack.valueSign:2% zu ihren Angriffen hinzu."
       }
     }
   },
@@ -44,7 +44,7 @@
     },
     "gh-100": {
       "": "Beschwörungsrobe",
-      "1": "Wende während deines Zugs \"%game.action.heal% 2\" bei einem beliebigen beschworenen Verbündeten an."
+      "1": "Wende während deines Zugs \"%game.action.heal:2%\" bei einem beliebigen beschworenen Verbündeten an."
     },
     "gh-101": {
       "": "Zweite Haut",
@@ -52,7 +52,7 @@
     },
     "gh-102": {
       "": "Opferrobe",
-      "1": "Erleide bei deinem Fernangriff 3 Schaden, um der gesamten Angriffsaktion +1 %game.action.attack% hinzuzufügen."
+      "1": "Erleide bei deinem Fernangriff 3 Schaden, um der gesamten Angriffsaktion %game.action.attack.valueSign:1% hinzuzufügen."
     },
     "gh-103": {
       "": "Drakenrüstung",
@@ -60,7 +60,7 @@
     },
     "gh-104": {
       "": "Dampfrüstung",
-      "1": "Erhalte gegen die nächsten 5 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1."
+      "1": "Erhalte gegen die nächsten 5 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield:1%."
     },
     "gh-105": {
       "": "Schäbiges Schultertuch",
@@ -68,11 +68,11 @@
     },
     "gh-106": {
       "": "Zahnkette",
-      "1": "Wann immer du während deines Zugs einen Gegner tötest, wende \"%game.action.heal% 1\" bei dir an."
+      "1": "Wann immer du während deines Zugs einen Gegner tötest, wende \"%game.action.heal:1%\" bei dir an."
     },
     "gh-107": {
       "": "Hornhelm",
-      "1": "Nachdem du dich in deinem Zug 4 oder mehr Felder weit bewegt hast, füge deinem nächsten Nahkampfangriff in diesem Zug +1 %game.action.attack% hinzu."
+      "1": "Nachdem du dich in deinem Zug 4 oder mehr Felder weit bewegt hast, füge deinem nächsten Nahkampfangriff in diesem Zug %game.action.attack.valueSign:1% hinzu."
     },
     "gh-108": {
       "": "Drakenhelm",
@@ -80,7 +80,7 @@
     },
     "gh-109": {
       "": "Diebesgugel",
-      "1": "Wende bei deiner Fertigkeit \"%game.action.loot% 1\" stattdessen \"%game.action.loot% 2\" an."
+      "1": "Wende bei deiner Fertigkeit \"%game.action.loot:1%\" stattdessen \"%game.action.loot:2%\" an."
     },
     "gh-11": {
       "": "Giftdolch",
@@ -92,15 +92,15 @@
     },
     "gh-111": {
       "": "Gischtkrone",
-      "1": "Wenn du angegriffen wirst, während %game.element.ice% stark ist, wende \"%game.action.push% 2\" gegen den Angreifer an."
+      "1": "Wenn du angegriffen wirst, während %game.element.ice% stark ist, wende \"%game.action.push:2%\" gegen den Angreifer an."
     },
     "gh-112": {
       "": "Alter Bohrer",
-      "1": "Füge bei deinem Nahkampfangriff der gesamten Aktion +2 %game.action.attack% und %game.action.pierce% 2 hinzu"
+      "1": "Füge bei deinem Nahkampfangriff der gesamten Aktion %game.action.attack.valueSign:2% und %game.action.pierce:2% hinzu"
     },
     "gh-113": {
       "": "Schädelfluch",
-      "1": "Füge bei deinem Nahkampfangriff, der Wandelnde Leiche/Seele/Skelett anvisiert, einem Einzelangriff +5 %game.action.attack% hinzu."
+      "1": "Füge bei deinem Nahkampfangriff, der Wandelnde Leiche/Seele/Skelett anvisiert, einem Einzelangriff %game.action.attack.valueSign:5% hinzu."
     },
     "gh-114": {
       "": "Stab des Xorn",
@@ -115,7 +115,7 @@
     },
     "gh-117": {
       "": "Blutaxt",
-      "1": "Erleide bei deinem Nahkampfangriff 2 Schaden, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen."
+      "1": "Erleide bei deinem Nahkampfangriff 2 Schaden, um der gesamten Aktion %game.action.attack.valueSign:1% hinzuzufügen."
     },
     "gh-118": {
       "": "Stab der Elemente",
@@ -127,11 +127,11 @@
     },
     "gh-12": {
       "": "Kleiner Heiltrank",
-      "1": "Wende während deines Zugs \"%game.action.heal% 3\" bei dir an."
+      "1": "Wende während deines Zugs \"%game.action.heal:3%\" bei dir an."
     },
     "gh-120": {
       "": "Beschwörungsstab",
-      "1": "Während deines Zugs kann ein beschworener Verbündeter in %game.action.range:3% nach deinem Wunsch \"%game.action.move% 3\" anwenden."
+      "1": "Während deines Zugs kann ein beschworener Verbündeter in %game.action.range:3% nach deinem Wunsch \"%game.action.move:3%\" anwenden."
     },
     "gh-121": {
       "": "Kugel des Morgens",
@@ -146,7 +146,7 @@
     },
     "gh-124": {
       "": "Schicksalskompass",
-      "1": "Zwinge während deines Zugs einen Gegner in %game.action.range:5%, nach deinem Wunsch \"%game.action.move% 2\" anzuwenden."
+      "1": "Zwinge während deines Zugs einen Gegner in %game.action.range:5%, nach deinem Wunsch \"%game.action.move:2%\" anzuwenden."
     },
     "gh-125": {
       "": "Zahnrad",
@@ -158,7 +158,7 @@
     },
     "gh-127": {
       "": "Mechanische Riesenspinne",
-      "1": "Wende während deines Zugs \"%game.action.loot% 1\" an."
+      "1": "Wende während deines Zugs \"%game.action.loot:1%\" an."
     },
     "gh-128": {
       "": "Schwarzes Rauchfass",
@@ -166,7 +166,7 @@
     },
     "gh-129": {
       "": "Schwarzkarte",
-      "1": "Lege während deines Zugs einen Charaktermarker auf einen angrenzenden normalen oder Elite-Gegner. Erhalte +1 %game.action.attack% für deine Angriffe, die diesen Gegner anvisieren."
+      "1": "Lege während deines Zugs einen Charaktermarker auf einen angrenzenden normalen oder Elite-Gegner. Erhalte %game.action.attack.valueSign:1% für deine Angriffe, die diesen Gegner anvisieren."
     },
     "gh-13": {
       "": "Kleiner Ausdauertrank",
@@ -175,7 +175,7 @@
     "gh-130": {
       "": "Spiralring",
       "1": " ",
-      "3": "während deines Zugs, um \"%game.action.heal% 25\" bei dir anzuwenden"
+      "3": "während deines Zugs, um \"%game.action.heal:25%\" bei dir anzuwenden"
     },
     "gh-131": {
       "": "Herz des Abtrünnigen",
@@ -208,7 +208,7 @@
     },
     "gh-14": {
       "": "Kleiner Krafttrank",
-      "1": "Füge deiner gesamten Angriffsaktion +1 %game.action.attack% hinzu."
+      "1": "Füge deiner gesamten Angriffsaktion %game.action.attack.valueSign:1% hinzu."
     },
     "gh-140": {
       "": "Sonnenschild"
@@ -281,11 +281,11 @@
     },
     "gh-23": {
       "": "Kettenhemd",
-      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1."
+      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield:1%."
     },
     "gh-24": {
       "": "Amulett des Lebens",
-      "1": "Wende während deines Zugs \"%game.action.heal% 1\" bei dir an."
+      "1": "Wende während deines Zugs \"%game.action.heal:1%\" bei dir an."
     },
     "gh-25": {
       "": "Zackenschwert",
@@ -297,7 +297,7 @@
     },
     "gh-27": {
       "": "Großer Heiltrank",
-      "1": "Wende während deines Zugs \"%game.action.heal% 5\" bei dir an."
+      "1": "Wende während deines Zugs \"%game.action.heal:5%\" bei dir an."
     },
     "gh-28": {
       "": "Mond-Ohrring",
@@ -305,23 +305,23 @@
     },
     "gh-29": {
       "": "Bequeme Schuhe",
-      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move% 3\" statt \"%game.action.move% 2\"."
+      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move:3%\" statt \"%game.action.move:2%\"."
     },
     "gh-3": {
       "": "Fellrüstung",
-      "1": "Erhalte gegen die nächsten 2 Schadensquellen bei Angriffen, die dich anvisieren, Schild %game.action.shield% 1."
+      "1": "Erhalte gegen die nächsten 2 Schadensquellen bei Angriffen, die dich anvisieren, Schild %game.action.shield:1%."
     },
     "gh-30": {
       "": "Nietenrüstung",
-      "1": "Wenn du angegriffen wirst, erhält für diesen Angriff der Angreifer Nachteil und du %game.action.shield% 1."
+      "1": "Wenn du angegriffen wirst, erhält für diesen Angriff der Angreifer Nachteil und du %game.action.shield:1%."
     },
     "gh-31": {
       "": "Falkenhelm",
-      "1": "Füge bei deinem Fernangriff der gesamten Aktion +1 %game.action.range% hinzu."
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.action.range.valueSign:1% hinzu."
     },
     "gh-32": {
       "": "Turmschild",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 2 für den Angriff."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield:2% für den Angriff."
     },
     "gh-33": {
       "": "Wurfbombe",
@@ -336,11 +336,11 @@
     },
     "gh-36": {
       "": "Laufstiefel",
-      "1": "Füge einer deiner Einzelbewegungen +3 %game.action.move% hinzu."
+      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:3% hinzu."
     },
     "gh-37": {
       "": "Robe der Anrufung",
-      "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen."
+      "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion %game.action.attack.valueSign:1% hinzuzufügen."
     },
     "gh-38": {
       "": "Beckenhaube",
@@ -348,7 +348,7 @@
     },
     "gh-39": {
       "": "Kettenhaken",
-      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.action.pull% 2 hinzu."
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.action.pull:2% hinzu."
     },
     "gh-4": {
       "": "Lederrüstung",
@@ -356,11 +356,11 @@
     },
     "gh-40": {
       "": "Mehrzweckdolch",
-      "1": "Die obere Standardaktion gilt als \"%game.action.attack% 3\" anstatt \"%game.action.attack% 2\"."
+      "1": "Die obere Standardaktion gilt als \"%game.action.attack:3%\" anstatt \"%game.action.attack:2%\"."
     },
     "gh-41": {
       "": "Großer Krafttrank",
-      "1": "Füge deiner gesamten Angriffsaktion +2 %game.action.attack% hinzu."
+      "1": "Füge deiner gesamten Angriffsaktion %game.action.attack.valueSign:2% hinzu."
     },
     "gh-42": {
       "": "Ring der Eile",
@@ -372,7 +372,7 @@
     },
     "gh-44": {
       "": "Spangenpanzer",
-      "1": "Erhalte gegen die nächsten 4 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1."
+      "1": "Erhalte gegen die nächsten 4 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield:1%."
     },
     "gh-45": {
       "": "Kette des Dunkelpaktes",
@@ -380,7 +380,7 @@
     },
     "gh-46": {
       "": "Stachelschild",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 1 und %game.action.retaliate% 2 für den Angriff."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield:1% und %game.action.retaliate:2% für den Angriff."
     },
     "gh-47": {
       "": "Kriegssense",
@@ -392,7 +392,7 @@
     },
     "gh-49": {
       "": "Sonnen-Ohrring",
-      "1": "Erneuere %game.card.refresh% während deines Zugs alle deine abgenutzten Gegenstände und wende \"%game.action.heal% 3\" bei dir an."
+      "1": "Erneuere %game.card.refresh% während deines Zugs alle deine abgenutzten Gegenstände und wende \"%game.action.heal:3%\" bei dir an."
     },
     "gh-5": {
       "": "Mantel der Unsichtbarkeit",
@@ -400,7 +400,7 @@
     },
     "gh-50": {
       "": "Panzerschuhe",
-      "1": "Wenn du dich in deinem Zug 1 oder weniger Felder weit bewegst, erhältst du %game.action.shield% 1 für die Runde."
+      "1": "Wenn du dich in deinem Zug 1 oder weniger Felder weit bewegst, erhältst du %game.action.shield:1% für die Runde."
     },
     "gh-51": {
       "": "Schattenrüstung",
@@ -416,11 +416,11 @@
     },
     "gh-54": {
       "": "Stab des Ansehens",
-      "1": "%game.element.consume.wild% bei deinem Fernangriff, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen."
+      "1": "%game.element.consume.wild% bei deinem Fernangriff, um der gesamten Aktion %game.action.attack.valueSign:1% hinzuzufügen."
     },
     "gh-55": {
       "": "Überragender Heiltrank",
-      "1": "Wende während deines Zugs \"%game.action.heal% 7\" bei dir an."
+      "1": "Wende während deines Zugs \"%game.action.heal:7%\" bei dir an."
     },
     "gh-56": {
       "": "Ring der Brutalität",
@@ -428,7 +428,7 @@
     },
     "gh-57": {
       "": "Sorglose Sandalen",
-      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move% 4\" statt \"%game.action.move% 2\"."
+      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move:4%\" statt \"%game.action.move:2%\"."
     },
     "gh-58": {
       "": "Phasenmantel",
@@ -437,7 +437,7 @@
     },
     "gh-59": {
       "": "Teleskoplinse",
-      "1": "Füge bei deinem Fernangriff deiner gesamten Aktion +2 %game.action.range% hinzu"
+      "1": "Füge bei deinem Fernangriff deiner gesamten Aktion %game.action.range.valueSign:2% hinzu"
     },
     "gh-6": {
       "": "Adleraugenbrille",
@@ -450,7 +450,7 @@
     },
     "gh-61": {
       "": "Setzschild",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 4 für den Angriff."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield:4% für den Angriff."
     },
     "gh-62": {
       "": "Schicksalspulver",
@@ -462,19 +462,19 @@
     },
     "gh-64": {
       "": "Sprintstiefel",
-      "1": "Füge einer deiner Einzelbewegungen +4 %game.action.move% hinzu."
+      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:4% hinzu."
     },
     "gh-65": {
       "": "Plattenpanzer",
-      "1": "Erhalte gegen die nächsten 5 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1."
+      "1": "Erhalte gegen die nächsten 5 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield:1%."
     },
     "gh-66": {
       "": "Schreckensmaske",
-      "1": "Füge bei deinem Nahkampfangriff %game.action.push% 1 hinzu."
+      "1": "Füge bei deinem Nahkampfangriff %game.action.push:1% hinzu."
     },
     "gh-67": {
       "": "Ausbalancierte Klinge",
-      "1": "Die obere Standardaktion gilt als \"%game.action.attack% 4\" anstatt\"%game.action.attack% 2\"."
+      "1": "Die obere Standardaktion gilt als \"%game.action.attack:4%\" anstatt\"%game.action.attack:2%\"."
     },
     "gh-68": {
       "": "Hellebarde",
@@ -482,7 +482,7 @@
     },
     "gh-69": {
       "": "Stern-Ohrring",
-      "1": "Erneuere %game.card.refresh% während deines Zugs alle deine abgenutzten Gegenstände, wende \"%game.action.heal% 3\" auf dich an und bekomme bis zu 2 deiner abgeworfenen Karten zurück %game.card.recover%."
+      "1": "Erneuere %game.card.refresh% während deines Zugs alle deine abgenutzten Gegenstände, wende \"%game.action.heal:3%\" auf dich an und bekomme bis zu 2 deiner abgeworfenen Karten zurück %game.card.recover%."
     },
     "gh-7": {
       "": "Eisenhelm",
@@ -502,11 +502,11 @@
     },
     "gh-73": {
       "": "Flirrender Umhang",
-      "1": "Wende während deines Zugs \"%game.action.move% 4, %game.action.jump%\" an"
+      "1": "Wende während deines Zugs \"%game.action.move:4%, %game.action.jump%\" an"
     },
     "gh-74": {
       "": "Klingenrüstung",
-      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1, %game.action.retaliate% 1"
+      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield:1%, %game.action.retaliate:1%"
     },
     "gh-75": {
       "": "Reif der Elemente",
@@ -514,35 +514,35 @@
     },
     "gh-76": {
       "": "Kettenhaube",
-      "1": "Solange du an 3 oder mehr Monster angrenzt, erhalte %game.action.shield% 1"
+      "1": "Solange du an 3 oder mehr Monster angrenzt, erhalte %game.action.shield:1%"
     },
     "gh-77": {
       "": "Frostklinge",
-      "1": "%game.element.consume.ice% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff."
+      "1": "%game.element.consume.ice% während deines Nahkampfangriffs für %game.action.attack.valueSign:2% bei einem Einzelangriff."
     },
     "gh-78": {
       "": "Sturmklinge",
-      "1": "%game.element.consume.air% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff."
+      "1": "%game.element.consume.air% während deines Nahkampfangriffs für %game.action.attack.valueSign:2% bei einem Einzelangriff."
     },
     "gh-79": {
       "": "Infernoklinge",
-      "1": "%game.element.consume.fire% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff."
+      "1": "%game.element.consume.fire% während deines Nahkampfangriffs für %game.action.attack.valueSign:2% bei einem Einzelangriff."
     },
     "gh-8": {
       "": "Dreieckschild",
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 1 für den Angriff."
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield:1% für den Angriff."
     },
     "gh-80": {
       "": "Bebenklinge",
-      "1": "%game.element.consume.earth% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff."
+      "1": "%game.element.consume.earth% während deines Nahkampfangriffs für %game.action.attack.valueSign:2% bei einem Einzelangriff."
     },
     "gh-81": {
       "": "Glanzklinge",
-      "1": "%game.element.consume.light% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff."
+      "1": "%game.element.consume.light% während deines Nahkampfangriffs für %game.action.attack.valueSign:2% bei einem Einzelangriff."
     },
     "gh-82": {
       "": "Nachtklinge",
-      "1": "%game.element.consume.dark% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff."
+      "1": "%game.element.consume.dark% während deines Nahkampfangriffs für %game.action.attack.valueSign:2% bei einem Einzelangriff."
     },
     "gh-83": {
       "": "Stab der Kälte",
@@ -582,7 +582,7 @@
     },
     "gh-91": {
       "": "Stahlring",
-      "1": "Wenn du durch einen Angriff, der dich anvisiert, Schaden erleidest, erhältst du %game.action.shield% 4 für den Angriff."
+      "1": "Wenn du durch einen Angriff, der dich anvisiert, Schaden erleidest, erhältst du %game.action.shield:4% für den Angriff."
     },
     "gh-92": {
       "": "Dämpfungsring",
@@ -590,11 +590,11 @@
     },
     "gh-93": {
       "": "Schrift der Kraft",
-      "1": "Füge beim Angriff eines Verbündeten seiner gesamten Aktion +1 %game.action.attack% hinzu"
+      "1": "Füge beim Angriff eines Verbündeten seiner gesamten Aktion %game.action.attack.valueSign:1% hinzu"
     },
     "gh-94": {
       "": "Schrift der Heilung",
-      "1": "Wende während deines Zugs \"%game.action.heal% 3, %game.action.range:5%\" an"
+      "1": "Wende während deines Zugs \"%game.action.heal:3%, %game.action.range:5%\" an"
     },
     "gh-95": {
       "": "Schrift der Ausdauer",
@@ -602,11 +602,11 @@
     },
     "gh-96": {
       "": "Raketenstiefel",
-      "1": "Füge einer deiner Einzelbewegungen +3 %game.action.move% und %game.action.jump% hinzu"
+      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:3% und %game.action.jump% hinzu"
     },
     "gh-97": {
       "": "Sandalen der Ausdauer",
-      "1": "Wenn du dich in deinem Zug 4 oder mehr Felder weit bewegst, wende \"%game.action.heal% 1\" bei dir an."
+      "1": "Wenn du dich in deinem Zug 4 oder mehr Felder weit bewegst, wende \"%game.action.heal:1%\" bei dir an."
     },
     "gh-98": {
       "": "Drakenstiefel",
@@ -614,7 +614,7 @@
     },
     "gh-99": {
       "": "Lavalatschen",
-      "1": "Ignoriere Schadenseffekte von gefährlichem Gelände und wende in jedem Zug, in dem du ein gefährliches Geländefeld betrittst, \"%game.action.heal% 2\" bei dir an."
+      "1": "Ignoriere Schadenseffekte von gefährlichem Gelände und wende in jedem Zug, in dem du ein gefährliches Geländefeld betrittst, \"%game.action.heal:2%\" bei dir an."
     }
   },
   "summon": {

@@ -30,7 +30,7 @@
         "1": "Agisce immediatamente dopo %game.characterIcon.sun%."
       },
       "hawthorne": {
-        "1": "Aggiunge +1 %game.action.attack% a tutti gli attacchi quando non si è danneggiati"
+        "1": "Aggiunge %game.action.attack.valueSign:1% a tutti gli attacchi quando non si è danneggiati"
       },
       "living-spirit-squidface-solo": {
         "1": "L'armatura base è 0 quando %data.monster.living-spirit-squidface-solo% non ha %game.condition.poison%",

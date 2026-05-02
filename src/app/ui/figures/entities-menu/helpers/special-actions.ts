@@ -232,18 +232,6 @@ export class SpecialActionsHelper {
                 summon.maxHealth += 3;
               });
             }
-
-            if (specialTagsToAdd.includes('imbue-with-life')) {
-              let disarm = entity.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.disarm);
-              if (disarm) {
-                disarm.expired = false;
-                disarm.permanent = true;
-              } else {
-                disarm = new EntityCondition(ConditionName.disarm);
-                disarm.permanent = true;
-                entity.entityConditions.push(disarm);
-              }
-            }
           }
         }
 

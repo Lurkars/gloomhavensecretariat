@@ -10,7 +10,7 @@
     },
     "jotl-11": {
       "": "Potion de Soin",
-      "1": "Pendant votre tour, effectuez une action \"%game.action.heal% 3, sur vous-même\"."
+      "1": "Pendant votre tour, effectuez une action \"%game.action.heal:3%, sur vous-même\"."
     },
     "jotl-12": {
       "": "Potion d'Endurance",
@@ -18,7 +18,7 @@
     },
     "jotl-13": {
       "": "Potion de Puissance",
-      "1": "Pendant votre attaque, ajoutez +1 %game.action.attack% à la totalité de votre action d'Attaque."
+      "1": "Pendant votre attaque, ajoutez %game.action.attack.valueSign:1% à la totalité de votre action d'Attaque."
     },
     "jotl-14": {
       "": "Potion de Mana",
@@ -26,15 +26,15 @@
     },
     "jotl-15": {
       "": "Amulette de Vie",
-      "1": "Pendant votre tour, effectuez une action \"%game.action.heal% 1, sur vous-même\"."
+      "1": "Pendant votre tour, effectuez une action \"%game.action.heal:1%, sur vous-même\"."
     },
     "jotl-16": {
       "": "Robes d'Évocation",
-      "1": "Pendant votre attaque, %game.element.consume.wild% pour ajouter +1 %game.action.attack% à la totalité de l'action d'Attaque."
+      "1": "Pendant votre attaque, %game.element.consume.wild% pour ajouter %game.action.attack.valueSign:1% à la totalité de l'action d'Attaque."
     },
     "jotl-17": {
       "": "Poulaines Confortable",
-      "1": "Quand vous utilisez l'action inférieure par défaut d'une carte Capacité, effectuez une action \"%game.action.move% 3\" à la place d'une action \"%game.action.move% 2\"."
+      "1": "Quand vous utilisez l'action inférieure par défaut d'une carte Capacité, effectuez une action \"%game.action.move:3%\" à la place d'une action \"%game.action.move:2%\"."
     },
     "jotl-18": {
       "": "Hache de Bataille",
@@ -54,15 +54,15 @@
     },
     "jotl-21": {
       "": "Casque du faucon",
-      "1": "Pendant votre attaque à distance, ajoutez +1 %game.action.range% à la totalité de l'action d'Attaque."
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.range.valueSign:1% à la totalité de l'action d'Attaque."
     },
     "jotl-22": {
       "": "Armure Tranchelame",
-      "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield% 2 pour cette attaque et l'attaquant subit 2 dégâts."
+      "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield:2% pour cette attaque et l'attaquant subit 2 dégâts."
     },
     "jotl-23": {
       "": "Bottes de Voyage",
-      "1": "Pendant votre déplacement, ajoutez+2 %game.action.move% à un seul déplacement."
+      "1": "Pendant votre déplacement, ajoutez%game.action.move.valueSign:2% à un seul déplacement."
     },
     "jotl-24": {
       "": "Bombe Explosive",
@@ -70,7 +70,7 @@
     },
     "jotl-25": {
       "": "Chaîne à Crochet",
-      "1": "Pendant votre attaque à distance, ajoutez %game.action.pull% 2 à une seule attaque."
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.pull:2% à une seule attaque."
     },
     "jotl-26": {
       "": "Charme du Chêne",
@@ -78,7 +78,7 @@
     },
     "jotl-27": {
       "": "Compas Maudit",
-      "1": "Pendant votre tour, forcez un adversaire à %game.action.range:3% à effectuer une action \"%game.action.move% 2\". Vous contrôlez cette action."
+      "1": "Pendant votre tour, forcez un adversaire à %game.action.range:3% à effectuer une action \"%game.action.move:2%\". Vous contrôlez cette action."
     },
     "jotl-28": {
       "": "Châle Mité",
@@ -86,11 +86,11 @@
     },
     "jotl-29": {
       "": "Pavois",
-      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 2 pour cette attaque."
+      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield:2% pour cette attaque."
     },
     "jotl-3": {
       "": "Armure de Mailles",
-      "1": "Pendant votre tour, gagnez %game.action.shield% 1 pour le reste du round"
+      "1": "Pendant votre tour, gagnez %game.action.shield:1% pour le reste du round"
     },
     "jotl-30": {
       "": "Anneau de Hâte",
@@ -102,11 +102,11 @@
     },
     "jotl-32": {
       "": "Anneau de Récupération",
-      "1": "Pendant votre tour, effectuez une action \"%game.action.heal% 3, %game.action.range:5%\"."
+      "1": "Pendant votre tour, effectuez une action \"%game.action.heal:3%, %game.action.range:5%\"."
     },
     "jotl-33": {
       "": "Anneau d'Acier",
-      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 4 pour cette attaque."
+      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield:4% pour cette attaque."
     },
     "jotl-34": {
       "": "Hache Barbelée",
@@ -114,19 +114,19 @@
     },
     "jotl-35": {
       "": "Robes de Commandement",
-      "1": "Pendant votre tour, un allié adjacent peut effectuer une action \"%game.action.attack% 2\"."
+      "1": "Pendant votre tour, un allié adjacent peut effectuer une action \"%game.action.attack:2%\"."
     },
     "jotl-36": {
       "": "Bottes à Propulsion",
-      "1": "Pendant votre déplacement, ajoutez +1 %game.action.move% et %game.action.jump% à un seul déplacement."
+      "1": "Pendant votre déplacement, ajoutez %game.action.move.valueSign:1% et %game.action.jump% à un seul déplacement."
     },
     "jotl-4": {
       "": "Cuir Clouté",
-      "1": "Lorsque vous êtes attaqué, avant de pioché une carte Modificateur d'Attaque, pour cette attaque l'attaquant gagne Désavantage et vous gagnez %game.action.shield% 1."
+      "1": "Lorsque vous êtes attaqué, avant de pioché une carte Modificateur d'Attaque, pour cette attaque l'attaquant gagne Désavantage et vous gagnez %game.action.shield:1%."
     },
     "jotl-5": {
       "": "Bottes Patinées",
-      "1": "Pendant votre déplacement, ajoutez +1 %game.action.move% à un seul déplacement."
+      "1": "Pendant votre déplacement, ajoutez %game.action.move.valueSign:1% à un seul déplacement."
     },
     "jotl-6": {
       "": "Bottines Ailées",
@@ -134,7 +134,7 @@
     },
     "jotl-7": {
       "": "Écu",
-      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 1 pour cette attaque."
+      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield:1% pour cette attaque."
     },
     "jotl-8": {
       "": "Marteau de lancer",

@@ -221,7 +221,7 @@
         "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[1+L/2{$math.ceil}]%."
       },
       "blood-horror": {
-        "1": "Saute jusqu'au %data.monster.zealot% mort le plus éloigné et le ressuscite OU Saute jusqu'à l'aventurier le plus éloigné et %game.action.attack% +0.",
+        "1": "Saute jusqu'au %data.monster.zealot% mort le plus éloigné et le ressuscite OU Saute jusqu'à l'aventurier le plus éloigné et %game.action.attack:+0%.",
         "2": "Revive all dead %data.monster.zealot% in room"
       },
       "blood-monstrosity": {
@@ -237,7 +237,7 @@
       },
       "giant-viper": {
         "1": "Toutes les attaques ciblant la Vipère Géante ce round gagnent Désavantage.",
-        "2": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la Vipère Géante."
+        "2": "Ajoute %game.action.attack.valueSign:2% si la cible est adjacente à un allié de la Vipère Géante."
       },
       "living-corpse": {
         "1": "La cible subit aussi %game.damage:2%.",
@@ -246,7 +246,7 @@
       },
       "monstrosity": {
         "1": "Si cette attaque est effectuée, la %data.monster.monstrosity% subit 1 dégât.",
-        "2": "Ajoute +1 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.monstrosity%.",
+        "2": "Ajoute %game.action.attack.valueSign:1% si la cible est adjacente à un allié de la %data.monster.monstrosity%.",
         "3": "Chaque fois qu'un personnage attaque la %data.monster.monstrosity%, ce personnage subit %game.damage:2%.",
         "4": "La %data.monster.monstrosity% subit 1 dégât."
       },

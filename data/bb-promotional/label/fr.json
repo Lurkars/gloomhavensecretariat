@@ -5,19 +5,19 @@
   "items": {
     "bb-41": {
       "": "Carapace de Scarabée",
-      "1": "Si vous vous déplacez de 1 hexagone ou moins à votre tour, gagnez %game.action.shield% 1 pour le round."
+      "1": "Si vous vous déplacez de 1 hexagone ou moins à votre tour, gagnez %game.action.shield:1% pour le round."
     },
     "bb-42": {
       "": "Croc de Rat",
-      "1": "Après vous être déplacé d'au moins 4 hexagones, ajouter +1%game.action.attack% à toutes vos attaques ce tour."
+      "1": "Après vous être déplacé d'au moins 4 hexagones, ajouter %game.action.attack.valueSign:1% à toutes vos attaques ce tour."
     },
     "bb-43": {
       "": "Écharde Pointue",
-      "1": "Pendant votre attaque à distance, ajoutez %game.action.pierce%5."
+      "1": "Pendant votre attaque à distance, ajoutez %game.action.pierce:5%."
     },
     "bb-44": {
       "": "Épée courte rétrécie",
-      "1": "L'action supérieure par défaut de vos cartes Capacité est %game.action.attack%3 au lieu de %game.action.attack%2."
+      "1": "L'action supérieure par défaut de vos cartes Capacité est %game.action.attack:3% au lieu de %game.action.attack:2%."
     },
     "bb-45": {
       "": "Écaille Solaire du Frisson Éternel",
@@ -25,7 +25,7 @@
     },
     "bb-46": {
       "": "Goutte de Potion de Guérison",
-      "1": "Pendant votre tour, retirez tous les états négatifs, et %game.action.heal%2 sur vous même."
+      "1": "Pendant votre tour, retirez tous les états négatifs, et %game.action.heal:2% sur vous même."
     }
   },
   "scenario": {

@@ -163,7 +163,7 @@
                       "B"
                     ]
                   },
-                  "add +2 %game.action.attack%."
+                  "add %game.action.attack.valueSign:2%."
                 ]
               },
               {
@@ -178,7 +178,7 @@
                       "B"
                     ]
                   },
-                  "add +1 %game.action.attack%."
+                  "add %game.action.attack.valueSign:1%."
                 ]
               }
             ]
@@ -7019,7 +7019,7 @@
             },
             "inlineEffects": true,
             "effects": [
-              "Add +1 %game.action.move%."
+              "Add %game.action.move.valueSign:1%."
             ]
           },
           {
@@ -7036,7 +7036,7 @@
             ]
           },
           {
-            "condition": "%game.action.move% 3",
+            "condition": "%game.action.move:3%",
             "narrative": "The Lurkers swipe at your limbs, but you only take a few scrapes.",
             "effects": [
               {
@@ -7049,7 +7049,7 @@
             ]
           },
           {
-            "condition": "%game.action.move% 4",
+            "condition": "%game.action.move:4%",
             "narrative": "You scurry just out of reach.",
             "effects": [
               {
@@ -14540,7 +14540,7 @@
           {
             "narrative": "\"You won't regret this!\" Ormi joins you for the scenario.",
             "effects": [
-              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+4 hit points and acts on initiative 50 each round performing %game.action.move% 2, %game.action.attack% 2. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
+              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+4 hit points and acts on initiative 50 each round performing %game.action.move:2%, %game.action.attack:2%. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
               "<br>If the scenario is completed and Ormi survives: Gain 1 soldier and add event WR-33 to the winter road deck.",
               "<br>If the scenario is lost or if Ormi does not survive: Lose 1 morale."
             ]
@@ -16021,7 +16021,7 @@
             "narrative": "Ormi looks delighted, his broad chest swelling with excitement. \"Ah, just like the old days!\"",
             "effects": [
               "Play the next scenario as if you have one more character than you do, or, if you have four characters, increase the scenario level by 1.<br><br>",
-              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+8 hit points and acts on initiative 30 each round performing %game.action.move% 2, %game.action.attack% 4. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
+              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+8 hit points and acts on initiative 30 each round performing %game.action.move:2%, %game.action.attack:4%. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
               "<br>If the scenario is completed and Ormi survives: Treat all bonus experience and gold conversion as two levels higher (not counting any increase from this card).",
               "<br>If the scenario is lost or if Ormi does not survive: Lose 1 morale and 1 soldier."
             ]

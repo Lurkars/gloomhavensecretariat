@@ -204,7 +204,7 @@
         "": "Sprengmeisterin",
         "mech": {
           "": "Mechanikanzug",
-          "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
+          "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal:10%, selbst."
         }
       },
       "hatchet": "Axtwerfer",
@@ -224,7 +224,7 @@
         "1": "Der nächste Gegner in Sichtlinie erleidet unabhängig der Reichweite %game.damage:[1+L/2{$math.ceil}]%"
       },
       "blood-horror": {
-        "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack%+0 aus",
+        "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack:+0% aus",
         "2": "Belebe alle toten %data.monster.zealot% um Raum"
       },
       "blood-monstrosity": {
@@ -249,7 +249,7 @@
       },
       "giant-viper": {
         "1": "Alle Angriffe an %data.monster.giant-viper% erhalten in dieser Runde Nachteil.",
-        "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
+        "2": "Füge %game.action.attack.valueSign:2% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
       },
       "giant-viper-scenario-21": {
         "1": "Wann immer eine Figur eine Riesenviper angreift, erleidet diese Figur nach dem Angriff %game.damage:L%"
@@ -261,7 +261,7 @@
       },
       "monstrosity": {
         "1": "Falls dieser Angriff ausgeführt wird, erleidet die %data.monster.monstrosity% %game.damage:1%.",
-        "2": "Füge +1 %game.action.attack% hinzu falls das Ziel an einen Verbündeten der %data.monster.monstrosity% angrenzt.",
+        "2": "Füge %game.action.attack.valueSign:1% hinzu falls das Ziel an einen Verbündeten der %data.monster.monstrosity% angrenzt.",
         "3": "Wann immer die %data.monster.monstrosity% in dieser Runde angegriffen wird, erleidet der Angreifer %game.damage:2%.",
         "4": "%data.monster.monstrosity% erleidet %game.damage:1%"
       },

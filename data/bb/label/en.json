@@ -15,7 +15,7 @@
   "items": {
     "bb-1": {
       "": "Rosethorn Knife",
-      "1": "During your attack, %game.elementHalf.consume:ice|earth% to add %game.action.pierce% 1."
+      "1": "During your attack, %game.elementHalf.consume:ice|earth% to add %game.action.pierce:1%."
     },
     "bb-10": {
       "": "Tanglevine Whip",
@@ -23,15 +23,15 @@
     },
     "bb-11": {
       "": "Magnetic Needle",
-      "1": "During your turn, control one enemy within %game.action.range% 5: %game.action.move% 2."
+      "1": "During your turn, control one enemy within %game.action.range:5%: %game.action.move:2%."
     },
     "bb-12": {
       "": "Leftover Table Scraps",
-      "1": "During your turn, %game.action.heal% 1 self."
+      "1": "During your turn, %game.action.heal:1% self."
     },
     "bb-13": {
       "": "Robin's Feather Arrows",
-      "1": "During your single-target range attack, %game.elementHalf.consume:fire|air% to add +1 %game.action.range%, %game.action.pierce% 1."
+      "1": "During your single-target range attack, %game.elementHalf.consume:fire|air% to add %game.action.range.valueSign:1%, %game.action.pierce:1%."
     },
     "bb-14": {
       "": "Nightshade Pollen",
@@ -39,7 +39,7 @@
     },
     "bb-15": {
       "": "Drop of Healing Potion",
-      "1": "During your turn, %game.action.heal% 3 self."
+      "1": "During your turn, %game.action.heal:3% self."
     },
     "bb-16": {
       "": "Volatile Powder",
@@ -47,11 +47,11 @@
     },
     "bb-17": {
       "": "Fishing Hook and Line",
-      "1": "During your ranged attack, add %game.action.pierce% 2, %game.action.pull% 2."
+      "1": "During your ranged attack, add %game.action.pierce:2%, %game.action.pull:2%."
     },
     "bb-18": {
       "": "Chestnut Shelll Shield",
-      "1": "During and enemy's attack, gain %game.action.shield% 1 and %game.action.retaliate% 1."
+      "1": "During and enemy's attack, gain %game.action.shield:1% and %game.action.retaliate:1%."
     },
     "bb-19": {
       "": "Brass Cog",
@@ -63,7 +63,7 @@
     },
     "bb-20": {
       "": "Lubricating Oil",
-      "1": "During your movement, add +2 %game.action.move%."
+      "1": "During your movement, add %game.action.move.valueSign:2%."
     },
     "bb-21": {
       "": "Drop of Element Potion",
@@ -79,7 +79,7 @@
     },
     "bb-24": {
       "": "Sewing Needles",
-      "1": "During your attack, add %game.action.pierce% 1."
+      "1": "During your attack, add %game.action.pierce:1%."
     },
     "bb-25": {
       "": "Sharpened Pencil",
@@ -87,15 +87,15 @@
     },
     "bb-26": {
       "": "Coin Shield",
-      "1": "During an enemy's attack, gain %game.action.shield% 2."
+      "1": "During an enemy's attack, gain %game.action.shield:2%."
     },
     "bb-27": {
       "": "Shrunken Longbow",
-      "1": "During your ranged attack, add +1 %game.action.attack%, %game.action.pierce% 1."
+      "1": "During your ranged attack, add %game.action.attack.valueSign:1%, %game.action.pierce:1%."
     },
     "bb-28": {
       "": "Shrunken Longsword",
-      "1": "During your melee attack, add +1 %game.action.attack%."
+      "1": "During your melee attack, add %game.action.attack.valueSign:1%."
     },
     "bb-29": {
       "": "Embernettle",
@@ -103,7 +103,7 @@
     },
     "bb-3": {
       "": "Shrunken Weathered Boots",
-      "1": "During your movement, add +1 %game.action.move%."
+      "1": "During your movement, add %game.action.move.valueSign:1%."
     },
     "bb-30": {
       "": "Lucky Cat's-Eye Marble",
@@ -115,7 +115,7 @@
     },
     "bb-32": {
       "": "Playing Card Shield",
-      "1": "During an enemy's attack, gain %game.action.shield% 4."
+      "1": "During an enemy's attack, gain %game.action.shield:4%."
     },
     "bb-33": {
       "": "Drop of Haste Elixir",
@@ -127,7 +127,7 @@
     },
     "bb-35": {
       "": "Prismatic Gem",
-      "1": "During your attack, %game.element.consume.wild% to add 1 %game.action.attack%."
+      "1": "During your attack, %game.element.consume.wild% to add %game.action.attack.valueSign:1%."
     },
     "bb-36": {
       "": "Drop of Strengthen Potion",
@@ -135,15 +135,15 @@
     },
     "bb-37": {
       "": "Duskhaze Gem",
-      "1": "During an enemy's attack, %game.elementHalf.consume:air|dark% to gain %game.action.shield% 1 and %game.condition.muddle% that enemy."
+      "1": "During an enemy's attack, %game.elementHalf.consume:air|dark% to gain %game.action.shield:1% and %game.condition.muddle% that enemy."
     },
     "bb-38": {
       "": "Brightlure Gem",
-      "1": "After your attack, %game.elementHalf.consume:air|light% to control the target of the attack: %game.action.move% 1."
+      "1": "After your attack, %game.elementHalf.consume:air|light% to control the target of the attack: %game.action.move:1%."
     },
     "bb-39": {
       "": "Iridescent Shell Shield",
-      "1": "During your turn, gain %game.action.shield% 1 for the round. Create %game.element.wild%."
+      "1": "During your turn, gain %game.action.shield:1% for the round. Create %game.element.wild%."
     },
     "bb-4": {
       "": "Old Spring",
@@ -151,7 +151,7 @@
     },
     "bb-40": {
       "": "Pocket Knife",
-      "1": "During your melee attack, add +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
+      "1": "During your melee attack, add %game.action.attack.valueSign:1%, %game.action.pierce:2%, %game.condition.wound%."
     },
     "bb-41": {
       "": "Bottle Cap Helm",
@@ -163,7 +163,7 @@
     },
     "bb-5": {
       "": "Drop of Power Potion",
-      "1": "Durin your turn, add +1 %game.action.attack% to all your attacks."
+      "1": "Durin your turn, add %game.action.attack.valueSign:1% to all your attacks."
     },
     "bb-6": {
       "": "Drop of Clear Water",
@@ -171,15 +171,15 @@
     },
     "bb-7": {
       "": "Spring Hammer",
-      "1": "During your melee attack, add %game.action.push% 2."
+      "1": "During your melee attack, add %game.action.push:2%."
     },
     "bb-8": {
       "": "Button Shield",
-      "1": "During an enemy's attack, gain %game.action.shield% 1."
+      "1": "During an enemy's attack, gain %game.action.shield:1%."
     },
     "bb-9": {
       "": "Iron Nail",
-      "1": "During your turn, add %game.action.pierce% 2 to all your melee attacks."
+      "1": "During your turn, add %game.action.pierce:2% to all your melee attacks."
     }
   },
   "monster": {

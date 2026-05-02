@@ -32,19 +32,19 @@
     },
     "cs-101": {
       "": "岩脊壁垒",
-      "1": "你将一个角色标记放置在这张卡片上，在接下来的三次攻击中，若攻击目标为你或相邻盟友，被攻击的目标将在该次攻击中获得 %game.action.shield% 1。当这张卡被使用三次时，卡片将被消耗 %game.card.lost%。"
+      "1": "你将一个角色标记放置在这张卡片上，在接下来的三次攻击中，若攻击目标为你或相邻盟友，被攻击的目标将在该次攻击中获得 %game.action.shield:1%。当这张卡被使用三次时，卡片将被消耗 %game.card.lost%。"
     },
     "cs-102": {
       "": "幽光蜜",
-      "1": "在你的回合中，执行 %game.action.heal% 3 %game.condition.regenerate%，影响自己和一个相邻盟友。"
+      "1": "在你的回合中，执行 %game.action.heal:3% %game.condition.regenerate%，影响自己和一个相邻盟友。"
     },
     "cs-104": {
       "": "能量转换器",
-      "1": "（X为1、2、3） 在你的回合中，放弃你的顶部动作，执行 %game.action.attack% X + 1 %game.action.range:2% %game.action.target% 4 - X。"
+      "1": "（X为1、2、3） 在你的回合中，放弃你的顶部动作，执行 %game.action.attack:X+1% %game.action.range:2% %game.action.target:4-X%。"
     },
     "cs-105": {
       "": "蒸汽活塞锤",
-      "1": "在你的近战攻击能力中，为一次攻击添加 %game.condition.muddle% 和 %game.action.push% 1。"
+      "1": "在你的近战攻击能力中，为一次攻击添加 %game.condition.muddle% 和 %game.action.push:1%。"
     },
     "cs-106": {
       "": "蜘蛛攀爬手套",
@@ -68,11 +68,11 @@
     },
     "cs-111": {
       "": "猩红靴",
-      "1": "在你的移动能力结束后，执行 %game.action.push% 1，目标为一个相邻的敌人。如果你在本轮中移动了4格或更多，额外增加 +1 %game.action.push%。"
+      "1": "在你的移动能力结束后，执行 %game.action.push:1%，目标为一个相邻的敌人。如果你在本轮中移动了4格或更多，额外增加 %game.action.push.valueSign:1%。"
     },
     "cs-112": {
       "": "恐怖鳞刃剑",
-      "1": "在你的近战攻击能力中，你可以为一次攻击添加 +1 %game.action.attack% 和 %game.action.pierce% 2，目标为带有 %game.condition.wound% 或 %game.condition.rupture% 的敌人。"
+      "1": "在你的近战攻击能力中，你可以为一次攻击添加 %game.action.attack.valueSign:1% 和 %game.action.pierce:2%，目标为带有 %game.condition.wound% 或 %game.condition.rupture% 的敌人。"
     },
     "cs-113": {
       "": "恐怖鳞刃双刃剑",

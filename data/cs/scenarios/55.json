@@ -24,7 +24,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "If any character ends their turn within %game.action.range%2, the Spring Gun performs:",
+          "value": "If any character ends their turn within %game.action.range:2%, the Spring Gun performs:",
           "small": true
         },
         {

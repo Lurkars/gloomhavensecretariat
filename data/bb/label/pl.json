@@ -15,7 +15,7 @@
   "items": {
     "bb-1": {
       "": "Nóż z Ciernia Róży",
-      "1": "Podczas swojego ataku, %game.elementHalf.consume:ice|earth% aby dodać %game.action.pierce% 1."
+      "1": "Podczas swojego ataku, %game.elementHalf.consume:ice|earth% aby dodać %game.action.pierce:1%."
     },
     "bb-10": {
       "": "Bicz z Pnączy",
@@ -23,15 +23,15 @@
     },
     "bb-11": {
       "": "Magnetyczna Igła",
-      "1": "Podczas swojej tury, przejmij kontrolę nad jednym wrogiem w zasięgu %game.action.range% 5: %game.action.move% 2."
+      "1": "Podczas swojej tury, przejmij kontrolę nad jednym wrogiem w zasięgu %game.action.range:5%: %game.action.move:2%."
     },
     "bb-12": {
       "": "Resztki ze Stołu",
-      "1": "Podczas swojej tury, %game.action.heal% 1 na siebie."
+      "1": "Podczas swojej tury, %game.action.heal:1% na siebie."
     },
     "bb-13": {
       "": "Strzały z Piór Robina",
-      "1": "Podczas swojego ataku dystansowego na jeden cel, %game.elementHalf.consume:fire|air% aby dodać +1 %game.action.range%, %game.action.pierce% 1."
+      "1": "Podczas swojego ataku dystansowego na jeden cel, %game.elementHalf.consume:fire|air% aby dodać %game.action.range.valueSign:1%, %game.action.pierce:1%."
     },
     "bb-14": {
       "": "Pył z Psianki",
@@ -39,7 +39,7 @@
     },
     "bb-15": {
       "": "Kropla Mikstury Leczenia",
-      "1": "Podczas swojej tury, %game.action.heal% 3 na siebie."
+      "1": "Podczas swojej tury, %game.action.heal:3% na siebie."
     },
     "bb-16": {
       "": "Lotny Proszek",
@@ -47,11 +47,11 @@
     },
     "bb-17": {
       "": "Haczyk i Żyłka",
-      "1": "Podczas swojego ataku dystansowego, dodaj %game.action.pierce% 2, %game.action.pull% 2."
+      "1": "Podczas swojego ataku dystansowego, dodaj %game.action.pierce:2%, %game.action.pull:2%."
     },
     "bb-18": {
       "": "Tarcza z Łupiny Kasztana",
-      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 1 oraz %game.action.retaliate% 1."
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield:1% oraz %game.action.retaliate:1%."
     },
     "bb-19": {
       "": "Mosiężna Zębatka",
@@ -63,7 +63,7 @@
     },
     "bb-20": {
       "": "Olej Smarujący",
-      "1": "Podczas swojego ruchu, dodaj +2 %game.action.move%."
+      "1": "Podczas swojego ruchu, dodaj %game.action.move.valueSign:2%."
     },
     "bb-21": {
       "": "Kropla Mikstury Żywiołów",
@@ -79,7 +79,7 @@
     },
     "bb-24": {
       "": "Igły Krawieckie",
-      "1": "Podczas swojego ataku, dodaj %game.action.pierce% 1."
+      "1": "Podczas swojego ataku, dodaj %game.action.pierce:1%."
     },
     "bb-25": {
       "": "Zaostrzony Ołówek",
@@ -87,15 +87,15 @@
     },
     "bb-26": {
       "": "Tarcza z Monety",
-      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 2."
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield:2%."
     },
     "bb-27": {
       "": "Skurczony Długi Łuk",
-      "1": "Podczas swojego ataku dystansowego, dodaj +1 %game.action.attack%, %game.action.pierce% 1."
+      "1": "Podczas swojego ataku dystansowego, dodaj %game.action.attack.valueSign:1%, %game.action.pierce:1%."
     },
     "bb-28": {
       "": "Skurczony Długi Miecz",
-      "1": "Podczas swojego ataku wręcz, dodaj +1 %game.action.attack%."
+      "1": "Podczas swojego ataku wręcz, dodaj %game.action.attack.valueSign:1%."
     },
     "bb-29": {
       "": "Żaropokrzywa",
@@ -103,7 +103,7 @@
     },
     "bb-3": {
       "": "Skurczone Zniesione Buty",
-      "1": "Podczas swojego ruchu, dodaj +1 %game.action.move%."
+      "1": "Podczas swojego ruchu, dodaj %game.action.move.valueSign:1%."
     },
     "bb-30": {
       "": "Kocie Oko - Szklana Kulka",
@@ -115,7 +115,7 @@
     },
     "bb-32": {
       "": "Tarcza z Karty do Gry",
-      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 4."
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield:4%."
     },
     "bb-33": {
       "": "Kropla Eliksiru Pośpiechu",
@@ -127,7 +127,7 @@
     },
     "bb-35": {
       "": "Pryzmatyczny Klejnot",
-      "1": "Podczas swojego ataku, %game.element.consume.wild% aby dodać 1 %game.action.attack%."
+      "1": "Podczas swojego ataku, %game.element.consume.wild% aby dodać %game.action.attack.valueSign:1%."
     },
     "bb-36": {
       "": "Kropla Mikstury Wzmocnienia",
@@ -135,15 +135,15 @@
     },
     "bb-37": {
       "": "Klejnot Zmierzchowej Mgły",
-      "1": "Podczas ataku wroga, %game.elementHalf.consume:air|dark% aby zyskać %game.action.shield% 1 i nałożyć na niego %game.condition.muddle%."
+      "1": "Podczas ataku wroga, %game.elementHalf.consume:air|dark% aby zyskać %game.action.shield:1% i nałożyć na niego %game.condition.muddle%."
     },
     "bb-38": {
       "": "Klejnot Świetlnego Wabiaka",
-      "1": "Po swoim ataku, %game.elementHalf.consume:air|light% aby przejąć kontrolę nad celem ataku: %game.action.move% 1."
+      "1": "Po swoim ataku, %game.elementHalf.consume:air|light% aby przejąć kontrolę nad celem ataku: %game.action.move:1%."
     },
     "bb-39": {
       "": "Tarcza z Irydowej Muszli",
-      "1": "Podczas swojej tury, zyskaj %game.action.shield% 1 na rundę. Stwórz %game.element.wild%."
+      "1": "Podczas swojej tury, zyskaj %game.action.shield:1% na rundę. Stwórz %game.element.wild%."
     },
     "bb-4": {
       "": "Stara Sprężyna",
@@ -151,7 +151,7 @@
     },
     "bb-40": {
       "": "Scyzoryk",
-      "1": "Podczas swojego ataku wręcz, dodaj +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
+      "1": "Podczas swojego ataku wręcz, dodaj %game.action.attack.valueSign:1%, %game.action.pierce:2%, %game.condition.wound%."
     },
     "bb-41": {
       "": "Hełm z Kapsla",
@@ -163,7 +163,7 @@
     },
     "bb-5": {
       "": "Kropla Mikstury Mocy",
-      "1": "Podczas swojej tury, dodaj +1 %game.action.attack% do wszystkich swoich ataków."
+      "1": "Podczas swojej tury, dodaj %game.action.attack.valueSign:1% do wszystkich swoich ataków."
     },
     "bb-6": {
       "": "Kropla Czystej Wody",
@@ -171,15 +171,15 @@
     },
     "bb-7": {
       "": "Młot na Sprężynie",
-      "1": "Podczas swojego ataku wręcz, dodaj %game.action.push% 2."
+      "1": "Podczas swojego ataku wręcz, dodaj %game.action.push:2%."
     },
     "bb-8": {
       "": "Tarcza z Guzika",
-      "1": "Podczas ataku wroga, zyskaj %game.action.shield% 1."
+      "1": "Podczas ataku wroga, zyskaj %game.action.shield:1%."
     },
     "bb-9": {
       "": "Żelazny Gwóźdź",
-      "1": "Podczas swojej tury, dodaj %game.action.pierce% 2 do wszystkich swoich ataków wręcz."
+      "1": "Podczas swojej tury, dodaj %game.action.pierce:2% do wszystkich swoich ataków wręcz."
     }
   },
   "monster": {

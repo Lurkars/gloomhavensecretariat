@@ -1,6 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { SpecialActionsManager } from 'src/app/game/businesslogic/SpecialActionsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ScenarioStats } from 'src/app/game/model/CharacterProgress';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -23,11 +22,8 @@ export class RoundManager {
   working: boolean = false;
   firstRound: boolean = false;
 
-  specialActionsManager: SpecialActionsManager;
-
   constructor(game: Game) {
     this.game = game;
-    this.specialActionsManager = new SpecialActionsManager(game);
   }
 
   drawAvailable(): boolean {
@@ -286,7 +282,7 @@ export class RoundManager {
           gameManager.entityManager.restoreConditions(entity);
         }
 
-        this.specialActionsManager.beforeTurn(entity);
+        gameManager.specialActionsManager.beforeTurn(entity);
       });
 
       if (figure instanceof Character && !figure.absent) {
@@ -356,7 +352,7 @@ export class RoundManager {
       figure.entities.forEach((monsterEntity) => {
         if (!figure.off && monsterEntity.summon !== SummonState.new && gameManager.entityManager.isAlive(monsterEntity)) {
           monsterEntity.active = true;
-          this.specialActionsManager.turn(monsterEntity, figure);
+          gameManager.specialActionsManager.turn(monsterEntity, figure);
         }
       });
     }
@@ -384,7 +380,7 @@ export class RoundManager {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
 
         if (activeSummon) {
-          this.specialActionsManager.afterTurn(activeSummon);
+          gameManager.specialActionsManager.afterTurn(activeSummon);
         }
 
         const nextSummon = figure.summons.find(
@@ -424,7 +420,7 @@ export class RoundManager {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(nextSummon);
           }
 
-          this.specialActionsManager.turn(nextSummon, figure);
+          gameManager.specialActionsManager.turn(nextSummon, figure);
 
           if (nextSummon.dead) {
             this.turn(figure);
@@ -439,7 +435,7 @@ export class RoundManager {
             if (summon.active) {
               summon.active = false;
             }
-            this.specialActionsManager.afterTurn(summon);
+            gameManager.specialActionsManager.afterTurn(summon);
           });
 
           if (figure.name === 'lightning' && figure.tags.includes('blood-pact')) {
@@ -459,7 +455,7 @@ export class RoundManager {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon);
           }
 
-          this.specialActionsManager.afterTurn(summon);
+          gameManager.specialActionsManager.afterTurn(summon);
         });
 
         if (figure.name === 'lightning' && figure.tags.includes('blood-pact')) {
@@ -514,7 +510,7 @@ export class RoundManager {
         }
       }
 
-      this.specialActionsManager.turn(figure, figure);
+      gameManager.specialActionsManager.turn(figure, figure);
     }
 
     if (
@@ -583,7 +579,7 @@ export class RoundManager {
         figure.entities.forEach((monsterEntity) => {
           monsterEntity.active = false;
           monsterEntity.off = true;
-          this.specialActionsManager.afterTurn(monsterEntity);
+          gameManager.specialActionsManager.afterTurn(monsterEntity);
         });
       }
 
@@ -596,7 +592,7 @@ export class RoundManager {
       }
 
       if (figure instanceof Character) {
-        this.specialActionsManager.afterTurn(figure);
+        gameManager.specialActionsManager.afterTurn(figure);
 
         figure.summons.forEach((summon) => {
           if (!settingsManager.settings.activeSummons) {
@@ -615,7 +611,7 @@ export class RoundManager {
             }
           }
 
-          this.specialActionsManager.afterTurn(summon);
+          gameManager.specialActionsManager.afterTurn(summon);
         });
 
         if (figure.name === 'skull' && !figure.absent && figure.tags.includes('spirits')) {

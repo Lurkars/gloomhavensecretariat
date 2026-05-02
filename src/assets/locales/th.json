@@ -728,14 +728,14 @@
       },
       "poison": {
         "": "พิษ",
-        "hint": "%game.conditionIcon.poison% พิษ: ผู้โจมตีทั้งหมดได้ +1 %game.action.attack% กีดกันการรักษา ลบเมื่อรักษา"
+        "hint": "%game.conditionIcon.poison% พิษ: ผู้โจมตีทั้งหมดได้ %game.action.attack.valueSign:1% กีดกันการรักษา ลบเมื่อรักษา"
       },
       "poison_x": {
         "": "พิษ {0}",
         "hint": "%game.conditionIcon.poison_x:X% พิษ X: ผู้โจมตีทั้งหมดได้ +X %game.action.attack% กีดกันการรักษา ลบเมื่อรักษา"
       },
       "regenerate": {
-        "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal% 1 เมื่อเริ่มเทิร์น ลบเมื่อเสียหาย"
+        "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal:1% เมื่อเริ่มเทิร์น ลบเมื่อเสียหาย"
       },
       "rupture": {
         "hint": "%game.conditionIcon.rupture% Rupture: เมื่อเคลื่อนที่ได้รับ %game.damage:1% ลบเมื่อรักษา"
@@ -2221,7 +2221,7 @@
         "": "บางสถานะต้องยืนยันก่อนใช้ เช่นเมื่อลด HP จาก Poison ยืนยันเพื่อเสีย HP เพิ่ม 1",
         "brittle": "เมื่อได้รับความเสียหาย ถามใช้ %game.condition.brittle% และเพิ่มความเสียหาย",
         "heal": "ไม่ใช่สถานะ แต่ช่วยเมื่อควรใช้ %game.action.heal% เมื่อเพิ่ม HP",
-        "poison": "เมื่อได้รับความเสียหาย ถามใช้ %game.action.attack% +1 จาก %game.condition.poison% (รวม %game.attackmodifier.double%)",
+        "poison": "เมื่อได้รับความเสียหาย ถามใช้ %game.action.attack:+1% จาก %game.condition.poison% (รวม %game.attackmodifier.double%)",
         "poison_x": "เมื่อได้รับความเสียหาย ถามใช้ %game.action.attack% +X จาก %game.condition.poison_x:X% (รวม %game.attackmodifier.double%)",
         "shield": "ไม่ใช่สถานะ แต่ช่วยเมื่อควรใช้ %game.action.shield% เมื่อรับความเสียหายและลดความเสียหาย",
         "ward": "เมื่อได้รับความเสียหาย ถามใช้ %game.condition.ward% และลดความเสียหาย"

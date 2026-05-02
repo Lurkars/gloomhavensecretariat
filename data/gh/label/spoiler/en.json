@@ -41,7 +41,7 @@
           "376": {
             "1": "The next four times a %data.custom.gh.angry-face.doomed% enemy dies, perform an \"%game.action.attack:2%, %game.action.range:5%\" action.",
             "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
-            "3": "Add +2 %game.action.attack% to all your attacks targeting this enemy.",
+            "3": "Add %game.action.attack.valueSign:2% to all your attacks targeting this enemy.",
             "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "377": {
@@ -68,7 +68,7 @@
           },
           "381": {
             "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
-            "2": "All allies add +1 %game.action.attack% to all their attacks targeting this enemy.",
+            "2": "All allies add %game.action.attack.valueSign:1% to all their attacks targeting this enemy.",
             "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "382": {
@@ -89,7 +89,7 @@
             "1": "Create one 2 damage %game.condition.immobilize% trap in an adjacent empty hex."
           },
           "387": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
           },
           "388": {
             "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
@@ -98,11 +98,11 @@
           },
           "389": {
             "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
-            "2": "All summoned allies add +2 %game.action.attack% to all their attacks targeting this enemy.",
+            "2": "All summoned allies add %game.action.attack.valueSign:2% to all their attacks targeting this enemy.",
             "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "390": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is undamaged."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target is undamaged."
           },
           "391": {
             "1": "You gain Advantage on one attack each turn targeting a %data.custom.gh.angry-face.doomed% enemy.",
@@ -112,7 +112,7 @@
             "5": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "392": {
-            "1": "Add +2 %game.action.attack% to all your attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
+            "1": "Add %game.action.attack.valueSign:2% to all your attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
           },
           "393": {
             "1": "Target all enemies within %game.action.range:3% Gain %game.card.experience:1% for each two enemies targeted.",
@@ -121,7 +121,7 @@
             "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "394": {
-            "1": "Add +3 %game.action.attack% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
+            "1": "Add %game.action.attack.valueSign:3% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
           },
           "395": {
             "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
@@ -152,7 +152,7 @@
           },
           "401": {
             "1": "Kill the target and gain %game.card.experience:1% if its hit point value is less than or equal to 2 after the attack.",
-            "2": "Add +3 %game.action.attack% to all yours attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
+            "2": "Add %game.action.attack.valueSign:3% to all yours attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
           },
           "402": {
             "1": "Gain %game.card.experience:1% for each enemy targeted.",
@@ -214,7 +214,7 @@
             "1": "Affect all adjacent summoned allies"
           },
           "245": {
-            "1": "On any of your Move actions, or the Move actions of any ally you have summoned, you may %game.element.consume.earth% to add +2 %game.action.move% and gain %game.card.experience:1%."
+            "1": "On any of your Move actions, or the Move actions of any ally you have summoned, you may %game.element.consume.earth% to add %game.action.move.valueSign:2% and gain %game.card.experience:1%."
           },
           "247": {
             "1": "Kill all normal adjacent enemies whose current hit point value is equal to or less than 5."
@@ -275,7 +275,7 @@
             "1": "All attacks targeting you gain Disadvantage this round."
           },
           "268": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if you are %game.condition.invisible%."
           },
           "270": {
             "1": "Before your next four Attack actions, perform a \"%game.action.move: 2%\" action."
@@ -293,10 +293,10 @@
             "1": "At the end of your next three turns where %game.element.dark% is not Strong, generate %game.element.dark%."
           },
           "278": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if you are %game.condition.invisible%."
           },
           "279": {
-            "1": "+1 %game.action.attack%, %game.element.dark%, %game.card.experience:1%.",
+            "1": "%game.action.attack.valueSign:1%, %game.element.dark%, %game.card.experience:1%.",
             "2": "During your next four Move actions while %game.condition.invisible%, perform an \"%game.action.attack: 2%, Target all adjacent enemies\" as the final part of the action."
           },
           "282": {
@@ -307,7 +307,7 @@
             "2": "You can target %game.condition.invisible% enemies."
           },
           "284": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if you are %game.condition.invisible%."
           },
           "286": {
             "1": "Add %game.condition.poison%, %game.condition.muddle%, %game.condition.wound% and gain %game.card.experience:1% if you are %game.condition.invisible%."
@@ -333,12 +333,12 @@
             "3": "and gain %game.card.experience:1%"
           },
           "321": {
-            "1": "You may suffer %game.damage:2% to add +2 %game.action.attack% and gain %game.card.experience:1%.",
+            "1": "You may suffer %game.damage:2% to add %game.action.attack.valueSign:2% and gain %game.card.experience:1%.",
             "2": "You may suffer up to %game.damage:3%.",
             "3": "where X is the amount of damage you suffered."
           },
           "322": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if your current hit point value is less than half your maximum hit point value (rounded up).",
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if your current hit point value is less than half your maximum hit point value (rounded up).",
             "2": "On the next three sources of damage to you that would reduce you to less than 1 hit point, suffer no damage instead."
           },
           "323": {
@@ -346,11 +346,11 @@
           },
           "324": {
             "1": "Suffer damage equal to half of your current hit point value (rounded up).",
-            "2": "Add +1 %game.action.attack% to all your attacks.",
+            "2": "Add %game.action.attack.valueSign:1% to all your attacks.",
             "3": "Suffer %game.damage:1% at the start of each of your turns."
           },
           "325": {
-            "1": "The next four times you are healed, add +2 %game.action.heal%."
+            "1": "The next four times you are healed, add %game.action.heal.valueSign:2%."
           },
           "326": {
             "1": "You may suffer %game.damage:2% to add %game.condition.stun% and gain %game.card.experience:1%."
@@ -364,16 +364,16 @@
             "3": "Reduce your current hit point value to 1.<br>This is not considered damage."
           },
           "331": {
-            "1": "You may suffer %game.damage:2% to gain %game.action.shield% 1, %game.card.experience:1%.",
+            "1": "You may suffer %game.damage:2% to gain %game.action.shield:1%, %game.card.experience:1%.",
             "2": "You may suffer %game.damage:2% to %game.condition.stun% one adjacent enemy."
           },
           "332": {
             "1": "You may suffer up to %game.damage:3%.",
             "2": "where X is the amount of damage you suffered.",
-            "3": "All melee attacks targeting you add +1 %game.action.attack%."
+            "3": "All melee attacks targeting you add %game.action.attack.valueSign:1%."
           },
           "333": {
-            "1": "Add +2 %game.action.move% if you have fewer hit points than half of your maximum hit point value (rounded up)."
+            "1": "Add %game.action.move.valueSign:2% if you have fewer hit points than half of your maximum hit point value (rounded up)."
           },
           "334": {
             "1": "Increase the value of each of your %game.action.retaliate% abilities by 2 this round."
@@ -390,8 +390,8 @@
             "2": "All attacks targeting you gain Disadvantage this round."
           },
           "338": {
-            "1": "Gain %game.action.shield% 1, %game.card.experience:1% if you have fewer hit points than half of your maximum hit point value (rounded up).",
-            "2": "Add +1 %game.action.attack% to all your attacks when you have fewer hit points than half of your maximum hit point value (rounded up)."
+            "1": "Gain %game.action.shield:1%, %game.card.experience:1% if you have fewer hit points than half of your maximum hit point value (rounded up).",
+            "2": "Add %game.action.attack.valueSign:1% to all your attacks when you have fewer hit points than half of your maximum hit point value (rounded up)."
           },
           "339": {
             "1": "Kill one adjacent normal or elite enemy.",
@@ -406,7 +406,7 @@
             "1": "Target all enemies up to two hexes away instead"
           },
           "343": {
-            "1": "%game.condition.wound% self and all adjacent allies to add %game.action.push% 2, %game.condition.immobilize%.",
+            "1": "%game.condition.wound% self and all adjacent allies to add %game.action.push:2%, %game.condition.immobilize%.",
             "2": "You are immune to all negative conditions."
           },
           "344": {
@@ -414,14 +414,14 @@
             "2": "To signify this, place a character token on the target."
           },
           "345": {
-            "1": "On the next five sources of damage to you, perform an \"%game.action.attack% 3\" action.",
-            "2": "Add +1 %game.action.attack% to all your attacks this round, %game.card.experience:1%."
+            "1": "On the next five sources of damage to you, perform an \"%game.action.attack:3%\" action.",
+            "2": "Add %game.action.attack.valueSign:1% to all your attacks this round, %game.card.experience:1%."
           },
           "346": {
             "1": "On the next five sources of damage to you, suffer no damage instead."
           },
           "347": {
-            "1": "Perform a \"%game.action.heal% 2, Self\" action for each enemy damaged.",
+            "1": "Perform a \"%game.action.heal:2%, Self\" action for each enemy damaged.",
             "2": "You may suffer up to %game.damage:5%.",
             "3": "where X is the amount of damage you suffered."
           }
@@ -430,13 +430,13 @@
       "music-note": {
         "abilities": {
           "348": {
-            "1": "All allies add +1 %game.action.attack% to one of their attacks each turn."
+            "1": "All allies add %game.action.attack.valueSign:1% to one of their attacks each turn."
           },
           "349": {
             "1": "The next time any ally within %game.action.range:2% suffers damage this round, they suffer no damage instead."
           },
           "350": {
-            "1": "All allies add +1 %game.action.move% to all their Move actions, and add +1 %game.action.range% to all their ranged attacks."
+            "1": "All allies add %game.action.move.valueSign:1% to all their Move actions, and add %game.action.range.valueSign:1% to all their ranged attacks."
           },
           "352": {
             "1": "One ally within %game.action.range:3% may perform"
@@ -491,7 +491,7 @@
             "2": "Force all enemies in the<br>targeted area to perform a<br>\"%game.action.move:2%\" action with you<br>controlling the actions."
           },
           "374": {
-            "1": "All allies add +1 %game.action.attack% to all their attacks."
+            "1": "All allies add %game.action.attack.valueSign:1% to all their attacks."
           },
           "375": {
             "1": "Force all enemies moved through<br>to perform an \"%game.action.attack:3%\" action<br>targeting another enemy with you<br>controlling the actions.",
@@ -567,7 +567,7 @@
           },
           "441": {
             "1": "Before your next six Heal actions, remove all negative conditions on the healed figure(s).",
-            "2": "Add +4 %game.action.heal% to all your Heal actions this round."
+            "2": "Add %game.action.heal.valueSign:4% to all your Heal actions this round."
           },
           "442": {
             "1": "Give one adjacent ally one \"Medical Pack\" ability card."
@@ -592,16 +592,16 @@
             "1": "%game.condition.poison% all allies and enemies in the targeted area."
           },
           "290": {
-            "1": "Deduct -1 %game.action.range% from all your ranged attacks."
+            "1": "Deduct %game.action.range.valueSign:-1% from all your ranged attacks."
           },
           "292": {
-            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range:2% (or deal %game.damage:3% if the ally already has %game.condition.poison%) to add +1 %game.action.attack% to the entire Attack action."
+            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range:2% (or deal %game.damage:3% if the ally already has %game.condition.poison%) to add %game.action.attack.valueSign:1% to the entire Attack action."
           },
           "294": {
             "1": "Gain %game.action.fly%"
           },
           "298": {
-            "1": "During your next six Attack actions where %game.element.air% is Strong or Waning, you may %game.element.consume.air% to add +1 %game.action.attack% to the entire Attack action."
+            "1": "During your next six Attack actions where %game.element.air% is Strong or Waning, you may %game.element.consume.air% to add %game.action.attack.valueSign:1% to the entire Attack action."
           },
           "299": {
             "1": "All attacks targeting you gain Disadvantage this round."
@@ -617,7 +617,7 @@
             "1": "%game.condition.poison% all allies adjacent to the target."
           },
           "305": {
-            "1": "Kill one normal enemy with %game.condition.poison% within %game.action.range% 3.",
+            "1": "Kill one normal enemy with %game.condition.poison% within %game.action.range:3%.",
             "2": "Affect all allies with %game.condition.poison%"
           },
           "307": {
@@ -636,7 +636,7 @@
             "1": "If %game.condition.curse% causes an enemy to deal no damage during its attack, this enemy suffers %game.damage:3%."
           },
           "316": {
-            "1": "During your next six Attack actions, %game.condition.curse% one ally within %game.action.range% 2 to gain two %game.action.target% effects.",
+            "1": "During your next six Attack actions, %game.condition.curse% one ally within %game.action.range:2% to gain two %game.action.target% effects.",
             "2": "Double the value of your next Attack action this round."
           },
           "317": {
@@ -645,7 +645,7 @@
           },
           "318": {
             "1": "All allies with %game.condition.poison% suffer %game.damage:2%.",
-            "2": "For each two allies damages, add +1 %game.action.attack% to all your attacks this round and gain %game.card.experience:1%."
+            "2": "For each two allies damages, add %game.action.attack.valueSign:1% to all your attacks this round and gain %game.card.experience:1%."
           }
         }
       },
@@ -669,7 +669,7 @@
             "1": "One ally within %game.action.range:3% may perform"
           },
           "184": {
-            "1": "Deduct -1 %game.action.move% from all your moves."
+            "1": "Deduct %game.action.move.valueSign:-1% from all your moves."
           },
           "185": {
             "1": "Heal all damage on one adjacent ally.",
@@ -694,17 +694,17 @@
             "1": "Affect all allies moved through"
           },
           "196": {
-            "1": "Deduct -1 %game.action.attack% from all your attacks."
+            "1": "Deduct %game.action.attack.valueSign:-1% from all your attacks."
           },
           "197": {
-            "1": "All allies add +1 %game.action.attack% to all their attacks this round.",
-            "2": "All allies add +2 %game.action.move% to all their moves this round."
+            "1": "All allies add %game.action.attack.valueSign:1% to all their attacks this round.",
+            "2": "All allies add %game.action.move.valueSign:2% to all their moves this round."
           },
           "198": {
             "1": "One adjacent ally may perform"
           },
           "199": {
-            "1": "During any of your %game.action.attack% actions, you may %game.element.consume.light% to add +2 %game.action.attack%, gain %game.custom.advantage% and %game.card.experience:1%"
+            "1": "During any of your %game.action.attack% actions, you may %game.element.consume.light% to add %game.action.attack.valueSign:2%, gain %game.custom.advantage% and %game.card.experience:1%"
           },
           "200": {
             "1": "One adjacent ally may Recover %game.card.recover% one of their lost cards.",
@@ -717,7 +717,7 @@
             "4": "Gain %game.card.experience:1% for each attack performed."
           },
           "203": {
-            "1": "On your next four %game.action.attack% actions, add +3 %game.action.attack%, %game.condition.wound%, and gain %game.custom.advantage%."
+            "1": "On your next four %game.action.attack% actions, add %game.action.attack.valueSign:3%, %game.condition.wound%, and gain %game.custom.advantage%."
           },
           "204": {
             "1": "When any ally suffers damage, you may suffer that damage reduced by 1 instead."
@@ -733,10 +733,10 @@
             "1": "Refresh %game.card.refresh% all your consumed %game.items.slots.small% items."
           },
           "207": {
-            "1": "You and all allies within %game.action.range:2% add +1 %game.action.attack% to all your attacks this round."
+            "1": "You and all allies within %game.action.range:2% add %game.action.attack.valueSign:1% to all your attacks this round."
           },
           "208": {
-            "1": "Once during each of your Attack actions, if you use an item, add +1 %game.action.attack% to the entire Attack action."
+            "1": "Once during each of your Attack actions, if you use an item, add %game.action.attack.valueSign:1% to the entire Attack action."
           },
           "215": {
             "1": "Refresh %game.card.refresh% one of your consumed %game.items.slots.small% items."
@@ -790,21 +790,21 @@
         "2": "when %game.action.attack% performed",
         "abilities": {
           "449": {
-            "1": "Once during each of your Attack actions, you may %game.element.wild:minus% to add +1 %game.action.attack% to the entire Attack action."
+            "1": "Once during each of your Attack actions, you may %game.element.wild:minus% to add %game.action.attack.valueSign:1% to the entire Attack action."
           },
           "450": {
             "1": "At the end of each of your turns, you may generate %game.element.wild%.",
-            "2": "Deduct -1 %game.action.attack% from all your attacks."
+            "2": "Deduct %game.action.attack.valueSign:-1% from all your attacks."
           },
           "459": {
             "1": "All attacks targeting you gain Disadvantage this round."
           },
           "463": {
-            "1": "%game.action.attack% X-1 on a new enemy within %game.action.range:2% of the first target, then %game.action.attack% X-2 on a third enemy within %game.action.range:2% of the second target.",
-            "2": "%game.action.attack% X-3 on a fourth enemy within %game.action.range:2% of the third target, %game.card.experience:1%"
+            "1": "%game.action.attack:X%-1 on a new enemy within %game.action.range:2% of the first target, then %game.action.attack:X%-2 on a third enemy within %game.action.range:2% of the second target.",
+            "2": "%game.action.attack:X%-3 on a fourth enemy within %game.action.range:2% of the third target, %game.card.experience:1%"
           },
           "467": {
-            "1": "+2 %game.action.range%, %game.action.pierce:4%, %game.card.experience:1%"
+            "1": "%game.action.range.valueSign:2%, %game.action.pierce:4%, %game.card.experience:1%"
           },
           "468": {
             "1": "Target all enemies within %game.action.range:2% of the healed figure"
@@ -820,8 +820,8 @@
           },
           "472": {
             "1": "Once per action, if you consume an element during the action, you may cause one enemy within %game.action.range:2% to suffer %game.damage:1% or you may perform a \"%game.action.heal:1%, %game.action.range:2%\" action.",
-            "2": "+2 %game.action.move%, %game.condition.wound%<br>all enemies moved through, %game.card.experience:1%",
-            "3": "+2 %game.action.move%, %game.condition.immobilize%<br>all enemies moved through, %game.card.experience:1%"
+            "2": "%game.action.move.valueSign:2%, %game.condition.wound%<br>all enemies moved through, %game.card.experience:1%",
+            "3": "%game.action.move.valueSign:2%, %game.condition.immobilize%<br>all enemies moved through, %game.card.experience:1%"
           },
           "474": {
             "1": "Perform any of the following abilities:"
@@ -829,7 +829,7 @@
         }
       },
       "two-mini": {
-        "1": "All adjacent allies add +2 %game.action.attack% to all their attacks.",
+        "1": "All adjacent allies add %game.action.attack.valueSign:2% to all their attacks.",
         "abilities": {
           "477": {
             "1": "%game.action.teleport% any figure to a hex occupied by a different figure and simultaneously %game.action.teleport% that figure to the hex occupied by the first figure."
@@ -838,8 +838,8 @@
             "1": "%game.action.teleport% any enemy to a hex occupied by a different enemy and simultaneously %game.action.teleport% that enemy to the hex occupied by the first enemy."
           },
           "481": {
-            "1": "Before your bear acts, you may choose to forgo the top action of your turn to add +3 %game.action.attack% to all your bear's attacks this round.",
-            "2": "Before your bear acts, you may choose to forgo the bottom action of your turn to add +3 %game.action.move% to all your bear's moves this round"
+            "1": "Before your bear acts, you may choose to forgo the top action of your turn to add %game.action.attack.valueSign:3% to all your bear's attacks this round.",
+            "2": "Before your bear acts, you may choose to forgo the bottom action of your turn to add %game.action.move.valueSign:3% to all your bear's moves this round"
           },
           "483": {
             "1": "Affect all summoned allies"
@@ -849,7 +849,7 @@
             "2": "No figure may end with more damage than their maximum hit point value."
           },
           "495": {
-            "1": "Add +1 %game.action.attack% to all your %data.custom.gh.two-mini.commands% this round."
+            "1": "Add %game.action.attack.valueSign:1% to all your %data.custom.gh.two-mini.commands% this round."
           },
           "496": {
             "1": "Any one summoned ally performs",
@@ -869,7 +869,7 @@
             "1": "Kill one adjacent normal enemy whose current hit point value is equal to or less than 6."
           },
           "505": {
-            "1": "All adjacent allies add +2 %game.action.attack% to all their attacks",
+            "1": "All adjacent allies add %game.action.attack.valueSign:2% to all their attacks",
             "2": "Recover %game.card.recover% up to two of your lost cards with Summon actions on them."
           }
         },
@@ -881,7 +881,7 @@
   "items": {
     "gh-1": {
       "": "Boots of Striding",
-      "1": "During your movement, add +2 %game.action.move% to the movement."
+      "1": "During your movement, add %game.action.move.valueSign:2% to the movement."
     },
     "gh-10": {
       "": "War Hammer",
@@ -889,7 +889,7 @@
     },
     "gh-100": {
       "": "Robes of Summoning",
-      "1": "During your turn, perform a \"%game.action.heal% 2, target any summoned ally\" action."
+      "1": "During your turn, perform a \"%game.action.heal:2%, target any summoned ally\" action."
     },
     "gh-101": {
       "": "Second Skin",
@@ -897,7 +897,7 @@
     },
     "gh-102": {
       "": "Sacrificial Robes",
-      "1": "During your ranged attack, suffer %game.damage:3% to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your ranged attack, suffer %game.damage:3% to add %game.action.attack.valueSign:1% to the entire Attack action."
     },
     "gh-103": {
       "": "Drakescale Armor",
@@ -905,7 +905,7 @@
     },
     "gh-104": {
       "": "Steam Armor",
-      "1": "On the next five sources of damage from attacks targeting you, gain %game.action.shield% 1."
+      "1": "On the next five sources of damage from attacks targeting you, gain %game.action.shield:1%."
     },
     "gh-105": {
       "": "Flea-Bitten Shawl",
@@ -913,11 +913,11 @@
     },
     "gh-106": {
       "": "Necklace of Teeth",
-      "1": "Any time you kill an enemy during your turn, perform a \"%game.action.heal% 1, Self\" action."
+      "1": "Any time you kill an enemy during your turn, perform a \"%game.action.heal:1%, Self\" action."
     },
     "gh-107": {
       "": "Horned Helm",
-      "1": "After moving 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn."
+      "1": "After moving 4 or more hexes on your turn, add %game.action.attack.valueSign:1% to your next melee attack this turn."
     },
     "gh-108": {
       "": "Drakescale Helm",
@@ -925,7 +925,7 @@
     },
     "gh-109": {
       "": "Thief's Hood",
-      "1": "During your \"%game.action.loot% 1\" ability, perform a \"%game.action.loot% 2\" ability instead."
+      "1": "During your \"%game.action.loot:1%\" ability, perform a \"%game.action.loot:2%\" ability instead."
     },
     "gh-11": {
       "": "Poison Dagger",
@@ -937,15 +937,15 @@
     },
     "gh-111": {
       "": "Wave Crest",
-      "1": "When attacked, if %game.element.ice% is Strong, perform a \"%game.action.push% 2\" action targeting the attacker."
+      "1": "When attacked, if %game.element.ice% is Strong, perform a \"%game.action.push:2%\" action targeting the attacker."
     },
     "gh-112": {
       "": "Ancient Drill",
-      "1": "During your melee attack, add +2 %game.action.attack% and %game.action.pierce% 2 to the entire Attack action"
+      "1": "During your melee attack, add %game.action.attack.valueSign:2% and %game.action.pierce:2% to the entire Attack action"
     },
     "gh-113": {
       "": "Skullbane Axe",
-      "1": "During your melee attack targeting a Living Corpse, Living Spirit, or Living Bones, add +5 %game.action.attack% to a single attack."
+      "1": "During your melee attack targeting a Living Corpse, Living Spirit, or Living Bones, add %game.action.attack.valueSign:5% to a single attack."
     },
     "gh-114": {
       "": "Staff of Xorn",
@@ -960,7 +960,7 @@
     },
     "gh-117": {
       "": "Bloody Axe",
-      "1": "During your melee attack, suffer %game.damage:2% to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your melee attack, suffer %game.damage:2% to add %game.action.attack.valueSign:1% to the entire Attack action."
     },
     "gh-118": {
       "": "Staff of Elements",
@@ -972,11 +972,11 @@
     },
     "gh-12": {
       "": "Minor Healing Potion",
-      "1": "During your turn, perform a \"%game.action.heal% 3, self\" action."
+      "1": "During your turn, perform a \"%game.action.heal:3%, self\" action."
     },
     "gh-120": {
       "": "Staff of Summoning",
-      "1": "During your turn, a summoned ally within %game.action.range:3% performs a \"%game.action.move% 3\" action with you controlling the action."
+      "1": "During your turn, a summoned ally within %game.action.range:3% performs a \"%game.action.move:3%\" action with you controlling the action."
     },
     "gh-121": {
       "": "Orb of Dawn",
@@ -991,7 +991,7 @@
     },
     "gh-124": {
       "": "Doomed Compass",
-      "1": "During your turn, force an enemy within %game.action.range:5% to perform a \"%game.action.move% 2\" action with you controlling the action."
+      "1": "During your turn, force an enemy within %game.action.range:5% to perform a \"%game.action.move:2%\" action with you controlling the action."
     },
     "gh-125": {
       "": "Curious Gear",
@@ -1003,7 +1003,7 @@
     },
     "gh-127": {
       "": "Giant Remote Spider",
-      "1": "During your turn, perform a \"%game.action.loot% 1\" action."
+      "1": "During your turn, perform a \"%game.action.loot:1%\" action."
     },
     "gh-128": {
       "": "Black Censer",
@@ -1011,7 +1011,7 @@
     },
     "gh-129": {
       "": "Black Card",
-      "1": "During your turn, place a character token on an adjacent normal or elite enemy. You add +1 %game.action.attack% to all your attacks targeting this enemy."
+      "1": "During your turn, place a character token on an adjacent normal or elite enemy. You add %game.action.attack.valueSign:1% to all your attacks targeting this enemy."
     },
     "gh-13": {
       "": "Minor Stamina Potion",
@@ -1020,7 +1020,7 @@
     "gh-130": {
       "": "Helix Ring",
       "1": "During your turn,",
-      "3": "to perform a \"%game.action.heal% 25, Self\" action"
+      "3": "to perform a \"%game.action.heal:25%, Self\" action"
     },
     "gh-131": {
       "": "Heart of the Betrayer",
@@ -1035,7 +1035,7 @@
     },
     "gh-134": {
       "": "Imposing Blade",
-      "1": "Any time you kill an enemy during your turn, gain %game.action.shield% 1 for the rest of the round."
+      "1": "Any time you kill an enemy during your turn, gain %game.action.shield:1% for the rest of the round."
     },
     "gh-135": {
       "": "Focusing Ray",
@@ -1043,11 +1043,11 @@
     },
     "gh-136": {
       "": "Volatile Elixir",
-      "1": "During your ranged attack, add +2 %game.action.attack% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made."
+      "1": "During your ranged attack, add %game.action.attack.valueSign:2% and gain Advantage on the entire Attack action, but suffer 2 damage for each attack made."
     },
     "gh-137": {
       "": "Silent Stiletto",
-      "1": "Any time you perform a melee attack, add %game.action.pierce% 1 to the Attack."
+      "1": "Any time you perform a melee attack, add %game.action.pierce:1% to the Attack."
     },
     "gh-138": {
       "": "Stone Charm",
@@ -1055,15 +1055,15 @@
     },
     "gh-139": {
       "": "Psychic Knife",
-      "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add +1 %game.action.attack% to the entire action."
+      "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add %game.action.attack.valueSign:1% to the entire action."
     },
     "gh-14": {
       "": "Minor Power Potion",
-      "1": "During your attack, add +1 %game.action.attack% to your entire Attack action."
+      "1": "During your attack, add %game.action.attack.valueSign:1% to your entire Attack action."
     },
     "gh-140": {
       "": "Sun Shield",
-      "1": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield% 3 for the attack."
+      "1": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield:3% for the attack."
     },
     "gh-141": {
       "": "Utility Belt",
@@ -1083,11 +1083,11 @@
     },
     "gh-145": {
       "": "Mask of Death",
-      "1": "Any time you perform a melee attack and you have exactly 1 hit point, add +2 %game.action.attack% to the Attack."
+      "1": "Any time you perform a melee attack and you have exactly 1 hit point, add %game.action.attack.valueSign:2% to the Attack."
     },
     "gh-146": {
       "": "Master's Lute",
-      "1": "After performing any %data.characterColored.music-note:Song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action."
+      "1": "After performing any %data.characterColored.music-note:Song% action, immediately perform an %game.action.attack:2% or %game.action.move:2% action."
     },
     "gh-147": {
       "": "Cloak of the Hunter",
@@ -1095,7 +1095,7 @@
     },
     "gh-148": {
       "": "Doctor's Coat",
-      "1": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add +1 %game.action.heal% to their Heal."
+      "1": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add %game.action.heal.valueSign:1% to their Heal."
     },
     "gh-149": {
       "": "Elemental Boots",
@@ -1143,11 +1143,11 @@
     },
     "gh-23": {
       "": "Chainmail",
-      "1": "On the next three sources of damage to you from attacks, gain %game.action.shield% 1."
+      "1": "On the next three sources of damage to you from attacks, gain %game.action.shield:1%."
     },
     "gh-24": {
       "": "Amulet of Life",
-      "1": "During your turn, perform a \"%game.action.heal% 1, Self\" action."
+      "1": "During your turn, perform a \"%game.action.heal:1%, Self\" action."
     },
     "gh-25": {
       "": "Jagged Sword",
@@ -1159,7 +1159,7 @@
     },
     "gh-27": {
       "": "Major Healing Potion",
-      "1": "During your turn, perform a \"%game.action.heal% 5, self\" action."
+      "1": "During your turn, perform a \"%game.action.heal:5%, self\" action."
     },
     "gh-28": {
       "": "Moon Earring",
@@ -1167,23 +1167,23 @@
     },
     "gh-29": {
       "": "Comfortable Shoes",
-      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
+      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move:3%\" action instead of a \"%game.action.move:2%\" action."
     },
     "gh-3": {
       "": "Hide Armor",
-      "1": "On the next two sources of damage from attacks targeting you, gain %game.action.shield% 1."
+      "1": "On the next two sources of damage from attacks targeting you, gain %game.action.shield:1%."
     },
     "gh-30": {
       "": "Studded Leather",
-      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
+      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield:1% for the attack."
     },
     "gh-31": {
       "": "Hawk Helm",
-      "1": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
+      "1": "During your ranged attack, add %game.action.range.valueSign:1% to your entire Attack action."
     },
     "gh-32": {
       "": "Tower Shield",
-      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
+      "1": "When damaged by an attack, gain %game.action.shield:2% for the attack."
     },
     "gh-33": {
       "": "Volatile Bomb",
@@ -1198,11 +1198,11 @@
     },
     "gh-36": {
       "": "Boots of Dashing",
-      "1": "During your movement, add +3 %game.action.move% to the movement."
+      "1": "During your movement, add %game.action.move.valueSign:3% to the movement."
     },
     "gh-37": {
       "": "Robes of Evocation",
-      "1": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your attack, %game.element.consume.wild% to add %game.action.attack.valueSign:1% to the entire Attack action."
     },
     "gh-38": {
       "": "Heavy Basinet",
@@ -1210,7 +1210,7 @@
     },
     "gh-39": {
       "": "Hooked Chain",
-      "1": "During your ranged attack, add %game.action.pull% 2 to the entire Attack action."
+      "1": "During your ranged attack, add %game.action.pull:2% to the entire Attack action."
     },
     "gh-4": {
       "": "Leather Armor",
@@ -1218,11 +1218,11 @@
     },
     "gh-40": {
       "": "Versatile Dagger",
-      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 3\" action instead of an \"%game.action.attack% 2\" action."
+      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack:3%\" action instead of an \"%game.action.attack:2%\" action."
     },
     "gh-41": {
       "": "Major Power Potion",
-      "1": "During your attack, add +2 %game.action.attack% to your entire Attack action."
+      "1": "During your attack, add %game.action.attack.valueSign:2% to your entire Attack action."
     },
     "gh-42": {
       "": "Ring of Haste",
@@ -1234,7 +1234,7 @@
     },
     "gh-44": {
       "": "Splintmail",
-      "1": "On the next four sources of damage to you from attacks, gain %game.action.shield% 1."
+      "1": "On the next four sources of damage to you from attacks, gain %game.action.shield:1%."
     },
     "gh-45": {
       "": "Pendant of Dark Pacts",
@@ -1242,7 +1242,7 @@
     },
     "gh-46": {
       "": "Spiked Shield",
-      "1": "When damaged by an attack, gain %game.action.shield% 1 and %game.action.retaliate% 2 for the attack."
+      "1": "When damaged by an attack, gain %game.action.shield:1% and %game.action.retaliate:2% for the attack."
     },
     "gh-47": {
       "": "Reaping Scythe",
@@ -1254,7 +1254,7 @@
     },
     "gh-49": {
       "": "Sun Earring",
-      "1": "During your turn, Refresh %game.card.refresh% all of your spent items and \"%game.action.heal% 3, Self\" action."
+      "1": "During your turn, Refresh %game.card.refresh% all of your spent items and \"%game.action.heal:3%, Self\" action."
     },
     "gh-5": {
       "": "Cloak of Invisibility",
@@ -1262,7 +1262,7 @@
     },
     "gh-50": {
       "": "Steel Sabatons",
-      "1": "If you move 1 or fewer hexes on your turn, gain %game.action.shield% 1 for the round."
+      "1": "If you move 1 or fewer hexes on your turn, gain %game.action.shield:1% for the round."
     },
     "gh-51": {
       "": "Shadow Armor",
@@ -1278,11 +1278,11 @@
     },
     "gh-54": {
       "": "Staff of Eminence",
-      "1": "During your ranged attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your ranged attack, %game.element.consume.wild% to add %game.action.attack.valueSign:1% to the entire Attack action."
     },
     "gh-55": {
       "": "Super Healing Potion",
-      "1": "During your turn, perform a \"%game.action.heal% 7, self\" action."
+      "1": "During your turn, perform a \"%game.action.heal:7%, self\" action."
     },
     "gh-56": {
       "": "Ring of Brutality",
@@ -1290,7 +1290,7 @@
     },
     "gh-57": {
       "": "Serene Sandals",
-      "1": "Whenever you use the default bottom of an ability card perform a \"%game.action.move% 4\" action instead of a \"%game.action.move% 2\" action."
+      "1": "Whenever you use the default bottom of an ability card perform a \"%game.action.move:4%\" action instead of a \"%game.action.move:2%\" action."
     },
     "gh-58": {
       "": "Cloak of Phasing",
@@ -1299,7 +1299,7 @@
     },
     "gh-59": {
       "": "Telescopic Lens",
-      "1": "During your ranged attack, add +2 %game.action.range% to your entire Attack action"
+      "1": "During your ranged attack, add %game.action.range.valueSign:2% to your entire Attack action"
     },
     "gh-6": {
       "": "Eagle-Eye Goggles",
@@ -1312,7 +1312,7 @@
     },
     "gh-61": {
       "": "Wall Shield",
-      "1": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
+      "1": "When damaged by an attack, gain %game.action.shield:4% for the attack."
     },
     "gh-62": {
       "": "Doom Powder",
@@ -1324,19 +1324,19 @@
     },
     "gh-64": {
       "": "Boots of Sprinting",
-      "1": "During your movement, add +4 %game.action.move% to the movement."
+      "1": "During your movement, add %game.action.move.valueSign:4% to the movement."
     },
     "gh-65": {
       "": "Platemail",
-      "1": "On the next five sources of damage to you from attacks, gain %game.action.shield% 1."
+      "1": "On the next five sources of damage to you from attacks, gain %game.action.shield:1%."
     },
     "gh-66": {
       "": "Mask of Terror",
-      "1": "During your melee attack, add %game.action.push% 1."
+      "1": "During your melee attack, add %game.action.push:1%."
     },
     "gh-67": {
       "": "Balanced Blade",
-      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 4\" instead of an \"%game.action.attack% 2\" action."
+      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack:4%\" instead of an \"%game.action.attack:2%\" action."
     },
     "gh-68": {
       "": "Halberd",
@@ -1344,7 +1344,7 @@
     },
     "gh-69": {
       "": "Star Earring",
-      "1": "During your turn, Refresh %game.card.refresh% all of your spent items, \"%game.action.heal% 3, Self\" action, and Recover %game.card.recover% up to two of your discarded cards."
+      "1": "During your turn, Refresh %game.card.refresh% all of your spent items, \"%game.action.heal:3%, Self\" action, and Recover %game.card.recover% up to two of your discarded cards."
     },
     "gh-7": {
       "": "Iron Helmet",
@@ -1364,11 +1364,11 @@
     },
     "gh-73": {
       "": "Blinking Cape",
-      "1": "During your turn, perform a \"%game.action.move% 4, %game.action.jump%\" action"
+      "1": "During your turn, perform a \"%game.action.move:4%, %game.action.jump%\" action"
     },
     "gh-74": {
       "": "Swordedge Armor",
-      "1": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 1, %game.action.retaliate% 1"
+      "1": "On the next three sources of damage from attacks targeting you, gain %game.action.shield:1%, %game.action.retaliate:1%"
     },
     "gh-75": {
       "": "Circlet of Elements",
@@ -1376,35 +1376,35 @@
     },
     "gh-76": {
       "": "Chain Hood",
-      "1": "While you are adjacent to three or more monsters, gain %game.action.shield% 1"
+      "1": "While you are adjacent to three or more monsters, gain %game.action.shield:1%"
     },
     "gh-77": {
       "": "Frigid Blade",
-      "1": "During your melee attack, %game.element.consume.ice% to add +2 %game.action.attack% to a single attack."
+      "1": "During your melee attack, %game.element.consume.ice% to add %game.action.attack.valueSign:2% to a single attack."
     },
     "gh-78": {
       "": "Storm Blade",
-      "1": "During your melee attack, %game.element.consume.air% to add +2 %game.action.attack% to a single attack."
+      "1": "During your melee attack, %game.element.consume.air% to add %game.action.attack.valueSign:2% to a single attack."
     },
     "gh-79": {
       "": "Inferno Blade",
-      "1": "During your melee attack, %game.element.consume.fire% to add +2 %game.action.attack% to a single attack."
+      "1": "During your melee attack, %game.element.consume.fire% to add %game.action.attack.valueSign:2% to a single attack."
     },
     "gh-8": {
       "": "Heater Shield",
-      "1": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
+      "1": "When damaged by an attack, gain %game.action.shield:1% for the attack."
     },
     "gh-80": {
       "": "Tremor Blade",
-      "1": "During your melee attack, %game.element.consume.earth% to add +2 %game.action.attack% to a single attack."
+      "1": "During your melee attack, %game.element.consume.earth% to add %game.action.attack.valueSign:2% to a single attack."
     },
     "gh-81": {
       "": "Brilliant Blade",
-      "1": "During your melee attack, %game.element.consume.light% to add +2 %game.action.attack% to a single attack."
+      "1": "During your melee attack, %game.element.consume.light% to add %game.action.attack.valueSign:2% to a single attack."
     },
     "gh-82": {
       "": "Night Blade",
-      "1": "During your melee attack, %game.element.consume.dark% to add +2 %game.action.attack% to a single attack."
+      "1": "During your melee attack, %game.element.consume.dark% to add %game.action.attack.valueSign:2% to a single attack."
     },
     "gh-83": {
       "": "Wand of Frost",
@@ -1444,7 +1444,7 @@
     },
     "gh-91": {
       "": "Steel Ring",
-      "1": "When damaged by an attack targeting you, gain %game.action.shield% 4 for the attack."
+      "1": "When damaged by an attack targeting you, gain %game.action.shield:4% for the attack."
     },
     "gh-92": {
       "": "Dampening Ring",
@@ -1452,11 +1452,11 @@
     },
     "gh-93": {
       "": "Scroll of Power",
-      "1": "During an ally's attack, add +1 %game.action.attack% to their entire attack action"
+      "1": "During an ally's attack, add %game.action.attack.valueSign:1% to their entire attack action"
     },
     "gh-94": {
       "": "Scroll of Healing",
-      "1": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action"
+      "1": "During your turn, perform a \"%game.action.heal:3%, %game.action.range:5%\" action"
     },
     "gh-95": {
       "": "Scroll of Stamina",
@@ -1464,11 +1464,11 @@
     },
     "gh-96": {
       "": "Rocket Boots",
-      "1": "During your movement, add +3 %game.action.move% and %game.action.jump% to a single movement"
+      "1": "During your movement, add %game.action.move.valueSign:3% and %game.action.jump% to a single movement"
     },
     "gh-97": {
       "": "Endurance Footwraps",
-      "1": "If you move 4 or more hexes on your turn, perform a \"\"%game.action.heal% 1, Self\"\" action."
+      "1": "If you move 4 or more hexes on your turn, perform a \"\"%game.action.heal:1%, Self\"\" action."
     },
     "gh-98": {
       "": "Drakescale Boots",
@@ -1476,7 +1476,7 @@
     },
     "gh-99": {
       "": "Magma Waders",
-      "1": "Ignore the damaging effects of hazardous terrain and perform a \"%game.action.heal% 2, Self\" action on any turn in which you have entered a hazardous terrain hex."
+      "1": "Ignore the damaging effects of hazardous terrain and perform a \"%game.action.heal:2%, Self\" action on any turn in which you have entered a hazardous terrain hex."
     },
     "gh-envx-151": {
       "": "Sword of the Sands"

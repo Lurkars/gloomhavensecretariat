@@ -219,7 +219,7 @@
         },
         {
           "type": "custom",
-          "value": "Living Bones, Living Corpses, and Living Spirits within %game.action.range% 4 add +1 %game.action.attack% to all their attacks this round.",
+          "value": "Living Bones, Living Corpses, and Living Spirits within %game.action.range:4% add %game.action.attack.valueSign:1% to all their attacks this round.",
           "small": true
         }
       ]

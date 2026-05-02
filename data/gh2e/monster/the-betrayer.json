@@ -21,7 +21,7 @@
         },
         {
           "type": "custom",
-          "value": "Each enemy within %game.action.range% 3 performs:",
+          "value": "Each enemy within %game.action.range:3% performs:",
           "small": true,
           "subActions": [
             {

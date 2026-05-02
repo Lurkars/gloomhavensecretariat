@@ -5,7 +5,7 @@
       "demolitionist": {
         "": "爆裂拳手",
         "mech": {
-          "hint": "你的生命值上限增加5点。治疗10%game.action.heal%，自己。"
+          "hint": "你的生命值上限增加5点。治疗%game.action.heal.valueSign:10%，自己。"
         }
       },
       "diviner": "占卜师",
@@ -21,17 +21,17 @@
   "custom": {
     "fh": {
       "brute": {
-        "1": "<b>Rested and Ready:</b> 每当你进行长休时，在下一个回合为你的第一次移动能力增加1 %game.action.move%",
+        "1": "<b>Rested and Ready:</b> 每当你进行长休时，在下一个回合为你的第一次移动能力增加%game.action.move.valueSign:1%",
         "2": "使敌人在单轮攻击中受到总共12点或更多的反伤伤害",
         "3": "在连续的3个回合中，使用6张不同的持续牌并且每回合对敌人至少造成%game.damage:6%"
       },
       "cragheart": {
-        "1": "<b>Earthquakes</b>每当一个新房间被揭示时，控制该房间中所有敌人执行 %game.action.move% 1， 该行动能力必须最后停止在空格",
+        "1": "<b>Earthquakes</b>每当一个新房间被揭示时，控制该房间中所有敌人执行 %game.action.move:1%， 该行动能力必须最后停止在空格",
         "2": "只攻击临近物体或墙壁的敌人",
         "3": "每回合至少对一个盟友造成伤害或治疗"
       },
       "demolitionist": {
-        "1": "<b>Remodeling</b> 每当你在与墙壁或障碍物相邻时休息，可在距离你%game.action.range%2格内的空六角格放置一个障碍物",
+        "1": "<b>Remodeling</b> 每当你在与墙壁或障碍物相邻时休息，可在距离你%game.action.range:2%格内的空六角格放置一个障碍物",
         "2": "使用三种不同的攻击行动各造成不少于10点伤害",
         "3": "摧毁至少6个障碍物。在完成剧本时，地图上除友方单位放置的障碍物外不存在任何其他障碍物"
       },

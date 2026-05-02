@@ -8,6 +8,7 @@ import { ConditionName, ConditionType, EntityCondition, EntityConditionState } f
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
+import { Summon } from '../model/Summon';
 
 export class SpecialActionsManager {
   game: Game;
@@ -74,5 +75,52 @@ export class SpecialActionsManager {
 
   afterTurn(entity: Entity) {
     this.beforeTurn(entity);
+  }
+
+  addSummon(character: Character, summon: Summon) {
+    if (character.name === 'boneshaper') {
+      if (character.tags.includes('solid-bones') || character.tags.includes('unholy-prowess')) {
+        if (summon.name === 'shambling-skeleton') {
+          summon.maxHealth += 1;
+          if (summon.health === summon.maxHealth - 1) {
+            summon.health = summon.maxHealth;
+          } else {
+            summon.health += 1;
+          }
+          gameManager.entityManager.checkHealth(summon, character);
+          if (character.tags.includes('solid-bones')) {
+            summon.movement += 1;
+            summon.action = new Action(ActionType.pierce, 1);
+          }
+        }
+      }
+    }
+
+    if (character.name === 'astral' && character.tags.includes('veil-of-protection')) {
+      summon.health += 3;
+      summon.maxHealth += 3;
+    }
+
+    if (character.name === 'astral' && character.tags.includes('imbue-with-life') && summon.name === 'animated-claymore') {
+      let disarm = character.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.disarm);
+      if (disarm) {
+        disarm.expired = false;
+        disarm.permanent = true;
+      } else {
+        disarm = new EntityCondition(ConditionName.disarm);
+        disarm.permanent = true;
+        character.entityConditions.push(disarm);
+      }
+    }
+  }
+
+  removeSummon(character: Character, summon: Summon) {
+    if (character.name === 'astral' && character.tags.includes('imbue-with-life') && summon.name === 'animated-claymore') {
+      const disarm = character.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.disarm);
+      if (disarm) {
+        disarm.permanent = false;
+        disarm.state = EntityConditionState.expire;
+      }
+    }
   }
 }

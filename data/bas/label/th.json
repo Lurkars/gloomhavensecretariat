@@ -12,7 +12,7 @@
         "1": "ฝูง"
       },
       "sand-spider": {
-        "1": "เพิ่ม +3 %game.action.attack% ถ้าเป้าหมายมี %game.condition.immobilize%",
+        "1": "เพิ่ม %game.action.attack.valueSign:3% ถ้าเป้าหมายมี %game.condition.immobilize%",
         "2": "การโจมตีทั้งหมดที่มุ่งมาที่ %data.monster.sand-spider% ในรอบนี้ได้เสียเปรียบ",
         "3": "สร้างกับดัก %game.condition.immobilize% ในหกเหลี่ยมว่างที่อยู่ติดกันและใกล้ศัตรูที่สุด"
       }

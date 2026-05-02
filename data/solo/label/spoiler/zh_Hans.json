@@ -58,7 +58,7 @@
     },
     "gh2e-154": {
       "": "光束枪",
-      "1": "在你治疗能力期间，一次目标为盟友的治疗附加+1%game.action.heal%和%game.condition.strengthen%。"
+      "1": "在你治疗能力期间，一次目标为盟友的治疗附加%game.action.heal.valueSign:1%和%game.condition.strengthen%。"
     },
     "gh2e-155": {
       "": "以太灵药",
@@ -66,7 +66,7 @@
     },
     "gh2e-156": {
       "": "沉默利刃",
-      "1": "你的所有攻击附加%game.action.pierce%1。"
+      "1": "你的所有攻击附加%game.action.pierce:1%。"
     },
     "gh2e-157": {
       "": "石心坠饰",
@@ -74,7 +74,7 @@
     },
     "gh2e-158": {
       "": "灵能小刀",
-      "1": "你%data.action.custom.gh2e-augment%行动中的所有攻击增加+1%game.action.attack%。"
+      "1": "你%data.action.custom.gh2e-augment%行动中的所有攻击增加%game.action.attack.valueSign:1%。"
     },
     "gh2e-159": {
       "": "神圣徽记",
@@ -96,11 +96,11 @@
     "gh2e-163": {
       "": "瘟疫挂饰",
       "1": "在你的回合期间,执行:",
-      "2": "你可以给与你%game.action.range:3%内的一个盟友%game.condition.poison%来附加+1 %game.action.target%。"
+      "2": "你可以给与你%game.action.range:3%内的一个盟友%game.condition.poison%来附加%game.action.target.valueSign:1%。"
     },
     "gh2e-164": {
       "": "死神面具",
-      "1": "你的当前生命值为1时，为所有近战攻击增加+2 %game.action.attack%。"
+      "1": "你的当前生命值为1时，为所有近战攻击增加%game.action.attack.valueSign:2%。"
     },
     "gh2e-165": {
       "": "大师鲁特琴",

@@ -30,7 +30,7 @@
         "1": "ทำทันทีหลัง %game.characterIcon.sun%"
       },
       "hawthorne": {
-        "1": "เพิ่ม +1 %game.action.attack% ให้การโจมตีทั้งหมดขณะที่ยังไม่เสียหาย"
+        "1": "เพิ่ม %game.action.attack.valueSign:1% ให้การโจมตีทั้งหมดขณะที่ยังไม่เสียหาย"
       },
       "living-spirit-squidface-solo": {
         "1": "เกราะฐานเป็น 0 ขณะที่ %data.monster.living-spirit-squidface-solo% ไม่มี %game.condition.poison%",

@@ -26,11 +26,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All characters suffer %game.action.damage% 1 at the start of their turns."
+          "value": "All characters suffer %game.action.damage:1% at the start of their turns."
         },
         {
           "type": "custom",
-          "value": "All monsters perform %game.action.heal% 1 at the start of their turns."
+          "value": "All monsters perform %game.action.heal:1% at the start of their turns."
         }
       ]
     }

@@ -6,7 +6,7 @@
     "fh": {
       "1482": {
         "": "盔甲检测",
-        "text": "每当角色承受的攻击%game.damage%没有被%game.action.shield%减少时，该次攻击增加%game.action.push%2。"
+        "text": "每当角色承受的攻击%game.damage%没有被%game.action.shield%减少时，该次攻击增加%game.action.push:2%。"
       },
       "1483": {
         "": "共情",
@@ -30,7 +30,7 @@
       },
       "1488": {
         "": "逆风",
-        "text": "所有敌人的远程攻击具有+1%game.action.range%。<br>所有敌人的移动能力增加+1%game.action.move%。"
+        "text": "所有敌人的远程攻击具有%game.action.range.valueSign:1%。<br>所有敌人的移动能力增加%game.action.move.valueSign:1%。"
       },
       "1489": {
         "": "暴力睡姿",
@@ -38,7 +38,7 @@
       },
       "1490": {
         "": "贪财无度",
-        "text": "敌人在每个自己的回合结束时执行%game.action.loot%1。每当敌人拾取“拾取标记”时，该敌人获得%game.condition.strengthen%。如果本剧本没有拾取牌库，抽取一张新的挑战，将本卡牌放到牌库底。"
+        "text": "敌人在每个自己的回合结束时执行%game.action.loot:1%。每当敌人拾取“拾取标记”时，该敌人获得%game.condition.strengthen%。如果本剧本没有拾取牌库，抽取一张新的挑战，将本卡牌放到牌库底。"
       },
       "1491": {
         "": "以退为进",
@@ -46,7 +46,7 @@
       },
       "1492": {
         "": "倒刺",
-        "text": "所有未受伤害的敌人具有%game.action.retaliate%2。"
+        "text": "所有未受伤害的敌人具有%game.action.retaliate:2%。"
       },
       "1493": {
         "": "身强体壮",
@@ -70,7 +70,7 @@
       },
       "1498": {
         "": "迷幻之力",
-        "text": "所有敌人的远程攻击具有%game.action.push%1。"
+        "text": "所有敌人的远程攻击具有%game.action.push:1%。"
       },
       "1499": {
         "": "金迷纸醉",
@@ -103,7 +103,7 @@
       },
       "1506": {
         "": "紧密阵型",
-        "text": "每当角色在不与盟友相邻的情况下执行攻击时，该次攻击增加-1%game.action.attack%。"
+        "text": "每当角色在不与盟友相邻的情况下执行攻击时，该次攻击增加%game.action.attack.valueSign:-1%。"
       },
       "1507": {
         "": "粗制滥造",
@@ -127,7 +127,7 @@
       },
       "1512": {
         "": "尖刺护甲",
-        "text": "所有角色获得%game.action.retaliate%X，%game.action.range%3，其中X等于该角色的%game.action.shield%数值。所有角色的攻击增加-1%game.action.attack%。"
+        "text": "所有角色获得%game.action.retaliate:X%，%game.action.range:3%，其中X等于该角色的%game.action.shield%数值。所有角色的攻击增加%game.action.attack.valueSign:-1%。"
       },
       "1513": {
         "": "公平战斗",
@@ -135,11 +135,11 @@
       },
       "1514": {
         "": "强势统领",
-        "text": "当地图上有精英敌人的情况下，所有同类型的普通敌人获得%game.action.shield%1。"
+        "text": "当地图上有精英敌人的情况下，所有同类型的普通敌人获得%game.action.shield:1%。"
       },
       "1515": {
         "": "方阵",
-        "text": "敌人在于自己盟友相邻的情况下，获得%game.action.shield%1。"
+        "text": "敌人在于自己盟友相邻的情况下，获得%game.action.shield:1%。"
       },
       "1516": {
         "": "奥术威胁",
@@ -151,7 +151,7 @@
       },
       "1518": {
         "": "血色连结",
-        "text": "每轮第一次有敌人承受%game.damage%时，另一个受到伤害的敌人执行%game.action.heal%X，自己，其中X等于前者承受的伤害。"
+        "text": "每轮第一次有敌人承受%game.damage%时，另一个受到伤害的敌人执行%game.action.heal:X%，自己，其中X等于前者承受的伤害。"
       },
       "1519": {
         "": "铁蒺藜",
@@ -168,7 +168,7 @@
       "1522": {
         "": "全面攻击",
         "hint": "只在怪物上施加！",
-        "text": "所有个体的单目标攻击能力增加-1%game.action.attack%和+1%game.action.target%。"
+        "text": "所有个体的单目标攻击能力增加%game.action.attack.valueSign:-1%和%game.action.target.valueSign:1%。"
       },
       "1523": {
         "": "狩猎犬群",
@@ -176,7 +176,7 @@
       },
       "1524": {
         "": "健康活力",
-        "text": "敌人在没有负面状态的情况下，获得%game.action.shield%1。每当敌人在其回合结束失去一个或多个负面状态时，该敌人承受%game.damage:1%。"
+        "text": "敌人在没有负面状态的情况下，获得%game.action.shield:1%。每当敌人在其回合结束失去一个或多个负面状态时，该敌人承受%game.damage:1%。"
       },
       "1525": {
         "": "恨意报复",
@@ -213,7 +213,7 @@
         "": "冰封拳师",
         "gift-of-the-mountain": {
           "": "山脉馈赠",
-          "hint": "在你每个回合结束时,执行: %game.action.heal% 2,自身"
+          "hint": "在你每个回合结束时,执行: %game.action.heal:2%,自身"
         },
         "one-with-the-mountain": {
           "": "融身山脉",
@@ -247,7 +247,7 @@
         },
         "repair_mode": {
           "": "再建援助",
-          "hint": "%data.characterToken.prism.mode%修理无人机模块：在你每个回合开始时，执行：%game.action.heal%2，自己"
+          "hint": "%data.characterToken.prism.mode%修理无人机模块：在你每个回合开始时，执行：%game.action.heal:2%，自己"
         },
         "spider_mode": {
           "": "群虫壁垒",
@@ -286,7 +286,7 @@
     "fh": {
       "astral": {
         "1": "将任意1个衰退元素移动到强烈",
-        "2": "每有一对激活的%game.action.custom.fh-infusion%，+1%game.action.attack%",
+        "2": "每有一对激活的%game.action.custom.fh-infusion%，%game.action.attack.valueSign:1%",
         "3": "每当你筋疲力尽时，保留场上你所有的激活奖励，每轮你的召唤物按99的先攻行动",
         "4": "每当你短暂休息时，你可以%game.element.consume.wild%来%game.card.recover%1个横置的%game.items.slots.onehand%或%game.items.slots.twohand%物品",
         "5": "每个剧本一次，在决定先攻顺序期间，所有能力卡牌翻开之后，%game.element.wild%",
@@ -312,8 +312,8 @@
       },
       "fist": {
         "1": "在与目标相邻、没有特征的格子中创造1块1格的冰冻地形板块",
-        "2": "且每当你使用移动能力进入冰冻地形时，你可以忽略其效果来增加+1%game.action.move%",
-        "3": "每当你获得充分休息的治疗时，你可以%game.elementHalf.consume:ice|earth%来增加+2%game.action.heal%",
+        "2": "且每当你使用移动能力进入冰冻地形时，你可以忽略其效果来增加%game.action.move.valueSign:1%",
+        "3": "每当你获得充分休息的治疗时，你可以%game.elementHalf.consume:ice|earth%来增加%game.action.heal.valueSign:2%",
         "4": "每个剧本一次，当你将要承受%game.damage%时，你可以抵消该%game.damage%",
         "5": "每轮%game.card.recover%你弃牌堆中至少1张卡牌",
         "6": "使用1次移动能力进入至少10个不同格子，随后在同一个回合中，使用1次攻击能力使1个敌人承受至少%game.damage:10%"
@@ -321,7 +321,7 @@
       "kelp": {
         "1": "获得1%game.characterToken.kelp.trophy%",
         "2": "获得1%game.action.custom.fh-trophy%",
-        "3": "每当你充分休息时，你可以%game.action.loot%1个相邻格。如果你获得拾取标记，获得1%game.action.custom.fh-trophy%",
+        "3": "每当你充分休息时，你可以%game.action.loot:1%个相邻格。如果你获得拾取标记，获得1%game.action.custom.fh-trophy%",
         "4": "在每个剧本开始时，获得2%game.action.custom.fh-trophy%",
         "5": "在你%game.condition.invisible%的情况下，你所有攻击获得优势",
         "6": "你执行的所有攻击均具有优势",
@@ -341,7 +341,7 @@
         "11": "每轮%game.action.custom.fh-mode%",
         "12": "一轮中%game.action.custom.fh-mode%4个不同的召唤物",
         "2": "焦点为距离虫巢最远的敌人。",
-        "3": "所有相邻盟友获得%game.action.shield%1。",
+        "3": "所有相邻盟友获得%game.action.shield:1%。",
         "4": "当受到攻击时，攻击者每有一个负面状态，%game.damage%减少1点。",
         "5": "回合结束时，给予所有相邻的个体和自己%game.condition.wound%。",
         "6": "在本次攻击能力之后，赋予1个你的召唤物：%game.action.move:2%",
@@ -352,7 +352,7 @@
       "shackles": {
         "1": "当攻击时，获得%game.action.retaliate%",
         "2": "2格内的所有敌人",
-        "3": "你每有一个负面状态，增加+1%game.action.attack%",
+        "3": "你每有一个负面状态，增加%game.action.attack.valueSign:1%",
         "4": "每个你充分休息的轮次中，你可以忽略你所有的负面状态。如果你这么做，当轮无法移除这些状态",
         "5": "每当你筋疲力尽时，先执行%game.condition.curse%，%game.action.target%所有，%game.action.range:3%",
         "6": "你的生命值上限提升5点",
@@ -380,10 +380,10 @@
       "trap": {
         "1": "回合结束时，在相邻的空格中创造1个%game.damage:2%陷阱。",
         "10": "使用1个能力使敌人移动经过至少7个陷阱",
-        "2": "在目标的相邻空格中创造一个%game.action.heal%2陷阱",
+        "2": "在目标的相邻空格中创造一个%game.action.heal:2%陷阱",
         "3": "在目标的相邻空格中创造一个%game.damage:1%陷阱",
-        "4": "在你%game.action.range:2%内的1个陷阱上增加%game.damage:2%或%game.action.heal%2",
-        "5": "增加%game.action.push%2或%game.action.pull%2",
+        "4": "在你%game.action.range:2%内的1个陷阱上增加%game.damage:2%或%game.action.heal:2%",
+        "5": "增加%game.action.push:2%或%game.action.pull:2%",
         "6": "每当你充分休息时，你可以在相邻空格中创造1个%game.damage:1%陷阱",
         "7": "每当你进入陷阱格时，你可以选择不触动该陷阱",
         "8": "在每个剧本开始时，你可以在相邻空格创造1个%game.damage:2%陷阱",
@@ -443,7 +443,7 @@
     },
     "fh-101": {
       "": "强效威力药水",
-      "1": "在你回合期间，你所有攻击+2%game.action.attack%。"
+      "1": "在你回合期间，你所有攻击%game.action.attack.valueSign:2%。"
     },
     "fh-102": {
       "": "强效元素药水",
@@ -455,23 +455,23 @@
     },
     "fh-104": {
       "": "迅捷药水",
-      "1": "在你移动能力期间，<br>+3%game.action.move% 和 %game.action.jump%。"
+      "1": "在你移动能力期间，<br>%game.action.move.valueSign:3% 和 %game.action.jump%。"
     },
     "fh-105": {
       "": "强效火盾药水",
-      "1": "在你回合期间,执行：<br> %game.action.retaliate% 2 %game.action.range:3%"
+      "1": "在你回合期间,执行：<br> %game.action.retaliate:2% %game.action.range:3%"
     },
     "fh-106": {
       "": "石壁药水",
-      "1": "在你回合期间,执行：<br>%game.condition.ward% %game.action.target% 2个相邻盟友和自己"
+      "1": "在你回合期间,执行：<br>%game.condition.ward% %game.action.target:2%个相邻盟友和自己"
     },
     "fh-107": {
       "": "活力药水",
-      "1": "在你回合期间,执行：<br>%game.condition.strengthen% %game.action.target% 2个相邻盟友和自己"
+      "1": "在你回合期间,执行：<br>%game.condition.strengthen% %game.action.target:2%个相邻盟友和自己"
     },
     "fh-108": {
       "": "圣雨",
-      "1": "在你回合期间,执行：<br>%game.condition.bless% %game.action.target% 2个相邻盟友和自己"
+      "1": "在你回合期间,执行：<br>%game.condition.bless% %game.action.target:2%个相邻盟友和自己"
     },
     "fh-109": {
       "": "强效复元药水",
@@ -587,11 +587,11 @@
     },
     "fh-134": {
       "": "舒适鞋",
-      "1": "当你使用能力卡牌下半部分的基础行动时,<br>将执行 %game.action.move%2 改为 %game.action.move%3."
+      "1": "当你使用能力卡牌下半部分的基础行动时,<br>将执行 %game.action.move:2% 改为 %game.action.move:3%."
     },
     "fh-135": {
       "": "破甲弓",
-      "1": "在你回合期间,你所有远程攻击增加 %game.action.pierce% 3."
+      "1": "在你回合期间,你所有远程攻击增加 %game.action.pierce:3%."
     },
     "fh-136": {
       "": "战斧",
@@ -607,11 +607,11 @@
     },
     "fh-139": {
       "": "角饰头盔",
-      "1": "在你回合中,你移动的格子大于等于4格之后,你本回合下一次近战攻击+1%game.action.attack%."
+      "1": "在你回合中,你移动的格子大于等于4格之后,你本回合下一次近战攻击%game.action.attack.valueSign:1%."
     },
     "fh-14": {
       "": "重型剑",
-      "1": "在你近战攻击能力期间,<br>1次攻击+1 %game.action.attack%."
+      "1": "在你近战攻击能力期间,<br>1次攻击%game.action.attack.valueSign:1%."
     },
     "fh-140": {
       "": "召唤斗篷",
@@ -631,19 +631,19 @@
     },
     "fh-144": {
       "": "显赫法杖",
-      "1": "在你回合期间,%game.element.consume.wild% 来使你所有攻击+1 %game.action.attack%."
+      "1": "在你回合期间,%game.element.consume.wild% 来使你所有攻击%game.action.attack.valueSign:1%."
     },
     "fh-145": {
       "": "万用匕首",
-      "1": "当你使用能力卡牌上半部分的基础行动时,<br>将执行 %game.action.attack%2 改为 %game.action.attack%3."
+      "1": "当你使用能力卡牌上半部分的基础行动时,<br>将执行 %game.action.attack:2% 改为 %game.action.attack:3%."
     },
     "fh-146": {
       "": "带钩锁链",
-      "1": "在你回合期间,你所有远程攻击增加 %game.action.pull%2."
+      "1": "在你回合期间,你所有远程攻击增加 %game.action.pull:2%."
     },
     "fh-147": {
       "": "恐怖面具",
-      "1": "在你近战攻击期间,<br>增加 %game.action.push%1."
+      "1": "在你近战攻击期间,<br>增加 %game.action.push:1%."
     },
     "fh-148": {
       "": "圣洁头环",
@@ -665,7 +665,7 @@
     },
     "fh-151": {
       "": "宁和凉鞋",
-      "1": "当你使用能力卡牌下半部分的基础行动时,<br>将执行 %game.action.move%2 改为 %game.action.move%4."
+      "1": "当你使用能力卡牌下半部分的基础行动时,<br>将执行 %game.action.move:2% 改为 %game.action.move:4%."
     },
     "fh-152": {
       "": "钢质铠靴",
@@ -701,7 +701,7 @@
     },
     "fh-16": {
       "": "激励头盔",
-      "1": "在你回合期间,赋予所有相邻的盟友:%game.action.move% 2"
+      "1": "在你回合期间,赋予所有相邻的盟友:%game.action.move:2%"
     },
     "fh-160": {
       "": "太阳耳环",
@@ -738,7 +738,7 @@
     },
     "fh-168": {
       "": "众眼头环",
-      "1": "在你远程攻击能力期间,<br>+1 %game.action.target%."
+      "1": "在你远程攻击能力期间,<br>%game.action.target.valueSign:1%."
     },
     "fh-169": {
       "": "宿命咒符",
@@ -766,7 +766,7 @@
     },
     "fh-174": {
       "": "磁力披肩",
-      "1": "在你回合期间,执行:%game.action.teleport%20<br>本次传送必须停留在你盟友的相邻格."
+      "1": "在你回合期间,执行:%game.action.teleport:20%<br>本次传送必须停留在你盟友的相邻格."
     },
     "fh-175": {
       "": "镜面护甲",
@@ -774,7 +774,7 @@
     },
     "fh-176": {
       "": "闪烁披肩",
-      "1": "在你回合期间,执行:%game.action.teleport%4<br>本次传送必须停留在你敌人的相邻格."
+      "1": "在你回合期间,执行:%game.action.teleport:4%<br>本次传送必须停留在你敌人的相邻格."
     },
     "fh-177": {
       "": "传导靴",
@@ -782,15 +782,15 @@
     },
     "fh-178": {
       "": "静谧鞋",
-      "1": "如果你的先攻大于等于60,且你不执行充分休息,在你回合开始时,执行：<br>%game.action.heal%1 自己."
+      "1": "如果你的先攻大于等于60,且你不执行充分休息,在你回合开始时,执行：<br>%game.action.heal:1% 自己."
     },
     "fh-179": {
       "": "爆发靴",
-      "1": "在你移动能力期间,+4 %game.action.move%.在本次移动能力结束后,获得 %game.condition.immobilize%."
+      "1": "在你移动能力期间,%game.action.move.valueSign:4%.在本次移动能力结束后,获得 %game.condition.immobilize%."
     },
     "fh-18": {
       "": "粗糙靴",
-      "1": "在你的回合期间,你所有移动能力+1 %game.action.move%."
+      "1": "在你的回合期间,你所有移动能力%game.action.move.valueSign:1%."
     },
     "fh-180": {
       "": "贪婪靴",
@@ -806,11 +806,11 @@
     },
     "fh-183": {
       "": "迷雾醒酒瓶",
-      "1": "在你回合期间使用,本轮中所有个体所有的远程攻击获得劣势并-1 %game.action.range%. "
+      "1": "在你回合期间使用,本轮中所有个体所有的远程攻击获得劣势并%game.action.range.valueSign:-1%. "
     },
     "fh-184": {
       "": "闪光斧",
-      "1": "在你多目标近战攻击能力期间,+1 %game.action.target%."
+      "1": "在你多目标近战攻击能力期间,%game.action.target.valueSign:1%."
     },
     "fh-185": {
       "": "镜面小刀",
@@ -838,7 +838,7 @@
     },
     "fh-190": {
       "": "空白牌",
-      "1": "在你回合期间,将1个角色标记放到 %game.action.range:3% 内的1个普通或精英敌人上.该敌人所有攻击-1 %game.action.attack%."
+      "1": "在你回合期间,将1个角色标记放到 %game.action.range:3% 内的1个普通或精英敌人上.该敌人所有攻击%game.action.attack.valueSign:-1%."
     },
     "fh-191": {
       "": "腐化卷轴",
@@ -858,7 +858,7 @@
     },
     "fh-195": {
       "": "三角帽",
-      "1": "在你回合期间,你的1次远程攻击+1 %game.action.range% 和 %game.action.pierce%1."
+      "1": "在你回合期间,你的1次远程攻击%game.action.range.valueSign:1% 和 %game.action.pierce:1%."
     },
     "fh-196": {
       "": "牺牲颈环",
@@ -882,7 +882,7 @@
     },
     "fh-20": {
       "": "韧弦弓",
-      "1": "在你回合期间,你所有远程攻击+1 %game.action.range%."
+      "1": "在你回合期间,你所有远程攻击%game.action.range.valueSign:1%."
     },
     "fh-200": {
       "": "日暮权杖",
@@ -891,11 +891,11 @@
     },
     "fh-201": {
       "": "波浪之刃",
-      "1": "在你占据水域板块所在格或与其相邻的情况下,你执行的近战攻击能力期间,1次攻击增加 %game.action.push%1 和 %game.condition.immobilize%."
+      "1": "在你占据水域板块所在格或与其相邻的情况下,你执行的近战攻击能力期间,1次攻击增加 %game.action.push:1% 和 %game.condition.immobilize%."
     },
     "fh-202": {
       "": "巨型食人鱼豚脊椎",
-      "1": "在你近战攻击能力期间,1次攻击增加 %game.action.pierce%2 和 %game.condition.wound%."
+      "1": "在你近战攻击能力期间,1次攻击增加 %game.action.pierce:2% 和 %game.condition.wound%."
     },
     "fh-203": {
       "": "控制权杖",
@@ -911,7 +911,7 @@
     },
     "fh-206": {
       "": "巨型剑",
-      "1": "在你近战攻击能力期间,如果本轮中你没有移动过,1次攻击+2 %game.action.attack%,且本回合中你不能执行移动能力."
+      "1": "在你近战攻击能力期间,如果本轮中你没有移动过,1次攻击%game.action.attack.valueSign:2%,且本回合中你不能执行移动能力."
     },
     "fh-207": {
       "": "鱼钩",
@@ -919,11 +919,11 @@
     },
     "fh-208": {
       "": "泰坦钉",
-      "1": "在你攻击能力期间,如果攻击当前生命值小于等于4的敌人,在1次这样的攻击中增加%game.action.pierce%3."
+      "1": "在你攻击能力期间,如果攻击当前生命值小于等于4的敌人,在1次这样的攻击中增加%game.action.pierce:3%."
     },
     "fh-209": {
       "": "战绩之剑",
-      "1": "在你近战攻击能力期间,1次攻击获得优势.你每完成一个巅峰战绩,该次攻击还增加以下一项：<br>+1 %game.action.attack%,%game.condition.wound%或 %game.condition.poison%. "
+      "1": "在你近战攻击能力期间,1次攻击获得优势.你每完成一个巅峰战绩,该次攻击还增加以下一项：<br>%game.action.attack.valueSign:1%,%game.condition.wound%或 %game.condition.poison%. "
     },
     "fh-21": {
       "": "链甲兜帽",
@@ -931,7 +931,7 @@
     },
     "fh-210": {
       "": "塔吉奥",
-      "1": "在你回合期间使用,本轮中,潜伏蟹所有对你的攻击增加-3 %game.action.attack%. "
+      "1": "在你回合期间使用,本轮中,潜伏蟹所有对你的攻击增加%game.action.attack.valueSign:-3%. "
     },
     "fh-211": {
       "": "炸药桶",
@@ -952,7 +952,7 @@
     },
     "fh-215": {
       "": "烂醉酒杯",
-      "1": "在你回合期间,你所有攻击+1 %game.action.attack% 和 %game.condition.muddle%.在你回合结束时,执行:"
+      "1": "在你回合期间,你所有攻击%game.action.attack.valueSign:1% 和 %game.condition.muddle%.在你回合结束时,执行:"
     },
     "fh-216": {
       "": "元素宝典",
@@ -981,7 +981,7 @@
     },
     "fh-221": {
       "": "寒冰刺刃",
-      "1": "在你近战攻击能力期间,%game.element.consume.ice% 来使1次攻击增加 %game.action.pierce%3."
+      "1": "在你近战攻击能力期间,%game.element.consume.ice% 来使1次攻击增加 %game.action.pierce:3%."
     },
     "fh-222": {
       "": "黑盒",
@@ -999,8 +999,8 @@
     },
     "fh-225": {
       "": "冰角雕刻品",
-      "1": "在你近战攻击能力期间,%game.element.consume.earth% 来使1次攻击+1 %game.action.attack%,并将本卡牌翻面.",
-      "2": "在你远程攻击能力期间,%game.element.consume.air% 来使1次攻击增加<br>%game.action.push%2,并将本卡牌翻面."
+      "1": "在你近战攻击能力期间,%game.element.consume.earth% 来使1次攻击%game.action.attack.valueSign:1%,并将本卡牌翻面.",
+      "2": "在你远程攻击能力期间,%game.element.consume.air% 来使1次攻击增加<br>%game.action.push:2%,并将本卡牌翻面."
     },
     "fh-226": {
       "": "自由机手臂",
@@ -1020,7 +1020,7 @@
     },
     "fh-23": {
       "": "坚固胫甲",
-      "1": "在你回合开始时使用,你本轮中所有移动能力-2 %game.action.move%,以此在本轮中获得 %game.action.shield:1%. "
+      "1": "在你回合开始时使用,你本轮中所有移动能力%game.action.move.valueSign:-2%,以此在本轮中获得 %game.action.shield:1%. "
     },
     "fh-230": {
       "": "检查镜",
@@ -1108,7 +1108,7 @@
     },
     "fh-25": {
       "": "抚伤权杖",
-      "1": "在你的回合期间,执行:<br> %game.condition.regenerate% %game.action.target% 1个盟友,%game.action.range:2%"
+      "1": "在你的回合期间,执行:<br> %game.condition.regenerate% %game.action.target:1%个盟友,%game.action.range:2%"
     },
     "fh-250": {
       "": "审判之矛",
@@ -1151,8 +1151,8 @@
     },
     "fh-259": {
       "": "风暴铭纹",
-      "1": "在你赋予盟友的攻击能力期间，1次攻击增加%game.action.push%2，并将本卡牌翻面。",
-      "2": "在你攻击能力期间，一次攻击增加%game.action.pull%2，并将本卡牌翻面。"
+      "1": "在你赋予盟友的攻击能力期间，1次攻击增加%game.action.push:2%，并将本卡牌翻面。",
+      "2": "在你攻击能力期间，一次攻击增加%game.action.pull:2%，并将本卡牌翻面。"
     },
     "fh-26": {
       "": "真视镜片",
@@ -1168,7 +1168,7 @@
     },
     "fh-262": {
       "": "过载战靴",
-      "1": "在你%game.characterIconIdentityColored.drill.1%或%game.characterIconIdentityColored.drill.2%的移动能力期间，增加+1%game.action.move%，并在你的回合结束时将本卡牌翻面。",
+      "1": "在你%game.characterIconIdentityColored.drill.1%或%game.characterIconIdentityColored.drill.2%的移动能力期间，增加%game.action.move.valueSign:1%，并在你的回合结束时将本卡牌翻面。",
       "2": "在你的回合期间，当你%game.characterIconIdentityColored.drill.3%时，执行：",
       "4": "并在你的回合结束时将本卡牌翻面。"
     },
@@ -1182,11 +1182,11 @@
     },
     "fh-27": {
       "": "界护披风",
-      "1": "在敌人移动能力结束,停留在你相邻格之后,立即执行：<br>%game.action.push% 1 %game.action.target%该敌人"
+      "1": "在敌人移动能力结束,停留在你相邻格之后,立即执行：<br>%game.action.push:1% %game.action.target%该敌人"
     },
     "fh-28": {
       "": "坚固靴",
-      "1": "在你回合期间,你所有移动能力+1 %game.action.move% 并忽略困难地形."
+      "1": "在你回合期间,你所有移动能力%game.action.move.valueSign:1% 并忽略困难地形."
     },
     "fh-29": {
       "": "顺劈斧",
@@ -1198,7 +1198,7 @@
     },
     "fh-30": {
       "": "招架护手",
-      "1": "在敌人移动能力结束，停留在你相邻格之后，立即执行：<br>%game.action.attack% 3 %game.action.target%该敌人"
+      "1": "在敌人移动能力结束，停留在你相邻格之后，立即执行：<br>%game.action.attack:3% %game.action.target%该敌人"
     },
     "fh-31": {
       "": "防死咒符",
@@ -1210,7 +1210,7 @@
     },
     "fh-33": {
       "": "烈性靴",
-      "1": "每个回合最多一次，在你移动能力期间，增加+1%game.action.move%，随后在你回合结束时，将本卡牌翻面。",
+      "1": "每个回合最多一次，在你移动能力期间，增加%game.action.move.valueSign:1%，随后在你回合结束时，将本卡牌翻面。",
       "2": "每个回合最多一次，在你移动能力期间，承受%game.damage:1%，随后在你回合结束时，将本卡牌反面。"
     },
     "fh-34": {
@@ -1231,11 +1231,11 @@
     },
     "fh-38": {
       "": "决斗家之鞋",
-      "1": "在你回合期间，执行：<br>%game.action.move% 2<br>本次移动必须停留在敌人相邻格。"
+      "1": "在你回合期间，执行：<br>%game.action.move:2%<br>本次移动必须停留在敌人相邻格。"
     },
     "fh-39": {
       "": "深渊斧",
-      "1": "在你攻击能力期间，如果攻击的目标为冰封尸体、寒冰缚灵或活化末日灵，1次这类攻击增加：<br>+3%game.action.attack%和%game.action.pierce%1。"
+      "1": "在你攻击能力期间，如果攻击的目标为冰封尸体、寒冰缚灵或活化末日灵，1次这类攻击增加：<br>%game.action.attack.valueSign:3%和%game.action.pierce:1%。"
     },
     "fh-4": {
       "": "简陋毛皮护甲",
@@ -1243,7 +1243,7 @@
     },
     "fh-40": {
       "": "穿心弓",
-      "1": "在你回合期间，你的一次远程攻击增加：<br>+1%game.action.attack%和+2%game.action.range%。"
+      "1": "在你回合期间，你的一次远程攻击增加：<br>%game.action.attack.valueSign:1%和%game.action.range.valueSign:2%。"
     },
     "fh-41": {
       "": "精致咒符",
@@ -1255,7 +1255,7 @@
     },
     "fh-43": {
       "": "飞踢靴",
-      "1": "在你近战攻击能力期间，1次攻击增加%game.action.push%2。"
+      "1": "在你近战攻击能力期间，1次攻击增加%game.action.push:2%。"
     },
     "fh-44": {
       "": "赦罪剑",
@@ -1279,16 +1279,16 @@
     },
     "fh-49": {
       "": "残酷匕首",
-      "1": "在你近战攻击能力期间，1次攻击增加+1%game.action.attack%和%game.condition.wound% 。"
+      "1": "在你近战攻击能力期间，1次攻击增加%game.action.attack.valueSign:1%和%game.condition.wound% 。"
     },
     "fh-5": {
       "": "简陋靴",
-      "1": "在你移动能力期间，增加+1%game.action.move%"
+      "1": "在你移动能力期间，增加%game.action.move.valueSign:1%"
     },
     "fh-50": {
       "": "互惠盾",
       "1": "当你承受攻击%game.damage%时，在该次攻击中获得%game.action.shield:1%并将本卡牌翻面。",
-      "2": "在你近战攻击能力期间，1次攻击增加%game.action.pierce%1，并将本卡牌翻面。"
+      "2": "在你近战攻击能力期间，1次攻击增加%game.action.pierce:1%，并将本卡牌翻面。"
     },
     "fh-51": {
       "": "尖刺项圈",
@@ -1300,7 +1300,7 @@
     },
     "fh-53": {
       "": "平头钉靴",
-      "1": "在你回合期间，你移动的格子大于等于4格之后，你在本轮中获得%game.action.retaliate%1。"
+      "1": "在你回合期间，你移动的格子大于等于4格之后，你在本轮中获得%game.action.retaliate:1%。"
     },
     "fh-54": {
       "": "休憩便鞋",
@@ -1308,7 +1308,7 @@
     },
     "fh-55": {
       "": "撕咬护手",
-      "1": "当你受到相邻敌人攻击时，在该次攻击中获得%game.action.retaliate%2。"
+      "1": "当你受到相邻敌人攻击时，在该次攻击中获得%game.action.retaliate:2%。"
     },
     "fh-56": {
       "": "拾荒者磁铁",
@@ -1320,7 +1320,7 @@
     },
     "fh-58": {
       "": "滑手剑",
-      "1": "在你近战攻击能力期间，1次攻击增加+2%game.action.attack%。在该次能力结束后，获得%game.condition.disarm% 。"
+      "1": "在你近战攻击能力期间，1次攻击增加%game.action.attack.valueSign:2%。在该次能力结束后，获得%game.condition.disarm% 。"
     },
     "fh-59": {
       "": "专精咒符",
@@ -1340,11 +1340,11 @@
     },
     "fh-62": {
       "": "恒久靴",
-      "1": "在你移动能力期间，增加+1%game.action.move%并获得%game.condition.regenerate%"
+      "1": "在你移动能力期间，增加%game.action.move.valueSign:1%并获得%game.condition.regenerate%"
     },
     "fh-63": {
       "": "暗影重踏靴",
-      "1": "在你移动能力期间，%game.element.consume.dark%来增加+2%game.action.move%"
+      "1": "在你移动能力期间，%game.element.consume.dark%来增加%game.action.move.valueSign:2%"
     },
     "fh-64": {
       "": "雷管",
@@ -1352,7 +1352,7 @@
     },
     "fh-65": {
       "": "铁华粉",
-      "1": "在你回合期间，将1个角色标记放到%game.action.range:3%内的1个普通或精英敌人上。本次剧本中，该敌人获得-1%game.action.shield%。"
+      "1": "在你回合期间，将1个角色标记放到%game.action.range:3%内的1个普通或精英敌人上。本次剧本中，该敌人获得%game.action.shield.valueSign:-1%。"
     },
     "fh-66": {
       "": "永恒生命项链",
@@ -1360,8 +1360,8 @@
     },
     "fh-67": {
       "": "会聚透镜",
-      "1": "当你受到攻击时，不抽取攻击修正卡牌，改为该次攻击增加+1%game.action.attack%并将本卡牌翻面。",
-      "2": "在你攻击能力期间，1次攻击不抽取攻击修正卡牌，改为该次攻击增加+1%game.action.attack%并将本卡牌翻面。"
+      "1": "当你受到攻击时，不抽取攻击修正卡牌，改为该次攻击增加%game.action.attack.valueSign:1%并将本卡牌翻面。",
+      "2": "在你攻击能力期间，1次攻击不抽取攻击修正卡牌，改为该次攻击增加%game.action.attack.valueSign:1%并将本卡牌翻面。"
     },
     "fh-68": {
       "": "鳞甲",
@@ -1373,7 +1373,7 @@
     },
     "fh-7": {
       "": "简陋弓",
-      "1": "在你回合期间，你的1次远程攻击增加+1%game.action.range%。"
+      "1": "在你回合期间，你的1次远程攻击增加%game.action.range.valueSign:1%。"
     },
     "fh-70": {
       "": "以太灵长袍",
@@ -1415,7 +1415,7 @@
     },
     "fh-79": {
       "": "炙烤禽肉",
-      "1": "在你回合期间，你所有攻击增加+1%game.action.attack%并执行："
+      "1": "在你回合期间，你所有攻击增加%game.action.attack.valueSign:1%并执行："
     },
     "fh-8": {
       "": "简陋矛",
@@ -1423,7 +1423,7 @@
     },
     "fh-80": {
       "": "活化石",
-      "1": "当你将要承受的攻击%game.damage%小于等于4时，抵消该%game.damage%并执行：%game.action.heal% X 自己 其中X为你将要承受的伤害数量。"
+      "1": "当你将要承受的攻击%game.damage%小于等于4时，抵消该%game.damage%并执行：%game.action.heal:X% 自己 其中X为你将要承受的伤害数量。"
     },
     "fh-81": {
       "": "痛苦假偶",
@@ -1435,7 +1435,7 @@
     },
     "fh-83": {
       "": "治疗药水",
-      "1": "在你回合期间，执行：<br>%game.action.heal% 3 自己"
+      "1": "在你回合期间，执行：<br>%game.action.heal:3% 自己"
     },
     "fh-84": {
       "": "耐力药水",
@@ -1443,7 +1443,7 @@
     },
     "fh-85": {
       "": "威力药水",
-      "1": "在你回合期间，你所有攻击增加+1%game.action.attack%。"
+      "1": "在你回合期间，你所有攻击增加%game.action.attack.valueSign:1%。"
     },
     "fh-86": {
       "": "元素药水",
@@ -1455,7 +1455,7 @@
     },
     "fh-88": {
       "": "火盾药水",
-      "1": "在你回合期间执行：<br>%game.action.retaliate% 1 %game.action.range:3% "
+      "1": "在你回合期间执行：<br>%game.action.retaliate:1% %game.action.range:3% "
     },
     "fh-89": {
       "": "石肤药水",
@@ -1503,7 +1503,7 @@
     },
     "fh-99": {
       "": "强效治疗药水",
-      "1": "在你回合期间，执行：<br>%game.action.heal% 6 自己"
+      "1": "在你回合期间，执行：<br>%game.action.heal:6% 自己"
     }
   },
   "pets": {
@@ -1513,7 +1513,7 @@
     },
     "fh-02": {
       "": "猎犬",
-      "1": "本轮中，所有角色近战攻击的目标为与自己盟友相邻的敌人时，攻击增加+1%game.action.attack%。"
+      "1": "本轮中，所有角色近战攻击的目标为与自己盟友相邻的敌人时，攻击增加%game.action.attack.valueSign:1%。"
     },
     "fh-03": {
       "": "喷吐龙蜥",

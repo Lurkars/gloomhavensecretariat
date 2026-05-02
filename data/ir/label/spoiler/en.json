@@ -27,7 +27,7 @@
     },
     "ir-11": {
       "": "Reverse Engineering Kit",
-      "1": "Disarm all adjacent traps and apply their effects to one enemy in %game.action.range% 3"
+      "1": "Disarm all adjacent traps and apply their effects to one enemy in %game.action.range:3%"
     },
     "ir-12": {
       "": "Chroma Parasite",
@@ -35,7 +35,7 @@
     },
     "ir-13": {
       "": "Dazing Toxin",
-      "1": "Remove %game.condition.poison% from any number of enemies. One enemy in %game.action.range% 3 suffers damage equal to the number of %game.condition.poison% conditions removed."
+      "1": "Remove %game.condition.poison% from any number of enemies. One enemy in %game.action.range:3% suffers damage equal to the number of %game.condition.poison% conditions removed."
     },
     "ir-14": {
       "": "Selective Boots",
@@ -43,11 +43,11 @@
     },
     "ir-2": {
       "": "Coat of Arms",
-      "1": "All adjacent allies add +1 %game.action.attack% to all their attacks this round."
+      "1": "All adjacent allies add %game.action.attack.valueSign:1% to all their attacks this round."
     },
     "ir-3": {
       "": "Lava Hammer",
-      "1": "During your attack targeting a Frost Demon or Wind Demon, add +5 %game.action.attack% to a single attack."
+      "1": "During your attack targeting a Frost Demon or Wind Demon, add %game.action.attack.valueSign:5% to a single attack."
     },
     "ir-4": {
       "": "Lava Shield",
@@ -59,7 +59,7 @@
     },
     "ir-6": {
       "": "Spiked Boots",
-      "1": "During your turn, perform a %game.action.move% 4, %game.action.jump% action. %game.condition.wound% all enemies moved through."
+      "1": "During your turn, perform a %game.action.move:4%, %game.action.jump% action. %game.condition.wound% all enemies moved through."
     },
     "ir-7": {
       "": "Orb of Visions",

@@ -19,6 +19,7 @@ import { ScenarioManager } from 'src/app/game/businesslogic/ScenarioManager';
 import { ScenarioRulesManager } from 'src/app/game/businesslogic/ScenarioRulesManager';
 import { ScenarioStatsManager } from 'src/app/game/businesslogic/ScenarioStatsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SpecialActionsManager } from 'src/app/game/businesslogic/SpecialActionsManager';
 import { StateManager } from 'src/app/game/businesslogic/StateManager';
 import { TrialsManager } from 'src/app/game/businesslogic/TrialsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -88,6 +89,7 @@ export class GameManager {
   trialsManager: TrialsManager;
   enhancementsManager: EnhancementsManager;
   imbuementManager: ImbuementManager;
+  specialActionsManager: SpecialActionsManager;
 
   uiChangeSignal: WritableSignal<number> = signal(0);
   uiChangeFromServer: WritableSignal<boolean> = signal(false);
@@ -119,6 +121,7 @@ export class GameManager {
     this.trialsManager = new TrialsManager(this.game);
     this.enhancementsManager = new EnhancementsManager(this.game);
     this.imbuementManager = new ImbuementManager(this.game);
+    this.specialActionsManager = new SpecialActionsManager(this.game);
   }
 
   editions(all: boolean = false, additional: boolean = false): string[] {

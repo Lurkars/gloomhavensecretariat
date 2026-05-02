@@ -37,19 +37,19 @@
       "": "Bâton de Commandement"
     },
     "solo-digital-135": {
-      "1": "Pendant votre action de Soin ciblant un allié, ajoutez +1 %game.action.heal% et %game.condition.strengthen%."
+      "1": "Pendant votre action de Soin ciblant un allié, ajoutez %game.action.heal.valueSign:1% et %game.condition.strengthen%."
     },
     "solo-digital-137": {
-      "1": "À chaque fois que vous réalisez une attaque de mêlée, ajoutez %game.action.pierce% 1 à l'attaque."
+      "1": "À chaque fois que vous réalisez une attaque de mêlée, ajoutez %game.action.pierce:1% à l'attaque."
     },
     "solo-digital-138": {
       "1": "Pendant votre action de création d'un obstacle, tous les adversaires adjacents à cet obstacle gagnent %game.condition.muddle%."
     },
     "solo-digital-139": {
-      "1": "À chaque fois que vous réalisez une action %data.characterColored.mindthief:Augment%, ajoutez +2 %game.action.attack% à la totalité de l'action."
+      "1": "À chaque fois que vous réalisez une action %data.characterColored.mindthief:Augment%, ajoutez %game.action.attack.valueSign:2% à la totalité de l'action."
     },
     "solo-digital-140": {
-      "1": "Lorsque vous êtes blessé par une attaque, vous pouvez %game.element.consume.light% pour gagner %game.action.shield% 2 et %game.action.retaliate% 1 pour l'attaque."
+      "1": "Lorsque vous êtes blessé par une attaque, vous pouvez %game.element.consume.light% pour gagner %game.action.shield:2% et %game.action.retaliate:1% pour l'attaque."
     },
     "solo-digital-143": {
       "1": "Durant votre tour, gagnez %game.condition.invisible%."
@@ -58,10 +58,10 @@
       "1": "Durant votre tour, %game.condition.poison% et %game.condition.curse% un adversaire avec %game.action.range:3%."
     },
     "solo-digital-146": {
-      "1": "Après avoir réalisé une action %data.characterColored.music-note:Song%, réalisez immédiatement une action %game.action.attack% 2 ou %game.action.move% 2."
+      "1": "Après avoir réalisé une action %data.characterColored.music-note:Song%, réalisez immédiatement une action %game.action.attack:2% ou %game.action.move:2%."
     },
     "solo-digital-147": {
-      "1": "À chaque fois que vous réalisez une action %data.characterColored.angry-face:Doom%, vous pouvez effectuer immédiatement après \"%game.action.move% 1\"."
+      "1": "À chaque fois que vous réalisez une action %data.characterColored.angry-face:Doom%, vous pouvez effectuer immédiatement après \"%game.action.move:1%\"."
     },
     "solo-digital-149": {
       "1": "Si vous vous déplacez de 3 hexagones ou plus pendant votre tour, créez n'importe quel élément."

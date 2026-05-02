@@ -10,7 +10,7 @@
     },
     "jotl-11": {
       "": "治療藥水",
-      "1": "在你的回合中，執行\"%game.action.heal% 3，自身\"的動作。"
+      "1": "在你的回合中，執行\"%game.action.heal:3%，自身\"的動作。"
     },
     "jotl-12": {
       "": "耐力藥水",
@@ -18,7 +18,7 @@
     },
     "jotl-13": {
       "": "威力藥水",
-      "1": "在你的攻擊行動中，為整個攻擊動作附加 +1 %game.action.attack%。"
+      "1": "在你的攻擊行動中，為整個攻擊動作附加 %game.action.attack.valueSign:1%。"
     },
     "jotl-14": {
       "": "魔力藥水",
@@ -26,15 +26,15 @@
     },
     "jotl-15": {
       "": "生命項鏈",
-      "1": "在你的回合中，執行\"%game.action.heal% 1，自身\"的動作。"
+      "1": "在你的回合中，執行\"%game.action.heal:1%，自身\"的動作。"
     },
     "jotl-16": {
       "": "聖能長袍",
-      "1": "在你的攻擊行動中，%game.element.consume.wild% 以為整個攻擊動作附加 +1 %game.action.attack%。"
+      "1": "在你的攻擊行動中，%game.element.consume.wild% 以為整個攻擊動作附加 %game.action.attack.valueSign:1%。"
     },
     "jotl-17": {
       "": "舒適鞋",
-      "1": "使用能力牌的預設下方動作時，將原本的%game.action.move% 2動作改為%game.action.move% 3。"
+      "1": "使用能力牌的預設下方動作時，將原本的%game.action.move:2%動作改為%game.action.move:3%。"
     },
     "jotl-18": {
       "": "戰斧",
@@ -54,15 +54,15 @@
     },
     "jotl-21": {
       "": "獵鷹頭盔",
-      "1": "在你的遠程攻擊行動中，為整個攻擊動作附加 +1 %game.action.range%。"
+      "1": "在你的遠程攻擊行動中，為整個攻擊動作附加 %game.action.range.valueSign:1%。"
     },
     "jotl-22": {
       "": "鋒刃護甲",
-      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield% 2，並使攻擊者受到 2 點傷害。"
+      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield:2%，並使攻擊者受到 2 點傷害。"
     },
     "jotl-23": {
       "": "闊步靴",
-      "1": "在你的移動行動中，為其中一次移動附加 +2 %game.action.move%。"
+      "1": "在你的移動行動中，為其中一次移動附加 %game.action.move.valueSign:2%。"
     },
     "jotl-24": {
       "": "烈性炸彈",
@@ -70,7 +70,7 @@
     },
     "jotl-25": {
       "": "倒刺鎖鏈",
-      "1": "在你的遠程攻擊行動中，為其中一次攻擊附加 %game.action.pull% 2。"
+      "1": "在你的遠程攻擊行動中，為其中一次攻擊附加 %game.action.pull:2%。"
     },
     "jotl-26": {
       "": "橡樹符咒",
@@ -78,7 +78,7 @@
     },
     "jotl-27": {
       "": "宿命羅盤",
-      "1": "在你的回合中，強制一名在 %game.action.range:3% 範圍內的敵人執行\"%game.action.move% 2\"動作，由你控制其行動。"
+      "1": "在你的回合中，強制一名在 %game.action.range:3% 範圍內的敵人執行\"%game.action.move:2%\"動作，由你控制其行動。"
     },
     "jotl-28": {
       "": "跳蚤斗篷",
@@ -86,11 +86,11 @@
     },
     "jotl-29": {
       "": "塔盾",
-      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield% 2。"
+      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield:2%。"
     },
     "jotl-3": {
       "": "鏈甲",
-      "1": "在你的回合中，獲得 %game.action.shield% 1，持續至本回合結束"
+      "1": "在你的回合中，獲得 %game.action.shield:1%，持續至本回合結束"
     },
     "jotl-30": {
       "": "疾速戒指",
@@ -102,11 +102,11 @@
     },
     "jotl-32": {
       "": "恢復戒指",
-      "1": "在你的回合中，執行\"%game.action.heal% 3，%game.action.range:5%\"的動作。"
+      "1": "在你的回合中，執行\"%game.action.heal:3%，%game.action.range:5%\"的動作。"
     },
     "jotl-33": {
       "": "鋼質戒指",
-      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield% 4。"
+      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield:4%。"
     },
     "jotl-34": {
       "": "倒刺斧",
@@ -114,19 +114,19 @@
     },
     "jotl-35": {
       "": "律令長袍",
-      "1": "在你的回合中，一名相鄰的盟友可以執行\"%game.action.attack% 2\"動作。"
+      "1": "在你的回合中，一名相鄰的盟友可以執行\"%game.action.attack:2%\"動作。"
     },
     "jotl-36": {
       "": "噴射靴",
-      "1": "在你的移動行動中，為其中一次移動附加 +1 %game.action.move% 並附加 %game.action.jump%。"
+      "1": "在你的移動行動中，為其中一次移動附加 %game.action.move.valueSign:1% 並附加 %game.action.jump%。"
     },
     "jotl-4": {
       "": "嵌釘皮甲",
-      "1": "當你受到攻擊時，使攻擊者在該次攻擊中獲得劣勢，並使你獲得 %game.action.shield% 1。"
+      "1": "當你受到攻擊時，使攻擊者在該次攻擊中獲得劣勢，並使你獲得 %game.action.shield:1%。"
     },
     "jotl-5": {
       "": "破舊靴",
-      "1": "在你的移動行動中，為其中一次移動附加 +1 %game.action.move%。"
+      "1": "在你的移動行動中，為其中一次移動附加 %game.action.move.valueSign:1%。"
     },
     "jotl-6": {
       "": "飛翼鞋",
@@ -134,7 +134,7 @@
     },
     "jotl-7": {
       "": "熨斗盾",
-      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield% 1。"
+      "1": "當受到攻擊傷害時，該次攻擊獲得 %game.action.shield:1%。"
     },
     "jotl-8": {
       "": "投擲錘",

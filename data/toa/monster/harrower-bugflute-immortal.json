@@ -30,7 +30,7 @@
         },
         {
           "type": "custom",
-          "value": "All other Harrowers perform %game.action.move%-1, %game.action.attack%-1"
+          "value": "All other Harrowers perform %game.action.move:-1%, %game.action.attack:-1%"
         }
       ],
       [

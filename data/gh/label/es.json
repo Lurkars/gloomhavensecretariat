@@ -119,7 +119,7 @@
         "1": "Se mueve a la puerta siguiente y revela la sala"
       },
       "captain-of-the-guard": {
-        "1": "Todos los aliados ganan +1 %game.action.attack% a todos sus ataques durante esta ronda"
+        "1": "Todos los aliados ganan %game.action.attack.valueSign:1% a todos sus ataques durante esta ronda"
       },
       "dark-rider": {
         "1": "X = hexágonos movidos"
@@ -152,14 +152,14 @@
         "voice": "La voz"
       },
       "giant-viper": {
-        "1": "Añade +2 %game.action.attack% si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.giant-viper%'.",
+        "1": "Añade %game.action.attack.valueSign:2% si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.giant-viper%'.",
         "2": "Todos los ataques con objetivo a la %data.monster.giant-viper% ganan Desventaja durante esta ronda."
       },
       "harrower-infester": {
-        "1": "Realiza \"%game.action.heal% 2, %game.specialTarget.self%\" por cada objetivo dañado"
+        "1": "Realiza \"%game.action.heal:2%, %game.specialTarget.self%\" por cada objetivo dañado"
       },
       "hound": {
-        "1": "Obtiene +2 %game.action.attack% si el objeto está adyacente a cualquier %data.monster.hound%'s aliado."
+        "1": "Obtiene %game.action.attack.valueSign:2% si el objeto está adyacente a cualquier %data.monster.hound%'s aliado."
       },
       "merciless-overseer": {
         "1": "Todos los exploradores actúan otra vez",
@@ -414,7 +414,7 @@
           "1": "hacia el chamán en la pieza de tablero D"
         },
         "42": {
-          "1": "Todos los monstruos obtienen +1 %game.action.attack% a todos sus ataques",
+          "1": "Todos los monstruos obtienen %game.action.attack.valueSign:1% a todos sus ataques",
           "2": "Todos los monstruos obtienen Ventaja en todos sus ataques",
           "3": "Todos los monstruos se curan 1 PV al inicio de cada uno de sus turnos",
           "4": "Todos los personajes e invocaciones de personajes sufren 1 de daño al inicio de cada uno de sus turnos.",

@@ -10,7 +10,7 @@
     },
     "jotl-11": {
       "": "Healing Potion",
-      "1": "During your turn, perform a \"%game.action.heal% 3, Self\" action."
+      "1": "During your turn, perform a \"%game.action.heal:3%, Self\" action."
     },
     "jotl-12": {
       "": "Stamina Potion",
@@ -18,7 +18,7 @@
     },
     "jotl-13": {
       "": "Power Potion",
-      "1": "During your attack, add +1 %game.action.attack% to your entire Attack action."
+      "1": "During your attack, add %game.action.attack.valueSign:1% to your entire Attack action."
     },
     "jotl-14": {
       "": "Mana Potion",
@@ -26,15 +26,15 @@
     },
     "jotl-15": {
       "": "Amulet of Life",
-      "1": "During your turn, \"%game.action.heal% 1, Self\" action."
+      "1": "During your turn, \"%game.action.heal:1%, Self\" action."
     },
     "jotl-16": {
       "": "Robes of Evocation",
-      "1": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your attack, %game.element.consume.wild% to add %game.action.attack.valueSign:1% to the entire Attack action."
     },
     "jotl-17": {
       "": "Comfortable Shoes",
-      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
+      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move:3%\" action instead of a \"%game.action.move:2%\" action."
     },
     "jotl-18": {
       "": "Battle-Axe",
@@ -54,15 +54,15 @@
     },
     "jotl-21": {
       "": "Hawk Helm",
-      "1": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
+      "1": "During your ranged attack, add %game.action.range.valueSign:1% to your entire Attack action."
     },
     "jotl-22": {
       "": "Bladed Armor",
-      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack and the attacker suffers 2 damage."
+      "1": "When damaged by an attack, gain %game.action.shield:2% for the attack and the attacker suffers 2 damage."
     },
     "jotl-23": {
       "": "Boots of Striding",
-      "1": "During your movement, add +2 %game.action.move% to a single movement."
+      "1": "During your movement, add %game.action.move.valueSign:2% to a single movement."
     },
     "jotl-24": {
       "": "Volatile Bomb",
@@ -70,7 +70,7 @@
     },
     "jotl-25": {
       "": "Barbed Chain",
-      "1": "During your ranged attack, add %game.action.pull% 2 to a single attack."
+      "1": "During your ranged attack, add %game.action.pull:2% to a single attack."
     },
     "jotl-26": {
       "": "Oak Charm",
@@ -78,7 +78,7 @@
     },
     "jotl-27": {
       "": "Fateful Compass",
-      "1": "During your turn, force one enemy within %game.action.range:3% to perform a \"%game.action.move% 2\" action with you controlling the action."
+      "1": "During your turn, force one enemy within %game.action.range:3% to perform a \"%game.action.move:2%\" action with you controlling the action."
     },
     "jotl-28": {
       "": "Flea-Bitten Shawl",
@@ -86,11 +86,11 @@
     },
     "jotl-29": {
       "": "Tower Shield",
-      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
+      "1": "When damaged by an attack, gain %game.action.shield:2% for the attack."
     },
     "jotl-3": {
       "": "Chain Armor",
-      "1": "During your turn gain %game.action.shield% 1 for the rest of the round"
+      "1": "During your turn gain %game.action.shield:1% for the rest of the round"
     },
     "jotl-30": {
       "": "Ring of Haste",
@@ -102,11 +102,11 @@
     },
     "jotl-32": {
       "": "Ring of Restoration",
-      "1": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action."
+      "1": "During your turn, perform a \"%game.action.heal:3%, %game.action.range:5%\" action."
     },
     "jotl-33": {
       "": "Steel Ring",
-      "1": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
+      "1": "When damaged by an attack, gain %game.action.shield:4% for the attack."
     },
     "jotl-34": {
       "": "Barbed Axe",
@@ -114,19 +114,19 @@
     },
     "jotl-35": {
       "": "Robes of Command",
-      "1": "During your turn, one adjacent ally may perform and \"%game.action.attack% 2\" Action."
+      "1": "During your turn, one adjacent ally may perform and \"%game.action.attack:2%\" Action."
     },
     "jotl-36": {
       "": "Jet Boots",
-      "1": "During your movement, add +1 %game.action.move% and %game.action.jump% to a single movement."
+      "1": "During your movement, add %game.action.move.valueSign:1% and %game.action.jump% to a single movement."
     },
     "jotl-4": {
       "": "Studded Leather",
-      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
+      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield:1% for the attack."
     },
     "jotl-5": {
       "": "Weathered Boots",
-      "1": "During your movement add +1 %game.action.move% to a single movement."
+      "1": "During your movement add %game.action.move.valueSign:1% to a single movement."
     },
     "jotl-6": {
       "": "Winged Shoes",
@@ -134,7 +134,7 @@
     },
     "jotl-7": {
       "": "Heater Shield",
-      "1": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
+      "1": "When damaged by an attack, gain %game.action.shield:1% for the attack."
     },
     "jotl-8": {
       "": "Throwing Hammer",

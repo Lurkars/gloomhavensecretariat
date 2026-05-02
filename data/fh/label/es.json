@@ -630,10 +630,10 @@
     },
     "barracks": {
       "": "Cuartel",
-      "1": "Adiestra de forma colectiva hasta 1 soldado por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 4<br><i>Efecto:</i> Ventaja y %game.action.attack% -5",
-      "2": "Adiestra de forma colectiva hasta 1 soldado por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 6<br><i>Efecto:</i> Ventaja y %game.action.attack% -15",
-      "3": "Adiestra de forma colectiva hasta 2 soldados por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 8<br><i>Efecto:</i> Ventaja y %game.action.attack% -25",
-      "4": "Adiestra de forma colectiva hasta 2 soldados por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 10<br><i>Efecto:</i> Ventaja y %game.action.attack% -35",
+      "1": "Adiestra de forma colectiva hasta 1 soldado por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 4<br><i>Efecto:</i> Ventaja y %game.action.attack:-5%",
+      "2": "Adiestra de forma colectiva hasta 1 soldado por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 6<br><i>Efecto:</i> Ventaja y %game.action.attack:-15%",
+      "3": "Adiestra de forma colectiva hasta 2 soldados por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 8<br><i>Efecto:</i> Ventaja y %game.action.attack:-25%",
+      "4": "Adiestra de forma colectiva hasta 2 soldados por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 10<br><i>Efecto:</i> Ventaja y %game.action.attack:-35%",
       "5": "Desventaja en todas las resoluciones de eventos de ataque.<br>No podéis usar soldados.",
       "soldiers": "Adiestra a 1 soldado"
     },
@@ -862,11 +862,11 @@
         "": "Esculpehuesos",
         "solid-bones": {
           "": "Huesos sólidos",
-          "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+          "hint": "Todos los Esqueletos tambaleantes tienen %game.action.heal.valueSign:1%, %game.action.move.valueSign:1%, %game.action.pierce:1%."
         },
         "unholy-prowess": {
           "": "Poderío impío",
-          "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%."
+          "hint": "Todos los Esqueletos tambaleantes tienen %game.action.heal.valueSign:1%."
         }
       },
       "deathwalker": {
@@ -925,27 +925,27 @@
         "1": "Crea 1 trampa %game.damage:3% en el hexágono vacío<br>adyacente más cercano a un enemigo."
       },
       "banner-spear": {
-        "1": "Todos los aliados a %game.range:2% o menos añaden %game.action.attack% +1 a 1 de sus ataques cada turno.",
+        "1": "Todos los aliados a %game.range:2% o menos añaden %game.action.attack:+1% a 1 de sus ataques cada turno.",
         "10": "Ataca al menos a 3 enemigos con 3 capacidades distintas de ataque con efecto de zona",
         "11": "Realiza una capacidad de invocación de Bandera en tu primer turno y mantén la Bandera viva y a %game.action.range:3% o menos de ti durante todo el escenario",
         "2": "Al inicio de sus turnos, otorga a los aliados a %game.range:3% o menos:",
         "3": "Todos los aliados adyacentes obtienen %game.shield% 1.",
         "4": "Prevén la primera fuente de %game.damage% a un aliado adyacente en cada ronda",
-        "5": "Todos los enemigos a 4 %game.action.range% o menos sufren %game.damage:1% al inicio de sus turnos.",
-        "6": "Añade %game.action.attack% +1 por cada aliado adyacente al objetivo",
-        "7": "Al final de cada uno de tus descansos largos, otorga a un aliado a %game.action.range:3% o menos: %game.action.move% 2",
-        "8": "Siempre que abras una puerta con una capacidad de Movimiento, añade %game.action.move% +3",
-        "9": "Una vez por escenario, durante tu turno, obtén %game.action.shield% 2 durante la ronda en curso",
+        "5": "Todos los enemigos a %game.action.range.valueSign:4% o menos sufren %game.damage:1% al inicio de sus turnos.",
+        "6": "Añade %game.action.attack:+1% por cada aliado adyacente al objetivo",
+        "7": "Al final de cada uno de tus descansos largos, otorga a un aliado a %game.action.range:3% o menos: %game.action.move:2%",
+        "8": "Siempre que abras una puerta con una capacidad de Movimiento, añade %game.action.move:+3%",
+        "9": "Una vez por escenario, durante tu turno, obtén %game.action.shield:2% durante la ronda en curso",
         "abilities": {
           "61": {
             "1": "Sufre %game.damage:1% por cada aliado cuyo valor de puntos de vida haya aumentado con la habilidad de curación.",
             "2": "Tu controlas el movimiento de esta invocación"
           },
           "62": {
-            "1": "Todos los aliados a %game.action.range%2 obtienen +1 %game.action.attack% a uno de sus ataques cada turno."
+            "1": "Todos los aliados a %game.action.range:2% obtienen %game.action.attack.valueSign:1% a uno de sus ataques cada turno."
           },
           "63": {
-            "1": "Todos tus ataques a distancia obtienen -1%game.action.range%."
+            "1": "Todos tus ataques a distancia obtienen %game.action.range.valueSign:-1%."
           }
         }
       },
@@ -957,18 +957,18 @@
         "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
-        "1": "En tu próximo ataque, descarta esta carta para obtener %game.action.attack%+2 .<br>%game.card.persistent%",
-        "2": "Pon esta carta en tu zona activa. En tu próximo ataque, descarta esta carta para añadir %game.action.attack% +2",
+        "1": "En tu próximo ataque, descarta esta carta para obtener %game.action.attack:+2% .<br>%game.card.persistent%",
+        "2": "Pon esta carta en tu zona activa. En tu próximo ataque, descarta esta carta para añadir %game.action.attack:+2%",
         "3": "Obtén 1 %data.characterToken.blinkblade.time%",
         "4": "Obtén 1 %data.action.custom.fh-hourglass%",
         "5": "Siempre que realices un descanso corto, puedes gastar un Objeto %game.card.spent% no gastado sin activar sus efectos para %game.card.recover% un Objeto gastado",
-        "6": "Al comienzo de tu primer turno de cada escenario, puedes realizar %game.action.move% 3",
+        "6": "Al comienzo de tu primer turno de cada escenario, puedes realizar %game.action.move:3%",
         "7": "Siempre que vayas a obtener %game.condition.immobilize%, evítalo",
         "8": "Declara Rápido durante 7 rondas consecutivas",
         "9": "Consigue que nunca te tomen como objetivo de un ataque"
       },
       "boneshaper": {
-        "1": "Obtén %game.action.attack% +1 por cada ficha en esta carta.",
+        "1": "Obtén %game.action.attack:+1% por cada ficha en esta carta.",
         "2": "Mata a la invocación atacante para añadir en vez de lo anterior %game.attackmodifier.plus4%",
         "3": "Justo antes de cada uno de tus descansos, puedes matar a 1 de tus invocaciones para realizar %game.condition.bless%, Personal",
         "4": "Una vez por escenario, cuando cualquier personaje aliado vaya a quedar agotado por sufrir %game.damage%, puedes sufrir tú %game.damage:2% para reducir su valor de puntos de vida a 1 en su lugar",
@@ -1018,28 +1018,28 @@
         "6": "Nunca realices una capacidad de Movimiento o Ataque con un valor inferior a 4, y realiza al menos 1 capacidad de Movimiento o Ataque cada ronda",
         "abilities": {
           "1": {
-            "1": "En los próximos seis ataques cuerpo a cuerpo, añade +2%game.action.attack%.",
+            "1": "En los próximos seis ataques cuerpo a cuerpo, añade %game.action.attack.valueSign:2%.",
             "2": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
           },
           "11": {
             "1": "Si mataste a un enemigo con la habilidad de ataque, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
           },
           "13": {
-            "1": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: +2%game.action.range%.",
+            "1": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: %game.action.range.valueSign:2%.",
             "2": "Cada vez que mates a un enemigo, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia atrás."
           },
           "16": {
-            "1": "En tus próximos seis ataques cuerpo a cuerpo contra un enemigo adyacente a cualquier otro enemigo, un enemigo adyacente al objetivo sufre %game.action.damage%2."
+            "1": "En tus próximos seis ataques cuerpo a cuerpo contra un enemigo adyacente a cualquier otro enemigo, un enemigo adyacente al objetivo sufre %game.action.damage:2%."
           },
           "18": {
-            "2": "En tus próximas seis habilidades de ataque a distancia, añade +1%game.action.target%."
+            "2": "En tus próximas seis habilidades de ataque a distancia, añade %game.action.target.valueSign:1%."
           },
           "19": {
             "2": "Mueve la ficha de personaje de dos de tus habilidades persistentes un espacio hacia atrás."
           },
           "2": {
             "1": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
-            "2": "En tus próximas seis habilidades de movimiento, añade +2 %game.action.move%."
+            "2": "En tus próximas seis habilidades de movimiento, añade %game.action.move.valueSign:2%."
           },
           "20": {
             "1": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
@@ -1075,18 +1075,18 @@
           "28": {
             "1": "%game.action.target% todos los enemigos dentro de 2 hexágonos",
             "2": "Por cada enemigo al que apuntes con la habilidad de ataque, mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
-            "3": "Las siguientes seis veces que un enemigo entre en un hexágono adyacente al tuyo, ese enemigo sufrirá un %game.action.damage%3"
+            "3": "Las siguientes seis veces que un enemigo entre en un hexágono adyacente al tuyo, ese enemigo sufrirá un %game.action.damage:3%"
           },
           "29": {
             "1": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: %game.condition.immobilize%"
           },
           "3": {
-            "1": "Todos tus ataques a distancia obtienen +1 %game.action.range%. En tus próximos seis ataques a distancia, añade +1 %game.action.attack%.",
+            "1": "Todos tus ataques a distancia obtienen %game.action.range.valueSign:1%. En tus próximos seis ataques a distancia, añade %game.action.attack.valueSign:1%.",
             "2": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás."
           },
           "30": {
             "1": "En las próximas cuatro fuentes de %game.action.damage% que sufras, que sean iguales o inferiores al 4 %, anula el %game.action.damage%",
-            "2": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: +1 %game.action.target%."
+            "2": "Antes de aplicar cualquier otra bonificación, mueve la ficha del personaje en una de tus habilidades persistentes un espacio hacia delante: %game.action.target.valueSign:1%."
           },
           "31": {
             "1": "%game.action.target% todos los aliados adyacentes a al menos un enemigo seleccionado con la habilidad de ataque",
@@ -1094,11 +1094,11 @@
           },
           "4": {
             "1": "Mueve la ficha de personaje de una de tus habilidades persistentes un espacio hacia atrás.",
-            "2": "En tus próximas seis curaciones, añade +2%game.action.heal%."
+            "2": "En tus próximas seis curaciones, añade %game.action.heal.valueSign:2%."
           },
           "5": {
             "1": "Mueve la ficha de personaje de dos de tus habilidades persistentes un espacio hacia atrás.",
-            "2": "En los siguientes seis ataques dirigidos contra ti realizados por enemigos dentro de %game.action.range%2, obtén %game.action.retaliate:2% %game.action.range%2."
+            "2": "En los siguientes seis ataques dirigidos contra ti realizados por enemigos dentro de %game.action.range:2%, obtén %game.action.retaliate:2% %game.action.range:2%."
           },
           "6": {
             "1": "Mueve la ficha de personaje de dos de tus habilidades persistentes un espacio hacia atrás.",
@@ -1193,10 +1193,10 @@
         "2": "El %data.monster.harbinger-of-shadow-2% no actúa."
       },
       "harrower-infester": {
-        "1": "Realiza \"%game.action.heal% X, personal\", donde X es<br>el doble del número de enemigos<br>objetivo de la capacidad de Ataque."
+        "1": "Realiza \"%game.action.heal:X%, personal\", donde X es<br>el doble del número de enemigos<br>objetivo de la capacidad de Ataque."
       },
       "hound": {
-        "1": "Suma %game.action.attack% +2 si el objetivo está<br>adyacente a cualquiera de los aliado del Sabueso."
+        "1": "Suma %game.action.attack:+2% si el objetivo está<br>adyacente a cualquiera de los aliado del Sabueso."
       },
       "ice-wraith": {
         "1": "Todos los Espectros de hielo de élite se<br>vuelven normales, y todos los Espectros<br>de hielo normales se vuelven de élite."
@@ -1252,9 +1252,9 @@
         "1": "Personal u orbe brillante"
       },
       "piranha-pig": {
-        "1": "Suma %game.action.attack% +1 si el objetivo está<br>adyacente a cualquiera de los<br>aliados del Cerdo piraña.",
-        "2": "Añade %game.action.attack% +2 si el objetivo tiene %game.condition.wound%.",
-        "3": "Añade %game.action.attack% +1 si el objetivo ocupa un <br>hexágono con una pieza de agua.",
+        "1": "Suma %game.action.attack:+1% si el objetivo está<br>adyacente a cualquiera de los<br>aliados del Cerdo piraña.",
+        "2": "Añade %game.action.attack:+2% si el objetivo tiene %game.condition.wound%.",
+        "3": "Añade %game.action.attack:+1% si el objetivo ocupa un <br>hexágono con una pieza de agua.",
         "4": "donde X es la cantidad de daño<br>que ha sufrido el objetivo de<br>la capacidad de Ataque."
       },
       "prince-of-frost": {
@@ -1286,7 +1286,7 @@
       "seeker-of-the-abyss": {
         "1": "Todos los objetivos pierden 1 carta.",
         "2": "Crea 1 trampa %game.condition.immobilize% en un hexágono vacío adyacente.",
-        "3": "Todos los aliados suman %game.action.attack% +1 a todos sus ataques esta ronda."
+        "3": "Todos los aliados suman %game.action.attack:+1% a todos sus ataques esta ronda."
       },
       "shrike-fiend": {
         "1": "Todos los enemigos a %game.action.range:3% sufren %game.damage:2%."
@@ -1584,8 +1584,8 @@
     },
     "rules": {
       "fh": {
-        "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move% 2; %game.action.attack% 2.",
-        "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención.",
+        "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move:2%; %game.action.attack:2%.",
+        "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield:1% adicional (con un total %game.action.shield:2% a nivel 1) y %game.action.retaliate:2%, tienen una iniciativa de 50 a efectos de centro de atención.",
         "10": "cada monstruo %game.action.target% a distancia %game.action.range:4%",
         "110": "Sólo puede ser destruido cuando muere una Máquina ruinosa en un hexágono adyacente",
         "112": "Los dos sabuesos tienen el doble de sus valores máximos de puntos de vida.",
@@ -1596,22 +1596,22 @@
         "116": "Centra su atención en moverse hacia %game.mapMarker.b%",
         "119": {
           "1": "Al final del turno, gasta polvo para:",
-          "2": "Gasta 1: %game.action.move%2",
+          "2": "Gasta 1: %game.action.move:2%",
           "3": "Gasta 2:",
-          "4": "Gasta 5: Convertir monstruo a %game.action.range%2"
+          "4": "Gasta 5: Convertir monstruo a %game.action.range:2%"
         },
         "128": {
           "1": "Todos los Autómatas de acero usan el mazo de habilidades de monstruo Duende.",
           "2": "Cuando cualquier Lanzaolas acechador fuera a invocar a una Anguila relámpago, en vez de eso, invoca un Explorador infestor con un valor de PV de 1."
         },
         "129": "Todos los guardias de la ciudad usan cartas de habilidad de monstruo Arquero en lugar de las suyas.",
-        "131": "Los Lanzaolas acechador obtienen +1 %game.action.attack% a todos sus ataques y no invocan Anguilas relámpago. En vez de eso, siempre que tenga lugar \"Ayuda del abismo\", todos los Lanzaolas acechador realizan: \"%game.action.attack% +1, %game.action.range% 4; %game.action.teleport% al hexágono vacío más a la izquierda si es una ronda impar o más a la derecha si es par. Si hay varios hexágonos válidos a los que teletransportarse, elige el hexágono más alejado de cualquier personaje.\"",
+        "131": "Los Lanzaolas acechador obtienen %game.action.attack.valueSign:1% a todos sus ataques y no invocan Anguilas relámpago. En vez de eso, siempre que tenga lugar \"Ayuda del abismo\", todos los Lanzaolas acechador realizan: \"%game.action.attack:+1%, %game.action.range:4%; %game.action.teleport% al hexágono vacío más a la izquierda si es una ronda impar o más a la derecha si es par. Si hay varios hexágonos válidos a los que teletransportarse, elige el hexágono más alejado de cualquier personaje.\"",
         "134": "El autómata de acero tiene HxP/2 puntos de vida (redondeado hacia arriba).",
         "27": "Cuando sea destruido, el personaje que lo destruye puede devolver todas las cartas tomadas a su mano",
-        "44": "Cuando sea destruido, todos los monstruos a %game.action.range%2 sufren daño de trampa",
+        "44": "Cuando sea destruido, todos los monstruos a %game.action.range:2% sufren daño de trampa",
         "54": "Cuando sea destruido, revela una ficha numerada y haz aparecer el monstruo indicado",
-        "60": "Los seis acechadores de las losetas 13-B y 13-D son tenientes fracturados y obtienen %game.action.attack% +1 en todos sus ataques.",
-        "65": "Todos los monstruos obtienen %game.action.push% 1 en todos sus ataques. Si el nivel del escenario es 4 o superior, aumenta a %game.action.push% 2.",
+        "60": "Los seis acechadores de las losetas 13-B y 13-D son tenientes fracturados y obtienen %game.action.attack:+1% en todos sus ataques.",
+        "65": "Todos los monstruos obtienen %game.action.push:1% en todos sus ataques. Si el nivel del escenario es 4 o superior, aumenta a %game.action.push:2%.",
         "76": "Divide el valor máximo de puntos de vida del Rey del Mar entre 2 (redondeado hacia abajo). El Rey Pez no actúa, no puede ser objetivo de habilidades de curación, es inmune a todos los estados y tiene una iniciativa de 01 a efectos de Atención.",
         "77": {
           "1": "El Rey del Mar no puede realizar ninguna habilidad de movimiento y es inmune al movimiento forzado. (¡También se han ajustado los Especiales de Jefe!)",
@@ -1622,7 +1622,7 @@
           "2": "Añade %game.condition.immobilize% a todos los ataques dirigidos al objetivo principal",
           "3": "Cambia el Especial 1 de la Reliquia a:",
           "4": "Centra su atención en el enemigo atacable más lejano y realiza:",
-          "5": "%game.action.attack%+0, %game.action.target% su centro de atención (si está adyacente) y todos los enemigos en o adyacentes de los hexágonos que ha entrado durante la capacidad de Movimiento",
+          "5": "%game.action.attack:+0%, %game.action.target% su centro de atención (si está adyacente) y todos los enemigos en o adyacentes de los hexágonos que ha entrado durante la capacidad de Movimiento",
           "6": "Cambia el Especial 2 de la Reliquia a:"
         },
         "86": "Cuando sufre daño pero no está destruido:",

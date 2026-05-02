@@ -5,19 +5,19 @@
   "items": {
     "bb-41": {
       "": "甲殼",
-      "1": "如果你在你的回合中移動 1 格或更少，則在該回合中獲得 %game.action.shield%1。"
+      "1": "如果你在你的回合中移動 1 格或更少，則在該回合中獲得 %game.action.shield:1%。"
     },
     "bb-42": {
       "": "嚙齒動物的尖牙",
-      "1": "移動 4 個以上格後，本回合的所有攻擊增加1%game.action.attack%。"
+      "1": "移動 4 個以上格後，本回合的所有攻擊增加%game.action.attack.valueSign:1%。"
     },
     "bb-43": {
       "": "穿刺銀箭",
-      "1": "在你的遠程攻擊期間，添加 %game.action.pierce%5。"
+      "1": "在你的遠程攻擊期間，添加 %game.action.pierce:5%。"
     },
     "bb-44": {
       "": "縮小短劍",
-      "1": "你的能力卡牌的預設頂部動作是 %game.action.attack%2 而不是 %game.action.attack%2。"
+      "1": "你的能力卡牌的預設頂部動作是 %game.action.attack:2% 而不是 %game.action.attack:2%。"
     },
     "bb-45": {
       "": "冰火兩重眼",
@@ -25,7 +25,7 @@
     },
     "bb-46": {
       "": "治療藥滴",
-      "1": "你的回合裡，移除所有負面並 %game.action.heal%2 自身。"
+      "1": "你的回合裡，移除所有負面並 %game.action.heal:2% 自身。"
     }
   },
   "scenario": {

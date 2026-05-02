@@ -4,7 +4,7 @@
       "black-cat": {
         "1": "Focus the nearest unoccupied obstacle.<br>Until start of next turn, the Black Cat can occupy the hex. Afterwards move to the next empty hex.<br><br>If no obstacle is present, focus an empty hex farthest away from all characters.",
         "2": "%game.action.target% all adjacent Black Cats",
-        "3": "%game.action.target% all Black Cats in %game.action.range% 2"
+        "3": "%game.action.target% all Black Cats in %game.action.range:2%"
       },
       "evil-eyeball": {
         "1": "in the same hex the elite died"

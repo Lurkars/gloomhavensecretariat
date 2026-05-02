@@ -175,7 +175,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Create hazardous terrain in one hex within %game.action.range% 1"
+                "value": "Create hazardous terrain in one hex within %game.action.range:1%"
               }
             ]
           }
@@ -195,7 +195,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "On the next attack targeting you while you occupy hazardous terrain, discard this card to gain %game.action.retaliate% 3"
+                "value": "On the next attack targeting you while you occupy hazardous terrain, discard this card to gain %game.action.retaliate:3%"
               }
             ]
           }
@@ -215,7 +215,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "On the next attack targeting you while you occupy hazardous terrain, discard this card to gain %game.action.shield% 3"
+                "value": "On the next attack targeting you while you occupy hazardous terrain, discard this card to gain %game.action.shield:3%"
               }
             ]
           }

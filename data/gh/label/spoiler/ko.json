@@ -32,7 +32,7 @@
   "items": {
     "gh-1": {
       "": "활보의 장화",
-      "1": "이동 중, 한 번의 이동에 +2 %game.action.move% 추가."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:2% 추가."
     },
     "gh-10": {
       "": "전쟁 망치",
@@ -40,7 +40,7 @@
     },
     "gh-100": {
       "": "소환의 로브",
-      "1": "차례 중, “%game.action.heal% 2, 아군 소환물 하나에게 영향” 행동 수행."
+      "1": "차례 중, “%game.action.heal:2%, 아군 소환물 하나에게 영향” 행동 수행."
     },
     "gh-101": {
       "": "밀착 갑옷",
@@ -48,7 +48,7 @@
     },
     "gh-102": {
       "": "희생의 로브",
-      "1": "원거리 공격 중, 스스로 피해 3점을 입어 해당 공격 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "원거리 공격 중, 스스로 피해 3점을 입어 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-103": {
       "": "드레이크 비늘 갑옷",
@@ -56,7 +56,7 @@
     },
     "gh-104": {
       "": "증기 갑옷",
-      "1": "앞으로 5회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 획득."
+      "1": "앞으로 5회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield:1% 획득."
     },
     "gh-105": {
       "": "벼룩투성이 숄",
@@ -64,11 +64,11 @@
     },
     "gh-106": {
       "": "엄니 목걸이",
-      "1": "차례 중 적을 죽일 때마다, “%game.action.heal% 1, 자신” 행동 수행."
+      "1": "차례 중 적을 죽일 때마다, “%game.action.heal:1%, 자신” 행동 수행."
     },
     "gh-107": {
       "": "뿔 달린 투구",
-      "1": "차례 중 4칸 이상을 이동한 이후, 이번 차례 중 다음번 근접 공격에 +1 %game.action.attack% 추가."
+      "1": "차례 중 4칸 이상을 이동한 이후, 이번 차례 중 다음번 근접 공격에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-108": {
       "": "드레이크 비늘 투구",
@@ -76,7 +76,7 @@
     },
     "gh-109": {
       "": "도둑의 두건",
-      "1": "“%game.action.loot% 1” 능력 수행 시, 대신 “%game.action.loot% 2” 능력 수행."
+      "1": "“%game.action.loot:1%” 능력 수행 시, 대신 “%game.action.loot:2%” 능력 수행."
     },
     "gh-11": {
       "": "독 단검",
@@ -88,15 +88,15 @@
     },
     "gh-111": {
       "": "파도의 문장",
-      "1": "공격을 받을 때, %game.element.ice% 원소가 “강함”에 있다면, 공격자를 대상으로 “%game.action.push% 2” 행동 수행."
+      "1": "공격을 받을 때, %game.element.ice% 원소가 “강함”에 있다면, 공격자를 대상으로 “%game.action.push:2%” 행동 수행."
     },
     "gh-112": {
       "": "고대 천공기",
-      "1": "근접 공격 중, 해당 공격 행동 전체에 +2 %game.action.attack% 및 %game.action.pierce% 2 추가."
+      "1": "근접 공격 중, 해당 공격 행동 전체에 %game.action.attack.valueSign:2% 및 %game.action.pierce:2% 추가."
     },
     "gh-113": {
       "": "해골 도끼",
-      "1": "살아있는 시체, 살아있는 영혼, 또는 살아있는 뼈를 대상으로 한 근접 공격 중, 한 번의 공격에 +5 %game.action.attack% 추가."
+      "1": "살아있는 시체, 살아있는 영혼, 또는 살아있는 뼈를 대상으로 한 근접 공격 중, 한 번의 공격에 %game.action.attack.valueSign:5% 추가."
     },
     "gh-114": {
       "": "조른의 지팡이",
@@ -111,7 +111,7 @@
     },
     "gh-117": {
       "": "피투성이 도끼",
-      "1": "근접 공격 중, 스스로 피해 2점을 입어 해당 공격 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "근접 공격 중, 스스로 피해 2점을 입어 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-118": {
       "": "원소 지팡이",
@@ -123,11 +123,11 @@
     },
     "gh-12": {
       "": "소형 치료 물약",
-      "1": "차례 중, “%game.action.heal% 3, 자신” 행동 수행."
+      "1": "차례 중, “%game.action.heal:3%, 자신” 행동 수행."
     },
     "gh-120": {
       "": "소환 지팡이",
-      "1": "차례 중, %game.action.range:3% 내에 있는 아군 소환물 하나가 장착자의 조종에 따라 “%game.action.move% 3” 행동 수행."
+      "1": "차례 중, %game.action.range:3% 내에 있는 아군 소환물 하나가 장착자의 조종에 따라 “%game.action.move:3%” 행동 수행."
     },
     "gh-121": {
       "": "새벽의 보주",
@@ -154,7 +154,7 @@
     },
     "gh-127": {
       "": "거대 원격조종 거미",
-      "1": "D차례 중, “%game.action.loot% 1” 행동 수행."
+      "1": "D차례 중, “%game.action.loot:1%” 행동 수행."
     },
     "gh-128": {
       "": "검은 향로",
@@ -162,7 +162,7 @@
     },
     "gh-129": {
       "": "검은 카드",
-      "1": "차례 중, 인접한 일반 또는 정예 적 하나에 장착자의 캐릭터 토큰을 올려놓음. 이 적을 대상으로 하는 장착자의 모든 공격에 +1 %game.action.attack% 추가."
+      "1": "차례 중, 인접한 일반 또는 정예 적 하나에 장착자의 캐릭터 토큰을 올려놓음. 이 적을 대상으로 하는 장착자의 모든 공격에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-13": {
       "": "소형 활력 물약",
@@ -171,7 +171,7 @@
     "gh-130": {
       "": "나선 반지",
       "1": "차례 중,",
-      "3": "를 통해 “%game.action.heal% 25, 자신” 행동 수행."
+      "3": "를 통해 “%game.action.heal:25%, 자신” 행동 수행."
     },
     "gh-131": {
       "": "변절자의 심장",
@@ -186,7 +186,7 @@
     },
     "gh-14": {
       "": "소형 힘 물약",
-      "1": "공격 중, 해당 공격 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "공격 중, 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-15": {
       "": "속도의 장화",
@@ -226,11 +226,11 @@
     },
     "gh-23": {
       "": "사슬갑옷",
-      "1": "앞으로 3회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 획득."
+      "1": "앞으로 3회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield:1% 획득."
     },
     "gh-24": {
       "": "생명의 부적",
-      "1": "차례 중, “%game.action.heal% 1, 자신” 행동 수행."
+      "1": "차례 중, “%game.action.heal:1%, 자신” 행동 수행."
     },
     "gh-25": {
       "": "톱날 검",
@@ -242,7 +242,7 @@
     },
     "gh-27": {
       "": "대형 치료 물약",
-      "1": "차례 중, “%game.action.heal% 5, 자신” 행동 수행."
+      "1": "차례 중, “%game.action.heal:5%, 자신” 행동 수행."
     },
     "gh-28": {
       "": "달 귀걸이",
@@ -250,23 +250,23 @@
     },
     "gh-29": {
       "": "편안한 신발",
-      "1": "능력 카드를 기본 하단 행동으로 사용할 때마다, “%game.action.move% 2” 행동 대신 “%game.action.move% 3” 행동 수행."
+      "1": "능력 카드를 기본 하단 행동으로 사용할 때마다, “%game.action.move:2%” 행동 대신 “%game.action.move:3%” 행동 수행."
     },
     "gh-3": {
       "": "털가죽 갑옷",
-      "1": "앞으로 2회 동안, 장착자를 대상으로 하는 공격으로 인한 피해에, %game.action.shield% 1 획득."
+      "1": "앞으로 2회 동안, 장착자를 대상으로 하는 공격으로 인한 피해에, %game.action.shield:1% 획득."
     },
     "gh-30": {
       "": "징 박은 가죽 갑옷",
-      "1": "공격을 받을 때, 공격자가 해당 공격에 불이익을 받고 장착자는 해당 공격에 대해 %game.action.shield% 1 획득."
+      "1": "공격을 받을 때, 공격자가 해당 공격에 불이익을 받고 장착자는 해당 공격에 대해 %game.action.shield:1% 획득."
     },
     "gh-31": {
       "": "송골매 투구",
-      "1": "원거리 공격 중, 해당 공격 행동 전체에 +1 %game.action.range% 추가."
+      "1": "원거리 공격 중, 해당 공격 행동 전체에 %game.action.range.valueSign:1% 추가."
     },
     "gh-32": {
       "": "대형 방패",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 2 획득."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:2% 획득."
     },
     "gh-33": {
       "": "휘발성 폭탄",
@@ -281,11 +281,11 @@
     },
     "gh-36": {
       "": "돌진의 장화",
-      "1": "이동 중, 한 번의 이동에 +3 %game.action.move% to the movement 추가."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:3% to the movement 추가."
     },
     "gh-37": {
       "": "초혼의 로브",
-      "1": "공격 중, %game.element.consume.wild% 를 통해 해당 공격 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "공격 중, %game.element.consume.wild% 를 통해 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-38": {
       "": "중갑 철모",
@@ -293,7 +293,7 @@
     },
     "gh-39": {
       "": "갈고리 사슬",
-      "1": "원거리 공격 중, 해당 공격 행동 전체에 %game.action.pull% 2 추가."
+      "1": "원거리 공격 중, 해당 공격 행동 전체에 %game.action.pull:2% 추가."
     },
     "gh-4": {
       "": "가죽 갑옷",
@@ -301,11 +301,11 @@
     },
     "gh-40": {
       "": "다목적 단검",
-      "1": "능력 카드를 기본 상단 행동으로 사용할 때마다, “%game.action.attack% 2” 행동 대신 “%game.action.attack% 3” 행동 수행."
+      "1": "능력 카드를 기본 상단 행동으로 사용할 때마다, “%game.action.attack:2%” 행동 대신 “%game.action.attack:3%” 행동 수행."
     },
     "gh-41": {
       "": "대형 힘 물약",
-      "1": "공격 중, 해당 공격 행동 전체에 +2 %game.action.attack% 추가."
+      "1": "공격 중, 해당 공격 행동 전체에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-42": {
       "": "신속의 반지",
@@ -317,7 +317,7 @@
     },
     "gh-44": {
       "": "철편 갑옷",
-      "1": "앞으로 4회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 획득."
+      "1": "앞으로 4회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield:1% 획득."
     },
     "gh-45": {
       "": "어둠의 계약 목걸이",
@@ -325,7 +325,7 @@
     },
     "gh-46": {
       "": "가시 방패",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 1 및 %game.action.retaliate% 2 획득."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:1% 및 %game.action.retaliate:2% 획득."
     },
     "gh-47": {
       "": "수확의 낫",
@@ -337,7 +337,7 @@
     },
     "gh-49": {
       "": "태양 귀걸이",
-      "1": "차례 중, 자신의 소모된 아이템 모두 %game.card.refresh% 및 “%game.action.heal% 3, 자신” 행동 수행."
+      "1": "차례 중, 자신의 소모된 아이템 모두 %game.card.refresh% 및 “%game.action.heal:3%, 자신” 행동 수행."
     },
     "gh-5": {
       "": "투명 망토",
@@ -345,7 +345,7 @@
     },
     "gh-50": {
       "": "강철 발덮개",
-      "1": "차례 중 1칸 이하를 이동한 경우, 해당 라운드 동안 %game.action.shield% 1 획득."
+      "1": "차례 중 1칸 이하를 이동한 경우, 해당 라운드 동안 %game.action.shield:1% 획득."
     },
     "gh-51": {
       "": "그림자 갑옷",
@@ -361,11 +361,11 @@
     },
     "gh-54": {
       "": "명성의 지팡이",
-      "1": "원거리 공격 중, %game.element.consume.wild% 를 통해 해당 공격 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "원거리 공격 중, %game.element.consume.wild% 를 통해 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-55": {
       "": "초대형 치료 물약",
-      "1": "차례 중, “%game.action.heal% 7, 자신” 행동 수행."
+      "1": "차례 중, “%game.action.heal:7%, 자신” 행동 수행."
     },
     "gh-56": {
       "": "무자비의 반지",
@@ -373,7 +373,7 @@
     },
     "gh-57": {
       "": "평온의 샌들",
-      "1": "능력 카드를 기본 하단 행동으로 사용할 때마다, “%game.action.move% 2” 행동 대신 “%game.action.move% 4” 행동 수행."
+      "1": "능력 카드를 기본 하단 행동으로 사용할 때마다, “%game.action.move:2%” 행동 대신 “%game.action.move:4%” 행동 수행."
     },
     "gh-58": {
       "": "상 변이 망토",
@@ -382,7 +382,7 @@
     },
     "gh-59": {
       "": "망원 렌즈",
-      "1": "원거리 공격 중, 해당 공격 행동 전체에 +2 %game.action.range% 추가."
+      "1": "원거리 공격 중, 해당 공격 행동 전체에 %game.action.range.valueSign:2% 추가."
     },
     "gh-6": {
       "": "독수리 눈 고글",
@@ -395,7 +395,7 @@
     },
     "gh-61": {
       "": "성벽 방패",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 4 획득."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:4% 획득."
     },
     "gh-62": {
       "": "파멸의 가루",
@@ -407,19 +407,19 @@
     },
     "gh-64": {
       "": "질주의 장화",
-      "1": "이동 중, 한 번의 이동에 +4 %game.action.move% 추가."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:4% 추가."
     },
     "gh-65": {
       "": "판금 갑옷",
-      "1": "앞으로 5회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 획득."
+      "1": "앞으로 5회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield:1% 획득."
     },
     "gh-66": {
       "": "공포의 가면",
-      "1": "근접 공격 중, %game.action.push% 1 추가."
+      "1": "근접 공격 중, %game.action.push:1% 추가."
     },
     "gh-67": {
       "": "균형 잡힌 검",
-      "1": "능력 카드를 기본 상단 행동으로 사용할 때마다, “%game.action.attack% 2” 행동 대신 “%game.action.attack% 4” 행동 수행."
+      "1": "능력 카드를 기본 상단 행동으로 사용할 때마다, “%game.action.attack:2%” 행동 대신 “%game.action.attack:4%” 행동 수행."
     },
     "gh-68": {
       "": "미늘창",
@@ -427,7 +427,7 @@
     },
     "gh-69": {
       "": "별 귀걸이",
-      "1": "차례 중, 장착자 본인의 소모된 아이템 모두 %game.card.refresh% , “%game.action.heal% 3, 자신” 행동 수행, 장착자 본인의 버린 카드를 최대 2장까지 %game.card.recover%."
+      "1": "차례 중, 장착자 본인의 소모된 아이템 모두 %game.card.refresh% , “%game.action.heal:3%, 자신” 행동 수행, 장착자 본인의 버린 카드를 최대 2장까지 %game.card.recover%."
     },
     "gh-7": {
       "": "철 투구",
@@ -447,11 +447,11 @@
     },
     "gh-73": {
       "": "찰나의 망토",
-      "1": "차례 중, “%game.action.move% 4, %game.action.jump%” 행동 수행."
+      "1": "차례 중, “%game.action.move:4%, %game.action.jump%” 행동 수행."
     },
     "gh-74": {
       "": "칼날 갑옷",
-      "1": "앞으로 3회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 및 %game.action.retaliate% 1 획득."
+      "1": "앞으로 3회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield:1% 및 %game.action.retaliate:1% 획득."
     },
     "gh-75": {
       "": "원소 머리띠",
@@ -459,35 +459,35 @@
     },
     "gh-76": {
       "": "사슬 두건",
-      "1": "셋 이상의 몬스터에 인접해 있는 동안, %game.action.shield% 1 획득."
+      "1": "셋 이상의 몬스터에 인접해 있는 동안, %game.action.shield:1% 획득."
     },
     "gh-77": {
       "": "혹한검",
-      "1": "근접 공격 중, %game.element.consume.ice%를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+      "1": "근접 공격 중, %game.element.consume.ice%를 통해 한 번의 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-78": {
       "": "폭풍검",
-      "1": "근접 공격 중, %game.element.consume.air%를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+      "1": "근접 공격 중, %game.element.consume.air%를 통해 한 번의 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-79": {
       "": "초열검",
-      "1": "근접 공격 중, %game.element.consume.fire%를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+      "1": "근접 공격 중, %game.element.consume.fire%를 통해 한 번의 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-8": {
       "": "다리미꼴 방패",
-      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 1 획득."
+      "1": "공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:1% 획득."
     },
     "gh-80": {
       "": "지진검",
-      "1": "근접 공격 중, %game.element.consume.earth%를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+      "1": "근접 공격 중, %game.element.consume.earth%를 통해 한 번의 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-81": {
       "": "광휘검",
-      "1": "근접 공격 중, %game.element.consume.light%를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+      "1": "근접 공격 중, %game.element.consume.light%를 통해 한 번의 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-82": {
       "": "흑야검",
-      "1": "근접 공격 중, %game.element.consume.dark%를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+      "1": "근접 공격 중, %game.element.consume.dark%를 통해 한 번의 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-83": {
       "": "서리 지팡이",
@@ -527,7 +527,7 @@
     },
     "gh-91": {
       "": "강철 반지",
-      "1": "장착자를 대상으로 하는 공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield% 4 획득."
+      "1": "장착자를 대상으로 하는 공격에 의해 피해를 입게 될 때, 해당 공격에 대해 %game.action.shield:4% 획득."
     },
     "gh-92": {
       "": "약화의 반지",
@@ -535,11 +535,11 @@
     },
     "gh-93": {
       "": "힘의 두루마리",
-      "1": "아군 하나의 공격 중, 해당 공격 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "아군 하나의 공격 중, 해당 공격 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-94": {
       "": "치료의 두루마리",
-      "1": "차례 중, “%game.action.heal% 3, %game.action.range:5%” 행동 수행."
+      "1": "차례 중, “%game.action.heal:3%, %game.action.range:5%” 행동 수행."
     },
     "gh-95": {
       "": "활력의 두루마리",
@@ -547,11 +547,11 @@
     },
     "gh-96": {
       "": "로켓 장화",
-      "1": "이동 중, 한 번의 이동에 +3 %game.action.move% 및 %game.action.jump% 추가."
+      "1": "이동 중, 한 번의 이동에 %game.action.move.valueSign:3% 및 %game.action.jump% 추가."
     },
     "gh-97": {
       "": "인내의 발싸개",
-      "1": "차례 중 4칸 이상을 이동한 경우, “%game.action.heal% 1, 자신” 행동 수행."
+      "1": "차례 중 4칸 이상을 이동한 경우, “%game.action.heal:1%, 자신” 행동 수행."
     },
     "gh-98": {
       "": "드레이크 비늘 장화",
@@ -559,11 +559,11 @@
     },
     "gh-99": {
       "": "마그마 장화",
-      "1": "위험지형의 피해 효과를 무시함. 위험지형 칸에 진입했던 차례마다 한 번, “%game.action.heal% 2, 자신” 행동 수행."
+      "1": "위험지형의 피해 효과를 무시함. 위험지형 칸에 진입했던 차례마다 한 번, “%game.action.heal:2%, 자신” 행동 수행."
     },
     "gh-134": {
       "": "위풍당당한 검",
-      "1": "차례 중 적을 죽일 때마다, 해당 라운드 동안 %game.action.shield% 1 획득."
+      "1": "차례 중 적을 죽일 때마다, 해당 라운드 동안 %game.action.shield:1% 획득."
     },
     "gh-135": {
       "": "집중 치료 광선",
@@ -571,11 +571,11 @@
     },
     "gh-136": {
       "": "불안정한 영약",
-      "1": "원거리 공격 중, 해당 공격 행동 전체에 +2 %game.action.attack% 추가 및 이익을 받음. 단, 그러한 공격 각각에 대해 피해 2점 입음."
+      "1": "원거리 공격 중, 해당 공격 행동 전체에 %game.action.attack.valueSign:2% 추가 및 이익을 받음. 단, 그러한 공격 각각에 대해 피해 2점 입음."
     },
     "gh-137": {
       "": "침묵의 단검",
-      "1": "근접 공격을 수행할 때마다, 해당 공격에 %game.action.pierce% 1 추가."
+      "1": "근접 공격을 수행할 때마다, 해당 공격에 %game.action.pierce:1% 추가."
     },
     "gh-138": {
       "": "돌 부적",
@@ -583,11 +583,11 @@
     },
     "gh-139": {
       "": "심령술 칼",
-      "1": "%data.characterColored.mindthief:Augment% 행동을 수행할 때마다, 해당 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "%data.characterColored.mindthief:Augment% 행동을 수행할 때마다, 해당 행동 전체에 %game.action.attack.valueSign:1% 추가."
     },
     "gh-140": {
       "": "태양 방패",
-      "1": "공격에 의해 피해를 입게 될 때, %game.element.consume.light% 를 통해 해당 공격에 대해 %game.action.shield% 3 획득 가능."
+      "1": "공격에 의해 피해를 입게 될 때, %game.element.consume.light% 를 통해 해당 공격에 대해 %game.action.shield:3% 획득 가능."
     },
     "gh-141": {
       "": "만능 허리띠",
@@ -607,11 +607,11 @@
     },
     "gh-145": {
       "": "죽음의 가면",
-      "1": "체력이 정확히 1인 상태에서 근접 공격을 수행할 때마다, 해당 공격에 +2 %game.action.attack% 추가."
+      "1": "체력이 정확히 1인 상태에서 근접 공격을 수행할 때마다, 해당 공격에 %game.action.attack.valueSign:2% 추가."
     },
     "gh-146": {
       "": "명인의 류트",
-      "1": "매번 %data.characterColored.music-note:Song% 행동 수행 후, 즉시 %game.action.attack% 2 행동 또는 %game.action.move% 2 행동 수행."
+      "1": "매번 %data.characterColored.music-note:Song% 행동 수행 후, 즉시 %game.action.attack:2% 행동 또는 %game.action.move:2% 행동 수행."
     },
     "gh-147": {
       "": "사냥꾼의 망토",
@@ -619,7 +619,7 @@
     },
     "gh-148": {
       "": "의사 가운",
-      "1": "아군이 “의료품 꾸러미” 또는 “큰 의료품 꾸러미” 행동을 수행할 때마다, 해당 치료에 +1 %game.action.heal% 추가."
+      "1": "아군이 “의료품 꾸러미” 또는 “큰 의료품 꾸러미” 행동을 수행할 때마다, 해당 치료에 %game.action.heal.valueSign:1% 추가."
     },
     "gh-149": {
       "": "원소 장화",

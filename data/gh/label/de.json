@@ -122,7 +122,7 @@
         "1": "Zur nächsten Tür gehen und den Raum aufdecken"
       },
       "captain-of-the-guard": {
-        "1": "Alle Verbündeten fügen +1 %game.action.attack% zu allen Angriffen dieser Runde hinzu"
+        "1": "Alle Verbündeten fügen %game.action.attack.valueSign:1% zu allen Angriffen dieser Runde hinzu"
       },
       "dark-rider": {
         "1": "X = Bewegte Felder"
@@ -135,14 +135,14 @@
         "2": "Erstelle eine %game.damage:4% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
       },
       "giant-viper": {
-        "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
+        "1": "Füge %game.action.attack.valueSign:2% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
         "2": "Alle Angriffe gegen %data.monster.giant-viper% erhalten in dieser Runde Nachteil."
       },
       "harrower-infester": {
-        "1": "Führe \"%game.action.heal% 2, %game.specialTarget.self%\" für jedes angegriffene Ziel durch"
+        "1": "Führe \"%game.action.heal:2%, %game.specialTarget.self%\" für jedes angegriffene Ziel durch"
       },
       "hound": {
-        "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
+        "1": "Füge %game.action.attack.valueSign:2% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
       },
       "merciless-overseer": {
         "1": "Alle Späher sind erneut an der Reihe",
@@ -445,7 +445,7 @@
           "1": "in Richtung des Schamanen auf dem D-Kartenelement"
         },
         "42": {
-          "1": "Alle Monster fügen ihren Angriffen +1 %game.action.attack% Angriff hinzu",
+          "1": "Alle Monster fügen ihren Angriffen %game.action.attack.valueSign:1% Angriff hinzu",
           "2": "Alle Monster erhalten einen Vorteil bei ihren Angriffen",
           "3": "Alle Monster heilen zu Beginn ihres jeweiligen Zugs 1 Trefferpunkt",
           "4": "Alle Charaktere und Charakter-Beschworenen erleiden zu Beginn ihres Zuges 1 Schaden.",
