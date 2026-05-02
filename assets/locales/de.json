@@ -794,7 +794,7 @@
       },
       "poison": {
         "": "Gift",
-        "hint": "%game.conditionIcon.poison% Gift: Alle Angreifer bekommen +1 %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
+        "hint": "%game.conditionIcon.poison% Gift: Alle Angreifer bekommen %game.action.attack.valueSign:1%. Verhindert Heilung. Bei Heilung entfernen."
       },
       "poison_x": {
         "": "Gift {0}",
@@ -802,7 +802,7 @@
       },
       "regenerate": {
         "": "Regeneration",
-        "hint": "%game.conditionIcon.regenerate% Regeneration: %game.action.heal% 1 zu Beginn des Zuges. Bei Schaden entfernen."
+        "hint": "%game.conditionIcon.regenerate% Regeneration: %game.action.heal:1% zu Beginn des Zuges. Bei Schaden entfernen."
       },
       "roundExpire": {
         "hint": "Entferne Zustand am Ende der Runde"
@@ -2386,7 +2386,7 @@
         "": "Einige Zustände benötigen eine Bestätigung um angewendet zu werden, z.B. wenn der TP Wert bei Gift gesenkt wird, kann durch Bestätigung 1 extra TP vom Gift abgezogen werden",
         "brittle": "Nachfragen ob nach erhaltenden Schaden %game.condition.brittle% angewendet werden soll um den Schaden zu erhöhen.",
         "heal": "Kein Zustand, aber eine Hilfe ob %game.action.heal% angwendet werden soll wenn die Trefferpunkte erhöht werden.",
-        "poison": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +1 von %game.condition.poison% angewendet werden soll (inklusive %game.attackmodifier.double%).",
+        "poison": "Nachfragen ob nach erhaltenden Schaden %game.action.attack:+1% von %game.condition.poison% angewendet werden soll (inklusive %game.attackmodifier.double%).",
         "poison_x": "Nachfragen ob nach erhaltenden Schaden %game.action.attack% +X von %game.condition.poison_x:X% angewendet werden soll (inklusive %game.attackmodifier.double%).",
         "shield": "Kein Zustand, aber eine Hilfe ob nach erhaltenden Schaden %game.action.shield% angewendet werden soll um den erhaltenden Schaden zu reduzieren.",
         "ward": "Nachfragen ob nach erhaltenden Schaden %game.condition.ward% angewendet werden soll um den erhaltenden Schaden zu reduzieren."
@@ -2474,7 +2474,7 @@
     },
     "applyLongRest": {
       "": "Lange Rast anwenden",
-      "hint": "Automatisch %game.action.heal% 2 während der langen Rast ausführen"
+      "hint": "Automatisch %game.action.heal:2% während der langen Rast ausführen"
     },
     "applyLoot": {
       "": "Beute Charakter zuweisen",

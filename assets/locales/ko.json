@@ -760,7 +760,7 @@
       },
       "poison": {
         "": "중독",
-        "hint": "%game.conditionIcon.poison% 중독: 모든 공격자가 +1 %game.action.attack%을 얻는다. 치료를 막는다. 치료를 받으면 제거."
+        "hint": "%game.conditionIcon.poison% 중독: 모든 공격자가 %game.action.attack.valueSign:1%을 얻는다. 치료를 막는다. 치료를 받으면 제거."
       },
       "poison_x": {
         "": "중독 {0}",
@@ -768,7 +768,7 @@
       },
       "regenerate": {
         "": "복원",
-        "hint": "%game.conditionIcon.regenerate% 복원: 자신의 차례 시작 시 %game.action.heal% 1. 피해를 입을 때 제거."
+        "hint": "%game.conditionIcon.regenerate% 복원: 자신의 차례 시작 시 %game.action.heal:1%. 피해를 입을 때 제거."
       },
       "rupture": {
         "": "파열",
@@ -1515,7 +1515,13 @@
       "disadvantage": "병영이 박살나서 불이익 상태가 되었습니다!",
       "filter": {
         "desc": "내림차순",
+        "distance": "거리",
         "even": "짝수",
+        "level": {
+          "": "레벨",
+          "high": "높은 레벨부터",
+          "low": "낮은 레벨부터"
+        },
         "lowerBoundary": "하한값",
         "odd": "홀수",
         "parity": "홀짝",
@@ -2145,7 +2151,7 @@
         "": "중독 상태에서 체력을 감소 시키는 경우, 체력 감소에 대한 확인이 필요합니다",
         "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다.",
         "heal": "부정적 상태에서 %game.action.heal%시 팝업 창을 띄웁니다.",
-        "poison": "%game.condition.poison%상태에서 피해를 입을 때, %game.action.attack% +1(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
+        "poison": "%game.condition.poison%상태에서 피해를 입을 때, %game.action.attack:+1%(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "poison_x": "%game.condition.poison_x:X%상태에서 피해를 입을 때, %game.action.attack% +X(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "shield": "피해를 입을 때,%game.action.shield%를 적용하여 피해를 감소시킵니다.",
         "ward": "피해를 입을 때, %game.condition.ward%를 적용하여 피해를 감소시킵니다."
@@ -2232,7 +2238,7 @@
     },
     "applyLongRest": {
       "": "긴 휴식 적용",
-      "hint": "긴 휴식인 캐릭터는 자동으로 %game.action.heal% 2 효과를 적용합니다."
+      "hint": "긴 휴식인 캐릭터는 자동으로 %game.action.heal:2% 효과를 적용합니다."
     },
     "applyLoot": {
       "": "캐릭터에 노획 적용",

@@ -760,7 +760,7 @@
       },
       "poison": {
         "": "Veleno",
-        "hint": "%game.conditionIcon.poison% Veleno: Tutti gli attaccanti ottengono +1 %game.action.attack%. Impedisce la guarigione. Rimuovi quando guarito."
+        "hint": "%game.conditionIcon.poison% Veleno: Tutti gli attaccanti ottengono %game.action.attack.valueSign:1%. Impedisce la guarigione. Rimuovi quando guarito."
       },
       "poison_x": {
         "": "Veleno {0}",
@@ -768,7 +768,7 @@
       },
       "regenerate": {
         "": "Rigenerazione",
-        "hint": "%game.conditionIcon.regenerate% Rigenerazione: %game.action.heal% 1 all'inizio del turno. Rimuovi quando ricevi danno."
+        "hint": "%game.conditionIcon.regenerate% Rigenerazione: %game.action.heal:1% all'inizio del turno. Rimuovi quando ricevi danno."
       },
       "roundExpire": {
         "hint": "Rimuovi condizione alla fine del round"
@@ -2353,7 +2353,7 @@
         "": "Alcuni stati richiedono la conferma per essere applicati, ad esempio quando diminuiscono i PV con il Veleno, conferma per perdere 1 PV extra",
         "brittle": "Quando subisci danno, chiedi di applicare %game.condition.brittle% e aumenta il danno.",
         "heal": "Non è uno stato, ma %game.action.heal% potrebbe essere applicato per aumentare i punti ferita.",
-        "poison": "Quando subisci danno, chiedi di applicare %game.action.attack% +1 da %game.condition.poison% (incluso %game.attackmodifier.double%).",
+        "poison": "Quando subisci danno, chiedi di applicare %game.action.attack:+1% da %game.condition.poison% (incluso %game.attackmodifier.double%).",
         "poison_x": "Quando subisci danno, chiedi di applicare %game.action.attack% +X da %game.condition.poison_x:X% (incluso %game.attackmodifier.double%).",
         "shield": "Non è uno stato, ma %game.action.shield% potrebbe essere applicato per ridurre i danni quando se ne subiscono.",
         "ward": "Quando subisci danno, chiedi di applicare %game.condition.ward% per diminuire il danno."
@@ -2441,7 +2441,7 @@
     },
     "applyLongRest": {
       "": "Applica riposo lungo",
-      "hint": "Effettua automaticamente %game.action.heal% 2 nel turno del personaggio quando riposa a lungo"
+      "hint": "Effettua automaticamente %game.action.heal:2% nel turno del personaggio quando riposa a lungo"
     },
     "applyLoot": {
       "": "Applica bottino al personaggio",

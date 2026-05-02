@@ -750,7 +750,7 @@
       },
       "poison": {
         "": "Trucizna",
-        "hint": "%game.conditionIcon.poison% Trucizna: Wszyscy atakujący zyskują +1 %game.action.attack%. Uniemożliwia leczenie. Usuń po leczeniu."
+        "hint": "%game.conditionIcon.poison% Trucizna: Wszyscy atakujący zyskują %game.action.attack.valueSign:1%. Uniemożliwia leczenie. Usuń po leczeniu."
       },
       "poison_x": {
         "": "Trucizna {0}",
@@ -758,7 +758,7 @@
       },
       "regenerate": {
         "": "Regeneracja",
-        "hint": "%game.conditionIcon.regenerate% Regeneracja: %game.action.heal% 1 na początku tury. Usuwa się po otrzymaniu obrażeń."
+        "hint": "%game.conditionIcon.regenerate% Regeneracja: %game.action.heal:1% na początku tury. Usuwa się po otrzymaniu obrażeń."
       },
       "rupture": {
         "": "Pęknięcie",
@@ -2320,7 +2320,7 @@
         "": "Niektóre warunki wymagają potwierdzenia, np. przy zmniejszaniu HP z Trucizną potwierdź utratę dodatkowego 1 HP.",
         "brittle": "Przy otrzymaniu obrażeń zapytaj o zastosowanie %game.condition.brittle% i zwiększenie obrażeń.",
         "heal": "Brak warunku, ale pomocnik jeśli %game.action.heal% powinno zostać zastosowane przy zwiększaniu punktów życia.",
-        "poison": "Przy otrzymaniu obrażeń zapytaj o zastosowanie %game.action.attack% +1 z %game.condition.poison% (łącznie z %game.attackmodifier.double%).",
+        "poison": "Przy otrzymaniu obrażeń zapytaj o zastosowanie %game.action.attack:+1% z %game.condition.poison% (łącznie z %game.attackmodifier.double%).",
         "poison_x": "Przy otrzymaniu obrażeń zapytaj o zastosowanie %game.action.attack% +X z %game.condition.poison_x:X% (łącznie z %game.attackmodifier.double%).",
         "shield": "Brak warunku, ale pomocnik jeśli %game.action.shield% powinno zostać zastosowane przy otrzymaniu obrażeń.",
         "ward": "Przy otrzymaniu obrażeń zapytaj o zastosowanie %game.condition.ward% i zmniejszenie obrażeń."
@@ -2408,7 +2408,7 @@
     },
     "applyLongRest": {
       "": "Zastosuj długi odpoczynek",
-      "hint": "Automatycznie wykonaj %game.action.heal% 2 w turze postaci podczas długiego odpoczynku"
+      "hint": "Automatycznie wykonaj %game.action.heal:2% w turze postaci podczas długiego odpoczynku"
     },
     "applyLoot": {
       "": "Zastosuj łup do postaci",
