@@ -108,6 +108,9 @@
     }
   },
   "custom": {
+    "city-guard-saw-solo": {
+      "1": "Получайте %game.damage:1% в конце каждого раунда пока не вылечитесь полностью"
+    },
     "gh": {
       "ancient-artillery": {
         "1": "Все соседние враги получают по %game.damage:2%."
@@ -353,9 +356,6 @@
         "2": "%game.action.summon% [C] яиц"
       }
     },
-    "city-guard-saw-solo": {
-      "1": "Получайте %game.damage:1% в конце каждого раунда пока не вылечитесь полностью"
-    },
     "ghost-wolf": {
       "1": "В начале каждого раунда:"
     }
@@ -408,23 +408,30 @@
     "city-guard": "Городской страж",
     "cultist": "Культист",
     "dark-rider": "Тёмный всадник",
+    "deep-earth": "Недра",
     "deep-terror": "Невыносимый ужас",
     "earth-demon": "Земляной демон",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
     "elder-drake": "Дрейк-патриарх",
     "flame-demon": "Огненный демон",
     "forest-imp": "Лесной бес",
     "frost-demon": "Морозный демон",
+    "ghost-wolf": "Призрачный Волк",
     "giant-ooze": "Гигантская слизь",
     "giant-viper": "Гигантская гадюка",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
     "harrower-infester": "Жнец заразитель",
+    "high-flame": "Пламя",
     "hound": "Гончая",
     "hungry-soul": "Ненасытная душа",
     "infiltrator": "Лазутчик",
     "inox-archer": "Инокс-лучник",
     "inox-bodyguard": "Инокс-телохранитель",
     "inox-guard": "Инокс-стражница",
+    "inox-necromancer": "Инокс-некромант",
     "inox-shaman": "Инокс-шаман",
     "jekserah": "Джексера",
+    "lieutenant": "Лейтенант",
     "living-bones": "Ожившие кости",
     "living-corpse": "Оживший труп",
     "living-spirit": "Оживший дух",
@@ -439,8 +446,10 @@
     "savvas-icestorm": "Саввас «Ледяной шторм»",
     "savvas-lavaflow": "Саввас «Поток лавы»",
     "siege-cannon": "Осадная пушка",
+    "song-of-the-deep": "Песнь Глубин",
     "spitting-drake": "Шипящий дрейк",
     "stone-golem": "Каменный голем",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
     "sun-demon": "Солнечный демон",
     "the-betrayer": "Предатель",
     "the-colorless": "Бесцветный",
@@ -448,19 +457,10 @@
     "the-harvester": "Пожинатель",
     "the-sightless-eye": "Невидящее око",
     "vermling-scout": "Вермлинг-разведчик",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
     "vermling-shaman": "Вермлинг-шаман",
     "wind-demon": "Воздушный демон",
-    "winged-horror": "Крылатый ужас",
-    "deep-earth": "Недра",
-    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
-    "ghost-wolf": "Призрачный Волк",
-    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
-    "high-flame": "Пламя",
-    "inox-necromancer": "Инокс-некромант",
-    "lieutenant": "Лейтенант",
-    "song-of-the-deep": "Песнь Глубин",
-    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
-    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
+    "winged-horror": "Крылатый ужас"
   },
   "objective": {
     "Altar": "Алтарь",

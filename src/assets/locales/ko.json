@@ -1515,7 +1515,13 @@
       "disadvantage": "병영이 박살나서 불이익 상태가 되었습니다!",
       "filter": {
         "desc": "내림차순",
+        "distance": "거리",
         "even": "짝수",
+        "level": {
+          "": "레벨",
+          "high": "높은 레벨부터",
+          "low": "낮은 레벨부터"
+        },
         "lowerBoundary": "하한값",
         "odd": "홀수",
         "parity": "홀짝",
