@@ -91,6 +91,7 @@ export type ScenarioFigureRuleTypes =
   | 'initiative'
   | 'gainCondition'
   | 'loseCondition'
+  | 'losePermanentCondition'
   | 'permanentCondition'
   | 'damage'
   | 'setHp'

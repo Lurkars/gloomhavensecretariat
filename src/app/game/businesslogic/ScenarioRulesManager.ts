@@ -863,6 +863,7 @@ export class ScenarioRulesManager {
               figureRule.type === 'gainCondition' ||
               figureRule.type === 'permanentCondition' ||
               figureRule.type === 'loseCondition' ||
+              figureRule.type === 'losePermanentCondition' ||
               figureRule.type === 'damage' ||
               figureRule.type === 'heal' ||
               figureRule.type === 'setHp' ||
@@ -895,6 +896,12 @@ export class ScenarioRulesManager {
                     const loseCondition = new Condition(figureRule.value);
                     if (gameManager.entityManager.hasCondition(entity, loseCondition)) {
                       gameManager.entityManager.removeCondition(entity, figure, loseCondition);
+                    }
+                    break;
+                  case 'losePermanentCondition':
+                    const losePermanentCondition = new Condition(figureRule.value);
+                    if (gameManager.entityManager.hasCondition(entity, losePermanentCondition, true)) {
+                      gameManager.entityManager.removeCondition(entity, figure, losePermanentCondition, true);
                     }
                     break;
                   case 'damage':

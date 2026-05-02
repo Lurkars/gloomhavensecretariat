@@ -2,6 +2,7 @@
   "index": "56",
   "name": "The Gloom",
   "flowChartGroup": "the-gloom",
+  "errata": "scenario56",
   "edition": "gh2e",
   "rewards": {
     "globalAchievements": [
@@ -16,6 +17,74 @@
     "deep-terror",
     "harrower-infester",
     "the-gloom"
+  ],
+  "rules": [
+    {
+      "round": "R % 3 != 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "the-gloom"
+          },
+          "type": "permanentCondition",
+          "value": "ward",
+          "scenarioEffect": false
+        }
+      ]
+    },
+    {
+      "round": "R % 3 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "the-gloom"
+          },
+          "type": "losePermanentCondition",
+          "value": "ward",
+          "scenarioEffect": false
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player2": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "count": 2,
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
