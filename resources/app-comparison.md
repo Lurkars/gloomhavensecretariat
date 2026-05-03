@@ -93,6 +93,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Track Character Shield/Retaliate                                                | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Ability Cards Enhancements                                            | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Items (manage item states)                                            | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
+| automatic Loot Deck Setup                                                          | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Loot Deck Enhancements                                                          | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Assign Loot Cards to Character                                                  | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Special Scenario Rules/Notes                                                    | ✅            | ✅         | ⛔        | ✅        | ⛔       |
