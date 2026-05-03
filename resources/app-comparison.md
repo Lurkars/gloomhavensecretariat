@@ -86,10 +86,10 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Update Elements                                                                 | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Consume Elements by Monsters                                                    | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Advanced Element Tracking (Turn created, consumed)                              | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
-| Expire Conditions                                                               | ✅            | ✅         | ⛔        | ✅        | ✅       |
+| Expire Conditions                                                               | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Automatic Advantage/Disadvantage Draw for AM Decks                              | ✅            | ⛔         | ⛔        | ⛔        | ⛔       |
 | Automaitc apply Conditions  (like wound, regenarate etc.)                       | ✅            | ⛔         | ✅        | ✅        | ⛔       |
-| Automatic ask for applying Conditions  (like poison, ward etc.)                 | ✅            | ⛔         | ✅        | ✅        | ⛔       |
+| Automatic ask for applying Conditions  (like poison, ward etc.)                 | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Track Character Shield/Retaliate                                                | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Ability Cards Enhancements                                            | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Items (manage item states)                                            | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
