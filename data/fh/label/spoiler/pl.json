@@ -1367,8 +1367,17 @@
         "108": {
           "": "W skrzyni znaleźliście pomalowaną kamienną tabliczkę. Obraz przedstawia dziwnie znajomy krajobraz i poczuliście, że bylibyście w stanie odnaleźć to miejsce, gdybyście tylko dostatecznie dobrze poszukali."
         },
+        "109": {
+          "": "W skrzyni znaleźliście delikatny element osobliwego mechanizmu. Kiedy go wyjęliście, ożył i wyemitował nad sobą mapę. Zrozumieliście, jak manipulować tą wyświetloną mapą i odnaleźliście lokalizację czegoś, co wygląda na jakiegoś rodzaju fabrykę."
+        },
+        "110": {
+          "": "W skrzyni znaleźliście płytę z uformowanego kamienia. Miała kształt klucza i czuliście, że wiecie, gdzie jest jej miejsce. Telepatycznie przekazała wam wskazówki dotyczące drogi."
+        },
         "112": {
           "": "Wewnątrz skrzyni ze skarbami, głęboko w przerażającym lochu pełnym niebezpiecznych potworów, znaleźliście uroczego wilczego szczeniaka, który po prostu spokojnie spał. I jakimś cudem żył. Zamknięty w skrzyni. Może brzmi to dziwnie lub nieprawdopodobnie, ale szczeniaki są super, więc po co zadawać zbyt wiele pytań? Zabraliście go ze sobą z powrotem do Frosthaven."
+        },
+        "113": {
+          "": "Podczas podróży zostaliście spowici gęstą mgłą. Kiedy się przerzedziła, znaleźliście się w bujnym lesie, w którym wcale nie panowała zima, pełnym leśnych zwierząt i pyłków. Mieliście wrażenie, że stara się on trzymać was z dala od czegoś. Trudno was jednak oszukać, więc przedarliście się przez iluzje i odnaleźliście bujną grotę. Zdecydowaliście się to zbadać (być może od razu, a może postanowiliście wrócić tu później)."
         },
         "114": {
           "4": "Majsterkowicz z Frosthaven, <strong>%ui.tooltip:data.scenario.recap.fh.character.pinter-droman%</strong>, uważa, że niedawne osunięcie ziemi stworzyło nową okazję do wytyczenia przejścia przez Góry Miedzianej Turni. Mogłoby to zaoszczędzić kilka dni podczas każdej podróży. Pinter stworzył kilka bomb, które mają pomóc uprzątnąć pozostały gruz, jednak lokalna fauna nie patrzy przychylnym okiem na te działania. Poprosił was o podłożenie materiałów wybuchowych w wyznaczonych miejscach, ponieważ – w przeciwieństwie do jego zwykłych pracowników – wy potraficie się obronić."
@@ -1378,6 +1387,9 @@
         },
         "116": {
           "115": "Gdy to zostało zrobione, Pinter i jego ekipa mogli ukończyć drogę. <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> poprosiła lokalnych kupców o wykonanie kursu próbnego tym nowym skrótem oraz poprosiła was o eskortowanie pierwszych karawan zmierzających na południe."
+        },
+        "117": {
+          "": "Po pewnym czasie nieobecności w Frosthaven, powrócił wasz przyjazny Szczurok Traper. Osiadł w Lesie Białego Ognia, ale niedźwiedzie polarne odstraszają stamtąd wszystkie mniejsze zwierzęta. Inne tutejsze Szczuroki zbytnio trzebiły niedźwiedzie, wypierając je z ich naturalnego siedliska. Wasz stary przyjaciel poprosił was o pomoc w przeniesieniu niedźwiedzi w lepsze miejsce."
         },
         "118": {
           "": "Pewnego dnia Kościodziej powrócił i was zaskoczył. Poszukiwał energii z nowych sfer egzystencji - i znalazł dziwną energię znacznie bliżej domu, emanującą skądś w pobliżu Frosthaven."
@@ -1396,6 +1408,9 @@
         },
         "134": {
           "": "<strong>%ui.tooltip:data.scenario.recap.fh.character.eddica%</strong>, valracka Bibliotekarka, badała pewne magiczne księgi, napisane przez Sawasa, czarownika o imieniu Belara. Uważa, że odnalazła lokalizację Księgi Konfliktu. W starszych tekstach mowa jest o wieży, która rzekomo znajduje się w Promiennym Lesie – ale nie ma jej na żadnych nowszych mapach. Podejrzewa, że to tam można odnaleźć Księgę."
+        },
+        "136": {
+          "": "<strong>%ui.tooltip:data.scenario.recap.fh.character.dinah-snapclaw%</strong>, Karczmarka rasy Szczurok z [Boiled Crab], opowiadała wam historie o osławionym piracie, [Barty Half-Ear]. Zleciła wam poszukiwanie starożytnych monet – podobnych do tej, którą sama nosi. Jeśli znajdziecie je wszystkie, podobno doprowadzą was do ogromnego skarbu.<br>Po przyniesieniu jej jednej z monet opowiedziała wam o [Pirate Queen's Haul], ogromnym skarbie, którego ona i Barty szukali razem, zanim ją zdradził. Potrzebujecie czterech monet, by go odnaleźć; ona ma jedną, on drugą, wy właśnie znaleźliście trzecią, a ostatnia wciąż pozostaje zaginiona.<br>Pragnie zarówno zemsty, jak i skarbu, więc podała wam lokalizację kryjówki Barty'ego. Jest niemal pewna, że to właśnie tam ukrył swoją monetę. Przynieście jej jeszcze dwie monety, a wszyscy razem będziecie bogaci."
         },
         "14": {
           "7": "Ścigaliście ich do brzegu Kąsającego Morza, gdzie natknęliście się na Czychaczy w jaskini wykutej w klifie. W czaszce Ożywionych Zwłok znaleźliście osobliwy Odłamek Koralowca; przekazał wam on, że chce, abyście zabrali go na północ, daleko w morze, z dala od klifów. Uznaliście, że to właśnie tego szukali Czychacze.<br>Po zbudowaniu statku postanowiliście wypłynąć na skute lodem morze i sprawdzić, dokąd Odłamek chce was zaprowadzić."
@@ -1519,11 +1534,20 @@
         "70": {
           "69": "Tutejszy Sawas botanik, <strong>%ui.tooltip:data.scenario.recap.fh.character.listerius%</strong>, badał te próbki drewna. Wysłał was do Promiennego Lasu, abyście zebrali również próbki gleby. Mając je do dyspozycji, był pewien, że zdoła wyznaczyć lokalizację. Po ich dostarczeniu, Listerius rozpoczął analizę.<br>Kilka tygodni później zastaliście chatę Listeriusa splądrowaną. Promienisty Zakon z Białego Dębu usłyszał o jego \"bluźnierstwie\", ukradł notatki i wyruszył, by zniszczyć Prawdziwy Dąb, którego szukaliście."
         },
+        "79": {
+          "": "Satha była otoczona przez ludzi w koszulach nocnych, narzekających na straszny sen, który przyśnił się im wszystkim w tym samym czasie. Sen dotyczył maszyny, która potrzebowała pomocy, by uwolnić się z lodu. Skandowali w upiornym chórze i oznajmili wam, że nie zaznają snu, dopóki nie zostanie to zrobione.<br>(Na marginesie – yyy... jak długo z tym zwlekaliście od momentu, gdy to otrzymaliście? Och, nie pamiętacie? Jestem... Jestem pewien, że z nimi wszystkimi wszystko w porządku.)"
+        },
         "8": {
           "4": "Po zażegnaniu bezpośredniego zagrożenia ze strony Algoksów, <strong>%ui.tooltip:data.scenario.recap.fh.character.mayor-satha%</strong> wspomniała, że przez pustkowia maszerują dziwne metalowe konstrukty. Zwiadowcy tropili je przez Las Białego Ognia, a następnie do zamarzniętej doliny. Poprosiła was, abyście przyjrzeli się tej sprawie."
         },
+        "83": {
+          "": "<strong>%ui.tooltip:data.scenario.recap.fh.character.glint%</strong>, archiwista rasy Inoks w Ratuszu, rozdał wszystkie dobre zlecenia innym grupom. W końcu znalazł dla was jedno, które brzmi: \"Jaskinia, w której śmierdzi rybą.\"<br>Pewien kartograf znalazł jaskinię, w której śmierdzi rybą. To wszystko. Tyle w temacie wstępu. To bardzo daleko stąd.<br>Nie, nie zmyślam. Możecie sami przeczytać tę sekcję."
+        },
         "9": {
           "5": "Lodomówca, którego ścigaliście, zwabił was w swego rodzaju pułapkę - wpadliście przez ukrytą szczelinę do podziemnej krypty pełnej duchów. Po rozprawieniu się z nimi, postanowiliście podjąć się dalszej eksploracji tego podziemnego obszaru."
+        },
+        "92": {
+          "": "<strong>%ui.tooltip:data.scenario.recap.fh.character.captain-doghogger%</strong> dowiedział się, że na morzu dryfuje opuszczony statek pełen zapasów. Dostrzegła go załoga rybacka, a on szuka zespołu, który \"odciąży\" go z części zaopatrzenia i/lub skarbów."
         },
         "99": {
           "": "\"Iskra\", sędziwa Orchidka, odnalazła was przy karczmie tuż przed snem. Bez zbędnych szczegółów - poruszała się o wiele za wolno, by w ogóle o tym myśleć - wręczyła wam worek starożytnych złotych monet i was wynajęła."
@@ -1531,6 +1555,10 @@
         "character": {
           "barduu": {
             "tooltip": "Emisariusz Algoksów.<br>Pierwszy raz pojawia się w: %game.scenarioNumber:28%"
+          },
+          "captain-doghogger": {
+            "": "Kapitan Psikuta",
+            "tooltip": "Kapitan statku z Frosthaven."
           },
           "captain-olmstead": {
             "": "Kapitan Olmsted",
@@ -1548,6 +1576,9 @@
           },
           "geryuu": {
             "tooltip": "Bóg Algoksów, czczony zarówno przez Śniegomówców, jak i Lodomówców – jednak sposób oddawania mu czci leży u podstaw religijnego rozłamu wśród Algoksów."
+          },
+          "glint": {
+            "tooltip": "Kronikarz z Frosthaven, rasy Inoks."
           },
           "gurndel": {
             "tooltip": "Emisariusz Algoksów.<br>Pierwszy raz pojawia się w: %game.scenarioNumber:28%"
@@ -1601,5 +1632,10 @@
     "trained-falcon": "Wyszkolony Sokół",
     "white-owl": "Biała Sowa",
     "wraith": "Upiór"
+  },
+  "treasures": {
+    "fh": {
+      "54": "Skrzynia ze skarbami? Nie było tam żadnej skrzyni. Może nie powinieneś już więcej pić."
+    }
   }
 }
