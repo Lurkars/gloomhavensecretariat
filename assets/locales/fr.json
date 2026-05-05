@@ -1876,7 +1876,7 @@
       "restartLoseLoot": "Redémarrer le scénario (perdre des ressources)",
       "rewards": {
         "": "Récompenses du scénario",
-        "collectiveGold": "collectif %game.resource.gold%",
+        "collectiveGold": "collectif %game.resource.money%",
         "collectiveResource": "collectif %game.resource.{0}%",
         "experience": "Récompense XP",
         "gold": "Récompense or"

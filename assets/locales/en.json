@@ -2275,7 +2275,7 @@
       "restartLoseLoot": "Restart scenario (lose resources)",
       "rewards": {
         "": "Scenario Rewards",
-        "collectiveGold": "Collective %game.resource.gold%",
+        "collectiveGold": "Collective %game.resource.money%",
         "collectiveResource": "Collective %game.resource.{0}%",
         "experience": "Reward XP",
         "gold": "Reward Gold"

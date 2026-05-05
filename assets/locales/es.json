@@ -2179,7 +2179,7 @@
       "restartLoseLoot": "Reiniciar Escenario (perder recursos)",
       "rewards": {
         "": "Recompensas del Escenario",
-        "collectiveGold": "%game.resource.gold% colectivo",
+        "collectiveGold": "%game.resource.money% colectivo",
         "collectiveResource": "%game.resource.{0}% colectivo",
         "experience": "Exp. de recompensa",
         "gold": "Oro de recompensa"

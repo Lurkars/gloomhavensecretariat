@@ -2041,7 +2041,7 @@
       "restartLoseLoot": "시나리오 재시작 (자원을 잃습니다)",
       "rewards": {
         "": "시나리오 보상",
-        "collectiveGold": "총 %game.resource.gold%개",
+        "collectiveGold": "총 %game.resource.money%개",
         "collectiveResource": "총 %game.resource.{0}%개",
         "experience": "경험치 보상",
         "gold": "금화 보상"

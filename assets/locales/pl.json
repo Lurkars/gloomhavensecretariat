@@ -2210,7 +2210,7 @@
       "restartLoseLoot": "Uruchom scenariusz ponownie (utracisz zasoby)",
       "rewards": {
         "": "Nagrody scenariusza",
-        "collectiveGold": "Wspólne %game.resource.gold%",
+        "collectiveGold": "Wspólne %game.resource.money%",
         "collectiveResource": "Wspólne %game.resource.{0}%",
         "experience": "Nagroda PD",
         "gold": "Nagroda złota"
@@ -2462,6 +2462,7 @@
       "": "Automatyczne odblokowanie postaci",
       "hint": "Automatycznie odblokowuj postacie z nagród scenariuszy."
     },
+    "automation": "Automatyzacje",
     "autoscroll": {
       "": "Autoprzewijanie",
       "hint": "Automatycznie przewiń do następnej aktywnej figury"
@@ -2632,6 +2633,7 @@
       "logServerMessages": "Loguj komunikaty serwera",
       "rightClick": "Zawsze włącz Prawy Klik"
     },
+    "display": "Widok",
     "dragFigures": {
       "": "Przeciąganie figur",
       "hint": "Przeciągaj figury na liście. Uwaga: jeśli wyłączone i inicjatywa nie jest wymagana, nie będzie możliwości ręcznego zmieniania kolejności."
@@ -2655,6 +2657,10 @@
     "eliteFirst": {
       "": "Elity jako pierwsze",
       "hint": "Pokazuj podstawki elit jako pierwsze przy sortowaniu."
+    },
+    "entitiesMenu": {
+      "": "Menu dla wszystkich podstawek i postaci",
+      "hint": "Wyświetl przycisk menu w stopce, aby zastosować zmiany do wszystkich figurek i postaci jednocześnie."
     },
     "errata": {
       "": "Pokaż podpowiedzi erraty",
@@ -2757,6 +2763,7 @@
       "hint": "Scal zegary gry z serwera z lokalnym zegarem, aby uzyskać całkowity czas gry."
     },
     "gameplay": "Rozgrywka",
+    "gamerules": "Wersje gry",
     "ge5Player": {
       "": "Zasady dla ≥ 5 graczy"
     },
@@ -2881,6 +2888,7 @@
       "": "Optymalizacja trybu pionowego",
       "hint": "Optymalizacja trybu pionowego dla mniejszych ekranów."
     },
+    "preferences": "Preferencje",
     "pressDoubleClick": {
       "": "Długie przytrzymanie jako podwójne kliknięcie (dotyk)",
       "hint": "Na ekranach dotykowych podwójne kliknięcie wywoływane jest długim przytrzymaniem. (Zalecane, aby uniknąć „ghost clicków”)"

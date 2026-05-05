@@ -1910,7 +1910,7 @@
       "restartLoseLoot": "Перезапустить сценарий (потерять ресурсы)",
       "rewards": {
         "": "Награды сценария",
-        "collectiveGold": "Общего %game.resource.gold%",
+        "collectiveGold": "Общего %game.resource.money%",
         "collectiveResource": "Общих %game.resource.{0}%",
         "experience": "Награда: опыт",
         "gold": "Награда: золото"
