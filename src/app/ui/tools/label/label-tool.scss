@@ -1,0 +1,71 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  ghs-header {
+    z-index: 2;
+  }
+}
+
+.menu {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  input {
+    width: 300px;
+  }
+
+  button {
+    cursor: pointer;
+    opacity: 0.6;
+
+    &.active {
+      opacity: 1;
+      font-weight: bold;
+    }
+  }
+}
+
+.labels {
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+}
+
+.label-row {
+  display: flex;
+  gap: 16px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .label-index {
+    flex: 0 0 5em;
+    font-family: monospace;
+    opacity: 0.6;
+    text-align: right;
+  }
+
+  .label-key {
+    flex: 0 0 25vw;
+    font-family: monospace;
+    opacity: 0.6;
+  }
+
+  .label-raw {
+    flex: 0 0 30vw;
+    font-family: monospace;
+    font-size: 0.85em;
+    opacity: 0.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: auto;
+  }
+
+  .label-value {
+    flex: 1;
+  }
+}

@@ -23,6 +23,7 @@ const routes = [
   { path: 'tools/decks', loadComponent: () => import('src/app/ui/tools/decks/decks-tool').then((m) => m.DecksToolComponent) },
   { path: 'tools/events', loadComponent: () => import('src/app/ui/tools/events/event-cards-tool').then((m) => m.EventCardsToolComponent) },
   { path: 'tools/items', loadComponent: () => import('src/app/ui/tools/items/items-cards-tool').then((m) => m.ItemsCardsToolComponent) },
+  { path: 'tools/label', loadComponent: () => import('src/app/ui/tools/label/label-tool').then((m) => m.LabelToolComponent) },
   {
     path: 'tools/treasures',
     loadComponent: () => import('src/app/ui/tools/treasures/treasures-tool').then((m) => m.TreasuresToolComponent)

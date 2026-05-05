@@ -459,7 +459,7 @@
     },
     "cs-93": {
       "": "หลอดเป่าพิษงูกลั่น",
-      "1": "ในเทิร์นของคุณ ดำเนินการ \"%game.action.attack:1%, %game.action.range:4%, %game.condition.poison%\" คุณอาจ %game.element.consume.earth% เพื่อเพิ่ม %game.condition.target%"
+      "1": "ในเทิร์นของคุณ ดำเนินการ \"%game.action.attack:1%, %game.action.range:4%, %game.condition.poison%\" คุณอาจ %game.element.consume.earth% เพื่อเพิ่ม %game.attackmodifier.target%"
     },
     "cs-94": {
       "": "หินน้ำแข็ง",

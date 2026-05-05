@@ -1,0 +1,30 @@
+<div class="container">
+  <ghs-header [standalone]="true"></ghs-header>
+
+  <div class="menu">
+    <input [(ngModel)]="filter" (input)="update()" placeholder="Filter labels..." />
+    <select [(ngModel)]="locale" (ngModelChange)="changeLocale($event)">
+      @for (l of settingsManager.locales; track l) {
+        <option [value]="l">{{ l }}</option>
+      }
+    </select>
+    @if (locale !== 'en') {
+      <select [(ngModel)]="translationFilter" (ngModelChange)="update()">
+        <option value="all">All</option>
+        <option value="same">Same as EN</option>
+        <option value="untranslated">Untranslated</option>
+      </select>
+    }
+  </div>
+
+  <div class="labels">
+    @for (label of labels; track label.key; let i = $index) {
+      <div class="label-row">
+        <span class="label-index">{{ i + 1 }}.</span>
+        <span class="label-key">{{ label.key }}</span>
+        <span class="label-raw">{{ label.raw }}</span>
+        <span class="label-value" [ghs-label]="label.key" [ghs-label-args]="label.args" [ghs-label-args-replace]="false"></span>
+      </div>
+    }
+  </div>
+</div>

@@ -59,9 +59,9 @@
   "monsters": [
     "fracture-of-the-deep",
     "lightning-eel",
-    "lurker-clawcrusher",
-    "lurker-mindsnipper",
-    "lurker-wavethrower"
+    "lurker-clawcrusher-scenario-60",
+    "lurker-mindsnipper-scenario-60",
+    "lurker-wavethrower-scenario-60"
   ],
   "lootDeckConfig": {
     "money": 8,
@@ -228,25 +228,6 @@
           "state": "always"
         }
       ]
-    },
-    {
-      "round": "true",
-      "always": true,
-      "alwaysApply": true,
-      "statEffects": [
-        {
-          "identifier": {
-            "type": "monster",
-            "edition": "fh",
-            "name": ".*lurker.*"
-          },
-          "statEffect": {
-            "attack": 1,
-            "name": "fractured-lieutenant"
-          },
-          "note": "%data.scenario.rules.fh.60%"
-        }
-      ]
     }
   ],
   "rooms": [
@@ -271,42 +252,42 @@
           "player4": "elite"
         },
         {
-          "name": "lurker-clawcrusher",
+          "name": "lurker-clawcrusher-scenario-60",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite",
           "marker": "element:dark"
         },
         {
-          "name": "lurker-clawcrusher",
+          "name": "lurker-clawcrusher-scenario-60",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite",
           "marker": "element:light"
         },
         {
-          "name": "lurker-mindsnipper",
+          "name": "lurker-mindsnipper-scenario-60",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite",
           "marker": "element:ice"
         },
         {
-          "name": "lurker-mindsnipper",
+          "name": "lurker-mindsnipper-scenario-60",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite",
           "marker": "element:earth"
         },
         {
-          "name": "lurker-wavethrower",
+          "name": "lurker-wavethrower-scenario-60",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite",
           "marker": "element:air"
         },
         {
-          "name": "lurker-wavethrower",
+          "name": "lurker-wavethrower-scenario-60",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite",

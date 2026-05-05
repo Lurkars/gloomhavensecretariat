@@ -2243,7 +2243,7 @@
       "restartLoseLoot": "Ricomincia scenario (perdi le risorse)",
       "rewards": {
         "": "Ricompense dello scenario",
-        "collectiveGold": "%game.resource.gold% collettivo",
+        "collectiveGold": "%game.resource.money% collettivo",
         "collectiveResource": "%game.resource.{0}% collettivo/a",
         "experience": "Ricompensa di Esp",
         "gold": "Ricompensa in oro"

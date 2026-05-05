@@ -2111,7 +2111,7 @@
       "restartLoseLoot": "เริ่มฉากใหม่ (เสียทรัพยากร)",
       "rewards": {
         "": "รางวัลฉาก",
-        "collectiveGold": "%game.resource.gold% รวม",
+        "collectiveGold": "%game.resource.money% รวม",
         "collectiveResource": "%game.resource.{0}% รวม",
         "experience": "รางวัล XP",
         "gold": "รางวัลทอง"

@@ -14,7 +14,7 @@
     {
       "round": "R % 2 == 0",
       "start": true,
-      "note": "%data.section.rules.fh.21-1.1%",
+      "note": "%data.section.rules.fh.021-1%",
       "spawns": [
         {
           "monster": {
@@ -29,7 +29,7 @@
     {
       "round": "R % 2 == 1",
       "start": true,
-      "note": "%data.section.rules.fh.21-1.1%",
+      "note": "%data.section.rules.fh.021-1%",
       "spawns": [
         {
           "monster": {

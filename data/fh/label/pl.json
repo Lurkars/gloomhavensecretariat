@@ -2224,35 +2224,23 @@
     },
     "rules": {
       "fh": {
-        "102-1": {
-          "1": "Wszystkie postacie zwracają jedną kartę z ręki lub ze stosu kart odrzuconych do swojego stosu kart przygotowanych."
-        },
-        "130-3": {
-          "1": "Zyskaj korzyść na ten cel"
-        },
+        "102-1": "Wszystkie postacie zwracają jedną kartę z ręki lub ze stosu kart odrzuconych do swojego stosu kart przygotowanych.",
+        "130-3": "Zyskaj korzyść na ten cel",
         "146-3": "Kiedy ten atak zostanie wykonany, w następnej rundzie przy inicjatywie 99 wykonaj:",
-        "17-2": {
+        "017-2": {
           "1": "+2 surowce materiałowe",
           "2": "Zyskaj dwa surowce materiałowe"
         },
-        "180-3": {
-          "1": "Zyskaj jedną Skórę"
-        },
-        "19-2": {
+        "180-3": "Zyskaj jedną Skórę",
+        "019-2": {
           "1": "+1 surowiec materiałowy",
           "2": "Zyskaj jeden surowiec materiałowy"
         },
-        "192-1": {
-          "1": "Zyskaj jeden Metal"
-        },
-        "21-1": {
-          "1": "na dowolnym pustym polu startowym"
-        },
-        "41-1": {
-          "1": "Zyskaj jedno Drewno"
-        },
-        "51-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%",
-        "65-3": {
+        "192-1": "Zyskaj jeden Metal",
+        "021-1": "na dowolnym pustym polu startowym",
+        "041-1": "Zyskaj jedno Drewno",
+        "051-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%",
+        "065-3": {
           "1": "Otwórz wszystkie drzwi %game.mapMarker.1%. W kolejności inicjatywy - Umieść wszyskie postacie i przywołańców postaci, na najbliższym pustym polu kafla mapy 16-A, następnie usuń wszystkie drzwi oraz kafel mapy 13-A z gry.",
           "2": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%"
         }

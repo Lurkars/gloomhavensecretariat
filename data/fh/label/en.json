@@ -1232,11 +1232,11 @@
         "": "Banner Spear",
         "banner-of-hope": {
           "": "Banner of Hope",
-          "hint": "Automatically ask for %game.action.heal:1% on start of turn of allies"
+          "hint": "Automatically ask for %game.action.heal:1% on start of turn of allies while %data.summon.banner-of-hope% is summoned."
         },
         "banner-of-strength": {
           "": "Banner of Strength",
-          "hint": "Automatically ask to add %game.action.attack:+1% on start of turn of allies"
+          "hint": "Automatically ask to add %game.action.attack:+1% on start of turn of allies while %data.summon.banner-of-strength% is summoned."
         }
       },
       "blinkblade": {
@@ -1793,10 +1793,13 @@
     "lord-of-chaos": "Lord of Chaos",
     "lost-in-seaweed": "Lost in Seaweed",
     "lurker-clawcrusher": "Lurker Clawcrusher",
+    "lurker-clawcrusher-scenario-60": "Fractured Lieutenant (Lurker Clawcrusher)",
     "lurker-conductor": "Lurker Conductor",
     "lurker-mindsnipper": "Lurker Mindsnipper",
+    "lurker-mindsnipper-scenario-60": "Fractured Lieutenant (Lurker Mindsnipper)",
     "lurker-soldier": "Lurker Soldier",
     "lurker-wavethrower": "Lurker Wavethrower",
+    "lurker-wavethrower-scenario-60": "Fractured Lieutenant (Lurker Wavethrower)",
     "mountains-heart": "Mountain's Heart",
     "night-demon": "Night Demon",
     "night-demon-deathwalker-solo": "Night Demon (Solo)",
@@ -2232,6 +2235,7 @@
   "section": {
     "rewards": {
       "fh": {
+        "035-3": "When drawn, read any one section number depicted.",
         "056-3": "Manual (%wip%):Add any of the following items you have unlocked from <i>Forgotten Circles</i> to the available item supply:<br>154, 155, 157, and 163.",
         "094-4": "Do not resolve an outpost event this week.",
         "096-3": "\"Threat from the Deep\" quest complete",
@@ -2247,6 +2251,7 @@
         "146-2": "Each character gains 10 gold for each numbered token they looted <br>All characters start the next scenario with %game.condition.muddle% and %game.condition.curse%",
         "155-3": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
         "155-4": "Unlock Personal Quest 23. Any character may abandon all progress on their current personal quest to take it now, otherwise add it to the personal quest deck.",
+        "160-2": "When drawn, read any one section number depicted.",
         "161-1": "You may now play scenarios with the %game.fhIcon:climbing-gear% requirement.",
         "165-4": "See Section Book",
         "168-2": "Do not resolve an outpost event this week.",
@@ -2264,38 +2269,32 @@
     },
     "rules": {
       "fh": {
-        "102-1": {
-          "1": "All characters return one card from their hand or discard pile to their set-aside deck."
-        },
-        "130-3": {
-          "1": "Gain Advantage on this target"
-        },
-        "146-3": "When this attack is performed, on the next round at initiative 99 instead perform:",
-        "17-2": {
+        "017-2": {
           "1": "+2 material resource",
           "2": "Gain any two material resources"
         },
-        "180-3": {
-          "1": "Gain one Hide"
-        },
-        "19-2": {
+        "019-2": {
           "1": "+1 material resource",
           "2": "Gain any one material resource"
         },
-        "192-1": {
-          "1": "Gain one Metal"
-        },
-        "21-1": {
-          "1": "on any empty starting hex"
-        },
-        "41-1": {
-          "1": "Gain one Lumber"
-        },
-        "51-1": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%",
-        "65-3": {
+        "021-1": "on any empty starting hex",
+        "041-1": "Gain one Lumber",
+        "051-1": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%",
+        "065-3": {
           "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map.",
           "2": "%game.action.target% each monster within %game.action.range:4%"
-        }
+        },
+        "102-1": "All characters return one card from their hand or discard pile to their set-aside deck.",
+        "130-3": "Gain Advantage on this target",
+        "132-4": {
+          "1": "[C] monsters closest to any characters gain %game.condition.invisible% (Must be applied manually)",
+          "2": "The initiative order is reversed this round, starting with the highest initiative. All characters act before their summons, and all Vermling Scouts act before Abael Scouts."
+        },
+        "146-3": "When this attack is performed, on the next round at initiative 99 instead perform:",
+        "166-2": "Place one tree in any three starting hexes. Remove everything in these hexes from the map except for any figures, which are instead placed in the closest empty hexes.<br><br>All characters base attack values are doubled this round.",
+        "180-3": "Gain one Hide",
+        "186-4": "Place three snow rocks in any empty hexes on tile 15-A (if able).",
+        "192-1": "Gain one Metal"
       }
     },
     "title": {

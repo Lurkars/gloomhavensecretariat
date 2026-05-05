@@ -11,6 +11,48 @@
   "monsters": [
     "vermling-scout"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "heal",
+          "value": "919"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "%data.section.rules.fh.132-4.1%"
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "note": "%data.section.rules.fh.132-4.2%",
+      "reverseInitiative": true,
+      "active": true
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fh",
+          "scenario": "176.3",
+          "index": 1,
+          "section": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

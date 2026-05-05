@@ -2276,7 +2276,7 @@
       "restartLoseLoot": "Szenario neustarten (Ressourcen verlieren)",
       "rewards": {
         "": "Szenario Belohnungen",
-        "collectiveGold": "gemeinschaftliches %game.resource.gold%",
+        "collectiveGold": "gemeinschaftliches %game.resource.money%",
         "collectiveResource": "gemeinschaftliches %game.resource.{0}%",
         "experience": "EP Belohnung",
         "gold": "Gold Belohnung"

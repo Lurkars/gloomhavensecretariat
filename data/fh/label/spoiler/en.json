@@ -194,7 +194,7 @@
         "": "Infuser",
         "imbue-with-life": {
           "": "Imbue with Life",
-          "hint": "Whenever you do not have %game.condition.disarm%, gain %game.condition.disarm%."
+          "hint": "Whenever you do not have %game.condition.disarm%, gain %game.condition.disarm% while %data.summon.animated-claymore% is summoned."
         },
         "veil-of-protection": {
           "": "Veil of Protection",
@@ -236,6 +236,10 @@
         "autoapply_mode": {
           "": "Autoapply Mode",
           "hint": "When activating %data.characterToken.prism.mode%, automatically apply damage and conditions."
+        },
+        "code_geminate": {
+          "": "Code Geminate",
+          "hint": "Allowing multiple summons to have %data.characterToken.prism.mode% Mode activated."
         },
         "long_rest": {
           "": "Perk 8",

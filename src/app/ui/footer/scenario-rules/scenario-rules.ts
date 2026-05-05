@@ -237,6 +237,7 @@ export class ScenarioRulesComponent {
         this.figureRules(rule).length > 0 ||
         rule.note ||
         rule.finish ||
+        rule.reverseInitiative ||
         rule.randomDungeon ||
         (rule.statEffects && rule.statEffects.length)
       ) {
@@ -246,20 +247,22 @@ export class ScenarioRulesComponent {
     return false;
   }
 
-  apply(rule: ScenarioRule) {
-    return (
+  apply(rule: ScenarioRule): boolean {
+    const apply =
       gameManager.scenarioRulesManager.spawns(rule).length > 0 ||
-      (rule.objectiveSpawns && rule.objectiveSpawns.length > 0) ||
-      (rule.elements && rule.elements.length > 0) ||
-      rule.finish ||
+      (!!rule.objectiveSpawns && rule.objectiveSpawns.length > 0) ||
+      (!!rule.elements && rule.elements.length > 0) ||
+      !!rule.finish ||
       (settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0) ||
-      (rule.sections && rule.sections.length > 0) ||
-      rule.randomDungeon ||
-      (rule.figures &&
+      (!!rule.sections && rule.sections.length > 0) ||
+      !!rule.randomDungeon ||
+      rule.reverseInitiative ||
+      (!!rule.figures &&
         rule.figures.length > 0 &&
         rule.figures.some((figureRule) => !HiddenScenarioFigureRuleTypes.includes(figureRule.type))) ||
-      (rule.statEffects && rule.statEffects.length)
-    );
+      (!!rule.statEffects && rule.statEffects.length > 0);
+
+    return apply;
   }
 
   applyRule(element: HTMLElement, index: number) {
@@ -309,6 +312,9 @@ export class ScenarioRulesComponent {
             if (rule.once || rule.alwaysApply || rule.alwaysApplyTurn) {
               gameManager.game.appliedScenarioRules.push(identifier);
             }
+            if (rule.active) {
+              gameManager.game.activeScenarioRules.push(identifier);
+            }
             gameManager.game.scenarioRules.splice(index, 1);
 
             if (rule.finish === 'round') {
@@ -345,6 +351,16 @@ export class ScenarioRulesComponent {
         if (ruleModel.rule.once || ruleModel.rule.alwaysApplyTurn || ruleModel.rule.alwaysApply) {
           gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
         }
+        gameManager.game.activeScenarioRules = gameManager.game.activeScenarioRules.filter(
+          (active) =>
+            !(
+              active.edition === ruleModel.identifier.edition &&
+              active.scenario === ruleModel.identifier.scenario &&
+              active.group === ruleModel.identifier.group &&
+              active.index === ruleModel.identifier.index &&
+              active.section === ruleModel.identifier.section
+            )
+        );
         gameManager.stateManager.after();
       },
       settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0

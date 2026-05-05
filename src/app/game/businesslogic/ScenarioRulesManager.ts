@@ -272,6 +272,13 @@ export class ScenarioRulesManager {
     return errataRule;
   }
 
+  cleanActiveScenarioRules() {
+    this.game.activeScenarioRules = this.game.activeScenarioRules.filter((identifier) => {
+      const rule = this.getScenarioRule(identifier);
+      return rule && this.scenarioRuleActive(rule, identifier.index, identifier.section);
+    });
+  }
+
   filterDisabledScenarioRules() {
     this.game.scenarioRules = this.game.scenarioRules.filter(
       (ruleModel, index, self) =>
@@ -581,31 +588,51 @@ export class ScenarioRulesManager {
     this.filterDisabledScenarioRules();
   }
 
-  getScenarioForRule(rule: ScenarioRuleIdentifier): { scenario: ScenarioData | undefined; section: boolean } {
-    if (rule.section) {
+  getScenarioForRule(identifier: ScenarioRuleIdentifier): { scenario: ScenarioData | undefined; section: boolean } {
+    if (identifier.section) {
       const sectionData = this.game.sections.find(
         (section) =>
-          section.edition === rule.edition &&
-          section.group === rule.group &&
-          section.index === rule.scenario &&
+          section.edition === identifier.edition &&
+          section.group === identifier.group &&
+          section.index === identifier.scenario &&
           section.rules &&
-          section.rules.length > rule.index
+          section.rules.length > identifier.index
       );
       if (sectionData) {
         return { scenario: sectionData, section: true };
       }
     } else if (
       this.game.scenario &&
-      this.game.scenario.edition === rule.edition &&
-      this.game.scenario.group === rule.group &&
-      this.game.scenario.index === rule.scenario &&
+      this.game.scenario.edition === identifier.edition &&
+      this.game.scenario.group === identifier.group &&
+      this.game.scenario.index === identifier.scenario &&
       this.game.scenario.rules &&
-      this.game.scenario.rules.length > rule.index
+      this.game.scenario.rules.length > identifier.index
     ) {
       return { scenario: this.game.scenario, section: false };
     }
 
     return { scenario: undefined, section: false };
+  }
+
+  getScenarioRule(identifier: ScenarioRuleIdentifier): ScenarioRule | undefined {
+    const scenarioData = this.getScenarioForRule(identifier).scenario;
+    if (!!scenarioData) {
+      if (scenarioData.rules && scenarioData.rules.length > identifier.index && identifier.index >= 0) {
+        if (scenarioData.rules[identifier.index].spawns) {
+          scenarioData.rules[identifier.index].spawns.forEach((spawn) => {
+            if (spawn.manual && !spawn.count) {
+              spawn.count = '1';
+            }
+          });
+        }
+        return scenarioData.rules[identifier.index];
+      } else if (scenarioData.errata && identifier.index < 0 && scenarioData.errata.split('|')[identifier.index * -1 - 1]) {
+        return this.createErrataRule(scenarioData.edition, scenarioData.errata.split('|')[identifier.index * -1 - 1]);
+      }
+    }
+
+    return undefined;
   }
 
   figuresByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule): Figure[] {

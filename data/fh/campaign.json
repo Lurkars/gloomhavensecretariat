@@ -175,8 +175,8 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "%data.section.rules.fh.19-2.1%",
-                                    "hint": "%data.section.rules.fh.19-2.1%"
+                                    "value": "%data.section.rules.fh.019-2.1%",
+                                    "hint": "%data.section.rules.fh.019-2.1%"
                                 }
                             ]
                         }
@@ -217,8 +217,8 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "%data.section.rules.fh.17-2.1%",
-                                    "hint": "%data.section.rules.fh.17-2.2%"
+                                    "value": "%data.section.rules.fh.017-2.1%",
+                                    "hint": "%data.section.rules.fh.017-2.2%"
                                 }
                             ]
                         }
@@ -307,7 +307,7 @@
                                 {
                                     "type": "custom",
                                     "value": "%advantage%",
-                                    "hint": "%data.section.rules.fh.130-3.1%"
+                                    "hint": "%data.section.rules.fh.130-3%"
                                 }
                             ]
                         }
@@ -352,7 +352,7 @@
                                 {
                                     "type": "custom",
                                     "value": "+1%game.resource.hide%",
-                                    "hint": "%data.section.rules.fh.180-3.1%"
+                                    "hint": "%data.section.rules.fh.180-3%"
                                 }
                             ]
                         }
@@ -378,7 +378,7 @@
                                 {
                                     "type": "custom",
                                     "value": "+1%game.resource.lumber%",
-                                    "hint": "%data.section.rules.fh.41-1.1%"
+                                    "hint": "%data.section.rules.fh.041-1%"
                                 }
                             ]
                         }
@@ -404,7 +404,7 @@
                                 {
                                     "type": "custom",
                                     "value": "+1%game.resource.metal%",
-                                    "hint": "%data.section.rules.fh.192-1.1%"
+                                    "hint": "%data.section.rules.fh.192-1%"
                                 }
                             ]
                         }

@@ -9,7 +9,7 @@
   "rewards": {
     "hints": {
       "lootDeckCards": [
-        "When drawn, read any one section number depicted."
+        "%data.section.rewards.fh.035-3%"
       ]
     },
     "morale": 1,

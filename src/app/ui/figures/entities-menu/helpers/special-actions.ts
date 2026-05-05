@@ -251,8 +251,10 @@ export class SpecialActionsHelper {
             });
             entity.entityConditions = [];
 
-            character.summons.forEach((summon) => (summon.tags = summon.tags.filter((tag) => tag !== 'prism_mode')));
-            entity.tags.push('prism_mode');
+            if (!character.tags.includes('code_geminate')) {
+              character.summons.forEach((summon) => (summon.tags = summon.tags.filter((tag) => tag !== 'prism_mode')));
+              entity.tags.push('prism_mode');
+            }
           }
         }
 

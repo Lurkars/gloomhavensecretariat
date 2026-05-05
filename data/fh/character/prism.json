@@ -18,6 +18,11 @@
       "name": "autoapply_mode"
     },
     {
+      "name": "code_geminate",
+      "level": 5,
+      "round": true
+    },
+    {
       "name": "long_rest",
       "perk": 8
     },

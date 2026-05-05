@@ -100,14 +100,23 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Support for Frosthaven Building 81 and 90 Mechanics including automation (if possible)
   - special ability automation for some characters
     <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-banner-spear.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Banner of Strength: All alive allies gain +1 Attack at the start of their turn
+
+      > Banner of Hope: All alive allies with missing HP gain Heal 1 at the start of their turn
+    </details>
+    <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-blinkblade.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Automatically add/remove time tokens at start of round after defining slow/fast before
+      > Time Tokens: Automatically add/remove time tokens at start of round after defining slow/fast
+
+      > Overdrive: Add Shield 1 at start of each slow round (removed at end of round)
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-boneshaper.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Unholy Prowess: Add +1 Heal to to all Shambling Skeletons
+      > Unholy Prowess: Add +1 Heal to all Shambling Skeletons
 
       > Solid Bones: Add +1 HP, +1 Move and Pierce 1 to all Shambling Skeletons
     </details>
@@ -126,9 +135,11 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-prism.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Toggle Mode Token for summons (inactive if Mode Token set)
+      > Auto-Apply Mode: When setting a summon to Prism Mode, transfer HP damage and conditions from summon to Prism
 
       > Repair Drone Mode: Heal 2 self at start of turn
+
+      > Spider Mode (level 8): Gain Ward at start of turn
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-astral.svg" height="20px" style="filter:grayscale(1);"></summary>
@@ -157,16 +168,50 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Blood Pact: Suffer 1 damage at the start of each of your turns 
+      > Blood Pact: Suffer 1 damage at the start of each of your turns
 
       > Unbridled Power: Enable overhealing up to 26 HP
-      
+
       > Careless Charge: Toggle immunity for all conditions
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-music-note.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Automatically gain 1 XP at start of turn for active song
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-envx.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Call of the Grave (level 1): Wound deals +1 damage to monsters
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"> GH2E</summary>
+
+      > Blood Pact: Suffer 1 damage at the start of each of your turns (not when at 1 HP)
+
+      > Perk 9: Heal 3 instead of 2 during long rest
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-three-spears.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Start each scenario with 1 Supply Token
+
+      > Perk 11: Gain 1 additional Supply Token during long rest (max 5)
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-triangles.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Perk 12: Fire, Ice, Air and Earth elements do not wane at end of round
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/ccug-swarmshift.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Hive Tokens: Start each scenario with 1 Hive Token
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/cs-skull.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Spirits: Spirit summons gain +1 HP at the start of Skull's turn, lose 1 HP at the end of Skull's turn
     </details>
   - Random Dungeons
   - Scenario Flow Chart

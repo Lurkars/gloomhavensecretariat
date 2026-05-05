@@ -2270,7 +2270,7 @@
       "restartLoseLoot": "重启剧本（失去资源）",
       "rewards": {
         "": "剧本奖励",
-        "collectiveGold": "共同%game.resource.gold%",
+        "collectiveGold": "共同%game.resource.money%",
         "collectiveResource": "共同%game.resource.{0}%",
         "experience": "报酬XP",
         "gold": "报酬金币"

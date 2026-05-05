@@ -582,8 +582,14 @@ export class GameManager {
           return this.sortFiguresByTypeAndName(a, b);
         }
 
-        // apply Challenge #1491
-        if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1491, 'fh')) {
+        const reverse =
+          this.game.activeScenarioRules.some((identifier) => {
+            const rule = this.scenarioRulesManager.getScenarioRule(identifier);
+            return rule?.reverseInitiative;
+          }) ||
+          (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1491, 'fh')); // apply Challenge #1491
+
+        if (reverse) {
           return b.getInitiative() - a.getInitiative();
         }
 

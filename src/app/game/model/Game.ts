@@ -31,6 +31,7 @@ export class Game {
   scenarioRules: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }[] = [];
   appliedScenarioRules: ScenarioRuleIdentifier[] = [];
   discardedScenarioRules: ScenarioRuleIdentifier[] = [];
+  activeScenarioRules: ScenarioRuleIdentifier[] = [];
   level: number = 1;
   levelCalculation: boolean = true;
   levelAdjustment: number = 0;
@@ -69,7 +70,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(
+    const model = new GameModel(
       this.revision,
       this.revisionOffset,
       this.edition,
@@ -126,6 +127,8 @@ export class Game {
       this.keepFavors,
       this.eventDraw
     );
+    model.activeScenarioRules = JSON.parse(JSON.stringify(this.activeScenarioRules));
+    return model;
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -225,32 +228,16 @@ export class Game {
 
     if (model.scenarioRules) {
       model.scenarioRules.forEach((identifier) => {
-        const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
-        if (scenario) {
-          if (scenario.rules && scenario.rules.length > identifier.index && identifier.index >= 0) {
-            if (scenario.rules[identifier.index].spawns) {
-              scenario.rules[identifier.index].spawns.forEach((spawn) => {
-                if (spawn.manual && !spawn.count) {
-                  spawn.count = '1';
-                }
-              });
-            }
-            this.scenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
-          } else if (scenario.errata && identifier.index < 0 && scenario.errata.split('|')[identifier.index * -1 - 1]) {
-            this.scenarioRules.push({
-              identifier: identifier,
-              rule: gameManager.scenarioRulesManager.createErrataRule(
-                scenario.edition,
-                scenario.errata.split('|')[identifier.index * -1 - 1]
-              )
-            });
-          }
+        const rule = gameManager.scenarioRulesManager.getScenarioRule(identifier);
+        if (!!rule) {
+          this.scenarioRules.push({ identifier: identifier, rule: rule });
         }
       });
     }
 
     this.appliedScenarioRules = model.appliedScenarioRules || [];
     this.discardedScenarioRules = model.discardedScenarioRules || model.disgardedScenarioRules || [];
+    this.activeScenarioRules = model.activeScenarioRules || [];
 
     this.levelCalculation = model.levelCalculation;
     this.levelAdjustment = model.levelAdjustment;
@@ -425,6 +412,7 @@ export class GameModel {
   scenarioRules: ScenarioRuleIdentifier[];
   appliedScenarioRules: ScenarioRuleIdentifier[];
   discardedScenarioRules: ScenarioRuleIdentifier[];
+  activeScenarioRules: ScenarioRuleIdentifier[] = [];
   level: number;
   levelCalculation: boolean;
   levelAdjustment: number;

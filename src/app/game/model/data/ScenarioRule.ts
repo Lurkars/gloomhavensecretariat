@@ -30,6 +30,8 @@ export class ScenarioRule {
   randomDungeon: RandomDungeonRule | undefined;
   statEffects: StatEffectRule[] = [];
   finish: 'won' | 'lost' | 'round' | undefined = undefined;
+  reverseInitiative: boolean = false;
+  active: boolean = false;
 
   constructor(round: string) {
     this.round = round;

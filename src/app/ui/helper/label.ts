@@ -216,11 +216,11 @@ export const applyPlaceholder = function (
         image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
         const cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
         replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
-      } else if (type === 'attackmodifier' && split.length === 3 && split[2] !== 'rolling') {
+      } else if (type === 'attackmodifier' && split.length === 3 && split[2] !== 'rolling' && split[2] !== 'target') {
         image = '<img  src="./assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
-      } else if (type === 'attackmodifier' && split.length === 3 && split[2] === 'rolling') {
-        image = '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">';
+      } else if (type === 'attackmodifier' && split.length === 3 && (split[2] === 'rolling' || split[2] === 'target')) {
+        image = '<img  src="./assets/images/attackmodifier/' + split[2] + '.svg" class="icon">';
         replace = '<span class="condition-icon">' + image + '</span>';
       } else if (type === 'townGuardAM' && value) {
         replace = '<span class="placeholder-townguard-attackmodifier">' + value + '</span>';

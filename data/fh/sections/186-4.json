@@ -13,7 +13,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "Place three snow rocks in any empty hexes on tile 15-A (if able).",
+      "note": "%data.section.rules.fh.186-4%",
       "figures": [
         {
           "identifier": {

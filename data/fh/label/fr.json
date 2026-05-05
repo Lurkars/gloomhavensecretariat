@@ -1146,25 +1146,15 @@
   "section": {
     "rules": {
       "fh": {
-        "130-3": {
-          "1": "Avantage"
-        },
-        "17-2": {
+        "130-3": "Avantage",
+        "017-2": {
           "1": "+2 ressources matérielles",
           "2": "Gagner deux ressources matérielles"
         },
-        "180-3": {
-          "1": "Gagner 1 Peau"
-        },
-        "19-2": {
-          "1": "+1 ressource matérielle"
-        },
-        "192-1": {
-          "1": "Gagner 1 Métal"
-        },
-        "41-1": {
-          "1": "Gagner 1 Bois"
-        }
+        "180-3": "Gagner 1 Peau",
+        "019-2": "+1 ressource matérielle",
+        "192-1": "Gagner 1 Métal",
+        "041-1": "Gagner 1 Bois"
       }
     },
     "title": {

@@ -20,7 +20,7 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "%data.section.rules.fh.102-1.1%"
+      "note": "%data.section.rules.fh.102-1%"
     }
   ],
   "rooms": [

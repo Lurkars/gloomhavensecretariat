@@ -1811,32 +1811,22 @@
     },
     "rules": {
       "fh": {
-        "130-3": {
-          "1": "Obtén Ventaja contra este objetivo"
-        },
+        "130-3": "Obtén Ventaja contra este objetivo",
         "146-3": "Cuando se realiza esta capacidad de Ataque, en la siguiente ronda, en vez de lo que fuera hacer, la iniciativa será 99 y realiza:",
-        "17-2": {
+        "017-2": {
           "1": "+2 recursos de materiales",
           "2": "Obtén 2 recursos de materiales cualquiera"
         },
-        "180-3": {
-          "1": "Obtén 1 de Piel"
-        },
-        "19-2": {
+        "180-3": "Obtén 1 de Piel",
+        "019-2": {
           "1": "+1 recurso de material",
           "2": "Obtén un recurso de materiales cualquiera"
         },
-        "192-1": {
-          "1": "Obtén 1 de Metal"
-        },
-        "21-1": {
-          "1": "en cualquier hexágono inicial vacío"
-        },
-        "41-1": {
-          "1": "Obtén 1 de Madera"
-        },
-        "51-1": "Cada vez que sufre daño, todos los personajes y monstruos sufren %game.damage:2%",
-        "65-3": {
+        "192-1": "Obtén 1 de Metal",
+        "021-1": "en cualquier hexágono inicial vacío",
+        "041-1": "Obtén 1 de Madera",
+        "051-1": "Cada vez que sufre daño, todos los personajes y monstruos sufren %game.damage:2%",
+        "065-3": {
           "1": "Abre todas las puertas %game.mapMarker.1%. Coloca a todos los personajes e invocaciones de personajes, por orden de iniciativa, en el hexágono vacío más cercano de la loseta 16-A y, a continuación, elimina todas las puertas y la loseta 13-A del mapa.",
           "2": "%game.action.target% cada monstruo dentro de %game.action.range:4%"
         }

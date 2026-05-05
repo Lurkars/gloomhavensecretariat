@@ -459,7 +459,7 @@
     },
     "cs-93": {
       "": "Refined Viper Blowgun",
-      "1": "During your turn, perform \"%game.action.attack:1%, %game.action.range:4%, %game.condition.poison%\". You may %game.element.consume.earth% to ADD %game.condition.target%."
+      "1": "During your turn, perform \"%game.action.attack:1%, %game.action.range:4%, %game.condition.poison%\". You may %game.element.consume.earth% to ADD TARGET %game.attackmodifier.target%."
     },
     "cs-94": {
       "": "Frost Stone",

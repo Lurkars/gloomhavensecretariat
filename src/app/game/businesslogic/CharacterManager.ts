@@ -471,7 +471,10 @@ export class CharacterManager {
         }
 
         if (figure.tags) {
-          figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
+          const roundSpecialActions = figure.specialActions.filter((specialAction) => specialAction.round);
+          figure.tags = figure.tags.filter(
+            (tag) => !tag.startsWith('roundAction-') && !roundSpecialActions.some((specialAction) => tag === specialAction.name)
+          );
         }
 
         if (

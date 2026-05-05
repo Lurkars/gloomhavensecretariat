@@ -523,8 +523,8 @@ export class ScenarioManager {
       this.applyScenarioData(section, true);
       if (settingsManager.settings.scenarioRules && section.rules) {
         section.rules.forEach((rule, index) => {
-          if (rule.always) {
-            gameManager.scenarioRulesManager.addScenarioRule(section, rule, index, true);
+          if (!rule.alwaysApply || !settingsManager.settings.scenarioRulesAutoapply) {
+            gameManager.scenarioRulesManager.addScenarioRule(section, rule, index, true, true);
           }
         });
 

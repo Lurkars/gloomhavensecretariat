@@ -132,6 +132,7 @@ export class RoundManager {
       }
 
       gameManager.sortFigures();
+      gameManager.scenarioRulesManager.cleanActiveScenarioRules();
 
       // apply Challenge #1526
       if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1526, 'fh')) {

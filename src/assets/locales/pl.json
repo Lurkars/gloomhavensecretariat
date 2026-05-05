@@ -2210,7 +2210,7 @@
       "restartLoseLoot": "Uruchom scenariusz ponownie (utracisz zasoby)",
       "rewards": {
         "": "Nagrody scenariusza",
-        "collectiveGold": "Wspólne %game.resource.gold%",
+        "collectiveGold": "Wspólne %game.resource.money%",
         "collectiveResource": "Wspólne %game.resource.{0}%",
         "experience": "Nagroda PD",
         "gold": "Nagroda złota"

@@ -116,7 +116,6 @@ export class MainMenuComponent implements OnInit {
   }
 
   close() {
-    console.log('yes?');
     ghsDialogClosingHelper(this.dialogRef);
   }
 
