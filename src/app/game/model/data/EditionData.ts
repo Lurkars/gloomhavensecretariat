@@ -39,6 +39,7 @@ export class EditionData implements Editional {
   extendWorldMap: string | undefined;
   label: any = {};
   labelSpoiler: any = {};
+  labelEvents: any = {};
   url: string = '';
   logoUrl: string = '';
   additional: boolean = false;

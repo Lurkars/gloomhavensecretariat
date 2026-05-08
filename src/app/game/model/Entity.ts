@@ -60,7 +60,7 @@ export function EntityValueFunction(value: string | number, L: number | undefine
   let result = 0;
   try {
     result = evaluateExpression(expression, {
-      C: Math.max(2, gameManager.characterManager.characterCount()),
+      C: gameManager.levelManager.characterCountVariable(),
       L: L,
       P: gameManager.prosperityLevel(),
       R: gameManager.game.round + (gameManager.game.state === GameState.draw ? 1 : 0)

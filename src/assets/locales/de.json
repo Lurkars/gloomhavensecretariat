@@ -2837,7 +2837,8 @@
     "gameplay": "Spielablauf",
     "gamerules": "Spielspezifisch",
     "ge5Player": {
-      "": "≥ 5 Spieler Regeln"
+      "": "≥ 5 Spieler Regeln",
+      "capped": "Trotzdem C=4 für Berechnungen anwenden"
     },
     "gh2eImbuement": {
       "": "Monster Durchtränkung",
@@ -3317,7 +3318,10 @@
       "disableEnvelopeB": "Umschlag B deaktivieren",
       "disablePartyCampaignMode": "Kampagnenmodus ausschalten",
       "disableSolo": "Einzelspieler Level Berechnung ausschalten",
-      "disabledGe5Player": "≥ 5 Spieler Regel ausschalten",
+      "disabledGe5Player": {
+        "": "≥ 5 Spieler Regel ausschalten",
+        "capped": "C=4 für Berechnungen bei 5 Spieler Regel ausschalten"
+      },
       "disabledManualPlayerCount": "Manuelle Charakter Anzahl ausschalten",
       "distillItem": "Destilliere Gegenstand \"%data.items.{2}-{1}%\" für {0}",
       "donate": "{0} spendet an Tempel der Großen Eiche",
@@ -3328,7 +3332,10 @@
       "enableEnvelopeB": "Umschlag B öffnen",
       "enablePartyCampaignMode": "Kampagnenmodus einschalten",
       "enableSolo": "Einzelspieler Level Berechnung einschalten",
-      "enabledGe5Player": "≥ 5 Spieler Regel einschalten",
+      "enabledGe5Player": {
+        "": "≥ 5 Spieler Regel einschalten",
+        "capped": "C=4 für Berechnungen bei 5 Spieler Regel einschalten"
+      },
       "enabledManualPlayerCount": "Manuelle Charakter Anzahl einschalten",
       "endAllTurns": "Alle Züge beenden",
       "entities": {

@@ -5,6 +5,11 @@
   width: 100vw;
   height: 100vh;
 
+  .overlay-custom-text-content {
+    font-family: var(--ghs-font-title);
+    fill: var(--ghs-color-black);
+  }
+
   .world-map {
     position: relative;
     width: 100%;

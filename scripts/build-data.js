@@ -183,6 +183,7 @@ for (edition_path of edition_dirs) {
   edition_data['treasures'] = load_file(edition_path, 'treasures.json', []);
   edition_data['label'] = {};
   edition_data['labelSpoiler'] = {};
+  edition_data['labelEvents'] = {};
 
   const labelFolder = path.join(edition_path, 'label');
   if (fs.existsSync(labelFolder) && fs.lstatSync(labelFolder).isDirectory()) {
@@ -211,6 +212,23 @@ for (edition_path of edition_dirs) {
           const label = JSON.parse(f);
           const locale = labelSpoilerFile.substring(0, labelSpoilerFile.length - 5);
           edition_data['labelSpoiler'][locale] = label;
+        } catch (e) {
+          console.error(inputFile, e);
+        }
+      }
+    }
+  }
+
+  const labelEventsFolder = path.join(edition_path, 'label/events');
+  if (fs.existsSync(labelEventsFolder) && fs.lstatSync(labelEventsFolder).isDirectory()) {
+    for (let labelEventsFile of fs.readdirSync(labelEventsFolder)) {
+      const inputFile = path.join(labelEventsFolder, labelEventsFile);
+      if (fs.lstatSync(inputFile).isFile()) {
+        const f = fs.readFileSync(inputFile, 'utf8');
+        try {
+          const label = JSON.parse(f);
+          const locale = labelEventsFile.substring(0, labelEventsFile.length - 5);
+          edition_data['labelEvents'][locale] = label;
         } catch (e) {
           console.error(inputFile, e);
         }

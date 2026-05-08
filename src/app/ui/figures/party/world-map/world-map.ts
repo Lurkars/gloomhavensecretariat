@@ -2,7 +2,7 @@ import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener, inject, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import type { ImageOverlay, LatLngBoundsLiteral, Map as LeafletMap } from 'leaflet';
+import type { ImageOverlay, LatLngBoundsLiteral, Map as LeafletMap, SVGOverlay } from 'leaflet';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
@@ -123,7 +123,7 @@ export class WorldMapComponent implements AfterViewInit {
             (sectionData) =>
               sectionData.conclusion &&
               sectionData.rewards &&
-              (sectionData.rewards.overlayCampaignSticker || sectionData.rewards.overlaySticker)
+              (sectionData.rewards.overlayCampaignSticker || sectionData.rewards.overlaySticker || sectionData.rewards.overlayCustomText)
           );
 
         if (this.mapEdition !== this.edition && this.showExtended) {
@@ -134,7 +134,9 @@ export class WorldMapComponent implements AfterViewInit {
                 (sectionData) =>
                   sectionData.conclusion &&
                   sectionData.rewards &&
-                  (sectionData.rewards.overlayCampaignSticker || sectionData.rewards.overlaySticker)
+                  (sectionData.rewards.overlayCampaignSticker ||
+                    sectionData.rewards.overlaySticker ||
+                    sectionData.rewards.overlayCustomText)
               )
           );
         }
@@ -320,6 +322,10 @@ export class WorldMapComponent implements AfterViewInit {
             if (!this.data.pick) {
               overlayCampaignSticker.on('click', () => {
                 const conclusion: ScenarioData = this.conclusions[i];
+                const conclusionModel = gameManager.game.party.conclusions.find(
+                  (m) => m.index === conclusion.index && m.edition === conclusion.edition && m.group === conclusion.group
+                );
+                const textBeforeOpen = conclusionModel ? conclusionModel.custom || '' : '';
                 let scenarioData: ScenarioData | undefined;
                 if (conclusion.parent) {
                   scenarioData = gameManager
@@ -331,14 +337,29 @@ export class WorldMapComponent implements AfterViewInit {
                         scenarioData.index === conclusion.parent
                     );
                 }
-                this.dialog.open(ScenarioSummaryComponent, {
-                  panelClass: ['dialog'],
-                  data: {
-                    scenario: new Scenario(scenarioData || conclusion),
-                    conclusion: conclusion,
-                    conclusionOnly: true
-                  }
-                });
+                this.dialog
+                  .open(ScenarioSummaryComponent, {
+                    panelClass: ['dialog'],
+                    data: {
+                      scenario: new Scenario(scenarioData || conclusion),
+                      conclusion: conclusion,
+                      conclusionOnly: true
+                    }
+                  })
+                  .closed.subscribe({
+                    next: () => {
+                      if (conclusion.rewards && conclusion.rewards.overlayCustomText) {
+                        const conclusionModel = gameManager.game.party.conclusions.find(
+                          (m) => m.index === conclusion.index && m.edition === conclusion.edition && m.group === conclusion.group
+                        );
+                        const textBefore = textBeforeOpen;
+                        const textAfter = conclusionModel ? conclusionModel.custom || '' : '';
+                        if (textAfter !== textBefore) {
+                          this.updateMap();
+                        }
+                      }
+                    }
+                  });
               });
             }
           }
@@ -358,6 +379,29 @@ export class WorldMapComponent implements AfterViewInit {
             if (element) {
               element.classList.add('overlay');
             }
+          }
+
+          if (sectionData.rewards && sectionData.rewards.overlayCustomText && success) {
+            const customText = success.custom || '';
+            const coords = sectionData.rewards.overlayCustomText.coordinates;
+            const bounds: LatLngBoundsLiteral = [
+              [height - coords.y - coords.height, coords.x],
+              [height - coords.y, coords.x + coords.width]
+            ];
+            const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svgEl.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+            svgEl.setAttribute('viewBox', `0 0 ${coords.width} ${coords.height}`);
+            const textEl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            textEl.setAttribute('x', '50%');
+            textEl.setAttribute('y', '50%');
+            textEl.setAttribute('dominant-baseline', 'middle');
+            textEl.setAttribute('text-anchor', 'middle');
+            textEl.setAttribute('font-size', String(coords.height * 0.7));
+            textEl.setAttribute('class', 'overlay-custom-text-content');
+            textEl.textContent = customText;
+            svgEl.appendChild(textEl);
+            const svgOverlay: SVGOverlay = L.svgOverlay(svgEl, bounds, { interactive: false });
+            svgOverlay.addTo(this.map);
           }
         }
       });

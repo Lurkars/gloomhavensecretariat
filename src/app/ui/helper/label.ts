@@ -12,7 +12,7 @@ import {
 } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionType } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from 'src/app/game/model/Entity';
-import { ghsValueSign } from './Static';
+import { ghsValueSign } from 'src/app/ui/helper/Static';
 
 export const ghsLabelRegex = /\%((\w+|\s|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
@@ -417,6 +417,18 @@ export const applyPlaceholder = function (
           image = '<img class="enhancement-icon" src="./assets/images/fh/character/abilities/enhancements/' + split[2] + '.svg">';
         }
         replace = '<span class="placeholder-enhancement">' + image + '</span>';
+      } else if (type === 'overlayCustomText' && value) {
+        const edition = split[2];
+        const group = split.length === 4 ? split[3] : undefined;
+        const index = value;
+        const conclusionModel = gameManager.game.party.conclusions.find(
+          (conclusion) => conclusion.index === index && conclusion.edition === edition && conclusion.group === group && conclusion.custom
+        );
+        if (conclusionModel) {
+          replace = '<span class="placeholder-overlay-custom-text">' + conclusionModel.custom + '</span>';
+        } else {
+          replace = '___________________';
+        }
       } else if (type === 'tooltip' && value) {
         const label = settingsManager.getLabel(value);
         const text = settingsManager.getLabel(value + '.tooltip');
@@ -516,7 +528,7 @@ export class GhsLabelDirective implements OnInit, OnChanges {
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
-      const count = Math.max(2, gameManager.characterManager.characterCount());
+      const count = gameManager.levelManager.characterCountVariable();
       const value = this.value();
       if (
         !this.ready ||
@@ -538,7 +550,7 @@ export class GhsLabelDirective implements OnInit, OnChanges {
       }
     });
     this.el.nativeElement.classList.add('placeholder');
-    this.C = Math.max(2, gameManager.characterManager.characterCount());
+    this.C = gameManager.levelManager.characterCountVariable();
     this.L = gameManager.game.level;
     this.locale = settingsManager.settings.locale;
     this.calc = settingsManager.settings.calculate;

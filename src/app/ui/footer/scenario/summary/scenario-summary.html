@@ -1265,6 +1265,20 @@
                   }
                 </div>
               }
+              @if (rewards.overlayCustomText) {
+                <div class="item overlay-sticker">
+                  @if (rewards.hints && rewards.hints.overlayCustomText) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.overlayCustomText"></span>
+                  }
+                  <input
+                    class="overlay-custom-text-input"
+                    type="text"
+                    [value]="overlayCustomText"
+                    (change)="changeOverlayCustomText($event)"
+                    (keydown)="$event.stopPropagation()"
+                  />
+                </div>
+              }
               @if (rewards.pet) {
                 <div class="item overlay-sticker">
                   @if (rewards.hints && rewards.hints.pet) {

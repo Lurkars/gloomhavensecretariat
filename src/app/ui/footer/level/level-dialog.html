@@ -2,7 +2,7 @@
   @if (!gameManager.bbRules()) {
     <div class="menu">
       @if (gameManager.game.playerCount < 1) {
-        <label>
+        <label class="checkbox">
           <input
             tabclick
             type="checkbox"
@@ -35,10 +35,21 @@
         ></ghs-number-input>
       </label>
       @if (ge5Player()) {
-        <label>
+        <label class="checkbox">
           <input tabclick type="checkbox" [checked]="gameManager.game.ge5Player" (change)="setGe5Player(!gameManager.game.ge5Player)" />
           <span [ghs-label]="'settings.ge5Player'"></span>
         </label>
+        @if (gameManager.game.ge5Player) {
+          <label class="checkbox capped">
+            <input
+              tabclick
+              type="checkbox"
+              [checked]="gameManager.game.ge5PlayerCapped"
+              (change)="setGe5PlayerCapped(!gameManager.game.ge5PlayerCapped)"
+            />
+            <span [ghs-label]="'settings.ge5Player.capped'"></span>
+          </label>
+        }
       }
     </div>
     <div class="level-container" [ngClass]="{ disabled: gameManager.game.levelCalculation }">
@@ -70,7 +81,7 @@
         </span>
       }
       <div class="solo">
-        <label>
+        <label class="checkbox">
           <input tabclick type="checkbox" [checked]="gameManager.game.solo" (change)="setSolo(!gameManager.game.solo)" />
           <span [ghs-label]="'game.solo'"></span>
         </label>
@@ -105,7 +116,7 @@
         <span class="hint"><span [ghs-label]="'game.level.hazardousTerrain'"></span></span>
       </div>
     </div>
-    <label class="player-count">
+    <label class="checkbox player-count">
       <input tabclick type="checkbox" [checked]="gameManager.game.playerCount > 0" (change)="togglePlayerCount($event)" />
       <span [ghs-label]="'settings.playerCount'"></span>
       @if (gameManager.game.playerCount > 0) {

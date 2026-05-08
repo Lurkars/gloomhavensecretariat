@@ -8,7 +8,7 @@ import { ConditionName, ConditionType, EntityCondition, EntityConditionState } f
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
-import { Summon } from '../model/Summon';
+import { Summon } from 'src/app/game/model/Summon';
 
 export class SpecialActionsManager {
   game: Game;

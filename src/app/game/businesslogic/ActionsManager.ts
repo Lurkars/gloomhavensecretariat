@@ -763,7 +763,7 @@ export class ActionsManager {
 
     if (action.value === 'monsterStandee') {
       result = (JSON.parse(JSON.stringify(action.valueObject)) as MonsterSpawnData[]).map((value) => value as MonsterSpawnData);
-      const charCount = Math.max(2, gameManager.characterManager.characterCount());
+      const charCount = gameManager.levelManager.characterCountVariable();
       result = result.filter((spawn) => {
         if (spawn.monster.type) {
           return true;

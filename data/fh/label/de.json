@@ -1047,7 +1047,8 @@
         "094-4": "Diese Woche kein Außenposten-Ereignis abhandeln.",
         "128-2": "Schlagt die erste Seite des Rätselbuchs auf",
         "139-2": {
-          "2": "Mische die Ereigniskarten B-01 bis B-13 und bilde daraus den Boot-Ereignisstapel. Bewahre diesen Stapel in Umschlag B auf, wenn er nicht verwendet wird, und nutze die Kartenunterteilung, um den Boot-Ereignisstapel von den anderen Boot-Ereigniskarten zu trennen."
+          "2": "Mische die Ereigniskarten B-01 bis B-13 und bilde daraus den Boot-Ereignisstapel. Bewahre diesen Stapel in Umschlag B auf, wenn er nicht verwendet wird, und nutze die Kartenunterteilung, um den Boot-Ereignisstapel von den anderen Boot-Ereigniskarten zu trennen.",
+          "3": "Vergebe einen Namen für euer Boot"
         },
         "140-3": "Schlagt nicht die nächste Seite im Rätselbuch auf. Schreibt stattdessen die Lösung des nächsten Rätsels auf die aktuelle Seite",
         "168-2": "Diese Woche kein Außenposten-Ereignis abhandeln.",

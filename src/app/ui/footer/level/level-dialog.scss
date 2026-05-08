@@ -22,8 +22,17 @@
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline);
 
+    &.checkbox {
+      cursor: pointer;
+    }
+
     &.player-count {
       font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+    }
+
+    &.capped {
+      margin-top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     }
   }
 

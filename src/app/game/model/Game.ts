@@ -37,6 +37,7 @@ export class Game {
   levelAdjustment: number = 0;
   bonusAdjustment: number = 0;
   ge5Player: boolean = true;
+  ge5PlayerCapped: boolean = false;
   playerCount: number = -1;
   round: number = 0;
   roundResets: number[] = [];
@@ -101,6 +102,7 @@ export class Game {
       this.levelAdjustment,
       this.bonusAdjustment,
       this.ge5Player,
+      this.ge5PlayerCapped,
       this.playerCount,
       this.round,
       this.roundResets,
@@ -243,6 +245,7 @@ export class Game {
     this.levelAdjustment = model.levelAdjustment;
     this.bonusAdjustment = model.bonusAdjustment;
     this.ge5Player = model.ge5Player;
+    this.ge5PlayerCapped = model.ge5PlayerCapped;
     this.playerCount = model.playerCount || -1;
 
     this.round = model.round;
@@ -418,6 +421,7 @@ export class GameModel {
   levelAdjustment: number;
   bonusAdjustment: number;
   ge5Player: boolean;
+  ge5PlayerCapped: boolean;
   playerCount: number;
   round: number;
   roundResets: number[];
@@ -469,6 +473,7 @@ export class GameModel {
     levelAdjustment: number = 0,
     bonusAdjustment: number = 0,
     ge5Player: boolean = true,
+    ge5PlayerCapped: boolean = false,
     playerCount: number = -1,
     round: number = 0,
     roundResets: number[] = [],
@@ -527,6 +532,7 @@ export class GameModel {
     this.levelAdjustment = levelAdjustment;
     this.bonusAdjustment = bonusAdjustment;
     this.ge5Player = ge5Player;
+    this.ge5PlayerCapped = ge5PlayerCapped;
     this.playerCount = playerCount;
     this.round = round;
     this.roundResets = JSON.parse(JSON.stringify(roundResets));

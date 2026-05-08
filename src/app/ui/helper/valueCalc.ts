@@ -77,16 +77,16 @@ export class ValueCalcDirective implements OnInit, OnChanges {
     this.ghsManager.uiChangeEffect(() => {
       if (
         this.calc !== settingsManager.settings.calculate ||
-        this.C !== Math.max(2, gameManager.characterManager.characterCount()) ||
+        this.C !== gameManager.levelManager.characterCountVariable() ||
         this.L !== gameManager.game.level
       ) {
-        this.C = Math.max(2, gameManager.characterManager.characterCount());
+        this.C = gameManager.levelManager.characterCountVariable();
         this.L = gameManager.game.level;
         this.calc = settingsManager.settings.calculate;
         this.el.nativeElement.innerHTML = valueCalc(this.value(), this.level(), this.empty());
       }
     });
-    this.C = Math.max(2, gameManager.characterManager.characterCount());
+    this.C = gameManager.levelManager.characterCountVariable();
     this.L = gameManager.game.level;
     this.calc = settingsManager.settings.calculate;
   }

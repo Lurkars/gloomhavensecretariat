@@ -23,9 +23,18 @@
       "globalAchievements": [
         "(read section 33 on page 12)"
       ],
+      "overlayCustomText": "%data.section.rewards.fh.139-2.3%",
       "eventDecks": [
         "%data.section.rewards.fh.139-2.2%"
       ]
+    },
+    "overlayCustomText": {
+      "coordinates": {
+        "x": 1740,
+        "y": 2687,
+        "width": 165,
+        "height": 20
+      }
     },
     "eventDecks": [
       "boat:B-01|B-13"

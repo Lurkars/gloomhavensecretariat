@@ -94,6 +94,13 @@ export class LevelDialogComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
+  setGe5PlayerCapped(ge5PlayerCapped: boolean) {
+    gameManager.stateManager.before(ge5PlayerCapped ? 'enabledGe5Player.capped' : 'disabledGe5Player.capped');
+    gameManager.game.ge5PlayerCapped = ge5PlayerCapped;
+    gameManager.levelManager.setLevel(gameManager.game.level, true);
+    gameManager.stateManager.after();
+  }
+
   ge5Player(): boolean {
     return gameManager.game.playerCount < 1 && gameManager.characterManager.characterCount() > 4;
   }

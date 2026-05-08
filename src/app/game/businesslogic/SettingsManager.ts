@@ -434,6 +434,7 @@ export class SettingsManager {
           value.personalQuests = value.personalQuests || [];
           value.label = value.label || {};
           value.labelSpoiler = value.labelSpoiler || {};
+          value.labelEvents = value.labelEvents || {};
           value.url = url;
           value.logoUrl = value.logoUrl || '';
           value.additional = value.additional || false;
@@ -570,11 +571,18 @@ export class SettingsManager {
       this.label.data = this.merge(this.label.data, true, value.labelSpoiler[this.settings.locale]);
     }
 
+    if (value.labelEvents && value.labelEvents[this.settings.locale]) {
+      this.label.data = this.merge(this.label.data, true, value.labelEvents[this.settings.locale]);
+    }
+
     // default label
     if (this.settings.locale !== this.defaultLocale && value.label && value.label[this.defaultLocale]) {
       this.label.data = this.merge(this.label.data, false, value.label[this.defaultLocale]);
       if (value.labelSpoiler && value.labelSpoiler[this.defaultLocale]) {
         this.label.data = this.merge(this.label.data, false, value.labelSpoiler[this.defaultLocale]);
+      }
+      if (value.labelEvents && value.labelEvents[this.defaultLocale]) {
+        this.label.data = this.merge(this.label.data, false, value.labelEvents[this.defaultLocale]);
       }
     }
 

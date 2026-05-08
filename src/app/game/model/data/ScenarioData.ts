@@ -162,6 +162,7 @@ export class ScenarioRewards {
   ignoredBonus: string[] = [];
   overlaySticker: WorldMapOverlay | undefined = undefined;
   overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
+  overlayCustomText: WorldMapOverlay | undefined = undefined;
   pet: string | undefined = undefined;
   repeatScenario: boolean = false;
   reputationFactions: string[] = [];
@@ -208,6 +209,7 @@ export class ScenarioRewardHints {
   chooseUnlockCharacter: string[] = [];
   overlaySticker: string = '';
   overlayCampaignSticker: string = '';
+  overlayCustomText: string = '';
   reputationFactions: string[] = [];
   randomSideScenario: string = '';
   pet: string = '';
@@ -232,6 +234,7 @@ export class ScenarioFinish {
   randomItemBlueprints: number[] = [];
   randomSideScenario: Identifier | undefined = undefined;
   trials: boolean[] = [];
+  overlayCustomText: string = '';
 }
 
 export class ScenarioOverlay {

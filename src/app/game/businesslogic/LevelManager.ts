@@ -124,8 +124,8 @@ export class LevelManager {
     this.setLevel(level);
   }
 
-  setLevel(level: number) {
-    if (this.game.level !== level) {
+  setLevel(level: number, force: boolean = false) {
+    if (this.game.level !== level || force) {
       const diff = level - this.game.level;
       this.game.level = level;
 
@@ -147,5 +147,16 @@ export class LevelManager {
         }
       });
     }
+  }
+
+  characterCountVariable(): number {
+    let result: number = gameManager.characterManager.characterCount();
+    result = Math.max(2, result);
+
+    if (!this.game.ge5Player || this.game.ge5PlayerCapped) {
+      result = Math.min(4, result);
+    }
+
+    return result;
   }
 }

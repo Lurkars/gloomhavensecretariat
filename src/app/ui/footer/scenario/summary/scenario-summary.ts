@@ -93,6 +93,7 @@ export class ScenarioSummaryComponent {
   trials: boolean[] = [];
   trial349: Character | undefined;
   trial356: Character | undefined;
+  overlayCustomText: string = '';
   townGuardAMs: AttackModifier[] = [];
   levelUp: boolean[] = [];
   perksUp: boolean[] = [];
@@ -144,6 +145,16 @@ export class ScenarioSummaryComponent {
         )
       ) {
         this.rewardsOnly = true;
+      }
+    }
+
+    // Load existing custom overlay text from party.conclusions
+    if (this.conclusion) {
+      const existingModel = gameManager.game.party.conclusions.find(
+        (m) => m.index === this.conclusion!.index && m.edition === this.conclusion!.edition && m.group === this.conclusion!.group
+      );
+      if (existingModel && existingModel.custom) {
+        this.overlayCustomText = existingModel.custom;
       }
     }
     this.conclusionWarning =
@@ -293,6 +304,7 @@ export class ScenarioSummaryComponent {
       ? new Identifier(this.randomSideScenario.index, this.randomSideScenario.edition)
       : undefined;
     finish.trials = this.trials;
+    finish.overlayCustomText = this.overlayCustomText;
     gameManager.game.finish = finish;
     this.updateState();
   }
@@ -332,6 +344,7 @@ export class ScenarioSummaryComponent {
         ? gameManager.scenarioManager.getScenario(finish.randomSideScenario.name, finish.randomSideScenario.edition, this.scenario.group)
         : undefined;
       this.trials = finish.trials || [];
+      this.overlayCustomText = finish.overlayCustomText || '';
       this.updateState();
     }
   }
@@ -584,6 +597,7 @@ export class ScenarioSummaryComponent {
         (rewards.townGuardAm && rewards.townGuardAm.length) ||
         rewards.overlayCampaignSticker ||
         rewards.overlaySticker ||
+        rewards.overlayCustomText ||
         rewards.pet ||
         (rewards.eventDecks && rewards.eventDecks.length) ||
         (rewards.reputationFactions && rewards.reputationFactions.length) ||
@@ -935,6 +949,22 @@ export class ScenarioSummaryComponent {
     gameManager.stateManager.after();
   }
 
+  changeOverlayCustomText(event: any) {
+    gameManager.stateManager.before('finishScenario.dialog.overlayCustomText', event.target.value);
+    this.overlayCustomText = event.target.value;
+    this.updateFinish();
+    // For rewardsOnly/conclusionOnly, also persist directly to party.conclusions
+    if (this.conclusion) {
+      const conclusionModel = gameManager.game.party.conclusions.find(
+        (m) => m.index === this.conclusion!.index && m.edition === this.conclusion!.edition && m.group === this.conclusion!.group
+      );
+      if (conclusionModel) {
+        conclusionModel.custom = this.overlayCustomText;
+      }
+    }
+    gameManager.stateManager.after();
+  }
+
   async finish(linkedIndex: string | undefined = undefined, forcedLink: boolean = false) {
     this.waitForClose = true;
     const linkedScenarioData = gameManager
@@ -1086,6 +1116,15 @@ export class ScenarioSummaryComponent {
         settingsManager.settings.scenarioRewards && !gameManager.bbRules() && (this.characterProgress || this.forceCampaign),
         this.gainRewards || this.forceCampaign
       );
+    }
+
+    if (this.overlayCustomText && this.conclusion && this.rewards && this.rewards.overlayCustomText) {
+      const conclusionModel = gameManager.game.party.conclusions.find(
+        (m) => m.index === this.conclusion!.index && m.edition === this.conclusion!.edition && m.group === this.conclusion!.group
+      );
+      if (conclusionModel) {
+        conclusionModel.custom = this.overlayCustomText;
+      }
     }
 
     if (linkedScenarioData) {
