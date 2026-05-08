@@ -2836,7 +2836,8 @@
     "gameplay": "Gameplay",
     "gamerules": "Gamespecific",
     "ge5Player": {
-      "": "≥ 5 player rules"
+      "": "≥ 5 player rules",
+      "capped": "Still use C=4 for calculations"
     },
     "gh2eImbuement": {
       "": "Enable Monster Imbuements",
@@ -3317,7 +3318,10 @@
       "disableEnvelopeB": "Disable Envelope B",
       "disablePartyCampaignMode": "Disable campaign mode",
       "disableSolo": "Disable solo level calculation",
-      "disabledGe5Player": "Disable ≥ 5 player rules",
+      "disabledGe5Player": {
+        "": "Disable ≥ 5 player rules",
+        "capped": "Disabled C=4 for calcuations on 5 player rules"
+      },
       "disabledManualPlayerCount": "Disable manual player count",
       "distillItem": "Distill Item \"%data.items.{2}-{1}%\" for {0}",
       "donate": "{0} donate to Sanctuary of the Great Oak",
@@ -3328,7 +3332,10 @@
       "enableEnvelopeB": "Open Envelope B",
       "enablePartyCampaignMode": "Enable campaign mode",
       "enableSolo": "Enable solo level calculation",
-      "enabledGe5Player": "Enable ≥ 5 player rules",
+      "enabledGe5Player": {
+        "": "Enable ≥ 5 player rules",
+        "capped": "Enable C=4 for calcuations on 5 player rules"
+      },
       "enabledManualPlayerCount": "Enable manual player count",
       "endAllTurns": "End all turns",
       "entities": {
