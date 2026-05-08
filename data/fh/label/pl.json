@@ -1750,7 +1750,7 @@
     "fractured-lieutenant": "Fractured Lieutenant",
     "frost-demon": "Demon Mrozu",
     "frozen-corpse": "Zamarznięte zwłoki",
-    "frozen-fist": "Mroźna Pięść",
+    "frozen-fist": "Pięść Mrozu",
     "giant-piranha-pig": "Olbrzymia Świniopirania",
     "giant-piranha-pig-boss": "Dodatkowa talia bossów #83",
     "guard-captain": "Kapitan Straży",
@@ -2192,6 +2192,7 @@
   "section": {
     "rewards": {
       "fh": {
+        "035-3": "Po dobraniu, przeczytaj dowolny z podanych numerów sekcji.",
         "056-3": "Ręcznie (%wip%): Dodaj dowolny z poniższych przedmiotów, które odblokowałeś w \"Zapomnianych Kręgach\", do dostępnej puli zaopatrzenia:<br>154, 155, 157 oraz 163.",
         "094-4": "W tym tygodniu nie rozpatruj wydarzenia posterunku.",
         "096-3": "Zadanie \"Zagrożenie z Głębin\" ukończone",
@@ -2207,6 +2208,7 @@
         "146-2": "Każda postać zyskuje 10 sztuk złota za każdy numerowany żeton, który zebrała<br>Wszystkie postacie rozpoczynają następny scenariusz z %game.condition.muddle% oraz %game.condition.curse%",
         "155-3": "<b>%wip%!</b> zastosuj ręcznie:<br>Wspólnie zyskaj 6 dowolnych zasobów materiałowych.",
         "155-4": "Odblokuj Cel Osobisty 23. Każda postać może porzucić cały postęp w swoim obecnym celu osobistym, aby przyjąć ten teraz; w przeciwnym razie dodaj go do talii celów osobistych.",
+        "160-2": "Po dobraniu, przeczytaj dowolny z podanych numerów sekcji.",
         "161-1": "Możecie teraz rozgrywać scenariusze z wymogiem %game.fhIcon:climbing-gear%.",
         "165-4": "Zobacz \"Księgę Sekcji\"",
         "168-2": "W tym tygodniu nie rozpatruj wydarzenia posterunku.",
@@ -2224,26 +2226,32 @@
     },
     "rules": {
       "fh": {
-        "102-1": "Wszystkie postacie zwracają jedną kartę z ręki lub ze stosu kart odrzuconych do swojego stosu kart przygotowanych.",
-        "130-3": "Zyskaj korzyść na ten cel",
-        "146-3": "Kiedy ten atak zostanie wykonany, w następnej rundzie przy inicjatywie 99 wykonaj:",
         "017-2": {
           "1": "+2 surowce materiałowe",
           "2": "Zyskaj dwa surowce materiałowe"
         },
-        "180-3": "Zyskaj jedną Skórę",
         "019-2": {
           "1": "+1 surowiec materiałowy",
           "2": "Zyskaj jeden surowiec materiałowy"
         },
-        "192-1": "Zyskaj jeden Metal",
         "021-1": "na dowolnym pustym polu startowym",
         "041-1": "Zyskaj jedno Drewno",
         "051-1": "Za każdym razem, gdy otrzymuje obrażenia, wszystkie postacie i potwory otrzymują %game.damage:2%",
         "065-3": {
           "1": "Otwórz wszystkie drzwi %game.mapMarker.1%. W kolejności inicjatywy - Umieść wszyskie postacie i przywołańców postaci, na najbliższym pustym polu kafla mapy 16-A, następnie usuń wszystkie drzwi oraz kafel mapy 13-A z gry.",
           "2": "%game.action.target% wszystkie potwory w zasięgu %game.action.range:4%"
-        }
+        },
+        "102-1": "Wszystkie postacie zwracają jedną kartę z ręki lub ze stosu kart odrzuconych do swojego stosu kart przygotowanych.",
+        "130-3": "Zyskaj korzyść na ten cel",
+        "132-4": {
+          "1": "[C] Potwory znajdujące się najbliżej dowolnych postaci, zyskują %game.condition.invisible% (Należy zastosować ręcznie)",
+          "2": "Kolejność inicjatywy jest w tej rundzie odwrócona, zaczynając od najwyższej inicjatywy. Wszystkie postacie działają przed swoimi przywołaniami, a wszystkie Szczuroki Zwiadowcy działają przed Abaelami Zwiadowcami."
+        },
+        "146-3": "Kiedy ten atak zostanie wykonany, w następnej rundzie przy inicjatywie 99 wykonaj:",
+        "166-2": "Umieść jedno drzewo na dowolnych trzech polach startowych. Usuń z mapy wszystko, co znajduje się na tych polach, z wyjątkiem figurek, które zamiast tego zostają umieszczone na najbliższych pustych polach.<br><br>Wartości bazowe ataku wszystkich postaci są w tej rundzie podwojone.",
+        "180-3": "Zyskaj jedną Skórę",
+        "186-4": "Umieść trzy śnieżne skały na pustych polach na kaflu 15-A (jeśli to możliwe).",
+        "192-1": "Zyskaj jeden Metal"
       }
     },
     "title": {
@@ -2558,8 +2566,8 @@
         "20-1": "Roztopiona knieja",
         "20-3": "Wspaniały widok",
         "21-1": "Kryształowy rów",
-        "22-1A": "Mroźna pięść jest martwa",
-        "22-1B": "Mroźna pięść jest martwa",
+        "22-1A": "Pięść Mrozu jest martwa",
+        "22-1B": "Pięść Mrozu jest martwa",
         "22-2": "Lawina",
         "22-4": "Zabójcze rozrywki",
         "23-1": "Droga naprzód",
@@ -2699,8 +2707,8 @@
         "8-4": "Wieczny głód",
         "80-1": "Ulotna trwałość",
         "80-2": "Bicie Serca",
-        "80-2A": "Mroźna pięść odblokowana",
-        "80-2B": "Mroźna Pięść nie jest odblokowana",
+        "80-2A": "Pięść Mrozu odblokowana",
+        "80-2B": "Pięść Mrozu nie jest odblokowana",
         "81-1": "Losowy scenariusz",
         "81-2": "Infiltracja legowiska",
         "81-5": "Martwa mila",

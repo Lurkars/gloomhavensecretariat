@@ -194,7 +194,7 @@
         "": "Infuzorka",
         "imbue-with-life": {
           "": "Tchnienie Życia",
-          "hint": "Ilekroć nie masz %game.condition.disarm%, zyskaj %game.condition.disarm%."
+          "hint": "Za każdym razem, gdy nie masz %game.condition.disarm%, zyskujesz %game.condition.disarm%, gdy przyzwany jest %data.summon.animated-claymore%."
         },
         "veil-of-protection": {
           "": "Zasłona Ochronna",
@@ -202,6 +202,17 @@
         }
       },
       "coral": "Miażdżąca Fala",
+      "fist": {
+        "": "Pięść Mrozu",
+        "gift-of-the-mountain": {
+          "": "Dar Gór",
+          "hint": "Na koniec każdej twojej tury wykonaj: %game.action.heal:2%, self"
+        },
+        "one-with-the-mountain": {
+          "": "Jedność z Górą",
+          "hint": "Za każdym razem, gdy nie masz %game.condition.regenerate%, zyskujesz %game.condition.regenerate%."
+        }
+      },
       "meteor": "Piroklasta",
       "shackles": "Przekaźnik Bólu",
       "snowflake": {
@@ -228,6 +239,14 @@
         "4": "Otrzymaj korzyść dla wszystkich twoich ataków wykonanych podczas zajmowania lub atakowania wrogów zajmujących pola wody",
         "5": "Nigdy nie otrzymaj obrażeń od ataków i bądź wzięty na cel przez co najmniej pięć ataków",
         "6": "Na początku każdego ze swoich odpoczynków miej więcej aktywnych %game.action.custom.fh-tides% niż kart na stosie kart odrzuconych"
+      },
+      "fist": {
+        "1": "Stwórz jeden kafelek oblodzonego terenu o wielkości 1 pola na pozbawionym cech polu przylegającym do celu",
+        "2": "oraz za każdym razem, gdy wchodzisz na oblodzony teren za pomocą zdolności ruchu, możesz zignorować jego efekt, aby dodać %game.action.move.valueSign:1%",
+        "3": "Za każdym razem, gdy leczysz się podczas długiego odpoczynku, możesz %game.elementHalf.consume:ice|earth%, aby dodać %game.action.heal.valueSign:2%",
+        "4": "Raz na scenariusz, gdy masz otrzymać %game.damage%, możesz zanegować te %game.damage%",
+        "5": "w każdej rundzie %game.card.recover% co najmniej jedną kartę ze swojego stosu kart odrzuconych",
+        "6": "W tej samej turze za pomocą jednej zdolności ruchu wejdź na co najmniej dziesięć różnych pól, a następnie jednym atakiem zadaj wrogowi co najmniej %game.damage:10%"
       },
       "meteor": {
         "1": "Stwórz jeden kafelek niebezpiecznego terenu o wielkości 1 pola na pozbawionym cech polu sąsiadującym z celem",

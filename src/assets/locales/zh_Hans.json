@@ -228,8 +228,14 @@
         },
         "unlockCharacter": {
           "": "打开角色盒子 %game.characterIcon.{0}%",
-          "itemDesign": "获得 \"%data.items.{1}-{0}%\" 设计图纸 (Item {0})",
-          "randomScenario": "解锁 \"{1}\" %data.scenarioNumber:{0}%"
+          "itemDesign": {
+            "": "获得\"%data.items.{1}-{0}%\"设计图(Item {0})",
+            "gold": "随机蓝图牌库已空，改为共同获得15金币"
+          },
+          "randomScenario": {
+            "": "解锁\"{1}\" %data.scenarioNumber:{0}%",
+            "gold": "随机剧本牌库已空，改为共同获得15金币"
+          }
         },
         "unlockPQ": "解锁个人任务{0}"
       },
@@ -538,7 +544,11 @@
     },
     "title": {
       "character": "{0}",
-      "monster": "{0}"
+      "monster": "{0}",
+      "monsterEntity": "%game.monsterType.{2}%{0}中{1}的立牌",
+      "objective": "{0}",
+      "objectiveEntity": "{0}中{1}",
+      "summon": "召唤{0}中{1}"
     }
   },
   "errata": "勘误",
@@ -1709,7 +1719,8 @@
         "special": {
           "city-event": "一旦你与一个派系的声望达到{1}点，添加C-{0}至城镇事件牌库。"
         }
-      }
+      },
+      "faction": "%game.gh2eFaction:{0}%声望"
     },
     "sheet": "团队记录表",
     "shop": {
@@ -2073,6 +2084,7 @@
         "gainCondition": "{0}获得%game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} 失去 %game.condition.{1}%",
+        "losePermanentCondition": "{0}永久失去%game.condition.{1}%",
         "permanentCondition": "{0}获得持续型%game.condition.{1}%",
         "remove": "移除{0}",
         "removeAbility": "移除{0}的能力卡牌'{1}'",
@@ -3002,6 +3014,10 @@
       "": "剧本统计",
       "hint": "收集剧本中的伤害,击杀,拾取,经验值以及治疗的统计数据"
     },
+    "serverExportCode": {
+      "": "导出服务器编码",
+      "hint": "在导出设置和数据集时包含服务器编码"
+    },
     "showExpandedAbilityCard": {
       "": "显示扩展能力卡牌",
       "hint": "一次性显示能力卡牌上的所有能力(自动显示卡牌标题)."
@@ -3322,6 +3338,18 @@
       "enabledGe5Player": "启用 ≥ 5 名玩家规则",
       "enabledManualPlayerCount": "启用手动玩家计数",
       "endAllTurns": "结束所有回合",
+      "entities": {
+        "addCharacterMarker": {
+          "": "%data.characterIconColored.{0}% %data.character.{1}% 用于选择的标记",
+          "character": "%data.characterIconColored.{0}% %data.character.{1}% {2} 的标记",
+          "monsterEntity": "%data.characterIconColored.{0}% %data.character.{1}% {2} 中\"{3}\"的标记",
+          "monsters": "%data.characterIconColored.{0}% %data.character.{1}% {2}中{3}的标记",
+          "objectiveEntity": "%data.characterIconColored.{0}% %data.character.{1}% {2}中{3}的标记",
+          "objectives": "%data.characterIconColored.{0}% %data.character.{1}% {2}中{3}的标记",
+          "summon": "%data.characterIconColored.{0}% %data.character.{1}% {2}中{3}的标记",
+          "summons": "%data.characterIconColored.{0}% %data.character.{0}% 用于召唤物{2}中{3}的标记"
+        }
+      },
       "entityDead": "击杀 {0} 的 {1} 立牌 {2}",
       "equipItem": "为 {0} 装备物品 {1} (%data.edition.{2}%)",
       "eventEffect": {

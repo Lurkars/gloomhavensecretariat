@@ -194,7 +194,7 @@
         "": "灌注使",
         "imbue-with-life": {
           "": "生命注魔",
-          "hint": "每当你没有%game.condition.disarm%时，获得%game.condition.disarm%。"
+          "hint": "召唤%data.summon.animated-claymore%后，每当你没有%game.condition.disarm%时，获得%game.condition.disarm%。"
         },
         "veil-of-protection": {
           "": "防护帷幔",
@@ -236,6 +236,10 @@
         "autoapply_mode": {
           "": "自动应用模式",
           "hint": "激活%data.characterToken.prism.mode%时，自动施加原召唤物状态与伤害。"
+        },
+        "code_geminate": {
+          "": "代号双生",
+          "hint": "允许多个召唤物带有激活的%data.characterToken.prism.mode%模式标记。"
         },
         "long_rest": {
           "": "特技 8",
