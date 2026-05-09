@@ -73,7 +73,7 @@
         "1": "在攻击能力后，赋予你的一个召唤物： %game.action.teleport:2%",
         "10": "当%game.element.fire%处于强烈或衰退时，%game.action.range:3%内的所有盟友获得%game.action.retaliate:1% %game.action.range:3%。",
         "11": "你的回合结束时，%game.element.fire%, %game.element.air%, 或%game.element.dark%。",
-        "2": "%game.action.target%一个你的召唤物",
+        "2": "%game.action.target:1%你的召唤物",
         "3": "你每次长休时，在该轮次开始时，你的所有召唤物获得%game.action.shield:1%",
         "4": "每个剧本限一次，在你的回合中，将你的一个召唤物%game.action.teleport%至你相邻的空格",
         "5": "每个剧本限一次，在所有能力卡牌翻开后的确定先攻顺序期间，你的所有召唤物获得%game.condition.invisible%",
@@ -325,7 +325,100 @@
         "5": "完成剧本后的每个城镇阶段，你或一个盟友可以免费执行圣橡树神殿的捐赠",
         "6": "你每次休息结束时，如果一个盟友的激活区有%data.action.custom.gh2e-prescription%，获得一张医疗包卡牌并将一个盟友激活区中的 %data.action.custom.gh2e-prescription%向后移动一个槽位",
         "7": "在单一剧本中，除了充分休息，每轮给与一个盟友一张医疗包卡牌或%data.action.custom.gh2e-prescription%",
-        "8": "在单一剧本中，只要场上有受伤的怪物就不能攻击未受伤的敌人，并执行至少10次攻击"
+        "8": "在单一剧本中，只要场上有受伤的怪物就不能攻击未受伤的敌人，并执行至少10次攻击",
+        "abilities": {
+          "411": {
+            "1": "给予一个相邻的盟友一个医疗包来获得%game.card.experience:1%。"
+          },
+          "413": {
+            "1": "本次治疗前，移除目标的一个负面状态。",
+            "2": "移除一个相邻盟友的一个负面状态。"
+          },
+          "414": {
+            "1": "如果一个盟友带有一个激活的%data.action.custom.gh2e-prescription%，增加%game.action.attack.valueSign:1%，%game.condition.wound%并获得%game.card.experience:1%。"
+          },
+          "415": {
+            "1": "本轮中，你下一次执行%data.action.custom.gh2e-prescription%行动时，赋予所有相邻盟友和自身："
+          },
+          "416": {
+            "1": "给予一个相邻的盟友一个医疗包来获得%game.card.experience:1%。"
+          },
+          "417": {
+            "1": "下4次以你为目标的攻击%game.damage%中，获得%game.action.shield:1%。"
+          },
+          "418": {
+            "1": "下4次攻击中，增加%game.action.attack.valueSign:1%。"
+          },
+          "420": {
+            "1": "你攻击已带有伤害标记的敌人时，为所有攻击增加%game.action.attack.valueSign:1%。"
+          },
+          "421": {
+            "1": "如果目标已带有伤害标记，增加%game.action.target.valueSign:1%并获得%game.card.experience:1%（最多可增加1个目标）。",
+            "2": "下3次敌人对你施加负面状态时，防止这些状态。"
+          },
+          "422": {
+            "1": "赋予一个相邻的盟友："
+          },
+          "423": {
+            "1": "如果目标带有伤害标记，增加%game.condition.stun%并获得%game.card.experience:1%。",
+            "2": "你可以将能力卡牌上的所有攻击能力和移动能力视为等值+1的治疗能力。在上述情形下，忽略所有相关能力的附加效果。将移动能力视为治疗能力时，它具有%game.action.range:1%。"
+          },
+          "425": {
+            "1": "赋予所有盟友和自身：",
+            "2": "每个盟友可以将他们的一个已激活%data.action.custom.gh2e-prescription%上的角色标记向后移动一个槽位。"
+          },
+          "426": {
+            "1": "你下3个生命值未满的回合开始时，执行："
+          },
+          "427": {
+            "1": "其中，X是上述攻击能力中造成的%game.damage%总和。",
+            "2": "移除目标带有的全部负面状态并给予一个医疗包。"
+          },
+          "428": {
+            "1": "赋予一个相邻的盟友：",
+            "2": "如果目标带有一个已激活的%data.action.custom.gh2e-prescription%，获得%game.card.experience:1%并抵消本轮中其将要承受的下一次%game.damage%。"
+          },
+          "429": {
+            "1": "将一个角色标记放置到目标上。下三次目标将要失去%game.condition.stun%时，其获得%game.condition.stun%。"
+          },
+          "430": {
+            "1": "如果该攻击消灭了目标，所有与该目标所在格相邻的敌人获得%game.condition.wound%。"
+          },
+          "431": {
+            "1": "下4个你未带有%game.condition.ward%的回合开始时，执行：",
+            "2": "本轮中，当一个相邻的盟友将要承受%game.damage%时，抵消该%game.damage%。"
+          },
+          "432": {
+            "1": "1个盟友，敌人，或自身",
+            "2": "该治疗能力的目标"
+          },
+          "433": {
+            "1": "赋予一个相邻且带有一个已激活%data.action.custom.gh2e-prescription%的盟友：",
+            "2": "移除一个相邻盟友的一个负面状态。若如此，获得%game.card.experience:1%且你可以给予一个相邻的敌人该负面状态。"
+          },
+          "434": {
+            "1": "给予一个相邻的盟友一个医疗包来获得%game.card.experience:1%。"
+          },
+          "435": {
+            "1": "你下个回合开始时，执行："
+          },
+          "436": {
+            "1": "你下三个回合开始时，获得一个医疗包。",
+            "2": "按先攻值顺序，你的每个盟友可以立刻从手牌中打出一张“医疗包”能力卡牌并执行上面的一个行动"
+          },
+          "437": {
+            "1": "消灭一个相邻敌人，该敌人需同时满足：带有伤害标记；带有至少两个负面状态；当前生命值不高于8点。",
+            "2": "目标承受%game.damage:1%。"
+          },
+          "438": {
+            "1": "治疗前，移除目标的全部负面状态。",
+            "2": "如果该治疗能力的目标带有一个已激活的%data.action.custom.gh2e-prescription%，获得%game.card.experience:1%并赋予该目标：",
+            "3": "当你或一个盟友执行一个“医疗包”能力卡上的治疗能力时，该角色可以增加%game.action.attack.valueSign:4%到其该轮中的下一次攻击，或增加%game.action.move.valueSign:4%到其该轮中的下一次移动能力。"
+          },
+          "439": {
+            "1": "本轮中，为你的下一次攻击能力增加%game.action.target.valueSign:1%。"
+          }
+        }
       },
       "squidface": {
         "1": "目标或目标%game.action.range:2%内的一个敌人获得%game.condition.plague%",
@@ -495,7 +588,7 @@
     },
     "gh2e-106": {
       "": "蒸汽护甲",
-      "1": "之后5次以你为目标的攻击%game.damage%中,获得 %game.action.shield:1%."
+      "1": "之后5次以你为目标的攻击%game.damage%中,获得%game.action.shield:1%."
     },
     "gh2e-107": {
       "": "尖牙项圈",
