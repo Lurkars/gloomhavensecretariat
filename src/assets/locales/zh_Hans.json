@@ -2843,7 +2843,8 @@
     "gameplay": "游戏玩法",
     "gamerules": "版本专用规则",
     "ge5Player": {
-      "": "≥ 5名玩家规则"
+      "": "≥ 5名玩家规则",
+      "capped": "计算规则等内容时，始终视为C=4"
     },
     "gh2eImbuement": {
       "": "启用怪物注魔",
@@ -3324,7 +3325,10 @@
       "disableEnvelopeB": "禁用信封 B",
       "disablePartyCampaignMode": "禁用战役模式",
       "disableSolo": "禁用单人模式等级计算",
-      "disabledGe5Player": "禁用 ≥ 5名玩家规则",
+      "disabledGe5Player": {
+        "": "禁用≥5人游戏规则",
+        "capped": "禁用5人游戏时，规则计算中C=4"
+      },
       "disabledManualPlayerCount": "禁用手动玩家计数",
       "distillItem": "为 {0}蒸馏物品 \"%data.items.{2}-{1}%\"",
       "donate": "{0} 向巨橡神殿捐赠",
@@ -3335,7 +3339,10 @@
       "enableEnvelopeB": "打开信封 B",
       "enablePartyCampaignMode": "启用战役模式",
       "enableSolo": "启用单人模式等级计算",
-      "enabledGe5Player": "启用 ≥ 5 名玩家规则",
+      "enabledGe5Player": {
+        "": "启用≥5人游戏规则",
+        "capped": "启用5人游戏时，规则计算中C=4"
+      },
       "enabledManualPlayerCount": "启用手动玩家计数",
       "endAllTurns": "结束所有回合",
       "entities": {
@@ -3348,6 +3355,9 @@
           "objectives": "%data.characterIconColored.{0}% %data.character.{1}% {2}中{3}的标记",
           "summon": "%data.characterIconColored.{0}% %data.character.{1}% {2}中{3}的标记",
           "summons": "%data.characterIconColored.{0}% %data.character.{0}% 用于召唤物{2}中{3}的标记"
+        },
+        "addCondition": {
+          "": "%game.condition.{0}%选项"
         }
       },
       "entityDead": "击杀 {0} 的 {1} 立牌 {2}",
@@ -3366,6 +3376,7 @@
         "drawRandomItemBlueprint": "抽取随机物品蓝图 {0} \"{2}\" (%data.edition.{1}%)",
         "drawRandomScenario": "抽取随机剧本 {2} %data.scenarioNumber:{0}%",
         "drawRandomScenarioSection": "抽取随机剧本段落 %data.section:{0}%,解锁 {3}",
+        "factionReputation": "{0} %game.gh2eFaction:{1}%声望",
         "inspiration": "{0} 激励值",
         "morale": "{0} 士气值",
         "prosperity": "{0} 繁荣度",
