@@ -128,7 +128,7 @@
           }
           @for (model of drawnCards | trackUUID; track model._trackUUID; let index = $index) {
             @if (!filter || model.identifier.cardId.includes(filter)) {
-              <div class="container" drag-hidden cdkDrag>
+              <div class="container drag-hidden" cdkDrag [cdkDragDisabled]="true">
                 <ghs-event-card
                   [event]="model.card"
                   [select]="model.identifier.selected"

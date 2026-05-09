@@ -236,6 +236,7 @@
     align-items: flex-start;
     font-size: 1.5em;
     overflow: auto;
+    min-width: max-content;
 
     table {
       margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));

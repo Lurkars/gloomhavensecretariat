@@ -393,6 +393,7 @@ ghs-entity-index-key {
   justify-content: center;
   align-items: flex-start;
   margin-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  min-width: max-content;
 }
 
 .entity-container {
