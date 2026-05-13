@@ -16,13 +16,11 @@ jobs:
         run: gh release create "${{ github.ref_name }}" --draft --title "${{ github.ref_name }}" --repo "${{ github.repository }}"
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
+
   release_zip:
     name: Release zip
     needs: create_release
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [24.x]
     steps:
       - uses: actions/checkout@v5
       - name: Cache node modules
@@ -32,10 +30,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Node ${{ matrix.node-version }}
+      - name: Node 24x
         uses: actions/setup-node@v5
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24.x
       - name: npm install and npm run build
         run: |
           npm ci
@@ -46,13 +44,13 @@ jobs:
         run: gh release upload "${{ github.ref_name }}" "./dist/gloomhavensecretariat/gloomhavensecretariat-${{ github.ref_name }}.zip" --repo "${{ github.repository }}"
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
+
   release_electron:
     name: Release electron builds
     needs: create_release
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24.x]
         os: [macos-latest, windows-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v5
@@ -63,29 +61,27 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Node ${{ matrix.node-version }}
+      - name: Node 24.x
         uses: actions/setup-node@v5
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24.x
       - name: npm install and npm run electron:build
         run: |
           npm ci
           npm run electron:build
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
+
   release_android:
     name: Release Android APK
     needs: create_release
     runs-on: ubuntu-latest
-
     env:
       ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
       ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-
     steps:
       - uses: actions/checkout@v5
-
       - name: Cache node modules
         uses: actions/cache@v5
         with:
@@ -93,28 +89,22 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
-      - name: Setup Node
+      - name: Setup Node 24.x
         uses: actions/setup-node@v5
         with:
           node-version: 24.x
           cache: npm
-
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
-
       - name: Install dependencies
         run: npm ci
-
       - name: Build Angular app
         run: npm run build
-
       - name: Add Capacitor Android platform
         run: npx cap add android || echo "Android platform already exists"
-
       - name: Generate Android assets
         run: |
           if [ -f resources/icon.png ]; then
@@ -122,10 +112,8 @@ jobs:
           else
             echo "No resources/icon.png found, skipping asset generation"
           fi
-
       - name: Sync Capacitor
         run: npx cap sync android
-
       - name: Patch Android version
         run: |
           python <<'PY'
@@ -149,7 +137,6 @@ jobs:
           gradle.write_text(text)
           print(f"Set versionName={version_name}, versionCode={version_code}")
           PY
-
       - name: Decode Android keystore
         run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release-key.jks
@@ -160,7 +147,6 @@ jobs:
           echo "GHS_APP_KEY_ALIAS=${ANDROID_KEY_ALIAS}" >> android/gradle.properties
           echo "GHS_APP_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}" >> android/gradle.properties
           echo "GHS_APP_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}" >> android/gradle.properties
-
       - name: Patch generated Android signing config
         run: |
           python <<'PY'
@@ -225,12 +211,10 @@ jobs:
           gradle.write_text(text)
           print("Patched android/app/build.gradle")
           PY
-
       - name: Build signed APK
         run: |
           cd android
           ./gradlew assembleRelease
-
       - name: Upload APK to draft release
         run: gh release upload "${{ github.ref_name }}" "android/app/build/outputs/apk/release/app-release.apk#gloomhaven-${{ github.ref_name }}.apk" --repo "${{ github.repository }}"
         env:
