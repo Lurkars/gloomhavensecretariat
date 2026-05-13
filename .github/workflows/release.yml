@@ -130,6 +130,30 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
 
+      - name: Patch Android version
+        run: |
+          python <<'PY'
+          import os, re
+          from pathlib import Path
+
+          tag = os.environ.get("GITHUB_REF_NAME", "")
+          version_name = tag.lstrip("v") or "1.0"
+
+          parts = re.split(r'[.\-]', version_name)
+          try:
+              major, minor, patch = int(parts[0]), int(parts[1]) if len(parts) > 1 else 0, int(parts[2]) if len(parts) > 2 else 0
+          except ValueError:
+              major, minor, patch = 1, 0, 0
+          version_code = major * 1_000_000 + minor * 1_000 + patch
+
+          gradle = Path("android/app/build.gradle")
+          text = gradle.read_text()
+          text = re.sub(r'versionCode\s+\d+', f'versionCode {version_code}', text)
+          text = re.sub(r'versionName\s+"[^"]*"', f'versionName "{version_name}"', text)
+          gradle.write_text(text)
+          print(f"Set versionName={version_name}, versionCode={version_code}")
+          PY
+
       - name: Decode Android keystore
         run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release-key.jks
