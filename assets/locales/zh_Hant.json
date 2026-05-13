@@ -779,11 +779,11 @@
         "ceil": "(向上取整)",
         "floor": "(向下取整)",
         "max": "，上限為 %game.number.{0}%",
-        "maxCeil": "(向上取整), 上限為 %game.number.{0}%",
-        "maxFloor": "(向下取整), 上限為 %game.number.{0}%",
+        "maxCeil": "(向上取整), 至少 %game.number.{0}%",
+        "maxFloor": "(向下取整), 至少 %game.number.{0}%",
         "min": "，至少 %game.number.{0}%",
-        "minCeil": "(向上取整), 至少 %game.number.{0}%",
-        "minFloor": "(向下取整), 至少 %game.number.{0}%"
+        "minCeil": "(向上取整), 上限為 %game.number.{0}%",
+        "minFloor": "(向下取整), 上限為 %game.number.{0}%"
       },
       "ondeath": "死亡時:",
       "perks": {
@@ -852,10 +852,7 @@
         "unlockScenario": "解鎖 \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。"
       },
       "option": {
-        "": "選項 {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "": "選項 {0}:"
       },
       "type": {
         "city": "城市",

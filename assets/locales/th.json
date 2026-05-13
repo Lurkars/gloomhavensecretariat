@@ -769,11 +769,11 @@
         "ceil": "(ปัดขึ้น)",
         "floor": "(ปัดลง)",
         "max": ", สูงสุดไม่เกิน %game.number.{0}%",
-        "maxCeil": "(ปัดขึ้น), สูงสุดไม่เกิน %game.number.{0}%",
-        "maxFloor": "(ปัดลง), สูงสุดไม่เกิน %game.number.{0}%",
+        "maxCeil": "(ปัดขึ้น), อย่างน้อย %game.number.{0}%",
+        "maxFloor": "(ปัดลง), อย่างน้อย %game.number.{0}%",
         "min": ", อย่างน้อย %game.number.{0}%",
-        "minCeil": "(ปัดขึ้น), อย่างน้อย %game.number.{0}%",
-        "minFloor": "(ปัดลง), อย่างน้อย %game.number.{0}%"
+        "minCeil": "(ปัดขึ้น), สูงสุดไม่เกิน %game.number.{0}%",
+        "minFloor": "(ปัดลง), สูงสุดไม่เกิน %game.number.{0}%"
       },
       "ondeath": "เมื่อตาย:",
       "perks": {

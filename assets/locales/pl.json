@@ -797,11 +797,11 @@
         "ceil": "(zaokrąglone w górę)",
         "floor": "(zaokrąglone w dół)",
         "max": ", maksymalnie %game.number.{0}%",
-        "maxCeil": "(zaokrąglone w górę), maksymalnie %game.number.{0}%",
-        "maxFloor": "(zaokrąglone w dół), maksymalnie %game.number.{0}%",
+        "maxCeil": "(zaokrąglone w górę), ale co najmniej %game.number.{0}%",
+        "maxFloor": "(zaokrąglone w dół), ale co najmniej %game.number.{0}%",
         "min": ", ale co najmniej %game.number.{0}%",
-        "minCeil": "(zaokrąglone w górę), ale co najmniej %game.number.{0}%",
-        "minFloor": "(zaokrąglone w dół), ale co najmniej %game.number.{0}%"
+        "minCeil": "(zaokrąglone w górę), maksymalnie %game.number.{0}%",
+        "minFloor": "(zaokrąglone w dół), maksymalnie %game.number.{0}%"
       },
       "ondeath": "Po śmierci:",
       "perks": {
