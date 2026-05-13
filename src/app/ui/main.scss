@@ -206,6 +206,7 @@ main {
     padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     width: calc(var(--ghs-unit) * 80 * var(--ghs-text-factor));
+    max-width: 100vw;
 
     &.bordered {
       border-bottom: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor)) solid var(--ghs-color-darkgray);

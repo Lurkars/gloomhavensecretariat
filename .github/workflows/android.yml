@@ -142,9 +142,14 @@ jobs:
           cd android
           ./gradlew assembleRelease
 
+      - name: Rename APK
+        run: |
+          REF_NAME=$(echo "${GITHUB_REF##*/}" | tr / _)
+          mv android/app/build/outputs/apk/release/app-release.apk android/app/build/outputs/apk/release/ghs-${REF_NAME}.apk
+
       - name: Upload APK artifacts (manual run)
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: android-artifacts
           path: android/app/build/outputs/apk/release/*.apk
