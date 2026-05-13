@@ -65,42 +65,14 @@ jobs:
         run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release-key.jks
 
-      - name: Configure signing
-        run: |
-          cat >> android/gradle.properties << EOF
-          GHS_APP_STORE_FILE=release-key.jks
-          GHS_APP_KEY_ALIAS=${ANDROID_KEY_ALIAS}
-          GHS_APP_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}
-          GHS_APP_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}
-          EOF
-
-      - name: Patch build.gradle signing
-        run: |
-          BUILD_GRADLE="android/app/build.gradle"
-
-          if ! grep -q "signingConfigs {" $BUILD_GRADLE; then
-            sed -i '/android {/a \
-                signingConfigs {\
-                    release {\
-                        if (project.hasProperty("GHS_APP_STORE_FILE")) {\
-                            storeFile file(GHS_APP_STORE_FILE)\
-                            storePassword GHS_APP_STORE_PASSWORD\
-                            keyAlias GHS_APP_KEY_ALIAS\
-                            keyPassword GHS_APP_KEY_PASSWORD\
-                        }\
-                    }\
-                }' $BUILD_GRADLE
-          fi
-
-          if ! grep -q "signingConfig signingConfigs.release" $BUILD_GRADLE; then
-            sed -i '/release {/{:a;n;/}/!ba;i \
-                signingConfig signingConfigs.release' $BUILD_GRADLE
-          fi
-
       - name: Build APK
         run: |
           cd android
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=release-key.jks \
+            -Pandroid.injected.signing.store.password=$ANDROID_KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$ANDROID_KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$ANDROID_KEY_PASSWORD
 
       - name: Rename APK
         run: |
@@ -112,8 +84,7 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: android-artifacts
-          path: |
-            android/app/build/outputs/apk/release/*.apk
+          path: android/app/build/outputs/apk/release/*.apk
 
       - name: Upload APK to GitHub Release
         if: ${{ github.event_name != 'workflow_dispatch' }}
