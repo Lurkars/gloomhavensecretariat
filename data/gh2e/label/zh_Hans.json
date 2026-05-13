@@ -1291,6 +1291,7 @@
     "crystal-rot": "水晶蚀灵",
     "cultist": "邪教徒",
     "dark-ritual-cultist": "黑暗仪式教徒",
+    "deep-earth-gh2e": "深岩之怒",
     "deep-terror": "深层惧魔",
     "disjointed-twin": "分离双子",
     "doomcannon": "攻城加农炮",
@@ -1303,6 +1304,7 @@
     "giant-ooze": "巨型软泥怪",
     "giant-viper": "巨型蝮蛇",
     "harrower-infester": "骇虫寄生者",
+    "hawthorne": "霍桑",
     "hound": "猎犬",
     "inox-archer": "羚牛族弓箭手",
     "inox-bodyguard": "羚牛族保镖",
@@ -1321,9 +1323,11 @@
     "rending-drake": "撕裂亚龙",
     "savvas-icestorm": "原生族冰风魔人",
     "savvas-lavaflow": "原生族熔岩魔人",
+    "shyreth": "夏瑞斯",
     "spitting-drake": "喷吐亚龙",
     "spymaster-argeise": "间谍大师阿尔吉斯",
     "stone-construct": "岩石魔像",
+    "stone-construct-tinkerer-solo": "%data.monster.stone-construct%",
     "sun-demon": "旭日恶魔",
     "the-betrayer": "背叛者",
     "the-colorless": "苍白者",
@@ -1363,7 +1367,8 @@
       "04": {
         "": "先人陨落",
         "1": "%game.itemFh.149%使用次数",
-        "2": "阅读%game.section:115.2%"
+        "2": "阅读%game.section:115.2%",
+        "3": "将飘渺灯塔%game.scenarioNumber:63%进行到结局"
       },
       "05": {
         "": "索恩追寻者",
@@ -1375,7 +1380,7 @@
       "06": {
         "": "血神信徒",
         "1": "以不高于一半生命值完成剧本的数量",
-        "2": "结算%game.section:122.3%"
+        "2": "阅读%game.section:122.3%"
       },
       "07": {
         "": "轶事秘闻",
@@ -1385,11 +1390,15 @@
       "08": {
         "": "夺回林地",
         "1": "结算的道路事件数量",
-        "2": "阅读%game.section:64.3%"
+        "2": "阅读%game.section:64.3%",
+        "3": "将迷雾丛林%game.scenarioNumber:59%进行到结局",
+        "4": "将强盗树林%game.scenarioNumber:60%进行到结局"
       },
       "09": {
         "": "寻找解药",
         "1": "剧本地点",
+        "10": "将危险树林%game.scenarioNumber:61%进行到结局",
+        "11": "将炼金实验室%game.scenarioNumber:62%进行到结局",
         "2": "铜颈山脉",
         "3": "腐化林地",
         "4": "匕首森林",
@@ -1402,12 +1411,14 @@
       "10": {
         "": "终结畸变",
         "1": "附魔%game.element.wild%",
-        "2": "阅读%game.section:14.3%"
+        "2": "阅读%game.section:14.3%",
+        "3": "将混沌根源%game.scenarioNumber:64%进行到结局"
       },
       "11": {
         "": "领养小熊",
         "1": "完成剧本且拾取至少3个钱币标记",
-        "2": "阅读%game.section:122.5%"
+        "2": "阅读%game.section:122.5%",
+        "3": "将患难挚友%game.scenarioNumber:66%进行到结局"
       },
       "12": {
         "": "践行圣光",
@@ -1471,16 +1482,29 @@
     }
   },
   "scenario": {
+    "rewards": {
+      "gh2e": {
+        "80": {
+          "1": "这些金币必须立刻用于强化（附魔）"
+        }
+      }
+    },
     "rules": {
       "gh2e": {
         "10": {
           "1": "所有占据板块01-D、02-H及连接两者的走廊板块的角色承受危险地形伤害。"
+        },
+        "55": {
+          "1": "从地图边的供应堆中移除一个伤害标记。"
         },
         "8": {
           "1": "强盗指挥官本回合行动结束后，执行%game.action.move:20% %game.action.jump%至%game.mapMarker.2%门并将其开启。",
           "2": "强盗指挥官本回合行动结束后，执行%game.action.move:20% %game.action.jump%至%game.mapMarker.3%门并将其开启。",
           "3": "强盗指挥官本回合行动结束后，执行%game.action.move:20% %game.action.jump%至%game.mapMarker.4%门并将其开启。",
           "4": "强盗指挥官本回合行动结束后，执行%game.action.move:20% %game.action.jump%至%game.mapMarker.5%门并将其开启。"
+        },
+        "80": {
+          "1": "至起始位置"
         },
         "9": {
           "1": "抽一个标记并在%game.mapMarker.b%上召唤怪物。",
@@ -1880,7 +1904,45 @@
         "randomMonsterCard-570": "腐化",
         "randomMonsterCard-571": "带菌",
         "randomMonsterCard-572": "恶臭",
-        "randomMonsterCard-573": "严寒"
+        "randomMonsterCard-573": "严寒",
+        "solo-100-1": "元素奥秘",
+        "solo-100-2": "元素奥秘",
+        "solo-100-3": "元素奥秘",
+        "solo-100-4": "元素奥秘",
+        "solo-101-1": "笼中之熊",
+        "solo-101-2": "笼中之熊",
+        "solo-101-3": "笼中之熊",
+        "solo-102-1": "时之沙",
+        "solo-102-2": "时之沙",
+        "solo-85-1": "狂欢夜",
+        "solo-85-2": "狂欢夜",
+        "solo-86-1": "倒霉的入侵",
+        "solo-86-2": "倒霉的入侵",
+        "solo-87-1": "腐化的药剂师",
+        "solo-87-2": "腐化的药剂师",
+        "solo-88-1": "材料短缺",
+        "solo-88-2": "材料短缺",
+        "solo-90-1": "腐鼠革命",
+        "solo-90-2": "腐鼠革命",
+        "solo-91-1": "护送篷车",
+        "solo-91-2": "护送篷车",
+        "solo-92-1": "保管费",
+        "solo-92-2": "保管费",
+        "solo-92-3": "保管费",
+        "solo-93-1": "野兽位面",
+        "solo-94-1": "暗夜收割",
+        "solo-94-2": "暗夜收割",
+        "solo-95-1": "瘟疫地穴",
+        "solo-95-2": "瘟疫地穴",
+        "solo-96-1": "非自然损害",
+        "solo-96-2": "非自然损害",
+        "solo-97-1": "吟游诗人之战",
+        "solo-97-2": "吟游诗人之战",
+        "solo-98-1": "腐化狩猎",
+        "solo-98-2": "腐化狩猎",
+        "solo-98-3": "腐化狩猎",
+        "solo-98-4": "腐化狩猎",
+        "solo-99-1": "后果"
       }
     }
   }

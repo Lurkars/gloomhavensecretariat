@@ -3354,7 +3354,13 @@
           "summons": "%data.characterIconColored.{0}% %data.character.{0}% 用于召唤物{2}中{3}的标记"
         },
         "addCondition": {
-          "": "%game.condition.{0}%选项"
+          "": "%game.condition.{0}%选项",
+          "character": "%game.condition.{0}% {1}",
+          "monsterEntity": "%game.condition.{0}% {1}中的'{2}'",
+          "monsters": "%game.condition.{0}% {1}中的{2}",
+          "objectiveEntity": "%game.condition.{0}% {1}中的{2}",
+          "objectives": "%game.condition.{0}% {1}中的{2}",
+          "summon": "%game.condition.{0}% {1}中的'{2}'"
         }
       },
       "entityDead": "击杀 {0} 的 {1} 立牌 {2}",
