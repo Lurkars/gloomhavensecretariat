@@ -2,11 +2,6 @@ name: Android Build
 
 on:
   workflow_dispatch:
-    inputs:
-      ref:
-        description: 'Git ref (branch/tag) to build'
-        required: true
-        default: 'main'
 
   workflow_run:
     workflows: ["Build and publish release"]
@@ -32,12 +27,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.ref || github.event.workflow_run.head_branch }}
+          ref: ${{ github.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24.x
           cache: npm
 
       - name: Setup Java
@@ -73,10 +68,10 @@ jobs:
       - name: Configure signing
         run: |
           cat >> android/gradle.properties << EOF
-          GHS_APP_UPLOAD_STORE_FILE=release-key.jks
-          GHS_APP_UPLOAD_KEY_ALIAS=${ANDROID_KEY_ALIAS}
-          GHS_APP_UPLOAD_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}
-          GHS_APP_UPLOAD_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}
+          GHS_APP_STORE_FILE=release-key.jks
+          GHS_APP_KEY_ALIAS=${ANDROID_KEY_ALIAS}
+          GHS_APP_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}
+          GHS_APP_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}
           EOF
 
       - name: Patch build.gradle signing
@@ -88,11 +83,11 @@ jobs:
           signing_block = """
               signingConfigs {
                   release {
-                      if (project.hasProperty('GHS_APP_UPLOAD_STORE_FILE')) {
-                          storeFile file(GHS_APP_UPLOAD_STORE_FILE)
-                          storePassword GHS_APP_UPLOAD_STORE_PASSWORD
-                          keyAlias GHS_APP_UPLOAD_KEY_ALIAS
-                          keyPassword GHS_APP_UPLOAD_KEY_PASSWORD
+                      if (project.hasProperty('GHS_APP_STORE_FILE')) {
+                          storeFile file(GHS_APP_STORE_FILE)
+                          storePassword GHS_APP_STORE_PASSWORD
+                          keyAlias GHS_APP_KEY_ALIAS
+                          keyPassword GHS_APP_KEY_PASSWORD
                       }
                   }
               }
@@ -113,6 +108,15 @@ jobs:
           cd android
           ./gradlew bundleRelease
 
+      - name: Upload APK/AAB artifacts (manual run)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-artifacts
+          path: |
+            android/app/build/outputs/apk/release/*.apk
+            android/app/build/outputs/bundle/release/*.aab
+
       - name: Upload APK to GitHub Release
         if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: softprops/action-gh-release@v2
@@ -128,12 +132,3 @@ jobs:
           files: android/app/build/outputs/bundle/release/*.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload APK/AAB artifacts for manual run
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-artifacts
-          path: |
-            android/app/build/outputs/apk/release/*.apk
-            android/app/build/outputs/bundle/release/*.aab
