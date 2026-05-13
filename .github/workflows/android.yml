@@ -65,14 +65,18 @@ jobs:
         run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release-key.jks
 
-      - name: Build APK
+      - name: Configure signing via gradle.properties
+        run: |
+          mkdir -p android
+          echo "GHS_APP_STORE_FILE=$(pwd)/android/app/release-key.jks" >> android/gradle.properties
+          echo "GHS_APP_KEY_ALIAS=${ANDROID_KEY_ALIAS}" >> android/gradle.properties
+          echo "GHS_APP_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}" >> android/gradle.properties
+          echo "GHS_APP_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}" >> android/gradle.properties
+
+      - name: Build signed APK
         run: |
           cd android
-          ./gradlew assembleRelease \
-            -Pandroid.injected.signing.store.file=release-key.jks \
-            -Pandroid.injected.signing.store.password=$ANDROID_KEYSTORE_PASSWORD \
-            -Pandroid.injected.signing.key.alias=$ANDROID_KEY_ALIAS \
-            -Pandroid.injected.signing.key.password=$ANDROID_KEY_PASSWORD
+          ./gradlew assembleRelease
 
       - name: Rename APK
         run: |
