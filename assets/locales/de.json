@@ -2331,7 +2331,8 @@
         "": "Serverversion",
         "latest": "Aktuell",
         "unknown": "Konnte neuste Version nicht abfragen",
-        "update": "Aktuellste Version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+        "update": "Aktuellste Version <a target=\"_blank\" href=\"{1}\">{0}</a>",
+        "update.apk": "Android APK <a target=\"_blank\" href=\"{0}\">{1}</a> herunterladen"
       },
       "website": "Website"
     },
