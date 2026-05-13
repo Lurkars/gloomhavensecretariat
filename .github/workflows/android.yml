@@ -76,6 +76,7 @@ jobs:
         run: |
           python <<'PY'
           from pathlib import Path
+          import re
 
           gradle = Path("android/app/build.gradle")
           if not gradle.exists():
@@ -83,7 +84,7 @@ jobs:
 
           text = gradle.read_text()
 
-          if "GHS_APP_STORE_FILE" in text:
+          if "GHS_APP_STORE_FILE" in text and "signingConfig signingConfigs.release" in text:
               print("Signing config already present")
               raise SystemExit(0)
 
@@ -104,19 +105,33 @@ jobs:
           if "android {" not in text:
               raise SystemExit("Could not find android block in android/app/build.gradle")
 
-          text = text.replace("android {", "android {\n" + signing_block, 1)
+          if "GHS_APP_STORE_FILE" not in text:
+              text = text.replace("android {", "android {\n" + signing_block, 1)
 
-          if "release {" not in text:
-              raise SystemExit("Could not find release block in android/app/build.gradle")
+          buildtypes_match = re.search(r'buildTypes\s*\{', text)
+          if not buildtypes_match:
+              raise SystemExit("Could not find buildTypes block in android/app/build.gradle")
 
-          text = text.replace(
-              "release {",
-              """release {
+          release_match = re.search(r'(\n\s*release\s*\{)', text[buildtypes_match.start():])
+          if not release_match:
+              raise SystemExit("Could not find release block inside buildTypes in android/app/build.gradle")
+
+          release_pos = buildtypes_match.start() + release_match.start(1)
+
+          insertion = """
                       if (project.hasProperty("GHS_APP_STORE_FILE")) {
                           signingConfig signingConfigs.release
-                      }""",
-              1,
-          )
+                      }
+          """
+
+          release_line_match = re.search(r'release\s*\{\n', text[release_pos:])
+          if not release_line_match:
+              raise SystemExit("Could not determine insertion point for buildTypes.release")
+
+          insert_at = release_pos + release_line_match.end()
+
+          if "signingConfig signingConfigs.release" not in text:
+              text = text[:insert_at] + insertion + text[insert_at:]
 
           gradle.write_text(text)
           print("Patched android/app/build.gradle")
@@ -126,7 +141,6 @@ jobs:
         run: |
           cd android
           ./gradlew assembleRelease
-
 
       - name: Upload APK artifacts (manual run)
         if: ${{ github.event_name == 'workflow_dispatch' }}
