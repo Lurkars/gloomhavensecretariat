@@ -25,18 +25,18 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.ref }}
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24.x
           cache: npm
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
@@ -76,59 +76,49 @@ jobs:
 
       - name: Patch build.gradle signing
         run: |
-          python3 << 'EOF'
-          from pathlib import Path
-          path = Path("android/app/build.gradle")
-          text = path.read_text()
-          signing_block = """
-              signingConfigs {
-                  release {
-                      if (project.hasProperty('GHS_APP_STORE_FILE')) {
-                          storeFile file(GHS_APP_STORE_FILE)
-                          storePassword GHS_APP_STORE_PASSWORD
-                          keyAlias GHS_APP_KEY_ALIAS
-                          keyPassword GHS_APP_KEY_PASSWORD
-                      }
-                  }
-              }
-          """
-          if "signingConfigs" not in text:
-              text = text.replace("android {", "android {\n" + signing_block)
-          text = text.replace("signingConfig signingConfigs.debug", "signingConfig signingConfigs.release")
-          path.write_text(text)
-          EOF
+          BUILD_GRADLE="android/app/build.gradle"
+
+          if ! grep -q "signingConfigs {" $BUILD_GRADLE; then
+            sed -i '/android {/a \
+                signingConfigs {\
+                    release {\
+                        if (project.hasProperty("GHS_APP_STORE_FILE")) {\
+                            storeFile file(GHS_APP_STORE_FILE)\
+                            storePassword GHS_APP_STORE_PASSWORD\
+                            keyAlias GHS_APP_KEY_ALIAS\
+                            keyPassword GHS_APP_KEY_PASSWORD\
+                        }\
+                    }\
+                }' $BUILD_GRADLE
+          fi
+
+          if ! grep -q "signingConfig signingConfigs.release" $BUILD_GRADLE; then
+            sed -i '/release {/{:a;n;/}/!ba;i \
+                signingConfig signingConfigs.release' $BUILD_GRADLE
+          fi
 
       - name: Build APK
         run: |
           cd android
           ./gradlew assembleRelease
 
-      - name: Build AAB
+      - name: Rename APK
         run: |
-          cd android
-          ./gradlew bundleRelease
+          REF_NAME=$(echo "${GITHUB_REF##*/}" | tr / _)
+          mv android/app/build/outputs/apk/release/app-release.apk android/app/build/outputs/apk/release/ghs-${REF_NAME}.apk
 
-      - name: Upload APK/AAB artifacts (manual run)
+      - name: Upload APK artifacts (manual run)
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: android-artifacts
           path: |
             android/app/build/outputs/apk/release/*.apk
-            android/app/build/outputs/bundle/release/*.aab
 
       - name: Upload APK to GitHub Release
         if: ${{ github.event_name != 'workflow_dispatch' }}
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: android/app/build/outputs/apk/release/*.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload AAB to GitHub Release
-        if: ${{ github.event_name != 'workflow_dispatch' }}
-        uses: softprops/action-gh-release@v2
-        with:
-          files: android/app/build/outputs/bundle/release/*.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
