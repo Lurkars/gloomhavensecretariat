@@ -45,6 +45,8 @@ export class Summon implements Entity {
   dormant: boolean = false;
   revealed: boolean = false;
   passive: boolean = false;
+  afterTurn: boolean = false;
+  afterTurnActive: boolean = false;
 
   // from entity
   active: boolean = false;
@@ -96,6 +98,8 @@ export class Summon implements Entity {
       this.passive = summonData.passive;
     }
     this.health = this.maxHealth;
+    this.afterTurn = false;
+    this.afterTurnActive = false;
   }
 
   toModel(): GameSummonModel {
@@ -124,6 +128,8 @@ export class Summon implements Entity {
       this.active,
       this.dormant,
       this.passive,
+      this.afterTurn,
+      this.afterTurnActive,
       this.thumbnail,
       this.thumbnailUrl,
       this.noThumbnail,
@@ -172,6 +178,8 @@ export class Summon implements Entity {
     this.active = model.active;
     this.dormant = model.dormant;
     this.passive = model.passive;
+    this.afterTurn = model.afterTurn || false;
+    this.afterTurnActive = model.afterTurnActive || false;
     this.thumbnail = model.thumbnail;
     this.thumbnailUrl = model.thumbnailUrl;
     this.noThumbnail = model.noThumbnail;
@@ -234,6 +242,8 @@ export class GameSummonModel {
   active: boolean = false;
   dormant: boolean;
   passive: boolean;
+  afterTurn: boolean;
+  afterTurnActive: boolean;
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
   noThumbnail: boolean;
@@ -269,6 +279,8 @@ export class GameSummonModel {
     active: boolean,
     dormant: boolean,
     passive: boolean,
+    afterTurn: boolean,
+    afterTurnActive: boolean,
     thumbnail: string | undefined,
     thumbnailUrl: string | undefined,
     noThumbnail: boolean,
@@ -303,6 +315,8 @@ export class GameSummonModel {
     this.active = active;
     this.dormant = dormant;
     this.passive = passive;
+    this.afterTurn = afterTurn;
+    this.afterTurnActive = afterTurnActive;
     this.thumbnail = thumbnail;
     this.thumbnailUrl = thumbnailUrl;
     this.noThumbnail = noThumbnail;

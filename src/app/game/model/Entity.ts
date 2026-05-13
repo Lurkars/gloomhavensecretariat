@@ -3,7 +3,7 @@ import { Action } from 'src/app/game/model/data/Action';
 import { ConditionName, EntityCondition } from 'src/app/game/model/data/Condition';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { GameState } from 'src/app/game/model/Game';
-import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
+import { evaluateExpression, UnknownVariableError } from 'src/app/game/util/ExpressionEvaluator';
 
 export interface Entity {
   active: boolean;
@@ -27,8 +27,7 @@ export interface Entity {
 export type EntityCounter = { identifier: AdditionalIdentifier; total: number; killed: number };
 
 export const EntityExpressionRegex = /^([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)$/;
-export const EntityValueRegex = /\[([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
-export const EntityValueRegexExtended = /\[([a-zA-Z0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
+export const EntityValueRegex = /\[([a-zA-Z0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<\,]+)\]/;
 
 export function EntityValueFunction(value: string | number, L: number | undefined = undefined): number {
   if (!value) {
@@ -44,13 +43,13 @@ export function EntityValueFunction(value: string | number, L: number | undefine
   }
 
   let expression = value;
-  let func = undefined;
+  let wasBracketed = false;
 
   const match = value.match(EntityValueRegex);
 
   if (match && match[0].length === value.length) {
     expression = match[1];
-    func = match[3];
+    wasBracketed = true;
   }
 
   if (L === undefined) {
@@ -66,49 +65,12 @@ export function EntityValueFunction(value: string | number, L: number | undefine
       R: gameManager.game.round + (gameManager.game.state === GameState.draw ? 1 : 0)
     });
   } catch (e) {
+    if (wasBracketed && e instanceof UnknownVariableError) {
+      throw e;
+    }
     console.warn('Could not evaluate expression: ' + expression, e);
     return 0;
   }
 
-  let funcValue: number | undefined;
-  if (func && func.startsWith('$')) {
-    func = func.replace('$', '');
-    if (func.includes(':')) {
-      funcValue = +func.split(':')[1];
-      func = func.split(':')[0];
-    }
-  }
-
-  if (func) {
-    switch (true) {
-      case func === 'math.ceil':
-        result = Math.ceil(result);
-        break;
-      case func === 'math.floor':
-        result = Math.floor(result);
-        break;
-      case func === 'math.max' && funcValue !== undefined:
-        result = Math.min(result, funcValue);
-        break;
-      case func === 'math.maxCeil' && funcValue !== undefined:
-        result = Math.ceil(Math.min(result, funcValue));
-        break;
-      case func === 'math.maxFloor' && funcValue !== undefined:
-        result = Math.floor(Math.min(result, funcValue));
-        break;
-      case func === 'math.min' && funcValue !== undefined:
-        result = Math.max(result, funcValue);
-        break;
-      case func === 'math.minCeil' && funcValue !== undefined:
-        result = Math.ceil(Math.max(result, funcValue));
-        break;
-      case func === 'math.minFloor' && funcValue !== undefined:
-        result = Math.floor(Math.max(result, funcValue));
-        break;
-      default:
-        console.error('Unknown expression: ' + func + '(' + match + ')');
-        break;
-    }
-  }
   return Math.round(result);
 }

@@ -15,7 +15,7 @@
       [
         {
           "type": "heal",
-          "value": "[C+L/2{$math.floor}]",
+          "value": "[Math.floor(C+L/2)]",
           "subActions": [
             {
               "type": "specialTarget",

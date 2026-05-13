@@ -170,7 +170,7 @@
             "name": "manifestation-of-corruption"
           },
           "type": "heal",
-          "value": "[C/2{$math.floor}]"
+          "value": "[Math.floor(C/2)]"
         }
       ]
     },
@@ -203,7 +203,7 @@
             "name": "manifestation-of-corruption"
           },
           "type": "heal",
-          "value": "[C/2{$math.floor}]"
+          "value": "[Math.floor(C/2)]"
         }
       ]
     },
@@ -236,7 +236,7 @@
             "name": "manifestation-of-corruption"
           },
           "type": "heal",
-          "value": "[C/2{$math.floor}]"
+          "value": "[Math.floor(C/2)]"
         }
       ]
     },
@@ -269,7 +269,7 @@
             "name": "manifestation-of-corruption"
           },
           "type": "heal",
-          "value": "[C/2{$math.floor}]"
+          "value": "[Math.floor(C/2)]"
         }
       ]
     },

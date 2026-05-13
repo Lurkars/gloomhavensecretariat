@@ -7,5 +7,49 @@
     [
       "172.2"
     ]
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "%data.section.rules.fh.124-3.1%",
+      "finish": "round"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "all",
+            "name": ".*"
+          },
+          "type": "heal",
+          "value": "[L]"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "shuffleAbilities"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "%data.section.rules.fh.124-3.2%"
+    }
   ]
 }

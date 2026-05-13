@@ -10,7 +10,7 @@
   "objectives": [
     {
       "name": "Altar",
-      "health": "[(L+2)xC/2{$math.floor}]",
+      "health": "[Math.floor((L+2)xC/2)]",
       "marker": "2"
     }
   ],

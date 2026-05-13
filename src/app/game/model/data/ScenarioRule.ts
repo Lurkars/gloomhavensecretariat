@@ -110,11 +110,14 @@ export type ScenarioFigureRuleTypes =
   | 'setAbility'
   | 'removeAbility'
   | 'drawAbility'
+  | 'shuffleAbilities'
   | 'discardAbilityToBottom'
   | 'dormant'
   | 'activate'
   | 'onTurn'
-  | 'afterTurn';
+  | 'afterTurn'
+  | 'toggleAfteTurnSummon'
+  | 'killLowest';
 
 export const HiddenScenarioFigureRuleTypes: ScenarioFigureRuleTypes[] = ['present', 'dead', 'killed', 'initiative', 'onTurn', 'afterTurn'];
 

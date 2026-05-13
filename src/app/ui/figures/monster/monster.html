@@ -91,46 +91,48 @@
       denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
     }"
   >
-    <div class="spacer" [ngClass]="{ disabled: nonDead < 2 }">
-      <a
-        class="entities-menu all"
-        (click)="entitiesMenu($event)"
-        [ghs-label]="'monster.selectStandees.all'"
-        [ghs-label-attribute]="'title'"
-      >
-        <img src="./assets/images/up.svg" />
-      </a>
-      @if (hasEntitiesCache.boss) {
+    @if (settingsManager.settings.entitiesMenu) {
+      <div class="spacer" [ngClass]="{ disabled: nonDead < 2 }">
         <a
-          class="entities-menu boss"
-          (click)="entitiesMenu($event, MonsterType.boss)"
-          [ghs-label]="'monster.selectStandees.boss'"
+          class="entities-menu all"
+          (click)="entitiesMenu($event)"
+          [ghs-label]="'monster.selectStandees.all'"
           [ghs-label-attribute]="'title'"
         >
           <img src="./assets/images/up.svg" />
         </a>
-      }
-      @if (hasEntitiesCache.elite) {
-        <a
-          class="entities-menu elite"
-          (click)="entitiesMenu($event, MonsterType.elite)"
-          [ghs-label]="'monster.selectStandees.elite'"
-          [ghs-label-attribute]="'title'"
-        >
-          <img src="./assets/images/up.svg" />
-        </a>
-      }
-      @if (hasEntitiesCache.normal) {
-        <a
-          class="entities-menu normal"
-          (click)="entitiesMenu($event, MonsterType.normal)"
-          [ghs-label]="'monster.selectStandees.normal'"
-          [ghs-label-attribute]="'title'"
-        >
-          <img src="./assets/images/up.svg" />
-        </a>
-      }
-    </div>
+        @if (hasEntitiesCache.boss) {
+          <a
+            class="entities-menu boss"
+            (click)="entitiesMenu($event, MonsterType.boss)"
+            [ghs-label]="'monster.selectStandees.boss'"
+            [ghs-label-attribute]="'title'"
+          >
+            <img src="./assets/images/up.svg" />
+          </a>
+        }
+        @if (hasEntitiesCache.elite) {
+          <a
+            class="entities-menu elite"
+            (click)="entitiesMenu($event, MonsterType.elite)"
+            [ghs-label]="'monster.selectStandees.elite'"
+            [ghs-label-attribute]="'title'"
+          >
+            <img src="./assets/images/up.svg" />
+          </a>
+        }
+        @if (hasEntitiesCache.normal) {
+          <a
+            class="entities-menu normal"
+            (click)="entitiesMenu($event, MonsterType.normal)"
+            [ghs-label]="'monster.selectStandees.normal'"
+            [ghs-label-attribute]="'title'"
+          >
+            <img src="./assets/images/up.svg" />
+          </a>
+        }
+      </div>
+    }
     <div class="entities">
       @for (entity of sortedEntites | trackUUID; track entity._trackUUID) {
         <ghs-standee [figure]="monster" [entity]="entity"> </ghs-standee>

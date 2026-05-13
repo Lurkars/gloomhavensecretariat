@@ -41,7 +41,7 @@ export class LevelManager {
 
   trap(level: number = -1): number {
     if (level < 0 || level > 7) {
-      level = this.game.level;
+      level = this.adjustedLevel();
     }
     return 2 + level;
   }
@@ -57,17 +57,14 @@ export class LevelManager {
     if (level < 0 || level > 7) {
       level = this.adjustedLevel();
     }
-    let loot = 2 + Math.floor(level / 2);
-    if (level >= 7) {
-      loot = 6;
-    }
-    return loot;
+
+    return 2 + Math.floor(level / 2) + Math.floor(level / 7);
   }
 
   terrain(level: number = -1): number {
     if (settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules(true)) {
       if (level < 0 || level > 7) {
-        level = this.game.level;
+        level = this.adjustedLevel();
       }
       return 1 + Math.ceil(level / 3);
     }

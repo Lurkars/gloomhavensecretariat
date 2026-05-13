@@ -221,7 +221,7 @@
         "4": "Dies ist dasselbe Verhalten wie im vorherigen Szenario."
       },
       "black-sludge": {
-        "1": "Der nächste Gegner in Sichtlinie erleidet unabhängig der Reichweite %game.damage:[1+L/2{$math.ceil}]%"
+        "1": "Der nächste Gegner in Sichtlinie erleidet unabhängig der Reichweite %game.damage:[Math.ceil(1+L/2)]%"
       },
       "blood-horror": {
         "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack:+0% aus",
@@ -337,7 +337,7 @@
         },
         "21": {
           "1": "auf einem Feld des zuletzt zerstörten Zielobjekts",
-          "2": "Charaktere erleiden %game.damage:[L/2{$math.floor}]% für jedes Feld, das sie in diesem Raum betreten, bis der Chaosdämon %game.mapMarker.A% getötet wurde"
+          "2": "Charaktere erleiden %game.damage:[Math.floor(L/2)]% für jedes Feld, das sie in diesem Raum betreten, bis der Chaosdämon %game.mapMarker.A% getötet wurde"
         }
       }
     },

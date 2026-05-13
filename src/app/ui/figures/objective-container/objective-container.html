@@ -265,14 +265,16 @@
 
 <div class="entities-container" [ngClass]="{ empty: nonDead < 2 }">
   <span class="spacer"></span>
-  <span
-    class="entities-menu"
-    [ngClass]="{ empty: nonDead === 0, disabled: nonDead < 2 }"
-    [entityAnimation]="nonDead === 0"
-    (click)="openEntitiesMenu($event)"
-  >
-    <img class="menu" src="./assets/images/up.svg" />
-  </span>
+  @if (settingsManager.settings.entitiesMenu) {
+    <span
+      class="entities-menu"
+      [ngClass]="{ empty: nonDead === 0, disabled: nonDead < 2 }"
+      [entityAnimation]="nonDead === 0"
+      (click)="openEntitiesMenu($event)"
+    >
+      <img class="menu" src="./assets/images/up.svg" />
+    </span>
+  }
   @if (nonDead > 1) {
     <div class="entities">
       @for (entity of objective.entities | trackUUID; track entity._trackUUID) {

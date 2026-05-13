@@ -1,15 +1,17 @@
 @if (!character.absent && settingsManager.settings.summons) {
   <div class="summons-container" [ngClass]="{ empty: summonCount === 0, off: off }">
     <span class="spacer"></span>
-    <span
-      class="entities-menu"
-      [ngClass]="{ empty: summonCount === 0, disabled: summonCount < 2 }"
-      [entityAnimation]="summonCount === 0"
-      (click)="openEntitiesMenu($event)"
-    >
-      <img class="icon" [src]="character.iconUrl" />
-      <img class="menu" src="./assets/images/up.svg" />
-    </span>
+    @if (settingsManager.settings.entitiesMenu) {
+      <span
+        class="entities-menu"
+        [ngClass]="{ empty: summonCount === 0, disabled: summonCount < 2 }"
+        [entityAnimation]="summonCount === 0"
+        (click)="openEntitiesMenu($event)"
+      >
+        <img class="icon" [src]="character.iconUrl" />
+        <img class="menu" src="./assets/images/up.svg" />
+      </span>
+    }
     <div class="summons">
       @for (summon of summons | trackUUID; track summon._trackUUID) {
         <ghs-standee [figure]="character" [entity]="summon"> </ghs-standee>
@@ -564,6 +566,23 @@
             [originX]="'center'"
             [overlayX]="'center'"
           ></span>
+          @if (specialAction.slots) {
+            <span class="special-action-slots">
+              @let current = specialAction.slots - character.tags.filter((tag) => tag === specialAction.name).length;
+
+              @for (slot of [] | ghsRange: specialAction.slots; track slot) {
+                <span class="special-action-slot">
+                  <span
+                    class="slot"
+                    [ghs-label]="gameManager.fhRules(true) && slot === 0 ? '%game.card.slotStart%' : '%game.card.slot%'"
+                  ></span>
+                  @if (slot === current) {
+                    <span class="token" [ghs-label]="'%data.characterToken.' + character.name + '%'"></span>
+                  }
+                </span>
+              }
+            </span>
+          }
           @if (i < specialActions.length - 1 && specialActions.length > 1) {
             <span class="separator">|</span>
           }
@@ -576,20 +595,22 @@
 </div>
 
 @if (!character.absent && settingsManager.settings.summons) {
-  <div class="summons-container spirits" [ngClass]="{ empty: skullSpiritCount === 0, off: off }">
+  <div class="summons-container spirits" [ngClass]="{ empty: summonsAfterTurnCount === 0, off: off }">
     <span class="spacer"></span>
-    <span
-      class="entities-menu"
-      [ngClass]="{ empty: skullSpiritCount === 0, disabled: skullSpiritCount < 2 }"
-      [entityAnimation]="skullSpiritCount === 0"
-      (click)="openEntitiesMenu($event)"
-    >
-      <img class="icon" [src]="character.iconUrl" />
-      <img class="menu" src="./assets/images/up.svg" />
-    </span>
-    @if (skullSpiritCount) {
+    @if (settingsManager.settings.entitiesMenu) {
+      <span
+        class="entities-menu"
+        [ngClass]="{ empty: summonsAfterTurnCount === 0, disabled: summonsAfterTurnCount < 2 }"
+        [entityAnimation]="summonsAfterTurnCount === 0"
+        (click)="openEntitiesMenu($event)"
+      >
+        <img class="icon" [src]="character.iconUrl" />
+        <img class="menu" src="./assets/images/up.svg" />
+      </span>
+    }
+    @if (summonsAfterTurnCount) {
       <div class="summons">
-        @for (summon of skullSpirits | trackUUID; track summon._trackUUID) {
+        @for (summon of summonsAfterTurn | trackUUID; track summon._trackUUID) {
           <ghs-standee [ngClass]="{ active: summon.active }" [figure]="character" [entity]="summon"> </ghs-standee>
         }
       </div>

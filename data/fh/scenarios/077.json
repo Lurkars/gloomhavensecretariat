@@ -79,7 +79,7 @@
           "identifier": {
             "type": "monster",
             "name": "fish-king",
-            "health": "[Hx3/4{$math.ceil}]"
+            "health": "[Math.ceil(Hx3/4)]"
           },
           "type": "present"
         },
@@ -89,7 +89,7 @@
             "name": "fish-king"
           },
           "type": "setHp",
-          "value": "[Hx3/4{$math.ceil}]"
+          "value": "[Math.ceil(Hx3/4)]"
         }
       ]
     },

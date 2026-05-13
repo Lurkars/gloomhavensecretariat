@@ -155,7 +155,7 @@
         "4": "Esta fue exactamente su forma de actuar en el anterior escenario."
       },
       "black-sludge": {
-        "1": "El enemigo más cercano dentro de la línea de visión, sin importar el Alcance, sufre [1+L/2{$math.ceil}] %game.damage%"
+        "1": "El enemigo más cercano dentro de la línea de visión, sin importar el Alcance, sufre [Math.ceil(1+L/2)] %game.damage%"
       },
       "blood-horror": {
         "1": "Salta hasta el %data.monster.zealot% muerto más lejano y lo revive o Salta hasta el personaje más lejano y %game.action.attack:+0%",
@@ -272,7 +272,7 @@
         },
         "21": {
           "1": "en cualquier hexágono en el que el último objetivo fue derrotado",
-          "2": "Los personajes sufren %game.damage:[L/2{$math.floor}]% por cada hexágono en el que entran de la sala hasta que muera el Demonio de Caos %game.mapMarker.A%"
+          "2": "Los personajes sufren %game.damage:[Math.floor(L/2)]% por cada hexágono en el que entran de la sala hasta que muera el Demonio de Caos %game.mapMarker.A%"
         }
       }
     },

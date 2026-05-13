@@ -40,7 +40,7 @@
         },
         {
           "type": "heal",
-          "value": "[L/2+2{$math.ceil}]",
+          "value": "[Math.ceil(L/2+2)]",
           "subActions": [
             {
               "type": "target",

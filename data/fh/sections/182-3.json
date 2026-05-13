@@ -6,6 +6,6 @@
   "named": true,
   "rewards": {
     "custom": "%data.section.rewards.fh.loot-gold%",
-    "lootingGold": "2 + Math.floor((L+1)/2)"
+    "lootingGold": "[Math.min(2 + Math.floor((L+1)/2) + Math.floor((L+1)/7),6)]"
   }
 }

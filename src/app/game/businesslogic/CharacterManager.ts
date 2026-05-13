@@ -236,6 +236,7 @@ export class CharacterManager {
       character.availableSummons.find((s) => s.cardId === summon.cardId)
     ) {
       summon.tags.push('cs-skull-spirit');
+      summon.afterTurn = true;
       summon.state = SummonState.true;
     }
 
@@ -538,7 +539,11 @@ export class CharacterManager {
         if (gameManager.entityManager.isAlive(figure) && figure.name === 'shackles' && figure.tags.includes('delayed_malady')) {
           figure.tags.splice(figure.tags.indexOf('delayed_malady'), 1);
           figure.entityConditions.forEach((condition) => {
-            if (condition.types.indexOf(ConditionType.negative) && !condition.expired && condition.state !== EntityConditionState.removed) {
+            if (
+              condition.types.includes(ConditionType.negative) &&
+              !condition.expired &&
+              condition.state !== EntityConditionState.removed
+            ) {
               if (!figure.immunities.includes(condition.name)) {
                 figure.immunities.push(condition.name);
               }

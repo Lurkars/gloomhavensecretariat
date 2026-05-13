@@ -793,11 +793,11 @@
         "ceil": "(arrondis au supérieur)",
         "floor": "(arrondis à l'inférieur)",
         "max": ", jusqu’à un maximum de %game.number.{0}%",
-        "maxCeil": "(arrondi vers le haut), jusqu’à un maximum de %game.number.{0}%",
-        "maxFloor": "(arrondi vers le bas), jusqu’à un maximum de %game.number.{0}%",
+        "maxCeil": "(arrondi vers le haut), mais au moins %game.number.{0}%",
+        "maxFloor": "(arrondi vers le bas), mais au moins de %game.number.{0}%",
         "min": ", mais au moins %game.number.{0}%",
-        "minCeil": "(arrondi vers le haut), mais au moins %game.number.{0}%",
-        "minFloor": "(arrondi vers le bas), mais au moins de %game.number.{0}%"
+        "minCeil": "(arrondi vers le haut), jusqu’à un maximum de %game.number.{0}%",
+        "minFloor": "(arrondi vers le bas), jusqu’à un maximum de %game.number.{0}%"
       },
       "ondeath": "Lors de la mort :",
       "perks": {
@@ -896,10 +896,7 @@
         "unlockScenario": "Débloquer \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
       },
       "option": {
-        "": "Option {0} :",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "": "Option {0} :"
       },
       "type": {
         "city": "Ville",

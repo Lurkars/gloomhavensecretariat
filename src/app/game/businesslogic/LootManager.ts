@@ -45,7 +45,7 @@ export class LootManager {
   applyLoot(loot: Loot, character: Character, index: number): ItemData | undefined {
     let result: ItemData | undefined = undefined;
     character.lootCards = character.lootCards || [];
-    if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
+    if (loot.type === LootType.money) {
       character.loot += this.getValue(loot);
     } else if (
       loot.type === LootType.random_item &&
@@ -100,7 +100,7 @@ export class LootManager {
 
   addCharacterLoot(character: Character, loot: Loot) {
     const value = this.getValue(loot);
-    if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
+    if (loot.type === LootType.money) {
       character.loot += value;
     } else if (appliableLootTypes.includes(loot.type)) {
       const current = character.progress.loot[loot.type] || 0;

@@ -179,7 +179,12 @@
         }
         @for (lootType of lootColumns; track lootType; let i = $index) {
           <span class="head-col">
-            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'" />
+            @if (lootType !== LootType.special1 && lootType !== LootType.special2) {
+              <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'" />
+            }
+            @if (lootType === LootType.special1 || lootType === LootType.special2) {
+              <span class="loot-special" [ghs-label]="'game.loot.' + lootType"></span>&nbsp;
+            }
             {{ lootColumnsLooted[i] }}/{{ lootColumnsTotal[i] }}
           </span>
           @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {

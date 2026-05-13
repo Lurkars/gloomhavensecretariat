@@ -3,7 +3,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
-import { ghsLabelRegex } from 'src/app/ui/helper/label';
+import { applyMathFunctionLabels, ghsLabelRegex } from 'src/app/ui/helper/label';
 
 export function valueCalc(value: string | number, level: number | undefined = undefined, empty: boolean = false): string | number {
   if (typeof value === 'number') {
@@ -29,8 +29,8 @@ export function valueCalc(value: string | number, level: number | undefined = un
     try {
       return EntityValueFunction(value, L);
     } catch {
-      console.error('Could not calculate value for: ', value);
-      return value;
+      console.warn('Could not calculate value for: ', value, '— falling back to display');
+      // fall through to the display path below
     }
   }
 
@@ -46,8 +46,12 @@ export function valueCalc(value: string | number, level: number | undefined = un
         func = func.split(':')[0];
       }
     }
-    return funcLabel ? match[1] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : match[1];
+    const expr = applyMathFunctionLabels(match[1]);
+    return funcLabel ? expr + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : expr;
   }
+
+  // apply Math.floor() etc. label substitution for bare expressions
+  value = applyMathFunctionLabels(value);
 
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {

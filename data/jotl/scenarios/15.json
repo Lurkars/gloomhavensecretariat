@@ -27,19 +27,19 @@
   "objectives": [
     {
       "name": "Table",
-      "health": "[(2+L)xC/2{$math.ceil}]",
+      "health": "[Math.ceil((2+L)xC/2)]",
       "marker": "A",
       "count": 2
     },
     {
       "name": "Table",
-      "health": "[(2+L)xC/2{$math.ceil}]",
+      "health": "[Math.ceil((2+L)xC/2)]",
       "marker": "B",
       "count": 2
     },
     {
       "name": "Table",
-      "health": "[(2+L)xC/2{$math.ceil}]",
+      "health": "[Math.ceil((2+L)xC/2)]",
       "marker": "C",
       "count": 2
     }

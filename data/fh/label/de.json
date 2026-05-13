@@ -1037,7 +1037,8 @@
         "96": "Bahntunnel",
         "97": "Steuerzentrale",
         "98": "Instabiler Schacht",
-        "99": "Gefängnisausbruch"
+        "99": "Gefängnisausbruch",
+        "randomDungeon-rnd": "Zufallsabenteuer"
       }
     }
   },
@@ -1067,7 +1068,10 @@
         },
         "021-1": "auf einem beliebigen leeren Startfeld",
         "041-1": "Erhaltet 1 Holz",
-        "065-3": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte.",
+        "065-3": {
+          "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte.",
+          "2": "%game.action.target% jedes Monster in %game.action.range:4%"
+        },
         "180-3": "Erhalte 1 Leder",
         "192-1": "Erhaltet 1 Metall"
       }

@@ -810,11 +810,11 @@
         "ceil": "(arrotondato per eccesso)",
         "floor": "(arrotondato per difetto)",
         "max": ", fino ad un massimo di %game.number.{0}%",
-        "maxCeil": "(arrotondato per eccesso), fino ad un massimo di %game.number.{0}%",
-        "maxFloor": "(arrotondato per difetto), fino ad un massimo di %game.number.{0}%",
+        "maxCeil": "(arrotondato per eccesso), ma almeno %game.number.{0}%",
+        "maxFloor": "(arrotondato per difetto), ma almeno di %game.number.{0}%",
         "min": ", ma almeno %game.number.{0}%",
-        "minCeil": "(arrotondato per eccesso), ma almeno %game.number.{0}%",
-        "minFloor": "(arrotondato per difetto), ma almeno di %game.number.{0}%"
+        "minCeil": "(arrotondato per eccesso), fino ad un massimo di %game.number.{0}%",
+        "minFloor": "(arrotondato per difetto), fino ad un massimo di %game.number.{0}%"
       },
       "ondeath": "Alla morte:",
       "perks": {
@@ -942,7 +942,6 @@
           "fh": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%.",
           "gh2e": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%."
         },
-        "eventFH": "Aggiungi l'Evento {1} al mazzo %game.events.type.{0}%.",
         "eventReturn": "Recupera l'evento {1} e rimettilo nel mazzo %game.events.type.{0}%.",
         "eventsToTop": "Sbircia nel mazzo %game.events.type.{0}% fino a che non trovi {1}, {2}, o {3} e lo metti in cima al mazzo.",
         "experience": {
@@ -1057,10 +1056,7 @@
         "wreckBuilding": "Distruggi i %data.buildings.{0}%."
       },
       "option": {
-        "": "Opzione {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "": "Opzione {0}:"
       },
       "outpostAttack": {
         "": "Attacco all'Avamposto",

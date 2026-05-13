@@ -27,7 +27,7 @@
           "identifier": {
             "type": "monster",
             "name": "fish-king",
-            "health": "[H/2{$math.floor}]"
+            "health": "[Math.floor(H/2)]"
           },
           "type": "present"
         },
@@ -37,7 +37,7 @@
             "name": "fish-king"
           },
           "type": "setHp",
-          "value": "[H/2{$math.floor}]"
+          "value": "[Math.floor(H/2)]"
         }
       ]
     }

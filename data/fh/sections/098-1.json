@@ -24,7 +24,7 @@
           "identifier": {
             "type": "monster",
             "name": "hungry-maw",
-            "health": "[H/2{$math.floor}]"
+            "health": "[Math.floor(H/2)]"
           },
           "type": "present"
         },

@@ -432,7 +432,6 @@
     }
   },
   "scenario": {
-    "Random Dungeon": "Zufallsabenteuer",
     "group": {
       "randomMonsterCard": "Zufällige Monsterkarten"
     },
@@ -568,7 +567,8 @@
         "92": "Gassenschlägerei",
         "93": "Versunkenes Schiff",
         "94": "Ratzenbau",
-        "95": "Zahltag"
+        "95": "Zahltag",
+        "randomDungeon-rnd": "Zufallsabenteuer"
       }
     }
   }

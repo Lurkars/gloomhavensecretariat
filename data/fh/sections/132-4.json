@@ -37,8 +37,30 @@
       "round": "R == 8",
       "start": true,
       "note": "%data.section.rules.fh.132-4.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "characterWithSummon",
+            "name": ".*"
+          },
+          "type": "toggleAfteTurnSummon"
+        }
+      ],
       "reverseInitiative": true,
       "active": true
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "characterWithSummon",
+            "name": ".*"
+          },
+          "type": "toggleAfteTurnSummon"
+        }
+      ]
     },
     {
       "round": "true",

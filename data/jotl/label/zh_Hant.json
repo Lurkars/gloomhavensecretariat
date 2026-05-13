@@ -334,7 +334,7 @@
         "4": "這正是他們在上一場劇本中的行動方式。"
       },
       "black-sludge": {
-        "1": "視線內最近的敵人承受 [1+L/2{$math.ceil}] 點 %game.damage% ，無視射程"
+        "1": "視線內最近的敵人承受 [Math.ceil(1+L/2)] 點 %game.damage% ，無視射程"
       },
       "blood-horror": {
         "1": "跳躍到最遠且死亡 %data.monster.zealot% 並將其復活，或跳向最遠的角色並執行 %game.action.attack:+0%",
@@ -756,7 +756,7 @@
         },
         "21": {
           "1": "在最後一個目標點被摧毀的任意格子裡",
-          "2": "直到消滅混亂惡魔 %game.mapMarker.A% 之前，角色在本房間內每進入一格，承受 %game.damage:[L/2{$math.floor}]%"
+          "2": "直到消滅混亂惡魔 %game.mapMarker.A% 之前，角色在本房間內每進入一格，承受 %game.damage:[Math.floor(L/2)]%"
         }
       }
     },

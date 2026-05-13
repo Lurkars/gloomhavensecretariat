@@ -163,7 +163,7 @@ export class SpecialActionsHelper {
           if (entity.name === 'shackles' && specialTagsToAdd.includes('delayed_malady')) {
             entity.entityConditions.forEach((condition) => {
               if (
-                condition.types.indexOf(ConditionType.negative) &&
+                condition.types.includes(ConditionType.negative) &&
                 !condition.expired &&
                 condition.state !== EntityConditionState.removed &&
                 !this.component.entityConditions.find(
@@ -182,7 +182,7 @@ export class SpecialActionsHelper {
             });
 
             this.component.entityImmunities = character.immunities;
-            entity.tags.push(...[1, 2, 3].map(() => 'delayed_malady'));
+            entity.tags.push(...[1, 2, 3, 4].map(() => 'delayed_malady'));
           }
 
           if (entity.name === 'fist' && specialTagsToAdd.includes('one-with-the-mountain')) {

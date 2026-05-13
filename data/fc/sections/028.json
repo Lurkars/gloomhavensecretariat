@@ -23,7 +23,7 @@
           },
           "statEffect": {
             "name": "bear-drake-abomination",
-            "health": "[(HxC)/2{$math.ceil}]",
+            "health": "[Math.ceil((HxC)/2)]",
             "flying": true,
             "immunities": [
               "immobilize",

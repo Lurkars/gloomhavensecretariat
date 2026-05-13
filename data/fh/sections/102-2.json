@@ -40,7 +40,7 @@
           "identifier": {
             "type": "monster",
             "name": "fish-king",
-            "health": "[H/4{$math.ceil}]"
+            "health": "[Math.ceil(H/4)]"
           },
           "type": "present"
         },
@@ -50,7 +50,7 @@
             "name": "fish-king"
           },
           "type": "setHp",
-          "value": "[H/4{$math.ceil}]"
+          "value": "[Math.ceil(H/4)]"
         }
       ]
     }

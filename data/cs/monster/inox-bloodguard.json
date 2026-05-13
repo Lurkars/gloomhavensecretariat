@@ -51,7 +51,7 @@
         },
         {
           "type": "shield",
-          "value": "[L/2{$math.ceil}]"
+          "value": "[Math.ceil(L/2)]"
         }
       ]
     ]

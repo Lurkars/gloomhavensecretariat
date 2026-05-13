@@ -790,11 +790,11 @@
         "ceil": "(Redondeado hacia arriba)",
         "floor": "(redondeado hacia abajo)",
         "max": ", hasta un máximo de %game.number.{0}%",
-        "maxCeil": "(redondeado hacia arriba), hasta un máximo de %game.number.{0}%",
-        "maxFloor": "(redondeado hacia abajo), hasta un máximo de %game.number.{0}%",
+        "maxCeil": "(redondeado hacia arriba), pero al menos %game.number.{0}%",
+        "maxFloor": "(redondeado hacia abajo), pero al menos %game.number.{0}%",
         "min": ", pero como mínimo %game.number.{0}%",
-        "minCeil": "(redondeado hacia arriba), pero al menos %game.number.{0}%",
-        "minFloor": "(redondeado hacia abajo), pero al menos %game.number.{0}%"
+        "minCeil": "(redondeado hacia arriba), hasta un máximo de %game.number.{0}%",
+        "minFloor": "(redondeado hacia abajo), hasta un máximo de %game.number.{0}%"
       },
       "ondeath": "Al morir:",
       "perks": {
@@ -1028,10 +1028,7 @@
         "wreckBuilding": "Arrasa el %data.buildings.{0}%."
       },
       "option": {
-        "": "Opción {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "": "Opción {0}:"
       },
       "outpostAttack": {
         "": "Ataque al puesto fronterizo",

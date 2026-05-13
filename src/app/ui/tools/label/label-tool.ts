@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ConditionName } from 'src/app/game/model/data/Condition';
@@ -18,12 +20,16 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LabelToolComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   labels: { key: string; raw: string; args: string[] }[] = [];
   filter: string = '';
   locale: string = 'en';
-  translationFilter: 'all' | 'same' | 'untranslated' = 'all';
+  translationFilter: 'all' | 'same' | 'untranslated' | 'overdone' = 'all';
   private enLabel: any = {};
   private localeOnlyLabel: any = {};
   private enEditionLabel: any = {};
@@ -38,6 +44,29 @@ export class LabelToolComponent implements OnInit {
     this.enEditionLabel = this.buildEditionLabel('en');
     this.localeEditionLabel = this.locale !== 'en' ? this.buildEditionLabel(this.locale) : {};
     this.update();
+
+    this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
+      next: async (queryParams) => {
+        let update = false;
+        if (queryParams['locale'] && queryParams['locale'] !== this.locale) {
+          this.locale = queryParams['locale'];
+          settingsManager.settings.locale = this.locale;
+          await settingsManager.updateLocale(this.locale);
+          gameManager.stateManager.init(true);
+          this.localeOnlyLabel = this.locale !== 'en' ? await this.loadLocaleJson(this.locale) : {};
+          this.enEditionLabel = this.buildEditionLabel('en');
+          this.localeEditionLabel = this.locale !== 'en' ? this.buildEditionLabel(this.locale) : {};
+          update = true;
+        }
+        if (queryParams['translationFilter'] && queryParams['translationFilter'] !== this.translationFilter) {
+          this.translationFilter = queryParams['translationFilter'];
+          update = true;
+        }
+        if (update) {
+          this.update();
+        }
+      }
+    });
   }
 
   async changeLocale(locale: string) {
@@ -48,8 +77,19 @@ export class LabelToolComponent implements OnInit {
     this.localeOnlyLabel = locale !== 'en' ? await this.loadLocaleJson(locale) : {};
     this.enEditionLabel = this.buildEditionLabel('en');
     this.localeEditionLabel = locale !== 'en' ? this.buildEditionLabel(locale) : {};
-    this.translationFilter = 'all';
     this.update();
+    this.updateQueryParams();
+  }
+
+  updateQueryParams() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        locale: this.locale !== 'en' ? this.locale : undefined,
+        translationFilter: this.translationFilter !== 'all' ? this.translationFilter : undefined
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 
   private loadLocaleJson(locale: string): Promise<any> {
@@ -91,15 +131,29 @@ export class LabelToolComponent implements OnInit {
         if (this.translationFilter === 'same') {
           return enRaw !== '' && currentRaw === enRaw;
         }
-        // untranslated: check locale JSON keys and edition data keys separately
-        if (key.startsWith('data.')) {
-          const dataKey = key.slice(5);
-          const enEditionRaw = this.getRawLabel(this.enEditionLabel, dataKey);
-          const localeEditionRaw = this.getRawLabel(this.localeEditionLabel, dataKey);
-          return enEditionRaw !== null && enEditionRaw !== '' && (localeEditionRaw === null || localeEditionRaw === '');
+        if (this.translationFilter === 'untranslated') {
+          if (key.startsWith('data.')) {
+            const dataKey = key.slice(5);
+            const enEditionRaw = this.getRawLabel(this.enEditionLabel, dataKey);
+            const localeEditionRaw = this.getRawLabel(this.localeEditionLabel, dataKey);
+            return enEditionRaw !== null && enEditionRaw !== '' && (localeEditionRaw === null || localeEditionRaw === '');
+          }
+          const localeRaw = this.getRawLabel(this.localeOnlyLabel, key);
+          return enRaw !== '' && (localeRaw === null || localeRaw === '');
         }
-        const localeRaw = this.getRawLabel(this.localeOnlyLabel, key);
-        return enRaw !== '' && (localeRaw === null || localeRaw === '');
+
+        if (this.translationFilter === 'overdone') {
+          if (key.startsWith('data.')) {
+            const dataKey = key.slice(5);
+            const enEditionRaw = this.getRawLabel(this.enEditionLabel, dataKey);
+            const localeEditionRaw = this.getRawLabel(this.localeEditionLabel, dataKey);
+            return localeEditionRaw !== null && localeEditionRaw !== '' && (enEditionRaw === null || enEditionRaw === '');
+          }
+          const localeRaw = this.getRawLabel(this.localeOnlyLabel, key);
+          return localeRaw !== '' && (enRaw === null || enRaw === '');
+        }
+
+        return true;
       })
       .map((key) => {
         const raw = this.getRawLabel(settingsManager.label, key) || '';

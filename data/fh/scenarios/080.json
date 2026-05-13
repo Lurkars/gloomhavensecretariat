@@ -44,7 +44,7 @@
   "objectives": [
     {
       "name": "Metal Cabinet",
-      "health": "[(2+L)xC/2{$math.ceil}]",
+      "health": "[Math.ceil((2+L)xC/2)]",
       "marker": "a",
       "actions": [
         {
@@ -63,7 +63,7 @@
     },
     {
       "name": "Metal Cabinet",
-      "health": "[(2+L)xC/2{$math.ceil}]",
+      "health": "[Math.ceil((2+L)xC/2)]",
       "marker": "b",
       "actions": [
         {
@@ -73,7 +73,7 @@
           "subActions": [
             {
               "type": "shield",
-              "value": "[1+(L/2){$math.ceil}]",
+              "value": "[Math.ceil(1+(L/2))]",
               "small": true
             }
           ]
@@ -82,7 +82,7 @@
     },
     {
       "name": "Metal Cabinet",
-      "health": "[(2+L)xC/2{$math.ceil}]",
+      "health": "[Math.ceil((2+L)xC/2)]",
       "marker": "c",
       "actions": [
         {
@@ -113,7 +113,7 @@
     },
     {
       "name": "Metal Cabinet",
-      "health": "[(2+L)xC/2{$math.ceil}]",
+      "health": "[Math.ceil((2+L)xC/2)]",
       "marker": "d",
       "actions": [
         {

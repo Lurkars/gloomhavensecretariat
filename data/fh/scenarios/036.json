@@ -51,22 +51,22 @@
   "objectives": [
     {
       "name": "Door",
-      "health": "[((C-1)/2)x(L+3){$math.floor}]",
+      "health": "[Math.floor(((C-1)/2)x(L+3))]",
       "marker": "a"
     },
     {
       "name": "Door",
-      "health": "[((C-1)/2)x(L+3){$math.floor}]",
+      "health": "[Math.floor(((C-1)/2)x(L+3))]",
       "marker": "b"
     },
     {
       "name": "Door",
-      "health": "[((C-1)/2)x(L+3){$math.floor}]",
+      "health": "[Math.floor(((C-1)/2)x(L+3))]",
       "marker": "c"
     },
     {
       "name": "Door",
-      "health": "[((C-1)/2)x(L+3){$math.floor}]",
+      "health": "[Math.floor(((C-1)/2)x(L+3))]",
       "marker": "d"
     }
   ],

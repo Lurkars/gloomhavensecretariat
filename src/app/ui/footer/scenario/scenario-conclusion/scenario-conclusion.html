@@ -10,7 +10,7 @@
         class="placeholder text-white conclusion"
         [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' : '') + (sectionData.named ? '.named' : '')"
         [ghs-label-args]="[
-          '%data.section:' + sectionData.index + '%',
+          sectionData.hideIndex ? '' : '%data.section:' + sectionData.index + '%',
           sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData, true) : ''
         ]"
         (click)="close(sectionData)"

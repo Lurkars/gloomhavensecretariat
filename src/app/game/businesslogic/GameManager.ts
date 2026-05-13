@@ -578,10 +578,6 @@ export class GameManager {
           return 0;
         }
 
-        if (a.getInitiative() === b.getInitiative()) {
-          return this.sortFiguresByTypeAndName(a, b);
-        }
-
         const reverse =
           this.game.activeScenarioRules.some((identifier) => {
             const rule = this.scenarioRulesManager.getScenarioRule(identifier);
@@ -589,6 +585,9 @@ export class GameManager {
           }) ||
           (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1491, 'fh')); // apply Challenge #1491
 
+        if (a.getInitiative() === b.getInitiative()) {
+          return this.sortFiguresByTypeAndName(a, b, reverse);
+        }
         if (reverse) {
           return b.getInitiative() - a.getInitiative();
         }
@@ -600,20 +599,20 @@ export class GameManager {
     });
   }
 
-  sortFiguresByTypeAndName(a: Figure, b: Figure): number {
+  sortFiguresByTypeAndName(a: Figure, b: Figure, reverse: boolean = false): number {
     if (a instanceof Monster && b instanceof Monster && (a.standeeShare === b.name || a.name === b.standeeShare)) {
       const aE = a.entities.filter((e) => gameManager.entityManager.isAlive(e))[0];
       const bE = b.entities.filter((e) => gameManager.entityManager.isAlive(e))[0];
       if (aE && bE) {
         if (aE.type === bE.type) {
-          return aE.number - bE.number;
+          return reverse ? bE.number - aE.number : aE.number - bE.number;
         }
-        return aE.type === MonsterType.elite ? -1 : 1;
+        return aE.type === MonsterType.elite ? (reverse ? 1 : -1) : reverse ? -1 : 1;
       }
     } else if (a.off && !b.off) {
-      return 1;
+      return reverse ? -1 : 1;
     } else if (!a.off && b.off) {
-      return -1;
+      return reverse ? 1 : -1;
     }
 
     let aName = a.name.toLowerCase();
@@ -638,32 +637,32 @@ export class GameManager {
         : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : b.escort ? 'escort' : 'objective').toLowerCase();
     }
     if (a instanceof Character && b instanceof Monster) {
-      return -1;
+      return reverse ? 1 : -1;
     } else if (a instanceof Monster && b instanceof Character) {
-      return 1;
+      return reverse ? -1 : 1;
     } else if (a instanceof Character && b instanceof ObjectiveContainer) {
-      return -1;
+      return reverse ? 1 : -1;
     } else if (a instanceof ObjectiveContainer && b instanceof Character) {
-      return 1;
+      return reverse ? -1 : 1;
     } else if (a instanceof Monster && b instanceof ObjectiveContainer) {
-      return -1;
+      return reverse ? 1 : -1;
     } else if (a instanceof ObjectiveContainer && b instanceof Monster) {
-      return 1;
+      return reverse ? -1 : 1;
     } else if (a instanceof ObjectiveContainer && b instanceof ObjectiveContainer && aName === bName) {
       if (a.marker && b.marker) {
-        return a.marker < b.marker ? -1 : 1;
+        return a.marker < b.marker ? (reverse ? 1 : -1) : reverse ? -1 : 1;
       } else if (a.marker) {
-        return 1;
+        return reverse ? -1 : 1;
       } else if (b.marker) {
-        return -1;
+        return reverse ? 1 : -1;
       }
     }
 
     if (a instanceof Character && b instanceof Character && settingsManager.settings.characterSortIndex) {
-      return a.number - b.number;
+      return reverse ? b.number - a.number : a.number - b.number;
     }
 
-    return aName < bName ? -1 : 1;
+    return aName < bName ? (reverse ? 1 : -1) : reverse ? -1 : 1;
   }
 
   deckData(figure: Monster | Character, ignoreError: boolean = false): DeckData {
@@ -837,78 +836,76 @@ export class GameManager {
   }
 
   figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false, figures: Figure[] = []): Figure[] {
-    if (figures.length === 0) {
-      figures = this.game.figures;
+    let result: Figure[] = figures;
+
+    if (result.length === 0) {
+      result = this.game.figures;
     }
+
+    result = result.filter(
+      (figure) =>
+        !(figure instanceof Character) ||
+        (!figure.absent && (!scenarioEffect || !this.characterManager.ignoreNegativeScenarioffects(figure)))
+    );
+
     if (identifier && identifier.type) {
       const type = identifier.type;
-      if (type === 'all') {
-        return scenarioEffect
-          ? figures.filter((figure) => {
-              if (!(figure instanceof Character)) {
-                return true;
-              } else {
-                return !this.characterManager.ignoreNegativeScenarioffects(figure);
-              }
-            })
-          : figures;
+      switch (type) {
+        case 'monster':
+          result = result.filter((figure) => figure instanceof Monster);
+          break;
+        case 'character':
+        case 'characterWithSummon':
+          result = result.filter((figure) => figure instanceof Character);
+          break;
+        case 'objective':
+          result = result.filter((figure) => figure instanceof ObjectiveContainer);
+          break;
+        case 'allies':
+          result = result.filter(
+            (figure) =>
+              figure instanceof Character ||
+              (figure instanceof Monster && figure.isAlly) ||
+              (figure instanceof ObjectiveContainer && figure.escort)
+          );
+          break;
+        case 'enemies':
+          result = result.filter(
+            (figure) => (figure instanceof Monster && !figure.isAlly) || (figure instanceof ObjectiveContainer && !figure.escort)
+          );
+          break;
       }
+
+      if (identifier.edition) {
+        result = result.filter((figure) => figure.edition === identifier.edition);
+      }
+
+      if (identifier.marker) {
+        result = result.filter(
+          (figure) =>
+            (figure instanceof Monster || figure instanceof ObjectiveContainer) &&
+            figure.entities.some((entity) => entity.marker === identifier.marker)
+        );
+      }
+
+      if (identifier.tags && identifier.tags.length > 0) {
+        result = result.filter(
+          (figure) =>
+            ((figure instanceof Monster || figure instanceof ObjectiveContainer) &&
+              figure.entities.some(
+                (entity) => !!identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag))
+              )) ||
+            (figure instanceof Character && !!identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.includes(tag)))
+        );
+      }
+
       if (identifier.name) {
-        const edition = identifier.edition;
         const name = new RegExp('^' + identifier.name + '$');
-        switch (type) {
-          case 'monster':
-            return figures.filter(
-              (figure) =>
-                figure instanceof Monster &&
-                (!edition || figure.edition === edition) &&
-                figure.name.match(name) &&
-                (!identifier.marker || figure.entities.some((entity) => entity.marker === identifier.marker)) &&
-                (!identifier.tags ||
-                  identifier.tags.length === 0 ||
-                  figure.entities.some(
-                    (entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag))
-                  ))
-            );
-          case 'character':
-          case 'characterWithSummon':
-            return figures.filter((figure) => {
-              if (
-                figure instanceof Character &&
-                !figure.absent &&
-                (!edition || figure.edition === edition) &&
-                figure.name.match(name) &&
-                (!identifier.tags ||
-                  identifier.tags.length === 0 ||
-                  (identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.includes(tag))))
-              ) {
-                if (scenarioEffect) {
-                  return !this.characterManager.ignoreNegativeScenarioffects(figure);
-                } else {
-                  return true;
-                }
-              } else {
-                return false;
-              }
-            });
-          case 'objective':
-            return this.game.figures.filter(
-              (figure) =>
-                figure instanceof ObjectiveContainer &&
-                figure.name.match(name) &&
-                (edition !== 'escort' || figure.escort) &&
-                (!identifier.marker || figure.entities.some((entity) => entity.marker === identifier.marker)) &&
-                (!identifier.tags ||
-                  identifier.tags.length === 0 ||
-                  figure.entities.some(
-                    (entity) => identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag))
-                  ))
-            );
-        }
+        result = result.filter((figure) => figure.name.match(name));
       }
     }
 
-    return [];
+    return result;
   }
 
   entitiesByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean): Entity[] {
@@ -918,7 +915,7 @@ export class GameManager {
         if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           return figure.entities;
         } else if (figure instanceof Character) {
-          if (identifier && identifier.type === 'characterWithSummon') {
+          if (identifier && (identifier.type === 'characterWithSummon' || identifier.type === 'all' || identifier.type === 'allies')) {
             return [figure as Entity, ...figure.summons];
           }
           return figure as Entity;
@@ -932,7 +929,9 @@ export class GameManager {
       .filter(
         (entity) =>
           !identifier ||
-          ((!identifier.marker || !(entity instanceof MonsterEntity) || entity.marker === identifier.marker) &&
+          ((!identifier.marker ||
+            (!(entity instanceof MonsterEntity) && !(entity instanceof ObjectiveEntity)) ||
+            entity.marker === identifier.marker) &&
             (!identifier.tags || identifier.tags.length === 0 || identifier.tags.every((tag) => entity.tags.includes(tag))))
       );
   }

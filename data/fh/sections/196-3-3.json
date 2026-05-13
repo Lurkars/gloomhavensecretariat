@@ -4,6 +4,8 @@
   "edition": "fh",
   "parent": "128",
   "conclusion": true,
+  "named": true,
+  "hideIndex": true,
   "rewards": {
     "items": [
       "215"

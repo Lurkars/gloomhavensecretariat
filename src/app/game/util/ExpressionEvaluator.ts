@@ -4,20 +4,34 @@
  *
  * supports:
  * - Arithmetic: +, -, * (also as x), /, % and unary +/-
- * - Comparison: ==, !=, >, <, >=, <=
+ * - Comparison: ==, !=, >, <, >=, <= (===, !===, >==, <==)
  * - Logical:    && and ||
  * - Ternary:    condition ? valueIfTrue : valueIfFalse
  * - Grouping:   parentheses
  * - Literals:   numbers, true, false
  * - Variables:  named values passed as a record
+ * - Math fns:   Math.floor(), Math.ceil(), Math.round(), Math.abs(),
+ *               Math.sqrt(), Math.min(a,b), Math.max(a,b), Math.pow(a,b)
  *
  * Operator precedence (low → high):
  *   ternary → or → and → comparison → add/sub → mul/div/mod → unary → primary
  *
  * Usage:
- *   evaluateExpression("R > 3 && R % 3 === 1", { R: 7 })  → 1 (truthy)
- *   evaluateExpression("2 * L + 1", { L: 3 })             → 7
+ *   evaluateExpression("R > 3 && R % 3 === 1", { R: 7 })            → 1 (truthy)
+ *   evaluateExpression("2 * L + 1", { L: 3 })                       → 7
+ *   evaluateExpression("[Math.min(2 + Math.floor((L+1)/2) + Math.floor((L+1)/7),6)]", { L: 3 })         → 4
  */
+
+// ---------------------------------------------------------------------------
+// Custom error types
+// ---------------------------------------------------------------------------
+
+export class UnknownVariableError extends Error {
+  constructor(name: string) {
+    super(`Unknown variable '${name}'`);
+    this.name = 'UnknownVariableError';
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Tokenizer
@@ -31,6 +45,7 @@ enum TokenType {
   RightParen,
   QuestionMark,
   Colon,
+  Comma,
   End
 }
 
@@ -76,7 +91,7 @@ function tokenize(expression: string): Token[] {
       continue;
     }
 
-    // identifier (variable name or keyword)
+    // identifier (variable name, keyword, or Math.function)
     if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch === '_') {
       const start = i;
       while (
@@ -84,12 +99,18 @@ function tokenize(expression: string): Token[] {
         ((expression[i] >= 'a' && expression[i] <= 'z') ||
           (expression[i] >= 'A' && expression[i] <= 'Z') ||
           (expression[i] >= '0' && expression[i] <= '9') ||
-          expression[i] === '_')
+          expression[i] === '_' ||
+          // allow '.' when followed by a letter (e.g. Math.floor)
+          (expression[i] === '.' &&
+            i + 1 < expression.length &&
+            ((expression[i + 1] >= 'a' && expression[i + 1] <= 'z') || (expression[i + 1] >= 'A' && expression[i + 1] <= 'Z'))))
       ) {
         // break before 'x' followed by a digit, uppercase letter, or '(' so it gets parsed as multiplication (e.g. "Cx2" → C * 2, "CxL" → C * L, "Cx(..." → C * (...))
+        // but NOT when the identifier already contains a '.' (e.g. "Math.max(" must not break at 'x')
         if (
           expression[i] === 'x' &&
           i > start &&
+          !expression.slice(start, i).includes('.') &&
           i + 1 < expression.length &&
           ((expression[i + 1] >= '0' && expression[i + 1] <= '9') ||
             (expression[i + 1] >= 'A' && expression[i + 1] <= 'Z') ||
@@ -142,6 +163,11 @@ function tokenize(expression: string): Token[] {
     }
     if (ch === ':') {
       tokens.push({ type: TokenType.Colon, value: ch });
+      i++;
+      continue;
+    }
+    if (ch === ',') {
+      tokens.push({ type: TokenType.Comma, value: ch });
       i++;
       continue;
     }
@@ -301,7 +327,7 @@ class ExpressionParser {
     return this.parsePrimary();
   }
 
-  // primary: number | identifier | '(' expression ')'
+  // primary: number | identifier | Math.fn(args) | '(' expression ')'
   private parsePrimary(): number {
     const token = this.peek();
 
@@ -312,10 +338,26 @@ class ExpressionParser {
 
     if (token.type === TokenType.Identifier) {
       this.consume();
+
+      // Function call: identifier '(' args... ')'
+      if (this.peek().type === TokenType.LeftParen) {
+        this.consume(); // consume '('
+        const args: number[] = [];
+        if (this.peek().type !== TokenType.RightParen) {
+          args.push(this.parseTernary());
+          while (this.peek().type === TokenType.Comma) {
+            this.consume(); // consume ','
+            args.push(this.parseTernary());
+          }
+        }
+        this.expect(TokenType.RightParen);
+        return this.callMathFunction(token.value, args);
+      }
+
       if (token.value === 'true') return 1;
       if (token.value === 'false') return 0;
       if (token.value in this.variables) return this.variables[token.value];
-      throw new Error(`Unknown variable '${token.value}'`);
+      throw new UnknownVariableError(token.value);
     }
 
     if (token.type === TokenType.LeftParen) {
@@ -326,6 +368,49 @@ class ExpressionParser {
     }
 
     throw new Error(`Unexpected token '${token.value}' (${TokenType[token.type]})`);
+  }
+
+  private callMathFunction(name: string, args: number[]): number {
+    switch (name) {
+      case 'Math.floor':
+        if (args.length !== 1) throw new Error(`Math.floor expects 1 argument, got ${args.length}`);
+        return Math.floor(args[0]);
+      case 'Math.ceil':
+        if (args.length !== 1) throw new Error(`Math.ceil expects 1 argument, got ${args.length}`);
+        return Math.ceil(args[0]);
+      case 'Math.round':
+        if (args.length !== 1) throw new Error(`Math.round expects 1 argument, got ${args.length}`);
+        return Math.round(args[0]);
+      case 'Math.abs':
+        if (args.length !== 1) throw new Error(`Math.abs expects 1 argument, got ${args.length}`);
+        return Math.abs(args[0]);
+      case 'Math.sqrt':
+        if (args.length !== 1) throw new Error(`Math.sqrt expects 1 argument, got ${args.length}`);
+        return Math.sqrt(args[0]);
+      case 'Math.min':
+        if (args.length < 1) throw new Error(`Math.min expects at least 1 argument`);
+        return Math.min(...args);
+      case 'Math.minCeil':
+        if (args.length !== 2) throw new Error(`Math.minCeil expects 2 arguments, got ${args.length}`);
+        return Math.min(Math.ceil(args[0]), args[1]);
+      case 'Math.minFloor':
+        if (args.length !== 2) throw new Error(`Math.minFloor expects 2 arguments, got ${args.length}`);
+        return Math.min(Math.floor(args[0]), args[1]);
+      case 'Math.max':
+        if (args.length < 1) throw new Error(`Math.max expects at least 1 argument`);
+        return Math.max(...args);
+      case 'Math.maxCeil':
+        if (args.length !== 2) throw new Error(`Math.maxCeil expects 2 arguments, got ${args.length}`);
+        return Math.max(Math.ceil(args[0]), args[1]);
+      case 'Math.maxFloor':
+        if (args.length !== 2) throw new Error(`Math.maxFloor expects 2 arguments, got ${args.length}`);
+        return Math.max(Math.floor(args[0]), args[1]);
+      case 'Math.pow':
+        if (args.length !== 2) throw new Error(`Math.pow expects 2 arguments, got ${args.length}`);
+        return Math.pow(args[0], args[1]);
+      default:
+        throw new Error(`Unknown function '${name}'`);
+    }
   }
 }
 

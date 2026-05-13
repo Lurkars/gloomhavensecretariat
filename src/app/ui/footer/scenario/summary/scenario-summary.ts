@@ -205,8 +205,6 @@ export class ScenarioSummaryComponent {
       const lootType: LootType = value as LootType;
       if (
         lootType !== LootType.money &&
-        lootType !== LootType.special1 &&
-        lootType !== LootType.special2 &&
         !this.lootColumns.includes(lootType) &&
         this.characters.some(
           (character) =>
@@ -224,18 +222,9 @@ export class ScenarioSummaryComponent {
 
     if (gameManager.game.lootDeck && gameManager.game.lootDeck.cards.length > 0) {
       if (this.characters.length > 0) {
-        this.lootedGold = this.characters
-          .map(
-            (character) =>
-              this.lootValue(character, LootType.money) +
-              this.lootValue(character, LootType.special1) +
-              this.lootValue(character, LootType.special2)
-          )
-          .reduce((a, b) => a + b);
+        this.lootedGold = this.characters.map((character) => this.lootValue(character, LootType.money)).reduce((a, b) => a + b);
       }
       this.totalGold = gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.money);
-      this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special1);
-      this.totalGold += gameManager.lootManager.getTotal(gameManager.game.lootDeck, LootType.special2);
     }
 
     this.alreadyWarning =

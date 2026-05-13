@@ -13,6 +13,15 @@
     "lurker-wavethrower",
     "steel-automaton"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "%data.section.rules.fh.139-1%",
+      "finish": "round"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,

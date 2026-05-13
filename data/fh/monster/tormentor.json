@@ -153,7 +153,7 @@
   "stats": [
     {
       "level": 0,
-      "health": "[10xCx3/2{$math.floor}]",
+      "health": "[Math.floor(10xCx3/2)]",
       "movement": 4,
       "attack": 3,
       "immunities": [
@@ -163,7 +163,7 @@
     },
     {
       "level": 1,
-      "health": "[12xCx3/2{$math.floor}]",
+      "health": "[Math.floor(12xCx3/2)]",
       "movement": 4,
       "attack": 4,
       "immunities": [
@@ -173,7 +173,7 @@
     },
     {
       "level": 2,
-      "health": "[14xCx3/2{$math.floor}]",
+      "health": "[Math.floor(14xCx3/2)]",
       "movement": 4,
       "attack": 5,
       "immunities": [
@@ -183,7 +183,7 @@
     },
     {
       "level": 3,
-      "health": "[18xCx3/2{$math.floor}]",
+      "health": "[Math.floor(18xCx3/2)]",
       "movement": 5,
       "attack": 5,
       "immunities": [
@@ -193,7 +193,7 @@
     },
     {
       "level": 4,
-      "health": "[21xCx3/2{$math.floor}]",
+      "health": "[Math.floor(21xCx3/2)]",
       "movement": 5,
       "attack": 6,
       "immunities": [
@@ -203,7 +203,7 @@
     },
     {
       "level": 5,
-      "health": "[26xCx3/2{$math.floor}]",
+      "health": "[Math.floor(26xCx3/2)]",
       "movement": 5,
       "attack": 6,
       "immunities": [
@@ -213,7 +213,7 @@
     },
     {
       "level": 6,
-      "health": "[33xCx3/2{$math.floor}]",
+      "health": "[Math.floor(33xCx3/2)]",
       "movement": 5,
       "attack": 8,
       "immunities": [
@@ -224,7 +224,7 @@
     },
     {
       "level": 7,
-      "health": "[39xCx3/2{$math.floor}]",
+      "health": "[Math.floor(39xCx3/2)]",
       "movement": 6,
       "attack": 9,
       "immunities": [

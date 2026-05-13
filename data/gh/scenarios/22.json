@@ -79,9 +79,9 @@
           },
           "statEffect": {
             "health": "X",
-            "movement": "[X/2{$math.ceil}]",
+            "movement": "[Math.ceil(X/2)]",
             "attack": "X",
-            "range": "[X/2{$math.ceil}]"
+            "range": "[Math.ceil(X/2)]"
           },
           "note": "%data.scenario.rules.gh.22.1%"
         }

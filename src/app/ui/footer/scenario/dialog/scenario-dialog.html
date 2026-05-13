@@ -102,8 +102,9 @@
     </div>
 
     @if (gameManager.game.round > 0) {
+      @let setupComponentInstance = setupComponent();
       <label class="setup-checkbox">
-        <input type="checkbox" [(ngModel)]="setup" (change)="setupComponent() && setupComponent().updateMonster()" /><span
+        <input type="checkbox" [(ngModel)]="setup" (change)="!!setupComponentInstance && setupComponentInstance.updateMonster()" /><span
           [ghs-label]="'scenario.setup'"
         ></span>
       </label>

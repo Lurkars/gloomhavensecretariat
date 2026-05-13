@@ -47,7 +47,7 @@
           "subActions": [
             {
               "type": "target",
-              "value": "[2+(L/4){$math.floor}]",
+              "value": "[Math.floor(2+(L/4))]",
               "small": true
             }
           ]

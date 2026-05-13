@@ -122,9 +122,9 @@ export class CharacterComponent implements OnInit {
   shortMenu: boolean = false;
 
   summons: Summon[] = [];
-  skullSpirits: Summon[] = [];
+  summonsAfterTurn: Summon[] = [];
   summonCount: number = 0;
-  skullSpiritCount: number = 0;
+  summonsAfterTurnCount: number = 0;
   activeConditions: EntityCondition[] = [];
   extraActions: Action[] = [];
   extraActionsPersistent: Action[] = [];
@@ -147,10 +147,10 @@ export class CharacterComponent implements OnInit {
     this.characterHp = this.character.health;
     this.characterMaxHp = this.character.maxHealth;
     this.characterTitle = gameManager.characterManager.characterName(this.character);
-    this.summons = this.character.summons.filter((summon) => !summon.tags.includes('cs-skull-spirit'));
-    this.skullSpirits = this.character.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
+    this.summons = this.character.summons.filter((summon) => !summon.afterTurn);
+    this.summonsAfterTurn = this.character.summons.filter((summon) => summon.afterTurn);
     this.summonCount = this.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
-    this.skullSpiritCount = this.skullSpirits.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
+    this.summonsAfterTurnCount = this.summonsAfterTurn.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.activeConditions = gameManager.entityManager.activeConditions(this.character);
     this.character.immunities.forEach((immunity) => {
       if (!this.activeConditions.find((entityCondition) => entityCondition.name === immunity)) {
@@ -248,20 +248,20 @@ export class CharacterComponent implements OnInit {
         (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)
       ) {
         const activeSummon = this.character.summons.find((summon) => summon.active);
-        const csSprits = this.character.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
+        const summonsAfterTurn = this.character.summons.filter((summon) => summon.afterTurn);
         if (
           settingsManager.settings.activeSummons &&
           !activeSummon &&
           this.character.active &&
-          csSprits.length &&
-          !csSprits.find((summon) => summon.active)
+          summonsAfterTurn.length &&
+          !summonsAfterTurn.find((summon) => summon.active)
         ) {
           gameManager.stateManager.before(
             'summonInactive',
             gameManager.characterManager.characterName(this.character, true, true),
-            'data.summon.' + csSprits[0].name
+            'data.summon.' + summonsAfterTurn[0].name
           );
-          csSprits.forEach((spirit) => spirit.tags.push('cs-skull-spirit-turn'));
+          summonsAfterTurn.forEach((spirit) => (spirit.afterTurnActive = true));
         } else if (settingsManager.settings.activeSummons && this.character.active && activeSummon) {
           gameManager.stateManager.before(
             'summonInactive',

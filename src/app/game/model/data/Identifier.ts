@@ -18,14 +18,14 @@ export class CountIdentifier extends Identifier {
 }
 
 export class AdditionalIdentifier extends Identifier {
-  type: 'all' | 'character' | 'characterWithSummon' | 'objective' | 'monster' | undefined;
+  type: 'all' | 'character' | 'characterWithSummon' | 'objective' | 'monster' | 'enemies' | 'allies' | undefined;
   marker: string | undefined;
   tags: string[] | undefined;
 
   constructor(
     name: string | number,
     edition: string,
-    type: 'all' | 'character' | 'characterWithSummon' | 'objective' | 'monster' | undefined = undefined,
+    type: 'all' | 'character' | 'characterWithSummon' | 'objective' | 'monster' | 'enemies' | 'allies' | undefined = undefined,
     marker: string | undefined = undefined,
     tags: string[] | undefined = undefined
   ) {

@@ -11,7 +11,7 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "health": "[(L+1)xC/2{$math.floor}]"
+      "health": "[Math.floor((L+1)xC/2)]"
     }
   ],
   "rooms": [

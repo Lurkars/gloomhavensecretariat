@@ -1805,7 +1805,7 @@
         "181-2": "Si el edificio 88 está construido, lee %data.section:135.4% ahora.<br>En caso contrario, lee %data.section:33.1% ahora.",
         "182-1": "Obtén 5 de oro colectivo por cada ficha transportada",
         "188-3": "Obtén 5 recursos materiales colectivos cualesquiera",
-        "loot-gold": "El personaje que haya saqueado obtiene X oro, donde X es cuánto oro vale una ficha de dinero en N+1 (= [2 + [(L+1)/2{$math.floor}]] gold).",
+        "loot-gold": "El personaje que haya saqueado obtiene X oro, donde X es cuánto oro vale una ficha de dinero en N+1 (= [Math.floor(2 + [(L+1)/2)]] gold).",
         "material2": "Obtén 2 recursos materiales cualesquiera cada uno"
       }
     },

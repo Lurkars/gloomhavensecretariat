@@ -81,7 +81,7 @@
           },
           "statEffect": {
             "name": "sraka-the-wise",
-            "health": "[CxH/2{$math.ceil}]",
+            "health": "[Math.ceil(CxH/2)]",
             "actions": [
               {
                 "type": "custom",
@@ -95,7 +95,7 @@
               },
               {
                 "type": "shield",
-                "value": "[(L/3)+2{$math.ceil}]"
+                "value": "[Math.ceil((L/3)+2)]"
               }
             ],
             "count": 1,
@@ -111,7 +111,7 @@
           },
           "statEffect": {
             "name": "the-steel-lion",
-            "health": "[CxH/2{$math.ceil}]",
+            "health": "[Math.ceil(CxH/2)]",
             "move": "M+1",
             "actions": [
               {
@@ -124,7 +124,7 @@
               },
               {
                 "type": "shield",
-                "value": "[(L/4)+1{$math.ceil}]",
+                "value": "[Math.ceil((L/4)+1)]",
                 "subActions": [
                   {
                     "type": "specialTarget",
@@ -147,7 +147,7 @@
           },
           "statEffect": {
             "name": "uyart-ikkuma",
-            "health": "[CxH/2{$math.ceil}]",
+            "health": "[Math.ceil(CxH/2)]",
             "deck": "uyart-ikkuma",
             "actions": [
               {

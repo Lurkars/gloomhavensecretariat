@@ -46,7 +46,7 @@
   "objectives": [
     {
       "name": "Metal Cabinet",
-      "health": "[Cx(L+3)/2{$math.ceil}]",
+      "health": "[Math.ceil(Cx(L+3)/2)]",
       "actions": [
         {
           "type": "custom",

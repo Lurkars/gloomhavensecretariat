@@ -844,11 +844,11 @@
         "ceil": "(aufgerundet)",
         "floor": "(abgerundet)",
         "max": ", bis zu einem Maximum von %game.number.{0}%",
-        "maxCeil": "(aufgerundet), bis zu einem Maximum von %game.number.{0}%",
-        "maxFloor": "(abgerundet), bis zu einem Maximum von %game.number.{0}%",
+        "maxCeil": "(aufgerundet), mindestens aber %game.number.{0}%",
+        "maxFloor": "(abgerundet), mindestens aber %game.number.{0}%",
         "min": ", mindestens aber %game.number.{0}%",
-        "minCeil": "(aufgerundet), mindestens aber %game.number.{0}%",
-        "minFloor": "(abgerundet), mindestens aber %game.number.{0}%"
+        "minCeil": "(aufgerundet), bis zu einem Maximum von %game.number.{0}%",
+        "minFloor": "(abgerundet), bis zu einem Maximum von %game.number.{0}%"
       },
       "ondeath": "Bei Tod:",
       "perks": {
@@ -1090,10 +1090,7 @@
         "wreckBuilding": "Zertrümmere %data.buildings.{0}%."
       },
       "option": {
-        "": "Option {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "": "Option {0}:"
       },
       "outpostAttack": {
         "": "Bedrohung",
@@ -1715,7 +1712,8 @@
         "special": {
           "city-event": "Füge C-{0} zum Stadtereignisedeck hinzu wenn du mindestens {1} Ansehen bei einer Fraktion hast."
         }
-      }
+      },
+      "faction": "%game.gh2eFaction:{0}% Ansehen"
     },
     "sheet": "Gruppenbogen",
     "shop": {
@@ -2078,13 +2076,16 @@
         "drawAbility": "Ziehe eine weitere Fertigkeitskarte für {0}",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
+        "killLowest": "Töte direkt {1} von {0} mit den niedriegsten Trefferpunkten.",
         "loseCondition": "{0} verliert %game.condition.{1}%",
+        "losePermanentCondition": "{0} verliert permanent %game.condition.{1}%",
         "permanentCondition": "{0} erlangt dauerhaft %game.condition.{1}%",
         "remove": "Entferne {0}",
         "removeAbility": "Entferne Fertigkeitskarte '{1}' von {0}",
         "scenarioEffect": "als Szenarioeffekt",
         "setAbility": "Aktive Fertigkeitskarte von {0} auf '{1}' festlegen",
         "setHp": "{0} TP auf {2}",
+        "shuffleAbilities": "Mische Fertigkeitendeck für {0}",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",
         "transfer": "{0} wird zu %data.monster.{1}% {4}",
@@ -2908,7 +2909,8 @@
       "fr": "Französisch (Français)",
       "help": {
         "": "Bei der Übersetzung helfen!",
-        "hint": "<img src=\"https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
+        "hint": "<img src=\"https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>",
+        "stats": "<img src=\"https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/-/{0}/svg-badge.svg\"/>"
       },
       "it": "Italienisch (Italiano)",
       "ko": "Koreanisch (한국어)",
@@ -3625,6 +3627,7 @@
         "drawRandomItemBlueprint": "Ziehe zufälligen Gegenstandsplan {0} \"{2}\" (%data.edition.{1}%)",
         "drawRandomScenario": "Ziehe zufälliges Szenario {2} %data.scenarioNumber:{0}%",
         "drawRandomScenarioSection": "Ziehe zufällige Sektion %data.section:{0}%, schalte {3} frei",
+        "factionReputation": "{0} %game.gh2eFaction:{1}% Ansehen",
         "inspiration": "{0} Inspiration",
         "morale": "{0} Moral",
         "prosperity": "{0} Wohlstand",
@@ -4023,6 +4026,7 @@
       "amAdvantage": "wie <kbd><span>m</span></kbd>, aber mit Vorteil ziehen wenn eingeschaltet",
       "amDisadvantage": "wie <kbd><span>m</span></kbd>, aber mit Nachteil ziehen wenn eingeschaltet",
       "backspace": "⌫",
+      "cmd": "⌘",
       "ctrl": "STRG",
       "difficulty": "Schwierigkeitsgrad/Level Menü",
       "enter": "↵",

@@ -2220,7 +2220,7 @@
         "181-2": "Jeśli budynek 88 jest wybudowany, przeczytaj teraz %data.section:135.4%<br>W przeciwnym razie przeczytaj teraz %data.section:33.1%.",
         "182-1": "Wspólnie zyskaj 5 sztuk złota za każdy niesiony żeton",
         "188-3": "Wspólnie zyskaj 5 dowolnych zasobów materiałowych",
-        "loot-gold": "Postać, która dokonała grabieży, zyskuje X sztuk złota, gdzie X to wartość jednego żetonu pieniędzy na poziomie L+1 (= [2 + [(L+1)/2{$math.floor}]] sztuk złota).",
+        "loot-gold": "Postać, która dokonała grabieży, zyskuje X sztuk złota, gdzie X to wartość jednego żetonu pieniędzy na poziomie L+1 (= [Math.floor(2 + [(L+1)/2)]] sztuk złota).",
         "material2": "Każdy zyskuje 2 dowolne zasoby materiałowe"
       }
     },

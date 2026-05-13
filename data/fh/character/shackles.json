@@ -10,7 +10,13 @@
   ],
   "color": "#7476a7",
   "spoiler": true,
-  "specialActions": [],
+  "specialActions": [
+    {
+      "name": "delayed_malady",
+      "expire": true,
+      "slots": 5
+    }
+  ],
   "stats": [
     {
       "level": 1,

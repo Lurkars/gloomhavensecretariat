@@ -872,7 +872,7 @@ export class EntityManager {
     let negativeCondition = false;
 
     entity.entityConditions.forEach((entityCondition) => {
-      if (entityCondition.types.includes(ConditionType.expire)) {
+      if (entityCondition.types.includes(ConditionType.expire) && !entity.tags.includes('delayed_malady')) {
         if (entityCondition.state === EntityConditionState.expire && !entityCondition.permanent) {
           entityCondition.expired = true;
           if (entityCondition.types.includes(ConditionType.negative)) {

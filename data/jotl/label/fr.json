@@ -218,7 +218,7 @@
         "4": "Ils ont agi exactement de la même faion dans le dernier scénario."
       },
       "black-sludge": {
-        "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[1+L/2{$math.ceil}]%."
+        "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[Math.ceil(1+L/2)]%."
       },
       "blood-horror": {
         "1": "Saute jusqu'au %data.monster.zealot% mort le plus éloigné et le ressuscite OU Saute jusqu'à l'aventurier le plus éloigné et %game.action.attack:+0%.",

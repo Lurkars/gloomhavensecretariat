@@ -15,6 +15,7 @@ export class CharacterSpecialAction {
   expire: boolean;
   round: boolean;
   summon: boolean;
+  slots: number | undefined;
   perk: number | undefined;
 
   constructor(
@@ -23,7 +24,8 @@ export class CharacterSpecialAction {
     noTag: boolean = false,
     expire: boolean = false,
     round: boolean = false,
-    summon: boolean = false
+    summon: boolean = false,
+    slots: number | undefined = undefined
   ) {
     this.name = name;
     this.level = level;
@@ -31,5 +33,6 @@ export class CharacterSpecialAction {
     this.expire = expire;
     this.round = round;
     this.summon = summon;
+    this.slots = slots;
   }
 }

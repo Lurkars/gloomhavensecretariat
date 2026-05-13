@@ -18,7 +18,7 @@
             "type": "monster",
             "name": "harbinger-of-shadow-1",
             "marker": "1",
-            "health": "[Hx2/3{$math.floor}]"
+            "health": "[Math.floor(Hx2/3)]"
           },
           "type": "present"
         },
@@ -28,7 +28,7 @@
             "name": "harbinger-of-shadow-1"
           },
           "type": "setHp",
-          "value": "[Hx2/3{$math.floor}]"
+          "value": "[Math.floor(Hx2/3)]"
         }
       ]
     },
@@ -42,7 +42,7 @@
           "identifier": {
             "type": "monster",
             "name": "harbinger-of-shadow-1",
-            "health": "[H/3{$math.floor}]"
+            "health": "[Math.floor(H/3)]"
           },
           "type": "present"
         },
@@ -52,7 +52,7 @@
             "name": "harbinger-of-shadow-1"
           },
           "type": "setHp",
-          "value": "[H/3{$math.floor}]"
+          "value": "[Math.floor(H/3)]"
         }
       ]
     }

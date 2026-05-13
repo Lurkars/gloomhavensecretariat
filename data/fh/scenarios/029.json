@@ -46,11 +46,11 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "health": "[(L+2)xC/2{$math.floor}]"
+      "health": "[Math.floor((L+2)xC/2)]"
     },
     {
       "name": "Ice Core",
-      "health": "[(L+2)xC/2{$math.floor}]"
+      "health": "[Math.floor((L+2)xC/2)]"
     }
   ],
   "lootDeckConfig": {

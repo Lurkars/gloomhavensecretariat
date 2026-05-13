@@ -135,7 +135,12 @@
       </div>
     }
     <span class="spacer"></span>
-    @if (!gameManager.bbRules() && !!gameManager.game.scenario && (characterCount > 0 || settingsManager.settings.partySheet)) {
+    @if (
+      !gameManager.bbRules() &&
+      !!gameManager.game.scenario &&
+      (characterCount > 0 || settingsManager.settings.partySheet) &&
+      settingsManager.settings.entitiesMenu
+    ) {
       <div
         class="event-effects"
         ghs-pointer-input

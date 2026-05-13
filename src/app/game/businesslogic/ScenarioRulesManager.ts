@@ -19,6 +19,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
+import { Summon } from 'src/app/game/model/Summon';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
 import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
@@ -896,7 +897,8 @@ export class ScenarioRulesManager {
               figureRule.type === 'setHp' ||
               figureRule.type === 'dormant' ||
               figureRule.type === 'activate' ||
-              figureRule.type === 'removeEntity'
+              figureRule.type === 'removeEntity' ||
+              figureRule.type === 'toggleAfteTurnSummon'
           )
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
@@ -908,8 +910,24 @@ export class ScenarioRulesManager {
               entities.forEach((entity) => {
                 switch (figureRule.type) {
                   case 'gainCondition':
-                    const gainCondition = new Condition(figureRule.value);
-                    if (!gameManager.entityManager.hasCondition(entity, gainCondition)) {
+                    const conditionName = figureRule.value.split(':')[0];
+                    const value = figureRule.value.split(':').length > 1 ? +figureRule.value.split(':')[1] : 1;
+                    const gainCondition = new Condition(conditionName, value);
+                    if (gainCondition.name === ConditionName.curse) {
+                      for (let i = 0; i < value; i++) {
+                        gameManager.attackModifierManager.addModifierByType(
+                          gameManager.attackModifierManager.byFigure(figure),
+                          AttackModifierType.curse
+                        );
+                      }
+                    } else if (gainCondition.name === ConditionName.bless) {
+                      for (let i = 0; i < value; i++) {
+                        gameManager.attackModifierManager.addModifierByType(
+                          gameManager.attackModifierManager.byFigure(figure),
+                          AttackModifierType.bless
+                        );
+                      }
+                    } else if (!gameManager.entityManager.hasCondition(entity, gainCondition)) {
                       gameManager.entityManager.addCondition(entity, figure, gainCondition);
                     }
                     break;
@@ -1016,8 +1034,39 @@ export class ScenarioRulesManager {
                       });
                     }
                     break;
+                  case 'toggleAfteTurnSummon':
+                    if (entity instanceof Summon) {
+                      entity.afterTurn = !entity.afterTurn;
+                    }
+                    break;
                 }
               });
+            });
+          });
+
+        rule.figures
+          .filter((figureRule) => figureRule.type === 'killLowest')
+          .forEach((figureRule) => {
+            const count = EntityValueFunction(figureRule.value || '1');
+            const allPairs: { entity: Entity; figure: Figure }[] = [];
+            const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
+            figures.forEach((figure) => {
+              gameManager.entityManager
+                .entitiesAll(figure)
+                .filter((entity) => gameManager.entityManager.isAlive(entity) && (!entityFilter || entityFilter.includes(entity)))
+                .forEach((entity) => allPairs.push({ entity, figure }));
+            });
+            allPairs.sort((a, b) => {
+              if (a.entity.health == b.entity.health) {
+                if (a.entity instanceof MonsterEntity && b.entity instanceof MonsterEntity && a.entity.type !== b.entity.type) {
+                  return a.entity.type === MonsterType.elite ? -1 : 1;
+                }
+                return a.entity.number - b.entity.number;
+              }
+              return a.entity.health - b.entity.health;
+            });
+            allPairs.slice(0, count).forEach(({ entity, figure }) => {
+              gameManager.entityManager.changeHealth(entity, figure, -entity.health, true);
             });
           });
 
@@ -1219,6 +1268,7 @@ export class ScenarioRulesManager {
             (figureRule) =>
               figureRule.type === 'setAbility' ||
               figureRule.type === 'drawAbility' ||
+              figureRule.type === 'shuffleAbilities' ||
               figureRule.type === 'discardAbilityToBottom' ||
               figureRule.type === 'removeAbility'
           )
@@ -1244,6 +1294,8 @@ export class ScenarioRulesManager {
                   }
                 } else if (figureRule.type === 'drawAbility') {
                   gameManager.monsterManager.drawAbility(figure);
+                } else if (figureRule.type === 'shuffleAbilities') {
+                  gameManager.monsterManager.shuffleAbilities(figure);
                 } else if (figureRule.type === 'discardAbilityToBottom') {
                   moveItemInArray(figure.abilities, figure.ability, 0);
                 }

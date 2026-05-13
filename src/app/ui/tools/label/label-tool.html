@@ -9,10 +9,11 @@
       }
     </select>
     @if (locale !== 'en') {
-      <select [(ngModel)]="translationFilter" (ngModelChange)="update()">
+      <select [(ngModel)]="translationFilter" (ngModelChange)="update(); updateQueryParams()">
         <option value="all">All</option>
         <option value="same">Same as EN</option>
         <option value="untranslated">Untranslated</option>
+        <option value="overdone">Overdone</option>
       </select>
     }
   </div>

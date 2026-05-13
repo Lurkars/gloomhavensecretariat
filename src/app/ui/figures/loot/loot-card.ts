@@ -184,7 +184,7 @@ export class LootComponent implements OnInit, OnChanges {
                   gameManager.lootManager.getValue(this.loot)
                 );
                 charBefore.lootCards = charBefore.lootCards.filter((index) => index !== this.index());
-                if (this.loot.type === LootType.money || this.loot.type === LootType.special1 || this.loot.type === LootType.special2) {
+                if (this.loot.type === LootType.money) {
                   charBefore.loot -= gameManager.lootManager.getValue(this.loot);
                 }
 

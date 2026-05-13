@@ -48,6 +48,7 @@
       "round": "true",
       "always": true,
       "once": true,
+      "note": "%data.section.rules.fh.176-3%",
       "sections": [
         "172.2"
       ],

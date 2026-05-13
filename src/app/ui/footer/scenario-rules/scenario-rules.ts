@@ -14,7 +14,9 @@ import {
   ScenarioRuleIdentifier
 } from 'src/app/game/model/data/ScenarioRule';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
+import { GameState } from 'src/app/game/model/Game';
 import { ScenarioRuleComponent } from 'src/app/ui/footer/scenario-rules/scenario-rule';
+import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
@@ -299,10 +301,55 @@ export class ScenarioRulesComponent {
           }
 
           if (rule.finish && ['won', 'lost'].includes(rule.finish)) {
-            this.dialog.open(ScenarioSummaryComponent, {
-              panelClass: ['dialog'],
-              data: { scenario: scenario, success: rule.finish === 'won' }
-            });
+            const success = rule.finish === 'won';
+            const gameScenario = gameManager.game.scenario;
+            if (success && gameScenario) {
+              const conclusions = gameManager.scenarioManager
+                .availableSections(true)
+                .filter(
+                  (sectionData) =>
+                    sectionData.edition === gameScenario.edition &&
+                    sectionData.parent === gameScenario.index &&
+                    sectionData.group === gameScenario.group &&
+                    sectionData.conclusion &&
+                    gameManager.scenarioManager.getRequirements(sectionData).length === 0
+                );
+              if (conclusions.length < 2) {
+                this.dialog.open(ScenarioSummaryComponent, {
+                  panelClass: ['dialog'],
+                  data: {
+                    scenario: gameScenario,
+                    conclusion: conclusions.length === 1 ? conclusions[0] : undefined,
+                    success: success
+                  }
+                });
+              } else {
+                this.dialog
+                  .open(ScenarioConclusionComponent, {
+                    panelClass: ['dialog'],
+                    data: { conclusions: conclusions, parent: gameScenario }
+                  })
+                  .closed.subscribe({
+                    next: (conclusion: unknown) => {
+                      if (conclusion) {
+                        this.dialog.open(ScenarioSummaryComponent, {
+                          panelClass: ['dialog'],
+                          data: {
+                            scenario: gameScenario,
+                            conclusion: conclusion,
+                            success: success
+                          }
+                        });
+                      }
+                    }
+                  });
+              }
+            } else {
+              this.dialog.open(ScenarioSummaryComponent, {
+                panelClass: ['dialog'],
+                data: { scenario: gameScenario || scenario, success: success }
+              });
+            }
           }
         }
 
@@ -319,6 +366,9 @@ export class ScenarioRulesComponent {
 
             if (rule.finish === 'round') {
               gameManager.roundManager.nextGameState();
+              if (gameManager.game.state === GameState.next) {
+                gameManager.roundManager.nextGameState();
+              }
             }
 
             gameManager.stateManager.after();

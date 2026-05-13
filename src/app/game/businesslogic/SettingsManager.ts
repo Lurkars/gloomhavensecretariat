@@ -9,6 +9,7 @@ import { Character } from 'src/app/game/model/Character';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { Spoilable } from 'src/app/game/model/data/Spoilable';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Settings } from 'src/app/game/model/Settings';
 
 declare global {
@@ -18,6 +19,7 @@ declare global {
 }
 
 export class SettingsManager {
+  EntityValueFunction = EntityValueFunction;
   defaultLocale: string = 'en';
   defaultEditions: string[] = ['gh', 'fh', 'jotl', 'fc', 'cs', 'toa', 'bb', 'gh2e', 'mp'];
 

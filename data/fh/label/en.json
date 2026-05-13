@@ -2264,7 +2264,7 @@
         "181-2": "If building 88 is built, read %data.section:135.4% now.<br>Otherwise, read %data.section:33.1% now.",
         "182-1": "Gain 5 collective gold for each token carried",
         "188-3": "Gain any 5 collective material resources",
-        "loot-gold": "The looting character gains X gold, where X is how much gold one money token is worth at L+1 (= [2 + [(L+1)/2{$math.floor}]] gold).",
+        "loot-gold": "The looting character gains X gold, where X is how much gold one money token is worth at L+1 (= [Math.min(2 + Math.floor((L+1)/2) + Math.floor((L+1)/7),6)] gold).",
         "material2": "Gain any 2 material resources each"
       }
     },
@@ -2286,13 +2286,23 @@
           "2": "%game.action.target% each monster within %game.action.range:4%"
         },
         "102-1": "All characters return one card from their hand or discard pile to their set-aside deck.",
+        "124-3": {
+          "1": "No turns are performed this round, and no monster or character reveals or plays any cards. All haracters recover up to three of their lost ability cards and collectively recover any [C] items.",
+          "2": "Shuffle the twelve numbered tokens face-down next to the map, but do not draw any this round. Then relocate door %game.mapMarker.4% to %game.mapMarker.b%. If here are any figures, tokens, or overlay tiles in %game.mapMarker.b%, place them in the closest viable hex.<br><br>Each character swaps places with another character, such that no character occupies the same hex they occupied at the start of the round."
+        },
         "130-3": "Gain Advantage on this target",
         "132-4": {
           "1": "[C] monsters closest to any characters gain %game.condition.invisible% (Must be applied manually)",
           "2": "The initiative order is reversed this round, starting with the highest initiative. All characters act before their summons, and all Vermling Scouts act before Abael Scouts."
         },
+        "139-1": "Open door %game.mapMarker.3%.<br><br>Remove everything except the water tile from tile 2-J. If any character is removed, place them in the closest empty hex on tile 15-A. Set up tile 2-J again as shown as if just revealed.<br><br>Instead of  evealing monster ability cards during ordering of initiative this round, choose and reveal one card for each monster set on the map from their respective decks, then shuffle the remainder of those decks.",
         "146-3": "When this attack is performed, on the next round at initiative 99 instead perform:",
+        "152-2": {
+          "1": "This does not contribute toward embellishments.",
+          "2": "The two characters with the highest and lowest current hit point values switch those values with each other, neither exceeding their maximum."
+        },
         "166-2": "Place one tree in any three starting hexes. Remove everything in these hexes from the map except for any figures, which are instead placed in the closest empty hexes.<br><br>All characters base attack values are doubled this round.",
+        "176-3": "Any figure that did not have a turn yet this round will not have one. It is now the end of the fourth round. Do not perform any long rests and return any cards that were not played to their character's hand.",
         "180-3": "Gain one Hide",
         "186-4": "Place three snow rocks in any empty hexes on tile 15-A (if able).",
         "192-1": "Gain one Metal"

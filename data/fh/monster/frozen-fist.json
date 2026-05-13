@@ -40,7 +40,7 @@
       [
         {
           "type": "shield",
-          "value": "[L/3+1{$math.ceil}]"
+          "value": "[Math.ceil(L/3+1)]"
         },
         {
           "type": "move",

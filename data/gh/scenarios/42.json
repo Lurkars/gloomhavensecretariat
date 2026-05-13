@@ -48,32 +48,32 @@
   "objectives": [
     {
       "name": "Vocal Cord",
-      "health": "[2+(LxC/2){$math.floor}]",
+      "health": "[Math.floor(2+(LxC/2))]",
       "marker": "1"
     },
     {
       "name": "Vocal Cord",
-      "health": "[2+(LxC/2){$math.floor}]",
+      "health": "[Math.floor(2+(LxC/2))]",
       "marker": "2"
     },
     {
       "name": "Vocal Cord",
-      "health": "[2+(LxC/2){$math.floor}]",
+      "health": "[Math.floor(2+(LxC/2))]",
       "marker": "3"
     },
     {
       "name": "Vocal Cord",
-      "health": "[2+(LxC/2){$math.floor}]",
+      "health": "[Math.floor(2+(LxC/2))]",
       "marker": "4"
     },
     {
       "name": "Vocal Cord",
-      "health": "[2+(LxC/2){$math.floor}]",
+      "health": "[Math.floor(2+(LxC/2))]",
       "marker": "5"
     },
     {
       "name": "Vocal Cord",
-      "health": "[2+(LxC/2){$math.floor}]",
+      "health": "[Math.floor(2+(LxC/2))]",
       "marker": "6"
     }
   ],

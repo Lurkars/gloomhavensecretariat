@@ -25,7 +25,7 @@
             "name": "steel-automaton"
           },
           "statEffect": {
-            "health": "[HxC/2{$math.ceil}]",
+            "health": "[Math.ceil(HxC/2)]",
             "absolute": true
           },
           "note": "%data.scenario.rules.fh.134%"

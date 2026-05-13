@@ -147,8 +147,8 @@
           "1": "Alle Charaktere müssen eine Handkarte abwerfen oder verlieren eine zufällige Karte vom Abwurfstapel."
         },
         "115": {
-          "1": "Entfernt einen Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [C/2{$math.floor}] Trefferpunkte geheilt.",
-          "2": "Entfernt zwei Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [C/2{$math.floor}] Trefferpunkte geheilt.",
+          "1": "Entfernt einen Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [Math.floor(C/2)] Trefferpunkte geheilt.",
+          "2": "Entfernt zwei Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [Math.floor(C/2)] Trefferpunkte geheilt.",
           "3": "bei %game.mapMarker.c% wenn Altar %game.mapMarker.a% noch keinen Schadensmarker hat",
           "4": "bei %game.mapMarker.d% wenn Altar %game.mapMarker.b% noch keinen Schadensmarker hat."
         },

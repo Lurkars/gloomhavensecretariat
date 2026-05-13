@@ -14,6 +14,21 @@
       "round": "true",
       "always": true,
       "once": true,
+      "note": "%data.section.rules.fh.152-2.1%",
+      "figures": [
+        {
+          "type": "killLowest",
+          "identifier": {
+            "type": "enemies"
+          },
+          "value": "[C]"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
@@ -24,6 +39,12 @@
           "value": "ward"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "%data.section.rules.fh.152-2.2%"
     }
   ],
   "rooms": []

@@ -37,7 +37,7 @@ export class ScenarioDialogComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  readonly setupComponent = viewChild.required<ScenarioSetupComponent>('setupComponent');
+  readonly setupComponent = viewChild<ScenarioSetupComponent>('setupComponent');
 
   setup: boolean = false;
   openRooms: RoomData[] = [];

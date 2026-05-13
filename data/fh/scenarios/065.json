@@ -62,7 +62,7 @@
             "actions": [
               {
                 "type": "push",
-                "value": "[(L+1)/4{$math.ceil}]"
+                "value": "[Math.ceil((L+1)/4)]"
               }
             ]
           },

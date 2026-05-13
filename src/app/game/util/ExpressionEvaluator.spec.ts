@@ -1,4 +1,4 @@
-import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
+import { evaluateExpression, UnknownVariableError } from 'src/app/game/util/ExpressionEvaluator';
 
 describe('evaluateExpression', () => {
   // ---- Literals ----
@@ -27,7 +27,7 @@ describe('evaluateExpression', () => {
     });
 
     it('unknown variable throws', () => {
-      expect(() => evaluateExpression('Z')).toThrow("Unknown variable 'Z'");
+      expect(() => evaluateExpression('Z')).toThrow(UnknownVariableError);
     });
   });
 
@@ -687,6 +687,290 @@ describe('evaluateExpression', () => {
 
     it('HP == H (HP=5, H=5)', () => {
       expect(evaluateExpression('HP == H', { HP: 5, H: 5 })).toBe(1);
+    });
+  });
+
+  // ---- Math functions ----
+  describe('Math functions', () => {
+    describe('Math.floor', () => {
+      it('Math.floor(3.9)', () => {
+        expect(evaluateExpression('Math.floor(3.9)')).toBe(3);
+      });
+
+      it('Math.floor(3.0)', () => {
+        expect(evaluateExpression('Math.floor(3.0)')).toBe(3);
+      });
+
+      it('Math.floor(-1.2)', () => {
+        expect(evaluateExpression('Math.floor(-1.2)')).toBe(-2);
+      });
+
+      it('Math.floor(7/2)', () => {
+        expect(evaluateExpression('Math.floor(7/2)')).toBe(3);
+      });
+
+      it('Math.floor((L+1)/2) with L=3', () => {
+        expect(evaluateExpression('Math.floor((L+1)/2)', { L: 3 })).toBe(2);
+      });
+
+      it('Math.floor((L+1)/7) with L=3', () => {
+        expect(evaluateExpression('Math.floor((L+1)/7)', { L: 3 })).toBe(0);
+      });
+    });
+
+    describe('Math.ceil', () => {
+      it('Math.ceil(3.1)', () => {
+        expect(evaluateExpression('Math.ceil(3.1)')).toBe(4);
+      });
+
+      it('Math.ceil(3.0)', () => {
+        expect(evaluateExpression('Math.ceil(3.0)')).toBe(3);
+      });
+
+      it('Math.ceil(-1.8)', () => {
+        expect(evaluateExpression('Math.ceil(-1.8)')).toBe(-1);
+      });
+
+      it('Math.ceil(7/2)', () => {
+        expect(evaluateExpression('Math.ceil(7/2)')).toBe(4);
+      });
+    });
+
+    describe('Math.round', () => {
+      it('Math.round(3.5)', () => {
+        expect(evaluateExpression('Math.round(3.5)')).toBe(4);
+      });
+
+      it('Math.round(3.4)', () => {
+        expect(evaluateExpression('Math.round(3.4)')).toBe(3);
+      });
+    });
+
+    describe('Math.abs', () => {
+      it('Math.abs(-5)', () => {
+        expect(evaluateExpression('Math.abs(-5)')).toBe(5);
+      });
+
+      it('Math.abs(5)', () => {
+        expect(evaluateExpression('Math.abs(5)')).toBe(5);
+      });
+    });
+
+    describe('Math.min / Math.max', () => {
+      it('Math.min(3, 7)', () => {
+        expect(evaluateExpression('Math.min(3, 7)')).toBe(3);
+      });
+
+      it('Math.min(L, 5) with L=2', () => {
+        expect(evaluateExpression('Math.min(L, 5)', { L: 2 })).toBe(2);
+      });
+
+      it('Math.min(L, 5) with L=8', () => {
+        expect(evaluateExpression('Math.min(L, 5)', { L: 8 })).toBe(5);
+      });
+
+      it('Math.max(3, 7)', () => {
+        expect(evaluateExpression('Math.max(3, 7)')).toBe(7);
+      });
+
+      it('Math.max(L, 1) with L=0', () => {
+        expect(evaluateExpression('Math.max(L, 1)', { L: 0 })).toBe(1);
+      });
+    });
+
+    describe('Math.pow', () => {
+      it('Math.pow(2, 3)', () => {
+        expect(evaluateExpression('Math.pow(2, 3)')).toBe(8);
+      });
+
+      it('Math.pow(L, 2) with L=4', () => {
+        expect(evaluateExpression('Math.pow(L, 2)', { L: 4 })).toBe(16);
+      });
+    });
+
+    describe('Math.sqrt', () => {
+      it('Math.sqrt(9)', () => {
+        expect(evaluateExpression('Math.sqrt(9)')).toBe(3);
+      });
+    });
+
+    describe('Math.maxFloor', () => {
+      // Math.maxFloor(X, N) = Math.max(Math.floor(X), N) — floor then ensure minimum
+      it('Math.maxFloor(7.9, 5) → max(floor(7.9), 5) = max(7, 5) = 7', () => {
+        expect(evaluateExpression('Math.maxFloor(7.9, 5)')).toBe(7);
+      });
+
+      it('Math.maxFloor(3.9, 5) → max(floor(3.9), 5) = max(3, 5) = 5', () => {
+        expect(evaluateExpression('Math.maxFloor(3.9, 5)')).toBe(5);
+      });
+
+      it('Math.maxFloor(L/2, 2) with L=3 → max(floor(1.5), 2) = max(1, 2) = 2', () => {
+        expect(evaluateExpression('Math.maxFloor(L/2, 2)', { L: 3 })).toBe(2);
+      });
+
+      it('Math.maxFloor(L/2, 2) with L=7 → max(floor(3.5), 2) = max(3, 2) = 3', () => {
+        expect(evaluateExpression('Math.maxFloor(L/2, 2)', { L: 7 })).toBe(3);
+      });
+    });
+
+    describe('Math.maxCeil', () => {
+      // Math.maxCeil(X, N) = Math.max(Math.ceil(X), N) — ceil then ensure minimum
+      it('Math.maxCeil(3.1, 5) → max(ceil(3.1), 5) = max(4, 5) = 5', () => {
+        expect(evaluateExpression('Math.maxCeil(3.1, 5)')).toBe(5);
+      });
+
+      it('Math.maxCeil(7.1, 5) → max(ceil(7.1), 5) = max(8, 5) = 8', () => {
+        expect(evaluateExpression('Math.maxCeil(7.1, 5)')).toBe(8);
+      });
+
+      it('Math.maxCeil(L/2, 2) with L=3 → max(ceil(1.5), 2) = max(2, 2) = 2', () => {
+        expect(evaluateExpression('Math.maxCeil(L/2, 2)', { L: 3 })).toBe(2);
+      });
+
+      it('Math.maxCeil(L/2, 2) with L=7 → max(ceil(3.5), 2) = max(4, 2) = 4', () => {
+        expect(evaluateExpression('Math.maxCeil(L/2, 2)', { L: 7 })).toBe(4);
+      });
+    });
+
+    describe('Math.minFloor', () => {
+      // Math.minFloor(X, N) = Math.min(Math.floor(X), N) — floor then cap
+      it('Math.minFloor(7.9, 5) → min(floor(7.9), 5) = min(7, 5) = 5', () => {
+        expect(evaluateExpression('Math.minFloor(7.9, 5)')).toBe(5);
+      });
+
+      it('Math.minFloor(3.9, 5) → min(floor(3.9), 5) = min(3, 5) = 3', () => {
+        expect(evaluateExpression('Math.minFloor(3.9, 5)')).toBe(3);
+      });
+
+      it('Math.minFloor(L/2, 3) with L=9 → min(floor(4.5), 3) = min(4, 3) = 3', () => {
+        expect(evaluateExpression('Math.minFloor(L/2, 3)', { L: 9 })).toBe(3);
+      });
+
+      it('Math.minFloor(L/2, 3) with L=5 → min(floor(2.5), 3) = min(2, 3) = 2', () => {
+        expect(evaluateExpression('Math.minFloor(L/2, 3)', { L: 5 })).toBe(2);
+      });
+    });
+
+    describe('Math.minCeil', () => {
+      // Math.minCeil(X, N) = Math.min(Math.ceil(X), N) — ceil then cap
+      it('Math.minCeil(7.1, 5) → min(ceil(7.1), 5) = min(8, 5) = 5', () => {
+        expect(evaluateExpression('Math.minCeil(7.1, 5)')).toBe(5);
+      });
+
+      it('Math.minCeil(3.1, 5) → min(ceil(3.1), 5) = min(4, 5) = 4', () => {
+        expect(evaluateExpression('Math.minCeil(3.1, 5)')).toBe(4);
+      });
+
+      it('Math.minCeil(L/2, 3) with L=5 → min(ceil(2.5), 3) = min(3, 3) = 3', () => {
+        expect(evaluateExpression('Math.minCeil(L/2, 3)', { L: 5 })).toBe(3);
+      });
+
+      it('Math.minCeil(L/2, 3) with L=9 → min(ceil(4.5), 3) = min(5, 3) = 3', () => {
+        expect(evaluateExpression('Math.minCeil(L/2, 3)', { L: 9 })).toBe(3);
+      });
+    });
+
+    describe('nested and combined', () => {
+      it('Math.floor inside expression: 1 + Math.floor(7/2)', () => {
+        expect(evaluateExpression('1 + Math.floor(7/2)')).toBe(4);
+      });
+
+      it('nested: Math.floor(Math.ceil(3.2))', () => {
+        expect(evaluateExpression('Math.floor(Math.ceil(3.2))')).toBe(4);
+      });
+
+      it('unknown function throws', () => {
+        expect(() => evaluateExpression('Math.log(2)')).toThrow();
+      });
+    });
+
+    // ---- Real use case ----
+    describe('real use case: 2 + Math.floor((L+1)/2) + Math.floor((L+1)/7)', () => {
+      const expr = '2 + Math.floor((L+1)/2) + Math.floor((L+1)/7)';
+
+      // L=0: 2 + floor(1/2) + floor(1/7) = 2 + 0 + 0 = 2
+      it('L=0 → 2', () => {
+        expect(evaluateExpression(expr, { L: 0 })).toBe(2);
+      });
+
+      // L=1: 2 + floor(2/2) + floor(2/7) = 2 + 1 + 0 = 3
+      it('L=1 → 3', () => {
+        expect(evaluateExpression(expr, { L: 1 })).toBe(3);
+      });
+
+      // L=2: 2 + floor(3/2) + floor(3/7) = 2 + 1 + 0 = 3
+      it('L=2 → 3', () => {
+        expect(evaluateExpression(expr, { L: 2 })).toBe(3);
+      });
+
+      // L=3: 2 + floor(4/2) + floor(4/7) = 2 + 2 + 0 = 4
+      it('L=3 → 4', () => {
+        expect(evaluateExpression(expr, { L: 3 })).toBe(4);
+      });
+
+      // L=4: 2 + floor(5/2) + floor(5/7) = 2 + 2 + 0 = 4
+      it('L=4 → 4', () => {
+        expect(evaluateExpression(expr, { L: 4 })).toBe(4);
+      });
+
+      // L=5: 2 + floor(6/2) + floor(6/7) = 2 + 3 + 0 = 5
+      it('L=5 → 5', () => {
+        expect(evaluateExpression(expr, { L: 5 })).toBe(5);
+      });
+
+      // L=6: 2 + floor(7/2) + floor(7/7) = 2 + 3 + 1 = 6
+      it('L=6 → 6', () => {
+        expect(evaluateExpression(expr, { L: 6 })).toBe(6);
+      });
+
+      // L=7: 2 + floor(8/2) + floor(8/7) = 2 + 4 + 1 = 7
+      it('L=7 → 7', () => {
+        expect(evaluateExpression(expr, { L: 7 })).toBe(7);
+      });
+    });
+
+    describe('real use case: Math.min(2 + Math.floor((L+1)/2) + Math.floor((L+1)/7),6)', () => {
+      const expr = 'Math.min(2 + Math.floor((L+1)/2) + Math.floor((L+1)/7),6)';
+
+      // L=0: min(2 + floor(1/2) + floor(1/7),6) = 2 + 0 + 0 = 2
+      it('L=0 → 2', () => {
+        expect(evaluateExpression(expr, { L: 0 })).toBe(2);
+      });
+
+      // L=1: min(2 + floor(2/2) + floor(2/7),6) = 2 + 1 + 0 = 3
+      it('L=1 → 3', () => {
+        expect(evaluateExpression(expr, { L: 1 })).toBe(3);
+      });
+
+      // L=2: min(2 + floor(3/2) + floor(3/7),6) = 2 + 1 + 0 = 3
+      it('L=2 → 3', () => {
+        expect(evaluateExpression(expr, { L: 2 })).toBe(3);
+      });
+
+      // L=3: min(2 + floor(4/2) + floor(4/7),6) = 2 + 2 + 0 = 4
+      it('L=3 → 4', () => {
+        expect(evaluateExpression(expr, { L: 3 })).toBe(4);
+      });
+
+      // L=4: min(2 + floor(5/2) + floor(5/7),6) = 2 + 2 + 0 = 4
+      it('L=4 → 4', () => {
+        expect(evaluateExpression(expr, { L: 4 })).toBe(4);
+      });
+
+      // L=5: min(2 + floor(6/2) + floor(6/7),6) = 2 + 3 + 0 = 5
+      it('L=5 → 5', () => {
+        expect(evaluateExpression(expr, { L: 5 })).toBe(5);
+      });
+
+      // L=6: min(2 + floor(7/2) + floor(7/7),6) = 2 + 3 + 1 = 6
+      it('L=6 → 6', () => {
+        expect(evaluateExpression(expr, { L: 6 })).toBe(6);
+      });
+
+      // L=7: min(2 + floor(8/2) + floor(8/7),6) = 6
+      it('L=7 → 6', () => {
+        expect(evaluateExpression(expr, { L: 7 })).toBe(6);
+      });
     });
   });
 });

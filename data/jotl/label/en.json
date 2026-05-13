@@ -334,7 +334,7 @@
         "4": "This is exactly how they acted last scenario."
       },
       "black-sludge": {
-        "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{$math.ceil}] %game.damage%"
+        "1": "The closest enemy in line-of-sight, regardless of range, suffer [Math.ceil(1+L/2)] %game.damage%"
       },
       "blood-horror": {
         "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack:+0%",
@@ -979,7 +979,7 @@
         },
         "21": {
           "1": "in any hex the last objective was destroyed",
-          "2": "Characters suffer %game.damage:[L/2{$math.floor}]% for each hex they enter in room of Chaos Demon %game.mapMarker.A%"
+          "2": "Characters suffer %game.damage:[Math.floor(L/2)]% for each hex they enter in room of Chaos Demon %game.mapMarker.A%"
         },
         "3": {
           "1": "Starting now, each time you successfully complete a scenario, you must encouter a city event. Before doing this for the first time, however retrieve the \"events\" deck from the game box and shuffle the cards."

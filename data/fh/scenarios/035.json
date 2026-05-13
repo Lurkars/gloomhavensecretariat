@@ -46,7 +46,7 @@
     {
       "name": "Crain",
       "escort": true,
-      "health": "[(Cx(L+3)/2){$math.floor}]",
+      "health": "[Math.floor((Cx(L+3)/2))]",
       "initiative": 50,
       "marker": "a",
       "actions": [

@@ -803,10 +803,10 @@
         "ceil": "(올림)",
         "floor": "(소수점 이하 내림)",
         "max": ", 최대 %game.number.{0}%",
-        "maxCeil": "(올림), 최대 %game.number.{0}%",
+        "maxCeil": "(올림), 최소 %game.number.{0}%",
         "maxFloor": "(버림), 최소 %game.number.{0}%",
         "min": ", 최소 %game.number.{0}%",
-        "minCeil": "(올림), 최소 %game.number.{0}%",
+        "minCeil": "(올림), 최대 %game.number.{0}%",
         "minFloor": "(버림), 최소 %game.number.{0}%"
       },
       "ondeath": "사망 시:",
@@ -970,10 +970,7 @@
         "unlockScenario": "%data.scenarioNumber:{0}%번 시나리오 “%data.scenario.title.{1}.{0}%” 해금."
       },
       "option": {
-        "": "선택지 {0}:",
-        "1": "1번",
-        "2": "2번",
-        "3": "3번"
+        "": "선택지 {0}:"
       },
       "outpostAttack": {
         "": "전초기지 공격"

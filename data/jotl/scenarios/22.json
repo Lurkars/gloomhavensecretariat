@@ -32,7 +32,7 @@
             "name": "stone-golem-scenario-22"
           },
           "type": "damage",
-          "value": "[C/2{$math.floor}]"
+          "value": "[Math.floor(C/2)]"
         }
       ],
       "spawns": [

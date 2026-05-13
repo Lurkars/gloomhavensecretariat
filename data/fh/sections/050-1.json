@@ -23,7 +23,7 @@
             "name": "seeker-of-the-abyss"
           },
           "type": "setHp",
-          "value": "[HP/2{$math.ceil}]"
+          "value": "[Math.ceil(HP/2)]"
         }
       ]
     }

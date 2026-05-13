@@ -39,7 +39,7 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "health": "[(2+L)xC/2{$math.floor}]",
+      "health": "[Math.floor((2+L)xC/2)]",
       "tags": [
         "scenario-10"
       ],

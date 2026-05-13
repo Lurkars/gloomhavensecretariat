@@ -37,7 +37,7 @@
   "objectives": [
     {
       "name": "Small Tree",
-      "health": "[CxL/2{$math.ceil}]"
+      "health": "[Math.ceil(CxL/2)]"
     }
   ],
   "lootDeckConfig": {

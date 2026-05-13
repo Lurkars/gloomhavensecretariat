@@ -11,7 +11,7 @@ import {
   defaultTownGuardAttackModifier
 } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionType } from 'src/app/game/model/data/Condition';
-import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from 'src/app/game/model/Entity';
+import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 
 export const ghsLabelRegex = /\%((\w+|\s|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
@@ -461,41 +461,125 @@ export const applyPlaceholder = function (
   return output;
 };
 
+/** Replace Math.floor(X), Math.ceil(X), Math.min(X,N), Math.max(X,N) etc.
+ * with localized display text when calculation is off.
+ * Handles nested calls by recursively processing arguments.
+ */
+export function applyMathFunctionLabels(value: string): string {
+  const mathFuncRegex = /Math\.(floor|ceil|round|abs|sqrt|minCeil|minFloor|maxCeil|maxFloor|min|max|pow)\(/g;
+  let result = '';
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = mathFuncRegex.exec(value)) !== null) {
+    const funcName = match[1];
+    const argsStart = match.index + match[0].length;
+
+    // find the balanced closing ')'
+    let depth = 1;
+    let i = argsStart;
+    while (i < value.length && depth > 0) {
+      if (value[i] === '(') depth++;
+      else if (value[i] === ')') depth--;
+      i++;
+    }
+    const argsStr = value.slice(argsStart, i - 1);
+
+    // split top-level comma-separated arguments
+    const args: string[] = [];
+    let argDepth = 0;
+    let argStart = 0;
+    for (let j = 0; j < argsStr.length; j++) {
+      if (argsStr[j] === '(') argDepth++;
+      else if (argsStr[j] === ')') argDepth--;
+      else if (argsStr[j] === ',' && argDepth === 0) {
+        args.push(argsStr.slice(argStart, j).trim());
+        argStart = j + 1;
+      }
+    }
+    args.push(argsStr.slice(argStart).trim());
+
+    // recursively process nested Math calls in each argument
+    const processedArgs = args.map((a) => applyMathFunctionLabels(a));
+
+    let replacement: string;
+    switch (funcName) {
+      case 'floor':
+        replacement = processedArgs[0] + ' ' + settingsManager.getLabel('game.custom.math.floor');
+        break;
+      case 'ceil':
+        replacement = processedArgs[0] + ' ' + settingsManager.getLabel('game.custom.math.ceil');
+        break;
+      case 'round':
+        replacement = processedArgs[0] + ' ' + settingsManager.getLabel('game.custom.math.floor').replace('down', 'nearest');
+        break;
+      case 'abs':
+        replacement = '|' + processedArgs[0] + '|';
+        break;
+      case 'sqrt':
+        replacement = '√(' + processedArgs[0] + ')';
+        break;
+      case 'min': // Math.min(X, N) = cap at N = "up to a maximum of N"
+        replacement =
+          processedArgs[0] + ' ' + applyPlaceholder(settingsManager.getLabel('game.custom.math.max', [processedArgs[1] ?? '']), [], false);
+        break;
+      case 'minCeil':
+        replacement =
+          processedArgs[0] +
+          ' ' +
+          applyPlaceholder(settingsManager.getLabel('game.custom.math.minCeil', [processedArgs[1] ?? '']), [], false);
+        break;
+      case 'minFloor':
+        replacement =
+          processedArgs[0] +
+          ' ' +
+          applyPlaceholder(settingsManager.getLabel('game.custom.math.minFloor', [processedArgs[1] ?? '']), [], false);
+        break;
+      case 'max': // Math.max(X, N) = floor at N = "but at least N"
+        replacement =
+          processedArgs[0] + ' ' + applyPlaceholder(settingsManager.getLabel('game.custom.math.min', [processedArgs[1] ?? '']), [], false);
+        break;
+      case 'maxCeil':
+        replacement =
+          processedArgs[0] +
+          ' ' +
+          applyPlaceholder(settingsManager.getLabel('game.custom.math.maxCeil', [processedArgs[1] ?? '']), [], false);
+        break;
+      case 'maxFloor':
+        replacement =
+          processedArgs[0] +
+          ' ' +
+          applyPlaceholder(settingsManager.getLabel('game.custom.math.maxFloor', [processedArgs[1] ?? '']), [], false);
+        break;
+      case 'pow':
+        replacement = processedArgs[0] + '^' + (processedArgs[1] ?? '');
+        break;
+      default:
+        replacement = argsStr;
+    }
+
+    result += value.slice(lastIndex, match.index) + replacement;
+    lastIndex = i;
+    mathFuncRegex.lastIndex = lastIndex;
+  }
+
+  result += value.slice(lastIndex);
+  return result;
+}
+
 export const applyValueCalc = function (value: string, relative: boolean): string {
   while (value.match(EntityValueRegex)) {
     value = value.replace(EntityValueRegex, (match, ...args) => {
       if (settingsManager.settings.calculate && !relative) {
-        const result = EntityValueFunction(match);
-        return '' + result;
-      } else {
-        let func = args[2];
-        let funcArgs: string[] = [];
-        const funcLabel = func && func.startsWith('$');
-        if (funcLabel) {
-          func = func.replace('$', '');
-          if (func.includes(':')) {
-            funcArgs = [func.split(':')[1]];
-            func = func.split(':')[0];
-          }
+        try {
+          const result = EntityValueFunction(match);
+          return '' + result;
+        } catch {
+          // unknown variable (e.g. HP) — fall through to display path
         }
-        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : args[0];
       }
-    });
-  }
 
-  while (value.match(EntityValueRegexExtended)) {
-    value = value.replace(EntityValueRegexExtended, (match, ...args) => {
-      let func = args[2];
-      let funcArgs: string[] = [];
-      const funcLabel = func && func.startsWith('$');
-      if (funcLabel) {
-        func = func.replace('$', '');
-        if (func.includes(':')) {
-          funcArgs = [func.split(':')[1]];
-          func = func.split(':')[0];
-        }
-      }
-      return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : args[0];
+      return applyMathFunctionLabels(args[0]);
     });
   }
 

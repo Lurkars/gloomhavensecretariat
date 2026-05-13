@@ -147,12 +147,8 @@ export class ScenarioStatsManager {
       character.lootCards.forEach((index) => {
         const loot = this.game.lootDeck.cards[index];
         if (loot) {
-          let type = loot.type;
-          if (type === LootType.special1 || type === LootType.special2) {
-            type = LootType.money;
-          }
-          lootStats[type] = (lootStats[type] || 0) + gameManager.lootManager.getValue(loot);
-          character.scenarioStats.loot[type] = lootStats[type];
+          lootStats[loot.type] = (lootStats[loot.type] || 0) + gameManager.lootManager.getValue(loot);
+          character.scenarioStats.loot[loot.type] = lootStats[loot.type];
         }
       });
     }

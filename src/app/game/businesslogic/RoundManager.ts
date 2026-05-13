@@ -198,11 +198,14 @@ export class RoundManager {
     let nextFigure = toggleFigure.active;
 
     if (settingsManager.settings.activeSummons && toggleFigure instanceof Character && !toggleFigure.absent) {
-      const activeSummon = toggleFigure.summons.find((summon) => summon.active || summon.tags.includes('cs-skull-spirit-turn'));
-      const csSprits = toggleFigure.summons.filter((summon) => summon.tags.includes('cs-skull-spirit'));
+      const activeSummon = toggleFigure.summons.find((summon) => summon.active || summon.afterTurnActive);
+      const summonsAfterTurn = toggleFigure.summons.filter((summon) => summon.afterTurn);
+      const activeSummonsAfterTurn = summonsAfterTurn.filter((summon) => gameManager.entityManager.isAlive(summon, true));
       if (
         activeSummon &&
-        (!csSprits.includes(activeSummon) || !activeSummon.active || csSprits.indexOf(activeSummon) < csSprits.length - 1)
+        (!summonsAfterTurn.includes(activeSummon) ||
+          !activeSummon.active ||
+          activeSummonsAfterTurn.indexOf(activeSummon) < activeSummonsAfterTurn.length - 1)
       ) {
         nextFigure = false;
       }
@@ -293,7 +296,7 @@ export class RoundManager {
 
         if (!figure.active && figure.name === 'skull' && figure.tags.includes('spirits')) {
           figure.summons
-            .filter((summon) => summon.tags.includes('cs-skull-spirit'))
+            .filter((summon) => summon.afterTurn)
             .forEach((summon) => {
               if (summon.maxHealth) {
                 summon.health += 1;
@@ -389,8 +392,7 @@ export class RoundManager {
             (!activeSummon || index > self.indexOf(activeSummon)) &&
             gameManager.entityManager.isAlive(summon, true) &&
             !summon.tags.includes('prism_mode') &&
-            (((!activeSummon || !activeSummon.tags.includes('cs-skull-spirit')) && !summon.tags.includes('cs-skull-spirit')) ||
-              summon.tags.includes('cs-skull-spirit-turn'))
+            (((!activeSummon || !activeSummon.afterTurn) && !summon.afterTurn) || summon.afterTurnActive)
         );
         figure.summons
           .slice(
@@ -399,7 +401,7 @@ export class RoundManager {
           )
           .forEach((prevSummon, index) => {
             prevSummon.active = false;
-            prevSummon.tags = prevSummon.tags.filter((tag) => tag !== 'cs-skull-spirit-turn');
+            prevSummon.afterTurnActive = false;
             if (settingsManager.settings.expireConditions) {
               gameManager.entityManager.expireConditions(prevSummon, figure);
             }
@@ -617,7 +619,7 @@ export class RoundManager {
 
         if (figure.name === 'skull' && !figure.absent && figure.tags.includes('spirits')) {
           figure.summons
-            .filter((summon) => summon.tags.includes('cs-skull-spirit'))
+            .filter((summon) => summon.afterTurn)
             .forEach((summon) => {
               if (summon.maxHealth) {
                 summon.health -= 1;

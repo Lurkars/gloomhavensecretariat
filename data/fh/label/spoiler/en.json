@@ -261,7 +261,13 @@
           "mode": "Mode Token"
         }
       },
-      "shackles": "Pain Conduit",
+      "shackles": {
+        "": "Pain Conduit",
+        "delayed_malady": {
+          "": "Delayed Malady",
+          "hint": "Negative conditions do not apply/expire for 4 rounds"
+        }
+      },
       "shards": {
         "": "Shattersong",
         "extra_resonance_tokens": {

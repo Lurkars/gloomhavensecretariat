@@ -158,7 +158,7 @@
           "subActions": [
             {
               "type": "shield",
-              "value": "[(1+L)/6{$math.ceil}]"
+              "value": "[Math.ceil((1+L)/6)]"
             }
           ]
         },

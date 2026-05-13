@@ -209,7 +209,7 @@
                 "name": "living-spirit",
                 "type": "normal"
               },
-              "count": "[HP/5{$math.maxFloor:3}]"
+              "count": "[Math.minFloor(HP/5,3)]"
             }
           ],
           "subActions": [

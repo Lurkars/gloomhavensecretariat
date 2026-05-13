@@ -844,11 +844,11 @@
         "ceil": "(rounded up)",
         "floor": "(rounded down)",
         "max": ", up to a maximum of %game.number.{0}%",
-        "maxCeil": "(rounded up), up to a maximum of %game.number.{0}%",
-        "maxFloor": "(rounded down), up to a maximum of %game.number.{0}%",
+        "maxCeil": "(rounded up), but at least %game.number.{0}%",
+        "maxFloor": "(rounded down), but at least of %game.number.{0}%",
         "min": ", but at least %game.number.{0}%",
-        "minCeil": "(rounded up), but at least %game.number.{0}%",
-        "minFloor": "(rounded down), but at least of %game.number.{0}%"
+        "minCeil": "(rounded up), up to a maximum of %game.number.{0}%",
+        "minFloor": "(rounded down), up to a maximum of %game.number.{0}%"
       },
       "ondeath": "On death:",
       "perks": {
@@ -2076,6 +2076,7 @@
         "drawAbility": "Draw another ability card for {0}",
         "gainCondition": "{0} gain %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
+        "killLowest": "Immediately kill {1} of {0} with the lowest current hit point values.",
         "loseCondition": "{0} lose %game.condition.{1}%",
         "losePermanentCondition": "{0} lose permanent %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
@@ -2084,6 +2085,7 @@
         "scenarioEffect": "as scenario effect",
         "setAbility": "Set active ability card of {0} to '{1}'",
         "setHp": "{0} HP to {2}",
+        "shuffleAbilities": "Shuffle ability deck for {0}",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
         "transfer": "{0} become %data.monster.{1}% {4}",

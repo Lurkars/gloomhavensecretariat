@@ -844,11 +844,11 @@
         "ceil": "（向上取整）",
         "floor": "（向下取整）",
         "max": "，上限为 %game.number.{0}%",
-        "maxCeil": "（向上取整），上限为 %game.number.{0}%",
-        "maxFloor": "（向下取整），上限为 %game.number.{0}%",
+        "maxCeil": "（向上取整），至少%game.number.{0}%",
+        "maxFloor": "（向下取整），至少 %game.number.{0}%",
         "min": "，至少 %game.number.{0}%",
-        "minCeil": "（向上取整），至少%game.number.{0}%",
-        "minFloor": "（向下取整），至少 %game.number.{0}%"
+        "minCeil": "（向上取整），上限为 %game.number.{0}%",
+        "minFloor": "（向下取整），上限为 %game.number.{0}%"
       },
       "ondeath": "死亡时：",
       "perks": {
@@ -1091,10 +1091,7 @@
         "wreckBuilding": "损毁%data.buildings.{0}%。"
       },
       "option": {
-        "": "选项 {0}：",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "": "选项 {0}："
       },
       "outpostAttack": {
         "": "前哨攻击",
