@@ -1,0 +1,139 @@
+name: Android Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Git ref (branch/tag) to build'
+        required: true
+        default: 'main'
+
+  workflow_run:
+    workflows: ["Build and publish release"]
+    types:
+      - completed
+
+jobs:
+  android:
+    name: Build Android
+    runs-on: ubuntu-latest
+
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+
+    permissions:
+      contents: write
+
+    env:
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || github.event.workflow_run.head_branch }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: npm run build
+
+      - name: Add Capacitor Android platform
+        run: npx cap add android || echo "Android platform already exists"
+
+      - name: Generate Android assets
+        run: |
+          if [ -f resources/icon.png ]; then
+            npx capacitor-assets generate --android
+          else
+            echo "No resources/icon.png found, skipping asset generation"
+          fi
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Decode Android keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release-key.jks
+
+      - name: Configure signing
+        run: |
+          cat >> android/gradle.properties << EOF
+          GHS_APP_UPLOAD_STORE_FILE=release-key.jks
+          GHS_APP_UPLOAD_KEY_ALIAS=${ANDROID_KEY_ALIAS}
+          GHS_APP_UPLOAD_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}
+          GHS_APP_UPLOAD_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}
+          EOF
+
+      - name: Patch build.gradle signing
+        run: |
+          python3 << 'EOF'
+          from pathlib import Path
+          path = Path("android/app/build.gradle")
+          text = path.read_text()
+          signing_block = """
+              signingConfigs {
+                  release {
+                      if (project.hasProperty('GHS_APP_UPLOAD_STORE_FILE')) {
+                          storeFile file(GHS_APP_UPLOAD_STORE_FILE)
+                          storePassword GHS_APP_UPLOAD_STORE_PASSWORD
+                          keyAlias GHS_APP_UPLOAD_KEY_ALIAS
+                          keyPassword GHS_APP_UPLOAD_KEY_PASSWORD
+                      }
+                  }
+              }
+          """
+          if "signingConfigs" not in text:
+              text = text.replace("android {", "android {\n" + signing_block)
+          text = text.replace("signingConfig signingConfigs.debug", "signingConfig signingConfigs.release")
+          path.write_text(text)
+          EOF
+
+      - name: Build APK
+        run: |
+          cd android
+          ./gradlew assembleRelease
+
+      - name: Build AAB
+        run: |
+          cd android
+          ./gradlew bundleRelease
+
+      - name: Upload APK to GitHub Release
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: android/app/build/outputs/apk/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload AAB to GitHub Release
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: android/app/build/outputs/bundle/release/*.aab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload APK/AAB artifacts for manual run
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-artifacts
+          path: |
+            android/app/build/outputs/apk/release/*.apk
+            android/app/build/outputs/bundle/release/*.aab
