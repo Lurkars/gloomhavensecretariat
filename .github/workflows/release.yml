@@ -41,11 +41,7 @@ jobs:
           npm ci
           npm run build -- --configuration unbranded
       - name: Create Zip
-        uses: thedoctor0/zip-release@main
-        with:
-          type: 'zip'
-          directory: 'dist/gloomhavensecretariat'
-          filename: 'gloomhavensecretariat-${{github.ref_name}}.zip'
+        run: cd dist/gloomhavensecretariat && zip -r "gloomhavensecretariat-${{ github.ref_name }}.zip" .
       - name: Upload release zip
         run: gh release upload "${{ github.ref_name }}" "./dist/gloomhavensecretariat/gloomhavensecretariat-${{ github.ref_name }}.zip" --repo "${{ github.repository }}"
         env:

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 import packageJson from 'src/../package.json';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { environment } from 'src/environments/environment';
@@ -15,7 +16,14 @@ export class AboutMenuComponent implements OnInit {
 
   version = packageJson.version;
   branded = environment.branded;
+  platform = Capacitor.getPlatform();
   updateVersion: { latest: boolean; version: string; url: string } | undefined;
+
+  get apkUrl(): string {
+    if (!this.updateVersion || !this.branded) return '';
+    const tag = this.updateVersion.version;
+    return `https://github.com/Lurkars/gloomhavensecretariat/releases/download/${tag}/ghs-${tag}.apk`;
+  }
 
   async ngOnInit() {
     if (!this.branded) return;

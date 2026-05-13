@@ -27,7 +27,12 @@
           <span [ghs-label]="'about.version.update'" [ghs-label-args]="[updateVersion.version, updateVersion.url]"></span>
         </span>
       }
-      @if (!updateVersion || !updateVersion.latest) {
+      @if (branded && !!updateVersion && !updateVersion.latest && platform === 'android') {
+        <span class="update">
+          <span [ghs-label]="'about.version.update.apk'" [ghs-label-args]="[apkUrl, updateVersion.version]"></span>
+        </span>
+      }
+      @if ((!updateVersion || !updateVersion.latest) && platform === 'web') {
         <a class="force" (click)="forceUpdate()"><span [ghs-label]="'about.forceUpdate'"></span></a>
       }
     </div>

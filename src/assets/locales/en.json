@@ -15,7 +15,8 @@
     "version": {
       "latest": "Latest",
       "unknown": "Could not fetch latest version",
-      "update": "Latest version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      "update": "Latest version <a target=\"_blank\" href=\"{1}\">{0}</a>",
+      "update.apk": "Download Android APK <a target=\"_blank\" href=\"{0}\">{1}</a>"
     }
   },
   "and": "and",
