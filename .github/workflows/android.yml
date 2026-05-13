@@ -67,21 +67,66 @@ jobs:
 
       - name: Configure signing via gradle.properties
         run: |
-          mkdir -p android
           echo "GHS_APP_STORE_FILE=$(pwd)/android/app/release-key.jks" >> android/gradle.properties
           echo "GHS_APP_KEY_ALIAS=${ANDROID_KEY_ALIAS}" >> android/gradle.properties
           echo "GHS_APP_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}" >> android/gradle.properties
           echo "GHS_APP_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}" >> android/gradle.properties
+
+      - name: Patch generated Android signing config
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          gradle = Path("android/app/build.gradle")
+          if not gradle.exists():
+              raise SystemExit("android/app/build.gradle not found")
+
+          text = gradle.read_text()
+
+          if "GHS_APP_STORE_FILE" in text:
+              print("Signing config already present")
+              raise SystemExit(0)
+
+          signing_block = """
+              signingConfigs {
+                  release {
+                      if (project.hasProperty("GHS_APP_STORE_FILE")) {
+                          storeFile file(project.property("GHS_APP_STORE_FILE"))
+                          storePassword project.property("GHS_APP_STORE_PASSWORD")
+                          keyAlias project.property("GHS_APP_KEY_ALIAS")
+                          keyPassword project.property("GHS_APP_KEY_PASSWORD")
+                      }
+                  }
+              }
+
+          """
+
+          if "android {" not in text:
+              raise SystemExit("Could not find android block in android/app/build.gradle")
+
+          text = text.replace("android {", "android {\n" + signing_block, 1)
+
+          if "release {" not in text:
+              raise SystemExit("Could not find release block in android/app/build.gradle")
+
+          text = text.replace(
+              "release {",
+              """release {
+                      if (project.hasProperty("GHS_APP_STORE_FILE")) {
+                          signingConfig signingConfigs.release
+                      }""",
+              1,
+          )
+
+          gradle.write_text(text)
+          print("Patched android/app/build.gradle")
+          PY
 
       - name: Build signed APK
         run: |
           cd android
           ./gradlew assembleRelease
 
-      - name: Rename APK
-        run: |
-          REF_NAME=$(echo "${GITHUB_REF##*/}" | tr / _)
-          mv android/app/build/outputs/apk/release/app-release.apk android/app/build/outputs/apk/release/ghs-${REF_NAME}.apk
 
       - name: Upload APK artifacts (manual run)
         if: ${{ github.event_name == 'workflow_dispatch' }}
