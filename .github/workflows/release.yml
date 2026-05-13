@@ -11,19 +11,11 @@ jobs:
   create_release:
     name: Create release
     runs-on: ubuntu-latest
-    outputs:
-      release_id: ${{ steps.create_release.outputs.id }}
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Create draft release
+        run: gh release create "${{ github.ref_name }}" --draft --title "${{ github.ref_name }}" --repo "${{ github.repository }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: true
+          GH_TOKEN: ${{ secrets.TOKEN }}
   release_zip:
     name: Release zip
     needs: create_release
@@ -55,14 +47,9 @@ jobs:
           directory: 'dist/gloomhavensecretariat'
           filename: 'gloomhavensecretariat-${{github.ref_name}}.zip'
       - name: Upload release zip
-        uses: actions/upload-release-asset@v1
+        run: gh release upload "${{ github.ref_name }}" "./dist/gloomhavensecretariat/gloomhavensecretariat-${{ github.ref_name }}.zip" --repo "${{ github.repository }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          upload_url: ${{ needs.create_release.outputs.upload_url }}
-          asset_path: ./dist/gloomhavensecretariat/gloomhavensecretariat-${{github.ref_name}}.zip
-          asset_name: gloomhavensecretariat-${{github.ref_name}}.zip
-          asset_content_type: application/octet-stream
+          GH_TOKEN: ${{ secrets.TOKEN }}
   release_electron:
     name: Release electron builds
     needs: create_release
@@ -225,22 +212,16 @@ jobs:
           ./gradlew assembleRelease
 
       - name: Upload APK to draft release
-        uses: actions/upload-release-asset@v1
+        run: gh release upload "${{ github.ref_name }}" "android/app/build/outputs/apk/release/app-release.apk#gloomhaven-${{ github.ref_name }}.apk" --repo "${{ github.repository }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          upload_url: ${{ needs.create_release.outputs.upload_url }}
-          asset_path: android/app/build/outputs/apk/release/app-release.apk
-          asset_name: gloomhavensecretariat-${{ github.ref_name }}.apk
-          asset_content_type: application/vnd.android.package-archive
+          GH_TOKEN: ${{ secrets.TOKEN }}
 
   publish:
     name: Publish Draft Release
     needs: [create_release, release_zip, release_electron, release_android]
     runs-on: ubuntu-latest
     steps:
-      - uses: eregon/publish-release@v1
+      - name: Publish draft release
+        run: gh release edit "${{ github.ref_name }}" --draft=false --repo "${{ github.repository }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          release_id: ${{ needs.create_release.outputs.release_id }}
+          GH_TOKEN: ${{ secrets.TOKEN }}

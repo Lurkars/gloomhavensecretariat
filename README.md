@@ -250,6 +250,13 @@ Instructions for different devices/browsers:
 - [Firefox: Android](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#firefox_for_android)
 - other: search for "install PWA"
 
+### Android
+
+A signed Android APK is available for direct installation on Android devices.
+Download `ghs-<version>.apk` from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) assets.
+
+> You may need to enable *Install from unknown sources* in your Android settings since the APK is [not distributed via the Play Store](https://github.com/Lurkars/gloomhavensecretariat/wiki#why-is-this-app-not-on-the-app-store-or-play-store).
+
 ### Standalone
 
 An Electron application is available for Linux, Mac and Windows.
