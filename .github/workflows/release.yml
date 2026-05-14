@@ -217,8 +217,8 @@ jobs:
           ./gradlew assembleRelease
       - name: Upload APK to draft release
         run: |
-          mv "android/app/build/outputs/apk/release/app-release.apk" "android/app/build/outputs/apk/release/gloomhaven-${{ github.ref_name }}.apk"
-          gh release upload "${{ github.ref_name }}" "android/app/build/outputs/apk/release/gloomhaven-${{ github.ref_name }}.apk" --repo "${{ github.repository }}"
+          mv "android/app/build/outputs/apk/release/app-release.apk" "android/app/build/outputs/apk/release/gloomhavensecretariat-${{ github.ref_name }}.apk"
+          gh release upload "${{ github.ref_name }}" "android/app/build/outputs/apk/release/gloomhavensecretariat-${{ github.ref_name }}.apk" --repo "${{ github.repository }}"
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
 

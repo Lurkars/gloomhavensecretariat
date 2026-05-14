@@ -22,7 +22,7 @@ export class AboutMenuComponent implements OnInit {
   get apkUrl(): string {
     if (!this.updateVersion || !this.branded) return '';
     const tag = this.updateVersion.version;
-    return `https://github.com/Lurkars/gloomhavensecretariat/releases/download/${tag}/ghs-${tag}.apk`;
+    return `https://github.com/Lurkars/gloomhavensecretariat/releases/download/${tag}/gloomhavensecretariat-${tag}.apk`;
   }
 
   async ngOnInit() {
