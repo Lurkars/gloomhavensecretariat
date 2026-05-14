@@ -141,8 +141,8 @@ There are a few other apps that are specialised or niche and therefore not taken
 |                                                                                 |               |           |          |          |         |
 | **Contribution**                                                                | *GHS*         | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
 | OpenSource License                                                              | ✅[^14]        | ✅[^15]    | ⛔        | ⛔        | ⛔       |
-| Custom Content                                                                  | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-| Monster Editor (Stats + Abilities)                                              | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
+| Load Custom Content                                                             | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
+| Editors and Tools                                                               | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
 
 
 [^1]: Need to be enabled in **Settings** Menu
