@@ -93,7 +93,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Track Character Shield/Retaliate                                                | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Ability Cards Enhancements                                            | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Items (manage item states)                                            | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
-| automatic Loot Deck Setup                                                          | ✅            | ✅         | ⛔        | ✅        | ⛔       |
+| automatic Loot Deck Setup                                                       | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Loot Deck Enhancements                                                          | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Assign Loot Cards to Character                                                  | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Special Scenario Rules/Notes                                                    | ✅            | ✅         | ⛔        | ✅        | ⛔       |
@@ -133,10 +133,10 @@ There are a few other apps that are specialised or niche and therefore not taken
 |                                                                                 |              |           |          |          |         |
 | **Devices**                                                                     | *GHS*        | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
 | Web                                                                             | ✅            | ⛔         | ⛔        | ✅        | ⛔[^8]   |
-| Windows                                                                         | ✅[^7]        | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| MacOS                                                                           | ✅[^7]        | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| Linux                                                                           | ✅[^7]        | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| Android                                                                         | ✅❗[^7]       | ✅         | ✅        | ✅❗[^7]   | ❗[^9]   |
+| Windows                                                                         | ✅[^7.1]      | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| MacOS                                                                           | ✅[^7.1]      | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| Linux                                                                           | ✅[^7.1]      | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| Android                                                                         | ✅[^7.2]      | ✅         | ✅        | ✅❗[^7]   | ❗[^9]   |
 | iOS                                                                             | ✅❗[^7]       | ✅         | ✅        | ✅❗[^7]   | ⛔[^8]   |
 |                                                                                 |              |           |          |          |         |
 | **Contribution**                                                                | *GHS*        | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
@@ -176,6 +176,10 @@ There are a few other apps that are specialised or niche and therefore not taken
 [^6]: Many languages supported, but many label missing: English, Czech, Hungarian, French, German, Italian, Japanese, Korean, Polish, Portugues, Russian, Spanish
 
 [^7]: As web application available
+
+[^7.1]: Download Electron App on [GHS Releases Page](https://github.com/Lurkars/gloomhavensecretariat/releases/latest)
+
+[^7.2]: Download APK on [GHS Releases Page](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) (Not available in Play Store)
 
 [^8]: Not available anymore
 
