@@ -28,7 +28,7 @@
         </span>
       }
       @if (branded && !!updateVersion && !updateVersion.latest && platform === 'android') {
-        <span class="update">
+        <span class="apk">
           <span [ghs-label]="'about.version.update.apk'" [ghs-label-args]="[apkUrl, updateVersion.version]"></span>
         </span>
       }
