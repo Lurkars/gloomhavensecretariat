@@ -2377,7 +2377,7 @@
     "activeApplyConditions": {
       "": "Bestätige anwendbare Zustände",
       "auto": {
-        "": "Automatisch Bestätigen",
+        "": "Autom. Bestätigen",
         "hint": {
           "": "Nicht nach Bestätigung fragen und stattdessen die Zustände automatisch anwenden.<br><br>Mit Vorsicht verwenden!",
           "brittle": "Nach erhaltenden Schaden automatisch %game.condition.brittle% anwenden und den Schaden zu erhöhen.<br><br>Funktioniert nicht automatisch bei %game.condition.poison%!",
@@ -2500,28 +2500,32 @@
       "": "Autom. Vollbild AM-Deck",
       "hint": "Angriffsmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen."
     },
+    "automaticEndRound": {
+      "": "Autom. Runde beenden",
+      "hint": "Beende die Runde automatisch, wenn die letzte aktive Figure ihren Zug beendet hat."
+    },
     "automaticFirstFigure": {
       "": "Autom. Zug erste Figur",
       "hint": "Starte den Zug der ersten Figur automatisch beim Beginn der nächsten Runde. Diese Funktion is automatisch aktiviert, wenn die Initiative gesetzt werden muss."
     },
     "automaticGameClock": {
-      "": "Automatischer Spieltimer",
+      "": "Autom.  Spieltimer",
       "hint": "Startet und pausiert den Spieltimer automatisch wenn das Fenster geöffnet oder geschlossen wird."
     },
     "automaticGameClockFocus": {
-      "": "Automatischer Spieltimer bei Fokus",
+      "": "Autom.  Spieltimer bei Fokus",
       "hint": "Zusätzlich den Spieltimer automatisch starten und pausieren wenn das Fenster den Fokus verliert oder bekommt."
     },
     "automaticPassTime": {
-      "": "Automatisch Kalender Wochen verstreichen",
+      "": "Autom. Kalender Wochen verstreichen",
       "hint": "Automatisch eine Kalenderwoche verstreichen nach Abschluss eines Szenarios. Dies fügt auch automatisch Effekte von möglichen Sektionen in der Kalenderwoche hinzu."
     },
     "automaticStandees": {
-      "": "Automatische Aufsteller",
+      "": "Autom.  Aufsteller",
       "hint": "Automatisches Hinzufügen von Aufstellern."
     },
     "automaticStandeesDialog": {
-      "": "Automatische Aufsteller Dialoge",
+      "": "Autom.  Aufsteller Dialoge",
       "hint": "Öffne automatische Auswahl-Dialoge zur Nummernauswahl für alle neuen Aufsteller."
     },
     "automaticTheme": {
@@ -2529,12 +2533,12 @@
       "hint": "Passt das Thema/den Frosthaven Stil automatisch der ausgewählten Edition. Beim Umschalten des Frosthaven Stil wird auch das Theme automatisch angepasst.<br>(Thema wird beim modernen Theme nicht automatisch umgeschaltet!)"
     },
     "automaticUnlocking": {
-      "": "Automatische Charakter Freischaltung",
+      "": "Autom.  Charakter Freischaltung",
       "hint": "Automatisches Charaktere durch Szenario Belohnungen freischalten."
     },
     "automation": "Automatisierung",
     "autoscroll": {
-      "": "Automatisch Scrollen",
+      "": "Autom. Scrollen",
       "hint": "Automatisch zur nächsten aktiven Figur scrollen"
     },
     "backupHint": {
@@ -2758,7 +2762,7 @@
       "hint": "Zeigt eine Erinnerung vor dem Start der ersten Runde an, dass noch ein Ereignis gezogen werden soll."
     },
     "expireConditions": {
-      "": "Automatisch Zustände löschen",
+      "": "Autom. Zustände löschen",
       "hint": "Entsprechende Zustände werden automatisch nach dem Zug der Figur entfernt, z.B. Stärke wird nach dem Zug entfernt"
     },
     "feedback": {
@@ -2949,7 +2953,7 @@
       "hint": "Falls deaktiviert werden keine Monster mehr angezeigt."
     },
     "moveElements": {
-      "": "Automatisch Elementen Status ändern",
+      "": "Autom. Elementen Status ändern",
       "hint": "Der Status der Elemente wird automatisch vor jeder Runde angepasst"
     },
     "partySheet": {
