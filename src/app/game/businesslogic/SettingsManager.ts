@@ -2,6 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import localeFr from '@angular/common/locales/fr';
 import localeKo from '@angular/common/locales/ko';
+import { Capacitor } from '@capacitor/core';
 import { DebugManager, debugManager } from 'src/app/game/businesslogic/DebugManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { storageManager } from 'src/app/game/businesslogic/StorageManager';
@@ -217,18 +218,28 @@ export class SettingsManager {
   async apply(setting: string, value: any) {
     if (setting === 'fullscreen') {
       if (value) {
-        if (!!document.body.requestFullscreen) {
-          document.body.requestFullscreen();
-        }
-        if ((navigator as any).keyboard?.lock) {
-          (navigator as any).keyboard.lock(['Escape']).catch(() => {});
+        if (Capacitor.isNativePlatform()) {
+          const { AndroidFullscreen } = await import('src/app/ui/helper/android-fullscreen');
+          AndroidFullscreen.enable();
+        } else {
+          if (!!document.body.requestFullscreen) {
+            document.body.requestFullscreen();
+          }
+          if ((navigator as any).keyboard?.lock) {
+            (navigator as any).keyboard.lock(['Escape']).catch(() => {});
+          }
         }
       } else {
-        if ((navigator as any).keyboard?.unlock) {
-          (navigator as any).keyboard.unlock();
-        }
-        if (!!document.exitFullscreen) {
-          document.exitFullscreen();
+        if (Capacitor.isNativePlatform()) {
+          const { AndroidFullscreen } = await import('src/app/ui/helper/android-fullscreen');
+          AndroidFullscreen.disable();
+        } else {
+          if ((navigator as any).keyboard?.unlock) {
+            (navigator as any).keyboard.unlock();
+          }
+          if (!!document.exitFullscreen) {
+            document.exitFullscreen();
+          }
         }
       }
     } else if (setting === 'locale') {

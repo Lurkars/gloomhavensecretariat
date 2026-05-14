@@ -1209,10 +1209,10 @@
                   <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomSideScenario'"></span>
                   @if (randomSideScenario) {
                     <div class="draw">
-                      <span class="placeholder" [ghs-label]="'%data.scenarioNumber:' + this.randomSideScenario.index + '%'"></span>
+                      <span class="placeholder" [ghs-label]="'%data.scenarioNumber:' + randomSideScenario.index + '%'"></span>
                       <span
                         class="placeholder text-white"
-                        [ghs-label]="'%data.scenario.title.' + this.randomSideScenario.edition + '.' + this.randomSideScenario.index + '%'"
+                        [ghs-label]="'%data.scenario.title.' + randomSideScenario.edition + '.' + randomSideScenario.index + '%'"
                       ></span>
                     </div>
                   }

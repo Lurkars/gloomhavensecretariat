@@ -2,53 +2,87 @@
   <div class="line">
     <p [ghs-label]="'about.ip'" [ghs-label-args]="['<a href=\'https:\/\/cephalofair.com\' target=\'_blank\'>Cephalofair Games</a>']"></p>
   </div>
-  <div class="line version">
-    @if (branded) {
-      <a target="_blank" [href]="'https://github.com/Lurkars/gloomhavensecretariat/releases/tag/v' + version"
-        >Gloomhaven Secretariat v{{ version }}</a
-      >
-    } @else {
-      <a class="disabled">Gloomhaven Secretariat v{{ version }}</a>
+
+  <div class="columns columns-break">
+    <div class="column">
+      <div class="line">
+        @if (branded) {
+          <a target="_blank" [href]="'https://github.com/Lurkars/gloomhavensecretariat/releases/tag/v' + version"
+            >Gloomhaven Secretariat v{{ version }}</a
+          >
+        } @else {
+          <a class="disabled">Gloomhaven Secretariat v{{ version }}</a>
+        }
+      </div>
+    </div>
+
+    @if (branded && !updateVersion) {
+      <div class="column">
+        <div class="line">
+          <div class="version-info">
+            <span class="unknown no-wrap">
+              <span [ghs-label]="'about.version.unknown'"></span>
+            </span>
+          </div>
+        </div>
+      </div>
     }
 
-    <div class="version-info">
-      @if (branded && !updateVersion) {
-        <span class="unknown">
-          <span [ghs-label]="'about.version.unknown'"></span>
-        </span>
-      }
-      @if (branded && !!updateVersion && updateVersion.latest) {
-        <span class="latest">
-          <span [ghs-label]="'about.version.latest'"></span>
-        </span>
-      }
-      @if (branded && !!updateVersion && !updateVersion.latest) {
-        <span class="update">
-          <span [ghs-label]="'about.version.update'" [ghs-label-args]="[updateVersion.version, updateVersion.url]"></span>
-        </span>
-      }
-      @if (branded && !!updateVersion && !updateVersion.latest && platform === 'android') {
-        <span class="apk">
-          <span [ghs-label]="'about.version.update.apk'" [ghs-label-args]="[apkUrl, updateVersion.version]"></span>
-        </span>
-      }
-      @if ((!updateVersion || !updateVersion.latest) && platform === 'web') {
-        <a class="force" (click)="forceUpdate()"><span [ghs-label]="'about.forceUpdate'"></span></a>
-      }
-    </div>
+    @if (branded && !!updateVersion && updateVersion.latest) {
+      <div class="column">
+        <div class="line">
+          <div class="version-info">
+            <span class="latest no-wrap">
+              <span [ghs-label]="'about.version.latest'"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    }
+    @if (branded && !!updateVersion && !updateVersion.latest) {
+      <div class="column">
+        <div class="line">
+          <div class="version-info">
+            <span class="update no-wrap">
+              <span [ghs-label]="'about.version.update'" [ghs-label-args]="[updateVersion.version, updateVersion.url]"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    }
+    @if (branded && !!updateVersion && !updateVersion.latest && platform === 'android') {
+      <div class="column">
+        <div class="line">
+          <div class="version-info">
+            <span class="apk no-wrap">
+              <span [ghs-label]="'about.version.update.apk'" [ghs-label-args]="[apkUrl, updateVersion.version]"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    }
+    @if ((!updateVersion || !updateVersion.latest) && platform === 'web') {
+      <div class="column">
+        <div class="line">
+          <div class="version-info">
+            <a class="force no-wrap" (click)="forceUpdate()"><span [ghs-label]="'about.forceUpdate'"></span></a>
+          </div>
+        </div>
+      </div>
+    }
   </div>
 
   <div class="line">
-    <div class="columns">
+    <div class="columns columns-break">
       <div class="column">
-        <p>
+        <p class="no-wrap">
           <a href="https://ko-fi.com/lurkars" target="_blank"
             ><span [ghs-label]="branded ? 'about.support' : 'about.support.author'"></span
           ></a>
         </p>
       </div>
       <div class="column">
-        <p>
+        <p class="no-wrap">
           <a href="https://github.com/Lurkars/gloomhavensecretariat" target="_blank"
             ><span [ghs-label]="branded ? 'about.sourceCode' : 'about.sourceCode.author'"></span
           ></a>
@@ -56,6 +90,7 @@
       </div>
       <div class="column">
         <p
+          class="no-wrap"
           [ghs-label]="'about.license'"
           [ghs-label-args]="[
             branded

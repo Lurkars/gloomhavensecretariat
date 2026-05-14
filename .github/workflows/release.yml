@@ -114,29 +114,8 @@ jobs:
           fi
       - name: Sync Capacitor
         run: npx cap sync android
-      - name: Patch Android version
-        run: |
-          python <<'PY'
-          import os, re
-          from pathlib import Path
-
-          tag = os.environ.get("GITHUB_REF_NAME", "")
-          version_name = tag.lstrip("v") or "1.0"
-
-          parts = re.split(r'[.\-]', version_name)
-          try:
-              major, minor, patch = int(parts[0]), int(parts[1]) if len(parts) > 1 else 0, int(parts[2]) if len(parts) > 2 else 0
-          except ValueError:
-              major, minor, patch = 1, 0, 0
-          version_code = major * 1_000_000 + minor * 1_000 + patch
-
-          gradle = Path("android/app/build.gradle")
-          text = gradle.read_text()
-          text = re.sub(r'versionCode\s+\d+', f'versionCode {version_code}', text)
-          text = re.sub(r'versionName\s+"[^"]*"', f'versionName "{version_name}"', text)
-          gradle.write_text(text)
-          print(f"Set versionName={version_name}, versionCode={version_code}")
-          PY
+      - name: Patch Android
+        run: npm run patch-android
       - name: Decode Android keystore
         run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release-key.jks
@@ -147,70 +126,6 @@ jobs:
           echo "GHS_APP_KEY_ALIAS=${ANDROID_KEY_ALIAS}" >> android/gradle.properties
           echo "GHS_APP_STORE_PASSWORD=${ANDROID_KEYSTORE_PASSWORD}" >> android/gradle.properties
           echo "GHS_APP_KEY_PASSWORD=${ANDROID_KEY_PASSWORD}" >> android/gradle.properties
-      - name: Patch generated Android signing config
-        run: |
-          python <<'PY'
-          from pathlib import Path
-          import re
-
-          gradle = Path("android/app/build.gradle")
-          if not gradle.exists():
-              raise SystemExit("android/app/build.gradle not found")
-
-          text = gradle.read_text()
-
-          if "GHS_APP_STORE_FILE" in text and "signingConfig signingConfigs.release" in text:
-              print("Signing config already present")
-              raise SystemExit(0)
-
-          signing_block = """
-              signingConfigs {
-                  release {
-                      if (project.hasProperty("GHS_APP_STORE_FILE")) {
-                          storeFile file(project.property("GHS_APP_STORE_FILE"))
-                          storePassword project.property("GHS_APP_STORE_PASSWORD")
-                          keyAlias project.property("GHS_APP_KEY_ALIAS")
-                          keyPassword project.property("GHS_APP_KEY_PASSWORD")
-                      }
-                  }
-              }
-
-          """
-
-          if "android {" not in text:
-              raise SystemExit("Could not find android block in android/app/build.gradle")
-
-          if "GHS_APP_STORE_FILE" not in text:
-              text = text.replace("android {", "android {\n" + signing_block, 1)
-
-          buildtypes_match = re.search(r'buildTypes\s*\{', text)
-          if not buildtypes_match:
-              raise SystemExit("Could not find buildTypes block in android/app/build.gradle")
-
-          release_match = re.search(r'(\n\s*release\s*\{)', text[buildtypes_match.start():])
-          if not release_match:
-              raise SystemExit("Could not find release block inside buildTypes in android/app/build.gradle")
-
-          release_pos = buildtypes_match.start() + release_match.start(1)
-
-          insertion = """
-                      if (project.hasProperty("GHS_APP_STORE_FILE")) {
-                          signingConfig signingConfigs.release
-                      }
-          """
-
-          release_line_match = re.search(r'release\s*\{\n', text[release_pos:])
-          if not release_line_match:
-              raise SystemExit("Could not determine insertion point for buildTypes.release")
-
-          insert_at = release_pos + release_line_match.end()
-
-          if "signingConfig signingConfigs.release" not in text:
-              text = text[:insert_at] + insertion + text[insert_at:]
-
-          gradle.write_text(text)
-          print("Patched android/app/build.gradle")
-          PY
       - name: Build signed APK
         run: |
           cd android

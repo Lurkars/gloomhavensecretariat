@@ -2940,6 +2940,10 @@
       "": "Angriffsmodifikatordeck für Monster",
       "hint": "Das Angriffsmodifikatordeck für Monster anzeigen"
     },
+    "monsterInitativeRange": {
+      "": "Reichweite der Initiative anzeigen",
+      "hint": "Zeige vor der Runde die Reichweite der Initiativen auf dem Fertigkeitendeck an."
+    },
     "monsters": {
       "": "Monster",
       "hint": "Falls deaktiviert werden keine Monster mehr angezeigt."

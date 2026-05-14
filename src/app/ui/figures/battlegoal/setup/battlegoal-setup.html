@@ -43,7 +43,7 @@
           [flipped]="true"
           [disabled]="(!selected(battlegoal) && !filtered(battlegoal)) || selectedAlias(battlegoal)"
           [reveal]="false"
-          [selected]="!this.selectedAlias(battlegoal) && selected(battlegoal)"
+          [selected]="!selectedAlias(battlegoal) && selected(battlegoal)"
           [filtered]="filtered(battlegoal)"
           [ngClass]="{ disabled: selectedAlias(battlegoal) }"
           (click)="toggleFilter(battlegoal)"

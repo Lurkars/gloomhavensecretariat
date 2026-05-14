@@ -183,7 +183,7 @@
                 tabclick
                 type="checkbox"
                 [checked]="settingsManager.settings.serverWss"
-                (change)="settingsManager.toggle('serverWss'); this.updateServer()"
+                (change)="settingsManager.toggle('serverWss'); updateServer()"
               />
               <span [ghs-label]="'server.wss'"></span>
             </label>

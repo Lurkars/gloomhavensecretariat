@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.159.7",
+  "version": "0.160.0",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -42,7 +42,8 @@
     "watch": "nodemon",
     "electron": "npm run build -- --configuration electron --base-href ./ && electron . --no-sandbox",
     "electron:build": "npm run build -- --configuration electron --base-href ./ && electron-builder",
-    "electron:build:linux:appimage": "npm run build -- --configuration electron --base-href ./ && electron-builder --linux AppImage"
+    "electron:build:linux:appimage": "npm run build -- --configuration electron --base-href ./ && electron-builder --linux AppImage",
+    "patch-android": "node ./scripts/patch-android.js"
   },
   "build": {
     "appId": "gloomhavensecretariat",

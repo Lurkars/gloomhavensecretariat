@@ -172,6 +172,7 @@ export class Settings {
   portraitMode: boolean = true;
   monsters: boolean = true;
   monsterAttackModifierDeck: boolean = true;
+  monsterInitativeRange: boolean = false;
   moveElements: boolean = true;
   partySheet: boolean = true;
   passiveSummons: boolean = true;

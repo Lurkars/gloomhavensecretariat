@@ -1,5 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
+import { Capacitor } from '@capacitor/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Spoilable } from 'src/app/game/model/data/Spoilable';
@@ -83,6 +84,9 @@ export function ghsDurationLabel(value: number, totalHours: boolean = false): st
 }
 
 export function ghsInputFullScreenCheck(): void {
+  if (Capacitor.isNativePlatform()) {
+    return;
+  }
   if (settingsManager.settings.fullscreen && !!document.fullscreenElement) {
     if (!!document.exitFullscreen) {
       document.exitFullscreen();
@@ -93,6 +97,9 @@ export function ghsInputFullScreenCheck(): void {
 }
 
 export function ghsInputFullScreenCheckListener() {
+  if (Capacitor.isNativePlatform()) {
+    return;
+  }
   setTimeout(() => {
     if (settingsManager.settings.fullscreen && !!!document.fullscreenElement) {
       try {

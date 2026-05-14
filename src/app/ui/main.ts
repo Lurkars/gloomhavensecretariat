@@ -259,7 +259,12 @@ export class MainComponent implements OnInit {
       this.calcColumns();
     }
 
-    if (this.swUpdate.isEnabled || this.isAppDevMode()) {
+    if (Capacitor.isNativePlatform()) {
+      if (settingsManager.settings.fullscreen) {
+        const { AndroidFullscreen } = await import('src/app/ui/helper/android-fullscreen');
+        AndroidFullscreen.enable();
+      }
+    } else if (this.swUpdate.isEnabled || this.isAppDevMode()) {
       document.body.addEventListener('click', () => {
         if (
           settingsManager.settings.fullscreen &&

@@ -46,6 +46,22 @@ export class MonsterAbilityCardComponent implements OnInit {
     this.update();
   }
 
+  get minInitiative(): number {
+    let abilities = gameManager.abilities(this.monster).filter((ability, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
+    if (!abilities.length) {
+      abilities = gameManager.abilities(this.monster);
+    }
+    return abilities.length ? Math.min(...abilities.map((ability) => ability.initiative)) : 0;
+  }
+
+  get maxInitiative(): number {
+    let abilities = gameManager.abilities(this.monster).filter((ability, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
+    if (!abilities.length) {
+      abilities = gameManager.abilities(this.monster);
+    }
+    return abilities.length ? Math.max(...abilities.map((ability) => ability.initiative)) : 0;
+  }
+
   update() {
     this.hasBottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.drawnAbilities = gameManager.monsterManager.drawnAbilities(this.monster);

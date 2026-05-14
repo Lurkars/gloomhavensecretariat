@@ -59,7 +59,7 @@
                 </span>
               </a>
             }
-            @if (!gameManager.game.edition && this.welcomeOtherEditions) {
+            @if (!gameManager.game.edition && welcomeOtherEditions) {
               <a tabclick class="edition add-additional-content" (click)="header.openMenu(SubMenu.editions)">
                 <img class="ghs-svg" src="./assets/images/plus.svg" /> <span [ghs-label]="'hints.addAdditionalContent'"></span>
               </a>
@@ -155,7 +155,7 @@
         <div
           class="figure"
           [figure-autoscroll]="figure"
-          [block]="i === this.lastScroll || i === this.lastScrollColumn ? 'end' : 'center'"
+          [block]="i === lastScroll || i === lastScrollColumn ? 'end' : 'center'"
           [cdkDropListData]="i"
           cdkDropList
           (cdkDropListDropped)="drop($event)"

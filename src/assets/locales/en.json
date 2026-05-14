@@ -2940,6 +2940,10 @@
       "": "Attack Modifier Deck for monsters",
       "hint": "Enable the Attack Modifier Deck for monsters"
     },
+    "monsterInitativeRange": {
+      "": "Show Initiative Range",
+      "hint": "Show the range of upcoming initiative on Ability Deck before round."
+    },
     "monsters": {
       "": "Monsters",
       "hint": "If disabled no monsters are shown."

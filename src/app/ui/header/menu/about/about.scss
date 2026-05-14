@@ -1,11 +1,13 @@
+.no-wrap {
+  white-space: nowrap !important;
+}
+
 .version-info {
   display: flex;
-  justify-content: center;
   align-items: center;
   font-family: var(--ghs-font-title);
   font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
   color: var(--ghs-color-gray);
-  margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
   span {
     margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));

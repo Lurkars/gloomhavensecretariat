@@ -41,7 +41,18 @@
     >
     </ghs-ability>
   }
+
+  @if (settingsManager.settings.abilities) {
+    <span class="left-abilities"> {{ monster.abilities.length - drawnAbilities }}/{{ monster.abilities.length }} </span>
+  }
+
+  @if (settingsManager.settings.abilities && settingsManager.settings.monsterInitativeRange && minInitiative) {
+    <span class="initiative-range">
+      <span class="min">{{ minInitiative }}</span>
+      @if (maxInitiative !== minInitiative) {
+        <span class="spacer">-</span>
+        <span class="max">{{ maxInitiative }}</span>
+      }
+    </span>
+  }
 </div>
-@if (settingsManager.settings.abilities) {
-  <span class="left-abilities"> {{ this.monster.abilities.length - drawnAbilities }}/{{ this.monster.abilities.length }} </span>
-}

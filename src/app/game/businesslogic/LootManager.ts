@@ -267,9 +267,9 @@ export class LootManager {
         if (typeof reward.value === 'number') {
           gameManager.game.lootDeck.active = true;
           for (let i = 0; i < reward.value; i++) {
-            this.drawCard(gameManager.game.lootDeck);
+            this.drawCard(gameManager.game.lootDeck, character);
+            gameManager.triggerUiChange(false);
           }
-          gameManager.triggerUiChange(false);
         }
         break;
       case TreasureRewardType.scenario:

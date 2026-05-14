@@ -46,8 +46,8 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Loot Deck                                                                       | ✅             | ✅         | ✅        | ✅        | ⛔       |
 | Frosthaven Outpost (Calendar, Resources, Buildings, Town Guard etc.)            | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
 | Town Guard Deck                                                                 | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Item Management (automatic unlocks etc.)                                        | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Integrated Map (interactive)                                                    | ⛔             | ⛔         | ⛔        | ✅        | ⛔       |
+| Item Management (automatic unlocks, buy, craft etc.)                            | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
+| Integrated Scenario Map (interactive)                                           | ⛔             | ⛔         | ⛔        | ✅        | ⛔       |
 | Integrated Scenario/Section Book (interactive)                                  | ⛔             | ⛔         | ⛔        | ✅        | ⛔       |
 | Random Dungeons                                                                 | ✅❗[^1.2]      | ✅❗[^1.2]  | ⛔        | ✅        | ⛔       |
 | World Map                                                                       | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
@@ -98,6 +98,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Assign Loot Cards to Character                                                  | ✅             | ✅         | ⛔        | ✅        | ⛔       |
 | Special Scenario Rules/Notes                                                    | ✅             | ✅         | ⛔        | ✅        | ⛔       |
 | Apply Special Scenario Rules                                                    | ✅             | ✅❗[^16.2] | ⛔        | ✅        | ⛔       |
+| Support Frosthaven Outpost Attacks                                              | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
 | Support Frosthaven Building 81 Mechanics                                        | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
 | Support Frosthaven Building 90 Mechanics                                        | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
 | Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]         | ✅         | ⛔        | ✅[^21]   | ⛔       |
@@ -117,6 +118,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Ability Card Names                                                              | ✅[^17.1]      | ✅         | ✅[^17.2] | ✅        | ⛔       |
 | Named Summons                                                                   | ✅             | ✅         | ✅        | ✅        | ⛔       |
 | Summon Stats                                                                    | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
+| Display Monster Initiative Range                                                | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
 | Active Summons                                                                  | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
 | Mark Long Rest                                                                  | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
 | Automatic apply Long Rest (perform Heal 2)                                      | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
