@@ -3,6 +3,8 @@ import { CdkDragDrop, CdkDragRelease, CdkDragStart, DragDropModule, moveItemInAr
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
+import { App } from '@capacitor/app';
+import { Capacitor } from '@capacitor/core';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -299,6 +301,14 @@ export class MainComponent implements OnInit {
         this.automaticClockIn();
       }
     });
+
+    if (Capacitor.isNativePlatform()) {
+      App.addListener('appStateChange', ({ isActive }) => {
+        if (isActive && settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
+          gameManager.stateManager.connect();
+        }
+      });
+    }
 
     if (settingsManager.settings.wakeLock && 'wakeLock' in navigator) {
       try {
