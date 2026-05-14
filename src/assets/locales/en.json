@@ -2377,7 +2377,7 @@
     "activeApplyConditions": {
       "": "Confirm applicable conditions",
       "auto": {
-        "": "Automatic confirm",
+        "": "Auto. confirm",
         "hint": {
           "": "Do not ask for confirmation and apply those conditions automatically.<br><br>Enable this with care!",
           "brittle": "On suffering damage, automatic apply %game.condition.brittle% and increase damage.<br><br>Does not work automatically on %game.condition.poison%!",
@@ -2466,7 +2466,7 @@
       "hint": "On building or upgrading a building, apply the corresponding bonuses and open section dialog if present."
     },
     "applyConditions": {
-      "": "Automatic apply conditions",
+      "": "Auto. apply conditions",
       "hint": {
         "": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will lose 1 HP on start of it's round",
         "bane": "Automatic apply %game.condition.bane% damage at end of turn.",
@@ -2497,39 +2497,43 @@
       "hint": "Artwork for monsters and characters"
     },
     "automaticAttackModifierFullscreen": {
-      "": "Auto fullscreen AM Deck",
+      "": "Auto. fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
     },
+    "automaticEndRound": {
+      "": "Auto. end round",
+      "hint": "Automatically end the round when last acting figures turn ended."
+    },
     "automaticFirstFigure": {
-      "": "Auto start first figure",
+      "": "Auto. start first figure",
       "hint": "Automatically start the turn of first figure on begin of next the round. This is always enabled, if initiative is required."
     },
     "automaticGameClock": {
-      "": "Automatic game clock",
+      "": "Auto. game clock",
       "hint": "Automatically start and stop game clock when window openes or closes."
     },
     "automaticGameClockFocus": {
-      "": "Automatic game clock on focus",
+      "": "Auto. game clock on focus",
       "hint": "Also start and stop game clock automatically when window gain focus or loses focus."
     },
     "automaticPassTime": {
-      "": "Automatic pass calendar time",
+      "": "Auto. pass calendar time",
       "hint": "Automatic pass time by adding a week to the calendar after finishing a scenario. This also automatically adds effects of calendar sections in this week."
     },
     "automaticStandees": {
-      "": "Automatic Standees",
+      "": "Auto. Standees",
       "hint": "Automatic addition of standees."
     },
     "automaticStandeesDialog": {
-      "": "Automatic Standees Dialogs",
+      "": "Auto. Standees Dialogs",
       "hint": "Automatically open standee number dialogs for all new standees."
     },
     "automaticTheme": {
-      "": "Automatic Theme",
+      "": "AutomaAuto.tic Theme",
       "hint": "Adjust Theme and Frosthaven Style automatically on edition change. Also adjust Theme when toggling Frosthaven Style.<br>(Theme adjustment disabled on Modern Theme)"
     },
     "automaticUnlocking": {
-      "": "Automatic Character Unlock",
+      "": "Auto. Character Unlock",
       "hint": "Automatically unlock characters from scenario rewards."
     },
     "automation": "Automation",
@@ -2758,14 +2762,14 @@
       "hint": "Show a reminder before first round to draw an event."
     },
     "expireConditions": {
-      "": "Automatic expire conditions",
+      "": "Auto. expire conditions",
       "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
     },
     "feedback": {
       "": "Disable Feedback Button"
     },
     "feedbackErrors": {
-      "": "Automatic Feedback",
+      "": "Auto. Feedback",
       "clear": "Clear ignored Automatic Feedback Errors",
       "hint": "Automatically report errors via Feedback Dialog"
     },
@@ -2949,7 +2953,7 @@
       "hint": "If disabled no monsters are shown."
     },
     "moveElements": {
-      "": "Automatic update element state",
+      "": "Auto. update element state",
       "hint": "The element state is automatically changed before each round"
     },
     "partySheet": {
@@ -3655,7 +3659,7 @@
         "success": "Scenario #{0} {1} ({2}) successful"
       },
       "gameClock": {
-        "automaticGameClockOut": "Automatic clock out",
+        "automaticGameClockOut": "Auto. clock out",
         "clockIn": "Clock In",
         "clockOut": "Clock out",
         "merge": "Merge Game Clock"

@@ -544,6 +544,8 @@ export class CharacterManager {
               !condition.expired &&
               condition.state !== EntityConditionState.removed
             ) {
+              condition.state = EntityConditionState.new;
+              condition.state = EntityConditionState.new;
               if (!figure.immunities.includes(condition.name)) {
                 figure.immunities.push(condition.name);
               }
@@ -553,6 +555,19 @@ export class CharacterManager {
           if (!figure.tags.includes('delayed_malady')) {
             {
               figure.immunities = [];
+
+              figure.entityConditions.forEach((condition) => {
+                if (
+                  condition.types.includes(ConditionType.negative) &&
+                  !condition.expired &&
+                  condition.state !== EntityConditionState.removed
+                ) {
+                  condition.state = EntityConditionState.normal;
+                  if (condition.types.includes(ConditionType.expire)) {
+                    condition.state = EntityConditionState.expire;
+                  }
+                }
+              });
             }
           }
         }

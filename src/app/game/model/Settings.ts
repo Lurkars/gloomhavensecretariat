@@ -46,6 +46,7 @@ export class Settings {
       }
     | undefined;
   automaticAttackModifierFullscreen: boolean = true;
+  automaticEndRound: boolean = false;
   automaticFirstFigure: boolean = true;
   automaticGameClock: boolean = true;
   automaticGameClockFocus: boolean = false;

@@ -81,6 +81,14 @@ export class SpecialActionsHelper {
           }
 
           if (entity.name === 'shackles' && specialTagsToTemove.includes('delayed_malady')) {
+            entity.immunities.forEach((immunity) => {
+              const entityCondition = entity.entityConditions.find((condition) => condition.name === immunity);
+              if (entityCondition) {
+                entityCondition.state = EntityConditionState.new;
+                entityCondition.lastState = EntityConditionState.new;
+              }
+            });
+
             entity.immunities = [];
             entity.tags = entity.tags.filter((tag) => tag !== 'delayed_malady');
             this.component.entityImmunities = entity.immunities;
