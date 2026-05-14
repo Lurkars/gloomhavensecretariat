@@ -133,11 +133,11 @@ There are a few other apps that are specialised or niche and therefore not taken
 |                                                                                 |              |           |          |          |         |
 | **Devices**                                                                     | *GHS*        | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
 | Web                                                                             | ✅            | ⛔         | ⛔        | ✅        | ⛔[^8]   |
-| Windows                                                                         | ✅[^7.1]      | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| MacOS                                                                           | ✅[^7.1]      | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| Linux                                                                           | ✅[^7.1]      | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| Android                                                                         | ✅[^7.2]      | ✅         | ✅        | ✅❗[^7]   | ❗[^9]   |
-| iOS                                                                             | ✅❗[^7]       | ✅         | ✅        | ✅❗[^7]   | ⛔[^8]   |
+| Windows                                                                         | ✅[^7.1][^10] | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| MacOS                                                                           | ✅[^7.1][^10] | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| Linux                                                                           | ✅[^7.1][^10] | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
+| Android                                                                         | ✅[^7.2][^10] | ✅         | ✅        | ✅❗[^7]   | ❗[^9]   |
+| iOS                                                                             | ✅❗[^7][^10]  | ✅         | ✅        | ✅❗[^7]   | ⛔[^8]   |
 |                                                                                 |              |           |          |          |         |
 | **Contribution**                                                                | *GHS*        | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
 | OpenSource License                                                              | ✅[^14]       | ✅[^15]    | ⛔        | ⛔        | ⛔       |
