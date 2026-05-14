@@ -261,7 +261,13 @@
           "mode": "模式标记"
         }
       },
-      "shackles": "痛苦通导者",
+      "shackles": {
+        "": "痛苦通导者",
+        "delayed_malady": {
+          "": "延迟痼疾",
+          "hint": "4轮中无视/不触发异常状态"
+        }
+      },
       "shards": {
         "": "碎裂歌手",
         "extra_resonance_tokens": {
