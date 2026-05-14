@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/helper/android-fullscreen.ts"],
+  "sourcesContent": ["import { registerPlugin } from '@capacitor/core';\n\ninterface AndroidFullscreenPlugin {\n  enable(): Promise<void>;\n  disable(): Promise<void>;\n}\n\nexport const AndroidFullscreen = registerPlugin<AndroidFullscreenPlugin>('AndroidFullscreen', {\n  web: {\n    enable: async () => {},\n    disable: async () => {}\n  }\n});\n"],
+  "mappings": "oEAOO,IAAMA,EAAoBC,EAAwC,oBAAqB,CAC5FC,IAAK,CACHC,OAAQ,SAAW,CAAE,EACrBC,QAAS,SAAW,CAAE,GAEzB",
+  "names": ["AndroidFullscreen", "registerPlugin", "web", "enable", "disable"]
+}
