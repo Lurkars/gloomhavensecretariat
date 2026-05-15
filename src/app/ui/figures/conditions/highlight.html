@@ -35,7 +35,7 @@
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
           />
           @if (entityCondition.types.includes(ConditionType.value)) {
-            <span class="value">{{ entityCondition.value }}</span>
+            <span class="value">{{ entityCondition.highlightValue || entityCondition.value }}</span>
           }
         </span>
         @if (

@@ -898,7 +898,7 @@ export class ScenarioRulesManager {
               figureRule.type === 'dormant' ||
               figureRule.type === 'activate' ||
               figureRule.type === 'removeEntity' ||
-              figureRule.type === 'toggleAfteTurnSummon'
+              figureRule.type === 'toggleAfterTurnSummon'
           )
           .forEach((figureRule) => {
             const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
@@ -1034,7 +1034,7 @@ export class ScenarioRulesManager {
                       });
                     }
                     break;
-                  case 'toggleAfteTurnSummon':
+                  case 'toggleAfterTurnSummon':
                     if (entity instanceof Summon) {
                       entity.afterTurn = !entity.afterTurn;
                     }

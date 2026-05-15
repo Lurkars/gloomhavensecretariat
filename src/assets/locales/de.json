@@ -2086,6 +2086,7 @@
         "setAbility": "Aktive Fertigkeitskarte von {0} auf '{1}' festlegen",
         "setHp": "{0} TP auf {2}",
         "shuffleAbilities": "Mische Fertigkeitendeck für {0}",
+        "toggleAfterTurnSummon": "Beschwörungen agieren erst nach Charakter umschalten für {0}",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",
         "transfer": "{0} wird zu %data.monster.{1}% {4}",

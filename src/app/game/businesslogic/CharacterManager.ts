@@ -438,6 +438,9 @@ export class CharacterManager {
         summonsToRemove.forEach((summon) => this.removeSummon(figure, summon));
 
         figure.summons.forEach((summon) => {
+          summon.off = false;
+          summon.active = false;
+          summon.afterTurnActive = false;
           if (summon.state === SummonState.new) {
             summon.state = SummonState.true;
           }

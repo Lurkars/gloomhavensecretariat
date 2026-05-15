@@ -2089,6 +2089,7 @@
         "setAbility": "Set active ability card of {0} to '{1}'",
         "setHp": "{0} HP to {2}",
         "shuffleAbilities": "Shuffle ability deck for {0}",
+        "toggleAfterTurnSummon": "Toggle summons acting after character for {0}",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
         "transfer": "{0} become %data.monster.{1}% {4}",

@@ -189,10 +189,10 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['deck']) {
-      this.update();
-    } else if (changes['character']) {
+    if (changes['inputCharacter']) {
       this.initCharacter();
+    } else if (changes['inputDeck']) {
+      this.update();
     }
   }
 

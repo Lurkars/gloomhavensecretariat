@@ -43,7 +43,7 @@
             "type": "characterWithSummon",
             "name": ".*"
           },
-          "type": "toggleAfteTurnSummon"
+          "type": "toggleAfterTurnSummon"
         }
       ],
       "reverseInitiative": true,
@@ -58,7 +58,7 @@
             "type": "characterWithSummon",
             "name": ".*"
           },
-          "type": "toggleAfteTurnSummon"
+          "type": "toggleAfterTurnSummon"
         }
       ]
     },

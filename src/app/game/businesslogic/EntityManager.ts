@@ -319,6 +319,10 @@ export class EntityManager {
             ) {
               shieldRetaliate.expired = false;
               shieldRetaliate.highlight = true;
+              if (value + shieldRetaliate.value > 0) {
+                shieldRetaliate.highlightValue = shieldRetaliate.value;
+                shieldRetaliate.value -= value + shieldRetaliate.value;
+              }
               shieldValue = shieldRetaliate.value;
               if (
                 settingsManager.settings.applyConditions &&

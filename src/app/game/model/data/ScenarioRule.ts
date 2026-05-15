@@ -116,7 +116,7 @@ export type ScenarioFigureRuleTypes =
   | 'activate'
   | 'onTurn'
   | 'afterTurn'
-  | 'toggleAfteTurnSummon'
+  | 'toggleAfterTurnSummon'
   | 'killLowest';
 
 export const HiddenScenarioFigureRuleTypes: ScenarioFigureRuleTypes[] = ['present', 'dead', 'killed', 'initiative', 'onTurn', 'afterTurn'];

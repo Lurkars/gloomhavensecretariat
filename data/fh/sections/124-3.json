@@ -13,13 +13,6 @@
       "round": "true",
       "always": true,
       "once": true,
-      "note": "%data.section.rules.fh.124-3.1%",
-      "finish": "round"
-    },
-    {
-      "round": "true",
-      "always": true,
-      "once": true,
       "figures": [
         {
           "identifier": {
@@ -50,6 +43,13 @@
       "always": true,
       "once": true,
       "note": "%data.section.rules.fh.124-3.2%"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "%data.section.rules.fh.124-3.1%",
+      "finish": "round"
     }
   ]
 }
