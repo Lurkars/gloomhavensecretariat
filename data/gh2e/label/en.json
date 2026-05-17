@@ -798,8 +798,7 @@
       },
       "flame-demon": {
         "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
-        "2": "%game.damage:1%",
-        "3": "All adjacent<br>enemies suffer %game.damage:2%"
+        "2": "All adjacent<br>enemies suffer %game.damage:2%"
       },
       "flowChartGroup": {
         "city-guards": "City Guard/The Shields",
@@ -814,9 +813,6 @@
         "the-gloom": "The Gloom",
         "the-sewers": "The Sewers",
         "the-voice": "The Voice and the Drake"
-      },
-      "frost-demon": {
-        "1": "%game.damage:1%"
       },
       "giant-viper": {
         "1": "All attacks targeting Giant Viper this round gain disadvantage.",

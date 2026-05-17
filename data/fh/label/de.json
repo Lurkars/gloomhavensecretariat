@@ -556,8 +556,7 @@
       },
       "flame-demon": {
         "1": "Erstelle eine %game.damage:4% auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist",
-        "2": "%game.damage:1%",
-        "3": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
+        "2": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
       },
       "flaming-bladespinner": {
         "1": "Alle Gegner in<br>%game.action.range:2% erleiden %game.damage:2%.",
@@ -575,9 +574,6 @@
         "puzzle-book": "Rätselbuch",
         "random-scenarios": "Zufallsszenario",
         "unfettered": "Entfesselte"
-      },
-      "frost-demon": {
-        "1": "%game.damage:1%"
       },
       "frozen-corpse": {
         "1": "Hat die Gefrorene Leiche während<br>dieser Bewegung das Element<br> verbraucht, erleidet sie %game.damage:2%."

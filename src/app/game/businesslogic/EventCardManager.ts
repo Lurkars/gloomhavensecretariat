@@ -386,6 +386,13 @@ export class EventCardManager {
   }
 
   applicableEffect(effect: EventCardEffect): boolean {
+    if (
+      settingsManager.settings.fhShareResources &&
+      [EventCardEffectType.collectiveResource, EventCardEffectType.loseCollectiveResource].includes(effect.type)
+    ) {
+      return true;
+    }
+
     return EventCardApplyEffects.includes(effect.type);
   }
 
@@ -546,6 +553,12 @@ export class EventCardManager {
                   }
                 }
                 break;
+              case EventCardEffectType.collectiveResource:
+                if (settingsManager.settings.fhShareResources) {
+                  const type = effect.values[1] as LootType;
+                  this.game.party.loot[type] = (this.game.party.loot[type] || 0) + +effect.values[0];
+                }
+                break;
               case EventCardEffectType.drawAnotherEvent:
               case EventCardEffectType.drawEvent:
                 this.game.eventDraw = effect.values[0] as string;
@@ -588,6 +601,12 @@ export class EventCardManager {
                     c.progress.battleGoals = 0;
                   }
                 });
+                break;
+              case EventCardEffectType.loseCollectiveResource:
+                if (settingsManager.settings.fhShareResources) {
+                  const type = effect.values[2] as LootType;
+                  this.game.party.loot[type] = Math.max(0, (this.game.party.loot[type] || 0) - +effect.values[0]);
+                }
                 break;
               case EventCardEffectType.loseExperience:
                 characters.forEach((c) => {

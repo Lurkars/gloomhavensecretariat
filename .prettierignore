@@ -4,4 +4,3 @@ src/assets/
 coverage/
 .local
 *.json
-*.md

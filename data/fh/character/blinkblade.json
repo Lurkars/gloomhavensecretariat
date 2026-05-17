@@ -19,11 +19,23 @@
   "color": "#01b0db",
   "specialActions": [
     {
-      "name": "time_tokens"
+      "name": "breaknet_speed",
+      "expire": true,
+      "slots": [
+        "slotStart",
+        "slotXpFh:1",
+        "slot",
+        "slotEndXp:1"
+      ],
+      "slotTrigger": "roundStart",
+      "level": 5
     },
     {
       "name": "overdrive",
       "expire": true
+    },
+    {
+      "name": "time_tokens"
     }
   ],
   "stats": [

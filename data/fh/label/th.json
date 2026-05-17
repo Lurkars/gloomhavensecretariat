@@ -1512,8 +1512,7 @@
       },
       "flame-demon": {
         "1": "สร้างกับดัก %game.damage:4% หนึ่งอันในหกเหลี่ยมว่างที่ติดกัน<br>ที่ใกล้ศัตรูที่สุด",
-        "2": "%game.damage:1%",
-        "3": "ศัตรูที่ติดกันทั้งหมด<br>รับ %game.damage:2%"
+        "2": "ศัตรูที่ติดกันทั้งหมด<br>รับ %game.damage:2%"
       },
       "flaming-bladespinner": {
         "1": "ศัตรูทั้งหมดภายใน<br>%game.action.range:2% รับ %game.damage:2%",
@@ -1530,9 +1529,6 @@
         "personal-quests": "เควสส่วนตัว",
         "puzzle-book": "หนังสือปริศนา",
         "random-scenarios": "สถานการณ์สุ่ม"
-      },
-      "frost-demon": {
-        "1": "%game.damage:1%"
       },
       "frozen-corpse": {
         "1": "หากธาตุถูกบริโภคโดย<br>Frozen Corpse ระหว่างความสามารถ<br>เคลื่อนที่ มันรับ %game.damage:2%"

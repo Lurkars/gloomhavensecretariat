@@ -110,4 +110,35 @@ export class TrialsManager {
   cardIdSecondPrinting(cardId: number): number {
     return 708 - cardId; // 360 - 12 + (360 - cardId)
   }
+
+  next(character: Character) {
+    if (
+      this.apply &&
+      this.trialsEnabled &&
+      settingsManager.settings.battleGoals &&
+      gameManager.entityManager.isAlive(character) &&
+      character.progress.trial &&
+      character.progress.trial.edition === 'fh' &&
+      character.progress.trial.name === '356' &&
+      character.tags.includes('trial-fh-356')
+    ) {
+      character.tags.splice(character.tags.indexOf('trial-fh-356'), 1);
+      gameManager.battleGoalManager.drawBattleGoal(character, true);
+    }
+  }
+
+  draw(character: Character) {
+    if (
+      this.apply &&
+      this.trialsEnabled &&
+      settingsManager.settings.battleGoals &&
+      !character.absent &&
+      character.progress.trial &&
+      character.progress.trial.edition === 'fh' &&
+      character.progress.trial.name === '356' &&
+      character.tags.includes('trial-fh-356')
+    ) {
+      character.tags.splice(character.tags.indexOf('trial-fh-356'), 1);
+    }
+  }
 }

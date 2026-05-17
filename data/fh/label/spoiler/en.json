@@ -265,7 +265,7 @@
         "": "Pain Conduit",
         "delayed_malady": {
           "": "Delayed Malady",
-          "hint": "Negative conditions do not apply/expire for 4 rounds"
+          "hint": "Negative conditions do not apply/expire for 4 rounds (Automatic %game.card.experience%)"
         }
       },
       "shards": {

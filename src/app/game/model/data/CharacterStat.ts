@@ -1,3 +1,5 @@
+import { ActionCardType } from 'src/app/game/model/data/Action';
+
 export class CharacterStat {
   level: number;
   health: number;
@@ -8,6 +10,8 @@ export class CharacterStat {
   }
 }
 
+export type CharacterSpecialActionSlotTrigger = 'turnStart' | 'turnEnd' | 'roundStart' | 'roundEnd' | 'manual' | undefined;
+
 export class CharacterSpecialAction {
   name: string;
   level: number;
@@ -15,7 +19,8 @@ export class CharacterSpecialAction {
   expire: boolean;
   round: boolean;
   summon: boolean;
-  slots: number | undefined;
+  slots: ActionCardType[] | undefined;
+  slotTrigger: CharacterSpecialActionSlotTrigger;
   perk: number | undefined;
 
   constructor(
@@ -25,7 +30,8 @@ export class CharacterSpecialAction {
     expire: boolean = false,
     round: boolean = false,
     summon: boolean = false,
-    slots: number | undefined = undefined
+    slots: ActionCardType[] | undefined = undefined,
+    slotTrigger: CharacterSpecialActionSlotTrigger
   ) {
     this.name = name;
     this.level = level;
@@ -34,5 +40,6 @@ export class CharacterSpecialAction {
     this.round = round;
     this.summon = summon;
     this.slots = slots;
+    this.slotTrigger = slotTrigger;
   }
 }

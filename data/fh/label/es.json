@@ -1147,8 +1147,7 @@
       },
       "flame-demon": {
         "1": "Crea 1 trampa %game.damage:4% en el hexágono vacío<br>adyacente más cercano a un enemigo",
-        "2": "%game.damage:1%",
-        "3": "Todos los enemigos<br>adyacentes sufren %game.damage:2%"
+        "2": "Todos los enemigos<br>adyacentes sufren %game.damage:2%"
       },
       "flaming-bladespinner": {
         "1": "Todos los enemigos a<br>%game.action.range:2% sufren %game.damage:2%.",
@@ -1166,9 +1165,6 @@
         "puzzle-book": "Libro de puzzles",
         "random-scenarios": "Escenarios aleatorios",
         "unfettered": "Desencadenados"
-      },
-      "frost-demon": {
-        "1": "%game.damage:1%"
       },
       "frozen-corpse": {
         "1": "Si el Cadáver helado consume el<br>elemento durante la capacidad<br>de Movimiento, sufre %game.damage:2%."

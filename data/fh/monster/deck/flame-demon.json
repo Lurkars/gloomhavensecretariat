@@ -240,7 +240,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.flame-demon.3%",
+              "value": "%data.custom.fh.flame-demon.2%",
               "small": true
             }
           ]

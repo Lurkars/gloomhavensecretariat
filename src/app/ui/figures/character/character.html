@@ -566,19 +566,27 @@
             [originX]="'center'"
             [overlayX]="'center'"
           ></span>
-          @if (specialAction.slots) {
+          @if (!!specialAction.slots) {
             <span class="special-action-slots">
-              @let current = specialAction.slots - character.tags.filter((tag) => tag === specialAction.name).length;
+              @let current =
+                specialAction.slots.length -
+                character.tags.filter((tag) => tag === specialAction.name).length -
+                (specialAction.slots[0].toLowerCase().includes('start') ? 0 : 1);
 
-              @for (slot of [] | ghsRange: specialAction.slots; track slot) {
-                <span class="special-action-slot">
+              @for (slot of specialAction.slots; track slot + i; let i = $index) {
+                <span
+                  class="special-action-slot"
+                  [ngClass]="{ manual: specialAction.slotTrigger === 'manual' }"
+                  ghs-pointer-input
+                  (singleClick)="triggerSpecialActionSlot(specialAction, i)"
+                  (doubleClick)="triggerSpecialActionSlot(specialAction, i, true)"
+                >
+                  <span class="slot" [ghs-label]="'%game.card.' + slot + '%'"></span>
                   <span
-                    class="slot"
-                    [ghs-label]="gameManager.fhRules(true) && slot === 0 ? '%game.card.slotStart%' : '%game.card.slot%'"
+                    class="token"
+                    [ngClass]="{ active: i === current }"
+                    [ghs-label]="'%data.characterToken.' + character.name + '%'"
                   ></span>
-                  @if (slot === current) {
-                    <span class="token" [ghs-label]="'%data.characterToken.' + character.name + '%'"></span>
-                  }
                 </span>
               }
             </span>

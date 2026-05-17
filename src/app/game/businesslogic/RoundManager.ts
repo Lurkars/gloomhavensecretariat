@@ -256,8 +256,8 @@ export class RoundManager {
     }
 
     if (
-      settingsManager.settings.automaticEndRound &&
       !figure &&
+      settingsManager.settings.automaticEndRound &&
       this.game.figures.every((figure) => figure.off || (figure instanceof Character && (figure.exhausted || figure.absent)))
     ) {
       this.nextGameState();

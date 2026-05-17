@@ -6,12 +6,11 @@ import { FigureError, FigureErrorType } from 'src/app/game/model/data//FigureErr
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
-import { Condition, ConditionName, ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { Enhancement } from 'src/app/game/model/data/Enhancement';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { SummonData } from 'src/app/game/model/data/SummonData';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -446,15 +445,8 @@ export class CharacterManager {
           }
         });
 
-        if (
-          figure instanceof Character &&
-          !figure.absent &&
-          figure.name === 'blinkblade' &&
-          figure.tags.includes('time_tokens') &&
-          figure.primaryToken === 0
-        ) {
-          figure.identity = 0;
-        }
+        gameManager.specialActionsManager.next(figure);
+        gameManager.trialsManager.next(figure);
 
         if (
           figure.progress.equippedItems.find((identifier) => identifier.edition === 'cs' && identifier.name === '57') &&
@@ -464,35 +456,11 @@ export class CharacterManager {
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.regenerate));
         }
 
-        if (!figure.absent && figure.name === 'blinkblade' && figure.tags.includes('roundAction-overdrive')) {
-          const blinkbladeShield = figure.extraActionsPersistent.find((action) => action.type === ActionType.shield);
-          if (blinkbladeShield) {
-            blinkbladeShield.value = EntityValueFunction(blinkbladeShield.value) - 1;
-            if (blinkbladeShield.value <= 0) {
-              figure.extraActionsPersistent = figure.extraActionsPersistent.filter((action) => action.type !== ActionType.shield);
-            }
-          }
-        }
-
         if (figure.tags) {
           const roundSpecialActions = figure.specialActions.filter((specialAction) => specialAction.round);
           figure.tags = figure.tags.filter(
             (tag) => !tag.startsWith('roundAction-') && !roundSpecialActions.some((specialAction) => tag === specialAction.name)
           );
-        }
-
-        if (
-          gameManager.trialsManager.apply &&
-          gameManager.trialsManager.trialsEnabled &&
-          settingsManager.settings.battleGoals &&
-          gameManager.entityManager.isAlive(figure) &&
-          figure.progress.trial &&
-          figure.progress.trial.edition === 'fh' &&
-          figure.progress.trial.name === '356' &&
-          figure.tags.includes('trial-fh-356')
-        ) {
-          figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
-          gameManager.battleGoalManager.drawBattleGoal(figure, true);
         }
       }
     });
@@ -509,84 +477,8 @@ export class CharacterManager {
         if (gameManager.entityManager.isAlive(figure) && !figure.absent) {
           figure.off = false;
         }
-
-        if (!figure.absent && figure.name === 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken === 0) {
-          if (figure.identity === 0 && figure.tokenValues[0] < 2) {
-            figure.tokenValues[0] += 1;
-          } else if (figure.identity === 1) {
-            if (figure.tokenValues[0] > 0) {
-              figure.tokenValues[0] -= 1;
-            } else {
-              figure.identity = 0;
-              figure.tokenValues[0] = 1;
-            }
-          }
-        }
-
-        if (
-          !figure.absent &&
-          figure.name === 'blinkblade' &&
-          figure.tags.includes('overdrive') &&
-          !figure.tags.includes('roundAction-overdrive') &&
-          figure.identity === 0
-        ) {
-          figure.tags.push('roundAction-overdrive');
-          const existingShield = figure.extraActionsPersistent.find((action) => action.type === ActionType.shield);
-          if (!existingShield) {
-            figure.extraActionsPersistent.push(new Action(ActionType.shield, 1));
-          } else {
-            existingShield.value = EntityValueFunction(existingShield.value) + 1;
-          }
-        }
-
-        if (gameManager.entityManager.isAlive(figure) && figure.name === 'shackles' && figure.tags.includes('delayed_malady')) {
-          figure.tags.splice(figure.tags.indexOf('delayed_malady'), 1);
-          figure.entityConditions.forEach((condition) => {
-            if (
-              condition.types.includes(ConditionType.negative) &&
-              !condition.expired &&
-              condition.state !== EntityConditionState.removed
-            ) {
-              condition.state = EntityConditionState.new;
-              condition.state = EntityConditionState.new;
-              if (!figure.immunities.includes(condition.name)) {
-                figure.immunities.push(condition.name);
-              }
-            }
-          });
-
-          if (!figure.tags.includes('delayed_malady')) {
-            {
-              figure.immunities = [];
-
-              figure.entityConditions.forEach((condition) => {
-                if (
-                  condition.types.includes(ConditionType.negative) &&
-                  !condition.expired &&
-                  condition.state !== EntityConditionState.removed
-                ) {
-                  condition.state = EntityConditionState.normal;
-                  if (condition.types.includes(ConditionType.expire)) {
-                    condition.state = EntityConditionState.expire;
-                  }
-                }
-              });
-            }
-          }
-        }
-
-        if (
-          gameManager.trialsManager.apply &&
-          gameManager.trialsManager.trialsEnabled &&
-          settingsManager.settings.battleGoals &&
-          !figure.absent &&
-          figure.progress.trial &&
-          figure.progress.trial.edition === 'fh' &&
-          figure.progress.trial.name === '356' &&
-          figure.tags.includes('trial-fh-356')
-        ) {
-          figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
-        }
+        gameManager.specialActionsManager.draw(figure);
+        gameManager.trialsManager.draw(figure);
       }
     });
   }

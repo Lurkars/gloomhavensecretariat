@@ -1,14 +1,14 @@
 ## A comparison chart of the most popular Gloomhaven Companions Apps
 
-This is a comparison of popular companion apps. Since it was created by the author of *Gloomhaven Secretariat*, it's biased. If you would like to see features listed here that are missing, feel free to contact me! 
+This is a comparison of popular companion apps. Since it was created by the author of _Gloomhaven Secretariat_, it's biased. If you would like to see features listed here that are missing, feel free to contact me!
 
-- [Gloomhaven Secretariat](https://gloomhaven-secretariat.de) (*GHS*)
-- [X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant) (*XHA*)
-- [Frosthaven Official Companion](https://cephalofair.com/blogs/blog/frosthaven-official-companion-app-now-available) (*FOC*)
-- [Gloomhaven Full Stack](https://gloomhaven.smigiel.us) (*GHFS*)
-- [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (*GHH*) \[discontinued\]
+- [Gloomhaven Secretariat](https://gloomhaven-secretariat.de) (_GHS_)
+- [X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant) (_XHA_)
+- [Frosthaven Official Companion](https://cephalofair.com/blogs/blog/frosthaven-official-companion-app-now-available) (_FOC_)
+- [Gloomhaven Full Stack](https://gloomhaven.smigiel.us) (_GHFS_)
+- [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (_GHH_) \[discontinued\]
 
-Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, while *GHFS*, as the name suggests, is not just a companion app, but a full stack app. So *GHFS* allows full online play and has many more features than the other apps (and listed here) like full scenario map support and many more (see [gloomhaven.smigiel.us/#features](https://gloomhaven.smigiel.us/#features)). But since *GHFS* can also be used to replace companion apps like *GHH*, I listed it here.
+Please note that _GHS_, _XHA_ and _FOC_ are mostly clones/successors of _GHH_, while _GHFS_, as the name suggests, is not just a companion app, but a full stack app. So _GHFS_ allows full online play and has many more features than the other apps (and listed here) like full scenario map support and many more (see [gloomhaven.smigiel.us/#features](https://gloomhaven.smigiel.us/#features)). But since _GHFS_ can also be used to replace companion apps like _GHH_, I listed it here.
 
 ### Honourable mentions
 
@@ -22,130 +22,129 @@ There are a few other apps that are specialised or niche and therefore not taken
 - ❔ `missing information`
 - ➖ `no support but due to missing requirement for other features`
 
-| Tracking                                                                        | *GHS*         | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
-|:--------------------------------------------------------------------------------|:--------------|:----------|:---------|:---------|:--------|
-| Track all figures (Character, Monster + Standees, Summons, Objectives, Escorts) | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Track basic data (HP, Conditions)                                               | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Track Initiative (incl. sorting)                                                | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Monster Abilities                                                               | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Monster Attack Modifier Deck                                                    | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Curse & Bless Attack Modifier                                                   | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Ally Attack Modifier Deck                                                       | ✅             | ✅         | ✅        | ✅        | ⛔       |
-| Scenario Setup (Monster, Objectives, Escorts)                                   | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Separate Rooms/Sections                                                         | ✅             | ✅         | ✅        | ✅        | ⛔       |
-| Character Attack Modifier Deck                                                  | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Character Perks                                                                 | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Character Scenario XP                                                           | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Character Scenario Gold                                                         | ✅             | ⛔         | ✅        | ✅        | ✅       |
-| Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Character Ability Cards                                                         | ❗[^1.4]       | ⛔         | ⛔        | ✅        | ⛔       |
-| Campaign Progress                                                               | ✅             | ⛔         | ✅❗       | ✅        | ⛔       |
-| Event-Decks                                                                     | ✅[^1]❗[^1.5]  | ⛔         | ⛔        | ✅        | ⛔       |
-| Battle Goal Deck                                                                | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
-| Multiple Parties/Campaigns                                                      | ✅             | ✅❗[^1.3]  | ✅        | ✅        | ⛔       |
-| Loot Deck                                                                       | ✅             | ✅         | ✅        | ✅        | ⛔       |
-| Frosthaven Outpost (Calendar, Resources, Buildings, Town Guard etc.)            | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Town Guard Deck                                                                 | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Item Management (automatic unlocks, buy, craft etc.)                            | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Integrated Scenario Map (interactive)                                           | ⛔             | ⛔         | ⛔        | ✅        | ⛔       |
-| Integrated Scenario/Section Book (interactive)                                  | ⛔             | ⛔         | ⛔        | ✅        | ⛔       |
-| Random Dungeons                                                                 | ✅❗[^1.2]      | ✅❗[^1.2]  | ⛔        | ✅        | ⛔       |
-| World Map                                                                       | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Scenario Flow Chart                                                             | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-|                                                                                 |               |           |          |          |         |
-| **Editions**                                                                    | *GHS*         | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
-| Gloomhaven                                                                      | ✅             | ✅         | ⛔        | ✅        | ✅       |
-| Forgotten Circles (including Diviner Mechanics)                                 | ✅             | ✅         | ⛔        | ✅        | ✅       |
-| Jaws Of The Lion                                                                | ✅             | ✅         | ⛔        | ✅        | ✅       |
-| Frosthaven                                                                      | ✅             | ✅         | ✅        | ✅        | ⛔       |
-| Gloomhaven 2nd Edition                                                          | ✅❗[^3.2]      | ✅❗[^3.3]  | ⛔        | ✅❗[^3.4] | ⛔       |
-| Mercenary Packs                                                                 | ✅ [^3]        | ✅         | ⛔        | ✅        | ⛔       |
-| Button & Bugs                                                                   | ✅             | ✅[^2.2]   | ⛔        | ⛔        | ⛔       |
-| The Crimson Scales                                                              | ✅[^2.1]       | ✅         | ⛔        | ✅        | ⛔       |
-| Trail Of Ashes                                                                  | ✅[^2.1]       | ✅         | ⛔        | ✅        | ⛔       |
-| Solo Scenarios (for supported Editions)                                         | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Seeker Of Xorn                                                                  | ✅[^3]         | ✅         | ⛔        | ✅        | ⛔       |
-| Ice Rift                                                                        | ✅❗[^3]        | ⛔         | ⛔        | ⛔        | ⛔       |
-| Blood and Sand                                                                  | ✅[^3]         | ⛔         | ⛔        | ⛔        | ⛔       |
-| supports Envelope X                                                             | ✅[^3]         | ✅         | ⛔        | ✅        | ✅       |
-| supports Frosthaven Crossover Characters                                        | ✅[^3]         | ➖[^19]    | ➖[^19]   | ✅        | ➖[^19]  |
-| support Satire's Extended Battle Goals                                          | ✅[^3.1]       | ⛔         | ⛔        | ✅        | ⛔       |
-| Skulls in the Snow (FH Mini Campaign)                                           | ✅[^3]         | ⛔         | ⛔        | ✅        | ⛔       |
-| Button & Bugs - Promotional Content                                             | ✅[^3]         | ⛔         | ⛔        | ⛔        | ⛔       |
-| CCUG classes                                                                    | ✅[^3]         | ✅         | ⛔        | ✅        | ⛔       |
-|                                                                                 |               |           |          |          |         |
-| **Additional Features**                                                         | *GHS*         | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
-| Synchronize multiple clients                                                    | ✅[^4]         | ✅         | ✅        | ✅        | ✅       |
-| Right Management for clients                                                    | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-| Undo/Redo function                                                              | ✅             | ✅         | ✅        | ✅[^13]   | ✅       |
-| Undo/Redo history                                                               | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Calculate Abilities (based on stats)                                            | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Add Basic Values to Stats                                                       | ✅             | ✅         | ⛔        | ✅        | ✅       |
-| Show calculated Shield/Retaliate Values                                         | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Inspect/Reorder Monster Ability Cards                                           | ✅             | ✅         | ⛔        | ✅        | ✅       |
-| Update Elements                                                                 | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Consume Elements by Monsters                                                    | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Advanced Element Tracking (Turn created, consumed)                              | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Expire Conditions                                                               | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Automatic Advantage/Disadvantage Draw for AM Decks                              | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-| Automaitc apply Conditions  (like wound, regenarate etc.)                       | ✅             | ⛔         | ✅        | ✅        | ⛔       |
-| Automatic ask for applying Conditions  (like poison, ward etc.)                 | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Track Character Shield/Retaliate                                                | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Character Ability Cards Enhancements                                            | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Character Items (manage item states)                                            | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| automatic Loot Deck Setup                                                       | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Loot Deck Enhancements                                                          | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Assign Loot Cards to Character                                                  | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Special Scenario Rules/Notes                                                    | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Apply Special Scenario Rules                                                    | ✅             | ✅❗[^16.2] | ⛔        | ✅        | ⛔       |
-| Support Frosthaven Outpost Attacks                                              | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Support Frosthaven Building 81 Mechanics                                        | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
-| Support Frosthaven Building 90 Mechanics                                        | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
-| Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]         | ✅         | ⛔        | ✅[^21]   | ⛔       |
-| Support for GH2E Faction Envelope Content                                       | ✅             | ✅         | ⛔        | ✅        | ⛔       |
-| Automatic Standees                                                              | ✅             | ✅         | ✅        | ✅        | ⛔       |
-| Assign Standee Numbers                                                          | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Sort Standees                                                                   | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Select multiple standees                                                        | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-| Random Standees                                                                 | ✅             | ✅         | ✅        | ✅        | ✅       |
-| Active Standees                                                                 | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Hide Standees                                                                   | ✅             | ✅         | ⛔        | ✅        | ✅       |
-| Drag Values (Initiative, HP, XP, Gold)                                          | ✅             | ✅❗[^18]   | ✅❗[^18]  | ⛔        | ✅       |
-| Play without initiative required                                                | ✅             | ✅         | ✅        | ⛔        | ✅       |
-| Automatic level calculation                                                     | ✅             | ✅         | ⛔        | ✅        | ✅❗[^12] |
-| Apply certain abilities (self conditions, elements, summons)                    | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Automate some special Character Abilities/Perks                                 | ✅[^20]        | ⛔         | ⛔        | ✅        | ⛔       |
-| Ability Card Names                                                              | ✅[^17.1]      | ✅         | ✅[^17.2] | ✅        | ⛔       |
-| Named Summons                                                                   | ✅             | ✅         | ✅        | ✅        | ⛔       |
-| Summon Stats                                                                    | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Display Monster Initiative Range                                                | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
-| Active Summons                                                                  | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Mark Long Rest                                                                  | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Automatic apply Long Rest (perform Heal 2)                                      | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| (Automatic) apply Event Card Outcomes                                           | ✅❗            | ⛔         | ⛔        | ✅        | ⛔       |
-| Support ≥ 5 Players rules                                                       | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Absent Characters                                                               | ✅             | ⛔         | ⛔        | ✅        | ⛔       |
-| Scenario Statistics                                                             | ✅[^1]         | ⛔         | ⛔        | ✅        | ⛔       |
-| Scenario Recaps                                                                 | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-| Forteller Links                                                                 | ⛔             | ⛔         | ⛔        | ✅        | ⛔       |
-| Localization                                                                    | ✅[^5]         | ⛔         | ⛔        | ⛔        | ✅❗[^6]  |
-| Keyboard Shortcuts                                                              | ✅             | ❗         | ⛔        | ⛔        | ✅       |
-| Offline Support                                                                 | ✅[^10]        | ✅         | ✅        | ⛔        | ✅       |
-| Push and Audio Notifications                                                    | ⛔             | ⛔         | ⛔        | ✅        | ⛔       |
-|                                                                                 |               |           |          |          |         |
-| **Devices**                                                                     | *GHS*         | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
-| Web                                                                             | ✅             | ⛔         | ⛔        | ✅        | ⛔[^8]   |
-| Windows                                                                         | ✅[^7.1] [^10] | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| MacOS                                                                           | ✅[^7.1] [^10] | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| Linux                                                                           | ✅[^7.1] [^10] | ✅         | ⛔        | ✅❗[^7]   | ❗[^9]   |
-| Android                                                                         | ✅[^7.2] [^10] | ✅         | ✅        | ✅❗[^7]   | ❗[^9]   |
-| iOS                                                                             | ✅❗[^7] [^10]  | ✅         | ✅        | ✅❗[^7]   | ⛔[^8]   |
-|                                                                                 |               |           |          |          |         |
-| **Contribution**                                                                | *GHS*         | *XHA*     | *FOC*    | *GHFS*   | *GHH*   |
-| OpenSource License                                                              | ✅[^14]        | ✅[^15]    | ⛔        | ⛔        | ⛔       |
-| Load Custom Content                                                             | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-| Editors and Tools                                                               | ✅             | ⛔         | ⛔        | ⛔        | ⛔       |
-
+| Tracking                                                                        | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
+| :------------------------------------------------------------------------------ | :------------- | :---------- | :-------- | :--------- | :-------- |
+| Track all figures (Character, Monster + Standees, Summons, Objectives, Escorts) | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Track basic data (HP, Conditions)                                               | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Track Initiative (incl. sorting)                                                | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Monster Abilities                                                               | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Monster Attack Modifier Deck                                                    | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Curse & Bless Attack Modifier                                                   | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Ally Attack Modifier Deck                                                       | ✅             | ✅          | ✅        | ✅         | ⛔        |
+| Scenario Setup (Monster, Objectives, Escorts)                                   | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Separate Rooms/Sections                                                         | ✅             | ✅          | ✅        | ✅         | ⛔        |
+| Character Attack Modifier Deck                                                  | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Character Perks                                                                 | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Character Scenario XP                                                           | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Character Scenario Gold                                                         | ✅             | ⛔          | ✅        | ✅         | ✅        |
+| Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Character Ability Cards                                                         | ❗[^1.4]       | ⛔          | ⛔        | ✅         | ⛔        |
+| Campaign Progress                                                               | ✅             | ⛔          | ✅❗      | ✅         | ⛔        |
+| Event-Decks                                                                     | ✅[^1]❗[^1.5] | ⛔          | ⛔        | ✅         | ⛔        |
+| Battle Goal Deck                                                                | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
+| Multiple Parties/Campaigns                                                      | ✅             | ✅❗[^1.3]  | ✅        | ✅         | ⛔        |
+| Loot Deck                                                                       | ✅             | ✅          | ✅        | ✅         | ⛔        |
+| Frosthaven Outpost (Calendar, Resources, Buildings, Town Guard etc.)            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Town Guard Deck                                                                 | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Item Management (automatic unlocks, buy, craft etc.)                            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Integrated Scenario Map (interactive)                                           | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
+| Integrated Scenario/Section Book (interactive)                                  | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
+| Random Dungeons                                                                 | ✅❗[^1.2]     | ✅❗[^1.2]  | ⛔        | ✅         | ⛔        |
+| World Map                                                                       | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Scenario Flow Chart                                                             | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+|                                                                                 |                |             |           |            |           |
+| **Editions**                                                                    | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
+| Gloomhaven                                                                      | ✅             | ✅          | ⛔        | ✅         | ✅        |
+| Forgotten Circles (including Diviner Mechanics)                                 | ✅             | ✅          | ⛔        | ✅         | ✅        |
+| Jaws Of The Lion                                                                | ✅             | ✅          | ⛔        | ✅         | ✅        |
+| Frosthaven                                                                      | ✅             | ✅          | ✅        | ✅         | ⛔        |
+| Gloomhaven 2nd Edition                                                          | ✅❗[^3.2]     | ✅❗[^3.3]  | ⛔        | ✅❗[^3.4] | ⛔        |
+| Mercenary Packs                                                                 | ✅ [^3]        | ✅          | ⛔        | ✅         | ⛔        |
+| Button & Bugs                                                                   | ✅             | ✅[^2.2]    | ⛔        | ⛔         | ⛔        |
+| The Crimson Scales                                                              | ✅[^2.1]       | ✅          | ⛔        | ✅         | ⛔        |
+| Trail Of Ashes                                                                  | ✅[^2.1]       | ✅          | ⛔        | ✅         | ⛔        |
+| Solo Scenarios (for supported Editions)                                         | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Seeker Of Xorn                                                                  | ✅[^3]         | ✅          | ⛔        | ✅         | ⛔        |
+| Ice Rift                                                                        | ✅❗[^3]       | ⛔          | ⛔        | ⛔         | ⛔        |
+| Blood and Sand                                                                  | ✅[^3]         | ⛔          | ⛔        | ⛔         | ⛔        |
+| supports Envelope X                                                             | ✅[^3]         | ✅          | ⛔        | ✅         | ✅        |
+| supports Frosthaven Crossover Characters                                        | ✅[^3]         | ➖[^19]     | ➖[^19]   | ✅         | ➖[^19]   |
+| support Satire's Extended Battle Goals                                          | ✅[^3.1]       | ⛔          | ⛔        | ✅         | ⛔        |
+| Skulls in the Snow (FH Mini Campaign)                                           | ✅[^3]         | ⛔          | ⛔        | ✅         | ⛔        |
+| Button & Bugs - Promotional Content                                             | ✅[^3]         | ⛔          | ⛔        | ⛔         | ⛔        |
+| CCUG classes                                                                    | ✅[^3]         | ✅          | ⛔        | ✅         | ⛔        |
+|                                                                                 |                |             |           |            |           |
+| **Additional Features**                                                         | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
+| Synchronize multiple clients                                                    | ✅[^4]         | ✅          | ✅        | ✅         | ✅        |
+| Right Management for clients                                                    | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+| Undo/Redo function                                                              | ✅             | ✅          | ✅        | ✅[^13]    | ✅        |
+| Undo/Redo history                                                               | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Calculate Abilities (based on stats)                                            | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Add Basic Values to Stats                                                       | ✅             | ✅          | ⛔        | ✅         | ✅        |
+| Show calculated Shield/Retaliate Values                                         | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Inspect/Reorder Monster Ability Cards                                           | ✅             | ✅          | ⛔        | ✅         | ✅        |
+| Update Elements                                                                 | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Consume Elements by Monsters                                                    | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Advanced Element Tracking (Turn created, consumed)                              | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Expire Conditions                                                               | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Automatic Advantage/Disadvantage Draw for AM Decks                              | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+| Automaitc apply Conditions (like wound, regenarate etc.)                        | ✅             | ⛔          | ✅        | ✅         | ⛔        |
+| Automatic ask for applying Conditions (like poison, ward etc.)                  | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Track Character Shield/Retaliate                                                | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Character Ability Cards Enhancements                                            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Character Items (manage item states)                                            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| automatic Loot Deck Setup                                                       | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Loot Deck Enhancements                                                          | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Assign Loot Cards to Character                                                  | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Special Scenario Rules/Notes                                                    | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Apply Special Scenario Rules                                                    | ✅             | ✅❗[^16.2] | ⛔        | ✅         | ⛔        |
+| Support Frosthaven Outpost Attacks                                              | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Support Frosthaven Building 81 Mechanics                                        | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
+| Support Frosthaven Building 90 Mechanics                                        | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
+| Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]         | ✅          | ⛔        | ✅[^21]    | ⛔        |
+| Support for GH2E Faction Envelope Content                                       | ✅             | ✅          | ⛔        | ✅         | ⛔        |
+| Automatic Standees                                                              | ✅             | ✅          | ✅        | ✅         | ⛔        |
+| Assign Standee Numbers                                                          | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Sort Standees                                                                   | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Select multiple standees                                                        | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+| Random Standees                                                                 | ✅             | ✅          | ✅        | ✅         | ✅        |
+| Active Standees                                                                 | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Hide Standees                                                                   | ✅             | ✅          | ⛔        | ✅         | ✅        |
+| Drag Values (Initiative, HP, XP, Gold)                                          | ✅             | ✅❗[^18]   | ✅❗[^18] | ⛔         | ✅        |
+| Play without initiative required                                                | ✅             | ✅          | ✅        | ⛔         | ✅        |
+| Automatic level calculation                                                     | ✅             | ✅          | ⛔        | ✅         | ✅❗[^12] |
+| Apply certain abilities (self conditions, elements, summons)                    | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Automate some special Character Abilities/Perks                                 | ✅[^20]        | ⛔          | ⛔        | ✅         | ⛔        |
+| Ability Card Names                                                              | ✅[^17.1]      | ✅          | ✅[^17.2] | ✅         | ⛔        |
+| Named Summons                                                                   | ✅             | ✅          | ✅        | ✅         | ⛔        |
+| Summon Stats                                                                    | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Display Monster Initiative Range                                                | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
+| Active Summons                                                                  | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Mark Long Rest                                                                  | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Automatic apply Long Rest (perform Heal 2)                                      | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| (Automatic) apply Event Card Outcomes                                           | ✅❗           | ⛔          | ⛔        | ✅         | ⛔        |
+| Support ≥ 5 Players rules                                                       | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Absent Characters                                                               | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Scenario Statistics                                                             | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
+| Scenario Recaps                                                                 | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+| Forteller Links                                                                 | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
+| Localization                                                                    | ✅[^5]         | ⛔          | ⛔        | ⛔         | ✅❗[^6]  |
+| Keyboard Shortcuts                                                              | ✅             | ❗          | ⛔        | ⛔         | ✅        |
+| Offline Support                                                                 | ✅[^10]        | ✅          | ✅        | ⛔         | ✅        |
+| Push and Audio Notifications                                                    | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
+|                                                                                 |                |             |           |            |           |
+| **Devices**                                                                     | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
+| Web                                                                             | ✅             | ⛔          | ⛔        | ✅         | ⛔[^8]    |
+| Windows                                                                         | ✅[^7.1] [^10] | ✅          | ⛔        | ✅❗[^7]   | ❗[^9]    |
+| MacOS                                                                           | ✅[^7.1] [^10] | ✅          | ⛔        | ✅❗[^7]   | ❗[^9]    |
+| Linux                                                                           | ✅[^7.1] [^10] | ✅          | ⛔        | ✅❗[^7]   | ❗[^9]    |
+| Android                                                                         | ✅[^7.2] [^10] | ✅          | ✅        | ✅❗[^7]   | ❗[^9]    |
+| iOS                                                                             | ✅❗[^7] [^10] | ✅          | ✅        | ✅❗[^7]   | ⛔[^8]    |
+|                                                                                 |                |             |           |            |           |
+| **Contribution**                                                                | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
+| OpenSource License                                                              | ✅[^14]        | ✅[^15]     | ⛔        | ⛔         | ⛔        |
+| Load Custom Content                                                             | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+| Editors and Tools                                                               | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
 
 [^1]: Need to be enabled in **Settings** Menu
 
@@ -171,7 +170,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 
 [^3.4]: except events, includes appending F, envelopes, and random dungeon cards (No card images)
 
-[^4]: Need separate server component [*GHS* Server](https://github.com/Lurkars/*GHS*-server), public instance available
+[^4]: Need separate server component [_GHS_ Server](https://github.com/Lurkars/*GHS*-server), public instance available
 
 [^5]: Support for English, German, French and Korean (missing translations for CS and FH)
 

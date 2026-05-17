@@ -212,8 +212,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.gh2e.flame-demon.2%",
+              "type": "damage",
+              "value": 1,
               "small": true,
               "subActions": [
                 {
@@ -240,7 +240,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh2e.flame-demon.3%",
+              "value": "%data.custom.gh2e.flame-demon.2%",
               "small": true
             }
           ]

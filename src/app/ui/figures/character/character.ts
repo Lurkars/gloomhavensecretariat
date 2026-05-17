@@ -20,7 +20,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
-import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -714,54 +714,35 @@ export class CharacterComponent implements OnInit {
     );
     this.character.tags = this.character.tags.filter((specialTag) => specialTag !== specialAction);
 
-    if (this.character.name === 'lightning' && specialAction === 'careless-charge') {
-      this.character.immunities = [];
-    }
-
-    if (this.character.name === 'shackles' && specialAction === 'delayed_malady') {
-      this.character.immunities = [];
-    }
-
-    if (this.character.name === 'boneshaper') {
-      if (specialAction === 'solid-bones' || specialAction === 'unholy-prowess') {
-        this.character.summons.forEach((summon) => {
-          if (summon.name === 'shambling-skeleton') {
-            summon.maxHealth -= 1;
-            if (summon.health > summon.maxHealth) {
-              summon.health = summon.maxHealth;
-            } else {
-              summon.health -= 1;
-            }
-            gameManager.entityManager.checkHealth(summon, this.character);
-
-            if (specialAction === 'solid-bones') {
-              summon.movement -= 1;
-              summon.action = undefined;
-            }
-          }
-        });
-      }
-    }
-
-    if (this.character.name === 'astral') {
-      if (specialAction === 'veil-of-protection') {
-        this.character.health -= 3;
-        this.character.maxHealth -= 3;
-
-        this.character.summons.forEach((summon) => {
-          summon.health -= 3;
-          summon.maxHealth -= 3;
-        });
-      }
-
-      if (specialAction === 'imbue-with-life') {
-        this.character.entityConditions = this.character.entityConditions.filter(
-          (entityCondition) => entityCondition.name !== ConditionName.disarm || !entityCondition.permanent
-        );
-      }
-    }
+    gameManager.specialActionsManager.removeSpecialAction(this.character, this.character, specialAction);
 
     gameManager.stateManager.after();
+  }
+
+  triggerSpecialActionSlot(specialAction: CharacterSpecialAction, index: number, force: boolean = false) {
+    if (!!specialAction.slots) {
+      const current = specialAction.slots.length - this.character.tags.filter((tag) => tag === specialAction.name).length;
+      const revert = index < current;
+      if (((current != index || index === specialAction.slots.length) && specialAction.slotTrigger === 'manual') || force) {
+        gameManager.entityManager.before(
+          this.character,
+          this.character,
+          'triggerSpecialTagSlot' + (revert ? '.revert' : ''),
+          '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%'
+        );
+
+        for (let i = 0; i < Math.max(1, Math.abs(index - current)); i++) {
+          gameManager.specialActionsManager.triggerSlot(
+            this.character,
+            force ? specialAction.slotTrigger : 'manual',
+            specialAction.name,
+            revert,
+            force
+          );
+        }
+        gameManager.stateManager.after();
+      }
+    }
   }
 
   openAbilityCards() {

@@ -1,8 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
-import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
-import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { Summon } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
@@ -72,74 +71,17 @@ export class SpecialActionsHelper {
             .join(',')
         );
 
-        entity.tags = entity.tags.filter((specialTag) => !specialTagsToTemove.includes(specialTag));
+        specialTagsToTemove.forEach((specialTagToRemove) => {
+          gameManager.specialActionsManager.removeSpecialAction(entity, character, specialTagToRemove);
+        });
 
         if (entity instanceof Character) {
           if (entity.name === 'lightning' && specialTagsToTemove.includes('careless-charge')) {
-            entity.immunities = [];
             this.component.entityImmunities = entity.immunities;
           }
 
           if (entity.name === 'shackles' && specialTagsToTemove.includes('delayed_malady')) {
-            entity.immunities.forEach((immunity) => {
-              const entityCondition = entity.entityConditions.find((condition) => condition.name === immunity);
-              if (entityCondition) {
-                entityCondition.state = EntityConditionState.new;
-                entityCondition.lastState = EntityConditionState.new;
-              }
-            });
-
-            entity.immunities = [];
-            entity.tags = entity.tags.filter((tag) => tag !== 'delayed_malady');
             this.component.entityImmunities = entity.immunities;
-          }
-
-          if (entity.name === 'fist' && specialTagsToTemove.includes('one-with-the-mountain')) {
-            entity.entityConditions = entity.entityConditions.filter(
-              (entityCondition) => entityCondition.name !== ConditionName.regenerate || !entityCondition.permanent
-            );
-          }
-
-          if (entity.name === 'demolitionist' && specialTagsToTemove.includes('mech')) {
-            entity.maxHealth -= 5;
-            gameManager.entityManager.checkHealth(this.component.entity, character);
-          }
-
-          if (entity.name === 'boneshaper') {
-            if (specialTagsToTemove.includes('solid-bones') || specialTagsToTemove.includes('unholy-prowess')) {
-              entity.summons.forEach((summon) => {
-                if (summon.name === 'shambling-skeleton') {
-                  summon.maxHealth -= 1;
-                  if (summon.health > summon.maxHealth) {
-                    summon.health = summon.maxHealth;
-                  } else {
-                    summon.health -= 1;
-                  }
-                  gameManager.entityManager.checkHealth(summon, character);
-                  if (specialTagsToTemove.includes('solid-bones')) {
-                    summon.movement -= 1;
-                    summon.action = undefined;
-                  }
-                }
-              });
-            }
-          }
-
-          if (entity.name === 'astral') {
-            if (specialTagsToTemove.includes('veil-of-protection')) {
-              entity.health -= 3;
-              entity.maxHealth -= 3;
-              entity.summons.forEach((summon) => {
-                summon.health -= 3;
-                summon.maxHealth -= 3;
-              });
-            }
-
-            if (specialTagsToTemove.includes('imbue-with-life')) {
-              entity.entityConditions = entity.entityConditions.filter(
-                (entityCondition) => entityCondition.name !== ConditionName.disarm || !entityCondition.permanent
-              );
-            }
           }
         }
 
@@ -156,7 +98,9 @@ export class SpecialActionsHelper {
             .join(',')
         );
 
-        entity.tags.push(...specialTagsToAdd);
+        specialTagsToAdd.forEach((specialTagToAdd) => {
+          gameManager.specialActionsManager.addSpecialAction(entity, character, specialTagToAdd);
+        });
 
         if (entity instanceof Character) {
           if (entity.name === 'lightning' && specialTagsToAdd.includes('careless-charge')) {
@@ -190,79 +134,6 @@ export class SpecialActionsHelper {
             });
 
             this.component.entityImmunities = character.immunities;
-            entity.tags.push(...[1, 2, 3, 4].map(() => 'delayed_malady'));
-          }
-
-          if (entity.name === 'fist' && specialTagsToAdd.includes('one-with-the-mountain')) {
-            let regenerate = entity.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.regenerate);
-            if (regenerate) {
-              regenerate.permanent = true;
-            } else {
-              regenerate = new EntityCondition(ConditionName.regenerate);
-              regenerate.permanent = true;
-              entity.entityConditions.push(regenerate);
-            }
-          }
-
-          if (entity.name === 'demolitionist' && specialTagsToAdd.includes('mech')) {
-            entity.maxHealth += 5;
-            entity.health += 10;
-            gameManager.entityManager.addCondition(entity, character, new Condition(ConditionName.heal, 10));
-            gameManager.entityManager.applyCondition(entity, character, ConditionName.heal, true);
-          }
-
-          if (entity.name === 'boneshaper') {
-            if (specialTagsToAdd.includes('solid-bones') || specialTagsToAdd.includes('unholy-prowess')) {
-              entity.summons.forEach((summon) => {
-                if (summon.name === 'shambling-skeleton') {
-                  summon.maxHealth += 1;
-                  if (summon.health === summon.maxHealth - 1) {
-                    summon.health = summon.maxHealth;
-                  } else {
-                    summon.health += 1;
-                  }
-                  gameManager.entityManager.checkHealth(summon, character);
-                  if (specialTagsToAdd.includes('solid-bones')) {
-                    summon.movement += 1;
-                    summon.action = new Action(ActionType.pierce, 1);
-                  }
-                }
-              });
-            }
-          }
-
-          if (entity.name === 'astral') {
-            if (specialTagsToAdd.includes('veil-of-protection')) {
-              entity.health += 3;
-              entity.maxHealth += 3;
-              entity.summons.forEach((summon) => {
-                summon.health += 3;
-                summon.maxHealth += 3;
-              });
-            }
-          }
-        }
-
-        if (entity instanceof Summon) {
-          if (character.tags.includes('autoapply_mode') && specialTagsToAdd.includes('prism_mode')) {
-            const damage = entity.health - entity.maxHealth;
-            gameManager.entityManager.changeHealth(character, character, damage);
-            entity.health = entity.maxHealth;
-            entity.entityConditions.forEach((summonCondition) => {
-              if (
-                !summonCondition.expired &&
-                summonCondition.state !== EntityConditionState.removed &&
-                !gameManager.entityManager.isImmune(character, character, summonCondition.name)
-              ) {
-                gameManager.entityManager.addCondition(character, character, new Condition(summonCondition.name));
-              }
-            });
-            entity.entityConditions = [];
-
-            if (!character.tags.includes('code_geminate')) {
-              character.summons.forEach((summon) => (summon.tags = summon.tags.filter((tag) => tag !== 'prism_mode')));
-              entity.tags.push('prism_mode');
-            }
           }
         }
 

@@ -10,23 +10,23 @@
 
 ## Introduction
 
-*Gloomhaven Secretariat* is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, **Gloomhaven 2nd Edition**, **Button & Bugs** and the **Mercenary Packs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content from **Custom Content Unity Guild**.
+_Gloomhaven Secretariat_ is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, **Gloomhaven 2nd Edition**, **Button & Bugs** and the **Mercenary Packs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content from **Custom Content Unity Guild**.
 
-*GHS* is a complete replacement for the abandoned [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, *GHS* helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. *GHS* also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manage your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
+_GHS_ is a complete replacement for the abandoned [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, _GHS_ helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. _GHS_ also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manage your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
 Multiple clients are supported by a server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) with a public instance available at `gloomhaven-secretariat.de`.
 
-Since *GHS* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
+Since _GHS_ is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
 
 An extensive settings menu ensures highly individual customization to suit all requirements. Almost every feature can be switched on/off or customized.
 
-*Gloomhaven Secretariat* is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes. You can also help [translating](#translating) the app.
+_Gloomhaven Secretariat_ is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes. You can also help [translating](#translating) the app.
 
 A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
 
 > SPOILER WARNING:
-> The `label/spoiler` folder in the `data` folders, and therefore the final edition data files in the releases in the `./assets/data` folder, contain spoilers by including the appropriate label. 
-> 
+> The `label/spoiler` folder in the `data` folders, and therefore the final edition data files in the releases in the `./assets/data` folder, contain spoilers by including the appropriate label.
+>
 > [More information about spoilers in this repository](https://github.com/Lurkars/gloomhavensecretariat/discussions/103)
 
 ## Support me
@@ -54,7 +54,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Campaign Management** (some special rules for CS are missing)
   - **Markers**
   - **Treasures**
-  - **Character Items** (must be enabled in Settings!) manage state of items during a scenario 
+  - **Character Items** (must be enabled in Settings!) manage state of items during a scenario
   - **Battle Goals** (must be enabled in Settings!)
   - **Event Decks** (must be enabled in Settings!)
 - Elimination of the following physical components
@@ -79,14 +79,18 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: Building 81</summary>
 
-      > Trials Deck
+    > Trials Deck
+
     </details>
     <details>
       <summary>SPOILER WARNING: Building 90</summary>
 
-      > Challenges Deck
+    > Challenges Deck
+
     </details>
+
   - World Map
+
 - Other features:
   - i18n support (see [translating](#translating) for details)
   - PWA for installation on all devices!
@@ -102,132 +106,166 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-banner-spear.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Banner of Strength: All alive allies gain +1 Attack at the start of their turn
+    > Banner of Strength: All alive allies gain +1 Attack at the start of their turn
 
-      > Banner of Hope: All alive allies with missing HP gain Heal 1 at the start of their turn
+    > Banner of Hope: All alive allies with missing HP gain Heal 1 at the start of their turn
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-blinkblade.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Time Tokens: Automatically add/remove time tokens at start of round after defining slow/fast
+    > Time Tokens: Automatically add/remove time tokens at start of round after defining slow/fast
 
-      > Overdrive: Add Shield 1 at start of each slow round (removed at end of round)
+    > Overdrive: Add Shield 1 at start of each slow round (removed at end of round)
+
+    > Breaknet Speed: Gain 2 damage at start of each round when not long resting (and automatically gain XP)
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-boneshaper.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Unholy Prowess: Add +1 Heal to all Shambling Skeletons
+    > Unholy Prowess: Add +1 Heal to all Shambling Skeletons
 
-      > Solid Bones: Add +1 HP, +1 Move and Pierce 1 to all Shambling Skeletons
+    > Solid Bones: Add +1 HP, +1 Move and Pierce 1 to all Shambling Skeletons
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-fist.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > One with the Mountain: Whenever not having Regenerate, gain Regenerate
+    > One with the Mountain: Whenever not having Regenerate, gain Regenerate
 
-      > Gift of the Mountain: Heal 2 self at end of each turn
+    > Gift of the Mountain: Heal 2 self at end of each turn
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-kelp.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Perk 11: Start each scenario with 2 Trophy Tokens
+    > Perk 11: Start each scenario with 2 Trophy Tokens
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-prism.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Auto-Apply Mode: When setting a summon to Prism Mode, transfer HP damage and conditions from summon to Prism
+    > Auto-Apply Mode: When setting a summon to Prism Mode, transfer HP damage and conditions from summon to Prism
 
-      > Repair Drone Mode: Heal 2 self at start of turn
+    > Repair Drone Mode: Heal 2 self at start of turn
 
-      > Spider Mode (level 8): Gain Ward at start of turn
+    > Spider Mode (level 8): Gain Ward at start of turn
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-astral.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Imbue with Life: Whenever you do not have Disarm, gain Disarm
+    > Imbue with Life: Whenever you do not have Disarm, gain Disarm
 
-      > Veil of Protection: Your current and maximum hitpoint values are increased by 3 (also applied to summons)
+    > Veil of Protection: Your current and maximum hitpoint values are increased by 3 (also applied to summons)
+
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-shackles.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+    > Delayed Malady: Negative conditions do not apply/expire for 4 rounds (and automatically gain XP)
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-shards.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Resonance Tokens: At the end of each of your turns, you gain one Resonance Token
+    > Resonance Tokens: At the end of each of your turns, you gain one Resonance Token
 
-      > Perk 10: Start scenario with Brittle to gain 2 Resonance Tokens
+    > Perk 10: Start scenario with Brittle to gain 2 Resonance Tokens
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-snowflake.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Perk 9: Muddle new revealed Monster
+    > Perk 9: Muddle new revealed Monster
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/jotl-demolitionist.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Mech Suit (+5 HP, Heal 10)
+    > Mech Suit (+5 HP, Heal 10)
+
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-eclipse.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+    > Nightfall: Generate Dark when not strong at end of turn (and automatically gain XP)
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Blood Pact: Suffer 1 damage at the start of each of your turns
+    > Blood Pact: Suffer 1 damage at the start of each of your turns
 
-      > Unbridled Power: Enable overhealing up to 26 HP
+    > Unbridled Power: Enable overhealing up to 26 HP
 
-      > Careless Charge: Toggle immunity for all conditions
+    > Careless Charge: Toggle immunity for all conditions
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-music-note.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Automatically gain 1 XP at start of turn for active song
+    > Automatically gain 1 XP at start of turn for active song
+
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-envx.svg" height="20px" style="filter:grayscale(1);"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-envx.svg" height="20px" style="filter:grayscale(1);"> (GH/GH2E)</summary>
 
-      > Call of the Grave (level 1): Wound deals +1 damage to monsters
+    > Call of the Grave (level 1): Wound deals +1 damage to monsters
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"> GH2E</summary>
 
-      > Blood Pact: Suffer 1 damage at the start of each of your turns (not when at 1 HP)
+    > Blood Pact: Suffer 1 damage at the start of each of your turns (not when at 1 HP)
 
-      > Perk 9: Heal 3 instead of 2 during long rest
+    > Perk 9: Heal 3 instead of 2 during long rest
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-three-spears.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Start each scenario with 1 Supply Token
+    > Start each scenario with 1 Supply Token
 
-      > Perk 11: Gain 1 additional Supply Token during long rest (max 5)
+    > Perk 11: Gain 1 additional Supply Token during long rest (max 5)
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-triangles.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Perk 12: Fire, Ice, Air and Earth elements do not wane at end of round
+    > Perk 12: Fire, Ice, Air and Earth elements do not wane at end of round
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/ccug-swarmshift.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Hive Tokens: Start each scenario with 1 Hive Token
+    > Hive Tokens: Start each scenario with 1 Hive Token
+
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/cs-skull.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Spirits: Spirit summons gain +1 HP at the start of Skull's turn, lose 1 HP at the end of Skull's turn
+    > Spirits: Spirit summons gain +1 HP at the start of Skull's turn, lose 1 HP at the end of Skull's turn
+
     </details>
+
   - Random Dungeons
   - Scenario Flow Chart
   - Scenario Stats (damage/heal provided and received)
   - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
   - Includes Solo scenarios
-  - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
-  - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under *Data Management*.
-  - Includes [Ice Rift](https://boardgamegeek.com/thread/2341619/custom-campaign-ice-rift): can be enabled under *Data Management*.
-  - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in *Data Management* (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
+  - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under _Data Management_.
+  - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under _Data Management_.
+  - Includes [Ice Rift](https://boardgamegeek.com/thread/2341619/custom-campaign-ice-rift): can be enabled under _Data Management_.
+  - Includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled in _Data Management_ (Thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - Manage multiple campaigns
   - Show errata hints (must be enabled in Settings)
   - <details>
       <summary>SPOILER WARNING: Envelope X (and V)</summary>
 
-      > To add Envelope X (or V for ToA), enable it under *Data Management*, then enter the full name in the *Character Filter* (not case sensitive).
+    > To add Envelope X (or V for ToA), enable it under _Data Management_, then enter the full name in the _Character Filter_ (not case sensitive).
+
     </details>
 
 ### Planned next
@@ -245,6 +283,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 You can always install any hosted version as an App (PWA) if your OS/Browser supports PWA installation. For example, here is the [Latest Online Version](https://gloomhaven-secretariat.de).
 
 Instructions for different devices/browsers:
+
 - [Chrome: Computer/Android](https://support.google.com/chrome/answer/9658361)
 - [Safari: iOS](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#safari_for_ios_iphoneos_ipados)
 - [Firefox: Android](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#firefox_for_android)
@@ -255,7 +294,7 @@ Instructions for different devices/browsers:
 A signed Android APK is available for direct installation on Android devices.
 Download `ghs-<version>.apk` from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) assets.
 
-> You may need to enable *Install from unknown sources* in your Android settings since the APK is [not distributed via the Play Store](https://github.com/Lurkars/gloomhavensecretariat/wiki#why-is-this-app-not-on-the-app-store-or-play-store).
+> You may need to enable _Install from unknown sources_ in your Android settings since the APK is [not distributed via the Play Store](https://github.com/Lurkars/gloomhavensecretariat/wiki#why-is-this-app-not-on-the-app-store-or-play-store).
 
 ### Standalone
 
@@ -266,7 +305,7 @@ Download the appropriate files from the [latest release](https://github.com/Lurk
 
 ### Self-hosting
 
-To self-host *Gloomhaven Secretariat* on your web server, simply download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip it on your web server.
+To self-host _Gloomhaven Secretariat_ on your web server, simply download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip it on your web server.
 
 > The base url for this build is set to root. To use a different base URL, please [build your own package](#build-from-source).
 
@@ -320,13 +359,13 @@ Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloo
 
 ### Translating
 
-Latest, I am now trying to use [Weblate](https://i18n.gloomhaven-secretariat.de/) as a translation tool. You can log in with your *GitHub* account to help translate the application.
+Latest, I am now trying to use [Weblate](https://i18n.gloomhaven-secretariat.de/) as a translation tool. You can log in with your _GitHub_ account to help translate the application.
 
 <img src="https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg" alt="Translation status" />
 
 ## Archive
 
-All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available at [v0-0-1.gloomhaven-secretariat.de](https://v0-0-1.gloomhaven-secretariat.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as a showcase for the evolution of GHS, but also as a fallback, if a release breaks something important, you can always fall back to a previous version. 
+All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available at [v0-0-1.gloomhaven-secretariat.de](https://v0-0-1.gloomhaven-secretariat.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as a showcase for the evolution of GHS, but also as a fallback, if a release breaks something important, you can always fall back to a previous version.
 
 > Please note that there is no history of the server component. So connecting to the current server with older clients may not work properly!
 
@@ -348,7 +387,6 @@ Assets/Data used:
 - [Virtual Gloomhaven Board](https://github.com/PurpleKingdomGames/virtual-gloomhaven-board)
 - [Frosthaven - Previously On](https://github.com/jenkinsonc/frosthaven-previouslyon)
 - some other used assets are licensed under public domain
-
 
 Source code is licensed under [AGPL](/LICENSE)
 

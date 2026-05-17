@@ -8,6 +8,19 @@
   "retireEvent": "51",
   "color": "#7440d4",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "nightfall",
+      "expire": true,
+      "slots": [
+        "slotXp:1",
+        "slotXp:1",
+        "slotXp:1"
+      ],
+      "slotTrigger": "turnEnd",
+      "level": 4
+    }
+  ],
   "stats": [
     {
       "level": 1,

@@ -17,7 +17,7 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>l</kbd>: draw from LootDeck / Inc. Moneytokens for active Character
 - <kbd>SHIFT</kbd> + <kbd>l</kbd>: Dec. Moneytokens for active Character
 - <kbd>1-6</kbd>: toggle through element state
-- <kbd>h</kbd>: toggle *Hide absent figures*
+- <kbd>h</kbd>: toggle _Hide absent figures_
 - <kbd>s</kbd>: select figure/standee for opening menu with number key (<kbd>0-9</kbd>)
 - <kbd>w</kbd>: select figure/standee for opening menu in fixed order with number key (<kbd>0-9</kbd>)
 - <kbd>x</kbd>: difficulty/level menu
@@ -28,13 +28,14 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>p</kbd>: open party sheet
 - <kbd>g</kbd>: open global map
 - <kbd>c</kbd>: open scenario chart
-- <kbd>SHIFT</kbd> + <kbd>H</kbd>: toggle *Display hand size and level*
-- <kbd>t</kbd>: toggle *Display traits*
-- <kbd>#</kbd>: toggle *Display player number*
-- <kbd>i</kbd>: toggle *Damage instead of HP*
+- <kbd>SHIFT</kbd> + <kbd>H</kbd>: toggle _Display hand size and level_
+- <kbd>t</kbd>: toggle _Display traits_
+- <kbd>#</kbd>: toggle _Display player number_
+- <kbd>i</kbd>: toggle _Damage instead of HP_
 - <kbd>?</kbd>: show keyboard shortcuts
 
 On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee:
+
 - <kbd>→</kbd>: inc. current HP
 - <kbd>←</kbd>: dec. current HP
 - <kbd>0</kbd>-<kbd>9</kbd>: toggle condition/condition modifier
@@ -53,6 +54,7 @@ On any open figure/standee menu, those shortcuts are disabled, currently shortcu
 - <kbd>a</kbd>: toggle character absent
 
 On open menu:
+
 - <kbd>↵</kbd> | <kbd>SPACE</kbd>: confirm action / open submenu
 - <kbd>ESC</kbd> | <kdb>⌫</kdb>: decline action / close menu (In most browsers, the ESC key exits full-screen mode; use the BACKSPACE key instead)
 - <kbd>↹</kbd>: select action

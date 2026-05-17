@@ -33,7 +33,6 @@
   "objectives": [
     {
       "name": "Scenario",
-      "escort": true,
       "health": "(2+L)xCx2"
     }
   ],
