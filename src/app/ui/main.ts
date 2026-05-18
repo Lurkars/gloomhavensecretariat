@@ -82,14 +82,10 @@ export class MainComponent implements OnInit {
   showBackupHint: boolean = false;
 
   draggingEnabled: boolean = false;
-  draggingeTimeout: any = null;
   isTouch: boolean = false;
 
   lastScroll: number = -1;
   lastScrollColumn: number = -1;
-
-  currentZoom: number = 0;
-  zoomDiff: number = -1;
 
   standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
   standeeDialogSubscription: Subscription | undefined;
@@ -240,12 +236,6 @@ export class MainComponent implements OnInit {
     await settingsManager.init(!environment.production);
     this.initialized = true;
     await gameManager.stateManager.init();
-    this.currentZoom = settingsManager.settings.zoom;
-    document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
-    document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
-    document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
-    document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
-    document.body.style.setProperty('--ghs-animation-speed', settingsManager.settings.animationSpeed + '');
 
     if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
       this.automaticClockIn();
@@ -352,37 +342,6 @@ export class MainComponent implements OnInit {
       gameManager.stateManager.before('gameClock.automaticGameClockOut');
       gameManager.toggleGameClock();
       await gameManager.stateManager.after();
-    }
-  }
-
-  zoom(value: number) {
-    this.currentZoom += value;
-    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
-  }
-
-  touchmove(event: TouchEvent) {
-    if (settingsManager.settings.pinchZoom) {
-      if (event.touches.length === 2) {
-        const curDiff = Math.abs(event.touches[0].clientX - event.touches[1].clientX);
-        if (this.zoomDiff > 0) {
-          if (curDiff > this.zoomDiff) {
-            this.zoom(-1);
-          }
-          if (curDiff < this.zoomDiff) {
-            this.zoom(1);
-          }
-        }
-        this.zoomDiff = curDiff;
-      }
-    }
-  }
-
-  touchend(event: TouchEvent) {
-    if (settingsManager.settings.pinchZoom) {
-      if (event.touches.length < 2 && this.zoomDiff > -1) {
-        this.zoomDiff = -1;
-        settingsManager.setZoom(this.currentZoom);
-      }
     }
   }
 
@@ -610,9 +569,6 @@ export class MainComponent implements OnInit {
     element.classList.add('dragging');
     event.source.getPlaceholderElement().classList.add('dragging');
     window.document.body.classList.add('dragging');
-    if (this.draggingeTimeout) {
-      clearTimeout(this.draggingeTimeout);
-    }
   }
 
   releasedDrag(event: CdkDragRelease, element: HTMLElement) {
@@ -620,9 +576,6 @@ export class MainComponent implements OnInit {
     element.classList.remove('dragging');
     window.document.body.classList.remove('dragging');
     event.source.getPlaceholderElement().classList.remove('dragging');
-    if (this.draggingeTimeout) {
-      clearTimeout(this.draggingeTimeout);
-    }
   }
 
   drop(event: CdkDragDrop<number>) {

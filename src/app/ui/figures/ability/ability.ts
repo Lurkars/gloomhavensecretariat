@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, input, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, input, OnChanges, OnInit } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -62,9 +62,7 @@ export class AbilityComponent implements OnInit, OnChanges {
   fh: boolean = false;
 
   interactiveActions: InteractiveAction[] = [];
-  interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   interactiveBottomActions: InteractiveAction[] = [];
-  interactiveBottomActionsChange = new EventEmitter<InteractiveAction[]>();
 
   fontsize: string = '';
 
@@ -141,14 +139,12 @@ export class AbilityComponent implements OnInit, OnChanges {
 
   onInteractiveActionsChange(change: InteractiveAction[]) {
     if (this.interactiveAbilities()) {
-      this.interactiveActionsChange.emit(change);
       this.interactiveActions = change;
     }
   }
 
   onInteractiveBottomActionsChange(change: InteractiveAction[]) {
     if (this.interactiveAbilities()) {
-      this.interactiveBottomActionsChange.emit(change);
       this.interactiveBottomActions = change;
     }
   }

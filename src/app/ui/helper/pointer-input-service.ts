@@ -157,13 +157,7 @@ export class PointerInputService {
   }
 
   zoom(value: number) {
-    this.currentZoom += value;
-    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
-    const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');
-    if (value < 0 && maxWidth >= window.innerWidth) {
-      this.currentZoom -= value;
-      document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
-    }
+    this.currentZoom = settingsManager.applyZoom(this.currentZoom + value, value);
   }
 
   // Helper: count active touch pointers

@@ -2700,6 +2700,11 @@
     },
     "conditions": "Zustände/Elemente",
     "controls": "Steuerung",
+    "customCss": {
+      "": "Benutzerdefiniertes CSS",
+      "hint": "Eigene CSS-Regeln in die Seite einbinden. Diese Einstellung ist nur lokal und wird nicht mit anderen Spielern synchronisiert.",
+      "placeholder": "/* z.B. body { background: red; } */"
+    },
     "damageHP": {
       "": "Schaden statt TP",
       "hint": "Zeige den erleideten Schaden statt der verbleibenden Trefferpunkte an"

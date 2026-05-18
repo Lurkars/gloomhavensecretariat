@@ -2700,6 +2700,11 @@
     },
     "conditions": "Conditions/Elements",
     "controls": "Controls",
+    "customCss": {
+      "": "Custom CSS",
+      "hint": "Inject custom CSS rules into the page. This setting is local-only and will not be synced to other players.",
+      "placeholder": "/* e.g. body { background: red; } */"
+    },
     "damageHP": {
       "": "Damage instead of HP",
       "hint": "Show damage dealed instead of hitpoints left"

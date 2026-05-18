@@ -62,7 +62,6 @@ export class KeyboardShortcuts implements OnInit {
   }
 
   readonly allowed = input<KEYBOARD_SHORTCUT_EVENTS[]>(['undo', 'zoom', 'menu']);
-  scrollTimeout: any = null;
   zoomInterval: any = null;
   currentZoom: number = 0;
   dialogOpen: boolean = false;
@@ -209,7 +208,6 @@ export class KeyboardShortcuts implements OnInit {
         ) {
           this.currentZoom = 100;
           settingsManager.setZoom(this.currentZoom);
-          document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
           event.preventDefault();
         } else if (
           (!this.dialogOpen || allowed.includes('round')) &&
@@ -635,13 +633,7 @@ export class KeyboardShortcuts implements OnInit {
   }
 
   zoom(value: number) {
-    this.currentZoom += value;
-    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
-    const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');
-    if (value < 0 && maxWidth >= window.innerWidth) {
-      this.currentZoom -= value;
-      document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
-    }
+    this.currentZoom = settingsManager.applyZoom(this.currentZoom + value, value);
   }
 
   toggleEntity(reverse: boolean) {

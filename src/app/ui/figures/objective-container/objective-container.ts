@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, inject, input } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -85,7 +85,6 @@ export class ObjectiveContainerComponent implements OnInit {
   nonDead: number = 0;
 
   interactiveActions: InteractiveAction[] = [];
-  interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
 
   EntityConditionState = EntityConditionState;
 
@@ -288,7 +287,6 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   onInteractiveActionsChange(change: InteractiveAction[]) {
-    this.interactiveActionsChange.emit(change);
     this.interactiveActions = change;
   }
 

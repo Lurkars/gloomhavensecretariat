@@ -421,6 +421,25 @@
         <div class="line" ghs-setting-menu="barsize" type="range" [min]="0.1" [max]="2"></div>
         <div class="line" ghs-setting-menu="fontsize" type="range" [min]="0.1" [max]="2"></div>
       </div>
+
+      <div class="line title span">
+        <div class="hint-container">
+          <label [ghs-label]="'settings.customCss'"></label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
+          <span class="hint">
+            <span class="text" [ghs-label]="'settings.customCss.hint'"></span>
+          </span>
+        </div>
+      </div>
+      <div class="span">
+        <textarea
+          class="custom-css-input"
+          [value]="settingsManager.settings.customCss"
+          (change)="settingsManager.set('customCss', $any($event.target).value)"
+          [placeholder]="settingsManager.getLabel('settings.customCss.placeholder')"
+          rows="6"
+        ></textarea>
+      </div>
     </div>
 
     <!-- INTERFACE -->

@@ -145,6 +145,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | OpenSource License                                                              | ✅[^14]        | ✅[^15]     | ⛔        | ⛔         | ⛔        |
 | Load Custom Content                                                             | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
 | Editors and Tools                                                               | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+| Customize UI (CSS)                                                              | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
 
 [^1]: Need to be enabled in **Settings** Menu
 

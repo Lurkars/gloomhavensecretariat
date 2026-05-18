@@ -143,8 +143,6 @@ export class SettingsMenuComponent {
     });
   }
 
-  doubleClick: any = null;
-
   toggleApplyConditionsExclude(condition: ConditionName) {
     const index = settingsManager.settings.applyConditionsExcludes.indexOf(condition);
     if (index === -1) {
@@ -191,15 +189,7 @@ export class SettingsMenuComponent {
 
   setZoom(zoom: number, value: number, force: boolean) {
     if (settingsManager.settings.zoom !== zoom) {
-      document.body.style.setProperty('--ghs-factor', zoom + '');
-      if (!force) {
-        const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');
-        if (value < 0 && maxWidth >= window.innerWidth) {
-          zoom -= value;
-          document.body.style.setProperty('--ghs-factor', zoom + '');
-        }
-      }
-      settingsManager.setZoom(zoom);
+      settingsManager.setZoom(force ? zoom : settingsManager.applyZoom(zoom, value));
     }
   }
 

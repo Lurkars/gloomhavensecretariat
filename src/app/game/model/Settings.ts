@@ -101,6 +101,7 @@ export class Settings {
   columns: boolean = true;
   columnsForce: boolean = false;
   combineInteractiveAbilities: boolean = true;
+  customCss: string = '';
   combineSummonAction: boolean = true;
   damageHP: boolean = false;
   damageHPToggle: boolean = true;
@@ -260,6 +261,7 @@ export const localSettings: string[] = [
   'characterSheetLocked',
   'columns',
   'columnsForce',
+  'customCss',
   'damageHPToggle',
   'debugEditWorldMap',
   'debugEventCards',

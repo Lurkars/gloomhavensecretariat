@@ -204,3 +204,19 @@
     margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
   }
 }
+
+.custom-css-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
+  color: var(--ghs-color-gray);
+  font-family: monospace;
+  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  resize: vertical;
+
+  &::placeholder {
+    color: var(--ghs-color-darkgray);
+  }
+}

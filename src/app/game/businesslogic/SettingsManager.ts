@@ -68,6 +68,8 @@ export class SettingsManager {
     }
 
     await Promise.all(settingsManager.settings.editionDataUrls.map((editionDataUrl) => settingsManager.loadEditionData(editionDataUrl)));
+
+    await this.applyInitial();
   }
 
   async loadSettings() {
@@ -101,6 +103,16 @@ export class SettingsManager {
     }
 
     this.updateLocale(this.settings.locale);
+  }
+
+  async applyInitial() {
+    await this.apply('animationSpeed', this.settings.animationSpeed);
+    await this.apply('barsize', this.settings.barsize);
+    await this.apply('fontsize', this.settings.fontsize);
+    await this.apply('globalFontsize', this.settings.globalFontsize);
+    await this.apply('portraitMode', this.settings.portraitMode);
+    await this.apply('zoom', this.settings.zoom);
+    await this.apply('customCss', this.settings.customCss);
   }
 
   setSettings(settings: Settings) {
@@ -277,6 +289,16 @@ export class SettingsManager {
           gameManager.characterManager.previousEnhancements(figure, value);
         }
       });
+    } else if (setting === 'customCss') {
+      let styleEl = document.getElementById('ghs-custom-css') as HTMLStyleElement | null;
+      if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = 'ghs-custom-css';
+        document.head.appendChild(styleEl);
+      }
+      styleEl.textContent = value || '';
+    } else if (setting === 'zoom') {
+      this.applyZoom(value as number);
     }
   }
 
@@ -347,8 +369,20 @@ export class SettingsManager {
   }
 
   setZoom(zoom: number) {
-    this.settings.zoom = zoom;
+    this.settings.zoom = this.applyZoom(zoom);
     this.storeSettings();
+  }
+
+  applyZoom(zoom: number, delta: number = 0): number {
+    document.body.style.setProperty('--ghs-factor', zoom + '');
+    if (delta < 0) {
+      const maxWidth = +window.getComputedStyle(document.body).getPropertyValue('min-width').replace('px', '');
+      if (maxWidth >= window.innerWidth) {
+        zoom -= delta;
+        document.body.style.setProperty('--ghs-factor', zoom + '');
+      }
+    }
+    return zoom;
   }
 
   addSpoiler(spoiler: string) {
