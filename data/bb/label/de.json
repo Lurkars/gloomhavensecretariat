@@ -20,6 +20,22 @@
     "bb-10": {
       "": "Rankenpeitsche",
       "1": "%game.elementHalf.consume:earth|light% bei deinem Angriff, um %game.condition.immobilize% hinzuzufügen."
+    },
+    "bb-11": {
+      "": "Magnetnadel",
+      "1": "Kontrolliere während deines Zuges einen Gegner in %game.action.range:5%: %game.action.move:2%."
+    },
+    "bb-12": {
+      "": "Essensreste vom Tisch",
+      "1": "Während deines Zuges: %game.action.heal:1%."
+    },
+    "bb-13": {
+      "": "Federkielpfeile",
+      "1": "%game.elementHalf.consume:fire|air% bei deinem Einzelziel-Fernkampfangriff, um %game.action.range.valueSign:1%, %game.action.pierce:1% hinzufügen."
+    },
+    "bb-14": {
+      "": "Nachtschatten-Pollen",
+      "1": "%game.elementHalf.consume:earth|dark% nach dem Angriff eines Gegners, um ihm %game.condition.poison% zu geben."
     }
   },
   "monster": {
