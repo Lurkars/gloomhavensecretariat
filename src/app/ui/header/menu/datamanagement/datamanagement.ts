@@ -324,6 +324,7 @@ export class DatamanagementMenuComponent implements OnInit {
 
   async importSettings(settings: Settings) {
     settingsManager.settings = settings;
+    await settingsManager.applyInitial();
     await storageManager.write('settings', 'default', settingsManager.settings);
   }
 
