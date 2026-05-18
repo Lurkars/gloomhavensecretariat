@@ -1241,6 +1241,10 @@
       },
       "blinkblade": {
         "": "烁刃客",
+        "breaknet_speed": {
+          "": "惊险飞速",
+          "hint": "下4个未执行休息的回合开始时，自动应用%game.damage:2%（自动获得%game.card.experience%）"
+        },
         "fast": "快速",
         "overdrive": {
           "": "超频驱动",

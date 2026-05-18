@@ -1,10 +1,25 @@
 {
   "character": {
     "bb": {
+      "bruiser": "Raufbold",
       "cragheart": "Felsenherz",
       "mindthief": "Gedankendiebin",
+      "silent-knife": "Messertänzerin",
       "spellweaver": "Spruchweberin",
       "tinkerer": "Tüftler"
+    }
+  },
+  "edition": {
+    "bb": "Knöpfe & Krabbler"
+  },
+  "items": {
+    "bb-1": {
+      "": "Rosendorn-Dolch",
+      "1": "%game.elementHalf.consume:ice|earth% bei deinem Angriff, um %game.action.pierce:1% hinzuzufügen."
+    },
+    "bb-10": {
+      "": "Rankenpeitsche",
+      "1": "%game.elementHalf.consume:earth|light% bei deinem Angriff, um %game.condition.immobilize% hinzuzufügen."
     }
   },
   "monster": {

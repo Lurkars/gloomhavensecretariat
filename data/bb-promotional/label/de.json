@@ -1,1 +1,49 @@
-{}
+{
+  "edition": {
+    "bb-promotional": "Knöpfe & Krabbler - Promo Szenarien"
+  },
+  "items": {
+    "bb-41": {
+      "": "Käferpanzer",
+      "1": "Bewegst du dich in deinem Zug max. 1 Feld, erhalte für diese Runde %game.action.shield:1%."
+    },
+    "bb-42": {
+      "": "Nagerzahn",
+      "1": "Nachdem du dich mind. 4 Felder bewegt hast, füge allen deinen Angriffen in diesem Zug %game.action.attack.valueSign:1% hinzu."
+    },
+    "bb-43": {
+      "": "Durchdringender Silberpfeil",
+      "1": "Füge bei deinem Fernangriff %game.action.pierce:5% hinzu."
+    },
+    "bb-44": {
+      "": "Geschrumpftes Kurzschwert",
+      "1": "Die obere Standardaktion deiner Fertigkeiten ist %game.action.attack:3% statt %game.action.attack:2%."
+    },
+    "bb-45": {
+      "": "Immerkühle Sonnenflocke",
+      "1": "%game.elementHalf.consume:ice|light% bei einem Angriff, um Vorteile zu erhalten oder %game.condition.muddle% hinzuzufügen."
+    },
+    "bb-46": {
+      "": "Ein Quantum Heilung",
+      "1": "Während deines Zuges, entferne alle negativen Zustände und %game.action.heal:2% selbst."
+    }
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "20-5": {
+          "1": "Der Arena-Zauberer hat 14 Trefferpunkte.",
+          "2": "Der Spießkäfer hat 13 Trefferpunkte."
+        }
+      }
+    },
+    "title": {
+      "bb": {
+        "12-5": "Der Bestienbändiger",
+        "2-5": "Knapp entkommen",
+        "20-5": "Ein anderer Weg",
+        "5-5": "Herausforderung"
+      }
+    }
+  }
+}
