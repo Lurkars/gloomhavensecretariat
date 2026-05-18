@@ -103,6 +103,8 @@ export class SettingsManager {
     }
 
     this.updateLocale(this.settings.locale);
+
+    await this.applyInitial();
   }
 
   async applyInitial() {
