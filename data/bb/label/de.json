@@ -36,14 +36,198 @@
     "bb-14": {
       "": "Nachtschatten-Pollen",
       "1": "%game.elementHalf.consume:earth|dark% nach dem Angriff eines Gegners, um ihm %game.condition.poison% zu geben."
+    },
+    "bb-15": {
+      "": "Heiltrank-Tropfen",
+      "1": "Während deines Zuges: %game.action.heal:3% selbst."
+    },
+    "bb-16": {
+      "": "Instabiles Pulver",
+      "1": "Füge bei deinem Einzelziel-Fernkampfangriff folgendes hinzu:"
+    },
+    "bb-17": {
+      "": "Angelhaken und -schnur",
+      "1": "Erhalte bei einem gegnerischen Angriff %game.action.pierce:2%, %game.action.pull:2%."
+    },
+    "bb-18": {
+      "": "Kastanienschalen-Schild",
+      "1": "Erhalte bei einem gegnerischen Angriff %game.action.shield:1%, %game.action.retaliate:1%."
+    },
+    "bb-19": {
+      "": "Messing-Zahnrad",
+      "1": "Erhöhe/reduziere nach dem Bestimmen der Initiative deinen Wert um 10."
+    },
+    "bb-2": {
+      "": "Giftzahn",
+      "1": "Füge deinem Nahkampfangriff %game.condition.poison% hinzu."
+    },
+    "bb-20": {
+      "": "Schmieröl",
+      "1": "Füge bei deiner Bewegung %game.action.move.valueSign:2% hinzu."
+    },
+    "bb-21": {
+      "": "Elementtrank-Tropfen",
+      "1": "Reichere während deines Zuges %game.element.wild% %game.element.wild% an."
+    },
+    "bb-22": {
+      "": "Ausdauerelixier-Tropfen",
+      "1": "%game.card.recover% während deines Zuges 1 Karte von deiner Hand oder deinem Abwurfstapel auf Seite A."
+    },
+    "bb-23": {
+      "": "Schicksalspulver-Prise",
+      "1": "Füge bei deinem Angriff %game.condition.disarm%, %game.condition.poison% hinzu."
+    },
+    "bb-24": {
+      "": "Nähnadeln",
+      "1": "Füge bei deinem Angriff %game.action.pierce:1% hinzu."
+    },
+    "bb-25": {
+      "": "Angespitzter Bleistift",
+      "1": "Füge bei deinem Einzelziel-Nahkampfangriff hinzu"
+    },
+    "bb-26": {
+      "": "Münzschild",
+      "1": "Erhalte bei einem gegnerischen Angriff %game.action.shield:2%."
+    },
+    "bb-27": {
+      "": "Geschrumpfter Langbogen",
+      "1": "Füge bei deinem Fernkampfangriff %game.action.attack.valueSign:1%, %game.action.pierce:1% hinzu."
+    },
+    "bb-28": {
+      "": "Geschrumpftes Langschwert",
+      "1": "Füge bei deinem Nahkampfangriff %game.action.attack.valueSign:1% hinzu."
+    },
+    "bb-29": {
+      "": "Glutnessel",
+      "1": "%game.elementHalf.consume:fire|earth% nach dem Angriff eines Gegners, um ihm %game.condition.wound% zu geben."
+    },
+    "bb-3": {
+      "": "Geschrumpfte abgewetzte Stiefel",
+      "1": "Füge bei deiner Bewegung %game.action.move.valueSign:1% hinzu."
+    },
+    "bb-30": {
+      "": "Katzenaugen-Glücksmurmel",
+      "1": "Bei deinem Angriff gilt dein %game.bbAm.0% Angriffsmodifikator als %game.bbAm.1%."
+    },
+    "bb-31": {
+      "": "Glasscherbe",
+      "1": "Füge bei deinem Nahkampfangriff %game.condition.wound% hinzu."
+    },
+    "bb-32": {
+      "": "Spielkarten-Schild",
+      "1": "Erhalte bei einem gegnerischen Angriff %game.action.shield:4%."
+    },
+    "bb-33": {
+      "": "Eilelixier-Tropfen",
+      "1": "Führe nach der oberen Aktion einer Fertigkeitskarte zusätzlich auch die untere aus."
+    },
+    "bb-34": {
+      "": "Ausdauerelixier-Tropfen",
+      "1": "%game.card.recover% während deines Zugs 1 Karte von deiner Hand oder Abwurfstapel auf Seite A."
+    },
+    "bb-35": {
+      "": "Prismatischer Edelstein",
+      "1": "%game.element.consume.wild% bei deinem Angriff, um %game.action.attack.valueSign:1% hinzuzufügen."
+    },
+    "bb-36": {
+      "": "Stärketrank-Tropfen",
+      "1": "Erhalte während deines Zuges %game.condition.strengthen% selbst."
+    },
+    "bb-37": {
+      "": "Dämmerdunst-Stein",
+      "1": "%game.elementHalf.consume:air|dark% beim Angriff eines Gegners, um ihm %game.condition.muddle% zu geben und selbst %game.action.shield:1% zu erhalten."
+    },
+    "bb-38": {
+      "": "Lichtköder-Stein",
+      "1": "%game.elementHalf.consume:air|light% nach deinem Angriff, um das Ziel des Angriffs zu kontrollieren: %game.action.move:1%."
+    },
+    "bb-39": {
+      "": "Schillernder Muschelschild",
+      "1": "Erhalte während deines Zuges %game.action.shield:1% für die Runde. Reichere %game.element.wild% an."
+    },
+    "bb-4": {
+      "": "Alte Spiralfeder",
+      "1": "Füge während deines Zugs allen deinen Bewegungen %game.action.jump% hinzu."
+    },
+    "bb-40": {
+      "": "Taschenmesser",
+      "1": "Füge bei deinem Nahkampfangriff %game.action.attack.valueSign:1%, %game.action.pierce:2%, %game.condition.wound% hinzu."
+    },
+    "bb-41": {
+      "": "Verschlusskappen-Helm",
+      "1": "Bei einem gegnerischen Angriff gilt dessen %game.bbAm.2% Angriffsmodifikator als %game.bbAm.1%."
+    },
+    "bb-42": {
+      "": "Spatzenschädel-Helm",
+      "1": "Erhalte bei deinem Angriff Vorteil."
+    },
+    "bb-5": {
+      "": "Krafttrank-Tropfen",
+      "1": "Füge während deines Zuges allen deinen Angriffen %game.action.attack.valueSign:1% hinzu."
+    },
+    "bb-6": {
+      "": "Trinkwasser-Tropfen",
+      "1": "%game.elementHalf.consume:ice|air% während deines Zugs, um einen negativen Zustand zu entfernen."
+    },
+    "bb-7": {
+      "": "Federhammer",
+      "1": "Füge bei deinem Nahkampfangriff %game.action.push:2% hinzu."
+    },
+    "bb-8": {
+      "": "Knopfschild",
+      "1": "Erhalte bei einem gegnerischen Angriff %game.action.shield:1%."
+    },
+    "bb-9": {
+      "": "Eisennagel",
+      "1": "Füge während deines Zugs allen deinen Nahkampfangriffen %game.action.pierce:2% hinzu."
     }
   },
   "monster": {
-    "bandit-archer": "Banditen Schützin",
+    "arena-sorcerer": "Arena-Zauberer",
+    "bandit-archer": "Banditen-Schützin",
     "bandit-guard": "Banditen-Wache",
+    "demon-prince": "Dämonenprinz",
     "earth-demon": "Erddämon",
     "flame-demon": "Flammendämon",
     "frost-demon": "Frostdämon",
+    "gloomtoad": "Grauenskröte",
+    "goring-beetle": "Spießkäfer",
+    "harrowing-infestation": "Pestschwarm",
+    "king-button": "König Knopf",
+    "mounted-prince": "Reiterprinz",
+    "mouse": "Maus",
+    "rending-beetle": "Reißkäfer",
+    "sewer-rat": "Kanalratte",
+    "spitting-moth": "Speimotte",
+    "stuffed-construct": "Plüschkonstrukt",
+    "tattered-construct": "Fetzenkonstrukt",
+    "venomous-centipede": "Giftkrabbler",
     "wind-demon": "Winddämon"
+  },
+  "scenario": {
+    "title": {
+      "bb": {
+        "1": "Ein rüder Empfang",
+        "10": "Es wird dunkel",
+        "11": "Rauf zum Fenster",
+        "12": "Material sammeln",
+        "13": "Ab die Post",
+        "14": "Der Rausschmeißer",
+        "15": "Auf die Glocke",
+        "16": "Leuchtsignal",
+        "17": "Der lange Weg",
+        "18": "Aufräumen",
+        "19": "Versteckspiel",
+        "2": "Über die Straße",
+        "20": "Die Entscheidung",
+        "3": "Im Mauerwerk",
+        "4": "Hereingeplatzt",
+        "5": "Knopfs Arena",
+        "6": "Ungeziefer Ade",
+        "7": "Gedankenkontrolle",
+        "8": "Ab nach oben",
+        "9": "Zurück in die Mauer"
+      }
+    }
   }
 }

@@ -213,7 +213,7 @@
   },
   "monster": {
     "ancient-artillery": "Antike Artillerie",
-    "bandit-archer": "Banditen Schützin",
+    "bandit-archer": "Banditen-Schützin",
     "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
     "bandit-commander": "Banditen Kommandeur",
     "bandit-guard": "Banditen-Wache",

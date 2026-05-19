@@ -50,5 +50,8 @@
     "imp": "Wicht",
     "priest": "Priester",
     "scout": "Späher"
+  },
+  "monster": {
+    "bandit-archer": "Banditen-Schützin"
   }
 }
