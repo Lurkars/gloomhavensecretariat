@@ -628,7 +628,7 @@
     },
     "gh2e-115": {
       "": "Rod of Transference",
-      "1": "When an ally within %game.action.range:3% would suffer %game.damage% you suffer the %game.damage% instead"
+      "1": "When an ally within %game.action.range:3% would suffer %game.damage%, you suffer the %game.damage% instead."
     },
     "gh2e-116": {
       "": "Fated Verses",
