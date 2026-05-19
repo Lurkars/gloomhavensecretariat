@@ -658,7 +658,7 @@
     "gh2e-121": {
       "": "Drakescale Helm",
       "1": "During your turn, perform:",
-      "2": "If you brought Drakescale Boots and Drakescale Armor, add %game.action.target.valueSign:1%."
+      "2": "If you brought <i>Drakescale Boots</i> and <i>Drakescale Armor</i>, add %game.action.target.valueSign:1%."
     },
     "gh2e-122": {
       "": "Frost Beetle Lantern",
