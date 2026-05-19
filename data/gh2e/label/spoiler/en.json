@@ -1025,7 +1025,7 @@
     },
     "gh2e-49": {
       "": "Horned Helm",
-      "1": "After you move 4 of more hexes on your turn, add %game.action.attack.valueSign:1% to your next melee attack this turn."
+      "1": "After you move 4 or more hexes on your turn, add %game.action.attack.valueSign:1% to your next melee attack this turn."
     },
     "gh2e-5": {
       "": "Scouting Lens",
