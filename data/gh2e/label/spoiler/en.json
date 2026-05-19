@@ -895,7 +895,7 @@
     },
     "gh2e-2": {
       "": "Winged Shoes",
-      "1": "During your movement, add %game.action.jump% to the movement."
+      "1": "During your turn, add %game.action.jump% to all your move abilities."
     },
     "gh2e-20": {
       "": "Hooked Chain",
