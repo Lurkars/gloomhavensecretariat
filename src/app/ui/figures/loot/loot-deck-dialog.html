@@ -156,9 +156,9 @@
                 <a class="button-remove" (click)="remove(index + deck.current + 1)">
                   <img class="ghs-svg" src="./assets/images/minus.svg"
                 /></a>
-              }
-              @if (edit) {
-                <div cdkDragHandle class="drag-handle"></div>
+                <a cdkDragHandle class="button drag-handle">
+                  <img class="ghs-svg" src="./assets/images/menu.svg" />
+                </a>
               }
             </div>
           }
@@ -187,9 +187,10 @@
               ></ghs-loot>
               @if (edit) {
                 <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
-              }
-              @if (edit) {
-                <div cdkDragHandle class="drag-handle"></div>
+
+                <a cdkDragHandle class="button drag-handle">
+                  <img class="ghs-svg" src="./assets/images/menu.svg" />
+                </a>
               }
             </div>
           }

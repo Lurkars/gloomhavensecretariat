@@ -295,6 +295,12 @@ export class AttackModifierManager {
           count++;
         }
       });
+
+    if (attackModifierDeck.lastVisible > attackModifierDeck.current) {
+      attackModifierDeck.lastVisible = attackModifierDeck.current;
+    } else if (attackModifierDeck.current === 0) {
+      attackModifierDeck.lastVisible = 0;
+    }
     gameManager.triggerUiChange(false);
   }
 

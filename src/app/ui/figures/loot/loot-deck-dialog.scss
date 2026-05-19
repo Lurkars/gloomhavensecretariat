@@ -303,13 +303,24 @@
       }
 
       .drag-handle {
-        position: absolute;
         cursor: grab;
-        left: 50%;
-        top: 65%;
-        width: 60%;
-        height: 70%;
-        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        position: absolute;
+        top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+        .ghs-svg {
+          height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        }
+
+        &:hover .ghs-svg {
+          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        }
       }
     }
   }

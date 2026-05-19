@@ -9,6 +9,9 @@ export class CardRevealDirective {
 
   readonly disabled = input<boolean>(false);
   clicked: boolean = false;
+  private pointerStartX: number = 0;
+  private pointerStartY: number = 0;
+  private dragging: boolean = false;
 
   readonly changed = output<boolean>();
 
@@ -16,7 +19,26 @@ export class CardRevealDirective {
     this.el.nativeElement.classList.add('reveal');
   }
 
-  @HostListener('pointerdown') onClick() {
+  @HostListener('pointerdown', ['$event']) onPointerDown(event: PointerEvent) {
+    this.pointerStartX = event.clientX;
+    this.pointerStartY = event.clientY;
+    this.dragging = false;
+  }
+
+  @HostListener('pointermove', ['$event']) onPointerMove(event: PointerEvent) {
+    if (!this.dragging) {
+      const dx = event.clientX - this.pointerStartX;
+      const dy = event.clientY - this.pointerStartY;
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+        this.dragging = true;
+      }
+    }
+  }
+
+  @HostListener('pointerup') onClick() {
+    if (this.dragging) {
+      return;
+    }
     if (!this.disabled()) {
       if (this.el.nativeElement.classList.contains('flipped')) {
         this.el.nativeElement.classList.remove('flipped');

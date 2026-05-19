@@ -155,15 +155,15 @@ footer {
     }
 
     &.initial {
-      transform: translateX(-59%);
+      transform: translateX(-62%);
     }
 
     &.partial {
-      transform: translateX(-17%);
+      transform: translateX(-21.5%);
     }
 
     &.full {
-      transform: none;
+      transform: translateX(3%);
     }
 
     &.collapsed {
@@ -197,7 +197,7 @@ footer {
       }
 
       &.full {
-        transform: none;
+        transform: translateX(7%);
       }
 
       &.collapsed {

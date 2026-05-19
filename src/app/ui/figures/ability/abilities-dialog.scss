@@ -116,13 +116,23 @@
         }
 
         .drag-handle {
-          position: absolute;
           cursor: grab;
-          left: 50%;
-          top: 50%;
-          width: 50%;
-          height: 70%;
-          transform: translate(-50%, -50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          position: absolute;
+          top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+          .ghs-svg {
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+          }
+
+          &:hover .ghs-svg {
+            filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+          }
         }
 
         .button-remove,

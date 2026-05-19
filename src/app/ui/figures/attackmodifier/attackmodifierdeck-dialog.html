@@ -278,7 +278,9 @@
                 /></a>
               }
               @if (edit) {
-                <div cdkDragHandle class="drag-handle"></div>
+                <a cdkDragHandle class="button drag-handle">
+                  <img class="ghs-svg" src="./assets/images/menu.svg" />
+                </a>
               }
             </div>
           }
@@ -310,7 +312,9 @@
                 <a class="button-remove" (click)="remove(deck.current - index)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
               }
               @if (edit) {
-                <div cdkDragHandle class="drag-handle"></div>
+                <a cdkDragHandle class="button drag-handle">
+                  <img class="ghs-svg" src="./assets/images/menu.svg" />
+                </a>
               }
             </div>
           }
@@ -318,7 +322,7 @@
         @if (edit && deletedCards.length) {
           <div class="deleted">
             @for (attackModifier of deletedCards | trackUUID; track attackModifier._trackUUID; let index = $index) {
-              <div class="attack-modifier-container" cdkDrag>
+              <div class="attack-modifier-container drag-hidden" cdkDrag [cdkDragDisabled]="true">
                 <ghs-attackmodifier
                   class="drag-hidden"
                   [attackModifier]="attackModifier"
@@ -331,9 +335,6 @@
                 ></ghs-attackmodifier>
                 @if (edit) {
                   <a class="button-restore" (click)="restore(index)"> <img class="ghs-svg" src="./assets/images/plus.svg" /></a>
-                }
-                @if (edit) {
-                  <div cdkDragHandle class="drag-handle"></div>
                 }
               </div>
             }

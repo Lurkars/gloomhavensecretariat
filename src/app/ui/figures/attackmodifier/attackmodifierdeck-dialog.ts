@@ -267,6 +267,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       moveItemInArray(this.deck.cards, offset - event.previousIndex, event.currentIndex + offset);
       this.deck.current = this.deck.current - 1;
     }
+    gameManager.attackModifierManager.updateLastVisible(this.deck);
     this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
     this.update();
   }
@@ -276,10 +277,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     if (event.container === event.previousContainer) {
       moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
     } else {
-      this.deck.current = this.deck.current + 1;
+      this.deck.current++;
       const offset = this.deck.current;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, offset - event.currentIndex);
       this.deck.cards[offset - event.currentIndex].revealed = true;
+      gameManager.attackModifierManager.updateLastVisible(this.deck);
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
     this.update();
@@ -292,6 +294,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.currentAttackModifier = this.deck.current;
     }
     this.deck.cards.splice(index, 1);
+    gameManager.attackModifierManager.updateLastVisible(this.deck);
     this.after.emit(new AttackModiferDeckChange(this.deck, 'removeCard', index));
     this.update();
   }

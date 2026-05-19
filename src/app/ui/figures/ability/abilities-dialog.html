@@ -72,10 +72,11 @@
               [reveal]="true"
             >
             </ghs-ability>
+
             @if (edit) {
-              <div cdkDragHandle class="drag-handle"></div>
-            }
-            @if (edit) {
+              <a cdkDragHandle class="button drag-handle">
+                <img class="ghs-svg" src="./assets/images/menu.svg" />
+              </a>
               <a class="button-remove" (click)="remove(index + monster.ability + 1)">
                 <img class="ghs-svg" src="./assets/images/minus.svg"
               /></a>
@@ -105,9 +106,9 @@
           >
             <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true"> </ghs-ability>
             @if (edit) {
-              <div cdkDragHandle class="drag-handle"></div>
-            }
-            @if (edit) {
+              <a cdkDragHandle class="button drag-handle">
+                <img class="ghs-svg" src="./assets/images/menu.svg" />
+              </a>
               <a class="button-remove" (click)="remove(discardedCards.length - index - 1)">
                 <img class="ghs-svg" src="./assets/images/minus.svg"
               /></a>
