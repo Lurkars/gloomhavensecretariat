@@ -637,11 +637,11 @@
     },
     "gh2e-117": {
       "": "Dawnblade",
-      "1": "During your turn, if %game.element.dark% is strong or waning, add %game.action.attack.valueSign:1% to your next melee attack. If you brought <i>Duskbrand</i> %game.element.light%."
+      "1": "During your turn, if %game.element.dark% is strong or waning, add %game.action.attack.valueSign:1% to your next melee attack. If you brought <i>Duskbrand</i>, %game.element.light%."
     },
     "gh2e-118": {
       "": "Duskbrand",
-      "1": "During your turn, if %game.element.light% is strong or waning, add %game.action.attack.valueSign:1% to your next melee attack. If you brought <i>Dawnblade</i> %game.element.dark%."
+      "1": "During your turn, if %game.element.light% is strong or waning, add %game.action.attack.valueSign:1% to your next melee attack. If you brought <i>Dawnblade</i>, %game.element.dark%."
     },
     "gh2e-119": {
       "": "Drakescale Boots",
