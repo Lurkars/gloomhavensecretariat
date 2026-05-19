@@ -15,7 +15,10 @@
     "version": {
       "latest": "最新版本",
       "unknown": "无法获取到最新版本",
-      "update": "最新版本 <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      "update": {
+        "": "最新版本<a target=\"_blank\" href=\"{1}\">{0}</a>",
+        "apk": "下载安卓APK<a target=\"_blank\" href=\"{0}\">{1}</a>"
+      }
     }
   },
   "and": "和",
@@ -2080,6 +2083,7 @@
         "drawAbility": "为{0}再抽一张能力卡",
         "gainCondition": "{0}获得%game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
+        "killLowest": "立刻消灭{0}中当前生命值最低的{1}。",
         "loseCondition": "{0} 失去 %game.condition.{1}%",
         "losePermanentCondition": "{0}永久失去%game.condition.{1}%",
         "permanentCondition": "{0}获得持续型%game.condition.{1}%",
@@ -2088,6 +2092,8 @@
         "scenarioEffect": "作为剧本效果",
         "setAbility": "将 {0} 的激活能力卡牌设置为 '{1}'",
         "setHp": "{0} HP 到 {2}",
+        "shuffleAbilities": "混洗{0}的怪物能力牌库",
+        "toggleAfterTurnSummon": "将{0}召唤物行动切换至角色之后",
         "toggleOff": "将 {0} 设置为非激活状态",
         "toggleOn": "将 {0} 设置为激活状态",
         "transfer": "{0} 变成 %data.monster.{1}% {4}",
@@ -2499,8 +2505,12 @@
       "": "攻击修正牌堆自动全屏",
       "hint": "当使用小型设备操作时,以全屏模式打开攻击修正牌堆(同样适用于拾取牌堆)."
     },
+    "automaticEndRound": {
+      "": "自动结束回合",
+      "hint": "当最后一个个体的回合完成后，自动结束本轮。"
+    },
     "automaticFirstFigure": {
-      "": "自动启动第一个个体",
+      "": "自动开始第一个个体的回合",
       "hint": "下一轮自动开始第一个个体的回合。如果需要时序，这总是启用的。"
     },
     "automaticGameClock": {
@@ -2508,11 +2518,11 @@
       "hint": "当GHS窗口打开或关闭时自动开始/结束游戏时钟."
     },
     "automaticGameClockFocus": {
-      "": "自动游戏时钟聚焦",
+      "": "自动激活游戏时钟",
       "hint": "当窗口被聚焦或失去聚焦时同样自动开始/结束游戏时钟."
     },
     "automaticPassTime": {
-      "": "时间自动流逝",
+      "": "日历时间自动流逝",
       "hint": "当完成一个剧本之后自动向日历中添加一周以表明时间流逝.此功能也会自动添加这周日历上段落文本的效果."
     },
     "automaticStandees": {
@@ -2694,6 +2704,11 @@
     },
     "conditions": "状态/元素",
     "controls": "控制",
+    "customCss": {
+      "": "自定义CSS",
+      "hint": "在页面中添加自定义CSS规则。本设置仅本地生效，不会应用于其他联机用户。",
+      "placeholder": "/* e.g. body { background: red; } */"
+    },
     "damageHP": {
       "": "改血量为伤害",
       "hint": "显示已造成的伤害而不是所剩余的生命值"
@@ -2938,6 +2953,10 @@
     "monsterAttackModifierDeck": {
       "": "供怪物使用的攻击修正牌堆",
       "hint": "启用供怪物使用的攻击修正牌堆"
+    },
+    "monsterInitativeRange": {
+      "": "显示时序范围",
+      "hint": "轮次开始前，在怪物能力卡牌上显示可能抽取的时序范围。"
     },
     "monsters": {
       "": "怪物",
@@ -3360,7 +3379,12 @@
           "monsters": "%game.condition.{0}% {1}中的{2}",
           "objectiveEntity": "%game.condition.{0}% {1}中的{2}",
           "objectives": "%game.condition.{0}% {1}中的{2}",
-          "summon": "%game.condition.{0}% {1}中的'{2}'"
+          "summon": "%game.condition.{0}% {1}中的'{2}'",
+          "summons": "%game.condition.{0}%召唤物{1}中的{2}"
+        },
+        "addConditions": {
+          "": "{1}x %game.condition.{0}%选择",
+          "character": "{1}x %game.condition.{0}% {2}"
         }
       },
       "entityDead": "击杀 {0} 的 {1} 立牌 {2}",
