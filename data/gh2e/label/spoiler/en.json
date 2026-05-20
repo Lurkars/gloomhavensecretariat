@@ -628,7 +628,7 @@
     },
     "gh2e-115": {
       "": "Rod of Transference",
-      "1": "When an ally within %game.action.range:3% would suffer %game.damage% you suffer the %game.damage% instead"
+      "1": "When an ally within %game.action.range:3% would suffer %game.damage%, you suffer the %game.damage% instead."
     },
     "gh2e-116": {
       "": "Fated Verses",
@@ -637,11 +637,11 @@
     },
     "gh2e-117": {
       "": "Dawnblade",
-      "1": "During your turn, if %game.element.dark% is strong or waning add %game.action.attack.valueSign:1% to your next melee attack. If you brought Duskbrand %game.element.light%."
+      "1": "During your turn, if %game.element.dark% is strong or waning, add %game.action.attack.valueSign:1% to your next melee attack. If you brought <i>Duskbrand</i>, %game.element.light%."
     },
     "gh2e-118": {
       "": "Duskbrand",
-      "1": "During your turn if %game.element.light% is strong or waning add %game.action.attack.valueSign:1% to your next melee attack. If you brought Dawnblade %game.element.dark%."
+      "1": "During your turn, if %game.element.light% is strong or waning, add %game.action.attack.valueSign:1% to your next melee attack. If you brought <i>Dawnblade</i>, %game.element.dark%."
     },
     "gh2e-119": {
       "": "Drakescale Boots",
@@ -658,7 +658,7 @@
     "gh2e-121": {
       "": "Drakescale Helm",
       "1": "During your turn, perform:",
-      "2": "If you brought Drakescale Boots and Drakescale Armor, add %game.action.target.valueSign:1%."
+      "2": "If you brought <i>Drakescale Boots</i> and <i>Drakescale Armor</i>, add %game.action.target.valueSign:1%."
     },
     "gh2e-122": {
       "": "Frost Beetle Lantern",
@@ -1025,7 +1025,7 @@
     },
     "gh2e-49": {
       "": "Horned Helm",
-      "1": "After you move 4 of more hexes on your turn, add %game.action.attack.valueSign:1% to your next melee attack this turn."
+      "1": "After you move 4 or more hexes on your turn, add %game.action.attack.valueSign:1% to your next melee attack this turn."
     },
     "gh2e-5": {
       "": "Scouting Lens",
@@ -1064,7 +1064,7 @@
     },
     "gh2e-57": {
       "": "Strategist's Ring",
-      "1": "At the end of the turn, play one card from your hand perform all persistent and mandatory abilities on either the top or bottom action of the card."
+      "1": "At the end of the turn, play one card from your hand and perform all persistent and mandatory abilities on either the top or bottom action of the card."
     },
     "gh2e-58": {
       "": "Major Stamina Potion",
