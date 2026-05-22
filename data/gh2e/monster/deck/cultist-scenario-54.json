@@ -199,8 +199,8 @@
               "value": "X",
               "subActions": [
                 {
-                  "type": "specialTarget",
-                  "value": "self",
+                  "type": "range",
+                  "value": 5,
                   "small": true
                 }
               ]
