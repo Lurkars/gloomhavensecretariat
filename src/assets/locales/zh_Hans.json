@@ -1879,7 +1879,7 @@
       "campaign": "影响战役",
       "drawEvent": "抽取%game.events.type.{0}%事件",
       "drawRandomItem": {
-        "": "抽取随机道具设计图",
+        "": "抽取随机道具",
         "apply": "添加",
         "blueprint": "抽取随机道具设计图"
       },

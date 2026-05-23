@@ -628,7 +628,7 @@
     },
     "gh2e-115": {
       "": "转伤短杖",
-      "1": "当一个%game.action.range:3%内的盟友将要承受%game.damage%时，你可以代为承受该%game.damage%"
+      "1": "当一个%game.action.range:3%内的盟友将要承受%game.damage%时，你可以代为承受该%game.damage%。"
     },
     "gh2e-116": {
       "": "命定诗集",
@@ -637,11 +637,11 @@
     },
     "gh2e-117": {
       "": "黎明之刃",
-      "1": "在你回合期间，如果%game.element.dark%处于强烈或衰退，你的下次近战攻击附加%game.action.attack.valueSign:1%。如果你同时装备了黄昏之刃，则%game.element.light%。"
+      "1": "在你回合期间，如果%game.element.dark%处于强烈或衰退，你的下次近战攻击附加%game.action.attack.valueSign:1%。如果你同时装备了<i>黄昏之刃</i>，则%game.element.light%。"
     },
     "gh2e-118": {
       "": "黄昏之刃",
-      "1": "在你回合期间，如果%game.element.light%处于强烈或衰退，你的下次近战攻击附加%game.action.attack.valueSign:1%。如果你同时装备了黎明之刃，则%game.element.dark%。"
+      "1": "在你回合期间，如果%game.element.light%处于强烈或衰退，你的下次近战攻击附加%game.action.attack.valueSign:1%。如果你同时装备了<i>黎明之刃</i>，则%game.element.dark%。"
     },
     "gh2e-119": {
       "": "亚龙鳞靴子",
@@ -658,7 +658,7 @@
     "gh2e-121": {
       "": "亚龙鳞头盔",
       "1": "在你的回合期间,执行:",
-      "2": "如果你装备了亚龙鳞靴子和亚龙鳞护甲，附加%game.action.target.valueSign:1%。"
+      "2": "如果你装备了 <i>亚龙鳞靴子</i>和 <i>亚龙鳞护甲</i>，附加%game.action.target.valueSign:1%。"
     },
     "gh2e-122": {
       "": "寒冰虫灯",
