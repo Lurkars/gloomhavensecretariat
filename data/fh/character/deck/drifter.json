@@ -483,7 +483,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lost": true
     },
     {
       "name": "Draining Arrows",
@@ -538,14 +539,14 @@
           "type": "shield",
           "value": "1",
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         },
         {
           "type": "retaliate",
           "value": "1",
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ],
@@ -901,7 +902,7 @@
           "type": "condition",
           "value": "ward",
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -1058,7 +1059,7 @@
           "type": "heal",
           "value": "2",
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -1700,7 +1701,7 @@
           "type": "heal",
           "value": "3",
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ],
           "subActions": [
             {
@@ -1775,7 +1776,7 @@
           "value": "X",
           "subActions": [
             {
-              "type": "text",
+              "type": "custom",
               "value": "%data.custom.fh.drifter.abilities.31.2%",
               "small": true
             }
