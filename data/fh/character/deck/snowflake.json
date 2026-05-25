@@ -10,20 +10,95 @@
       "initiative": 71,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false,
+              "small": true
+            },
+            {
+              "type": "forceBox",
+              "value": 0,
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
           "enhancementTypes": [
-            "any"
-          ]
+            "diamond"
+          ],
+          "multiTarget": false
         }
       ],
+      "lost": true,
+      "xp": 1,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ]
     },
@@ -34,19 +109,105 @@
       "initiative": 76,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "custom",
+              "value": "Pull toward one of your allies.",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 2,
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "pull",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(3,0,target)|(3,1,target)|(2,2,target)|(3,2,target)",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ]
@@ -59,21 +220,47 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "At the start of each of your turns, you may %game.element.consume.ice%. If you do, at the end of each of your forced movement abilities performed this turn, all enemies moved with the ability suffer %game.action.damage:1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "targets:1",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "lost": true,
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Gathering Force",
@@ -83,21 +270,28 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "At the end of each of your turns, you may %game.elementHalf:ice|air%. Reduce all of your %game.action.push%, %game.action.pull%, and other forced movement effects by one.",
+          "small": true
         }
       ],
       "bottomActions": [
         {
+          "type": "loot",
+          "value": 1
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Gain advantage on your next attack this round.",
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "lost": true,
+      "xp": 1,
+      "persistent": true,
+      "bottomRound": true
     },
     {
       "name": "Nature's Breath",
@@ -106,22 +300,79 @@
       "initiative": 90,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "Snow Fox",
+            "cardId": "",
+            "edition": "",
+            "health": "5",
+            "attack": "2",
+            "movement": "3",
+            "range": 0,
+            "flying": false,
+            "special": false,
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "thumbnail": false,
+            "noThumbnail": false,
+            "passive": false
+          },
+          "small": true,
+          "enhancementTypes": [],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "This summon is considered to be last in initiative order when determining monster focus.",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
-      ]
+      ],
+      "lost": true,
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Lifting Gust",
@@ -130,22 +381,84 @@
       "initiative": 27,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "push",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 8,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 1,
+      "bottomLost": true
     },
     {
       "name": "Snowball",
@@ -154,22 +467,108 @@
       "initiative": 23,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "condition",
+              "value": "regenerate",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "On your next five attacks, add %game.action.attack:X%, where X is the number of use slots the character token has passed (0, 1, 2, 3, 4).",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "card",
+                  "value": "slot",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 0,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "card",
+                  "value": "slot",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true
         }
-      ]
+      ],
+      "bottomPersistent": true,
+      "bottomLost": true
     },
     {
       "name": "Whiteout",
@@ -178,22 +577,79 @@
       "initiative": 21,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Control all targets of the attack ability:",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "lost": true,
+      "xp": 2
     },
     {
       "name": "Cross Winds",
@@ -203,19 +659,56 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Grant one ally:",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            }
+          ],
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "pull",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAllyRange:4",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "hidden": false,
+          "noDivider": false,
+          "enhancementTypes": [
+            "square"
+          ],
+          "multiTarget": false
         }
       ]
     },
@@ -227,18 +720,74 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Create one 1-hex hazardous terrain tile in a featureless hex within %game.action.range:3%.",
+          "small": true
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% one ally adjacent to the hex.",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ]
@@ -250,22 +799,104 @@
       "initiative": 20,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 2,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Once at the start of each of your turns, you may %game.element.consume.ice% or %game.element.consume.air% to perform:",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true
         }
-      ]
+      ],
+      "bottomXp": 2,
+      "bottomLost": true,
+      "bottomPersistent": true
     },
     {
       "name": "White Winds",
@@ -274,22 +905,119 @@
       "initiative": 11,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(2,0,target)|(1,2,target)|(1,3,target)|(0,4,active)|(1,4,target)|(1,1,enhance)|(0,3,enhance)",
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "push",
+                          "value": 1,
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "If an ally was the target of the heal ability, grant that ally:",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "lost": true,
+      "xp": 1
     },
     {
       "name": "Blinding Vortex",
@@ -298,22 +1026,159 @@
       "initiative": 31,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(0,1,target)|(1,1,target)|(0,2,target)|(1,2,target)|(0,3,target)|(1,3,enhance)|(2,2,target)",
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "hex"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 2,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "push",
+                          "value": 2,
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "element",
+                  "value": "light",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "disarm",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
           "enhancementTypes": [
-            "any"
-          ]
+            "diamond"
+          ],
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
-      ]
+      ],
+      "lost": true
     },
     {
       "name": "The Spirit's Call",
@@ -322,22 +1187,118 @@
       "initiative": 45,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "condition",
+                          "value": "curse",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "push",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "alliesRangeAffect:3",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "light",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1,
+      "bottomLost": true
     },
     {
       "name": "Birds in a Tempest",
@@ -346,22 +1307,80 @@
       "initiative": 18,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "2 White Owls",
+            "cardId": "",
+            "edition": "",
+            "health": "3",
+            "attack": "2",
+            "movement": "3",
+            "range": 0,
+            "flying": false,
+            "action": {
+              "type": "fly",
+              "value": "",
+              "valueType": "fixed",
+              "subActions": [],
+              "small": false,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            "special": false,
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "thumbnail": false,
+            "noThumbnail": false,
+            "passive": false
+          },
+          "small": true,
+          "enhancementTypes": [],
+          "subActions": [
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "All allies add %game.action.move.valueSign:2% and %game.action.jump% to their move abilities this round.",
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "lost": true,
+      "xp": 2,
+      "persistent": true,
+      "bottomRound": true
     },
     {
       "name": "Tornado",
@@ -370,22 +1389,120 @@
       "initiative": 59,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "custom",
+              "value": "Control all targets of the attack ability:",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "small": true,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
           "enhancementTypes": [
-            "any"
-          ]
+            "diamond"
+          ],
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAllyRange:2",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "lost": true,
+      "xp": 2
     },
     {
       "name": "Cold Snap",
@@ -395,18 +1512,73 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Create two 1-hex hazardous terrain tiles in adjacent featureless hexes.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "Up to three enemies occupying hazardous terrain suffer %game.action.damage:2%.",
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "ally:1",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ]
@@ -419,21 +1591,147 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "Designate a hex within %game.action.range:3%.",
+          "small": true,
+          "subActions": [
+            {
+              "type": "pull",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%game.action.target% all enemies within %game.action.range:3% of the designated hex",
+                  "small": true,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "circle"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "custom",
+              "value": "Pull toward the designated hex.",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Zephyr Barrier",
@@ -442,46 +1740,209 @@
       "initiative": 40,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "condition",
+              "value": "ward",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "heal",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "range",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "Place this card in one adjacent character's active area and treat it as if they own the card. If removed from that character's active area, place it in the Snowdancer's lost pile.",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
-      ]
+      ],
+      "bottomLost": true,
+      "bottomXp": 2,
+      "bottomPersistent": true
     },
     {
-      "name": "Biting frost",
+      "name": "Biting Frost",
       "cardId": 349,
       "level": 4,
       "initiative": 16,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Grant one ally:",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "attack",
+              "value": 6,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 2,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "enhancementTypes": [],
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "All enemies occupying hazardous terrain gain %game.condition.immobilize%.",
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "xp": 1,
+      "lost": true
     },
     {
       "name": "Whipping Gale",
@@ -490,22 +1951,113 @@
       "initiative": 79,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "At the start of each of your turns, you may %game.element.consume.air% to perform either:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "or",
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemyAllyRange:3",
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "pull",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemyAllyRange:3",
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2,
+      "bottomPersistent": true,
+      "bottomLost": true
     },
     {
       "name": "Shifting Snow",
@@ -515,19 +2067,41 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Move up to two hazardous terrain tiles within %game.action.range:4% into featureless hexes adjacent to them. If any enter the same hex as a figure, that figure suffers hazardous terrain %game.action.damage% and gains %game.condition.muddle%.",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Create one 1-hex hazardous terrain tile in an adjacent featureless hex.",
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ]
     },
@@ -538,22 +2112,118 @@
       "initiative": 95,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Grant the target of the heal ability:",
+          "subActions": [
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 3,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "Polar Cat",
+            "cardId": "",
+            "edition": "",
+            "health": "6",
+            "attack": "2",
+            "movement": "3",
+            "range": 0,
+            "flying": false,
+            "action": {
+              "type": "pierce",
+              "value": 3,
+              "valueType": "fixed",
+              "subActions": [],
+              "small": false,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            "additionalAction": {
+              "type": "condition",
+              "value": "wound",
+              "valueType": "fixed",
+              "subActions": [],
+              "small": false,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            "special": false,
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "thumbnail": false,
+            "noThumbnail": false,
+            "passive": false
+          },
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2,
+      "bottomLost": true,
+      "bottomPersistent": true
     },
     {
       "name": "Frozen Brand",
@@ -563,21 +2233,83 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "Grant one ally within %game.action.range:3%:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,active)|(3,1,target)|(0,3,target)|(1,3,target)|(2,3,target)|(3,2,target)|(3,3,target)|(2,4,target)",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "attack",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 2,
+                  "small": true,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "immobilize",
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "lost": true
     },
     {
       "name": "Freezing Storm",
@@ -586,22 +2318,159 @@
       "initiative": 81,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all:1",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "range",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "Create one 1-hex hazardous terrain tile in an adjacent featureless hex",
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "xp": 1,
+      "lost": true
     },
     {
       "name": "Storm Wall",
@@ -610,22 +2479,123 @@
       "initiative": 30,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,2,target)|(1,3,target)|(2,4,target)",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "custom",
+                          "value": "All enemies adjacent to the red hexes of the attack ability suffer %game.action.damage:1%",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false,
+                          "noDivider": false,
+                          "multiTarget": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false,
+                      "noDivider": false,
+                      "multiTarget": false
+                    }
+                  ],
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Place this card in one adjacent character's active area and treat it as if they own the card. If removed from that character's active area, place it in the Snowdancer's lost pile.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "At the start of each of your turns, peform:",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "ward",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self:1",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "bottomXp": 2,
+      "bottomLost": true,
+      "bottomPersistent": true
     },
     {
       "name": "Surging Blow",
@@ -634,19 +2604,121 @@
       "initiative": 73,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            }
           ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally:1",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "push",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ]
@@ -659,21 +2731,57 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "All ranged abilities this round gain %game.action.range.valueSign:-1%, to a minimum of %game.action.range:1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%game.element.consume.ice% %game.element.consume.air%: %game.action.range.valueSign:-2% instead, %game.card.experience:1%",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 6,
+          "subActions": [
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "round": true
     },
     {
       "name": "Winds of Change",
@@ -682,22 +2790,103 @@
       "initiative": 15,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "enhancementTypes": [
+                "square"
+              ],
+              "multiTarget": false
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Control all targets of the attack ability:",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
+          ],
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
+        },
+        {
+          "type": "custom",
+          "value": "The target of the heal ability may lose one card from their hand or discard to %game.card.recover% one card from their lost pils of level equal to or lower than the lost card.",
+          "small": true,
+          "hidden": false,
+          "noDivider": false,
+          "multiTarget": false
         }
-      ]
+      ],
+      "xp": 2,
+      "lost": true
     },
     {
       "name": "Snowblind",
@@ -706,22 +2895,73 @@
       "initiative": 83,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%game.action.target:2% enemies occupying or adjacent to the same hazardous terrain tile",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "range",
+                  "value": 5,
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                },
+                {
+                  "type": "condition",
+                  "value": "disarm",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false,
+                  "noDivider": false,
+                  "multiTarget": false
+                }
+              ],
+              "small": true,
+              "hidden": false,
+              "noDivider": false,
+              "multiTarget": false
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Whenever you or an ally perform a rest, the resting character may gain %game.condition.bless%.",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2,
+      "bottomLost": true,
+      "bottomPersistent": true
     }
   ]
 }
