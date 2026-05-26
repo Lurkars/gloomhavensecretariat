@@ -3384,7 +3384,16 @@
         },
         "addConditions": {
           "": "{1}x %game.condition.{0}%选择",
-          "character": "{1}x %game.condition.{0}% {2}"
+          "character": "{1}x %game.condition.{0}% {2}",
+          "monsterEntity": "{1}x %game.condition.{0}% {2}中的'{3}'",
+          "monsters": "{1}x %game.condition.{0}% {2}中的{3}",
+          "objectiveEntity": "{1}x %game.condition.{0}% {2}中的{3}",
+          "objectives": "{1}x %game.condition.{0}% {2}中的{3}",
+          "summon": "{1}x %game.condition.{0}% {2}中的'{3}'",
+          "summons": "{1}x %game.condition.{0}% 召唤物{2}中的{3}"
+        },
+        "addImmunity": {
+          "": "%game.immunity.{0}%用于选择"
         }
       },
       "entityDead": "击杀 {0} 的 {1} 立牌 {2}",

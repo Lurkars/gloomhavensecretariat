@@ -2,13 +2,27 @@
   "ability": {
     "Accelerated Power": "Beschleunigte Kraft",
     "Angry Howl": "Wütendes Heulen",
+    "Barbaric Instincts": "Barbarische Instinkte",
+    "Black Boon": "Schwarzsegen",
     "Black Hex": "Schwarzfluch",
     "Black Tendrils": "Schwarze Ranken",
+    "Blade Dance": "Klingentanz",
+    "Blinding Sickle": "Blendsichel",
     "Boil Blood": "Kochendes Blut",
+    "Bombardment": "Bombardierung",
     "Booming Scream": "Donnernder Schrei",
+    "Brutalize": "Brutale Härte",
+    "Burn Away the Dark": "Finsternis ausbrennen",
     "Calculated Strike": "Kalkulierter Schlag",
+    "Camaraderie": "Kameradschaft",
+    "Care Package": "Pflegepaket",
     "Careful Throw": "Vorsichtiger Wurf",
+    "Center Mass": "Schwerpunkt",
     "Chilling Breath": "Eisiger Hauch",
+    "Close Cuts": "Knappe Kiste",
+    "Close to the Abyss": "Ruf des Abgrunds",
+    "Cold Embrace": "Eisige Umarmung",
+    "Collateral Damage": "Kollateralschaden",
     "Constrict": "Abschnüren",
     "Coupled Chain": "Koppelkette",
     "Cripple": "Verkrüppeln",
@@ -318,6 +332,9 @@
     "vermling-scout": "Ratzen-Späher",
     "zealot": "Fanatiker"
   },
+  "objective": {
+    "Summoning Stone": "Beschwörungsstein"
+  },
   "scenario": {
     "rules": {
       "jotl": {
@@ -368,6 +385,14 @@
         "7": "Versunkenes Geschwür",
         "8": "Verstecktes Geschwür",
         "9": "Explosive Evolution"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "jotl": {
+        "9-7": "Versunkenes Geschwür",
+        "9-8": "Verstecktes Geschwür"
       }
     }
   }
