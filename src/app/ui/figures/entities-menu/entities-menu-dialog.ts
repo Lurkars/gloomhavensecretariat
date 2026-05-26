@@ -299,7 +299,11 @@ export class EntitiesMenuDialogComponent {
       this.filters.push('allies');
     }
 
-    if (gameManager.game.figures.find((figure) => figure instanceof ObjectiveContainer && !figure.escort) === undefined) {
+    if (
+      gameManager.game.figures.find(
+        (figure) => (figure instanceof ObjectiveContainer && !figure.escort) || (figure instanceof Monster && figure.isAlly)
+      ) === undefined
+    ) {
       this.filters = this.filters.filter((v) => v !== 'enemies');
     } else if (!this.filters.includes('enemies')) {
       this.filters.push('enemies');

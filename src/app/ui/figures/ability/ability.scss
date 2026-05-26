@@ -286,7 +286,7 @@
         span {
           position: relative;
           display: block;
-          height: 2em;
+          height: 1.5em;
           margin: 0 0.1em;
 
           &.loss {
@@ -316,7 +316,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            font-size: 1.6em;
+            font-size: 1em;
             font-family: var(--ghs-font-gh-title);
             text-align: center;
             color: var(--ghs-color-black);

@@ -17,7 +17,7 @@
         <img
           class="type"
           [src]="
-            gameManager.enhancementsManager.fh && slot !== 'any'
+            (gameManager.enhancementsManager.fh || settingsManager.settings.fhStyle) && slot !== 'any'
               ? './assets/images/fh/character/abilities/enhancements/' + slot + '.svg'
               : './assets/images/character/abilities/enhancements/circle.svg'
           "

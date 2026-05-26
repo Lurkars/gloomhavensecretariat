@@ -8,99 +8,89 @@
       "cardId": 330,
       "level": 1,
       "initiative": 71,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 2,
+          "multiTarget": false,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 3,
-              "hidden": false,
-              "noDivider": false,
               "multiTarget": false,
-              "small": true
+              "small": true,
+              "noDivider": false
             },
             {
               "type": "condition",
               "value": "muddle",
-              "hidden": false,
-              "noDivider": false,
               "multiTarget": false,
-              "small": true
+              "small": true,
+              "noDivider": false
             },
             {
               "type": "forceBox",
               "value": 0,
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "enhancementTypes": [
-            "diamond"
-          ],
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "lost": true,
-      "xp": 1,
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
-          "noDivider": false,
           "multiTarget": false,
           "enhancementTypes": [
             "circle"
-          ]
+          ],
+          "noDivider": false
         },
         {
           "type": "push",
           "value": 2,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "range",
               "value": 1,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Enticing Breeze",
@@ -118,68 +108,60 @@
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "pull",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "custom",
               "value": "Pull toward one of your allies.",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 2,
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -194,19 +176,17 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(3,0,target)|(3,1,target)|(2,2,target)|(3,2,target)",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)|(3,0,target)|(3,1,target)|(3,2,target)",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -217,6 +197,7 @@
       "cardId": 332,
       "level": 1,
       "initiative": 31,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
@@ -235,30 +216,26 @@
         {
           "type": "push",
           "value": 2,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "targets:1",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 1,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "lost": true,
       "xp": 2,
       "persistent": true
     },
@@ -267,6 +244,7 @@
       "cardId": 333,
       "level": 1,
       "initiative": 89,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
@@ -282,13 +260,11 @@
         {
           "type": "custom",
           "value": "Gain advantage on your next attack this round.",
+          "multiTarget": false,
           "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "lost": true,
       "xp": 1,
       "persistent": true,
       "bottomRound": true
@@ -298,40 +274,31 @@
       "cardId": 334,
       "level": 1,
       "initiative": 90,
+      "lost": true,
       "actions": [
         {
           "type": "summon",
           "value": "summonData",
           "valueObject": {
             "name": "Snow Fox",
-            "cardId": "",
-            "edition": "",
             "health": "5",
             "attack": "2",
             "movement": "3",
-            "range": 0,
-            "flying": false,
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "move",
               "attack"
-            ],
-            "thumbnail": false,
-            "noThumbnail": false,
-            "passive": false
+            ]
           },
           "small": true,
-          "enhancementTypes": [],
           "subActions": [
             {
               "type": "custom",
               "value": "This summon is considered to be last in initiative order when determining monster focus.",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -340,37 +307,33 @@
         {
           "type": "move",
           "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "jump",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "enhancementTypes": [
-            "square"
           ]
         }
       ],
-      "lost": true,
       "xp": 2,
       "persistent": true
     },
@@ -390,38 +353,35 @@
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "push",
               "value": 4,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -432,33 +392,29 @@
           "subActions": [
             {
               "type": "jump",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
       "xp": 1,
-      "bottomXp": 1,
-      "bottomLost": true
+      "bottomXp": 1
     },
     {
       "name": "Snowball",
@@ -476,105 +432,95 @@
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "condition",
               "value": "regenerate",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
           "value": "On your next five attacks, add %game.action.attack:X%, where X is the number of use slots the character token has passed (0, 1, 2, 3, 4).",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
+              "multiTarget": false,
               "subActions": [
                 {
                   "type": "card",
                   "value": "slotStart",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "card",
                   "value": "slotXpFh:1",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "card",
                   "value": "slot",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "concatenationSpacer",
                   "value": 0,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "card",
                   "value": "slot",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "card",
                   "value": "slotXpFh:1",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "small": true
+          ]
         }
       ],
-      "bottomPersistent": true,
-      "bottomLost": true
+      "bottomPersistent": true
     },
     {
       "name": "Whiteout",
       "cardId": 337,
       "level": 1,
       "initiative": 21,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -586,40 +532,36 @@
             {
               "type": "target",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 4,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         },
         {
           "type": "custom",
           "value": "Control all targets of the attack ability:",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 1,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
@@ -630,25 +572,22 @@
         {
           "type": "heal",
           "value": 2,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "range",
               "value": 1,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "lost": true,
       "xp": 2
     },
     {
@@ -660,29 +599,27 @@
         {
           "type": "custom",
           "value": "Grant one ally:",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 2,
-              "hidden": false,
-              "noDivider": false,
+              "multiTarget": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "attack",
               "value": 3,
-              "hidden": false,
-              "noDivider": false,
+              "multiTarget": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "small": true
+          ]
         }
       ],
       "bottomActions": [
@@ -693,22 +630,20 @@
             {
               "type": "specialTarget",
               "value": "enemyAllyRange:4",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         },
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
-          "noDivider": false,
+          "multiTarget": false,
           "enhancementTypes": [
             "square"
           ],
-          "multiTarget": false
+          "noDivider": false
         }
       ]
     },
@@ -726,68 +661,61 @@
         {
           "type": "condition",
           "value": "strengthen",
+          "multiTarget": false,
           "subActions": [
             {
               "type": "custom",
               "value": "%game.action.target% one ally adjacent to the hex.",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         },
         {
           "type": "forceBox",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "ice",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "jump",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "enhancementTypes": [
-            "square"
           ]
         }
       ]
@@ -808,94 +736,85 @@
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "condition",
               "value": "muddle",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 2,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
           "value": "Once at the start of each of your turns, you may %game.element.consume.ice% or %game.element.consume.air% to perform:",
+          "small": true,
           "subActions": [
             {
               "type": "heal",
               "value": 2,
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "range",
                   "value": 2,
+                  "multiTarget": false,
                   "small": true,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "small": true
+          ]
         }
       ],
       "bottomXp": 2,
-      "bottomLost": true,
       "bottomPersistent": true
     },
     {
@@ -903,77 +822,70 @@
       "cardId": 341,
       "level": "X",
       "initiative": 11,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 3,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(2,0,target)|(1,2,target)|(1,3,target)|(0,4,active)|(1,4,target)|(1,1,enhance)|(0,3,enhance)",
-              "hidden": false,
-              "noDivider": false,
+              "value": "(0,1,target)|(0,3,enhance)|(0,4,active)|(1,0,target)|(1,1,enhance)|(1,2,target)|(1,3,target)|(1,4,target)|(2,0,target)",
+              "multiTarget": false,
               "enhancementTypes": [
                 "hex",
                 "hex"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 1,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "push",
                           "value": 1,
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
@@ -987,36 +899,32 @@
             {
               "type": "range",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         },
         {
           "type": "custom",
           "value": "If an ally was the target of the heal ability, grant that ally:",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "lost": true,
       "xp": 1
     },
     {
@@ -1024,140 +932,126 @@
       "cardId": 342,
       "level": "X",
       "initiative": 31,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 2,
+          "multiTarget": false,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "area",
-              "value": "(0,0,active)|(0,1,target)|(1,1,target)|(0,2,target)|(1,2,target)|(0,3,target)|(1,3,enhance)|(2,2,target)",
-              "hidden": false,
-              "noDivider": false,
+              "value": "(0,0,active)|(0,1,target)|(0,2,target)|(0,3,target)|(1,1,target)|(1,2,target)|(1,3,enhance)|(2,2,target)",
+              "multiTarget": false,
               "enhancementTypes": [
                 "hex"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 2,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 },
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "push",
                           "value": 2,
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 },
                 {
                   "type": "element",
                   "value": "light",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "condition",
                           "value": "disarm",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "enhancementTypes": [
-            "diamond"
-          ],
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
@@ -1170,15 +1064,13 @@
           "subActions": [
             {
               "type": "jump",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "The Spirit's Call",
@@ -1196,64 +1088,58 @@
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 1,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "condition",
                           "value": "curse",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "push",
@@ -1265,97 +1151,79 @@
             {
               "type": "specialTarget",
               "value": "alliesRangeAffect:3",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "condition",
               "value": "bless",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "light",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
-      "bottomXp": 1,
-      "bottomLost": true
+      "bottomXp": 1
     },
     {
       "name": "Birds in a Tempest",
       "cardId": 344,
       "level": 2,
       "initiative": 18,
+      "lost": true,
       "actions": [
         {
           "type": "summon",
           "value": "summonData",
           "valueObject": {
             "name": "2 White Owls",
-            "cardId": "",
-            "edition": "",
             "health": "3",
             "attack": "2",
             "movement": "3",
-            "range": 0,
-            "flying": false,
-            "action": {
-              "type": "fly",
-              "value": "",
-              "valueType": "fixed",
-              "subActions": [],
-              "small": false,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
-            },
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "move",
               "attack"
             ],
-            "thumbnail": false,
-            "noThumbnail": false,
-            "passive": false
+            "action": {
+              "type": "fly",
+              "value": "",
+              "valueType": "fixed",
+              "multiTarget": false,
+              "noDivider": false
+            }
           },
           "small": true,
-          "enhancementTypes": [],
           "subActions": [
             {
               "type": "forceBox",
+              "multiTarget": false,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -1371,13 +1239,11 @@
         {
           "type": "custom",
           "value": "All allies add %game.action.move.valueSign:2% and %game.action.jump% to their move abilities this round.",
+          "multiTarget": false,
           "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "lost": true,
       "xp": 2,
       "persistent": true,
       "bottomRound": true
@@ -1387,121 +1253,109 @@
       "cardId": 345,
       "level": 2,
       "initiative": 59,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 3,
+          "multiTarget": false,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "custom",
               "value": "Control all targets of the attack ability:",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "move",
                   "value": 1,
+                  "multiTarget": false,
                   "small": true,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "enhancementTypes": [
-            "diamond"
-          ],
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "jump",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "enhancementTypes": [
-            "square"
           ]
         },
         {
           "type": "push",
           "value": 1,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemyAllyRange:2",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "lost": true,
       "xp": 2
     },
     {
@@ -1518,26 +1372,23 @@
         {
           "type": "custom",
           "value": "Up to three enemies occupying hazardous terrain suffer %game.action.damage:2%.",
+          "multiTarget": false,
           "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         },
         {
           "type": "forceBox",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "ice",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
@@ -1551,33 +1402,29 @@
             {
               "type": "concatenation",
               "value": ",",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "ally:1",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "range",
                   "value": 3,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "condition",
                   "value": "strengthen",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -1597,34 +1444,32 @@
             {
               "type": "pull",
               "value": 2,
+              "multiTarget": false,
+              "enhancementTypes": [
+                "circle"
+              ],
               "subActions": [
                 {
                   "type": "custom",
                   "value": "%game.action.target% all enemies within %game.action.range:3% of the designated hex",
+                  "multiTarget": false,
                   "small": true,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "hidden": false,
-              "noDivider": false,
-              "enhancementTypes": [
-                "circle"
-              ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "custom",
               "value": "Pull toward the designated hex.",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -1636,102 +1481,90 @@
             {
               "type": "target",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 1,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 },
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 1,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Zephyr Barrier",
@@ -1749,82 +1582,74 @@
             {
               "type": "target",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "condition",
               "value": "ward",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "heal",
                           "value": 1,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "range",
                           "value": 1,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1834,14 +1659,12 @@
             {
               "type": "shield",
               "value": 1,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ]
         }
       ],
-      "bottomLost": true,
       "bottomXp": 2,
       "bottomPersistent": true
     },
@@ -1850,78 +1673,71 @@
       "cardId": 349,
       "level": 4,
       "initiative": 16,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
           "value": "Grant one ally:",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 3,
-              "hidden": false,
-              "noDivider": false,
+              "multiTarget": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "attack",
               "value": 6,
-              "hidden": false,
-              "noDivider": false,
+              "multiTarget": false,
               "enhancementTypes": [
                 "diamond"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "attack",
                           "value": 2,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "enhancementTypes": [],
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "small": true
+          ]
         }
       ],
       "bottomActions": [
@@ -1935,14 +1751,12 @@
         {
           "type": "custom",
           "value": "All enemies occupying hazardous terrain gain %game.condition.immobilize%.",
+          "multiTarget": false,
           "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "xp": 1,
-      "lost": true
+      "xp": 1
     },
     {
       "name": "Whipping Gale",
@@ -1953,56 +1767,52 @@
         {
           "type": "attack",
           "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "target",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 4,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "pull",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "enhancementTypes": [
-            "square"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -2012,52 +1822,46 @@
             {
               "type": "concatenation",
               "value": "or",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "push",
                   "value": 2,
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "specialTarget",
                       "value": "enemyAllyRange:3",
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "multiTarget": false,
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 },
                 {
                   "type": "pull",
                   "value": 2,
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "specialTarget",
                       "value": "enemyAllyRange:3",
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "multiTarget": false,
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
       "xp": 1,
       "bottomXp": 2,
-      "bottomPersistent": true,
-      "bottomLost": true
+      "bottomPersistent": true
     },
     {
       "name": "Shifting Snow",
@@ -2082,26 +1886,23 @@
         {
           "type": "custom",
           "value": "Create one 1-hex hazardous terrain tile in an adjacent featureless hex.",
+          "multiTarget": false,
           "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         },
         {
           "type": "forceBox",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "ice",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ]
     },
@@ -2121,108 +1922,88 @@
             {
               "type": "range",
               "value": 4,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "condition",
               "value": "bless",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         },
         {
           "type": "custom",
           "value": "Grant the target of the heal ability:",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "move",
                       "value": 3,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "multiTarget": false,
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "summon",
           "value": "summonData",
           "valueObject": {
             "name": "Polar Cat",
-            "cardId": "",
-            "edition": "",
             "health": "6",
             "attack": "2",
             "movement": "3",
-            "range": 0,
-            "flying": false,
-            "action": {
-              "type": "pierce",
-              "value": 3,
-              "valueType": "fixed",
-              "subActions": [],
-              "small": false,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
-            },
-            "additionalAction": {
-              "type": "condition",
-              "value": "wound",
-              "valueType": "fixed",
-              "subActions": [],
-              "small": false,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
-            },
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "move",
               "attack"
             ],
-            "thumbnail": false,
-            "noThumbnail": false,
-            "passive": false
+            "action": {
+              "type": "pierce",
+              "value": 3,
+              "valueType": "fixed",
+              "multiTarget": false,
+              "noDivider": false
+            },
+            "additionalAction": {
+              "type": "condition",
+              "value": "wound",
+              "valueType": "fixed",
+              "multiTarget": false,
+              "noDivider": false
+            }
           },
           "small": true
         }
       ],
       "xp": 1,
       "bottomXp": 2,
-      "bottomLost": true,
       "bottomPersistent": true
     },
     {
@@ -2230,6 +2011,7 @@
       "cardId": 353,
       "level": 6,
       "initiative": 33,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
@@ -2238,54 +2020,48 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,active)|(3,1,target)|(0,3,target)|(1,3,target)|(2,3,target)|(3,2,target)|(3,3,target)|(2,4,target)",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "value": "(0,1,target)|(0,3,target)|(1,1,target)|(1,2,target)|(1,3,target)|(2,0,target)|(2,1,target)|(2,2,active)|(2,3,target)|(2,4,target)|(3,1,target)|(3,2,target)|(3,3,target)",
+              "multiTarget": false,
+              "noDivider": false
             },
             {
               "type": "attack",
               "value": 4,
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "push",
                   "value": 2,
+                  "multiTarget": false,
                   "small": true,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "condition",
                       "value": "immobilize",
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "multiTarget": false,
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -2300,22 +2076,21 @@
           "subActions": [
             {
               "type": "jump",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
-      "xp": 2,
-      "lost": true
+      "xp": 2
     },
     {
       "name": "Freezing Storm",
       "cardId": 354,
       "level": 7,
       "initiative": 81,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -2327,78 +2102,69 @@
             {
               "type": "specialTarget",
               "value": "all:1",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "range",
                           "value": 1,
                           "valueType": "add",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -2410,67 +2176,59 @@
         },
         {
           "type": "boxFhSubActions",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "ice",
               "valueType": "minus",
+              "multiTarget": false,
               "subActions": [
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "multiTarget": false,
+                  "small": true,
                   "subActions": [
                     {
                       "type": "custom",
                       "value": "Create one 1-hex hazardous terrain tile in an adjacent featureless hex",
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "multiTarget": false,
+                      "noDivider": false
                     },
                     {
                       "type": "card",
                       "value": "experience:1",
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "multiTarget": false,
+                      "noDivider": false
                     }
                   ],
-                  "small": true,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         },
         {
           "type": "pull",
           "value": 2,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "xp": 1,
-      "lost": true
+      "xp": 1
     },
     {
       "name": "Storm Wall",
@@ -2485,80 +2243,72 @@
             {
               "type": "area",
               "value": "(0,0,target)|(0,1,target)|(1,2,target)|(1,3,target)|(2,4,target)",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "pierce",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "push",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
                   "valueType": "minus",
+                  "multiTarget": false,
                   "subActions": [
                     {
                       "type": "concatenation",
                       "value": ",",
+                      "multiTarget": false,
+                      "small": true,
                       "subActions": [
                         {
                           "type": "custom",
                           "value": "All enemies adjacent to the red hexes of the attack ability suffer %game.action.damage:1%",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         },
                         {
                           "type": "card",
                           "value": "experience:1",
-                          "hidden": false,
-                          "noDivider": false,
-                          "multiTarget": false
+                          "multiTarget": false,
+                          "noDivider": false
                         }
                       ],
-                      "small": true,
-                      "hidden": false,
-                      "noDivider": false,
-                      "multiTarget": false
+                      "noDivider": false
                     }
                   ],
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -2568,33 +2318,29 @@
         {
           "type": "custom",
           "value": "At the start of each of your turns, peform:",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "condition",
               "value": "ward",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self:1",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomXp": 2,
-      "bottomLost": true,
       "bottomPersistent": true
     },
     {
@@ -2610,73 +2356,66 @@
             {
               "type": "range",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "push",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         },
         {
           "type": "attack",
           "value": 3,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "range",
               "value": 4,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "push",
               "value": 2,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         },
         {
           "type": "forceBox",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "air",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
@@ -2690,34 +2429,30 @@
             {
               "type": "specialTarget",
               "value": "ally:1",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "push",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "condition",
               "value": "strengthen",
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -2736,19 +2471,17 @@
           "subActions": [
             {
               "type": "boxFhSubActions",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "custom",
                   "value": "%game.element.consume.ice% %game.element.consume.air%: %game.action.range.valueSign:-2% instead, %game.card.experience:1%",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
@@ -2757,26 +2490,24 @@
         {
           "type": "move",
           "value": 6,
+          "enhancementTypes": [
+            "square"
+          ],
           "subActions": [
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "air",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
-          ],
-          "enhancementTypes": [
-            "square"
           ]
         }
       ],
@@ -2788,6 +2519,7 @@
       "cardId": 358,
       "level": 9,
       "initiative": 15,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -2799,56 +2531,50 @@
             {
               "type": "target",
               "value": 4,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
               "enhancementTypes": [
                 "square"
               ],
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "range",
               "value": 4,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         },
         {
           "type": "custom",
           "value": "Control all targets of the attack ability:",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 2,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         },
         {
           "type": "forceBox",
+          "multiTarget": false,
+          "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "air",
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "multiTarget": false,
+              "noDivider": false
             }
           ],
-          "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
       "bottomActions": [
@@ -2862,31 +2588,27 @@
         {
           "type": "heal",
           "value": 4,
+          "multiTarget": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
+              "multiTarget": false,
               "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ],
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         },
         {
           "type": "custom",
           "value": "The target of the heal ability may lose one card from their hand or discard to %game.card.recover% one card from their lost pils of level equal to or lower than the lost card.",
+          "multiTarget": false,
           "small": true,
-          "hidden": false,
-          "noDivider": false,
-          "multiTarget": false
+          "noDivider": false
         }
       ],
-      "xp": 2,
-      "lost": true
+      "xp": 2
     },
     {
       "name": "Snowblind",
@@ -2904,53 +2626,48 @@
             {
               "type": "concatenation",
               "value": ",",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "custom",
                   "value": "%game.action.target:2% enemies occupying or adjacent to the same hazardous terrain tile",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "range",
                   "value": 5,
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 },
                 {
                   "type": "condition",
                   "value": "disarm",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             },
             {
               "type": "forceBox",
+              "multiTarget": false,
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
                   "value": "ice",
-                  "hidden": false,
-                  "noDivider": false,
-                  "multiTarget": false
+                  "multiTarget": false,
+                  "noDivider": false
                 }
               ],
-              "small": true,
-              "hidden": false,
-              "noDivider": false,
-              "multiTarget": false
+              "noDivider": false
             }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -2960,7 +2677,6 @@
       ],
       "xp": 1,
       "bottomXp": 2,
-      "bottomLost": true,
       "bottomPersistent": true
     }
   ]

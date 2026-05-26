@@ -202,6 +202,9 @@ export class LootDeckComponent implements OnInit, OnChanges {
         if (settingsManager.settings.animations && gameManager.lootManager.easter && loot) {
           if (loot.type === LootType.metal) {
             new Audio('assets/media/metal.ogg').play();
+          } else if (loot.type === LootType.lumber) {
+            new Audio('assets/media/lumber.ogg').play();
+            queueDelay = 1600;
           } else if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
             new Audio('assets/media/gold.ogg').play();
             queueDelay = 2200;

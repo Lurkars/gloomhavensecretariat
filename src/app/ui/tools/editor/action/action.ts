@@ -238,6 +238,8 @@ export class EditorActionComponent implements OnInit {
       .filter((hex) => hex.type !== ActionHexType.invisible)
       .map((hex) => ActionHexToString(hex))
       .join('|');
+
+    this.action.enhancementTypes = hexes.filter((hex) => hex.type === ActionHexType.enhance).map(() => EnhancementType.hex);
     this.change();
   }
 
@@ -257,6 +259,8 @@ export class EditorActionComponent implements OnInit {
         .filter((hex) => hex.type !== ActionHexType.invisible)
         .map((hex) => ActionHexToString(hex))
         .join('|');
+
+      this.action.enhancementTypes = hexes.filter((hex) => hex.type === ActionHexType.enhance).map(() => EnhancementType.hex);
       this.change();
     }
   }
@@ -297,6 +301,8 @@ export class EditorActionComponent implements OnInit {
       .filter((hex) => hex.type !== ActionHexType.invisible)
       .map((hex) => ActionHexToString(hex))
       .join('|');
+
+    this.action.enhancementTypes = hexes.filter((hex) => hex.type === ActionHexType.enhance).map(() => EnhancementType.hex);
     this.change();
   }
 

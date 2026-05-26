@@ -14,9 +14,58 @@
     "robotic-boltshooter",
     "ruined-machine"
   ],
+  "objectives": [
+    {
+      "name": "slow-declared",
+      "health": 0,
+      "trackDamage": true
+    }
+  ],
   "lootDeckConfig": {
     "money": 15
   },
+  "rules": [
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "edition": "fh",
+            "name": "blinkblade",
+            "identity": 0
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "slow-declared"
+          },
+          "type": "damage",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "slow-declared",
+            "hp": "HP > 5"
+          },
+          "type": "present"
+        }
+      ],
+      "finish": "lost"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -42,6 +91,9 @@
           "name": "ruined-machine",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

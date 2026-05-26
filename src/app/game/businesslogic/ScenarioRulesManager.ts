@@ -656,7 +656,8 @@ export class ScenarioRulesManager {
       !figureRule.identifier ||
       (!figureRule.identifier.health &&
         !figureRule.identifier.hp &&
-        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length === 0))
+        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length === 0) &&
+        figureRule.identifier.identity === undefined)
     ) {
       return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
@@ -730,6 +731,13 @@ export class ScenarioRulesManager {
           });
         }
       }
+
+      if (figureRule.identifier && figureRule.identifier.identity !== undefined) {
+        if (figure instanceof Character) {
+          return figure.identity === figureRule.identifier.identity;
+        }
+        return false;
+      }
       return false;
     });
   }
@@ -755,7 +763,8 @@ export class ScenarioRulesManager {
       (!figureRule.identifier.number &&
         !figureRule.identifier.health &&
         !figureRule.identifier.hp &&
-        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length === 0))
+        (!figureRule.identifier.conditions || figureRule.identifier.conditions.length === 0) &&
+        figureRule.identifier.identity === undefined)
     ) {
       return gameManager.entitiesByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
     }
@@ -787,6 +796,10 @@ export class ScenarioRulesManager {
 
       if (figureRule.identifier && figureRule.identifier.marker && (entity instanceof MonsterEntity || entity instanceof ObjectiveEntity)) {
         filter = filter && figureRule.identifier.marker === entity.marker;
+      }
+
+      if (figureRule.identifier && figureRule.identifier.identity !== undefined && entity instanceof Character) {
+        filter = filter && entity.identity === figureRule.identifier.identity;
       }
 
       return filter;

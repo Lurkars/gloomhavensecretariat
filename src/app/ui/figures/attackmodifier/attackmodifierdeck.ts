@@ -308,6 +308,17 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
           if (this.queue < 0) {
             this.queue = 0;
           }
+
+          if (
+            gameManager.lootManager.easter &&
+            !!this.character &&
+            this.deck.state !== 'advantage' &&
+            this.deck.cards
+              .slice(this.deck.state === 'disadvantage' ? this.deck.lastVisible : this.deck.current, this.deck.current + 1)
+              .some((am) => am.type === AttackModifierType.null)
+          ) {
+            new Audio('assets/media/null.ogg').play();
+          }
         }
         this.cdr.markForCheck();
       },

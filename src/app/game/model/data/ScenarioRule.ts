@@ -126,6 +126,7 @@ export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
   health: string | undefined;
   conditions: string[] | undefined;
   number: string | undefined;
+  identity: number | undefined;
 }
 
 export class RandomDungeonRule {

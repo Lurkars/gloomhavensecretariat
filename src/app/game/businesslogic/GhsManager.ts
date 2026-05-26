@@ -9,6 +9,9 @@ export class GhsManager {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
+  private _pendingCdrs = new Set<ChangeDetectorRef>();
+  private _markForCheckScheduled = false;
+
   constructor() {
     effect(() => {
       gameManager.uiChangeSignal();
@@ -46,13 +49,29 @@ export class GhsManager {
     gameManager.triggerUiChange(fromServer);
   }
 
+  private _scheduleMarkForCheck(cdr: ChangeDetectorRef): void {
+    this._pendingCdrs.add(cdr);
+    if (!this._markForCheckScheduled) {
+      this._markForCheckScheduled = true;
+      setTimeout(() => {
+        this._markForCheckScheduled = false;
+        this._pendingCdrs.forEach((c) => {
+          try {
+            c.markForCheck();
+          } catch {}
+        });
+        this._pendingCdrs.clear();
+      }, 0);
+    }
+  }
+
   uiChangeEffect(callback: (fromServer: boolean) => void): void {
     const cdr = inject(ChangeDetectorRef);
     effect(() => {
       gameManager.uiChangeSignal();
       const fromServer = gameManager.uiChangeFromServer();
       untracked(() => callback(fromServer));
-      cdr.markForCheck();
+      this._scheduleMarkForCheck(cdr);
     });
   }
 }

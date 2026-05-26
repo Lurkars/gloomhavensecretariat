@@ -143,6 +143,10 @@ export class CharacterHelper {
           gameManager.stateManager.after();
         }
       }
+
+      if (gameManager.lootManager.easter && character.exhausted) {
+        new Audio('assets/media/2h.ogg').play();
+      }
     }
   }
 }

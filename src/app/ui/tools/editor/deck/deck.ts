@@ -18,6 +18,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { AbilityComponent } from 'src/app/ui/figures/ability/ability';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { HeaderComponent } from 'src/app/ui/header/header';
+import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { EditorActionDialogComponent } from 'src/app/ui/tools/editor/action/action';
@@ -69,7 +70,17 @@ export function compactAction(action: any) {
 }
 
 @Component({
-  imports: [NgClass, DragDropModule, FormsModule, AbilityComponent, ActionComponent, HeaderComponent, GhsLabelDirective, TrackUUIDPipe],
+  imports: [
+    NgClass,
+    DragDropModule,
+    FormsModule,
+    AbilityComponent,
+    ActionComponent,
+    HeaderComponent,
+    GhsLabelDirective,
+    TrackUUIDPipe,
+    SettingMenuComponent
+  ],
   selector: 'ghs-deck-editor',
   templateUrl: './deck.html',
   styleUrls: ['../editor.scss', './deck.scss'],

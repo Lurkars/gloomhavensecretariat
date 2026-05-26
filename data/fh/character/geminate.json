@@ -199,6 +199,7 @@
           "count": 1,
           "attackModifier": {
             "type": "double",
+            "shuffle": false,
             "effects": [
               {
                 "type": "condition",

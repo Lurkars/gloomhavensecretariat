@@ -434,6 +434,7 @@
       "cardId": 7,
       "level": 1,
       "initiative": 27,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -483,8 +484,7 @@
             }
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Draining Arrows",

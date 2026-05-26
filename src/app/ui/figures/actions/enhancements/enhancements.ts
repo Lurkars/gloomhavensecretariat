@@ -69,7 +69,10 @@ export class ActionEnhancementsComponent implements OnInit {
     this.slots = [];
     this.slotIndex = this.slot();
     if (this.action.enhancementTypes) {
-      this.slots = this.slotIndex !== undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
+      this.slots =
+        this.slotIndex !== undefined
+          ? [this.action.enhancementTypes[this.slotIndex] || EnhancementType.any]
+          : [...this.action.enhancementTypes];
       this.wipSpecialIndex =
         this.slots[0] === EnhancementType.any ? (!this.actionIndex().includes('bottom') ? 'custom' : 'custom-bottom') : '';
       this.enhancements = [];

@@ -26,6 +26,8 @@
               (change)="deckDataToJson()"
               (keyup)="deckDataToJson()"
             />
+
+            <div ghs-setting-menu="fhStyle"></div>
             @if (!character && !monster) {
               <label><span [ghs-label]="'editor.deck.character'"></span></label>
               <input type="checkbox" [(ngModel)]="deckData.character" (change)="deckDataToJson()" />
