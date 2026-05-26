@@ -1,1 +1,118 @@
-{}
+{
+    "events": {
+        "jotl": {
+            "city": {
+                "10": {
+                    "narrative": "„Eine Hexe!\", schimpft ein Inox-Arbeiter laut in einer Ecke des Schlafenden Löwen. „Sie kam aus der Kanalisation und verwandelte den Vorarbeiter in ... *hicks* ... in einen Fisch!\" Ihr wendet euch euren Bechern zu, aber der Mann wütet weiter: „Drei Tageslöhne für den, der sie tötet!\" Das lässt aufhorchen.<br><br>Ihr folgt den Anweisungen des Trunkenbolds und, wie sollte es anders sein, verirrt euch in der Kanalisation unter Gloomhaven. Ihr erwägt gerade, euch einfach an die Oberfläche zu graben, als hinter euch ein Kratzen ertönt. Ihr zieht die Waffen und dreht euch in Erwartung eines Kampfes um. Eine Altersschwäche Valrath steht gekrümmt vor euch. Sie trägt eine Schnur mit getrockneten Fischen um den Hals. Sie ignoriert eure Waffen und zeigt mit ihrem knorrigen Finger stumm auf einen Durchgang hinter euch.",
+                    "options": {
+                        "A": {
+                            "narrative": "Tötet sie und holt euch die Belohnung.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Mitunter erzählen Arbeiter großspurige Geschichten. Dies war keine. Noch bevor ihr eure Waffen schwingen könnt, springt die Hexe euch kratzend und beißend an wie ein Dämon. Nach einem harten Kampf humpelt ihr siegreich zurück zur Schenke. Der Inox ist noch betrunkener als zuvor; aber er zahlt das versprochene Kopfgeld - vier Tagelöhne, wie ihr ihm versichert. Während ihr bei einem Bier eure Wunden leckt, sinniert ihr darüber; dass Hafenarbeiter eindeutig zu wenig Geld verdienen."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Sie ist nur eine alte Einsiedlerin in der Kanalisation. Lasst sie in Ruhe und folgt ihrem Fingerzeig.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr winkt der alten Frau zu und begebt euch zum Durchgang, doch sie folgt euch. Sie hat euch nicht den Weg zur Oberfläche gezeigt, sondern euch zu einer kleinen Hütte geführt, vor der ein Kessel über einem schwachen Feuer brodelt. Die Valrath schenkt euch eine Schüssel der köstlichsten Fischsuppe ein, die ihr je gegessen habt. Ihr schlürft sie still leer und verlässt gut gestärkt diesen wunderlichen Ort. Ihr fragt euch, warum der Arbeiter solch hässliche Anschuldigungen gegen die arme Einsiedlerin erhoben hat."
+                                }
+                            }
+                        }
+                    }
+                },
+                "11": {
+                    "narrative": "„Beweist eure Kraft! Seid ihr stärker als ein Inox?\"<br><br>Ein Antride versucht an einer Straßenecke lautstark, die Passanten zu seiner Krafttestmaschine zu locken. Für jeden, der sich traut, damit auf den Fuß des Geräts zu schlagen, um die Glocke ganz oben zu läuten, liegt ein Hammer bereit.<br><br>„Es winken fantastische Preise für die Stärksten und peinliche Niederlagen für die Schwächsten! Nur fünf Goldstücke pro Versuch!\"",
+                    "options": {
+                        "A": {
+                            "narrative": "Traut euch und schlagt mit dem Hammer zu.",
+                            "outcomes": {
+                                "0": {
+                                    "effects": {
+                                        "0": "Jeder Charakter führt „Angriff 3\" aus, zieht eine Angriffsmodifikator-Karte und liest je nach Wert des Angriffs sein persönliches Ergebnis:"
+                                    }
+                                },
+                                "1": {
+                                    "narrative": "„Schwächling! Tu dir bloß nicht weh.“",
+                                    "condition": "3 ODER WENIGER",
+                                    "effects": {
+                                        "0": "Der Charakter verliert 5 Gold."
+                                    }
+                                },
+                                "2": {
+                                    "narrative": "„Nicht übel! Guter Schlag.\"",
+                                    "condition": "4 ODER 5",
+                                    "effects": {
+                                        "0": "Der Charakter erhält 5 Gold."
+                                    }
+                                },
+                                "3": {
+                                    "narrative": "KLINGELING! „Unglaublich! Du bist stärker als ein Inox!\"",
+                                    "condition": "6 ODER MEHR",
+                                    "effects": {
+                                        "0": "Der Charakter erhält 5 Gold und SEGEN%game.condition.bless%."
+                                    }
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Weiß dieser Antride etwa nicht, wer ihr seid? Die Pranken des Löwen müssen sich niemandem beweisen - das ist Kinderkram.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr geht weiter; schließlich wisst ihr längst, wie stark ihr seid. Die Kinder, die euch auf der Straße verspotten, lassen euch völlig kalt."
+                                }
+                            }
+                        }
+                    }
+                },
+                "12": {
+                    "narrative": "Ihr lauft durchs Münzviertel, als plötzlich eine grün gekleidete Frau mit einer Spezialbrille aus einem Fenster springt und euch umstößt. Überall klimpern Münzen und kostbare Schmuckstücke, die der Räuberin aus der Tasche fallen. Sie klopft sich ab und bemerkt dann zwei Wachen, die aufgrund des Tumults die Gasse hinunter blicken.<br><br>„Hahaha! Der war echt gut!\" Sie lacht und klopft euch dabei auf den Rücken, um den Wachen etwas vorzuspielen. Als jemand „Diebe!\" aus dem Fenster ruft, zuckt sie zusammen. Die Wachen hasten in eure Richtung und die Frau murmelt: „Spielt einfach mit und wir kommen alle heil aus der Sache raus. Sonst landen wir alle in der Geisterfestung, kapiert?\"",
+                    "options": {
+                        "A": {
+                            "narrative": "Übergibt sie den Wachen.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr zeigt auf die Diebin und wollt gerade etwas sagen, doch sie ist schneller: „Sie waren es! Sie sind aus dem Fenster gesprungen und haben mich beinahe totgetrampelt!\" Sie legt ihre Hand an die gestohlene Perlenkette um ihren Hals „Wachen, nehmt dieses Gesindel fest!\"<br><br>Die Wachen ignorieren eure irritierten Proteste und legen euch Handschellen an. Als sie schließlich die Zeugin befragen wollen, ist diese bereits verschwunden. Trotz allem kostet es euch noch etwas Schmiergeld, damit sie euch gehen lassen."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Lasst die Diebin ihr Spielchen spielen.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "„Sie sind in diese Richtung geflohen!\" Als die Wachen sich nähern, lehnt sich die grün gewandete Frau in einem gespielten Schwächeanfall gegen die Hauswand und zeigt auf die dunkle Gasse. „Bitte, ihr müsst euch beeilen. Ich glaube, sie haben jemanden umgebracht!\"<br><br>Die Wachen sehen sich an und stürmen in die Schatten „Seht ihr? War gar nicht so schwer, oder?\" scherzt die Diebin und beugt sich hinunter, um die Beute aufzusammeln. \"Hier; für euer Schweigen. Und jetzt weg hier; bevor sie zurückkommen.\""
+                                }
+                            }
+                        }
+                    }
+                },
+                "13": {
+                    "narrative": "Ihr betretet den Schlafenden Löwen und trefft euren alten Freund Xain an der Theke. Der Wirt tut sein Bestes, ihn zu ignorieren. Xain grinst breit, als er euch bemerkt.<br><br>„Pranken! Freunde! Meine einzig wahren Gefährten!\", jauchzt er: „Ich schätze, ihr wollt mein Förderhonorar bezahlen?\"<br><br>Ihr seht ihn fragend an. Er spricht betont langsam. „Mein Honorar? Für die Förderung eures Rufs als Pranken des Löwen. Euch mag nicht interessieren, was die Leute von euch halten, mich aber schon. Zum Teufel, euch ,Die Pranken' zu nennen, war doch überhaupt erst meine Idee! Den Namen kennt nun jeder! Das ist doch sicher etwas wert.\"",
+                    "options": {
+                        "A": {
+                            "narrative": "Bezahlt Xain für die Förderung eures Rufs in der Stadt.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Xain versichert euch, dass euer Ruf einwandfrei sei. „Ich habe euch überall in der Stadt gelobt und einen Rabatt bei den Händlern ausgehandelt, damit ihr euch in ihren Läden blicken lasst.\"",
+                                    "effects": {
+                                        "1": "Bis zum Beginn des nächsten Szenarios könnt ihr Gegenstände aus dem Laden zu einem um 5 Gold verringerten Preis erwerben."
+                                    }
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Weigert euch zu zahlen. Wenn euer Ruf so wichtig wäre, würdet ihr euch selbst darum kümmern.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Xain schüttelt den Kopf. „Tja, das wird eurem Ruf schaden. Dafür sorge ich schon.\"<br><br>Er notiert sich etwas in seinem Heftchen und murmelt euch im Weggehen zu: „Das wird euch teuer zu stehen kommen.\""
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
