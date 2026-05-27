@@ -419,6 +419,8 @@
       "addEnhancement": "Add Enhancement Slot",
       "addSubAction": "Add Sub-action",
       "enhancements": "Enhancements",
+      "multiTarget": "Multiple Targets",
+      "noDivider": "No Divier",
       "remove": "Remove Action",
       "removeEnhancement": "Remove Enhancement Slot",
       "removeSubAction": "Remove Sub-action",
@@ -2530,7 +2532,7 @@
       "hint": "Automatically open standee number dialogs for all new standees."
     },
     "automaticTheme": {
-      "": "AutomaAuto.tic Theme",
+      "": "Auto. Theme",
       "hint": "Adjust Theme and Frosthaven Style automatically on edition change. Also adjust Theme when toggling Frosthaven Style.<br>(Theme adjustment disabled on Modern Theme)"
     },
     "automaticUnlocking": {
@@ -2615,7 +2617,7 @@
       "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
     },
     "characterAttackModifierDeckActiveBottom": {
-      "": "Charakter AM-Deck above Monster Deck",
+      "": "Character AM-Deck above Monster Deck",
       "hint": "Display Attack Modifier Deck of active Character above the Monster Attackmodifierdeck."
     },
     "characterAttackModifierDeckPermanent": {
