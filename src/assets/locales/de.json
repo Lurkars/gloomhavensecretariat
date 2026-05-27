@@ -416,6 +416,8 @@
       "addEnhancement": "Fertigkeitsverbesserung hinzufügen",
       "addSubAction": "Unter-Aktion hinzufügen",
       "enhancements": "Fertigkeitsverbesserungen",
+      "multiTarget": "Mehrere Ziele",
+      "noDivider": "Kein Trenner",
       "remove": "Aktion entfernen",
       "removeEnhancement": "Fertigkeitsverbesserung entfernen",
       "removeSubAction": "Unter-Aktion entfernen",

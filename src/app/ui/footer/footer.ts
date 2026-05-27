@@ -289,7 +289,7 @@ export class FooterComponent implements OnInit {
       } else {
         let lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
         while (lastActive) {
-          gameManager.roundManager.toggleFigure(lastActive);
+          gameManager.roundManager.toggleFigure(lastActive, true);
           lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
         }
       }

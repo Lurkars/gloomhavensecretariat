@@ -64,8 +64,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "f",
-          "count": "2"
+          "count": "2",
+          "marker": "f"
         },
         {
           "monster": {
@@ -104,8 +104,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "g",
-          "count": "2"
+          "count": "2",
+          "marker": "g"
         },
         {
           "monster": {
@@ -168,8 +168,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "e",
-          "count": "2"
+          "count": "2",
+          "marker": "e"
         },
         {
           "monster": {

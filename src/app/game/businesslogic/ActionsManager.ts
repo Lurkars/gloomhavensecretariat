@@ -3,7 +3,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionHint, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
@@ -535,7 +535,8 @@ export class ActionsManager {
           heal = EntityValueFunction(entity.maxHealth) - entity.health;
         }
         entity.health += heal;
-        gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.heal, heal));
+        const healCondition = new EntityCondition(ConditionName.heal, 1);
+        gameManager.entityManager.addCondition(entity, figure, healCondition);
         if (action.subActions) {
           action.subActions
             .filter((subAction) => subAction.type === ActionType.condition)
@@ -543,7 +544,7 @@ export class ActionsManager {
               gameManager.entityManager.addCondition(entity, figure, new Condition('' + subAction.value));
             });
         }
-        gameManager.entityManager.applyCondition(entity, figure, ConditionName.heal, true);
+        gameManager.entityManager.applyCondition(entity, figure, healCondition, true);
         break;
       case ActionType.condition:
         if (action.value === 'bless' || action.value === 'curse') {

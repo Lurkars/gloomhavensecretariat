@@ -174,8 +174,8 @@
             "name": "lurker-mindsnipper",
             "player4": "normal"
           },
-          "marker": "d",
-          "count": "2"
+          "count": "2",
+          "marker": "d"
         }
       ]
     },
@@ -199,8 +199,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "g",
-          "count": "2"
+          "count": "2",
+          "marker": "g"
         }
       ]
     },
@@ -309,16 +309,16 @@
             "name": "lightning-eel",
             "player3": "normal"
           },
-          "marker": "e",
-          "count": "3"
+          "count": "3",
+          "marker": "e"
         },
         {
           "monster": {
             "name": "lightning-eel",
             "player4": "normal"
           },
-          "marker": "e",
-          "count": "2"
+          "count": "2",
+          "marker": "e"
         }
       ]
     },

@@ -1840,7 +1840,7 @@
               "narrative": "Rally the guard and give a push.",
               "outcomes": {
                 "0": {
-                  "narrative": "The town guard puts their backs into it and heaves the massive turtle back into the water.<br>br>\"Oh my, thank you, City! Such a polite young city. I will be sure to tell my friends.\""
+                  "narrative": "The town guard puts their backs into it and heaves the massive turtle back into the water.<br><br>\"Oh my, thank you, City! Such a polite young city. I will be sure to tell my friends.\""
                 }
               }
             },

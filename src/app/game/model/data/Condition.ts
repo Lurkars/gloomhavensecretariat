@@ -56,7 +56,8 @@ export enum ConditionType {
   hidden = 'hidden',
   amDeck = 'amDeck',
   highlightOnly = 'highlightOnly',
-  special = 'special'
+  special = 'special',
+  multiple = 'multiple'
 }
 
 export type FigureCondition = { name: ConditionName; level: number | undefined };
@@ -265,6 +266,10 @@ export class Condition {
 
     if ([ConditionName.retaliate].includes(this.name)) {
       this.types.push(ConditionType.highlightOnly);
+    }
+
+    if ([ConditionName.heal].includes(this.name)) {
+      this.types.push(ConditionType.multiple);
     }
 
     if ([ConditionName.invalid].includes(this.name)) {

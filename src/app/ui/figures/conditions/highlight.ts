@@ -4,7 +4,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
-import { ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
@@ -104,21 +104,27 @@ export class HighlightConditionsComponent implements OnInit {
     this.highlightedActionsPersistent = [...this.entity.extraActionsPersistent.filter((action) => action.type === ActionType.extra)];
   }
 
-  applyCondition(name: ConditionName, event: any, double: boolean = false) {
+  applyCondition(entityCondition: EntityCondition, event: any, double: boolean = false) {
     event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, 'applyCondition'), name);
-    gameManager.entityManager.applyCondition(this.entity, this.figure, name);
+    gameManager.stateManager.before(
+      ...gameManager.entityManager.undoInfos(this.entity, this.figure, 'applyCondition'),
+      entityCondition.name
+    );
+    gameManager.entityManager.applyCondition(this.entity, this.figure, entityCondition);
     if (double) {
-      gameManager.entityManager.applyCondition(this.entity, this.figure, name);
+      gameManager.entityManager.applyCondition(this.entity, this.figure, entityCondition);
     }
 
     this.after();
   }
 
-  declineApplyCondition(name: ConditionName, event: any) {
+  declineApplyCondition(entityCondition: EntityCondition, event: any) {
     event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, 'declineApplyCondition'), name);
-    gameManager.entityManager.declineApplyCondition(this.entity, this.figure, name);
+    gameManager.stateManager.before(
+      ...gameManager.entityManager.undoInfos(this.entity, this.figure, 'declineApplyCondition'),
+      entityCondition.name
+    );
+    gameManager.entityManager.declineApplyCondition(this.entity, this.figure, entityCondition);
     this.after();
   }
 

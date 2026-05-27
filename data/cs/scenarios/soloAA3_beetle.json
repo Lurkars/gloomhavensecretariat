@@ -48,11 +48,11 @@
       "start": true,
       "spawns": [
         {
-          "count": 2,
           "monster": {
             "name": "sun-demon",
             "type": "normal"
           },
+          "count": 2,
           "marker": "d"
         }
       ]
@@ -75,11 +75,11 @@
       "start": true,
       "spawns": [
         {
-          "count": 2,
           "monster": {
             "name": "wind-demon",
             "type": "normal"
           },
+          "count": 2,
           "marker": "e"
         }
       ]

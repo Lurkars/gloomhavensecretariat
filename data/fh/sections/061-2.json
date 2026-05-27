@@ -37,8 +37,8 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "c",
-          "count": 2
+          "count": 2,
+          "marker": "c"
         },
         {
           "monster": {

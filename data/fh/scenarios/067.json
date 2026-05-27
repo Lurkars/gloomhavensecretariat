@@ -105,16 +105,16 @@
             "player3": "elite",
             "player4": "normal"
           },
-          "marker": "f",
-          "count": 2
+          "count": 2,
+          "marker": "f"
         },
         {
           "monster": {
             "name": "chaos-demon",
             "player4": "elite"
           },
-          "marker": "f",
-          "count": 2
+          "count": 2,
+          "marker": "f"
         }
       ]
     }

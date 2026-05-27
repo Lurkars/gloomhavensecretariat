@@ -37,8 +37,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "A",
-          "count": 3
+          "count": 3,
+          "marker": "A"
         },
         {
           "monster": {
@@ -47,8 +47,8 @@
             "player3": "elite",
             "player4": "normal"
           },
-          "marker": "B",
-          "count": 4
+          "count": 4,
+          "marker": "B"
         },
         {
           "monster": {
@@ -56,8 +56,8 @@
             "player2": "elite",
             "player4": "elite"
           },
-          "marker": "C",
-          "count": 2
+          "count": 2,
+          "marker": "C"
         },
         {
           "monster": {
@@ -65,8 +65,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "D",
-          "count": 1
+          "count": 1,
+          "marker": "D"
         }
       ]
     },
@@ -102,8 +102,8 @@
             "player3": "elite",
             "player4": "normal"
           },
-          "marker": "A",
-          "count": 3
+          "count": 3,
+          "marker": "A"
         },
         {
           "monster": {
@@ -111,16 +111,16 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "B",
-          "count": 4
+          "count": 4,
+          "marker": "B"
         },
         {
           "monster": {
             "name": "rat-monstrosity-scenario-16-1",
             "player3": "normal"
           },
-          "marker": "C",
-          "count": 2
+          "count": 2,
+          "marker": "C"
         },
         {
           "monster": {
@@ -129,8 +129,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "D",
-          "count": 1
+          "count": 1,
+          "marker": "D"
         }
       ]
     },
@@ -169,8 +169,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "A",
-          "count": 3
+          "count": 3,
+          "marker": "A"
         },
         {
           "monster": {
@@ -179,8 +179,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "B",
-          "count": 4
+          "count": 4,
+          "marker": "B"
         },
         {
           "monster": {
@@ -189,8 +189,8 @@
             "player3": "elite",
             "player4": "elite"
           },
-          "marker": "C",
-          "count": 2
+          "count": 2,
+          "marker": "C"
         },
         {
           "monster": {
@@ -199,8 +199,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "D",
-          "count": 1
+          "count": 1,
+          "marker": "D"
         }
       ]
     }

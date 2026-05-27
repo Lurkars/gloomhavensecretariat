@@ -21,13 +21,13 @@
       "start": true,
       "spawns": [
         {
-          "marker": "b",
           "monster": {
             "name": "frozen-corpse",
             "player2": "normal",
             "player3": "elite",
             "player4": "elite"
-          }
+          },
+          "marker": "b"
         }
       ]
     },
@@ -36,13 +36,13 @@
       "start": true,
       "spawns": [
         {
-          "marker": "c",
           "monster": {
             "name": "frozen-corpse",
             "player2": "normal",
             "player3": "normal",
             "player4": "elite"
-          }
+          },
+          "marker": "c"
         }
       ]
     }

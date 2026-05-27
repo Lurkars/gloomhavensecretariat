@@ -15,6 +15,7 @@ import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { Monster } from 'src/app/game/model/Monster';
+import { sortDeck } from 'src/app/game/util/sorter';
 import { AbilityComponent } from 'src/app/ui/figures/ability/ability';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { HeaderComponent } from 'src/app/ui/header/header';
@@ -245,7 +246,9 @@ export class DeckEditorComponent implements OnInit {
       });
     }
 
-    this.inputDeckData().nativeElement.value = JSON.stringify(compactData, null, 2);
+    const sortedData = sortDeck(compactData);
+    console.log(sortedData);
+    this.inputDeckData().nativeElement.value = JSON.stringify(sortedData, null, 2);
   }
 
   deckDataFromJson() {

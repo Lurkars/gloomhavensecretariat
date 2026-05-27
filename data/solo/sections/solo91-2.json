@@ -45,8 +45,8 @@
             "name": "inox-guard",
             "type": "normal"
           },
-          "marker": "d",
-          "count": 2
+          "count": 2,
+          "marker": "d"
         }
       ]
     }

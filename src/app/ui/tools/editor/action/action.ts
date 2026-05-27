@@ -2,7 +2,7 @@ import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from 'src/app/game/model/ActionHex';
@@ -18,6 +18,7 @@ import { ActionHexComponent } from 'src/app/ui/figures/actions/area/action-hex';
 import { ActionSummonComponent } from 'src/app/ui/figures/actions/summon/action-summon';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
@@ -26,6 +27,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
     FormsModule,
     GhsRangePipe,
     GhsLabelDirective,
+    GhsTooltipDirective,
     TrackUUIDPipe,
     ActionHexComponent,
     ActionSummonComponent,
@@ -78,6 +80,7 @@ export class EditorActionComponent implements OnInit {
   monster: string = '';
   monsterType: MonsterType | undefined;
   monsters: string[] = [];
+  gameManager: GameManager = gameManager;
 
   ngOnInit(): void {
     this.monsters = gameManager.monstersData().map((monsterData) => monsterData.name);

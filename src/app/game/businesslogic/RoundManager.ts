@@ -256,6 +256,8 @@ export class RoundManager {
     }
 
     if (
+      !initial &&
+      this.game.state === GameState.next &&
       !figure &&
       settingsManager.settings.automaticEndRound &&
       this.game.figures.every((figure) => figure.off || (figure instanceof Character && (figure.exhausted || figure.absent)))
@@ -511,8 +513,9 @@ export class RoundManager {
       if (figure.name === 'prism') {
         if (figure.tags.includes('repair_mode') && !figure.tags.includes('roundAction-repair_mode')) {
           figure.health += 2;
-          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
-          gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+          const heal = new EntityCondition(ConditionName.heal, 2);
+          gameManager.entityManager.addCondition(figure, figure, heal);
+          gameManager.entityManager.applyCondition(figure, figure, heal, true);
           figure.tags.push('roundAction-repair_mode');
         }
         if (figure.tags.includes('spider_mode') && !figure.tags.includes('roundAction-spider_mode')) {
@@ -525,9 +528,9 @@ export class RoundManager {
     }
 
     if (
+      settingsManager.settings.applyLongRest &&
       figure instanceof Character &&
       !figure.absent &&
-      settingsManager.settings.applyLongRest &&
       figure.longRest &&
       (skipSummons || !figure.summons.some((summon) => summon.active))
     ) {
@@ -547,8 +550,9 @@ export class RoundManager {
         }
 
         figure.health += heal;
-        gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, heal));
-        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+        const healCondition = new EntityCondition(ConditionName.heal, heal);
+        gameManager.entityManager.addCondition(figure, figure, healCondition);
+        gameManager.entityManager.applyCondition(figure, figure, healCondition, true);
       }
 
       if (
@@ -656,7 +660,7 @@ export class RoundManager {
         heal.expired = false;
         heal.state = EntityConditionState.normal;
         figure.health += 2;
-        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+        gameManager.entityManager.applyCondition(figure, figure, heal, true);
       }
 
       if (

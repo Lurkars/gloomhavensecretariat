@@ -893,6 +893,31 @@ export class ActionComponent implements OnInit, AfterViewInit {
         this.additionalSubActions.splice(firstIndex, 0, combined);
       }
     });
+    if (settingsManager.settings.fhStyle && this.elementActions.length >= 2) {
+      const grouped: Action[] = [];
+      let i = 0;
+      while (i < this.elementActions.length) {
+        const action = this.elementActions[i];
+        if (action.valueType === ActionValueType.minus) {
+          const groupActions: Action[] = [action];
+          i++;
+          while (i < this.elementActions.length && this.elementActions[i].valueType === ActionValueType.minus) {
+            groupActions.push(this.elementActions[i]);
+            i++;
+          }
+          if (groupActions.length >= 2) {
+            grouped.push(new Action(ActionType.boxFhSubActions, '', ActionValueType.fixed, groupActions));
+          } else {
+            grouped.push(...groupActions);
+          }
+        } else {
+          grouped.push(action);
+          i++;
+        }
+      }
+      this.elementActions = grouped;
+    }
+
     this.cardConcat =
       this.action.type === ActionType.concatenation &&
       this.subActions.every((subAction) => subAction.type === ActionType.card || subAction.type === ActionType.concatenationSpacer);

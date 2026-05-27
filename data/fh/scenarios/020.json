@@ -167,8 +167,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "a",
-          "count": "F"
+          "count": "F",
+          "marker": "a"
         }
       ]
     },
@@ -194,8 +194,8 @@
             "player3": "elite",
             "player4": "elite"
           },
-          "marker": "b",
-          "count": "F"
+          "count": "F",
+          "marker": "b"
         }
       ]
     }

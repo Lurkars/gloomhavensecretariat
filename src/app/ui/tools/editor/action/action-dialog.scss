@@ -1,7 +1,8 @@
 :host {
   display: block;
   font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
-  width: 500px;
+  max-width: 100vw;
+  width: 650px;
 }
 
 ghs-action {

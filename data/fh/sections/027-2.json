@@ -30,8 +30,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "h",
-          "count": "2"
+          "count": "2",
+          "marker": "h"
         },
         {
           "monster": {
@@ -40,8 +40,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "h",
-          "count": "2"
+          "count": "2",
+          "marker": "h"
         },
         {
           "monster": {

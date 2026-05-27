@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { sortObjectKeys } from './sorter/sort-helper.mjs';
+import { sortObjectKeys } from '../../src/app/game/util/sorter.ts';
 
 export const sortItemFile = function (dataDirectory) {
   let changedFiles = [];

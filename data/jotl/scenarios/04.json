@@ -65,8 +65,8 @@
             "name": "zealot",
             "player3": "normal"
           },
-          "marker": "C",
-          "count": 2
+          "count": 2,
+          "marker": "C"
         },
         {
           "monster": {
@@ -111,8 +111,8 @@
             "name": "zealot",
             "type": "normal"
           },
-          "marker": "A",
-          "count": 2
+          "count": 2,
+          "marker": "A"
         },
         {
           "monster": {

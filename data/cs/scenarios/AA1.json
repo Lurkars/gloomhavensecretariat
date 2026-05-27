@@ -30,11 +30,11 @@
       "start": true,
       "spawns": [
         {
-          "count": "[C]",
           "monster": {
             "name": "bandit-guard",
             "type": "normal"
-          }
+          },
+          "count": "[C]"
         }
       ]
     },
@@ -43,11 +43,11 @@
       "start": true,
       "spawns": [
         {
-          "count": "[C]",
           "monster": {
             "name": "bandit-archer",
             "type": "normal"
-          }
+          },
+          "count": "[C]"
         }
       ]
     },
@@ -56,11 +56,11 @@
       "start": true,
       "spawns": [
         {
-          "count": "[C]",
           "monster": {
             "name": "hound",
             "type": "normal"
-          }
+          },
+          "count": "[C]"
         }
       ]
     },
@@ -69,11 +69,11 @@
       "start": true,
       "spawns": [
         {
-          "count": "[C]",
           "monster": {
             "name": "wind-demon",
             "type": "normal"
-          }
+          },
+          "count": "[C]"
         }
       ]
     },
@@ -82,11 +82,11 @@
       "start": true,
       "spawns": [
         {
-          "count": "[C]",
           "monster": {
             "name": "frost-demon",
             "type": "normal"
-          }
+          },
+          "count": "[C]"
         }
       ]
     },

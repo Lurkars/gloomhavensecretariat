@@ -2,7 +2,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
 import { AdditionalIdentifier, CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemEffect, ItemEffectType, ItemFlags, ItemSlot } from 'src/app/game/model/data/ItemData';
@@ -616,8 +616,9 @@ export class ItemManager {
       case ItemEffectType.heal:
         const heal = EntityValueFunction(effect.value);
         character.health += heal;
+        const healCondition = new EntityCondition(ConditionName.heal, heal);
         gameManager.entityManager.addCondition(character, character, new Condition(ConditionName.heal, heal));
-        gameManager.entityManager.applyCondition(character, character, ConditionName.heal, true);
+        gameManager.entityManager.applyCondition(character, character, healCondition, true);
         break;
       case ItemEffectType.damage:
         const damage = EntityValueFunction(effect.value);

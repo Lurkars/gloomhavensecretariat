@@ -43,8 +43,8 @@
             "name": "algox-scout::fh",
             "type": "normal"
           },
-          "marker": "b",
-          "count": 2
+          "count": 2,
+          "marker": "b"
         }
       ]
     }

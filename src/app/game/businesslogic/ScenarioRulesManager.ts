@@ -3,7 +3,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { MonsterStatEffect } from 'src/app/game/model/data/MonsterStat';
@@ -1001,8 +1001,9 @@ export class ScenarioRulesManager {
                     }
 
                     entity.health += heal;
-                    gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.heal, heal));
-                    gameManager.entityManager.applyCondition(entity, figure, ConditionName.heal, true);
+                    const healCondition = new EntityCondition(ConditionName.heal, heal);
+                    gameManager.entityManager.addCondition(entity, figure, healCondition);
+                    gameManager.entityManager.applyCondition(entity, figure, healCondition, true);
                     break;
                   case 'setHp':
                     let hp = 0;

@@ -9,6 +9,7 @@
     flex-wrap: wrap;
 
     .small {
+      font-size: 0.7em;
       margin-left: calc(var(--ghs-unit) * 1);
       display: flex;
       align-items: center;
@@ -16,6 +17,14 @@
 
     .remove {
       margin-right: calc(var(--ghs-unit) * 3);
+
+      .ghs-icon {
+        filter: var(--ghs-filter-red);
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
 
     .add {

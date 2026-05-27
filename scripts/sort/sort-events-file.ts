@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { sortEvent } from './sorter/event.mjs';
+import { sortEvent } from '../../src/app/game/util/sorter.ts';
 
 export const sortEventsFile = function (dataDirectory) {
   let changedFiles = [];

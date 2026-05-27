@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { sortScenario } from './sorter/scenario.mjs';
+import { sortScenario } from '../../src/app/game/util/sorter.ts';
 
 export const sortScenarioFiles = function (dataDirectory, sections = false) {
   let changedFiles = [];

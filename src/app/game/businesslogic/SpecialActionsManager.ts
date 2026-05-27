@@ -397,8 +397,9 @@ export class SpecialActionsManager {
       if (entity.name === 'demolitionist' && tag === 'mech') {
         entity.maxHealth += 5;
         entity.health += 10;
-        gameManager.entityManager.addCondition(entity, character, new Condition(ConditionName.heal, 10));
-        gameManager.entityManager.applyCondition(entity, character, ConditionName.heal, true);
+        const heal = new EntityCondition(ConditionName.heal, 10);
+        gameManager.entityManager.addCondition(entity, character, heal);
+        gameManager.entityManager.applyCondition(entity, character, heal, true);
       }
 
       if (entity.name === 'boneshaper') {

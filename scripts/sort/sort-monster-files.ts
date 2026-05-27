@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { sortMonster } from './sorter/monster.mjs';
+import { sortMonster } from '../../src/app/game/util/sorter.ts';
 
 export const sortMonsterFiles = function (dataDirectory) {
   let changedFiles = [];

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { sortDeck } from './sorter/deck.mjs';
+import { sortDeck } from '../../src/app/game/util/sorter.ts';
 
 export const sortDeckFiles = function (dataDirectory) {
   let changedFiles = [];

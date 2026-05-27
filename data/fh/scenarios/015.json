@@ -66,8 +66,8 @@
             "name": "ruined-machine",
             "type": "normal"
           },
-          "marker": "c",
-          "count": "C-1"
+          "count": "C-1",
+          "marker": "c"
         }
       ]
     }

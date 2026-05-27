@@ -41,16 +41,16 @@
             "name": "bandit-archer",
             "type": "normal"
           },
-          "marker": "c",
-          "count": "2"
+          "count": "2",
+          "marker": "c"
         },
         {
           "monster": {
             "name": "hound",
             "type": "normal"
           },
-          "marker": "d",
-          "count": "2"
+          "count": "2",
+          "marker": "d"
         }
       ],
       "treasures": [

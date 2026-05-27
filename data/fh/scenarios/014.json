@@ -46,6 +46,14 @@
     "lightning-eel",
     "piranha-pig"
   ],
+  "objectives": [
+    {
+      "name": "Snow Rock",
+      "health": 0,
+      "marker": "a",
+      "trackDamage": true
+    }
+  ],
   "lootDeckConfig": {
     "money": 7,
     "lumber": 4,
@@ -74,8 +82,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "c",
-          "count": 2
+          "count": 2,
+          "marker": "c"
         }
       ]
     },
@@ -99,10 +107,25 @@
             "player3": "elite",
             "player4": "elite"
           },
-          "marker": "e",
-          "count": 2
+          "count": 2,
+          "marker": "e"
         }
       ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Snow Rock",
+            "hp": "HP > 6"
+          },
+          "type": "present"
+        }
+      ],
+      "finish": "won"
     }
   ],
   "rooms": [
@@ -177,6 +200,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

@@ -127,8 +127,8 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "B",
-          "count": 2
+          "count": 2,
+          "marker": "B"
         },
         {
           "monster": {
@@ -168,8 +168,8 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "C",
-          "count": 2
+          "count": 2,
+          "marker": "C"
         },
         {
           "monster": {
@@ -209,8 +209,8 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "D",
-          "count": 3
+          "count": 3,
+          "marker": "D"
         },
         {
           "monster": {
@@ -224,8 +224,8 @@
             "name": "giant-viper",
             "player3": "elite"
           },
-          "marker": "D",
-          "count": 2
+          "count": 2,
+          "marker": "D"
         }
       ]
     },
@@ -285,8 +285,8 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "G",
-          "count": 2
+          "count": 2,
+          "marker": "G"
         },
         {
           "monster": {
@@ -360,8 +360,8 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "K",
-          "count": 2
+          "count": 2,
+          "marker": "K"
         },
         {
           "monster": {

@@ -267,8 +267,8 @@
             "player2": "normal",
             "player4": "elite"
           },
-          "marker": "13",
-          "count": "2"
+          "count": "2",
+          "marker": "13"
         },
         {
           "monster": {
@@ -295,24 +295,24 @@
             "name": "living-spirit",
             "player2": "normal"
           },
-          "marker": "11",
-          "count": "3"
+          "count": "3",
+          "marker": "11"
         },
         {
           "monster": {
             "name": "living-spirit",
             "player3": "normal"
           },
-          "marker": "11",
-          "count": "4"
+          "count": "4",
+          "marker": "11"
         },
         {
           "monster": {
             "name": "living-spirit",
             "player4": "normal"
           },
-          "marker": "11",
-          "count": "5"
+          "count": "5",
+          "marker": "11"
         }
       ]
     },

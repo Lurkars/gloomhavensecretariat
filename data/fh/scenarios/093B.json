@@ -72,8 +72,8 @@
             "player3": "normal",
             "player4": "elite"
           },
-          "marker": "d",
-          "count": "2"
+          "count": "2",
+          "marker": "d"
         }
       ]
     }

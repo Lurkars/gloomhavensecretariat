@@ -19,18 +19,18 @@
       "note": "%data.scenario.rules.cs.11.1%",
       "spawns": [
         {
-          "count": "[C]",
           "monster": {
             "name": "inox-guard",
             "type": "normal"
-          }
+          },
+          "count": "[C]"
         },
         {
-          "count": "[C]",
           "monster": {
             "name": "inox-archer",
             "type": "elite"
-          }
+          },
+          "count": "[C]"
         }
       ]
     }

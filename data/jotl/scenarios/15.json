@@ -65,8 +65,8 @@
             "name": "black-imp",
             "type": "normal"
           },
-          "marker": "A",
-          "count": "F"
+          "count": "F",
+          "marker": "A"
         }
       ]
     },
@@ -91,8 +91,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "B",
-          "count": "F"
+          "count": "F",
+          "marker": "B"
         }
       ]
     },
@@ -116,8 +116,8 @@
             "name": "black-imp",
             "player4": "normal"
           },
-          "marker": "C",
-          "count": "F"
+          "count": "F",
+          "marker": "C"
         }
       ]
     },

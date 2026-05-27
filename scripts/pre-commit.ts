@@ -1,11 +1,11 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { sortCharacterFiles } from './sort/sort-character-files.mjs';
-import { sortDeckFiles } from './sort/sort-deck-files.mjs';
-import { sortEventsFile } from './sort/sort-events-file.mjs';
-import { sortItemFile } from './sort/sort-item-file.mjs';
-import { sortMonsterFiles } from './sort/sort-monster-files.mjs';
-import { sortScenarioFiles } from './sort/sort-scenario-files.mjs';
+import { sortCharacterFiles } from './sort/sort-character-files.ts';
+import { sortDeckFiles } from './sort/sort-deck-files.ts';
+import { sortEventsFile } from './sort/sort-events-file.ts';
+import { sortItemFile } from './sort/sort-item-file.ts';
+import { sortMonsterFiles } from './sort/sort-monster-files.ts';
+import { sortScenarioFiles } from './sort/sort-scenario-files.ts';
 
 const dataDirectory = process.argv[2];
 

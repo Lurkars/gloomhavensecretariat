@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { sortCharacter } from './sorter/character.mjs';
+import { sortCharacter } from '../../src/app/game/util/sorter.ts';
 
 export const sortCharacterFiles = function (dataDirectory) {
   let changedFiles = [];

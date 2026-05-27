@@ -27,8 +27,8 @@
             "name": "algox-scout::fh",
             "type": "elite"
           },
-          "marker": "a",
-          "count": 2
+          "count": 2,
+          "marker": "a"
         }
       ]
     },
@@ -41,8 +41,8 @@
             "name": "algox-archer::fh",
             "type": "elite"
           },
-          "marker": "a",
-          "count": 2
+          "count": 2,
+          "marker": "a"
         }
       ]
     }

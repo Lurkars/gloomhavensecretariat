@@ -53,8 +53,8 @@
             "name": "ghost-viper",
             "player3": "normal"
           },
-          "marker": "b",
-          "count": "2"
+          "count": "2",
+          "marker": "b"
         },
         {
           "monster": {
@@ -69,8 +69,8 @@
             "name": "ghost-viper",
             "player4": "elite"
           },
-          "marker": "b",
-          "count": "3"
+          "count": "3",
+          "marker": "b"
         }
       ]
     },

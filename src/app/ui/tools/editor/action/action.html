@@ -2,21 +2,30 @@
   <div class="header">
     <span class="type" [ghs-label]="'editor.action.type'"></span>
 
-    <label class="small">
-      @if (!hideValues()) {
+    @if (!hideValues()) {
+      <label class="small">
         <input type="checkbox" [(ngModel)]="action.small" (change)="change()" />
-      }
-      @if (!hideValues()) {
         <span [ghs-label]="'editor.action.small'"></span>
+      </label>
+
+      <label class="small">
+        <input type="checkbox" [(ngModel)]="action.noDivider" (change)="change()" />
+        <span [ghs-label]="'editor.action.noDivider'"></span>
+      </label>
+
+      @if (action.multiTarget || !gameManager.actionsManager.isMultiTarget(action)) {
+        <label class="small">
+          <input type="checkbox" [(ngModel)]="action.multiTarget" (change)="change()" />
+          <span [ghs-label]="'editor.action.multiTarget'"></span>
+        </label>
       }
-    </label>
+    }
 
     <span class="spacer"></span>
 
     @if (subactionIndex() || subactionIndex() === 0) {
-      <a class="remove" (click)="subActionRemoved.emit(subactionIndex() || 0)">
+      <a class="remove" (click)="subActionRemoved.emit(subactionIndex() || 0)" [ghs-tooltip]="'editor.action.removeSubAction'">
         <img class="ghs-icon" src="./assets/images/minus.svg" />
-        <span [ghs-label]="'editor.action.removeSubAction'"></span>
       </a>
     }
   </div>

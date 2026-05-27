@@ -794,7 +794,6 @@
   }
 
   .action-box-fh-subactions-container {
-    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -836,6 +835,14 @@
         border-bottom-left-radius: 2em 100%;
         border-bottom-right-radius: 2em 100%;
         z-index: -1;
+      }
+
+      .action-element-consume {
+        border: none;
+
+        &::after {
+          display: none;
+        }
       }
     }
   }
@@ -1288,7 +1295,7 @@
       }
 
       .action-box-fh-subactions-container {
-        flex-basis: 80%;
+        max-width: 80%;
 
         .action-box,
         .action-box::after {

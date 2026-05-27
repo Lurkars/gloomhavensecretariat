@@ -138,8 +138,8 @@
             "player3": "normal",
             "player4": "normal"
           },
-          "marker": "b",
-          "count": "2"
+          "count": "2",
+          "marker": "b"
         },
         {
           "monster": {
@@ -154,8 +154,8 @@
             "name": "burrowing-blade",
             "player4": "elite"
           },
-          "marker": "c",
-          "count": "2"
+          "count": "2",
+          "marker": "c"
         }
       ]
     }

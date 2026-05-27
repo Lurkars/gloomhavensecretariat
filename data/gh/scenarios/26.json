@@ -99,8 +99,8 @@
             "name": "black-imp",
             "type": "normal"
           },
-          "marker": "a",
-          "count": "F"
+          "count": "F",
+          "marker": "a"
         }
       ]
     },
@@ -123,8 +123,8 @@
             "name": "black-imp",
             "type": "normal"
           },
-          "marker": "b",
-          "count": "F"
+          "count": "F",
+          "marker": "b"
         }
       ]
     },
@@ -147,8 +147,8 @@
             "name": "black-imp",
             "type": "normal"
           },
-          "marker": "c",
-          "count": "F"
+          "count": "F",
+          "marker": "c"
         }
       ]
     }

@@ -27,8 +27,8 @@
             "name": "vermling-scout",
             "type": "normal"
           },
-          "marker": "a",
-          "count": 4
+          "count": 4,
+          "marker": "a"
         }
       ]
     }

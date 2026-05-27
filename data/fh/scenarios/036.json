@@ -180,8 +180,8 @@
             "name": "flaming-bladespinner",
             "player4": "normal"
           },
-          "marker": "c",
-          "count": "2"
+          "count": "2",
+          "marker": "c"
         }
       ]
     },
@@ -272,8 +272,8 @@
             "name": "flaming-bladespinner",
             "player4": "normal"
           },
-          "marker": "b",
-          "count": "2"
+          "count": "2",
+          "marker": "b"
         }
       ]
     },
@@ -364,8 +364,8 @@
             "name": "flaming-bladespinner",
             "player4": "normal"
           },
-          "marker": "a",
-          "count": "2"
+          "count": "2",
+          "marker": "a"
         }
       ]
     },
@@ -456,8 +456,8 @@
             "name": "flaming-bladespinner",
             "player4": "normal"
           },
-          "marker": "d",
-          "count": "2"
+          "count": "2",
+          "marker": "d"
         }
       ]
     }

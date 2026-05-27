@@ -25,7 +25,7 @@
             class="close"
             [conditionHighlight]="entityCondition"
             ghs-pointer-input
-            (singleClick)="declineApplyCondition(entityCondition.name, $event)"
+            (singleClick)="declineApplyCondition(entityCondition, $event)"
           >
             <img class="ghs-svg" src="./assets/images/close_dialog.svg" />
           </a>
@@ -50,7 +50,7 @@
             class="double"
             [conditionHighlight]="entityCondition"
             ghs-pointer-input
-            (singleClick)="applyCondition(entityCondition.name, $event, true)"
+            (singleClick)="applyCondition(entityCondition, $event, true)"
           >
             <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/attackmodifier/icons/double.png'" />
           </a>
@@ -62,12 +62,7 @@
           settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) === -1 &&
           entityCondition.types.includes(ConditionType.apply)
         ) {
-          <a
-            class="check"
-            [conditionHighlight]="entityCondition"
-            ghs-pointer-input
-            (singleClick)="applyCondition(entityCondition.name, $event)"
-          >
+          <a class="check" [conditionHighlight]="entityCondition" ghs-pointer-input (singleClick)="applyCondition(entityCondition, $event)">
             <img class="ghs-svg" src="./assets/images/check.svg" />
           </a>
         }

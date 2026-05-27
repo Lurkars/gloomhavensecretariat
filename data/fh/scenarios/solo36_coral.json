@@ -36,8 +36,8 @@
             "name": "lightning-eel",
             "type": "elite"
           },
-          "marker": "a",
-          "count": "4"
+          "count": "4",
+          "marker": "a"
         }
       ]
     },

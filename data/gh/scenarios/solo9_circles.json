@@ -49,8 +49,8 @@
             "name": "hound",
             "type": "normal"
           },
-          "marker": "c",
-          "count": "2"
+          "count": "2",
+          "marker": "c"
         }
       ]
     },
