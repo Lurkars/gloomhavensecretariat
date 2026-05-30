@@ -3,6 +3,12 @@
   "name": "Icecrag Ascent",
   "edition": "gh2e",
   "parent": "13",
+  "parentSections": [
+    [
+      "14.1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "rending-drake",
     "spitting-drake"
@@ -24,7 +30,8 @@
         },
         {
           "name": "rending-drake",
-          "player3": "normal"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "spitting-drake",
