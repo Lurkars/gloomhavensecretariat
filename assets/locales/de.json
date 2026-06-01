@@ -1188,6 +1188,7 @@
         "": "Suchen…",
         "affordable": "Nur erschwingliche Gegenstände",
         "all": "Alle Gegenstände anzeigen",
+        "filtert": "Entfernte",
         "owned": "Nur eigene Gegenstände",
         "sorted": "Sortiert"
       },
@@ -2173,6 +2174,10 @@
         "": "%game.monsterType.elite%: {0}",
         "hint": "Anzahl an getöteten %game.monsterType.elite% Monster"
       },
+      "exhausts": {
+        "": "%game.gameIcon:status/exhausted% {0}",
+        "hint": "Erschöpft"
+      },
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
         "hint": "Anzahl an erbeuteten %game.gameIcon:loot% Münzen"
@@ -2795,7 +2800,11 @@
     },
     "fhGhItems": {
       "": "Gegenstände aus Gloomhaven",
-      "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu. (Nur bei aktivierten Charakterbögen oder Charakter Gegenständen)"
+      "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu."
+    },
+    "fhGh2eItems": {
+      "": "Gegenstände aus Gloomhaven 2nd Edition",
+      "hint": "Fügt die Gegenstände aus Gloomhaven 2nd Edition zu den verfügbaren Gegenständen gemäß der FAQ hinzu."
     },
     "fhPets": {
       "": "Unterstützung für Haustiere",
@@ -2855,6 +2864,10 @@
     "ge5Player": {
       "": "≥ 5 Spieler Regeln",
       "capped": "Trotzdem C=4 für Berechnungen anwenden"
+    },
+    "gh2eFhItems": {
+      "": "Gegenstände aus Frosthaven",
+      "hint": "Fügt die Gegenstände aus Frosthaven zu den verfügbaren Gegenständen gemäß der FAQ hinzu."
     },
     "gh2eImbuement": {
       "": "Monster Durchtränkung",

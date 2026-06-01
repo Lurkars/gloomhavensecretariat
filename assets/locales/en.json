@@ -1191,6 +1191,7 @@
         "": "Search…",
         "affordable": "Only affordable Items",
         "all": "Show all items",
+        "filtered": "Removed",
         "owned": "Only owned Items",
         "sorted": "Sorted"
       },
@@ -2176,6 +2177,10 @@
         "": "%game.monsterType.elite%: {0}",
         "hint": "Number of %game.monsterType.elite% monster killed"
       },
+      "exhausts": {
+        "": "%game.gameIcon:status/exhausted% {0}",
+        "hint": "Exhausted"
+      },
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
         "hint": "Number of %game.gameIcon:loot% Coins looted"
@@ -2238,6 +2243,9 @@
       "xp": {
         "": "%game.gameIcon:experience%: {0}",
         "hint": "Number of %game.gameIcon:experience% Experience gained"
+      },
+      "summons": {
+        "": "Summons"
       }
     },
     "summary": {
@@ -2795,7 +2803,11 @@
     },
     "fhGhItems": {
       "": "Add Gloomhaven Items",
-      "hint": "Add Items from Gloomhaven and Forgotten Circles to available supply as stated out in the rules. (Only on enabled character sheets or character items)"
+      "hint": "Add Items from Gloomhaven and Forgotten Circles to available supply as stated out in the rules."
+    },
+    "fhGh2eItems": {
+      "": "Add Gloomhaven 2nd Edition Items",
+      "hint": "Add Items from Gloomhaven 2nd Edition to available supply as stated out in official FAQ."
     },
     "fhPets": {
       "": "Support for Pets",
@@ -2855,6 +2867,10 @@
     "ge5Player": {
       "": "≥ 5 player rules",
       "capped": "Still use C=4 for calculations"
+    },
+    "gh2eFhItems": {
+      "": "Add Frosthaven Items",
+      "hint": "Add Items from Frosthaven to available supply as stated out in official FAQ."
     },
     "gh2eImbuement": {
       "": "Enable Monster Imbuements",
