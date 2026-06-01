@@ -23,14 +23,32 @@
     "Close to the Abyss": "Ruf des Abgrunds",
     "Cold Embrace": "Eisige Umarmung",
     "Collateral Damage": "Kollateralschaden",
+    "Commanding Presence": "Gebieterische Präsenz",
     "Constrict": "Abschnüren",
     "Coupled Chain": "Koppelkette",
+    "Crash Protocol": "Absturzprotokoll",
     "Cripple": "Verkrüppeln",
+    "Crushing Cold": "Klirrende Kälte",
+    "Crushing Weight": "Erdrücken",
     "Dark Charm": "Dunkles Amulett",
     "Defensive Strike": "Abwehrschlag",
+    "Desert Night": "Wüstennacht",
+    "Disorienting Barrage": "Verwirrende Salve",
+    "Double Throw": "Doppelwurf",
     "Drain Life": "Lebenssauger",
     "Dual Daggers": "Doppeldolche",
+    "Dust Cloud": "Staubwolke",
+    "Empowered Link": "Mächtige Verbindung",
+    "Excessive Force": "Übertriebene Gewalt",
+    "Executioner's Axe": "Henkersbeil",
+    "Explode": "Sprengen",
     "Explosive Blisters": "Explosiver Eiter",
+    "Explosive Blitz": "Explosiver Blitz",
+    "Extra Fuel": "Treibstoffreserve",
+    "Extra Lift": "Extraschwug",
+    "Eye of the Void": "Auge der Leere",
+    "Fancy Hat": "Kopfschmuck",
+    "Fearsome Efficiency": "Schreckliche Effizienz",
     "Feed": "Fressen",
     "Find Cover": "In Deckung",
     "Flashing Claws": "Blitzende Klauen",
@@ -249,7 +267,12 @@
         "2": "Alle an das Ziel angrenzenden Gegner erleiden %game.damage:1%"
       },
       "demolitionist": {
-        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%",
+        "abilities": {
+          "102": {
+            "1": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, erhalte %game.card.experience:1% und wende"
+          }
+        }
       },
       "first-of-the-order": {
         "1": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%",

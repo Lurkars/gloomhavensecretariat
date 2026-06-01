@@ -2,6 +2,7 @@
   "ability": {
     "Call to the Flame": "Ruf der Flamme",
     "Circle of Fire": "Feuerkreis",
+    "Crushing Weight": "Erdrücken",
     "Fire Bolts": "Feuerbolzen",
     "Flowing Magma": "Magmafluss",
     "Focused Stabs": "Fokussierte Stiche",
@@ -407,14 +408,20 @@
   },
   "character": {
     "fh": {
-      "banner-spear": "Bannerspeer",
+      "banner-spear": {
+        "": "Bannerspeer"
+      },
       "blinkblade": {
         "": "Blitzklinge",
         "fast": "Schnell",
         "slow": "Langsam"
       },
-      "boneshaper": "Knochenformerin",
-      "deathwalker": "Todeswandlerin",
+      "boneshaper": {
+        "": "Knochenformerin"
+      },
+      "deathwalker": {
+        "": "Todeswandlerin"
+      },
       "drifter": "Wanderer",
       "geminate": {
         "": "Doppelseele",

@@ -111,6 +111,390 @@
                             }
                         }
                     }
+                },
+                "14": {
+                    "narrative": "Vor dem Tempel der Großen Eiche steht ein Mann mit kräftiger Stimme. In weiße Gewänder gekleidet ruft er der versammelten Menge zu:<br><br>„Es ist Zeit, den Zehnt an die Große Eiche zu entrichten! Spendet für den Erhalt ihrer Herrlichkeit und sie sie wird euch mit ungeahntem Wohlstand belohnen!\" Er reicht eine grob geschnitzte Holzschüssel herum.",
+                    "options": {
+                        "A": {
+                            "narrative": "Spendet an den Tempel der Großen Eiche.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr drängt euch nach vorne, um dem Rest der Menge ein Vorbild zu sein. Der Hüter der Eiche blickt euch wohlwollend an, während viele andere eurem Beispiel folgen."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Viele andere spenden. Der Tempel wird diese Woche auch ohne euren Beitrag über die Runden kommen.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Der Hüter der Eiche bemerkt, dass ihr euch unauffällig davonschleichen wollt. Er wirkt unbeeindruckt und murmelt etwas vor sich hin."
+                                }
+                            }
+                        }
+                    }
+                },
+                "15": {
+                    "narrative": "Ihr betretet den Schlafenden Löwen und trefft Xain, einen befreundeten Stammgast, dem es immer wieder an Geld mangelt, an der Theke an. Der Wirt weigert sich gerade lautstark, ihn zu bedienen, bis er seine Schulden beglichen hat, doch Xains Gesicht hellt sich auf, als er euch sieht.<br><br>„Ah, die Pranken - perfekt! Dies ist wohl der richtige Zeitpunkt, um das Bier einzufordern, dass ihr mir noch schuldet. Oder nicht?\"<br><br>Ihr erinnert euch nicht daran, ihm ein Bier zu schulden. Im Gegenteil, die nächste Runde sollte auf ihn gehen, nachdem ihr einen Wicht aus seinem Garten vertrieben habt.",
+                    "options": {
+                        "A": {
+                            "narrative": "Es ist nur ein Bier und er hat es schon schwer genug. Zahlt das Bier für ihn.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr lasst ein paar Münzen springen und spendiert Xain ein Bier. Er seufzt erleichtert auf. Nach ein paar Runden habt ihr so viel Spaß, dass euch das Geld egal ist. Wichtig sind nur die Freundschaften, die ihr knüpft."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Erinnert Xain daran, wer hier wem etwas schuldig ist.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr erklärt ausführlich, warum ihr Xain kein Bier schuldet: Ihr habt ihn von der Stadtmauer befreit, seine Kiste voller Vipern zum Hafen gebracht, den Dämon aus seiner Gürtelschnalle verbannt, den Kampf zwischen ihm und einem Felsen verhindert, den er für ein Savvas gehalten hatte, ihn von seiner Sucht nach Ausdauertränken geheilt und das „Schwarmling-Nest\" aus seiner Küche entfernt, das sich als Ameisen auf einer heruntergefallenen Torte herausstellte. Dann seufzt ihr und kauft ihm trotzdem ein Bier:"
+                                }
+                            }
+                        }
+                    }
+                },
+                "16": {
+                    "narrative": "Eine Valrath mit einem roten Mantel betritt den Schlafenden Löwen in Begleitung von zwei Inox-Leibwachen. Alle Augen sind auf sie gerichtet, als sie sich eurem Tisch nähert und gegenüber von euch Platz nimmt. Ihre Leibwachen stehen ein paar Meter entfernt und beäugen die übrigen Gäste.<br><br>„Ihr könnt mich Jekserah nennen. Ich freue mich euch kennenzulernen.\" Ihre mit Goldringen geschmückte Hand zeichnet beiläufig die Maserung des Holztisches nach. „Ich erwarte die Ankunft einer wichtigen Karawane hier in der Stadt. Ich möchte euch beauftragen, ihre Waren in mein Lagerhaus zu bringen ... Dafür brauche ich die Besten der Besten. Das seid ihr doch, nicht wahr?\" Ein Lächeln umspielt ihre Lippen.<br><br>Irgendetwas an diesem Gespräch beunruhigt euch. Was könntet ihr tun, das diese muskelbepackten Inox nicht können?",
+                    "options": {
+                        "A": {
+                            "narrative": "Willigt ein, die Karawane abzuladen.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr erreicht das Westtor; aber die Karawane ist nirgendwo zu sehen. Jekserah schreit ihre Leibwachen wütend an - anscheinend wurde ihre Lieferung unterwegs gestohlen. Ihr fragt trotzdem nach eurer Bezahlung.<br><br>„Ich bezahle euch doch nicht fürs Nichtstun!\" Ihr lasst nicht locker, da ihr euren Teil der Vereinbarung eingehalten habt. Sie gibt euch schließlich ein paar Münzen, stellt aber klar; dass es keine weitere Zusammenarbeit mehr geben wird. Ihr seht das genauso."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Weist die Frau zurück. Irgendetwas stimmt hier nicht.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Sie ist nicht sonderlich erfreut über eure Antwort - Zurückweisung ist sie offenbar nicht gewohnt. Empört verlässt sie den Tisch. „Denkt ihr; ihr wärt die einzigen Söldner dieser Stadt? Ich finde schon ein paar Idioten, die tun, was ich will.\""
+                                }
+                            }
+                        }
+                    }
+                },
+                "17": {
+                    "narrative": "Ihr amüsiert euch im Schlafenden Löwen, als eine wettergegerbte Inox-Kapitänin zu euch an den Tisch stürmt<br><br>„Ich habe gehört, dass ihr euch hier um Probleme kümmert\", sagt sie. „Von meinem Schiff an den alten Kais wurden Waren gestohlen. Ich habe die Diebe zu einem verlassenen Lagerhaus verfolgt, aber ich fürchte, es sind zu viele für mich allein.\"<br><br>Ihr seht noch mal zu der stattlichen Inox hoch und kratzt euch am Kopf. Könnte lukrativ sein, solange ihr die Sache überlebt.",
+                    "options": {
+                        "A": {
+                            "narrative": "Verlangt eine Vorauszahlung.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "„Sehe ich etwa wie ein wandelnder Geldbeutel aus?\", blafft die Inox euch ungläubig an. Ihr fühlt euch plötzlich ziemlich unwohl in eurer Haut. „Nehmt den Auftrag an oder lasst es, aber verschwendet nicht meine Zeit!\""
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Nehmt den Auftrag an.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Die Inox atmet erleichtert auf und ringt sich ein Lächeln ab. „Gut zu wissen, dass ich auf euch zählen kann\", fährt sie fort. „Wir Außenseiter müssen zusammenhalten, nicht wahr?\" Ihr wollt gerade eine Diskussion über euren sozialen Stand beginnen, als sie euch zum Dank ein paar zusätzliche Münzen zusteckt."
+                                }
+                            }
+                        }
+                    }
+                },
+                "18": {
+                    "narrative": "Ein Valrath-Händler betritt den Schlafenden Löwen und wirkt mit seiner feinen Kleidung völlig fehl am Platz. Er sieht sich um und verzieht angewidert das Gesicht. Schließlich erblickt er euren Tisch und nährt sich.<br><br>„Ich benötige eure Dienste Söldner\", sagt er durch ein parfümiertes Taschentuch. Er behauptet, dass es an den neuen Kais Ärger gäbe. Dort haben sich angeblich seltsame Ereignisse zugetragen, die niemand erklären kann: verschobene oder verschwundene Waren, unheimliche Geräusche und Visionen von schrecklichen Dämonen. „Ihr müsst dem nachgehen und jegliche Mächte aufhalten, die unsere wirtschaftliche Vorherrschaft in Gefahr bringen.\"",
+                    "options": {
+                        "A": {
+                            "narrative": "Verlangt eine Vorauszahlung.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Der Valrath ist von eurer Forderung überrumpelt, gibt dem Druck aber bald nach und wirft ein paar Münzen in eure Richtung. „Hauptsache, ihr kümmert euch schnell um das Problem!\", verlangt er und verlässt dann fluchtartig die Schenke."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Nehmt den Auftrag an.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "„Trefflich!\", erwidert der Valrath durch sein Taschentuch. „Für Geld kann man hier wohl alles bekommen.\"<br><br>„Sofern man denn den Gestank erträgt\", fügt er hinzu, während er durch die Tür verschwindet."
+                                }
+                            }
+                        }
+                    }
+                },
+                "19": {
+                    "narrative": "Ihr genießt gerade eure dritte Runde im Schlafenden Löwen, als ein Bote aus der kalten Nacht in die warme Schenke tritt. Ihr schimpft über den beißenden Wind, der durch die geöffnete Tür hereinweht.<br><br>Der Bote wirkt irgendwie verloren. Er sucht offensichtlich nach jemandem, kann ihn aber nicht finden.<br><br>„Ein Rotgardist\", murmelt er zögerlich „Ist hier irgendwo ein Rotgardist?\"",
+                    "options": {
+                        "A": {
+                            "narrative": "Erkundigt euch, was der Bote will. (Rotgardist erforderlich)",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Der Bote überreicht ein Pergament und die Miene des Rotgardisten verfinstert sich. Ihr erkennt lediglich das Bild einer um eine Sonne gewundenen Schlange, doch es braucht etliche weitere Runden, um die Zunge des Rotgardisten zu lösen. Ihr erfahrt, dass die Verbannung aus dem Rotorden von Jhinda üblicherweise den Tod bedeutet, der Rotgardist jedoch in Gloomhaven untergetaucht war; aber nun hat das Schicksal ihn gefunden. Auf der Rückseite des Pergaments ist ein Ort angegeben. Der Rotgardist muss schnell verschwinden, sonst werden seine Jäger ihn finden."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Ignoriert den Mann und den kalten Luftzug.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Der Bote verlässt die Schenke und wirkt noch verlorener als zuvor."
+                                }
+                            }
+                        }
+                    }
+                },
+                "20": {
+                    "narrative": "Ihr lasst euch eine Mahlzeit aus undefinierbarem Fleisch schmecken, die ihr von einem Quatryl-Straßenverkäufer auf der Stillbrücke gekauft habt, als euch ein interessanter Aushang auffällt. Er preist einen großen Kampfwettbewerb an, der in wenigen Tagen auf dem Gloomhaven-Platz stattfinden soll.<br><br>Ihr haltet das zunächst für Zeitverschwendung, aber vielleicht wäre es ja doch ganz interessant, allen euer Können zu beweisen.",
+                    "options": {
+                        "A": {
+                            "narrative": "Meldet euch für den Wettbewerb an. (Axtwerfer erforderlich)",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Der Axtwerfer will unbedingt beweisen, dass er der beste Kämpfer überhaupt ist, und ihr lasst euch von seinem Enthusiasmus anstecken. Es ist jedoch ein Einzelwettbewerb, deshalb muss sich der Rest von euch damit begnügen, ihn von den Zuschauerrängen aus anzufeuern."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Ignoriert den Aushang und genießt eure Mahlzeit.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Das Fleisch schmeckt köstlich, doch eine gute Stunde später habt ihr Magenschmerzen."
+                                }
+                            }
+                        }
+                    }
+                },
+                "21": {
+                    "narrative": "Nachdem ihr im Schlafenden Löwen eine Menge Gold verspielt habt, ist eure Börse erschreckend leer: Ihr überlegt, wie ihr am besten schummeln könnt, ohne erwischt zu werden, als euch plötzlich ein ganz mieses Gefühl überkommt.<br><br>Zuerst meint ihr; es wäre nur das schlechte Gewissen, doch dann fürchtet ihr; dass etwas Schlimmeres sein könnte. Ihr versucht, euch auf das Spiel zu konzentrieren, aber das quälende Gefühl bleibt.",
+                    "options": {
+                        "A": {
+                            "narrative": "Finde die Quelle der negativen Energie. (Leerehüterin erforderlich)",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Die Leerehüterin verlässt den Schlafenden Löwen und reckt eine Hand in die Luft. Kurz darauf dreht sie sich mit panischem Blick zum Rest der Gruppe um. Die Leerehüterin erklärt, dass irgendetwas mit der Leere nicht stimmt. Was auch immer sich darin befindet, ist erwacht und wird großes Unheil bringen."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Ignoriert das quälende Gefühl und konzentriert euch auf das Spiel.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr könnt das Blatt endlich wenden und zumindest eure verspielten Ersparnisse zurückgewinnen. So schlimm kann das Gefühl wohl doch nicht gewesen sein."
+                                }
+                            }
+                        }
+                    }
+                },
+                "22": {
+                    "narrative": "Ihr bummelt über den Neumarkt und bewundert unfassbar teure Waren, die ihr euch nie leisten könntet, als euch ein grimmig aussehender Mann in der Menge auffällt. Er passt einfach nicht hier rein.<br><br>Ihr vermutet, dass es sich um einen Tischler handelt. Als er auf euch zugeht, überkommt euch das Gefühl, ihn zu kennen, ihr wisst nicht woher.",
+                    "options": {
+                        "A": {
+                            "narrative": "Begrüßt den Mann. (Sprengmeisterin erforderlich)",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Das Gesicht des Mannes erhellt sich, als ihr euch nähert. Es ist der ehemalige Chef der Sprengmeisterin. Wie sich herausstellt, ist er froh, euch zu begegnen, denn er hat einen Auftrag, für den ihr euch besonders eignet. Er soll ein Gebäude im Münzviertel abreißen. Ein wohlhabender Händler hat dem Vorbesitzer das Grundstück abgeluchst, um sein Anwesen zu erweitern. Das Problem ist, dass der Vorbesitzer es vor lauter Wut verflucht haben soll. Der Abriss könnte also schwierig werden."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Ignoriert das Gefühl und geht einfach weiter.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ein paar Schritte weiter springt euch ein wahrhaft malerischer Teppich mit einer umwerfenden Schlachtszene zwischen Menschen und Valrath ins Auge, der aus einem uralten Lagerhaus in Dämonentor stammen soll. Er ist mehr Gold wert, als ihr in eurem gesamten Leben verdienen könnt."
+                                }
+                            }
+                        }
+                    }
+                },
+                "01": {
+                    "narrative": "Eine Sprichwort lautet: „Wer den Schlafenden Löwen weckt, kriegt seine Pranken zu spüren.\" Heute verdient ihr euch euren Getränkerabatt.<br><br>Ihr klopft an die Tür von Xain, einem Antriden, der statt Sicherheiten bloß noch Ausreden parat hat. Er öffnet die Tür und ihr fordert in auf, seine Zeche zu zahlen.<br><br>„Er setzt die Pranken auf mich an? Ernsthaft? Also schön ... ich brauche aber noch einen Tag. Ich bekomme eine Menge Gold für gewonnene Wetten. Garantierte Einnahmen.\"<br><br>Euch fallen einige gepackte Taschen neben der Tür auf. Xain erklärt: „Oh, das ist nichts. War nur mein Plan B, keine große Sache. Den brauche ich jetzt nicht mehr: Denn ich schwimme in Gold! Zumindest ab morgen. Und ich würde euch eure Geduld natürlich vergüten.\"",
+                    "options": {
+                        "A": {
+                            "narrative": "Glaubt ihm nicht. Er zahlt jetzt sofort.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr nehmt Xain alles ab, was er bei sich hat. Er beteuert, kein Gold zu haben, doch ihr findet genug, um fast seine gesamten Schulden zu begleichen. Als Ausgleich für die Differenz nehmt ihr auf dem Weg hinaus ein Amulett an euch. Vielleicht ist es euch noch nützlich oder ihr verhökert es für etwas Geld zum Saufen."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Ein bisschen vertrauen kann viel bewirken. Kommt morgen wieder.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Am nächsten Tag betretet ihr den Schlafenden Löwen, wo Xain euch bereits erwartet. Er trägt ein paar dicke, massive Goldringe; eine protzige Kette ziert seinen Hals und funkelt im Licht.<br><br>„Meine Freunde! Haha! Willkommen! Die Getränke gehen auf mich! Ich sagte ja, dass ich in Gold schwimmen würde! Nehmt diese Kleinigkeit als Dank für euer Vertrauen ...\""
+                                }
+                            }
+                        }
+                    }
+                },
+                "02": {
+                    "narrative": "Ihr habt eure Wäsche von jeher zu einem Saavas am Fluss im Waagenviertel gebracht. Doch seit eurem letzten Kampf gegen ein paar Riesenvipern weigert sich das Saavas, eure Sachen anzurühren. Das viele Blut und Gift haben ihm wohl Angst gemacht. Also bringt ihr eure Wäsche nun stattdessen zu einem stämmigen Quatryl, der eine automatisch Waschküche betreibt. Er schert sich nicht um den Zustand der Kleider und stellt auch keine Fragen.<br><br>„Da seid ihr ja!\", ruft er euch grinsend entgegen, als ihr sein Geschäft betretet. Seine weniger hartgesottenen Kunden starren beunruhigt auf das Gift, das von eurer Rüstung auf den Boden tropft, und er ergänzt hastig: „... ähm, geehrte Neukunden. Wie kann ich helfen?\"",
+                    "options": {
+                        "A": {
+                            "narrative": "Gebt eure schmutzige Kleidung und Rüstung zum Reinigen und Ausbessern ab.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr gebt eure Kleidung und Rüstung ab und die Maschinen machen sich ans Werk. Sie tauchen eure Gewänder in Kessel voll heißer Seifenlauge, wringen sie aus und glätten sie mit heißem Dampf. Der Quatryl sucht nach Löchern und Rissen und bessert sie mit automatischen Näharmen aus. Der gesamte Vorgang endet in einem komplizierten Drahtkonstrukt, das eure Gewänder zu einem kleinen Paket faltet und mit einem letzten Dampfstoß über eine Rutsche zu euch zurückführt."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Ihr versteht den Wink mit dem Zaunpfahl und kommt später wieder.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr tut so, als hättet ihr euch verlaufen, und gebt vor; die Waffenkammer zu suchen. Ein ein paar Stunden später besucht ihr den Quatryl erneut. „Edle Gewänder bringen Wohlstand, aber blutverschmierte Rüstung ist die wahre Herausforderung.\" Als Dank für eure Diskretion schenkt er euch die Rüstung eines anderen Abenteurers, der nie zurückkam, um sie abzuholen."
+                                }
+                            }
+                        }
+                    }
+                },
+                "03": {
+                    "narrative": "„Nur damit du es weißt, ich kenne Stadtrat Graumähne! Er würde sich sicher sehr für die Wucherpreise interessieren, die du für einfache Schmiedearbeiten nimmst! Absurd! Du ... du primitiver Barbar!\" Der kleine bärtige Mann beschwert sich lautstark, während er eine Schneiderei im Fundusviertel verlässt. „Da säume ich meine Sachen lieber selbst. So schwer kann es ja nicht sein, wenn du davon lebst!\"<br><br>Er dreht sich um, stolpert über seine Robe und schleudert die in Leder gebundenen Bücher; die er bei sich trug, quer über die Pflasterstraße. Zumindest eines davon weckt euer Interesse ...",
+                    "options": {
+                        "A": {
+                            "narrative": "Helft ihm, seine Bücher aufzusammeln.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr überreicht ihm das letzte seiner Bücher; während er sich den Staub aus der Kleidung klopft. „Hm. Nun, danke sehr: Ah ... die Pranken. Dominic Scrim, ich freue mich, eure Bekanntschaft zu machen. Ich wünschte, die anderen Söldner wären ebenso hilfreich wie ihr: Vielleicht seid ihr doch nicht alle nutzlos. Hier; ein Zeichen meiner Dankbarkeit ...\""
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Nehmt inmitten des Tumults das interessanteste Buch an euch.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr schnappt euch ein elegantes, in dunkles Leder gebundenes Buch und schlägt eine zufällige Seite auf:<br><br>„... in ihren finsteren Höhlen, doch das Ende kam nicht. Die Vorboten des Umbruchs, eine gewaltige dämonische Armee, hatte die einst mächtige und glorreiche Zivilisation vollkommen zermürbt.\"<br><br>Scheint ein ziemlich theatralischer Roman zu sein. Ihr werft ihn irgendwo in eine Gasse und geht weiter."
+                                }
+                            }
+                        }
+                    }
+                },
+                "04": {
+                    "narrative": "Ihr schlendert durch den Versunkenen Markt, als euch ein Stand mit exotischen Früchten ins Auge fällt. Der Verkäufer preist euch seine Angebote an: Kornkirschen, Blutmelonen - und sogar eine große, harte Nuss, die mit süßer Milch gefüllt ist. Während ihr untereinander besprecht, was ihr kaufen möchtet, wendet sich der Verkäufer anderen Interessenten zu.<br><br>Aus dem Augenwinkel bemerkt ihr; wie eine junge Ratze ein Ärmchen ausstreckt, um ein paar rote Beeren aus einem der Körbe zu stehen.",
+                    "options": {
+                        "A": {
+                            "narrative": "Alarmiert den Verkäufer.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Der Verkäufer schlägt die Hand der Ratze zur Seite.<br><br>„Hier; nimm das und verzieh dich. Und ich will dich mindestens eine Woche nicht mehr hier sehen!\"<br><br>Er wirft der Ratze eine matschigen Kürbis zu und sie rennt davon. Der Verkäufer dankt euch eure Aufmerksamkeit mit ein paar Münzen"
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Schweigt. Es ist nicht euer Problem.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Die Ratze stopft sich eine Handvoll Beeren in den Mund. Saft läuft an ihrem Kinn hinunter; während sie davonrennt - aber sie schafft es nur ein paar Schritte weiter, ehe sie zusammenbricht und nach Luft ringt. Der Verkäufer weiß sofort, was passiert ist. „Dumme Ratze! Rote Zinnbeeren sind giftig!\" Er beugt sich hinab und schiebt der Ratze eine grüne Beere aus seiner Tasche zwischen die Lippen. „Das sollte das Gift neutralisieren.\" Kurz darauf hustet sie sich zurück ins Leben und flieht durch das nächste Kanalgitter:"
+                                }
+                            }
+                        }
+                    }
+                },
+                "05": {
+                    "narrative": "Ihr schlendert den Fluss entlang zu den Baracken, als am anderen Ufer ein mannshoher Pirscher mit furchterregenden Scheren aus dem Wasser springt. Die Bürger suchen panisch Deckung.<br><br>Plötzlich ertönt ein Kampfschrei. Aus einem nahegelegenen Gebäude stürzt ein violett schimmerndes Stoffknäuel auf den Boden und rollt elegant bis kurz vor den Ort des Geschehens. Es entpuppt sich als weibliche Valrath mit wellendem Haar und Gesichtsschleier:<br><br>„Tss! Tsssss!\", ruft sie und rasselt mit einem hölzernen Instrument in Richtung der Bestie. „Tss! Der Pirscher unterbricht seinen Angriff und wendet sich der Frau zu. Ist das schreckliche Monster etwa ... verwirrt?",
+                    "options": {
+                        "A": {
+                            "narrative": "Greift den Pirscher an, solange er abgelenkt ist. Das ist vielleicht die einzige Chance, ihn zu töten.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Während der Pirscher von der Frau in Violett und ihrem seltsamen Geräusch abgelenkt ist, springt ihr herbei und tötet das Wassermonster: Ihr dankt der Valrath für die Ablenkung, aber ihre Miene zeigt eine Mischung aus Grauen und Wut. „Warum habt ihr ihn getötet?\" fragt sie mit weit aufgerissenen Augen. „Er war noch ganz jung!\"<br><br>Ihr stammelt eine Entschuldigung und lasst die Frau weinend über dem zerschmetterten Panzer des Pirschers zurück."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Bringt die Schaulustigen in Sicherheit und macht der Frau Platz.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr haltet die verängstigte Menge in Schach, während die Frau den Pirscher umkreist und dabei hypnotisch mit ihrem Instrument rasselt.<br><br>Ihr fallt beinahe selbst in Trance und seht, wie die Augen des Monsters ihrem Tanz folgen. Langsam nähert sich das Paar dem Wasser und nach einem letzten „Tssss\" zieht sich der Pirscher endlich zurück. Die Menge atmet erleichtert auf und die Valrath nickt euch dankend zu, bevor sie sich umdreht und in der Menge verschwindet."
+                                }
+                            }
+                        }
+                    }
+                },
+                "06": {
+                    "narrative": "In der Stadt hängen neue Steckbriefe und die Zeichnung darauf hat frappierend Ähnlichkeit mit einem Mitglied eurer Gruppe. Ihr müsst nur die Nase richten und ein Kapuze drüberstülpen, dann könntet ihr das Kopfgeld in Höhe von 15 Goldstücken kassieren.<br><br>Nach einigen Neckereien seid ihr euch einig, dass das verrückt wäre. Selbst wenn ihr die Wachen überzeugen und das Kopfgeld kassieren würdet, fehlt euch immer noch ein Plan für dich Flucht aus dem Gefängnis. Das wäre es einfach nicht wert. Nur eine verrückte Idee unter Freunden. Ha. Niemals, für kein Geld der Welt. Nicht unter Freunden ...",
+                    "options": {
+                        "A": {
+                            "narrative": "Ruft die Wachen.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr ruft die Wachen und wollt euren Freund ans Messer liefern. Ihr könnt jedoch nicht lange genug ernst bleiben und fliegt auf. Die Wachen beschimpfen euch, weil ihr ihre Zeit verschwendet, während sich das Opfer eures misslungenen Plans Blut von der Nase tupft."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Ruft die Wachen, und zwar richtig laut.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Trotz der Proteste eures Freundes wird er von den Wachen verhaftet. Ihr kassiert das Kopfgeld und überlasst es eurem Freund, die Kaution aufzubringen. Über diesen Streich werdet ihr noch in Jahren lachen. Zumindest die meisten von euch."
+                                }
+                            }
+                        }
+                    }
+                },
+                "07": {
+                    "narrative": "Ihr beschließt, den Abend in der Braunen Tür zu verbringen, einer Spelunke bei den alten Kais. Hinten im Raum sitzt ein alter Mann über ein paar Glasperlen gebeugt. Er freut sich über Gesellschaft und bittet euch fröhlich, euch zu ihm an den Tisch zu setzen. Er nimmt ein paar Perlen in seine Faust und verstaut den Rest in seiner Brusttasche.<br><br>„Was glaubt ihr, wie viele Perlen ich hier in der Hand halte? Wenn ihr richtig ratet, gewinnt ihr was. Ist gar nicht mal so einfach!\"<br><br>Er lacht - vermutlich über einen Witz, der euch wohl entgangen ist - und noch bevor ihr die Chance habt zu raten, flüstert eine Stimme in euer Ohr: „Es sind immer drei.\" Ihr dreht euch um, doch dort ist niemand.",
+                    "options": {
+                        "A": {
+                            "narrative": "Ratet eine Zahl von eins bis fünf. (Sagt die Zahl jetzt laut und deutlich.)",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Der Mann öffnet seine Hand mit einer dramatischen Geste und lacht. „Ihr hört sie auch, nicht wahr? Ihr seid die Ersten heute Abend.\" Er kichert vor sich hin und starrt den Rest der Nacht verloren in sein Getränk, zuvor wirft er euch aber noch euren Gewinn zu.",
+                                    "condition": "FALLS IHR 3 GESAGT HABT:"
+                                },
+                                "1": {
+                                    "narrative": "Der alt Mann öffnet seine Hand und enthüllt drei glitzernde Glasperlen. Er lacht, als wäre es ein Witz, den ihr hättet erahnen müssen."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Sucht nach der Stimme.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr hört ein leises Flüstern, wie ein dumpfes Brüllen, das von der Darbietung auf der Bühne übertönt wird. Ihr folgt ihm nach draußen, die Straße hinunter und hinter ein Lagerhaus. Zwei Aesthern stehen über eine Kugel gebeugt und schrecken auf, als ihr euch nähert.<br><br>„Oh, entschuldigt, konntet ihr das hören?\" Einer der beiden klopft auf die Glaskugel. Dann murmelt er: „Hab den Diamanten wohl zu weit gedreht\", und ignoriert euch komplett. Ihr verlasst den Ort mit mehr Fragen als zuvor:"
+                                }
+                            }
+                        }
+                    }
+                },
+                "08": {
+                    "narrative": "Eine schwarze Rauchwolke steigt über der Stadtmitte auf. Ihr geht näher heran und entdeckt eine jubelnde und klatschende Menge auf der Stummbrücke. Als ihr euch nach vorne drängelt, seht ihr zwei riesige mechanische Schmetterlingsflügel, die an einem kleinen Quatryl geschnallt sind.<br><br>„Heute erobern die Quatryls den Himmel!\" Er drückt einen Knopf an seiner Brust, die Flügel setzen sich in Bewegung und noch mehr Rauch steigt auf. Die Flügel schlagen immer scheller und werfen den Zuschauern kräftig Windstöße entgegen. Mit einem breiten Grinsen hebt er ab und steigt höher und höher ... bis er mit einem lauten Platschen ins Wasser stürzt.",
+                    "options": {
+                        "A": {
+                            "narrative": "Taucht ins Wasser, um dem Quatryl zu helfen.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Ihr taucht durch den dicken Rauch ins kühle Wasser: Die Arme des Quatryls haben sich in den Trümmern seiner Flügel verfange, aber ihr könnt ihn befreien und schließlich ans Ufer bringen.<br><br>Als ihm klar wird, wer ihn gerettet hat, reißt er die Augen auf. „Die Pranken? Meine Güte, ich bewundere euch so sehr!\" Dann verliert er das Bewusstsein und ihr wisst nicht so recht, ob es an euch oder am Absturz liegt. So oder so habt ihr heute ein Leben gerettet."
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Haltet die Menge zurück, falls die Maschine explodiert.",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Während die Wrackteile brennend auf dem Fluss treiben, wird der leblose Körper des Erfinders ans Ufer gespült. Die besorgte Menge ist totenstill und befürchtet das Schlimmste.<br><br>Plötzlich reißt der Quatryl die Augen auf. „ES HAT FUNKTIONIERT!\", schreit er: Er setzt sich auf und friemelt an den Resten der Maschine herum, die noch an seine Brust geschnallt sind. „Ich weiß genau, wie ich das repariere. Noch ein paar kleine Anpassungen und ich drehe über dem Kupferkamm meine Runden!\""
+                                }
+                            }
+                        }
+                    }
+                },
+                "09": {
+                    "narrative": "Eure Gruppe flaniert über den Versunkenen Markt, als euch ein Aufruhr in einem der Geschäfte auffällt. Eine Ratze liegt am Boden, getötet durch einen Schlag auf den Schädel.<br><br>Der Valrath-Verdächtige sagt: „Die Antride war es!\"<br><br>Die Ratzen-Verdächtige sagt „Der Valrath sagt die Wahrheit!\"<br><br>Der Inox-Verdächtige sagt: „Wenn der Valrath lügt, lügt die Ratze auch.\"<br><br>Die Antride-Verdächtige sagt: „Die Ratze war es nicht!\"<br><br>Zwei Wachen kratzen sich am Kopf, als sich ein Portal in der Nähe öffnet und ein Aesther mit einem ungewöhnlichen Hut Hinaustritt. Er schaut an euch vorbei und sagt: „Nur einer von ihnen spricht die Wahrheit.\" Noch bevor ihr eine Frage stellen könnt, ist er schon wieder verschwunden.",
+                    "options": {
+                        "A": {
+                            "narrative": "Wer hat den Mord begannen? (Sagt die Antwort laut und deutlich.)",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Die Wachen verhaften die Ratze, die ihren Bruder erschlagen hat, um das Versicherungsgeld zu kassieren. Ihr sorgt außerdem dafür; dass auch der verlogene Valrath und die Antride was zu hören bekommen. Der Inox wird für seine hilfreiche Aussage von den Wachen mit einem schroffen „Danke\" abgespeist, dafür händigen sie euch mit Freuden die Belohnung aus.",
+                                    "condition": "WENN IHR DIE RATZE BESCHULDIGT:"
+                                }
+                            }
+                        },
+                        "B": {
+                            "narrative": "Wer hat den Mord begannen? (Sagt die Antwort laut und deutlich.)",
+                            "outcomes": {
+                                "0": {
+                                    "narrative": "Im Nachhinein fällt euch auf: Wenn ihr davon ausgeht, dass der Valrath die Wahrheit gesagt hat, muss auch die Ratze die Wahrheit gesagt haben. Da der Aesther glaubte, dass nur einer ehrlich sei, müssen beide gelogen haben. Wenn also beide gelogen haben, hat der Inox die Wahrheit gesagt, was bedeutet, dass die Antride gelogen hat, als sie sagte, es sei nicht die Ratze gewesen.<br><br>Wegen eurer falschen Entscheidung ist eine Mörderin weiter auf freiem Fuß.",
+                                    "condition": "WENN IHR NICHT DIE RATZE BESCHULDIGT:"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
