@@ -1,4 +1,7 @@
 {
+  "ability": {
+    "Commanding Presence": "Gebieterische Präsenz"
+  },
   "battleGoals": {
     "458": {
       "": "Sparsam",

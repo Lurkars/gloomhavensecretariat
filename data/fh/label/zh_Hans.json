@@ -35,8 +35,8 @@
     "Berserk Rage": "狂暴暴怒",
     "Birds in a Tempest": "暴风之鸟",
     "Birds of Prey": "猎食猛禽",
-    "Biting Gnats": "蠓虫撕咬",
     "Biting Frost": "寒霜撕咬",
+    "Biting Gnats": "蠓虫撕咬",
     "Black Barrage": "黑色弹幕",
     "Black Lance": "黑色长枪",
     "Black Night of the Deep": "深海黑夜",
@@ -1882,7 +1882,8 @@
     "Stalagmites": "石筍",
     "Switch": "开关",
     "The Great Oak": "巨橡",
-    "Tree": "树木"
+    "Tree": "树木",
+    "slow-declared": "慢速轮"
   },
   "personalQuest": {
     "fh": {
