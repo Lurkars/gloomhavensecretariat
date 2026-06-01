@@ -357,7 +357,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   donate() {
-    if (gameManager.game.round < 1 && this.character.progress.gold > 9) {
+    if (gameManager.game.round < 1 && (this.donations === 'fh' ? this.character.progress.gold > 4 : this.character.progress.gold > 9)) {
       gameManager.stateManager.before('donate', gameManager.characterManager.characterName(this.character, true, true));
       this.character.progress.donations += 1;
       this.character.donations += 1;

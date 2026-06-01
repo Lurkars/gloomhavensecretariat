@@ -3,6 +3,7 @@ export type BASE_TYPE = string | number | boolean;
 export interface Command {
   id: string;
   parameters: BASE_TYPE[];
+  server: boolean;
   execute(): void;
   before(): BASE_TYPE[];
 }
@@ -10,6 +11,7 @@ export interface Command {
 export abstract class CommandImpl implements Command {
   abstract id: string;
   parameters: BASE_TYPE[];
+  server: boolean = false;
   abstract requiredParameters: number;
 
   constructor(...parameters: BASE_TYPE[]) {

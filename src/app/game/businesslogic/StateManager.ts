@@ -392,7 +392,7 @@ export class StateManager {
         case 'remoteCommand':
           if (message.payload && (gameManager.game.server || message.payload.force)) {
             console.debug('remoteCommand:', message.payload);
-            commandManager.execute(message.payload.id, ...(message.payload.parameters || []));
+            commandManager.execute(message.payload.id, true, ...(message.payload.parameters || []));
           }
           break;
         case 'error':

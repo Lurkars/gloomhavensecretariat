@@ -600,6 +600,10 @@ export class EntityManager {
       entityCondition.state = EntityConditionState.normal;
     }
 
+    if (entityCondition.name === ConditionName.plague && entityCondition.value > 3) {
+      entityCondition.value = 3;
+    }
+
     if (!figure.active && entityCondition.types.includes(ConditionType.expire)) {
       if (!figure.off && !figure.active) {
         entityCondition.lastState = entityCondition.state;
@@ -774,7 +778,8 @@ export class EntityManager {
             !entityCondition.expired &&
             !this.isImmune(entity, figure, entityCondition.name)
         );
-        if (preventHeal) {
+
+        if (!!preventHeal) {
           entity.health -= entityCondition.value;
         }
 

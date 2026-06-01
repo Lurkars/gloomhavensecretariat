@@ -44,13 +44,14 @@ export class CommandManager {
 
   private history: Command[] = [];
 
-  execute(id: string, ...parameters: BASE_TYPE[]) {
+  execute(id: string, server: boolean, ...parameters: BASE_TYPE[]) {
     try {
       if (!this.commandsMap[id]) {
         throw new CommandUnknownError(id);
       }
 
       const command: Command = new this.commandsMap[id](...parameters);
+      command.server = server;
       gameManager.stateManager.before(...command.before());
       try {
         command.execute();

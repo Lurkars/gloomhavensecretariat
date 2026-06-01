@@ -1304,15 +1304,18 @@
                   @for (character of rewards.chooseUnlockCharacter; track character; let i = $index) {
                     <label
                       class="item character choose"
-                      [ngClass]="{ unlocked: unlocked(character), disabled: !settingsManager.settings.automaticUnlocking }"
+                      [ngClass]="{
+                        locked: (rewardsOnly && !unlocked(character)) || (!rewardsOnly && unlocked(character)),
+                        disabled: !settingsManager.settings.automaticUnlocking || rewardsOnly
+                      }"
                     >
                       @if (settingsManager.settings.automaticUnlocking) {
                         <input
-                          type="radio"
+                          [type]="rewardsOnly ? 'checkbox' : 'radio'"
                           name="chooseUnlockCharacter"
                           (change)="selectCharacter(character)"
                           [value]="character"
-                          [checked]="chooseUnlockCharacter === character"
+                          [checked]="(rewardsOnly && unlocked(character)) || chooseUnlockCharacter === character"
                         />
                       }
                       <span

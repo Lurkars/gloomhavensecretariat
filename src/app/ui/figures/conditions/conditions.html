@@ -12,13 +12,7 @@
         }"
       >
         @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-          <img
-            tabclick
-            (click)="dec(condition)"
-            class="ghs-svg dec"
-            [ngClass]="{ disabled: getValue(condition) <= 1 }"
-            src="./assets/images/left.svg"
-          />
+          <img tabclick (click)="dec(condition)" class="ghs-svg dec" src="./assets/images/left.svg" />
         }
         <span
           class="condition"
@@ -36,7 +30,9 @@
         >
           <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
           @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-            <span [ngClass]="{ stack: condition.types.includes(ConditionType.stack) }" class="value">{{ getValue(condition) }}</span>
+            <span [ngClass]="{ stack: condition.types.includes(ConditionType.stack) }" class="value">{{
+              getValue(condition) | ghsValueSign
+            }}</span>
           }
         </span>
         @if (isPermanent(condition.name)) {

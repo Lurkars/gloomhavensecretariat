@@ -535,7 +535,7 @@ export class ActionsManager {
           heal = EntityValueFunction(entity.maxHealth) - entity.health;
         }
         entity.health += heal;
-        const healCondition = new EntityCondition(ConditionName.heal, 1);
+        const healCondition = new EntityCondition(ConditionName.heal, heal);
         gameManager.entityManager.addCondition(entity, figure, healCondition);
         if (action.subActions) {
           action.subActions

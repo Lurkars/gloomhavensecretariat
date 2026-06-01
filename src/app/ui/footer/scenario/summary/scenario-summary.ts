@@ -421,7 +421,13 @@ export class ScenarioSummaryComponent {
         if (this.rewards.chooseLocation && this.rewards.chooseLocation.length > 0 && !this.chooseLocation) {
           this.chooseLocation = this.rewards.chooseLocation[0];
         }
-        if (this.rewards.chooseUnlockCharacter && this.rewards.chooseUnlockCharacter.length > 0 && !this.chooseUnlockCharacter) {
+
+        if (
+          !this.rewardsOnly &&
+          this.rewards.chooseUnlockCharacter &&
+          this.rewards.chooseUnlockCharacter.length > 0 &&
+          !this.chooseUnlockCharacter
+        ) {
           let index = 0;
           while (
             index < this.rewards.chooseUnlockCharacter.length &&

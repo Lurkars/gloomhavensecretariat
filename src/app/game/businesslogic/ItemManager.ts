@@ -27,7 +27,10 @@ export class ItemManager {
           (!edition ||
             edition === editionData.edition ||
             gameManager.editionExtensions(edition).includes(editionData.edition) ||
-            (edition === 'fh' && editionData.edition === 'gh')) &&
+            (edition === 'fh' &&
+              ((settingsManager.settings.fhGhItems && (editionData.edition === 'gh' || editionData.edition === 'fc')) ||
+                (settingsManager.settings.fhGh2eItems && editionData.edition === 'gh2e'))) ||
+            (edition === 'gh2e' && settingsManager.settings.gh2eFhItems && editionData.edition === 'fh')) &&
           editionData.items &&
           editionData.items.length > 0
       )
@@ -43,6 +46,15 @@ export class ItemManager {
   isItemAvailable(itemData: ItemData, edition: string | undefined, withUnlocks: boolean = true): boolean {
     if (!this.game.party.campaignMode) {
       return !edition || itemData.edition === edition || gameManager.editionExtensions(edition).includes(itemData.edition);
+    }
+
+    if (
+      edition &&
+      itemData.edition !== edition &&
+      !gameManager.editionExtensions(edition).includes(itemData.edition) &&
+      this.game.party.filteredItems.some((identifier) => identifier.edition === itemData.edition && identifier.name === '' + itemData.id)
+    ) {
+      return false;
     }
 
     if (edition && (itemData.edition === edition || gameManager.editionExtensions(edition).includes(itemData.edition))) {
@@ -83,29 +95,27 @@ export class ItemManager {
       }
     }
 
-    if (settingsManager.settings.fhGhItems && gameManager.fhRules()) {
+    if (settingsManager.settings.fhGhItems && gameManager.fhRules() && typeof itemData.id === 'number') {
       if (itemData.edition === 'gh') {
         const tradingPost =
           this.game.party.buildings &&
           this.game.party.buildings.find((buildingModel) => buildingModel.name === 'trading-post' && buildingModel.state !== 'wrecked');
         if (tradingPost) {
-          if (typeof itemData.id === 'number' && tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].includes(itemData.id)) {
+          if (tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].includes(itemData.id)) {
             return true;
           } else if (
-            typeof itemData.id === 'number' &&
             tradingPost.level >= 3 &&
             [46, 83, 84, 85, 86, 87, 88, 102, 110, 111, 120, 121, 122, 123, 126, 128].includes(itemData.id)
           ) {
             return true;
           } else if (
-            typeof itemData.id === 'number' &&
             tradingPost.level >= 4 &&
             [17, 35, 47, 51, 62, 74, 77, 78, 79, 80, 81, 82, 117, 118, 119, 127, 129, 131].includes(itemData.id)
           ) {
             return true;
           }
         }
-        return typeof itemData.id === 'number' && [10, 25, 72, 105, 109, 116].includes(itemData.id);
+        return [10, 25, 72, 105, 109, 116].includes(itemData.id);
       } else if (itemData.edition === 'fc') {
         const fcItems = [];
         if (this.game.party.scenarios.find((model) => model.edition === 'fh' && model.index === '82' && !model.group)) {
@@ -120,6 +130,65 @@ export class ItemManager {
         ) {
           fcItems.push(154, 155, 157, 163);
         }
+      }
+    }
+
+    if (settingsManager.settings.fhGh2eItems && gameManager.fhRules() && itemData.edition === 'gh2e' && typeof itemData.id === 'number') {
+      const tradingPost =
+        this.game.party.buildings &&
+        this.game.party.buildings.find((buildingModel) => buildingModel.name === 'trading-post' && buildingModel.state !== 'wrecked');
+      if (tradingPost) {
+        if (
+          tradingPost.level >= 2 &&
+          [
+            23, 24, 31, 32, 33, 38, 41, 51, 70, 81, 82, 83, 84, 85, 86, 92, 94, 95, 98, 100, 104, 107, 110, 112, 113, 116, 120, 129, 131,
+            140, 141, 143
+          ].includes(itemData.id)
+        ) {
+          return true;
+        } else if (
+          tradingPost.level >= 3 &&
+          [
+            39, 40, 44, 46, 48, 71, 74, 75, 77, 78, 88, 93, 99, 103, 106, 108, 114, 115, 117, 118, 119, 130, 135, 139, 144, 148, 151, 152
+          ].includes(itemData.id)
+        ) {
+          return true;
+        } else if (
+          tradingPost.level >= 4 &&
+          [59, 61, 64, 67, 72, 76, 79, 80, 89, 109, 111, 121, 128, 132, 133, 134, 136, 138, 142, 145, 147].includes(itemData.id)
+        ) {
+          return true;
+        }
+      }
+      return [9, 10, 43, 96, 97, 122, 123, 124, 125, 126, 127, 137, 150].includes(itemData.id);
+    }
+
+    if (settingsManager.settings.gh2eFhItems && gameManager.gh2eRules() && itemData.edition === 'fh' && typeof itemData.id === 'number') {
+      const prosperity = gameManager.prosperityLevel();
+
+      if (
+        prosperity >= 3 &&
+        [158, 159, 170, 171, 172, 173, 179, 183, 185, 186, 190, 195, 210, 211, 223, 228, 233, 235, 240, 243].includes(itemData.id)
+      ) {
+        return true;
+      }
+      if (
+        prosperity >= 5 &&
+        [
+          167, 169, 174, 175, 177, 180, 182, 187, 191, 192, 193, 197, 198, 204, 205, 208, 214, 221, 227, 229, 238, 239, 206, 178, 201
+        ].includes(itemData.id)
+      ) {
+        return true;
+      }
+      if (
+        prosperity >= 7 &&
+        [162, 194, 199, 163, 181, 184, 188, 202, 203, 207, 209, 212, 215, 217, 218, 222, 224, 226, 234].includes(itemData.id)
+      ) {
+        return true;
+      }
+
+      if (prosperity >= 9 && [234, 166, 151, 168, 189, 200, 213, 216, 219, 220, 225, 236, 237, 242, 244].includes(itemData.id)) {
+        return true;
       }
     }
 

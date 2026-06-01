@@ -107,7 +107,28 @@ export class StatisticsDialogComponent implements OnInit {
     });
 
     this.overall = this.scenarioStatisticsSum(this.characters.map((character) => character.scenarioStats));
-    this.scenarios[this.characters.length] = this.scenarios.reduce((a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]]);
+
+    const scenarioKeyMap = this.characters.reduce((map, character) => {
+      const charMap = character.progress.scenarioStats
+        .filter((stat) => stat.scenario)
+        .reduce((m, stat) => {
+          const key = `${stat.scenario!.index}_${stat.scenario!.edition}_${stat.scenario!.group ?? ''}`;
+          const e = m.get(key) ?? { total: 0, success: 0, failure: 0 };
+          m.set(key, { total: e.total + 1, success: e.success + (stat.success ? 1 : 0), failure: e.failure + (stat.success ? 0 : 1) });
+          return m;
+        }, new Map<string, { total: number; success: number; failure: number }>());
+
+      charMap.forEach((counts, key) => {
+        const existing = map.get(key);
+        if (!existing || counts.total > existing.total) map.set(key, counts);
+      });
+      return map;
+    }, new Map<string, { total: number; success: number; failure: number }>());
+
+    this.scenarios[this.characters.length] = [...scenarioKeyMap.values()].reduce(
+      ([t, s, f], c) => [t + c.total, s + c.success, f + c.failure],
+      [0, 0, 0]
+    );
   }
 
   scenarioStatisticsSum(stats: ScenarioStats[], scenario: ScenarioData | undefined = undefined): ScenarioStats {
@@ -132,7 +153,7 @@ export class StatisticsDialogComponent implements OnInit {
     scenarioStats.monsterDamage = damageStats.monsterDamage;
     scenarioStats.otherDamage = damageStats.otherDamage;
     scenarioStats.healedDamage = damageStats.healedDamage;
-    scenarioStats.heals = damageStats.monsterDamage;
+    scenarioStats.heals = damageStats.heals;
     scenarioStats.normalKills = damageStats.normalKills;
     scenarioStats.eliteKills = damageStats.eliteKills;
     scenarioStats.bossKills = damageStats.bossKills;

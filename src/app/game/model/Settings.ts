@@ -143,6 +143,7 @@ export class Settings {
   fhChallengesApply: boolean = true;
   fhGarden: boolean = true;
   fhGhItems: boolean = false;
+  fhGh2eItems: boolean = false;
   fhPets: boolean = true;
   fhSecondEdition: boolean = false;
   fhShareResources: boolean = false;
@@ -152,6 +153,7 @@ export class Settings {
   fontsize: number = 1;
   gameClock: boolean = false;
   gameClockMerge: boolean = true;
+  gh2eFhItems: boolean = false;
   gh2eImbuement: boolean = true;
   gh2eImbuementKeep: boolean = false;
   globalFontsize: number = 1;

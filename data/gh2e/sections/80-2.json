@@ -21,28 +21,26 @@
         },
         {
           "name": "forest-imp",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "forest-imp",
           "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
           "player4": "normal"
         },
         {
           "name": "forest-imp",
           "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "elite"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
         },
         {
           "name": "rending-drake",
@@ -54,8 +52,18 @@
         },
         {
           "name": "rending-drake",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
         }
       ]
     }

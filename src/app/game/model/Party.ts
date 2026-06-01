@@ -17,6 +17,7 @@ export class Party {
   conditions: ConditionName[] = [];
   battleGoalEditions: string[] = [];
   filteredBattleGoals: Identifier[] = [];
+  filteredItems: Identifier[] = [];
   location: string = '';
   notes: string = '';
   achievements: string = '';

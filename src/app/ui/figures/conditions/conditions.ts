@@ -12,12 +12,13 @@ import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon } from 'src/app/game/model/Summon';
+import { GhsValueSignPipe } from 'src/app/ui/helper/Pipes';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, GhsTooltipDirective, TrackUUIDPipe],
+  imports: [NgClass, GhsTooltipDirective, TrackUUIDPipe, GhsValueSignPipe],
   selector: 'ghs-conditions',
   templateUrl: './conditions.html',
   styleUrls: ['./conditions.scss']
@@ -272,10 +273,6 @@ export class ConditionsComponent implements OnInit {
   }
 
   inc(condition: Condition) {
-    if (condition.name === ConditionName.plague && condition.value === 3) {
-      return;
-    }
-
     condition.value = this.getValue(condition) + 1;
     this.checkUpdate(condition);
 
@@ -284,7 +281,7 @@ export class ConditionsComponent implements OnInit {
 
   dec(condition: Condition) {
     condition.value = this.getValue(condition) - 1;
-    if (condition.value < 1) {
+    if (condition.value < 1 && !condition.types.includes(ConditionType.stack) && !condition.types.includes(ConditionType.upgrade)) {
       condition.value = 1;
     }
     this.checkUpdate(condition);

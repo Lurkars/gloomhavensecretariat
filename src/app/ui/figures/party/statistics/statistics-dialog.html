@@ -75,6 +75,12 @@
                 [style]="'fh'"
                 [ghs-tooltip]="'scenario.stats.otherDamage.hint'"
               ></span>
+              <span
+                [ghs-label]="'scenario.stats.exhausts'"
+                [ghs-label-args]="[character.scenarioStats.exhausts]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.exhausts.hint'"
+              ></span>
             </td>
           }
           @if (!character) {
@@ -96,6 +102,12 @@
                 [ghs-label-args]="[overall.otherDamage]"
                 [style]="'fh'"
                 [ghs-tooltip]="'scenario.stats.otherDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.exhausts'"
+                [ghs-label-args]="[overall.exhausts]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.exhausts.hint'"
               ></span>
             </td>
           }
@@ -227,6 +239,120 @@
                 [ghs-label-args]="[overall.maxDamage]"
                 [style]="'fh'"
                 [ghs-tooltip]="'scenario.stats.maxDamage.hint'"
+              ></span>
+            </td>
+          }
+        </tr>
+        <tr>
+          <th><span [ghs-label]="'scenario.stats.summons'"></span></th>
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <td>
+              @if (
+                !character.scenarioStats.summons.dealtDamage &&
+                !character.scenarioStats.summons.normalKills &&
+                !character.scenarioStats.summons.eliteKills &&
+                !character.scenarioStats.summons.bossKills &&
+                !character.scenarioStats.summons.maxDealtDamage &&
+                !character.scenarioStats.summons.exhausts
+              ) {
+                <span>/</span>
+              }
+
+              @if (character.scenarioStats.summons.dealtDamage) {
+                <span
+                  [ghs-label]="'scenario.stats.dealtDamage'"
+                  [ghs-label-args]="[character.scenarioStats.summons.dealtDamage]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.summons.normalKills) {
+                <span
+                  class="text-black"
+                  [ghs-label]="'scenario.stats.normalKills'"
+                  [ghs-label-args]="[character.scenarioStats.summons.normalKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.normalKills.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.summons.eliteKills) {
+                <span
+                  [ghs-label]="'scenario.stats.eliteKills'"
+                  [ghs-label-args]="[character.scenarioStats.summons.eliteKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.eliteKills.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.summons.bossKills) {
+                <span
+                  [ghs-label]="'scenario.stats.bossKills'"
+                  [ghs-label-args]="[character.scenarioStats.summons.bossKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.bossKills.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.summons.maxDealtDamage) {
+                <span
+                  [ghs-label]="'scenario.stats.maxDealtDamage'"
+                  [ghs-label-args]="[character.scenarioStats.summons.maxDealtDamage]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"
+                ></span>
+              }
+              @if (character.scenarioStats.summons.exhausts) {
+                <span
+                  [ghs-label]="'scenario.stats.exhausts'"
+                  [ghs-label-args]="[character.scenarioStats.summons.exhausts]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.exhausts.hint'"
+                ></span>
+              }
+            </td>
+          }
+          @if (!character) {
+            <td>
+              <span
+                [ghs-label]="'scenario.stats.dealtDamage'"
+                [ghs-label-args]="[overall.summons.dealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"
+              ></span>
+              @if (overall.summons.normalKills) {
+                <span
+                  class="text-black"
+                  [ghs-label]="'scenario.stats.normalKills'"
+                  [ghs-label-args]="[overall.summons.normalKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.normalKills.hint'"
+                ></span>
+              }
+              @if (overall.summons.eliteKills) {
+                <span
+                  [ghs-label]="'scenario.stats.eliteKills'"
+                  [ghs-label-args]="[overall.summons.eliteKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.eliteKills.hint'"
+                ></span>
+              }
+              @if (overall.summons.bossKills) {
+                <span
+                  [ghs-label]="'scenario.stats.bossKills'"
+                  [ghs-label-args]="[overall.summons.bossKills]"
+                  [style]="'fh'"
+                  [ghs-tooltip]="'scenario.stats.bossKills.hint'"
+                ></span>
+              }
+              <span
+                [ghs-label]="'scenario.stats.maxDealtDamage'"
+                [ghs-label-args]="[overall.summons.maxDealtDamage]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"
+              ></span>
+              <span
+                [ghs-label]="'scenario.stats.exhausts'"
+                [ghs-label-args]="[overall.summons.exhausts]"
+                [style]="'fh'"
+                [ghs-tooltip]="'scenario.stats.exhausts.hint'"
               ></span>
             </td>
           }

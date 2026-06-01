@@ -27,7 +27,7 @@ export class ScenarioStatsManager {
         } else {
           entity.scenarioStats.otherDamage += value;
         }
-        if (entity.exhausted) {
+        if (entity.health <= 0 && entity.health + value > 0) {
           entity.scenarioStats.exhausts += 1;
         }
         entity.scenarioStats.maxDamage = Math.max(entity.scenarioStats.maxDamage, value);
@@ -37,7 +37,7 @@ export class ScenarioStatsManager {
         } else {
           figure.scenarioStats.summons.otherDamage += value;
         }
-        if (entity.dead) {
+        if (entity.health <= 0 && entity.health + value > 0) {
           figure.scenarioStats.summons.exhausts += 1;
         }
         figure.scenarioStats.summons.maxDamage = Math.max(figure.scenarioStats.summons.maxDamage, value);
@@ -46,35 +46,9 @@ export class ScenarioStatsManager {
       if (activeFigure.summons.find((summon) => summon.active)) {
         activeFigure.scenarioStats.summons.dealtDamage += value;
         activeFigure.scenarioStats.summons.maxDealtDamage = Math.max(activeFigure.scenarioStats.summons.maxDealtDamage, value);
-        if (entity instanceof MonsterEntity && entity.dead) {
-          switch (entity.type) {
-            case MonsterType.normal:
-              activeFigure.scenarioStats.summons.normalKills += 1;
-              break;
-            case MonsterType.elite:
-              activeFigure.scenarioStats.summons.eliteKills += 1;
-              break;
-            case MonsterType.boss:
-              activeFigure.scenarioStats.summons.bossKills += 1;
-              break;
-          }
-        }
       } else {
         activeFigure.scenarioStats.dealtDamage += value;
         activeFigure.scenarioStats.maxDealtDamage = Math.max(activeFigure.scenarioStats.maxDealtDamage, value);
-        if (entity instanceof MonsterEntity && entity.dead) {
-          switch (entity.type) {
-            case MonsterType.normal:
-              activeFigure.scenarioStats.normalKills += 1;
-              break;
-            case MonsterType.elite:
-              activeFigure.scenarioStats.eliteKills += 1;
-              break;
-            case MonsterType.boss:
-              activeFigure.scenarioStats.bossKills += 1;
-              break;
-          }
-        }
       }
     }
   }

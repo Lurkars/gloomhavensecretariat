@@ -6,7 +6,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
+import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemSlot } from 'src/app/game/model/data/ItemData';
 import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
 import { GameState } from 'src/app/game/model/Game';
@@ -60,6 +60,7 @@ export class ItemsDialogComponent implements OnInit {
   affordable: boolean = false;
   craftOnly: boolean = false;
   buyOnly: boolean = false;
+  filteredOnly: boolean = false;
   sorted: boolean = false;
   itemSlots: (ItemSlot | 'undefined')[] = [];
   itemSlotUndefined: boolean = false;
@@ -176,6 +177,10 @@ export class ItemsDialogComponent implements OnInit {
           this.filter
         )
     );
+
+    if (this.all && this.filteredOnly) {
+      this.items = this.items.filter((itemData) => this.filtered(itemData));
+    }
 
     this.itemSlotUndefined = this.items.find((itemData) => !itemData.slot) !== undefined;
 
@@ -348,6 +353,34 @@ export class ItemsDialogComponent implements OnInit {
       gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems.filter(
         (identifier) => identifier.name !== '' + itemData.id || identifier.edition !== itemData.edition
       );
+      gameManager.stateManager.after();
+      this.updateEditionItems();
+    }
+  }
+
+  filtered(itemData: ItemData): boolean {
+    return gameManager.game.party.filteredItems.some(
+      (identitfier) => identitfier.edition === itemData.edition && identitfier.name === '' + itemData.id
+    );
+  }
+
+  filterItem(itemData: ItemData) {
+    if (!this.filtered(itemData)) {
+      gameManager.stateManager.before('filterItem', itemData.edition, itemData.id, itemData.name);
+      gameManager.game.party.filteredItems.push(new Identifier(itemData.id, itemData.edition));
+      gameManager.stateManager.after();
+      this.updateEditionItems();
+    }
+  }
+
+  removeFilterItem(itemData: ItemData) {
+    if (this.filtered(itemData)) {
+      gameManager.stateManager.before('removeFilterItem', itemData.edition, itemData.id, itemData.name);
+      gameManager.game.party.filteredItems = [
+        ...gameManager.game.party.filteredItems.filter(
+          (identifier) => identifier.edition !== itemData.edition || identifier.name !== '' + itemData.id
+        )
+      ];
       gameManager.stateManager.after();
       this.updateEditionItems();
     }

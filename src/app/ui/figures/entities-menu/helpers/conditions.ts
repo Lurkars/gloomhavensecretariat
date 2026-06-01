@@ -1,6 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
-import { ConditionName, ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
 export class ConditionHelper {
@@ -11,13 +11,25 @@ export class ConditionHelper {
 
     this.component.entities.forEach((entity, index, self) => {
       entity.entityConditions.forEach((entityCondition) => {
+        const existing = this.component.entityConditions.find((other) => other.name === entityCondition.name);
         if (
-          !this.component.entityConditions.find((other) => other.name === entityCondition.name) &&
+          !existing &&
           self.every((otherEntity) =>
             otherEntity.entityConditions.find((other) => other.name === entityCondition.name && other.state === entityCondition.state)
           )
         ) {
-          this.component.entityConditions.push(JSON.parse(JSON.stringify(entityCondition)));
+          const condition = new EntityCondition(entityCondition.name, entityCondition.value);
+          condition.state = entityCondition.state;
+          condition.lastState = entityCondition.lastState;
+          if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
+            condition.value = 0;
+          }
+          this.component.entityConditions.push(condition);
+        } else if (
+          existing &&
+          (entityCondition.types.includes(ConditionType.stack) || entityCondition.types.includes(ConditionType.upgrade))
+        ) {
+          existing.value = 0;
         }
       });
 
@@ -55,12 +67,44 @@ export class ConditionHelper {
       });
 
     this.component.entityConditions
+      .filter((condition) =>
+        this.component.entities.some((entity) => {
+          const entityCondition = entity.entityConditions.find(
+            (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
+          );
+          return condition.types.includes(ConditionType.stack) || (condition.types.includes(ConditionType.upgrade) && entityCondition);
+        })
+      )
+      .forEach((condition) => {
+        this.component.before('setConditionValue', condition.name, Math.max(0, condition.value));
+        this.component.entities.forEach((entity) => {
+          const figure = this.component.figureForEntity(entity);
+          const entityCondition = entity.entityConditions.find(
+            (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
+          );
+          if ((condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) && entityCondition) {
+            entityCondition.value += condition.value;
+
+            if (entityCondition.name === ConditionName.plague && entityCondition.value > 3) {
+              entityCondition.value = 3;
+            }
+
+            if (entityCondition.value <= 0) {
+              gameManager.entityManager.removeCondition(entity, figure, entityCondition);
+            }
+          }
+        });
+        gameManager.stateManager.after();
+      });
+
+    this.component.entityConditions
       .filter(
         (entityCondition) =>
           (entityCondition.state === EntityConditionState.new &&
             this.component.entities.some(
               (entity) => !gameManager.entityManager.isImmune(entity, this.component.figureForEntity(entity), entityCondition.name)
-            )) ||
+            ) &&
+            entityCondition.value >= 0) ||
           (((entityCondition.state === EntityConditionState.roundExpire && !entityCondition.expired) ||
             (entityCondition.state === EntityConditionState.expire && !entityCondition.expired)) &&
             this.component.entities.some(
@@ -129,35 +173,6 @@ export class ConditionHelper {
                 this.component.entityImmunities.push(entityCondition.name);
               }
             }
-          }
-        });
-        gameManager.stateManager.after();
-      });
-
-    this.component.entityConditions
-      .filter((condition) =>
-        this.component.entities.some((entity) => {
-          const entityCondition = entity.entityConditions.find(
-            (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
-          );
-          return (
-            condition.types.includes(ConditionType.stack) ||
-            (condition.types.includes(ConditionType.upgrade) && entityCondition && entityCondition.value !== condition.value)
-          );
-        })
-      )
-      .forEach((condition) => {
-        this.component.before('setConditionValue', condition.name, condition.value);
-        this.component.entities.forEach((entity) => {
-          const entityCondition = entity.entityConditions.find(
-            (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
-          );
-          if (
-            (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) &&
-            entityCondition &&
-            entityCondition.value !== condition.value
-          ) {
-            entityCondition.value = condition.value;
           }
         });
         gameManager.stateManager.after();

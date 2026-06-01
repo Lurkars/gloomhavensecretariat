@@ -397,7 +397,7 @@
           pointer-events: none;
         }
 
-        &.character.unlocked {
+        &.character.locked {
           pointer-events: none;
 
           &::before {

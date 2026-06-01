@@ -452,7 +452,7 @@ export class GameManager {
         })
       );
     } else {
-      conditions = Conditions;
+      conditions = Conditions.map((c) => new Condition(c.name, c.value));
     }
 
     conditions = conditions.filter((condition) => !condition.types.includes(ConditionType.special));

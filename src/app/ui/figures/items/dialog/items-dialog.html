@@ -116,6 +116,13 @@
           <input type="checkbox" [(ngModel)]="all" (change)="updateEditionItems()" />
           &lt;<span [ghs-label]="'game.items.filter.all'"></span>(!)&gt;
         </label>
+
+        @if (all && (gameManager.game.party.filteredItems.some((i) => i.edition === currentEdition) || filteredOnly)) {
+          <label>
+            <input type="checkbox" [(ngModel)]="filteredOnly" (change)="updateEditionItems()" />
+            <span [ghs-label]="'game.items.filter.filteredOnly'"></span>
+          </label>
+        }
       </div>
       @if (!!editions && editions.length > 1) {
         <div class="editions">
@@ -245,6 +252,18 @@
           }
           @if (!all && unlocked(itemData)) {
             <a class="button-remove" (click)="removeUnlocked(itemData)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
+          }
+          @if (
+            !all &&
+            !filtered(itemData) &&
+            (itemData.edition !== edition || !gameManager.editionExtensions(edition).includes(itemData.edition))
+          ) {
+            <a class="button-remove" (click)="filterItem(itemData)"> <img class="ghs-svg" src="./assets/images/minus.svg" /></a>
+          }
+          @if (filtered(itemData)) {
+            <a class="button-remove positive" (click)="removeFilterItem(itemData)">
+              <img class="ghs-svg" src="./assets/images/plus.svg"
+            /></a>
           }
           @if (!!character && gameManager.itemManager.owned(itemData, character)) {
             <a

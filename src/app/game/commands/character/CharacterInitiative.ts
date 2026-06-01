@@ -25,6 +25,9 @@ export class CharacterInitiativeCommand extends CommandImpl {
     if (character) {
       character.initiative = initiative;
       character.longRest = longRest;
+      if (this.server) {
+        character.initiativeVisible = false;
+      }
     } else {
       this.executionError('character not found');
     }

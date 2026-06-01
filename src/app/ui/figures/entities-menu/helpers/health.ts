@@ -25,6 +25,9 @@ export class HealthHelper {
         entity.dead = true;
       } else if (entity instanceof Character) {
         entity.exhausted = !entity.exhausted;
+        if (entity.exhausted && settingsManager.settings.scenarioStats) {
+          entity.scenarioStats.exhausts += 1;
+        }
       }
     });
 
