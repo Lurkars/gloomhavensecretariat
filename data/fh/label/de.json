@@ -1,21 +1,37 @@
 {
   "ability": {
+    "Angry Howl": "Wütendes Heulen",
+    "Booming Scream": "Donnernder Schrei",
     "Call to the Flame": "Ruf der Flamme",
     "Circle of Fire": "Feuerkreis",
+    "Coupled Chain": "Gekoppelte Kette",
     "Crushing Weight": "Erdrücken",
+    "Drain Life": "Lebenssauger",
+    "Feed": "Fressen",
     "Fire Bolts": "Feuerbolzen",
     "Flowing Magma": "Magmafluss",
     "Focused Stabs": "Fokussierte Stiche",
     "Frozen Debris": "Gefrorene Trümmer",
+    "Greed": "Gier",
+    "Hasty Assault": "Hastiger Überfall",
+    "Heat Blast": "Hitzestoß",
+    "Hungry Maw": "Hungriger Schlund",
     "Ice Wall": "Eismauer",
+    "Icy Glare": "Eisiger Blick",
     "Knockout Punch": "K.-o.-Schlag",
+    "Lingering Strength": "Nachhaltige Stärke",
+    "Noxious Blade": "Seuchenklinge",
     "One with the Earth": "Eins mit der Natur",
+    "Plasma Ward": "Plasmaschutz",
+    "Rapid Bolts": "Schnelle Bolzen",
     "Rock Bomb": "Felsbombe",
+    "Seismic Punch": "Bebenschlag",
     "Set Trap": "Falle stellen",
     "Split": "Teilung",
     "Stone Spikes": "Steinstacheln",
     "Strength of the Mountain": "Stärke der Berge",
     "Terrifying Growl": "Schreckliches Knurren",
+    "Toxic Explosion": "Giftige Explosion",
     "Two-Fisted Strike": "Doppelte Fäuste",
     "Warding Swipe": "Schützender Hieb"
   },
@@ -25,7 +41,7 @@
       "text": "Habe bei jeder Rast genau 0 Karten in der Hand."
     },
     "1302": {
-      "": "Akrobatisch",
+      "": "Akrobat",
       "text": "Verliere eine Karte, um 5 oder mehr Schaden zu negieren."
     },
     "1303": {
@@ -274,10 +290,10 @@
     },
     "barracks": {
       "": "Kaserne",
-      "1": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 4<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-5%",
-      "2": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 6<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-15%",
-      "3": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 8<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-25%",
-      "4": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 10<br><i>Effect:</i> Vorteil und %game.action.attack.valueSign:-35%",
+      "1": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Kapazität:</i> 4<br><i>Effekt:</i> Vorteil und %game.action.attack.valueSign:-5%",
+      "2": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Kapazität:</i> 6<br><i>Effekt:</i> Vorteil und %game.action.attack.valueSign:-15%",
+      "3": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Kapazität:</i> 8<br><i>Effekt:</i> Vorteil und %game.action.attack.valueSign:-25%",
+      "4": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Kapazität:</i> 10<br><i>Effekt:</i> Vorteil und %game.action.attack.valueSign:-35%",
       "5": "Nachteil bei der Berechnung aller Bedrohungen.<br>Einsatz von Soldaten nicht möglich."
     },
     "boat": {
@@ -297,10 +313,21 @@
       "4": "Stellt Gegenstände her"
     },
     "enhancer": {
-      "": "Verbesserer"
+      "": "Verbesserer",
+      "1": "Reduziert alle Verbesserungskosten um 10 Gold",
+      "5": "Kauft Fertigkeitsverbesserungen"
     },
     "garden": {
-      "": "Garten"
+      "": "Garten",
+      "1": "Pflanzt Kräuter, dreht diese Karte um 180° und hört dann auf -\nErhaltet pro bepflanztem Beet je 1 Kraut, dreht diese Karte um 180° und hört dann auf",
+      "2": "Erhaltet insgesamt pro bepflanztem Beet je 1 Kraut und pflanzt dann Kräuter",
+      "plots": {
+        "interaction": "Pflanzt/Erntet Kräuter",
+        "state": {
+          "both": "Erntet den Garten und pflanzt Kräuter",
+          "plant": "Pflanzt Kräuter"
+        }
+      }
     },
     "hall-of-revelry": {
       "": "Festhalle"
@@ -311,9 +338,9 @@
     "hunting-lodge": {
       "": "Jagdhütte",
       "1": "Kauft insgesamt bis zu 1 %game.resource.hide% für 2 Gold",
-      "2": "Kauft insgesamt bis zu 2 %game.resource.hide% für 2 Gold",
-      "3": "Kauft insgesamt bis zu 3 %game.resource.hide% für 2 Gold",
-      "4": "Kauft insgesamt bis zu 4 %game.resource.hide% für 2 Gold"
+      "2": "Kauft insgesamt bis zu 2 %game.resource.hide% für je 2 Gold",
+      "3": "Kauft insgesamt bis zu 3 %game.resource.hide% für je 2 Gold",
+      "4": "Kauft insgesamt bis zu 4 %game.resource.hide% für je 2 Gold"
     },
     "inn": {
       "": "Gasthof"
@@ -327,9 +354,9 @@
     "logging-camp": {
       "": "Holzfällerlager",
       "1": "Kauft insgesamt bis zu 1 %game.resource.lumber% für 2 Gold",
-      "2": "Kauft insgesamt bis zu 2 %game.resource.lumber% für 2 Gold",
-      "3": "Kauft insgesamt bis zu 3 %game.resource.lumber% für 2 Gold",
-      "4": "Kauft insgesamt bis zu 4 %game.resource.lumber% für 2 Gold"
+      "2": "Kauft insgesamt bis zu 2 %game.resource.lumber% für je 2 Gold",
+      "3": "Kauft insgesamt bis zu 3 %game.resource.lumber% für je 2 Gold",
+      "4": "Kauft insgesamt bis zu 4 %game.resource.lumber% für je 2 Gold"
     },
     "lumber-depot": {
       "": "Holzdepot"
@@ -340,9 +367,9 @@
     "mining-camp": {
       "": "Bergbaulager",
       "1": "Kauft insgesamt bis zu 1 %game.resource.metal% für 2 Gold",
-      "2": "Kauft insgesamt bis zu 2 %game.resource.metal% für 2 Gold",
-      "3": "Kauft insgesamt bis zu 3 %game.resource.metal% für 2 Gold",
-      "4": "Kauft insgesamt bis zu 4 %game.resource.metal% für 2 Gold"
+      "2": "Kauft insgesamt bis zu 2 %game.resource.metal% für je 2 Gold",
+      "3": "Kauft insgesamt bis zu 3 %game.resource.metal% für je 2 Gold",
+      "4": "Kauft insgesamt bis zu 4 %game.resource.metal% für je 2 Gold"
     },
     "sled": {
       "": "Schlitten"
@@ -354,13 +381,15 @@
       "": "Schenke"
     },
     "temple": {
-      "": "Tempel der Großen Eiche"
+      "": "Tempel der Großen Eiche",
+      "1": "Jeder Charakter darf 5 Gold bezahlen, um das nächste Szenario mit %game.condition.bless%x2 zu beginnen",
+      "2": "Jeder Character beginnt das nächste Szenario mit %game.condition.curse%"
     },
     "town-hall": {
       "": "Rathaus",
       "1": "Zieht 1 Herausforderungskarte und behaltet maximal 1. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist.",
-      "2": "Zieht 2 Herausforderungskarten und behaltet maximal 1. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist.",
-      "3": "Zieht 3 Herausforderungskarten und behaltet maximal 2. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist."
+      "2": "Zieht 2 Herausforderungskarten und behaltet maximal 1. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist",
+      "3": "Zieht 3 Herausforderungskarten und behaltet maximal 2. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist"
     },
     "trading-post": {
       "": "Handelsposten"
@@ -436,7 +465,7 @@
       "educated": "Gelehrt",
       "intimidating": "Einschüchternd",
       "nimble": "Flink",
-      "outcast": "Ausgestoßen",
+      "outcast": "Ausgestoßener",
       "persuasive": "Überzeugend",
       "resourceful": "Erfinderisch",
       "strong": "Stark"
@@ -505,7 +534,7 @@
         "2": "Töte den angreifenden Beschworenen, um stattdessen %game.attack modifier.plus4% hinzuzufügen",
         "3": "Bevor du rastest kannst du einen deiner Beschworenen töten, um %game.condition.bless% Selbst auszuführen",
         "4": "Du kannst einmal pro Szenario, wenn ein verbündeter Charakter durch Erleiden von %game.damage% erschöpft würde, %game.damage:2% erleiden, um seinen TP-Wert stattdessen auf 1 zu senken",
-        "5": "Zu Beginn jedes Szenarios kannst du eine Stufe-1-Karte von deiner Hand spielen, um eine Beschwörungsaktion der Karte auszuführen",
+        "5": "Zu Beginn jedes Szenarios kannst du eine Stufe-1-Karte von deiner Hand spielen, um eine Beschwörungsaktion dieser Karte auszuführen",
         "6": "Töte mindestens 15 deiner Beschworenen",
         "7": "Beschwöre im ersten Zug, lass den Beschworenen mindestens 6 Gegner töten und halte ihn während des gesamten Szenarios am Leben"
       },
@@ -766,7 +795,7 @@
     "harbinger-of-shadow-2": "Vorbote der Schatten %game.mapMarker.2%",
     "harrower-infester": "Schwarmling-Kontagion",
     "hateful-corpse": "Hasserfüllte Leiche",
-    "hound": "Grimmwolf",
+    "hound": "Hund",
     "hungry-maw": "Hungrige Schlund",
     "ice-wraith": "Eisspuk",
     "lady-in-white": "Weiße Dame",
@@ -782,7 +811,7 @@
     "lurker-conductor": "Pirscher Conductor-----",
     "lurker-mindsnipper": "Pirscher-Geistspalter",
     "lurker-mindsnipper-scenario-60": "Gebrochener Leutnant (Geistspalter)",
-    "lurker-soldier": "Pirscher-Soldat",
+    "lurker-soldier": "Lurker Soldat",
     "lurker-wavethrower": "Pirscher-Wellenwerfer",
     "lurker-wavethrower-scenario-60": "Gebrochener Leutnant (Wellenwerfer)",
     "night-demon": "Nachtdämon",
@@ -823,10 +852,22 @@
   "objective": {
     "Door": "Tür",
     "Orphan": "Waise",
-    "Scenario": "Szenario"
+    "Scenario": "Szenario",
+    "Tree": "Baum"
   },
   "personalQuest": {
     "fh": {
+      "509": {
+        "": "Bedrohung aus der Tiefe",
+        "1": "Schalte sofort \"Invasion der Kais\" %game.scenarioNumber:71% frei und schließe es ab"
+      },
+      "523": {
+        "1": "Gold gespendet an dem Tempel der Großen Eiche"
+      },
+      "557": {
+        "": "Größte Herausforderung",
+        "1": "Schließe Herausforderungen ab"
+      },
       "581": {
         "": "Pflanzenstudien",
         "1": "Verschiedene Kräuter durch Beutemarker gesammelt"
@@ -1052,7 +1093,7 @@
         "128-2": "Schlagt die erste Seite des Rätselbuchs auf",
         "139-2": {
           "2": "Mische die Ereigniskarten B-01 bis B-13 und bilde daraus den Boot-Ereignisstapel. Bewahre diesen Stapel in Umschlag B auf, wenn er nicht verwendet wird, und nutze die Kartenunterteilung, um den Boot-Ereignisstapel von den anderen Boot-Ereigniskarten zu trennen.",
-          "3": "Vergebe einen Namen für euer Boot"
+          "3": "Gebt eurem Boot einen Namen, dann schreibt diesen auf den Sticker und in die Lücken von B-01 und B-02."
         },
         "140-3": "Schlagt nicht die nächste Seite im Rätselbuch auf. Schreibt stattdessen die Lösung des nächsten Rätsels auf die aktuelle Seite",
         "168-2": "Diese Woche kein Außenposten-Ereignis abhandeln.",
@@ -1089,6 +1130,7 @@
         "29-3": "Aesther-Außenposten",
         "29-4": "Vergängliche Beständigkeit",
         "64-3": "Rätsellösung",
+        "78-4": "Garten gebaut",
         "79-4": "Rätsellösung"
       }
     }

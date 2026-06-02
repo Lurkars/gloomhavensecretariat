@@ -1,6 +1,7 @@
 {
   "ability": {
-    "Commanding Presence": "Gebieterische Präsenz"
+    "Commanding Presence": "Gebieterische Präsenz",
+    "Marked for Death": "Markiert für den Tod"
   },
   "character": {
     "gh2e": {
@@ -8,6 +9,9 @@
       "mindthief": "Gedankendiebin",
       "spellweaver": "Spruchweberin",
       "tinkerer": "Tüftler"
+    },
+    "traits": {
+      "outcast": "Ausgestoßener"
     }
   },
   "custom": {
@@ -55,6 +59,11 @@
     "scout": "Späher"
   },
   "monster": {
-    "bandit-archer": "Banditen-Schützin"
+    "bandit-archer": "Banditen-Schützin",
+    "frost-demon": "Frostdämon",
+    "hound": "Hund",
+    "inox-archer": "Inox Bogenschütze",
+    "jekserah": "Jekserah",
+    "lurker-soldier": "Lurker Soldat"
   }
 }

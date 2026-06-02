@@ -18,19 +18,19 @@
     },
     "fc-156": {
       "": "Elementarschwert",
-      "1": "%game.element.consume.wild% während deines Nahkampfangriffs für +2 Angriff %game.action.attack% bei einem Einzelangriff."
+      "1": "%game.element.consume.wild% während deines Nahkampfangriffs, um %game.action.attack.valueSign:2% bei einem Einzelangriff hinzuzufügen."
     },
     "fc-157": {
       "": "Antiker Bogen",
-      "1": "Füge bei deinem Fernangriff einen Einzelangriff +2 Angriff %game.action.attack%, FLUCH %game.condition.curse% und WUNDE %game.condition.wound% hinzu."
+      "1": "Füge bei deinem Fernangriff einen Einzelangriff %game.action.attack.valueSign:2%, %game.condition.curse% und %game.condition.wound% hinzu."
     },
     "fc-158": {
       "": "Erfrischende Beinpanzer",
-      "1": "Füge deiner Bewegung +2 Bewegung %game.action.move% hinzu und erhalte REGENERATION %game.condition.regenerate%."
+      "1": "Füge deiner Bewegung %game.action.move.valueSign:2% hinzu und erhalte %game.condition.regenerate%."
     },
     "fc-159": {
       "": "Schrift der Eile",
-      "1": "Füge der Bewegung eines beliebigen Verbündeten +2 Bewegung %game.action.move% hinzu."
+      "1": "Füge der Bewegung eines beliebigen Verbündeten %game.action.move.valueSign:2% hinzu."
     },
     "fc-160": {
       "": "Beutelschneider",

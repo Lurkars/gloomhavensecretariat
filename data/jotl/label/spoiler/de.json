@@ -62,7 +62,7 @@
     },
     "jotl-23": {
       "": "Wanderstiefel",
-      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:2% hinzu."
+      "1": "Füge einer deiner Bewegungen %game.action.move.valueSign:2% hinzu."
     },
     "jotl-24": {
       "": "Wurfbombe",

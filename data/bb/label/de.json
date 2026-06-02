@@ -19,7 +19,7 @@
     },
     "bb-10": {
       "": "Rankenpeitsche",
-      "1": "%game.elementHalf.consume:earth|light% bei deinem Angriff, um %game.condition.immobilize% hinzuzufügen."
+      "1": "%game.elementHalf.consume:earth|light% bei deinem Angriff, um %game.condition.immobilize% hinzuzufügen"
     },
     "bb-11": {
       "": "Magnetnadel",
@@ -83,7 +83,7 @@
     },
     "bb-25": {
       "": "Angespitzter Bleistift",
-      "1": "Füge bei deinem Einzelziel-Nahkampfangriff hinzu"
+      "1": "Füge bei deinem Einzelziel-Nahkampfangriff hinzu:"
     },
     "bb-26": {
       "": "Münzschild",

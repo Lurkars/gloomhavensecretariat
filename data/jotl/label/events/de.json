@@ -24,7 +24,7 @@
                     }
                 },
                 "11": {
-                    "narrative": "„Beweist eure Kraft! Seid ihr stärker als ein Inox?\"<br><br>Ein Antride versucht an einer Straßenecke lautstark, die Passanten zu seiner Krafttestmaschine zu locken. Für jeden, der sich traut, damit auf den Fuß des Geräts zu schlagen, um die Glocke ganz oben zu läuten, liegt ein Hammer bereit.<br><br>„Es winken fantastische Preise für die Stärksten und peinliche Niederlagen für die Schwächsten! Nur fünf Goldstücke pro Versuch!\"",
+                    "narrative": "Beweist eure Kraft! Seid ihr stärker als ein Inox?\"<br><br>Ein Antride versucht an einer Straßenecke lautstark, die Passanten zu seiner Krafttestmaschine zu locken. Für jeden, der sich traut, damit auf den Fuß des Geräts zu schlagen, um die Glocke ganz oben zu läuten, liegt ein Hammer bereit.<br><br>„Es winken fantastische Preise für die Stärksten und peinliche Niederlagen für die Schwächsten! Nur fünf Goldstücke pro Versuch!",
                     "options": {
                         "A": {
                             "narrative": "Traut euch und schlagt mit dem Hammer zu.",
@@ -35,21 +35,21 @@
                                     }
                                 },
                                 "1": {
-                                    "narrative": "„Schwächling! Tu dir bloß nicht weh.“",
+                                    "narrative": "Schwächling! Tu dir bloß nicht weh.",
                                     "condition": "3 ODER WENIGER",
                                     "effects": {
                                         "0": "Der Charakter verliert 5 Gold."
                                     }
                                 },
                                 "2": {
-                                    "narrative": "„Nicht übel! Guter Schlag.\"",
+                                    "narrative": "Nicht übel! Guter Schlag.",
                                     "condition": "4 ODER 5",
                                     "effects": {
                                         "0": "Der Charakter erhält 5 Gold."
                                     }
                                 },
                                 "3": {
-                                    "narrative": "KLINGELING! „Unglaublich! Du bist stärker als ein Inox!\"",
+                                    "narrative": "DING! Unglaublich! Du bist stärker als ein Inox!",
                                     "condition": "6 ODER MEHR",
                                     "effects": {
                                         "0": "Der Charakter erhält 5 Gold und SEGEN%game.condition.bless%."
@@ -113,7 +113,7 @@
                     }
                 },
                 "14": {
-                    "narrative": "Vor dem Tempel der Großen Eiche steht ein Mann mit kräftiger Stimme. In weiße Gewänder gekleidet ruft er der versammelten Menge zu:<br><br>„Es ist Zeit, den Zehnt an die Große Eiche zu entrichten! Spendet für den Erhalt ihrer Herrlichkeit und sie sie wird euch mit ungeahntem Wohlstand belohnen!\" Er reicht eine grob geschnitzte Holzschüssel herum.",
+                    "narrative": "Vor dem Tempel der Großen Eiche steht ein Mann mit kräftiger Stimme. In weiße Gewänder gekleidet ruft er der versammelten Menge zu:<br><br>„Es ist Zeit, den Zehnt an die Große Eiche zu entrichten! Spendet für den Erhalt ihrer Herrlichkeit und sie wird euch mit ungeahntem Wohlstand belohnen!\" Er reicht eine grob geschnitzte Holzschüssel herum.",
                     "options": {
                         "A": {
                             "narrative": "Spendet an den Tempel der Großen Eiche.",
@@ -148,7 +148,7 @@
                             "narrative": "Erinnert Xain daran, wer hier wem etwas schuldig ist.",
                             "outcomes": {
                                 "0": {
-                                    "narrative": "Ihr erklärt ausführlich, warum ihr Xain kein Bier schuldet: Ihr habt ihn von der Stadtmauer befreit, seine Kiste voller Vipern zum Hafen gebracht, den Dämon aus seiner Gürtelschnalle verbannt, den Kampf zwischen ihm und einem Felsen verhindert, den er für ein Savvas gehalten hatte, ihn von seiner Sucht nach Ausdauertränken geheilt und das „Schwarmling-Nest\" aus seiner Küche entfernt, das sich als Ameisen auf einer heruntergefallenen Torte herausstellte. Dann seufzt ihr und kauft ihm trotzdem ein Bier:"
+                                    "narrative": "Ihr erklärt ausführlich, warum ihr Xain kein Bier schuldet: Ihr habt ihn von der Stadtmauer befreit, seine Kiste voller Vipern zum Hafen gebracht, den Dämon aus seiner Gürtelschnalle verbannt, den Kampf zwischen ihm und einem Felsen verhindert, den er für ein Savvas gehalten hatte, ihn von seiner Sucht nach Ausdauertränken geheilt und das „Schwarmling-Nest\" aus seiner Küche entfernt, das sich als Ameisen auf einer heruntergefallenen Torte herausstellte. Dann seufzt ihr und kauft ihm trotzdem ein Bier."
                                 }
                             }
                         }
@@ -221,7 +221,7 @@
                     "narrative": "Ihr genießt gerade eure dritte Runde im Schlafenden Löwen, als ein Bote aus der kalten Nacht in die warme Schenke tritt. Ihr schimpft über den beißenden Wind, der durch die geöffnete Tür hereinweht.<br><br>Der Bote wirkt irgendwie verloren. Er sucht offensichtlich nach jemandem, kann ihn aber nicht finden.<br><br>„Ein Rotgardist\", murmelt er zögerlich „Ist hier irgendwo ein Rotgardist?\"",
                     "options": {
                         "A": {
-                            "narrative": "Erkundigt euch, was der Bote will. (Rotgardist erforderlich)",
+                            "narrative": "Erkundigt euch, was der Bote will (Rotgardist erforderlich).",
                             "outcomes": {
                                 "0": {
                                     "narrative": "Der Bote überreicht ein Pergament und die Miene des Rotgardisten verfinstert sich. Ihr erkennt lediglich das Bild einer um eine Sonne gewundenen Schlange, doch es braucht etliche weitere Runden, um die Zunge des Rotgardisten zu lösen. Ihr erfahrt, dass die Verbannung aus dem Rotorden von Jhinda üblicherweise den Tod bedeutet, der Rotgardist jedoch in Gloomhaven untergetaucht war; aber nun hat das Schicksal ihn gefunden. Auf der Rückseite des Pergaments ist ein Ort angegeben. Der Rotgardist muss schnell verschwinden, sonst werden seine Jäger ihn finden."
@@ -242,7 +242,7 @@
                     "narrative": "Ihr lasst euch eine Mahlzeit aus undefinierbarem Fleisch schmecken, die ihr von einem Quatryl-Straßenverkäufer auf der Stillbrücke gekauft habt, als euch ein interessanter Aushang auffällt. Er preist einen großen Kampfwettbewerb an, der in wenigen Tagen auf dem Gloomhaven-Platz stattfinden soll.<br><br>Ihr haltet das zunächst für Zeitverschwendung, aber vielleicht wäre es ja doch ganz interessant, allen euer Können zu beweisen.",
                     "options": {
                         "A": {
-                            "narrative": "Meldet euch für den Wettbewerb an. (Axtwerfer erforderlich)",
+                            "narrative": "Meldet euch für den Wettbewerb an (Axtwerfer erforderlich).",
                             "outcomes": {
                                 "0": {
                                     "narrative": "Der Axtwerfer will unbedingt beweisen, dass er der beste Kämpfer überhaupt ist, und ihr lasst euch von seinem Enthusiasmus anstecken. Es ist jedoch ein Einzelwettbewerb, deshalb muss sich der Rest von euch damit begnügen, ihn von den Zuschauerrängen aus anzufeuern."
@@ -263,7 +263,7 @@
                     "narrative": "Nachdem ihr im Schlafenden Löwen eine Menge Gold verspielt habt, ist eure Börse erschreckend leer: Ihr überlegt, wie ihr am besten schummeln könnt, ohne erwischt zu werden, als euch plötzlich ein ganz mieses Gefühl überkommt.<br><br>Zuerst meint ihr; es wäre nur das schlechte Gewissen, doch dann fürchtet ihr; dass etwas Schlimmeres sein könnte. Ihr versucht, euch auf das Spiel zu konzentrieren, aber das quälende Gefühl bleibt.",
                     "options": {
                         "A": {
-                            "narrative": "Finde die Quelle der negativen Energie. (Leerehüterin erforderlich)",
+                            "narrative": "Finde die Quelle der negativen Energie (Leerenhüterin erforderlich).",
                             "outcomes": {
                                 "0": {
                                     "narrative": "Die Leerehüterin verlässt den Schlafenden Löwen und reckt eine Hand in die Luft. Kurz darauf dreht sie sich mit panischem Blick zum Rest der Gruppe um. Die Leerehüterin erklärt, dass irgendetwas mit der Leere nicht stimmt. Was auch immer sich darin befindet, ist erwacht und wird großes Unheil bringen."
@@ -284,7 +284,7 @@
                     "narrative": "Ihr bummelt über den Neumarkt und bewundert unfassbar teure Waren, die ihr euch nie leisten könntet, als euch ein grimmig aussehender Mann in der Menge auffällt. Er passt einfach nicht hier rein.<br><br>Ihr vermutet, dass es sich um einen Tischler handelt. Als er auf euch zugeht, überkommt euch das Gefühl, ihn zu kennen, ihr wisst nicht woher.",
                     "options": {
                         "A": {
-                            "narrative": "Begrüßt den Mann. (Sprengmeisterin erforderlich)",
+                            "narrative": "Begrüßt den Mann (Sprengmeisterin erforderlich).",
                             "outcomes": {
                                 "0": {
                                     "narrative": "Das Gesicht des Mannes erhellt sich, als ihr euch nähert. Es ist der ehemalige Chef der Sprengmeisterin. Wie sich herausstellt, ist er froh, euch zu begegnen, denn er hat einen Auftrag, für den ihr euch besonders eignet. Er soll ein Gebäude im Münzviertel abreißen. Ein wohlhabender Händler hat dem Vorbesitzer das Grundstück abgeluchst, um sein Anwesen zu erweitern. Das Problem ist, dass der Vorbesitzer es vor lauter Wut verflucht haben soll. Der Abriss könnte also schwierig werden."
@@ -371,7 +371,7 @@
                             "narrative": "Alarmiert den Verkäufer.",
                             "outcomes": {
                                 "0": {
-                                    "narrative": "Der Verkäufer schlägt die Hand der Ratze zur Seite.<br><br>„Hier; nimm das und verzieh dich. Und ich will dich mindestens eine Woche nicht mehr hier sehen!\"<br><br>Er wirft der Ratze eine matschigen Kürbis zu und sie rennt davon. Der Verkäufer dankt euch eure Aufmerksamkeit mit ein paar Münzen"
+                                    "narrative": "Der Verkäufer schlägt die Hand der Ratze zur Seite.<br><br>„Hier; nimm das und verzieh dich. Und ich will dich mindestens eine Woche nicht mehr hier sehen!\"<br><br>Er wirft der Ratze eine matschigen Kürbis zu und sie rennt davon. Der Verkäufer dankt euch eure Aufmerksamkeit mit ein paar Münzen."
                                 }
                             }
                         },
@@ -379,7 +379,7 @@
                             "narrative": "Schweigt. Es ist nicht euer Problem.",
                             "outcomes": {
                                 "0": {
-                                    "narrative": "Die Ratze stopft sich eine Handvoll Beeren in den Mund. Saft läuft an ihrem Kinn hinunter; während sie davonrennt - aber sie schafft es nur ein paar Schritte weiter, ehe sie zusammenbricht und nach Luft ringt. Der Verkäufer weiß sofort, was passiert ist. „Dumme Ratze! Rote Zinnbeeren sind giftig!\" Er beugt sich hinab und schiebt der Ratze eine grüne Beere aus seiner Tasche zwischen die Lippen. „Das sollte das Gift neutralisieren.\" Kurz darauf hustet sie sich zurück ins Leben und flieht durch das nächste Kanalgitter:"
+                                    "narrative": "Die Ratze stopft sich eine Handvoll Beeren in den Mund. Saft läuft an ihrem Kinn hinunter; während sie davonrennt - aber sie schafft es nur ein paar Schritte weiter, ehe sie zusammenbricht und nach Luft ringt. Der Verkäufer weiß sofort, was passiert ist. „Dumme Ratze! Rote Zinnbeeren sind giftig!\" Er beugt sich hinab und schiebt der Ratze eine grüne Beere aus seiner Tasche zwischen die Lippen. „Das sollte das Gift neutralisieren.\" Kurz darauf hustet sie sich zurück ins Leben und flieht durch das nächste Kanalgitter."
                                 }
                             }
                         }
@@ -407,7 +407,7 @@
                     }
                 },
                 "06": {
-                    "narrative": "In der Stadt hängen neue Steckbriefe und die Zeichnung darauf hat frappierend Ähnlichkeit mit einem Mitglied eurer Gruppe. Ihr müsst nur die Nase richten und ein Kapuze drüberstülpen, dann könntet ihr das Kopfgeld in Höhe von 15 Goldstücken kassieren.<br><br>Nach einigen Neckereien seid ihr euch einig, dass das verrückt wäre. Selbst wenn ihr die Wachen überzeugen und das Kopfgeld kassieren würdet, fehlt euch immer noch ein Plan für dich Flucht aus dem Gefängnis. Das wäre es einfach nicht wert. Nur eine verrückte Idee unter Freunden. Ha. Niemals, für kein Geld der Welt. Nicht unter Freunden ...",
+                    "narrative": "In der Stadt hängen neue Steckbriefe und die Zeichnung darauf hat frappierend Ähnlichkeit mit einem Mitglied eurer Gruppe. Ihr müsst nur die Nase richten und ein Kapuze drüberstülpen, dann könntet ihr das Kopfgeld in Höhe von 15 Goldstücken kassieren.<br><br>Nach einigen Neckereien seid ihr euch einig, dass das verrückt wäre. Selbst wenn ihr die Wachen überzeugen und das Kopfgeld kassieren würdet, fehlt euch immer noch ein Plan für dich Flucht aus dem Gefängnis. Das wäre es einfach nicht wert. Nur eine verrückte Idee unter Freunden. Ha. Niemals, für kein Geld der Welt. Nicht unter Freunden.",
                     "options": {
                         "A": {
                             "narrative": "Ruft die Wachen.",
@@ -435,7 +435,7 @@
                             "outcomes": {
                                 "0": {
                                     "narrative": "Der Mann öffnet seine Hand mit einer dramatischen Geste und lacht. „Ihr hört sie auch, nicht wahr? Ihr seid die Ersten heute Abend.\" Er kichert vor sich hin und starrt den Rest der Nacht verloren in sein Getränk, zuvor wirft er euch aber noch euren Gewinn zu.",
-                                    "condition": "FALLS IHR 3 GESAGT HABT:"
+                                    "condition": "FALLS IHR 3 GESAGT HABT"
                                 },
                                 "1": {
                                     "narrative": "Der alt Mann öffnet seine Hand und enthüllt drei glitzernde Glasperlen. Er lacht, als wäre es ein Witz, den ihr hättet erahnen müssen."
@@ -446,7 +446,7 @@
                             "narrative": "Sucht nach der Stimme.",
                             "outcomes": {
                                 "0": {
-                                    "narrative": "Ihr hört ein leises Flüstern, wie ein dumpfes Brüllen, das von der Darbietung auf der Bühne übertönt wird. Ihr folgt ihm nach draußen, die Straße hinunter und hinter ein Lagerhaus. Zwei Aesthern stehen über eine Kugel gebeugt und schrecken auf, als ihr euch nähert.<br><br>„Oh, entschuldigt, konntet ihr das hören?\" Einer der beiden klopft auf die Glaskugel. Dann murmelt er: „Hab den Diamanten wohl zu weit gedreht\", und ignoriert euch komplett. Ihr verlasst den Ort mit mehr Fragen als zuvor:"
+                                    "narrative": "Ihr hört ein leises Flüstern, wie ein dumpfes Brüllen, das von der Darbietung auf der Bühne übertönt wird. Ihr folgt ihm nach draußen, die Straße hinunter und hinter ein Lagerhaus. Zwei Aesthern stehen über eine Kugel gebeugt und schrecken auf, als ihr euch nähert.<br><br>„Oh, entschuldigt, konntet ihr das hören?\" Einer der beiden klopft auf die Glaskugel. Dann murmelt er: „Hab den Diamanten wohl zu weit gedreht\", und ignoriert euch komplett. Ihr verlasst den Ort mit mehr Fragen als zuvor."
                                 }
                             }
                         }
@@ -481,7 +481,7 @@
                             "outcomes": {
                                 "0": {
                                     "narrative": "Die Wachen verhaften die Ratze, die ihren Bruder erschlagen hat, um das Versicherungsgeld zu kassieren. Ihr sorgt außerdem dafür; dass auch der verlogene Valrath und die Antride was zu hören bekommen. Der Inox wird für seine hilfreiche Aussage von den Wachen mit einem schroffen „Danke\" abgespeist, dafür händigen sie euch mit Freuden die Belohnung aus.",
-                                    "condition": "WENN IHR DIE RATZE BESCHULDIGT:"
+                                    "condition": "WENN IHR DIE RATZE BESCHULDIGT"
                                 }
                             }
                         },
@@ -490,7 +490,7 @@
                             "outcomes": {
                                 "0": {
                                     "narrative": "Im Nachhinein fällt euch auf: Wenn ihr davon ausgeht, dass der Valrath die Wahrheit gesagt hat, muss auch die Ratze die Wahrheit gesagt haben. Da der Aesther glaubte, dass nur einer ehrlich sei, müssen beide gelogen haben. Wenn also beide gelogen haben, hat der Inox die Wahrheit gesagt, was bedeutet, dass die Antride gelogen hat, als sie sagte, es sei nicht die Ratze gewesen.<br><br>Wegen eurer falschen Entscheidung ist eine Mörderin weiter auf freiem Fuß.",
-                                    "condition": "WENN IHR NICHT DIE RATZE BESCHULDIGT:"
+                                    "condition": "WENN IHR NICHT DIE RATZE BESCHULDIGT"
                                 }
                             }
                         }

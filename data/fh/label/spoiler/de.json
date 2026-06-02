@@ -238,7 +238,7 @@
     },
     "fh-103": {
       "": "Großer Arzneitrank",
-      "1": "Entferne während deines Zugs alle deine negativen Zustände. Dieser Gegenstand kann trotz %game.condition.impair% und %game.condition.stun% genutzt werden."
+      "1": "Entferne während deines Zugs alle deine negativen Zustände. Dieser Gegenstand kann trotz %game.condition.impair% oder %game.condition.stun% genutzt werden."
     },
     "fh-104": {
       "": "Flinkheitstrank",
@@ -380,17 +380,37 @@
       "": "Bunter Mantel",
       "1": "%game.element.wild%, wenn du angegriffen wirst."
     },
+    "fh-178": {
+      "": "Friedvolle Schuhe",
+      "1": "Führe zu Beginn deines Zugs, in dem du keine lange Rast machst und dein Initiative-Wert 60 oder höher ist, aus: %game.action.heal:1% Selbst."
+    },
+    "fh-179": {
+      "": "Schubstiefel",
+      "1": "Füge bei deiner Bewegungsfertigkeit %game.action.move.valueSign:4% hinzu. Erhalte nach der Bewegungsfertigkeit %game.condition.immobilize%."
+    },
     "fh-18": {
       "": "Spröde Stiefel",
       "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten %game.action.move.valueSign:1% hinzu."
+    },
+    "fh-181": {
+      "": "Verlagerungsstab",
+      "1": "Wähle bei deinem Zug 2 Verbündete oder 2 normale oder Elite-Monster. Diese beiden Figuren %game.action.teleport% gleichzeitig auf das Feld der jeweils anderen gewählte Figur."
     },
     "fh-182": {
       "": "Stutzschere",
       "1": "Lege nach deinem Nahkampfangriff einen Charaktermarker auf das Ziel. Das Ziel verliert %game.action.fly%."
     },
+    "fh-183": {
+      "": "Nebeldekanter",
+      "1": "Während deines Zugs erhalten alle Figuren in dieser Runde Nachteil und %game.action.range.valueSign:-1% für alle ihre Fernangriffe. "
+    },
     "fh-186": {
       "": "Wildwuchs-Samen",
       "1": "Erstelle während deines Zugs ein 1er-Hindernis auf einem angrenzenden leeren Feld."
+    },
+    "fh-188": {
+      "": "Frostkristall",
+      "1": "Erstelle während deines Zugs einen 1er-Aufleger (Eis, Wasser oder gefährliches Gelände) auf einem angrenzenden normalen Feld."
     },
     "fh-19": {
       "": "Klanghammer",
@@ -436,6 +456,10 @@
       "": "Robuster Beinpanzer",
       "1": "Füge zu Beginn deines Zugs allen deinen Bewegungsfertigkeiten %game.action.move.valueSign:-2% hinzu, um in dieser Runden %game.action.shield% zu erhalten. "
     },
+    "fh-231": {
+      "": "Häutemesser",
+      "1": "Wenn du einen Beutemarker erhältst, erhalte 3 %game.resource.hide%, statt eine Beutekarte zu ziehen."
+    },
     "fh-233": {
       "": "Toter Rabe",
       "1": "Füge während der Fernkampf-Angriffsfertigkeit eines Verbündeten einem Angriff %game.condition.muddle% und %game.condition.curse% hinzu."
@@ -448,6 +472,10 @@
       "": "Glitzerpuder",
       "1": "Nachdem du eine Beutekarte gezogen hast, ziehe noch eine Beutekarte."
     },
+    "fh-242": {
+      "": "Glückswürfel",
+      "1": "Bei deiner Angriffsfertigkeit gelten die nächsten 3 von dir gezogenen Angriffsmodifikatoren als Zusatzmodifikatoren"
+    },
     "fh-243": {
       "": "Verfluchter Stein",
       "1": "Dieser Gegenstand kann nicht verkauf werden. Er muss in jedes Szenario mitgenommen und dabei genutzt werden.",
@@ -456,6 +484,9 @@
     "fh-244": {
       "": "Glühende Energiequelle",
       "1": "Erhöhe während deines Zugs den aufgedruckten %game.action.attack%, %game.action.move%, %game.action.target%, oder %game.action.range% Wert einer deiner Fertigkeiten um 1."
+    },
+    "fh-246": {
+      "": "Schlüsselkarte"
     },
     "fh-25": {
       "": "Sanftes Szepter",
@@ -690,7 +721,7 @@
     },
     "fh-77": {
       "": "Chaoskanone",
-      "1": "Ersetze während deines Zugs einen 1er-Aufleger (Hindernis, Eis, schwieriges oder gefährliches Gelände) auf einem unbesetzten Feld in %game.action.range:2% durch einen der anderen genannten Typen."
+      "1": "Ersetze während deines Zugs ein 1-Hex-Hindernis, eisiges, schwieriges oder gefährliches Gelände auf einem unbesetzten Feld in %game.action.range:2% durch einen der anderen genannten Typen."
     },
     "fh-78": {
       "": "Geeichte Waage",
@@ -735,7 +766,7 @@
     },
     "fh-87": {
       "": "Arzneitrank",
-      "1": "Entferne während deines Zugs einen deiner negativen Zustände. Dieser Gegenstand kann trotz %game.condition.impair% und %game.condition.stun% genutzt werden."
+      "1": "Entferne während deines Zugs einen deiner negativen Zustände. Dieser Gegenstand kann während %game.condition.impair% oder %game.condition.stun% genutzt werden."
     },
     "fh-88": {
       "": "Feuerschildtrank",

@@ -36,7 +36,7 @@
   "items": {
     "gh-1": {
       "": "Wanderstiefel",
-      "1": "Füge einer deiner Einzelbewegungen +2 Bewegung %game.action.move% hinzu."
+      "1": "Füge einer deiner Einzelbewegungen %game.action.move.valueSign:2% hinzu."
     },
     "gh-10": {
       "": "Kriegshammer",
@@ -111,7 +111,7 @@
     },
     "gh-116": {
       "": "Flammenfalchion",
-      "1": "Bei deinem Einzelziel-Nahkampfangriff erleiden das Ziel und alle angrenzenden Gegner 1 Schaden"
+      "1": "Bei deinem Einzelziel-Nahkampfangriff erleiden das Ziel und alle angrenzenden Gegner %game.damage:1%"
     },
     "gh-117": {
       "": "Blutaxt",
@@ -446,7 +446,7 @@
     "gh-60": {
       "": "Instabiler Sprengsatz",
       "1": "Verwandle deine nächste Einzelziel-Fernangriffsaktion in folgendes:",
-      "3": "Alle Verbündeten im Angriffsbereich erleiden 3 Schaden."
+      "3": "Alle Verbündeten im Angriffsbereich erleiden %game.damage:3%."
     },
     "gh-61": {
       "": "Setzschild",
@@ -634,7 +634,7 @@
     "lava-golem": "Lavagolem",
     "living-bomb": "Wandelnde Bombe",
     "mana-sphere": "Manasphäre",
-    "monolith": "Monolith",
+    "monolith": "Monolit",
     "monstrous-rat": "Monsterratte",
     "mystic-ally": "Mystischer Helfer",
     "nail-sphere": "Nagelsphäre",
@@ -650,7 +650,7 @@
     "steel-construct": "Stahlkonstrukt",
     "swamp-alligator": "Sumpfalligator",
     "tattered-wolf": "Lumpenwolf",
-    "thorn-shooter": "Dornwerfer",
+    "thorn-shooter": "Dornenspucker",
     "two-mini": "Bär",
     "vicious-jackal": "Schakal",
     "void-eater": "Leerefresser",

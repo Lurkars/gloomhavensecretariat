@@ -1,1 +1,8 @@
-{}
+{
+  "summon": {
+    "monolith": "Monolit",
+    "rage-hornets": "Wütende Hornissen",
+    "shadow-wolf": "Schattenwolf",
+    "thorn-shooter": "Dornenspucker"
+  }
+}
