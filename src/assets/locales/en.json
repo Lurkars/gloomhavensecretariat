@@ -3038,7 +3038,7 @@
     },
     "scenarioRewards": {
       "": "Apply Scenario Rewards",
-      "hint": "Automatically apply treasure rewards: give gold, XP etc. to characters"
+      "hint": "Automatically apply scenario rewards: give gold, XP etc. to characters"
     },
     "scenarioRewardsItems": {
       "": "Draw Random Item Scenario Rewards",

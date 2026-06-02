@@ -37,7 +37,7 @@
       "add": "Neue Kampagne erstellen",
       "hint": "Während eines Szenarios ist das Ändern oder Erstellen einer neuen Kampagne deaktiviert. Beende oder breche das aktuelle Szenario ab um die akutelle Kampagne zu ändern oder eine neue Kampagne zu erstellen.",
       "name": "Name für Kampagne {0}",
-      "reset": "Kampagne resetten"
+      "reset": "Kampagne zurücksetzen"
     },
     "character": "Charakterbogen",
     "enhancements": "Fertigkeitsverbesserungen-Rechner",
@@ -3039,7 +3039,7 @@
     },
     "scenarioRewards": {
       "": "Belohnungen von Szenario anwenden",
-      "hint": "Automatische Belohnungen an: Gold, XP etc. an die entsprechenden Charaktere"
+      "hint": "Automatische Belohnungen für Szenario anwenden: Gold, XP etc. an die entsprechenden Charaktere"
     },
     "scenarioRewardsItems": {
       "": "Zufälligen Gegenstand für Szenario ziehen",
