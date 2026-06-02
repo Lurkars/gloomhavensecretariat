@@ -15,7 +15,10 @@
     "version": {
       "latest": "Aktuell",
       "unknown": "Konnte neuste Version nicht abfragen",
-      "update": "Aktuellste Version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      "update": {
+        "": "Aktuell Version <a target=\"_blank\" href=\"{1}\">{0}</a>",
+        "apk": "Download Android-APK <a target=\"_blank\" href=\"{0}\">{1}</a>"
+      }
     }
   },
   "and": "und",
@@ -1188,6 +1191,7 @@
         "": "Suchen…",
         "affordable": "Nur erschwingliche Gegenstände",
         "all": "Alle Gegenstände anzeigen",
+        "filtered": "Entfernt",
         "filtert": "Entfernte",
         "owned": "Nur eigene Gegenstände",
         "sorted": "Sortiert"
@@ -1308,22 +1312,37 @@
           "partyAchievement": "Gruppenerfolg: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Erhalte einen zufälligen Gegenstand (Gegenstände {0})",
+            "alt": "Keine zufälligen Gegenstände verfügbar",
+            "altFh": "Keine zufälligen Gegenstände verfügbar",
+            "altGh2e": "Keine zufälligen Gegenstände verfügbar",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
             "": "Zufälliger Gegenstandsplan",
+            "alt": "Keine zufälligen Gegenstandspläne verfügbar",
+            "altFh": "Keine zufälligen Gegenstandspläne verfügbar, erhalte +1 Inspiration",
+            "altGh2e": "Keine zufälligen Gegenstandspläne verfügbar, erhalte 15 kollektives Gold (manuell)",
             "result": ": {1} Gegenstandsplan ({0})"
           },
           "randomItemDesign": {
             "": "Zufälliger Gegenstandsplan",
+            "alt": "Keine zufälligen Gegenstandspläne verfügbar",
+            "altFh": "Keine zufälligen Gegenstandspläne verfügbar, erhalte +1 Inspiration",
+            "altGh2e": "Keine zufälligen Gegenstandspläne verfügbar, erhalte 15 kollektives Gold (manuell)",
             "result": ": {1} Gegenstandsplan ({0})"
           },
           "randomScenario": {
             "": "Zufälliges Nebenszenario",
+            "alt": "Keine zufälligen Nebenszenarien verfügbar",
+            "altFh": "Keine zufälligen Nebenszenarien verfügbar",
+            "altGh2e": "Keine zufälligen Nebenszenarien verfügbar",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
             "": "Zufälliges Nebenszenario",
+            "alt": "Keine zufälligen Nebenszenarien verfügbar",
+            "altFh": "Keine zufälligen Nebenszenarien verfügbar, erhalte +1 Inspiration",
+            "altGh2e": "Keine zufälligen Nebenszenarien verfügbar, erhalte 15 kollektives Gold (manuell)",
             "result": ": Öffne %data.section:{0}%, schaltet {2} frei"
           },
           "resource": "Erhalte {0}",
@@ -2228,6 +2247,9 @@
         }
       },
       "scenarios": "Szenarien",
+      "summons": {
+        "": "Beschwörungen"
+      },
       "toggle": {
         "hide": "Szenario Statistiken ausblenden",
         "show": "Szenario Statistiken einblenden"
@@ -2256,7 +2278,7 @@
         "": "Gelegenheitsmodus",
         "campaignRewards": "Belohnungen für Kampagne aktivieren",
         "fh": "Frosthaven Gelegenheitsmodus",
-        "hintFh": "Im Gelegenheitsmodus von Frosthaven werden alle Kampagneneffekte ignoriert. Es wird kein Ereignis gezogen, keine Zeit vergeht und die Gruppe erhält keine Erfahrung, Beute, Schätze, Verbesserungen, persönlichen Quest Fortschrift, Belohnungen, Freischaltungen etc.",
+        "hintFh": "Im Gelegenheitsmodus von Frosthaven werden alle Kampagneneffekte ignoriert. Es wird kein Ereignis gezogen, keine Zeit vergeht und die Gruppe erhält keine Erfahrung, Beute, Schätze, Verbesserungen, persönlichen Quest Fortschritt, Belohnungen, Freischaltungen etc.",
         "ignore": "Trotzdem die Belohnungen erhalten!",
         "reapply": "Zurück zum Gelegenheitsmodus wechseln"
       },
@@ -2339,10 +2361,7 @@
         "": "Serverversion",
         "latest": "Aktuell",
         "unknown": "Konnte neuste Version nicht abfragen",
-        "update": {
-          "": "Aktuellste Version <a target=\"_blank\" href=\"{1}\">{0}</a>",
-          "apk": "Android APK <a target=\"_blank\" href=\"{0}\">{1}</a> herunterladen"
-        }
+        "update": "Aktuelle Version <a target=\"_blank\" href=\"{1}\">{0}</a>"
       },
       "website": "Website"
     },
@@ -2517,11 +2536,11 @@
       "hint": "Starte den Zug der ersten Figur automatisch beim Beginn der nächsten Runde. Diese Funktion is automatisch aktiviert, wenn die Initiative gesetzt werden muss."
     },
     "automaticGameClock": {
-      "": "Autom.  Spieltimer",
+      "": "Autom. Spieltimer",
       "hint": "Startet und pausiert den Spieltimer automatisch wenn das Fenster geöffnet oder geschlossen wird."
     },
     "automaticGameClockFocus": {
-      "": "Autom.  Spieltimer bei Fokus",
+      "": "Autom. Spieltimer bei Fokus",
       "hint": "Zusätzlich den Spieltimer automatisch starten und pausieren wenn das Fenster den Fokus verliert oder bekommt."
     },
     "automaticPassTime": {
@@ -2529,11 +2548,11 @@
       "hint": "Automatisch eine Kalenderwoche verstreichen nach Abschluss eines Szenarios. Dies fügt auch automatisch Effekte von möglichen Sektionen in der Kalenderwoche hinzu."
     },
     "automaticStandees": {
-      "": "Autom.  Aufsteller",
+      "": "Autom. Aufsteller",
       "hint": "Automatisches Hinzufügen von Aufstellern."
     },
     "automaticStandeesDialog": {
-      "": "Autom.  Aufsteller Dialoge",
+      "": "Autom. Aufsteller Dialoge",
       "hint": "Öffne automatische Auswahl-Dialoge zur Nummernauswahl für alle neuen Aufsteller."
     },
     "automaticTheme": {
@@ -2541,7 +2560,7 @@
       "hint": "Passt das Thema/den Frosthaven Stil automatisch der ausgewählten Edition. Beim Umschalten des Frosthaven Stil wird auch das Theme automatisch angepasst.<br>(Thema wird beim modernen Theme nicht automatisch umgeschaltet!)"
     },
     "automaticUnlocking": {
-      "": "Autom.  Charakter Freischaltung",
+      "": "Autom. Charakter Freischaltung",
       "hint": "Automatisches Charaktere durch Szenario Belohnungen freischalten."
     },
     "automation": "Automatisierung",
@@ -2671,7 +2690,7 @@
     },
     "characterItemsShareHouseRule": {
       "": "Hausregel Charakter Gegenstände teilen",
-      "hint": "Gegenstände können zwischen Charakteren getauscht werden. (Hausregel)"
+      "hint": "Gegenstände können zwischen Charakteren getauscht werden (Hausregel)."
     },
     "characterSheet": {
       "": "Charakterbögen",
@@ -2798,13 +2817,13 @@
       "": "Unterstützung für Garten",
       "hint": "Pflanzen und Ernten von Kräutern (Gebäude 24 Garten)"
     },
-    "fhGhItems": {
-      "": "Gegenstände aus Gloomhaven",
-      "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu."
-    },
     "fhGh2eItems": {
       "": "Gegenstände aus Gloomhaven 2nd Edition",
       "hint": "Fügt die Gegenstände aus Gloomhaven 2nd Edition zu den verfügbaren Gegenständen gemäß der FAQ hinzu."
+    },
+    "fhGhItems": {
+      "": "Gegenstände aus Gloomhaven",
+      "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu."
     },
     "fhPets": {
       "": "Unterstützung für Haustiere",
@@ -3020,7 +3039,7 @@
     },
     "scenarioRewards": {
       "": "Belohnungen von Szenario anwenden",
-      "hint": "Wendet nach dem Beenden eines Szenarios automatisch die Belohnungen an: Gold, EP etc. zu entsprechenden Charakteren, ein zufälliges Nebenszenario oder einen zufälligen Gegenstand ziehen etc."
+      "hint": "Automatische Belohnungen für Szenario anwenden: Gold, XP etc. an die entsprechenden Charaktere"
     },
     "scenarioRewardsItems": {
       "": "Zufälligen Gegenstand für Szenario ziehen",
@@ -3093,7 +3112,7 @@
     },
     "theme": {
       "": "Thema",
-      "bb": "Button & Bugs (%wip%)",
+      "bb": "Knöpfe & Krabbler (%wip%)",
       "default": "Standard",
       "fh": "Frosthaven",
       "hint": "Wähle ein Thema für Hintergrund, Leisten und Schriftarten.",
@@ -3937,6 +3956,7 @@
         "addCurse": "Fluch zu {0} AM Deck zufügen",
         "amDeckHide": "{0} AM Deck ausblenden",
         "amDeckShow": "{0} AM Deck einblenden",
+        "discardFromActive": "Aktive Karte in {0} AM Deck ablegen",
         "draw": "{0} AM Karte ziehen",
         "drawadvantage": "{0} AM mit Vorteil ziehen",
         "drawdisadvantage": "{0} AM mit Nachteil ziehen",
@@ -3946,6 +3966,7 @@
         "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Deck",
         "reorder": "{0} AM Deck anordnen",
         "restoreDefault": "Standard {0} AM Deck wiederherstellen",
+        "restoreToActive": "Aktive Karte für {0} AM Deck wiederherstellen",
         "shuffle": "{0} AM Deck mischen",
         "shuffleUpcoming": "Nicht gezogene Karten von {0} AM Deck mischen"
       },
