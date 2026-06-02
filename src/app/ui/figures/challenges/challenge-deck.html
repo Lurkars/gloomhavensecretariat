@@ -7,13 +7,7 @@
   }"
 >
   <div class="challenge-container draw" [style.z-index]="deck.cards.length + 1">
-    <div
-      class="challenge-card"
-      #card
-      [style.fontSize]="card.offsetWidth * 0.08 + 'px'"
-      (click)="draw($event)"
-      [ngClass]="{ disabled: drawDisabled }"
-    >
+    <div class="challenge-card" (click)="draw($event)" [ngClass]="{ disabled: drawDisabled }">
       <span class="number">{{
         deck.current < deck.cards.length - 1 ? deck.cards.length - deck.current - 1 + '/' + deck.cards.length : 0
       }}</span>

@@ -1,19 +1,6 @@
 import { NgClass } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-  ViewEncapsulation,
-  inject,
-  input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, input } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import {
   AttackModifier,
@@ -35,10 +22,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
-  elementRef = inject(ElementRef);
-  private ghsManager = inject(GhsManager);
-
+export class AttackModifierComponent implements OnInit, OnChanges {
   readonly inputAttackModifier = input.required<AttackModifier>({ alias: 'attackModifier' });
   get attackModifier(): AttackModifier {
     return this.inputAttackModifier();
@@ -73,29 +57,10 @@ export class AttackModifierComponent implements OnInit, OnChanges, AfterViewInit
   townGuardEffectIcon: AttackModifierEffect | undefined;
 
   settingsManager: SettingsManager = settingsManager;
-  private resizeObserver: ResizeObserver | undefined;
-
-  constructor() {
-    this.ghsManager.uiChangeEffect(() => this.adjustFontSize());
-  }
 
   ngOnInit(): void {
     this.animate = !this.disableFlip();
     this.init();
-  }
-
-  ngAfterViewInit(): void {
-    this.adjustFontSize();
-    this.resizeObserver = new ResizeObserver(() => this.adjustFontSize());
-    this.resizeObserver.observe(this.elementRef.nativeElement);
-  }
-
-  ngOnDestroy(): void {
-    this.resizeObserver?.disconnect();
-  }
-
-  adjustFontSize() {
-    this.elementRef.nativeElement.style.fontSize = this.elementRef.nativeElement.offsetWidth * 0.08 + 'px';
   }
 
   init() {

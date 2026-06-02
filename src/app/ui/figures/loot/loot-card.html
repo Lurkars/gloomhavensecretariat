@@ -2,8 +2,6 @@
   <div
     class="card"
     [ngClass]="{ flipped: flipped() || revealed, 'no-animations': !animate }"
-    #card
-    [style.fontSize]="card.offsetWidth * 0.08 + 'px'"
     card-reveal
     [disabled]="!reveal()"
     (changed)="onChange($event)"

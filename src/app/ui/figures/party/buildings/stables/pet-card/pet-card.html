@@ -2,7 +2,6 @@
   <div
     class="card vertical reverse pet"
     [ngClass]="{ flipped: flipped() }"
-    [style.fontSize]="fontsize"
     card-reveal
     [disabled]="!reveal() || false"
     (changed)="revealed.emit()"

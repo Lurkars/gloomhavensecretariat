@@ -1,8 +1,16 @@
+:host {
+  container-type: inline-size;
+}
+
 .ability {
   width: 100%;
   height: 100%;
   color: var(--ghs-color-white);
   --ghs-ability-color: var(--ghs-color-red);
+
+  .card {
+    font-size: 4cqw;
+  }
 
   .ability-back,
   .ability-front {

@@ -49,8 +49,6 @@
             <div class="ability-input">
               <div
                 class="ability-edit"
-                #card
-                [style.fontSize]="card.offsetWidth * 0.04 + 'px'"
                 [style.--ghs-ability-color]="getCharacter() && getCharacter()?.color"
                 [ngClass]="{
                   'bottom-actions': deckData.character || (ability.bottomActions && ability.bottomActions.length > 0),

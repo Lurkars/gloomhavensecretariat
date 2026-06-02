@@ -1,8 +1,7 @@
-<div class="event-card-container" #container>
+<div class="event-card-container">
   <div
     class="card vertical reverse event {{ selected }}"
     [ngClass]="{ flipped: selected !== -1 || (flipped && !spoilerFree), disabled: disabled(), 'show-debug': showDebug }"
-    [style.fontSize]="container.offsetWidth * 0.07 + 'px'"
   >
     <div
       class="card-back {{ !!event ? event.type : '' }}"

@@ -1,3 +1,7 @@
+:host {
+  container-type: inline-size;
+}
+
 .pet-container {
   position: relative;
   width: 100%;
@@ -5,6 +9,7 @@
 }
 
 .pet {
+  font-size: 7.2cqw;
   position: absolute;
   width: 100%;
   height: 100%;

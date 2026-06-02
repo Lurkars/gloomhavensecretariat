@@ -1311,22 +1311,37 @@
           "partyAchievement": "Party Achievement: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Gain one random item (Items {0})",
+            "alt": "No random items left",
+            "altFh": "No random items left",
+            "altGh2e": "No random items left",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
             "": "Random Item Blueprint",
+            "alt": "No Random Item Blueprints left",
+            "altFh": "No Random Item Blueprints left, gain +1 inspiration",
+            "altGh2e": "No Random Item Blueprints left, gain 15 collective gold (manual)",
             "result": ": {1} blueprint ({0})"
           },
           "randomItemDesign": {
             "": "Random Item Design",
+            "alt": "No Random Item Designs left",
+            "altFh": "No Random Item Designs left, gain +1 inspiration",
+            "altGh2e": "No Random Item Designs left, gain 15 collective gold (manual)",
             "result": ": {1} design ({0})"
           },
           "randomScenario": {
             "": "Random Side Scenario",
+            "alt": "No Random Side Scenarios left",
+            "altFh": "No Random Side Scenarios left",
+            "altGh2e": "No Random Side Scenarios left",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
             "": "Random Side Scenario",
+            "alt": "No Random Side Scenarios left",
+            "altFh": "No Random Side Scenarios left, gain +1 inspiration",
+            "altGh2e": "No Random Side Scenarios left, gain 15 collective gold (manual)",
             "result": ": Open %data.section:{0}%, unlocks {2}"
           },
           "resource": "gain {0}",
@@ -3940,6 +3955,7 @@
         "addCurse": "Add Curse to {0} AM deck",
         "amDeckHide": "Hide {0} AM deck",
         "amDeckShow": "Show {0} AM deck",
+        "discardFromActive": "Discard active card in {0} AM Deck",
         "draw": "Draw {0} AM",
         "drawadvantage": "Draw {0} AM width Advantage",
         "drawdisadvantage": "Draw {0} AM width Disadvantage",
@@ -3949,6 +3965,7 @@
         "removeDrawnDiscards": "Remove drawn discards from {0} AM deck",
         "reorder": "Reorder {0} AM deck",
         "restoreDefault": "Restore default {0} AM deck",
+        "restoreToActive": "Restore active card for {0} AM Deck",
         "shuffle": "Shuffle {0} AM deck",
         "shuffleUpcoming": "Shuffle upcoming cards of {0} AM deck"
       },

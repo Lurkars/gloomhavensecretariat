@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { PetCard } from 'src/app/game/model/data/PetCard';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
@@ -16,12 +15,7 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   styleUrls: ['./pet-card.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PetCardComponent implements AfterViewInit {
-  private elementRef = inject(ElementRef);
-  private ghsManager = inject(GhsManager);
-
-  private cdr = inject(ChangeDetectorRef);
-
+export class PetCardComponent {
   readonly inputPetCard = input.required<PetCard>({ alias: 'petCard' });
   get petCard(): PetCard {
     return this.inputPetCard();
@@ -34,18 +28,4 @@ export class PetCardComponent implements AfterViewInit {
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
-  fontsize: string = '1em';
-
-  constructor() {
-    this.ghsManager.uiChangeEffect(() => {
-      this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
-    });
-  }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
-      this.cdr.markForCheck();
-    }, 1);
-  }
 }

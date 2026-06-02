@@ -1,9 +1,5 @@
-<div class="random-monster-card-container" #container>
-  <div
-    class="card vertical random-monster-card"
-    [ngClass]="{ flipped: flipped(), fh: fh }"
-    [style.fontSize]="container.offsetWidth * 0.05 + 'px'"
-  >
+<div class="random-monster-card-container">
+  <div class="card vertical random-monster-card" [ngClass]="{ flipped: flipped(), fh: fh }">
     <div class="card-back random-monster-card-back"></div>
     <div class="card-front random-monster-card-front">
       <div class="name" [ghs-label]="'data.section.title.' + section.name"></div>

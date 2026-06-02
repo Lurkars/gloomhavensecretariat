@@ -1,4 +1,9 @@
+:host {
+  container-type: inline-size;
+}
+
 .item {
+  font-size: 10cqw;
   position: relative;
   width: 100%;
   padding-bottom: 150%;

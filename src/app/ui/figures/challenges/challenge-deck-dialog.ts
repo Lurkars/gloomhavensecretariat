@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, OnInit, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -35,16 +35,12 @@ export class ChallengeDeckDialogComponent implements OnInit {
   dialogRef = inject(DialogRef);
   private ghsManager = inject(GhsManager);
 
-  private cdr = inject(ChangeDetectorRef);
-
-  readonly menuElement = viewChild.required<ElementRef>('menu');
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   reveal: number = 0;
   edit: boolean = false;
   apply: boolean = true;
-  maxHeight: string = '';
 
   deck: ChallengeDeck;
   before: EventEmitter<ChallengeDeckChange>;
@@ -73,13 +69,6 @@ export class ChallengeDeckDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(
-      () => {
-        this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
-        this.cdr.markForCheck();
-      },
-      settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0
-    );
     this.update();
     this.edit = !gameManager.game.scenario;
   }
@@ -111,10 +100,6 @@ export class ChallengeDeckDialogComponent implements OnInit {
 
   toggleEdit() {
     this.edit = !this.edit;
-    setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
-      this.cdr.markForCheck();
-    }, 0);
   }
 
   shuffle(upcoming: boolean = false): void {

@@ -1,4 +1,4 @@
-<div class="battlegoal-container" #container>
+<div class="battlegoal-container">
   <div
     class="card vertical reverse battlegoal"
     [ngClass]="{
@@ -8,7 +8,6 @@
       filtered: filtered(),
       fh: !!battleGoal && battleGoal.edition === 'fh'
     }"
-    [style.fontSize]="container.offsetWidth * 0.072 + 'px'"
     card-reveal
     [disabled]="!reveal()"
   >

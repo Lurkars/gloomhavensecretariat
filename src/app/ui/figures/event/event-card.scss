@@ -1,4 +1,5 @@
 .event-card-container {
+  container-type: inline-size;
   position: relative;
   width: 100%;
   padding-bottom: 147%;
@@ -8,6 +9,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  font-size: 7cqw;
   border: 0.2em solid transparent;
   border-radius: 0.5em;
 

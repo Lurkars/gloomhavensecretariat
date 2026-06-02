@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, inject, input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -23,7 +23,6 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttackModifierEffectComponent implements OnInit {
-  elementRef = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
   readonly inputAttackModifier = input.required<AttackModifier>({ alias: 'attackModifier' });
@@ -34,11 +33,6 @@ export class AttackModifierEffectComponent implements OnInit {
   readonly inputAttackModifierEffect = input.required<AttackModifierEffect>({ alias: 'effect' });
   get effect(): AttackModifierEffect {
     return this.inputAttackModifierEffect();
-  }
-
-  readonly inputOffsetWidth = input.required<number>({ alias: 'offsetWidth' });
-  get offsetWidth(): number {
-    return this.inputOffsetWidth();
   }
 
   readonly newStyle = input<boolean>(false);
@@ -72,7 +66,6 @@ export class AttackModifierEffectComponent implements OnInit {
   }
 
   update() {
-    this.elementRef.nativeElement.style.fontSize = this.elementRef.nativeElement.offsetWidth * 0.2 + 'px';
     this.targetValue = 0;
     this.targetString = '';
     const target = this.getTarget();

@@ -23,6 +23,7 @@ import { AttackModifierDeckDialogComponent } from 'src/app/ui/figures/attackmodi
 import { AttackModifierDeckFullscreenComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
 import { CharacterBattleGoalsDialog } from 'src/app/ui/figures/battlegoal/dialog/battlegoal-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 export class AttackModiferDeckChange {
@@ -38,7 +39,7 @@ export class AttackModiferDeckChange {
 }
 
 @Component({
-  imports: [AttackModifierComponent, GhsLabelDirective, NgClass, TrackUUIDPipe],
+  imports: [AttackModifierComponent, GhsLabelDirective, NgClass, TrackUUIDPipe, PointerInputDirective],
   selector: 'ghs-attackmodifier-deck',
   templateUrl: './attackmodifierdeck.html',
   styleUrls: ['./attackmodifierdeck.scss'],
@@ -392,13 +393,17 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     }
   }
 
-  clickCard(index: number, event: any) {
+  clickCard(index: number, event: any, force: boolean = false) {
     if (!this.drawing || index > this.current) {
       const am: AttackModifier = this.deck.cards[index];
       if (am.active && !this.deck.discarded.includes(index)) {
-        this.before.emit(new AttackModiferDeckChange(this.deck, 'discard', index));
+        this.before.emit(new AttackModiferDeckChange(this.deck, 'discardFromActive', index));
         this.deck.discarded.push(index);
-        this.after.emit(new AttackModiferDeckChange(this.deck, 'discard', index));
+        this.after.emit(new AttackModiferDeckChange(this.deck, 'discardFromActive', index));
+      } else if (am.active && this.deck.discarded.includes(index) && force) {
+        this.before.emit(new AttackModiferDeckChange(this.deck, 'restoreToActive', index));
+        this.deck.discarded = this.deck.discarded.filter((i) => i !== index);
+        this.after.emit(new AttackModiferDeckChange(this.deck, 'restoreToActive', index));
       } else {
         this.open(event);
       }

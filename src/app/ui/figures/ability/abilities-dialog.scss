@@ -1,5 +1,8 @@
 .abilities-dialog {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
 
   .menu {
     display: flex;
@@ -71,11 +74,16 @@
     position: relative;
   }
 
+  .scroll-container {
+    flex: 1;
+    min-height: 0;
+  }
+
   .abilities-container {
     display: flex;
     margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     width: calc(var(--ghs-unit) * 80 * var(--ghs-text-factor));
-    max-height: 80vh;
+    max-height: 100%;
 
     .upcoming,
     .discarded,

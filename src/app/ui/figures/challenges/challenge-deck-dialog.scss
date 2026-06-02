@@ -1,6 +1,12 @@
 .challenge-deck-dialog {
   position: relative;
 
+  .scroll-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+  }
+
   .menu {
     display: flex;
     justify-content: space-evenly;
@@ -94,6 +100,8 @@
   }
 
   .challenge-deck-container {
+    flex: 1;
+    min-height: 0;
     display: flex;
     width: calc(var(--ghs-unit) * 90 * var(--ghs-dialog-factor));
     overflow: auto;

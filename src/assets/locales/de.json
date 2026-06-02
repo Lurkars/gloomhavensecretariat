@@ -1308,22 +1308,37 @@
           "partyAchievement": "Gruppenerfolg: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Erhalte einen zufälligen Gegenstand (Gegenstände {0})",
+            "alt": "Keine zufälligen Gegenstände verfügbar",
+            "altFh": "Keine zufälligen Gegenstände verfügbar",
+            "altGh2e": "Keine zufälligen Gegenstände verfügbar",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
             "": "Zufälliger Gegenstandsplan",
+            "alt": "Keine zufälligen Gegenstandspläne verfügbar",
+            "altFh": "Keine zufälligen Gegenstandspläne verfügbar, erhalte +1 Inspiration",
+            "altGh2e": "Keine zufälligen Gegenstandspläne verfügbar, erhalte 15 kollektives Gold (manuell)",
             "result": ": {1} Gegenstandsplan ({0})"
           },
           "randomItemDesign": {
             "": "Zufälliger Gegenstandsplan",
+            "alt": "Keine zufälligen Gegenstandspläne verfügbar",
+            "altFh": "Keine zufälligen Gegenstandspläne verfügbar, erhalte +1 Inspiration",
+            "altGh2e": "Keine zufälligen Gegenstandspläne verfügbar, erhalte 15 kollektives Gold (manuell)",
             "result": ": {1} Gegenstandsplan ({0})"
           },
           "randomScenario": {
             "": "Zufälliges Nebenszenario",
+            "alt": "Keine zufälligen Nebenszenarien verfügbar",
+            "altFh": "Keine zufälligen Nebenszenarien verfügbar",
+            "altGh2e": "Keine zufälligen Nebenszenarien verfügbar",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
             "": "Zufälliges Nebenszenario",
+            "alt": "Keine zufälligen Nebenszenarien verfügbar",
+            "altFh": "Keine zufälligen Nebenszenarien verfügbar, erhalte +1 Inspiration",
+            "altGh2e": "Keine zufälligen Nebenszenarien verfügbar, erhalte 15 kollektives Gold (manuell)",
             "result": ": Öffne %data.section:{0}%, schaltet {2} frei"
           },
           "resource": "Erhalte {0}",
@@ -3937,6 +3952,7 @@
         "addCurse": "Fluch zu {0} AM Deck zufügen",
         "amDeckHide": "{0} AM Deck ausblenden",
         "amDeckShow": "{0} AM Deck einblenden",
+        "discardFromActive": "Aktive Karte in {0} AM Deck ablegen",
         "draw": "{0} AM Karte ziehen",
         "drawadvantage": "{0} AM mit Vorteil ziehen",
         "drawdisadvantage": "{0} AM mit Nachteil ziehen",
@@ -3946,6 +3962,7 @@
         "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Deck",
         "reorder": "{0} AM Deck anordnen",
         "restoreDefault": "Standard {0} AM Deck wiederherstellen",
+        "restoreToActive": "Aktive Karte für {0} AM Deck wiederherstellen",
         "shuffle": "{0} AM Deck mischen",
         "shuffleUpcoming": "Nicht gezogene Karten von {0} AM Deck mischen"
       },

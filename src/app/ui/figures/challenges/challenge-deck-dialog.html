@@ -1,6 +1,6 @@
 <div class="challenge-deck-dialog">
   <div class="scroll-container">
-    <div class="menu" #menu>
+    <div class="menu">
       @if (deck.cards.length > 0) {
         @if (edit) {
           <a (click)="reveal = (reveal + 1) % 3"
@@ -45,7 +45,6 @@
     }
     <div
       class="challenge-deck-container"
-      [style.maxHeight]="maxHeight"
       [ngClass]="{
         fh: settingsManager.settings.theme === 'fh',
         modern: settingsManager.settings.theme === 'modern',

@@ -316,9 +316,8 @@ export class LootManager {
               gameManager.scenarioManager.scenarioTitle(sectionData, true),
               sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : ''
             );
-          } else {
+          } else if (gameManager.fhRules()) {
             gameManager.game.party.inspiration += 1;
-            result.push('otther');
           }
         }
         break;
@@ -347,7 +346,7 @@ export class LootManager {
               gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
             }
             result.push('' + itemData.id, 'data.items.' + itemData.name, itemData.edition);
-          } else {
+          } else if (gameManager.fhRules()) {
             gameManager.game.party.inspiration += 1;
           }
         }

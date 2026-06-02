@@ -9,8 +9,6 @@
   <div class="loot-container draw" [style.z-index]="deck.cards.length + 1">
     <div
       class="loot-card"
-      #card
-      [style.fontSize]="card.offsetWidth * 0.08 + 'px'"
       (click)="draw($event)"
       [ngClass]="{ disabled: disabled || deck.current + 1 >= deck.cards.length - (queue === 0 ? 0 : 1) }"
     >

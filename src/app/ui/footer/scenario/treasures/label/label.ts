@@ -123,17 +123,27 @@ export class TreasureLabelComponent implements OnInit {
       case TreasureRewardType.experience:
       case TreasureRewardType.experienceFh:
       case TreasureRewardType.battleGoal:
-      case TreasureRewardType.randomScenario:
-      case TreasureRewardType.randomScenarioFh:
-      case TreasureRewardType.randomItem:
-      case TreasureRewardType.randomItemDesign:
-      case TreasureRewardType.randomItemBlueprint:
       case TreasureRewardType.partyAchievement:
       case TreasureRewardType.campaignSticker:
       case TreasureRewardType.heal:
       case TreasureRewardType.loot:
       case TreasureRewardType.lootCards:
         return [this.labelPrefix + reward.type, value];
+
+      case TreasureRewardType.randomScenario:
+      case TreasureRewardType.randomScenarioFh:
+      case TreasureRewardType.randomItem:
+      case TreasureRewardType.randomItemDesign:
+      case TreasureRewardType.randomItemBlueprint:
+        if (reward.value) {
+          return [this.labelPrefix + reward.type, value];
+        } else if (gameManager.fhRules()) {
+          return [this.labelPrefix + reward.type + '.altFh', value];
+        } else if (gameManager.gh2eRules()) {
+          return [this.labelPrefix + reward.type + '.altGh2e', value];
+        } else {
+          return [this.labelPrefix + reward.type + '.alt', value];
+        }
       case TreasureRewardType.damage:
         if (value === 'terrain') {
           return [this.labelPrefix + reward.type, '%game.level.hazardousTerrain%'];

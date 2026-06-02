@@ -1,6 +1,5 @@
 <div class="abilities-dialog" [ngClass]="{ edit: edit }">
   <div
-    #menu
     class="menu"
     [ngClass]="{
       denied:
@@ -42,7 +41,7 @@
     </div>
   </div>
   <div class="scroll-container">
-    <div class="abilities-container" [style.maxHeight]="maxHeight" [ngClass]="{ 'has-deleted': edit && deletedCards.length }">
+    <div class="abilities-container" [ngClass]="{ 'has-deleted': edit && deletedCards.length }">
       <div
         class="upcoming drop-list"
         cdkDropList

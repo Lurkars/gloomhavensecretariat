@@ -1,17 +1,6 @@
 import { KeyValuePipe, NgClass } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  input,
-  OnInit,
-  output
-} from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, inject, input, OnInit, output } from '@angular/core';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
@@ -40,8 +29,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   styleUrls: ['./item.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ItemComponent implements OnInit, AfterViewInit {
-  private elementRef = inject(ElementRef);
+export class ItemComponent implements OnInit {
   private ghsManager = inject(GhsManager);
 
   private cdr = inject(ChangeDetectorRef);
@@ -80,8 +68,6 @@ export class ItemComponent implements OnInit, AfterViewInit {
   usable: boolean = true;
 
   settingsManager: SettingsManager = settingsManager;
-  gameManager: GameManager = gameManager;
-  fontsize: string = '1em';
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -151,15 +137,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
-      this.cdr.markForCheck();
-    }, 1);
-  }
-
   update() {
-    this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.072 + 'px';
     if (this.item) {
       this.usable = gameManager.itemManager.itemUsable(this.item);
     }

@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, inject, OnInit, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -43,21 +43,17 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   dialogRef = inject(DialogRef);
   private ghsManager = inject(GhsManager);
 
-  private cdr = inject(ChangeDetectorRef);
-
   deck: AttackModifierDeck;
   character: Character;
   numeration: string = '';
   before: EventEmitter<AttackModiferDeckChange>;
   after: EventEmitter<AttackModiferDeckChange>;
 
-  readonly menuElement = viewChild.required<ElementRef>('menu');
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   reveal: number = 0;
   edit: boolean = false;
-  maxHeight: string = '';
   characterIcon: string = '';
   ally: boolean = false;
   newStyle: boolean = false;
@@ -118,13 +114,6 @@ export class AttackModifierDeckDialogComponent implements OnInit {
         }
       });
     }
-    setTimeout(
-      () => {
-        this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
-        this.cdr.markForCheck();
-      },
-      settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0
-    );
     if (gameManager.bbRules() && settingsManager.settings.bbAm) {
       this.bbTable = true;
     }
@@ -134,19 +123,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   toggleEdit() {
     this.edit = !this.edit;
     this.bbTable = false;
-    setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
-      this.cdr.markForCheck();
-    }, 0);
   }
 
   toggleBB() {
     this.bbTable = !this.bbTable;
     this.edit = false;
-    setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
-      this.cdr.markForCheck();
-    }, 0);
   }
 
   update() {

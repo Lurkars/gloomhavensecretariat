@@ -33,6 +33,11 @@
 
     .ability-input {
       position: relative;
+      container-type: inline-size;
+
+      .ability-edit {
+        font-size: 4cqw;
+      }
 
       .buttons {
         position: relative;

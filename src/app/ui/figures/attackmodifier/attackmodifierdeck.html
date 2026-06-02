@@ -30,7 +30,6 @@
   }
 
   <div
-    #drawCard
     class="am-container draw"
     [ngClass]="{
       denied:
@@ -39,7 +38,6 @@
         (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])
     }"
     [style.z-index]="deckLength + 1"
-    [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'"
   >
     <div
       class="am"
@@ -170,14 +168,15 @@
                 (current -
                   index -
                   1 +
-                  (attackModifier.active && index < lastVisible ? index - lastVisible + activeAMs.indexOf(attackModifier) + 1 : 0)) *
-                  (drawCard.offsetHeight / 1.3) +
-                'px)'
+                  (attackModifier.active && index < lastVisible ? index - lastVisible + activeAMs.indexOf(attackModifier) + 1 : 0)) +
+                ' * 20.51cqw)'
               : ''
           "
           [ghs-label]="'game.cards.openDialog'"
           [ghs-label-attribute]="'title'"
-          (click)="clickCard(index, $event)"
+          ghs-pointer-input
+          (singleClick)="clickCard(index, $event)"
+          (doubleClick)="clickCard(index, $event, true)"
         >
           <ghs-attackmodifier
             class="am"

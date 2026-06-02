@@ -1,6 +1,6 @@
 <div class="loot-deck-dialog">
   <div class="scroll-container">
-    <div class="menu" #menu>
+    <div class="menu">
       @if (deck.cards.length > 0) {
         <a (click)="reveal = (reveal + 1) % 3"
           ><span
@@ -127,7 +127,7 @@
     }
 
     @if (!configuration && !enhancements) {
-      <div class="loot-deck-container" [style.maxHeight]="maxHeight">
+      <div class="loot-deck-container">
         <div
           class="upcoming drop-list"
           cdkDropList

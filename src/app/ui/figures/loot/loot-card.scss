@@ -1,3 +1,7 @@
+:host {
+  container-type: inline-size;
+}
+
 .loot {
   position: absolute;
   top: 0;
@@ -7,6 +11,7 @@
   display: block;
 
   .card {
+    font-size: 8cqw;
     transition: transform calc(var(--ghs-animation-speed) * 500ms) cubic-bezier(0.75, 0, 0.85, 1);
   }
 

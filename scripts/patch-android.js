@@ -143,7 +143,7 @@ if (mainActivity.includes('AndroidFullscreenPlugin')) {
 } else {
   mainActivity = mainActivity.replace(
     /public class MainActivity extends BridgeActivity \{\s*\}/,
-    'import android.os.Bundle;\n\npublic class MainActivity extends BridgeActivity {\n\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        registerPlugin(AndroidFullscreenPlugin.class);\n        super.onCreate(savedInstanceState);\n    }\n}'
+    'import android.os.Bundle;\nimport android.webkit.WebSettings;\n\npublic class MainActivity extends BridgeActivity {\n\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        registerPlugin(AndroidFullscreenPlugin.class);\n        super.onCreate(savedInstanceState);\n        WebSettings webSettings = getBridge().getWebView().getSettings();\n        webSettings.setMinimumFontSize(1);\n        webSettings.setMinimumLogicalFontSize(1);\n    }\n}'
   );
   fs.writeFileSync(mainActivityPath, mainActivity);
   console.log(`Patched:  ${mainActivityPath}`);

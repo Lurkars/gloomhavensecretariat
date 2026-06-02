@@ -7,8 +7,6 @@
     'no-click': noClick(),
     denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
   }"
-  #card
-  [style.fontSize]="card.offsetWidth * 0.03 + 'px'"
 >
   @if (!monster.bb) {
     <div #levelButton (click)="openLevelDialog()" class="level" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'">{{ level }}</div>

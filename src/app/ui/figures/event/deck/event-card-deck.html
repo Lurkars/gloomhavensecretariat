@@ -1,5 +1,5 @@
 <div class="events-dialog">
-  <div #menu class="menu" [ngClass]="{ resolved: resolved }">
+  <div class="menu" [ngClass]="{ resolved: resolved }">
     @for (eventType of types; track eventType) {
       <a class="event-type" (click)="selectType(eventType)" [ngClass]="{ active: type === eventType }">
         <span [ghs-label]="'game.events.type.' + eventType"></span>

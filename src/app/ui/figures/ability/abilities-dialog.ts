@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -35,18 +35,14 @@ export class AbiltiesDialogComponent implements OnInit {
   dialogRef = inject(DialogRef);
   private ghsManager = inject(GhsManager);
 
-  private cdr = inject(ChangeDetectorRef);
-
   monster: Monster = inject(DIALOG_DATA);
 
-  readonly menuElement = viewChild.required<ElementRef>('menu');
   reveal: number = 0;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edit: boolean = false;
-  maxHeight: string = '';
   bottomActions: boolean = false;
   upcomingCards: Ability[] = [];
   discardedCards: Ability[] = [];
@@ -57,27 +53,12 @@ export class AbiltiesDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(
-      () => {
-        const menuElement = this.menuElement();
-        if (menuElement) {
-          this.maxHeight = 'calc(80vh - ' + menuElement.nativeElement.offsetHeight + 'px)';
-        }
-        this.cdr.markForCheck();
-      },
-      settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0
-    );
-
     this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.update();
   }
 
   toggleEdit() {
     this.edit = !this.edit;
-    setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement().nativeElement.offsetHeight + 'px)';
-      this.cdr.markForCheck();
-    }, 0);
   }
 
   update() {

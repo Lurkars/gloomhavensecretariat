@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, input, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnChanges, OnInit } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -21,7 +21,6 @@ import { applyPlaceholder, GhsLabelDirective } from 'src/app/ui/helper/label';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AbilityComponent implements OnInit, OnChanges {
-  elementRef = inject(ElementRef);
   private ghsManager = inject(GhsManager);
 
   readonly inputAbility = input<Ability>(undefined, { alias: 'ability' });
@@ -64,8 +63,6 @@ export class AbilityComponent implements OnInit, OnChanges {
   interactiveActions: InteractiveAction[] = [];
   interactiveBottomActions: InteractiveAction[] = [];
 
-  fontsize: string = '';
-
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
   }
@@ -79,7 +76,6 @@ export class AbilityComponent implements OnInit, OnChanges {
   }
 
   update() {
-    this.fontsize = this.elementRef.nativeElement.offsetWidth * 0.04 + 'px';
     if (this.monster) {
       const deck =
         this.monster.statEffect && this.monster.statEffect.deck && !this.monster.statEffect.deck.startsWith(this.monster.name)

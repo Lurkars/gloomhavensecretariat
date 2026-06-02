@@ -1,3 +1,7 @@
+:host {
+  container-type: inline-size;
+}
+
 .deck {
   position: relative;
   width: 100%;
@@ -12,6 +16,7 @@
   }
 
   .loot-card {
+    font-size: 3.2cqw;
     position: absolute;
     top: 0;
     left: 0;
