@@ -1,0 +1,1481 @@
+{
+  "name": "three-spears",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Booster Pack",
+      "cardId": 205,
+      "level": 1,
+      "initiative": 73,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.205.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.205.2%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Readied Blade",
+      "cardId": 206,
+      "level": 1,
+      "initiative": 98,
+      "actions": [
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.action.custom.gh2e-supplies-consume% :"
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.three-spears.abilities.206.1%",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Crushing Hammer",
+      "cardId": 207,
+      "level": 1,
+      "initiative": 33,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,enhance)|(1,1,target)|(1,2,target)|(2,2,enhance)",
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.207.1%",
+          "small": true
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Hastened Step",
+      "cardId": 208,
+      "level": 1,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.208.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Bladed Boomerang",
+      "cardId": 209,
+      "level": 1,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,2,active)|(2,0,target)|(2,1,target)|(2,2,target)"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.209.1%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Impaling Spear",
+      "cardId": 210,
+      "level": 1,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.three-spears.abilities.210.1%",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Light Javelin",
+      "cardId": 211,
+      "level": 1,
+      "initiative": 81,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "loot",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Cleave and Thrust",
+      "cardId": 212,
+      "level": 1,
+      "initiative": 39,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.212.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.212.2%",
+          "small": true
+        }
+      ],
+      "cp": 1
+    },
+    {
+      "name": "Iron Bulwark",
+      "cardId": 213,
+      "level": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.action.custom.gh2e-supplies-consume% :"
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.three-spears.abilities.206.1%",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.213.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "round": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Proficiency",
+      "cardId": 214,
+      "level": 1,
+      "initiative": 52,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.214.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.214.2%",
+          "small": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.214.3%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.214.4%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Provisions",
+      "cardId": 215,
+      "level": 1,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.215.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.215.2%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Caustic Bolt",
+      "cardId": 216,
+      "level": "X",
+      "initiative": 88,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.216.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.216.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Scroll of Recall",
+      "cardId": 217,
+      "level": "X",
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "pull",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.217.1%",
+          "small": true
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Caustic Bolt",
+      "cardId": 218,
+      "level": "X",
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.action.custom.gh2e-supplies-consume% :"
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.three-spears.abilities.218.1%",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.218.2%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Scroll Case",
+      "cardId": 219,
+      "level": 2,
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.219.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.219.2%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.219.3%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.219.4%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Lethal Arsenal",
+      "cardId": 220,
+      "level": 2,
+      "initiative": 18,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.220.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Quiver of Arrows",
+      "cardId": 221,
+      "level": 3,
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.action.custom.gh2e-supplies-consume% :"
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.three-spears.abilities.221.1%",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.221.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Concussive Snare",
+      "cardId": 222,
+      "level": 3,
+      "initiative": 89,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.222.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.222.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Hammer and Anvil",
+      "cardId": 223,
+      "level": 4,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.223.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.223.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Giant Club",
+      "cardId": 224,
+      "level": 4,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 6,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.224.1%",
+          "small": true
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Scroll of Judgment",
+      "cardId": 225,
+      "level": 5,
+      "initiative": 12,
+      "lost": true,
+      "actions": [
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.three-spears.abilities.225.1%"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.225.2%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.225.3%",
+          "small": true
+        }
+      ],
+      "xp": 2,
+      "bottomRound": true
+    },
+    {
+      "name": "Set Up Shop",
+      "cardId": 226,
+      "level": 5,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.226.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.226.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.three-spears.abilities.226.3%"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.226.4%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.226.5%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "allies",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1,
+      "bottomRound": true
+    },
+    {
+      "name": "Scroll of Lightning",
+      "cardId": 227,
+      "level": 6,
+      "initiative": 77,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.three-spears.abilities.227.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.227.2%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Continual Supply",
+      "cardId": 228,
+      "level": 6,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.228.1%",
+          "small": true
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.action.custom.gh2e-supplies-consume% :"
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.three-spears.abilities.228.2%",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.228.3%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Twin Lances",
+      "cardId": 229,
+      "level": 7,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,2,target)|(2,2,target)|(3,2,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.229.1%",
+          "small": true
+        }
+      ],
+      "xp": 1,
+      "bottomXp": 1
+    },
+    {
+      "name": "Tools of War",
+      "cardId": 230,
+      "level": 7,
+      "initiative": 84,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.230.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.230.2%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "loot",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.three-spears.abilities.230.3%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scroll of Blizzards",
+      "cardId": 231,
+      "level": 8,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,3,target)|(1,1,target)|(1,2,target)|(1,3,target)|(2,0,enhance)|(2,1,target)|(2,2,target)|(3,0,enhance)",
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.action.custom.gh2e-supplies-consume% :"
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.three-spears.abilities.231.1%",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Armed th the Teeth",
+      "cardId": 232,
+      "level": 8,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.232.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.232.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.232.3%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.232.4%",
+          "small": true
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Reinforced Steel",
+      "cardId": 233,
+      "level": 9,
+      "initiative": 56,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.233.1%",
+          "small": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.233.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Bag of Holding",
+      "cardId": 234,
+      "level": 9,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 3
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.three-spears.abilities.234.1%",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

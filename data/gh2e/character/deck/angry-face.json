@@ -1,0 +1,1647 @@
+{
+  "name": "angry-face",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Rain of Arrows",
+      "cardId": 381,
+      "level": 1,
+      "initiative": 9,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.381.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.381.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Race to the Grave",
+      "cardId": 382,
+      "level": 1,
+      "initiative": 75,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "vicious-jackal",
+            "edition": "gh2e",
+            "health": 4,
+            "attack": 2,
+            "movement": 3,
+            "enhancements": [
+              "heal",
+              "attack",
+              "move"
+            ],
+            "action": {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "retaliate",
+                  "value": 1
+                },
+                {
+                  "type": "condition",
+                  "value": "wound"
+                }
+              ]
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.382.1%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Gut Shot",
+      "cardId": 383,
+      "level": 1,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.383.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Detonation",
+      "cardId": 384,
+      "level": 1,
+      "initiative": 8,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.384.1%",
+          "small": true
+        }
+      ],
+      "xp": 2,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Murderous Stalker",
+      "cardId": 385,
+      "level": 1,
+      "initiative": 13,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 6,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.385.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "A Moment's Peace",
+      "cardId": 386,
+      "level": 1,
+      "initiative": 88,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.386.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.angry-face.abilities.386.2%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Hunt Begins",
+      "cardId": 387,
+      "level": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.387.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.387.2%",
+          "small": true
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Solid Bow",
+      "cardId": 388,
+      "level": 1,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.388.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.angry-face.abilities.388.2%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Foot Snare",
+      "cardId": 389,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.389.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Forward Momentum",
+      "cardId": 390,
+      "level": 1,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.390.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Hidden Danger",
+      "cardId": 391,
+      "level": 1,
+      "initiative": 72,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "summonData",
+              "valueObject": {
+                "name": "green-snake",
+                "edition": "gh2e",
+                "health": "5",
+                "attack": "2",
+                "movement": "3",
+                "count": 1,
+                "enhancements": [
+                  "heal",
+                  "move",
+                  "attack"
+                ],
+                "action": {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.angry-face.abilities.391.1%"
+                }
+              },
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.391.2%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.391.3%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Give Chase",
+      "cardId": 392,
+      "level": "X",
+      "initiative": 80,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.392.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Feral Aid",
+      "cardId": 393,
+      "level": "X",
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.393.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.393.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 3
+                },
+                {
+                  "type": "attack",
+                  "value": 3
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.angry-face.abilities.393.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Fierce Fighter",
+      "cardId": 394,
+      "level": "X",
+      "initiative": 78,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "battle-boar",
+            "edition": "gh2e",
+            "health": "7",
+            "attack": "2",
+            "movement": "2",
+            "count": 1,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.394.1%",
+              "valueType": "fixed"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.394.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
+    },
+    {
+      "name": "Relentless Offensive",
+      "cardId": 395,
+      "level": 2,
+      "initiative": 63,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.395.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.angry-face.abilities.395.2%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.395.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomXp": 2
+    },
+    {
+      "name": "Dual Shot",
+      "cardId": 396,
+      "level": 2,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.396.1%",
+          "small": true
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Walking Bastion",
+      "cardId": 397,
+      "level": 3,
+      "initiative": 90,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "summonData",
+              "valueObject": {
+                "name": "staunch-garralev",
+                "edition": "gh2e",
+                "health": 8,
+                "attack": 2,
+                "movement": 2,
+                "enhancements": [
+                  "heal",
+                  "attack",
+                  "move"
+                ],
+                "action": {
+                  "type": "pierce",
+                  "value": 3,
+                  "valueType": "fixed"
+                }
+              },
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.397.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.397.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "subActions": [
+                    {
+                      "type": "pierce",
+                      "value": 2,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.angry-face.abilities.397.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Swift Trickery",
+      "cardId": 398,
+      "level": 3,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.398.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Camouflage",
+      "cardId": 399,
+      "level": 4,
+      "initiative": 6,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.399.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.399.2%",
+          "small": true
+        }
+      ],
+      "round": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Coated Arrows",
+      "cardId": 400,
+      "level": 4,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.400.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.400.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Falling Swoop",
+      "cardId": 401,
+      "level": 5,
+      "initiative": 93,
+      "lost": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "war-raptor",
+            "edition": "gh2e",
+            "health": 6,
+            "attack": 3,
+            "movement": 5,
+            "enhancements": [
+              "heal",
+              "attack",
+              "move"
+            ],
+            "action": {
+              "type": "fly"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Expose",
+      "cardId": 402,
+      "level": 5,
+      "initiative": 31,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.402.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.402.2%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.402.3%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Wild Command",
+      "cardId": 403,
+      "level": 6,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.403.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.angry-face.abilities.403.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Impending End",
+      "cardId": 404,
+      "level": 6,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.404.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.404.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Charging Beast",
+      "cardId": 405,
+      "level": 7,
+      "initiative": 82,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "summonData",
+              "valueObject": {
+                "name": "horned-hristek",
+                "edition": "gh2e",
+                "health": 7,
+                "attack": 2,
+                "movement": 3,
+                "enhancements": [
+                  "heal",
+                  "attack"
+                ],
+                "action": {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.angry-face.abilities.405.1%",
+                  "valueType": "fixed",
+                  "small": true
+                }
+              },
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.405.2%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.405.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Darkened Skies",
+      "cardId": 406,
+      "level": 7,
+      "initiative": 36,
+      "lost": true,
+      "loss": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.406.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.406.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Feral Instincts",
+      "cardId": 407,
+      "level": 8,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.407.1%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.407.2%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.407.3%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.angry-face.abilities.407.4%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Press the Attack",
+      "cardId": 408,
+      "level": 8,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.408.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Predator and Prey",
+      "cardId": 409,
+      "level": 9,
+      "initiative": 86,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "summonData",
+              "valueObject": {
+                "name": "great-archinotl",
+                "edition": "gh2e",
+                "health": 8,
+                "attack": 3,
+                "movement": 4,
+                "enhancements": [
+                  "heal",
+                  "attack",
+                  "move"
+                ]
+              },
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.angry-face.abilities.409.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-doom% DOOM",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.409.2%",
+          "small": true
+        }
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Heart of Doom",
+      "cardId": 410,
+      "level": 9,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.410.1%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.angry-face.abilities.410.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.410.3%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.angry-face.abilities.410.4%",
+          "small": true
+        }
+      ],
+      "bottomPersistent": true
+    }
+  ]
+}

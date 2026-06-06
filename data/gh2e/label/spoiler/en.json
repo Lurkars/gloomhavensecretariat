@@ -67,7 +67,125 @@
         "6": "Kill 20 enemies that have %data.action.custom.gh2e-doom%",
         "7": "In a single round, you and one of your summons must perform a combined total of 6 or more attack abilities",
         "8": "Unaffected by difficult terrain.",
-        "9": "When attacking, ignore %game.action.retaliate%."
+        "9": "When attacking, ignore %game.action.retaliate%.",
+        "abilities": {
+          "381": {
+            "1": "On the next four deaths of an enemy that has %data.action.custom.gh2e-doom% while there os another enemy within %game.action.range:4% (of you) perform %game.action.attack:3% %game.action.range:4%",
+            "2": "Add %game.action.pierce:2% to all your attacks targeting this enemy."
+          },
+          "382": {
+            "1": "This enemy suffers %game.damage:1% at the start of each of its turns."
+          },
+          "383": {
+            "1": "Add %game.condition.wound% and gain %game.card.experience:1% if the target has %data.action.custom.gh2e-doom%."
+          },
+          "384": {
+            "1": "When this enemy dies, all enemies adjacent to the hex it occupied suffer %game.damage:2%."
+          },
+          "385": {
+            "1": "If this attack kills an enemy, gain %game.card.experience:1% and you may play any one card from your hand or discard pile to perform a %data.action.custom.gh2e-doom% action of the card."
+          },
+          "386": {
+            "1": "Reveal the top card of one monster within %game.action.range:5%'s ability card deck.",
+            "2": "1 of your summons of self"
+          },
+          "387": {
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target is undamaged.",
+            "2": "Your summons add %game.action.attack.valueSign:1% to all their attacks targeting this enemy. Your summons focus on this enemy."
+          },
+          "388": {
+            "1": "Whenever you or one of your summons damaged this enemy, you may perform:",
+            "2": "self or 1 ally adjacent to this enemy"
+          },
+          "389": {
+            "1": "Add %game.condtition.immobilize% and gain %game.card.experience:1% if the target has %data.action.custom.gh2e-doom%."
+          },
+          "390": {
+            "1": "Whenever an enemy that has %data.action.custom.gh2e-doom% dies, instead of moving any %data.action.custom.gh2e-doom% on the target to your discard pile, you may discard this card to perform the %data.action.custom.gh2e-doom% actions of the cards, targeting an enemy within %game.action.range:3% of the hex where the enemy died."
+          },
+          "391": {
+            "1": "Unaffected by difficult terrain.",
+            "2": "This summon is considered to be last in initiative order when determining monster focus.",
+            "3": "Add %game.action.attack.valueSign:1% to all your attacks targeting this enemy."
+          },
+          "392": {
+            "1": "Your summons add %game.action.move.valueSign:2% and %game.action.jump% to all their move abilities. Your summons focus on this enemy."
+          },
+          "393": {
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target is adjacent to one of your summons.",
+            "2": "Grant one of your summons:",
+            "3": "This attack must target the target of the Doomstalker's attack ability."
+          },
+          "394": {
+            "1": "When attacking ignore %game.action.retaliate%.",
+            "2": "Gain advantage on all your attacks this round."
+          },
+          "395": {
+            "1": "Grant one of your summons:",
+            "2": "This attack ability must target the target of the Doomstalker's attack ability."
+          },
+          "396": {
+            "1": "Gain advantage on all your attacks targeting this enemy. When this enemy dies, shuffle one %game.condition.curse% card into the monster attack modifier deck.",
+            "2": "%game.condition.wound% all enemies adjacent to this trap when the trap is sprung."
+          },
+          "397": {
+            "1": "When you summon this summon, it gains %game.condition.ward%. Whenever you long rest, this summon gains %game.condition.ward%.",
+            "2": "Your summons focus on this enemy. After one of your summons perform an attack targeting this enemy, triggering no more than once each round, grant that summon:",
+            "3": "This attack must target the enemy that has %data.action.custom.gh2e-doom%."
+          },
+          "398": {
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target has %data.action.custom.gh2e-doom%."
+          },
+          "399": {
+            "1": "If you are adjacent to a wall but not occupying a corridor tile, gain %data.condition.invisible%. At the end of the round, lose %data.condition.invisible%.",
+            "2": "All attacks targeting any summons adjacent to you this round gain disadvantage."
+          },
+          "400": {
+            "1": "On your next four ranged attacks, add %game.condition.poison%, then %game.condition.wound%, then %game.condition.immobilize%, then %game.condition.disarm% (one to each attack).",
+            "2": "Add %game.action.attack.valueSign:2% to all your attacks targeting enemies that have %data.action.custom.gh2e-doom% this round."
+          },
+          "402": {
+            "1": "Gain advantage on your first attack targeting an enemy that has %data.action.custom.gh2e-doom% each turn.",
+            "2": "All enemies lose %game.condition.invisible% and may no longer gain %game.condition.invisible%.",
+            "3": "Your summons add %game.condition.wound% to and gain advantage on all their attacks targeting this enemy."
+          },
+          "403": {
+            "1": "Grant one of your summons:",
+            "2": "1 enemy that has %data.action.custom.gh2e-doom% at any %game.action.range%"
+          },
+          "404": {
+            "1": "If this attack kills the target, instead of moving any %data.action.custom.gh2e-doom% on the target to your discard pile, you may perform the %data.action.custom.gh2e-doom% actions of the cards, targeting an enemy within %game.action.range:3% of the hex where the enemy died.",
+            "2": "Add %game.condition.immobilize% to your first attack targeting this enemy and add %game.action.attack.valueSign:2% to your second and third attacks targeting this enemy."
+          },
+          "405": {
+            "1": "After moving for the first time each round, add %game.action.attack.valueSign:2% to all attacks for the round.",
+            "2": "Whenever this summon kills an enemy, grant it:",
+            "3": "Your summons focus on this enemy. When this enemy dies, you an all allies may perform:"
+          },
+          "406": {
+            "1": "Gain %game.card.experience:1% for each two enemies targeted.",
+            "2": "When this enemy dies, you may perform:"
+          },
+          "407": {
+            "1": "Grant one of your summons:",
+            "2": "This movement must end in a hex adjacent to an enemy that has %data.action.custom.gh2e-doom%.",
+            "3": "This attack must target an enemy that has %data.action.custom.gh2e-doom%.",
+            "4": "1 of your summons of self"
+          },
+          "408": {
+            "1": "Add %game.action.attack.valueSign:3% and gain %game.card.experience:1% if the target has %data.action.custom.gh2e-doom%."
+          },
+          "409": {
+            "1": "At initiative 100 each round, this summon performs an additional turn.",
+            "2": "Add +X %game.action.attack% to all your attacks targeting this enemy, where X is the difference between the %game.action.range% of the attack and the number of hexes to the enemy."
+          },
+          "410": {
+            "1": "You may immediately play a card from your hand to perform a %data.action.custom.gh2e-doom% action of the card.",
+            "2": "1 enemy that has %data.action.custom.gh2e-doom% at any %game.action.range%",
+            "3": "You may have any number of %data.action.custom.gh2e-doom% active on the same target. If you discard this card, you must discard all but one active %data.action.custom.gh2e-doom%.",
+            "4": "You may play one card from your hand or discard pile to perform a %data.action.custom.gh2e-doom% action of the card."
+          }
+        }
       },
       "circles": {
         "1": "After the attack ability, grant one of your summons: %game.action.teleport:2%",
@@ -445,7 +563,126 @@
         "5": "Your party may purchase items from each faction as though the items' costs were five gold less and your reputation with that faction was two greater",
         "6": "Whenever you long rest, gain 10 %data.action.custom.gh2e-supplies%",
         "7": "In a single scenario, spend 50 %data.action.custom.gh2e-supplies% to refresh 50 gold of lost items 3 times",
-        "8": "For an entire scenario, give yourself or an ally an item from the Quartermaster Item Supply each round except when performing a long rest"
+        "8": "For an entire scenario, give yourself or an ally an item from the Quartermaster Item Supply each round except when performing a long rest",
+        "abilities": {
+          "205": {
+            "1": "Shuffle the %data.action.custom.gh2e-supply-item% item supply face-down and randomly draw five cards. Give the drawn items to any number of adjacent allies and self, giving no more than three of the items to yourself.",
+            "2": "%game.card.recover% one of your spent items."
+          },
+          "206": {
+            "1": "%game.card.recover% your items"
+          },
+          "207": {
+            "1": "Give one adjacent ally or self the <i>Iron Plate</i> item to gain %game.card.experience:1%."
+          },
+          "208": {
+            "1": "Give one adjacent ally the <i>Sharpened Dirk</i> item to gain %game.card.experience:1%."
+          },
+          "209": {
+            "1": "Gain 10 %data.action.custom.gh2e-supplies%."
+          },
+          "210": {
+            "1": "1 enemy within 2 hexes"
+          },
+          "212": {
+            "1": "Give one ally within %game.action.range:2% the <i>Sturdy Spear</i> item to gain %game.card.experience:1%.",
+            "2": "Gain 10 %data.action.custom.gh2e-supplies%."
+          },
+          "213": {
+            "1": "%game.card.recover% your items",
+            "2": "Grant all adjacent allies and self:"
+          },
+          "214": {
+            "1": "During each of your turns, the first time you use an item with a %game.card.lost% icon, add %game.action.attack.valueSign:1% to all your melee attacks for the turn.",
+            "2": "Whenever you %data.action.custom.gh2e-supplies-consume% to %game.card.recover% an item with a gold cost of 30 or greater, you may gain one random item from the %data.action.custom.gh2e-supply-item% item supply.",
+            "3": "Add %game.action.retaliate.valueSign:1% to all <i>Barbed Strip</i> items and %game.action.shield.valueSign:1% to all <i>Iron Plate</i> items.",
+            "4": "Whenever you rest, gain the <i>Barbed Strip</i> or <i>Iron Plate</i> item."
+          },
+          "215": {
+            "1": "Gain 10 %data.action.custom.gh2e-supplies%.",
+            "2": "Gain the <i>Scroll of Relocation</i> item."
+          },
+          "216": {
+            "1": "Give one adjacent ally the <i>Corrosive Coating</i> item.",
+            "2": "One adjecent ally may %game.card.recover% one of their spent items."
+          },
+          "217": {
+            "1": "Gain the <i>Barbed Strip</i> item."
+          },
+          "218": {
+            "1": "%game.card.recover% the target's items.",
+            "2": "You and all adjacent allies add %game.action.attack.valueSign:1% to all attacks this round."
+          },
+          "219": {
+            "1": "Gain 10 %data.action.custom.gh2e-supplies%.",
+            "2": "Give one adjacent ally the <i>Scroll of Embers</i> item.",
+            "3": "Give one adjacent ally the <i>Scroll of Foresight</i> item to gain %game.card.experience:1%.",
+            "4": "Give one adjacent ally the <i>Scroll of Relocation</i> item."
+          },
+          "220": {
+            "1": "Gain the <i>Sharpened Dirk</i> and <i>Sturdy Spear</i> items."
+          },
+          "221": {
+            "1": "%game.card.recover% your items",
+            "2": "On the next four ranged attack abilities performed by adjacent allies, add %game.action.target.valueSign:1%."
+          },
+          "222": {
+            "1": "Give one adjacent ally the <i>Weighted Bolas</i> item to gain %game.card.experience:1%.",
+            "2": "Gain 10 %data.action.custom.gh2e-supplies%."
+          },
+          "223": {
+            "1": "Give one ally within %game.action.range:2% the <i>Sturdy Spear</i> item.",
+            "2": "Gain the <i>Barbed Strip</i> or <i>Iron Plate</i> item."
+          },
+          "224": {
+            "1": "You may give up to four items of your choice from the %data.action.custom.gh2e-supply-item% item supply to any allies occupying hexes adjacent to any hexes you entered during the move ability. Gain 10  %data.action.custom.gh2e-supplies% for each ally you gave an item."
+          },
+          "225": {
+            "1": "Suffer %game.damage:2%.",
+            "2": "All enemies within %game.action.range:4% suffer %game.damage:2%.",
+            "3": "After the next attack targeting you this round, %game.card.recover% one of your spent items and gain %game.card.experience:1%."
+          },
+          "226": {
+            "1": "At the end of each of your turns, gain 10 %data.action.custom.gh2e-supplies%.",
+            "2": "Whenever an ally ends their move or teleport ability in a hex adjacent to you, you may %data.action.custom.gh2e-supplies-consume% to %game.card.recover% that ally's items.",
+            "3": "You cannot perform move abilities.",
+            "4": "Give one adjacent ally the <i>Scroll of Foresight</i> item.",
+            "5": "At the end of the round, perform:"
+          },
+          "227": {
+            "1": "All allies and enemies adjacent to the target suffer %game.damage:1%.",
+            "2": "Gain the <i>Corrosive Coating</i> item."
+          },
+          "228": {
+            "1": "Gain 20 %data.action.custom.gh2e-supplies%.",
+            "2": "%game.card.recover% your and adjacent allies' items, %game.card.experience:1%.",
+            "3": "On your next three turns that you end with 0 %data.action.custom.gh2e-supplies%, gain 30 %data.action.custom.gh2e-supplies%."
+          },
+          "229": {
+            "1": "Give one adjacent ally the <i>Sturdy Spear</i> item."
+          },
+          "230": {
+            "1": "One adjacent ally may %game.card.recover% one of their spent items.",
+            "2": "Give one adjacent ally the <i>Scroll of embers</i> and <i>Weighted Bolas</i> items to gain %game.card.experience:1%.",
+            "3": "If you loot at least one money token, gain 10 %data.action.custom.gh2e-supplies%."
+          },
+          "231": {
+            "1": "%game.card.recover% your and adjacent allies' items, %game.card.experience:1%."
+          },
+          "232": {
+            "1": "Give one adjacent ally the <i>Barbed Strip</i> and <i>Sharpened Dirk</i> items to gain %game.card.experience:1%.",
+            "2": "Grant one adjacent ally or self:",
+            "3": "%game.card.recover% one of your spent items.",
+            "4": "Gain the <i>Scroll of Foresight</i> item."
+          },
+          "233": {
+            "1": "At the end of each of your turns, you may shuffle the %data.action.custom.gh2e-supply-item% item supply face-down and draw one random card to give that item to an ally within %game.action.range:2%.",
+            "2": "At the end of each round, %game.card.recover% one of your spent items."
+          },
+          "234": {
+            "1": "Gain 20 %data.action.custom.gh2e-supplies%."
+          }
+        }
       },
       "triangles": {
         "1": "At the start of each scenario, you may %game.element.wild%",
