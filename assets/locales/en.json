@@ -3275,6 +3275,11 @@
       "brewPotion": "Brew Item \"%data.items.{2}-{1}%\" for {0}",
       "brewPotionOther": "{0} brew Item \"%data.items.{2}-{1}%\" for {3}",
       "buildBuilding": "Build '%data.buildings.{1}%' ({0})",
+      "buildingAttacked": {
+        "normal": "Successfully defended attack on '%data.buildings.{1}%' ({0})",
+        "damaged": "Attack damaged '%data.buildings.{1}%' ({0})",
+        "wrecked": "Attack wrecked '%data.buildings.{1}%' ({0})"
+      },
       "buildings": {
         "stables": {
           "pets": {
@@ -3663,6 +3668,11 @@
       },
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
+      "eventDraw": {
+        "accept": "Resolved %game.events.type.{1}% event {2}",
+        "cancel": "Cancel drawing %game.events.type.{1}% event",
+        "new": "Draw a new %game.events.type.{1}% event"
+      },
       "eventEffect": {
         "addCondition": "%game.condition.{0}% to {1}",
         "addImmunity": "%game.immunity.{0}% to {1}",

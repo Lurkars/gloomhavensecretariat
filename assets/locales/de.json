@@ -3276,6 +3276,11 @@
       "brewPotion": "Trank \"%data.items.{2}-{1}%\" für {0} brauen",
       "brewPotionOther": "{0} braut Trank \"%data.items.{2}-{1}%\" für {3}",
       "buildBuilding": "'%data.buildings.{1}%' ({0}) gebaut",
+      "buildingAttacked": {
+        "normal": "Angriff auf '%data.buildings.{1}%' ({0}) erfolgreich verteidigt",
+        "damaged": "Angriff beschädigt '%data.buildings.{1}%' ({0})",
+        "wrecked": "Angriff zertrümmert '%data.buildings.{1}%' ({0})"
+      },
       "buildings": {
         "stables": {
           "pets": {
@@ -3664,6 +3669,11 @@
       },
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
+      "eventDraw": {
+        "accept": "%game.events.type.{1}% Ereignis {2} abschließen",
+        "cancel": "Ziehen von %game.events.type.{1}% Ereignis abbrechen",
+        "new": "Neues %game.events.type.{1}% Ereignis ziehen"
+      },
       "eventEffect": {
         "addCondition": "%game.condition.{0}% für {1}",
         "addImmunity": "%game.immunity.{0}% für {1}",
