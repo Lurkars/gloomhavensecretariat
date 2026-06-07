@@ -51,7 +51,7 @@
       "beetle": {
         "1": "<b>Heart of Swarm:</b> Once per scenario on your turn, play a card from your discard pile to perform Cultivate %data.action.custom.cs-cultivate% action of that card. You and all allies adjacent to you are considered to be adjecent to every colony type this round",
         "2": "For an entire scenario, have the persistent effect of a Cultivate %data.action.custom.cs-cultivate% ability trigger each round (only count gaining %game.action.shield% or %game.action.retaliate% if attacked)",
-        "3": "In a single round, cause 15 or more damage with retaliate (including retailiate you grant)"
+        "3": "In a single round, cause 15 or more damage with retaliate (including retaliate you grant)"
       },
       "bleeding-claw": {
         "1": "<b>Lull in Hunger:</b> Once each scenario, become %game.action.custom.cs-sated% after collecting your fifth loot token",
