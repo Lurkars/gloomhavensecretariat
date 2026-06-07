@@ -5,6 +5,7 @@ Edge > 110
 Firefox > 111
 FirefoxAndroid >=111
 Safari > 16.3
+ios_saf > 26.5
 iOS > 16.3
 
 # Broader coverage - warns but still builds
@@ -18,3 +19,4 @@ not samsung > 0
 not android > 0
 not chrome < 110
 not opera < 123
+not ios_saf 26.5
