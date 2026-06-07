@@ -910,7 +910,7 @@ export class SettingsManager {
   }
 
   emptyLabel(key: string, args: string[]): string {
-    return key + (args && args.length > 0 ? ' [' + args + ']' : '');
+    return key + (args && args.length > 0 ? ' &#91;' + args + '&#93;' : '');
   }
 
   labelExists(key: string, includeObject: boolean = false, from: any = this.label): boolean {

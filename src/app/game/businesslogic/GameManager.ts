@@ -974,8 +974,10 @@ export class GameManager {
 
   prosperityTicks(): number {
     let ticks = this.game.party.prosperity;
-    if (this.game.party.envelopeB && this.editionRules('gh')) {
-      ticks += 1;
+    if ((this.game.party.envelopeB && this.editionRules('gh')) || this.editionRules('cs')) {
+      if (!this.editionRules('cs')) {
+        ticks += 1;
+      }
       if (this.game.party.donations > 10) {
         ticks += Math.floor(Math.min(this.game.party.donations - 10, 30) / 5);
       }

@@ -64,15 +64,17 @@ export class EventCardDrawComponent {
   }
 
   cancel() {
-    gameManager.stateManager.before('eventDraw.cancel');
-    gameManager.game.eventDraw = undefined;
-    gameManager.stateManager.after();
+    if (this.event && gameManager.game.eventDraw) {
+      gameManager.stateManager.before('eventDraw.cancel', this.event.edition, this.event.type, this.event.cardId);
+      gameManager.game.eventDraw = undefined;
+      gameManager.stateManager.after();
+    }
     ghsDialogClosingHelper(this.dialogRef);
   }
 
   accept(apply: boolean = true) {
     if (this.event && (this.selected !== -1 || !apply)) {
-      gameManager.stateManager.before('eventDraw.accept');
+      gameManager.stateManager.before('eventDraw.accept', this.event.edition, this.event.type, this.event.cardId);
       gameManager.game.eventDraw = undefined;
       const result = gameManager.eventCardManager.applyEvent(
         this.event,
@@ -93,7 +95,7 @@ export class EventCardDrawComponent {
       const edition = this.event.edition;
       const type = this.event.type;
       const cardId = this.event.cardId;
-      gameManager.stateManager.before('eventDraw.new');
+      gameManager.stateManager.before('eventDraw.new', this.event.edition, this.event.type, this.event.cardId);
       gameManager.eventCardManager.removeEvent(type, cardId);
       const deck = gameManager.game.party.eventDecks[type];
       if (deck) {

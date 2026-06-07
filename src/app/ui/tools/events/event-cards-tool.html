@@ -5,7 +5,7 @@
     <label>
       <span [ghs-label]="'settings.edition'"></span>
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
-        @for (edition of gameManager.editions(true); track edition) {
+        @for (edition of editions; track edition) {
           <option [value]="edition">
             <span [ghs-label]="'data.edition.' + edition"></span>
           </option>

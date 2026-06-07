@@ -204,7 +204,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
             new Audio('assets/media/metal.ogg').play();
           } else if (loot.type === LootType.lumber) {
             new Audio('assets/media/lumber.ogg').play();
-            queueDelay = 1600;
+            queueDelay = 2600;
           } else if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
             new Audio('assets/media/gold.ogg').play();
             queueDelay = 2200;

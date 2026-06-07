@@ -238,11 +238,7 @@ export class OutpostAttackComponent implements OnInit {
           state = 'damaged';
         }
       }
-      gameManager.stateManager.before(
-        'buildingAttacked' + (state !== building.model.state ? '.' + state : ''),
-        building.data.id,
-        building.data.name
-      );
+      gameManager.stateManager.before('buildingAttacked.' + state, building.data.id, building.data.name);
       gameManager.game.party.soldiers -= this.soldiers;
       this.soldiers = 0;
       building.model.attacked = true;
@@ -251,7 +247,7 @@ export class OutpostAttackComponent implements OnInit {
       this.attackResult = undefined;
       this.applyBaracks();
 
-      if (this.attack.target.distance === 'previousTarget') {
+      if (!!this.attack.target && this.attack.target.distance === 'previousTarget') {
         this.buildings.sort((a, b) => {
           const distanceA = this.targetDistance(a);
           const distanceB = this.targetDistance(b);
@@ -328,6 +324,9 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   applyFilter() {
+    if (!this.attack.target) {
+      this.attack.target = new EventCardAttackTarget(true);
+    }
     this.attack.target.lowerBoundary = this.lowerBoundary || 0;
     this.attack.target.upperBoundary = this.upperBoundary || 0;
     this.attack.target.parity = this.parity || 0;
@@ -389,19 +388,21 @@ export class OutpostAttackComponent implements OnInit {
       return 1;
     }
 
-    if (this.attack.target.level && a.model.level !== b.model.level) {
-      if (this.attack.target.level === 'low') {
-        return a.model.level - b.model.level;
-      } else if (this.attack.target.level === 'high') {
-        return b.model.level - a.model.level;
+    if (!!this.attack.target) {
+      if (this.attack.target.level && a.model.level !== b.model.level) {
+        if (this.attack.target.level === 'low') {
+          return a.model.level - b.model.level;
+        } else if (this.attack.target.level === 'high') {
+          return b.model.level - a.model.level;
+        }
       }
-    }
 
-    if (this.attack.target.distance) {
-      const distanceA = this.targetDistance(a);
-      const distanceB = this.targetDistance(b);
-      if (distanceA !== -1 && distanceB !== -1) {
-        return distanceA - distanceB;
+      if (this.attack.target.distance) {
+        const distanceA = this.targetDistance(a);
+        const distanceB = this.targetDistance(b);
+        if (distanceA !== -1 && distanceB !== -1) {
+          return distanceA - distanceB;
+        }
       }
     }
 

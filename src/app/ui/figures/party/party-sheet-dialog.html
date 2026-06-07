@@ -1209,13 +1209,13 @@
               </div>
             </div>
           }
-          @if (!fhSheet && party.donations > 9 && gameManager.editionRules('gh')) {
+          @if (!fhSheet && ((party.donations > 9 && gameManager.editionRules('gh')) || gameManager.editionRules('cs'))) {
             <div class="row envelope-b">
               <label (click)="toggleEnvelopeB()">
                 <div class="checkbox" [ngClass]="{ checked: party.envelopeB }"></div>
                 <span [ghs-label]="'party.campaign.envelopeB'"></span>
               </label>
-              @if (party.envelopeB) {
+              @if (party.envelopeB || gameManager.editionRules('cs')) {
                 <div class="lines">
                   @for (line of [] | ghsRange: 5; track line) {
                     <div class="line">

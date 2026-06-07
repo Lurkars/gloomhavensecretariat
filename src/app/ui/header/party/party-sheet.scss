@@ -1,15 +1,38 @@
-.button {
-  cursor: pointer;
-  height: 100%;
+.party-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--ghs-font-title);
-  color: var(--ghs-color-gray);
-  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));
-  text-shadow: var(--ghs-outline);
+  height: 100%;
 
-  &:hover {
-    color: var(--ghs-color-white);
+  .button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-title);
+    color: var(--ghs-color-gray);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));
+    text-shadow: var(--ghs-outline);
+
+    &:hover {
+      color: var(--ghs-color-white);
+    }
+  }
+
+  .easter {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-small-text-factor) * var(--ghs-barsize));
+
+    img {
+      width: calc(var(--ghs-unit) * 2.5 * var(--ghs-small-text-factor) * var(--ghs-barsize));
+      height: auto;
+      filter: var(--ghs-filter-gray);
+    }
+    &:hover img {
+      filter: var(--ghs-filter-white);
+    }
   }
 }

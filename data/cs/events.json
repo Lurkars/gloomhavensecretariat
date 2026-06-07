@@ -3,18 +3,29 @@
     "cardId": "01",
     "edition": "cs",
     "type": "city",
-    "narrative": "\"Come one, come all, and welcome to the county fair!\" a Quatryl with red-and-white facepaint and a clownish blue wig smiles as he waves you in through the entrance. You've decided to take the day off and visit the county fair, which you've enjoyed frequenting as a youth. \"Step right up and try your luck!\" an Inox strongman wielding a giant hammer beckons you forward. \"Do you have what it takes to hit the bell?\" On the other side, an Aesther throws a dart and pops a balloon. \"Try your aim! Can you hit the balloon? Find out here!\"",
+    "narrative": "\"Come one, come all, and welcome to the county fair!\" a Quatryl with red-and-white facepaint and a clownish blue wig smiles as he waves you in through the entrance. You've decided to take the day off and visit the county fair, which you've enjoyed frequenting as a youth.<br><br>\"Step right up and try your luck!\" an Inox strongman wielding a giant hammer beckons you forward. \"Do you have what it takes to hit the bell?\"<br><br>On the other side, an Aesther throws a dart and pops a balloon. \"Try your aim! Can you hit the balloon? Find out here!\"",
     "options": [
       {
         "label": "A",
         "narrative": "Try your strength with the Inox Strongman's game.",
-        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "if inox or valrath in party",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "inox",
+                "valrath"
+              ]
+            },
             "narrative": "You swing the hammer down with all your might and hear a loud ring. \"You've done it!\" the Inox Strongman cheers. \"Come claim your prize!\"",
             "effects": [
-              "Gain 1 collective \"Lightweight Boots\" (Item 017)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  17,
+                  1
+                ]
+              }
             ]
           },
           {
@@ -23,7 +34,9 @@
             },
             "narrative": "You pick up the hammer and swing it down, but the booth hardly rumbles at all and the bell doesn't ring. \"Oh well, maybe next time,\" says the Strongman as he takes the hammer back from you.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -31,13 +44,24 @@
       {
         "label": "B",
         "narrative": "Test your aim by the Aesther's booth.",
-        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "if aesther or orchid in party",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "aesther",
+                "orchid"
+              ]
+            },
             "narrative": "You grip the dart tightly in your hand and fling it toward the balloon. You hear a 'pop' followed by applause. \"Congratulations!\" the Aesther claps. \"Here's your prize!\"",
             "effects": [
-              "Gain 1 collective \"Lightweight Boots\" (Item 017)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  17,
+                  1
+                ]
+              }
             ]
           },
           {
@@ -46,7 +70,9 @@
             },
             "narrative": "You fling the dart toward the board but end up accidentally hitting the Aesther in the shoulder instead.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -62,13 +88,22 @@
       {
         "label": "A",
         "narrative": "Agree to join them on stage to sing.",
-        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "if harrower in party",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "harrower"
+              ]
+            },
             "narrative": "You approach the stage fearlessly as the band begins playing their mellow music. Your hisses and chitters enchant the crowd and meshes surprisingly well with the style of music.",
             "effects": [
-              "Gain 1 reputation."
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           },
           {
@@ -77,7 +112,12 @@
             },
             "narrative": "You begin to sing but can instantly tell the crowd is unimpressed. Halfway through the song, you're booed off the stage and you sulk away back into the crowd.",
             "effects": [
-              "Lose 1 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -85,13 +125,22 @@
       {
         "label": "B",
         "narrative": "Offer to play an instrument.",
-        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "if quatryl in party",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "quatryl"
+              ]
+            },
             "narrative": "You begin playing an instrument and the crowd goes wild. Participants in the crowd begin throwing coin in your direction, and after the show the band members bring you backstage for a round of celebratory drinks.",
             "effects": [
-              "Gain 10 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  10
+                ]
+              }
             ]
           },
           {
@@ -100,7 +149,12 @@
             },
             "narrative": "You begin to sing but can instantly tell the crowd is unimpressed. Halfway through the song, you're booed off the stage and you sulk away back into the crowd.",
             "effects": [
-              "Lose 1 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -118,10 +172,21 @@
         "narrative": "Offer to buy what the Brightspark is selling.",
         "outcomes": [
           {
-            "condition": "Pay 25 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                25
+              ]
+            },
             "narrative": "\"Here you go!\" the Brightspark pulls out a small circular device from underneath his labcoat. \"Your coin will go a long way with helping us develop new technology at the University.\"",
             "effects": [
-              "Gain 1 collective \"Translocation Device\" (Item 27)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  27,
+                  1
+                ]
+              }
             ]
           },
           {
@@ -130,7 +195,9 @@
             },
             "narrative": "\"You don't want it? I'm sure I'll find someone else that will.\"",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -142,8 +209,19 @@
           {
             "narrative": "\"You drive a hard bargain,\" the Brightspark pauses with his finger on his lip. \"You know what? For the University, I'll sell it to you for fifteen gold. Final offer.\"",
             "effects": [
-              "Lose 15 collective gold.",
-              "Gain 1 collective \"Translocation Device\" (Item 27)."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  15
+                ]
+              },
+              {
+                "type": "itemCollective",
+                "values": [
+                  27,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -163,7 +241,14 @@
           {
             "narrative": "You declare the Aeromancer to be correct and the Rimehearth storms off in anger. \"Thank you, dear stranger. Here, take this wand so you can show the world how powerful it is to blast your enemies away with a gust of wind.\"",
             "effects": [
-              "Gain 1 collective \"Wand of Storms\" (Item 84)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  84,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -175,7 +260,14 @@
           {
             "narrative": "You declare the Rimehearth to be correct and the Aeromancer expresses disgust before turning its head and walking away. \"Thank you for supporting the power of the flames,\" the Rimehearth nods. \"Here, take this so you can spread the power of fire across the world.\"",
             "effects": [
-              "Gain 1 collective \"Wand of Infernos\" (Item 85)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  85,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -195,7 +287,9 @@
           {
             "narrative": "You demand the Harrower pay you in gold coin, and it hastily snatches the bag of jewels and proceeds to turn away. The rest of the day passes with no other customers visiting your stall. You return home at the end of the day, wondering what could have been.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -227,7 +321,12 @@
           {
             "narrative": "You offer to investigate the mansion and Shiela claps her hands together in excitement, \"Amazing! I knew I could count on you. That place simply spooks me,\" she shudders. \"Here, let me get you the coordinates and you can be on your way.\"",
             "effects": [
-              "Unlock \"Haunted Manor\" 44."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "44"
+                ]
+              }
             ]
           }
         ]
@@ -235,12 +334,14 @@
       {
         "label": "B",
         "narrative": "Demand a larger sum for the task.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You agree to investigate the mansion in exchange for a larger sum. \"How dare you! I thought we were friends!\" Shiela scoffs before standing up and angrily storming out of the tavern.",
-            "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -260,7 +361,9 @@
           {
             "narrative": "You inquire about their flavor and Gables looks around nervously as he places the turkey down behind him. \"These are specially trained turkeys! How dare you suggest eating one!\" he exclaims in a loud voice. His voice softens as he says, \"do you know what it would do to my reputation if people started eating these?\" Gables turns to walk away, but not before flashing you a wink and whispering in your ear, \"quite delicious.\"",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -272,7 +375,12 @@
           {
             "narrative": "You offer to buy the battle turkey and Gables eyes light up with joy. \"First sale of the day! Here's Sally, best take good care of her.\"",
             "effects": [
-              "Lose 10 collective GOLD.",
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              },
               "At start of scenario, one character performs: Summon Battle Turkey"
             ]
           }
@@ -291,7 +399,16 @@
         "narrative": "Point and laugh at the Vermlings for their ineptitude.",
         "outcomes": [
           {
-            "narrative": "You point and laugh at the Vermlings and soon a crowd gathers and joins you in laughter. Embarrassed, the group of Vermlings disband but not before they give you a hard staredown."
+            "narrative": "You point and laugh at the Vermlings and soon a crowd gathers and joins you in laughter. Embarrassed, the group of Vermlings disband but not before they give you a hard staredown.",
+            "effects": [
+              {
+                "type": "event",
+                "values": [
+                  "road",
+                  "32"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -300,7 +417,16 @@
         "narrative": "Their trouble is no laughing matter; give them the help they need.",
         "outcomes": [
           {
-            "narrative": "You help the Vermlings unscrew the lightbulb and they squeal with excitement as it twists out from the socket. They take turns holding it in awe and passing it around as they thank you for your help before scurrying off, leaving the street in darkness."
+            "narrative": "You help the Vermlings unscrew the lightbulb and they squeal with excitement as it twists out from the socket. They take turns holding it in awe and passing it around as they thank you for your help before scurrying off, leaving the street in darkness.",
+            "effects": [
+              {
+                "type": "event",
+                "values": [
+                  "road",
+                  "31"
+                ]
+              }
+            ]
           }
         ]
       }
@@ -319,7 +445,12 @@
           {
             "narrative": "They continue calling your name as you slink out the back door. Looks like they'll have to find another patron to fill the slot.",
             "effects": [
-              "Lose 1 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -331,7 +462,7 @@
           {
             "narrative": "You go on stage and begin singing and dancing. A nearby Quatryl tosses you a few balls and you begin juggling them as you dance. The crowd begins clapping along to your singing and your act is followed by a roaring applause. You're pleasantly surprised when you hear your name being called up as one of the winners of the show.",
             "effects": [
-              "One player gains one ⬡ enhancement to any level 1 or X card."
+              "One player gains one %game.enhancement.plus% enhancement to any level 1 or X card."
             ]
           }
         ]
@@ -351,8 +482,18 @@
           {
             "narrative": "You take a few coins out from your pocket and drop them in his tin. The Inox flashes a wide toothless smile and squeals out of excitement. Based on the look on his face, you can tell that you've made his day.",
             "effects": [
-              "Lose 5 collective GOLD.",
-              "Gain 1 reputation."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -364,7 +505,12 @@
           {
             "narrative": "You reach into your pockets and pull out a handful of coins. The Inox lets out a small squeal of joy as he extends the cup further toward you. As your hand nears the tin, you drop the coin in before snatching it out of his hands. You dash as fast as you can in the opposite direction without looking back. You didn't stick around long enough to see his reaction, but you've collected enough coin for a hearty round of drinks tonight.",
             "effects": [
-              "Gain 15 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              }
             ]
           }
         ]
@@ -382,10 +528,21 @@
         "narrative": "Buy the shield from the Inox.",
         "outcomes": [
           {
-            "condition": "Pay 30 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                30
+              ]
+            },
             "narrative": "You hand the Inox the gold and he looks around once more to ensure there are no witnesses. He slides out a large shield from beneath his coat and hands it to you before hastily departing the scene.",
             "effects": [
-              "Gain 1 collective \"Drakescale Shield\" (Item 37)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  37,
+                  1
+                ]
+              }
             ]
           },
           {
@@ -393,8 +550,11 @@
               "type": "otherwise"
             },
             "narrative": "\"Well, if you won't buy it, I'm sure I'll find some else who will. Scram.\"",
+            "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -402,12 +562,17 @@
       {
         "label": "B",
         "narrative": "Threaten to report the Inox for illegal trading.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You threaten to report the Inox for trading without a permit and he scoffs in return. \"You wouldn't dare!\" Moments later, you return to the scene with two city guards and they proceed to arrest the Inox. \"Thank you, loyal citizen,\" one of the city guards commends you. \"We appreciate you doing your part to keep these streets clean.\"",
-            "returnToDeck": true,
             "effects": [
-              "Gain 1 prosperity."
+              {
+                "type": "prosperity",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -425,10 +590,21 @@
         "narrative": "Buy the dagger from the Inox.",
         "outcomes": [
           {
-            "condition": "Pay 15 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                15
+              ]
+            },
             "narrative": "You hand the Inox the gold and he looks around once more to ensure there are no witnesses. He slides out a small dagger from beneath his coat and hands it to you before hastily departing the scene.",
             "effects": [
-              "Gain 1 collective \"Drakescale Dagger\" (Item 38)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  38,
+                  1
+                ]
+              }
             ]
           },
           {
@@ -438,7 +614,9 @@
             "narrative": "\"Well, if you won't buy it, I'm sure I'll find some else who will. Scram.\"",
             "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -449,9 +627,14 @@
         "outcomes": [
           {
             "narrative": "You threaten to report the Inox for trading without a permit and his face turns white. \"Please, no! I can't afford to spend any more time in jail. Here, take the dagger! Just promise me you won't tell anyone!\"",
-            "removeFromDeck": true,
             "effects": [
-              "Gain 1 collective \"Drakescale Dagger\" (Item 38)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  38,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -471,7 +654,7 @@
           {
             "narrative": "You tell Shiela that time is money, and she blushes as tears swell up in her eyes. \"I'm terribly sorry, but business has been slow,\" she stammers as she opens her cash register to reveal it to be completely empty. \"I'm afraid I have no gold at the moment, but I can offer you a discount on a potion instead.\"",
             "effects": [
-              "One character may purchase one ITEM from the supply for half price (rounded down)."
+              "One character may purchase one %game.itemSlot:small% item from the supply for half price (rounded down)."
             ]
           }
         ]
@@ -483,7 +666,7 @@
           {
             "narrative": "You tell Shiela not to worry about it, and she blushes. \"Nonsense! You're a great friend, and it's completely my fault. At the very least, let me offer you one of my potions at no cost.\"",
             "effects": [
-              "Gain one ITEM from the supply with a value of 30 gold or less."
+              "Gain one %game.itemSlot:small% item from the supply with a value of 30 gold or less."
             ]
           }
         ]
@@ -515,7 +698,12 @@
           {
             "narrative": "You quickly place your mug under the tap and begin to fill the glass with ale. As you top off the drink, you look up to see the bartender standing over you with his arms crossed and eyes narrowed. You attempt to guzzle the ale as fast as you can before being forcefully escorted out of the tavern.",
             "effects": [
-              "Lose 1 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -535,7 +723,13 @@
           {
             "narrative": "You softly whistle and catch the bird's attention. It turns its head sideways as you make clicking noises with your tongue and slowly approach the bird. It flies toward you as you turn the pot over, trapping the bird inside. You make your way to the Travelers District where Sir Kenhaven resides and knock on his mansion door. After handing the bird over, the servant who answered the door assures you that Sir Kenhaven will hear about this when he returns from his travels, and welcomes you back to visit another time.",
             "effects": [
-              "Add City Event 31 to the deck."
+              {
+                "type": "event",
+                "values": [
+                  "city",
+                  "31"
+                ]
+              }
             ]
           }
         ]
@@ -543,12 +737,14 @@
       {
         "label": "B",
         "narrative": "Sneak up on the bird and try to trap it in the pot.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You quietly tiptoe toward the bird, and as you approach arms length you lunge toward the bird with the pot. Frightened, it flaps its wings and proceeds to speedily fly away.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -564,12 +760,17 @@
       {
         "label": "A",
         "narrative": "Run back to the tavern to tell the other patrons about the sight.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You return to the tavern with claims of having witnessed the gigantic Vermling, but the rest of the patrons laugh off your story and consider your tale to be brought upon by too much ale.",
             "effects": [
-              "Lose 1 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -577,13 +778,23 @@
       {
         "label": "B",
         "narrative": "Attempt to capture the Vermling for proof.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You charge toward the Vermling and attempt to grab it but it snarls loudly as it runs off. You're in no condition to give chase, but you managed to grab a clump of fur. You return to the tavern and showcase your findings. The bartender places the fur in a jar as a trophy and the other patrons offer you a round of drinks in victory.",
             "effects": [
-              "Add Road Event 34 to the deck.",
-              "Gain 1 reputation."
+              {
+                "type": "event",
+                "values": [
+                  "road",
+                  "34"
+                ]
+              },
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -603,7 +814,12 @@
           {
             "narrative": "You ask to see the new potion and she pushes one forward to you. \"Here, take a look. This new potion will turn out to be a great investment! Crafted by the finest alchemists in the land.\"",
             "effects": [
-              "Gain \"Alchemy Potion\" (Item 28) item design."
+              {
+                "type": "itemDesign",
+                "values": [
+                  28
+                ]
+              }
             ]
           }
         ]
@@ -635,8 +851,18 @@
           {
             "narrative": "You begin chanting along with the crowd when a group of city guards arrive to break up the protest. They take down all names and collect a small fine from each protester for being a public nuisance.",
             "effects": [
-              "Lose 1 reputation.",
-              "Lose 5 gold each."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "loseGold",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -648,8 +874,18 @@
           {
             "narrative": "You demand the Inox move aside but he adamantly refuses. A screaming match ensues, and a group of city guards arrive to break up the protest and mistaken your desire for ale for a desire for peace. They commend your efforts to break up the protest as they collect a small fine from each protestor, and one of the city guards slips you a small pouch of coin out of appreciation.",
             "effects": [
-              "Gain 1 reputation.",
-              "Gain 5 gold each."
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -665,13 +901,17 @@
       {
         "label": "A",
         "narrative": "Accept the job to help the Brewmaster secure his shipment.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You spend the night accompanying the shipment with the Brewmaster, hoping Shiela won't mind your absence. At the end of the night, the Brewmaster thanks you and offers you a special brew he calls 'Liquid Rage' for your troubles.",
             "effects": [
-              "Gain 10 collective GOLD.",
-              "During the next scenario, one player gains the following benefit, then remove this card: During your next attack, add +2 Attack to the attack."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  10
+                ]
+              },
+              "During the next scenario, one player gains the following benefit, then remove this card: During your next attack, add %game.action.attack.valueSign:2% to the attack."
             ]
           }
         ]
@@ -702,9 +942,8 @@
         "outcomes": [
           {
             "narrative": "You lift Shiela up over your shoulder and proceed to carry her all the way to the Mixed District. As you head up the stairs to her apartment, Shiela slurs a hearty thanks and promises to repay you the next time you visit her potion shop.",
-            "returnToDeck": true,
             "effects": [
-              "Each player may purchase one item from the shop for 10 GOLD less."
+              "Each player may purchase one %game.itemSlot:small% item from the shop for 10 GOLD less."
             ]
           }
         ]
@@ -715,9 +954,13 @@
         "outcomes": [
           {
             "narrative": "You take hold of Sheila as the bartender calls out to thank you. As soon as you reach the alleyway outside, you look around to ensure there are no witnesses before gently placing her body down next to a heap of garbage, carefully avoiding the broken glass scattered on the ground. You head straight home with little regard for her wellbeing and proceed to get a full nights rest.",
-            "removeFromDeck": true,
             "effects": [
-              "Start scenario with STRENGTHEN."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "strengthen"
+                ]
+              }
             ]
           }
         ]
@@ -737,7 +980,9 @@
           {
             "narrative": "You begin to slay the black imps, but are too many to count. It seems that for every black imp you kill, another two take its place. Weary from slinging your blade, you eventually leave the establishment with a lingering curiosity as to how this infestation occurred in the first place.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -769,7 +1014,7 @@
           {
             "narrative": "\"The Disappearing Trick! It's quite simple to use,\" the Quatryl glees as he proceeds to show you how to use the trick. \"Wishing you the best and please, tell your friends about us!\"",
             "effects": [
-              "During the next scenario, one player may gain INVISIBLE during their turn."
+              "During the next scenario, one player may gain %game.condition.invisible% during their turn."
             ]
           }
         ]
@@ -781,7 +1026,7 @@
           {
             "narrative": "\"The Spinning Wheel! Great trick for causing confusion,\" the Quatryl joyfully exclaims as he proceeds to show you how to use the trick. \"Don't forget to spread the word about the shop opening!\"",
             "effects": [
-              "All monsters in the first room start scenario with MUDDLE."
+              "All monsters in the first room start scenario with %game.condition.muddle%."
             ]
           }
         ]
@@ -801,7 +1046,9 @@
           {
             "narrative": "You corner the metal miscreant against the outer walls of the city. It turns, as if noticing you for the first time, when it suddenly lunges. You grapple its arms easily when a third one made of wicked metal protrudes from its body, unfolding from some hidden compartment. You try to throw the thing away but it holds you fast, its intent clear. Then suddenly the mechanical monstrosity shudders as sparks fly from its backside, slumping forward, cold and quiet. A Quatryl in a blue coat approaches. She looks at you, then to the machine, then back at you and finally says, \"Well, that wasn't supposed to happen.\"",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -813,7 +1060,9 @@
           {
             "narrative": "Following at a safe distance, you're able to keep an eye on the bronze creature while not being discovered. It stops at the city walls, appearing as best you can tell to be looking to the top. You step out from your hiding spot when the creature finally notices you. It scrabbles the wall, digging rough pits with its strong metal clamps. As quickly as it takes you to decide to nock an arrow, the thing is up and over the wall. You try to make sense of the peculiar situation when a Quatryl in a blue coat approaches you. She looks to the wall, and then to you, and finally says, \"Well, that wasn't supposed to happen.\"",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -833,7 +1082,12 @@
           {
             "narrative": "You explain to the Valrath that the price was 30 gold and have you several witnesses in the Sleeping Lion to corroborate your story. Not wanting to soil his reputation at the tavern, the Valrath grumbles as he hands you the rest of the coin before shooing you away. It'll be the last time you work for him, but at least you've earned your keep for today.",
             "effects": [
-              "Gain 30 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  30
+                ]
+              }
             ]
           }
         ]
@@ -845,8 +1099,18 @@
           {
             "narrative": "You begin to beat upon the Valrath who quickly drops to the ground in fear. The Valrath begs for mercy as you deal each blow and offers to empty his wallet. Having taught the Valrath a lesson, you hastily take all the coin he has to offer before leaving him to softly weep alone on the floor.",
             "effects": [
-              "Gain 40 collective GOLD.",
-              "Lose 1 reputation."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  40
+                ]
+              },
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -866,8 +1130,18 @@
           {
             "narrative": "You draw your blade and charge forward with a roar. Not wanting to be harmed, the bandits scatter in all directions, leaving the grateful old man with his coin behind.",
             "effects": [
-              "Gain 8 experience each.",
-              "Gain 1 prosperity."
+              {
+                "type": "experience",
+                "values": [
+                  8
+                ]
+              },
+              {
+                "type": "prosperity",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -879,8 +1153,18 @@
           {
             "narrative": "You jump into the fray and begin kicking the man as he lays on the floor groaning with his arms wrapped around his knees. After a minute or so, the man agrees to empty his pockets and the bandits leave you with your share of the plunder.",
             "effects": [
-              "Gain 15 collective gold.",
-              "Lose 1 reputation."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              },
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -900,7 +1184,7 @@
           {
             "narrative": "You intervene on behalf of the human and demand the Harrower leave the premises. Outnumbered, the Harrower lets out a shrill noise before storming away. The human gratefully hands you a canister of poison gas used in his line of work and proceeds to enter the shop.",
             "effects": [
-              "During the first round of the next scenario, all characters add POISON to all their attacks."
+              "During the first round of the next scenario, all characters add %game.condition.poison% to all their attacks."
             ]
           }
         ]
@@ -912,7 +1196,7 @@
           {
             "narrative": "You intervene on behalf of the harrower and demand the human leave it alone. Outnumbered, the human curses under his breath as he turns around and enters the shop. The Harrower chitters gleefully and explains that it belongs to a sect of medically inclined Harrowers and is willing to aid you on your next journey.",
             "effects": [
-              "During the next scenario, all characters are immune to MUDDLE."
+              "During the next scenario, all characters are immune to %game.condition.muddle%."
             ]
           }
         ]
@@ -933,7 +1217,12 @@
           {
             "narrative": "You point to the amulet of security and a frown falls upon the Vermling's face. \"You have been warned! Curses upon you!\"",
             "effects": [
-              "Start scenario with CURSE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
             ]
           }
         ]
@@ -962,7 +1251,7 @@
       {
         "label": "A",
         "narrative": "Choose the amulet of security.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You point to the amulet of security and a smile forms upon the Vermling's face. \"You shall be blessed! Blessings upon you!\"",
@@ -975,12 +1264,17 @@
       {
         "label": "B",
         "narrative": "Choose the amulet of restoration.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You point to the amulet of restoration and a frown falls upon the Vermling's face. \"You have been warned! Curses upon you!\"",
             "effects": [
-              "Start scenario with CURSE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
             ]
           }
         ]
@@ -1000,8 +1294,18 @@
           {
             "narrative": "You approach the Inox from behind, drink in hand, and pour the remainder of the glass over his head. He turns around to face you, horns dripping with ale, before grumbling to his friends. Seeing you mean business, the group of Inox quickly shuffle themselves out of the tavern, leaving you with a cheering crowd and a table full of untouched drinks to enjoy.",
             "effects": [
-              "Gain 5 experience each.",
-              "Gain 1 reputation."
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1013,7 +1317,12 @@
           {
             "narrative": "You quietly order another drink as the Inox continue their bellowing. The noise gets so loud that you decide to call it an early night and go home to sleep off the incident. The Inox cheer and spit in your direction as you leave the tavern shamefaced.",
             "effects": [
-              "Lose 1 MORALE each."
+              {
+                "type": "loseBattleGoal",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1061,12 +1370,14 @@
       {
         "label": "A",
         "narrative": "Explain you must have gotten lost.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You explain that you must have lost on your way. \"Leave here at once,\" one of the guards snarl. \"This is no place for lost fools.\"",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -1074,12 +1385,16 @@
       {
         "label": "B",
         "narrative": "Request a tour of the mansion.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You ask the guards for a tour of the mansion, and before they could respond you hear a voice call out from behind. \"They're with me!\" Sir Kenhaven himself appears and the guards quickly move out of his way. \"Welcome to my mansion grounds. As an adventurer, I'm sure you'd appreciate the labyrinth maze I put together. There's a great reward for anyone who solves the puzzle and escapes. Care to see it?\"",
             "effects": [
-              "Unlock \"Mansion Maze\" (43)."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "43"
+                ]
+              }
             ]
           }
         ]
@@ -1099,7 +1414,13 @@
           {
             "narrative": "You decide to enter Shiela's potion shop and she embraces you as you walk through the door. \"Thank you so much for getting me home safely the other day!\" Shiela beams with enthusiasm. \"Here, we just got a batch of new potions in this morning. Take one, on me!\"",
             "effects": [
-              "Gain 1 collective \"Intoxicating Potion\" (Item 29)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  29,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1111,8 +1432,18 @@
           {
             "narrative": "You decide to head into the armory and are greeted by a tall Valrath wearing light plate armor. He happily escorts you into the shop and proceeds to show you his latest wares.",
             "effects": [
-              "Gain \"Woven Plate Armor\" (Item 23) item design.",
-              "Gain \"Mantle of Purity\" (Item 24) item design."
+              {
+                "type": "itemDesign",
+                "values": [
+                  23
+                ]
+              },
+              {
+                "type": "itemDesign",
+                "values": [
+                  24
+                ]
+              }
             ]
           }
         ]
@@ -1132,7 +1463,12 @@
           {
             "narrative": "You tell the man that things have been going well since your last encounter: \"I knew karma would take care of you! Always does!\" He stands up from tying his shoes and lifts them up for you to see. \"Great pair, by the way. Why don't I tell you where I got them from, in case you ever find yourself needing a pair?\"",
             "effects": [
-              "Gain \"Lightweight Boots\" (Item 17) item design."
+              {
+                "type": "itemDesign",
+                "values": [
+                  17
+                ]
+              }
             ]
           }
         ]
@@ -1144,7 +1480,13 @@
           {
             "narrative": "You remind the man that he left you empty-handed that day and his face turns red as he begins to stammer. \"Well, I, uh... haven't got much...\" You point toward the shiny pair of boots he's wearing and make it clear that he won't be leaving without repaying your kindness. \"What's a pair of shoes anyways?\" he laughs nervously as he slips them off and hands them to you.",
             "effects": [
-              "Gain 1 collective \"Lightweight Boots\" (Item 17)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  17,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1164,7 +1506,12 @@
           {
             "narrative": "You insist he interpret the dream at no charge and remind him of the time you rescued him from a bear. With an angry look on his face, he consents not to charge you. He pays little attention as you speak, and as you conclude his sour expression turns into a devilish smile as he proceeds to explain that your nightmare was meant to give you a glimpse of the impending misfortune you are due to experience.",
             "effects": [
-              "All start scenario with CURSE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
             ]
           }
         ]
@@ -1176,7 +1523,7 @@
           {
             "narrative": "You pay the Aesther what you have and proceed to relay over your dream. He concentrates intensely as he listens, and when you finish speaking he opens his eyes and proceeds to explain that your nightmare was meant to give you a glimpse of the impending misfortune your enemies are due to experience.",
             "effects": [
-              "Monsters start scenario with CURSE x2."
+              "Monsters start scenario with %game.condition.curse% x2."
             ]
           }
         ]
@@ -1194,9 +1541,24 @@
         "narrative": "Head to the technology section to scout for new weaponry.",
         "outcomes": [
           {
-            "narrative": "You head straight to the technology section of the fair and spend hours browsing through the impressive displays. Towards the end, a Quatryl motions you forward and places two pairs of odd looking shoes on the table.",
+            "narrative": "You head straight to the technology section of the fair and spend hours browsing through the impressive displays. Towards the end, a Quatryl motions you forward and places two pairs of odd looking shoes on the table. !FIX OR!",
             "effects": [
-              "Gain 1 collective \"Boots of Speed\" (Item 15) or 1 collective \"Comfortable Shoes\" (Item 29)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  15,
+                  1,
+                  "gh"
+                ]
+              },
+              {
+                "type": "itemCollective",
+                "values": [
+                  29,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -1208,7 +1570,14 @@
           {
             "narrative": "You spend the day perusing the science section of the fair, marveling at the various potions and medical devices. Towards the end, a smiling man beckons you towards his direction.",
             "effects": [
-              "Gain 1 collective \"Major Healing Potion\" (Item 27)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  27,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -1226,10 +1595,20 @@
         "narrative": "Donate gold to the University in good faith.",
         "outcomes": [
           {
-            "condition": "Pay 5 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                5
+              ]
+            },
             "narrative": "The man thanks you profusely for your donation and promises to put up a dedication plaque in your honor.",
             "effects": [
-              "Gain 2 reputation."
+              {
+                "type": "reputation",
+                "values": [
+                  2
+                ]
+              }
             ]
           },
           {
@@ -1238,7 +1617,12 @@
             },
             "narrative": "The man curses you for your stinginess until he is kicked out by the bartender for harassment. Before leaving, the man vows to spread word of your distaste for philanthropic endeavors.",
             "effects": [
-              "Lose 1 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1250,8 +1634,19 @@
           {
             "narrative": "The man offers you an experimental drug from the laboratory in exchange for a larger donation. Curious, you happily comply and pay the man.",
             "effects": [
-              "Lose 15 collective gold.",
-              "Gain 1 collective \"Booster Shot\" (Item 49)."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  15
+                ]
+              },
+              {
+                "type": "itemCollective",
+                "values": [
+                  49,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1267,13 +1662,23 @@
       {
         "label": "A",
         "narrative": "Buy the whistle from the Orchid.",
-        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "PAY 15 COLLECTIVE GOLD",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                15
+              ]
+            },
             "narrative": "After a bit of price negotiation, the Orchid agrees to a fair price and sells you the whistle.",
             "effects": [
-              "Gain 1 collective \"Summoners Whistle\" (Item 46)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  46,
+                  1
+                ]
+              }
             ]
           },
           {
@@ -1281,8 +1686,11 @@
               "type": "otherwise"
             },
             "narrative": "You can't seem to agree on a fair price. Disappointed, the Orchid turns and quickly leaves.",
+            "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -1292,10 +1700,35 @@
         "narrative": "Try to charm the Orchid into giving it to you for free.",
         "outcomes": [
           {
-            "condition": "IF ORCHID IN PARTY",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "orchid"
+              ]
+            },
             "narrative": "You begin to relay tales of your past, and the Orchid smiles and relates to your stories. After a few minutes the Orchid gleefully hands over the whistle, happy to have made a new friend.",
             "effects": [
-              "Gain 1 collective \"Summoners Whistle\" (Item 46)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  46,
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
             ]
           }
         ]
@@ -1323,12 +1756,17 @@
       {
         "label": "B",
         "narrative": "Politely decline, you have better things to do tonight.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "The Chieftain is saddened by your declination and vows to have a good time without you. To assuage her disappointment, you offer to sponsor drinks for the evening.",
-            "returnToDeck": true,
             "effects": [
-              "Lose 10 collective gold."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -1348,7 +1786,12 @@
           {
             "narrative": "You accept the job and spend the day hauling stone for the builders. Weary from a full days work, you accept the payment and head to the Sleeping Lion to enjoy the rest of the night off.",
             "effects": [
-              "Gain 10 gold each."
+              {
+                "type": "gold",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -1360,8 +1803,18 @@
           {
             "narrative": "You offer to volunteer and the boy points you in the direction of the wall. You spend hours helping out where you can, and at the end of the day the repairmen offer you a share of their payment in appreciation for your hard work.",
             "effects": [
-              "Gain 5 gold each.",
-              "Gain 1 reputation."
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1381,7 +1834,12 @@
           {
             "narrative": "You approach the Bombards and offer to supervise the shipment for a fee. Happy to have found someone to watch the shipment, they offer you a hefty sum but warn you that they'll be taking inventory afterwards and will hunt you down if anything goes missing. The night proves uneventful as you proceed to supervise the shipment, ensuring all inventory remains intact. A Bombard greets you later that night at the Sleeping Lion and pays you in full for a job well done.",
             "effects": [
-              "Gain 20 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  20
+                ]
+              }
             ]
           }
         ]
@@ -1393,7 +1851,13 @@
           {
             "narrative": "You take note of the details of the shipment and arrive at the docks late at night, finding several crates of unattended goods. You help yourself to a piece of equipment from within the crate and quickly exit the scene before a witness could show up.",
             "effects": [
-              "Gain 1 collective \"Canister Projectile\" (Item 44)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  44,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1413,8 +1877,18 @@
           {
             "narrative": "The fundraiser smiles as he collects the gold from the palm of your hand. \"Please, allow us to bless you!\" he exclaims as he ushers over several clergymen. You can never refuse a good blessing.",
             "effects": [
-              "Lose 5 collective GOLD.",
-              "All start scenario with BLESS."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
             ]
           }
         ]
@@ -1426,8 +1900,19 @@
           {
             "narrative": "The fundraiser jumps for joy when he sees you produce twenty gold coins from your pouch. \"Marvelous! On behalf of the Great Oak, please take this blessed mitre as a token of our appreciation,\" the fundraiser glees as he takes the mitre off of his head and places it on yours. \"Bless you, traveler, bless you!\"",
             "effects": [
-              "Lose 20 collective GOLD.",
-              "Gain 1 collective \"Resplendent Mitre\" (Item 43)."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  20
+                ]
+              },
+              {
+                "type": "itemCollective",
+                "values": [
+                  43,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1447,8 +1932,18 @@
           {
             "narrative": "You take the side of the Hierophant, much to the dismay of the Inox. \"Thank you, dear friends!\" the Hierophant beams. \"Your allegiance shall be rewarded. We shall meet again soon!\"",
             "effects": [
-              "Unlock \"Oak Invasion A\" (49).",
-              "Party Achievement: \"Oaks Alliance\"."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "49"
+                ]
+              },
+              {
+                "type": "partyAchievement",
+                "values": [
+                  "oaks-alliance"
+                ]
+              }
             ]
           }
         ]
@@ -1460,8 +1955,18 @@
           {
             "narrative": "You take the side of the Inox and the Hierophant shakes his fist and yells, \"you shall regret this!\" The Inox shake your hand as they thank you for your support and provide you with the coordinates of their campground.",
             "effects": [
-              "Unlock \"Oak Invasion B\" (50).",
-              "Party Achievement: \"Inox Alliance\"."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "50"
+                ]
+              },
+              {
+                "type": "partyAchievement",
+                "values": [
+                  "inox-alliance"
+                ]
+              }
             ]
           }
         ]
@@ -1481,7 +1986,23 @@
           {
             "narrative": "A few sponsored drinks bring about information leading to the Vermlings whereabouts. Known as the 'Drake Porter,' this Vermling has been illegally smuggling drakes in from beyond the border and selling their hides in the Black Market. You take note of the location and prepare yourself for the journey.",
             "effects": [
-              "Unlock \"Smugglers Hideout\" 40 and mark this checkbox ⬜.",
+              {
+                "type": "and",
+                "values": [
+                  {
+                    "type": "unlockScenario",
+                    "values": [
+                      "40"
+                    ]
+                  },
+                  {
+                    "type": "checkbox",
+                    "values": [
+                      "mark this checkbox"
+                    ]
+                  }
+                ]
+              },
               "If both checkboxes on this card are marked, remove this card."
             ]
           }
@@ -1494,7 +2015,23 @@
           {
             "narrative": "It takes a bit of prodding and bribing but you manage to learn the whereabouts of the corrupt Savvas. This power-hungry Savvas became addicted to the energy within the Void and has been wreaking havoc each night, causing vast amounts of property damage throughout the city.",
             "effects": [
-              "Unlock \"Curse of the Void\" 41 and mark this checkbox ⬜.",
+              {
+                "type": "and",
+                "values": [
+                  {
+                    "type": "unlockScenario",
+                    "values": [
+                      "41"
+                    ]
+                  },
+                  {
+                    "type": "checkbox",
+                    "values": [
+                      "mark this checkbox"
+                    ]
+                  }
+                ]
+              },
               "If both checkboxes on this card are marked, remove this card."
             ]
           }
@@ -1515,8 +2052,18 @@
           {
             "narrative": "As the girl approaches, you quickly leap toward her and tackle her to the ground. The Inox swings his chain forward and shackles her feet together. After catching his breath, the Inox begins to thank you. \"She's been wanted in several districts for thievery,\" the Inox explains as he pulls out a large pouch. \"Thank you for your efforts. I'll be collecting a great bounty for this one. Here's some coin for your help.\"",
             "effects": [
-              "Gain 15 GOLD each.",
-              "Gain 1 reputation."
+              {
+                "type": "gold",
+                "values": [
+                  15
+                ]
+              },
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1528,7 +2075,12 @@
           {
             "narrative": "You attempt to step out of the way but the girl shoves you aside, causing you to stumble into a nearby stall containing glassware. You hear a large crash as you fall to the ground, and the shop-owner angrily demands compensation for the broken goods.",
             "effects": [
-              "Lose 15 collective GOLD."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  15
+                ]
+              }
             ]
           }
         ]
@@ -1548,7 +2100,12 @@
           {
             "narrative": "With plenty of profit to share, you reach into your pouch and hand a few gold coins to the lurker. It clicks its claws together and happily scurries away, and you head to the Sleeping Lion to enjoy a well-deserved night of relaxation.",
             "effects": [
-              "Gain 20 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  20
+                ]
+              }
             ]
           }
         ]
@@ -1560,7 +2117,9 @@
           {
             "narrative": "You firmly explain to the lurker that it won't be getting any gold from you tonight. Before you can gauge its reaction, the lurker swiftly grabs the pouch from your hand with its claw and lobs it far into the ocean. You hear a soft splash in the distance as the lurker quickly scurries away, leaving you bewildered and empty-handed.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -1580,7 +2139,13 @@
           {
             "narrative": "You rush to the lurker and attempt to tackle it but it throws you off its back with great force. As you fall to the ground, several Inox carrying a battering ram call toward you. You jump to your feet and take hold of the battering ram as the Inox counts down from three before you all charge together toward the lurker. The lurker is knocked back from the battering ram and is instantly rendered unconscious. The Inox proceed to carry the lurker away, leaving the battering ram behind.",
             "effects": [
-              "Gain 1 collective \"Battering Ram\" (Item 33)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  33,
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1592,8 +2157,18 @@
           {
             "narrative": "You run to the little girl as you hear a woman crying out, \"Help! My daughter!\" You scoop the girl up into your arms and carry her to her mother, who tearfully thanks you in midst of the calamity. You turn back to see the lurker unconscious in the arms of several Inox who appear to be hauling it out of the arena.",
             "effects": [
-              "Gain 2 reputation.",
-              "Gain 1 prosperity."
+              {
+                "type": "reputation",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "type": "prosperity",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1613,7 +2188,12 @@
           {
             "narrative": "You tell the Vermling to mind to her own business and she angrily waves her staff toward you. \"You have been warned! These spirits will haunt your dreams!\" You make nothing of it and ignore her rambling as you make your way through the alley. After making it home safely, you crawl into bed and close your eyes but wake up with an insufferable headache. You can't quite remember your dreams from last night, but the sweat stains on your sheets indicate that they weren't too pleasant.",
             "effects": [
-              "Lose 1 MORALE each."
+              {
+                "type": "loseBattleGoal",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1625,7 +2205,12 @@
           {
             "narrative": "You turn around and take the longer route home. You weren't sure what the Vermling meant with her warning, but you head to bed and find yourself well-rested the next morning, ready for a brand new day.",
             "effects": [
-              "Gain 1 MORALE each."
+              {
+                "type": "battleGoal",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1677,7 +2262,12 @@
           {
             "narrative": "You kneel down on the floor and scoop up a pile of coins that fell from the Aesther's pockets. The Aesther runs out of sight as the woman cries hysterically. You look around to ensure there are no witnesses as you shuffle yourself back into the crowd.",
             "effects": [
-              "Gain 15 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              }
             ]
           }
         ]
@@ -1689,8 +2279,18 @@
           {
             "narrative": "You dash after the Aesther and tackle it to the ground. Coins scatter everywhere, and as the light begins to increase, a crowd forms a circle around you. City guards arrive to arrest the Aesther, and proceed to explain there was a bounty reward on this thief.",
             "effects": [
-              "Gain 2 reputation.",
-              "Gain 20 collective GOLD."
+              {
+                "type": "reputation",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "type": "collectiveGold",
+                "values": [
+                  20
+                ]
+              }
             ]
           }
         ]
@@ -1708,10 +2308,21 @@
         "narrative": "Offer to buy what the Aesther is selling.",
         "outcomes": [
           {
-            "condition": "PAY 30 COLLECTIVE GOLD",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                30
+              ]
+            },
             "narrative": "Here you go, the Aesther hands you the jar bursting with a soft, yet bright glow. \"Remember, this jar contains powerful healing properties. Use them wisely!\"",
             "effects": [
-              "Gain 1 collective \"Bottled Moonlight\" (Item ⧫18)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  18,
+                  1
+                ]
+              }
             ]
           },
           {
@@ -1720,7 +2331,9 @@
             },
             "narrative": "Well, if you don't want to buy it, I'm sure I'll find someone else who does. Enjoy your evening!",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -1732,7 +2345,9 @@
           {
             "narrative": "You ask the Aesther to allow you to closer examine the jar and the Aesther tosses it in your direction. Not anticipating the jar to be thrown your way, you fumble to catch it but it shatters to the ground and a burst of soft light emanates from the shattered glass. \"You fool!\" the Aesther scowls as it turns and walks away.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -1750,10 +2365,30 @@
         "narrative": "Free the trapped woman.",
         "outcomes": [
           {
-            "condition": "angry-face,brute,spellweaver,scoundrel,cragheart,mindthief",
+            "condition": {
+              "type": "character",
+              "values": [
+                "ladder-axe",
+                "three-spears",
+                "brute",
+                "lightning",
+                "tinkerer",
+                "sun",
+                "cragheart",
+                "chain-helmet",
+                "vortex"
+              ]
+            },
             "narrative": "You quickly jump into action, removing board after board to free the elderly Valrath from the wreckage. Though she is visibly shaken from being trapped, she reaches into her bag, saying, \"I appreciate your assistance. Please take this as my thanks.\"",
             "effects": [
-              "Gain 1 collective \"Amulet of Life\" (Item 24)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  24,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           },
           {
@@ -1762,7 +2397,12 @@
             },
             "narrative": "You manage to convince the onlooking crowd to help clear the wooden rubble, and before long the Valrath is freed.",
             "effects": [
-              "Gain 1 reputation."
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1772,10 +2412,24 @@
         "narrative": "Take advantage of the distraction to loot some valuables.",
         "outcomes": [
           {
-            "condition": "angry-face,spellweaver,scoundrel,mindthief",
+            "condition": {
+              "type": "character",
+              "values": [
+                "mindthief",
+                "eclipse",
+                "scoundrel",
+                "two-mini",
+                "skull"
+              ]
+            },
             "narrative": "With the crowd's attention focused on the collapse, you make your way through the unattended shop stalls, inconspicuously looting small valuables as you go.",
             "effects": [
-              "Gain 10 gold each."
+              {
+                "type": "gold",
+                "values": [
+                  10
+                ]
+              }
             ]
           },
           {
@@ -1784,8 +2438,18 @@
             },
             "narrative": "You manage to grab a few coins before your lack of stealth gives you away. Time to run before the authorities arrive!",
             "effects": [
-              "Gain 3 gold each.",
-              "Lose 1 reputation."
+              {
+                "type": "gold",
+                "values": [
+                  3
+                ]
+              },
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1803,10 +2467,54 @@
         "narrative": "Help mitigate the fire's spread.",
         "outcomes": [
           {
-            "narrative": "Without a second thought, you move through the frantic crowd to help evacuate citizens from the burning shop and keep the area clear for the Fire Brigade to operate.",
+            "narrative": "Without a second thought, you move through the frantic crowd to help evacuate citizens from the burning shop and keep the area clear for the Fire Brigade to operate."
+          },
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "ladder-axe",
+                "spellweaver",
+                "triangles",
+                "lightning",
+                "crescent-sun",
+                "galaxy"
+              ]
+            },
+            "narrative": "Your mastery of fire, along with the expertise of your former companion, swiftly bring the flames under control."
+          },
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "ladder-axe",
+                "spellweaver",
+                "triangles",
+                "lightning",
+                "crescent-sun",
+                "galaxy"
+              ]
+            },
+            "inlineEffects": true,
             "effects": [
-              "Start scenario with STRENGTHEN.",
-              "Add City Event 58 to the deck."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "strengthen"
+                ]
+              }
+            ]
+          },
+          {
+            "narrative": "The Fire Knight thanks you for your assistance and invites you to the Brigage's quarters to reminisce over your past adventures.",
+            "effects": [
+              {
+                "type": "event",
+                "values": [
+                  "city",
+                  "58"
+                ]
+              }
             ]
           }
         ]
@@ -1816,10 +2524,52 @@
         "narrative": "Help tend to the injured citizens.",
         "outcomes": [
           {
-            "narrative": "You move quickly to hold pressure on an injured man's wound as the rest of the Fire Brigade sets up their equipment.",
+            "narrative": "You move quickly to hold pressure on an injured man's wound as the rest of the Fire Brigade sets up their equipment."
+          },
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "ladder-axe",
+                "saw",
+                "sun",
+                "tinkerer",
+                "leaf"
+              ]
+            },
+            "narrative": "Your medicinal skills enable the Fire Brigade to focus on extinguishing the blaze while your tend to the injured."
+          },
+          {
+            "condition": {
+              "type": "character",
+              "values": [
+                "ladder-axe",
+                "saw",
+                "sun",
+                "tinkerer",
+                "leaf"
+              ]
+            },
+            "inlineEffects": true,
             "effects": [
-              "Start scenario with BLESS.",
-              "Add City Event 58 to the deck."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless"
+                ]
+              }
+            ]
+          },
+          {
+            "narrative": "The Fire Knight thanks you for your assistance and invites you to the Brigage's quarters to reminisce over your past adventures.",
+            "effects": [
+              {
+                "type": "event",
+                "values": [
+                  "city",
+                  "58"
+                ]
+              }
             ]
           }
         ]
@@ -1835,13 +2585,31 @@
       {
         "label": "A",
         "narrative": "Offer to assist the new chef with some spices that you found on the road.",
+        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "herbalist,quartermaster,spellweaver",
+            "condition": {
+              "type": "character",
+              "values": [
+                "angry-face",
+                "sprig",
+                "flask"
+              ]
+            },
             "narrative": "You hand over some rare spices that you found on your most recent adventure. The chef tells the other customers that you are to thank for the new flavors and buys the rest of your spices at a generous price.",
             "effects": [
-              "Gain 20 collective GOLD.",
-              "Gain 1 reputation."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  20
+                ]
+              },
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           },
           {
@@ -1850,8 +2618,18 @@
             },
             "narrative": "You produce some spices that you found on your most recent adventure. The chef tells the other customers that you are to thank for the new flavors. Unfortunately, you aren't as good at identifying plants as you thought.",
             "effects": [
-              "All start scenario with POISON.",
-              "Lose 1 reputation."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "poison"
+                ]
+              },
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1861,11 +2639,30 @@
         "narrative": "Demand the waiter to give you a refund for the disappointing meal.",
         "outcomes": [
           {
-            "condition": "brute,mindthief,scoundrel,spellweaver",
+            "condition": {
+              "type": "character",
+              "values": [
+                "mindthief",
+                "eclipse",
+                "scoundrel",
+                "vortex"
+              ]
+            },
             "narrative": "You know how to be persuasive when you need to be. After some select words with the now very nervous manager, he hands you more than a full refund while continuing to apologize for the quality of the food.",
+            "returnToDeck": true,
             "effects": [
-              "Gain 5 GOLD each.",
-              "Lose 1 reputation."
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           },
           {
@@ -1873,8 +2670,11 @@
               "type": "otherwise"
             },
             "narrative": "The manager is clearly unhappy, but offers a refund nevertheless.",
+            "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -1890,12 +2690,18 @@
       {
         "label": "A",
         "narrative": "Order the meatballs.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You've never known the Mirefoot to steer you wrong, so despite your own feelings about red berries from the road, you order the meatballs. As promised, the berry jam is the most delicious meal you've ever experienced. When you try to pay for your meal, you are told that the Mirefoot already paid your bill before leaving earlier.",
             "effects": [
-              "All start scenario with BLESS and STRENGTHEN."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless",
+                  "strengthen"
+                ]
+              }
             ]
           }
         ]
@@ -1903,13 +2709,23 @@
       {
         "label": "B",
         "narrative": "Order the duck.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You normally trust the Mirefoot, but red berries just make you too nervous, and everyone else in the restaurant seems to be thoroughly enjoying the duck. The chef was right, the duck was astounding. You pay your bill, and leave feeling well-fed and full of energy for your next adventure.",
             "effects": [
-              "All start scenario with STRENGTHEN.",
-              "Lose 3 gold each."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "strengthen"
+                ]
+              },
+              {
+                "type": "loseGold",
+                "values": [
+                  3
+                ]
+              }
             ]
           }
         ]
@@ -1927,10 +2743,23 @@
         "narrative": "Speak with the Savvas to ease tensions before they boil over.",
         "outcomes": [
           {
-            "condition": "mindthief,scoundrel,spellweaver",
+            "condition": {
+              "type": "character",
+              "values": [
+                "mindthief",
+                "music-note",
+                "cragheart",
+                "vortex"
+              ]
+            },
             "narrative": "You successfully use your abilities to calm this tense situation. Both parties agree to let their grievances rest and pass each other in peace. The Aesthers are gone, as if they'd vanished into thin air.",
             "effects": [
-              "Gain 1 reputation."
+              {
+                "type": "reputation",
+                "values": [
+                  1
+                ]
+              }
             ]
           },
           {
@@ -1939,7 +2768,12 @@
             },
             "narrative": "The tensions escalate and boil over despite your efforts. The crows scatter as dangerous elemental powers are deployed in the middle of the city. Many buildings are damaged, and the Craghearts are routed.",
             "effects": [
-              "Lose 10 collective GOLD."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -1949,9 +2783,14 @@
         "narrative": "Investigate the two Aesthers and determine what their interest is here.",
         "outcomes": [
           {
-            "narrative": "Due to the escalating situation nearby serving as distraction, you are able to approach the lurking Aesthers unseen. One of the Aesthers holds an ominously glowing amethyst. You overhear them mutter, \"...planned. Almost ready for us...\" Suddenly, the Aesthers notice you. They quickly grab the lead Cragheart and together vanish into a hurriedly conjured portal.",
+            "narrative": "Due to the escalating situation nearby serving as distraction, you are able to approach the lurking Aesthers unseen. One of the Aesthers holds an ominously glowing amethyst. You overhear them mutter, \"...planned. Almost ready for us...\"<br><br>Suddenly, the Aesthers notice you. They quickly grab the lead Cragheart and together vanish into a hurriedly conjured portal.",
             "effects": [
-              "Gain 1 CHECK each."
+              {
+                "type": "battleGoal",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -1969,10 +2808,24 @@
         "narrative": "Try to calm the Hollowpact and repair its broken mind and body.",
         "outcomes": [
           {
-            "condition": "tinkerer,spellweaver",
+            "condition": {
+              "type": "character",
+              "values": [
+                "mindthief",
+                "music-note",
+                "saw"
+              ]
+            },
             "narrative": "You are able to give the Hollowpact a brief respite from its pain. Having found a moment of lucidity, it speaks slowly, \"You see now, what I am. Not safe. Here: cleansed, for you... Safe.\" The Hollowpact haltingly presents a tattered cape and vanishes.",
             "effects": [
-              "Gain 1 collective \"Blinking Cape\" (Item 73)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  73,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           },
           {
@@ -1982,7 +2835,9 @@
             "narrative": "Despite your efforts, the Savvas deteriorates quickly. It visibly goes from agitated to enraged and beings swinging its fists at shadows. It teleports away in a fury. You fear your paths may cross again.",
             "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -1992,11 +2847,29 @@
         "narrative": "It's clear the Hollowpact is a danger to itself and others. It must be slain.",
         "outcomes": [
           {
-            "condition": "brute,scoundrel",
+            "condition": {
+              "type": "character",
+              "values": [
+                "mindthief",
+                "music-note",
+                "cragheart",
+                "vortex"
+              ]
+            },
             "narrative": "Subtly, you misdirect the distracted Hollowpact. In its weakened mental and physical state, your old ally isn't able to react fast enough to avoid your deathblow. The Savvas disintegrates into black sand.",
             "effects": [
-              "Gain 1 HIDE each.",
-              "Gain 2 gold each."
+              {
+                "type": "battleGoal",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "gold",
+                "values": [
+                  2
+                ]
+              }
             ]
           },
           {
@@ -2005,8 +2878,18 @@
             },
             "narrative": "The Hollowpact moves with amazing speed despite its debilitated state, flattening half of a shop with a blast and injuring bystanders. Eventually you are able to meet a teleporting dodge with lethal force, ending this threat for good.",
             "effects": [
-              "Lose 2 reputation.",
-              "Gain 10 experience each."
+              {
+                "type": "loseReputation",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -2027,8 +2910,18 @@
             "narrative": "You search in all the usual places, but the Viper Hunter is nowhere to be found. After giving up, you go back to the Sinking Market to investigate. The guards have taken care of the snake problem, but based on the bodies in the streets, it wasn't nearly quick enough. Then you notice. The Viper Hunter's lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack-big enough to contain a few juvenile vipers-and a note... \"Maybe I am mad after all.\"",
             "effects": [
               "Immediately retire the Viper Hunter and do not add retirement events for this character.",
-              "Lose 1 prosperity.",
-              "Lose 2 reputation."
+              {
+                "type": "loseProsperity",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "loseReputation",
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -2041,8 +2934,18 @@
             "narrative": "You charge headstrong into the chaos and begin slaughtering the vipers. They're thankfully a little more manageable than the adults, and peace is restored again quickly. Then you notice. The Viper Hunter's lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack-big enough to contain a few juvenile vipers-and a note... \"Maybe I am mad after all.\"",
             "effects": [
               "Immediately retire the Viper Hunter and do not add retirement events for this character.",
-              "Lose 1 reputation.",
-              "Gain 10 experience each."
+              {
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -2061,7 +2964,6 @@
         "outcomes": [
           {
             "narrative": "The captain smiles. \"This challenge will test your physical strength and your will to persevere. You must ensure that you do not become a liability to the rest of your crew!\" Not wanting to back down, you don the Fire Knight's weighty gear and soon find yourself crawling, climbing, lifting, and dragging more than you ever thought you could. But you never gave up, and completing the challenge has earned the crew's respect.",
-            "returnToDeck": true,
             "effects": [
               "Gain item designs 63-72 and mark this checkbox [].",
               "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
@@ -2075,7 +2977,6 @@
         "outcomes": [
           {
             "narrative": "\"A prudent decision to invest in the well-being of your crew,\" the captain replies. \"The team can often accomplish more than the individual. Now you must learn to support your crew under pressure!\" You join the crew as they rehearse various tactics of survival and rescue. Improving your ability to perform under stress and physical exhaustion will undoubtedly serve you well.",
-            "returnToDeck": true,
             "effects": [
               "Gain item designs 73-82 and mark this checkbox [].",
               "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
@@ -2156,7 +3057,12 @@
             },
             "narrative": "The bartender motions towards a group of hulky Inox, who immediately approach you to inform you that it's time to go home. You were leaving anyways.",
             "effects": [
-              "Lose 2 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -2172,12 +3078,13 @@
       {
         "label": "A",
         "narrative": "Heed her warning and ask for directions to your destination.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You ask the Orchid for directions and she points you toward the right path. You wish her well with her endeavors and reach your destination in peace.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2188,9 +3095,13 @@
         "outcomes": [
           {
             "narrative": "You offer to help the Orchid on her mission and her face lights up with contentment. She relays the coordinates of where to find the beasts and wishes you luck as she excuses herself to tend to her tribe.",
-            "removeFromDeck": true,
             "effects": [
-              "Unlock \"Unnatural Beasts\" 42."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "42"
+                ]
+              }
             ]
           }
         ]
@@ -2208,10 +3119,20 @@
         "narrative": "Light a fire and prepare to roast the dead rat.",
         "outcomes": [
           {
-            "condition": "vermling-in-party",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "vermling"
+              ]
+            },
             "narrative": "The sweet smell of burning flesh begins to fill the air as you roast the dead rat. It ends up cooking beautifully and you enjoy a hearty meal.",
             "effects": [
-              "All start scenario with STRENGTHEN."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "strengthen"
+                ]
+              }
             ]
           },
           {
@@ -2232,7 +3153,12 @@
           {
             "narrative": "You spend hours searching for another meal, but the land seems to be devoid of anything remotely edible. You reach your destination weary and hungry.",
             "effects": [
-              "All start scenario with MUDDLE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "muddle"
+                ]
+              }
             ]
           }
         ]
@@ -2252,7 +3178,12 @@
           {
             "narrative": "You extend your hand down to the Vermling and quickly pull it up as scorpions snap toward it. Had you come a few minutes later, it would've been too late. The Vermling looks up to you gratefully with watery eyes before hurriedly scurrying away.",
             "effects": [
-              "Gain 5 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -2264,7 +3195,12 @@
           {
             "narrative": "You grab a loaf of bread from your bag and throw it down into the pit. As the Vermling reaches toward it, the snakes in the pit hiss and extend their fangs. You watch in horror as the snakes indulge in their meal, leaving the bread untouched. You can't help but feel a tinge of remorse as you turn and slowly walk away.",
             "effects": [
-              "All start scenario with CURSE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
             ]
           }
         ]
@@ -2280,12 +3216,16 @@
       {
         "label": "A",
         "narrative": "Pay the Vimthreader to tend to your cut.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You pay the Vimthreader and it swiftly stitches up the laceration, chittering and hissing as it weaves each stitch. It thanks you for your payment and offers you a bizarre herbal concoction as a parting gift.",
             "effects": [
-              "Lose 5 collective GOLD.",
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
               "During the scenario, one player gains the following benefit, then remove this card: During your turn, perform \"Heal 3, Self\"."
             ]
           }
@@ -2298,7 +3238,9 @@
           {
             "narrative": "You ask the Vimthreader to experiment on your wound for free but it stands idle with no response. As you turn to leave, it grabs your arm and sits you down as it takes out a toolkit. The Harrower seems happy to have had the opportunity to stitch up the wound, but hastily ushers you out of the tent after finishing in anticipation for the next passerby.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2318,8 +3260,18 @@
           {
             "narrative": "You approach the tent and are greeted by an Inox adorned in piercings and jewelry made of teeth. You ask her what's burning in the tent, and she hands you a bowl of hot soup, explaining that she's been preparing the meat all day. Exhausted from a long day's journey, you thank the Inox and hungrily shovel the chunky soup into your mouth; it has a peculiar yet palatable flavor. You hand the empty bowl back to her while once more expressing your gratitude. On your way back to the road, you watch a second Inox dumping out a large pot filled with congealed grease and what appears to be human bones. Your stomach grumbles unpleasantly, and you feel ill.",
             "effects": [
-              "Gain 3 experience each.",
-              "All start scenario with 3 damage."
+              {
+                "type": "experience",
+                "values": [
+                  3
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "3 damage"
+                ]
+              }
             ]
           }
         ]
@@ -2331,8 +3283,20 @@
           {
             "narrative": "You enter the tent and join hands with the Inox as you sing and dance around a fire. There is a pot bubbling in the center of the fire, and the Inox take turns pausing the dancing to throw in bones while chanting before erupting into more song and dance. You've had a great time but nightfall is approaching and it's time to carry on with your journey. The Inox give you gifts to depart with as you excuse yourself from the event.",
             "effects": [
-              "Gain 5 collective gold.",
-              "Gain 1 collective \"Necklace of Teeth\" (Item 106)."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "itemCollective",
+                "values": [
+                  106,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -2364,7 +3328,9 @@
           {
             "narrative": "You reach for a long stick and use it to try lifting the turtle out of the rocks. You succeed, but the stick breaks and the turtle is sent flying over the waterfall.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2384,7 +3350,12 @@
           {
             "narrative": "You back away and let the Inox keep the bird. You spend the next few hours wandering around but the skies are empty, and eventually settle on a half-eaten bird carcass lying on the floor. You roast it and proceed to eat it, but the taste is foul and leaves you feeling sick.",
             "effects": [
-              "All start scenario with POISON."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "poison"
+                ]
+              }
             ]
           }
         ]
@@ -2394,10 +3365,21 @@
         "narrative": "You're not going anywhere. Prepare to fight to defend your dinner rights.",
         "outcomes": [
           {
-            "condition": "if inox or valrath in party",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "inox",
+                "valrath"
+              ]
+            },
             "narrative": "You bang your chest and let out a battle cry. The Inox' eyes bulge and it backs away, agreeing to let you keep the bird. It makes for a tasty meal and you feel satisfied.",
             "effects": [
-              "All start scenario with STRENGTHEN."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "strengthen"
+                ]
+              }
             ]
           },
           {
@@ -2406,7 +3388,9 @@
             },
             "narrative": "You draw your blade but the Inox is unimpressed. He lunges toward you and a brawl ensues, but you both pause at the sight of a fox running off with your meal.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2422,7 +3406,6 @@
       {
         "label": "A",
         "narrative": "Explain to the Vermling that it's harmless snow.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You explain to the Vermling that it's harmless snow, and snowfall is natural this high up in the peaks. She thanks you for clearing up the confusion and offers to accompany you on your journey.",
@@ -2435,12 +3418,16 @@
       {
         "label": "B",
         "narrative": "Quietly accept the job and agree to escort the Vermling.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You agree to escort the Vermling out of the mountains and lead her out of the snowy mountains. She thanks you, pays you and vows never to return to what she calls the 'cursed powder mountains' again.",
             "effects": [
-              "Gain 15 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              }
             ]
           }
         ]
@@ -2460,7 +3447,14 @@
           {
             "narrative": "With all your might, you manage to pull the Savvas out from the rock formation. He stumbles forward and clutches his throbbing leg, but he's smiling from ear to ear. \"Please, take this mantle I've been wearing in return for your kindness,\" the Savvas says. \"Don't worry about me, I'll make my way home.\"",
             "effects": [
-              "Gain 1 collective \"Mantle of Purity\" (Item 24)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  24,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -2472,7 +3466,14 @@
           {
             "narrative": "You ignore the Savvas groaning as you proceed to rummage through his bags. You find a peculiar pair of boots along with some rope and a blade. \"Wait, please, don't abandon me!\" the Savvas begs as you hand him the blade from the bag and leave him to figure out his own solution.",
             "effects": [
-              "Gain 1 collective \"Shoes of Phasing\" (Item 16)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  16,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -2492,7 +3493,9 @@
           {
             "narrative": "You search through the corpses, hoping to find something of value but there is nothing worth scavenging besides rotten flesh.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2503,9 +3506,13 @@
         "outcomes": [
           {
             "narrative": "You ask the Vermling to point you in the direction of the gardens. As it draws its final breath, the Vermling scratches coordinates into the dirt before collapsing to the ground.",
-            "removeFromDeck": true,
             "effects": [
-              "Unlock \"Vermling Gardens\" 46."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "46"
+                ]
+              }
             ]
           }
         ]
@@ -2525,7 +3532,13 @@
           {
             "narrative": "\"I am forever grateful,\" the Aesther bows toward you as he dusts himself off. \"I am Nerro, the noble dream interpreter who practices in the Ward of Scales. Come see me if you ever need a dream interpreted.\"",
             "effects": [
-              "Add City Event 34 to the deck."
+              {
+                "type": "event",
+                "values": [
+                  "city",
+                  "34"
+                ]
+              }
             ]
           }
         ]
@@ -2537,7 +3550,9 @@
           {
             "narrative": "You throw food in the other direction, hoping to distract the bear. You remain hopeful as the bear stands up and sniffs the air, but your hopes are then crushed when the bear leans back over the Aesther and smacks its lips. You turn away as the bear opens its jaws wide and proceeds to indulge in its tasty meal.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2569,8 +3584,18 @@
           {
             "narrative": "You pay the Aesther her fee and she begins to wave her hands over the crystal ball while humming a quiet tune. \"The battlefield lies ahead. The choices you make will dictate your fortune. Choose wisely and you shall surely prosper.\"",
             "effects": [
-              "Lose 5 collective gold.",
-              "Gain 3 experience each.",
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "experience",
+                "values": [
+                  3
+                ]
+              },
               "All players may select 3 battle goals to choose from instead of 2."
             ]
           }
@@ -2587,12 +3612,16 @@
       {
         "label": "A",
         "narrative": "Scoff at the Aesther, you don't believe in fortune telling.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You scoff at the Aesther and state your disbelief in the practice of fortune telling. She narrows her eyes and begins waving her hands over the crystal ball. \"Bad fortune awaits!\" she calls out as you proceed to exit her tent without payment.",
             "effects": [
-              "All start scenario with CURSE x2."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse:2"
+                ]
+              }
             ]
           }
         ]
@@ -2600,12 +3629,16 @@
       {
         "label": "B",
         "narrative": "Pay the Aesther to hear your fortune told.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You pay the Aesther her fee and she begins to wave her hands over the crystal ball while humming a quiet tune. \"Good fortune awaits! Your enemies will be crippled and you will have the upper hand in battle.\"",
             "effects": [
-              "Lose 5 collective GOLD.",
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
               "Monsters start scenario with CURSE x2."
             ]
           }
@@ -2622,12 +3655,16 @@
       {
         "label": "A",
         "narrative": "Take the left path through the forest.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You head into the forest and find that the bioluminescent bugs provide you with a clean, bright light that illuminates the path before you. You take advantage of the light and stride through the path, avoiding several large beehives on the way.",
             "effects": [
-              "Gain 6 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  6
+                ]
+              }
             ]
           }
         ]
@@ -2635,13 +3672,22 @@
       {
         "label": "B",
         "narrative": "Take the right path through the thorns.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You head into the thorn-laden path but find it difficult to navigate around the hazardous bushes in the dark. You end up reaching your destination with a few bleeding cuts after stumbling headfirst into a thorn-bush.",
             "effects": [
-              "All start scenario with WOUND.",
-              "All start scenario with 2 damage."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "wound"
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "2 damage"
+                ]
+              }
             ]
           }
         ]
@@ -2657,13 +3703,22 @@
       {
         "label": "A",
         "narrative": "Take the left path through the forest.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You head into the forest but the density of the trees blocks the sunlight and you have trouble staying on the path. In the midst of the darkness you accidentally stumble into a large beehive and eventually make it out of the forest with a few burning stings to remember your journey by.",
             "effects": [
-              "All start scenario with WOUND.",
-              "All start scenario with 2 damage."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "wound"
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "2 damage"
+                ]
+              }
             ]
           }
         ]
@@ -2671,12 +3726,16 @@
       {
         "label": "B",
         "narrative": "Take the right path through the thorns.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "As the sun shines down from above, you walk through the dirt path and are easily able to avoid the thornbushes in the daylight. You manage to make it through the path without a single scratch.",
             "effects": [
-              "Gain 6 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  6
+                ]
+              }
             ]
           }
         ]
@@ -2692,7 +3751,6 @@
       {
         "label": "A",
         "narrative": "Pry the saber out from the right hand.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You pry the saber from the corpses hand and hold it tight. It's rusty and deteriorated but you could likely get a few good swings out of it.",
@@ -2706,7 +3764,6 @@
       {
         "label": "B",
         "narrative": "Grab the shield from the left hand.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You slide the shield out from between the skeleton's bony fingers and clang your blade against it. It's in poor shape but likely to protect you from a few blows before it decays.",
@@ -2728,10 +3785,14 @@
       {
         "label": "A",
         "narrative": "Offer to buy the drake totem.",
-        "removeFromDeck": true,
         "outcomes": [
           {
-            "condition": "Pay 10 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                10
+              ]
+            },
             "narrative": "The drake totem!\" the Inox smiles as he places a totem resembling a drake on the table. \"Used throughout the ages as an emblem to confuse enemies. Excellent choice.",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle add MUDDLE to all melee attacks."
@@ -2743,7 +3804,9 @@
             },
             "narrative": "Not today, huh?\" the Inox frowns. \"May the animal spirits be with you.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2751,10 +3814,14 @@
       {
         "label": "B",
         "narrative": "Offer to buy the eagle totem.",
-        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "Pay 10 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                10
+              ]
+            },
             "narrative": "The eagle totem!\" the Inox nods in agreement as he places a totem resembling an eagle on the table. \"Sought after by many healers as a sign of watchfulness. Wise choice.",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. Whenever a character ends their turn adjacent to the totem, they may perform \"Heal 1, Self\"."
@@ -2766,7 +3833,9 @@
             },
             "narrative": "Maybe a different day then.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2782,10 +3851,14 @@
       {
         "label": "A",
         "narrative": "Offer to buy the bull totem.",
-        "removeFromDeck": true,
         "outcomes": [
           {
-            "condition": "Pay 10 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                10
+              ]
+            },
             "narrative": "The bull totem!\" the Inox smiles as he places a totem resembling a bull on the table. \"Channels rage into tactical aggression. Powerful choice.",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle gain Retaliate 1."
@@ -2797,7 +3870,9 @@
             },
             "narrative": "Not today, huh?\" the Inox frowns. \"May the animal spirits be with you.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2805,10 +3880,14 @@
       {
         "label": "B",
         "narrative": "Offer to buy the dog totem.",
-        "removeFromDeck": true,
         "outcomes": [
           {
-            "condition": "Pay 10 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                10
+              ]
+            },
             "narrative": "The dog totem!\" the Inox nods in agreement as he places a totem resembling a dog on the table. \"Represents the guard dogs used in battle to help protect their owners. Smart choice.",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle gain Shield 1."
@@ -2820,7 +3899,9 @@
             },
             "narrative": "Maybe a different day then.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2838,9 +3919,13 @@
         "narrative": "Offer to buy the kangaroo totem.",
         "outcomes": [
           {
-            "condition": "Pay 10 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                10
+              ]
+            },
             "narrative": "The Inox smiles as he places a totem resembling a kangaroo on the table. \"Used to instill a sense of balance within those who gaze at it. Brilliant choice.\"",
-            "returnToDeck": true,
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle gain Advantage on all attacks."
             ]
@@ -2850,9 +3935,10 @@
               "type": "otherwise"
             },
             "narrative": "The Inox frowns. \"May the animal spirits be with you.\"",
-            "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2862,9 +3948,13 @@
         "narrative": "Offer to buy the camel totem.",
         "outcomes": [
           {
-            "condition": "Pay 10 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                10
+              ]
+            },
             "narrative": "The Inox nods in agreement as he places a totem resembling a camel on the table. \"Thought to aid any to endure the harshest of conditions. Perfect choice.\"",
-            "returnToDeck": true,
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle are immune to negative conditions."
             ]
@@ -2874,9 +3964,10 @@
               "type": "otherwise"
             },
             "narrative": "Maybe a different day then.",
-            "returnToDeck": true,
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2892,7 +3983,6 @@
       {
         "label": "A",
         "narrative": "Try the bubbling red liquid.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You sip the bubbling red liquid, and it has an oddly sour berry flavor. Moments after you finish the last drop, you feel a surge of adrenaline run through your veins. You feel energized and your senses are heightened.",
@@ -2905,7 +3995,6 @@
       {
         "label": "B",
         "narrative": "Try the glowing green ooze.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You quickly drink the glowing green ooze, and it has a sweet herbaceous taste. Moments after finishing the last drop, you begin to feel groggy and dreary. You turn away sluggishly and your senses feel repressed.",
@@ -2926,12 +4015,16 @@
       {
         "label": "A",
         "narrative": "Try the glowing red liquid.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You guzzle the glowing red liquid, and it has a delicious berry taste. Moments after licking the last drop, your head begins to pulse and ache. You stumble away, feeling weary and confused.",
             "effects": [
-              "All start scenario with MUDDLE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "muddle"
+                ]
+              }
             ]
           }
         ]
@@ -2939,12 +4032,16 @@
       {
         "label": "B",
         "narrative": "Try the bubbling green ooze.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You gulp down the bubbling green ooze, and it has a spicy, bitter aftertaste. Moments after finishing the last drop, you feel a rush of energy surge throughout your body. You turn away with your head held high, feeling invigorated and refreshed.",
             "effects": [
-              "All start scenario with STRENGTHEN."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "strengthen"
+                ]
+              }
             ]
           }
         ]
@@ -2964,8 +4061,19 @@
           {
             "narrative": "You start to pull on the rope with all your might. After several minutes of pulling, a bearded man emerges from the cave. \"You saved me!\" the man exclaims. \"Unfortunately I do not have anything of value with me to repay you with, as my expedition proved to be fruitless. However, I'm sure karma will take care of you.\" The man smiles as he pats your shoulder before he gathers his belongings and begins to walk away, leaving you short of breath.",
             "effects": [
-              "Discard one card each.",
-              "Add City Event 33 to the deck."
+              {
+                "type": "discard",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "event",
+                "values": [
+                  "city",
+                  "33"
+                ]
+              }
             ]
           }
         ]
@@ -2977,7 +4085,9 @@
           {
             "narrative": "You begin to cut the rope and hear the voice cry out from below, 'wait! What are you doing! Please, no! No!' The climber continues pleading as you furiously begin to cut faster. You hear the rope snap, followed by a fading scream and then - silence. You pick up his bags with hopes to sell the valuables within during your next trip to town, but the bag turns out to be filled with nothing but snacks and some old rope.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -2995,10 +4105,17 @@
         "narrative": "Engage the Orchid.",
         "outcomes": [
           {
-            "condition": "if orchid in party",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "orchid"
+              ]
+            },
             "narrative": "A fellow orchid stops your engage and shouts, \"That is a member of the order of Shardrenders, do not intervene!\". You watch as the Shardrender pierces the merchant's heart with a crystal and runs off with the sack.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           },
           {
@@ -3007,7 +4124,13 @@
             },
             "narrative": "As your sword slashes into the crystal skin of the orchid, a big shock wave of shards emits, injuring and knocking everyone prone, leaving the orchid to flee with the sack.",
             "effects": [
-              "All start scenario with MUDDLE and WOUND."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "muddle",
+                  "wound"
+                ]
+              }
             ]
           }
         ]
@@ -3019,7 +4142,12 @@
           {
             "narrative": "You help the orchid fend off the attackers. \"You made the right decision, these were bandit thieves\" the Orchid explains with an expression of gratitude. \"These special crystals are of vital importance for my order, the order of Shardrenders, and your deed will not be forgotten.\" He hands you a small purse of gold before taking his leave.",
             "effects": [
-              "Gain 15 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              }
             ]
           }
         ]
@@ -3039,7 +4167,14 @@
           {
             "narrative": "You begin to dismantle each trap, carefully closing them while being mindful of your grip. As the last trap shuts closed, you realize one of these could be useful in your journey forward.",
             "effects": [
-              "Gain 1 collective \"Iron Snare\" (Item 30)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  30,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -3051,8 +4186,18 @@
           {
             "narrative": "You tiptoe your way around the traps when you hear a loud 'SNAP!' and feel a sharp pain run up your leg. You've accidentally stepped into one of the traps, and it's going to be painful to remove.",
             "effects": [
-              "All start scenario with 2 damage.",
-              "All start scenario with IMMOBILIZE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "2 damage"
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "immobilize"
+                ]
+              }
             ]
           }
         ]
@@ -3072,7 +4217,12 @@
           {
             "narrative": "You head straight into the swamp as the screeching grows louder. You peer through tall reeds and see a hideous giant purple creature with swarming tentacles grab a viper and swallow it whole. This creature does not look like it belongs here.",
             "effects": [
-              "Unlock \"Defend the Swamp\" (45)."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "45"
+                ]
+              }
             ]
           }
         ]
@@ -3104,7 +4254,12 @@
           {
             "narrative": "You hand the charmer a few coins and proceed to continue on with your journey. \"Wait!\" the charmer calls after you. \"Here, have one of my vipers as a thank-you gift. Take good care of him for me, will you?\"",
             "effects": [
-              "Lose 5 collective GOLD.",
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  5
+                ]
+              },
               "At start of scenario, one character performs: Summon Slithering Viper"
             ]
           }
@@ -3117,7 +4272,12 @@
           {
             "narrative": "You refuse to give the charmer any of your gold and turn away to continue with your journey. You feel a sharp sting running up your ankle and turn around to see one of the vipers slithering away. The charmer smiles devilishly as he continues playing his pungi.",
             "effects": [
-              "All start scenario with POISON."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "poison"
+                ]
+              }
             ]
           }
         ]
@@ -3137,8 +4297,19 @@
           {
             "narrative": "You begin to untie the ropes from around the Orchid. The Orchid stands up, revealing shining silhouette armor. All of a sudden, the Orchid's hands begin to glow and a devious smile grows across her face. Before you can react, she blasts you out of the caravan with a powerful spell and dashes out into the road. As you dust off your clothes, you reach into your pockets and realize you've been pickpocketed.",
             "effects": [
-              "Add Road Event 33 to the deck.",
-              "Lose 10 collective GOLD."
+              {
+                "type": "event",
+                "values": [
+                  "road",
+                  "33"
+                ]
+              },
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -3150,7 +4321,14 @@
           {
             "narrative": "After patiently waiting for about an hour, several large Inox wearing heavy armor wrapped in chains approach the caravan. You question the circumstances and the Inox explain that they're bounty hunters, and this Orchid is a dangerous wanted criminal. They thank you with a gift for guarding the caravan and begin to prepare for the next leg of their journey.",
             "effects": [
-              "Gain 1 collective \"Staff of Retribution\" (Item 35)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  35,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -3170,7 +4348,12 @@
           {
             "narrative": "You agree to buy the kangaroo totem. \"Excellent!\" the Vermling rubs his hands together and hands you the totem. The totem looks different than others you've seen, with strange markings and a deformed head. You carry on with your journey while inspecting it, and by the time you realize it's a fake, the Vermling has already packed its bags and scurried off.",
             "effects": [
-              "Lose 10 collective gold."
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -3182,7 +4365,12 @@
           {
             "narrative": "You tell the Vermling you won't be buying a totem today. \"Not today? Not today?!\" the Vermling yells as he jumps onto the table, knocking over several totems onto the floor. He begins to jump in madness and flail his arms in the air while shouting, \"Not today! Not today!\" He grabs an armful of totems and dashes off into the distance, leaving behind his booth and a small tin filled with gold.",
             "effects": [
-              "Gain 5 collective gold."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -3203,7 +4391,13 @@
             "narrative": "You escort Shiela backed to the Mixed District, and she thanks you profusely before heading into her apartment. It was an uneventful journey, but you find yourself far behind schedule as this was much out of your way.",
             "effects": [
               "All players spend one BOOT item.",
-              "Add City Event 32 to the deck."
+              {
+                "type": "event",
+                "values": [
+                  "city",
+                  "32"
+                ]
+              }
             ]
           }
         ]
@@ -3215,7 +4409,12 @@
           {
             "narrative": "\"Please!\" Shiela begs as you adamantly refuse to go out of your way. She bursts into tears as you walk away, shouting after you, \"the other patrons in the Sleeping Lion will surely hear about this!\".",
             "effects": [
-              "Lose 2 reputation."
+              {
+                "type": "loseReputation",
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -3247,7 +4446,12 @@
           {
             "narrative": "You depart from the cave and continue on throughout the snowstorm. You eventually make it to your destination, but your hands are numb from the cold and you can no longer feel your feet.",
             "effects": [
-              "All start scenario with IMMOBILIZE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "immobilize"
+                ]
+              }
             ]
           }
         ]
@@ -3331,7 +4535,14 @@
           {
             "narrative": "You approach the Orchid and catch her by surprise. Startled, her hands begin to glow but you explain that you're not interested in a fight and only want to reclaim what's been stolen. She proceeds to explain that she spent all the gold, but she can give you the armor she's wearing if you promise not to report her to the authorities.",
             "effects": [
-              "Gain 1 collective \"Silhouette Cuirass\" (Item 26)."
+              {
+                "type": "itemCollective",
+                "values": [
+                  26,
+                  1,
+                  "gh"
+                ]
+              }
             ]
           }
         ]
@@ -3343,7 +4554,12 @@
           {
             "narrative": "You sneak up to the Orchid and press your blade against her throat from behind. Not wanting to be harmed, she allows you to tie her arms together with rope. She claims to have spent all the gold, so you proceed to return her to town to collect her bounty instead.",
             "effects": [
-              "Gain 40 collective gold."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  40
+                ]
+              }
             ]
           }
         ]
@@ -3363,7 +4579,9 @@
           {
             "narrative": "You set up a bear trap near the Vermling and eagerly wait for it to awaken. After what seems like hours, the Vermling finally stands up and you hear a loud snap. You pop out of the bushes, only to find both the Vermling and the trap have disappeared. You groan upon realizing that it'll take more than a bear trap to subdue this beast, and hope to encounter it again in the future.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -3375,7 +4593,12 @@
           {
             "narrative": "You sneak up towards the Vermling and swing at it with your blade. Having been awoken from the gash, the Vermling jolts awake and lunges toward you, claws extended, and slashes you across the face before running off into the mountains. You wipe the blood from the wound and recognize that you could have prepared yourself better for the fight.",
             "effects": [
-              "All start scenario with WOUND."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "wound"
+                ]
+              }
             ]
           }
         ]
@@ -3395,7 +4618,12 @@
           {
             "narrative": "You begin to slowly mix the brew as the men shout in excitement and continue pouring in various liquids. All of a sudden, the pot explodes and the liquid erupts with the force of a volcano. You try and step away as fast as you can, but your clothing becomes singed and your skin is scathed. The men begin apologizing and mention something about disproportionation measurements. These men clearly did not know what they were doing.",
             "effects": [
-              "All start scenario with WOUND."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "wound"
+                ]
+              }
             ]
           }
         ]
@@ -3407,7 +4635,9 @@
           {
             "narrative": "You politely decline and carry forward with your journey. Several minutes after departing from the scene, you hear a large explosion and see a cloud of smoke rising in the distance. It's a good thing you didn't stick around.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -3427,7 +4657,12 @@
           {
             "narrative": "As you approach the group of men, you recognize one particular Brightspark from your previous adventures. This warm sense of familiarity provides you with a sense of trust as you proceed to help the men mix their concoction. After several minutes of tiresome mixing, the brew turns a bright orange color. \"We've done it!\" the Brightspark jumps for joy as he grabs ahold of your shoulders and shakes them with joy. \"Here, have some! It will surely help you.\"",
             "effects": [
-              "All start scenario with BLESS x2."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "bless:2"
+                ]
+              }
             ]
           }
         ]
@@ -3439,7 +4674,12 @@
           {
             "narrative": "The men among the group angrily scold you for not wanting to help. Although you declined in a polite manner, the men begin unclipping vials of liquid from their belts and start throwing them in your direction. You flee the scene, but not before enduring a few bruises and burns from the pelting.",
             "effects": [
-              "All start scenario with 3 damage."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "3 damage"
+                ]
+              }
             ]
           }
         ]
@@ -3471,7 +4711,12 @@
           {
             "narrative": "You ignore the bears pleading for help and carry on with your journey. You feel a slight sense of remorse as wonder what could have been had you helped the bear, but there's no looking back now.",
             "effects": [
-              "All start scenario with CURSE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
             ]
           }
         ]
@@ -3501,7 +4746,12 @@
           {
             "narrative": "Not wanting to pick a fight, you depart from the tent. A few minutes later you happen across an empty caravan. There are no Vermlings, but you do find a few random items that might fetch you a few coins at the market.",
             "effects": [
-              "Gain 10 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -3551,10 +4801,17 @@
         "narrative": "Attempt to persuade the Quatryl with the hope that he's in a reasonable mood.",
         "outcomes": [
           {
-            "condition": "Reputation > 10",
+            "condition": {
+              "type": "reputationGT",
+              "values": [
+                10
+              ]
+            },
             "narrative": "You explain to the Quatryl who you are, and as he listens he decides to introduce you to his commander. You recognize the Bombard, exchange smiles and he gives you full permission to pass through.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           },
           {
@@ -3563,7 +4820,12 @@
             },
             "narrative": "You explain to the Quatryl who you are, but he doesn't seem to be impressed. Several more Quatryls appear and forcefully escort you off the grounds.",
             "effects": [
-              "All start scenario with 3 damage."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "3 damage"
+                ]
+              }
             ]
           }
         ]
@@ -3573,10 +4835,17 @@
         "narrative": "Offer to bribe the Quatryl in exchange for letting you pass.",
         "outcomes": [
           {
-            "condition": "Pay 5 collective gold",
+            "condition": {
+              "type": "payCollectiveGold",
+              "values": [
+                5
+              ]
+            },
             "narrative": "The Quatryl looks around to ensure there are no witnesses and hastily ushers you through to the other side.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           },
           {
@@ -3585,7 +4854,12 @@
             },
             "narrative": "The Quatryl shakes his head. \"This is no trivial matter. I should have you jailed for this.\" The Quatryl motions for backup, and you hastily scurry off before things get out of hand.",
             "effects": [
-              "Discard 1 card each."
+              {
+                "type": "discard",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -3637,7 +4911,12 @@
           {
             "narrative": "You answer that you are on the path of righteousness and the man smiles warmly. \"Very well then. I shall pray for you to continue to walk the path of prosperity and good merit!\"",
             "effects": [
-              "Start scenario with SUN in the Strong column.",
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "sun in the strong column"
+                ]
+              },
               "During the first round, consider any negative attack modifier drawn by players to be a +0 instead."
             ]
           }
@@ -3650,7 +4929,12 @@
           {
             "narrative": "You answer that you are on the path of despair and the man instantly frowns. \"Well, if that's the path you choose, I shall pray for you to continue to walk the path of anguish and dishearten your enemies!\"",
             "effects": [
-              "Start scenario with MOON in the Strong column.",
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "moon in the strong column"
+                ]
+              },
               "During the first round, consider any negative attack modifier drawn by players to be a -1 instead."
             ]
           }
@@ -3671,7 +4955,12 @@
           {
             "narrative": "You begin to slowly tie rope around her hands when her snoring comes to an abrupt halt. \"What are you doing?!\" she exclaims. As you explain you're there to collect her bounty and won't leave without a fight, she retrieves identification and proves you mistaken. She curses you for disturbing her slumber and rolls back into the straw.",
             "effects": [
-              "All start scenario with CURSE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
             ]
           }
         ]
@@ -3735,7 +5024,12 @@
           {
             "narrative": "The lurker happily accepts your sum and accompanies you on your journey, lighting the path ahead. When you reach your destination, it doesn't want to leave your side. It seems it's here to stay, and you realize you haven't just hired a light source... you hired a mercenary.",
             "effects": [
-              "Lose 10 collective gold.",
+              {
+                "type": "loseCollectiveGold",
+                "values": [
+                  10
+                ]
+              },
               "Spawn one normal Lurker next to any character. It is an ally to you and an enemy to all monsters. It has a maximum hit point value of 4, regardless of the value listed on its stat sheet."
             ]
           }
@@ -3748,7 +5042,12 @@
           {
             "narrative": "You continue on with your journey, making your way off the shoreline and into a forest when you accidentally stumble into a thornbush. Bruised and cut, you finally reach your destination and vow never to travel without extra oil again.",
             "effects": [
-              "All start scenario with 2 damage."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "2 damage"
+                ]
+              }
             ]
           }
         ]
@@ -3768,7 +5067,13 @@
           {
             "narrative": "You take the soft blue and glowing red claws and continue on with your journey. As you reach your destination, each claw emits one last burst of light before their glow fades away.",
             "effects": [
-              "Start scenario with ICE and FIRE in the Strong column."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "ice",
+                  "fire in the strong column"
+                ]
+              }
             ]
           }
         ]
@@ -3780,7 +5085,13 @@
           {
             "narrative": "You take the bright yellow and dim black claws and continue on with your journey. As you reach your destination, each claw emits one last burst of light before their glow fades away.",
             "effects": [
-              "Start scenario with LIGHT and DARK in the Strong column."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "light",
+                  "dark in the strong column"
+                ]
+              }
             ]
           }
         ]
@@ -3832,7 +5143,12 @@
           {
             "narrative": "You ask the Vermling to restrain the energy and she nods and begins to chant. The light suddenly escapes from the bush and wraps around your body before slowly dimming. It's as if your body absorbed the light, and you begin to feel a strange sensation.",
             "effects": [
-              "One character starts scenario with MUDDLE.",
+              {
+                "type": "scenarioConditionOne",
+                "values": [
+                  "muddle"
+                ]
+              },
               "All other characters start with STRENGTHEN."
             ]
           }
@@ -3845,7 +5161,12 @@
           {
             "narrative": "You ask the Vermling to hold nothing back and she begins to shriek and wave her hands frantically in the air. The light intensifies until it becomes blinding and you shudder as you close your eyes. All of a sudden, her shrieking stops and you open your eyes to find nothing but a singed twig in the place of the bush, and a burning sensation running through you like nothing you've ever experienced before.",
             "effects": [
-              "One character starts scenario with STUN.",
+              {
+                "type": "scenarioConditionOne",
+                "values": [
+                  "stun"
+                ]
+              },
               "All other characters start with INVISIBLE."
             ]
           }
@@ -3928,7 +5249,17 @@
         "narrative": "Help the traders get their wagon back on the road.",
         "outcomes": [
           {
-            "condition": "brute,cragheart,spellweaver,scoundrel,tinkerer,mindthief",
+            "condition": {
+              "type": "character",
+              "values": [
+                "brute",
+                "cragheart",
+                "spellweaver",
+                "scoundrel",
+                "tinkerer",
+                "mindthief"
+              ]
+            },
             "narrative": "While the Savvas wrenches on the wagon, your strength makes short work of reloading the fallen chests. The Inox standing guard gruffs, \"Thanks for helping. Take this schematic as our thanks.\"",
             "effects": [
               "Gain \"Flaming Axe\" item design (Item 52)."
@@ -3939,10 +5270,19 @@
               "type": "otherwise"
             },
             "narrative": "You offer to stand guard while the traders fix their wagon. Unfortunately, this takes much longer than anticipated, but at least they pay your wage as promised before leaving.",
-            "removeFromDeck": true,
             "effects": [
-              "Discard 2 cards each.",
-              "Gain 5 GOLD each."
+              {
+                "type": "discard",
+                "values": [
+                  2
+                ]
+              },
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -3952,7 +5292,17 @@
         "narrative": "Create a distraction and attempt to steal the ornate chest.",
         "outcomes": [
           {
-            "condition": "brute,cragheart,spellweaver,scoundrel,tinkerer,mindthief",
+            "condition": {
+              "type": "character",
+              "values": [
+                "brute",
+                "cragheart",
+                "spellweaver",
+                "scoundrel",
+                "tinkerer",
+                "mindthief"
+              ]
+            },
             "narrative": "Your allies provide an effective distraction and you are able to sneak away unnoticed with the ornate chest in hand.",
             "effects": [
               "Gain \"Flaming Axe\" item design (Item 52)."
@@ -3963,7 +5313,6 @@
               "type": "otherwise"
             },
             "narrative": "Distracting the guards is easy enough, but escaping unscathed is another matter entirely. Fortunately, your ally was quick enough to avoid capture, but you are disappointed to leave empty-handed.",
-            "removeFromDeck": true,
             "effects": [
               "One starts scenario with 2 damage."
             ]
@@ -3985,7 +5334,12 @@
           {
             "narrative": "You are excited to work alongside your old friend again, but extinguishing spot fires is no easy task, especially in a forest filled with wild creatures frightened by the destruction of their homes. The Fire Knight gives you a few pointers as to the best techniques to extinguish hot spots before rejoining the Brigade on the front lines of the firefight. Hopefully your combined efforts will control this spreading wildfire before it burns the forest down.",
             "effects": [
-              "Unlock \"Forest Fire\" 48."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "48"
+                ]
+              }
             ]
           }
         ]
@@ -3995,11 +5349,24 @@
         "narrative": "Help clear out brush from around the outlying cottages.",
         "outcomes": [
           {
-            "condition": "music-note,angry-face,lightning-bolt,three-spears,scoundrel",
+            "condition": {
+              "type": "character",
+              "values": [
+                "music-note",
+                "angry-face",
+                "lightning-bolt",
+                "three-spears",
+                "scoundrel"
+              ]
+            },
             "narrative": "Your familiarity with the forest paths and shrubbery makes clearing out the brush a simple task that your party accomplishes safely before returning to its quest.",
-            "returnToDeck": true,
             "effects": [
-              "Gain 5 GOLD each."
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              }
             ]
           },
           {
@@ -4007,10 +5374,19 @@
               "type": "otherwise"
             },
             "narrative": "Clearing out the brush may not require much skill, but your lack of familiarity with the forest greens results in a failure to properly handle the poisonous shrubbery surrounding the outlying cottages.",
-            "returnToDeck": true,
             "effects": [
-              "All start scenario with POISON.",
-              "Gain 5 GOLD each."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "poison"
+                ]
+              },
+              {
+                "type": "gold",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -4026,13 +5402,20 @@
       {
         "label": "A",
         "narrative": "Stick to the plan and push through the mud.",
-        "removeFromDeck": true,
         "outcomes": [
           {
-            "condition": "angry-face,spellweaver",
+            "condition": {
+              "type": "character",
+              "values": [
+                "angry-face",
+                "spellweaver"
+              ]
+            },
             "narrative": "Your familiarity with the wilderness helps guide your party through the mud without exposing yourselves to an attack.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           },
           {
@@ -4041,8 +5424,18 @@
             },
             "narrative": "It starts off well, but it isn't long before you find yourselves waist deep in mud and surrounded by wolves. You are able to fight them off, but not unscathed. You can't help but think that fighting off wolves is probably more exhausting than taking the long way around.",
             "effects": [
-              "Discard 3 cards each.",
-              "All start scenario with WOUND."
+              {
+                "type": "discard",
+                "values": [
+                  3
+                ]
+              },
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "wound"
+                ]
+              }
             ]
           }
         ]
@@ -4050,12 +5443,16 @@
       {
         "label": "B",
         "narrative": "Take the long way around. It's not worth the risk.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You're not happy about the situation, but being attacked while knee-deep in mud is exactly the luck you've been having today, so you decide not to risk it. The rest of the trip is uneventful, but exhausting.",
             "effects": [
-              "Discard 2 cards each."
+              {
+                "type": "discard",
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -4075,7 +5472,12 @@
           {
             "narrative": "You knew it was too good to be true. No more than 20 minutes pass before you are ambushed by thieves. It is likely the thieves were waiting for the merchants behind you, and you were just in the wrong place at the wrong time.",
             "effects": [
-              "Lose 5 gold each."
+              {
+                "type": "loseGold",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -4086,10 +5488,19 @@
         "outcomes": [
           {
             "narrative": "It takes no more than 20 minutes before you realize that this path is a little too tight and overgrown for you to go any further. However, a familiar voice calls to you, \"Friends, what in the world are you doing here?\" the Mirefoot exclaims. It turns out he's found the trail to a Ghost Viper nest and gives you directions to it. After parting ways and returning to the main road, your good fortune continues. Not far up the road you discover a ransacked caravan with some goods left over that you can easily sell.",
-            "returnToDeck": true,
             "effects": [
-              "Unlock \"Viper Marsh\" (47).",
-              "Gain 15 collective gold."
+              {
+                "type": "unlockScenario",
+                "values": [
+                  "47"
+                ]
+              },
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              }
             ]
           }
         ]
@@ -4107,10 +5518,20 @@
         "narrative": "Loot the bodies. They don't need it, we're not picky, and that gem looks valuable.",
         "outcomes": [
           {
-            "condition": "voidwarden",
+            "condition": {
+              "type": "character",
+              "values": [
+                "voidwarden"
+              ]
+            },
             "narrative": "As you touch the glowing stones and ashen blades, you feel a corrupt energy course through your body. You immediately drop the items, realizing in horror that these items must have been tainted by the Void. Those of you who are not fortified against the Void feel their life essence drained by the contact. You abandon these accursed items with all haste.",
             "effects": [
-              "Start scenario with STRENGTHEN."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "strengthen"
+                ]
+              }
             ]
           },
           {
@@ -4119,7 +5540,12 @@
             },
             "narrative": "As you touch the glowing stones and ashen blades, you feel a corrupt energy course through your body. You immediately drop the items, realizing in horror that these items must have been tainted by the Void. Those of you who are not fortified against the Void feel their life essence drained by the contact. You abandon these accursed items with all haste.",
             "effects": [
-              "Start scenario with CURSE."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "curse"
+                ]
+              }
             ]
           }
         ]
@@ -4131,7 +5557,12 @@
           {
             "narrative": "Seeing the coarse black sand disfiguring the wounds of the Savvas reminds you of seeing similar damage among victims of the Void in Gloomhaven. That black sand is a telltale sign of corruption and danger. You think better of looting something so suspicious. Carefully, without touching the bodies or equipment, you take time to hide the site. Perhaps someday you can return and safely cleanse or destroy these items, but for now, it's better if no one stumbles across them.",
             "effects": [
-              "Discard 1 card each."
+              {
+                "type": "discard",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -4151,7 +5582,9 @@
           {
             "narrative": "The younger Hollowpact takes advantage of your interruption to teleport away. Your former ally ignores this and turns to you, its voice grating like jagged rocks against metal, \"You. DON'T understand. We are abominations. Must die. Must ALL die.\"<br><br>A moment passes and rage is instantly replaced by calm. The Hollowpact speaks again with a ponderous, gravelly voice, \"I can track and destroy my quarry easily enough. I save this young one from itself. Stop me again and die.\" With that, the Hollowpact vanishes.",
             "effects": [
-              "No effect."
+              {
+                "type": "noEffect"
+              }
             ]
           }
         ]
@@ -4163,7 +5596,12 @@
           {
             "narrative": "Once it becomes clear you won't intervene, the two Hollowpact return their focus to each other. The younger Hollowpact strikes first, lashing out with a devastating flurry. The elder Savvas dodges several blows and then, in between incoming strikes, grabs the glowing stone in the chest of the younger fighter and shatters it in a burst of energy. The younger Hollowpact's eyes grow wide as it begins to disintegrate from the inside out. Your former ally nods, kicks the slain Savvas's coin purse to you, and vanishes.",
             "effects": [
-              "Gain 12 collective GOLD."
+              {
+                "type": "collectiveGold",
+                "values": [
+                  12
+                ]
+              }
             ]
           }
         ]
@@ -4183,7 +5621,12 @@
           {
             "narrative": "\"Amazing!\" the Brightspark hands you the colorful vial and points toward your mouth. You uncap the vial and quickly drink it. It tickles your throat as the Brightspark suddenly turns red. \"You were supposed to rub it on your lips, not drink it!\" No wonder your throat won't stop itching. \"Well,\" the Brightspark clears his throat, \"Let's just hope you find plenty of bathroom stops along the way!\"",
             "effects": [
-              "All start scenario with 2 damage."
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "2 damage"
+                ]
+              }
             ]
           }
         ]
@@ -4211,10 +5654,17 @@
       {
         "label": "A",
         "narrative": "Enter the strength contest.",
-        "removeFromDeck": true,
         "outcomes": [
           {
-            "condition": "harrower,inox,savvas,valrath",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "harrower",
+                "inox",
+                "savvas",
+                "valrath"
+              ]
+            },
             "narrative": "You may choose to redraw one of your cards.",
             "effects": [
               "You may buy any one item (63-72) at the discount below based on the number of positive attack modifier cards drawn.",
@@ -4236,10 +5686,18 @@
       {
         "label": "B",
         "narrative": "Enter the intelligence contest.",
-        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "aesther,human,orchid,quatryl,vermling",
+            "condition": {
+              "type": "traits",
+              "values": [
+                "aesther",
+                "human",
+                "orchid",
+                "quatryl",
+                "vermling"
+              ]
+            },
             "narrative": "You may choose to redraw one of the cards.",
             "effects": [
               "All may buy any one item (73-82) at the discount below based on the number of attack modifier cards that match the color of the first card drawn.",

@@ -715,8 +715,15 @@ export class KeyboardShortcuts implements OnInit {
               activeEntity.number
             );
             gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
-            if (entities.indexOf(activeEntity) < entities.length - 1) {
-              entities[entities.indexOf(activeEntity) + 1].active = true;
+            const entityIndex = entities.indexOf(activeEntity);
+            if (entityIndex < entities.length - 1) {
+              let offset = 1;
+              while (entityIndex + offset < entities.length && entities[entityIndex + offset].off) {
+                offset++;
+              }
+              if (entityIndex + offset < entities.length) {
+                entities[entityIndex + offset].active = true;
+              }
             }
             toggleFigure = false;
             gameManager.stateManager.after();

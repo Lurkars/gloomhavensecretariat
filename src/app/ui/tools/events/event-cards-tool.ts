@@ -25,6 +25,7 @@ export class EventCardsToolComponent implements OnInit {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   events: EventCard[] = [];
+  editions: string[] = [];
   edition: string | undefined;
   types: string[] = [];
   type: string = '';
@@ -38,7 +39,8 @@ export class EventCardsToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     gameManager.stateManager.init(true);
-    this.edition = gameManager.editions(true)[0];
+    this.editions = gameManager.editions(true);
+    this.edition = this.editions[0];
     this.update();
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
@@ -46,7 +48,7 @@ export class EventCardsToolComponent implements OnInit {
         let update = false;
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
+          if (this.edition && !this.editions.includes(this.edition)) {
             this.edition = undefined;
           }
           update = true;

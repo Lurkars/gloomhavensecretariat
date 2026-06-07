@@ -99,6 +99,11 @@ export class EventCardManager {
           editionData.edition === edition || (extension && gameManager.editionExtensions(edition).includes(editionData.edition))
       )
       .flatMap((editionData) => editionData.events)
+      .filter(
+        (eventCard, i, self) =>
+          eventCard.edition === edition ||
+          (eventCard.edition !== edition && !self.some((other) => other.cardId === eventCard.cardId && other.edition === edition))
+      )
       .filter((eventCard) => eventCard.type === type);
   }
 
@@ -106,6 +111,11 @@ export class EventCardManager {
     return gameManager.editionData
       .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(edition).includes(editionData.edition))
       .flatMap((editionData) => editionData.events)
+      .filter(
+        (eventCard, i, self) =>
+          eventCard.edition === edition ||
+          (eventCard.edition !== edition && !self.some((other) => other.cardId === eventCard.cardId && other.edition === edition))
+      )
       .find((eventCard) => eventCard.type === type && eventCard.cardId === cardId);
   }
 
@@ -287,7 +297,7 @@ export class EventCardManager {
     const results: (EventCardEffect | EventCardCondition | EventCardAttack)[] = [];
     const option = eventCard.options[selected];
     let returnToDeck = false;
-    let removeFromDeck = ['fh', 'jotl'].includes(eventCard.edition); // default to remove from deck for JOTL and FH
+    let removeFromDeck = ['fh', 'jotl', 'cs', 'toa'].includes(eventCard.edition); // default to remove from deck for JOTL, FH, CS and ToA
     if (option) {
       if (option.removeFromDeck) {
         removeFromDeck = true;

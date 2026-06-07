@@ -1,3 +1,10 @@
-<a class="button" (click)="open()" [ghs-label]="'party.sheet'" [ghs-label-attribute]="'title'">
-  <span [ghs-label]="gameManager.game.party.name || 'party.sheet'"></span>
-</a>
+<div class="party-container">
+  <a class="button" (click)="open()" [ghs-label]="'party.sheet'" [ghs-label-attribute]="'title'">
+    <span [ghs-label]="gameManager.game.party.name || 'party.sheet'"></span>
+  </a>
+  @if (gameManager.lootManager.easterParty) {
+    <a class="easter" (click)="gameManager.lootManager.easter = !gameManager.lootManager.easter">
+      <img [src]="'./assets/media/egg' + (gameManager.lootManager.easter ? '.svg' : '-alt.svg')" />
+    </a>
+  }
+</div>

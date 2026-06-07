@@ -185,6 +185,7 @@ export enum EventCardEffectType {
   partyAchievement = 'partyAchievement',
   prosperity = 'prosperity',
   scenarioCondition = 'scenarioCondition',
+  scenarioConditionOne = 'scenarioConditionOne',
   scenarioDamage = 'scenarioDamage',
   scenarioSingleMinus1 = 'scenarioSingleMinus1',
   sectionWeek = 'sectionWeek',

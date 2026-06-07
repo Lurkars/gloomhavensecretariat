@@ -1602,7 +1602,7 @@
                 "type": "scenarioCondition",
                 "alt": "fh",
                 "values": [
-                  "bless"
+                  "wound"
                 ]
               }
             ]

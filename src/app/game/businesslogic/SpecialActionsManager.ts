@@ -271,20 +271,11 @@ export class SpecialActionsManager {
     if (!revert) {
       if (character.name === 'shackles' && specialAction.name === 'delayed_malady' && !character.tags.includes(specialAction.name)) {
         {
-          character.immunities = [];
-
-          character.entityConditions.forEach((condition) => {
-            if (
-              condition.types.includes(ConditionType.negative) &&
-              !condition.expired &&
-              condition.state !== EntityConditionState.removed
-            ) {
-              condition.state = EntityConditionState.normal;
-              if (condition.types.includes(ConditionType.expire)) {
-                condition.state = EntityConditionState.expire;
-              }
-            }
+          character.immunities.forEach((immunity) => {
+            gameManager.entityManager.addCondition(character, character, new Condition(immunity));
           });
+
+          character.immunities = [];
         }
       }
 

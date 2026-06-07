@@ -23,10 +23,11 @@
           "hint": "Gain 1 Hive Token at the start of the scenario"
         }
       },
-      "wildborn": "Wildborn",
-      "woebound": "Woebound",
       "veilpiercer": "Veilpiercer",
-      "vimthreader": "Vimthreader"
+      "vimthreader": "Vimthreader",
+      "vitalist": "Vitalist",
+      "wildborn": "Wildborn",
+      "woebound": "Woebound"
     },
     "traits": {
       "arcane": "Arcane",
@@ -189,6 +190,33 @@
         "6": "Play 3 Hivecall abilities before your first rest.",
         "7": "Use the active part of a Hivecall ability each round for 7 rounds in a row."
       },
+      "veilpiercer": {
+        "1": "The target and all enemies adjacent to it suffer %game.damage:1%",
+        "2": "Unlock <b>The Astral Plane</b>, and start each scenario with %game.condition.invisible%",
+        "3": "Whenever you long rest, you may perform \"%game.action.teleport:2%\"",
+        "4": "Once each scenario, during your turn, place one %data.action.custom.ccug-veil% in a hex within %game.action.range:4%",
+        "5": "Complete 5 Plane cards in a single scenario",
+        "6": "Never attack an enemy adjacent to you or be attacked by an enemy adjacent to you in a single scenario"
+      },
+      "vimthreader": {
+        "1": "If the target has an attribute, add %game.condition.wound%, %game.condition.poison%, %game.condition.muddle%",
+        "2": "Whenever you short rest, one adjacent enemy suffers %game.damage:1%, and you perform \"%game.action.heal:1%, self\"",
+        "3": "At the start of each scenario, you may suffer %game.damage:1% to grant all allies and self %game.action.move:3%",
+        "4": "Once each scenario, remove all negative conditions you have. One adjacent enemy suffers %game.damage% equal to the number of conditions removed",
+        "5": "For an entire scenario, perform a heal ability and cause a figure to suffer %game.damage% each round",
+        "6": "Gain the attributes of 12 different monster types"
+      },
+      "vitalist": {
+        "1": "On your next attack while %game.action.custom.ccug-life% is Controlled, discard this card to gain %game.action.attack.valueSign:2",
+        "2": "Add this card to your active area. On your next attack while %data.action.custom.vitalist-life% is Controlled, discard this card to gain %game.action.attack.valueSign:2%",
+        "3": "One figure with %game.condition.stun% suffers %game.damage:2%",
+        "4": "%game.action.target% 1 figure that has %game.condition.regenerate%",
+        "5": "Once each scenario, you may gain %game.condition.wound% to %data.action.custom.vitalist-life%",
+        "6": "Whenever you long rest, %data.action.custom.vitalist-life-consume%: %data.action.custom.vitalist-life%",
+        "7": "Whenever you control the attack of an enemy, you may have the enemy use your attack modifier deck",
+        "8": "End each of your turn with %game.condition.wound% or one of your alles having %game.condition.wound%",
+        "9": "Consume or infuse %data.action.custom.vitalist-life% every round"
+      },
       "wildborn": {
         "1": "instead if you suffer %game.damage:2%",
         "2": "Add %game.action.attack.valueSign:1% per collected %data.action.custom.ccug-essence%",
@@ -207,22 +235,6 @@
         "4": "Whenever you long rest, %game.element.wild%",
         "5": "Consume at least three elements on each of your turns after the first round, without exhausting",
         "6": "Have %game.action.shield:2% on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
-      },
-      "veilpiercer": {
-        "1": "The target and all enemies adjacent to it suffer %game.damage:1%",
-        "2": "Unlock <b>The Astral Plane</b>, and start each scenario with %game.condition.invisible%",
-        "3": "Whenever you long rest, you may perform \"%game.action.teleport:2%\"",
-        "4": "Once each scenario, during your turn, place one %data.action.custom.ccug-veil% in a hex within %game.action.range:4%",
-        "5": "Complete 5 Plane cards in a single scenario",
-        "6": "Never attack an enemy adjacent to you or be attacked by an enemy adjacent to you in a single scenario"
-      },
-      "vimthreader": {
-        "1": "If the target has an attribute, add %game.condition.wound%, %game.condition.poison%, %game.condition.muddle%",
-        "2": "Whenever you short rest, one adjacent enemy suffers %game.damage:1%, and you perform \"%game.action.heal:1%, self\"",
-        "3": "At the start of each scenario, you may suffer %game.damage:1% to grant all allies and self %game.action.move:3%",
-        "4": "Once each scenario, remove all negative conditions you have. One adjacent enemy suffers %game.damage% equal to the number of conditions removed",
-        "5": "For an entire scenario, perform a heal ability and cause a figure to suffer %game.damage% each round",
-        "6": "Gain the attributes of 12 different monster types"
       }
     }
   },

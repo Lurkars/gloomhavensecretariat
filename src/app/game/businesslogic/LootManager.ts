@@ -13,6 +13,7 @@ import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class LootManager {
   game: Game;
+  easterParty: boolean = false;
   easter: boolean = false;
 
   constructor(game: Game) {
@@ -388,7 +389,14 @@ export class LootManager {
         }
       });
     }
-    this.easter = gameManager.game.party.name === 'Paws of the Lion';
+
+    if (gameManager.game.party.name !== 'Paws of the Lion') {
+      this.easterParty = false;
+      this.easter = false;
+    } else if (!this.easterParty) {
+      this.easterParty = true;
+      this.easter = true;
+    }
   }
 
   fullLootDeck(): Loot[] {
