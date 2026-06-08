@@ -41,6 +41,35 @@
     },
     "character": "Character Sheets",
     "enhancements": "Enhancement Calculator",
+    "history": {
+      "category": {
+        "buildings": "Buildings",
+        "calendar": "Calendar",
+        "campaign": "Campaign",
+        "characters": "Characters",
+        "events": "Events",
+        "items": "Items",
+        "other": "Other",
+        "party": "Party",
+        "resources": "Resources",
+        "scenario": "Scenarios",
+        "undo": "Undo"
+      },
+      "clear": "Clear History",
+      "columns": {
+        "category": "Category",
+        "change": "Change",
+        "date": "Date",
+        "record": "Record",
+        "revision": "#"
+      },
+      "empty": "No campaign changes recorded yet.",
+      "filter": "Search history…",
+      "filterAll": "All categories",
+      "menu": "Campaign History",
+      "noResults": "No entries match your filters.",
+      "title": "Campaign History"
+    },
     "items": "Itemcards Overview",
     "map": {
       "": "Global Map",
@@ -261,6 +290,7 @@
         "event": "Add %game.events.type.{0}% Event {1} to the deck",
         "events": "Add City Event {0} and Road Event {0} to the deck",
         "moveSupply": "Move resources to Frosthaven supply",
+        "moveSupplyInfo": "The following resources will be moved to Frosthaven supply:",
         "prosperity": "+{0} prosperity"
       },
       "retirements": "Retirements",
@@ -616,6 +646,50 @@
         "normal": "Spawn Normal Ally"
       }
     },
+    "attackResolve": {
+      "apply": "Apply damage & conditions",
+      "applied": "Applied",
+      "baseAttack": "Base attack value",
+      "conditionBonus": "+{0} from target poison",
+      "conditionsAttacker": "Attacker buffs",
+      "conditionsTarget": "Target effects",
+      "damageDetail": "Attack {0}, shield −{1}",
+      "editDamageHint": "Click damage to adjust",
+      "effectiveAttack": "Effective base: {0}",
+      "numpadDone": "Done",
+      "finalDamage": "Damage: {0}",
+      "inputAttack": "Attack",
+      "inputAttackValue": "Attack: {0}",
+      "inputDamage": "Damage",
+      "inputDamageValue": "Damage: {0}",
+      "inputPierce": "Pierce",
+      "inputPierceValue": "Pierce: {0}",
+      "numpadDigit": "{0}",
+      "pierce": "Pierce value",
+      "shieldAfterPierce": "Shield {0} (−{1} after pierce)",
+      "draw": "Draw attack modifier",
+      "drawHint": "Choose a target and enter base attack first.",
+      "chooseCard": "Click the other card to use it for advantage/disadvantage.",
+      "clear": "Clear",
+      "backspace": "Del",
+      "deckHint": "Drawn modifiers appear in your character deck on the right.",
+      "deckHintMonster": "Drawn modifiers appear in the monster deck on the right.",
+      "deckHintAlly": "Drawn modifiers appear in the ally deck on the right.",
+      "pickTarget": "Click a standee on the board to choose your attack target.",
+      "pickTargetTitle": "Select attack target",
+      "pickTargetDetail": "Click a standee for {0}'s attack.",
+      "pickTargetShort": "Click target",
+      "pickTargetCancel": "Cancel attack",
+      "noTargets": "No figures on the board. Add monsters, objectives, or allies first.",
+      "open": "Resolve attack",
+      "result": "Attack value: {0} ({1})",
+      "retaliate": "Retaliate {0}",
+      "shield": "Shield {0}",
+      "target": "Target",
+      "targetPlaceholder": "Select target…",
+      "undo": "Undo attack",
+      "title": "Attack — {0}"
+    },
     "attackModifiers": {
       "": "Attack Modifier Deck",
       "additional": {
@@ -892,6 +966,13 @@
         "notApply": "Resolve, not Apply"
       },
       "applyManually": "Apply the following manually:",
+      "distribution": {
+        "apply": "Apply assignments",
+        "assign": "Assign",
+        "done": "Resources distributed",
+        "open": "Distribute resources…",
+        "title": "Event Resource Distribution"
+      },
       "conditions": {
         "and": "and",
         "building": "{0}",
@@ -957,6 +1038,7 @@
         "collectiveGoldOther": "All other characters gain {0} collective gold.",
         "collectiveItem": "Gain {2} collective \"%data.items.{1}-{0}%\" (Item {0}).",
         "collectiveResource": "Gain {0} collective %game.resource.{1}%.",
+        "collectiveResourceAny": "Gain {0} collective material resources of any kind.",
         "collectiveResourceType": "Gain any {0} collective %game.loot.{1}%s.",
         "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
         "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
@@ -2429,6 +2511,10 @@
       "": "Active standees",
       "hint": "On monsters turn, every standee has an active state, double click on standee to mark as done"
     },
+    "monsterStandeeTurns": {
+      "": "Monster turns by standee",
+      "hint": "During a monster figure's turn, activate standees one at a time in order. End turn advances to the next standee. Attack Resolver uses the active standee's attack and effect values."
+    },
     "activeSummons": {
       "": "Active summons",
       "hint": "At start of the characters turn, summons will be activated in its order, double click to toggle active state."
@@ -2481,6 +2567,10 @@
     "amAdvantageHouseRule": {
       "": "Advantage/Disadvantage Rolling House Rule",
       "hint": "Instead of ignore rolling on second draw, also draw additional modifiers until non-rolling drawn."
+    },
+    "attackResolveGuided": {
+      "": "Attack Resolver",
+      "hint": "On a figure's turn in a scenario, clicking their attack modifier deck opens a panel to choose a target, enter base attack and status effects, draw modifiers (including advantage/disadvantage), then apply damage. For monsters with standee turns enabled, uses the currently active standee's stats."
     },
     "animationSpeed": {
       "": "Animation Speed",
@@ -3016,6 +3106,17 @@
     "playerNumber": {
       "": "Display player number",
       "hint": "Display the player number on the character's board."
+    },
+    "globalFontsize": {
+      "": "Display scale",
+      "dec": "Decrease display scale",
+      "hint": "Scale the whole interface (useful for TV projection or large monitors).",
+      "inc": "Increase display scale",
+      "reset": "Reset display scale"
+    },
+    "presentationMode": {
+      "": "Presentation mode (TV)",
+      "hint": "Use a wider layout on large landscape screens instead of a narrow centered column."
     },
     "portraitMode": {
       "": "Portrait-Mode Optimization",
@@ -3676,7 +3777,19 @@
         "cancel": "Cancel drawing %game.events.type.{1}% event",
         "new": "Draw a new %game.events.type.{1}% event"
       },
+      "events": {
+        "deck": {
+          "addEvent": "Add %game.events.type.{0}% event {1} to deck",
+          "changeSelection": "Change selection for %game.events.type.{0}% event {1}",
+          "markDrawn": "Mark %game.events.type.{0}% event {1} as drawn",
+          "removeDrawn": "Remove drawn %game.events.type.{0}% event {1}",
+          "removeEvent": "Remove %game.events.type.{0}% event {1} from deck",
+          "reorder": "Reorder %game.events.type.{0}% event deck",
+          "shuffle": "Shuffle %game.events.type.{0}% event deck"
+        }
+      },
       "eventEffect": {
+        "applyManualDistribution": "Apply manual event resource distribution",
         "addCondition": "%game.condition.{0}% to {1}",
         "addImmunity": "%game.immunity.{0}% to {1}",
         "changeCharacterBattleGoals": "{0} %game.checkmark% for {1}",
@@ -3684,9 +3797,10 @@
         "changeCharacterCurse": "{0} %game.condition.curse% for {1}",
         "changeCharacterGold": "{0} Gold for {1}",
         "changeCharacterHP": "{0} HP for {1}",
-        "changeCharacterResource": "{1} %game.resource.{0}% for {2}",
+        "changeCharacterResource": "{1} {0} for {2}",
         "changeCharacterXP": "{0} XP for {1}",
         "drawRandomItem": "Draw Random Item Design {0} \"{2}\" (%data.edition.{1}%)",
+        "resourcesDistributed": "Resources distributed from %game.events.type.{0}% event {1}: {2}",
         "drawRandomItemBlueprint": "Draw Random Item Blueprint {0} \"{2}\" (%data.edition.{1}%)",
         "drawRandomScenario": "Draw Random Scenario {2} %data.scenarioNumber:{0}%",
         "drawRandomScenarioSection": "Draw Random Scenario Section %data.section:{0}%, unlock {3}",
@@ -3699,7 +3813,27 @@
         "reputation": "{0} Reputation",
         "setConditionValue": "%game.condition.{0}% to {1} for {2}"
       },
+      "campaignHistory": {
+        "undo": "Undid {0}: {1}"
+      },
       "finishConclusion": "Finish conclusion #{0} {1} ({2})",
+      "scenarioReward": {
+        "changeCharacterBattleGoals": "{0} %game.checkmark% for {1}",
+        "changeCharacterGold": "{0} Gold for {1}",
+        "changeCharacterResource": "{1} {0} for {2}",
+        "changeCharacterXP": "{0} XP for {1}",
+        "defense": "{0} Defense",
+        "inspiration": "{0} Inspiration",
+        "lockCharacter": "Locked character {0}",
+        "morale": "{0} Morale",
+        "perks": "{0} Perks for {1}",
+        "prosperity": "{0} Prosperity",
+        "reputation": "{0} Reputation",
+        "revertConclusion": "Removed conclusion #{0} {1} ({2})",
+        "revertScenario": "Removed scenario #{0} {1} ({2}) unlock",
+        "soldiers": "{0} Soldiers",
+        "unlockScenario": "Unlocked scenario #{0} {1} ({2})"
+      },
       "finishScenario": {
         "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}.{1}% to {2}",
         "close": "Close Scenario Summary",
@@ -3745,6 +3879,7 @@
       "objectiveEntityDead": "Kill %game.objectiveMarker.{1}% of {0}",
       "openRoom": "Open door for tile '{2}' in #{0} {1}",
       "openRoomMarker": "Open door %game.mapMarker.{3}% for tile '{2}' in #{0} {1}",
+      "passTime": "Advance calendar to week {0}",
       "rebuildBuilding": "Rebuild '%data.buildings.{1}%' ({0})",
       "removeAbility": "Remove ability \"{1}\" from {0}",
       "removeAllChars": "Remove all characters",
@@ -4123,6 +4258,7 @@
       "global": "The following keyboard shortcuts are currently implemented:",
       "globalMap": "Open Global Map",
       "keyboard": "Show keyboard shortcuts",
+      "print": "Print shortcut reference",
       "loot": "Draw from Loot Deck",
       "mainMenu": {
         "": "Open main menu",

@@ -16,6 +16,7 @@ import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-
 import { PartyResourcesDialogComponent } from 'src/app/ui/figures/party/resources/resources';
 import { ScenarioChartDialogComponent } from 'src/app/ui/figures/party/scenario-chart/scenario-chart';
 import { WorldMapComponent } from 'src/app/ui/figures/party/world-map/world-map';
+import { CampaignHistoryComponent } from 'src/app/ui/header/menu/campaign/history/campaign-history';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
@@ -116,6 +117,13 @@ export class CampaignMenuComponent implements OnInit {
     this.dialog.open(CharacterSheetDialog, {
       panelClass: ['dialog-invert'],
       data: { character: character }
+    });
+    this.closed.emit();
+  }
+
+  openCampaignHistory() {
+    this.dialog.open(CampaignHistoryComponent, {
+      panelClass: ['dialog']
     });
     this.closed.emit();
   }
@@ -259,5 +267,17 @@ export class CampaignMenuComponent implements OnInit {
 
   cancelResetCampaign() {
     this.confirmResetCampaign = false;
+  }
+
+  label(key: string, args?: (string | number)[]): string {
+    return settingsManager.getLabel(key, args?.map((a) => '' + a));
+  }
+
+  characterIconAlt(character: Character): string {
+    return this.gameManager.characterManager.characterName(character, true);
+  }
+
+  conditionAlt(name: ConditionName): string {
+    return this.label('game.condition.' + name);
   }
 }

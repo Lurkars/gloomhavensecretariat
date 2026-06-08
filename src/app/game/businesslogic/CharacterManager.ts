@@ -9,6 +9,7 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { Enhancement } from 'src/app/game/model/data/Enhancement';
 import { ItemData } from 'src/app/game/model/data/ItemData';
+import { resourceLootTypes } from 'src/app/game/model/data/Loot';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { Game, GameState } from 'src/app/game/model/Game';
@@ -557,5 +558,19 @@ export class CharacterManager {
     return this.game.figures
       .filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent)
       .map((figure) => figure as Character);
+  }
+
+  moveResourcesToSupply(character: Character, logHistory: boolean = true) {
+    const characterName = this.characterName(character, true, true);
+    resourceLootTypes.forEach((lootType) => {
+      const value = character.progress.loot[lootType] || 0;
+      if (value > 0) {
+        this.game.party.loot[lootType] = (this.game.party.loot[lootType] || 0) + value;
+        character.progress.loot[lootType] = 0;
+        if (logHistory) {
+          gameManager.stateManager.addCampaignHistoryEntry('moveResource', characterName, 'game.loot.' + lootType, value);
+        }
+      }
+    });
   }
 }

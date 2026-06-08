@@ -1,0 +1,193 @@
+<div class="campaign-history-dialog text-white">
+
+  <div class="title">
+
+    <span [ghs-label]="'campaign.history.title'"></span>
+
+  </div>
+
+
+
+  <div class="filters">
+
+    <label class="filter-field search-field">
+
+      <span class="filter-label" [ghs-label]="'campaign.history.filter'"></span>
+
+      <input
+        tabclick
+        type="search"
+        name="campaignHistorySearch"
+        id="campaignHistorySearch"
+        title="Search history"
+        placeholder="Search history"
+        [(ngModel)]="searchFilter"
+        (ngModelChange)="onFilterChange()"
+      />
+
+    </label>
+
+    <label class="filter-field category-field">
+
+      <span class="filter-label" [ghs-label]="'campaign.history.columns.category'"></span>
+
+      <select
+        tabclick
+        name="campaignHistoryCategory"
+        id="campaignHistoryCategory"
+        title="Category"
+        [(ngModel)]="categoryFilter"
+        (ngModelChange)="onFilterChange()"
+      >
+
+        <option value="">{{ categoryLabel('') }}</option>
+
+        @for (category of categories; track category) {
+
+          <option [value]="category">{{ categoryLabel(category) }}</option>
+
+        }
+
+      </select>
+
+    </label>
+
+  </div>
+
+
+
+  <div class="container" [autoscroll]="true">
+
+    @if (entries.length === 0) {
+
+      <div class="empty">
+
+        <span [ghs-label]="'campaign.history.empty'"></span>
+
+      </div>
+
+    } @else if (filteredEntries().length === 0) {
+
+      <div class="empty">
+
+        <span [ghs-label]="'campaign.history.noResults'"></span>
+
+      </div>
+
+    } @else {
+
+      <div class="table">
+
+        <div class="row header">
+
+          <span class="col-revision" [ghs-label]="'campaign.history.columns.revision'"></span>
+
+          <span class="col-date" [ghs-label]="'campaign.history.columns.date'"></span>
+
+          <span class="col-category" [ghs-label]="'campaign.history.columns.category'"></span>
+
+          <span class="col-record" [ghs-label]="'campaign.history.columns.record'"></span>
+
+          <span class="col-info" [ghs-label]="'campaign.history.columns.change'"></span>
+
+        </div>
+
+
+
+        @for (entry of displayedEntries(); track entry.revision + '-' + entry.timestamp + '-' + $index) {
+
+          <div class="row">
+
+            <span class="col-revision">{{ entry.revision }}</span>
+
+            <span class="col-date">
+
+              @if (entry.timestamp) {
+
+                <span class="date">{{ formatDate(entry.timestamp) }}</span>
+
+                <span class="time">{{ formatTime(entry.timestamp) }}</span>
+
+              }
+
+            </span>
+
+            <span class="col-category" [ghs-label]="'campaign.history.category.' + getEntryCategory(entry)"></span>
+
+            <span class="col-record">{{ getEntryRecord(entry) }}</span>
+
+            @if (getEntryInfo(entry).length > 0) {
+
+              <span
+
+                class="col-info"
+
+                [ghs-label]="'state.info.' + getEntryInfo(entry)[0]"
+
+                [ghs-label-args]="getEntryInfo(entry) | slice: 1 : getEntryInfo(entry).length"
+
+                [ghs-label-empty]="true"
+
+              ></span>
+
+            } @else {
+
+              <span class="col-info"></span>
+
+            }
+
+          </div>
+
+        }
+
+
+
+        @if (displayCount < filteredEntries().length) {
+
+          <span tabclick class="more" ghsInViewport (ghsInViewportAction)="moreEntries()" (click)="moreEntries()">
+
+            <span [ghs-label]="'state.loadMore'"></span>
+
+          </span>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+
+
+  <div class="menu">
+
+    <a
+
+      tabclick
+
+      class="clear"
+
+      (click)="clearHistory()"
+
+      (mouseleave)="cancelClear()"
+
+      [ngClass]="{
+
+        disabled: entries.length === 0 || (gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party),
+
+        confirm: confirmClear
+
+      }"
+
+    >
+
+      <span [ghs-label]="'campaign.history.clear'"></span>{{ confirmClear ? '!' : '?' }}
+
+    </a>
+
+  </div>
+
+</div>
+
+

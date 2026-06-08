@@ -8,6 +8,7 @@ import { EventCardIdentifier } from 'src/app/game/model/data/EventCard';
 import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { Loot, LootType } from 'src/app/game/model/data/Loot';
 import { PetIdentifier } from 'src/app/game/model/data/PetCard';
+import { CampaignHistoryEntry } from 'src/app/game/model/CampaignHistory';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 export class Party {
@@ -77,6 +78,8 @@ export class Party {
   // GH2E
   factionReputation: Partial<Record<string, number>> = {};
   imbuement: number = 0;
+
+  campaignHistory: CampaignHistoryEntry[] = [];
 
   migrate() {
     // migration
@@ -191,6 +194,7 @@ export class Party {
 
     this.eventDecks = this.eventDecks || {};
     this.eventCards = this.eventCards || [];
+    this.campaignHistory = this.campaignHistory || [];
 
     if (this.campaignMode && settingsManager.settings.events) {
       gameManager.eventCardManager.buildPartyDeckMigration(this.edition || gameManager.currentEdition());

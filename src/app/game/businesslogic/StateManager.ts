@@ -1,3 +1,12 @@
+import {
+  capturePartyCampaignSnapshot,
+  collectResourceAllocationsFromSnapshots,
+  diffPartyCampaignSnapshots,
+  formatEventResourceAllocations,
+  PartyCampaignSnapshot,
+  shouldSnapshotCampaignForHistoryDiff,
+  useScenarioRewardHistoryKeys
+} from 'src/app/game/businesslogic/CampaignHistorySnapshot';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { storageManager } from 'src/app/game/businesslogic/StorageManager';
@@ -6,6 +15,12 @@ import { Character } from 'src/app/game/model/Character';
 import { Game, GameModel } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Permissions } from 'src/app/game/model/Permissions';
+import {
+  CampaignHistoryEntry,
+  computeCampaignHistoryRecord,
+  isCampaignHistoryAction,
+  MAX_CAMPAIGN_HISTORY
+} from 'src/app/game/model/CampaignHistory';
 import { localSettings, Settings } from 'src/app/game/model/Settings';
 
 export class StateManager {
@@ -49,6 +64,11 @@ export class StateManager {
   ready: boolean = false;
 
   automaticTheme: boolean = true;
+
+  campaignSnapshotBefore: PartyCampaignSnapshot | undefined;
+  campaignHistoryScenarioIndex: string | undefined;
+  eventResourceBaseline: PartyCampaignSnapshot | undefined;
+  lastEventDraw: { type: string; cardId: string } | undefined;
 
   constructor(game: Game) {
     this.game = game;
@@ -602,7 +622,75 @@ export class StateManager {
 
   before(...info: (string | number | boolean)[]) {
     window.document.body.classList.add('working');
-    this.addToUndo((info && info.map((value) => '' + value)) || []);
+    const infoStrings = (info && info.map((value) => '' + value)) || [];
+    if (infoStrings[0] === 'eventDraw.cancel') {
+      this.eventResourceBaseline = undefined;
+    } else if (infoStrings[0] === 'eventDraw.accept') {
+      this.flushEventResourceHistory();
+      this.eventResourceBaseline = capturePartyCampaignSnapshot(this.game);
+      if (infoStrings[1] && infoStrings[2]) {
+        this.lastEventDraw = { type: infoStrings[1], cardId: infoStrings[2] };
+      }
+    }
+    if (infoStrings[0] && shouldSnapshotCampaignForHistoryDiff(infoStrings[0])) {
+      this.campaignSnapshotBefore = capturePartyCampaignSnapshot(this.game);
+      if (infoStrings[0] === 'finishConclusion' || infoStrings[0].startsWith('finishScenario.')) {
+        this.campaignHistoryScenarioIndex = infoStrings[1] || undefined;
+      }
+    }
+    this.addToUndo(infoStrings);
+  }
+
+  flushEventResourceHistory() {
+    if (!this.eventResourceBaseline || !this.lastEventDraw) {
+      this.eventResourceBaseline = undefined;
+      return;
+    }
+
+    const allocations = collectResourceAllocationsFromSnapshots(
+      this.eventResourceBaseline,
+      capturePartyCampaignSnapshot(this.game)
+    );
+    if (allocations.length > 0) {
+      this.addCampaignHistoryEntry(
+        'eventEffect.resourcesDistributed',
+        this.lastEventDraw.type,
+        this.lastEventDraw.cardId,
+        formatEventResourceAllocations(allocations)
+      );
+    }
+
+    this.eventResourceBaseline = undefined;
+  }
+
+  addCampaignHistoryEntry(...info: (string | number | boolean)[]) {
+    const infoStrings = (info && info.map((value) => '' + value)) || [];
+    if (!isCampaignHistoryAction(infoStrings)) {
+      return;
+    }
+
+    if (infoStrings[0] === 'resetCampaign') {
+      this.game.party.campaignHistory = [];
+    }
+
+    const entry = new CampaignHistoryEntry();
+    entry.revision = this.game.revision;
+    entry.timestamp = Date.now();
+    entry.info = infoStrings;
+    entry.record = computeCampaignHistoryRecord(infoStrings, {
+      scenarioIndex: this.game.scenario?.index || this.campaignHistoryScenarioIndex,
+      eventCardId: this.lastEventDraw?.cardId
+    });
+
+    if (!this.game.party.campaignHistory) {
+      this.game.party.campaignHistory = [];
+    }
+
+    this.game.party.campaignHistory.push(entry);
+
+    if (this.game.party.campaignHistory.length > MAX_CAMPAIGN_HISTORY) {
+      this.game.party.campaignHistory.splice(0, this.game.party.campaignHistory.length - MAX_CAMPAIGN_HISTORY);
+    }
   }
 
   async after(
@@ -614,6 +702,30 @@ export class StateManager {
     undolength: number = 1
   ) {
     this.game.revision += revisionChange;
+    if (revisionChange > 0 && type === 'game') {
+      const undoInfo = this.undoInfos[this.undos.length - 1];
+      if (undoInfo) {
+        if (undoInfo[0] !== 'eventEffect.applyManualDistribution') {
+          this.addCampaignHistoryEntry(...undoInfo);
+        }
+        if (this.campaignSnapshotBefore && undoInfo[0] && shouldSnapshotCampaignForHistoryDiff(undoInfo[0])) {
+          const eventResourceContext =
+            undoInfo[0] === 'eventDraw.accept' || undoInfo[0] === 'eventEffect.applyManualDistribution';
+          diffPartyCampaignSnapshots(
+            this.campaignSnapshotBefore,
+            capturePartyCampaignSnapshot(this.game),
+            false,
+            useScenarioRewardHistoryKeys(undoInfo[0]),
+            { skipResourceDiff: eventResourceContext }
+          ).forEach((entry) => this.addCampaignHistoryEntry(...entry));
+          if (undoInfo[0] === 'eventEffect.applyManualDistribution') {
+            this.flushEventResourceHistory();
+          }
+          this.campaignSnapshotBefore = undefined;
+          this.campaignHistoryScenarioIndex = undefined;
+        }
+      }
+    }
     this.saveLocal();
     if (this.ws && this.ws.readyState === WebSocket.OPEN && settingsManager.settings.serverCode) {
       window.document.body.classList.add('server-sync');
@@ -787,6 +899,8 @@ export class StateManager {
   fixedUndo(undolength: number, sync: boolean = true) {
     if (undolength > 0 && undolength <= this.undos.length) {
       window.document.body.classList.add('working');
+      const snapshotBefore = capturePartyCampaignSnapshot(this.game);
+      const undoneInfos = this.undoInfos.slice(this.undoInfos.length - undolength);
       this.redos.push(this.game.toModel());
       const revision = gameManager.game.revision;
       const revisionOffset = gameManager.game.revisionOffset + undolength - 1;
@@ -798,10 +912,26 @@ export class StateManager {
       this.game.fromModel(gameModel);
       this.game.revision = revision;
       this.game.revisionOffset = revisionOffset + 2;
+      const revertedChanges = diffPartyCampaignSnapshots(snapshotBefore, capturePartyCampaignSnapshot(this.game));
+      const undoneLabels = undoneInfos
+        .map((info) => settingsManager.getLabel('state.info.' + info[0], info.slice(1)))
+        .filter((label) => label)
+        .join('; ');
+      const revertedLabels = revertedChanges
+        .map((entry) => settingsManager.getLabel('state.info.' + entry[0], entry.slice(1)))
+        .filter((label) => label)
+        .join('; ');
+      if (
+        revertedChanges.length > 0 ||
+        undoneInfos.some((info) => isCampaignHistoryAction(info))
+      ) {
+        this.addCampaignHistoryEntry('campaignHistory.undo', undoneLabels, revertedLabels);
+      }
       this.saveStorage();
       if (sync) {
         this.after(1, false, 1, 'game-undo', undos[0].revision - (undos[0].revisionOffset || 0), undolength);
       } else {
+        window.document.body.classList.remove('working');
         gameManager.triggerUiChange(false);
       }
       this.lastAction = 'undo';
@@ -834,6 +964,7 @@ export class StateManager {
       if (sync) {
         this.after(1, false, 1, 'game-redo', redos[0].revision - (redos[0].revisionOffset || 0), redolength);
       } else {
+        window.document.body.classList.remove('working');
         gameManager.triggerUiChange(false);
       }
       this.lastAction = 'undo';

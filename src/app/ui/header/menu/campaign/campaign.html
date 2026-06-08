@@ -5,7 +5,14 @@
         disabled: !gameManager.game.edition || (gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party)
       }"
     >
-      <input tabclick type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()" />
+        <input
+          tabclick
+          type="checkbox"
+          [checked]="!gameManager.game.edition"
+          (change)="setEdition()"
+          title="All editions"
+          [attr.aria-label]="label('edition.all')"
+        />
       &lt;<span [ghs-label]="'edition.all'"></span>&gt;
     </label>
   </div>
@@ -17,7 +24,14 @@
             gameManager.game.edition === edition || (gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party)
         }"
       >
-        <input tabclick type="checkbox" [checked]="gameManager.game.edition === edition" (change)="setEdition(edition)" />
+        <input
+          tabclick
+          type="checkbox"
+          [checked]="gameManager.game.edition === edition"
+          (change)="setEdition(edition)"
+          title="Edition"
+          [attr.aria-label]="label('data.edition.' + edition)"
+        />
         <span [ghs-label]="'data.edition.' + edition"></span>
       </label>
       @if (edition === 'fh' && gameManager.game.edition === edition) {
@@ -29,7 +43,14 @@
   }
   <div class="line separator">
     <label [ngClass]="{ disabled: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party }">
-      <input tabclick type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()" />
+      <input
+        tabclick
+        type="checkbox"
+        [checked]="gameManager.game.party.campaignMode"
+        (change)="toggleCampaignMode()"
+        title="Campaign mode"
+        [attr.aria-label]="label('party.campaignMode')"
+      />
       <span [ghs-label]="'party.campaignMode'"></span>
     </label>
   </div>
@@ -39,6 +60,10 @@
       <label><span [ghs-label]="'campaign'"></span></label>
     </div>
   }
+
+  <div class="line">
+    <a tabclick (click)="openCampaignHistory()" [ghs-label]="'campaign.history.menu'"></a>
+  </div>
 
   @if (settingsManager.settings.partySheet && !gameManager.bbRules()) {
     <div class="line">
@@ -96,7 +121,13 @@
     @for (character of characters | trackUUID; track character._trackUUID) {
       <div class="line">
         <a tabclick (click)="openCharacterSheet(character)">
-          <img class="icon" [src]="character.iconUrl" />
+          <img
+            class="icon"
+            [src]="character.iconUrl"
+            title="Character"
+            [attr.alt]="characterIconAlt(character)"
+            aria-hidden="true"
+          />
           <span>{{ gameManager.characterManager.characterName(character, true) }}</span>
           @if (gameManager.getEdition(character)) {
             <span class="edition"
@@ -136,7 +167,11 @@
               active: !editionConditions.includes(condition.name) && gameManager.game.conditions.includes(condition.name)
             }"
           >
-            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+            <img
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
+              title="Condition"
+              [attr.alt]="conditionAlt(condition.name)"
+            />
           </span>
         </span>
       }
@@ -160,7 +195,11 @@
               active: !editionConditions.includes(condition.name) && gameManager.game.conditions.includes(condition.name)
             }"
           >
-            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+            <img
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
+              title="Condition"
+              [attr.alt]="conditionAlt(condition.name)"
+            />
           </span>
         </span>
       }
@@ -173,7 +212,12 @@
         <span [ghs-label]="'campaign.campaignManagement'"></span>
       </label>
       @if (!!gameManager.game.scenario) {
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
+        <img
+          src="./assets/images/hint.svg"
+          class="hint-trigger ghs-svg"
+          title="Hint"
+          [attr.alt]="label('campaign.campaignManagement.hint')"
+        />
         <span class="hint">
           <span class="text" [ghs-label]="'campaign.campaignManagement.hint'"></span>
         </span>
@@ -191,7 +235,14 @@
               (gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party)
           }"
         >
-          <input tabclick type="checkbox" [checked]="gameManager.game.party === party" (change)="changeParty(party)" />
+          <input
+            tabclick
+            type="checkbox"
+            [checked]="gameManager.game.party === party"
+            (change)="changeParty(party)"
+            title="Campaign"
+            [attr.aria-label]="party.name || label('party.campaign')"
+          />
           @if (party.name) {
             <span>{{ party.name }}</span>
           }
@@ -202,11 +253,20 @@
       }
       @if (gameManager.game.party === party) {
         <label>
-          <input tabclick type="checkbox" checked="true" disabled="disabled" />
+          <input
+            tabclick
+            type="checkbox"
+            checked="true"
+            disabled="disabled"
+            title="Active campaign"
+            [attr.aria-label]="label('party.campaign')"
+          />
           <input
             type="text"
             [value]="party.name"
             (change)="setName($event)"
+            title="Campaign name"
+            [attr.aria-label]="label('campaign.campaignManagement.name', [party.id])"
             [ghs-label]="'campaign.campaignManagement.name'"
             [ghs-label-args]="[party.id]"
             [ghs-label-attribute]="'placeholder'"
