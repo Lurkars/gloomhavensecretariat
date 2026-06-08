@@ -419,6 +419,8 @@
       "addEnhancement": "增加强化槽位",
       "addSubAction": "添加子行动",
       "enhancements": "强化",
+      "multiTarget": "多个目标",
+      "noDivider": "无分隔",
       "remove": "移除行动",
       "removeEnhancement": "移除强化槽位",
       "removeSubAction": "移除子行动",
@@ -1190,6 +1192,7 @@
         "": "搜索…",
         "affordable": "仅显示买得起的物品",
         "all": "查看所有物品",
+        "filtered": "已移除",
         "owned": "仅限已拥有的道具",
         "sorted": "已整理"
       },
@@ -1309,22 +1312,37 @@
           "partyAchievement": "团队成就: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "获得一个随机物品 （物品 {0}）",
+            "alt": "随机物品牌库已空",
+            "altFh": "随机物品牌库已空",
+            "altGh2e": "随机物品牌库已空",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
             "": "随机物品设计蓝图",
+            "alt": "随机物品蓝图牌库已空",
+            "altFh": "随机物品蓝图牌库已空，获得+1激励",
+            "altGh2e": "随机物品蓝图牌库已空，共同获得15金币（手动）",
             "result": ": {1} 设计蓝图 ({0})"
           },
           "randomItemDesign": {
             "": "随机物品设计图纸",
+            "alt": "随机物品设计图纸牌库已空",
+            "altFh": "随机物品设计图纸牌库已空，获得+1激励",
+            "altGh2e": "随机物品设计图纸牌库已空，共同获得15金币（手动）",
             "result": ": {1} 设计图纸 ({0})"
           },
           "randomScenario": {
             "": "随机支线剧本",
+            "alt": "随机支线剧本牌库已空",
+            "altFh": "随机支线剧本牌库已空",
+            "altGh2e": "随机支线剧本牌库已空",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
             "": "随机支线剧本",
+            "alt": "随机支线剧本牌库已空",
+            "altFh": "随机支线剧本牌库已空，获得+1激励",
+            "altGh2e": "随机支线剧本牌库已空，共同获得15金币（手动）",
             "result": "： 查看 %data.section:{0}%，解锁 {2}"
           },
           "resource": "获得 {0}",
@@ -2178,6 +2196,10 @@
         "": "%game.monsterType.elite%: {0}",
         "hint": "%game.monsterType.elite% 怪物被击杀的数量"
       },
+      "exhausts": {
+        "": "%game.gameIcon:status/exhausted% {0}",
+        "hint": "筋疲力竭"
+      },
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
         "hint": "%game.gameIcon:loot% 硬币被拾取的数量"
@@ -2228,6 +2250,9 @@
         }
       },
       "scenarios": "场景",
+      "summons": {
+        "": "召唤物"
+      },
       "toggle": {
         "hide": "隐藏场景信息",
         "show": "显示场景信息"
@@ -2795,9 +2820,13 @@
       "": "提供花园系统支持",
       "hint": "种植以及收获草药(24号建筑物-花园)"
     },
+    "fhGh2eItems": {
+      "": "增加幽港迷城第二版物品",
+      "hint": "基于官方FAQ，增加幽港迷城第二版中的物品至可用物品供应堆。"
+    },
     "fhGhItems": {
       "": "添加幽港迷城物品",
-      "hint": "按照规则中的规定,将来自幽港迷城以及遗忘之环中的物品添加到可用供应卡牌堆中.(仅适用于已启用的角色或角色物品)"
+      "hint": "按照规则中的规定,将来自幽港迷城以及遗忘之环中的物品添加到可用供应卡牌堆中."
     },
     "fhPets": {
       "": "提供宠物系统支持",
@@ -2857,6 +2886,10 @@
     "ge5Player": {
       "": "≥ 5名玩家规则",
       "capped": "计算规则等内容时，始终视为C=4"
+    },
+    "gh2eFhItems": {
+      "": "增加霜港迷城物品",
+      "hint": "基于官方FAQ，将霜港迷城物品添加至可用物品供应堆。"
     },
     "gh2eImbuement": {
       "": "启用怪物注魔",
@@ -3009,7 +3042,7 @@
     },
     "scenarioRewards": {
       "": "应用剧本奖励",
-      "hint": "自动应用财宝奖励:给予角色金币,经验值等"
+      "hint": "自动应用剧本奖励:给予角色金币,经验值等"
     },
     "scenarioRewardsItems": {
       "": "抽取剧本随机物品奖励",
@@ -3690,6 +3723,7 @@
         "addCurse": "添加诅咒卡牌至 {0} 攻击修正牌堆中",
         "amDeckHide": "隐藏 {0} 攻击修正牌堆",
         "amDeckShow": "显示 {0} 攻击修正牌堆",
+        "discardFromActive": "移除{0}攻击修正牌堆中激活的卡牌",
         "draw": "抽取 {0} 攻击修正",
         "drawadvantage": "以优势攻击抽取 {0} 攻击修正",
         "drawdisadvantage": "以劣势攻击抽取 {0} 攻击修正",
@@ -3699,6 +3733,7 @@
         "removeDrawnDiscards": "从 {0} 的攻击修正牌堆中移除已抽的弃牌",
         "reorder": "将 {0} 的攻击修正牌堆重新排序",
         "restoreDefault": "将 {0} 的攻击修正牌堆复原为默认状态",
+        "restoreToActive": "恢复{0}攻击修正牌堆中激活的卡牌",
         "shuffle": "混洗 {0} 的攻击修正牌堆",
         "shuffleUpcoming": "混洗 {0} 的攻击修正牌堆中尚未抽取的卡牌"
       },
