@@ -3,7 +3,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
-import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
 import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
@@ -236,7 +236,7 @@ export class LootManager {
                   ) {
                     character.progress.gold += gameManager.itemManager.itemSellValue(item);
                   } else {
-                    character.progress.items.push(identifier);
+                    gameManager.itemManager.addItem(item, character);
                   }
                 }
                 gameManager.itemManager.addItemCount(item);
@@ -342,7 +342,7 @@ export class LootManager {
 
           if (itemData) {
             if (reward.type === TreasureRewardType.randomItem) {
-              character.progress.items.push(new Identifier(itemData.id, itemData.edition));
+              gameManager.itemManager.addItem(itemData, character);
             } else {
               gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
             }

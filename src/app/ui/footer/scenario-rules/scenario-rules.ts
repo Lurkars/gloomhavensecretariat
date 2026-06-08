@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -25,8 +25,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, TrackUUIDPipe, ScenarioRuleComponent],
   selector: 'ghs-scenario-rules',
   templateUrl: './scenario-rules.html',
-  styleUrls: ['./scenario-rules.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./scenario-rules.scss']
 })
 export class ScenarioRulesComponent {
   private dialog = inject(Dialog);

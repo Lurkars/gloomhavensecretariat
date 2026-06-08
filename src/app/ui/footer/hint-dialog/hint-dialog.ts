@@ -1,5 +1,5 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -15,8 +15,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [GhsLabelDirective],
   selector: 'ghs-hint-dialog',
   templateUrl: './hint-dialog.html',
-  styleUrls: ['./hint-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./hint-dialog.scss']
 })
 export class HintDialogComponent {
   private dialogRef = inject(DialogRef);

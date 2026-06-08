@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DoCheck, OnInit, inject, input } from '@angular/core';
+import { Component, DoCheck, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Entity } from 'src/app/game/model/Entity';
@@ -9,8 +9,7 @@ import { GhsFloorPipe } from 'src/app/ui/helper/Pipes';
   imports: [NgClass, GhsFloorPipe],
   selector: 'ghs-entity-index-key',
   templateUrl: './entity-index-key.html',
-  styleUrls: ['./entity-index-key.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./entity-index-key.scss']
 })
 export class EntityIndexKeyComponent implements OnInit, DoCheck {
   private ghsManager = inject(GhsManager);

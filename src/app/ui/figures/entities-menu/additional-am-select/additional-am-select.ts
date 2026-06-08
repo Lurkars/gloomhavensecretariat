@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -12,8 +12,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-additional-am-select-dialog',
   templateUrl: './additional-am-select.html',
-  styleUrls: ['./additional-am-select.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./additional-am-select.scss']
 })
 export class AdditionalAMSelectDialogComponent {
   dialogRef = inject(DialogRef);

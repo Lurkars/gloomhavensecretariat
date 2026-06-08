@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, OnInit, inject, input, viewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, inject, input, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -50,8 +50,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   ],
   selector: 'ghs-standee',
   templateUrl: './standee.html',
-  styleUrls: ['./standee.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./standee.scss']
 })
 export class StandeeComponent implements OnInit {
   private element = inject(ElementRef);

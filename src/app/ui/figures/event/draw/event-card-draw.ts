@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -15,8 +15,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   imports: [NgClass, GhsLabelDirective, GhsTooltipDirective, EventCardComponent],
   selector: 'ghs-event-card-draw',
   templateUrl: './event-card-draw.html',
-  styleUrls: ['./event-card-draw.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./event-card-draw.scss']
 })
 export class EventCardDrawComponent {
   private dialogRef = inject(DialogRef);

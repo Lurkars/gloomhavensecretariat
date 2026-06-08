@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, HostListener, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -19,8 +19,7 @@ import { environment } from 'src/environments/environment';
   imports: [NgClass, HeaderComponent, KeyboardShortcuts, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-initiative-standalone',
   templateUrl: './initiative-standalone.html',
-  styleUrls: ['./initiative-standalone.scss', '../../../../ui/figures/character/cards/initiative-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./initiative-standalone.scss', '../../../../ui/figures/character/cards/initiative-dialog.scss']
 })
 export class InitiativeStandaloneComponent implements OnInit {
   private dialog = inject(Dialog);

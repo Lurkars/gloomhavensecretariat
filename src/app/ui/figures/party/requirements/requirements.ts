@@ -1,5 +1,5 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
@@ -13,8 +13,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [FormsModule, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-requirements',
   templateUrl: 'requirements.html',
-  styleUrls: ['./requirements.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./requirements.scss']
 })
 export class ScenarioRequirementsComponent implements OnInit, OnChanges {
   readonly inputScenarioData = input.required<ScenarioData>({ alias: 'scenarioData' });
@@ -67,8 +66,7 @@ export class ScenarioRequirementsComponent implements OnInit, OnChanges {
   imports: [GhsLabelDirective, ScenarioRequirementsComponent],
   selector: 'ghs-requirements-dialog',
   templateUrl: 'requirements-dialog.html',
-  styleUrls: ['./requirements-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./requirements-dialog.scss']
 })
 export class ScenarioRequirementsDialogComponent {
   private dialogRef = inject(DialogRef);

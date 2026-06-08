@@ -223,14 +223,18 @@ export class ItemManager {
   }
 
   assigned(item: ItemData): number {
-    return this.game.figures
-      .filter((figure) => figure instanceof Character && figure.progress && figure.progress.items)
-      .map((figure) => figure as Character)
-      .map((figure) => figure.progress && figure.progress.items)
-      .reduce((pre, cur): Identifier[] => {
-        return pre && cur && pre.concat(cur);
-      })
-      .filter((identifier) => item && identifier.name === '' + item.id && identifier.edition === item.edition).length;
+    return (
+      this.game.figures
+        .filter((figure) => figure instanceof Character && figure.progress && figure.progress.items)
+        .map((figure) => figure as Character)
+        .map((figure) => figure.progress && figure.progress.items)
+        .reduce((pre, cur): Identifier[] => {
+          return pre && cur && pre.concat(cur);
+        })
+        .filter((identifier) => item && identifier.name === '' + item.id && identifier.edition === item.edition).length +
+      this.game.party.specialItems.filter((identifier) => item && identifier.name === '' + item.id && identifier.edition === item.edition)
+        .length
+    );
   }
 
   owned(item: ItemData, character: Character): boolean {
@@ -388,12 +392,17 @@ export class ItemManager {
   }
 
   addItem(item: ItemData, character: Character) {
-    character.progress.items.push(new Identifier(item.id, item.edition));
+    if (!!item.specialFh && item.specialFh.length) {
+      this.game.party.specialItems = this.game.party.specialItems || [];
+      this.game.party.specialItems.push(new Identifier(item.id, item.edition));
+    } else {
+      character.progress.items.push(new Identifier(item.id, item.edition));
+    }
   }
 
   buyItem(item: ItemData, character: Character) {
     character.progress.gold -= item.cost + this.pricerModifier();
-    character.progress.items.push(new Identifier(item.id, item.edition));
+    this.addItem(item, character);
   }
 
   craftItemResources(item: ItemData, character: Character) {
@@ -445,7 +454,7 @@ export class ItemManager {
 
   craftItem(item: ItemData, character: Character) {
     this.craftItemResources(item, character);
-    character.progress.items.push(new Identifier(item.id, item.edition));
+    this.addItem(item, character);
   }
 
   removeItem(itemData: ItemData, character: Character) {

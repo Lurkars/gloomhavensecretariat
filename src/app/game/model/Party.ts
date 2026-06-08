@@ -1,7 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
-import { GameCharacterModel } from 'src/app/game/model/Character';
+import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
 import { ConditionName } from 'src/app/game/model/data/Condition';
 import { EventCardIdentifier } from 'src/app/game/model/data/EventCard';
@@ -65,6 +65,7 @@ export class Party {
   townGuardDeck: GameAttackModifierDeckModel | undefined;
   buildings: BuildingModel[] = [];
   pets: PetIdentifier[] = [];
+  specialItems: Identifier[] = [];
 
   lootDeckEnhancements: Loot[] = [];
   lootDeckFixed: LootType[] = [];
@@ -203,6 +204,22 @@ export class Party {
             eventCard.options &&
             eventCard.options.some((option) => option.outcomes && option.outcomes.some((outcome) => outcome.attack))) ||
           false;
+      }
+    });
+
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        if (gameManager.currentEdition() === 'fh' && !figure.tags.includes('fh-special-items-migration')) {
+          figure.tags.push('fh-special-items-migration');
+          const specialItems = figure.progress.items.filter((value) => {
+            const itemData = gameManager.itemManager.getItem(value.name, value.edition, true);
+            return !!itemData && !!itemData.specialFh && itemData.specialFh.length;
+          });
+
+          figure.progress.items = figure.progress.items.filter((value) => !specialItems.includes(value));
+          this.specialItems = gameManager.game.party.specialItems || [];
+          this.specialItems.push(...specialItems);
+        }
       }
     });
   }

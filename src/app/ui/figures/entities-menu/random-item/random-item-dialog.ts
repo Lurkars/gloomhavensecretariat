@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ItemData } from 'src/app/game/model/data/ItemData';
@@ -13,8 +13,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, GhsLabelDirective, ItemComponent],
   selector: 'ghs-event-random-item-dialog',
   templateUrl: './random-item-dialog.html',
-  styleUrls: ['./random-item-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./random-item-dialog.scss']
 })
 export class EventRandomItemDialogComponent {
   private dialogRef = inject(DialogRef);

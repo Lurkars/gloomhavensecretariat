@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -30,8 +30,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-event-card-deck',
   templateUrl: './event-card-deck.html',
-  styleUrls: ['./event-card-deck.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./event-card-deck.scss']
 })
 export class EventCardDeckComponent {
   private dialogRef = inject(DialogRef);

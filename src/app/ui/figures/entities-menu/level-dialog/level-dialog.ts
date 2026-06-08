@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -15,8 +15,7 @@ import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsValueSign } from 
   imports: [NgClass, GhsLabelDirective, GhsRangePipe],
   selector: 'ghs-character-level-dialog',
   templateUrl: 'level-dialog.html',
-  styleUrls: ['../entities-menu-dialog.scss', './level-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../entities-menu-dialog.scss', './level-dialog.scss']
 })
 export class CharacterLevelDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

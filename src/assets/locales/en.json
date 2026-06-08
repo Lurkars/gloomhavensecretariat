@@ -919,6 +919,7 @@
         "reputationLT": "Reputation < {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "If %party.campaign.sheet.{0}% is {1} weeks or fewer away",
+        "startingGroup": "If {0}",
         "traits": "%game.trait% {0}",
         "traitsAll": "%game.trait% {0}"
       },
@@ -1068,6 +1069,7 @@
           "gh2e": "Each character starts the next scenario with %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "One starts scenario with %game.card.minus1% x{0}.",
+        "section": "Read %game.section:{0}%",
         "sectionOrWeek": "Add %game.section:{0}% OR {1} to the calendar in one week.",
         "sectionOrWeeks": "Add %game.section:{0}% OR {1} to the calendar in %game.number.{2}% weeks.",
         "sectionWeek": "Add %game.section:{0}% to the calendar in one week.",
@@ -1196,6 +1198,7 @@
         "sorted": "Sorted"
       },
       "remove": "Remove '{0}'",
+      "party": "Party Items",
       "sell": "Sell '{0}' for {1} gold",
       "share": {
         "": "Share '{0}'",

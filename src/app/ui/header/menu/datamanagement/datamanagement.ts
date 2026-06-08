@@ -1,6 +1,6 @@
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -18,8 +18,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, DragDropModule, GhsLabelDirective, TabClickDirective, TrackUUIDPipe, SettingMenuComponent],
   selector: 'ghs-datamanagement-menu',
   templateUrl: 'datamanagement.html',
-  styleUrls: ['../menu.scss', 'datamanagement.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'datamanagement.scss']
 })
 export class DatamanagementMenuComponent implements OnInit {
   private ghsManager = inject(GhsManager);

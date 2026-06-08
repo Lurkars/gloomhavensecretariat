@@ -1,10 +1,10 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
@@ -20,8 +20,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, GhsTooltipDirective, PointerInputDirective, GhsRangePipe, TrackUUIDPipe, ItemComponent],
   selector: 'ghs-items-brew',
   templateUrl: 'brew.html',
-  styleUrls: ['./brew.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./brew.scss']
 })
 export class ItemsBrewDialog implements OnInit {
   private dialogRef = inject(DialogRef);
@@ -293,7 +292,7 @@ export class ItemsBrewDialog implements OnInit {
         ) {
           gameManager.game.party.unlockedItems.push(new CountIdentifier(this.brewed.id, this.brewed.edition));
         }
-        this.selectedCharacter.progress.items.push(new Identifier(this.brewed.id, this.brewed.edition));
+        gameManager.itemManager.addItem(this.brewed, this.selectedCharacter);
         this.applied = true;
         this.computeGridState();
         gameManager.stateManager.after();

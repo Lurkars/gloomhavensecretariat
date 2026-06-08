@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, inject, input } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, inject, input } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -51,8 +51,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   ],
   selector: 'ghs-objective-container',
   templateUrl: './objective-container.html',
-  styleUrls: ['./objective-container.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./objective-container.scss']
 })
 export class ObjectiveContainerComponent implements OnInit {
   private dialog = inject(Dialog);

@@ -3,7 +3,6 @@ import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -29,8 +28,7 @@ import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
   imports: [GhsLabelDirective, NgClass],
   selector: 'ghs-character-initiative',
   templateUrl: 'initiative.html',
-  styleUrls: ['./initiative.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./initiative.scss']
 })
 export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterViewInit {
   private dialog = inject(Dialog);

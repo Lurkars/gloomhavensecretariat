@@ -1,17 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  OnInit,
-  inject,
-  input,
-  viewChild
-} from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, inject, input, viewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -79,8 +69,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   ],
   selector: 'ghs-character',
   templateUrl: './character.html',
-  styleUrls: ['./character.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./character.scss']
 })
 export class CharacterComponent implements OnInit {
   private dialog = inject(Dialog);

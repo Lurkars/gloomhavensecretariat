@@ -1,7 +1,7 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -41,8 +41,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   ],
   selector: 'ghs-footer',
   templateUrl: './footer.html',
-  styleUrls: ['./footer.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./footer.scss']
 })
 export class FooterComponent implements OnInit {
   private elementRef = inject(ElementRef);

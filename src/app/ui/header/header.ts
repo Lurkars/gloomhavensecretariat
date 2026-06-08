@@ -1,17 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DestroyRef,
-  ElementRef,
-  inject,
-  input,
-  OnInit,
-  viewChild
-} from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, ElementRef, inject, input, OnInit, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -44,8 +34,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-header',
   templateUrl: './header.html',
-  styleUrls: ['./header.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./header.scss']
 })
 export class HeaderComponent implements OnInit {
   private dialog = inject(Dialog);

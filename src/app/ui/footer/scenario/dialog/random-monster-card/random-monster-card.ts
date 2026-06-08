@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Element } from 'src/app/game/model/data/Element';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -12,8 +12,7 @@ import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
   imports: [NgClass, GhsLabelDirective, GhsRangePipe],
   selector: 'ghs-random-monster-card',
   templateUrl: './random-monster-card.html',
-  styleUrls: ['./random-monster-card.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./random-monster-card.scss']
 })
 export class RandomMonsterCardComponent implements OnInit {
   readonly inputSection = input.required<ScenarioData>({ alias: 'section' });

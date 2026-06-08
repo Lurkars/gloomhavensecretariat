@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,8 +17,7 @@ import { environment } from 'src/environments/environment';
   imports: [FormsModule, AttackModifierComponent, HeaderComponent, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-attackmodifier-tool',
   templateUrl: './attackmodifier-tool.html',
-  styleUrls: ['./attackmodifier-tool.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./attackmodifier-tool.scss']
 })
 export class AttackModifierToolComponent implements OnInit {
   private route = inject(ActivatedRoute);

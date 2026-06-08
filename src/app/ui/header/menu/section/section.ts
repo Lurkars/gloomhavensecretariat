@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -15,8 +15,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, GhsTooltipDirective, TabClickDirective, TrackUUIDPipe],
   selector: 'ghs-section-menu',
   templateUrl: 'section.html',
-  styleUrls: ['../menu.scss', 'section.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'section.scss']
 })
 export class SectionMenuComponent implements OnInit {
   private ghsManager = inject(GhsManager);

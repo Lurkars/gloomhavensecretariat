@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, output, viewChildren } from '@angular/core';
+import { Component, inject, output, viewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -42,8 +42,7 @@ export type SettingsTab =
   ],
   selector: 'ghs-settings-menu',
   templateUrl: 'settings.html',
-  styleUrls: ['../menu.scss', 'settings.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'settings.scss']
 })
 export class SettingsMenuComponent {
   platform = inject(Platform);

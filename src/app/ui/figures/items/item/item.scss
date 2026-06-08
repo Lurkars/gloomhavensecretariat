@@ -620,4 +620,18 @@
       }
     }
   }
+
+  &.special-fh {
+    .front {
+      background-image: url('../../../../../assets/images/fh/items/item-front-special-fh.png');
+
+      .artwork {
+        mask-image: url('../../../../../assets/images/fh/items/item-front-mask-special-fh.png');
+      }
+
+      .count {
+        top: 91.5%;
+      }
+    }
+  }
 }

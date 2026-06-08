@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -22,8 +22,7 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   imports: [CardRevealDirective, GhsLabelDirective, GhsRangePipe, NgClass, PointerInputDirective],
   selector: 'ghs-loot',
   templateUrl: './loot-card.html',
-  styleUrls: ['./loot-card.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./loot-card.scss']
 })
 export class LootComponent implements OnInit, OnChanges {
   private dialog = inject(Dialog);

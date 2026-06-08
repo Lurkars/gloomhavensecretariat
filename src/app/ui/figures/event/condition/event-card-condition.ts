@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, input, OnInit } from '@angular/core';
+import { Component, forwardRef, input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CharacterClass } from 'src/app/game/model/data/CharacterData';
 import { EventCardCondition, EventCardConditionType } from 'src/app/game/model/data/EventCard';
@@ -9,8 +9,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   imports: [NgClass, GhsLabelDirective, forwardRef(() => EventCardConditionComponent)],
   selector: 'ghs-event-card-condition',
   templateUrl: './event-card-condition.html',
-  styleUrls: ['./event-card-condition.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./event-card-condition.scss']
 })
 export class EventCardConditionComponent implements OnInit {
   readonly inputCondition = input<string | EventCardCondition | undefined>(undefined, { alias: 'condition' });
@@ -107,6 +106,26 @@ export class EventCardConditionComponent implements OnInit {
                 } else {
                   concat += ' %and% ';
                 }
+              }
+            }
+          });
+        this.labelArgs = [concat];
+      }
+
+      if (type === EventCardConditionType.startingGroup) {
+        let concat = '';
+        this.conditionObject.values
+          .filter((v) => typeof v === 'string')
+          .map((group) => {
+            return '\"%data.character.startingGroup.' + group + '%\"';
+          })
+          .forEach((trait, index, values) => {
+            concat += trait;
+            if (values.length > 1) {
+              if (index < values.length - 2) {
+                concat += ', ';
+              } else if (index < values.length - 1) {
+                concat += ' %or% ';
               }
             }
           });

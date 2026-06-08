@@ -1,17 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  inject,
-  input,
-  OnChanges,
-  OnInit,
-  output,
-  SimpleChanges
-} from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -40,8 +29,7 @@ export class ChallengeDeckChange {
   imports: [ChallengeCardComponent, GhsLabelDirective, NgClass, PointerInputDirective, TrackUUIDPipe],
   selector: 'ghs-challenge-deck',
   templateUrl: './challenge-deck.html',
-  styleUrls: ['./challenge-deck.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./challenge-deck.scss']
 })
 export class ChallengeDeckComponent implements OnInit, OnChanges {
   private element = inject(ElementRef);

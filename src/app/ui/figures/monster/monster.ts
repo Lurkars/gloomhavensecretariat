@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject, input } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -33,8 +33,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-monster',
   templateUrl: './monster.html',
-  styleUrls: ['./monster.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./monster.scss']
 })
 export class MonsterComponent implements OnInit {
   private dialog = inject(Dialog);

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit } from '@angular/core';
+import { Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -19,8 +19,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-attackmodifier-effect',
   templateUrl: './attackmodifier-effect.html',
-  styleUrls: ['./attackmodifier-effect.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./attackmodifier-effect.scss']
 })
 export class AttackModifierEffectComponent implements OnInit {
   private ghsManager = inject(GhsManager);

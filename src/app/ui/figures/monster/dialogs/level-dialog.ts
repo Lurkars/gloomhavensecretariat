@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -11,8 +11,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, GhsLabelDirective, PointerInputDirective],
   selector: 'ghs-monster-level-dialog',
   templateUrl: './level-dialog.html',
-  styleUrls: ['./level-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./level-dialog.scss']
 })
 export class MonsterLevelDialogComponent {
   private dialogRef = inject(DialogRef);

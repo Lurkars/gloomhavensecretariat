@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -16,8 +16,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, FormsModule, GhsLabelDirective, TrackUUIDPipe, TreasureLabelComponent],
   selector: 'ghs-treasures-dialog',
   templateUrl: 'treasures-dialog.html',
-  styleUrls: ['./treasures-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./treasures-dialog.scss']
 })
 export class TreasuresDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

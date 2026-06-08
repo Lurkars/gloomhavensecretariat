@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -28,8 +28,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-challenges-dialog',
   templateUrl: './challenge-deck-dialog.html',
-  styleUrls: ['./challenge-deck-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./challenge-deck-dialog.scss']
 })
 export class ChallengeDeckDialogComponent implements OnInit {
   dialogRef = inject(DialogRef);

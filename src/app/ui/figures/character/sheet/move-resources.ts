@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterProgress } from 'src/app/game/model/CharacterProgress';
@@ -12,8 +12,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, GhsLabelDirective],
   selector: 'ghs-character-move-resources',
   templateUrl: 'move-resources.html',
-  styleUrls: ['./move-resources.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./move-resources.scss']
 })
 export class CharacterMoveResourcesDialog implements OnInit {
   private dialogRef = inject(DialogRef);

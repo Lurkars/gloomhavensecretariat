@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, viewChild } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterSheetComponent } from 'src/app/ui/figures/character/sheet/character-sheet';
@@ -11,8 +11,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   imports: [NgClass, GhsTooltipDirective, PointerInputDirective, CharacterSheetComponent],
   selector: 'ghs-character-sheet-dialog',
   templateUrl: 'character-sheet-dialog.html',
-  styleUrls: ['./character-sheet-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./character-sheet-dialog.scss']
 })
 export class CharacterSheetDialog {
   dialogRef = inject(DialogRef);

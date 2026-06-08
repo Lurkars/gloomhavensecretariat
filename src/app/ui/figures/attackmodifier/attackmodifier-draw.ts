@@ -1,16 +1,5 @@
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  inject,
-  input,
-  OnChanges,
-  OnInit,
-  output,
-  SimpleChanges
-} from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -23,8 +12,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [AttackModifierComponent, NgClass, TrackUUIDPipe],
   selector: 'ghs-attackmodifier-draw',
   templateUrl: './attackmodifier-draw.html',
-  styleUrls: ['./attackmodifier-draw.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./attackmodifier-draw.scss']
 })
 export class AttackModifierDrawComponent implements OnInit, OnChanges {
   element = inject(ElementRef);

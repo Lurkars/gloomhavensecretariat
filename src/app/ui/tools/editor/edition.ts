@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnInit, viewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -16,8 +16,7 @@ import { environment } from 'src/environments/environment';
   imports: [FormsModule, RouterModule, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-edition-editor',
   templateUrl: './edition.html',
-  styleUrls: ['./editor.scss', './edition.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./editor.scss', './edition.scss']
 })
 export class EditionEditorComponent implements OnInit {
   readonly inputEditionData = viewChild.required<ElementRef>('inputEditionData');

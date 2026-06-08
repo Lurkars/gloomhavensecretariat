@@ -5625,14 +5625,23 @@
     "name": "Ancient Coin",
     "cost": 0,
     "count": 4,
-    "edition": "fh"
+    "edition": "fh",
+    "specialFh": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
   },
   {
     "id": 246,
     "name": "Key Card",
     "cost": 0,
     "count": 1,
-    "edition": "fh"
+    "edition": "fh",
+    "specialFh": [
+      ""
+    ]
   },
   {
     "id": 247,

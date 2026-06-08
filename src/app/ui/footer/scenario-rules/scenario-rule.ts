@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -25,8 +25,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [FormsModule, GhsLabelDirective, TrackUUIDPipe, ElementIconComponent],
   selector: 'ghs-scenario-rule',
   templateUrl: './scenario-rule.html',
-  styleUrls: ['./scenario-rule.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./scenario-rule.scss']
 })
 export class ScenarioRuleComponent implements OnInit {
   readonly inputRule = input.required<ScenarioRule>({ alias: 'rule' });

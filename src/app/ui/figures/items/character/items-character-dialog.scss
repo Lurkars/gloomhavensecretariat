@@ -98,10 +98,40 @@
       }
     }
 
+    &.party {
+      margin-top: 0;
+      min-height: initial;
+
+      .item {
+        position: relative;
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 13.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 20.25 * var(--ghs-dialog-factor));
+
+        ghs-item {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+
     @media (max-width: 600px), (orientation: portrait) {
       flex-direction: column;
       align-items: center;
     }
+  }
+
+  .party-title {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: var(--ghs-color-gray);
   }
 
   &.fh {

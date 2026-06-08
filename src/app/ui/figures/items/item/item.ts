@@ -1,5 +1,5 @@
 import { KeyValuePipe, NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, inject, input, OnInit, output } from '@angular/core';
+import { ChangeDetectorRef, Component, effect, inject, input, OnInit, output } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -26,8 +26,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-item',
   templateUrl: './item.html',
-  styleUrls: ['./item.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./item.scss']
 })
 export class ItemComponent implements OnInit {
   private ghsManager = inject(GhsManager);
@@ -66,6 +65,7 @@ export class ItemComponent implements OnInit {
   slotsBack: Action[] = [];
   idNumber: boolean = false;
   usable: boolean = true;
+  fhSpecialCount: number = 0;
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -134,6 +134,7 @@ export class ItemComponent implements OnInit {
 
       this.idNumber = typeof this.item.id === 'number';
       this.usable = gameManager.itemManager.itemUsable(this.item);
+      this.fhSpecialCount = !!this.item.specialFh && this.item.specialFh.length && this.count() !== '-' ? +this.count() - 1 : 0;
     }
   }
 

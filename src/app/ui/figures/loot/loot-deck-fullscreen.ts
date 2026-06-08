@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, forwardRef, inject, OnInit } from '@angular/core';
 import { LootDeck } from 'src/app/game/model/data/Loot';
 import { LootDeckChange, LootDeckComponent } from 'src/app/ui/figures/loot/loot-deck';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
@@ -9,8 +9,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, forwardRef(() => LootDeckComponent)],
   selector: 'ghs-loot-deck-fullscreen',
   templateUrl: './loot-deck-fullscreen.html',
-  styleUrls: ['./loot-deck-fullscreen.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./loot-deck-fullscreen.scss']
 })
 export class LootDeckFullscreenComponent implements OnInit {
   dialogRef = inject(DialogRef);

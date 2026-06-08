@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -20,8 +20,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, FormsModule, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-buildings-upgrade-dialog',
   templateUrl: 'upgrade-dialog.html',
-  styleUrls: ['./upgrade-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./upgrade-dialog.scss']
 })
 export class BuildingUpgradeDialog implements OnInit {
   private dialogRef = inject(DialogRef);

@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, input, OnInit, viewChild } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, input, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -84,8 +84,7 @@ export function compactAction(action: any) {
   ],
   selector: 'ghs-deck-editor',
   templateUrl: './deck.html',
-  styleUrls: ['../editor.scss', './deck.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../editor.scss', './deck.scss']
 })
 export class DeckEditorComponent implements OnInit {
   private dialog = inject(Dialog);

@@ -2,7 +2,14 @@
   @if (!!item) {
     <div
       class="card vertical reverse item"
-      [ngClass]="{ flipped: flipped, random: item.random, fh: fhStyle, craft: craft, bb: bb }"
+      [ngClass]="{
+        flipped: flipped,
+        random: item.random,
+        fh: fhStyle,
+        craft: craft,
+        bb: bb,
+        'special-fh': !!item.specialFh && item.specialFh.length > 0
+      }"
       card-reveal
       [disabled]="!reveal()"
       (changed)="emitRevealed($event)"
@@ -112,6 +119,7 @@
               (idNumber && +item.id < 100 ? '0' : '') +
               (idNumber && +item.id < 10 ? '0' : '') +
               item.id +
+              (item.specialFh ? item.specialFh[fhSpecialCount] : '') +
               '.png'
             "
           />

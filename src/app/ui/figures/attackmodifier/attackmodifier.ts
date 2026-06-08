@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, input } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, input } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import {
@@ -19,8 +19,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   selector: 'ghs-attackmodifier',
   templateUrl: './attackmodifier.html',
   styleUrls: ['./attackmodifier.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class AttackModifierComponent implements OnInit, OnChanges {
   readonly inputAttackModifier = input.required<AttackModifier>({ alias: 'attackModifier' });

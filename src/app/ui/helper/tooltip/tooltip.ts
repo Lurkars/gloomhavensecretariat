@@ -1,18 +1,7 @@
 import { Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ComponentRef,
-  DestroyRef,
-  Directive,
-  ElementRef,
-  HostListener,
-  inject,
-  input,
-  OnInit
-} from '@angular/core';
+import { Component, ComponentRef, DestroyRef, Directive, ElementRef, HostListener, inject, input, OnInit } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 
@@ -20,8 +9,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   imports: [NgClass, GhsLabelDirective],
   selector: 'ghs-tooltip-component',
   styleUrls: ['./tooltip.scss'],
-  templateUrl: './tooltip.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './tooltip.html'
 })
 export class GhsTooltipComponent {
   value = '';

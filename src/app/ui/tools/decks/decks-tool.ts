@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,8 +20,7 @@ import { environment } from 'src/environments/environment';
   imports: [NgClass, FormsModule, AbilityComponent, HeaderComponent, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-decks-tool',
   templateUrl: './decks-tool.html',
-  styleUrls: ['./decks-tool.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./decks-tool.scss']
 })
 export class DecksToolComponent implements OnInit {
   private route = inject(ActivatedRoute);

@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import packageJson from 'src/../package.json';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -21,8 +21,7 @@ export type FEEDBACK_ISSUE_TYPE = 'abilityCard' | 'monsterStat' | 'characterStat
   imports: [NgClass, FormsModule, SettingMenuComponent, GhsLabelDirective],
   selector: 'ghs-feedback-dialog',
   templateUrl: './feedback-dialog.html',
-  styleUrls: ['./feedback-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./feedback-dialog.scss']
 })
 export class FeedbackDialogComponent {
   dialogRef = inject(DialogRef);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, OnInit, viewChild } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,8 +19,7 @@ import { environment } from 'src/environments/environment';
   imports: [FormsModule, HeaderComponent, GhsRangePipe, GhsLabelDirective, TrackUUIDPipe, DeckEditorComponent],
   selector: 'ghs-character-editor',
   templateUrl: './character.html',
-  styleUrls: ['../editor.scss', './character.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../editor.scss', './character.scss']
 })
 export class CharacterEditorComponent implements OnInit {
   private route = inject(ActivatedRoute);

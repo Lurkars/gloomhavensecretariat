@@ -40,5 +40,16 @@
         }
       </div>
     }
+
+    @if (specialItems.length) {
+      <div class="party-title" [ghs-label]="'game.items.party'"></div>
+      <div class="item-list party">
+        @for (model of specialItems | trackUUID; track model._trackUUID) {
+          <div class="item" ghs-pointer-input (singleClick)="openSpecialItemDialog(model.item, model.count)">
+            <ghs-item [item]="model.item" [count]="model.count" [flipped]="true"></ghs-item>
+          </div>
+        }
+      </div>
+    }
   </div>
 </div>

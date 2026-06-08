@@ -1,5 +1,5 @@
 import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { Character } from 'src/app/game/model/Character';
 import { Monster } from 'src/app/game/model/Monster';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -9,8 +9,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [],
   selector: 'ghs-figure-errors',
   templateUrl: './errors.html',
-  styleUrls: ['./errors.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./errors.scss']
 })
 export class FigureErrorsComponent implements OnInit {
   private dialog = inject(Dialog);

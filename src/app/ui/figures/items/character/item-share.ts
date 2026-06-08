@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { ItemData } from 'src/app/game/model/data/ItemData';
@@ -14,8 +14,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, PointerInputDirective, TrackUUIDPipe, ItemComponent],
   selector: 'ghs-item-share-dialog',
   templateUrl: './item-share.html',
-  styleUrls: ['./item-share.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./item-share.scss']
 })
 export class ItemShareDialogComponent {
   private dialogRef = inject(DialogRef);

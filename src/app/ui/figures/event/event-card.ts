@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EventCard, EventCardConditionType, EventCardEffectType, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
@@ -22,8 +22,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-event-card',
   templateUrl: './event-card.html',
-  styleUrls: ['./event-card.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./event-card.scss']
 })
 export class EventCardComponent implements OnInit, OnChanges {
   gameManager: GameManager = gameManager;

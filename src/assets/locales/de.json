@@ -919,6 +919,7 @@
         "reputationLT": "Ansehen < {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "Wenn %party.campaign.sheet.{0}% in {1} Wochen oder weniger stattfindet",
+        "startingGroup": "Wenn {0}",
         "traits": "%game.trait% {0}",
         "traitsAll": "%game.trait% {0}"
       },
@@ -1068,6 +1069,7 @@
           "gh2e": "Jeder Charakter beginnt das nächste Szenario mit %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "Jeder beginnt das Szenario mit %game.card.minus1% x{0}.",
+        "section": "Lese %game.section:{0}%",
         "sectionOrWeek": "Füge %game.section:{0}% ODER {1} in einer Woche zum Kalender hinzu.",
         "sectionOrWeeks": "Füge %game.section:{0}% ODER {1} in %game.number.{2}% Wochen zum Kalender hinzu.",
         "sectionWeek": "Füge %game.section:{0}% in einer Woche zum Kalender hinzu.",
@@ -1197,6 +1199,7 @@
         "sorted": "Sortiert"
       },
       "remove": "'{0}' entfernen",
+      "party": "Gruppen-Gegenstände",
       "sell": "'{0}' für {1} Gold verkaufen",
       "share": {
         "": "'{0}' teilen",

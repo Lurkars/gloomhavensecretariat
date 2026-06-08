@@ -1,5 +1,5 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
+import { Component, forwardRef, inject } from '@angular/core';
 import { Character } from 'src/app/game/model/Character';
 import { Action } from 'src/app/game/model/data/Action';
 import { SummonData } from 'src/app/game/model/data/SummonData';
@@ -10,8 +10,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [forwardRef(() => EnhancementsComponent)],
   selector: 'ghs-enhancement-dialog',
   templateUrl: 'enhancement-dialog.html',
-  styleUrls: ['./enhancement-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./enhancement-dialog.scss']
 })
 export class EnhancementDialogComponent {
   private dialogRef = inject(DialogRef);

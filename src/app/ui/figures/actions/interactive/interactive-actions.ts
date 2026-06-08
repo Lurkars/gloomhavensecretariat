@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject, input, model } from '@angular/core';
+import { Component, OnInit, inject, input, model } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -18,8 +18,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [GhsLabelDirective, NgClass, PointerInputDirective, TrackUUIDPipe],
   selector: 'ghs-interactive-actions',
   templateUrl: './interactive-actions.html',
-  styleUrls: ['./interactive-actions.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./interactive-actions.scss']
 })
 export class InteractiveActionsComponent implements OnInit {
   private ghsManager = inject(GhsManager);

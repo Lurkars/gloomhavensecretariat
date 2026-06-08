@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, viewChild } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -27,8 +27,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, FormsModule, GhsLabelDirective, TabClickDirective, TrackUUIDPipe, ScenarioSetupComponent],
   selector: 'ghs-scenario-dialog',
   templateUrl: './scenario-dialog.html',
-  styleUrls: ['./scenario-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./scenario-dialog.scss']
 })
 export class ScenarioDialogComponent {
   dialogRef = inject(DialogRef);

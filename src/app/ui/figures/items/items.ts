@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, inject, input, OnInit, ViewEncapsulation } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -24,8 +24,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   selector: 'ghs-character-items',
   templateUrl: 'items.html',
   styleUrls: ['./items.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class CharacterItemsComponent implements OnInit {
   private dialog = inject(Dialog);
@@ -236,7 +235,8 @@ export class CharacterItemsComponent implements OnInit {
         item.id,
         item.edition
       );
-      this.character.progress.items.push(new Identifier(item.id, item.edition));
+
+      gameManager.itemManager.addItem(item, this.character);
       this.items.push(item);
       this.items.sort(gameManager.itemManager.sortItems);
       gameManager.stateManager.after();
@@ -253,7 +253,7 @@ export class CharacterItemsComponent implements OnInit {
         item.edition
       );
       this.character.progress.gold -= item.cost + gameManager.itemManager.pricerModifier();
-      this.character.progress.items.push(new Identifier(item.id, item.edition));
+      gameManager.itemManager.addItem(item, this.character);
       this.items.push(item);
       this.items.sort(gameManager.itemManager.sortItems);
       gameManager.stateManager.after();
@@ -317,7 +317,7 @@ export class CharacterItemsComponent implements OnInit {
         item.edition
       );
       this.craftItemResources(item);
-      this.character.progress.items.push(new Identifier(item.id, item.edition));
+      gameManager.itemManager.addItem(item, this.character);
       this.items.push(item);
       this.items.sort(gameManager.itemManager.sortItems);
       gameManager.stateManager.after();

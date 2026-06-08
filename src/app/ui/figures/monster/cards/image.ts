@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -14,8 +14,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, GhsLabelDirective, PointerInputDirective],
   selector: 'ghs-monster-image',
   templateUrl: './image.html',
-  styleUrls: ['./image.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./image.scss']
 })
 export class MonsterImageComponent {
   private dialog = inject(Dialog);

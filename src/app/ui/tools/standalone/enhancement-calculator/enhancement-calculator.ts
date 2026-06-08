@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { storageManager } from 'src/app/game/businesslogic/StorageManager';
@@ -9,8 +9,7 @@ import { environment } from 'src/environments/environment';
   imports: [EnhancementsComponent],
   selector: 'ghs-enhancement-calculator-standalone',
   templateUrl: './enhancement-calculator.html',
-  styleUrls: ['./enhancement-calculator.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./enhancement-calculator.scss']
 })
 export class EnhancementCalculatorStandaloneComponent implements OnInit {
   async ngOnInit() {

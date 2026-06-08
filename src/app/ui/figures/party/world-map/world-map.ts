@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener, inject, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, HostListener, inject, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import type { ImageOverlay, LatLngBoundsLiteral, Map as LeafletMap, SVGOverlay } from 'leaflet';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -22,8 +22,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   selector: 'ghs-world-map',
   templateUrl: './world-map.html',
   styleUrls: ['./world-map.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class WorldMapComponent implements AfterViewInit {
   dialogRef = inject(DialogRef);

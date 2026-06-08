@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -25,8 +25,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, FormsModule, GhsLabelDirective, PointerInputDirective, TrackUUIDPipe, ItemComponent],
   selector: 'ghs-items-dialog',
   templateUrl: './items-dialog.html',
-  styleUrls: ['./items-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./items-dialog.scss']
 })
 export class ItemsDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

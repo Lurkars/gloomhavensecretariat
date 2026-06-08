@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -14,8 +14,7 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   imports: [ItemComponent, NgClass, PointerInputDirective],
   selector: 'ghs-character-item',
   templateUrl: './item-character.html',
-  styleUrls: ['./item-character.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./item-character.scss']
 })
 export class CharacterItemComponent {
   private ghsManager = inject(GhsManager);

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -9,8 +9,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   selector: 'ghs-element-icon',
   templateUrl: './element-icon.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./element-icon.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./element-icon.scss']
 })
 export class ElementIconComponent implements OnInit {
   private sanitizer = inject(DomSanitizer);

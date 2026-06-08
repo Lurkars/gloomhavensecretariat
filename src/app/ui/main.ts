@@ -1,7 +1,7 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, CdkDragRelease, CdkDragStart, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
@@ -51,8 +51,7 @@ import { environment } from 'src/environments/environment';
   ],
   selector: 'ghs-main',
   templateUrl: './main.html',
-  styleUrls: ['./main.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./main.scss']
 })
 export class MainComponent implements OnInit {
   private element = inject(ElementRef);

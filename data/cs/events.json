@@ -2965,9 +2965,42 @@
           {
             "narrative": "The captain smiles. \"This challenge will test your physical strength and your will to persevere. You must ensure that you do not become a liability to the rest of your crew!\" Not wanting to back down, you don the Fire Knight's weighty gear and soon find yourself crawling, climbing, lifting, and dragging more than you ever thought you could. But you never gave up, and completing the challenge has earned the crew's respect.",
             "effects": [
-              "Gain item designs 63-72 and mark this checkbox [].",
-              "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
+              {
+                "type": "and",
+                "values": [
+                  {
+                    "type": "itemDesigns",
+                    "values": [
+                      "63",
+                      "72"
+                    ]
+                  }
+                ]
+              }
             ]
+          },
+          {
+            "effects": [
+              {
+                "type": "and",
+                "values": [
+                  "If both checkboxes on this card are marked, remove this card",
+                  {
+                    "type": "event",
+                    "values": [
+                      "road",
+                      58
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "returnToDeck": true
           }
         ]
       },
@@ -2978,9 +3011,42 @@
           {
             "narrative": "\"A prudent decision to invest in the well-being of your crew,\" the captain replies. \"The team can often accomplish more than the individual. Now you must learn to support your crew under pressure!\" You join the crew as they rehearse various tactics of survival and rescue. Improving your ability to perform under stress and physical exhaustion will undoubtedly serve you well.",
             "effects": [
-              "Gain item designs 73-82 and mark this checkbox [].",
-              "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
+              {
+                "type": "and",
+                "values": [
+                  {
+                    "type": "itemDesigns",
+                    "values": [
+                      "73",
+                      "82"
+                    ]
+                  }
+                ]
+              }
             ]
+          },
+          {
+            "effects": [
+              {
+                "type": "and",
+                "values": [
+                  "If both checkboxes on this card are marked, remove this card",
+                  {
+                    "type": "event",
+                    "values": [
+                      "road",
+                      58
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "returnToDeck": true
           }
         ]
       }
@@ -2998,6 +3064,43 @@
         "outcomes": [
           {
             "narrative": "You ask to be honored in the hospital, and the men assure you that your funds will ensure the Great Oak can continue to provide continuous care to those in need."
+          },
+          {
+            "condition": {
+              "type": "startingGroup",
+              "values": [
+                "naturalists",
+                "protectors"
+              ]
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "section",
+                "values": [
+                  "37D"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "startingGroup",
+              "values": [
+                "militants",
+                "explorers",
+                "trailblazers"
+              ]
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "section",
+                "values": [
+                  "43D"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -3007,6 +3110,43 @@
         "outcomes": [
           {
             "narrative": "You ask to be honored in the temple, and the men assure you that your funds will ensure the Great Oak can continue to help carry their message throughout Gloomhaven."
+          },
+          {
+            "condition": {
+              "type": "startingGroup",
+              "values": [
+                "militants",
+                "naturalists",
+                "protectors"
+              ]
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "section",
+                "values": [
+                  "47D"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "startingGroup",
+              "values": [
+                "explorers",
+                "trailblazers"
+              ]
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "section",
+                "values": [
+                  "69D"
+                ]
+              }
+            ]
           }
         ]
       }
@@ -3023,10 +3163,20 @@
         "narrative": "Insist the Quatryl releases the coin; the bartender deserves the tip.",
         "outcomes": [
           {
-            "condition": "protectors",
+            "condition": {
+              "type": "startingGroup",
+              "values": [
+                "protectors"
+              ]
+            },
             "narrative": "You insist that the coin goes to the bartender and the tavern erupts in applause. The bartender hands you a free glass of ale to thank you, and as you take it from his hands, he whispers something in your ear.",
             "effects": [
-              "Read 74B."
+              {
+                "type": "section",
+                "values": [
+                  "74B"
+                ]
+              }
             ]
           },
           {
@@ -3035,7 +3185,12 @@
             },
             "narrative": "You insist that the coin goes to the bartender, but the Quatryl refuses to surrender it and reaches for a weapon from his belt.",
             "effects": [
-              "Read outcome B."
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
             ]
           }
         ]
@@ -3045,10 +3200,21 @@
         "narrative": "Support the military; there are plenty of other patrons to tip the bartender tonight.",
         "outcomes": [
           {
-            "condition": "militants,protectors",
+            "condition": {
+              "type": "startingGroup",
+              "values": [
+                "militants",
+                "protectors"
+              ]
+            },
             "narrative": "The Quatryl pats you on the back and thanks you for your contribution. Before you have the opportunity to say anything else, he leans over and whispers something in your ear before quickly scurrying out of the tavern.",
             "effects": [
-              "Read 74B."
+              {
+                "type": "section",
+                "values": [
+                  "74B"
+                ]
+              }
             ]
           },
           {

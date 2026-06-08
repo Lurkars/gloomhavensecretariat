@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -71,8 +71,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   ],
   selector: 'ghs-entities-menu-dialog',
   templateUrl: 'entities-menu-dialog.html',
-  styleUrls: ['./entities-menu-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./entities-menu-dialog.scss']
 })
 export class EntitiesMenuDialogComponent {
   dialogRef = inject(DialogRef);

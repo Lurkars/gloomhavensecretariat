@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingModel } from 'src/app/game/model/Building';
@@ -22,8 +22,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, GhsLabelDirective],
   selector: 'ghs-character-retirement-dialog',
   templateUrl: 'retirement-dialog.html',
-  styleUrls: ['./retirement-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./retirement-dialog.scss']
 })
 export class CharacterRetirementDialog {
   private dialogRef = inject(DialogRef);

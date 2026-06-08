@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
@@ -12,8 +12,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   imports: [NgClass, GhsLabelDirective],
   selector: 'ghs-party-week-dialog',
   templateUrl: 'week-dialog.html',
-  styleUrls: ['./week-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./week-dialog.scss']
 })
 export class PartyWeekDialogComponent {
   private dialog = inject(Dialog);

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
+import { Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -28,8 +28,7 @@ import { EditorActionComponent } from 'src/app/ui/tools/editor/action/action';
   ],
   selector: 'ghs-enhancements',
   templateUrl: 'enhancements.html',
-  styleUrls: ['./enhancements.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./enhancements.scss']
 })
 export class EnhancementsComponent implements OnInit {
   private ghsManager = inject(GhsManager);

@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -17,8 +17,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, PointerInputDirective, TrackUUIDPipe, TreasureLabelComponent],
   selector: 'ghs-scenario-treasures-dialog',
   templateUrl: './treasures-dialog.html',
-  styleUrls: ['./treasures-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./treasures-dialog.scss']
 })
 export class ScenarioTreasuresDialogComponent implements OnInit {
   private ghsManager = inject(GhsManager);

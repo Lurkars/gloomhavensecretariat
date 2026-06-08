@@ -1,17 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  inject,
-  input,
-  OnChanges,
-  OnInit,
-  output,
-  SimpleChanges
-} from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
@@ -45,8 +34,7 @@ export class LootDeckChange {
   imports: [GhsLabelDirective, LootComponent, NgClass, TrackUUIDPipe],
   selector: 'ghs-loot-deck',
   templateUrl: './loot-deck.html',
-  styleUrls: ['./loot-deck.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./loot-deck.scss']
 })
 export class LootDeckComponent implements OnInit, OnChanges {
   private element = inject(ElementRef);

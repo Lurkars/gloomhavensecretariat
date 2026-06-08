@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { TrialCardComponent } from 'src/app/ui/figures/trials/trial-card';
 
@@ -8,8 +8,7 @@ import { TrialCardComponent } from 'src/app/ui/figures/trials/trial-card';
   imports: [NgClass, TrialCardComponent],
   selector: 'ghs-trial-dialog',
   templateUrl: './trial-dialog.html',
-  styleUrls: ['./trial-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./trial-dialog.scss']
 })
 export class TrialDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

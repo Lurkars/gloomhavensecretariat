@@ -1,5 +1,5 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
@@ -11,8 +11,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [GhsLabelDirective],
   selector: 'ghs-section-dialog',
   templateUrl: './section-dialog.html',
-  styleUrls: ['./section-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./section-dialog.scss']
 })
 export class SectionDialogComponent {
   private dialog = inject(Dialog);

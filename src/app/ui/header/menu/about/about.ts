@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import packageJson from 'src/../package.json';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -8,8 +8,7 @@ import { environment } from 'src/environments/environment';
   imports: [GhsLabelDirective],
   selector: 'ghs-about-menu',
   templateUrl: 'about.html',
-  styleUrls: ['../menu.scss', 'about.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'about.scss']
 })
 export class AboutMenuComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);

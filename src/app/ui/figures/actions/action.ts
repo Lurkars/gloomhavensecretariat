@@ -1,16 +1,5 @@
 import { NgClass, SlicePipe } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  forwardRef,
-  inject,
-  input,
-  model,
-  OnInit,
-  viewChild
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, inject, input, model, OnInit, viewChild } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -65,8 +54,7 @@ export const ActionTypesCombine: ActionType[] = [ActionType.push, ActionType.pul
   ],
   selector: 'ghs-action',
   templateUrl: './action.html',
-  styleUrls: ['./action.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./action.scss']
 })
 export class ActionComponent implements OnInit, AfterViewInit {
   private ghsManager = inject(GhsManager);

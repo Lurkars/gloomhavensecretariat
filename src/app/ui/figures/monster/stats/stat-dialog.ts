@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, OnInit } from '@angular/core';
+import { Component, forwardRef, inject, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
@@ -11,8 +11,7 @@ import { MonsterStatsComponent } from 'src/app/ui/figures/monster/stats/stats';
   imports: [NgClass, forwardRef(() => MonsterStatsComponent)],
   selector: 'ghs-stat-dialog',
   templateUrl: './stat-dialog.html',
-  styleUrls: ['./stat-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./stat-dialog.scss']
 })
 export class MonsterStatDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

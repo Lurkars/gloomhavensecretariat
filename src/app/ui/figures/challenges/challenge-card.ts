@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, input, OnChanges, SimpleChanges } from '@angular/core';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 import { CardRevealDirective } from 'src/app/ui/helper/CardReveal';
@@ -10,8 +10,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   imports: [CardRevealDirective, GhsLabelDirective, GhsTooltipDirective, NgClass],
   selector: 'ghs-challenge-card',
   templateUrl: './challenge-card.html',
-  styleUrls: ['./challenge-card.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./challenge-card.scss']
 })
 export class ChallengeCardComponent implements OnChanges {
   readonly inputChallenge = input<ChallengeCard | undefined>(undefined, { alias: 'challenge' });

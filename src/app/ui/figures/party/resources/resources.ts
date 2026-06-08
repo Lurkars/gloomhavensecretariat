@@ -1,6 +1,6 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
@@ -15,8 +15,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, FormsModule, GhsLabelDirective, GhsTooltipDirective, TrackUUIDPipe],
   selector: 'ghs-party-resources',
   templateUrl: 'resources.html',
-  styleUrls: ['./resources.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./resources.scss']
 })
 export class PartyResourcesDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

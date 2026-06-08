@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, output } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -15,8 +15,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, FormsModule, GhsRangePipe, GhsLabelDirective, TabClickDirective, TrackUUIDPipe],
   selector: 'ghs-character-menu',
   templateUrl: 'character.html',
-  styleUrls: ['../menu.scss', 'character.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'character.scss']
 })
 export class CharacterMenuComponent implements OnInit {
   readonly closed = output();

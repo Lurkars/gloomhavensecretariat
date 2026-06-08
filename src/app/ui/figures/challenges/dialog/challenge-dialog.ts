@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 import { ChallengeCardComponent } from 'src/app/ui/figures/challenges/challenge-card';
@@ -9,8 +9,7 @@ import { ChallengeCardComponent } from 'src/app/ui/figures/challenges/challenge-
   imports: [NgClass, ChallengeCardComponent],
   selector: 'ghs-challenge-dialog',
   templateUrl: './challenge-dialog.html',
-  styleUrls: ['./challenge-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./challenge-dialog.scss']
 })
 export class ChallengeDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

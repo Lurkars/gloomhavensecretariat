@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject, input } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -19,8 +19,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   imports: [GhsLabelDirective, GhsTooltipDirective, NgClass, PointerInputDirective],
   selector: 'ghs-action-enhancements',
   templateUrl: './enhancements.html',
-  styleUrls: ['./enhancements.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./enhancements.scss']
 })
 export class ActionEnhancementsComponent implements OnInit {
   private dialog = inject(Dialog);

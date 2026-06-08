@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { FeedbackDialogComponent } from 'src/app/ui/tools/feedback/feedback-dialog';
 
@@ -7,8 +7,7 @@ import { FeedbackDialogComponent } from 'src/app/ui/tools/feedback/feedback-dial
   imports: [GhsLabelDirective],
   selector: 'ghs-feedback-tool',
   templateUrl: './feedback.html',
-  styleUrls: ['./feedback.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./feedback.scss']
 })
 export class FeedbackToolComponent {
   private dialog = inject(Dialog);

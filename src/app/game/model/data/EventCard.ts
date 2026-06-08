@@ -112,6 +112,7 @@ export enum EventCardConditionType {
   reputationLT = 'reputationLT',
   season = 'season',
   seasonLT = 'seasonLT',
+  startingGroup = 'startingGroup',
   traits = 'traits',
   traitsAll = 'traitsAll'
 }
@@ -188,6 +189,7 @@ export enum EventCardEffectType {
   scenarioConditionOne = 'scenarioConditionOne',
   scenarioDamage = 'scenarioDamage',
   scenarioSingleMinus1 = 'scenarioSingleMinus1',
+  section = 'section',
   sectionWeek = 'sectionWeek',
   sectionWeeks = 'sectionWeeks',
   sectionWeekSeasonFinal = 'sectionWeekSeasonFinal',

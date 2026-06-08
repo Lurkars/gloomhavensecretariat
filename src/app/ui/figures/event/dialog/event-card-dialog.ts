@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EventCard, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
@@ -11,8 +11,7 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   imports: [NgClass, PointerInputDirective, EventCardComponent],
   selector: 'ghs-event-card-dialog',
   templateUrl: './event-card-dialog.html',
-  styleUrls: ['./event-card-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./event-card-dialog.scss']
 })
 export class EventCardDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

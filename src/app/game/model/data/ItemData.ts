@@ -37,6 +37,7 @@ export class ItemData implements Editional {
   effectsBack: ItemEffect[] = [];
   backArtwork: boolean = false;
   noArtwork: boolean = false;
+  specialFh: string[] = [];
 }
 
 export enum ItemSlot {

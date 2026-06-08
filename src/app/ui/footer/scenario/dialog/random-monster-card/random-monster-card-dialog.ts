@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
@@ -11,8 +11,7 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   imports: [NgClass, PointerInputDirective, RandomMonsterCardComponent],
   selector: 'ghs-random-monster-card-dialog',
   templateUrl: './random-monster-card-dialog.html',
-  styleUrls: ['./random-monster-card-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./random-monster-card-dialog.scss']
 })
 export class RandomMonsterCardDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

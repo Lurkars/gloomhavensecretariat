@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, ViewEncapsulation } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ElementModel, ElementState } from 'src/app/game/model/data/Element';
@@ -12,8 +12,7 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   selector: 'ghs-element',
   templateUrl: './element.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./element.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./element.scss']
 })
 export class ElementComponent {
   readonly inputElement = input.required<ElementModel>({ alias: 'element' });

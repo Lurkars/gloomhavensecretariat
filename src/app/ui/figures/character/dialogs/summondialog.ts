@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -16,8 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
   imports: [NgClass, GhsLabelDirective, GhsRangePipe, TrackUUIDPipe],
   selector: 'ghs-character-summondialog',
   templateUrl: 'summondialog.html',
-  styleUrls: ['./summondialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./summondialog.scss']
 })
 export class CharacterSummonDialog {
   private dialogRef = inject(DialogRef);

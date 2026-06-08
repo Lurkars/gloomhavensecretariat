@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -13,8 +13,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, FormsModule, GhsLabelDirective, PointerInputDirective, TrackUUIDPipe, PetCardComponent],
   selector: 'ghs-stables',
   templateUrl: 'stables.html',
-  styleUrls: ['./stables.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./stables.scss']
 })
 export class StablesComponent implements OnInit {
   private ghsManager = inject(GhsManager);

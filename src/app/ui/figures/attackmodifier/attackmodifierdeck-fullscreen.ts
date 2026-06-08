@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject } from '@angular/core';
+import { Component, EventEmitter, forwardRef, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
@@ -12,8 +12,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, GhsLabelDirective, forwardRef(() => AttackModifierDeckComponent)],
   selector: 'ghs-attackmodifier-deck-fullscreen',
   templateUrl: './attackmodifierdeck-fullscreen.html',
-  styleUrls: ['./attackmodifierdeck-fullscreen.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./attackmodifierdeck-fullscreen.scss']
 })
 export class AttackModifierDeckFullscreenComponent {
   dialogRef = inject(DialogRef);

@@ -1,17 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  inject,
-  input,
-  OnChanges,
-  OnInit,
-  output,
-  SimpleChanges
-} from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -42,8 +31,7 @@ export class AttackModiferDeckChange {
   imports: [AttackModifierComponent, GhsLabelDirective, NgClass, TrackUUIDPipe, PointerInputDirective],
   selector: 'ghs-attackmodifier-deck',
   templateUrl: './attackmodifierdeck.html',
-  styleUrls: ['./attackmodifierdeck.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./attackmodifierdeck.scss']
 })
 export class AttackModifierDeckComponent implements OnInit, OnChanges {
   element = inject(ElementRef);

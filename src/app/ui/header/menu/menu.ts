@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass, SlicePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -73,8 +73,7 @@ export enum SubMenu {
   ],
   selector: 'ghs-main-menu',
   templateUrl: 'menu.html',
-  styleUrls: ['./menu.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./menu.scss']
 })
 export class MainMenuComponent implements OnInit {
   private dialogRef = inject(DialogRef);

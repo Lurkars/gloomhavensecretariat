@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, OnInit, viewChild } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -42,8 +42,7 @@ export const newMonsterJson: string =
   ],
   selector: 'ghs-monster-editor',
   templateUrl: './monster.html',
-  styleUrls: ['../editor.scss', './monster.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../editor.scss', './monster.scss']
 })
 export class MonsterEditorComponent implements OnInit {
   private dialog = inject(Dialog);

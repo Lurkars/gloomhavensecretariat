@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -8,8 +8,7 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
   imports: [RouterModule, GhsLabelDirective, TabClickDirective],
   selector: 'ghs-debug-menu',
   templateUrl: 'debug.html',
-  styleUrls: ['../menu.scss', 'debug.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'debug.scss']
 })
 export class SettingsDebugMenuComponent {
   settingsManager: SettingsManager = settingsManager;

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject, output } from '@angular/core';
+import { Component, OnInit, inject, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -26,8 +26,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, GhsTooltipDirective, TabClickDirective, TrackUUIDPipe, SettingMenuComponent],
   selector: 'ghs-campaign-menu',
   templateUrl: 'campaign.html',
-  styleUrls: ['../menu.scss', 'campaign.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'campaign.scss']
 })
 export class CampaignMenuComponent implements OnInit {
   private dialog = inject(Dialog);

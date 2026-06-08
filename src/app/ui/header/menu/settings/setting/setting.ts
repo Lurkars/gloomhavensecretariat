@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -12,8 +12,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   selector: '[ghs-setting-menu]',
   templateUrl: 'setting.html',
   styleUrls: ['../../menu.scss', '../settings.scss', 'setting.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class SettingMenuComponent implements OnInit {
   elementRef = inject(ElementRef);
@@ -72,8 +71,7 @@ export class SettingMenuComponent implements OnInit {
   selector: '[ghs-setting-title-menu]',
   templateUrl: 'setting-title.html',
   styleUrls: ['../../menu.scss', '../settings.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class SettingMenuTitleComponent {
   settingsManager: SettingsManager = settingsManager;

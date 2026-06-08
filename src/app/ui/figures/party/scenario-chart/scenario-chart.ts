@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener, inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, HostListener, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import type { LatLngBoundsLiteral, Map as LeafletMap } from 'leaflet';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -18,8 +18,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   selector: 'ghs-scenario-chart',
   templateUrl: 'scenario-chart.html',
   styleUrls: ['scenario-chart.scss'],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
   private dialogRef = inject(DialogRef);

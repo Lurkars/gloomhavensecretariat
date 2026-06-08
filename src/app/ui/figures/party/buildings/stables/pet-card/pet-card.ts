@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { PetCard } from 'src/app/game/model/data/PetCard';
@@ -12,8 +12,7 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
   imports: [ActionComponent, CardRevealDirective, GhsLabelDirective, NgClass, PointerInputDirective],
   selector: 'ghs-pet-card',
   templateUrl: './pet-card.html',
-  styleUrls: ['./pet-card.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pet-card.scss']
 })
 export class PetCardComponent {
   readonly inputPetCard = input.required<PetCard>({ alias: 'petCard' });

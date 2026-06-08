@@ -1,6 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { NgClass, SlicePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -13,8 +13,7 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
   imports: [NgClass, SlicePipe, InViewportDirective, AutoscrollDirective, GhsLabelDirective, TabClickDirective],
   selector: 'ghs-undo-dialog',
   templateUrl: './dialog.html',
-  styleUrls: ['./dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./dialog.scss']
 })
 export class UndoDialogComponent implements OnInit {
   dialogRef = inject(DialogRef);

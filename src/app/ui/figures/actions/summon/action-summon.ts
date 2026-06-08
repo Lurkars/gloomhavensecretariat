@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, model, OnChanges } from '@angular/core';
+import { Component, forwardRef, inject, input, model, OnChanges } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -34,8 +34,7 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
   ],
   selector: 'ghs-action-summon',
   templateUrl: './action-summon.html',
-  styleUrls: ['./action-summon.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./action-summon.scss']
 })
 export class ActionSummonComponent implements OnChanges {
   private ghsManager = inject(GhsManager);

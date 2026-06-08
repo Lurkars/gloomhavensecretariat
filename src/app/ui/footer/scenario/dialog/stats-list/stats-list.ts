@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
+import { Component, forwardRef, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Ability } from 'src/app/game/model/data/Ability';
@@ -17,8 +17,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, PointerInputDirective, TrackUUIDPipe, AbilityComponent, forwardRef(() => MonsterStatsComponent)],
   selector: 'ghs-stats-list',
   templateUrl: './stats-list.html',
-  styleUrls: ['./stats-list.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./stats-list.scss']
 })
 export class StatsListComponent {
   dialogRef = inject(DialogRef);

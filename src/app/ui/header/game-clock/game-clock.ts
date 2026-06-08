@@ -1,5 +1,5 @@
 import { DatePipe, NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameClockTimestamp } from 'src/app/game/model/Game';
@@ -12,8 +12,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, PointerInputDirective, GhsDurationLabelPipe, TrackUUIDPipe, DatePipe],
   selector: 'ghs-game-clock-dialog',
   templateUrl: 'game-clock.html',
-  styleUrls: ['./game-clock.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./game-clock.scss']
 })
 export class GameClockDialogComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);

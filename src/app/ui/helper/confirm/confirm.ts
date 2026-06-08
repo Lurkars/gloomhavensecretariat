@@ -1,5 +1,5 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
@@ -8,8 +8,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [GhsLabelDirective],
   selector: 'ghs-confirm-dialog',
   templateUrl: './confirm.html',
-  styleUrls: ['./confirm.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./confirm.scss']
 })
 export class ConfirmDialogComponent {
   private dialogRef = inject(DialogRef);

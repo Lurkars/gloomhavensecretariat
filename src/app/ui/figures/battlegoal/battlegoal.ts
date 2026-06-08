@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, input, OnChanges, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
@@ -12,8 +12,7 @@ import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
   imports: [CardRevealDirective, GhsLabelDirective, GhsRangePipe, NgClass],
   selector: 'ghs-battlegoal',
   templateUrl: './battlegoal.html',
-  styleUrls: ['./battlegoal.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./battlegoal.scss']
 })
 export class BattleGoalComponent implements OnChanges {
   gameManager: GameManager = gameManager;

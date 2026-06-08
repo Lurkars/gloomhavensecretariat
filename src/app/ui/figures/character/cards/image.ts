@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -13,8 +13,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   imports: [NgClass, GhsLabelDirective, HealthbarComponent],
   selector: 'ghs-character-image',
   templateUrl: 'image.html',
-  styleUrls: ['./image.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./image.scss']
 })
 export class CharacterImageComponent {
   private ghsManager = inject(GhsManager);

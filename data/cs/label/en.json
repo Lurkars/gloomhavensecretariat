@@ -429,6 +429,15 @@
     "Withering Deluge": "Withering Deluge",
     "Wrapped in Metal": "Wrapped in Metal"
   },
+  "character": {
+    "startingGroup": {
+      "explorers": "Explorers",
+      "militants": "Militants",
+      "naturalists": "Naturalists",
+      "protectors": "Protectors",
+      "trailblazers": "Trailblazers"
+    }
+  },
   "custom": {
     "cs": {
       "ancient-artillery-scenario-32": {

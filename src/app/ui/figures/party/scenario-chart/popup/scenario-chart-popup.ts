@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
@@ -30,8 +30,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-scenario-chart-popup',
   templateUrl: 'scenario-chart-popup.html',
-  styleUrls: ['./scenario-chart-popup.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./scenario-chart-popup.scss']
 })
 export class ScenarioChartPopupDialog {
   private dialogRef = inject(DialogRef);

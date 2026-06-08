@@ -1,5 +1,5 @@
 import { DIALOG_DATA } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit } from '@angular/core';
+import { Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData, ScenarioRecap } from 'src/app/game/model/data/ScenarioData';
@@ -10,8 +10,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [GhsLabelDirective, forwardRef(() => ScenarioRecapComponent)],
   selector: 'ghs-scenario-recap-dialog',
   templateUrl: 'scenario-recap-dialog.html',
-  styleUrls: ['./scenario-recap-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./scenario-recap-dialog.scss']
 })
 export class ScenarioRecapDialogComponent {
   scenario: ScenarioData;

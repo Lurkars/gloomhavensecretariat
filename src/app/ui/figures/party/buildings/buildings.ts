@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject, input } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -14,8 +14,7 @@ export type Building = { model: BuildingModel; data: BuildingData };
   imports: [BuildingsListComponent, GhsLabelDirective],
   selector: 'ghs-party-buildings',
   templateUrl: 'buildings.html',
-  styleUrls: ['./buildings.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./buildings.scss']
 })
 export class PartyBuildingsComponent implements OnInit {
   private ghsManager = inject(GhsManager);

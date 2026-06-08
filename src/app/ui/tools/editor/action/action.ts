@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
+import { Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -35,8 +35,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-editor-action',
   templateUrl: './action.html',
-  styleUrls: ['./action.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./action.scss']
 })
 export class EditorActionComponent implements OnInit {
   private dialog = inject(Dialog);
@@ -473,8 +472,7 @@ export class EditorActionComponent implements OnInit {
   imports: [GhsLabelDirective, forwardRef(() => ActionComponent), EditorActionComponent],
   selector: 'ghs-editor-action-dialog',
   templateUrl: './action-dialog.html',
-  styleUrls: ['./action-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./action-dialog.scss']
 })
 export class EditorActionDialogComponent {
   private dialogRef = inject(DialogRef);

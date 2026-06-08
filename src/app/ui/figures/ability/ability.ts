@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input, OnChanges, OnInit } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -17,8 +17,7 @@ import { applyPlaceholder, GhsLabelDirective } from 'src/app/ui/helper/label';
   imports: [NgClass, GhsLabelDirective, CardRevealDirective, ActionsComponent, InteractiveActionsComponent],
   selector: 'ghs-ability',
   templateUrl: './ability.html',
-  styleUrls: ['./ability.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./ability.scss']
 })
 export class AbilityComponent implements OnInit, OnChanges {
   private ghsManager = inject(GhsManager);

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -14,8 +14,7 @@ import { environment } from 'src/environments/environment';
   imports: [NgClass, LootDeckComponent, HeaderComponent, KeyboardShortcuts],
   selector: 'ghs-loot-deck-standalone',
   templateUrl: './loot-deck-standalone.html',
-  styleUrls: ['./loot-deck-standalone.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./loot-deck-standalone.scss']
 })
 export class LootDeckStandaloneComponent implements OnInit {
   private ghsManager = inject(GhsManager);

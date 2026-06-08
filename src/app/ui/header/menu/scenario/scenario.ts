@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject, output } from '@angular/core';
+import { Component, OnInit, inject, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -21,8 +21,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsRangePipe, GhsScenarioSearch, GhsLabelDirective, GhsTooltipDirective, TabClickDirective, TrackUUIDPipe],
   selector: 'ghs-scenario-menu',
   templateUrl: 'scenario.html',
-  styleUrls: ['../menu.scss', 'scenario.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'scenario.scss']
 })
 export class ScenarioMenuComponent implements OnInit {
   private dialog = inject(Dialog);

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input, output } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, input, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -25,8 +25,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [GhsLabelDirective, GhsTooltipDirective, NgClass, PointerInputDirective, TrackUUIDPipe],
   selector: 'ghs-buildings-list',
   templateUrl: 'buildings-list.html',
-  styleUrls: ['./buildings-list.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./buildings-list.scss']
 })
 export class BuildingsListComponent {
   private dialog = inject(Dialog);

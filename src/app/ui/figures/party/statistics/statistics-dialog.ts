@@ -1,5 +1,5 @@
 import { DIALOG_DATA } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { DamageStats, ScenarioStats } from 'src/app/game/model/CharacterProgress';
@@ -13,8 +13,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [GhsLabelDirective, GhsTooltipDirective, TrackUUIDPipe],
   selector: 'ghs-statistics-dialog',
   templateUrl: 'statistics-dialog.html',
-  styleUrls: ['./statistics-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./statistics-dialog.scss']
 })
 export class StatisticsDialogComponent implements OnInit {
   character: Character | undefined;

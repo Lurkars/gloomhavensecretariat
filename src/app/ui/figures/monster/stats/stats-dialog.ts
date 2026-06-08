@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
+import { Component, forwardRef, inject } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -24,8 +24,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
   ],
   selector: 'ghs-monster-stats-popup',
   templateUrl: './stats-dialog.html',
-  styleUrls: ['./stats-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./stats-dialog.scss']
 })
 export class MonsterStatsDialogComponent {
   dialogRef = inject(DialogRef);

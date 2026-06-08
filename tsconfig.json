@@ -7,10 +7,9 @@
       ]
     },
     "outDir": "./dist/out-tsc",
-    "moduleResolution": "bundler",
     "moduleDetection": "force",
     "target": "ES2022",
-    "module": "ESNext",
+    "module": "preserve",
     "lib": [
       "ES2022",
       "dom"
@@ -26,7 +25,9 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "declaration": false,
-    "importHelpers": true
+    "importHelpers": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

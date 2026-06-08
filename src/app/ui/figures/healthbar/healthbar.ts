@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 
@@ -7,8 +7,7 @@ import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
   imports: [NgClass],
   selector: 'ghs-healthbar',
   templateUrl: './healthbar.html',
-  styleUrls: ['./healthbar.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./healthbar.scss']
 })
 export class HealthbarComponent implements OnInit {
   protected ghsManager = inject(GhsManager);

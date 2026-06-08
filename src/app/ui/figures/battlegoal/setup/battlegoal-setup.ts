@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
 import { Identifier } from 'src/app/game/model/data/Identifier';
@@ -11,8 +11,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [BattleGoalComponent, GhsLabelDirective, NgClass, TrackUUIDPipe],
   selector: 'ghs-battlegoal-setup',
   templateUrl: './battlegoal-setup.html',
-  styleUrls: ['./battlegoal-setup.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./battlegoal-setup.scss']
 })
 export class BattleGoalSetupDialog {
   gameManager: GameManager = gameManager;

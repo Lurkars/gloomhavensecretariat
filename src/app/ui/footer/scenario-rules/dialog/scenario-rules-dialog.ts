@@ -1,5 +1,5 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
@@ -12,8 +12,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [GhsLabelDirective, TrackUUIDPipe, ScenarioRuleComponent],
   selector: 'ghs-scenario-rules-dialog',
   templateUrl: './scenario-rules-dialog.html',
-  styleUrls: ['./scenario-rules-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./scenario-rules-dialog.scss']
 })
 export class ScenarioRulesDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);

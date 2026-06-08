@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CharacterImageComponent } from 'src/app/ui/figures/character/cards/image';
 import { CharacterInitiativeComponent } from 'src/app/ui/figures/character/cards/initiative';
@@ -31,8 +31,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   ],
   selector: 'ghs-character-fullview',
   templateUrl: './fullview.html',
-  styleUrls: ['../character.scss', './fullview.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../character.scss', './fullview.scss']
 })
 export class CharacterFullViewComponent extends CharacterComponent {
   cancel() {

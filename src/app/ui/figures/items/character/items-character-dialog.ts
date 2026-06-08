@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef, inject } from '@angular/core';
+import { Component, forwardRef, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -11,6 +11,7 @@ import { GameState } from 'src/app/game/model/Game';
 import { CharacterItemComponent } from 'src/app/ui/figures/items/character/item-character';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ItemsDialogComponent } from 'src/app/ui/figures/items/dialog/items-dialog';
+import { ItemComponent } from 'src/app/ui/figures/items/item/item';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
@@ -25,12 +26,12 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
     GhsTooltipDirective,
     forwardRef(() => PointerInputDirective),
     TrackUUIDPipe,
-    CharacterItemComponent
+    CharacterItemComponent,
+    ItemComponent
   ],
   selector: 'ghs-items-character-dialog',
   templateUrl: './items-character-dialog.html',
-  styleUrls: ['./items-character-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./items-character-dialog.scss']
 })
 export class ItemsCharacterDialogComponent {
   private dialogRef = inject(DialogRef);
@@ -41,6 +42,7 @@ export class ItemsCharacterDialogComponent {
   setup: boolean = false;
   onlyEquipped: boolean = false;
   items: ItemData[] = [];
+  specialItems: { item: ItemData; count: number }[] = [];
   ItemFlags = ItemFlags;
   GameState = GameState;
 
@@ -86,6 +88,15 @@ export class ItemsCharacterDialogComponent {
     if (this.onlyEquipped) {
       this.items = this.items.filter((itemData) => this.equipped(itemData));
     }
+
+    this.specialItems = [];
+    if (!!gameManager.game.party.specialItems) {
+      this.specialItems = gameManager.game.party.specialItems.map((value, i, self) => {
+        const itemData = gameManager.itemManager.getItem(value.name, value.edition, true) || new ItemData();
+        const count = self.filter((other) => other.edition === value.edition && other.name === value.name).indexOf(value) + 1;
+        return { item: itemData, count: count };
+      });
+    }
   }
 
   equipped(itemData: ItemData): AdditionalIdentifier | undefined {
@@ -114,6 +125,13 @@ export class ItemsCharacterDialogComponent {
     this.dialog.open(ItemDialogComponent, {
       panelClass: ['fullscreen-panel'],
       data: { item: item, character: this.character, setup: this.setup }
+    });
+  }
+
+  openSpecialItemDialog(item: ItemData, count: number) {
+    this.dialog.open(ItemDialogComponent, {
+      panelClass: ['fullscreen-panel'],
+      data: { item: item, count: count }
     });
   }
 

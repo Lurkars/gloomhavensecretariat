@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -14,8 +14,7 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
   imports: [NgClass, GhsLabelDirective, TabClickDirective, GhsRangePipe, GhsNumberInput],
   selector: 'ghs-level-dialog',
   templateUrl: './level-dialog.html',
-  styleUrls: ['./level-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./level-dialog.scss']
 })
 export class LevelDialogComponent implements OnInit {
   private ghsManager = inject(GhsManager);

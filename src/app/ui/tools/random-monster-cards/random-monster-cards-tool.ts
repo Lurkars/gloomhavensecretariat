@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,8 +15,7 @@ import { environment } from 'src/environments/environment';
   imports: [FormsModule, RandomMonsterCardComponent, HeaderComponent, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-random-monster-cards-tool',
   templateUrl: './random-monster-cards-tool.html',
-  styleUrls: ['./random-monster-cards-tool.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./random-monster-cards-tool.scss']
 })
 export class RandomMonsterCardsToolComponent implements OnInit {
   private route = inject(ActivatedRoute);

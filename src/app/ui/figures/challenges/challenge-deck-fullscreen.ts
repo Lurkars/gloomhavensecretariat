@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, inject } from '@angular/core';
+import { Component, EventEmitter, forwardRef, inject } from '@angular/core';
 import { ChallengeDeck } from 'src/app/game/model/data/Challenges';
 import { ChallengeDeckChange, ChallengeDeckComponent } from 'src/app/ui/figures/challenges/challenge-deck';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
@@ -9,8 +9,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
   imports: [NgClass, forwardRef(() => ChallengeDeckComponent)],
   selector: 'ghs-challenge-deck-fullscreen',
   templateUrl: './challenge-deck-fullscreen.html',
-  styleUrls: ['./challenge-deck-fullscreen.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./challenge-deck-fullscreen.scss']
 })
 export class ChallengeDeckFullscreenComponent {
   dialogRef = inject(DialogRef);

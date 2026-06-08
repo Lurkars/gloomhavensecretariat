@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, viewChild } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -31,8 +31,7 @@ import { environment } from 'src/environments/environment';
   ],
   selector: 'ghs-attackmodifier-standalone',
   templateUrl: './attackmodifier-standalone.html',
-  styleUrls: ['./attackmodifier-standalone.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./attackmodifier-standalone.scss']
 })
 export class AttackModifierStandaloneComponent implements OnInit {
   private route = inject(ActivatedRoute);

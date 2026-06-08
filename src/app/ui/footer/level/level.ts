@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -11,8 +11,7 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
   imports: [GhsLabelDirective],
   selector: 'ghs-level',
   templateUrl: './level.html',
-  styleUrls: ['./level.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./level.scss']
 })
 export class LevelComponent {
   private dialog = inject(Dialog);

@@ -1,5 +1,5 @@
 import { KeyValuePipe, NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -18,8 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
   imports: [KeyValuePipe, NgClass, GhsLabelDirective, TabClickDirective, TrackUUIDPipe],
   selector: 'ghs-server-menu',
   templateUrl: 'server.html',
-  styleUrls: ['../menu.scss', 'server.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../menu.scss', 'server.scss']
 })
 export class ServerMenuComponent implements OnInit {
   private ghsManager = inject(GhsManager);

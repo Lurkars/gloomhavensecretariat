@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,8 +15,7 @@ import { environment } from 'src/environments/environment';
   imports: [FormsModule, EventCardComponent, HeaderComponent, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-event-cards-tool',
   templateUrl: './event-cards-tool.html',
-  styleUrls: ['./event-cards-tool.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./event-cards-tool.scss']
 })
 export class EventCardsToolComponent implements OnInit {
   private route = inject(ActivatedRoute);

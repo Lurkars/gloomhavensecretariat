@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,8 +15,7 @@ import { environment } from 'src/environments/environment';
   imports: [FormsModule, HeaderComponent, TreasureLabelComponent, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-treasures-tool',
   templateUrl: './treasures-tool.html',
-  styleUrls: ['./treasures-tool.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./treasures-tool.scss']
 })
 export class TreasuresToolComponent implements OnInit {
   private route = inject(ActivatedRoute);

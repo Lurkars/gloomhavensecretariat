@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { TrialCard } from 'src/app/game/model/data/Trials';
@@ -11,8 +11,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
   imports: [CardRevealDirective, GhsLabelDirective, GhsTooltipDirective, NgClass],
   selector: 'ghs-trial-card',
   templateUrl: './trial-card.html',
-  styleUrls: ['./trial-card.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./trial-card.scss']
 })
 export class TrialCardComponent implements OnInit, OnChanges {
   readonly inputTrial = input.required<number>({ alias: 'trial' });

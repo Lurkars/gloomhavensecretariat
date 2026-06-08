@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -16,8 +16,7 @@ import { ValueCalcDirective } from 'src/app/ui/helper/valueCalc';
   imports: [NgClass, GhsLabelDirective, ValueCalcDirective],
   selector: 'ghs-summon-dialog',
   templateUrl: 'summon-dialog.html',
-  styleUrls: ['../entities-menu-dialog.scss', './summon-dialog.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../entities-menu-dialog.scss', './summon-dialog.scss']
 })
 export class SummonDialogComponent implements AfterViewInit {
   private dialogRef = inject(DialogRef);
