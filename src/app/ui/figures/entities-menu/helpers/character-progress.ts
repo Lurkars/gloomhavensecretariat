@@ -76,14 +76,19 @@ export class CharacterProgressHelper {
         if (settingsManager.settings.fhShareResources) {
           gameManager.stateManager.before(
             'eventEffect.changeCharacterResource',
-            type,
+            `%game.resource.${type}%`,
             ghsValueSign(this.loot[type] || 0),
             '%party.campaign.sheet.supply%'
           );
           gameManager.game.party.loot[type] = (gameManager.game.party.loot[type] || 0) + (this.loot[type] || 0);
           gameManager.stateManager.after();
         } else {
-          gameManager.stateManager.before('eventEffect.changeCharacterResource', type, ghsValueSign(this.loot[type] || 0), characterIcons);
+          gameManager.stateManager.before(
+            'eventEffect.changeCharacterResource',
+            `%game.resource.${type}%`,
+            ghsValueSign(this.loot[type] || 0),
+            characterIcons
+          );
           this.component.entities.forEach((entity) => {
             if (entity instanceof Character) {
               entity.progress.loot[type] = (entity.progress.loot[type] || 0) + (this.loot[type] || 0);

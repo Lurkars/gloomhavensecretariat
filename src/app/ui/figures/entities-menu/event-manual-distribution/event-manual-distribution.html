@@ -1,0 +1,152 @@
+<div
+  class="event-manual-distribution"
+  [ngClass]="{
+    fh: settingsManager.settings.theme === 'fh',
+    modern: settingsManager.settings.theme === 'modern'
+  }"
+>
+  @for (row of rows(); track row.id) {
+    <section class="distribution-section" [ngClass]="{ complete: row.isComplete(), gain: row.isGain(), lose: !row.isGain() }">
+      <div class="section-title">
+        <span class="effect-label" [ghs-label]="rowLabelKey(row)" [ghs-label-args]="rowLabelArgs(row)" [ghs-label-empty]="true"></span>
+        <span class="progress" [ngClass]="{ some: row.spent > 0, full: row.isComplete() }">
+          <span class="current">{{ row.spent || '-' }}</span> / {{ row.total }}
+        </span>
+      </div>
+
+      <div class="table" [style.--ghs-summary-columns]="tableColumns(row)">
+        <span class="head-col first">
+          <span [ghs-label]="'game.events.distribution.assign'"></span>
+        </span>
+        @if (row.useSupply) {
+          <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
+        }
+        @for (character of characters() | trackUUID; track character._trackUUID) {
+          <span class="first character-head">
+            <img class="icon character-icon" [src]="character.iconUrl" title="Character" [attr.alt]="characterIconAlt(character)" />
+            <span class="name">{{ gameManager.characterManager.characterName(character, true) }}</span>
+          </span>
+        }
+
+        @if (row.anyMaterial) {
+          @for (lootType of materialResourceLootTypes; track lootType) {
+            <span class="head-col calc-col resource-head">
+              <img
+                class="ghs-svg"
+                [src]="'./assets/images/fh/loot/' + lootType + '.svg'"
+                title="Loot"
+                [attr.alt]="label('game.loot.' + lootType)"
+              />
+            </span>
+            @if (row.useSupply) {
+              <span class="calc-col">
+                @if (currentSupply(row, lootType) || row.isGain()) {
+                  <a
+                    class="button"
+                    [ngClass]="{ disabled: !canDecrease(row, undefined, lootType) }"
+                    tabclick
+                    (click)="changeValue(row, undefined, -1, lootType)"
+                  >
+                    <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
+                  </a>
+                  <span class="value">{{ row.spentForType(lootType) || '-' }}</span>
+                  <a
+                    class="button"
+                    [ngClass]="{ disabled: !canIncrease(row, undefined, lootType) }"
+                    tabclick
+                    (click)="changeValue(row, undefined, 1, lootType)"
+                  >
+                    <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
+                  </a>
+                } @else {
+                  <span>-</span>
+                }
+              </span>
+            }
+            @for (character of characters() | trackUUID; track character._trackUUID; let i = $index) {
+              <span class="calc-col">
+                @if (row.isGain() || currentResource(character, lootType)) {
+                  <a
+                    class="button"
+                    [ngClass]="{ disabled: !canDecrease(row, i, lootType) }"
+                    tabclick
+                    (click)="changeValue(row, i, -1, lootType)"
+                  >
+                    <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
+                  </a>
+                  <span class="value">{{ row.spentForType(lootType, i) || '-' }}</span>
+                  <a
+                    class="button"
+                    [ngClass]="{ disabled: !canIncrease(row, i, lootType) }"
+                    tabclick
+                    (click)="changeValue(row, i, 1, lootType)"
+                  >
+                    <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
+                  </a>
+                } @else {
+                  <span>-</span>
+                }
+              </span>
+            }
+          }
+        } @else {
+          <span class="head-col calc-col resource-head" [ngClass]="{ some: row.spent > 0, full: row.isComplete() }">
+            <img class="ghs-svg" [src]="rowIcon(row)" title="Resource" [attr.alt]="rowIconAlt(row)" />
+            <span class="cost"
+              ><span class="current">{{ row.spent || '-' }}</span> / {{ row.total }}</span
+            >
+          </span>
+          @if (row.useSupply) {
+            <span class="calc-col">
+              @if (row.lootType && (currentSupply(row, row.lootType) || row.isGain())) {
+                <a class="button" [ngClass]="{ disabled: !canDecrease(row) }" tabclick (click)="changeValue(row, undefined, -1)">
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
+                </a>
+                <span class="value">{{ row.supplySpent || '-' }}</span>
+                <a class="button" [ngClass]="{ disabled: !canIncrease(row) }" tabclick (click)="changeValue(row, undefined, 1)">
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
+                </a>
+              } @else if (row.kind === 'gold' && row.isGain()) {
+                <span>-</span>
+              } @else if (row.lootType) {
+                <span>-</span>
+              } @else {
+                <span>-</span>
+              }
+            </span>
+          }
+          @for (character of characters() | trackUUID; track character._trackUUID; let i = $index) {
+            <span class="calc-col">
+              @if (canAssignToCharacter(row, character)) {
+                <a class="button" [ngClass]="{ disabled: !canDecrease(row, i) }" tabclick (click)="changeValue(row, i, -1)">
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
+                </a>
+                <span class="value">
+                  {{ row.characterSpent[i] || '-' }}
+                  @if (row.perCharacter > 0) {
+                    <span class="limit">/ {{ row.perCharacter }}</span>
+                  }
+                </span>
+                <a class="button" [ngClass]="{ disabled: !canIncrease(row, i) }" tabclick (click)="changeValue(row, i, 1)">
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
+                </a>
+              } @else {
+                <span>-</span>
+              }
+            </span>
+          }
+        }
+      </div>
+    </section>
+  }
+
+  <div class="actions">
+    <a
+      tabclick
+      class="apply"
+      (click)="apply()"
+      [ngClass]="{ disabled: !helper().hasPending() }"
+      [ghs-label]="'game.events.distribution.apply'"
+    ></a>
+  </div>
+</div>

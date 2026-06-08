@@ -1,0 +1,30 @@
+.event-distribution-dialog {
+  padding: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  min-width: calc(var(--ghs-unit) * 110);
+  max-width: min(96vw, calc(var(--ghs-unit) * 140));
+
+  .title {
+    font-family: var(--ghs-font-title);
+    text-align: center;
+    font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-white);
+    text-shadow: var(--ghs-outline);
+    margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    a {
+      cursor: pointer;
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-gray);
+
+      &.cancel:hover {
+        color: var(--ghs-color-white);
+      }
+    }
+  }
+}

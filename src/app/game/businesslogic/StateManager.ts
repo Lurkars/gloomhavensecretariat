@@ -11,16 +11,17 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { storageManager } from 'src/app/game/businesslogic/StorageManager';
 import { commandManager } from 'src/app/game/commands/CommandManager';
-import { Character } from 'src/app/game/model/Character';
-import { Game, GameModel } from 'src/app/game/model/Game';
-import { Monster } from 'src/app/game/model/Monster';
-import { Permissions } from 'src/app/game/model/Permissions';
 import {
   CampaignHistoryEntry,
   computeCampaignHistoryRecord,
   isCampaignHistoryAction,
-  MAX_CAMPAIGN_HISTORY
+  MAX_CAMPAIGN_HISTORY,
+  shouldLogCampaignHistoryEntry
 } from 'src/app/game/model/CampaignHistory';
+import { Character } from 'src/app/game/model/Character';
+import { Game, GameModel } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { Permissions } from 'src/app/game/model/Permissions';
 import { localSettings, Settings } from 'src/app/game/model/Settings';
 
 export class StateManager {
@@ -647,10 +648,7 @@ export class StateManager {
       return;
     }
 
-    const allocations = collectResourceAllocationsFromSnapshots(
-      this.eventResourceBaseline,
-      capturePartyCampaignSnapshot(this.game)
-    );
+    const allocations = collectResourceAllocationsFromSnapshots(this.eventResourceBaseline, capturePartyCampaignSnapshot(this.game));
     if (allocations.length > 0) {
       this.addCampaignHistoryEntry(
         'eventEffect.resourcesDistributed',
@@ -666,6 +664,10 @@ export class StateManager {
   addCampaignHistoryEntry(...info: (string | number | boolean)[]) {
     const infoStrings = (info && info.map((value) => '' + value)) || [];
     if (!isCampaignHistoryAction(infoStrings)) {
+      return;
+    }
+
+    if (!shouldLogCampaignHistoryEntry(!!this.game.scenario, this.scenarioSummary, infoStrings)) {
       return;
     }
 
@@ -709,8 +711,7 @@ export class StateManager {
           this.addCampaignHistoryEntry(...undoInfo);
         }
         if (this.campaignSnapshotBefore && undoInfo[0] && shouldSnapshotCampaignForHistoryDiff(undoInfo[0])) {
-          const eventResourceContext =
-            undoInfo[0] === 'eventDraw.accept' || undoInfo[0] === 'eventEffect.applyManualDistribution';
+          const eventResourceContext = undoInfo[0] === 'eventDraw.accept' || undoInfo[0] === 'eventEffect.applyManualDistribution';
           diffPartyCampaignSnapshots(
             this.campaignSnapshotBefore,
             capturePartyCampaignSnapshot(this.game),
@@ -921,10 +922,7 @@ export class StateManager {
         .map((entry) => settingsManager.getLabel('state.info.' + entry[0], entry.slice(1)))
         .filter((label) => label)
         .join('; ');
-      if (
-        revertedChanges.length > 0 ||
-        undoneInfos.some((info) => isCampaignHistoryAction(info))
-      ) {
+      if (revertedChanges.length > 0 || undoneInfos.some((info) => isCampaignHistoryAction(info))) {
         this.addCampaignHistoryEntry('campaignHistory.undo', undoneLabels, revertedLabels);
       }
       this.saveStorage();

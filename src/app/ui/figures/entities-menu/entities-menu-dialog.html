@@ -6,7 +6,10 @@
       }
 
       @if (eventMenu) {
-        <div class="name"><img class="ghs-svg" src="./assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span></div>
+        <div class="name">
+          <img class="ghs-svg" src="./assets/images/event.svg" title="Event" [attr.alt]="label('scenario.eventEffects')" />
+          <span [ghs-label]="'scenario.eventEffects'"></span>
+        </div>
       }
 
       @if (!entity) {
@@ -42,7 +45,13 @@
               (doubleClick)="eventHelper.toggleEventMenu(true)"
               [ghs-tooltip]="'entities.event.' + (eventMenu ? 'entities' : 'menu')"
             >
-              <img class="ghs-svg" [src]="'./assets/images/' + (eventMenu ? 'entities' : 'event') + '.svg'" />
+              <img
+                class="ghs-svg"
+                [src]="'./assets/images/' + (eventMenu ? 'entities' : 'event') + '.svg'"
+                title="Event menu"
+                [attr.alt]="eventMenuIconAlt()"
+                aria-hidden="true"
+              />
             </a>
           }
         </div>
@@ -65,7 +74,14 @@
                 [overlayX]="'center'"
               >
                 <span class="spacer"></span>
-                <img tabclick (click)="markerHelper.toggleCharacterMarker()" class="icon character-icon" [src]="character.iconUrl" />
+                <img
+                  tabclick
+                  (click)="markerHelper.toggleCharacterMarker()"
+                  class="icon character-icon"
+                  [src]="character.iconUrl"
+                  title="Character"
+                  [attr.alt]="characterIconAlt(character)"
+                />
                 <span class="character-title" [ngClass]="{ absent: character.absent }">{{
                   gameManager.characterManager.characterName(character, true)
                 }}</span>
@@ -76,6 +92,8 @@
                     class="absent"
                     [src]="'./assets/images/status/' + (character.absent ? 'absent' : 'present') + '.svg'"
                     [ghs-tooltip]="character.absent ? 'character.present' : 'character.absent'"
+                    title="Absent"
+                    [attr.alt]="absentPresentAlt(character.absent)"
                     tabclick
                     (click)="characterHelper.toggleAbsent()"
                   />
@@ -111,7 +129,7 @@
                 >
                   <span class="summon-state" [ngClass]="{ fh: summon.color === SummonColor.fh }">
                     @if (summon.color !== SummonColor.fh) {
-                      <img src="./assets/images/summons/{{ summon.color }}.png" />
+                      <img src="./assets/images/summons/{{ summon.color }}.png" title="Summon" [attr.alt]="summonAlt(summon.color)" />
                     }
                     <span class="summon-number">
                       @if (summon.number === 0) {
@@ -148,7 +166,7 @@
                   [overlayX]="'center'"
                   [ngClass]="{ inactive: !entities.includes(character) }"
                 >
-                  <img class="icon character-icon" [src]="character.iconUrl" />
+                  <img class="icon character-icon" [src]="character.iconUrl" title="Character" [attr.alt]="characterIconAlt(character)" />
                 </div>
               }
               @if (!entity) {
@@ -169,7 +187,7 @@
                   >
                     <span class="summon-state" [ngClass]="{ fh: summon.color === SummonColor.fh }">
                       @if (summon.color !== SummonColor.fh) {
-                        <img src="./assets/images/summons/{{ summon.color }}.png" />
+                        <img src="./assets/images/summons/{{ summon.color }}.png" title="Summon" [attr.alt]="summonAlt(summon.color)" />
                       }
                       <span class="summon-number">
                         @if (summon.number === 0) {
@@ -211,7 +229,12 @@
               [overlayX]="'center'"
             >
               @if (!monster.noThumbnail && settingsManager.settings.artwork) {
-                <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+                <img
+                  class="standee"
+                  [src]="gameManager.monsterManager.monsterThumbnail(monster)"
+                  title="Monster"
+                  [attr.alt]="monsterThumbnailAlt(monster)"
+                />
               }
               @if (monster.noThumbnail || !settingsManager.settings.artwork || !!figure) {
                 <span
@@ -268,7 +291,12 @@
               [originX]="'center'"
               [overlayX]="'center'"
             >
-              <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+              <img
+                class="icon"
+                [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'"
+                title="Objective"
+                [attr.alt]="objectiveIconAlt(objective.escort)"
+              />
               @if (objective.title) {
                 <span>{{ objective.title }}</span>
               }
@@ -362,7 +390,7 @@
                       (settingsManager.settings.damageHP && entity.health - health === EntityValueFunction(entity.maxHealth)))
                 }"
               >
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item" [ghs-tooltip]="'game.health'">
@@ -379,6 +407,8 @@
                     ? './assets/images/action/damage.svg'
                     : './assets/images/status/health.svg'
                 "
+                title="Health"
+                [attr.alt]="healthDamageIconAlt(trackDamage)"
               />
               <span
                 class="badge badge-right health-count"
@@ -409,7 +439,7 @@
                       Math.max(EntityValueFunction(entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHealth
                 }"
               >
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
           }
@@ -425,17 +455,17 @@
                 (singleClick)="experience -= 1"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item" [ghs-tooltip]="'game.experience'">
               <span class="badge badge-left">{{ character.experience + experience }}</span>
-              <img src="./assets/images/status/experience.svg" />
+              <img src="./assets/images/status/experience.svg" title="Experience" [attr.alt]="label('game.experience')" />
               <span class="badge badge-right" [value-sign]="experience" [hideEmpty]="true"></span>
             </span>
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="experience += 1" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
 
@@ -453,17 +483,17 @@
                   (singleClick)="loot -= 1"
                   [repeat]="true"
                 >
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item" [ghs-tooltip]="'game.loot'">
                 <span class="badge badge-left">{{ character.loot + loot }}</span>
-                <img src="./assets/images/status/loot.svg" />
+                <img src="./assets/images/status/loot.svg" title="Loot" [attr.alt]="label('game.loot')" />
                 <span class="badge badge-right" [value-sign]="loot" [hideEmpty]="true"></span>
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="loot += 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
             }
@@ -478,7 +508,7 @@
                   (singleClick)="characterToken -= 1"
                   [repeat]="true"
                 >
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item character-token" [ghs-tooltip]="'character.token'">
@@ -488,7 +518,7 @@
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="characterToken += 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
 
@@ -501,7 +531,7 @@
                     (singleClick)="characterTokenValues[i] -= 1"
                     [repeat]="true"
                   >
-                    <img class="ghs-svg" src="./assets/images/minus.svg" />
+                    <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
                 <span
@@ -514,7 +544,7 @@
                 </span>
                 <span class="item">
                   <ghs-pointer-input class="button" tabclick (singleClick)="characterTokenValues[i] += 1" [repeat]="true">
-                    <img class="ghs-svg" src="./assets/images/plus.svg" />
+                    <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
               }
@@ -541,7 +571,7 @@
                 (singleClick)="bless -= 1"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item">
@@ -559,12 +589,12 @@
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.bless))
                 }"
               >
-                <img src="./assets/images/status/bless.svg" />
+                <img src="./assets/images/status/bless.svg" title="Bless" [attr.alt]="label('game.attackmodifier.bless')" />
               </span>
               <span class="badge badge-right" [value-sign]="bless" [hideEmpty]="true"></span>
               @if (gameManager.attackModifierManager.countUpcomingBlesses() + bless > 10) {
                 <span class="badge badge-center badge-warning">
-                  <img src="./assets/images/warning.svg" />
+                  <img src="./assets/images/warning.svg" title="Warning" alt="Warning" aria-hidden="true" />
                 </span>
               }
             </span>
@@ -581,7 +611,7 @@
                 (singleClick)="bless += 1"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
 
@@ -599,7 +629,7 @@
                 (singleClick)="curse -= 1"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item">
@@ -617,12 +647,12 @@
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.curse))
                 }"
               >
-                <img src="./assets/images/status/curse.svg" />
+                <img src="./assets/images/status/curse.svg" title="Curse" [attr.alt]="label('game.attackmodifier.curse')" />
               </span>
               <span class="badge badge-right" [value-sign]="curse" [hideEmpty]="true"></span>
               @if (gameManager.attackModifierManager.countUpcomingCurses(isMonster) + curse > 10) {
                 <span class="badge badge-center badge-warning">
-                  <img src="./assets/images/warning.svg" />
+                  <img src="./assets/images/warning.svg" title="Warning" alt="Warning" aria-hidden="true" />
                 </span>
               }
             </span>
@@ -639,7 +669,7 @@
                 (singleClick)="curse += 1"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
           }
@@ -659,7 +689,7 @@
                 (singleClick)="!empowerChar ? amHelper.selectAdditionalAM(AttackModifierType.empower) : (empower -= 1)"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item">
@@ -679,12 +709,12 @@
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.empower))
                 }"
               >
-                <img src="./assets/images/status/empower.svg" />
+                <img src="./assets/images/status/empower.svg" title="Empower" [attr.alt]="label('game.attackmodifier.empower')" />
               </span>
               <span class="badge badge-right" [value-sign]="empower" [hideEmpty]="true"></span>
               @if (!empowerChar) {
                 <span (click)="amHelper.selectAdditionalAM(AttackModifierType.empower)" class="badge badge-center badge-warning">
-                  <img src="./assets/images/warning.svg" />
+                  <img src="./assets/images/warning.svg" title="Warning" alt="Warning" aria-hidden="true" />
                 </span>
               }
               @if (!!empowerChar) {
@@ -692,7 +722,7 @@
                   class="badge badge-character-icon"
                   (click)="empowerChars.length > 1 && amHelper.selectAdditionalAM(AttackModifierType.empower)"
                 >
-                  <img [src]="empowerChar.iconUrl" />
+                  <img [src]="empowerChar.iconUrl" title="Character" [attr.alt]="characterIconAlt(empowerChar)" />
                 </span>
               }
             </span>
@@ -709,7 +739,7 @@
                 (singleClick)="!empowerChar ? amHelper.selectAdditionalAM(AttackModifierType.empower) : (empower += 1)"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
           }
@@ -729,7 +759,7 @@
                 (singleClick)="!enfeebleChar ? amHelper.selectAdditionalAM(AttackModifierType.enfeeble) : (enfeeble -= 1)"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item">
@@ -749,12 +779,12 @@
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.enfeeble))
                 }"
               >
-                <img src="./assets/images/status/enfeeble.svg" />
+                <img src="./assets/images/status/enfeeble.svg" title="Enfeeble" [attr.alt]="label('game.attackmodifier.enfeeble')" />
               </span>
               <span class="badge badge-right" [value-sign]="enfeeble" [hideEmpty]="true"></span>
               @if (!enfeebleChar) {
                 <span (click)="amHelper.selectAdditionalAM(AttackModifierType.enfeeble)" class="badge badge-center badge-warning">
-                  <img src="./assets/images/warning.svg" />
+                  <img src="./assets/images/warning.svg" title="Warning" alt="Warning" aria-hidden="true" />
                 </span>
               }
               @if (!!enfeebleChar) {
@@ -762,7 +792,7 @@
                   class="badge badge-character-icon"
                   (click)="enfeebleChars.length > 1 && amHelper.selectAdditionalAM(AttackModifierType.enfeeble)"
                 >
-                  <img [src]="enfeebleChar.iconUrl" />
+                  <img [src]="enfeebleChar.iconUrl" title="Character" [attr.alt]="characterIconAlt(enfeebleChar)" />
                 </span>
               }
             </span>
@@ -779,7 +809,7 @@
                 (singleClick)="!enfeebleChar ? amHelper.selectAdditionalAM(AttackModifierType.enfeeble) : (enfeeble += 1)"
                 [repeat]="true"
               >
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
           }
@@ -788,7 +818,7 @@
           @if (!!entity && gameManager.isObjectiveEntity(entity)) {
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="objectiveHelper.changeId(-1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/left.svg" />
+                <img class="ghs-svg" src="./assets/images/left.svg" title="Previous" alt="Previous" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item">
@@ -796,7 +826,7 @@
             </span>
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="objectiveHelper.changeId(1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/right.svg" />
+                <img class="ghs-svg" src="./assets/images/right.svg" title="Next" alt="Next" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
           }
@@ -806,7 +836,7 @@
             @let objective = gameManager.toObjectiveContainer(figure);
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="objectiveHelper.changeMarker(-1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/left.svg" />
+                <img class="ghs-svg" src="./assets/images/left.svg" title="Previous" alt="Previous" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             @if (!entity || !gameManager.isObjectiveEntity(entity)) {
@@ -836,7 +866,7 @@
             }
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="objectiveHelper.changeMarker(1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/right.svg" />
+                <img class="ghs-svg" src="./assets/images/right.svg" title="Next" alt="Next" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
           }
@@ -845,11 +875,17 @@
             @let summon = gameManager.toSummon(entity);
             <div class="summon-stats-container">
               <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
-                <img class="ghs-svg" src="./assets/images/action/move.svg" />
+                <img class="ghs-svg" src="./assets/images/action/move.svg" title="Move" [attr.alt]="actionAlt('move')" aria-hidden="true" />
                 <span [value-calc]="summon.movement" [empty]="true">></span>
               </span>
               <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
-                <img class="ghs-svg" src="./assets/images/action/attack.svg" />
+                <img
+                  class="ghs-svg"
+                  src="./assets/images/action/attack.svg"
+                  title="Attack"
+                  [attr.alt]="actionAlt('attack')"
+                  aria-hidden="true"
+                />
                 @if (summon.attack !== 0) {
                   <span [ghs-label]="'' + summon.attack"></span>
                 }
@@ -858,7 +894,13 @@
                 }
               </span>
               <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
-                <img class="ghs-svg" src="./assets/images/action/range.svg" />
+                <img
+                  class="ghs-svg"
+                  src="./assets/images/action/range.svg"
+                  title="Range"
+                  [attr.alt]="actionAlt('range')"
+                  aria-hidden="true"
+                />
                 <span [value-calc]="summon.range" [empty]="true">></span>
               </span>
               @if (summon.action) {
@@ -885,6 +927,9 @@
                 <img
                   class="ghs-svg"
                   [src]="'./assets/images/status/' + (!!entity && gameManager.isCharacter(entity) ? 'exhausted' : 'dead') + '.svg'"
+                  title="Status"
+                  [attr.alt]="deadExhaustedAlt(!!entity && gameManager.isCharacter(entity))"
+                  aria-hidden="true"
                 />
               </a>
             </span>
@@ -892,17 +937,22 @@
             <!-- Max HP -->
             <span class="item max-health-container">
               <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeMaxHealth(-1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
               @if (!!entity) {
                 <span class="badge badge-left"
                   >{{ EntityValueFunction(entity.maxHealth) + maxHealth }}/{{ EntityValueFunction(entity.maxHealth) + maxHealth }}</span
                 >
               }
-              <img src="./assets/images/status/health.svg" [ghs-tooltip]="'game.maxHealth'" />
+              <img
+                src="./assets/images/status/health.svg"
+                title="Max Health"
+                [ghs-tooltip]="'game.maxHealth'"
+                [attr.alt]="label('game.maxHealth')"
+              />
               <span class="badge badge-right health-count" [value-sign]="maxHealth" [hideEmpty]="true"></span>
               <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeMaxHealth(1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
 
@@ -918,7 +968,13 @@
                       (doubleClick)="monsterHelper.catchMonster(true)"
                       [ngClass]="{ 'disabled soft': catchingDisabled || (!!entity && entity.health + health > 2) }"
                     >
-                      <img class="ghs-svg" src="./assets/images/fh/catching.svg" />
+                      <img
+                        class="ghs-svg"
+                        src="./assets/images/fh/catching.svg"
+                        title="Catching"
+                        [attr.alt]="label('data.buildings.stables.pets.catch')"
+                        aria-hidden="true"
+                      />
                     </ghs-pointer-input>
                   </span>
                 }
@@ -926,7 +982,7 @@
                 @if (!!entity && gameManager.isCharacter(entity)) {
                   <span class="item level-button" [ghs-tooltip]="'game.level'">
                     <a class="button" tabclick (click)="characterHelper.openLevelDialog()">
-                      {{ entity.level }} <img src="./assets/images/status/level.svg" />
+                      {{ entity.level }} <img src="./assets/images/status/level.svg" title="Level" [attr.alt]="label('game.level')" />
                     </a>
                   </span>
                 }
@@ -946,7 +1002,11 @@
                     tabclick
                     (click)="monsterHelper.toggleSummon()"
                   >
-                    <img [src]="'./assets/images/summons/' + monster.summonColor + '.png'" />
+                    <img
+                      [src]="'./assets/images/summons/' + monster.summonColor + '.png'"
+                      title="Summon"
+                      [attr.alt]="summonAlt(monster.summonColor)"
+                    />
                   </a>
                 }
 
@@ -963,7 +1023,7 @@
                     (click)="characterHelper.toggleSummonStatus()"
                   >
                     @if (summon.color !== SummonColor.fh) {
-                      <img [src]="'./assets/images/summons/' + summon.color + '.png'" />
+                      <img [src]="'./assets/images/summons/' + summon.color + '.png'" title="Summon" [attr.alt]="summonAlt(summon.color)" />
                     }
                     @if (summon.color === SummonColor.fh) {
                       <span class="summon-number">
@@ -981,7 +1041,11 @@
                       (click)="markerHelper.toggleMarker(marker)"
                     >
                       <span class="marker">
-                        <img [src]="gameManager.characterManager.characterIcon(marker)" />
+                        <img
+                          [src]="gameManager.characterManager.characterIcon(marker)"
+                          title="Character marker"
+                          [attr.alt]="characterIconAltByName(marker)"
+                        />
                       </span>
                     </a>
                   </span>
@@ -994,7 +1058,7 @@
           @if (!!figure && gameManager.isMonster(figure)) {
             <span class="toggle-type" tabclick (click)="monsterHelper.toggleType()">
               <span [ghs-label]="'%game.monsterType.normal%'"></span>
-              <img class="ghs-svg" src="./assets/images/switch.svg" />
+              <img class="ghs-svg" src="./assets/images/switch.svg" title="Switch" alt="Switch" aria-hidden="true" />
               <span [ghs-label]="'%game.monsterType.elite%'"></span>
             </span>
           }
@@ -1026,7 +1090,7 @@
             </span>
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeShield(-1)">
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item">
@@ -1034,13 +1098,13 @@
             </span>
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeShield(1)">
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             @for (realiate of entityRetaliate | trackUUID; track realiate._trackUUID; let i = $index) {
               <span class="item column">
                 <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliate(i, -1, 0)">
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
                 <ghs-pointer-input
                   class="button small"
@@ -1048,7 +1112,7 @@
                   tabclick
                   (singleClick)="shieldRetaliateHelper.changeRetaliate(i, 0, -1)"
                 >
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item column">
@@ -1070,16 +1134,16 @@
                     tabclick
                     (singleClick)="shieldRetaliateHelper.changeRetaliate(entityRetaliate.length, 1, 0)"
                   >
-                    <img class="ghs-svg" src="./assets/images/select-arrow.svg" />
+                    <img class="ghs-svg" src="./assets/images/select-arrow.svg" title="Select" alt="Select" aria-hidden="true" />
                   </ghs-pointer-input>
                 }
               </span>
               <span class="item column">
                 <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliate(i, 1, 0)">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
                 <ghs-pointer-input class="button small" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliate(i, 0, 1)">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
             }
@@ -1089,7 +1153,7 @@
             </span>
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeShieldPersistent(-1)">
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
+                <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             <span class="item">
@@ -1097,13 +1161,13 @@
             </span>
             <span class="item">
               <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeShieldPersistent(1)">
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
+                <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
               </ghs-pointer-input>
             </span>
             @for (realiatePermanent of entityRetaliatePersistent | trackUUID; track realiatePermanent._trackUUID; let i = $index) {
               <span class="item column">
                 <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, -1, 0)">
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
                 <ghs-pointer-input
                   class="button small"
@@ -1111,7 +1175,7 @@
                   tabclick
                   (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, 0, -1)"
                 >
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item column">
@@ -1133,16 +1197,16 @@
                     tabclick
                     (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(entityRetaliatePersistent.length, 1, 0)"
                   >
-                    <img class="ghs-svg" src="./assets/images/select-arrow.svg" />
+                    <img class="ghs-svg" src="./assets/images/select-arrow.svg" title="Select" alt="Select" aria-hidden="true" />
                   </ghs-pointer-input>
                 }
               </span>
               <span class="item column">
                 <ghs-pointer-input class="button" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, 1, 0)">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
                 <ghs-pointer-input class="button small" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, 0, 1)">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
             }
@@ -1153,25 +1217,25 @@
       @if (eventMenu) {
         @if (allEntities.length || settingsManager.settings.fhShareResources) {
           <div class="entity-container">
-            @if (allEntities.length) {
+            @if (allEntities.length && !eventHelper.distributionHelper.hasRows()) {
               <span class="progress"><span [ghs-label]="'scenario.eventEffects.progress'"></span></span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.experience -= 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item" [ghs-tooltip]="'game.experience'">
-                <img src="./assets/images/status/experience.svg" />
+                <img src="./assets/images/status/experience.svg" title="Experience" [attr.alt]="label('game.experience')" />
                 <span class="badge badge-right" [value-sign]="characterProgressHelper.experience" [hideEmpty]="true"></span>
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.experience += 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.gold -= 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item" [ghs-tooltip]="'character.progress.gold'">
@@ -1179,48 +1243,52 @@
                   class="ghs-svg"
                   [ngClass]="{ gold: !gameManager.fhRules() }"
                   [src]="'./assets/images/' + (gameManager.fhRules() ? 'fh/' : '') + 'loot.svg'"
+                  title="Gold"
+                  [attr.alt]="label('character.progress.gold')"
                 />
                 <span class="badge badge-right" [value-sign]="characterProgressHelper.gold" [hideEmpty]="true"></span>
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.gold += 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.battleGoals -= 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item" [ghs-tooltip]="'game.battleGoals'">
-                <input type="checkbox" disabled="true" checked="true" />
+                <input type="checkbox" disabled="true" checked="true" title="Battle goals" [attr.aria-label]="label('game.battleGoals')" />
                 <span class="badge badge-right" [value-sign]="characterProgressHelper.battleGoals" [hideEmpty]="true"></span>
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.battleGoals += 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
             }
 
-            @if (settingsManager.settings.fhShareResources) {
+            @if (settingsManager.settings.fhShareResources && !eventHelper.distributionHelper.hasRows()) {
               <span class="progress"><span [ghs-label]="'scenario.eventEffects.progressShare'"></span></span>
             }
-            @for (type of characterProgressHelper.lootColumns; track type) {
-              <span class="item">
-                <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.changeLoot(type, -1)" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
-                </ghs-pointer-input>
-              </span>
-              <span class="item" [ghs-tooltip]="'game.loot.' + type">
-                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + type + '.svg'" />
-                <span class="badge badge-right" [value-sign]="characterProgressHelper.loot[type] || 0" [hideEmpty]="true"></span>
-              </span>
-              <span class="item">
-                <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.changeLoot(type, 1)" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
-                </ghs-pointer-input>
-              </span>
+            @if (!eventHelper.distributionHelper.hasRows()) {
+              @for (type of characterProgressHelper.lootColumns; track type) {
+                <span class="item">
+                  <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.changeLoot(type, -1)" [repeat]="true">
+                    <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
+                  </ghs-pointer-input>
+                </span>
+                <span class="item" [ghs-tooltip]="'game.loot.' + type">
+                  <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + type + '.svg'" title="Loot" [attr.alt]="lootTypeAlt(type)" />
+                  <span class="badge badge-right" [value-sign]="characterProgressHelper.loot[type] || 0" [hideEmpty]="true"></span>
+                </span>
+                <span class="item">
+                  <ghs-pointer-input class="button" tabclick (singleClick)="characterProgressHelper.changeLoot(type, 1)" [repeat]="true">
+                    <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
+                  </ghs-pointer-input>
+                </span>
+              }
             }
           </div>
         }
@@ -1245,7 +1313,9 @@
                     (click)="eventHelper.setupEvents(type)"
                     class="ghs-svg"
                     src="./assets/images/settings.svg"
+                    title="Event deck setup"
                     [ghs-tooltip]="'game.events.deck.setup'"
+                    [attr.alt]="label('game.events.deck.setup')"
                   />
                 </span>
               }
@@ -1261,19 +1331,24 @@
             @if (gameManager.roundManager.firstRound) {
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="campaignHelper.prosperity -= 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               <span class="item" [ghs-tooltip]="'party.prosperity'">
                 @if (gameManager.fhRules()) {
-                  <img class="ghs-svg" src="./assets/images/fh/prosperity.svg" />
+                  <img
+                    class="ghs-svg"
+                    src="./assets/images/fh/prosperity.svg"
+                    title="Prosperity"
+                    [attr.alt]="label('party.campaign.sheet.prosperity')"
+                  />
                 }
                 <span [ghs-label]="'party.prosperity'"></span>
                 <span class="badge badge-right" [value-sign]="campaignHelper.prosperity" [hideEmpty]="true"></span>
               </span>
               <span class="item">
                 <ghs-pointer-input class="button" tabclick (singleClick)="campaignHelper.prosperity += 1" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                 </ghs-pointer-input>
               </span>
               @if (!gameManager.fhRules(true)) {
@@ -1285,7 +1360,7 @@
                     [repeat]="true"
                     [ngClass]="{ disabled: gameManager.game.party.reputation + campaignHelper.reputation <= -20 }"
                   >
-                    <img class="ghs-svg" src="./assets/images/minus.svg" />
+                    <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
                 <span class="item" [ghs-tooltip]="'party.reputation'">
@@ -1300,7 +1375,7 @@
                     [repeat]="true"
                     [ngClass]="{ disabled: gameManager.game.party.reputation + campaignHelper.reputation >= 20 }"
                   >
-                    <img class="ghs-svg" src="./assets/images/plus.svg" />
+                    <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
               }
@@ -1317,7 +1392,7 @@
                           (gameManager.game.party.factionReputation[faction] || 0) + (campaignHelper.factionReputation[faction] || 0) <= -10
                       }"
                     >
-                      <img class="ghs-svg" src="./assets/images/minus.svg" />
+                      <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                     </ghs-pointer-input>
                   </span>
                   <span class="item" [ghs-tooltip]="'party.reputation.faction'" [ghs-label-args]="[faction]">
@@ -1335,7 +1410,7 @@
                           (gameManager.game.party.factionReputation[faction] || 0) + (campaignHelper.factionReputation[faction] || 0) >= 20
                       }"
                     >
-                      <img class="ghs-svg" src="./assets/images/plus.svg" />
+                      <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                     </ghs-pointer-input>
                   </span>
                 }
@@ -1349,7 +1424,7 @@
                     [repeat]="true"
                     [ngClass]="{ disabled: gameManager.game.party.morale + campaignHelper.morale <= 0 }"
                   >
-                    <img class="ghs-svg" src="./assets/images/minus.svg" />
+                    <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
                 <span class="item" [ghs-tooltip]="'party.morale'">
@@ -1364,7 +1439,7 @@
                     [repeat]="true"
                     [ngClass]="{ disabled: gameManager.game.party.morale + campaignHelper.morale >= 20 }"
                   >
-                    <img class="ghs-svg" src="./assets/images/plus.svg" />
+                    <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
               }
@@ -1377,7 +1452,7 @@
                     [repeat]="true"
                     [ngClass]="{ disabled: gameManager.game.party.inspiration + campaignHelper.inspiration <= 0 }"
                   >
-                    <img class="ghs-svg" src="./assets/images/minus.svg" />
+                    <img class="ghs-svg" src="./assets/images/minus.svg" title="Decrease" alt="Decrease" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
                 <span class="item" [ghs-tooltip]="'party.inspiration'">
@@ -1392,7 +1467,7 @@
                     [repeat]="true"
                     [ngClass]="{ disabled: gameManager.game.party.inspiration + campaignHelper.inspiration >= 20 }"
                   >
-                    <img class="ghs-svg" src="./assets/images/plus.svg" />
+                    <img class="ghs-svg" src="./assets/images/plus.svg" title="Increase" alt="Increase" aria-hidden="true" />
                   </ghs-pointer-input>
                 </span>
               }
@@ -1436,6 +1511,16 @@
             @for (effect of eventHelper.eventEffectsManual; track (typeof effect === 'object' ? effect.type : effect) + $index) {
               <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
             }
+            @if (eventHelper.distributionHelper.applied) {
+              <span class="distribution-done" [ghs-label]="'game.events.distribution.done'"></span>
+            } @else if (eventHelper.distributionHelper.hasRows()) {
+              <a
+                tabclick
+                class="action distribution"
+                (click)="eventHelper.openDistributionDialog()"
+                [ghs-label]="'game.events.distribution.open'"
+              ></a>
+            }
             @if (!!eventHelper.eventAttack) {
               <span class="title outpost" [ghs-label]="'game.events.outpostAttack'"></span>
             }
@@ -1476,7 +1561,11 @@
               [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + identities[identity]"
               [ngClass]="{ deactivated: character.identity === identity }"
             >
-              <img [src]="gameManager.characterManager.characterIdentityIcon(character.name, identity)" />
+              <img
+                [src]="gameManager.characterManager.characterIdentityIcon(character.name, identity)"
+                title="Identity"
+                [attr.alt]="label('data.character.' + character.edition + '.' + character.name + '.' + identities[identity])"
+              />
             </a>
           }
         </div>
@@ -1494,7 +1583,9 @@
                 <img
                   src="./assets/images/hint.svg"
                   class="hint-trigger ghs-svg"
+                  title="Hint"
                   [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint'"
+                  [attr.alt]="label('data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint')"
                   [originX]="'center'"
                   [overlayX]="'center'"
                   [originY]="'top'"
@@ -1519,7 +1610,14 @@
     @if (!!figure && gameManager.isObjectiveContainer(figure)) {
       @let objective = gameManager.toObjectiveContainer(figure);
       <div class="objective-container" [ngClass]="{ column: objectiveOnly || !objective.escort }">
-        <input class="title" [value]="objective.title || ''" (change)="objectiveTitle = $any($event.target).value" />
+        <input
+          class="title"
+          [value]="objective.title || ''"
+          (change)="objectiveTitle = $any($event.target).value"
+          title="Objective title"
+          [attr.aria-label]="label('objective')"
+          [attr.placeholder]="label('objective')"
+        />
         <div class="decks">
           @for (deck of amDecks; track deck) {
             <span class="deck" [ngClass]="{ active: objective.amDeck === deck }" (click)="objectiveHelper.toggleAMDeck(deck)">
@@ -1530,13 +1628,21 @@
                 A
               }
               @if (deck !== 'M' && deck !== 'A') {
-                <img [src]="gameManager.characterManager.characterIcon(deck)" />
+                <img
+                  [src]="gameManager.characterManager.characterIcon(deck)"
+                  title="Attack modifier deck"
+                  [attr.alt]="characterIconAltByName(deck)"
+                />
               }
             </span>
           }
           @if (objective.amDeck && amDecks.indexOf(objective.amDeck || '') === -1) {
             <span class="deck active warning" (click)="objectiveHelper.toggleAMDeck(objective.amDeck || '')">
-              <img [src]="gameManager.characterManager.characterIcon(objective.amDeck || '')" />
+              <img
+                [src]="gameManager.characterManager.characterIcon(objective.amDeck || '')"
+                title="Attack modifier deck"
+                [attr.alt]="characterIconAltByName(objective.amDeck || '')"
+              />
             </span>
           }
         </div>

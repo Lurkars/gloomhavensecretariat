@@ -1,0 +1,17 @@
+<div
+  class="event-distribution-dialog"
+  [ngClass]="{
+    fh: settingsManager.settings.theme === 'fh',
+    modern: settingsManager.settings.theme === 'modern'
+  }"
+>
+  <div class="title">
+    <span [ghs-label]="'game.events.distribution.title'"></span>
+  </div>
+
+  <ghs-event-manual-distribution [helper]="helper" [closeOnApply]="true" (applied)="onApplied()"></ghs-event-manual-distribution>
+
+  <div class="menu">
+    <a tabclick class="cancel" (click)="close()"><span [ghs-label]="'close'"></span></a>
+  </div>
+</div>

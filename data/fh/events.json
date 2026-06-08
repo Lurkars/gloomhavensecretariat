@@ -1848,7 +1848,12 @@
                   1
                 ]
               },
-              "data.events.fh.summer-outpost.SO-11.options.A.outcomes.0.effects.1",
+              {
+                "type": "collectiveResourceAny",
+                "values": [
+                  3
+                ]
+              },
               {
                 "type": "campaignSticker",
                 "values": [

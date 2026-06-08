@@ -131,6 +131,7 @@ export enum EventCardEffectType {
   collectiveGoldOther = 'collectiveGoldOther',
   collectiveItem = 'collectiveItem',
   collectiveResource = 'collectiveResource',
+  collectiveResourceAny = 'collectiveResourceAny',
   collectiveResourceType = 'collectiveResourceType',
   consumeItem = 'consumeItem',
   consumeCollectiveItem = 'consumeCollectiveItem',

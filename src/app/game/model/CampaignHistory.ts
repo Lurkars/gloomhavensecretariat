@@ -164,12 +164,7 @@ export function getCampaignHistoryCategory(key: string): CampaignHistoryCategory
     return 'events';
   }
 
-  if (
-    key === 'passTime' ||
-    key === 'setPartyWeeks' ||
-    key === 'addPartyWeekSection' ||
-    key === 'removePartyWeekSection'
-  ) {
+  if (key === 'passTime' || key === 'setPartyWeeks' || key === 'addPartyWeekSection' || key === 'removePartyWeekSection') {
     return 'calendar';
   }
 
@@ -245,12 +240,7 @@ export function getCampaignHistoryCategory(key: string): CampaignHistoryCategory
     return 'characters';
   }
 
-  if (
-    key === 'resetCampaign' ||
-    key === 'startCampaign' ||
-    key === 'cancelCampaign' ||
-    key === 'importParty'
-  ) {
+  if (key === 'resetCampaign' || key === 'startCampaign' || key === 'cancelCampaign' || key === 'importParty') {
     return 'campaign';
   }
 
@@ -298,10 +288,7 @@ const SCENARIO_INDEX_IN_INFO_KEYS = new Set([
   'scenarioReward.revertConclusion'
 ]);
 
-export function computeCampaignHistoryRecord(
-  info: string[],
-  options: { scenarioIndex?: string; eventCardId?: string } = {}
-): string {
+export function computeCampaignHistoryRecord(info: string[], options: { scenarioIndex?: string; eventCardId?: string } = {}): string {
   if (!info || info.length === 0 || !info[0]) {
     return '';
   }
@@ -350,4 +337,30 @@ export function isCampaignHistoryAction(info: string[]): boolean {
   }
 
   return CAMPAIGN_HISTORY_PREFIXES.some((prefix) => key === prefix || key.startsWith(prefix));
+}
+
+/** Log campaign-map changes always; during combat skip in-scenario noise; allow completion/summary. */
+export function shouldLogCampaignHistoryEntry(scenarioActive: boolean, scenarioSummary: boolean, info: string[]): boolean {
+  if (!scenarioActive) {
+    return true;
+  }
+
+  const key = info[0];
+  if (!key) {
+    return false;
+  }
+
+  if (key.startsWith('campaignHistory.')) {
+    return true;
+  }
+
+  if (key === 'cancelScenario' || key === 'resetScenario') {
+    return true;
+  }
+
+  if (scenarioSummary && (key.startsWith('finishScenario.') || key.startsWith('scenarioReward.') || key === 'finishConclusion')) {
+    return true;
+  }
+
+  return false;
 }
