@@ -12,7 +12,6 @@ import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
-import { CharacterMoveResourcesDialog } from 'src/app/ui/figures/character/sheet/move-resources';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -55,6 +54,7 @@ export class CharacterRetirementDialog {
   additionalEnvelopeItemBlueprint: ItemData | true | undefined;
 
   hasResources: boolean = false;
+  resourcesToMove: { type: LootType; amount: number }[] = [];
 
   character: Character = inject(DIALOG_DATA);
 
@@ -73,12 +73,13 @@ export class CharacterRetirementDialog {
       }
     }
 
-    for (const key of Object.keys(this.character.progress.loot)) {
-      const loot: LootType = key as LootType;
-      if (resourceLootTypes.includes(loot) && this.character.progress.loot[loot]) {
-        this.hasResources = true;
+    resourceLootTypes.forEach((loot) => {
+      const amount = this.character.progress.loot[loot] || 0;
+      if (amount > 0) {
+        this.resourcesToMove.push({ type: loot, amount });
       }
-    }
+    });
+    this.hasResources = this.resourcesToMove.length > 0;
 
     if (this.personalQuest) {
       if (this.personalQuest.unlockCharacter) {
@@ -142,17 +143,13 @@ export class CharacterRetirementDialog {
     }
   }
 
-  moveResources() {
-    this.dialog.open(CharacterMoveResourcesDialog, {
-      panelClass: ['dialog'],
-      data: { character: this.character, all: true }
-    });
-  }
-
   apply() {
     ghsDialogClosingHelper(this.dialogRef, true);
 
     gameManager.stateManager.before('setRetired', gameManager.characterManager.characterName(this.character, true, true));
+    if (gameManager.fhRules() && this.hasResources) {
+      gameManager.characterManager.moveResourcesToSupply(this.character);
+    }
     this.character.progress.retired = true;
     gameManager.game.party.retirements.push(this.character.toModel());
     gameManager.characterManager.removeCharacter(this.character, true);
@@ -398,5 +395,17 @@ export class CharacterRetirementDialog {
 
   close() {
     ghsDialogClosingHelper(this.dialogRef);
+  }
+
+  label(key: string): string {
+    return settingsManager.getLabel(key);
+  }
+
+  characterIconAlt(): string {
+    return gameManager.characterManager.characterName(this.character, true);
+  }
+
+  lootLabel(type: LootType): string {
+    return settingsManager.getLabel('game.loot.' + type);
   }
 }

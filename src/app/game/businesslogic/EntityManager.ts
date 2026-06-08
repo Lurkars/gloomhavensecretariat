@@ -1,7 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { ActionType } from 'src/app/game/model/data/Action';
+import { ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
@@ -201,8 +201,8 @@ export class EntityManager {
     }
   }
 
-  changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
-    this.changeHealthHighlightConditions(entity, figure, value, damageOnly);
+  changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false, skipPoisonHighlight: boolean = false) {
+    this.changeHealthHighlightConditions(entity, figure, value, damageOnly, skipPoisonHighlight);
     entity.health += value;
     this.checkHealth(entity, figure);
     if (settingsManager.settings.scenarioStats && value !== 0) {
@@ -228,7 +228,13 @@ export class EntityManager {
     }
   }
 
-  changeHealthHighlightConditions(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
+  changeHealthHighlightConditions(
+    entity: Entity,
+    figure: Figure,
+    value: number,
+    damageOnly: boolean = false,
+    skipPoisonHighlight: boolean = false
+  ) {
     if (settingsManager.settings.applyConditions) {
       const regenerate = entity.entityConditions.find(
         (entityCondition) =>
@@ -244,7 +250,7 @@ export class EntityManager {
         regenerate.expired = true;
       }
 
-      this.sufferDamageHighlightConditions(entity, figure, value, damageOnly);
+      this.sufferDamageHighlightConditions(entity, figure, value, damageOnly, skipPoisonHighlight);
 
       if (
         regenerate &&
@@ -287,7 +293,13 @@ export class EntityManager {
     }
   }
 
-  sufferDamageHighlightConditions(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
+  sufferDamageHighlightConditions(
+    entity: Entity,
+    figure: Figure,
+    value: number,
+    damageOnly: boolean = false,
+    skipPoisonHighlight: boolean = false
+  ) {
     if (settingsManager.settings.applyConditions) {
       if (value < 0 && !damageOnly) {
         let shieldValue = 0;
@@ -343,21 +355,23 @@ export class EntityManager {
           }
         });
 
-        entity.entityConditions
-          .filter((entityCondition) => entityCondition.name === ConditionName.poison || entityCondition.name === ConditionName.poison_x)
-          .forEach((entityCondition) => {
-            if (
-              value < 0 &&
-              !entityCondition.expired &&
-              entityCondition.state !== EntityConditionState.new &&
-              entity.health + value > -shieldValue &&
-              !this.isImmune(entity, figure, entityCondition.name)
-            ) {
-              entityCondition.highlight = true;
-            } else {
-              entityCondition.highlight = false;
-            }
-          });
+        if (!skipPoisonHighlight) {
+          entity.entityConditions
+            .filter((entityCondition) => entityCondition.name === ConditionName.poison || entityCondition.name === ConditionName.poison_x)
+            .forEach((entityCondition) => {
+              if (
+                value < 0 &&
+                !entityCondition.expired &&
+                entityCondition.state !== EntityConditionState.new &&
+                entity.health + value > -shieldValue &&
+                !this.isImmune(entity, figure, entityCondition.name)
+              ) {
+                entityCondition.highlight = true;
+              } else {
+                entityCondition.highlight = false;
+              }
+            });
+        }
       }
 
       const ward = entity.entityConditions.find(
@@ -1171,6 +1185,176 @@ export class EntityManager {
           entityCondition.lastState = entityCondition.state;
         }
       });
+  }
+
+  attackConditionBonus(target: Entity, targetFigure: Figure): number {
+    if (!settingsManager.settings.applyConditions) {
+      return 0;
+    }
+
+    return this.poisonAttackBonus(target, targetFigure);
+  }
+
+  entityShieldValue(entity: Entity, figure: Figure): number {
+    let total = 0;
+
+    const shieldCondition = entity.entityConditions.find(
+      (c) => c.name === ConditionName.shield && !c.expired && c.state !== EntityConditionState.removed
+    );
+    if (shieldCondition) {
+      total += shieldCondition.value;
+    }
+
+    gameManager.actionsManager.calcActionHints(figure, entity).forEach((hint) => {
+      if (hint.type === ActionType.shield) {
+        total += hint.value;
+      }
+    });
+
+    return Math.max(0, total);
+  }
+
+  entityRetaliateValue(entity: Entity, figure: Figure): number {
+    let total = 0;
+
+    const retaliateCondition = entity.entityConditions.find(
+      (c) => c.name === ConditionName.retaliate && !c.expired && c.state !== EntityConditionState.removed
+    );
+    if (retaliateCondition) {
+      total += retaliateCondition.value;
+    }
+
+    gameManager.actionsManager.calcActionHints(figure, entity).forEach((hint) => {
+      if (hint.type === ActionType.retaliate) {
+        total += hint.value;
+      }
+    });
+
+    return Math.max(0, total);
+  }
+
+  shieldBlockedByAttack(targetShield: number, pierce: number): number {
+    return Math.max(0, targetShield - Math.max(0, pierce));
+  }
+
+  consumeShieldForAttack(entity: Entity, figure: Figure, blocked: number): void {
+    if (blocked <= 0) {
+      return;
+    }
+
+    let remaining = blocked;
+    remaining = this.consumeActionShield(entity, false, remaining);
+    remaining = this.consumeActionShield(entity, true, remaining);
+
+    if (remaining <= 0) {
+      this.checkHealth(entity, figure);
+      return;
+    }
+
+    const shield = entity.entityConditions.find(
+      (c) => c.name === ConditionName.shield && !c.expired && c.state !== EntityConditionState.removed
+    );
+    if (!shield) {
+      return;
+    }
+
+    shield.value -= remaining;
+    if (shield.value <= 0) {
+      shield.expired = true;
+      shield.value = 0;
+    }
+    this.checkHealth(entity, figure);
+  }
+
+  private consumeActionShield(entity: Entity, persistent: boolean, amount: number): number {
+    if (amount <= 0) {
+      return 0;
+    }
+
+    const actions = persistent ? entity.extraActionsPersistent : entity.extraActions;
+    const shieldAction = actions.find((action) => action.type === ActionType.shield);
+    if (!shieldAction) {
+      return amount;
+    }
+
+    const current =
+      shieldAction.valueType === ActionValueType.minus
+        ? -EntityValueFunction(shieldAction.value)
+        : EntityValueFunction(shieldAction.value);
+    const consumed = Math.min(Math.max(0, current), amount);
+    const next = current - consumed;
+
+    if (next <= 0) {
+      const filtered = actions.filter((action) => action.type !== ActionType.shield);
+      if (persistent) {
+        entity.extraActionsPersistent = filtered;
+      } else {
+        entity.extraActions = filtered;
+      }
+    } else {
+      shieldAction.valueType = ActionValueType.fixed;
+      shieldAction.value = next;
+    }
+
+    return amount - consumed;
+  }
+
+  attackDrawState(entity: Entity, figure: Figure): 'advantage' | 'disadvantage' | undefined {
+    if (!settingsManager.settings.applyConditions) {
+      return undefined;
+    }
+
+    const muddle = entity.entityConditions.find(
+      (c) => c.name === ConditionName.muddle && !c.expired && c.state !== EntityConditionState.new
+    );
+    const strengthen = entity.entityConditions.find(
+      (c) => c.name === ConditionName.strengthen && !c.expired && c.state !== EntityConditionState.new
+    );
+    const impair = entity.entityConditions.find(
+      (c) => c.name === ConditionName.impair && !c.expired && c.state !== EntityConditionState.new
+    );
+
+    const hasMuddle = !!muddle && !this.isImmune(entity, figure, ConditionName.muddle);
+    const hasStrengthen = !!strengthen && !this.isImmune(entity, figure, ConditionName.strengthen);
+    const hasImpair = !!impair && !this.isImmune(entity, figure, ConditionName.impair);
+
+    if (hasMuddle && hasStrengthen) {
+      return undefined;
+    }
+    if (hasMuddle || hasImpair) {
+      return 'disadvantage';
+    }
+    if (hasStrengthen) {
+      return 'advantage';
+    }
+    return undefined;
+  }
+
+  private poisonAttackBonus(entity: Entity, figure: Figure): number {
+    let bonus = 0;
+
+    entity.entityConditions.forEach((entityCondition) => {
+      if (entityCondition.expired || entityCondition.state === EntityConditionState.new) {
+        return;
+      }
+      if (this.isImmune(entity, figure, entityCondition.name)) {
+        return;
+      }
+      if (
+        entityCondition.name === ConditionName.poison &&
+        !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.poison)
+      ) {
+        bonus += 1;
+      }
+      if (
+        entityCondition.name === ConditionName.poison_x &&
+        !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.poison_x)
+      ) {
+        bonus += entityCondition.value;
+      }
+    });
+
+    return bonus;
   }
 
   highlightedConditions(entity: Entity): EntityCondition[] {

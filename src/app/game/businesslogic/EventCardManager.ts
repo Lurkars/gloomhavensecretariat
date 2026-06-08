@@ -17,6 +17,7 @@ import { TreasureData, TreasureRewardType } from 'src/app/game/model/data/RoomDa
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { resolveLabelEffect } from 'src/app/ui/figures/entities-menu/helpers/event-effect-resolver';
 import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export const EventCardApplyEffects: EventCardEffectType[] = [
@@ -416,7 +417,7 @@ export class EventCardManager {
     effects.forEach((effect, i) => {
       if (typeof effect === 'string') {
         if (!scenario) {
-          results.push(new EventCardEffect(EventCardEffectType.custom, [effect]));
+          results.push(resolveLabelEffect(effect) || new EventCardEffect(EventCardEffectType.custom, [effect]));
         }
       } else {
         if (this.applicableEffect(effect) && (!effect.condition || this.resolvableCondition(effect.condition))) {

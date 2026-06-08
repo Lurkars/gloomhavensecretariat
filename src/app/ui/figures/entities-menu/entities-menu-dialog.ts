@@ -510,4 +510,60 @@ export class EntitiesMenuDialogComponent {
       }
     }
   }
+
+  label(key: string, args?: (string | number)[]): string {
+    return settingsManager.getLabel(key, args?.map((a) => '' + a));
+  }
+
+  characterIconAlt(character: Character): string {
+    return this.gameManager.characterManager.characterName(character, true);
+  }
+
+  characterIconAltByName(name: string): string {
+    if (!name) {
+      return '';
+    }
+    const data = this.gameManager.getCharacterData(name);
+    return settingsManager.getLabel('data.character.' + data.edition + '.' + data.name);
+  }
+
+  monsterThumbnailAlt(monster: Monster): string {
+    const key = monster.statEffect?.name || monster.name;
+    return settingsManager.getLabel('data.monster.' + key);
+  }
+
+  summonAlt(color: string): string {
+    return settingsManager.getLabel('summon.' + color) || color;
+  }
+
+  lootTypeAlt(type: string): string {
+    return this.label('game.loot.' + type);
+  }
+
+  actionAlt(action: 'move' | 'attack' | 'range' | 'damage'): string {
+    return this.label('game.action.' + action);
+  }
+
+  absentPresentAlt(absent: boolean): string {
+    return this.label(absent ? 'character.present' : 'character.absent');
+  }
+
+  eventMenuIconAlt(): string {
+    return this.label('entities.event.' + (this.eventMenu ? 'entities' : 'menu'));
+  }
+
+  objectiveIconAlt(escort: boolean): string {
+    return this.label(escort ? 'escort' : 'objective');
+  }
+
+  deadExhaustedAlt(isCharacter: boolean): string {
+    return this.label(isCharacter ? 'game.exhausted' : 'game.dead');
+  }
+
+  healthDamageIconAlt(trackDamage: boolean): string {
+    if (trackDamage || this.settingsManager.settings.damageHP) {
+      return this.actionAlt('damage');
+    }
+    return this.label('game.health');
+  }
 }

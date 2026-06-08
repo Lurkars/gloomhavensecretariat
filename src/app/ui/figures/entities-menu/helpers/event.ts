@@ -8,8 +8,10 @@ import {
   EventCardEffectType
 } from 'src/app/game/model/data/EventCard';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
+import { EventManualDistributionHelper } from 'src/app/ui/figures/entities-menu/helpers/event-manual-distribution';
 import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors';
 import { OutpostAttackComponent } from 'src/app/ui/figures/entities-menu/outpost-attack/outpost-attack';
+import { EventManualDistributionDialogComponent } from 'src/app/ui/figures/entities-menu/event-manual-distribution/event-manual-distribution-dialog';
 import { EventCardDeckComponent } from 'src/app/ui/figures/event/deck/event-card-deck';
 import { EventCardDrawComponent } from 'src/app/ui/figures/event/draw/event-card-draw';
 
@@ -20,6 +22,7 @@ export class EventHelper {
   eventOutpostAttackEffects: EventCardEffect[] = [];
   eventConditionManual: EventCardCondition[] = [];
   eventAttack: EventCardAttack | undefined;
+  distributionHelper: EventManualDistributionHelper = new EventManualDistributionHelper();
 
   constructor(private component: EntitiesMenuDialogComponent) {}
 
@@ -89,6 +92,33 @@ export class EventHelper {
         this.eventAttack = result as EventCardAttack;
       }
     });
+    this.distributionHelper.parse(this.eventEffectsManual);
+    if (!this.distributionHelper.hasRows()) {
+      gameManager.stateManager.flushEventResourceHistory();
+    }
+    this.component.update();
+    this.openDistributionDialog();
+  }
+
+  openDistributionDialog() {
+    if (!this.distributionHelper.hasRows()) {
+      return;
+    }
+
+    this.component.dialog.open(EventManualDistributionDialogComponent, {
+      panelClass: ['dialog', 'event-distribution-dialog'],
+      data: {
+        helper: this.distributionHelper,
+        onApplied: () => this.onDistributionApplied()
+      }
+    });
+  }
+
+  onDistributionApplied() {
+    this.eventEffectsManual = this.eventEffectsManual.filter(
+      (effect) => !EventManualDistributionHelper.effectNeedsDistribution(effect)
+    );
+    this.component.update();
   }
 
   openOutpostAttack() {

@@ -2,7 +2,12 @@
   <label class="title">
     <span [ghs-label]="'character.progress.retirement'"></span>
     <span class="name">
-      <img class="icon character-icon" [src]="character.iconUrl" />
+      <img
+        class="icon character-icon"
+        [src]="character.iconUrl"
+        title="Character"
+        [attr.alt]="characterIconAlt()"
+      />
       <span class="character-title">{{ gameManager.characterManager.characterName(character, true) }}</span>
     </span>
   </label>
@@ -132,8 +137,19 @@
   }
 
   @if (gameManager.fhRules() && hasResources) {
-    <div class="additional">
-      <a (click)="moveResources()"><span [ghs-label]="'character.progress.retirement.moveSupply'"></span></a>
+    <div class="additional resources">
+      <span [ghs-label]="'character.progress.retirement.moveSupplyInfo'"></span>
+      @for (resource of resourcesToMove; track resource.type) {
+        <div class="text-white resource">
+          <img
+            class="ghs-svg"
+            [src]="'./assets/images/fh/loot/' + resource.type + '.svg'"
+            title="Loot"
+            [attr.alt]="lootLabel(resource.type)"
+          />
+          <span [ghs-label]="'game.loot.' + resource.type"></span>: {{ resource.amount }}
+        </div>
+      }
     </div>
   }
 
@@ -157,7 +173,19 @@
     <div class="personal-quest">
       <div class="personal-quest-card">
         @if (additional) {
-          <input class="card-id" [value]="(additionalPQ && additionalPQ.cardId) || ''" type="text" (change)="changeAdditionalPQ($event)" />
+          <label class="card-id-label">
+            <span class="card-id-caption" [ghs-label]="'character.progress.personalQuest'"></span>
+            <input
+              class="card-id"
+              name="additionalPersonalQuestCardId"
+              type="text"
+              title="Personal Quest card ID"
+              placeholder="Personal Quest card ID"
+              [attr.aria-label]="label('character.progress.personalQuest')"
+              [value]="(additionalPQ && additionalPQ.cardId) || ''"
+              (change)="changeAdditionalPQ($event)"
+            />
+          </label>
         }
         @if (!!additionalPQ) {
           <span class="personal-quest-name">

@@ -152,6 +152,15 @@
       font-size: 1.5em;
       padding: 0.2em;
     }
+
+    &.resources {
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+      .resource {
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 
   .additional-card {
