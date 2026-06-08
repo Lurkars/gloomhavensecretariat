@@ -56,6 +56,9 @@ export class ConditionsComponent implements OnInit {
   readonly inputType = input<string>('', { alias: 'type' });
 
   readonly columns = input<number>(3);
+  readonly positiveOnly = input<boolean>(false);
+  readonly negativeOnly = input<boolean>(false);
+  readonly hideToggles = input<boolean>(false);
   readonly empower = input<boolean>(false);
   readonly enfeeble = input<boolean>(false);
   readonly conditionChange = output<EntityCondition[]>({ alias: 'conditionChange' });
@@ -79,6 +82,22 @@ export class ConditionsComponent implements OnInit {
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.initializeConditions());
+  }
+
+  conditionLabel(condition: Condition): string {
+    return settingsManager.getLabel('game.condition.' + condition.name);
+  }
+
+  get permanentToggleLabel(): string {
+    return settingsManager.getLabel('game.condition.permanent');
+  }
+
+  get roundExpireToggleLabel(): string {
+    return settingsManager.getLabel('game.condition.roundExpire');
+  }
+
+  get immuneToggleLabel(): string {
+    return settingsManager.getLabel('game.condition.immune');
   }
 
   ngOnInit(): void {
@@ -106,6 +125,9 @@ export class ConditionsComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   onKeyPress(event: KeyboardEvent) {
+    if (gameManager.attackResolveManager.phase === 'configure') {
+      return;
+    }
     if (settingsManager.settings.keyboardShortcuts && event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
       const keyNumber = +event.key;
       if (this.timeout) {
@@ -166,19 +188,11 @@ export class ConditionsComponent implements OnInit {
     negativeConditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
     negativeConditions = negativeConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
-    if (negativeConditions.length) {
-      this.conditions.push(...negativeConditions);
-    }
     let positiveConditions: Condition[] = [];
     positiveConditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
     positiveConditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
     positiveConditions.push(...gameManager.conditionsForTypes('stack', 'positive', this.type));
     positiveConditions = positiveConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
-
-    if (positiveConditions.length) {
-      this.conditionSeparator.push(this.conditions.length - 1);
-      this.conditions.push(...positiveConditions);
-    }
 
     let neutralConditions: Condition[] = [];
     neutralConditions.push(...gameManager.conditionsForTypes('standard', 'neutral', this.type));
@@ -186,9 +200,30 @@ export class ConditionsComponent implements OnInit {
     neutralConditions.push(...gameManager.conditionsForTypes('stack', 'neutral', this.type));
     neutralConditions = neutralConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
-    if (neutralConditions.length) {
-      this.conditionSeparator.push(this.conditions.length - 1);
-      this.conditions.push(...neutralConditions);
+    if (this.positiveOnly()) {
+      this.conditions.push(...positiveConditions);
+    } else if (this.negativeOnly()) {
+      if (negativeConditions.length) {
+        this.conditions.push(...negativeConditions);
+      }
+      if (neutralConditions.length) {
+        if (this.conditions.length) {
+          this.conditionSeparator.push(this.conditions.length - 1);
+        }
+        this.conditions.push(...neutralConditions);
+      }
+    } else {
+      if (negativeConditions.length) {
+        this.conditions.push(...negativeConditions);
+      }
+      if (positiveConditions.length) {
+        this.conditionSeparator.push(this.conditions.length - 1);
+        this.conditions.push(...positiveConditions);
+      }
+      if (neutralConditions.length) {
+        this.conditionSeparator.push(this.conditions.length - 1);
+        this.conditions.push(...neutralConditions);
+      }
     }
 
     if (this.immunityEnabled) {

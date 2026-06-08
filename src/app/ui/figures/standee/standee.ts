@@ -188,6 +188,7 @@ export class StandeeComponent implements OnInit {
     const isMonster = gameManager.isMonster(this.figure);
 
     this.entityBorderClasses = {
+      'attack-target-pick': gameManager.attackResolveManager.phase === 'pickTarget',
       dead: this.entity.dead,
       off: !this.entity.dormant && this.entity.off,
       dormant: this.entity.dormant,
@@ -197,12 +198,18 @@ export class StandeeComponent implements OnInit {
         !this.entity.dormant &&
         this.entity.revealed &&
         settingsManager.settings.scenarioRooms &&
-        settingsManager.settings.activeStandees,
+        (settingsManager.settings.activeStandees || settingsManager.settings.monsterStandeeTurns),
       active:
         !this.entity.dormant &&
-        ((isMonsterEntity && this.entity.active && settingsManager.settings.activeStandees) ||
+        ((isMonsterEntity &&
+          this.entity.active &&
+          (settingsManager.settings.activeStandees || settingsManager.settings.monsterStandeeTurns)) ||
           (isSummon && this.entity.active && settingsManager.settings.activeSummons)),
-      'active-focus': !this.entity.dormant && this.entity.active && settingsManager.settings.activeStandees && !this.figure.active,
+      'active-focus':
+        !this.entity.dormant &&
+        this.entity.active &&
+        (settingsManager.settings.activeStandees || settingsManager.settings.monsterStandeeTurns) &&
+        !this.figure.active,
       'active-turn': this.activeTurn,
       monster: isMonsterEntity,
       objective: isObjectiveEntity,
@@ -439,9 +446,16 @@ export class StandeeComponent implements OnInit {
   }
 
   doubleClick(): void {
+    if (gameManager.attackResolveManager.phase === 'pickTarget') {
+      return;
+    }
     if (this.entity.revealed) {
       this.entity.revealed = false;
-    } else if (settingsManager.settings.activeStandees && this.entity instanceof MonsterEntity) {
+    } else if (
+      settingsManager.settings.activeStandees &&
+      !settingsManager.settings.monsterStandeeTurns &&
+      this.entity instanceof MonsterEntity
+    ) {
       gameManager.stateManager.before(
         this.figure.type + (this.entity.active ? 'UnsetEntityActive' : 'SetEntityActive'),
         this.figure.name,
@@ -495,6 +509,9 @@ export class StandeeComponent implements OnInit {
   }
 
   openEntityMenu(): void {
+    if (gameManager.attackResolveManager.handleStandeeClick(this.entity, this.figure)) {
+      return;
+    }
     if (this.entity.number < 0 && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
       if (settingsManager.settings.randomStandees) {
         const number = gameManager.monsterManager.monsterRandomStandee(this.figure);

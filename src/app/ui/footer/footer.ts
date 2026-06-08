@@ -150,6 +150,7 @@ export class FooterComponent implements OnInit {
     window.addEventListener('resize', () => {
       const monsterDeck = this.monsterDeck();
       this.compact = !!monsterDeck && monsterDeck.nativeElement.clientWidth > this.elementRef.nativeElement.clientWidth * 0.3;
+      this.cdr.markForCheck();
     });
   }
 
@@ -168,11 +169,7 @@ export class FooterComponent implements OnInit {
           (gameManager.game.scenario && gameManager.game.scenario.allyDeck))) ||
       false;
     this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
-    const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom
-      ? (gameManager.game.figures.find(
-          (figure) => figure instanceof Character && (figure.attackModifierDeckVisible || gameManager.bbRules())
-        ) as Character)
-      : undefined;
+    const activeCharacter = gameManager.attackResolveManager.footerAttackCharacter();
     if (settingsManager.settings.animations && ((this.activeCharacter && !activeCharacter) || (!this.activeCharacter && activeCharacter))) {
       this.activeCharacterFade = true;
       if (activeCharacter) {
@@ -504,6 +501,65 @@ export class FooterComponent implements OnInit {
 
   nextDisabled(): boolean {
     return this.activeHint() || this.finish() || this.failed();
+  }
+
+  onMonsterAttackModifierIconClick(event: Event): void {
+    this.onAttackModifierDeckIconClick(event, false);
+  }
+
+  onAllyAttackModifierIconClick(event: Event): void {
+    this.onAttackModifierDeckIconClick(event, true);
+  }
+
+  private onAttackModifierDeckIconClick(event: Event, allyDeck: boolean): void {
+    event.stopPropagation();
+    const monster = gameManager.attackResolveManager.footerAttackMonster();
+    if (!monster || gameManager.attackResolveManager.monsterUsesAllyDeck(monster) !== allyDeck) {
+      if (allyDeck) {
+        this.toggleActiveAllyAttackModifierDeck();
+      } else {
+        this.toggleActiveMonsterAttackModifierDeck();
+      }
+      return;
+    }
+    const mgr = gameManager.attackResolveManager;
+    if (mgr.enabledForMonster(monster)) {
+      if (mgr.phase !== 'idle') {
+        mgr.finish();
+      } else {
+        mgr.startMonsterAttack(monster);
+      }
+      gameManager.triggerUiChange(false);
+      this.cdr.markForCheck();
+      return;
+    }
+    if (allyDeck) {
+      this.toggleActiveAllyAttackModifierDeck();
+    } else {
+      this.toggleActiveMonsterAttackModifierDeck();
+    }
+  }
+
+  onCharacterAttackModifierIconClick(event: Event): void {
+    event.stopPropagation();
+    const activeCharacter = gameManager.attackResolveManager.footerAttackCharacter();
+    if (!activeCharacter) {
+      return;
+    }
+    const mgr = gameManager.attackResolveManager;
+    if (mgr.enabledFor(activeCharacter)) {
+      if (mgr.phase !== 'idle') {
+        mgr.finish();
+      } else {
+        mgr.startAttack(activeCharacter);
+      }
+      gameManager.triggerUiChange(false);
+      this.cdr.markForCheck();
+      return;
+    }
+    if (this.activeCharacter) {
+      this.toggleActiveCharacterAttackModifierDeck();
+    }
   }
 
   toggleActiveCharacterAttackModifierDeck() {

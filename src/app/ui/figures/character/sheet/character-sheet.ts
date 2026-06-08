@@ -494,6 +494,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
           this.character.progress.retired ? 'setRetired' : 'unsetRetired',
           gameManager.characterManager.characterName(this.character, true, true)
         );
+        if (gameManager.fhRules()) {
+          gameManager.characterManager.moveResourcesToSupply(this.character);
+        }
         this.character.progress.retired = true;
         if (gameManager.game.party.campaignMode) {
           gameManager.game.party.retirements.push(this.character.toModel());

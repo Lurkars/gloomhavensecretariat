@@ -43,10 +43,14 @@
       class="am"
       (click)="draw($event)"
       [ghs-label]="
-        compact && fullscreen() ? 'game.cards.fullscreen' : deck.current >= deckLength - 1 ? 'game.cards.shuffle' : 'game.cards.draw'
+        compact && fullscreen()
+          ? 'game.cards.fullscreen'
+          : deck.current >= deckLength - 1
+            ? 'game.cards.shuffle'
+            : 'game.cards.draw'
       "
       [ghs-label-attribute]="'title'"
-      [ngClass]="{ 'town-guard': townGuard(), disabled: disabled }"
+        [ngClass]="{ 'town-guard': townGuard(), disabled: disabled || attackResolveBlocksDeckDraw() }"
     >
       <span class="number" [ngClass]="{ 'has-shuffle': deck.current >= deckLength + (deck.bb ? -3 : -1) }">
         @if (!deck.bb) {
@@ -94,7 +98,7 @@
       </span>
     }
 
-    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical())) {
+    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical()) && !attackResolveGuided()) {
       <span
         class="advantage"
         [ghs-label]="'game.cards.drawAdvantage'"
@@ -111,7 +115,7 @@
       </span>
     }
 
-    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical())) {
+    @if ((deck.bb || settingsManager.settings.amAdvantage) && (!compact || vertical()) && !attackResolveGuided()) {
       <span
         class="disadvantage"
         [ghs-label]="'game.cards.drawDisadvantage'"

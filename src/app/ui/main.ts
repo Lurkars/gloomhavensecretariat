@@ -20,6 +20,7 @@ import { CharacterFullViewComponent } from 'src/app/ui/figures/character/fullvie
 import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
 import { MonsterComponent } from 'src/app/ui/figures/monster/monster';
 import { ObjectiveContainerComponent } from 'src/app/ui/figures/objective-container/objective-container';
+import { AttackResolvePanelComponent } from 'src/app/ui/figures/attackmodifier/attack-resolve-panel';
 import { FooterComponent } from 'src/app/ui/footer/footer';
 import { HeaderComponent } from 'src/app/ui/header/header';
 import { SubMenu } from 'src/app/ui/header/menu/menu';
@@ -40,6 +41,7 @@ import { environment } from 'src/environments/environment';
     CharacterFullViewComponent,
     MonsterComponent,
     ObjectiveContainerComponent,
+    AttackResolvePanelComponent,
     FooterComponent,
     HeaderComponent,
     FigureAutoscrollDirective,

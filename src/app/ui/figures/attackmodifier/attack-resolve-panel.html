@@ -1,0 +1,323 @@
+@if (manager.phase === 'pickTarget') {
+  <div class="attack-resolve-pick-overlay" aria-hidden="true"></div>
+}
+
+@if (visible) {
+  <div
+    class="attack-resolve-panel"
+    [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
+  >
+    <div class="header">
+      <span class="title" [ghs-label]="'game.attackResolve.title'" [ghs-label-args]="[manager.attackerLabel]"></span>
+      <button
+        type="button"
+        class="cancel"
+        title="Close"
+        [attr.aria-label]="closeButtonLabel"
+        (click)="manager.finish()"
+      >
+        <img src="./assets/images/close_dialog.svg" title="Close" alt="Close" aria-hidden="true" />
+      </button>
+    </div>
+
+    <div class="target-line">
+      <span [ghs-label]="'game.attackResolve.target'"></span>
+      <strong>{{ manager.targetLabel(target) }}</strong>
+      @if (manager.targetShield > 0) {
+        @if (manager.pierce > 0 && manager.shieldBlocked < manager.targetShield) {
+          <span
+            class="shield"
+            [ghs-label]="'game.attackResolve.shieldAfterPierce'"
+            [ghs-label-args]="[manager.targetShield, manager.shieldBlocked]"
+          ></span>
+        } @else {
+          <span class="shield" [ghs-label]="'game.attackResolve.shield'" [ghs-label-args]="[manager.targetShield]"></span>
+        }
+      }
+      @if (manager.targetRetaliate > 0) {
+        <span class="retaliate" [ghs-label]="'game.attackResolve.retaliate'" [ghs-label-args]="[manager.targetRetaliate]"></span>
+      }
+    </div>
+
+    <div class="body">
+      <div class="left" [class.numpad-active]="manager.numpadOpen">
+        <div class="value-inputs-row">
+          <button
+            type="button"
+            class="value-field compact"
+            [class.active]="manager.inputField === 'attack'"
+            title="Attack"
+            [attr.aria-label]="inputFieldLabel('attack')"
+            (click)="openInputField('attack', $event)"
+          >
+            <img [src]="actionIconUrl('attack')" title="Attack" [attr.alt]="actionAltLabel('attack')" aria-hidden="true" />
+            <span class="field-value">
+              {{ manager.baseAttack }}
+              @if (manager.conditionAttackBonus > 0) {
+                <span class="condition-bonus">+{{ manager.conditionAttackBonus }}</span>
+              }
+            </span>
+          </button>
+          <button
+            type="button"
+            class="value-field compact pierce-field"
+            [class.active]="manager.inputField === 'pierce'"
+            title="Pierce"
+            [attr.aria-label]="inputFieldLabel('pierce')"
+            (click)="openInputField('pierce', $event)"
+          >
+            <img [src]="actionIconUrl('pierce')" title="Pierce" [attr.alt]="actionAltLabel('pierce')" aria-hidden="true" />
+            <span class="field-value">{{ manager.pierce }}</span>
+          </button>
+        </div>
+
+        <div class="draw-actions">
+          @if (manager.canUndoAttack) {
+            <button
+              type="button"
+              class="undo"
+              title="Undo attack"
+              [attr.aria-label]="undoButtonLabel"
+              (click)="manager.undoAttack()"
+            >
+              <span [ghs-label]="'game.attackResolve.undo'"></span>
+            </button>
+          }
+          <button
+            type="button"
+            class="draw"
+            title="Draw"
+            [disabled]="!manager.canDraw"
+            (click)="manager.drawModifier()"
+            [ghs-label]="manager.needsShuffle ? 'game.cards.shuffle' : 'game.cards.draw'"
+            [ghs-label-attribute]="'aria-label'"
+          >
+            @if (manager.needsShuffle) {
+              <span [ghs-label]="'game.cards.shuffle'"></span>
+            } @else {
+              <span [ghs-label]="'game.cards.draw'"></span>
+            }
+          </button>
+          @if (settingsManager.settings.amAdvantage && !manager.needsShuffle) {
+            <button
+              type="button"
+              class="advantage"
+              title="Draw with Advantage"
+              [disabled]="!manager.canDraw"
+              (click)="manager.drawModifier('advantage')"
+              [ghs-label]="'game.cards.drawAdvantage'"
+              [ghs-label-attribute]="'aria-label'"
+            >
+              <img
+                [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/strengthen.svg'"
+                title="Draw with Advantage"
+                [attr.alt]="drawAdvantageAltLabel"
+                aria-hidden="true"
+              />
+            </button>
+            <button
+              type="button"
+              class="disadvantage"
+              title="Draw with Disadvantage"
+              [disabled]="!manager.canDraw"
+              (click)="manager.drawModifier('disadvantage')"
+              [ghs-label]="'game.cards.drawDisadvantage'"
+              [ghs-label-attribute]="'aria-label'"
+            >
+              <img
+                [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/muddle.svg'"
+                title="Draw with Disadvantage"
+                [attr.alt]="drawDisadvantageAltLabel"
+                aria-hidden="true"
+              />
+            </button>
+          }
+        </div>
+
+        @if (manager.attackResult && attackDeck) {
+          <div class="result">
+            <div class="calc-line">
+              <img
+                class="calc-icon ghs-svg"
+                [src]="actionIconUrl('attack')"
+                title="Attack"
+                [attr.alt]="actionAltLabel('attack')"
+              />
+              <span class="calc-value">{{ manager.attackResult.result }}</span>
+              @if (manager.attackResult.stringified) {
+                <span class="calc-modifier">({{ manager.attackResult.stringified }})</span>
+              }
+              @if (manager.shieldBlocked > 0) {
+                <span class="calc-op">−</span>
+                <img
+                  class="calc-icon ghs-svg shield-icon"
+                  [src]="actionIconUrl('shield')"
+                  title="Shield"
+                  [attr.alt]="actionAltLabel('shield')"
+                />
+                <span class="calc-value">{{ manager.shieldBlocked }}</span>
+              }
+              <span class="calc-op">=</span>
+              <button
+                type="button"
+                class="damage-inline"
+                [class.active]="manager.inputField === 'damage'"
+                [class.manual]="manager.damageIsManual"
+                title="Damage"
+                [attr.aria-label]="inputFieldLabel('damage')"
+                (click)="openInputField('damage', $event)"
+              >
+                <img
+                  class="calc-icon ghs-svg"
+                  [src]="actionIconUrl('damage')"
+                  title="Damage"
+                  [attr.alt]="actionAltLabel('damage')"
+                  aria-hidden="true"
+                />
+                <span class="calc-value">{{ manager.finalDamage }}</span>
+              </button>
+            </div>
+            @if (!manager.numpadOpen || manager.inputField !== 'damage') {
+              <p class="edit-damage-hint" [ghs-label]="'game.attackResolve.editDamageHint'"></p>
+            }
+            @if (manager.attackResult.chooseOffset) {
+              <p class="choose-hint" [ghs-label]="'game.attackResolve.chooseCard'"></p>
+              <div class="choose">
+                <ghs-attackmodifier
+                  (click)="manager.toggleAttackResult()"
+                  [attackModifier]="attackDeck.cards[manager.attackResult.index + manager.attackResult.chooseOffset]"
+                  [numeration]="deckNumeration"
+                  [characterIcon]="deckIconUrl"
+                  [flipped]="true"
+                  [newStyle]="newStyle"
+                ></ghs-attackmodifier>
+                <ghs-attackmodifier
+                  [attackModifier]="attackDeck.cards[manager.attackResult.index]"
+                  [numeration]="deckNumeration"
+                  [characterIcon]="deckIconUrl"
+                  [flipped]="true"
+                  [newStyle]="newStyle"
+                ></ghs-attackmodifier>
+              </div>
+            }
+          </div>
+        }
+
+        @if (manager.numpadOpen) {
+          <div class="numpad-backdrop" (click)="manager.closeNumpad()"></div>
+          <div class="numpad-popup" (click)="$event.stopPropagation()">
+            @if (manager.inputField === 'damage') {
+              <button
+                type="button"
+                class="numpad-close"
+                title="Cancel"
+                [attr.aria-label]="cancelDamageLabel"
+                (click)="manager.cancelDamageEdit()"
+              >
+                <img src="./assets/images/close_dialog.svg" title="Cancel" alt="Cancel" aria-hidden="true" />
+              </button>
+            }
+            <div class="number-container">
+              <span></span>
+              <span class="numpad-value">{{ activeInputDisplay }}</span>
+              <span></span>
+              @for (key of numpadKeys; track key) {
+                <button
+                  type="button"
+                  class="number-button"
+                  [title]="key"
+                  [attr.aria-label]="numpadDigitLabel(key)"
+                  (click)="manager.appendDigit(key)"
+                >
+                  <span class="number">{{ key }}</span>
+                </button>
+              }
+              <span></span>
+              <button
+                type="button"
+                class="number-button"
+                title="0"
+                [attr.aria-label]="numpadDigitLabel(0)"
+                (click)="manager.appendDigit(0)"
+              >
+                <span class="number">0</span>
+              </button>
+              <span></span>
+            </div>
+            <div class="numpad-actions">
+              <button
+                type="button"
+                class="numpad-action"
+                title="Clear"
+                [attr.aria-label]="clearButtonLabel"
+                (click)="manager.clearActiveInput()"
+              >
+                <span [ghs-label]="'game.attackResolve.clear'"></span>
+              </button>
+              <button
+                type="button"
+                class="numpad-action"
+                title="Del"
+                [attr.aria-label]="backspaceButtonLabel"
+                (click)="manager.backspaceDigit()"
+              >
+                <span [ghs-label]="'game.attackResolve.backspace'"></span>
+              </button>
+            </div>
+            <button
+              type="button"
+              class="numpad-done"
+              title="Done"
+              [attr.aria-label]="numpadDoneLabel"
+              (click)="acceptNumpad()"
+            >
+              <span [ghs-label]="'game.attackResolve.numpadDone'"></span>
+            </button>
+          </div>
+        }
+
+        <button
+          type="button"
+          class="apply"
+          title="Apply damage &amp; conditions"
+          [disabled]="!manager.attackResult || manager.applied"
+          [attr.aria-label]="applyButtonLabel"
+          (click)="manager.applyAttack()"
+        >
+          <span [ghs-label]="manager.applied ? 'game.attackResolve.applied' : 'game.attackResolve.apply'"></span>
+        </button>
+      </div>
+
+      <div class="right">
+        <span class="section-title" [ghs-label]="'game.attackResolve.conditionsTarget'"></span>
+        <ghs-conditions
+          [entity]="target.entity"
+          [figure]="target.figure"
+          [entityConditions]="manager.pendingTargetConditions"
+          [immunities]="target.entity.immunities"
+          [type]="manager.conditionType"
+          [negativeOnly]="true"
+          [hideToggles]="true"
+          [columns]="3"
+          (conditionChange)="manager.setPendingTargetConditions($event)"
+        ></ghs-conditions>
+        @if (attackerEntity) {
+          <span class="section-title" [ghs-label]="'game.attackResolve.conditionsAttacker'"></span>
+          <ghs-conditions
+            [entity]="attackerEntity"
+            [figure]="attackerFigure"
+            [entityConditions]="manager.pendingAttackerConditions"
+            [immunities]="attackerEntity.immunities"
+            [type]="manager.attackerConditionType"
+            [positiveOnly]="true"
+            [hideToggles]="true"
+            [columns]="3"
+            (conditionChange)="manager.setPendingAttackerConditions($event)"
+          ></ghs-conditions>
+        }
+      </div>
+    </div>
+
+    <p class="deck-hint" [ghs-label]="manager.deckHintLabelKey()"></p>
+  </div>
+}

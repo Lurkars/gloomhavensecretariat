@@ -1,3 +1,13 @@
+.entity-border.attack-target-pick {
+  cursor: crosshair;
+  z-index: 500;
+
+  &::before {
+    border-color: var(--ghs-color-gold, #d4af37);
+    box-shadow: 0 0 calc(var(--ghs-unit) * 0.75 * var(--ghs-text-factor) * var(--ghs-barsize)) rgba(212, 175, 55, 0.65);
+  }
+}
+
 .entity-border {
   position: relative;
   touch-action: none;

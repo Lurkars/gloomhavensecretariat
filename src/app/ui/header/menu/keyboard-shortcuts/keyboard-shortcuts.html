@@ -1,9 +1,14 @@
 <div class="scroll-container">
-  <h1 ghs-label="tools.keyboard"></h1>
+  <div class="toolbar">
+    <h1 ghs-label="tools.keyboard"></h1>
+    <button type="button" class="print" title="Print" ghs-label="tools.keyboard.print" (click)="printReference()">
+      <span ghs-label="tools.keyboard.print"></span>
+    </button>
+  </div>
 
   <p ghs-label="tools.keyboard.global"></p>
 
-  <div class="line" ghs-setting-menu="keyboardShortcuts"></div>
+  <div class="line no-print" ghs-setting-menu="keyboardShortcuts"></div>
 
   <ul>
     <li>
@@ -56,7 +61,7 @@
       ></span>
     </li>
     <li>
-      <kbd><span ghs-label="tools.keyboard.shift"></span></kbd>&nbsp;+&nbsp;<kbd><span>X</span></kbd>
+      <kbd><span ghs-label="tools.keyboard.shift"></span></kbd>&nbsp;+&nbsp;<kbd><span>L</span></kbd>
       <span ghs-label="tools.keyboard.activeCharacter.lootDec"></span>
     </li>
     <li>

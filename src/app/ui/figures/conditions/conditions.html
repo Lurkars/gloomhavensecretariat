@@ -12,7 +12,15 @@
         }"
       >
         @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-          <img tabclick (click)="dec(condition)" class="ghs-svg dec" src="./assets/images/left.svg" />
+          <img
+            tabclick
+            (click)="dec(condition)"
+            class="ghs-svg dec"
+            src="./assets/images/left.svg"
+            title="Decrease"
+            alt="Decrease"
+            aria-hidden="true"
+          />
         }
         <span
           class="condition"
@@ -28,7 +36,12 @@
             immunity: isImmune(condition.name)
           }"
         >
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'"
+            [attr.title]="conditionLabel(condition)"
+            [attr.alt]="conditionLabel(condition)"
+            aria-hidden="true"
+          />
           @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
             <span [ngClass]="{ stack: condition.types.includes(ConditionType.stack) }" class="value">{{
               getValue(condition) | ghsValueSign
@@ -45,7 +58,15 @@
           <span class="condition expire expire-overlay"></span>
         }
         @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-          <img tabclick (click)="inc(condition)" class="ghs-svg inc" src="./assets/images/right.svg" />
+          <img
+            tabclick
+            (click)="inc(condition)"
+            class="ghs-svg inc"
+            src="./assets/images/right.svg"
+            title="Increase"
+            alt="Increase"
+            aria-hidden="true"
+          />
         }
       </a>
       @if (conditionSeparator.includes(i)) {
@@ -53,7 +74,7 @@
       }
     }
 
-    @if (conditions.length) {
+    @if (conditions.length && !hideToggles()) {
       <div class="separator"></div>
       <a class="item">
         <span
@@ -67,7 +88,12 @@
           [originY]="'top'"
           [overlayY]="'bottom'"
         >
-          <img src="./assets/images/condition/permanent.svg" />
+          <img
+            src="./assets/images/condition/permanent.svg"
+            [attr.title]="permanentToggleLabel"
+            [attr.alt]="permanentToggleLabel"
+            aria-hidden="true"
+          />
         </span>
       </a>
       <a class="item">
@@ -82,7 +108,12 @@
           [originY]="'top'"
           [overlayY]="'bottom'"
         >
-          <img src="./assets/images/condition/round.svg" />
+          <img
+            src="./assets/images/condition/round.svg"
+            [attr.title]="roundExpireToggleLabel"
+            [attr.alt]="roundExpireToggleLabel"
+            aria-hidden="true"
+          />
         </span>
       </a>
       <!--
@@ -106,8 +137,12 @@
           [originY]="'top'"
           [overlayY]="'bottom'"
         >
-          <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')"
-        /></span>
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')"
+            [attr.title]="immuneToggleLabel"
+            [attr.alt]="immuneToggleLabel"
+            aria-hidden="true"
+          /></span>
       </a>
     }
   </div>

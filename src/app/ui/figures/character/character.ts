@@ -230,6 +230,9 @@ export class CharacterComponent implements OnInit {
   }
 
   toggleFigure(event: any): void {
+    if (this.tryAttackResolveTarget()) {
+      return;
+    }
     if (!this.character.absent) {
       if (
         gameManager.game.state === GameState.next &&
@@ -466,6 +469,9 @@ export class CharacterComponent implements OnInit {
   }
 
   openEntityMenu(): void {
+    if (this.tryAttackResolveTarget()) {
+      return;
+    }
     this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'],
       data: {
@@ -741,5 +747,9 @@ export class CharacterComponent implements OnInit {
         data: { character: this.character }
       });
     }
+  }
+
+  private tryAttackResolveTarget(): boolean {
+    return gameManager.attackResolveManager.handleStandeeClick(this.character, this.character);
   }
 }

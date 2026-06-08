@@ -1,6 +1,34 @@
 .scroll-container {
   color: var(--ghs-color-white);
   font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+    h1 {
+      margin: 0;
+    }
+
+    .print {
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: calc(var(--ghs-unit) * 0.35 * var(--ghs-dialog-factor));
+      padding: calc(var(--ghs-unit) * 0.35 * var(--ghs-text-factor) * var(--ghs-dialog-factor))
+        calc(var(--ghs-unit) * 0.75 * var(--ghs-text-factor) * var(--ghs-dialog-factor));
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--ghs-color-white);
+      font: inherit;
+      white-space: nowrap;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
 }
 
 li {

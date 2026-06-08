@@ -211,6 +211,15 @@ export class RoundManager {
       }
     }
 
+    if (
+      settingsManager.settings.monsterStandeeTurns &&
+      toggleFigure instanceof Monster &&
+      gameManager.monsterManager.hasRemainingStandeeTurns(toggleFigure)
+    ) {
+      nextFigure = false;
+      gameManager.monsterManager.advanceStandeeTurn(toggleFigure);
+    }
+
     if (nextFigure) {
       this.afterTurn(toggleFigure);
       figure = figures.find((other, otherIndex) => gameManager.gameplayFigure(other) && !other.off && otherIndex !== index);
@@ -271,9 +280,13 @@ export class RoundManager {
       figure.off = false;
 
       if (figure instanceof Monster) {
-        figure.entities.forEach((monsterEntity) => {
-          monsterEntity.active = figure.active && !monsterEntity.off;
-        });
+        if (settingsManager.settings.monsterStandeeTurns) {
+          gameManager.monsterManager.activateStandeeTurn(figure);
+        } else {
+          figure.entities.forEach((monsterEntity) => {
+            monsterEntity.active = figure.active && !monsterEntity.off;
+          });
+        }
       }
 
       gameManager.entityManager.entitiesAll(figure, false).forEach((entity) => {
@@ -316,10 +329,14 @@ export class RoundManager {
         }
       }
     } else if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
-      figure.entities.forEach((monsterEntity) => {
-        monsterEntity.active = figure.active;
-        monsterEntity.off = false;
-      });
+      if (settingsManager.settings.monsterStandeeTurns) {
+        gameManager.monsterManager.activateStandeeTurn(figure);
+      } else {
+        figure.entities.forEach((monsterEntity) => {
+          monsterEntity.active = figure.active;
+          monsterEntity.off = false;
+        });
+      }
     }
 
     if (figure instanceof Character && settingsManager.settings.activeSummons) {
@@ -363,12 +380,16 @@ export class RoundManager {
     gameManager.scenarioRulesManager.addActiveFigureRule(figure);
 
     if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
-      figure.entities.forEach((monsterEntity) => {
-        if (!figure.off && monsterEntity.summon !== SummonState.new && gameManager.entityManager.isAlive(monsterEntity)) {
-          monsterEntity.active = true;
-          gameManager.specialActionsManager.turn(monsterEntity, figure);
-        }
-      });
+      if (settingsManager.settings.monsterStandeeTurns) {
+        gameManager.monsterManager.activateStandeeTurn(figure);
+      } else {
+        figure.entities.forEach((monsterEntity) => {
+          if (!figure.off && monsterEntity.summon !== SummonState.new && gameManager.entityManager.isAlive(monsterEntity)) {
+            monsterEntity.active = true;
+            gameManager.specialActionsManager.turn(monsterEntity, figure);
+          }
+        });
+      }
     }
 
     if (

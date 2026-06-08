@@ -12,4 +12,10 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 export class KeyboardShortcutsComponent {
   settinsManager: SettingsManager = settingsManager;
   isMac: boolean = navigator.userAgent.includes('Mac');
+
+  printReference(): void {
+    const url = new URL('assets/keyboard-shortcuts-print.html', window.location.origin);
+    url.searchParams.set('print', '1');
+    window.open(url.toString(), '_blank', 'noopener');
+  }
 }

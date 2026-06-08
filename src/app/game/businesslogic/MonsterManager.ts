@@ -1167,6 +1167,63 @@ export class MonsterManager {
     return gameManager.monsterManager.sortEntitiesByNumber(a, b);
   }
 
+  aliveStandeeEntities(monster: Monster): MonsterEntity[] {
+    return monster.entities
+      .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new)
+      .sort((a, b) => this.sortEntities(a, b));
+  }
+
+  hasRemainingStandeeTurns(monster: Monster): boolean {
+    if (!settingsManager.settings.monsterStandeeTurns) {
+      return false;
+    }
+    const entities = this.aliveStandeeEntities(monster);
+    const activeEntity = entities.find((entity) => entity.active);
+    return !!activeEntity && entities.indexOf(activeEntity) < entities.length - 1;
+  }
+
+  activateStandeeTurn(monster: Monster): MonsterEntity | undefined {
+    monster.entities.forEach((entity) => {
+      if (gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new) {
+        entity.active = false;
+      }
+    });
+    const first = this.aliveStandeeEntities(monster)[0];
+    if (first) {
+      first.active = true;
+      first.off = false;
+      gameManager.specialActionsManager.turn(first, monster);
+      this.notifyAttackResolveStandeeChange(monster);
+    }
+    return first;
+  }
+
+  advanceStandeeTurn(monster: Monster): boolean {
+    const entities = this.aliveStandeeEntities(monster);
+    const activeEntity = entities.find((entity) => entity.active);
+    if (!activeEntity) {
+      return false;
+    }
+    gameManager.specialActionsManager.afterTurn(activeEntity);
+    activeEntity.active = false;
+    const index = entities.indexOf(activeEntity);
+    if (index < entities.length - 1) {
+      const next = entities[index + 1];
+      next.active = true;
+      next.off = false;
+      gameManager.specialActionsManager.turn(next, monster);
+      this.notifyAttackResolveStandeeChange(monster);
+      return true;
+    }
+    return false;
+  }
+
+  private notifyAttackResolveStandeeChange(monster: Monster): void {
+    if (settingsManager.settings.monsterStandeeTurns && gameManager.attackResolveManager.isConfiguringMonster(monster)) {
+      gameManager.attackResolveManager.refreshMonsterAbilitySuggestions();
+    }
+  }
+
   sortEntitiesByNumber(a: MonsterEntity, b: MonsterEntity): number {
     if (a.summon === SummonState.new && b.summon !== SummonState.new) {
       return 1;

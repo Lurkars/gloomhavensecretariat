@@ -84,6 +84,7 @@ export class HeaderComponent implements OnInit {
       }
       this.updateClock();
       this.syncing = window.document.body.classList.contains('server-sync');
+      this.cdr.markForCheck();
     });
   }
 
@@ -202,5 +203,9 @@ export class HeaderComponent implements OnInit {
     );
     gameManager.toggleGameClock();
     gameManager.stateManager.after();
+  }
+
+  cancelAttackResolvePick(): void {
+    gameManager.attackResolveManager.cancel();
   }
 }

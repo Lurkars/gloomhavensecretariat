@@ -690,10 +690,28 @@ export class KeyboardShortcuts implements OnInit {
         gameManager.stateManager.after();
       } else if (activeFigure instanceof Monster) {
         let toggleFigure = true;
-        const entities = activeFigure.entities
-          .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new)
-          .sort(gameManager.monsterManager.sortEntities);
-        if (settingsManager.settings.activeStandees) {
+        const entities = settingsManager.settings.monsterStandeeTurns
+          ? gameManager.monsterManager.aliveStandeeEntities(activeFigure)
+          : activeFigure.entities
+              .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new)
+              .sort(gameManager.monsterManager.sortEntities);
+        if (settingsManager.settings.monsterStandeeTurns && !reverse) {
+          const activeEntity = entities.find((entity) => entity.active);
+          if (activeEntity) {
+            gameManager.stateManager.before(
+              'unsetEntityActive',
+              'data.monster.' + activeFigure.name,
+              'monster.' + activeEntity.type,
+              activeEntity.number
+            );
+          }
+          if (gameManager.monsterManager.advanceStandeeTurn(activeFigure)) {
+            toggleFigure = false;
+          }
+          if (activeEntity) {
+            gameManager.stateManager.after();
+          }
+        } else if (settingsManager.settings.activeStandees) {
           let activeEntity = entities.find((entity) => entity.active);
           if (!activeEntity && entities.length > 0 && reverse && activeFigure.active) {
             activeEntity = entities[entities.length - 1];

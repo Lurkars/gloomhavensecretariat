@@ -30,7 +30,13 @@
         [originY]="'top'"
         [overlayY]="'bottom'"
       >
-        <img class="ghs-svg" src="./assets/images/entities.svg" />
+        <img
+          class="ghs-svg"
+          src="./assets/images/entities.svg"
+          alt="Entities Menu"
+          [ghs-label]="'entities.event.entities'"
+          [ghs-label-attribute]="'alt'"
+        />
       </div>
     }
     <ghs-scenario #ghsScenario></ghs-scenario>
@@ -91,15 +97,27 @@
         [bottom]="true"
         [battleGoals]="false"
       ></ghs-attackmodifier-deck>
+      @if (gameManager.attackResolveManager.isPickingTarget(activeCharacter)) {
+        <div class="attack-resolve-footer-hint" role="status">
+          <span [ghs-label]="'game.attackResolve.pickTargetShort'"></span>
+        </div>
+      }
       <div
         class="active-toggle"
+        (click)="onCharacterAttackModifierIconClick($event)"
         [ngClass]="{
           inactive: !activeCharacter.attackModifierDeck.active,
-          denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.character
+          denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.character,
+          'attack-pick': gameManager.attackResolveManager.isPickingTarget(activeCharacter),
+          'attack-configure': gameManager.attackResolveManager.isConfiguring(activeCharacter)
         }"
       >
-        <span class="numeration" (click)="toggleActiveCharacterAttackModifierDeck()">
-          <img [src]="gameManager.characterManager.characterIcon(activeCharacter)" />
+        <span class="numeration">
+          <img
+            [src]="gameManager.characterManager.characterIcon(activeCharacter)"
+            alt="Character attack modifier deck"
+            [attr.alt]="gameManager.characterManager.characterName(activeCharacter, true)"
+          />
         </span>
       </div>
     </div>
@@ -133,14 +151,21 @@
         numeration="A"
         [bottom]="true"
       ></ghs-attackmodifier-deck>
+      @if (gameManager.attackResolveManager.isPickingTargetMonster(gameManager.attackResolveManager.footerAttackMonster())) {
+        <div class="attack-resolve-footer-hint" role="status">
+          <span [ghs-label]="'game.attackResolve.pickTargetShort'"></span>
+        </div>
+      }
       <div
         class="active-toggle"
+        (click)="onAllyAttackModifierIconClick($event)"
         [ngClass]="{
           inactive: !gameManager.game.allyAttackModifierDeck.active,
-          denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers
+          denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers,
+          'attack-pick': gameManager.attackResolveManager.isPickingTargetMonster(gameManager.attackResolveManager.footerAttackMonster())
         }"
       >
-        <span class="numeration" (click)="toggleActiveAllyAttackModifierDeck()">A</span>
+        <span class="numeration">A</span>
       </div>
     </div>
   }
@@ -177,14 +202,25 @@
         numeration="m"
         [bottom]="true"
       ></ghs-attackmodifier-deck>
+      @if (
+        gameManager.attackResolveManager.isPickingTargetMonster(gameManager.attackResolveManager.footerAttackMonster()) &&
+        !gameManager.attackResolveManager.footerAttackMonster()?.isAlly &&
+        !gameManager.attackResolveManager.footerAttackMonster()?.isAllied
+      ) {
+        <div class="attack-resolve-footer-hint" role="status">
+          <span [ghs-label]="'game.attackResolve.pickTargetShort'"></span>
+        </div>
+      }
       <div
         class="active-toggle"
+        (click)="onMonsterAttackModifierIconClick($event)"
         [ngClass]="{
           inactive: !gameManager.game.monsterAttackModifierDeck.active,
-          denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers
+          denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers,
+          'attack-pick': gameManager.attackResolveManager.isPickingTargetMonster(gameManager.attackResolveManager.footerAttackMonster())
         }"
       >
-        <span class="numeration" (click)="toggleActiveMonsterAttackModifierDeck()">m</span>
+        <span class="numeration">m</span>
       </div>
     </div>
   }
@@ -214,7 +250,13 @@
         }"
       >
         <span class="numeration" (click)="toggleLootDeck()">
-          <img src="./assets/images/fh/loot-token.png" />
+          <img
+            src="./assets/images/fh/loot-token.png"
+            alt="Loot deck"
+            [attr.alt]="
+              settingsManager.getLabel(gameManager.game.lootDeck.active ? 'state.info.lootDeckHide' : 'state.info.lootDeckShow')
+            "
+          />
         </span>
       </div>
     </div>
@@ -245,7 +287,15 @@
         }"
       >
         <span class="numeration" (click)="toggleChallengeDeck()">
-          <img src="./assets/images/fh/challenges/challenge.png" />
+          <img
+            src="./assets/images/fh/challenges/challenge.png"
+            alt="Challenge deck"
+            [attr.alt]="
+              settingsManager.getLabel(
+                gameManager.game.challengeDeck.active ? 'state.info.challengeDeck.hide' : 'state.info.challengeDeck.show'
+              )
+            "
+          />
         </span>
       </div>
     </div>

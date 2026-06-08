@@ -123,6 +123,10 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   toggleFigure(event: any): void {
+    const pickEntity = this.entity ?? this.objective.entities.find((entity) => gameManager.entityManager.isAlive(entity));
+    if (pickEntity && gameManager.attackResolveManager.handleStandeeClick(pickEntity, this.objective)) {
+      return;
+    }
     if (gameManager.game.state === GameState.draw || (settingsManager.settings.initiativeRequired && this.objective.initiative <= 0)) {
       this.openInitiativeDialog(event);
     } else {
@@ -209,6 +213,10 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   openEntityMenu(): void {
+    const pickEntity = this.entity ?? this.objective.entities.find((entity) => gameManager.entityManager.isAlive(entity));
+    if (pickEntity && gameManager.attackResolveManager.handleStandeeClick(pickEntity, this.objective)) {
+      return;
+    }
     this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'],
       data: {

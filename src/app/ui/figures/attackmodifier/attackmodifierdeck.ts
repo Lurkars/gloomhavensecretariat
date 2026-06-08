@@ -315,7 +315,50 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     );
   }
 
+  attackResolveBlocksDeckDraw(): boolean {
+    if (!settingsManager.settings.attackResolveGuided || !gameManager.game.scenario || gameManager.game.state !== GameState.next) {
+      return false;
+    }
+    if (this.townGuard() || this.standalone()) {
+      return false;
+    }
+
+    const mgr = gameManager.attackResolveManager;
+    const character = this.character;
+
+    if (character) {
+      return (
+        !this.ally() &&
+        character.active &&
+        (mgr.phase === 'idle' || mgr.character === character)
+      );
+    }
+
+    const monster = mgr.footerAttackMonster();
+    if (!monster || !monster.active) {
+      return false;
+    }
+
+    const usesAllyDeck = mgr.monsterUsesAllyDeck(monster);
+    if (this.ally() !== usesAllyDeck) {
+      return false;
+    }
+
+    return mgr.phase === 'idle' || mgr.monster === monster;
+  }
+
+  attackResolveGuided(): boolean {
+    return this.attackResolveBlocksDeckDraw() && gameManager.attackResolveManager.phase === 'idle';
+  }
+
   draw(event: any, state: 'advantage' | 'disadvantage' | undefined = undefined) {
+    if (this.attackResolveBlocksDeckDraw()) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      return;
+    }
     if (this.compact && this.fullscreen()) {
       this.openFullscreen(event);
     } else if (!this.disabled) {

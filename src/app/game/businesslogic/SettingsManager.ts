@@ -113,6 +113,7 @@ export class SettingsManager {
     await this.apply('fontsize', this.settings.fontsize);
     await this.apply('globalFontsize', this.settings.globalFontsize);
     await this.apply('portraitMode', this.settings.portraitMode);
+    await this.apply('presentationMode', this.settings.presentationMode);
     await this.apply('zoom', this.settings.zoom);
     await this.apply('customCss', this.settings.customCss);
   }
@@ -271,6 +272,12 @@ export class SettingsManager {
         document.body.classList.add('portrait-mode');
       } else {
         document.body.classList.remove('portrait-mode');
+      }
+    } else if (setting === 'presentationMode') {
+      if (value) {
+        document.body.classList.add('presentation-mode');
+      } else {
+        document.body.classList.remove('presentation-mode');
       }
     } else if (setting === 'theme' && this.settings.automaticTheme) {
       if (value === 'fh' || value === 'bb') {

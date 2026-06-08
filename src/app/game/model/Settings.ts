@@ -11,6 +11,7 @@ export class Settings {
   activeApplyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   activeStandees: boolean = true;
   activeSummons: boolean = true;
+  monsterStandeeTurns: boolean = false;
   addAllMonsters: boolean = false;
   allyAttackModifierDeck: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
@@ -23,6 +24,7 @@ export class Settings {
   alwaysLootDeck: boolean = false;
   amAdvantage: boolean = true;
   amAdvantageHouseRule: boolean = false;
+  attackResolveGuided: boolean = true;
   animations: boolean = true;
   animationSpeed: number = 1;
   applyBuildingRewards: boolean = true;
@@ -174,6 +176,7 @@ export class Settings {
   lootDeck: boolean = true;
   maxUndo: number = 100;
   portraitMode: boolean = true;
+  presentationMode: boolean = false;
   monsters: boolean = true;
   monsterAttackModifierDeck: boolean = true;
   monsterInitativeRange: boolean = false;
@@ -302,6 +305,7 @@ export const localSettings: string[] = [
   'logServerMessages',
   'pinchZoom',
   'portraitMode',
+  'presentationMode',
   'pressDoubleClick',
   'serverAutoconnect',
   'serverCode',

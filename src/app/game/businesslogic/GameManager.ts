@@ -1,6 +1,7 @@
 import { signal, WritableSignal } from '@angular/core';
 import { ActionsManager } from 'src/app/game/businesslogic/ActionsManager';
 import { AttackModifierManager } from 'src/app/game/businesslogic/AttackModifierManager';
+import { AttackResolveManager } from 'src/app/game/businesslogic/AttackResolveManager';
 import { BattleGoalManager } from 'src/app/game/businesslogic/BattleGoalManager';
 import { BuildingsManager } from 'src/app/game/businesslogic/BuildingsManager';
 import { ChallengesManager } from 'src/app/game/businesslogic/ChallengesManager';
@@ -90,6 +91,7 @@ export class GameManager {
   enhancementsManager: EnhancementsManager;
   imbuementManager: ImbuementManager;
   specialActionsManager: SpecialActionsManager;
+  attackResolveManager: AttackResolveManager;
 
   uiChangeSignal: WritableSignal<number> = signal(0);
   uiChangeFromServer: WritableSignal<boolean> = signal(false);
@@ -122,6 +124,7 @@ export class GameManager {
     this.enhancementsManager = new EnhancementsManager(this.game);
     this.imbuementManager = new ImbuementManager(this.game);
     this.specialActionsManager = new SpecialActionsManager(this.game);
+    this.attackResolveManager = new AttackResolveManager(this);
   }
 
   editions(all: boolean = false, additional: boolean = false): string[] {

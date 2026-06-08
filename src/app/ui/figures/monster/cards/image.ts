@@ -43,6 +43,14 @@ export class MonsterImageComponent {
   }
 
   toggleFigure() {
+    const mgr = gameManager.attackResolveManager;
+    if (mgr.phase === 'pickTarget' && mgr.hasAttacker) {
+      const entity =
+        this.monster.entities.find((e) => e.active && !e.dead) || this.monster.entities.find((e) => !e.dead);
+      if (entity && mgr.handleStandeeClick(entity, this.monster)) {
+        return;
+      }
+    }
     if (gameManager.game.state === GameState.next && gameManager.monsterManager.monsterEntityCount(this.monster)) {
       gameManager.stateManager.before(this.monster.active ? 'unsetActive' : 'setActive', 'data.monster.' + this.monster.name);
       gameManager.roundManager.toggleFigure(this.monster);
