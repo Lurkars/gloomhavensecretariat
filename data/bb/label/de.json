@@ -205,6 +205,11 @@
     "wind-demon": "Winddämon"
   },
   "scenario": {
+    "rules": {
+      "bb": {
+        "15": "Drehe alle deine Fähigkeitskarten auf ihre B-Seite."
+      }
+    },
     "title": {
       "bb": {
         "1": "Ein rüder Empfang",

@@ -190,10 +190,33 @@
   },
   "character": {
     "fh": {
+      "astral": {
+        "": "Initiatorin"
+      },
       "coral": "Gezeitenbruch",
+      "drill": {
+        "": "Metallmosaik"
+      },
+      "fist": {
+        "": "Frostfaust"
+      },
+      "kelp": {
+        "": "Tiefenspuk"
+      },
+      "meteor": "Pyroklast",
       "prism": {
         "": "DROHN"
-      }
+      },
+      "shackles": {
+        "": "Schmerzvektor"
+      },
+      "shards": {
+        "": "Splitterklang"
+      },
+      "snowflake": {
+        "": "Schneetänzerin"
+      },
+      "trap": "Fallensteller"
     }
   },
   "custom": {
@@ -364,6 +387,15 @@
       "": "Inspirierender Helm",
       "1": "Gewähre während deines Zugs allen angrenzenden Verbündeten: %game.action.move:2%"
     },
+    "fh-167": {
+      "": "Magnetarmband",
+      "1": "Führe zu Beginn eines gegnerischen Zugs, vor der Berechnung seines Fokus, aus:",
+      "2": "dieser Gegner"
+    },
+    "fh-168": {
+      "": "Reif der Augen",
+      "1": "Füge bei deiner Fernkampf-Angriffsfertigkeit %game.action.target.valueSign:1% hinzu."
+    },
     "fh-169": {
       "": "Schicksalsamulett",
       "1": "Decke während deines Zugs die oberste Karte deines Angriffsmodifikator-Decks auf. Du darfst die Karte unter das Deck legen."
@@ -372,13 +404,37 @@
       "": "Hartlederrüstung",
       "1": "Bei den nächsten 2 Angriffen, die dich anvisieren, erhält der Angreifer Nachteil."
     },
+    "fh-170": {
+      "": "Auge der Wahrheit",
+      "1": "Decke während deines Zugs die oberste Karte aller Monster-Fertigkeitsdecks auf."
+    },
     "fh-171": {
       "": "Erfrischendes Amulett",
       "1": "Wann immer du eine Karte verlierst, um %game.damage% zu negieren, %game.card.recover% maximal eine Karte von deinem Abwurfstapel und erhalte %game.condition.regenerate%."
     },
+    "fh-172": {
+      "": "Kappe der Vorahnung",
+      "1": "Sieh dir während deines Zugs die obersten 4 Karten deines Angriffsmodifikator-Decks an und lege sie in beliebiger Reihenfolge zurück."
+    },
     "fh-173": {
       "": "Bunter Mantel",
       "1": "%game.element.wild%, wenn du angegriffen wirst."
+    },
+    "fh-174": {
+      "": "Magnetischer Umhang",
+      "1": "Führe während deines Zugs aus: %game.action.teleport:20% Diese Teleportation muss auf einem an einen deiner Verbündeten angrenzendes Feld enden."
+    },
+    "fh-175": {
+      "": "Spiegelrüstung",
+      "1": "Wenn du %game.damage% durch einen Angriff erleidest, erleidet der Angreifer ebenso viel %game.damage%."
+    },
+    "fh-176": {
+      "": "Flirrender Umhang",
+      "1": "Führe während deines Zugs aus: %game.action.teleport:4% Diese Teleportation muss auf einem an dein Gegner angrenzenden Feld enden."
+    },
+    "fh-177": {
+      "": "Übertragungsstiefel",
+      "1": "Wenn du durch Betreten eines Feldes seine Falle auslöst, kannst du ihre Effekte auf eine Figur in %game.action.range:3% anwenden, statt auf dich selbst."
     },
     "fh-178": {
       "": "Friedvolle Schuhe",
@@ -392,6 +448,10 @@
       "": "Spröde Stiefel",
       "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten %game.action.move.valueSign:1% hinzu."
     },
+    "fh-180": {
+      "": "Stiefel der Gier",
+      "1": "Wann immer du mindestens 2 Beutemarker gleichzeitig erbeutest, führe aus: %game.condition.bless%."
+    },
     "fh-181": {
       "": "Verlagerungsstab",
       "1": "Wähle bei deinem Zug 2 Verbündete oder 2 normale oder Elite-Monster. Diese beiden Figuren %game.action.teleport% gleichzeitig auf das Feld der jeweils anderen gewählte Figur."
@@ -404,21 +464,73 @@
       "": "Nebeldekanter",
       "1": "Während deines Zugs erhalten alle Figuren in dieser Runde Nachteil und %game.action.range.valueSign:-1% für alle ihre Fernangriffe. "
     },
+    "fh-184": {
+      "": "Blitzaxt",
+      "1": "Füge bei deiner Mehrfachziel-Nahkampf-Angriffsfertigkeit %game.action.target.valueSign:1% hinzu."
+    },
+    "fh-185": {
+      "": "Spiegelmesser",
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff alle deine negativen Zustände außer %game.condition.brittle%, %game.condition.bane% und %game.condition.stun% hinzu."
+    },
     "fh-186": {
       "": "Wildwuchs-Samen",
       "1": "Erstelle während deines Zugs ein 1er-Hindernis auf einem angrenzenden leeren Feld."
+    },
+    "fh-187": {
+      "": "Dornrad",
+      "1": "Erstelle während deines Zugs eine %game.damage% 3 Falle auf einem angrenzenden leeren Feld."
     },
     "fh-188": {
       "": "Frostkristall",
       "1": "Erstelle während deines Zugs einen 1er-Aufleger (Eis, Wasser oder gefährliches Gelände) auf einem angrenzenden normalen Feld."
     },
+    "fh-189": {
+      "": "Ring der Nacht",
+      "1": "Führe während deines Zugs aus"
+    },
     "fh-19": {
       "": "Klanghammer",
       "1": "Füge bei deiner Angriffsfertigkeit allen Angriffen %game.condition.muddle% hinzu."
     },
+    "fh-190": {
+      "": "Weiße Karte",
+      "1": "Lege während deines Zugs einen Charaktermarker auf einen normalen oder Elite-Gegner in %game.action.range:3%. Der Gegner fügt allen seinen Angriffen %game.action.attack.valueSign:-1% hinzu."
+    },
     "fh-191": {
       "": "Verdorbene Schrift",
       "1": "Führe während deines Zugs aus:"
+    },
+    "fh-192": {
+      "": "Lockglocke",
+      "1": "Wähle am Ende deines Zugs einen Gegner in %game.action.range:3%. Du bist in dieser Runde sein Fokusziel und er meidet bei der Wegfindung keine negativen Felder. "
+    },
+    "fh-193": {
+      "": "Gedankendieb-Helm",
+      "1": "Kontrolliere während deines Zugs einen Gegner in %game.action.range:3%:"
+    },
+    "fh-194": {
+      "": "Zeitamulett",
+      "1": "Erhöhe/reduziere nach dem Aufdecken aller Fertigkeitskarten zum Bestimmen der Initiative den Initiative-Wert einer Monstergruppe um 30."
+    },
+    "fh-195": {
+      "": "Dreispitz",
+      "1": "Füge während deines Zugs einem deiner Fernangriffe %game.action.range.valueSign:1% und %game.action.pierce:1% hinzu."
+    },
+    "fh-196": {
+      "": "Opferhalsband",
+      "1": "Wirf während deines Zugs eine Beutekarte außer \"Zufälliger Gegenstand\" ab, um auszuführen:"
+    },
+    "fh-197": {
+      "": "Aesther-Diadem",
+      "1": "Tausche nach dem Bestimmen der Initiative eine deiner ausgespielten Karten gegen eine Handkarte. Deine Initiative bleibt gleich."
+    },
+    "fh-198": {
+      "": "Jäger-Halskette",
+      "1": "Führe während deines Zugs aus:"
+    },
+    "fh-199": {
+      "": "Prächtige Schuhe",
+      "1": "Für die Berechnung des Monsterfokus giltst du von Beginn bis Ende des Szenarios als vor deinen Beschworenen in der Initiative-Reihenfolge."
     },
     "fh-2": {
       "": "Grober Helm",
@@ -428,17 +540,100 @@
       "": "Getillerter Bogen",
       "1": "DFüge während deines Zugs allen deinen Fernangriffen %game.action.range.valueSign:1% hinzu."
     },
+    "fh-200": {
+      "": "Zepter des Abends",
+      "1": "%game.element.consume.light% bei deiner Heilungsfertigkeit, die einen Verbündeten anvisiert, um einer Heilung %game.condition.regenerate% hinzufügen. Drehe dann diese Karte um.",
+      "2": "%game.element.consume.dark% bei deiner Angriffsfertigkeit, die einem Angriff %game.condition.curse% hinzuzufügen. Drehe dann diese Karte um."
+    },
+    "fh-201": {
+      "": "Wellenklinge",
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit, während du ein Wasserfeld besetzt oder daran angrenzt, einem Angriff %game.action.push:1% und %game.condition.immobilize% hinzu."
+    },
+    "fh-202": {
+      "": "Piranhaschwein-Rückgrat",
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.pierce:2% und %game.condition.wound% hinzu."
+    },
+    "fh-203": {
+      "": "Zepter der Kontrolle",
+      "1": "Kontrolliere nach deiner Angriffsfertigkeit ein Ziel:"
+    },
+    "fh-204": {
+      "": "Abgetrennte Schere",
+      "1": "Während deines Zugs erleidet ein angrenzender normaler oder Elite-Gegner %game.damage% in Höhe seines %game.action.shield% Werts."
+    },
+    "fh-205": {
+      "": "Harpune",
+      "1": "Führe während deines Zugs aus:"
+    },
+    "fh-206": {
+      "": "Riesenschwert",
+      "1": "Füge, wenn du dich in dieser Runde nicht bewegt hast, bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.attack.valueSign:2% hinzu. Führe in diesem Zug keine Bewegungsfertigkeit aus."
+    },
+    "fh-207": {
+      "": "Angelhaken",
+      "1": "Wenn der aktuelle TP-Wert des Ziels nach deinem Angriff maximal 3 beträgt, gib dem Ziel %game.condition.bane%."
+    },
+    "fh-208": {
+      "": "Titandorn",
+      "1": "Füge bei deiner Angriffsfertigkeit einem Angriff, der einen Gegner mit aktuellen TP-Wert von maximal 4 anvisiert, %game.action.pierce:3% hinzu."
+    },
+    "fh-209": {
+      "": "Beherrschungsschwert",
+      "1": "Erhalte bei deiner Angriffsfertigkeit Vorteil für einen Angriff. Füge dem Angriff zusätzlich für jede angeschlossene Beherrschung %game.action.attack.valueSign:1%, %game.condition.wound% oder %game.condition.poison% hinzu. "
+    },
     "fh-21": {
       "": "Kettenhaube",
       "1": "Erhalte %game.action.shield:1%, während du an mindestens 3 Gegner angrenzt."
+    },
+    "fh-210": {
+      "": "Tanjo",
+      "1": "Füge allen Pirscher-Angriffen, die dich in dieser Runde anvisieren, %game.action.attack.valueSign:-3% hinzu. "
+    },
+    "fh-211": {
+      "": "Sprengfass",
+      "1": "Wähle während deines Zugs ein angrenzendes Feld. Am Ende deines Zugs erleiden alle Figuren in %game.action.range:2% zu diesen Feld %game.damage% 1."
     },
     "fh-212": {
       "": "Elementarstein",
       "1": "Wähle nach dem Bestimmen der Initiative ein Element. Es kann in dieser Runde von keinem Monster mehr angereichert oder verbraucht werden. "
     },
+    "fh-213": {
+      "": "Jahresschlüssel",
+      "1": "%game.element.consume.ice% bei deiner Angriffsfertigkeit, um einem Angriff %game.condition.immobilize% hinzuzufügen. Drehe dann die Karte am Ende deines Zugs um.",
+      "2": "%game.element.consume.fire% bei deiner Angriffsfertigkeit, um einem Angriff %game.condition.wound% hinzuzufügen. Drehe dann die Karte am Ende deines Zugs um."
+    },
+    "fh-214": {
+      "": "Ventillions Kelch",
+      "1": "Füge bei deiner Heilungsfertigkeit einer Heilung einen deiner positiven Zustände hinzu."
+    },
+    "fh-215": {
+      "": "Berauschender Krug",
+      "1": "Füge während deines Zugs allen deinen Angriffen %game.action.attack.valueSign:1% und %game.condition.muddle% hinzu. Führe am Ende deines Zugs aus:"
+    },
+    "fh-216": {
+      "": "Foliant der Elemente",
+      "1": "Während deines Zugs,",
+      "3": "Am Ende dieser Runde werden keine Elemente von \"Stark\" zu \"Schwindend\" verschoben. "
+    },
+    "fh-217": {
+      "": "Foliant der Zeit",
+      "1": "Mische nach dem Aufdecken aller Fertigkeitskarten zum Bestimmen der Initiative alle Monster-Fertigkeitsdecks und ziehe für jede aktive Monstergruppe eine neue Karte."
+    },
+    "fh-218": {
+      "": "Foliant des Lebens",
+      "1": "Entferne während deines Zugs alle Zustände von allen Figuren und gewähre dann allen Figuren:"
+    },
+    "fh-219": {
+      "": "Foliant des Konflikts",
+      "1": "Während deines Zugs erhalten alle Figuren %game.condition.strengthen%. Bis ein Monster getötet wird, gilt der 1. für jeden Angriff gezogene Angriffsmodifikator als Zusatzmodifikator."
+    },
     "fh-22": {
       "": "Schwere Kettenrüstung",
       "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:3%."
+    },
+    "fh-220": {
+      "": "Belaras Federkiel",
+      "1": "%game.card.recover% während deines Zugs maximal einen Foliant-Gegenstand."
     },
     "fh-221": {
       "": "Eisklinge",
@@ -448,25 +643,88 @@
       "": "Schwarze Kiste",
       "1": "Wirf während deines Zugs 2 Handkarten ab, um auszuführen:"
     },
+    "fh-223": {
+      "": "Blitzableiter",
+      "1": "Für die Berechnung des Monsterfokus giltst du in dieser Runde nach dem Bestimmen der Initiative als 1. Figur in Initiative-Reihenfolge. "
+    },
+    "fh-224": {
+      "": "Empathierüstung",
+      "1": "Drehe diese Karte nach den nächsten 3 Angriffen, die dich anvisieren, um.",
+      "2": "Führe während deines Zugs aus:",
+      "4": "Drehe dann diese Karte um."
+    },
+    "fh-225": {
+      "": "Algox-Schnitzerei",
+      "1": "%game.element.consume.earth% bei deiner Nahkampf-Angriffsfertigkeit, um einem Angriff %game.action.attack.valueSign:1% hinzuzufügen. Drehe dann diese Karte um.",
+      "2": "%game.element.consume.air% bei deiner Fernkampf-Angriffsfertigkeit, um einem Angriff %game.action.push:2% hinzuzufügen. Drehe dann diese Karte um."
+    },
+    "fh-226": {
+      "": "Entfesselten-Arm",
+      "1": "Verdopple bei deiner Angriffsfertigkeit den Zahlenwert des nächsten gezogenen Angriffsmodifikators. %game.attackmodifier.double% und %game.attackmodifier.null% Modifikator-Karten bleiben unverändert."
+    },
     "fh-227": {
       "": "Datenspeicher",
       "1": "Lege bei deiner kurzen Rast die Hälfte deines Abwurfstapels (abgerundet) auf diesen Gegenstand, verliere wie gewohnt eine der restlichen Karten und ziehe dann die Karten auf diesem Gegenstand."
+    },
+    "fh-228": {
+      "": "Teleskopstab",
+      "1": "Öffne während deines Zugs eine entriegelte Tür in %game.action.range:2%."
+    },
+    "fh-229": {
+      "": "Kunstvolle Karte",
+      "1": "Gewähre während deines Zugs einem Verbündeten in %game.action.range:3%:"
     },
     "fh-23": {
       "": "Robuster Beinpanzer",
       "1": "Füge zu Beginn deines Zugs allen deinen Bewegungsfertigkeiten %game.action.move.valueSign:-2% hinzu, um in dieser Runden %game.action.shield% zu erhalten. "
     },
+    "fh-230": {
+      "": "Lupe",
+      "1": "Nachdem du eine Beutekarte gezogen hast, ziehe noch eine. Behalte eine und lege die andere auf oder unter das Beutedeck."
+    },
     "fh-231": {
       "": "Häutemesser",
       "1": "Wenn du einen Beutemarker erhältst, erhalte 3 %game.resource.hide%, statt eine Beutekarte zu ziehen."
+    },
+    "fh-232": {
+      "": "Antriden-Stab",
+      "1": "Verliere während deines Zugs 1 Moral, um auszuführen:"
     },
     "fh-233": {
       "": "Toter Rabe",
       "1": "Füge während der Fernkampf-Angriffsfertigkeit eines Verbündeten einem Angriff %game.condition.muddle% und %game.condition.curse% hinzu."
     },
+    "fh-234": {
+      "": "Schleimfläschchen",
+      "1": "Erstelle während deines Zugs eine %game.condition.poison%,%game.condition.immobilize% Falle auf einem leeren Feld in %game.action.range:2%."
+    },
+    "fh-235": {
+      "": "Kleine Ratte",
+      "1": "Erbeute während deines Zugs einen Beutemarker in %game.action.range:2%."
+    },
+    "fh-236": {
+      "": "Gesprungener Spiegel",
+      "1": "Verliere während deines Zugs eine Handkarte, um eine Karte höchstens gleicher Stufe vom Verloren-Stapel %game.card.recover% ."
+    },
+    "fh-237": {
+      "": "Hypnotische Muschel",
+      "1": "Wähle während deines Zugs eine der 6 Richtungen. Du und alle Figuren in %game.action.range:2% bewegen sich zwangsweise gleichzeitig 2 Felder in diese Richtung."
+    },
+    "fh-238": {
+      "": "Gesprungene Figur",
+      "1": "Wenn du durch Erleiden von %game.damage% erschöpft würdest, senke deinen TP-Wert stattdessen auf 1."
+    },
+    "fh-239": {
+      "": "Sturmvortex",
+      "1": "Während deines Zugs erleiden alle Verbündeten und Gegner in %game.action.range:2% %game.damage% 1."
+    },
     "fh-24": {
       "": "Verdorbene Klinge",
       "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.condition.wound%, %game.condition.poison%, und %game.condition.muddle% hinzu."
+    },
+    "fh-240": {
+      "": "Dämonenstein",
+      "1": "Wenn das Szenario scheitert, erhälst du trotzdem alle %game.checkmark% für dein Kampfziel, sofern du es erfüllt hast."
     },
     "fh-241": {
       "": "Glitzerpuder",
@@ -485,8 +743,15 @@
       "": "Glühende Energiequelle",
       "1": "Erhöhe während deines Zugs den aufgedruckten %game.action.attack%, %game.action.move%, %game.action.target%, oder %game.action.range% Wert einer deiner Fertigkeiten um 1."
     },
+    "fh-245": {
+      "": "Alte Münze"
+    },
     "fh-246": {
       "": "Schlüsselkarte"
+    },
+    "fh-247": {
+      "": "Fangnetz",
+      "1": "Nimm während deines Zugs einen angrenzenden Gegner gefangen, dessen TP-Wert 1 oder 2 beträgt."
     },
     "fh-25": {
       "": "Sanftes Szepter",

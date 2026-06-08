@@ -300,7 +300,10 @@
       "": "Schiff"
     },
     "carpenter": {
-      "": "Zimmermann"
+      "": "Zimmermann",
+      "1": "Reduziert alle Baukosten um 1 Materialressource",
+      "2": "Reduziert alle Baukosten um 1 Materialressource und Zusatzbaukosten um 1 Moral",
+      "3": "Verliert insgesamt 1 beliebige Ressource"
     },
     "climbing-gear": {
       "": "Kletterausrüstung"
@@ -375,7 +378,23 @@
       "": "Schlitten"
     },
     "stables": {
-      "": "Stall"
+      "": "Stall",
+      "1": "Nehmt 1 Haustier in jedes Szenario mit. <br><i>Capacity:</i> 4",
+      "2": "Nehmt 1 Haustier in jedes Szenario mit. <br><i>Capacity:</i> 8",
+      "3": "Nehmt 2 Haustiere in jedes Szenario mit. <br><i>Capacity:</i> 8",
+      "4": "Nehmt 2 Haustiere in jedes Szenario mit. <br><i>Capacity:</i> 12",
+      "5": "Charaktere können keine Haustiere verwenden",
+      "pets": {
+        "": "Haustiere",
+        "add": "Haustier hinzufügen",
+        "catch": "Haustier fangen",
+        "confirmAdd": "Klickt nochmal um das Haustier dem Stall hinzuzufügen",
+        "edit": "Haustiere bearbeiten",
+        "empty": "Aktuell keine Haustiere im Stall",
+        "interaction": "Haustiere verwalten",
+        "name": "Name",
+        "showAll": "Alle anzeigen"
+      }
     },
     "tavern": {
       "": "Schenke"
@@ -862,6 +881,7 @@
         "1": "Schalte sofort \"Invasion der Kais\" %game.scenarioNumber:71% frei und schließe es ab"
       },
       "523": {
+        "": "Strahlende Zukunft",
         "1": "Gold gespendet an dem Tempel der Großen Eiche"
       },
       "557": {
@@ -1129,7 +1149,9 @@
         "29-2": "Die Temporalschmiede",
         "29-3": "Aesther-Außenposten",
         "29-4": "Vergängliche Beständigkeit",
+        "3-1": "Stall gebaut",
         "64-3": "Rätsellösung",
+        "7-3": "Zimmermann gebaut",
         "78-4": "Garten gebaut",
         "79-4": "Rätsellösung"
       }

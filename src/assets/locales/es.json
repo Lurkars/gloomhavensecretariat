@@ -4,12 +4,21 @@
     "forceUpdate": "Forzar Actualización",
     "ip": "Gloomhaven y todas las marcas relacionadas, imágenes y textos relacionados son propiedad de {0}.",
     "license": "Licenciado bajo {0}.",
-    "sourceCode": "Código fuente",
-    "support": "Apoya al desarollador",
+    "sourceCode": {
+      "": "Código fuente",
+      "author": "Código fuente original"
+    },
+    "support": {
+      "": "Apoya al desarrollador",
+      "author": "Apoya al desarrollador original"
+    },
     "version": {
       "latest": "Última versión",
       "unknown": "No se pudo obtener la última versión",
-      "update": "La última versión és: <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      "update": {
+        "": "Última versión <a target=\"_blank\" href=\"{1}\">{0}</a>",
+        "apk": "Descargar APK Android <a target=\"_blank\" href=\"{0}\">{1}</a>"
+      }
     }
   },
   "and": "y",
@@ -222,8 +231,14 @@
         },
         "unlockCharacter": {
           "": "Abre la caja %game.characterIcon.{0}%",
-          "itemDesign": "Obtén el diseño \"%data.items.{1}-{0}%\" (Item {0})",
-          "randomScenario": "Desbloquea \"{1}\" %data.scenarioNumber:{0}%"
+          "itemDesign": {
+            "": "Obtén \"%data.items.{1}-{0}%\" diseño (Item {0})",
+            "gold": "Mazo de diseños de objetos agotado; en su lugar, obtén 15 oro colectivo"
+          },
+          "randomScenario": {
+            "": "Desbloquea \"{1}\" %data.scenarioNumber:{0}%",
+            "gold": "Mazo de escenarios aleatorios agotado; en su lugar, obtienes 15 de oro colectivo"
+          }
         },
         "unlockPQ": "Desbloquea misión personal {0}"
       },
@@ -403,6 +418,7 @@
       "addEnhancement": "Añadir ranura de mejora",
       "addSubAction": "Añadir acción secundaria",
       "enhancements": "Mejoras",
+      "multiTarget": "Multiples objetivos",
       "remove": "Eliminar Acción",
       "removeEnhancement": "Eliminar ranura de mejora",
       "removeSubAction": "Eliminar acción secundaria",
@@ -503,6 +519,23 @@
           "download": "Descargar Atributos de monstruo como archivo JSON"
         },
         "levelSelect": "Seleccionar nivel"
+      }
+    }
+  },
+  "entities": {
+    "event": {
+      "menu": "Menu de efectos de evento"
+    },
+    "filter": {
+      "all": "Todos",
+      "allies": "Aliados",
+      "character": "Personaje",
+      "enemies": "Enemigos",
+      "monster": "Monstruo",
+      "objectives": "Objetivos",
+      "select": {
+        "all": "Seleccionar todo",
+        "none": "No seleccionar ninguno"
       }
     }
   },
@@ -752,6 +785,9 @@
       "regenerate": {
         "": "Regeneración",
         "hint": "%game.conditionIcon.regenerate% Regeneración: %game.action.heal:1% al inicio del turno. Se elimina al recibir daño."
+      },
+      "roundExpire": {
+        "hint": "Eliminar estados al final de la ronda"
       },
       "rupture": {
         "": "Ruptura",
@@ -1096,9 +1132,12 @@
         "brewed": "{2} elaborado %data.items.{1}-{0}% %game.itemFh.{0}%",
         "brewedOther": "{2} elaborado %data.items.{1}-{0}% %game.itemFh.{0}% para {3}",
         "disabled": "No puedes elaborar pociones, reconstruye primero '%data.buildings.alchemist%' (35)",
+        "grid": "Mostrar tabla de elaboración",
         "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "¡Esta poción ya la tienen todos los personajes!",
-        "selectCharacter": "Selecciona el personaje con el que elaborar:"
+        "selectCharacter": "Selecciona el personaje con el que elaborar:",
+        "special3": "2 o más iguales",
+        "table": "Mostrar tabla de elaboración"
       },
       "buy": "Comprar '{0}' por {1} oros",
       "character": {
@@ -1121,15 +1160,27 @@
         "": "Buscar…",
         "affordable": "Sólo objetos comprables",
         "all": "Mostrar todos los objetos",
+        "filtered": "Eliminados",
         "owned": "Solo objetos en posesión",
         "sorted": "Ordenar"
       },
       "remove": "Elimina '{0}'",
       "sell": "Vender '{0}' por {1} oro",
+      "share": {
+        "": "Compartir '{0}'",
+        "apply": "Compartir Objeto",
+        "select": "Seleccionar Personaje"
+      },
       "shop": {
         "": "Cartas de objeto",
+        "buy": "Comprar objetos",
         "buyingDisabled": "No se pueden comprar objetos, reconstruye primero '%data.buildings.trading-post%' (37)",
-        "character": "Tienda de objetos para %game.characterIconColored.{0}% {1}",
+        "character": {
+          "": "Tienda de objetos para %game.characterIconColored.{0}% {1}",
+          "buy": "Comprar objetos para %game.characterIconColored.{0}% {1}",
+          "craft": "Elaborar objetos de artesania para %game.characterIconColored.{0}% {1}"
+        },
+        "craft": "Objetos de Artesania",
         "craftingDisabled": "No se pueden fabricar objetos, reconstruye primero '%data.buildings.craftsman%' (34)"
       },
       "unlock": "Desbloquear objeto",
@@ -1229,22 +1280,37 @@
           "partyAchievement": "Logro de Grupo: \"{0}\"",
           "randomItem": {
             "": "Obtén un objeto aleatorio (Objeto {0})",
+            "alt": "No quedan objetos aleatorios",
+            "altFh": "No quedan objetos aleatorios",
+            "altGh2e": "No quedan objetos aleatorios",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
             "": "Diseño de objeto aleatorio",
+            "alt": "No quedan diseños de objetos aleatorios",
+            "altFh": "No quedan diseños de objetos aleatorios, obtén +1 de inspiración",
+            "altGh2e": "No quedan diseños de objetos aleatorios, obtén 15 oro colectivo (manual)",
             "result": ": {1} diseño ({0})"
           },
           "randomItemDesign": {
             "": "Diseño de objeto aleatorio",
+            "alt": "No quedan diseños de objetos aleatorios",
+            "altFh": "No quedan diseños de objetos aleatorios, obtén +1 de inspiración",
+            "altGh2e": "No quedan diseños de objetos aleatorios, obtén 15 oro colectivo (manual)",
             "result": ": {1} diseño ({0})"
           },
           "randomScenario": {
             "": "Escenario secundario aleatorio",
+            "alt": "No quedan escenarios aleatorios",
+            "altFh": "No quedan escenarios aleatorios",
+            "altGh2e": "No quedan escenarios aleatorios",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
             "": "Escenario secundario aleatorio",
+            "alt": "No quedan escenarios aleatorios",
+            "altFh": "No quedan escenarios aleatorios, obtén +1 de inspiración",
+            "altGh2e": "No quedan escenarios aleatorios, obtén 15 oro colectivo (manual)",
             "result": ": Abre %data.section:{0}%, desbloquea {2}"
           },
           "resource": "Obtén {0}",
@@ -1582,6 +1648,7 @@
       "advantage": "¡Obtén ventaja por este ataque por perder soldados!",
       "buildings": {
         "damaged": "Edificio dañado",
+        "lvl": "Nvl {0}",
         "wrecked": "Edificio arrasado"
       },
       "defense": "Defensa de la base:",
@@ -1634,7 +1701,8 @@
         "special": {
           "city-event": "Añade C-{0} al mazo de eventos de la ciudad una vez que tengas al menos {1} de reputación con una facción."
         }
-      }
+      },
+      "faction": "%game.gh2eFaction:{0}% Reputación"
     },
     "sheet": "Hoja de grupo",
     "shop": {
@@ -1733,6 +1801,22 @@
           "": "Bloqueado",
           "hint": "Este escenario no se puede jugar porque está bloqueado por otros."
         },
+        "calendar": {
+          "": "Desbloqueado por calendario",
+          "hint": "Este escenario está desbloqueado por una sección de calendario."
+        },
+        "exclusive": {
+          "": "Exclusivo",
+          "hint": "Esta ruta de escenario es exclusiva, por lo que solo se puede seguir una y las demás quedan bloqueadas."
+        },
+        "force-linked": {
+          "": "Enlace forzado",
+          "hint": "Este escenario está enlazado con el anterior y debe jugarse inmediatamente después."
+        },
+        "linked": {
+          "": "Enlazado",
+          "hint": "Este escenario está enlazado."
+        },
         "locked": {
           "": "Bloqueado",
           "hint": "Este escenario está bloqueado, por lo que aún no se puede jugar debido a que no se cumplen los requisitos."
@@ -1789,7 +1873,8 @@
       },
       "hint": "Aplicar a todos los personajes seleccionados",
       "outpostAttack": "Ataque al puesto fronterizo",
-      "progress": "Afecta al progreso del personaje"
+      "progress": "Afecta al progreso del personaje",
+      "progressShare": "Afecta al progreso del puesto fronterizo"
     },
     "favors": {
       "": "Apéndice F: Favores",
@@ -1932,6 +2017,7 @@
       "randomItemBlueprint": "Obtén un diseño de objeto aleatorio",
       "randomItemBlueprints": "Añade los objetos %game.itemFh.{0}% a %game.itemFh.{1}% el mazo de diseños aleatorios.",
       "randomItems": "Cada personaje obtiene un objeto aleatorio ({0}-{1})",
+      "randomSideScenario": "Roba un escenario aleatorio.",
       "removeEvent": {
         "boat": "Elimina el evento {0} del mazo de Barco",
         "city": "Elimina el evento de Ciudad {0} del mazo",
@@ -1979,13 +2065,17 @@
         "drawAbility": "Roba otra carta de habilidad para {0}",
         "gainCondition": "{0} obtén %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
+        "killLowest": "Mata inmediatamente a {1} de {0} con menos puntos de vida.",
         "loseCondition": "{0} pierde %game.condition.{1}%",
+        "losePermanentCondition": "{0} pierde de forma permanente %game.condition.{1}%",
         "permanentCondition": "{0} obtiene continuo %game.condition.{1}%",
         "remove": "Eliminar {0}",
         "removeAbility": "Elimina la carta de habilidad «{1}» de {0}.",
         "scenarioEffect": "como efecto de escenario",
         "setAbility": "Pon la carta de habilidad de {0} a \"{1}\"",
         "setHp": "{0} PV a {2}",
+        "shuffleAbilities": "Barajar el mazo de habilidades de {0}",
+        "toggleAfterTurnSummon": "Activar la invocación tras el personaje para {0}",
         "toggleOff": "{0} a inactivo",
         "toggleOn": "{0} a activo",
         "transfer": "{0} se convierte en %data.monster.{1}% {4}",
@@ -2070,6 +2160,9 @@
         "": "%game.monsterType.elite%: {0}",
         "hint": "Cantidad de monstruos %game.monsterType.elite% matados"
       },
+      "exhausts": {
+        "hint": "Agotado"
+      },
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
         "hint": "Cantidad de %game.gameIcon:loot% monedas saqueadas"
@@ -2119,6 +2212,9 @@
         }
       },
       "scenarios": "Escenarios",
+      "summons": {
+        "": "Invocaciones"
+      },
       "toggle": {
         "hide": "Ocultar estadísticas de Escenario",
         "show": "Mostrar estadísticas de Escenario"
@@ -2396,6 +2492,10 @@
       "": "Mazo MA pantalla completa",
       "hint": "Abre el mazo de Modificadores de Ataque (y también el Mazo de Botín) a pantalla completa en dispositivos con pequeños."
     },
+    "automaticEndRound": {
+      "": "Fin automático de ronda",
+      "hint": "La ronda finaliza automáticamente cuando la última figura en actuar terminan su turno."
+    },
     "automaticFirstFigure": {
       "": "Inicio automático de la primera figura",
       "hint": "Iniciar automáticamente el turno de la primera figura al comienzo de la siguiente ronda. Esto siempre está habilitado si se requiere iniciativa."
@@ -2428,6 +2528,7 @@
       "": "Desbloqueo automático de personajes",
       "hint": "Desbloqueo automático de personajes a partir de las recompensas de los escenarios."
     },
+    "automation": "Automatización",
     "autoscroll": {
       "": "Scroll Automático",
       "hint": "Desplazamiento automático a la siguiente figura activa"
@@ -2552,6 +2653,10 @@
       "": "Activación Auto. Objetos",
       "hint": "Fija automáticamente los objetos continuos del personaje activo."
     },
+    "characterItemsShareHouseRule": {
+      "": "Regla de la casa compartir objetos",
+      "hint": "Regla de la casa que permite compartir objetos entre personajes."
+    },
     "characterSheet": {
       "": "Hoja de Personaje",
       "hint": "Activa la Hoja de Personaje. Para abrirla, haz clic en el icono grande del personaje a la derecha."
@@ -2598,6 +2703,7 @@
       "logServerMessages": "Registro mensajes del servidor",
       "rightClick": "Activar siempre Clic derecho"
     },
+    "display": "Pantalla",
     "dragFigures": {
       "": "Arrastrar y soltar para figuras",
       "hint": "Arrastrar y soltar para la lista de figuras. Atención, si está desactivado y no se requiere ninguna iniciativa, no hay forma de reordenar las figuras manualmente."
@@ -2621,6 +2727,10 @@
     "eliteFirst": {
       "": "Peanas Elite primero",
       "hint": "Mostrar las peanas elite primero cuando se ordenen las peanas"
+    },
+    "entitiesMenu": {
+      "": "Menú de todas las figuras y peanas",
+      "hint": "Muestra un botón de menú en el pie de página para aplicar los cambios a todas las figuras y peanas a la vez."
     },
     "errata": {
       "": "Mostrar erratas",
@@ -2666,6 +2776,10 @@
       "": "Apoyo para el Jardín",
       "hint": "Planta y cosechar hierbas (Edificio 24 Jardín)"
     },
+    "fhGh2eItems": {
+      "": "Añadir objetos de Gloomhaven 2ª Edición",
+      "hint": "Añade objetos de Gloomhaven 2ª Edición al suministro disponible tal como si indica en el FAQ oficial."
+    },
     "fhGhItems": {
       "": "Añadir objetos de Gloomhaven",
       "hint": "Añade objetos de Gloomhaven y Círculos Olvidados a los suministros disponibles tal y como se indica en las reglas. (Sólo en hojas de personaje habilitadas u objetos de personaje)"
@@ -2703,6 +2817,7 @@
       },
       "hint": "Aplicar automáticamente (si es posible) las cartas de prueba activas."
     },
+    "filter": "Buscar...",
     "fontsize": {
       "": "Tamaño fuente habilidades",
       "dec": "Reducir tamaño fuente habilidades",
@@ -2723,8 +2838,13 @@
       "hint": "Fusiona los relojes de juego del servidor con el reloj de juego local para obtener el tiempo total de juego."
     },
     "gameplay": "Jugabilidad",
+    "gamerules": "Específico de edición",
     "ge5Player": {
       "": "≥ 5 reglas de jugador"
+    },
+    "gh2eFhItems": {
+      "": "Añadir objetos de Frosthaven",
+      "hint": "Añade Objetos de Frosthaven al suministro disponible tal como se indica en el FAQ oficial."
     },
     "gh2eImbuement": {
       "": "Activar Imbuimientos de Monstruos",
@@ -2800,6 +2920,7 @@
       "pl": "Polaco (Polski)",
       "pt": "Portugués (Portuguese)",
       "ru": "Ruso (Русский)",
+      "th": "Tailandés (ชาวไทย)",
       "zh_Hans": "Chino simplificado (简体中文)",
       "zh_Hant": "Chino tradicional (繁體中文)"
     },
@@ -2819,6 +2940,10 @@
       "": "Mazo de modificadores de ataque para monstruos",
       "hint": "Activa el Mazo de modificadores de ataque para monstruos"
     },
+    "monsterInitativeRange": {
+      "": "Mostrar rango de iniciativa",
+      "hint": "Muestra el rango próximo de la iniciativa del Mazo de habilidad antes de la ronda."
+    },
     "monsters": {
       "": "Monstruos",
       "hint": "Si se desactiva, no se muestra ningún monstruo."
@@ -2830,6 +2955,10 @@
     "partySheet": {
       "": "Hoja de grupo",
       "hint": "Activa la hoja de grupo y de campaña. La hoja de campaña está ubicada en <i>en la parte de atrás</i> de la hoja de grupo."
+    },
+    "passiveSummons": {
+      "": "Invocaciones pasivas",
+      "hint": "Permite que las invocaciones marcadas como pasivas se salten el turno activo."
     },
     "pinchZoom": {
       "": "Zoom por gesto",
@@ -2846,6 +2975,7 @@
       "": "Optimización del modo Portrait",
       "hint": "Optimización del modo Portrait para pantallas más pequeñas."
     },
+    "preferences": "Preferencias",
     "pressDoubleClick": {
       "": "Pulsación larga para doble clic (táctil)",
       "hint": "En pantallas táctiles, activa el doble clic con una pulsación larga. (Recomendado para evitar clics fantasma)"
@@ -2886,6 +3016,10 @@
     "scenarioStats": {
       "": "Estadísticas de Escenario",
       "hint": "Recoge estadísticas sobre daño, muertes, botín, exp y curaciones durante un escenario"
+    },
+    "serverExportCode": {
+      "": "Exportar código de servidor",
+      "hint": "Incluir el código del servidor en las exportaciones de la configuración y en el volcado de datos"
     },
     "showExpandedAbilityCard": {
       "": "Mostrar tarjetas de habilidad ampliadas",
