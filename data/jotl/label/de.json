@@ -65,51 +65,119 @@
     "Grasp of Doom": "Griff des Schicksals",
     "Greed": "Gier",
     "Ground Pound": "Bodenstampfen",
+    "Gut Punch": "Tiefschlag",
+    "Harvest Sickle": "Erntesichel",
     "Hasty Assault": "Hastiger Überfall",
+    "Hateful Blast": "Hass-Explosion",
+    "Healing Sands": "Heilender Sand",
+    "Heart Seeker": "Herzsucher",
     "Heat Blast": "Hitzestoß",
     "Hex Whip": "Fluchpeitsche",
+    "Honorable Fury": "Ehrbarer Zorn",
+    "Horns of the Beast": "Bestienhörner",
     "Hungry Maw": "Hungriger Schlund",
     "Icy Glare": "Eisiger Blick",
+    "Implode": "Implosion",
+    "Insult to Injury": "Schmerz und Hohn",
+    "Knock Out the Support": "Stütze zerschlagen",
     "Leech Warmth": "Wärmeentzug",
+    "Level": "Einbenen",
     "Lingering Strength": "Nachhaltige Stärke",
+    "Lobbed Charge": "Wurfladung",
+    "Lull into Oblivion": "Schlaf des Vergessens",
+    "Lure of the Void": "Verlockende Leere",
     "Mana Explosion": "Mana-Explosion",
+    "Master Influence": "Meisterhafter Einfluss",
+    "Mech Suit": "Mechanikanzug",
+    "Micro Missiles": "Mikrotakten",
     "Nothing Special": "Nichts Besonderes",
+    "Nowhere to Run": "Kein Entkommen",
     "Noxious Blade": "Seuchenklinge",
+    "One-Two Punch": "Doppelschlag",
+    "Overwatch": "Überwachung",
     "Parry": "Parade",
     "Patch Wounds": "Zusammenflicken",
     "Phase Out": "Ruhephase",
+    "Piston Punch": "Kolbenschlag",
     "Plasma Ward": "Plasmaschutz",
+    "Possessed by Fate": "Schicksalsbesessen",
+    "Power Pitch": "Kraftwurf",
+    "Precision Strike": "Präzisionsangriff",
+    "Prismatic Sickle": "Prismatische Sichel",
+    "Quick Turnaround": "Umschwung",
+    "Radiant Sickle": "Strahlensichel",
     "Rancid Arrow": "Grausiger Pfeil",
     "Rapid Bolts": "Schnelle Bolzen",
     "Reckless Charge": "Waghalsiger Vorstoß",
     "Release Gas": "Gas freisetzen",
+    "Remote Detonation": "Fernsprengung",
+    "Repeat Shot": "Nachschuss",
+    "Resigned Frenzy": "Verzweifelte Wut",
     "Restoration": "Erholung",
+    "Retrieval": "Bergung",
+    "Ricochet": "Querschläger",
+    "Ripped From the Flesh": "Entreißen",
+    "Robotic Enhancement": "Mechanikschub",
     "Rotting Embrace": "Faulige Umarmung",
+    "Rubble": "Schutt",
     "Runic Draw": "Runenzug",
     "Runic Feedback": "Runen-Resonanz",
     "Sacrificial Hurl": "Selbstloser Wurf",
+    "Sand Devil": "Sandteufel",
     "Sap Strength": "Stärkeraub",
+    "Sap Warmth": "Wärmeraub",
+    "Savage Instinct": "Wilder Instinkt",
     "Screaming Shot": "Schreiender Schuss",
+    "Second Wind": "Frischer Wind",
     "Seismic Punch": "Bebenschlag",
     "Septic Hex": "Faulfluch",
+    "Sharpened Blades": "Geschärfte Klingen",
+    "Shield Spikes": "Schildstachel",
+    "Shield of the Desert": "Wüstenschild",
+    "Shocking Advance": "Schockvorstoß",
     "Short Bow": "Kurzbogen",
+    "Shrapnel": "Schrapnell",
+    "Signs of the Void": "Zeichen der Leere",
+    "Soaring Shield": "Dynamischer Schild",
     "Spiked Pit": "Stachelgrube",
+    "Spirit Hunger": "Seelenhunger",
+    "Stand Fast": "Standhalten",
+    "Stopping Power": "Stoppwirkung",
+    "Strangling Chain": "Würgekette",
+    "Suggestion": "Einflüsterung",
+    "Surge of Power": "Machtschwall",
     "Surround": "Umzingeln",
     "Swarm": "Schwarm",
     "Swift Fangs": "Flinke Zähne",
+    "Swift Strength": "Flinke Stärke",
+    "Taunting Fate": "Schicksalsspiel",
     "Taxing Advance": "Ermüdender Vorstoß",
+    "The Big One": "Das dicke Ende",
+    "The Bigger One": "Das dickere Ende",
+    "The Favorite": "Der Liebling",
+    "The Last Journey": "Letzte Reise",
+    "The New Favorite": "Der neue Liebling",
     "Tip The Scales": "Das Blatt wenden",
     "Toxic Explosion": "Giftige Explosion",
     "Toxic Frenzy": "Giftraserei",
+    "Turn Out the Lights": "Lichter löschen",
     "Twin Missiles": "Zwillingsgeschoss",
+    "Twirling Stabs": "Wirbelstiche",
     "Unholy Flame": "Unheilige Flamme",
     "Unstable Frenzy": "Instabile Raserei",
     "Unstable Scratch": "Instabiler Kratzer",
+    "Vicious Ballet": "Boshafter Tanz",
     "Vicious Spear": "Boshafter Speer",
     "Vile Scourge": "Abscheuliche Plage",
     "Violent Slam": "Brutaler Schlag",
+    "Warmth of the Sun": "Sonnenwärme",
+    "Warrior of the Sun": "Sonnenkrieger",
     "Weakening Bite": "Schwächender Biss",
-    "Whirlwind": "Wirbelwind"
+    "Whirlwind": "Wirbelwind",
+    "Wholesale Destruction": "Massenzerstörung",
+    "Wicked Scratch": "Fieser Kratzer",
+    "Windup": "Schwung holen",
+    "Withering Conviction": "Tollkühn"
   },
   "battleGoals": {
     "286": {
@@ -280,8 +348,134 @@
       "demolitionist": {
         "1": "Alle angrenzenden Gegner erleiden %game.damage:1%",
         "abilities": {
+          "101": {
+            "1": "Dein maximaler TP-Wert erhöht sich um 5."
+          },
           "102": {
             "1": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, erhalte %game.card.experience:1% und wende"
+          },
+          "103": {
+            "1": "<small>Ignoriere den Schildwert des Ziels, füge %game.condition.poison% hinzu und erhalte %game.card.experience:1%, wenn der Gegner das Ziel der vorherigen 2 Angriffsfertigkeiten war.</small>",
+            "2": "Lege deinen Charaktermarker auf einen angrenzenden normalen oder Elite-Gegner. Du und alle Verbündeten können den Schildwert dieses Gegners in dieser Runde ignorieren."
+          },
+          "104": {
+            "1": "Alle Zielobjekte in Reichweite %game.action.range:3% erleiden %game.damage:3%."
+          },
+          "105": {
+            "1": "<small>Füge deinen nächsten 3 Angriffen, die Gegner anvisieren, welche du in der Runde schon angegriffen hast, %game.action.attack.valueSign:3% hinzu.</small>",
+            "2": "Füge allen deinen Angriffen in dieser Runde %game.condition.immobilize% hinzu.",
+            "3": "Füge auch %game.condition.muddle% hinzu, %game.card.experience:1%"
+          },
+          "107": {
+            "1": "Zerstöre alle Hindernisse im Zielbereich. Alle Verbündeten im Zielbereich erleiden %game.damage:2%.",
+            "2": "Alle angrenzenden Gegner, die an eine Mauer angrenzen, erleiden %game.damage:2%."
+          },
+          "108": {
+            "1": "Zerstöre ein angrenzendes Hindernis oder Zielobjekt. Wenn du es zerstört hast, erhalte %game.card.experience:1% und führe aus:",
+            "2": "Visiere alle Gegner an, die an das zerstörte Hindernis oder Zielobjekt angrenzen.",
+            "3": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, erhalte %game.card.experience:1% und alle Gegner im selben Raum wie das zerstörte Hindernis erleiden game.damage:2% Schaden."
+          },
+          "109": {
+            "1": "Du kannst Fertigkeiten zum Zerstören von Hindernissen ausführen, als enthielte ein leeres Feld in Reichweite ein Hindernis. Lege in diesem Fall keinen Zerstörungsmarker auf das Feld."
+          },
+          "74": {
+            "1": "Zerstöre ein Hindernis in Reichweite %game.action.range:3%.",
+            "bottomHint": "Bewege dich bis zu 2 Felder weit. Lege einen Zerstörungsmarker auf ein Hindernis im Umkreis von 3 Feldern. Es zählt jetzt als normales Feld.",
+            "hint": "Ein angrenzender Gegner erleidet %game.damage:3% (plus Modifikator) und erhält bis zum Ende seines nächsten Zugs Nachteile bei allen seinen Angriffen."
+          },
+          "75": {
+            "1": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, wende",
+            "bottomHint": "<small>Erhalte bis zum Ende deines nächsten Zugs Vorteil für alle deine Angriffe.</small>",
+            "hint": "Ein angrenzender Gegner erleidet %game.damage:3% (plus Modifikator)."
+          },
+          "76": {
+            "bottomHint": "Ein angrenzender Gegner kann bis zum Ende seines nächsten Zugs keine Aktionen ausführen.",
+            "hint": "Ein angrenzender Gegner erleidet %game.damage:3% (plus Modifikator)."
+          },
+          "77": {
+            "bottomHint": "Bewege dich bis zu 4 Felder weit.",
+            "hint": "Ein Gegner im Umkreis von 4 Feldern erleidet %game.damage:2% (plus Modifikator - Nachteil, wenn angrenzend)."
+          },
+          "78": {
+            "bottomHint": "Bewege dich bis zu 3 Felder weit.",
+            "hint": "Bis zu 2 Gegner im Umkreis von 2 Feldern erleiden %game.damage:2% (plus je ein Modifikator - Nachteil, wenn angrenzend)."
+          },
+          "79": {
+            "bottomHint": "Ein angrenzender Gegner erleidet %game.damage:1% (plus Modifikator).",
+            "hint": "Ein angrenzender Gegner erleidet %game.damage:2% (plus Modifikator), dann erleidet derselbe oder ein anderer angrenzender Gegner %game.damage:1% (plus Modifikator)."
+          },
+          "80": {
+            "bottomHint": "Bewege dich bis zu 3 Felder weit, bewege dann 1 angrenzenden Gegner 1 Feld von dir weg.",
+            "hint": "<small>Alle Gegner im Zielbereich erleiden %game.damage:3% (plus Modifikator - Nachteil, wenn angrenzend). Verliere diese Karte.</small>"
+          },
+          "81": {
+            "1": "Füge %game.action.push:2% und %game.condition.muddle% hinzu, wenn der Gegner das Ziel der vorherigen Angriffsfertigkeiten war.",
+            "bottomHint": "Ein angrenzender Gegner erleidet %game.damage:1% (plus Modifikator). Nimm alle Münzmarker und Schätze auf deinem oder angrenzenden Feldern."
+          },
+          "82": {
+            "1": "Füge deinen nächsten 2 Angriffen %game.action.attack.valueSign:2% hinzu.",
+            "2": "Verdopple den Wert deiner nächsten Bewegungsfertigkeit."
+          },
+          "83": {
+            "1": "Füge %game.action.attack.valueSign:2% hinzu und erhalte %game.card.experience:1%, wenn das Ziel an eine mauer angrenzt.",
+            "2": "Ein angrenzender Gegner, der an eine Mauer angrenzt, erleidet %game.damage:2%."
+          },
+          "84": {
+            "1": "Alle auf das Ziel gewirkten Heilungen sind in dieser Runde wirkungslos. Um dies anzuzeigen, lege deinen Charaktermarker auf dieses Ziel.",
+            "2": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, erhalte %game.card.experience:1% und wende"
+          },
+          "85": {
+            "1": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, erhalte %game.card.experience:2% und führe aus:",
+            "2": "Visiere alle Gegner an, die an das zerstörte Hindernis angrenzen.",
+            "3": "Jedes Ziel erleidet %game.damage:2%."
+          },
+          "86": {
+            "1": "Zerstöre ein Hindernis in Reichweite %game.action.range:3%."
+          },
+          "88": {
+            "1": "Wenn du in der Bewegung eine Tür geöffnet hast, führe aus:"
+          },
+          "89": {
+            "1": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, erhalte %game.card.experience:1% und wende"
+          },
+          "90": {
+            "1": "Füge %game.action.push:2% und %game.condition.muddle% hinzu und erhalte %game.card.experience:1%, wenn der Gegner das Ziel der vorherigen Angriffsfertigkeiten war."
+          },
+          "91": {
+            "1": "Wähle ein Feld in Reichweite %game.action.range:3%, auf dem ein Zerstörungsmarker liegt. Alle Verbündeten und Gegner auf diesem oder angrenzenden Feldern erleiden %game.damage:2%.",
+            "2": "Erstelle eine Falle (2 Schaden) auf einem angrenzenden leeren Feld mit einem Zerstörungsmarker."
+          },
+          "92": {
+            "1": "Füge %game.action.attack.valueSign:3% hinzu und erhalte %game.card.experience:1%, wenn das Ziel ein Zielobjekt ist.",
+            "2": "Füge all deinen Nahkampfangriffen in dieser Runde %game.action.attack.valueSign:1% hinzu."
+          },
+          "93": {
+            "1": "Erstelle eine Falle (3 Schaden, %game.condition.muddle%) auf einem leeren Feld in Reichweite %game.action.range:3%.",
+            "2": "Wähle einen angrenzenden Gegner. Wenn du dich diesem Gegner mit jedem Schritt der Bewegung näherst, führe",
+            "3": "<small>gegen diesen Gegner aus. X ist die Anzahl der betretenen Felder.<small>"
+          },
+          "94": {
+            "1": "Diese Bewegung wird nicht durch schwieriges Gelände beeinflusst."
+          },
+          "95": {
+            "1": "Füge deinen nächsten 4 Angriffen, die Gegner anvisieren, welche an eine Mauer angrenzen, %game.action.attack.valueSign:2% hinzu.",
+            "2": "Wann immer du mit dieser Bewegung ein Feld mit einem Hindernis betrittst, zerstöre das Hindernis und füge %game.action.move.valueSign:1% hinzu.",
+            "3": "Alle durchquerten Gegner erleiden %game.damage:1%, %game.card.experience:1%."
+          },
+          "96": {
+            "1": "Zerstöre ein angrenzendes Hindernis. Wenn du es zerstört hast, erhalte %game.card.experience:1% und alle Gegner, die an das zerstörte Hindernis angrenzen, erleiden %game.damage:2%."
+          },
+          "97": {
+            "1": "Füge für jedes an das Ziel angrenzende Feld, das Mauern, Hindernisse, Zielobjekte, Figuren oder Fallen enthält, %game.action.attack.valueSign:1% hinzu.",
+            "2": "Bewege eine angrenzende Falle auf ein an dich angrenzendes leeres Feld."
+          },
+          "98": {
+            "1": "Zerstöre ein Hindernis in Reichweite %game.action.range:4%. Wenn du es zerstört hast, führe aus:",
+            "2": "Visiere alle Gegner an, die an das zerstörte Hindernis angrenzen.",
+            "3": "Erstelle 3 Fallen (3 Schaden) auf leeren Feldern in Reichweite %game.action.range:4%."
+          },
+          "99": {
+            "1": "Füge %game.action.attack.valueSign:2% und %game.condition.wound% hinzu und erhalte %game.card.experience:1%, wenn das Ziel an eine Mauer angrenzt."
           }
         }
       },
@@ -301,6 +495,63 @@
       },
       "giant-viper-scenario-21": {
         "1": "Wann immer eine Figur eine Riesenviper angreift, erleidet diese Figur nach dem Angriff %game.damage:L%"
+      },
+      "hatchet": {
+        "abilities": {
+          "10": {
+            "1": "<small>Lege deinen Charaktermarker auf diese Karte. Füge einem deiner Fernangriffe %game.action.attack.valueSign:3% hinzu und bewege den Marker nach Ausführen der Angriffsfertigkeit von dieser Karte auf das Ziel. Wenn dieses Ziel stirbt, lege den Marker auf sein Todesfeld. Erbeute den Marker, um ihn auf diese Karte zurückzulegen.</small>"
+          },
+          "11": {
+            "1": "Wenn dein Lieblingsmarker auf diesem Ziel liegt, lege ihn auf seine Karte zurück."
+          },
+          "14": {
+            "1": "Visiere alle Gegner an, die an ein Feld angrenzen, das du während dieser Bewegung betreten hast."
+          },
+          "15": {
+            "1": "Verdopple den Wert deines nächsten Angriffs in dieser Runde."
+          },
+          "16": {
+            "1": "Alle angrenzenden Gegner erleiden %game.damage:1%.",
+            "2": "Alle angrenzenden Gegner erleiden %game.damage:2%."
+          },
+          "18": {
+            "1": "Füge %game.action.attack.valueSign:2% hinzu und erhalte %game.card.experience:1%, wenn dein Lieblingsmarker auf dem Ziel liegt."
+          },
+          "19": {
+            "1": "Füge %game.action.move.valueSign:2% hinzu und erhalte %game.card.experience:1%, wenn du in dieser Runde einen Gegner getötet hast."
+          },
+          "2": {
+            "bottomHint": "Ein angrenzender Gegner ist bis zum Ende seines nächsten Zugs bewegungsunfähig. Bewege dich danach bis zu 3 Felder weit.",
+            "hint": "Ein Gegner im Umkreis von 3 Feldern erleidet %game.damage:3% (plus Modifikator - Nachteil, wenn angrenzend)."
+          },
+          "20": {
+            "1": "Visiere einen Verbündeten an, der an das Ziel des Angriffs angrenzt."
+          },
+          "21": {
+            "1": "Füge deinen nächsten 4 Bewegungsfertigkeiten %game.action.move.valueSign:2% hinzu."
+          },
+          "22": {
+            "1": "Füge in dieser Runde allen deinen Angriffen %game.action.attack.valueSign:1% hinzu."
+          },
+          "23": {
+            "1": "Füge %game.action.attack.valueSign:2% hinzu und erhalte %game.card.experience:1%, wenn dein Lieblingsmarker auf dem Ziel liegt."
+          },
+          "24": {
+            "1": "Visiere einen Gegner in Reichweite %game.action.range:2% an, der nicht das Ziel der vorherigen Angriffsfertigkeiten war.",
+            "2": "Bei deinen nächsten 4 Angriffen erleidet ein an das Ziel angrenzender Gegner %game.damage:2%, wenn möglich."
+          },
+          "25": {
+            "1": "<small>Wenn der Angriff das Ziel tötet, erleidet ein an das Todesfeld angrenzender Gegner X Schaden. X ist der Schaden, den das Ziel über den zum Töten benötigten Schaden hinaus erlitten hätte.</small>",
+            "2": "Füge %game.action.attack.valueSign:2% hinzu und erhalte %game.card.experience:1%, wenn du in dieser Runde einen Gegner getötet hast."
+          },
+          "26": {
+            "1": "Füge deinen nächsten 5 Angriffen %game.action.attack.valueSign:1% und %game.condition.wound% hinzu."
+          },
+          "27": {
+            "1": "Wenn dein Lieblingsmarker auf einem angrenzenden Gegner liegt, darfst du den Marker auf seine Karte zurücklegen. Wenn du das tust, erleidet dieser Gegner %game.damage:2% und erhält %game.condition.wound%.",
+            "2": "Füge %game.condition.strengthen% hinzu und erhalte %game.card.experience:1%, wenn du in dieser Runde einen Gegner getötet hast."
+          }
+        }
       },
       "living-corpse": {
         "1": "Das Ziel erleidet ebenfalls %game.damage:1%.",
