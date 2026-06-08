@@ -560,10 +560,6 @@ export class AttackResolveManager {
     this.gameManager.stateManager.before('changeDamage', ghsValueSign(-damage), this.targetLabel(target));
     this.gameManager.entityManager.changeHealth(target.entity, target.figure, -damage, true, skipPoisonHighlight);
 
-    if (this.shieldBlocked > 0) {
-      this.gameManager.entityManager.consumeShieldForAttack(target.entity, target.figure, this.shieldBlocked);
-    }
-
     const attacker = this.attackerEntity;
     const attackerFigure = this.attackerFigure;
 
