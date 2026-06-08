@@ -1,7 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { ActionType, ActionValueType } from 'src/app/game/model/data/Action';
+import { ActionType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
@@ -1235,68 +1235,6 @@ export class EntityManager {
 
   shieldBlockedByAttack(targetShield: number, pierce: number): number {
     return Math.max(0, targetShield - Math.max(0, pierce));
-  }
-
-  consumeShieldForAttack(entity: Entity, figure: Figure, blocked: number): void {
-    if (blocked <= 0) {
-      return;
-    }
-
-    let remaining = blocked;
-    remaining = this.consumeActionShield(entity, false, remaining);
-    remaining = this.consumeActionShield(entity, true, remaining);
-
-    if (remaining <= 0) {
-      this.checkHealth(entity, figure);
-      return;
-    }
-
-    const shield = entity.entityConditions.find(
-      (c) => c.name === ConditionName.shield && !c.expired && c.state !== EntityConditionState.removed
-    );
-    if (!shield) {
-      return;
-    }
-
-    shield.value -= remaining;
-    if (shield.value <= 0) {
-      shield.expired = true;
-      shield.value = 0;
-    }
-    this.checkHealth(entity, figure);
-  }
-
-  private consumeActionShield(entity: Entity, persistent: boolean, amount: number): number {
-    if (amount <= 0) {
-      return 0;
-    }
-
-    const actions = persistent ? entity.extraActionsPersistent : entity.extraActions;
-    const shieldAction = actions.find((action) => action.type === ActionType.shield);
-    if (!shieldAction) {
-      return amount;
-    }
-
-    const current =
-      shieldAction.valueType === ActionValueType.minus
-        ? -EntityValueFunction(shieldAction.value)
-        : EntityValueFunction(shieldAction.value);
-    const consumed = Math.min(Math.max(0, current), amount);
-    const next = current - consumed;
-
-    if (next <= 0) {
-      const filtered = actions.filter((action) => action.type !== ActionType.shield);
-      if (persistent) {
-        entity.extraActionsPersistent = filtered;
-      } else {
-        entity.extraActions = filtered;
-      }
-    } else {
-      shieldAction.valueType = ActionValueType.fixed;
-      shieldAction.value = next;
-    }
-
-    return amount - consumed;
   }
 
   attackDrawState(entity: Entity, figure: Figure): 'advantage' | 'disadvantage' | undefined {

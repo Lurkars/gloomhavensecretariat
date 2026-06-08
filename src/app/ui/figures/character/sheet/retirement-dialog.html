@@ -2,12 +2,7 @@
   <label class="title">
     <span [ghs-label]="'character.progress.retirement'"></span>
     <span class="name">
-      <img
-        class="icon character-icon"
-        [src]="character.iconUrl"
-        title="Character"
-        [attr.alt]="characterIconAlt()"
-      />
+      <img class="icon character-icon" [src]="character.iconUrl" title="Character" [attr.alt]="characterIconAlt()" aria-hidden="true" />
       <span class="character-title">{{ gameManager.characterManager.characterName(character, true) }}</span>
     </span>
   </label>
@@ -173,10 +168,11 @@
     <div class="personal-quest">
       <div class="personal-quest-card">
         @if (additional) {
-          <label class="card-id-label">
+          <label class="card-id-label" for="additionalPersonalQuestCardId">
             <span class="card-id-caption" [ghs-label]="'character.progress.personalQuest'"></span>
             <input
               class="card-id"
+              id="additionalPersonalQuestCardId"
               name="additionalPersonalQuestCardId"
               type="text"
               title="Personal Quest card ID"
