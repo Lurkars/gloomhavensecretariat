@@ -8,6 +8,24 @@
 
 > Scenario 1 of Gloomhaven with starting classes of different editions
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Support me](#support-me)
+- [Current Features](#current-features)
+- [Contributing](#contributing)
+- [Install](#install)
+  - [Install as App](#install-as-app)
+  - [Android](#android)
+  - [Standalone](#standalone)
+  - [Self-hosting](#self-hosting)
+- [Building from source](#building-from-source)
+- [Development](#development)
+- [Archive](#archive)
+- [Privacy](#privacy)
+- [Copyright / License](#copyright--license)
+- [Personal disclaimer](#personal-disclaimer)
+
 ## Introduction
 
 _Gloomhaven Secretariat_ is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, **Gloomhaven 2nd Edition**, **Button & Bugs** and the **Mercenary Packs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content from **Custom Content Unity Guild**.
@@ -20,7 +38,7 @@ Since _GHS_ is a web application, no installation is required and it runs in any
 
 An extensive settings menu ensures highly individual customization to suit all requirements. Almost every feature can be switched on/off or customized.
 
-_Gloomhaven Secretariat_ is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes. You can also help [translating](#translating) the app.
+_Gloomhaven Secretariat_ is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](./CONTRIBUTING.md) ideas, suggestions and of course feedback and bug fixes. You can also help [translating](#translating) the app.
 
 A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
 
