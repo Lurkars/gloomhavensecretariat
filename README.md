@@ -276,6 +276,12 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
 - Finish all character ability cards
 
+## Contributing
+
+Please read the [Contributing Guide](./CONTRIBUTING.md) for details on how to get involved, code conventions, and pull request requirements. See also the [AI Notice](./AI_NOTICE.md) for the project's stance on AI usage.
+
+Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
+
 ## Install
 
 ### Install as App
@@ -343,25 +349,6 @@ To develop with docker, install docker compose and run `docker compose -f docker
 ### Disbranding
 
 If you are forking this project and want to remove direct references to `gloomhaven-secretariat.de`, `Lurkars`, and GitHub links from the UI, set `branded: false` in the environment files under `src/environments/`. This hides help links, feedback dialogs, public server lists, and author-specific settings from the application.
-
-## Contributing
-
-Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features, and improvements, or start a new [new discussion](https://github.com/Lurkars/gloomhavensecretariat/discussions/new/choose) for help or feedback.
-
-All game data is located in the [data](./data/) folder with subfolders for each release. A third-party review of all data would be great. As all files are JSON data, they should easily be human-readable. Each character, monster, and monster deck has its own file, so it should be easy to check.
-Each edition folder will be concatenated into a single edition data file on build.
-
-Pull requests are also welcome!
-
-> Please note: all files in the data subfolder will be automatically formatted and added to each commit. If you have made local changes to these files and do NOT want to commit those changes, please use the `--no-verify` parameter for your `git commit` and `git push` commands.
-
-Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
-
-### Translating
-
-Latest, I am now trying to use [Weblate](https://i18n.gloomhaven-secretariat.de/) as a translation tool. You can log in with your _GitHub_ account to help translate the application.
-
-<img src="https://i18n.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg" alt="Translation status" />
 
 ## Archive
 
