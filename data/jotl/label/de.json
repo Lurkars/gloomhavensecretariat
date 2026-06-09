@@ -550,6 +550,22 @@
           "27": {
             "1": "Wenn dein Lieblingsmarker auf einem angrenzenden Gegner liegt, darfst du den Marker auf seine Karte zurücklegen. Wenn du das tust, erleidet dieser Gegner %game.damage:2% und erhält %game.condition.wound%.",
             "2": "Füge %game.condition.strengthen% hinzu und erhalte %game.card.experience:1%, wenn du in dieser Runde einen Gegner getötet hast."
+          },
+          "28": {
+            "1": "<small>Führe bei den nächsten 5 gegnerischen Bewegungen, die in %game.action.range:5% zu dir enden, „%game.action.attack:2%, %game.action.range:5%\" gegen diesen Gegner aus.</small>"
+          },
+          "3": {
+            "1": "Füge in diesem Zug allen deinen Angriffen %game.action.attack.valueSign:1% hinzu.",
+            "hint": "Bis zu 2 Gegner im Umkreis von 3 Feldern erleiden %game.damage:2% (plus je ein Modifikator - Nachteil, wenn angrenzend)."
+          },
+          "30": {
+            "1": "<small>Lege den Axtmarker auf diese Karte. Füge einem deiner Fernangriffe %game.action.attack.valueSign:3%, %game.condition.wound% und %game.action.push:1% hinzu und bewege den Marker nach Ausführen der Angriffsfertigkeit von dieser Karte auf das Ziel. Wenn dieses Ziel stirbt, lege den Marker auf sein Todesfeld. Erbeute den Marker, um ihn auf diese Karte zurückzulegen. Diese Karte kann nicht aktiv sein, während “Der Liebling\" aktiv ist.</small>"
+          },
+          "31": {
+            "1": "Alle angrenzenden Gegner erleiden %game.damage:1%."
+          },
+          "32": {
+            "1": "Wenn dein Lieblingsmarker auf deinem oder einem angrenzenden Feld liegt, kannst du ausführen:"
           }
         }
       },
