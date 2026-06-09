@@ -242,7 +242,7 @@ export class KeyboardShortcuts implements OnInit {
             !activeFigure ||
             (activeFigure instanceof Monster &&
               ((!activeFigure.isAlly && !activeFigure.isAllied) ||
-                (!gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck) ||
+                (!gameManager.fhRules(true) && !settingsManager.settings.alwaysAllyAttackModifierDeck) ||
                 !settingsManager.settings.allyAttackModifierDeck))
           ) {
             gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'monster');

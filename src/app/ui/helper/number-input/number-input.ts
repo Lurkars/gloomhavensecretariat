@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, model, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import { GhsValueSignPipe } from 'src/app/ui/helper/Pipes';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 
@@ -10,7 +10,7 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
   styleUrls: ['./number-input.scss'],
   templateUrl: './number-input.html'
 })
-export class GhsNumberInput implements OnInit {
+export class GhsNumberInput {
   modelNumber = model<number>(0, { alias: 'model' });
 
   readonly steps = input<number[]>([1, 2]);
@@ -23,15 +23,7 @@ export class GhsNumberInput implements OnInit {
 
   readonly relative = input<boolean>(false);
 
-  stepsNegative: number[] = this.steps()
-    .map((value) => value)
-    .reverse();
-
-  ngOnInit(): void {
-    this.stepsNegative = this.steps()
-      .map((value) => value)
-      .reverse();
-  }
+  readonly stepsNegative = computed(() => [...this.steps()].reverse());
 
   change(value: number) {
     this.modelNumber.set(this.modelNumber() + value);

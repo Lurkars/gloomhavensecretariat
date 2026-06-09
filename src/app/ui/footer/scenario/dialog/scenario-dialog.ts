@@ -13,6 +13,7 @@ import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors'
 import { ScenarioRecapDialogComponent } from 'src/app/ui/figures/scenario-recap/scenario-recap';
 import { ScenarioRulesDialogComponent } from 'src/app/ui/footer/scenario-rules/dialog/scenario-rules-dialog';
 import { RandomMonsterCardDialogComponent } from 'src/app/ui/footer/scenario/dialog/random-monster-card/random-monster-card-dialog';
+import { RoundDialogComponent } from 'src/app/ui/footer/scenario/dialog/round/round-dialog';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSetupComponent } from 'src/app/ui/footer/scenario/scenario-setup/scenario-setup';
 import { SectionDialogComponent } from 'src/app/ui/footer/scenario/section/section-dialog';
@@ -189,6 +190,12 @@ export class ScenarioDialogComponent {
         data: sectionData
       });
     }
+  }
+
+  openRoundMenu() {
+    this.dialog.open(RoundDialogComponent, {
+      panelClass: ['dialog']
+    });
   }
 
   close() {

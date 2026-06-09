@@ -1,0 +1,17 @@
+<div class="round-dialog" [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
+  <div class="menu">
+    <div class="section">
+      <span class="title" [ghs-label]="'round.resets'"></span>
+      <p class="hint" [ghs-label]="'round.resets.hint'"></p>
+      <ghs-number-input
+        [model]="currentReset"
+        (modelChange)="setReset($event)"
+        [min]="minReset()"
+        [steps]="resetSteps()"
+      ></ghs-number-input>
+      @if (currentReset === 0) {
+        <span class="empty" [ghs-label]="'round.resets.empty'"></span>
+      }
+    </div>
+  </div>
+</div>

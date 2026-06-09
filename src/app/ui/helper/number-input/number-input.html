@@ -1,7 +1,7 @@
 <div class="number-input-container">
   @if (negative()) {
     <div class="value-container negative">
-      @for (value of stepsNegative; track value) {
+      @for (value of stepsNegative(); track value) {
         <div tabclick [ngClass]="{ disabled: min() && modelNumber() - value < min() }" class="value" (click)="change(-value)">
           {{ (relative() ? -value : modelNumber() - value) | ghsValueSign }}
         </div>

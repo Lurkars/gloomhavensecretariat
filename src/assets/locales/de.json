@@ -1818,7 +1818,12 @@
       "initiativeRoundConfirm": "Alle Initiativen wurden festgelegt. Nächste Runde beginnen?",
       "missingInitiative": "Die Initiative für alle Figuren muss gesetzt sein!"
     },
-    "next": "Nächste Runde"
+    "next": "Nächste Runde",
+    "resets": {
+      "": "Runden ändern",
+      "empty": "Kein Reset gesetzt",
+      "hint": "Verschiebt den Rundenzähler. Positive Werte erhöhen, negative verringern ihn. Auf 0 setzen zum Entfernen."
+    }
   },
   "scenario": {
     "": "Szenario",
@@ -3742,6 +3747,7 @@
       "moveResource": "{2} {1} von {0} zum Frosthaven-Vorrat hinzufügen",
       "nextIdentity": "Setze Form von %data.character.{4}.{1}.{2}% zu %data.character.{4}.{1}.{3}% für {0}",
       "nextRound": "Nächste Runde",
+      "setRoundReset": "Runden-Reset auf {0} setzen",
       "objectiveContainerChangeEntityHp": "TP {2} für %game.objectiveMarker.{1}% von {0}",
       "objectiveEntityDead": "Töte %game.objectiveMarker.{1}% von {0}",
       "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",

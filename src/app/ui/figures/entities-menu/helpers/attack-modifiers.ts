@@ -137,7 +137,7 @@ export class AttackModifierHelper {
     const amDeck = gameManager.attackModifierManager.byFigure(figure);
     const isMonster =
       (figure instanceof Monster &&
-        ((!figure.isAlly && !figure.isAllied) || (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules()))) ||
+        ((!figure.isAlly && !figure.isAllied) || (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules(true)))) ||
       (figure instanceof ObjectiveContainer && figure.amDeck === 'M');
     if (value > 0) {
       for (let i = 0; i < value; i++) {

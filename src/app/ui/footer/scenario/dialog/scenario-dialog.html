@@ -108,6 +108,10 @@
           [ghs-label]="'scenario.setup'"
         ></span>
       </label>
+
+      <div class="round-menu" tabclick (click)="openRoundMenu()">
+        <img class="ghs-svg" src="./assets/images/settings.svg" /><span [ghs-label]="'round.resets'"></span>
+      </div>
     }
 
     @if (gameManager.game.round > 0 && gameManager.trialsManager.favorsEnabled) {

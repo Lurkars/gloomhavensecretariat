@@ -87,7 +87,7 @@ export class FooterComponent implements OnInit {
     this.hasAllyAttackModifierDeck =
       (settingsManager.settings.allyAttackModifierDeck &&
         (settingsManager.settings.alwaysAllyAttackModifierDeck ||
-          (gameManager.fhRules() &&
+          (gameManager.fhRules(true) &&
             gameManager.game.figures.some(
               (figure) =>
                 (figure instanceof Monster && (figure.isAlly || figure.isAllied)) ||
@@ -157,7 +157,7 @@ export class FooterComponent implements OnInit {
     this.hasAllyAttackModifierDeck =
       (settingsManager.settings.allyAttackModifierDeck &&
         (settingsManager.settings.alwaysAllyAttackModifierDeck ||
-          (gameManager.fhRules() &&
+          (gameManager.fhRules(true) &&
             gameManager.game.figures.some(
               (figure) =>
                 (figure instanceof Monster && (figure.isAlly || figure.isAllied)) ||

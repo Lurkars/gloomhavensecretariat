@@ -121,6 +121,20 @@
     }
   }
 
+  .round-menu {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    .ghs-svg {
+      width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      height: auto;
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+    }
+  }
+
   .additional {
     display: flex;
     flex-direction: column;
@@ -190,7 +204,7 @@
       font-family: var(--ghs-font-title);
       color: var(--ghs-color-white);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-      margin-top: 0 calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
+      margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
       display: flex;
       justify-content: center;
       align-items: center;

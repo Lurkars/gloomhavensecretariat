@@ -20,7 +20,7 @@ export class MonsterHelper {
     this.component.isMonster =
       (this.component.figure instanceof Monster &&
         ((!this.component.figure.isAlly && !this.component.figure.isAllied) ||
-          (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules()))) ||
+          (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules(true)))) ||
       (this.component.figure instanceof ObjectiveContainer && this.component.figure.amDeck === 'M');
 
     if (

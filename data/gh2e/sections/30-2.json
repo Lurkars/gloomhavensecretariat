@@ -29,6 +29,10 @@
           "player4": "normal"
         },
         {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
           "name": "bandit-scout",
           "type": "normal"
         },
