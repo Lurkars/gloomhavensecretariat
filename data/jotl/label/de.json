@@ -566,6 +566,50 @@
           },
           "32": {
             "1": "Wenn dein Lieblingsmarker auf deinem oder einem angrenzenden Feld liegt, kannst du ausführen:"
+          },
+          "33": {
+            "1": "Füge deinen nächsten 5 Angriffen, die einen Gegner anvisieren, auf dem dein Lieblingsmarker liegt, %game.action.attack.valueSign:2% hinzu."
+          },
+          "34": {
+            "1": "Füge %game.action.attack.valueSign:2% hinzu und erhalte %game.card.experience:1%, wenn dein Lieblingsmarker auf dem Ziel liegt, und lege ihn auf seine Karte zurück."
+          },
+          "35": {
+            "1": "<small>Die nächsten 5 Male, wenn du einen Gegner tötest, erleiden alle Gegner, die an das Todesfeld angrenzen, %game.damage:2%.</small>"
+          },
+          "36": {
+            "1": "Füge deinem nächsten Angriff in diesem Zug %game.action.attack.valueSign:2% hinzu, wenn du an einen Verbündeten angrenzt."
+          },
+          "37": {
+            "1": "Ein angrenzender normaler oder Elite-Gegner erleidet %game.damage:12%.",
+            "2": "Wenn du in dieser Runde einen Gegner getötet hast, lege deinen Lieblingsmarker auf seine Karte zurück und erhalte %game.card.experience:1%."
+          },
+          "38": {
+            "1": "<small>Die nächsten 4 Male, wenn du einen Gegner tötest, führe „%game.action.heal:3%, %game.action.range:2%, %game.condition.bless%\" aus.</small>"
+          },
+          "4": {
+            "1": "Alle angrenzenden Gegner erleiden %game.damage:1%.",
+            "bottomHint": "Bewege dich bis zu 2 Felder weit.",
+            "hint": "<small>Bis zu 3 Gegner im Umkreis von 3 Feldern erleiden %game.damage:1% (plus Modifikator - Nachteil, wenn angrenzend) und erhalten bis zum Ende ihres nächsten Zugs Nachteil bei allen ihren Angriffen.</small>"
+          },
+          "5": {
+            "bottomHint": "Bewege dich bis zu 5 Felder weit.",
+            "hint": "Du wirst um %game.damage:3% geheilt."
+          },
+          "6": {
+            "bottomHint": "Bewege dich bis zu 3 Felder weit.",
+            "hint": "Ein Gegner im Umkreis von 3 Feldern erleidet %game.damage:3% (plus Modifikator - Nachteil, wenn angrenzend)."
+          },
+          "7": {
+            "bottomHint": "Bewege dich bis zu 4 Felder weit.",
+            "hint": "Ein angrenzender Gegner erleidet %game.damage:3% (plus Modifikator)."
+          },
+          "8": {
+            "bottomHint": "Bewege dich bis zu 3 Felder weit, bewege dann einen angrenzenden Gegner 2 Felder von dir weg.",
+            "hint": "Ein Gegner im Umkreis von 3 Feldern erleidet %game.damage:3% (plus Modifikator - Nachteil, wenn angrenzend)."
+          },
+          "9": {
+            "bottomHint": "Bewege dich bis zu 4 Felder weit. Nimm alle Münzmarker und Schätze auf deinem oder angrenzenden Feldern. Verliere diese Karte.",
+            "hint": "Alle Gegner im Zielbereich erleiden %game.damage:3% (plus je ein Modifikator)."
           }
         }
       },
@@ -589,6 +633,107 @@
       "rat-monstrosity-16-2": {
         "1": "Wenn eine Figur aufgrund des beim Tod einer Ratten-Monstrosität verursachten Schadens stirbt oder erschöpft wird"
       },
+      "red-guard": {
+        "abilities": {
+          "216": {
+            "bottomHint": "Ein angrenzender Gegner erleidet 2 Schaden (plus Modifikator).",
+            "hint": "Ein Gegner im Umkreis von 2 Feldern erleidet 3 Schaden (plus Modifikator - Nachteil, wenn angrenzend)."
+          },
+          "217": {
+            "bottomHint": "Bewege dich bis zu 4 Felder weit.",
+            "hint": "Ein Gegner im Umkreis von 2 Feldern erleidet 2 Schaden (plus Modifikator - Nachteil, wenn angrenzend) und ist bis zum Ende seines nächsten Zugs bewegungsunfähig."
+          },
+          "218": {
+            "bottomHint": "Ein angrenzender Gegner erleidet 2 Schaden (plus Modifikator).",
+            "hint": "Alle angrenzenden Gegner erleiden 2 Schaden (plus je ein Modifikator)."
+          },
+          "219": {
+            "bottomHint": "Bewege dich bis zu 3 Felder weit.",
+            "hint": "Ein angrenzender Gegner erleidet 3 Schaden (plus Modifikator) und ist bis zum Ende seines nächsten Zugs bewegungsunfähig."
+          },
+          "220": {
+            "bottomHint": "Bewege dich bis zu 4 Felder weit.",
+            "hint": "Ein angrenzender Gegner erleidet 3 Schaden (plus Modifikator) und erhält bis zum Ende seines nächsten Zugs Nachteil bei allen seinen Angriffen."
+          },
+          "221": {
+            "1": "2 angrenzende Gegner erleiden 2 Schaden.",
+            "bottomHint": "Du oder ein Verbündeter im Umkreis von 2 Feldern wird um 2 Schaden geheilt.",
+            "hint": "Für diesen Schaden wird keine Angriffsmodifikator-Karte gezogen."
+          },
+          "222": {
+            "1": "Visiere einen Gegner im Umkreis von 2 Feldern an.",
+            "bottomHint": "Bewege dich bis zu 6 Felder weit und verliere diese Karte.",
+            "hint": "Ein Gegner im Umkreis von 2 Feldern erleidet 2 Schaden (plus Modifikator) und kann bis zum Ende seines nächsten Zugs nicht angreifen."
+          },
+          "223": {
+            "bottomHint": "Nimm alle Münzmarker und Schätze auf deinem oder angrenzenden Feldern.",
+            "hint": "Ein Gegner im Umkreis von 2 Feldern erleidet 3 Schaden (plus Modifikator - Nachteile, wenn angrenzend) und bewegt sich 1 Feld auf dich zu."
+          },
+          "225": {
+            "1": "Alle Angriffe, die dich anvisieren, erhalten in dieser Runde Nachteil."
+          },
+          "226": {
+            "1": "Nachdem dich ein angrenzender Gegner angegriffen hat, erleidet er Schaden in Höhe deines Schildwerts."
+          },
+          "227": {
+            "1": "Alle angrenzenden Gegner erleiden 1 Schaden."
+          },
+          "228": {
+            "1": "Alle angrenzenden Gegner erleiden 1 Schaden."
+          },
+          "230": {
+            "1": "Die nächsten 5 Male, wenn ein Gegner ein an dich angrenzendes Feld betritt, erleidet dieser Gegner 2 Schaden."
+          },
+          "233": {
+            "1": "Visiere einen Gegner im Umkreis von 2 Feldern an."
+          },
+          "235": {
+            "1": "Alle durchquerten Gegner erleiden 1 Schaden.",
+            "2": "Stattdessen 2 Schaden,"
+          },
+          "236": {
+            "1": "Füge %game.action.attack.valueSign:3% hinzu, wenn das Ziel unter einem negativen Zustand leidet.",
+            "2": "Vorteil,"
+          },
+          "237": {
+            "1": "Sammle %game.action.loot% auf allen Feldern, die du mit dieser Bewegung betrittst."
+          },
+          "238": {
+            "1": "Alle angrenzenden Gegner erleiden 1 Schaden."
+          },
+          "240": {
+            "1": "Wann immer das Ziel in dieser Runde angegriffen wird, erleidet es 1 Schaden. Um dies anzuzeigen, lege deinen Charaktermarker auf das Ziel.",
+            "2": "Stattdessen 2 Schaden,"
+          },
+          "241": {
+            "1": "Alle an das Ziel angrenzenden Gegner erleiden 1 Schaden."
+          },
+          "242": {
+            "1": "Visiere alle Gegner im Umkreis von 2 Feldern an."
+          },
+          "244": {
+            "1": "<small>Stelle den Sandteufel auf ein angrenzendes leeres Feld. Für die Berechnung des Monsterfokus und der Monsterbewegung zählt er als Falle. Du darfst ihn zu Beginn deines Zugs jeweils bis zu 2 Felder weit bewegen und darfst auf dem Sandteufel stehende Figuren zwingen, sich mitzubewegen.\nWenn eine Figur den Sandteufel betritt oder umgekehrt, erleidet sie 1 Schaden und erhält %game.condition.muddle%<. Gilt nicht bei erzwungener Mitbewegung.</small>"
+          },
+          "245": {
+            "1": "Die nächsten 4 Male, wenn ein Gegner ein an dich angrenzendes Feld betritt, erhält dieser Gegner %game.condition.disarm%.",
+            "2": "Alle angrenzenden Gegner erleiden 2 Schaden."
+          },
+          "247": {
+            "1": "Ein angrenzender Verbündeter kann „%game.action.attack:3%\" ausführen, %game.card.experience:1%.",
+            "2": "Ein anderer angrenzender Verbündeter kann „%game.action.attack:3%\" ausführen, %game.card.experience:1%.",
+            "3": "Ein angrenzender Gegner erleidet 1 Schaden."
+          },
+          "250": {
+            "1": "Wann immer du in dieser Runde angegriffen wirst, erhältst du %game.action.shield:X% für den Angriff. X ist die Anzahl der während des Angriffs an dich angrenzenden Gegner (maximal 3).",
+            "2": "Die nächsten 5 Male, wenn ein Gegner ein an dich angrenzendes Feld betritt, wende „%game.action.heal:3%\" auf dich selbst an."
+          },
+          "252": {
+            "1": "alle an das Ziel angrenzenden Gegner erleiden 1 Schaden.",
+            "2": "Vorteil,",
+            "3": "Alle angrenzenden Gegner erleiden 3 Schaden."
+          }
+        }
+      },
       "stone-golem": {
         "1": "Jede Figur die den %data.monster.stone-golem% diese Runde angreift erleidet %game.damage:3%.",
         "2": "Falls diese Bewegung ausgeführt wird erleidet der %data.monster.stone-golem% %game.damage:1%.",
@@ -596,6 +741,111 @@
       },
       "vermling-raider": {
         "1": "Erstelle eine %game.damage:3% Falle in einem an das Ziel angrenzenden freiem Feld."
+      },
+      "voidwarden": {
+        "abilities": {
+          "143": {
+            "1": "Du oder ein Verbündeter im Umkreis von 3 Feldern wird um %game.damage:3% geheilt.",
+            "2": "Bewege dich bis zu 4 Felder weit."
+          },
+          "144": {
+            "1": "Ein Gegner im Umkreis von 3 Feldern erleidet %game.damage:3% (plus Modifikator - Nachteil, wenn angrenzend).",
+            "2": "Zwinge einen Gegner in %game.action.range:3%,",
+            "3": "gegen einen an ihn angrenzenden Gegner deiner Wahl auszuführen.",
+            "4": "Verwende für diesen Angriff das Angriffsmodifikator-Deck des Monsters."
+          },
+          "145": {
+            "1": "Ein Verbündeter in Reichweite %game.action.range:2% kann ausführen:",
+            "2": "Verwende für diesen Angriff das Angriffsmodifikator-Deck des Verbündeten.",
+            "3": "Bewege dich bis zu 2 Felder weit, dann erhältst du oder ein Verbündeter im Umkreis von 3 Feldern bis zum Ende des nächsten eigenen Zugs Vorteil für alle eigenen Angriffe."
+          },
+          "146": {
+            "1": "Zwinge einen Gegner in Reichweite %game.action.range:3%,",
+            "2": "gegen einen an ihn angrenzenden Gegner deiner Wahl auszuführen.",
+            "3": "Verwende für diesen Angriff das Angriffsmodifikator-Deck des Monsters.",
+            "4": "Bewege dich bis zu 3 Felder weit, dann erhält ein Gegner im Umkreis von 3 Feldern bis zum Ende seines nächsten Zugs Nachteil für alle seine Angriffe."
+          },
+          "147": {
+            "1": "Ein Verbündeter in %game.action.range:3% kann ausführen:",
+            "2": "Verwende für diesen Angriff das Angriffsmodifikator-Deck des Verbündeten.",
+            "3": "Du oder ein Verbündeter im Umkreis von 3 Feldern wird um %game.damage:2% geheilt."
+          },
+          "148": {
+            "1": "Ein Gegner im Umkreis von 3 Feldern kann bis zum Ende seines nächsten Zugs keine Aktionen ausführen.",
+            "2": "Ein Verbündeter in %game.action.range:3% kann ausführen:",
+            "3": "Wenn er das tut, erleidet dieser Verbündete %game.damage:1%.",
+            "4": "Verwende für diesen Angriff das Angriffsmodifikator-Deck des Verbündeten."
+          },
+          "149": {
+            "1": "Ein Gegner im Umkreis von 3 Feldern kann bis zum Ende seines nächsten Zugs nicht angreifen.",
+            "2": "Zwinge das Ziel,",
+            "3": "nach deinem Wunsch Bewegung 2 auszuführen.",
+            "4": "Ein Verbündeter in Reichweite %game.action.range:3% kann ausführen:",
+            "5": "Wenn er dies tut, erleidet dieser Verbündete %game.damage:2%.",
+            "6": "Verwende für diesen Angriff das Angriffsmodifikator-Deck des Verbündeten und verliere diese Karte."
+          },
+          "150": {
+            "1": "Ein Verbündeter in %game.action.range:2% kann ausführen:",
+            "2": "Verwende für diesen Angriff das Angriffsmodifikator-Deck des Verbündeten.",
+            "3": "Nimm alle Münzmarker und Schätze auf deinem oder angrenzenden Feldern. Dann erhältst du oder ein Verbündeter im Umkreis von 3 Feldern Vorteil für alle eigenen Angriffe."
+          },
+          "151": {
+            "1": "Ein Verbündeter in %game.action.range:3% kann ausführen:",
+            "2": "Derselbe Verbündete kann ausführen:",
+            "3": "Wende zu Beginn deiner nächsten 5 Züge jeweils „%game.condition.curse%, %game.action.range:2%\" an."
+          },
+          "152": {
+            "1": "Alle Verbündeten, die mit dieser Heilung %game.condition.poison% entfernen, erhalten %game.condition.bless%.",
+            "2": "Zwinge alle Gegner in %game.action.range:3%, nach deinem Wunsch",
+            "3": "auszuführen."
+          },
+          "153": {
+            "1": "Ein angrenzender Verbündeter kann",
+            "2": "gegen den gerade mit %game.condition.poison% anvisierten Gegner ausführen. Wenn er dies tut, erleidet dieser Verbündete %game.damage:2%."
+          },
+          "154": {
+            "1": "Ein Verbündeter in Reichweite %game.action.range:3% kann ausführen:"
+          },
+          "155": {
+            "1": "Ignoriere stattdessen den %game.condition.curse%"
+          },
+          "156": {
+            "1": "Ein Verbündeter in %game.action.range:2% kann ausführen:"
+          },
+          "157": {
+            "1": "<small>Zwinge einen Gegner in %game.action.range:3%</small>",
+            "2": "<small>gegen einen Gegner deiner Wahl auszuführen. Der angreifende Gegner erleidet ebenso viel Schaden, wie er seinem Ziel zufügt.</small>"
+          },
+          "158": {
+            "1": "Zwinge das Ziel, nach deinem Wunsch",
+            "2": "auszuführen.",
+            "3": "Ein Verbündeter in %game.action.range:3% kann ausführen:",
+            "4": "Wenn er dies tut, erhältst du %game.card.experience:1% und dieser Verbündete erleidet %game.damage:2%."
+          },
+          "160": {
+            "1": "Der erste Angriff jeder deiner angriffsgewährenden Aktionen erhält Vorteile. %game.element.consume.wild%, um zusätzlich %game.action.attack.valueSign:1% hinzuzufügen. Wenn du Monstern Angriffe gewährst, benutzen sie dein Angriffsmodifikator-Deck."
+          },
+          "161": {
+            "1": "<small>Zwinge einen Gegner in %game.action.range:4%,</small>",
+            "2": "<small>nach deinem Wunsch auszuführen und</small>",
+            "3": "<small>gegen einen an ihn angrenzenden Gegner deiner Wahl auszuführen.</small>",
+            "4": "%game.condition.stun% beim ausführenden Gegner."
+          },
+          "162": {
+            "1": "Zwinge alle Gegner in %game.action.range:3%,",
+            "2": "gegen an sie angrenzende Gegner deiner Wahl auszuführen."
+          },
+          "163": {
+            "1": "Alle angrenzenden Verbündeten erleiden %game.damage:1%."
+          },
+          "164": {
+            "1": "<small>Die nächsten 3 Male, nachdem ein Verbündeter einen Gegner mit %game.condition.poison% angegriffen hat, kann dieser Verbündete „%game.action.heal:1%, %game.specialTarget.self%\" auf sich selbst anwenden.</small>"
+          },
+          "165": {
+            "1": "Visiere dich selbst oder einen Verbündeten in %game.action.range:2% an.",
+            "2": "%game.condition.bless%, %game.condition.strengthen%"
+          }
+        }
       },
       "zealot": {
         "1": "X ist der durch den Angriff erlittene %game.damage% des Ziels"
