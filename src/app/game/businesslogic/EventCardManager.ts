@@ -95,8 +95,7 @@ export class EventCardManager {
   getEventCardsForEdition(edition: string, type: string, extension: boolean = true): EventCard[] {
     return gameManager.editionData
       .filter(
-        (editionData) =>
-          editionData.edition === edition || (extension && gameManager.editionExtensions(edition).includes(editionData.edition))
+        (editionData) => editionData.edition === edition || (extension && gameManager.extensions(edition).includes(editionData.edition))
       )
       .flatMap((editionData) => editionData.events)
       .filter(
@@ -104,19 +103,21 @@ export class EventCardManager {
           eventCard.edition === edition ||
           (eventCard.edition !== edition && !self.some((other) => other.cardId === eventCard.cardId && other.edition === edition))
       )
-      .filter((eventCard) => eventCard.type === type);
+      .filter((eventCard) => eventCard.type === type)
+      .sort((a, b) => (a.cardId < b.cardId ? -1 : 1));
   }
 
   getEventCardForEdition(edition: string, type: string, cardId: string): EventCard | undefined {
     return gameManager.editionData
-      .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(edition).includes(editionData.edition))
+      .filter((editionData) => editionData.edition === edition || gameManager.extensions(edition).includes(editionData.edition))
       .flatMap((editionData) => editionData.events)
       .filter(
         (eventCard, i, self) =>
-          eventCard.edition === edition ||
-          (eventCard.edition !== edition && !self.some((other) => other.cardId === eventCard.cardId && other.edition === edition))
+          eventCard.type === type &&
+          (eventCard.edition === edition ||
+            (eventCard.edition !== edition && !self.some((other) => other.cardId === cardId && other.edition === edition)))
       )
-      .find((eventCard) => eventCard.type === type && eventCard.cardId === cardId);
+      .find((eventCard) => eventCard.cardId === cardId);
   }
 
   buildPartyDeck(edition: string, type: string) {
@@ -249,14 +250,18 @@ export class EventCardManager {
 
   addEvent(type: string, cardId: string, newOnly: boolean = false) {
     const edition = this.game.edition || gameManager.currentEdition();
-    if (this.getEventCardForEdition(edition, type, cardId) !== undefined) {
+    const eventCard = this.getEventCardForEdition(edition, type, cardId);
+    if (eventCard !== undefined) {
       if (!this.game.party.eventDecks[type]) {
         this.game.party.eventDecks[type] = [];
       }
 
       if (
         !this.game.party.eventDecks[type].includes(cardId) &&
-        (!newOnly || !this.game.party.eventCards.find((e) => e.type === type && e.cardId === cardId && e.edition === edition))
+        (!newOnly ||
+          !this.game.party.eventCards.find(
+            (e) => e.type === eventCard.type && e.cardId === eventCard.cardId && e.edition === eventCard.edition
+          ))
       ) {
         this.game.party.eventDecks[type].push(cardId);
         this.shuffleEvents(type);

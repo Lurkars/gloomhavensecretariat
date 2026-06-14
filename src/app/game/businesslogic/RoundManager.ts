@@ -808,6 +808,8 @@ export class RoundManager {
         figure.extraActions = [];
         figure.extraActionsPersistent = [];
         figure.scenarioStats = new ScenarioStats();
+        figure.primaryToken = 0;
+        figure.tokenValues = [];
 
         if (gameManager.fhRules() && figure.tags.includes('new-character')) {
           figure.progress.gold = 0;
@@ -823,29 +825,29 @@ export class RoundManager {
         }
 
         if (!figure.absent) {
-          if (figure.name === 'blinkblade' && figure.tags.includes('time_tokens') && figure.primaryToken === 0) {
-            figure.tokenValues[0] += 1;
+          if (figure.name === 'blinkblade' && figure.tags.includes('time_tokens')) {
+            figure.tokenValues[0] = 1;
           }
 
-          if (figure.name === 'kelp' && figure.tags.includes('trophy_tokens') && figure.primaryToken === 0) {
-            figure.tokenValues[0] += 2;
+          if (figure.name === 'kelp' && figure.tags.includes('trophy_tokens')) {
+            figure.tokenValues[0] = 2;
           }
 
-          if (figure.name === 'shards' && figure.tags.includes('resonance_tokens') && figure.primaryToken === 0) {
-            figure.tokenValues[0] += 1;
+          if (figure.name === 'shards' && figure.tags.includes('resonance_tokens')) {
+            figure.tokenValues[0] = 1;
           }
 
-          if (figure.name === 'shards' && figure.tags.includes('extra_resonance_tokens') && figure.primaryToken === 0) {
-            figure.tokenValues[0] += 2;
+          if (figure.name === 'shards' && figure.tags.includes('extra_resonance_tokens')) {
+            figure.tokenValues[0] = (figure.tokenValues[0] || 0) + 2;
             gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.brittle));
           }
 
-          if (figure.name === 'three-spears' && figure.tags.includes('supply_tokens_scenario') && figure.primaryToken === 0) {
-            figure.tokenValues[0] += 1;
+          if (figure.name === 'three-spears' && figure.tags.includes('supply_tokens_scenario')) {
+            figure.tokenValues[0] = 1;
           }
 
-          if (figure.name === 'swarmshift' && figure.tags.includes('hive_tokens') && figure.primaryToken === 0) {
-            figure.tokenValues[0] += 1;
+          if (figure.name === 'swarmshift' && figure.tags.includes('hive_tokens')) {
+            figure.tokenValues[0] = 1;
           }
 
           if (figure.name === 'eclipse' && figure.edition === 'gh2e') {

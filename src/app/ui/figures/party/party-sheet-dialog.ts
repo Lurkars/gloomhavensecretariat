@@ -1890,6 +1890,21 @@ export class PartySheetDialogComponent implements OnInit {
     });
   }
 
+  hasStatistics(scenarioData: ScenarioData | undefined = undefined): boolean {
+    return gameManager.game.figures.some(
+      (figure) =>
+        figure instanceof Character &&
+        figure.progress.scenarioStats.some(
+          (value) =>
+            !!scenarioData &&
+            value.scenario &&
+            value.scenario.index === scenarioData.index &&
+            value.scenario.edition === scenarioData.edition &&
+            value.scenario.group === scenarioData.group
+        )
+    );
+  }
+
   statistics(scenarioData: ScenarioData | undefined = undefined) {
     this.dialog.open(StatisticsDialogComponent, {
       panelClass: ['dialog-invert'],

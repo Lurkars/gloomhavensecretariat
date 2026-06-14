@@ -66,6 +66,7 @@ export class EventCardDeckComponent {
 
   update() {
     const deck = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type);
+    console.log(deck);
     const current = gameManager.game.party.eventDecks[this.type] || [];
     this.upcomingCards = current
       .map((cardId) => deck.find((e) => e.cardId === cardId))

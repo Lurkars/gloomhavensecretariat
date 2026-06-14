@@ -86,8 +86,7 @@ export class StatisticsDialogComponent implements OnInit {
             value.scenario &&
             value.scenario.index === this.scenario.index &&
             value.scenario.edition === this.scenario.edition &&
-            value.scenario.group === this.scenario.group &&
-            value.success
+            value.scenario.group === this.scenario.group
         )
       );
     }
@@ -138,8 +137,7 @@ export class StatisticsDialogComponent implements OnInit {
           value.scenario &&
           value.scenario.index === scenario.index &&
           value.scenario.edition === scenario.edition &&
-          value.scenario.group === scenario.group &&
-          value.success
+          value.scenario.group === scenario.group
       );
       return scenarioStat ? scenarioStat : new ScenarioStats();
     }

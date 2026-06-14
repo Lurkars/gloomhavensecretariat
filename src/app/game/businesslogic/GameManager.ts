@@ -171,6 +171,14 @@ export class GameManager {
     return fallback !== undefined ? fallback : this.editions()[0];
   }
 
+  extensions(edition: string): string[] {
+    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
+    if (!!editionData) {
+      return editionData.extensions;
+    }
+    return [];
+  }
+
   editionExtensions(edition: string, all: boolean = false): string[] {
     if (all && this.editionMappingAll[edition]) {
       return this.editionMappingAll[edition];

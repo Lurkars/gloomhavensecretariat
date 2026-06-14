@@ -86,7 +86,7 @@ export class BattleGoalManager {
 
   getBattleGoalsForEdition(edition: string): BattleGoal[] {
     return gameManager.editionData
-      .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(edition).includes(edition))
+      .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(editionData.edition).includes(edition))
       .flatMap((editionData) => editionData.battleGoals);
   }
 

@@ -551,7 +551,7 @@ export class ActionsManager {
           const am =
             figure instanceof Monster
               ? settingsManager.settings.allyAttackModifierDeck &&
-                (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck) &&
+                (gameManager.fhRules(true) || settingsManager.settings.alwaysAllyAttackModifierDeck) &&
                 (figure.isAlly || figure.isAllied)
                 ? gameManager.game.allyAttackModifierDeck
                 : gameManager.game.monsterAttackModifierDeck
