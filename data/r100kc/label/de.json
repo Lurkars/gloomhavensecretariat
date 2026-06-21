@@ -1,1 +1,9 @@
-{}
+{
+  "custom": {
+    "r100kc": {
+      "black-cat": {
+        "1": "Fokussiere das nächste unbesetzte Hindernis.<br> Bis zum Start der nächsten Runde kann die Schwarze Katze das Feld besetzen. Danach bewegt sie sich zum nächstgelegenen freien Feld.<br><br> Gibt es kein Hindernis, fokussiere stattdessen das Feld am weitesten entfernt von allen Charakteren."
+      }
+    }
+  }
+}

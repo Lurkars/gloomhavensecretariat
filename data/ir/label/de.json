@@ -1,1 +1,9 @@
-{}
+{
+  "custom": {
+    "ir": {
+      "beast-rider": {
+        "1": "Alle Gegner erleiden %game.damage:2%"
+      }
+    }
+  }
+}

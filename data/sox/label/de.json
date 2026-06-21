@@ -3,7 +3,7 @@
     "sox": "Suchende von Xorn"
   },
   "monster": {
-    "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
+    "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%) ignore-same",
     "tormented-soul": "Gequälte Seele",
     "water-eel": "Wasseraal"
   },
