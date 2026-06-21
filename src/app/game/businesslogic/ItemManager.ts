@@ -24,9 +24,7 @@ export class ItemManager {
       .filter(
         (editionData) =>
           settingsManager.settings.editions.includes(editionData.edition) &&
-          (!edition ||
-            edition === editionData.edition ||
-            gameManager.editionExtensions(edition).includes(editionData.edition) ||
+          (gameManager.isEditionRelevant(editionData.edition, edition) ||
             (edition === 'fh' &&
               ((settingsManager.settings.fhGhItems && (editionData.edition === 'gh' || editionData.edition === 'fc')) ||
                 (settingsManager.settings.fhGh2eItems && editionData.edition === 'gh2e'))) ||
@@ -45,19 +43,17 @@ export class ItemManager {
 
   isItemAvailable(itemData: ItemData, edition: string | undefined, withUnlocks: boolean = true): boolean {
     if (!this.game.party.campaignMode) {
-      return !edition || itemData.edition === edition || gameManager.editionExtensions(edition).includes(itemData.edition);
+      return gameManager.isEditionRelevant(itemData.edition, edition);
     }
 
     if (
-      edition &&
-      itemData.edition !== edition &&
-      !gameManager.editionExtensions(edition).includes(itemData.edition) &&
+      gameManager.isEditionRelevant(itemData.edition, edition) &&
       this.game.party.filteredItems.some((identifier) => identifier.edition === itemData.edition && identifier.name === '' + itemData.id)
     ) {
       return false;
     }
 
-    if (edition && (itemData.edition === edition || gameManager.editionExtensions(edition).includes(itemData.edition))) {
+    if (gameManager.isEditionRelevant(itemData.edition, edition)) {
       if (
         withUnlocks &&
         this.game.party.unlockedItems.find((identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition)
@@ -644,7 +640,7 @@ export class ItemManager {
         !gameManager.game.party.unlockedItems.find(
           (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
         ) &&
-        (itemData.edition === edition || gameManager.editionExtensions(edition).includes(itemData.edition))
+        gameManager.isEditionRelevant(itemData.edition, edition)
     );
     let item: ItemData | undefined = undefined;
     if (availableItems.length > 0) {

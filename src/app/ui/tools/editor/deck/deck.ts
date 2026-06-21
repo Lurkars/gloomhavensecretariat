@@ -246,7 +246,6 @@ export class DeckEditorComponent implements OnInit {
     }
 
     const sortedData = sortDeck(compactData);
-    console.log(sortedData);
     this.inputDeckData().nativeElement.value = JSON.stringify(sortedData, null, 2);
   }
 

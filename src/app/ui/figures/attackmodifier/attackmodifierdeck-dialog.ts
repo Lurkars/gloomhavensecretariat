@@ -69,6 +69,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   upcomingCards: AttackModifier[] = [];
   discardedCards: AttackModifier[] = [];
   deletedCards: AttackModifier[] = [];
+  keepRevealed: boolean[] = [];
 
   empowerChars: Character[] = [];
   enfeebleChars: Character[] = [];
@@ -97,7 +98,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.before = this.data.before;
     this.after = this.data.after;
     this.dialogRef.closed.subscribe(() => {
-      this.upcomingCards.forEach((am) => (am.revealed = false));
+      this.deck.cards.forEach((am, i) => {
+        if (am.revealed && !this.keepRevealed[i]) {
+          am.revealed = false;
+        }
+      });
     });
   }
 
@@ -116,6 +121,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     if (gameManager.bbRules() && settingsManager.settings.bbAm) {
       this.bbTable = true;
     }
+
+    this.deck.cards.forEach((am, i) => {
+      this.keepRevealed[i] = am.revealed;
+    });
+
     this.update();
   }
 
@@ -184,6 +194,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   shuffle(upcoming: boolean = false): void {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'shuffle' + (upcoming ? 'Upcoming' : '')));
     gameManager.attackModifierManager.shuffleModifiers(this.deck, upcoming);
+    this.keepRevealed = [];
     this.after.emit(new AttackModiferDeckChange(this.deck, 'shuffle' + (upcoming ? 'Upcoming' : '')));
     this.update();
   }
@@ -242,9 +253,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     if (event.container === event.previousContainer) {
       const offset = this.deck.current + 1;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, event.currentIndex + offset);
+      moveItemInArray(this.keepRevealed, event.previousIndex + offset, event.currentIndex + offset);
     } else {
       const offset = this.deck.current;
       moveItemInArray(this.deck.cards, offset - event.previousIndex, event.currentIndex + offset);
+      moveItemInArray(this.keepRevealed, offset - event.previousIndex, event.currentIndex + offset);
       this.deck.current = this.deck.current - 1;
     }
     gameManager.attackModifierManager.updateLastVisible(this.deck);
@@ -256,15 +269,26 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
     if (event.container === event.previousContainer) {
       moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
+      moveItemInArray(this.keepRevealed, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
     } else {
       this.deck.current++;
       const offset = this.deck.current;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, offset - event.currentIndex);
+      moveItemInArray(this.keepRevealed, event.previousIndex + offset, offset - event.currentIndex);
       this.deck.cards[offset - event.currentIndex].revealed = true;
       gameManager.attackModifierManager.updateLastVisible(this.deck);
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
     this.update();
+  }
+
+  toggleKeepRevealed(index: number) {
+    this.before.emit(new AttackModiferDeckChange(this.deck, 'toggleKeepRevealed', index));
+    this.keepRevealed[index] = !this.keepRevealed[index];
+    if (this.keepRevealed[index] && !!this.deck.cards[index]) {
+      this.deck.cards[index].revealed = true;
+    }
+    this.after.emit(new AttackModiferDeckChange(this.deck, 'toggleKeepRevealed', index));
   }
 
   remove(index: number) {
@@ -397,8 +421,14 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.update();
   }
 
-  onChange(attackModifier: AttackModifier, revealed: boolean) {
+  onRevealedChange(attackModifier: AttackModifier, revealed: boolean) {
     attackModifier.revealed = revealed;
+    if (!revealed) {
+      const index = this.deck.cards.indexOf(attackModifier);
+      if (index !== -1 && this.keepRevealed[index]) {
+        this.toggleKeepRevealed(index);
+      }
+    }
   }
 
   changeType(prev: boolean = false) {

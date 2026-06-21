@@ -34,13 +34,13 @@
     </label>
   </div>
   <div class="columns">
-    @for (edition of allEditions ? gameManager.editions(true, true) : gameManager.currentEditions(); track edition) {
+    @for (edition of allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions(); track edition) {
       @if (monsterData(edition, filter).length > 0) {
         <div class="column spoilers bosses">
           <div
             class="line title sticky"
             [ngClass]="{
-              'hide-title': !allEditions && gameManager.currentEditions().length === 1,
+              'hide-title': !allEditions && gameManager.relevantEditions().length === 1,
               fh: settingsManager.settings.theme === 'fh',
               modern: settingsManager.settings.theme === 'modern'
             }"

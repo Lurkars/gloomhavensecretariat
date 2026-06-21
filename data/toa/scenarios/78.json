@@ -1,6 +1,7 @@
 {
   "index": "78",
   "name": "Ternion Tomb",
+  "flowChartGroup": "personal-quests",
   "edition": "toa",
   "monsters": [
     "cultist",

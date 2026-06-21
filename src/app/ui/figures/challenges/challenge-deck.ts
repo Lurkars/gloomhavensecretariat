@@ -168,11 +168,16 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
       this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
     } else if (this.init && (!fromServer || this.initServer)) {
       if (this.current < this.deck.current) {
-        this.queue = Math.max(0, this.deck.current - this.current);
-        if (!this.queueTimeout) {
-          this.queue--;
-          this.current++;
-          this.drawQueue(fromServer);
+        const delta = this.deck.current - this.current;
+        if (!fromServer && delta > 1) {
+          this.current = this.deck.current;
+        } else {
+          this.queue = Math.max(0, delta);
+          if (!this.queueTimeout) {
+            this.queue--;
+            this.current++;
+            this.drawQueue(fromServer);
+          }
         }
       } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
         if (this.queueTimeout) {

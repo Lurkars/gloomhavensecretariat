@@ -281,11 +281,7 @@ export class MonsterManager {
 
     let monsterData = gameManager
       .monstersData()
-      .find(
-        (monsterData) =>
-          monsterData.name === name &&
-          (monsterData.edition === edition || gameManager.editionExtensions(edition).includes(monsterData.edition))
-      );
+      .find((monsterData) => monsterData.name === name && gameManager.isEditionRelevant(monsterData.edition, edition));
 
     if (!monsterData) {
       console.warn("Monster not found: '" + name + "' for edition :" + edition);
@@ -1066,8 +1062,12 @@ export class MonsterManager {
       monster.abilities.unshift(...restoreCards);
     }
 
+    monster.revealedAbilities = [];
+    deckData.abilities.forEach((a) => (a.revealed = false));
+
     sameDeckMonsters.forEach((sameDeckMonster) => {
       sameDeckMonster.abilities = JSON.parse(JSON.stringify(monster.abilities));
+      sameDeckMonster.revealedAbilities = [];
       if (gameManager.game.state === GameState.draw) {
         sameDeckMonster.ability = -1;
       } else {

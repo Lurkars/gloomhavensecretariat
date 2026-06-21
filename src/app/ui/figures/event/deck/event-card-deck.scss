@@ -30,6 +30,14 @@
         color: var(--ghs-color-white);
       }
 
+      &.reset-deck {
+        color: var(--ghs-color-yellow);
+
+        &.confirm {
+          color: var(--ghs-color-red);
+        }
+      }
+
       input[type='text'] {
         font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
         min-width: initial;

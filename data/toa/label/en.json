@@ -188,6 +188,12 @@
         "7": "Swap positions with the figure closest to you.",
         "8": "%game.action.teleport% to a hex adjacent to %game.mapMarker.a% that is furthest from an enemy."
       },
+      "flowChartGroup": {
+        "personal-quests": "Personal Quests",
+        "side": "Side",
+        "solo": "Solo Scenarios",
+        "toa": "Trail Of Ashes"
+      },
       "reaver": {
         "1": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
       },

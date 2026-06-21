@@ -1,6 +1,7 @@
 {
   "edition": "bas",
-  "extensions": [
+  "type": "extension",
+  "extends": [
     "gh",
     "fc",
     "fh"

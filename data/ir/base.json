@@ -1,6 +1,7 @@
 {
   "edition": "ir",
-  "extensions": [
+  "type": "extension",
+  "extends": [
     "gh"
   ]
 }

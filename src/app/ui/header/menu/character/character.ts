@@ -38,7 +38,7 @@ export class CharacterMenuComponent implements OnInit {
 
   update() {
     this.characterData = {};
-    (this.allEditions ? gameManager.editions(true, true) : gameManager.currentEditions(true)).forEach((edition) => {
+    (this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions()).forEach((edition) => {
       this.characterData[edition] = this.getCharacterData(this.filter, edition);
     });
   }
@@ -161,7 +161,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   noResults(): boolean {
-    const editions = this.allEditions ? gameManager.editions(true, true) : gameManager.currentEditions(true);
+    const editions = this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions();
     return editions.every((edition) => !this.characterData[edition] || this.characterData[edition].length === 0);
   }
 

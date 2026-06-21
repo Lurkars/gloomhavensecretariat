@@ -10,6 +10,7 @@
   ],
   "edition": "bb",
   "newAmStyle": true,
+  "type": "standalone",
   "logoUrl": "./assets/images/logos/bb.png",
   "monsterAmTables": [
     [

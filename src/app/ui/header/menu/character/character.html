@@ -31,13 +31,13 @@
     </div>
   }
   <div class="columns">
-    @for (edition of allEditions ? gameManager.editions(true, true) : gameManager.currentEditions(true); track edition) {
+    @for (edition of allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions(); track edition) {
       @if (characterData[edition] && characterData[edition].length > 0) {
         <div class="column spoilers">
           <div
             class="line title sticky"
             [ngClass]="{
-              'hide-title': !allEditions && gameManager.currentEditions().length === 1,
+              'hide-title': !allEditions && gameManager.relevantEditions().length === 1,
               fh: settingsManager.settings.theme === 'fh',
               modern: settingsManager.settings.theme === 'modern'
             }"

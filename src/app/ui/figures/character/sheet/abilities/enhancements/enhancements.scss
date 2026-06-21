@@ -258,6 +258,7 @@ table {
       }
 
       &.disabled {
+        cursor: initial;
         color: var(--ghs-color-darkgray);
 
         &:hover {

@@ -78,12 +78,12 @@ export class EventCardsToolComponent implements OnInit {
   update() {
     this.events = [];
     if (this.edition) {
-      this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition, false);
+      this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition);
       if (!this.type || !this.types.includes(this.type)) {
         this.type = this.types[0];
       }
       this.events = gameManager.eventCardManager
-        .getEventCardsForEdition(this.edition, this.type, false)
+        .getEventCardsForEdition(this.edition, this.type)
         .filter((e, i) => this.iterator === -1 || this.iterator === i);
     }
   }

@@ -1,0 +1,140 @@
+<div
+  class="event-distribution-dialog"
+  [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
+>
+  <span class="title">
+    <span [ghs-label]="'game.events.distribution'"></span>
+  </span>
+
+  @if (receiveEntries.length > 0) {
+    <div class="distribution-section">
+      <span class="section-title" [ghs-label]="'game.events.distribution.receive'"></span>
+      <ghs-party-distribution
+        mode="receive"
+        [entries]="receiveEntries"
+        [globalTotal]="receiveGlobalTotal"
+        [showHeader]="true"
+        [ignoreAbsent]="true"
+        [dark]="true"
+        (distributionChange)="onReceiveChange($event)"
+      ></ghs-party-distribution>
+    </div>
+  }
+
+  @if (spendEntries.length > 0) {
+    <div class="distribution-section">
+      <span class="section-title" [ghs-label]="'game.events.distribution.spend'"></span>
+      <ghs-party-distribution
+        mode="spend"
+        [entries]="spendEntries"
+        [globalTotal]="spendGlobalTotal"
+        [showParty]="true"
+        [showHeader]="true"
+        [dark]="true"
+        (distributionChange)="onSpendChange($event)"
+      ></ghs-party-distribution>
+    </div>
+  }
+
+  @if (itemReceiveEntries.length > 0) {
+    <div class="distribution-section">
+      <span class="section-title" [ghs-label]="'game.events.distribution.receiveItem'"></span>
+      @for (entry of itemReceiveEntries; track $index) {
+        <div class="item-receive-row">
+          <div class="item-preview" (click)="openItemDialog(entry.item)">
+            <ghs-item [item]="entry.item" [flipped]="true"></ghs-item>
+          </div>
+          <div class="characters">
+            @for (character of characters; track character._trackUUID; let i = $index) {
+              <div
+                class="character"
+                [ngClass]="{ selected: entry.assignedTo === i, disabled: entry.assignedTo !== i && !canAssignItem(entry, i) }"
+                (click)="assignItem(entry, i)"
+              >
+                <img class="icon" [src]="character.iconUrl" />
+                <span class="name">{{ gameManager.characterManager.characterName(character, true) }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (itemConsumeEntries.length > 0) {
+    <div class="distribution-section">
+      <span class="section-title" [ghs-label]="'game.events.distribution.consumeItem'"></span>
+      @for (entry of itemConsumeEntries; track $index) {
+        <div class="consume-row">
+          <span class="consume-total">{{ totalConsumedForEntry(entry) }} / {{ entry.count }}</span>
+          @for (character of characters; track character._trackUUID; let ci = $index) {
+            @if (entry.characterItems[ci].length > 0) {
+              <div class="character-consume">
+                <div class="character-header">
+                  <img class="icon" [src]="character.iconUrl" />
+                  <span class="name">{{ gameManager.characterManager.characterName(character, true) }}</span>
+                </div>
+                <div class="item-choices">
+                  @for (item of entry.characterItems[ci]; track $index; let ii = $index) {
+                    <div
+                      class="item-choice"
+                      [ngClass]="{ selected: isConsumeSelected(entry, ci, ii) }"
+                      ghs-pointer-input
+                      (singleClick)="toggleConsumeItem(entry, ci, ii)"
+                      (doubleClick)="openItemDialog(item)"
+                    >
+                      <div class="item-card">
+                        <ghs-item [item]="item" [flipped]="true"></ghs-item>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          }
+        </div>
+      }
+    </div>
+  }
+
+  @if (itemLoseEntries.length > 0) {
+    <div class="distribution-section">
+      <span class="section-title" [ghs-label]="'game.events.distribution.loseItem'"></span>
+      @for (entry of itemLoseEntries; track $index) {
+        <div class="item-receive-row">
+          <div class="item-preview" (click)="openItemDialog(entry.item)">
+            <ghs-item [item]="entry.item" [flipped]="true"></ghs-item>
+          </div>
+          <div class="characters">
+            @for (character of characters; track character._trackUUID; let i = $index) {
+              <div
+                class="character"
+                [ngClass]="{ selected: entry.assignedTo === i, disabled: entry.assignedTo !== i && !canLoseItem(entry, i) }"
+                (click)="assignLoseItem(entry, i)"
+              >
+                <img class="icon" [src]="character.iconUrl" />
+                <span class="name">{{ gameManager.characterManager.characterName(character, true) }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (manualItemEffects.length > 0) {
+    <div class="distribution-section item-effects">
+      <span class="section-title" [ghs-label]="'game.events.applyManually'"></span>
+      @for (effect of manualItemEffects; track $index) {
+        <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
+      }
+    </div>
+  }
+
+  <div class="menu">
+    <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+    <a class="apply" [ngClass]="{ disabled: !isDistributionComplete }" ghs-pointer-input (singleClick)="apply()" (doubleClick)="apply(true)"
+      ><span [ghs-label]="'game.events.distribution.apply'"></span
+    ></a>
+  </div>
+</div>

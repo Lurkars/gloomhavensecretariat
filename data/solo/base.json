@@ -1,7 +1,7 @@
 {
   "edition": "solo",
-  "additional": true,
-  "extensions": [
+  "type": "content",
+  "extends": [
     "gh",
     "gh2e",
     "fh",

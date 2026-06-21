@@ -40,6 +40,7 @@ export class Monster extends MonsterData implements Figure {
   // Monster
   ability: number = -1;
   abilities: number[] = [];
+  revealedAbilities: boolean[] = [];
   entities: MonsterEntity[] = [];
   isAlly: boolean = false;
   isAllied: boolean = false;
@@ -100,6 +101,7 @@ export class Monster extends MonsterData implements Figure {
       this.lastDraw,
       this.ability,
       this.abilities,
+      this.revealedAbilities,
       this.entities.map((value) => value.toModel()),
       this.isAlly,
       this.isAllied,
@@ -126,6 +128,7 @@ export class Monster extends MonsterData implements Figure {
       (model.abilities && model.abilities.length > 0 && model.abilities) ||
       (gameManager.abilities(this) && gameManager.abilities(this).map((ability, index) => index)) ||
       [];
+    this.revealedAbilities = model.revealedAbilities || [];
     this.ability = model.ability;
     this.entities = this.entities.filter((monsterEntity) =>
       model.entities.find((gmem) => gmem.number === monsterEntity.number && gmem.type === monsterEntity.type)
@@ -160,6 +163,7 @@ export class GameMonsterModel {
   lastDraw: number;
   ability: number;
   abilities: number[];
+  revealedAbilities: boolean[];
   entities: GameMonsterEntityModel[];
   isAlly: boolean;
   isAllied: boolean;
@@ -175,6 +179,7 @@ export class GameMonsterModel {
     lastDraw: number,
     ability: number,
     abilities: number[],
+    revealedAbilities: boolean[],
     entities: GameMonsterEntityModel[],
     isAlly: boolean,
     isAllied: boolean,
@@ -189,6 +194,7 @@ export class GameMonsterModel {
     this.lastDraw = lastDraw;
     this.ability = ability;
     this.abilities = JSON.parse(JSON.stringify(abilities));
+    this.revealedAbilities = JSON.parse(JSON.stringify(revealedAbilities));
     this.entities = JSON.parse(JSON.stringify(entities));
     this.isAlly = isAlly;
     this.isAllied = isAllied;

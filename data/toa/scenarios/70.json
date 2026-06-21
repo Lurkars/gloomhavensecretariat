@@ -1,6 +1,7 @@
 {
   "index": "70",
   "name": "Spirits Rising",
+  "flowChartGroup": "toa",
   "edition": "toa",
   "unlocks": [
     "71"

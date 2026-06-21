@@ -845,7 +845,7 @@ export class ScenarioManager {
         this.game.figures.forEach((figure) => {
           if (
             figure instanceof Monster &&
-            (figure.edition === scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(figure.edition)) &&
+            gameManager.isEditionRelevant(scenarioData.edition, figure.edition) &&
             figure.entities.some((entity) => entities.includes(entity))
           ) {
             figure.active = figure.active || !this.game.figures.some((other) => other.active);
@@ -1008,74 +1008,58 @@ export class ScenarioManager {
       return scenarios.filter((scenarioData) => scenarioData.edition === edition);
     }
 
+    const successSet = new Set(this.game.party.scenarios.map((m) => `${m.edition}:${m.group ?? ''}:${m.index}`));
+
+    const scenarioMap = new Map<string, ScenarioData>();
+    scenarios.forEach((s) => scenarioMap.set(`${s.edition}:${s.group ?? ''}:${s.index}`, s));
+
+    const manualSet = new Set(this.game.party.manualScenarios.map((m) => `${m.edition}:${m.group ?? ''}:${m.index}`));
+
+    const unlockedSet = new Set<string>();
+    this.game.party.scenarios.forEach((identifier) => {
+      const scenario = scenarioMap.get(`${identifier.edition}:${identifier.group ?? ''}:${identifier.index}`);
+      if (scenario && scenario.edition === edition && scenario.unlocks) {
+        scenario.unlocks.forEach((idx) => unlockedSet.add(`${scenario.group ?? ''}:${idx}`));
+      }
+    });
+
+    const sectionDataByEdition = new Map<string, ScenarioData[]>();
+    this.game.party.conclusions.forEach((identifier) => {
+      if (!sectionDataByEdition.has(identifier.edition)) {
+        sectionDataByEdition.set(identifier.edition, gameManager.sectionData(identifier.edition));
+      }
+      const conclusionSection = sectionDataByEdition
+        .get(identifier.edition)!
+        .find(
+          (sectionData) =>
+            sectionData.index === identifier.index && sectionData.edition === identifier.edition && sectionData.group === identifier.group
+        );
+      if (conclusionSection && conclusionSection.edition === edition && conclusionSection.unlocks) {
+        conclusionSection.unlocks.forEach((idx) => unlockedSet.add(`${conclusionSection.group ?? ''}:${idx}`));
+      }
+    });
+
     return scenarios.filter((scenarioData) => {
       if (scenarioData.edition !== edition) {
         return false;
       }
 
-      if (this.isSuccess(scenarioData)) {
+      if (successSet.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`)) {
         return true;
       }
 
-      if (
-        this.game.party.manualScenarios.find(
-          (identifier) =>
-            scenarioData.index === identifier.index &&
-            scenarioData.edition === identifier.edition &&
-            scenarioData.group === identifier.group
-        )
-      ) {
+      if (manualSet.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`)) {
         return true;
       }
 
-      let unlocked: boolean = false;
+      const unlocked = unlockedSet.has(`${scenarioData.group ?? ''}:${scenarioData.index}`);
       let requires: boolean = !scenarioData.requires || scenarioData.requires.length === 0;
-
-      this.game.party.scenarios.forEach((identifier) => {
-        const scenario = scenarios.find(
-          (scenarioData) =>
-            scenarioData.index === identifier.index &&
-            scenarioData.edition === identifier.edition &&
-            scenarioData.group === identifier.group
-        );
-
-        if (
-          scenario &&
-          scenario.edition === scenarioData.edition &&
-          scenario.group === scenarioData.group &&
-          scenario.unlocks &&
-          scenario.unlocks.includes(scenarioData.index)
-        ) {
-          unlocked = true;
-        }
-      });
-
-      this.game.party.conclusions.forEach((identifier) => {
-        const conclusionSection = gameManager
-          .sectionData(identifier.edition)
-          .find(
-            (sectionData) =>
-              sectionData.index === identifier.index && sectionData.edition === identifier.edition && sectionData.group === identifier.group
-          );
-
-        if (
-          conclusionSection &&
-          conclusionSection.edition === scenarioData.edition &&
-          conclusionSection.group === scenarioData.group &&
-          conclusionSection.unlocks &&
-          conclusionSection.unlocks.includes(scenarioData.index)
-        ) {
-          unlocked = true;
-        }
-      });
 
       if (!requires) {
         requires = scenarioData.requires.some((requires) =>
           requires.every((index) => {
             const finishedScenarios = this.game.party.scenarios.filter(
-              (model) =>
-                model.index === index &&
-                (model.edition === scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).includes(model.edition))
+              (model) => model.index === index && gameManager.isEditionRelevant(scenarioData.edition, model.edition)
             );
 
             if (finishedScenarios.length > 1) {
@@ -1695,8 +1679,7 @@ export class ScenarioManager {
             .monstersData()
             .find(
               (monsterData) =>
-                monsterData.name === name.split(':')[0] &&
-                (monsterData.edition === scenario.edition || gameManager.editionExtensions(scenario.edition).includes(monsterData.edition))
+                monsterData.name === name.split(':')[0] && gameManager.isEditionRelevant(scenario.edition, monsterData.edition)
             );
           if (monster && !monsters.includes(monster)) {
             monsters.push(monster);
@@ -1739,8 +1722,7 @@ export class ScenarioManager {
                 .find(
                   (monsterData) =>
                     monsterData.name === spawn.monster.name.split(':')[0] &&
-                    (monsterData.edition === scenario.edition ||
-                      gameManager.editionExtensions(scenario.edition).includes(monsterData.edition))
+                    gameManager.isEditionRelevant(scenario.edition, monsterData.edition)
                 );
               if (monster && !monsters.includes(monster)) {
                 monsters.push(monster);

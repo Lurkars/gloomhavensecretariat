@@ -82,39 +82,17 @@
             </span>
           }
         }
-        @if (success && !!rewards && rewards.collectiveGold) {
-          <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
-          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
-            <span class="calc-col">
-              <input
-                type="number"
-                min="0"
-                [max]="collectiveGold[index] + availableCollectiveGold()"
-                [value]="collectiveGold[index]"
-                (change)="changeCollectiveGold($event, index)"
-              />
-            </span>
-          }
-        }
-        @if (success && !!rewards && rewards.collectiveResources && !settingsManager.settings.fhShareResources) {
-          @for (value of rewards.collectiveResources; track value) {
-            <span class="head-col"
-              ><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'" [ghs-label-args]="[value.type]"></span
-            ></span>
-            @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
-              <span class="calc-col">
-                <input
-                  type="number"
-                  min="0"
-                  [max]="
-                    ((collectiveResources[index] && collectiveResources[index][value.type]) || 0) + availableCollectiveResource(value.type)
-                  "
-                  [value]="(collectiveResources[index] && collectiveResources[index][value.type]) || 0"
-                  (change)="changeCollectiveResource($event, index, value.type)"
-                />
-              </span>
-            }
-          }
+        @if (success && !!rewards && collectiveEntries.length > 0) {
+          <ghs-party-distribution
+            mode="receive"
+            [characters]="characters"
+            [entries]="collectiveEntries"
+            [initialCharacterValues]="collectiveInitialCharacterValues"
+            [showHeader]="false"
+            [embedded]="true"
+            [ignoreAbsent]="true"
+            (distributionChange)="onCollectiveChange($event)"
+          ></ghs-party-distribution>
         }
         @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && wealthFavor) {
           <span class="head-col calc-col">

@@ -68,6 +68,7 @@ export class FooterComponent implements OnInit {
   activeCharacter: Character | undefined;
   activeCharacterFade: boolean = false;
   activeCharacterActiveAMs: number = 0;
+  fhRules: boolean = false;
 
   initiativeSetDialog: DialogRef<unknown, ConfirmDialogComponent> | 'discard' | false = false;
 
@@ -205,6 +206,8 @@ export class FooterComponent implements OnInit {
     }
 
     this.isDisabled = this.disabled();
+
+    this.fhRules = gameManager.fhRules();
 
     if (
       settingsManager.settings.initiativeRequired &&

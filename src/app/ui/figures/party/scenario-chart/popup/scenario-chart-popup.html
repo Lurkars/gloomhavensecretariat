@@ -4,6 +4,10 @@
       <span class="subtitle" [ghs-label]="'data.custom.' + scenario.edition + '.flowChartGroup.' + scenario.flowChartGroup"></span>
     }
     <span class="title">
+      @if (scenario.solo) {
+        <img [src]="gameManager.characterManager.characterIcon(scenario.solo, scenario.edition)" class="ghs-svg solo" />
+      }
+
       <span class="number text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>
       <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
 
@@ -29,12 +33,7 @@
   }
 
   <div class="spoiler-block" [ngClass]="{ visible: showSetup }">
-    <ghs-scenario-setup
-      [scenario]="scenario"
-      [details]="false"
-      [title]="false"
-      [spoiler]="gameManager.scenarioManager.isSuccess(scenario)"
-    ></ghs-scenario-setup>
+    <ghs-scenario-setup [scenario]="scenario" [details]="false" [title]="false" [spoiler]="isSuccess"></ghs-scenario-setup>
 
     <div class="background" (click)="showSetup = true">
       @if (!showSetup) {
@@ -109,9 +108,9 @@
       class="play"
       [ngClass]="{
         casual: !gameManager.game.party.campaignMode,
-        success: gameManager.scenarioManager.isSuccess(scenario),
-        locked: gameManager.scenarioManager.isLocked(scenario),
-        blocked: gameManager.scenarioManager.isBlocked(scenario)
+        success: isSuccess,
+        locked: isLocked,
+        blocked: isBlocked
       }"
       (click)="setScenario()"
       [ghs-label]="'scenario.chart.start'"

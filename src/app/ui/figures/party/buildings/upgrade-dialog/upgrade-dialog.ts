@@ -10,6 +10,7 @@ import { LootType } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { Building } from 'src/app/ui/figures/party/buildings/buildings';
+import { DistributionChange, DistributionEntry, PartyDistributionComponent } from 'src/app/ui/figures/party/distribution/distribution';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -17,7 +18,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  imports: [NgClass, FormsModule, GhsLabelDirective, TrackUUIDPipe],
+  imports: [NgClass, FormsModule, GhsLabelDirective, TrackUUIDPipe, PartyDistributionComponent],
   selector: 'ghs-buildings-upgrade-dialog',
   templateUrl: 'upgrade-dialog.html',
   styleUrls: ['./upgrade-dialog.scss']
@@ -131,6 +132,46 @@ export class BuildingUpgradeDialog implements OnInit {
     if (this.force && (this.repair || !settingsManager.settings.applyBuildingRewards || !gameManager.game.party.campaignMode)) {
       this.dialogRef.close(true);
     }
+  }
+
+  get upgradeEntries(): DistributionEntry[] {
+    const entries: DistributionEntry[] = [];
+    if (this.costs.gold) entries.push({ type: 'gold', total: this.costs.gold });
+    if (this.costs.lumber) entries.push({ type: LootType.lumber, total: this.costs.lumber });
+    if (this.costs.metal) entries.push({ type: LootType.metal, total: this.costs.metal });
+    if (this.costs.hide) entries.push({ type: LootType.hide, total: this.costs.hide });
+    return entries;
+  }
+
+  get upgradeInitialPartyValues(): Partial<Record<string, number>> {
+    return {
+      lumber: this.fhSupportSpent.lumber || 0,
+      metal: this.fhSupportSpent.metal || 0,
+      hide: this.fhSupportSpent.hide || 0
+    };
+  }
+
+  onCostChange(change: DistributionChange): void {
+    const type = change.type as keyof BuildingCosts;
+    if (change.source === 'party') {
+      this.fhSupportSpent[type] = change.value;
+    } else {
+      this.characterSpent[change.source as number][type] = change.value;
+    }
+    this.recalculatePaidResources();
+  }
+
+  recalculatePaidResources(): void {
+    this.spent.gold = (this.fhSupportSpent.gold || 0) + this.characterSpent.reduce((s, cs) => s + (cs.gold || 0), 0);
+    this.spent.lumber = (this.fhSupportSpent.lumber || 0) + this.characterSpent.reduce((s, cs) => s + (cs.lumber || 0), 0);
+    this.spent.metal = (this.fhSupportSpent.metal || 0) + this.characterSpent.reduce((s, cs) => s + (cs.metal || 0), 0);
+    this.spent.hide = (this.fhSupportSpent.hide || 0) + this.characterSpent.reduce((s, cs) => s + (cs.hide || 0), 0);
+    this.paidResources =
+      (this.fhSupportSpent.lumber || 0) +
+      (this.fhSupportSpent.metal || 0) +
+      (this.fhSupportSpent.hide || 0) +
+      (this.fhSupportSpent.manual || 0) +
+      this.characterSpent.reduce((sum, cs) => sum + (cs.lumber || 0) + (cs.metal || 0) + (cs.hide || 0), 0);
   }
 
   changeValue(type: BuildingCostType, spent: BuildingCosts, value: number) {

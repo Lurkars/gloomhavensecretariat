@@ -1,7 +1,7 @@
 {
   "edition": "sox",
-  "additional": true,
-  "extensions": [
+  "type": "content",
+  "extends": [
     "gh",
     "fc"
   ]

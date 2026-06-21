@@ -17,6 +17,8 @@ export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
 export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
 export const GH2E_PROSPERITY_STEPS = [4, 11, 21, 32, 44, 58, 73, 88];
 
+export type EditionType = 'standalone' | 'addon' | 'extension' | 'content';
+
 export class EditionData implements Editional {
   // from Editional
   edition: string;
@@ -42,8 +44,7 @@ export class EditionData implements Editional {
   labelEvents: any = {};
   url: string = '';
   logoUrl: string = '';
-  additional: boolean = false;
-  extensions: string[] = [];
+  type: EditionType = 'standalone';
   extends: string[] = [];
   newAmStyle: boolean = false;
   newItemStyle: boolean = false;
@@ -63,9 +64,7 @@ export class EditionData implements Editional {
     conditions: string[] | undefined = undefined,
     battleGoals: BattleGoal[] = [],
     events: EventCard[] = [],
-    personalQuests: PersonalQuest[] = [],
-    additional: boolean = false,
-    extensions: string[] = []
+    personalQuests: PersonalQuest[] = []
   ) {
     this.edition = edition;
     this.characters = characters;
@@ -80,8 +79,6 @@ export class EditionData implements Editional {
     this.battleGoals = battleGoals;
     this.events = events;
     this.personalQuests = personalQuests;
-    this.additional = additional;
-    this.extensions = extensions;
   }
 }
 

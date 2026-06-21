@@ -66,7 +66,6 @@
     @if (group) {
       <div class="line title group">
         <label [ghs-label]="'data.scenario.group.' + group"></label>
-        <a (click)="scenarioChart(group)" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg" src="./assets/images/chart.svg" /></a>
       </div>
     }
     <div class="line scenarios">
@@ -106,7 +105,7 @@
           @if (scenario.solo) {
             <img class="ghs-svg solo" [src]="gameManager.characterManager.characterIcon(scenario.solo)" />
           }
-          @if (gameManager.scenarioManager.isSuccess(scenario)) {
+          @if (scenario.isSuccess) {
             <span class="state success">
               <img src="./assets/images/check.svg" />
             </span>

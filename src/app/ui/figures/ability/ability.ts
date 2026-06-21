@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, input, OnChanges, OnInit } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit, output } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -48,6 +48,7 @@ export class AbilityComponent implements OnInit, OnChanges {
   readonly interactiveAbilities = input<boolean>(false);
   readonly statsCalculation = input<boolean>(true);
   readonly activeActions = input<'top' | 'bottom' | false>(false);
+  readonly revealedChanged = output<boolean>();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -99,9 +100,7 @@ export class AbilityComponent implements OnInit, OnChanges {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
     }
-    this.fh =
-      (this.character && (this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh'))) ||
-      false;
+    this.fh = (this.character && gameManager.isEditionRelevant(this.character.edition, 'fh')) || false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;
   }
 
@@ -130,6 +129,7 @@ export class AbilityComponent implements OnInit, OnChanges {
     if (this.ability) {
       this.ability.revealed = revealed;
     }
+    this.revealedChanged.emit(revealed);
   }
 
   onInteractiveActionsChange(change: InteractiveAction[]) {

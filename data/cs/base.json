@@ -20,10 +20,11 @@
     "empower"
   ],
   "edition": "cs",
-  "extensions": [
+  "newAmStyle": true,
+  "logoUrl": "./assets/images/logos/cs.png",
+  "type": "extension",
+  "extends": [
     "gh",
     "fc"
-  ],
-  "newAmStyle": true,
-  "logoUrl": "./assets/images/logos/cs.png"
+  ]
 }

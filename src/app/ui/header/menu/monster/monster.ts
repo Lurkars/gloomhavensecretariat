@@ -34,11 +34,11 @@ export class MonsterMenuComponent {
   }
 
   hasBossMonster(): boolean {
-    return gameManager.currentEditions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.boss));
+    return gameManager.relevantEditions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.boss));
   }
 
   hasHiddenMonster(): boolean {
-    return gameManager.currentEditions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.hidden));
+    return gameManager.relevantEditions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.hidden));
   }
 
   monsterData(edition: string | undefined = undefined, filter: string = ''): MonsterData[] {
@@ -46,6 +46,7 @@ export class MonsterMenuComponent {
       .monstersData(edition)
       .filter(
         (monsterData) =>
+          (!edition || gameManager.isEditionRelevant(monsterData.edition, edition)) &&
           (!monsterData.boss || monsterData.boss === settingsManager.settings.showBossMonster) &&
           (!monsterData.hidden || monsterData.hidden === settingsManager.settings.showHiddenMonster) &&
           (!filter ||
@@ -104,6 +105,6 @@ export class MonsterMenuComponent {
   }
 
   noResults(): boolean {
-    return gameManager.currentEditions().every((edition) => this.monsterData(edition, this.filter).length === 0);
+    return gameManager.relevantEditions().every((edition) => this.monsterData(edition, this.filter).length === 0);
   }
 }

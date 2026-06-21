@@ -628,6 +628,7 @@
         "personal-quests": "Persönliche Quest",
         "puzzle-book": "Rätselbuch",
         "random-scenarios": "Zufallsszenario",
+        "solo": "Solo Szenarien",
         "unfettered": "Entfesselte"
       },
       "frozen-corpse": {
@@ -938,7 +939,8 @@
   },
   "scenario": {
     "group": {
-      "randomMonsterCard": "Zufällige Monster Karten"
+      "randomMonsterCard": "Zufällige Monster Karten",
+      "solo": "Solo Szenarien"
     },
     "rewards": {
       "fh": {

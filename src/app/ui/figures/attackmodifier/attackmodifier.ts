@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, input } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, input, output } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import {
@@ -38,6 +38,8 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   readonly inputNewStyle = input<boolean>(false, { alias: 'newStyle' });
   readonly townGuard = input<boolean>(false);
   readonly bbIndex = input<number>(-1);
+  readonly revealedChanged = output<boolean>();
+
   newStyle: boolean = false;
   characterIcon: string = '';
   effectClasses: string = '';
@@ -142,6 +144,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   onChange(revealed: boolean) {
     this.attackModifier.revealed = revealed;
+    this.revealedChanged.emit(revealed);
   }
 
   ngOnChanges(changes: SimpleChanges): void {

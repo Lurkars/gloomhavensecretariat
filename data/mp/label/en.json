@@ -21,6 +21,11 @@
     }
   },
   "custom": {
+    "mp": {
+      "flowChartGroup": {
+        "solo": "Solo Scenarios"
+      }
+    },
     "perks": {
       "anaphi": {
         "3": "Add %game.action.attack.valueSign:1% when drawn by a summon",

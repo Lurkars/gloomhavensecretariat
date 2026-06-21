@@ -20,6 +20,7 @@ import { ChallengeDialogComponent } from 'src/app/ui/figures/challenges/dialog/c
 import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/character-sheet-dialog';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
+import { DistributionChange, DistributionEntry, PartyDistributionComponent } from 'src/app/ui/figures/party/distribution/distribution';
 import { ScenarioRequirementsDialogComponent } from 'src/app/ui/figures/party/requirements/requirements';
 import { TrialDialogComponent } from 'src/app/ui/figures/trials/dialog/trial-dialog';
 import { TreasureLabelComponent } from 'src/app/ui/footer/scenario/treasures/label/label';
@@ -40,7 +41,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
     ChallengeCardComponent,
     ItemComponent,
     BattleGoalComponent,
-    TreasureLabelComponent
+    TreasureLabelComponent,
+    PartyDistributionComponent
   ],
   selector: 'ghs-scenario-summary',
   templateUrl: './scenario-summary.html',
@@ -867,6 +869,58 @@ export class ScenarioSummaryComponent {
     }
   }
 
+  get collectiveEntries(): DistributionEntry[] {
+    const entries: DistributionEntry[] = [];
+    if (this.rewards?.collectiveGold) {
+      entries.push({ type: 'gold', total: this.rewards.collectiveGold });
+    }
+    if (this.rewards?.collectiveResources && !settingsManager.settings.fhShareResources) {
+      for (const resource of this.rewards.collectiveResources) {
+        entries.push({ type: resource.type, total: EntityValueFunction(resource.value) });
+      }
+    }
+    return entries;
+  }
+
+  get collectiveInitialCharacterValues(): Partial<Record<string, number>>[] {
+    return this.characters.map((_, i) => {
+      const values: Partial<Record<string, number>> = {};
+      if (this.collectiveGold[i]) values['gold'] = this.collectiveGold[i];
+      if (this.collectiveResources[i]) {
+        for (const [type, val] of Object.entries(this.collectiveResources[i])) {
+          if (val) values[type] = val;
+        }
+      }
+      return values;
+    });
+  }
+
+  onCollectiveChange(change: DistributionChange): void {
+    if (change.source === 'party') return;
+    const index = change.source as number;
+    if (change.type === 'gold') {
+      const value = change.value;
+      if (value !== (this.collectiveGold[index] || 0)) {
+        gameManager.stateManager.before('finishScenario.dialog.collectiveGold', index, value);
+        this.collectiveGold[index] = value;
+        this.updateFinish();
+        gameManager.stateManager.after();
+      }
+    } else {
+      const type = change.type as LootType;
+      const value = change.value;
+      if (!this.collectiveResources[index]) {
+        this.collectiveResources[index] = {};
+      }
+      if (value !== (this.collectiveResources[index][type] || 0)) {
+        gameManager.stateManager.before('finishScenario.dialog.collectiveResource', type, index, value);
+        this.collectiveResources[index][type] = value;
+        this.updateFinish();
+        gameManager.stateManager.after();
+      }
+    }
+  }
+
   changeCollectiveGold(event: any, index: number) {
     let value = +event.target.value;
     const old = this.collectiveGold[index] || 0;
@@ -985,35 +1039,6 @@ export class ScenarioSummaryComponent {
             character.progress.trial = undefined;
           }
 
-          if (this.collectiveGold[index] > 0) {
-            character.progress.gold += this.collectiveGold[index];
-          }
-
-          if (this.collectiveResources[index]) {
-            Object.keys(this.collectiveResources[index]).forEach((value) => {
-              const lootType: LootType = value as LootType;
-              character.progress.loot[lootType] =
-                (character.progress.loot[lootType] || 0) + (this.collectiveResources[index][lootType] || 0);
-            });
-          }
-
-          this.rewardItems.forEach((item, itemIndex) => {
-            if (this.items.every((items) => !items.includes(itemIndex))) {
-              this.items[index] = this.items[index] || [];
-              this.items[index].push(itemIndex);
-            }
-          });
-
-          if (this.items[index] && this.items[index].length > 0) {
-            this.items[index].forEach((itemIndex) => {
-              const item = this.rewardItems[itemIndex];
-              if (settingsManager.settings.characterItems) {
-                gameManager.itemManager.addItem(item, character);
-              }
-              gameManager.itemManager.addItemCount(item);
-            });
-          }
-
           if (this.challenges) {
             for (let i = 0; i < this.challenges; i++) {
               character.progress.experience += 2;
@@ -1030,6 +1055,34 @@ export class ScenarioSummaryComponent {
               character.progress.experience += 3 * gameManager.trialsManager.activeFavor('fh', 'knowledge');
             }
           }
+        }
+
+        if (this.collectiveGold[index] > 0) {
+          character.progress.gold += this.collectiveGold[index];
+        }
+
+        if (this.collectiveResources[index]) {
+          Object.keys(this.collectiveResources[index]).forEach((value) => {
+            const lootType: LootType = value as LootType;
+            character.progress.loot[lootType] = (character.progress.loot[lootType] || 0) + (this.collectiveResources[index][lootType] || 0);
+          });
+        }
+
+        this.rewardItems.forEach((item, itemIndex) => {
+          if (this.items.every((items) => !items.includes(itemIndex))) {
+            this.items[index] = this.items[index] || [];
+            this.items[index].push(itemIndex);
+          }
+        });
+
+        if (this.items[index] && this.items[index].length > 0) {
+          this.items[index].forEach((itemIndex) => {
+            const item = this.rewardItems[itemIndex];
+            if (settingsManager.settings.characterItems) {
+              gameManager.itemManager.addItem(item, character);
+            }
+            gameManager.itemManager.addItemCount(item);
+          });
         }
       });
 

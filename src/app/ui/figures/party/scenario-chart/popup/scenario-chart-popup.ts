@@ -40,6 +40,8 @@ export class ScenarioChartPopupDialog {
   gameManager: GameManager = gameManager;
   scenario: Scenario;
   isSuccess: boolean = false;
+  isBlocked: boolean = false;
+  isLocked: boolean = false;
   showSetup: boolean = false;
   showTreasures: boolean = false;
   showRecap: boolean = false;
@@ -62,6 +64,8 @@ export class ScenarioChartPopupDialog {
 
   update() {
     this.isSuccess = gameManager.scenarioManager.isSuccess(this.scenario);
+    this.isBlocked = gameManager.scenarioManager.isBlocked(this.scenario);
+    this.isLocked = gameManager.scenarioManager.isLocked(this.scenario);
     this.showSetup = this.isSuccess;
     this.hasRequirements = gameManager.scenarioManager.getRequirements(this.scenario, true).length > 0;
     this.hasMissingRequirements = gameManager.scenarioManager.getRequirements(this.scenario).length > 0;

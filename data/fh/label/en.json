@@ -1572,6 +1572,7 @@
         "personal-quests": "Personal Quests",
         "puzzle-book": "Puzzle Book",
         "random-scenarios": "Random Scenarios",
+        "solo": "Solo Scenarios",
         "unfettered": "Unfettered"
       },
       "frozen-corpse": {
@@ -1994,7 +1995,8 @@
   },
   "scenario": {
     "group": {
-      "randomMonsterCard": "Random Monster Cards"
+      "randomMonsterCard": "Random Monster Cards",
+      "solo": "Solo Scenarios"
     },
     "rewards": {
       "fh": {

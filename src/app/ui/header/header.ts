@@ -58,6 +58,7 @@ export class HeaderComponent implements OnInit {
   elements: Element[] = [Element.fire, Element.ice, Element.air, Element.earth, Element.light, Element.dark];
 
   init: boolean = false;
+  bbRules: boolean = false;
   hintState: string = '';
   characterCount: number = 0;
 
@@ -84,6 +85,7 @@ export class HeaderComponent implements OnInit {
       }
       this.updateClock();
       this.syncing = window.document.body.classList.contains('server-sync');
+      this.bbRules = gameManager.bbRules();
     });
   }
 

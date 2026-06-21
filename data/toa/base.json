@@ -23,10 +23,11 @@
     "enfeeble"
   ],
   "edition": "toa",
-  "extensions": [
-    "cs"
-  ],
   "newAmStyle": true,
   "logoUrl": "./assets/images/logos/toa.png",
-  "treasureOffset": 50
+  "treasureOffset": 50,
+  "type": "addon",
+  "extends": [
+    "cs"
+  ]
 }

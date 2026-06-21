@@ -169,6 +169,25 @@
             filter: var(--ghs-filter-green) var(--ghs-filter-shadow);
           }
         }
+
+        .keep-revealed {
+          z-index: 1;
+          position: absolute;
+          display: flex;
+          cursor: pointer;
+          bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          left: 50%;
+          transform: translateX(-50%);
+          justify-content: center;
+          align-items: center;
+          width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          color: var(--ghs-filter-white) var(--ghs-filter-shadow);
+
+          .ghs-svg {
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+          }
+        }
       }
 
       &.deleted .container ghs-ability {

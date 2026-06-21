@@ -419,14 +419,12 @@ export class SettingsManager {
   addEdition(edition: string) {
     if (!this.settings.editions.includes(edition)) {
       this.settings.editions.push(edition);
-      gameManager.resetEditionMapping();
       this.storeSettings();
     }
   }
 
   removeEdition(edition: string) {
     this.settings.editions.splice(this.settings.editions.indexOf(edition), 1);
-    gameManager.resetEditionMapping();
     this.storeSettings();
   }
 
@@ -486,8 +484,7 @@ export class SettingsManager {
           value.labelEvents = value.labelEvents || {};
           value.url = url;
           value.logoUrl = value.logoUrl || '';
-          value.additional = value.additional || false;
-          value.extensions = value.extensions || [];
+          value.extends = value.extends || [];
           value.newAmStyle = value.newAmStyle || false;
           value.newItemStyle = value.newItemStyle || false;
           value.treasures = value.treasures || [];

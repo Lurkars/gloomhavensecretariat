@@ -1,0 +1,105 @@
+<div
+  class="distribution"
+  [ngClass]="{
+    dark: dark(),
+    light: !dark(),
+    fh: settingsManager.settings.theme === 'fh',
+    modern: settingsManager.settings.theme === 'modern'
+  }"
+>
+  <div class="table" [style.--ghs-summary-columns]="columnCount">
+    @if (showHeader()) {
+      <span class="head-col first"></span>
+      @if (showParty()) {
+        <span class="first">
+          <span [ghs-label]="'party.campaign.sheet.supply'"></span>
+        </span>
+      }
+      @if (showCharacterColumns) {
+        @for (character of characters | trackUUID; track character._trackUUID) {
+          <span class="first">
+            <img class="icon character-icon" [src]="character.iconUrl" />
+            <span class="name" [ngClass]="{ absent: !ignoreAbsent() && character.absent }">
+              {{ gameManager.characterManager.characterName(character, true) }}
+            </span>
+          </span>
+        }
+      }
+    }
+    @for (entry of entries(); track entry.type) {
+      <span
+        class="head-col"
+        [ngClass]="{
+          'calc-col': true,
+          some: mode() === 'spend' ? paid(entry) > 0 : remaining(entry) < entry.total,
+          full: mode() === 'spend' ? paid(entry) >= entry.total : remaining(entry) === 0
+        }"
+      >
+        @if (entry.type === 'gold') {
+          <img class="ghs-svg" [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'" />
+        } @else if (entry.type === 'experience') {
+          <img class="ghs-svg" [src]="'./assets/images/experience.svg'" />
+        } @else {
+          <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + entry.type + '.svg'" />
+        }
+        <span class="progress">
+          <span class="current">{{ mode() === 'spend' ? paid(entry) : entry.total - remaining(entry) }}</span>
+          <span class="separator">/</span>
+          <span class="total">{{ entry.total }}</span>
+        </span>
+      </span>
+      @if (showParty()) {
+        <span class="calc-col">
+          @if (
+            mode() === 'spend' &&
+            entry.type !== 'gold' &&
+            entry.type !== 'experience' &&
+            (partyAvailable(entry.type) > 0 || (partyValues[entry.type] || 0) > 0)
+          ) {
+            <a class="button" [ngClass]="{ disabled: !canDecrement(entry.type, 'party') }" (click)="decrement(entry.type, 'party')">
+              <img class="ghs-svg" src="./assets/images/minus.svg" />
+            </a>
+            <span class="value">{{ partyValues[entry.type] || '-' }} / {{ partyAvailable(entry.type) }}</span>
+            <a class="button" [ngClass]="{ disabled: !canIncrement(entry.type, 'party') }" (click)="increment(entry.type, 'party')">
+              <img class="ghs-svg" src="./assets/images/plus.svg" />
+            </a>
+          } @else {
+            <span>-</span>
+          }
+        </span>
+      }
+      @if (showCharacterColumns) {
+        @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
+          <span class="calc-col" [ngClass]="{ absent: !ignoreAbsent() && character.absent }">
+            @if (mode() === 'receive') {
+              @if (ignoreAbsent() || !character.absent) {
+                <input
+                  type="number"
+                  min="0"
+                  [max]="maxReceive(entry.type, i)"
+                  [value]="characterValues[i]?.[entry.type] || 0"
+                  (change)="onInputChange(entry.type, i, $event)"
+                />
+              } @else {
+                <span>-</span>
+              }
+            }
+            @if (mode() === 'spend') {
+              @if ((ignoreAbsent() || !character.absent) && characterAvailable(entry.type, i) > 0) {
+                <a class="button" [ngClass]="{ disabled: !canDecrement(entry.type, i) }" (click)="decrement(entry.type, i)">
+                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                </a>
+                <span class="value">{{ characterValues[i]?.[entry.type] || '-' }} / {{ characterAvailable(entry.type, i) }}</span>
+                <a class="button" [ngClass]="{ disabled: !canIncrement(entry.type, i) }" (click)="increment(entry.type, i)">
+                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                </a>
+              } @else {
+                <span>-</span>
+              }
+            }
+          </span>
+        }
+      }
+    }
+  </div>
+</div>

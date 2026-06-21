@@ -149,6 +149,7 @@ export enum EventCardEffectType {
   gainTrait = 'gainTrait',
   inspiration = 'inspiration',
   item = 'item',
+  itemCollective = 'itemCollective',
   itemDesign = 'itemDesign',
   loseBattleGoal = 'loseBattleGoal',
   loseCollectiveExperience = 'loseCollectiveExperience',

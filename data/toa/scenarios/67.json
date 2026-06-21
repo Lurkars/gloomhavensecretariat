@@ -1,6 +1,7 @@
 {
   "index": "67",
   "name": "The Dark Valley",
+  "flowChartGroup": "toa",
   "edition": "toa",
   "initial": true,
   "unlocks": [

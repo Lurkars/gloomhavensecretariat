@@ -45,10 +45,16 @@ export class ScenarioMenuComponent implements OnInit {
     all: boolean;
     scenarios: ScenarioCache[];
   }[] = [];
+  private maxScenarioCache: Map<string | undefined, number> = new Map();
+
+  private clearCache() {
+    this.scenarioCache = [];
+    this.maxScenarioCache.clear();
+  }
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
-      this.scenarioCache = [];
+      this.clearCache();
       this.setEditions();
     });
   }
@@ -71,18 +77,12 @@ export class ScenarioMenuComponent implements OnInit {
 
   setEditions() {
     if (gameManager.game.edition) {
-      this.editions = [
-        gameManager.game.edition,
-        ...gameManager.editionExtensions(gameManager.game.edition),
-        ...gameManager.editionScenarioExtensions(gameManager.game.edition)
-      ];
+      this.editions = gameManager.relevantEditions(gameManager.game.edition, true);
     } else {
       this.editions = gameManager.editionData.map((editionData) => editionData.edition);
     }
 
-    this.editions = this.editions.filter(
-      (edition) => gameManager.scenarioManager.scenarioData(edition).length > 0 && settingsManager.settings.editions.includes(edition)
-    );
+    this.editions = this.editions.filter((edition) => gameManager.scenarioManager.scenarioData(edition).length > 0);
 
     this.hasRandom =
       (this.edition &&
@@ -92,6 +92,7 @@ export class ScenarioMenuComponent implements OnInit {
 
   setEdition(edition: string) {
     this.edition = edition;
+    this.maxScenarioCache.clear();
     this.updateGroups();
     this.setEditions();
   }
@@ -134,8 +135,33 @@ export class ScenarioMenuComponent implements OnInit {
 
     model = { edition: this.edition, group: group, filterSuccess: filterSuccess, includeSpoiler: includeSpoiler, all: all, scenarios: [] };
 
-    model.scenarios = gameManager.scenarioManager
-      .scenarioData(this.edition, all)
+    const allScenariosForEdition = gameManager.scenarioManager.scenarioData(this.edition, all);
+
+    const successSet = new Set(
+      gameManager.game.party.scenarios.filter((m) => m.edition === this.edition).map((m) => `${m.group ?? ''}:${m.index}`)
+    );
+
+    const scenarioMap = new Map<string, ScenarioData>();
+    allScenariosForEdition.forEach((s) => scenarioMap.set(`${s.group ?? ''}:${s.index}`, s));
+    const blockedIndices = new Set<string>();
+    gameManager.game.party.scenarios
+      .filter((m) => m.edition === this.edition && successSet.has(`${m.group ?? ''}:${m.index}`))
+      .forEach((m) => {
+        const s = scenarioMap.get(`${m.group ?? ''}:${m.index}`);
+        if (s?.blocks) {
+          s.blocks.forEach((b) => blockedIndices.add(`${m.group ?? ''}:${b}`));
+        }
+      });
+    gameManager.game.party.conclusions
+      .filter((m) => m.edition === this.edition)
+      .forEach((m) => {
+        const section = gameManager.scenarioManager.getSection(m.index, m.edition, m.group, true);
+        if (section?.blocks) {
+          section.blocks.forEach((b) => blockedIndices.add(`${m.group ?? ''}:${b}`));
+        }
+      });
+
+    model.scenarios = allScenariosForEdition
       .filter(
         (scenarioData) =>
           scenarioData.group === group &&
@@ -143,15 +169,17 @@ export class ScenarioMenuComponent implements OnInit {
             !scenarioData.spoiler ||
             gameManager.game.unlockedCharacters.includes(scenarioData.edition + ':' + scenarioData.name) ||
             (scenarioData.solo && gameManager.game.unlockedCharacters.includes(scenarioData.edition + ':' + scenarioData.solo))) &&
-          (!filterSuccess || (!gameManager.scenarioManager.isSuccess(scenarioData) && !gameManager.scenarioManager.isBlocked(scenarioData)))
+          (!filterSuccess ||
+            (!successSet.has(`${scenarioData.group ?? ''}:${scenarioData.index}`) &&
+              !blockedIndices.has(`${scenarioData.group ?? ''}:${scenarioData.index}`)))
       )
       .sort(gameManager.scenarioManager.sortScenarios)
       .map(
         (scenarioData) =>
           new ScenarioCache(
             scenarioData,
-            gameManager.scenarioManager.isSuccess(scenarioData),
-            gameManager.scenarioManager.isBlocked(scenarioData),
+            successSet.has(`${scenarioData.group ?? ''}:${scenarioData.index}`),
+            blockedIndices.has(`${scenarioData.group ?? ''}:${scenarioData.index}`),
             gameManager.scenarioManager.isLocked(scenarioData)
           )
       );
@@ -162,7 +190,10 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   maxScenario(group: string | undefined) {
-    return Math.max(...this.scenarios(group).map((scenarioData) => scenarioData.index.length));
+    if (!this.maxScenarioCache.has(group)) {
+      this.maxScenarioCache.set(group, Math.max(0, ...this.scenarios(group).map((s) => s.index.length)));
+    }
+    return this.maxScenarioCache.get(group)!;
   }
 
   setScenario(scenarioData: ScenarioData) {
@@ -297,7 +328,7 @@ export class ScenarioMenuComponent implements OnInit {
       input.value = numbers.join(',');
     }
 
-    this.scenarioCache = [];
+    this.clearCache();
   }
 
   hasSpoilers(group: string | undefined): boolean {
@@ -323,17 +354,16 @@ export class ScenarioMenuComponent implements OnInit {
   toggleCampaignMode() {
     gameManager.stateManager.before(gameManager.game.party.campaignMode ? 'disablePartyCampaignMode' : 'enablePartyCampaignMode');
     gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
-    this.scenarioCache = [];
+    this.clearCache();
     gameManager.stateManager.after();
   }
 
-  scenarioChart(group: string | undefined = undefined) {
+  scenarioChart() {
     this.dialog.open(ScenarioChartDialogComponent, {
       panelClass: ['fullscreen-panel', 'no-dialog-animations'],
       backdropClass: ['fullscreen-backdrop'],
       data: {
-        edition: this.edition,
-        group: group
+        edition: this.edition
       }
     });
     this.closed.emit();

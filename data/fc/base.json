@@ -12,9 +12,10 @@
   ],
   "edition": "fc",
   "extendWorldMap": "gh",
-  "extensions": [
-    "gh"
-  ],
   "logoUrl": "./assets/images/logos/fc.png",
-  "treasureOffset": 75
+  "treasureOffset": 75,
+  "type": "addon",
+  "extends": [
+    "gh"
+  ]
 }

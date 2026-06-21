@@ -1,6 +1,7 @@
 {
   "index": "76",
   "name": "Untold Woe",
+  "flowChartGroup": "side",
   "edition": "toa",
   "rewards": {
     "gold": 10,

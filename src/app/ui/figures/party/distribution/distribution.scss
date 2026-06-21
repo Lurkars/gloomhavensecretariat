@@ -1,0 +1,183 @@
+.distribution {
+  .table {
+    --ghs-summary-columns: 3;
+    font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+    display: grid;
+    grid-template-columns: repeat(var(--ghs-summary-columns), auto);
+    padding-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+    margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-white);
+    overflow: auto;
+
+    .ghs-svg {
+      width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      height: auto;
+      filter: var(--ghs-filter-white);
+    }
+
+    & > span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
+      border-right: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
+    }
+
+    .head-col {
+      font-family: var(--ghs-font-title);
+      font-weight: bold;
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      flex-direction: row;
+      justify-content: flex-end;
+      background-image: url('../../../../../assets/images/dialog_background.png');
+      position: sticky;
+      left: 0;
+      z-index: 1;
+
+      .progress {
+        display: flex;
+        align-items: center;
+        gap: 0.15em;
+
+        .current {
+          color: var(--ghs-color-red);
+        }
+
+        .separator {
+          opacity: 0.5;
+        }
+      }
+
+      &.some .progress .current {
+        color: var(--ghs-color-yellow);
+      }
+
+      &.full .progress .current {
+        color: var(--ghs-color-green);
+      }
+    }
+
+    .calc-col {
+      span {
+        opacity: 0.6;
+      }
+
+      &.absent {
+        opacity: 0.4;
+      }
+    }
+
+    .first {
+      font-family: var(--ghs-font-title);
+      border-top: none;
+    }
+
+    img {
+      height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+
+    .character-icon {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .name {
+      font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+      white-space: nowrap;
+
+      &.absent {
+        text-decoration: line-through;
+      }
+    }
+
+    input[type='number'] {
+      flex-grow: 1;
+      width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+      text-align: center;
+    }
+
+    .value {
+      color: var(--ghs-color-white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0.15em;
+      white-space: nowrap;
+    }
+
+    .button {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0.15em;
+
+      &.disabled {
+        pointer-events: none;
+        color: var(--ghs-color-gray);
+
+        .ghs-svg {
+          filter: var(--ghs-filter-gray) !important;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  // Light mode: invert colors for brighter backgrounds
+  &.light {
+    .table {
+      color: var(--ghs-color-darkgray);
+
+      & > span {
+        border-bottom-color: var(--ghs-color-darkgray);
+      }
+
+      .head-col {
+        background-image: none;
+        background-color: var(--ghs-color-light-gray, #e0e0e0);
+      }
+
+      .ghs-svg {
+        filter: var(--ghs-filter-darkgray, none);
+      }
+
+      .value {
+        color: var(--ghs-color-darkgray);
+      }
+    }
+  }
+
+  // Theme-specific sticky header backgrounds
+  &.fh {
+    .table .head-col {
+      background-image: url('../../../../../assets/images/fh/dialog_background_fh.png');
+    }
+
+    &.light .table .head-col {
+      background-image: none;
+    }
+  }
+
+  &.modern {
+    .table .head-col {
+      background-image: url('../../../../../assets/images/modern/dialog_background_modern.png');
+    }
+
+    &.light .table .head-col {
+      background-image: none;
+    }
+  }
+}
+
+:host.embedded,
+:host.embedded .distribution,
+:host.embedded .table {
+  display: contents;
+}

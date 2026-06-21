@@ -67,8 +67,11 @@
             <ghs-ability
               [ability]="ability"
               [monster]="monster"
-              [flipped]="reveal === 2 || index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1"
+              [flipped]="
+                reveal === 2 || index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1 || ability.revealed
+              "
               [reveal]="true"
+              (revealedChanged)="onRevealedChange(index + monster.ability + 1, $event)"
             >
             </ghs-ability>
 
@@ -79,6 +82,18 @@
               <a class="button-remove" (click)="remove(index + monster.ability + 1)">
                 <img class="ghs-svg" src="./assets/images/minus.svg"
               /></a>
+            }
+            @if (reveal === 2 || ability.revealed) {
+              <a
+                class="button keep-revealed"
+                (click)="toggleKeepRevealed(index + monster.ability + 1)"
+                [ghs-tooltip]="'game.cards.keepRevealed'"
+              >
+                <img
+                  class="ghs-svg"
+                  [src]="'./assets/images/' + (keepRevealed[index + monster.ability + 1] ? 'lock' : 'lock-open') + '.svg'"
+                />
+              </a>
             }
           </div>
         }

@@ -1,6 +1,7 @@
 {
   "index": "72",
   "name": "Inox Salvation",
+  "flowChartGroup": "side",
   "edition": "toa",
   "rewards": {
     "collectiveGold": 20,

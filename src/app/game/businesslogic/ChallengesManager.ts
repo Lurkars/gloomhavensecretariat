@@ -126,7 +126,7 @@ export class ChallengesManager {
     ) {
       return this.game.challengeDeck.cards
         .slice(this.game.challengeDeck.finished + 1, this.game.challengeDeck.current + 1)
-        .filter((card) => !edition || card.edition === edition || gameManager.editionExtensions(edition).includes(card.edition));
+        .filter((card) => gameManager.isEditionRelevant(card.edition, edition));
     }
     return [];
   }

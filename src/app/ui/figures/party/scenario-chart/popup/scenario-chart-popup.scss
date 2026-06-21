@@ -20,6 +20,12 @@
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
       }
 
+      img.solo {
+        width: 1.5em;
+        height: auto;
+        margin: 0.1em;
+      }
+
       a {
         cursor: pointer;
         display: flex;

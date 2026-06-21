@@ -19,7 +19,7 @@
             />
 
             <label><span [ghs-label]="'editor.edition.extensions'"></span></label>
-            <select [(ngModel)]="editionData.extensions" multiple (change)="editionDataToJson()">
+            <select [(ngModel)]="editionData.extends" multiple (change)="editionDataToJson()">
               @for (editionData of gameManager.editionData | trackUUID; track editionData._trackUUID) {
                 <option [value]="editionData.edition">
                   <span [ghs-label]="'data.edition.' + editionData.edition"></span>

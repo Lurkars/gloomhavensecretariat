@@ -21,9 +21,7 @@
     "width": 2500,
     "height": 3179
   },
-  "extensions": [
-    "fh-crossover"
-  ],
+  "type": "standalone",
   "newAmStyle": true,
   "newItemStyle": true,
   "logoUrl": "./assets/images/logos/fh.png"

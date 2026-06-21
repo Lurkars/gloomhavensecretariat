@@ -1,13 +1,13 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from 'src/app/game/model/data//AttackModifier';
-import { FigureError, FigureErrorType } from 'src/app/game/model/data//FigureError';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from 'src/app/game/model/data/AttackModifier';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { Enhancement } from 'src/app/game/model/data/Enhancement';
+import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { SummonData } from 'src/app/game/model/data/SummonData';
@@ -485,7 +485,7 @@ export class CharacterManager {
 
   personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
     return gameManager.editionData
-      .filter((editionData) => editionData.edition === edition || gameManager.editionExtensions(edition).includes(editionData.edition))
+      .filter((editionData) => gameManager.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.personalQuests)
       .find((pq) => pq.cardId === cardId || pq.cardId === '0' + cardId || pq.altId === cardId || pq.altId === '0' + cardId);
   }

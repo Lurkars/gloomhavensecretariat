@@ -437,7 +437,8 @@
   },
   "scenario": {
     "group": {
-      "randomMonsterCard": "Zufällige Monsterkarten"
+      "randomMonsterCard": "Zufällige Monsterkarten",
+      "solo": "Solo Szenarien"
     },
     "rules": {
       "gh": {

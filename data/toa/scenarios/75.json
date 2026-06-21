@@ -1,6 +1,7 @@
 {
   "index": "75",
   "name": "Sunken Temple",
+  "flowChartGroup": "side",
   "edition": "toa",
   "rewards": {
     "items": [

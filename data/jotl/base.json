@@ -10,6 +10,7 @@
     "curse",
     "bless"
   ],
+  "type": "standalone",
   "worldMap": {
     "width": 2486,
     "height": 1905

@@ -90,6 +90,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
   newStyle: boolean = false;
   init: boolean = false;
   disabled: boolean = false;
+  bbRules: boolean = false;
 
   compact: boolean = false;
   initServer: boolean = false;
@@ -214,6 +215,8 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       !this.standalone() &&
       ((!townGuard && gameManager.game.state === GameState.draw) || (townGuard && gameManager.game.scenario !== undefined));
 
+    this.bbRules = gameManager.bbRules();
+
     if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
       this.initServer = false;
     }
@@ -230,18 +233,24 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
     } else if (this.init && (!fromServer || this.initServer)) {
       if (this.current < this.deck.current) {
-        this.queue = Math.max(0, this.deck.current - this.current);
-        if (!this.queueTimeout) {
-          if (this.deck.bb) {
-            this.queue = 0;
-            this.current = this.deck.current;
-            this.lastVisible = this.deck.lastVisible;
-            this.drawQueue();
-          } else {
-            this.queue--;
-            this.current++;
-            this.lastVisible = this.deck.lastVisible;
-            this.drawQueue();
+        const delta = this.deck.current - this.current;
+        if (!fromServer && delta > 1) {
+          this.current = this.deck.current;
+          this.lastVisible = this.deck.lastVisible;
+        } else {
+          this.queue = Math.max(0, delta);
+          if (!this.queueTimeout) {
+            if (this.deck.bb) {
+              this.queue = 0;
+              this.current = this.deck.current;
+              this.lastVisible = this.deck.lastVisible;
+              this.drawQueue();
+            } else {
+              this.queue--;
+              this.current++;
+              this.lastVisible = this.deck.lastVisible;
+              this.drawQueue();
+            }
           }
         }
       } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {

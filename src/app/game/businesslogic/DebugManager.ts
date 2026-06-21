@@ -112,9 +112,7 @@ export class DebugManager {
               .monstersData()
               .find(
                 (monsterData) =>
-                  (monsterData.edition === scenarioData.edition ||
-                    gameManager.editionExtensions(scenarioData.edition).includes(monsterData.edition)) &&
-                  monsterData.name === name.split(':')[0]
+                  gameManager.isEditionRelevant(monsterData.edition, scenarioData.edition) && monsterData.name === name.split(':')[0]
               )
           ) {
             console.warn('Invalid monster: ' + name + ' | scenario', scenarioData.edition, scenarioData.group || '', scenarioData.index);
@@ -131,8 +129,7 @@ export class DebugManager {
                   .monstersData()
                   .find(
                     (monsterData) =>
-                      (monsterData.edition === scenarioData.edition ||
-                        gameManager.editionExtensions(scenarioData.edition).includes(monsterData.edition)) &&
+                      gameManager.isEditionRelevant(monsterData.edition, scenarioData.edition) &&
                       monsterData.name === monsterStandeeData.name.split(':')[0]
                   )
               ) {
@@ -159,9 +156,7 @@ export class DebugManager {
               .monstersData()
               .find(
                 (monsterData) =>
-                  (monsterData.edition === sectionData.edition ||
-                    gameManager.editionExtensions(sectionData.edition).includes(monsterData.edition)) &&
-                  monsterData.name === name.split(':')[0]
+                  gameManager.isEditionRelevant(monsterData.edition, sectionData.edition) && monsterData.name === name.split(':')[0]
               )
           ) {
             console.warn('Invalid monster: ' + name + ' | section', sectionData.edition, sectionData.group || '', sectionData.index);
@@ -178,8 +173,7 @@ export class DebugManager {
                   .monstersData()
                   .find(
                     (monsterData) =>
-                      (monsterData.edition === sectionData.edition ||
-                        gameManager.editionExtensions(sectionData.edition).includes(monsterData.edition)) &&
+                      gameManager.isEditionRelevant(monsterData.edition, sectionData.edition) &&
                       monsterData.name === monsterStandeeData.name.split(':')[0]
                   )
               ) {

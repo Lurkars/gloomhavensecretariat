@@ -806,6 +806,7 @@
         "road-events": "Road Events",
         "sealed": "Sealed",
         "sewers": "Sewers",
+        "solo": "Solo Scenarios",
         "the-merchant": "The Merchant",
         "through-jungles": "Through Jungles",
         "under-oceans": "Under Oceans",
@@ -1422,7 +1423,8 @@
   "scenario": {
     "group": {
       "randomDungeon": "%scenario.random%",
-      "randomMonsterCard": "Random Monster Cards"
+      "randomMonsterCard": "Random Monster Cards",
+      "solo": "Solo Scenarios"
     },
     "rewards": {
       "gh": {

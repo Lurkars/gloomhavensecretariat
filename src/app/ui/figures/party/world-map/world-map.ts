@@ -189,9 +189,31 @@ export class WorldMapComponent implements AfterViewInit {
       this.map.fitBounds(bounds);
       this.map.zoomIn();
 
+      const successSet = new Set(gameManager.game.party.scenarios.map((m) => `${m.edition}:${m.group ?? ''}:${m.index}`));
+      const scenarioEditions = new Set(this.scenarios.map((s) => s.edition));
+      const scenarioMap = new Map<string, import('src/app/game/model/data/ScenarioData').ScenarioData>();
+      this.scenarios.forEach((s) => scenarioMap.set(`${s.edition}:${s.group ?? ''}:${s.index}`, s));
+      const blockedIndices = new Set<string>();
+      gameManager.game.party.scenarios
+        .filter((m) => scenarioEditions.has(m.edition) && successSet.has(`${m.edition}:${m.group ?? ''}:${m.index}`))
+        .forEach((m) => {
+          const s = scenarioMap.get(`${m.edition}:${m.group ?? ''}:${m.index}`);
+          if (s?.blocks) {
+            s.blocks.forEach((b) => blockedIndices.add(`${m.edition}:${m.group ?? ''}:${b}`));
+          }
+        });
+      gameManager.game.party.conclusions
+        .filter((m) => scenarioEditions.has(m.edition))
+        .forEach((m) => {
+          const section = gameManager.scenarioManager.getSection(m.index, m.edition, m.group, true);
+          if (section?.blocks) {
+            section.blocks.forEach((b) => blockedIndices.add(`${m.edition}:${m.group ?? ''}:${b}`));
+          }
+        });
+
       this.scenarios.forEach((scenarioData, i) => {
         if (scenarioData.coordinates) {
-          const success = gameManager.scenarioManager.isSuccess(scenarioData);
+          const success = successSet.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`);
 
           if (success) {
             this.success[i] = true;
@@ -286,7 +308,7 @@ export class WorldMapComponent implements AfterViewInit {
             if (success) {
               classes.push('success');
             }
-            if (gameManager.scenarioManager.isBlocked(scenarioData)) {
+            if (blockedIndices.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`)) {
               classes.push('blocked');
             } else if (gameManager.scenarioManager.isLocked(scenarioData)) {
               classes.push('locked');

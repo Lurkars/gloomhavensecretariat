@@ -269,6 +269,7 @@
                 [ally]="ally"
                 [townGuard]="townGuard"
                 [bbIndex]="deck.bb ? (index + deck.current + 1) % 3 : -1"
+                (revealedChanged)="onRevealedChange(attackModifier, $event)"
               >
               </ghs-attackmodifier>
               @if (edit) {
@@ -279,6 +280,18 @@
               @if (edit) {
                 <a cdkDragHandle class="button drag-handle">
                   <img class="ghs-svg" src="./assets/images/menu.svg" />
+                </a>
+              }
+              @if (reveal === 2 || attackModifier.revealed) {
+                <a
+                  class="button keep-revealed"
+                  (click)="toggleKeepRevealed(index + deck.current + 1)"
+                  [ghs-tooltip]="'game.cards.keepRevealed'"
+                >
+                  <img
+                    class="ghs-svg"
+                    [src]="'./assets/images/' + (keepRevealed[index + deck.current + 1] ? 'lock' : 'lock-open') + '.svg'"
+                  />
                 </a>
               }
             </div>

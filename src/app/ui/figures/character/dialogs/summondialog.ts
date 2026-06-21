@@ -38,7 +38,7 @@ export class CharacterSummonDialog {
 
   constructor() {
     this.summonFilter = '';
-    this.fhSummon = this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).includes('fh');
+    this.fhSummon = gameManager.isEditionRelevant(this.character.edition, 'fh');
     if (this.fhSummon) {
       this.summonColor = SummonColor.fh;
     }
@@ -125,7 +125,7 @@ export class CharacterSummonDialog {
       }
     } else {
       const editions = gameManager.game.edition
-        ? [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition)]
+        ? gameManager.relevantEditions(gameManager.game.edition)
         : gameManager.editions(false, true);
       for (const edition of editions) {
         gameManager.itemManager

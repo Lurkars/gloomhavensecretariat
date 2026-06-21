@@ -38,11 +38,14 @@ export const EventCardApplyEffects: EventCardEffectType[] = [
   EventCardEffectType.goldAdditional,
   EventCardEffectType.inspiration,
   EventCardEffectType.loseBattleGoal,
+  EventCardEffectType.loseExperience,
   EventCardEffectType.loseGold,
+  EventCardEffectType.loseGoldOne,
   EventCardEffectType.loseMorale,
   EventCardEffectType.loseProsperity,
   EventCardEffectType.loseReputation,
   EventCardEffectType.loseReputationFaction,
+  EventCardEffectType.loseResource,
   EventCardEffectType.morale,
   EventCardEffectType.partyAchievement,
   EventCardEffectType.prosperity,
@@ -81,43 +84,34 @@ export class EventCardManager {
     this.game = game;
   }
 
-  getEventTypesForEdition(edition: string, extension: boolean = true): string[] {
+  getEventTypesForEdition(edition: string): string[] {
     return gameManager.editionData
-      .filter(
-        (editionData) =>
-          editionData.edition === edition || (extension && gameManager.editionExtensions(edition).includes(editionData.edition))
-      )
-      .flatMap((editionData) => editionData.events)
+      .filter((e) => gameManager.isEditionRelevant(e.edition, edition, true))
+      .flatMap((e) => e.events)
       .flatMap((event) => event.type)
       .filter((type, index, self) => index === self.indexOf(type));
   }
 
-  getEventCardsForEdition(edition: string, type: string, extension: boolean = true): EventCard[] {
+  getEventCardsForEdition(edition: string, type: string): EventCard[] {
     return gameManager.editionData
+      .filter((e) => gameManager.isEditionRelevant(e.edition, edition, true))
+      .flatMap((e) => e.events)
       .filter(
-        (editionData) => editionData.edition === edition || (extension && gameManager.extensions(edition).includes(editionData.edition))
+        (card, i, self) => card.edition === edition || !self.some((other) => other.cardId === card.cardId && other.edition === edition)
       )
-      .flatMap((editionData) => editionData.events)
-      .filter(
-        (eventCard, i, self) =>
-          eventCard.edition === edition ||
-          (eventCard.edition !== edition && !self.some((other) => other.cardId === eventCard.cardId && other.edition === edition))
-      )
-      .filter((eventCard) => eventCard.type === type)
+      .filter((card) => card.type === type)
       .sort((a, b) => (a.cardId < b.cardId ? -1 : 1));
   }
 
   getEventCardForEdition(edition: string, type: string, cardId: string): EventCard | undefined {
     return gameManager.editionData
-      .filter((editionData) => editionData.edition === edition || gameManager.extensions(edition).includes(editionData.edition))
-      .flatMap((editionData) => editionData.events)
+      .filter((e) => gameManager.isEditionRelevant(e.edition, edition, true))
+      .flatMap((e) => e.events)
       .filter(
-        (eventCard, i, self) =>
-          eventCard.type === type &&
-          (eventCard.edition === edition ||
-            (eventCard.edition !== edition && !self.some((other) => other.cardId === cardId && other.edition === edition)))
+        (card, i, self) =>
+          card.type === type && (card.edition === edition || !self.some((other) => other.cardId === cardId && other.edition === edition))
       )
-      .find((eventCard) => eventCard.cardId === cardId);
+      .find((card) => card.cardId === cardId);
   }
 
   buildPartyDeck(edition: string, type: string) {
@@ -141,12 +135,12 @@ export class EventCardManager {
 
         if (this.game.party.eventDecks && Object.keys(this.game.party.eventDecks).length) {
           this.game.party.scenarios
-            .filter((s) => s.edition === edition || gameManager.editionExtensions(edition).includes(s.edition))
+            .filter((s) => gameManager.isEditionRelevant(s.edition, edition, true))
             .map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group))
             .forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
           this.game.party.conclusions
-            .filter((s) => s.edition === edition || gameManager.editionExtensions(edition).includes(s.edition))
+            .filter((s) => gameManager.isEditionRelevant(s.edition, edition, true))
             .map((s) => gameManager.scenarioManager.getSection(s.index, s.edition, s.group, true))
             .forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
@@ -181,17 +175,13 @@ export class EventCardManager {
             });
 
           const treasures = gameManager.editionData
-            .filter(
-              (editionData) =>
-                (editionData.treasures && editionData.edition === edition) ||
-                gameManager.editionExtensions(edition).includes(editionData.edition)
-            )
+            .filter((editionData) => editionData.treasures && gameManager.isEditionRelevant(editionData.edition, edition, true))
             .flatMap((editionData) =>
               editionData.treasures.map((treasure, i) => new TreasureData(treasure, i + 1 + editionData.treasureOffset || 0))
             );
 
           this.game.party.treasures.forEach((id) => {
-            if (id.edition === edition || gameManager.editionExtensions(edition).includes(id.edition)) {
+            if (gameManager.isEditionRelevant(id.edition, edition, true)) {
               const treasure = treasures.find((treasureData) => treasureData.index === +id.name);
               if (treasure && treasure.rewards) {
                 treasure.rewards.forEach((reward) => {
@@ -619,7 +609,7 @@ export class EventCardManager {
                 break;
               case EventCardEffectType.loseCollectiveResource:
                 if (settingsManager.settings.fhShareResources) {
-                  const type = effect.values[2] as LootType;
+                  const type = effect.values[1] as LootType;
                   this.game.party.loot[type] = Math.max(0, (this.game.party.loot[type] || 0) - +effect.values[0]);
                 }
                 break;
@@ -639,6 +629,21 @@ export class EventCardManager {
                   }
                 });
                 break;
+              case EventCardEffectType.loseGoldOne:
+                characters.forEach((c) => {
+                  c.progress.gold -= +effect.values[0];
+                  if (c.progress.gold < 1) {
+                    c.progress.gold = 1;
+                  }
+                });
+                break;
+              case EventCardEffectType.loseResource: {
+                const loseType = effect.values[1] as LootType;
+                characters.forEach((c) => {
+                  c.progress.loot[loseType] = Math.max(0, (c.progress.loot[loseType] || 0) - +effect.values[0]);
+                });
+                break;
+              }
               case EventCardEffectType.loseMorale:
                 this.game.party.morale -= +effect.values[0];
                 if (this.game.party.morale < 0) {

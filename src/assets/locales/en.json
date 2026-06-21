@@ -713,6 +713,7 @@
         "toggleBB": "Show as BB Table"
       },
       "fullscreen": "Show Fullscreen",
+      "keepRevealed": "Keep Card revealed",
       "openDialog": "Show all cards",
       "removeDrawnDiscards": "Remove Drawn Discards",
       "restore": "Restore defaults",
@@ -933,11 +934,21 @@
         "removeCard": "Remove from upcoming cards",
         "removeDrawn": "Remove from drawn cards",
         "removeSelection": "Reset outcoume",
+        "reset": "Reset Deck",
         "resolved": "Show Resolved",
         "setup": "Setup Event Decks",
         "show": "Show Full Event Card",
         "shuffle": "Shuffle Deck",
         "upcoming": "In Deck ({0})"
+      },
+      "distribution": {
+        "": "Distribute Event Effects",
+        "apply": "Apply",
+        "receive": "Receive",
+        "spend": "Pay",
+        "receiveItem": "Receive Item",
+        "loseItem": "Lose Item",
+        "consumeItem": "Consume Item"
       },
       "effects": {
         "additionally": "Additionally",

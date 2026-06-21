@@ -136,7 +136,7 @@
     }
     <span class="spacer"></span>
     @if (
-      !gameManager.bbRules() &&
+      !bbRules &&
       !!gameManager.game.scenario &&
       (characterCount > 0 || settingsManager.settings.partySheet) &&
       settingsManager.settings.entitiesMenu
@@ -160,7 +160,7 @@
         />
       </div>
     }
-    @if (!gameManager.bbRules() && settingsManager.settings.partySheet) {
+    @if (!bbRules && settingsManager.settings.partySheet) {
       <ghs-party-sheet #partySheet></ghs-party-sheet>
     }
     @if (gameManager.buildingsManager.petsEnabled) {

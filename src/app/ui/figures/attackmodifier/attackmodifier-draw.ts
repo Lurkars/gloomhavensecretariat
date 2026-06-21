@@ -44,7 +44,7 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   newStyle: boolean = false;
 
   constructor() {
-    this.ghsManager.uiChangeEffect(() => this.update());
+    this.ghsManager.uiChangeEffect((fromServer: boolean) => this.update(fromServer));
     this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
       const elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
@@ -72,10 +72,13 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
     }
   }
 
-  update() {
+  update(fromServer: boolean = false) {
     if (this.current < this.deck.current) {
-      this.queue = Math.max(0, this.deck.current - this.current);
-      if (!this.queueTimeout) {
+      const delta = this.deck.current - this.current;
+      if (!fromServer && delta > 1) {
+        this.current = this.deck.current;
+      } else if (!this.queueTimeout) {
+        this.queue = Math.max(0, delta);
         this.queue--;
         this.current++;
         this.drawQueue();

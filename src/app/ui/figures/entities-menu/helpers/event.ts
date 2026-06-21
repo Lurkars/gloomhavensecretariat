@@ -11,6 +11,10 @@ import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-me
 import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors';
 import { OutpostAttackComponent } from 'src/app/ui/figures/entities-menu/outpost-attack/outpost-attack';
 import { EventCardDeckComponent } from 'src/app/ui/figures/event/deck/event-card-deck';
+import {
+  CollectiveDistributionEffects,
+  EventDistributionDialogComponent
+} from 'src/app/ui/figures/event/distribution/event-distribution-dialog';
 import { EventCardDrawComponent } from 'src/app/ui/figures/event/draw/event-card-draw';
 
 export class EventHelper {
@@ -76,10 +80,15 @@ export class EventHelper {
     this.eventOutpostAttackEffects = [];
     this.eventConditionManual = [];
     this.eventAttack = undefined;
+
+    const distributionEffects: EventCardEffect[] = [];
+
     results.forEach((result) => {
       if ('type' in result && result.type in EventCardEffectType) {
         if (result.type === EventCardEffectType.outpostAttack || result.type === EventCardEffectType.outpostTarget) {
           this.eventOutpostAttackEffects.push(result as EventCardEffect);
+        } else if (CollectiveDistributionEffects.includes((result as EventCardEffect).type)) {
+          distributionEffects.push(result as EventCardEffect);
         } else {
           this.eventEffectsManual.push(result as EventCardEffect);
         }
@@ -89,6 +98,13 @@ export class EventHelper {
         this.eventAttack = result as EventCardAttack;
       }
     });
+
+    if (distributionEffects.length > 0) {
+      this.component.dialog.open(EventDistributionDialogComponent, {
+        panelClass: ['dialog'],
+        data: { effects: distributionEffects }
+      });
+    }
   }
 
   openOutpostAttack() {

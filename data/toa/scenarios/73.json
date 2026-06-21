@@ -1,6 +1,7 @@
 {
   "index": "73",
   "name": "Lootpalooza",
+  "flowChartGroup": "side",
   "edition": "toa",
   "rewards": {
     "custom": "%data.scenario.rewards.toa.73%"

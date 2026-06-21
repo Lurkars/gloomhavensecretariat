@@ -713,6 +713,7 @@
         "toggleBB": "Zeige als BB Tabelle"
       },
       "fullscreen": "Vollbildansicht",
+      "keepRevelead": "Karte aufgedeckt lassen",
       "openDialog": "Alle Karten anzeigen",
       "removeDrawnDiscards": "Entferne gezogene Abgeworfene",
       "restore": "Standard wiederherstellen",
@@ -933,11 +934,21 @@
         "removeCard": "Aus den zukünftigen Ereigniskarten entfernen",
         "removeDrawn": "Von den gezogenen Karten entfernen",
         "removeSelection": "Ergebnis zurücksetzen",
+        "reset": "Ereignis-Deck zurücksetzen",
         "resolved": "Zeige Abgeschlossene",
         "setup": "Ereignis-Deck zusammenstellen",
         "show": "Zeige komplette Ereigniskarte",
         "shuffle": "Mische Karten",
         "upcoming": "Im Deck ({0})"
+      },
+      "distribution": {
+        "": "Ereigniseffekte verteilen",
+        "apply": "Anwenden",
+        "receive": "Erhalten",
+        "spend": "Verlieren",
+        "receiveItem": "Gegenstand erhalten",
+        "loseItem": "Gegenstand verlieren",
+        "consumeItem": "Gegenstand verbrauchen"
       },
       "effects": {
         "additionally": "Zusätzlich",

@@ -1,4 +1,7 @@
 {
   "edition": "gh-solo-items",
-  "additional": true
+  "type": "content",
+  "extends": [
+    "gh"
+  ]
 }

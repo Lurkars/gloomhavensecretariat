@@ -189,7 +189,7 @@
     </div>
   }
 
-  @if (settingsManager.settings.lootDeck && (lootDeckEnabeld || settingsManager.settings.alwaysLootDeck || gameManager.fhRules())) {
+  @if (settingsManager.settings.lootDeck && (lootDeckEnabeld || settingsManager.settings.alwaysLootDeck || fhRules)) {
     <div
       class="deck loot-deck"
       [ngClass]="{

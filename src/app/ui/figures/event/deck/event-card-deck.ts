@@ -48,10 +48,12 @@ export class EventCardDeckComponent {
   allTypes: boolean = false;
   allTypesToggle: boolean = false;
   resolved: boolean = false;
+  setup: boolean = false;
+  confirmReset: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
 
-  data: { edition: string; type: string } = inject(DIALOG_DATA);
+  data: { edition: string; type: string; setup: boolean } = inject(DIALOG_DATA);
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -61,12 +63,12 @@ export class EventCardDeckComponent {
       .filter((type) => this.allTypes || (gameManager.game.party.eventDecks[type] && gameManager.game.party.eventDecks[type].length));
     this.allTypesToggle = gameManager.eventCardManager.getEventTypesForEdition(this.edition).length !== this.types.length;
     this.type = this.data.type || this.types[0];
+    this.setup = this.data.setup || false;
     this.update();
   }
 
   update() {
     const deck = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type);
-    console.log(deck);
     const current = gameManager.game.party.eventDecks[this.type] || [];
     this.upcomingCards = current
       .map((cardId) => deck.find((e) => e.cardId === cardId))
@@ -208,6 +210,23 @@ export class EventCardDeckComponent {
           }
         }
       });
+  }
+
+  resetDeck() {
+    if (this.confirmReset) {
+      gameManager.stateManager.before('events.deck.reset', this.type);
+      if (!!gameManager.game.party.eventDecks[this.type]) {
+        gameManager.game.party.eventDecks[this.type] = [];
+        gameManager.game.party.eventCards = gameManager.game.party.eventCards.filter(
+          (value) => value.edition !== this.edition && value.type !== this.type
+        );
+      }
+      gameManager.eventCardManager.buildPartyDeck(this.edition, this.type);
+      gameManager.stateManager.after();
+      this.update();
+    } else {
+      this.confirmReset = true;
+    }
   }
 
   close() {

@@ -484,11 +484,13 @@ export class GameModel {
       -1,
       defaultAttackModifierCards.map((am) => am.id),
       [],
+      [],
       true
     ),
     allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(
       -1,
       defaultAttackModifierCards.map((am) => am.id),
+      [],
       [],
       true
     ),

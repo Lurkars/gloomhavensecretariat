@@ -2,5 +2,8 @@
   "conditions": [],
   "edition": "fh-crossover",
   "newAmStyle": true,
-  "additional": true
+  "type": "content",
+  "extends": [
+    "fh"
+  ]
 }

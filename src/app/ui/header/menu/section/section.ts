@@ -27,11 +27,13 @@ export class SectionMenuComponent implements OnInit {
   editions: string[] = [];
 
   sectionCache: { edition: string; group: string | undefined; all: boolean; sections: ScenarioCache[] }[] = [];
+  private maxSectionCache: number | undefined = undefined;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.setEditions();
       this.sectionCache = [];
+      this.maxSectionCache = undefined;
     });
   }
 
@@ -52,11 +54,7 @@ export class SectionMenuComponent implements OnInit {
 
   setEditions() {
     if (gameManager.game.edition) {
-      this.editions = [
-        gameManager.game.edition,
-        ...gameManager.editionExtensions(gameManager.game.edition),
-        ...gameManager.editionScenarioExtensions(gameManager.game.edition)
-      ];
+      this.editions = gameManager.relevantEditions(gameManager.game.edition, true);
     } else {
       this.editions = gameManager.editionData
         .filter(
@@ -69,6 +67,8 @@ export class SectionMenuComponent implements OnInit {
         )
         .map((editionData) => editionData.edition);
     }
+
+    this.editions = this.editions.filter((edition) => gameManager.scenarioManager.scenarioData(edition).length > 0);
   }
 
   groups(): (string | undefined)[] {
@@ -96,6 +96,8 @@ export class SectionMenuComponent implements OnInit {
     }
 
     model = { edition: this.edition, group: group, all: settingsManager.settings.showAllSections, sections: [] };
+    const available = gameManager.game.scenario ? new Set(gameManager.scenarioManager.availableSections(false, true)) : null;
+    const activeSectionKeys = new Set(gameManager.game.sections.map((s) => `${s.edition}:${s.group ?? ''}:${s.index}`));
 
     model.sections = gameManager
       .sectionData()
@@ -103,13 +105,21 @@ export class SectionMenuComponent implements OnInit {
         (sectionData) =>
           (settingsManager.settings.showAllSections ||
             (!sectionData.parent && (!gameManager.game.scenario || gameManager.game.scenario.custom)) ||
-            (gameManager.game.scenario && gameManager.scenarioManager.availableSections(false, true).includes(sectionData))) &&
+            (gameManager.game.scenario && available !== null && available.has(sectionData))) &&
           sectionData.edition === this.edition &&
           sectionData.group === group &&
           !sectionData.conclusion
       )
       .sort(gameManager.scenarioManager.sortScenarios)
-      .map((sectionData) => new ScenarioCache(sectionData, false, false, this.hasSection(sectionData)));
+      .map(
+        (sectionData) =>
+          new ScenarioCache(
+            sectionData,
+            false,
+            false,
+            activeSectionKeys.has(`${sectionData.edition}:${sectionData.group ?? ''}:${sectionData.index}`)
+          )
+      );
 
     this.sectionCache.push(model);
 
@@ -121,7 +131,10 @@ export class SectionMenuComponent implements OnInit {
   }
 
   maxSection() {
-    return Math.max(...this.sections().map((sectionData) => sectionData.index.length));
+    if (this.maxSectionCache === undefined) {
+      this.maxSectionCache = Math.max(...this.sections().map((sectionData) => sectionData.index.length));
+    }
+    return this.maxSectionCache;
   }
 
   hasSection(sectionData: ScenarioData): boolean {

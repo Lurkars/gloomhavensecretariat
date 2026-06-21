@@ -413,6 +413,8 @@ export class AttackModifierManager {
       attackModifierDeck.lastVisible = lastVisible;
       attackModifierDeck.cards.unshift(...restoreCards);
     }
+
+    attackModifierDeck.cards.forEach((am) => (am.revealed = false));
   }
 
   removeDrawnDiscards(attackModifierDeck: AttackModifierDeck) {
@@ -766,11 +768,11 @@ export class AttackModifierManager {
     return attackModifiers.find((other) => {
       const am = Object.assign(new AttackModifier(attackModifier.type), attackModifier);
       am.id = '';
-      am.revealed = false;
+      am.revealed = attackModifier.revealed || false;
       am.shuffle = attackModifier.shuffle || false;
       const clone = Object.assign(new AttackModifier(other.type), other);
       clone.id = '';
-      clone.revealed = false;
+      clone.revealed = other.revealed || false;
       clone.shuffle = other.shuffle || false;
       if (ignoreCharacter && clone.character) {
         clone.character = false;
@@ -952,6 +954,15 @@ export class AttackModifierManager {
         this.cardById(attackModifierDeck, id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id)
     );
     attackModifierDeck.discarded = model.discarded || model.disgarded || [];
+
+    if (!!model.revealed) {
+      model.revealed.forEach((value, i) => {
+        if (!!attackModifierDeck.cards[i]) {
+          attackModifierDeck.cards[i].revealed = value;
+        }
+      });
+    }
+
     attackModifierDeck.active = model.active;
     attackModifierDeck.state = model.state;
     attackModifierDeck.bb = model.bb;

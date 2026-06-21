@@ -1,10 +1,10 @@
 {
-    "edition": "mp",
-    "additional": true,
-    "newItemStyle": true,
-    "extends": [
-        "fh",
-        "gh2e",
-        "jotl"
-    ]
+  "edition": "mp",
+  "newItemStyle": true,
+  "extends": [
+    "fh",
+    "gh2e",
+    "jotl"
+  ],
+  "type": "content"
 }

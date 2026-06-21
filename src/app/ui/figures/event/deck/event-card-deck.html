@@ -31,6 +31,11 @@
         [ghs-label-attribute]="'placeholder'"
       />
     </label>
+    @if (setup) {
+      <a class="reset-deck" (click)="resetDeck()" [ngClass]="{ confirm: confirmReset }" (mouseleave)="confirmReset = false">
+        &lt;<span [ghs-label]="'game.events.deck.reset'"></span>(!)&gt;
+      </a>
+    }
   </div>
   <div class="scroll-container">
     <div

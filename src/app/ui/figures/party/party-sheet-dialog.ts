@@ -105,6 +105,10 @@ export class PartySheetDialogComponent implements OnInit {
   scenarios: Record<string, ScenarioCache[]> = {};
   conclusions: Record<string, ScenarioData[]> = {};
   characters: Character[] = [];
+  private finishedCountMap: Map<string, number> = new Map();
+  private finishedCasualCountMap: Map<string, number> = new Map();
+  private manualSet: Set<string> = new Set();
+  private randomItemLootedSet: Set<string> = new Set();
   worldMap: boolean = false;
   items: ItemData[] = [];
   itemIdentifier: CountIdentifier[] = [];
@@ -734,25 +738,16 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   countFinished(scenarioData: ScenarioData, casual: boolean = false): number {
-    return (casual ? this.party.casualScenarios : this.party.scenarios).filter(
-      (value) => scenarioData.index === value.index && scenarioData.edition === value.edition && scenarioData.group === value.group
-    ).length;
+    const key = `${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`;
+    return (casual ? this.finishedCasualCountMap : this.finishedCountMap).get(key) ?? 0;
   }
 
   hasRandomItemLooted(scenarioData: ScenarioData): boolean {
-    return (
-      gameManager.game.party.randomItemLooted.find(
-        (model) => model.edition === scenarioData.edition && model.group === scenarioData.group && model.index === scenarioData.index
-      ) !== undefined
-    );
+    return this.randomItemLootedSet.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`);
   }
 
   isManual(scenarioData: ScenarioData): boolean {
-    return (
-      this.party.manualScenarios.find(
-        (value) => scenarioData.index === value.index && scenarioData.edition === value.edition && scenarioData.group === value.group
-      ) !== undefined
-    );
+    return this.manualSet.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`);
   }
 
   addSuccess(scenarioData: ScenarioData, force: boolean = false) {
@@ -926,6 +921,36 @@ export class PartySheetDialogComponent implements OnInit {
     }
     const editions = (this.partyEdition && [this.partyEdition]) || gameManager.editions();
     this.scenarioEditions = [];
+
+    this.finishedCountMap = new Map();
+    this.party.scenarios.forEach((m) => {
+      const key = `${m.edition}:${m.group ?? ''}:${m.index}`;
+      this.finishedCountMap.set(key, (this.finishedCountMap.get(key) ?? 0) + 1);
+    });
+    this.finishedCasualCountMap = new Map();
+    this.party.casualScenarios.forEach((m) => {
+      const key = `${m.edition}:${m.group ?? ''}:${m.index}`;
+      this.finishedCasualCountMap.set(key, (this.finishedCasualCountMap.get(key) ?? 0) + 1);
+    });
+    this.manualSet = new Set(this.party.manualScenarios.map((m) => `${m.edition}:${m.group ?? ''}:${m.index}`));
+    this.randomItemLootedSet = new Set(gameManager.game.party.randomItemLooted.map((m) => `${m.edition}:${m.group ?? ''}:${m.index}`));
+
+    const blockedKeys = new Set<string>();
+    const scenariosByKey = new Map<string, import('src/app/game/model/data/ScenarioData').ScenarioData>();
+    gameManager.editionData.forEach((ed) => ed.scenarios.forEach((s) => scenariosByKey.set(`${s.edition}:${s.group ?? ''}:${s.index}`, s)));
+    this.party.scenarios.forEach((m) => {
+      const s = scenariosByKey.get(`${m.edition}:${m.group ?? ''}:${m.index}`);
+      if (s && s.blocks && this.finishedCountMap.has(`${m.edition}:${m.group ?? ''}:${m.index}`)) {
+        s.blocks.forEach((b) => blockedKeys.add(`${m.edition}:${m.group ?? ''}:${b}`));
+      }
+    });
+    this.party.conclusions.forEach((m) => {
+      const section = gameManager.scenarioManager.getSection(m.index, m.edition, m.group, true);
+      if (section && section.blocks) {
+        section.blocks.forEach((b) => blockedKeys.add(`${m.edition}:${m.group ?? ''}:${b}`));
+      }
+    });
+
     editions.forEach((edition) => {
       const scenarioData = gameManager.scenarioManager
         .scenarioData(edition)
@@ -941,7 +966,7 @@ export class PartySheetDialogComponent implements OnInit {
             new ScenarioCache(
               scenarioData,
               this.countFinished(scenarioData) > 0,
-              gameManager.scenarioManager.isBlocked(scenarioData),
+              blockedKeys.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`),
               gameManager.scenarioManager.isLocked(scenarioData)
             )
         );
@@ -1101,8 +1126,8 @@ export class PartySheetDialogComponent implements OnInit {
         this.worldMap = true;
       }
       this.updateAchievements(editionData);
-      if (!editionData.additional && editionData.extensions) {
-        editionData.extensions.forEach((extension) => {
+      if (editionData.extends?.length) {
+        editionData.extends.forEach((extension) => {
           const extensionData = gameManager.editionData.find((editionData) => editionData.edition === extension);
           if (extensionData) {
             this.updateAchievements(extensionData);
@@ -1885,7 +1910,8 @@ export class PartySheetDialogComponent implements OnInit {
       panelClass: ['dialog'],
       data: {
         type: type,
-        edition: gameManager.game.edition || gameManager.currentEdition()
+        edition: gameManager.game.edition || gameManager.currentEdition(),
+        setup: true
       }
     });
   }

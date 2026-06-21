@@ -64,10 +64,6 @@ declare global {
 export class GameManager {
   game: Game = new Game();
   editionData: EditionData[] = [];
-  editionMapping: Record<string, string[]> = {};
-  editionMappingAll: Record<string, string[]> = {};
-  editionScenarioMapping: Record<string, string[]> = {};
-  editionScenarioMappingAll: Record<string, string[]> = {};
   stateManager: StateManager;
   entityManager: EntityManager;
   characterManager: CharacterManager;
@@ -124,16 +120,17 @@ export class GameManager {
     this.specialActionsManager = new SpecialActionsManager(this.game);
   }
 
-  editions(all: boolean = false, additional: boolean = false): string[] {
+  editions(all: boolean = false, extraContent: boolean = false): string[] {
     return this.editionData
       .filter(
-        (editionData) => (all || settingsManager.settings.editions.includes(editionData.edition)) && (additional || !editionData.additional)
+        (editionData) =>
+          (all || settingsManager.settings.editions.includes(editionData.edition)) && (extraContent || editionData.type !== 'content')
       )
       .map((editionData) => editionData.edition);
   }
 
-  editionsData(all: boolean = false, additional: boolean = false): EditionData[] {
-    const editions: string[] = this.editions(all, additional);
+  editionsData(all: boolean = false, extraContent: boolean = false): EditionData[] {
+    const editions: string[] = this.editions(all, extraContent);
     return this.editionData.filter((editionData) => editions.includes(editionData.edition));
   }
 
@@ -143,14 +140,6 @@ export class GameManager {
       return editionData.logoUrl;
     }
     return '';
-  }
-
-  currentEditions(additional: boolean = false): string[] {
-    if (!this.game.edition) {
-      return this.editions(false, additional);
-    }
-
-    return [this.game.edition, ...this.editionExtensions(this.game.edition)];
   }
 
   currentEdition(fallback: string | undefined = undefined): string {
@@ -171,119 +160,94 @@ export class GameManager {
     return fallback !== undefined ? fallback : this.editions()[0];
   }
 
-  extensions(edition: string): string[] {
-    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-    if (!!editionData) {
-      return editionData.extensions;
+  relevantEditions(edition: string | undefined = undefined, extensionOnly: boolean = false, extraContent: boolean = true): string[] {
+    const editions: string[] = [];
+    if (!edition) {
+      edition = this.currentEdition();
     }
-    return [];
-  }
-
-  editionExtensions(edition: string, all: boolean = false): string[] {
-    if (all && this.editionMappingAll[edition]) {
-      return this.editionMappingAll[edition];
-    } else if (!all && this.editionMapping[edition]) {
-      return this.editionMapping[edition];
-    }
-
-    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-    const extensions: string[] = [];
-    if (editionData && editionData.extensions) {
-      editionData.extensions.forEach((extension) => {
-        if (!extensions.includes(extension) && this.editions(all, true).includes(extension)) {
-          extensions.push(extension);
-        }
-        this.editionExtensions(extension, all).forEach((extExt) => {
-          if (!extensions.includes(extExt) && this.editions(all, true).includes(extension)) {
-            extensions.push(extExt);
+    const editionData = this.editionData.find((e) => e.edition === edition);
+    if (editionData) {
+      editions.push(editionData.edition);
+      if ((!extensionOnly || editionData.type !== 'extension') && !!editionData.extends) {
+        editionData.extends.forEach((e) => {
+          if (!editions.includes(e) && settingsManager.settings.editions.includes(e)) {
+            editions.push(e);
+            this.relevantEditions(e, extensionOnly, false).forEach((p) => {
+              if (!editions.includes(p) && settingsManager.settings.editions.includes(p)) {
+                editions.push(p);
+              }
+            });
           }
         });
-      });
+      }
+
+      if (extraContent) {
+        this.editionData
+          .filter(
+            (e) =>
+              settingsManager.settings.editions.includes(e.edition) &&
+              e.type === 'content' &&
+              (!e.extends || !e.extends.length || e.extends.includes(edition))
+          )
+          .sort((a, b) => {
+            if (!!a.extends && a.extends.includes(edition) && (!b.extends || !b.extends.length)) {
+              return -1;
+            } else if (!!b.extends && b.extends.includes(edition) && (!a.extends || !a.extends.length)) {
+              return 1;
+            }
+            return 0;
+          })
+          .map((e) => e.edition)
+          .forEach((p) => {
+            if (!editions.includes(p)) {
+              editions.push(p);
+            }
+          });
+      }
     }
 
-    this.editionData
-      .filter((ed) => ed.edition !== edition && ed.extends && ed.extends.includes(edition))
-      .forEach((editionData) => {
-        if (!extensions.includes(editionData.edition)) {
-          extensions.push(editionData.edition);
-        }
-      });
-
-    if (all) {
-      this.editionMappingAll[edition] = extensions;
-    } else {
-      this.editionMapping[edition] = extensions;
-    }
-
-    return extensions;
+    return editions;
   }
 
-  editionScenarioExtensions(edition: string, all: boolean = false): string[] {
-    if (all && this.editionScenarioMappingAll[edition]) {
-      return this.editionScenarioMappingAll[edition];
-    } else if (!all && this.editionScenarioMapping[edition]) {
-      return this.editionScenarioMapping[edition];
+  isEditionRelevant(other: string, edition: string | undefined, extensionOnly: boolean = false): boolean {
+    if (!settingsManager.settings.editions.includes(other)) {
+      return false;
     }
 
-    const extensions = this.editionData
-      .filter(
-        (additional) =>
-          (all || settingsManager.settings.editions.includes(additional.edition)) &&
-          additional.additional &&
-          additional.scenarios &&
-          additional.scenarios.length &&
-          additional.scenarios.some((scenarioData) => scenarioData.edition === additional.edition) &&
-          additional.extensions.includes(edition)
-      )
-      .map((additional) => additional.edition);
-
-    if (all) {
-      this.editionScenarioMappingAll[edition] = extensions;
-    } else {
-      this.editionScenarioMapping[edition] = extensions;
+    const editionData = this.editionData.find((e) => e.edition === other);
+    if (!editionData) {
+      return false;
     }
-
-    return extensions;
-  }
-
-  resetEditionMapping() {
-    this.editionMapping = {};
-    this.editionMappingAll = {};
-    this.editionScenarioMapping = {};
-    this.editionScenarioMappingAll = {};
+    return (
+      !edition ||
+      this.relevantEditions(edition, extensionOnly).includes(editionData.edition) ||
+      (editionData.type === 'content' && (!editionData.extends || !editionData.extends.length || editionData.extends.includes(edition)))
+    );
   }
 
   newItemStyle(edition: string): boolean {
     const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-    if (
-      editionData &&
-      (editionData.newItemStyle || (editionData.extensions && editionData.extensions.some((edition) => this.newItemStyle(edition))))
-    ) {
-      return true;
+    if (!editionData) return false;
+    if (editionData.newItemStyle) return true;
+    if (editionData.type === 'extension' || editionData.type === 'addon') {
+      return (editionData.extends || []).some((ext) => this.newItemStyle(ext));
     }
-
     return false;
   }
 
   newAmStyle(edition: string): boolean {
     const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-    if (
-      editionData &&
-      (editionData.newAmStyle || (editionData.extensions && editionData.extensions.some((edition) => this.newAmStyle(edition))))
-    ) {
-      return true;
+    if (!editionData) return false;
+    if (editionData.newAmStyle) return true;
+    if (editionData.type === 'extension' || editionData.type === 'addon') {
+      return (editionData.extends || []).some((ext) => this.newAmStyle(ext));
     }
-
     return false;
   }
 
   charactersData(edition: string | undefined = undefined): CharacterData[] {
     const characters = this.editionData
-      .filter(
-        (editionData) =>
-          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
-          (!edition || editionData.edition === edition || this.editionExtensions(editionData.edition).includes(edition))
-      )
+      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.characters);
 
     const merges = characters.filter((characterData) => characterData.merge);
@@ -316,11 +280,7 @@ export class GameManager {
 
   monstersData(edition: string | undefined = undefined): MonsterData[] {
     return this.editionData
-      .filter(
-        (editionData) =>
-          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
-          (!edition || editionData.edition === edition || this.editionExtensions(editionData.edition).includes(edition))
-      )
+      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.monsters)
       .filter(
         (monsterData, index, monsters) =>
@@ -338,11 +298,7 @@ export class GameManager {
 
   decksData(edition: string | undefined = undefined): DeckData[] {
     const decks = this.editionData
-      .filter(
-        (editionData) =>
-          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
-          (!edition || editionData.edition === edition || this.editionExtensions(editionData.edition).includes(edition))
-      )
+      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.decks);
 
     const replaces = decks.filter((deckData) => deckData.abilities.some((ability) => ability.replace));
@@ -365,28 +321,23 @@ export class GameManager {
   }
 
   scenarioData(edition: string | undefined = undefined): ScenarioData[] {
+    const edData = edition ? this.editionData.find((ed) => ed.edition === edition) : undefined;
     return this.editionData
-      .filter(
-        (editionData) =>
-          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
-          (!edition || editionData.edition === edition || this.editionExtensions(editionData.edition).includes(edition))
-      )
+      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.scenarios)
-      .filter((scenarioData) => !edition || scenarioData.edition === edition);
+      .filter(
+        (scenarioData) =>
+          !edition ||
+          scenarioData.edition === edition ||
+          (edData?.type === 'addon' && (edData.extends || []).includes(scenarioData.edition))
+      );
   }
 
   sectionData(edition: string | undefined = undefined, extension: boolean = false): ScenarioData[] {
     return this.editionData
-      .filter(
-        (editionData) =>
-          (!edition || settingsManager.settings.editions.includes(editionData.edition)) &&
-          (!edition ||
-            editionData.edition === edition ||
-            (editionData.additional && this.editionExtensions(editionData.edition).includes(edition)) ||
-            (extension && this.editionExtensions(edition).includes(editionData.edition)))
-      )
+      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.sections)
-      .filter((sectionData) => !edition || sectionData.edition === edition || extension)
+      .filter((sectionData) => this.isEditionRelevant(sectionData.edition, edition, extension))
       .map((sectionData) => {
         if (!settingsManager.settings.fhSecondEdition || sectionData.edition !== 'fh') {
           return sectionData;
@@ -405,11 +356,7 @@ export class GameManager {
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
     return this.editionData
-      .filter(
-        (editionData) =>
-          (all || settingsManager.settings.editions.includes(editionData.edition)) &&
-          (!edition || editionData.edition === edition || this.editionExtensions(editionData.edition, true).includes(edition))
-      )
+      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition, all))
       .flatMap((editionData) => editionData.items)
       .filter(
         (itemData, index, items) =>
@@ -424,11 +371,7 @@ export class GameManager {
 
   challengesData(edition: string | undefined = undefined, all: boolean = false): ChallengeCard[] {
     return this.editionData
-      .filter(
-        (editionData) =>
-          (all || settingsManager.settings.editions.includes(editionData.edition)) &&
-          (!edition || editionData.edition === edition || this.editionExtensions(editionData.edition, true).includes(edition))
-      )
+      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition, all))
       .flatMap((editionData) => editionData.challenges);
   }
 
@@ -440,9 +383,7 @@ export class GameManager {
       conditionNames = this.editionData
         .filter(
           (editionData) =>
-            (editionData.edition === edition || this.editionExtensions(edition).includes(editionData.edition)) &&
-            editionData.conditions &&
-            editionData.conditions.length > 0
+            this.isEditionRelevant(editionData.edition, edition) && editionData.conditions && editionData.conditions.length > 0
         )
         .flatMap((other) => other.conditions);
 
@@ -684,9 +625,7 @@ export class GameManager {
           figure.statEffect &&
           figure.statEffect.deck &&
           figure.statEffect.deck === deck.name &&
-          (deck.edition === figure.edition ||
-            deck.edition === gameManager.currentEdition() ||
-            this.editionExtensions(deck.edition).indexOf(gameManager.currentEdition(figure.edition)) !== -1)
+          (deck.edition === figure.edition || this.isEditionRelevant(deck.edition, gameManager.currentEdition()))
       );
       if (deckData && figure.abilities.length !== deckData.abilities.length) {
         figure.abilities = deckData.abilities
@@ -706,7 +645,7 @@ export class GameManager {
     // find extensions decks
     if (!deckData) {
       deckData = this.decksData().find(
-        (deck) => (deck.name === figure.deck || deck.name === figure.name) && this.editionExtensions(figure.edition).includes(deck.edition)
+        (deck) => (deck.name === figure.deck || deck.name === figure.name) && this.isEditionRelevant(deck.edition, figure.edition)
       );
     }
 
@@ -830,7 +769,7 @@ export class GameManager {
 
   getEdition(figure: Figure, fallback: string = ''): string {
     const edition = this.currentEdition(fallback);
-    if (figure.edition !== edition && !this.editionExtensions(edition).includes(figure.edition)) {
+    if (figure.edition !== edition && !this.isEditionRelevant(figure.edition, edition)) {
       return figure.edition;
     }
     return '';
@@ -1015,7 +954,7 @@ export class GameManager {
 
   editionRules(edition: string, current: boolean = true): boolean {
     const currentEdition = current ? this.currentEdition() : this.game.edition;
-    return (currentEdition && (currentEdition === edition || this.editionExtensions(currentEdition).includes(edition))) || false;
+    return this.isEditionRelevant(edition, currentEdition);
   }
 
   additionalIdentifier(figure: Figure, entity: Entity | undefined = undefined): AdditionalIdentifier {
@@ -1204,7 +1143,7 @@ export class GameManager {
       return Object.assign(new CampaignData(), editionData.campaign);
     }
 
-    const extensionCampaign = this.editionExtensions(edition)
+    const extensionCampaign = this.relevantEditions(edition)
       .map((e) => this.editionData.find((editionData) => editionData.edition === e))
       .map((editionData) => (editionData ? editionData.campaign : undefined))
       .find((campaignData) => campaignData);

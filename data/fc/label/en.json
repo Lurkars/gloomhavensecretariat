@@ -180,6 +180,7 @@
         "corruption": "Corruption",
         "diviner": "Diviner",
         "orchid-society": "Orchid society",
+        "solo": "Solo Scenarios",
         "tainted-crypt": "Tainted crypt",
         "the-rift": "The rift device"
       },
@@ -297,7 +298,8 @@
   },
   "scenario": {
     "group": {
-      "Challenge": "Challenge"
+      "Challenge": "Challenge",
+      "solo": "Solo Scenarios"
     },
     "rewards": {
       "fc": {

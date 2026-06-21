@@ -6,6 +6,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { StatEffectRule } from 'src/app/game/model/data/ScenarioRule';
 import { Monster } from 'src/app/game/model/Monster';
 import { Scenario } from 'src/app/game/model/Scenario';
@@ -164,9 +165,17 @@ export class ScenarioSetupComponent implements OnInit {
   }
 
   openStats(monster: Monster) {
+    const clone = new Monster(monster, monster.level);
+    clone.statEffect = monster.statEffect;
+    if (clone.boss) {
+      gameManager.monsterManager.addMonsterEntity(clone, 1, MonsterType.boss);
+    } else {
+      gameManager.monsterManager.addMonsterEntity(clone, 1, MonsterType.elite);
+      gameManager.monsterManager.addMonsterEntity(clone, 2, MonsterType.normal);
+    }
     this.dialog.open(StatsListComponent, {
       panelClass: ['dialog'],
-      data: { monster: monster, statEffectNote: monster.statEffect ? monster.statEffect.note : '' }
+      data: { monster: clone, statEffectNote: clone.statEffect ? clone.statEffect.note : '' }
     });
   }
 }

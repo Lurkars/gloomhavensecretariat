@@ -607,9 +607,14 @@
         },
         "EditionData": {
             "properties": {
-                "additional": {
-                    "default": false,
-                    "type": "boolean"
+                "type": {
+                    "description": "Edition classification: 'extension' = standalone game needing parent (cs, ir); 'addon' = campaign expansion needing parent (fc, toa); 'content' = auto-included content for a parent (fh-crossover, gh-envx, etc.) or global content for any edition (sc, r100kc). Absent = standalone base game.",
+                    "enum": [
+                        "extension",
+                        "addon",
+                        "content"
+                    ],
+                    "type": "string"
                 },
                 "campaign": {
                     "$ref": "#/definitions/CampaignData"
@@ -636,8 +641,9 @@
                 "edition": {
                     "type": "string"
                 },
-                "extensions": {
+                "extends": {
                     "default": [],
+                    "description": "Parent edition IDs this edition depends on or extends. For 'extension'/'addon' types: editions whose components are needed. For 'extra' type: parent editions this auto-includes into.",
                     "items": {
                         "type": "string"
                     },
@@ -1976,4 +1982,3 @@
         }
     }
 }
-

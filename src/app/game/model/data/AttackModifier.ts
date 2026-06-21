@@ -583,6 +583,7 @@ export class AttackModifierDeck {
       this.current,
       this.cards.map((attackModifier) => attackModifier && attackModifier.id),
       this.discarded,
+      this.cards.map((attackModifier) => attackModifier && attackModifier.revealed),
       this.active,
       this.lastVisible,
       this.state,
@@ -605,6 +606,7 @@ export class GameAttackModifierDeckModel {
   current: number;
   cards: string[];
   discarded: number[];
+  revealed: boolean[];
   active: boolean;
   lastVisible: number;
   state: 'advantage' | 'disadvantage' | undefined;
@@ -616,6 +618,7 @@ export class GameAttackModifierDeckModel {
     current: number,
     cards: string[],
     discarded: number[],
+    revealed: boolean[],
     active: boolean,
     lastVisible: number = 0,
     state: 'advantage' | 'disadvantage' | undefined = undefined,
@@ -624,6 +627,7 @@ export class GameAttackModifierDeckModel {
     this.current = current;
     this.cards = cards;
     this.discarded = JSON.parse(JSON.stringify(discarded));
+    this.revealed = JSON.parse(JSON.stringify(revealed));
     this.active = active;
     this.lastVisible = lastVisible;
     this.state = state;

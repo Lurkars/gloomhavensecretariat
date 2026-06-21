@@ -1,7 +1,7 @@
 {
   "edition": "cc",
-  "additional": true,
-  "extensions": [
+  "type": "content",
+  "extends": [
     "gh",
     "fh",
     "gh-envx",

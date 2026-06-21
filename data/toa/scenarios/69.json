@@ -1,6 +1,7 @@
 {
   "index": "69",
   "name": "Shaman Chaperone",
+  "flowChartGroup": "toa",
   "edition": "toa",
   "unlocks": [
     "70"

@@ -150,8 +150,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     this.fhSheet = gameManager.fhRules(true);
     this.gh2eSheet = !gameManager.fhRules() && gameManager.fhRules(true);
-    this.csSheet =
-      !this.fhSheet && (this.character.edition === 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
+    this.csSheet = !this.fhSheet && gameManager.isEditionRelevant(this.character.edition, 'cs');
 
     this.donations = !gameManager.fhRules(false) && !gameManager.editionRules('jotl');
 
@@ -768,8 +767,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   toggleFhSheet() {
     this.fhSheet = !this.fhSheet;
     this.gh2eSheet = this.gh2eSheet ? false : !gameManager.fhRules() && gameManager.fhRules(true);
-    this.csSheet =
-      !this.fhSheet && (this.character.edition === 'cs' || gameManager.editionExtensions(this.character.edition).includes('cs'));
+    this.csSheet = !this.fhSheet && gameManager.isEditionRelevant(this.character.edition, 'cs');
   }
 
   openAbilityCards() {
