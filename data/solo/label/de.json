@@ -1,5 +1,10 @@
 {
   "custom": {
+    "fh": {
+      "algox-snowspeaker-trap-solo": {
+        "1": "Alle Gegner in <br>%game.action.range:2% erleiden %game.damage:2%"
+      }
+    },
     "gh": {
       "city-guard-saw-solo": {
         "1": "Erleidet %game.damage:1% am Ende der Runde solange nicht vollständig geheilt"

@@ -1,0 +1,15 @@
+{
+  "character": {
+    "bb": {
+      "bruiser": "Brigante",
+      "cragheart": "Coração de Pedra",
+      "mindthief": "Ladrão de Mentes",
+      "silent-knife": "Faca Silente",
+      "spellweaver": "Tecelã Arcana",
+      "tinkerer": "Engenhoqueiro"
+    }
+  },
+  "edition": {
+    "bb": "Botões & Bichinhos"
+  }
+}

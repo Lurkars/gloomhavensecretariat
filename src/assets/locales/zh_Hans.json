@@ -919,6 +919,7 @@
         "reputationLT": "声望< {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "如果%party.campaign.sheet.{0}%在第 {1} 周以内",
+        "startingGroup": "如果{0}",
         "traits": "%game.trait% {0}",
         "traitsAll": "%game.trait% {0}"
       },
@@ -1069,6 +1070,7 @@
           "gh2e": "下个剧本开始时，每个角色承受%game.damage:{0}%。"
         },
         "scenarioSingleMinus1": "剧本开始时一名角色获得 %game.card.minus1% x{0}。",
+        "section": "阅读段落%game.section:{0}%",
         "sectionOrWeek": "将 %game.section:{0}%或者{1}加入一周后的日历中。",
         "sectionOrWeeks": "将 %game.section:{0}%或者{1}加入%game.number.{2}%周后的日历中。",
         "sectionWeek": "将%game.section:{0}%加入一周后的日历中。",
@@ -1196,6 +1198,7 @@
         "owned": "仅限已拥有的道具",
         "sorted": "已整理"
       },
+      "party": "团队物品",
       "remove": "移除 '{0}'",
       "sell": "出售 '{0}' 以获取 {1} 金币",
       "share": {
@@ -1818,7 +1821,12 @@
       "initiativeRoundConfirm": "所有时序已确认。是否开始下一回合？",
       "missingInitiative": "所有生物必须设定时序！"
     },
-    "next": "下一回合"
+    "next": "下一回合",
+    "resets": {
+      "": "重置轮次计数",
+      "empty": "未设置重置",
+      "hint": "调整回合计数器的偏移量。正数表示增加回合，负数表示减少回合。设置为 0 即可移除。"
+    }
   },
   "scenario": {
     "": "场景",
@@ -2531,7 +2539,7 @@
       "hint": "当使用小型设备操作时,以全屏模式打开攻击修正牌堆(同样适用于拾取牌堆)."
     },
     "automaticEndRound": {
-      "": "自动结束回合",
+      "": "自动结束轮次",
       "hint": "当最后一个个体的回合完成后，自动结束本轮。"
     },
     "automaticFirstFigure": {
@@ -3279,6 +3287,11 @@
       "brewPotion": "为 {0} 酿造药水 \"%data.items.{2}-{1}%\"",
       "brewPotionOther": "{0} 为 {3} 酿造药水 \"%data.items.{2}-{1}%\"",
       "buildBuilding": "建造 '%data.buildings.{1}%' ({0})",
+      "buildingAttacked": {
+        "damaged": "攻击损坏'%data.buildings.{1}%' ({0})",
+        "normal": "成功防御'%data.buildings.{1}%' ({0})",
+        "wrecked": "攻击损毁'%data.buildings.{1}%' ({0})"
+      },
       "buildings": {
         "stables": {
           "pets": {
@@ -3431,6 +3444,11 @@
       },
       "entityDead": "击杀 {0} 的 {1} 立牌 {2}",
       "equipItem": "为 {0} 装备物品 {1} (%data.edition.{2}%)",
+      "eventDraw": {
+        "accept": "结算%game.events.type.{1}%事件{2}",
+        "cancel": "取消抽取%game.events.type.{1}%事件",
+        "new": "重新抽取一个%game.events.type.{1}%事件"
+      },
       "eventEffect": {
         "addCondition": "%game.condition.{0}% 至 {1}",
         "addImmunity": "%game.immunity.{0}% 至 {1}",
@@ -3689,6 +3707,7 @@
       "setResource": "为 {0} 设置 {1} {2}",
       "setRetired": "{0} 退休",
       "setRetirements": "为 {0} 设置退休 {1}",
+      "setRoundReset": "将重置值设为 {0}",
       "setScenario": "剧本 #{0} {1} ({2})",
       "setScenarioLevel": "剧本等级 {0}",
       "setSummonState": "为 {0} 设置召唤物 {1} {2}",

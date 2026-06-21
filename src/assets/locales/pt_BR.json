@@ -1,0 +1,171 @@
+{
+  "about": {
+    "": "Sobre",
+    "forceUpdate": "Forçar Atualização",
+    "ip": "Gloomhaven e todas as propriedades, imagens e textos relacionados são propriedade de {0}.",
+    "license": "Licenciado sob {0}.",
+    "sourceCode": {
+      "": "Código-fonte",
+      "author": "Código-fonte original"
+    },
+    "support": {
+      "": "Apoie o desenvolvedor",
+      "author": "Apoie o desenvolvedor original"
+    },
+    "version": {
+      "latest": "Mais recente",
+      "unknown": "Não foi possível obter a versão mais recente",
+      "update": {
+        "": "Última versão <a target=\"_blank\" href=\"{1}\">{0}</a>",
+        "apk": "Baixar APK para Android <a target=\"_blank\" href=\"{0}\">{1}</a>"
+      }
+    }
+  },
+  "and": "e",
+  "app": {
+    "install": "Instalar como Aplicativo",
+    "loading": {
+      "": "Carregando…",
+      "cancel": "Cancelar carregamento?"
+    }
+  },
+  "campaign": {
+    "": "Gerenciamento de Campanha/Personagem",
+    "battleGoals": "Preparação do Objetivo de Batalha",
+    "campaignManagement": {
+      "": "Gerenciar Campanha",
+      "add": "Adicionar Campanha",
+      "hint": "Alterar a campanha atual ou criar uma nova campanha está desativado durante um cenário. Conclua ou cancele o cenário atual para alterar a campanha atual ou criar uma nova campanha.",
+      "name": "Nome da Campanha {0}",
+      "reset": "Reiniciar Campanha"
+    },
+    "character": "Folha de Personagem",
+    "enhancements": "Calculadora de Melhoria",
+    "items": "Visão Geral da Cartas de Item",
+    "map": {
+      "": "Mapa Global"
+    },
+    "party": "Folha de Grupo/Campanha",
+    "resources": "Tabela de Visão Geral dos Recursos",
+    "sheet": "Folha de Gerenciamento da Campanha Global",
+    "trials": {
+      "automation": "O efeito desta carta é aplicado automaticamente!"
+    }
+  },
+  "cancel": "Cancelar",
+  "challenges": {
+    "automation": {
+      "hint": "O efeito desta carta é aplicado automaticamente!"
+    },
+    "deck": {
+      "current": "Atual",
+      "finished": "Finalizado",
+      "removed": "Removido"
+    }
+  },
+  "character": {
+    "": "Personagem",
+    "abilities": {
+      "currentDeck": "Baralho Atual",
+      "deckWarning": "Não é possível selecionar a carta correta, pois há cartas demais no baralho!",
+      "enhancements": {
+        "apply": "Aplicar",
+        "baseCosts": "Custos básicos",
+        "disabled": {
+          "enhancements": "Número máximo de cartas melhoradas ({1}) atingido!",
+          "gold": "Sem ouro suficiente ({0}/{1}) para melhoria!"
+        },
+        "enhancements": "Melhorias Anteriores",
+        "enhancerLevel": "Bônus de Melhoria",
+        "hint": {
+          "enhance": {
+            "": "Clique para adicionar melhoria.",
+            "wipSpecial": "Clique para adicionar melhoria. Clique duas vezes para adicionar um novo espaço de melhoria."
+          },
+          "enhanced": "Clique duas vezes para remover a melhoria."
+        },
+        "level": "Nível",
+        "lost": "Perdido",
+        "multiTarget": "Múltiplos Alvos",
+        "persistent": "Persistente",
+        "temporary": "Temporário",
+        "types": {
+          "any": "Qualquer",
+          "circle": "Círculo",
+          "diamond": "Diamante",
+          "diamond_plus": "Diamante+",
+          "hex": "Hexágono",
+          "square": "Quadrado"
+        }
+      },
+      "forceDeck": "Clique duas vezes para adicionar a Carta ao Baralho",
+      "levelWarning": "Baralho inválido visto que algumas cartas são de nível superior ao do personagem!",
+      "pickCard": "Escolha sua carta de nível {0}",
+      "removeFromDeck": "Clique duas vezes para remover a Carta do Baralho",
+      "show": "Exibir todas as Cartas de Habilidade",
+      "showDeck": "Exibir o Baralho de Personagens atual",
+      "sort": {
+        "cardId": "Ordenar pelo Número da Carta",
+        "level-deck": "Ordenar pelas Cartas no Baralho",
+        "level-name": "Ordenar pelo Nível e Nome",
+        "name": "Ordenar pelo Nome"
+      },
+      "undoLastPick": {
+        "": "Desfazer seleção para o nível {0}",
+        "hint": "Clique duas vezes para redefinir todas as escolhas"
+      },
+      "wip": "<i>%Em progresso%</i>"
+    },
+    "absent": "Ausente",
+    "add": "Adicionar Personagem",
+    "class": {
+      "aesther": "Aesther",
+      "f": {
+        "aesther": "Aesther",
+        "human": "Humano",
+        "inox": "Inox",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      },
+      "human": "Humano",
+      "inox": "Inox",
+      "m": {
+        "aesther": "Aesther",
+        "human": "Humano",
+        "inox": "Inox",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      },
+      "savvas": "Savvas",
+      "valrath": "Valrath",
+      "vermling": "Vermling"
+    },
+    "filter": {
+      "": "Filtrar Personagem",
+      "allEditions": "Todas as Edições",
+      "noResult": "Sem Resultado"
+    },
+    "lootCards": {
+      "sort": "Ordenar por tipo"
+    },
+    "playerNumber": "Jogador #",
+    "present": "Ativo",
+    "progress": {
+      "": "Folha de Personagem",
+      "donate": "Doação",
+      "donations": "Doações para o Santuário do Grande Carvalho: {0}",
+      "export": "Exportar",
+      "fh": {
+        "disable": "Acesse a Folha de Personagem do Gloomhaven",
+        "enable": "Acesse a Folha de Personagem do Frosthaven"
+      },
+      "gold": "Ouro",
+      "gold-notes": "Anotações de Ouro",
+      "import": "Importar",
+      "level": "Nível",
+      "lock": "Bloqueie a Folha do Personagem para evitar edições acidentais."
+    }
+  }
+}

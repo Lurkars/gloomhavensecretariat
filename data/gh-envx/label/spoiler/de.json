@@ -1,4 +1,7 @@
 {
+  "ability": {
+    "Armed and Dangerous": "Bewaffnet und gefährlich"
+  },
   "character": {
     "gh": {
       "envx": "Klingenschwarm"

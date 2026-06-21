@@ -1,5 +1,6 @@
 {
   "ability": {
+    "Accelerated Metabolism": "Beschleunigter Metabolismus",
     "Angry Howl": "Wütendes Heulen",
     "Booming Scream": "Donnernder Schrei",
     "Call to the Flame": "Ruf der Flamme",
@@ -322,7 +323,7 @@
     },
     "garden": {
       "": "Garten",
-      "1": "Pflanzt Kräuter, dreht diese Karte um 180° und hört dann auf -\nErhaltet pro bepflanztem Beet je 1 Kraut, dreht diese Karte um 180° und hört dann auf",
+      "1": "Pflanzt Kräuter, dreht diese Karte um 180° und hört dann auf - Erhaltet pro bepflanztem Beet je 1 Kraut, dreht diese Karte um 180° und hört dann auf",
       "2": "Erhaltet insgesamt pro bepflanztem Beet je 1 Kraut und pflanzt dann Kräuter",
       "plots": {
         "interaction": "Pflanzt/Erntet Kräuter",

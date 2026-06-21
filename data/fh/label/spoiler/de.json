@@ -571,7 +571,7 @@
     },
     "fh-207": {
       "": "Angelhaken",
-      "1": "Wenn der aktuelle TP-Wert des Ziels nach deinem Angriff maximal 3 beträgt, gib dem Ziel %game.condition.bane%."
+      "1": "Wenn der aktuelle TP-Wert des Ziels nach deinem Angriff maximal 3 beträgt, gib dem Ziel %game.condition.bane%"
     },
     "fh-208": {
       "": "Titandorn",
