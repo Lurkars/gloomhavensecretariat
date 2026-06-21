@@ -1,1 +1,0 @@
-import {O as Ot}from'./chunk-jeTXDsLV.js';var s=class{constructor(i){this.init=i,this.records=this.init();}static{Ot(this,"ImperativeState");}reset(){this.records=this.init();}};export{s};//# sourceMappingURL=chunk-CkInmngR.js.map
