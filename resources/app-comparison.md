@@ -128,7 +128,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Scenario Statistics                                                             | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
 | Scenario Recaps                                                                 | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
 | Forteller Links                                                                 | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
-| Localization                                                                    | ✅[^5]         | ⛔          | ⛔        | ⛔         | ✅❗[^6]  |
+| Localization                                                                    | ✅             | ✅          | ⛔        | ⛔         | ✅❗[^6]  |
 | Keyboard Shortcuts                                                              | ✅             | ❗          | ⛔        | ⛔         | ✅        |
 | Offline Support                                                                 | ✅[^10]        | ✅          | ✅        | ⛔         | ✅        |
 | Push and Audio Notifications                                                    | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
@@ -172,8 +172,6 @@ There are a few other apps that are specialised or niche and therefore not taken
 [^3.4]: except events, includes appending F, envelopes, and random dungeon cards (No card images)
 
 [^4]: Need separate server component [_GHS_ Server](https://github.com/Lurkars/*GHS*-server), public instance available
-
-[^5]: Support for English, German, French and Korean (missing translations for CS and FH)
 
 [^6]: Many languages supported, but many label missing: English, Czech, Hungarian, French, German, Italian, Japanese, Korean, Polish, Portugues, Russian, Spanish
 
