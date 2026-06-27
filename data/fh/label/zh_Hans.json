@@ -1572,6 +1572,7 @@
         "personal-quests": "个人使命",
         "puzzle-book": "谜题书",
         "random-scenarios": "随机剧本",
+        "solo": "单人剧本",
         "unfettered": "自由机"
       },
       "frozen-corpse": {
@@ -1997,7 +1998,8 @@
   },
   "scenario": {
     "group": {
-      "randomMonsterCard": "随机怪物卡牌"
+      "randomMonsterCard": "随机怪物卡牌",
+      "solo": "单人剧本"
     },
     "rewards": {
       "fh": {

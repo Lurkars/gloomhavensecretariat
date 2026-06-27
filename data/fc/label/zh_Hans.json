@@ -7,5 +7,10 @@
   },
   "monster": {
     "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.fc.diviner% %solo%)"
+  },
+  "scenario": {
+    "group": {
+      "solo": "单人剧本"
+    }
   }
 }

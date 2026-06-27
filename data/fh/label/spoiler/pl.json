@@ -202,6 +202,13 @@
         }
       },
       "coral": "Miażdżąca Fala",
+      "drill": {
+        "": "Metalowa Mozaika",
+        "high": "Wysokie",
+        "low": "Niskie",
+        "over": "Najwyższe",
+        "regular": "Zwykłe"
+      },
       "fist": {
         "": "Pięść Mrozu",
         "gift-of-the-mountain": {
@@ -214,7 +221,47 @@
         }
       },
       "meteor": "Piroklasta",
+      "prism": {
+        "": "DRON",
+        "autoapply_mode": {
+          "": "Tryb Autoprzyznawania",
+          "hint": "Podczas aktywacji %data.characterToken.prism.mode%, automatycznie zastosuj obrażenia i stany."
+        },
+        "code_geminate": {
+          "": "Kod Bliźniacznika",
+          "hint": "Zezwala wielu przywołaniom na posiadanie aktywowanego Trybu %data.characterToken.prism.mode%."
+        },
+        "prism_mode": {
+          "": "%data.characterToken.prism.mode% Żeton Trybu",
+          "hint": "Tryb %data.characterToken.prism.mode% jest aktywowany dla przywołania, przywołaniec nie wykonuje akcji w swojej turze."
+        },
+        "repair_mode": {
+          "": "Pomoc Rekonstrukcyjna",
+          "hint": "%data.characterToken.prism.mode% Tryb Drona Naprawczego: Na początku każdej ze swoich tur wykonaj: %game.action.heal:2%, na siebie"
+        },
+        "spider_mode": {
+          "": "Tarcza Roju",
+          "hint": "%data.characterToken.prism.mode% Tryb Pająka Tarczownika: Na początku każdej ze swoich tur wykonaj: %game.condition.ward% 2, na siebie"
+        },
+        "tokens": {
+          "mode": "Żeton Trybu"
+        }
+      },
       "shackles": "Przekaźnik Bólu",
+      "shards": {
+        "": "Miażdżypieśń",
+        "extra_resonance_tokens": {
+          "": "Perk 10",
+          "hint": "%data.custom.fh.shards.5%"
+        },
+        "resonance_tokens": {
+          "": "%data.characterToken.shards.resonance% Żetony Rezonansu",
+          "hint": "Na koniec każdej swojej tury zyskujesz jeden %data.characterToken.shards.resonance%"
+        },
+        "tokens": {
+          "resonance": "Żeton Rezonansu"
+        }
+      },
       "snowflake": {
         "": "Tancerz Śniegu"
       },
@@ -240,6 +287,15 @@
         "5": "Nigdy nie otrzymaj obrażeń od ataków i bądź wzięty na cel przez co najmniej pięć ataków",
         "6": "Na początku każdego ze swoich odpoczynków miej więcej aktywnych %game.action.custom.fh-tides% niż kart na stosie kart odrzuconych"
       },
+      "drill": {
+        "1": "%game.action.custom.fh-pressure-up% lub %game.action.custom.fh-pressure-down%",
+        "2": "Cel i wszyscy sąsiadujący z nim wrogowie otrzymują %game.damage:1%",
+        "3": "Za każdym razem, gdy wykonujesz długi odpoczynek, możesz %game.action.custom.fh-pressure-up% lub %game.action.custom.fh-pressure-down%",
+        "4": "Za każdym razem, gdy masz zyskać %game.condition.poison%, możesz otrzymać %game.damage:1%, aby zapobiec temu stanowi",
+        "5": "Raz na scenariusz, kiedy masz zostać wyczerpany, zamiast tego zyskaj %game.condition.stun% i %game.condition.invisible%, utrać wszystkie swoje karty, %game.card.recover% cztery utracone karty, a następnie odrzuć odzyskane karty",
+        "6": "Nidy nie wykonaj ataku",
+        "7": "Przez cztery kolejne rundy przesuwaj wskaźnik ciśnienia w górę lub w dół o trzy poziomy od miejsca, w którym znajdował się on na poczatku rundy (z %game.action.custom.fh-pressure-low% do %game.action.custom.fh-pressure-over% lub odwrotnie)"
+      },
       "fist": {
         "1": "Stwórz jeden kafelek oblodzonego terenu o wielkości 1 pola na pozbawionym cech polu przylegającym do celu",
         "2": "oraz za każdym razem, gdy wchodzisz na oblodzony teren za pomocą zdolności ruchu, możesz zignorować jego efekt, aby dodać %game.action.move.valueSign:1%",
@@ -257,7 +313,18 @@
         "6": "W jednej turze przemieść wrogów przez sześć różnych pól niebezpiecznego terenu, które stworzyłeś"
       },
       "prism": {
-        "1": "Na koniec tury wykonaj akcję:"
+        "1": "Na koniec tury wykonaj akcję:",
+        "10": "Za każdym razem, gdy masz otrzymać %game.condition.wound%, zapobiegnij temu stanowi",
+        "11": "%game.action.custom.fh-mode% w kazdej rundzie",
+        "12": "%game.action.custom.fh-mode% w cztery różne przywołańce w trakcie jednej rundy",
+        "2": "Skup się na przeciwniku najdalej od DRONa.",
+        "3": "Wszyscy sąsiadujący sojusznicy zyskują %game.action.shield:1%.",
+        "4": "Podczas ataku zmniejsz %game.damage% o 1 za każdy negatywny stan, który posiada atakujący.",
+        "5": "Daj %game.condition.wound% wszystkim sąsiadującym figurkom i sobie na koniec tury.",
+        "6": "Po rozpatrzeniu tej zdolności ataku przyznaj jednemu z twoich przywotanców: %game.action.move:2%",
+        "7": "Po rozpatrzeniu tej zdolności ataku, %game.action.custom.fh-mode%",
+        "8": "Za każdym razem, gdy wykonujesz długi odpoczynek, możesz wykonać go w dowolnej inicjatywie, wybierając ją po tym, jak wszystkie karty zdolności zostaną ujawnione.\nTo ty decydujesz, w jaki sposób przywołańce wykonują swoje zdolności w tej rundzie",
+        "9": "Na koniec każdego z twoich krótkich odpoczynków możesz %game.action.custom.fh-mode%"
       },
       "shackles": {
         "1": "Gdy atakuje, ignoruj %game.action.retaliate%",
@@ -270,7 +337,14 @@
         "8": "Rozpocznij turę z %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% oraz %game.condition.muddle%"
       },
       "shards": {
-        "4": "Za każdym razem, gdy wykonujesz krótki odpoczynek, możesz %game.element.consume.air%, aby wykonać %game.condition.strengthen%, %game.action.range:3% oraz %game.element.consume.light%, aby wykonać %game.condition.bless%, %game.action.range:3%"
+        "1": "Ujawnij wierzchnią kartę z talii umiejętności potworów",
+        "2": "Zyskaj 1 %game.characterToken.shards.resonance%",
+        "3": "Zyskaj 1 %game.action.custom.fh-resonance%",
+        "4": "Za każdym razem, gdy wykonujesz krótki odpoczynek, możesz %game.element.consume.air%, aby wykonać %game.condition.strengthen%, %game.action.range:3% oraz %game.element.consume.light%, aby wykonać %game.condition.bless%, %game.action.range:3%",
+        "5": "Na początku każdego scenariusza możesz zyskać %game.condition.brittle% aby zyskać 2 %game.action.custom.fh-resonance%",
+        "6": "Za każdym razem, gdy zostanie ujawnione nowe pomieszczenie, możesz ujawnić wierzchnią kartę z talii modyfikatorów ataku potworów i z talii modyfikatorów ataku wszystkich sojuszników",
+        "7": "Zawsze miej 0 %game.action.custom.fh-resonance% bezpośrednio przed uzyskaniem %game.action.custom.fh-resonance% na koniec każdej ze swoich tur",
+        "8": "Wydaj 5 %game.action.custom.fh-resonance% na każdą z pięciu różnych zdolności Fali"
       },
       "snowflake": {
         "1": "Jeżeli ta akcja zmusza cel do poruszenia, otrzymuje on %game.damage:1%",
@@ -1626,35 +1700,56 @@
   },
   "summon": {
     "animated-claymore": "Ożywiony Claymore",
+    "arcing-generator": "Generator Łuków",
+    "armored-tank": "Opancerzony Czołg",
     "banner-of-courage": "Sztandar Odwagi",
     "banner-of-doom": "Sztandar Zagłady",
     "banner-of-hope": "Sztandar Nadziei",
     "banner-of-strength": "Sztandar Siły",
     "banner-of-valor": "Sztandar Męstwa",
+    "bombardier": "Bombardier",
     "bone-horde": "Kościana Horda",
+    "dampening-unit": "Jednostka Tłumiąca",
     "defense-grid": "Siatka Obronna",
     "flesh-bomb": "Mięsna Bomba",
     "flesh-fiend": "Mięsisty Nikczemnik",
+    "jackal-mech": "Mech Szakal",
+    "leaper": "Skoczek",
     "longbowman": "Łucznik",
+    "machine-bolter": "Maszynowy Miotacz",
     "polar-cat": "Kot Polarny",
     "raging-corpse": "Wściekłe Zwłoki",
     "reinforcement": "Wsparcie",
+    "repair-drone": "Dron Naprawczy",
     "shadow-beast": "Bestia Cienia",
     "shadow-horror": "Cienista Groza",
     "shaggy-lure": "Kudłata przynęta",
     "shambling-skeleton": "Człapiący Szkielet",
+    "shield-spider": "Pająk Tarczownik",
     "skeleton-sorcerer": "Szkielet Czarnoksiężnik",
+    "sledge-driver": "Młotkowy",
+    "sniper-turret": "Wieżyczka Snajperska",
     "snow-fox": "Śnieżny Lis",
     "spiritbound-falchion": "Duszosplątany Falcjon",
     "stitched-atrocity": "Zszyte Okrucieństwo",
+    "sword-propeller": "Śmigłomiecz",
     "torch-bearer": "Nosiciel Pochodni",
+    "toxin-distributor": "Dystrybutor Toksyn",
     "trained-falcon": "Wyszkolony Sokół",
+    "trapping-unit": "Jednostka Tropiąca",
     "white-owl": "Biała Sowa",
     "wraith": "Upiór"
   },
   "treasures": {
     "fh": {
       "54": "Skrzynia ze skarbami? Nie było tam żadnej skrzyni. Może nie powinieneś już więcej pić."
+    }
+  },
+  "trials": {
+    "fh": {
+      "352": {
+        "text": "Podczas każdego scenariusza nie wolno ci wypowiadać słów: \"Atak\", \"Weź\" ani \"Obrażenia\". Ilekroć to zrobisz, otrzymujesz %game.damage:L/2% (zaokrąglone w górę).<br>Ukończysz tę próbę po pomyślnym zakończeniu scenariusza."
+      }
     }
   }
 }

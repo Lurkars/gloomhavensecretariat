@@ -79,6 +79,9 @@
     "vermling-scout-mindthief2-solo": "%data.monster.vermling-scout%"
   },
   "scenario": {
+    "group": {
+      "solo": "单人剧本"
+    },
     "title": {
       "fh": {
         "solo-20": "自然奇迹",

@@ -1,13 +1,30 @@
 {
   "ability": {
     "Anguish and Salvation": "Qual und Erlösung",
+    "Anticipate Intricacies": "Probleme erahnen",
+    "Bad Omen": "Übles Vorzeichen",
     "Blistering Heat": "Glühende Hitze",
+    "Call of the Nether": "Ruf der Anderswelt",
+    "Careful Attunement": "Geschickte Lenkung",
+    "Clairvoyance": "Hellsicht",
+    "Cleansing Rite": "Reinigungsritus",
     "Corrupting Presence": "Beschädigen der Anwesenheit",
+    "Curative Flux": "Genesungsstrom",
+    "Cursed Ground": "Verfluchter Boden",
+    "Deep Contemplation": "Tiefe Meditation",
+    "Dimensional Divide": "Dimensionsgrenze",
+    "Dimensional Transfer": "Dimensionstransfer",
+    "Duality Shards": "Duale Scherben",
     "Endless Legions": "Endlose Legionen",
+    "Enfeebling Hex": "Schwächender Bann",
+    "Envision the Course": "Vorausschau",
+    "Ethereal Vortex": "Ätherwirbel",
     "Flame Lance": "Flammenlanze",
     "Gift of the Void": "Geschenk der Leere",
+    "Hand of Destiny": "Hand des Schicksals",
     "Harsh Entrapment": "Harte Verstrickung",
     "Heed My Call": "Folge meinen Ruf",
+    "Inspiration from Beyond": "Jenseitige Inspiration",
     "Legendary - Domination": "Legendär - Herrschaft",
     "Legendary - Gloom": "Legendär - Finsternis",
     "Legendary - Shadows": "Legendär - Schatten",
@@ -15,11 +32,20 @@
     "Lure Them In": "Lock Sie An",
     "Marked for Death": "Markiert für den Tod",
     "Nightmare Spheres": "Albtraum-Sphären",
+    "Otherworldly Journey": "Andersweltliche Reise",
+    "Peer into Battle": "Kampfsicht",
+    "Planar Fissure": "Ebenenspalt",
     "Plaque Their Dreams": "Tafel Ihre Träume an",
+    "Preordain the Path": "Vorgezeichneter Weg",
+    "Protective Aura": "Schutzaura",
     "Pulse of Malice": "Puls der Bosheit",
+    "Ray of Light": "Lichtstrahl",
+    "Revitalizing Fount": "Erfrischender Quell",
+    "Seal Their Fate": "Schicksalsspruch",
     "Searing Vapors": "Ätzende Dämpfe",
     "Toxic Blast": "Giftiger Schuss",
     "Unfathomable Fortitude": "Unergründliche Stärke",
+    "Void Snare": "Fessel der Leere",
     "What's Yours is Mine": "Was dir gehört, gehört mir",
     "You Date to Defy Me": "Treff mich um mir zu trotzen"
   },
@@ -33,6 +59,49 @@
       "ashblade": {
         "1": "Fokussiere den Gegner mit der höchsten Initiative.",
         "2": "%game.action.teleport% zum nächsten freien Feld angrenzend an den Fokus."
+      },
+      "diviner": {
+        "abilities": {
+          "574": {
+            "1": "Decke die obersten 4 Karten eines beliebigen Angriffsmodifikator-Decks auf und lege sie in beliebiger Reihenfolge zurück.",
+            "2": "Decke stattdessen die obersten 6 Karten auf, %game.card.experience:1%."
+          },
+          "575": {
+            "1": "Decke die obersten 3 Karten eines beliebigen Angriffsmodifikator-Decks auf und lege dann in beliebiger Reihenfolge bis zu 1 unter das Deck und den Rest auf das Deck zurück.",
+            "2": "Decke stattdessen die obersten 5 Karten auf und lege dann in beliebiger Reihenfolge bis zu 2 Karten unter das Deck und den Rest auf das Deck zurück, %game.card.experience:1%."
+          },
+          "576": {
+            "1": "Decke die obersten 2 Karten eines beliebigen Monster-Fertigkeitskarten-Decks (außer Bosse) auf und lege sie in beliebiger Reihenfolge zurück.",
+            "2": "Decke stattdessen die obersten 4 Karten auf, %game.card.experience:1%."
+          },
+          "577": {
+            "1": "Wenn ein Verbündeter in %game.action.range:3% %game.enhancement.circle% in dieser Runde angegriffen wird, gilt jeder positive und %game.attackmodifier.double% Angriffsmodifikator des Gegners stattdessen als %game.attackmodifier.plus0%.",
+            "2": "Decke die oberste Karte zweier beliebiger Monster-Fertigkeitskarten-Decks (außer Bosse) auf und lege in beliebiger Reihenfolge bis zu 1 Karte unter und den Rest auf das entsprechende Deck zurück.",
+            "3": "Decke stattdessen die obersten 2 Karten beider Decks auf, %game.card.experience:1%."
+          },
+          "578": {
+            "1": "Zwinge einen Gegner in %game.action.range:3%, sich auf ein unbesetztes Feld im Umkreis von 2 %game.enhancement.circle% Feldern um dich zu %game.action.teleport%.",
+            "2": "Lege einen data.characterColored.diviner:Rift% %data.characterColored.diviner:token% auf das Feld, auf dem du dich befindest.",
+            "3": "%game.action.teleport% auf ein beliebiges unbesetztes Feld im %game.enhancement.circle% von 4 Feldern um dich."
+          },
+          "580": {
+            "1": "Lege einen %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% auf das Feld, auf dem du dich befindest.",
+            "2": "%game.action.teleport% auf ein beliebiges unbesetztes Feld im %game.enhancement.circle% von 4 Feldern um dich."
+          },
+          "581": {
+            "1": "Lege einen %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% auf ein beliebiges unbesetztes Feld in %game.action.range:3%.",
+            "2": "Wenn ein Gegner in dieser Runde ein Feld mit einem data.characterColored.diviner:Rift% %data.characterColored.diviner:token% betritt, erhält er %game.condition.disarm%."
+          },
+          "582": {
+            "1": "Lege einen %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% auf ein beliebiges unbesetztes Feld in %game.action.range:4%.",
+            "2": "Wenn ein Gegner in dieser Runde ein Feld mit einem %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% betritt, erleidet er 1 Schaden und erhält %game.condition.curse%."
+          },
+          "583": {
+            "1": "Die nächsten 6 Male, wenn ein Gegner eine %game.attackmodifier.curse% Karte in sein Angriffsmodifikator-Deck mischen würde, darfst du sie stattdessen als 6. Karte von oben einsortieren.",
+            "2": "Bewege einen %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% bis zu 6 Felder weit. Diese Bewegung löst jegliche Riss-Effekte aus, als ob die Figur das Feld mit dem %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% betreten hätte.",
+            "3": "%game.action.teleport% auf ein beliebiges unbesetztes Feld im Umkreis von 6 %game.enhancement.circle% Feldern um dich."
+          }
+        }
       },
       "manifestation-of-corruption": {
         "1": "Spiele die ersten beiden Karten mit der ersten Karte als Initiative. Führe die untere Aktion der ersten und die obere Aktion der zweiten Karte aus",

@@ -90,6 +90,7 @@
     "Master Influence": "Meisterhafter Einfluss",
     "Mech Suit": "Mechanikanzug",
     "Micro Missiles": "Mikrotakten",
+    "No Fear": "Furchtlos",
     "Nothing Special": "Nichts Besonderes",
     "Nowhere to Run": "Kein Entkommen",
     "Noxious Blade": "Seuchenklinge",
@@ -951,7 +952,9 @@
     "Loot": "Beute",
     "Nest": "Nest",
     "Pillar": "Säule",
-    "Summoning Stone": "Beschwörungsstein"
+    "Summoning Stone": "Beschwörungsstein",
+    "Table": "Tisch",
+    "Ward": "Schutzzeichen"
   },
   "scenario": {
     "rules": {
@@ -973,6 +976,9 @@
         "21": {
           "1": "auf einem Feld des zuletzt zerstörten Zielobjekts",
           "2": "Charaktere erleiden %game.damage:[Math.floor(L/2)]% für jedes Feld, das sie in diesem Raum betreten, bis der Chaosdämon %game.mapMarker.A% getötet wurde"
+        },
+        "3": {
+          "1": "Von nun an müsst ihr nach jedem erfolgreichen Abschluss eines Szenarios ein Stadt-Ereignis abschließen. Bevor ihr dies jedoch zum ersten Mal tut, holt das Ereignis-Deck aus der Spiel-Box und mischt die Karten."
         }
       }
     },

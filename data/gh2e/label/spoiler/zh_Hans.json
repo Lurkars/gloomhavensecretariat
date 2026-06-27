@@ -67,7 +67,64 @@
         "6": "消灭20个带有%data.action.custom.gh2e-doom%的敌人",
         "7": "在单一轮次中，你和你的一个召唤物合计执行至少6次攻击能力",
         "8": "不受困难地形影响。",
-        "9": "攻击时，忽略%game.action.retaliate%。"
+        "9": "攻击时，忽略%game.action.retaliate%。",
+        "abilities": {
+          "381": {
+            "1": "下4次带有%data.action.custom.gh2e-doom%的敌人死亡，且在你%game.action.range:4%内存在另一个敌人时，执行：%game.action.attack:3% %game.action.range:4%",
+            "2": "你对该目标执行的所有攻击增加%game.action.pierce:2%。"
+          },
+          "382": {
+            "1": "该敌人回合开始时，承受%game.damage:1%。"
+          },
+          "383": {
+            "1": "如果目标带有%data.action.custom.gh2e-doom%，增加%game.condition.wound%并获得%game.card.experience:1%。"
+          },
+          "384": {
+            "1": "该敌人死亡时，所有相邻的敌人承受%game.damage:2%。"
+          },
+          "385": {
+            "1": "如果该攻击消灭了一个敌人，获得%game.card.experience:1%，且你可以从手牌或弃牌堆中打出一张卡牌来执行该卡牌上的一个%data.action.custom.gh2e-doom%行动。"
+          },
+          "386": {
+            "1": "翻开%game.action.range:5%内1种怪物能力牌库顶的那张卡牌。",
+            "2": "你的一个召唤物或自身"
+          },
+          "387": {
+            "1": "如果目标未承受伤害，增加%game.action.attack.valueSign:2%并获得%game.card.experience:1%。",
+            "2": "你召唤物的所有以该敌人为目标的攻击增加%game.action.attack.valueSign:1%。你的召唤物视该敌人为焦点目标。"
+          },
+          "388": {
+            "1": "当你或你的一个召唤物令该敌人承受伤害时，你可以执行：",
+            "2": "自身或1个与目标相邻的盟友"
+          },
+          "389": {
+            "1": "如果目标带有%data.action.custom.gh2e-doom%，增加%game.condtition.immobilize%并获得%game.card.experience:1%。"
+          },
+          "390": {
+            "1": "当任意一个带有%data.action.custom.gh2e-doom%的敌人死亡时，你可以不将该敌人带有的%data.action.custom.gh2e-doom%卡牌置入弃牌堆，改为将本卡牌置入弃牌堆，来以该敌人占据格子%game.action.range:3%内的另一个敌人为目标，执行该敌人带有的所有%data.action.custom.gh2e-doom%卡牌上的%data.action.custom.gh2e-doom%效果。"
+          },
+          "391": {
+            "1": "不受困难地形影响。",
+            "2": "当决定怪物焦点时，本召唤物视为先攻顺序排在最后。",
+            "3": "你对该目标执行的所有攻击增加%game.action.attack.valueSign:1%。"
+          },
+          "392": {
+            "1": "你召唤物的所有移动能力增加%game.action.move.valueSign:2%和%game.action.jump%。你的召唤物视该敌人为焦点目标。"
+          },
+          "393": {
+            "1": "如果目标与你的一个召唤物相邻，增加%game.action.attack.valueSign:2%并获得%game.card.experience:1%。",
+            "2": "赋予你的一个召唤物：",
+            "3": "该攻击必须以末日行者攻击能力的目标为目标。"
+          },
+          "394": {
+            "1": "攻击时，忽略%game.action.retaliate%。",
+            "2": "本轮中，你的所有攻击获得优势。"
+          },
+          "395": {
+            "1": "赋予你的一个召唤物：",
+            "2": "该攻击能力必须以末日行者攻击能力的目标为目标。"
+          }
+        }
       },
       "circles": {
         "1": "在攻击能力后，赋予你的一个召唤物： %game.action.teleport:2%",
@@ -445,7 +502,12 @@
         "5": "你的团队可从各阵营处购买物品，购买时视为该物品价格减少5金币，且你们与该阵营的声望视为比当前值高2点",
         "6": "每当你充分休息时，获得10%data.action.custom.gh2e-supplies%",
         "7": "在单一剧本中，花费50%data.action.custom.gh2e-supplies%来刷新价值50金币的遗失型物品3次",
-        "8": "在单一剧本中，除了充分休息轮次外，每轮都给与盟友或自身一件来自军需官道具供应堆的道具"
+        "8": "在单一剧本中，除了充分休息轮次外，每轮都给与盟友或自身一件来自军需官道具供应堆的道具",
+        "abilities": {
+          "234": {
+            "1": "获得20%data.action.custom.gh2e-supplies%。"
+          }
+        }
       },
       "triangles": {
         "1": "每个剧本开始时，你可以%game.element.wild%",
