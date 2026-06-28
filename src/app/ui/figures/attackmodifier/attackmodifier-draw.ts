@@ -75,7 +75,7 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   update(fromServer: boolean = false) {
     if (this.current < this.deck.current) {
       const delta = this.deck.current - this.current;
-      if (!fromServer && delta > 1) {
+      if (!fromServer && this.current === -1 && delta > 1) {
         this.current = this.deck.current;
       } else if (!this.queueTimeout) {
         this.queue = Math.max(0, delta);

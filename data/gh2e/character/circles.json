@@ -5,8 +5,8 @@
   "icon": "gh-circles",
   "edition": "gh2e",
   "handSize": 12,
-  "unlockEvent": "road:44|road:45",
-  "retireEvent": "road:70",
+  "unlockEvent": "road:R-44|road:R-45",
+  "retireEvent": "road:R-70",
   "traits": [
     "arcane",
     "chaotic",

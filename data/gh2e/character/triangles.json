@@ -4,8 +4,8 @@
   "icon": "gh-triangles",
   "edition": "gh2e",
   "handSize": 10,
-  "unlockEvent": "road:42|road:43",
-  "retireEvent": "road:67|road:68",
+  "unlockEvent": "road:R-42|road:R-43",
+  "retireEvent": "road:R-67|road:R-68",
   "traits": [
     "arcane",
     "educated",

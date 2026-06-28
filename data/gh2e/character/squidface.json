@@ -4,8 +4,8 @@
   "icon": "gh-squidface",
   "edition": "gh2e",
   "handSize": 10,
-  "unlockEvent": "city:76|city:77",
-  "retireEvent": "city:89|road:72",
+  "unlockEvent": "city:C-76|city:C-77",
+  "retireEvent": "city:C-89|road:R-72",
   "traits": [
     "arcane",
     "intimidating",

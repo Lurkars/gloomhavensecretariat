@@ -292,7 +292,7 @@ export class EventCardManager {
     const results: (EventCardEffect | EventCardCondition | EventCardAttack)[] = [];
     const option = eventCard.options[selected];
     let returnToDeck = false;
-    let removeFromDeck = ['fh', 'jotl', 'cs', 'toa'].includes(eventCard.edition); // default to remove from deck for JOTL, FH, CS and ToA
+    let removeFromDeck = ['fh', 'jotl', 'gh2e', 'cs', 'toa'].includes(eventCard.edition); // default to remove from deck for JOTL, FH, GH2E, CS and ToA
     if (option) {
       if (option.removeFromDeck) {
         removeFromDeck = true;

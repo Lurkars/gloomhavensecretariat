@@ -5,8 +5,8 @@
   "icon": "gh-angry-face",
   "edition": "gh2e",
   "handSize": 11,
-  "unlockEvent": "city:74|city:75",
-  "retireEvent": "road:65|road:66",
+  "unlockEvent": "city:C-74|city:C-75",
+  "retireEvent": "road:R-65|road:R-66",
   "traits": [
     "chaotic",
     "intimidating",

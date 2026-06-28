@@ -3052,6 +3052,10 @@
     },
     "requires": "Requires:",
     "requiresOne": "Requires one of:",
+    "roundClock": {
+      "": "Round Clock",
+      "hint": "Show the time for the round and in-between next to the draw button."
+    },
     "scenarioNumberInput": {
       "": "Scenario Number Input"
     },

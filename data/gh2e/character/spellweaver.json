@@ -5,7 +5,7 @@
   "icon": "gh-spellweaver",
   "edition": "gh2e",
   "handSize": 8,
-  "retireEvent": "city:95|road:62",
+  "retireEvent": "city:C-95|road:R-62",
   "traits": [
     "arcane",
     "educated",

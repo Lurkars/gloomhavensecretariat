@@ -10,7 +10,7 @@
           <span class="total-rounds">&nbsp;({{ totalRounds() }})</span>
         }
       </span>
-      @if (!!gameManager.game.scenario) {
+      @if (settingsManager.settings.roundClock && !!gameManager.game.scenario) {
         <span class="time">{{ currentTime }}</span>
       }
       <span #button></span>

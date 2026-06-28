@@ -8,8 +8,8 @@
     "low-note"
   ],
   "handSize": 11,
-  "unlockEvent": "road:49|city:80",
-  "retireEvent": "city:94|road:74",
+  "unlockEvent": "road:R-49|city:C-80",
+  "retireEvent": "city:C-94|road:R-74",
   "traits": [
     "educated",
     "nimble",

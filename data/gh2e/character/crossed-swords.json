@@ -4,8 +4,8 @@
   "icon": "gh-envx",
   "edition": "gh2e",
   "handSize": 11,
-  "unlockEvent": "road:54",
-  "retireEvent": "road:76|road:77",
+  "unlockEvent": "road:R-54",
+  "retireEvent": "road:R-76|road:R-77",
   "traits": [
     "armored",
     "chaotic",

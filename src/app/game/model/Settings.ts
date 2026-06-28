@@ -184,6 +184,7 @@ export class Settings {
   pressDoubleClick: boolean = true;
   randomStandees: boolean = false;
   removeUnusedMonster: boolean = false;
+  roundClock: boolean = true;
   scenarioNumberInput: boolean = false;
   scenarioRewards: boolean = true;
   scenarioRooms: boolean = true;
@@ -303,6 +304,7 @@ export const localSettings: string[] = [
   'pinchZoom',
   'portraitMode',
   'pressDoubleClick',
+  'roundClock',
   'serverAutoconnect',
   'serverCode',
   'serverExportCode',
