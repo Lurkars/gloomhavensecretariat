@@ -3053,6 +3053,10 @@
     },
     "requires": "Benötigt:",
     "requiresOne": "Benötigt eines von:",
+    "roundClock": {
+      "": "Rundenzeit",
+      "hint": "Zeigt die Zeit für die Runde und zwischen den Runden neben dem Ziehen Button an."
+    },
     "scenarioNumberInput": {
       "": "Numerische Szenario Eingabe"
     },

@@ -1,1 +1,0 @@
-import {O as Ot,m as mf}from'./chunk-C2Gg68i1.js';var g=Ot((t,e)=>{let n;return e==="sandbox"&&(n=mf("#i"+t)),(e==="sandbox"?mf(n.nodes()[0].contentDocument.body):mf("body")).select(`[id="${t}"]`)},"getDiagramElement");export{g};//# sourceMappingURL=chunk-sVrJNNi_.js.map

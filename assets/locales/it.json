@@ -2456,11 +2456,11 @@
       "hint": "Illustrazione per mostri e personaggi"
     },
     "automaticAttackModifierFullscreen": {
-      "": "Mazzo MA a schermo intero",
+      "": "Mazzo MA a schermo intero automatico",
       "hint": "Apri il mazzo modificatori attacco (e anche il mazzo bottino) in modalità a schermo intero quando su piccoli dispositivi."
     },
     "automaticFirstFigure": {
-      "": "Avvio automatico prima figura",
+      "": "Avvio autom. prima figura",
       "hint": "Inizia automaticamente il turno della prima figura all'inizio del turno successivo. Questa opzione è sempre attivata, se è richiesta l'iniziativa."
     },
     "automaticGameClock": {
@@ -2468,11 +2468,11 @@
       "hint": "Avvia e arresta automaticamente l'orologio di gioco quando la finestra si apre o si chiude."
     },
     "automaticGameClockFocus": {
-      "": "Orologio di gioco automatico sul focus",
+      "": "Orologio di gioco autom. sul focus",
       "hint": "Fai partire e ferma automaticamente l'orologio di gioco quando la finestra si attiva o si disattiva."
     },
     "automaticPassTime": {
-      "": "Avanzamento automatico del tempo sul calendario",
+      "": "Avanzamento autom. del tempo sul calendario",
       "hint": "Fai avanzare il tempo automaticamente aggiungendo una settimana al calendario dopo aver finito uno scenario. Ciò aggiunge automaticamente effetti alle sezioni del calendario in questa settimana."
     },
     "automaticStandees": {
@@ -2480,7 +2480,7 @@
       "hint": "Aggiunta automatica delle pedine."
     },
     "automaticStandeesDialog": {
-      "": "Finestre di dialogo delle pedine automatici",
+      "": "Finestre di dialogo delle pedine automatiche",
       "hint": "Apri automaticamente le finestre di dialogo del numero di pedina per tutte le nuove pedine."
     },
     "automaticTheme": {
@@ -2488,7 +2488,7 @@
       "hint": "Regola automaticamente il tema e lo stile di Frosthaven quando si cambia edizione. Regola anche il tema quando si attiva lo stile Frosthaven.<br>(regolazione del tema disabilitata per il tema moderno)"
     },
     "automaticUnlocking": {
-      "": "Sblocco automatico dei personaggi",
+      "": "Sblocco autom. dei personaggi",
       "hint": "Sblocca automaticamente i personaggi dai premi dello scenario."
     },
     "automation": "Automazione",
@@ -2717,7 +2717,7 @@
       "hint": "Mostra un promemoria prima del primo round per pescare un evento."
     },
     "expireConditions": {
-      "": "Termine stati automatico",
+      "": "Termine stati automatici",
       "hint": "Gli stati corrispondenti verranno rimossi automaticamente dopo il turno delle unità, ad esempio Rinforzo verrà rimosso dopo il turno"
     },
     "feedback": {
@@ -2742,7 +2742,7 @@
     },
     "fhGhItems": {
       "": "Aggiungi gli oggetti di Gloomhaven",
-      "hint": "Aggiungi gli oggetti di Gloomhaven e Cerchi Dimenticati alla riserva disponibile come indicato nelle regole. (Solo su schede personaggio o oggetti personaggio abilitati)"
+      "hint": "Aggiungi gli oggetti di Gloomhaven e Cerchi Dimenticati alla riserva disponibile come indicato nelle regole."
     },
     "fhPets": {
       "": "Supporto per animali domestici",
@@ -2902,7 +2902,7 @@
       "hint": "Se disabilitato non vengono mostrati mostri."
     },
     "moveElements": {
-      "": "Aggiorna automaticamente lo stato degli elementi",
+      "": "Aggiorna autom. lo stato degli elementi",
       "hint": "Lo stato degli elementi viene automaticamente modificato prima di ogni round"
     },
     "partySheet": {
@@ -2948,7 +2948,7 @@
     },
     "scenarioRewards": {
       "": "Applica i premi dello scenario",
-      "hint": "Applica automaticamente i premi del tesoro: dai oro, Esp ecc. ai personaggi"
+      "hint": "Applica automaticamente i premi dello scenario: dai oro, Esp ecc. ai personaggi"
     },
     "scenarioRewardsItems": {
       "": "Pesca oggetti casuali come ricompense di scenario",
@@ -3326,9 +3326,9 @@
         "success": "Scenario #{0} {1} ({2}) superato"
       },
       "gameClock": {
-        "automaticGameClockOut": "Uscita automatica",
-        "clockIn": "Entrata",
-        "clockOut": "Uscita",
+        "automaticGameClockOut": "Pausa automatica",
+        "clockIn": "Attiva orologio",
+        "clockOut": "Ferma orologio",
         "merge": "Unisci orologio di gioco"
       },
       "hideScenarioRule": "Non mostrare più la regola dello scenario",
