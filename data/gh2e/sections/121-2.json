@@ -1,0 +1,11 @@
+{
+  "index": "121.2",
+  "name": "%data.personalQuest.gh2e.05%",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.gh2e.121-2.1%"
+  },
+  "retirement": "PQ-05"
+}

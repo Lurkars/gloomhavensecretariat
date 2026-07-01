@@ -9,7 +9,6 @@
   "primaryToken": 0,
   "handSize": 11,
   "unlockEvent": "road:R-47|city:C-78",
-  "retireEvent": "city:C-91|road:R-73",
   "traits": [
     "armored",
     "resourceful",

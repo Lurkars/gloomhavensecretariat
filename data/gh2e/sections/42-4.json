@@ -1,0 +1,14 @@
+{
+  "index": "42.4",
+  "name": "%game.characterIconColored.three-spears% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:C-91",
+      "road:R-73"
+    ]
+  },
+  "retirement": "three-spears"
+}

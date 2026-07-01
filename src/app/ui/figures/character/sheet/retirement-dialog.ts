@@ -59,19 +59,25 @@ export class CharacterRetirementDialog {
   character: Character = inject(DIALOG_DATA);
 
   constructor() {
-    this.conclusion = gameManager
-      .sectionData(this.character.edition)
-      .find((sectionData) => sectionData.retirement === this.character.name && sectionData.conclusion);
     if (this.character.progress.personalQuest) {
       this.personalQuest = gameManager.characterManager.personalQuestByCard(
         gameManager.currentEdition(),
         this.character.progress.personalQuest
       );
+      if (this.personalQuest) {
+        const pqRef = 'PQ-' + this.personalQuest.cardId;
+        this.conclusion = gameManager
+          .sectionData(this.personalQuest.edition)
+          .find((sectionData) => sectionData.retirement === pqRef && sectionData.conclusion);
+      }
 
       if (settingsManager.settings.unlockEnvelopeBuildings && this.personalQuest && this.personalQuest.openEnvelope) {
         this.personalQuestBuilding = this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope);
       }
     }
+    this.conclusion ??= gameManager
+      .sectionData(this.character.edition)
+      .find((sectionData) => sectionData.retirement === this.character.name && sectionData.conclusion);
 
     for (const key of Object.keys(this.character.progress.loot)) {
       const loot: LootType = key as LootType;

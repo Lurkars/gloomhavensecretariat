@@ -13,7 +13,8 @@
     "events": [
       "road:R-39",
       "city:C-66"
-    ]
+    ],
+    "characterRetirementSkipEvents": "05"
   },
   "monsters": [
     "cave-bear-scenario-58",

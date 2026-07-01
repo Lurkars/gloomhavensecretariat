@@ -5,7 +5,6 @@
   "edition": "gh2e",
   "handSize": 10,
   "unlockEvent": "road:R-52|road:R-53",
-  "retireEvent": "city:C-100|road:R-75",
   "traits": [
     "armored",
     "outcast",

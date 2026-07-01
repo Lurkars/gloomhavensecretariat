@@ -1,0 +1,17 @@
+{
+  "index": "16.2B",
+  "name": "%game.characterIconColored.saw% Retires C-92",
+  "edition": "gh2e",
+  "parentSections": [
+    [
+      "16.2"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:C-92"
+    ]
+  }
+}

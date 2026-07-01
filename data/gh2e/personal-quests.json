@@ -15,6 +15,14 @@
                 "requires": [
                     1
                 ]
+            },
+            {
+                "name": "%data.personalQuest.gh2e.01.3%",
+                "counter": 1,
+                "hidden": true,
+                "requires": [
+                    2
+                ]
             }
         ]
     },

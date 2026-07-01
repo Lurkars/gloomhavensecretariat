@@ -1,0 +1,14 @@
+{
+  "index": "28.6",
+  "name": "%game.characterIconColored.bruiser% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:C-82",
+      "road:R-56"
+    ]
+  },
+  "retirement": "bruiser"
+}

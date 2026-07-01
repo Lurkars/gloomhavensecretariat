@@ -1,0 +1,15 @@
+{
+  "index": "133.4",
+  "name": "%data.personalQuest.gh2e.01%",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:C-64",
+      "city:C-65"
+    ],
+    "characterRetirementSkipEvents": "01"
+  },
+  "retirement": "PQ-01"
+}

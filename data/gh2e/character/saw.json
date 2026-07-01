@@ -5,7 +5,6 @@
   "edition": "gh2e",
   "handSize": 10,
   "unlockEvent": "road:R-48|city:C-79",
-  "retireEvent": "city:C-92|city:C-93",
   "traits": [
     "educated",
     "persuasive",

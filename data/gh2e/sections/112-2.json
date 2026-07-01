@@ -1,0 +1,14 @@
+{
+  "index": "112.2",
+  "name": "%game.characterIconColored.crossed-swords% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "road:R-76",
+      "road:R-77"
+    ]
+  },
+  "retirement": "crossed-swords"
+}

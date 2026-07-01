@@ -1,0 +1,14 @@
+{
+  "index": "15.3",
+  "name": "%game.characterIconColored.lightning% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "road:R-63",
+      "road:R-64"
+    ]
+  },
+  "retirement": "lightning"
+}
