@@ -1,0 +1,14 @@
+{
+  "index": "125.4",
+  "name": "%data.personalQuest.02%",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-67",
+      "city:C-68"
+    ],
+    "overlayCustomText": "%data.section.rewards.gh2e.125-4.1%"
+  },
+  "retirement": "PQ-02"
+}

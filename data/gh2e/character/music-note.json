@@ -9,7 +9,6 @@
   ],
   "handSize": 11,
   "unlockEvent": "road:R-49|city:C-80",
-  "retireEvent": "city:C-94|road:R-74",
   "traits": [
     "educated",
     "nimble",

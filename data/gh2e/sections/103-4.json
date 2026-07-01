@@ -1,0 +1,13 @@
+{
+  "index": "103.4",
+  "name": "%game.characterIconColored.sun% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-96",
+      "city:C-97"
+    ]
+  },
+  "retirement": "sun"
+}

@@ -1,0 +1,17 @@
+{
+  "index": "128.2",
+  "name": "%data.personalQuest.15%",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-71"
+    ],
+    "custom": "%data.section.rewards.gh2e.128-2.1%",
+    "removeEvents": [
+      "city:C-69",
+      "city:C-70"
+    ]
+  },
+  "retirement": "PQ-15"
+}

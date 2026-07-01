@@ -1,0 +1,13 @@
+{
+  "index": "86.5",
+  "name": "%game.characterIconColored.tinkerer% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-98",
+      "city:C-99"
+    ]
+  },
+  "retirement": "tinkerer"
+}

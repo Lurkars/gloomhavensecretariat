@@ -1,0 +1,13 @@
+{
+  "index": "25.2",
+  "name": "%game.characterIconColored.triangles% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "road:R-67",
+      "road:R-68"
+    ]
+  },
+  "retirement": "triangles"
+}

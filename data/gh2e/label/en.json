@@ -612,6 +612,7 @@
       "educated": "Educated",
       "friend-of-the-hero": "Friend of the Hero",
       "friend-of-the-silent-knife": "Friend of the Silent Knife",
+      "herald-of-xorn": "Herald of Xorn",
       "hero": "Hero",
       "immunity": "Immunity",
       "indebted": "Indebted",
@@ -1701,9 +1702,24 @@
   "section": {
     "rewards": {
       "gh2e": {
+        "44-4": {
+          "1": "Each character gains %game.trait:friend-of-the-silent-knife%."
+        },
         "68-4": {
           "1": "Open the puzzle book to the first spread.",
           "2": "When the first character retires, read %game.section:68.4%"
+        },
+        "106-4": {
+          "1": "Each character gains %game.trait:immunity%"
+        },
+        "121-2": {
+          "1": "The player with the retired character may immediately create a %game.characterIcon.squidface%. If they do, the newly-created %game.characterIcon.squidface% does not gain starting gold but instead keeps all of the gold of the \"%data.personalQuest.gh2e.05%\", gains %data.items.gh2e-147%, gains %game.trait:herald-of-xorn%, and gains 10 %game.experience% and 1 %game.checkmark% (scenario 58 rewards)."
+        },
+        "125-4": {
+          "1": "Write the name of your inn on the front of event C-67."
+        },
+        "128-2": {
+          "1": "Return %data.items.gh2e-113% %game.itemFh.113% to the unavailable item supply."
         }
       }
     },

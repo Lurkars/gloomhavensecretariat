@@ -1,0 +1,13 @@
+{
+  "index": "115.4",
+  "name": "%game.characterIconColored.two-mini% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-100",
+      "road:R-75"
+    ]
+  },
+  "retirement": "two-mini"
+}

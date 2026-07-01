@@ -1,0 +1,13 @@
+{
+  "index": "26.4",
+  "name": "%game.characterIconColored.music-note% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-94",
+      "road:R-74"
+    ]
+  },
+  "retirement": "music-note"
+}

@@ -1,0 +1,12 @@
+{
+  "index": "66.6",
+  "name": "%game.characterIconColored.circles% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "road:R-70"
+    ]
+  },
+  "retirement": "circles"
+}
