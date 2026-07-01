@@ -5,7 +5,6 @@
   "icon": "gh-scoundrel",
   "edition": "gh2e",
   "handSize": 9,
-  "retireEvent": "road:R-58|road:R-59",
   "traits": [
     "chaotic",
     "nimble",

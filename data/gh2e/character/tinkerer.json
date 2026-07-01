@@ -5,7 +5,6 @@
   "icon": "gh-tinkerer",
   "edition": "gh2e",
   "handSize": 12,
-  "retireEvent": "city:C-98|city:C-99",
   "traits": [
     "educated",
     "nimble",

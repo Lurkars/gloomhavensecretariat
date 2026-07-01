@@ -6,7 +6,6 @@
   "edition": "gh2e",
   "handSize": 11,
   "unlockEvent": "city:C-74|city:C-75",
-  "retireEvent": "road:R-65|road:R-66",
   "traits": [
     "chaotic",
     "intimidating",

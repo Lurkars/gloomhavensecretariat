@@ -1,0 +1,17 @@
+{
+  "index": "133.4B",
+  "name": "%data.personalQuest.gh2e.01% Random Item Design",
+  "edition": "gh2e",
+  "parentSections": [
+    [
+      "133.4"
+    ]
+  ],
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-64",
+      "city:C-65"
+    ]
+  }
+}

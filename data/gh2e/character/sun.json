@@ -5,7 +5,6 @@
   "edition": "gh2e",
   "handSize": 11,
   "unlockEvent": "road:R-50|road:R-51",
-  "retireEvent": "city:C-96|city:C-97",
   "traits": [
     "armored",
     "educated",

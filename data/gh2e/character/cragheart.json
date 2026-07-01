@@ -4,7 +4,6 @@
   "icon": "gh-cragheart",
   "edition": "gh2e",
   "handSize": 11,
-  "retireEvent": "city:C-83|city:C-84",
   "traits": [
     "arcane",
     "outcast",

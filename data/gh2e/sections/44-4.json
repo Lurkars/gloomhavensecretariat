@@ -1,0 +1,14 @@
+{
+  "index": "44.4",
+  "name": "%game.characterIconColored.silent-knife% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "road:R-58",
+      "road:R-59"
+    ],
+    "custom": "%data.section.rewards.gh2e.44-4.1%"
+  },
+  "retirement": "silent-knife"
+}

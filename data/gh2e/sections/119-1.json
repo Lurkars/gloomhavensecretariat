@@ -1,0 +1,13 @@
+{
+  "index": "119-1",
+  "name": "%game.characterIconColored.eclipse% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-88",
+      "road:R-71"
+    ]
+  },
+  "retirement": "eclipse"
+}

@@ -1,0 +1,14 @@
+{
+  "index": "106.4",
+  "name": "%game.characterIconColored.squidface% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "rewards": {
+    "events": [
+      "city:C-89",
+      "road:R-72"
+    ],
+    "custom": "%data.section.rewards.gh2e.106-4.1%"
+  },
+  "retirement": "squidface"
+}

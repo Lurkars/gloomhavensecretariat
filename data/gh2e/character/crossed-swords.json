@@ -5,7 +5,6 @@
   "edition": "gh2e",
   "handSize": 11,
   "unlockEvent": "road:R-54",
-  "retireEvent": "road:R-76|road:R-77",
   "traits": [
     "armored",
     "chaotic",
