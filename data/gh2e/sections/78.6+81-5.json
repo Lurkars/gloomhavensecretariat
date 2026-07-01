@@ -17,8 +17,8 @@
     "experience": 20,
     "battleGoals": 2,
     "events": [
-      "city:38",
-      "road:32"
+      "city:C-38",
+      "road:R-32"
     ],
     "reputationFactions": [
       "military:-1"

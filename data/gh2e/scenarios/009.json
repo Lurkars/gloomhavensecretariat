@@ -7,7 +7,7 @@
   "rewards": {
     "prosperity": 1,
     "events": [
-      "road:30"
+      "road:R-30"
     ],
     "reputationFactions": [
       "military:1"

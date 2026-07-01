@@ -27,10 +27,10 @@
     ],
     "experience": 30,
     "events": [
-      "city:36",
-      "city:55",
-      "city:56",
-      "road:36"
+      "city:C-36",
+      "city:C-55",
+      "city:C-56",
+      "road:R-36"
     ],
     "factionUnlock": "demons",
     "reputationFactions": [
