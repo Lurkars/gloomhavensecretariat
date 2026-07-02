@@ -2026,6 +2026,8 @@
         }
       },
       "campaignSticker": "Campaign Sticker",
+      "characterRetirement": "The character with the \"%data.personalQuest.{0}.{1}%\" personal quest retires during the next city phase.",
+      "characterRetirementSkipEvents": "The character with the \"%data.personalQuest.{0}.{1}%\" personal quest retires during the next city phase, but does not add the normal events for their class's retirement.",
       "chooseItem": "Choose to gain one of the following",
       "chooseLocation": "Choose to unlock only one of the following",
       "collectiveGold": "{0} collective gold",
@@ -2067,7 +2069,10 @@
       "prosperity": "{0} prosperity",
       "randomItemBlueprint": "Gain one random item blueprint",
       "randomItemBlueprints": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item blueprint deck.",
+      "randomItemDesign": "Gain one random item design",
+      "randomItemDesigns": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item design deck.",
       "randomItems": "Each character gains one random item ({0}-{1})",
+      "removeItem": "Return \"%data.items.{1}-{0}%\" %data.itemFh.{0}% to the unavailable item supply.",
       "randomSideScenario": "Drawn one random side scenario.",
       "removeEvent": {
         "boat": "Remove event {0} from the boat deck",

@@ -1,0 +1,1 @@
+import {a as o}from'./chunk-Bn7ck4Zm.js';function t(c,e){c.accDescr&&e.setAccDescription?.(c.accDescr),c.accTitle&&e.setAccTitle?.(c.accTitle),c.title&&e.setDiagramTitle?.(c.title);}o(t,"populateCommonDb");export{t};//# sourceMappingURL=chunk-DygDHDX6.js.map

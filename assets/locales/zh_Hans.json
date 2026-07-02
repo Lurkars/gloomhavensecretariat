@@ -713,6 +713,7 @@
         "toggleBB": "以列表形式显示"
       },
       "fullscreen": "全屏显示",
+      "keepRevealed": "保持卡牌的揭示状态",
       "openDialog": "显示所有卡牌",
       "removeDrawnDiscards": "移除已抽的弃牌",
       "restore": "恢复默认设置",
@@ -933,11 +934,21 @@
         "removeCard": "从抽牌堆移除",
         "removeDrawn": "从抽到的牌中移除",
         "removeSelection": "重置结果",
+        "reset": "重置牌库",
         "resolved": "显示已结算的",
         "setup": "设置事件牌库",
         "show": "展示完整的事件卡",
         "shuffle": "洗牌",
         "upcoming": "在牌堆 ({0})"
+      },
+      "distribution": {
+        "": "分配事件效果",
+        "apply": "应用",
+        "consumeItem": "消耗物品",
+        "loseItem": "失去物品",
+        "receive": "接收",
+        "receiveItem": "接收物品",
+        "spend": "支付"
       },
       "effects": {
         "additionally": "此外",
@@ -994,7 +1005,7 @@
         "globalAchievement": "世界成就：\"%data.globalAchievements.{0}%\"。",
         "gold": "每人获得 {0} 金币。",
         "goldAdditional": "每人额外获得 {0} 金币。",
-        "inspiration": "获得 {0}点灵感。",
+        "inspiration": "获得{0}点激励。",
         "item": {
           "": "获得 \"%data.items.{1}-{0}%\" (Item {0})。",
           "fh": "获得\"%data.items.{1}-{0}%\" %game.itemFh.{0}%。",
@@ -3045,6 +3056,10 @@
     },
     "requires": "要求:",
     "requiresOne": "要求其中之一:",
+    "roundClock": {
+      "": "轮次计时",
+      "hint": "在“抽取”按钮旁显示轮次及轮次间耗时。"
+    },
     "scenarioNumberInput": {
       "": "剧本数字输入"
     },
@@ -3455,7 +3470,7 @@
         "changeCharacterBattleGoals": "为 {1} {0} %game.checkmark%",
         "changeCharacterBless": "为 {1} {0} %game.condition.bless%",
         "changeCharacterCurse": "为 {1} {0} %game.condition.curse%",
-        "changeCharacterGold": "为 {1} {0} Gold",
+        "changeCharacterGold": "为 {1} {0} 金币",
         "changeCharacterHP": "为 {1} {0} 血量",
         "changeCharacterResource": "为 {2} {1} %game.resource.{0}%",
         "changeCharacterXP": "为 {1} {0} 经验值",
