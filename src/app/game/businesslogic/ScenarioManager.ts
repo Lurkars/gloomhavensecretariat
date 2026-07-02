@@ -374,6 +374,16 @@ export class ScenarioManager {
                 }
               });
             }
+
+            if (rewards.removeEvents && settingsManager.settings.events) {
+              rewards.removeEvents.forEach((event) => {
+                const eventId = event.split(':');
+                if (eventId.length > 1) {
+                  gameManager.eventCardManager.removeEvent(eventId[0], eventId[1]);
+                  gameManager.eventCardManager.shuffleEvents(eventId[0]);
+                }
+              });
+            }
           }
 
           if (
