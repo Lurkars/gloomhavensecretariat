@@ -1,0 +1,14 @@
+{
+  "index": "8.3",
+  "name": "%data.personalQuest.gh2e.16%",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "hints": {
+      "characterRetirement": "%data.section.rewards.gh2e.8-3.1%"
+    },
+    "characterRetirement": "10"
+  },
+  "retirement": "PQ-16"
+}

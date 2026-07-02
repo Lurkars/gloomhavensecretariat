@@ -25,8 +25,20 @@
 
   @if (!!conclusion) {
     <div class="conclusion">
-      <a (click)="openConclusion()"
+      <a (click)="openConclusions([conclusion])"
         ><span class="text-white" [ghs-label]="'character.progress.retirement.conclusion'" [ghs-label-args]="[conclusion.index]"></span
+      ></a>
+    </div>
+  }
+
+  @if (!!personalQuestConclusion) {
+    <div class="conclusion">
+      <a (click)="openConclusions([personalQuestConclusion])"
+        ><span
+          class="text-white"
+          [ghs-label]="'character.progress.retirement.conclusion'"
+          [ghs-label-args]="[personalQuestConclusion.index]"
+        ></span
       ></a>
     </div>
   }

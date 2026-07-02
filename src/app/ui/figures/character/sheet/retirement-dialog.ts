@@ -14,6 +14,7 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { CharacterMoveResourcesDialog } from 'src/app/ui/figures/character/sheet/move-resources';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
+import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
@@ -33,6 +34,8 @@ export class CharacterRetirementDialog {
 
   conclusion: ScenarioData | undefined;
   personalQuest: PersonalQuest | undefined;
+  personalQuestConclusion: ScenarioData | undefined;
+  skipCharacterConclusion: boolean = false;
   personalQuestBuilding: BuildingData | undefined;
   unlockEvent: string = '';
   alreadyRetired: boolean = false;
@@ -66,18 +69,23 @@ export class CharacterRetirementDialog {
       );
       if (this.personalQuest) {
         const pqRef = 'PQ-' + this.personalQuest.cardId;
-        this.conclusion = gameManager
+        this.personalQuestConclusion = gameManager
           .sectionData(this.personalQuest.edition)
           .find((sectionData) => sectionData.retirement === pqRef && sectionData.conclusion);
+        if (this.personalQuestConclusion) {
+          this.skipCharacterConclusion = this.personalQuestConclusion.rewards?.characterRetirementSkipEvents !== undefined;
+        }
       }
 
       if (settingsManager.settings.unlockEnvelopeBuildings && this.personalQuest && this.personalQuest.openEnvelope) {
         this.personalQuestBuilding = this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope);
       }
     }
-    this.conclusion ??= gameManager
-      .sectionData(this.character.edition)
-      .find((sectionData) => sectionData.retirement === this.character.name && sectionData.conclusion);
+    if (!this.skipCharacterConclusion) {
+      this.conclusion = gameManager
+        .sectionData(this.character.edition)
+        .find((sectionData) => sectionData.retirement === this.character.name && sectionData.conclusion);
+    }
 
     for (const key of Object.keys(this.character.progress.loot)) {
       const loot: LootType = key as LootType;
@@ -128,23 +136,65 @@ export class CharacterRetirementDialog {
       ) !== undefined;
   }
 
-  openConclusion() {
-    if (this.conclusion) {
-      this.dialog.open(ScenarioSummaryComponent, {
-        panelClass: ['dialog'],
-        data: {
-          scenario: this.conclusion,
-          conclusionOnly: true,
-          rewardsOnly:
-            gameManager.game.party.conclusions.find(
-              (value) =>
-                this.conclusion &&
-                value.edition === this.conclusion.edition &&
-                value.group === this.conclusion.group &&
-                value.index === this.conclusion.index
-            ) !== undefined
-        }
-      });
+  openConclusions(conclusions: ScenarioData[]) {
+    if (conclusions.length == 0) {
+      return;
+    }
+    const conclusionSection = conclusions[conclusions.length - 1];
+    const childConclusions: ScenarioData[] = gameManager
+      .sectionData(conclusionSection.edition)
+      .filter(
+        (sectionData) =>
+          sectionData.conclusion &&
+          !sectionData.parent &&
+          sectionData.parentSections &&
+          sectionData.parentSections.find(
+            (parentSections) => parentSections.length === 1 && parentSections.includes(conclusionSection.index)
+          ) &&
+          gameManager.scenarioManager.getRequirements(sectionData).length === 0
+      );
+    if (
+      childConclusions.length > 0 &&
+      childConclusions.every(
+        (childConclusion) =>
+          !gameManager.game.party.conclusions.find(
+            (model) =>
+              model.edition === childConclusion.edition && model.index === childConclusion.index && model.group === childConclusion.group
+          )
+      )
+    ) {
+      this.dialog
+        .open(ScenarioConclusionComponent, {
+          panelClass: ['dialog'],
+          data: {
+            conclusions: childConclusions,
+            parent: gameManager
+              .sectionData(conclusionSection.edition)
+              .find((sectionData) => sectionData.index === conclusionSection.index && !sectionData.group)
+          }
+        })
+        .closed.subscribe({
+          next: (chosenConclusion) => {
+            conclusions.push(chosenConclusion as ScenarioData);
+            this.openConclusions(conclusions);
+          }
+        });
+    } else {
+      const conclusion = conclusions.pop();
+      this.dialog
+        .open(ScenarioSummaryComponent, {
+          panelClass: ['dialog'],
+          data: {
+            scenario: conclusion,
+            conclusionOnly: true,
+            rewardsOnly:
+              gameManager.game.party.conclusions.find(
+                (value) =>
+                  conclusion && value.edition === conclusion.edition && value.group === conclusion.group && value.index === conclusion.index
+              ) !== undefined
+          }
+        })
+        .closed.subscribe({ next: () => this.openConclusions(conclusions) });
     }
   }
 
@@ -297,18 +347,17 @@ export class CharacterRetirementDialog {
 
     gameManager.stateManager.after();
 
-    if (
-      this.conclusion &&
-      !gameManager.game.party.conclusions.find(
-        (value) =>
-          this.conclusion &&
-          value.edition === this.conclusion.edition &&
-          value.group === this.conclusion.group &&
-          value.index === this.conclusion.index
-      )
-    ) {
-      this.openConclusion();
-    }
+    this.openConclusions(
+      [this.conclusion, this.personalQuestConclusion]
+        .filter((conclusion) => !!conclusion)
+        .filter(
+          (conclusion) =>
+            !gameManager.game.party.conclusions.find(
+              (value) =>
+                conclusion && value.edition === conclusion.edition && value.group === conclusion.group && value.index === conclusion.index
+            )
+        )
+    );
   }
 
   buildingsEnvelopeHelper(envelope: string, both: boolean = true): BuildingData | undefined {

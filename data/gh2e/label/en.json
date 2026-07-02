@@ -1706,6 +1706,9 @@
         "44-4": {
           "1": "Each character gains %game.trait:friend-of-the-silent-knife%."
         },
+        "8-3": {
+          "1": "The character who replaces them may gain one %game.conditionIcon.poison% enhancement at no cost (ignoring enhancement shape restrictions)."
+        },
         "68-4": {
           "1": "Open the puzzle book to the first spread.",
           "2": "When the first character retires, read %game.section:68.4%"
@@ -1955,6 +1958,7 @@
         "79-1": "Secluded Valley",
         "79-4": "Alchemy Lab",
         "8-1": "Barrow Lair",
+        "8-3": "%data.personalQuest.gh2e.16%",
         "80-1": "Deep Ruins",
         "80-2": "Underwater Lagoon",
         "80-3": "Chasing Secrets",
