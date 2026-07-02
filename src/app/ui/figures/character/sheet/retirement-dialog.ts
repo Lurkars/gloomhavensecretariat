@@ -149,6 +149,19 @@ export class CharacterRetirementDialog {
     });
   }
 
+  addUnlockEvents(unlockEvents: string) {
+    if (settingsManager.settings.events && unlockEvents) {
+      unlockEvents.split('|').forEach((unlockEvent) => {
+        if (unlockEvent.split(':').length > 1) {
+          gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
+        } else {
+          gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+          gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+        }
+      });
+    }
+  }
+
   apply() {
     ghsDialogClosingHelper(this.dialogRef, true);
 
@@ -164,19 +177,7 @@ export class CharacterRetirementDialog {
       !gameManager.game.unlockedCharacters.includes(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter)
     ) {
       gameManager.game.unlockedCharacters.push(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter);
-      if (settingsManager.settings.events) {
-        const characterData = gameManager.getCharacterData(this.personalQuest.unlockCharacter);
-        if (characterData.unlockEvent) {
-          characterData.unlockEvent.split('|').forEach((unlockEvent) => {
-            if (unlockEvent.split(':').length > 1) {
-              gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-            } else {
-              gameManager.eventCardManager.addEvent('city', unlockEvent, true);
-              gameManager.eventCardManager.addEvent('road', unlockEvent, true);
-            }
-          });
-        }
-      }
+      this.addUnlockEvents(this.unlockEvent);
     }
 
     if (this.characterAlreadyUnlocked) {
@@ -275,19 +276,7 @@ export class CharacterRetirementDialog {
         !gameManager.game.unlockedCharacters.includes(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter)
       ) {
         gameManager.game.unlockedCharacters.push(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter);
-        if (settingsManager.settings.events) {
-          const characterData = gameManager.getCharacterData(this.additionalPQ.unlockCharacter);
-          if (characterData.unlockEvent) {
-            characterData.unlockEvent.split('|').forEach((unlockEvent) => {
-              if (unlockEvent.split(':').length > 1) {
-                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-              } else {
-                gameManager.eventCardManager.addEvent('city', unlockEvent, true);
-                gameManager.eventCardManager.addEvent('road', unlockEvent, true);
-              }
-            });
-          }
-        }
+        this.addUnlockEvents(this.additionalUnlockEvent);
       }
     }
 
@@ -355,7 +344,7 @@ export class CharacterRetirementDialog {
         this.additionalCharacterAlreadyUnlocked = gameManager.game.unlockedCharacters.includes(
           this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter
         );
-        if (!this.characterAlreadyUnlocked) {
+        if (!this.additionalCharacterAlreadyUnlocked) {
           const unlockCharacter = gameManager
             .charactersData(this.additionalPQ.edition)
             .find(
