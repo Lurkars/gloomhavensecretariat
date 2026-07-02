@@ -318,6 +318,23 @@ export class ScenarioManager {
               });
             }
 
+            if (rewards.removeItem) {
+              rewards.removeItem.forEach((item) => {
+                let itemEdition = scenario.edition;
+                let itemId = item;
+                if (item.includes(':')) {
+                  itemId = item.split(':')[0];
+                  itemEdition = item.split(':')[1];
+                }
+                const index = this.game.party.unlockedItems.findIndex(
+                  (identifier) => identifier.name === itemId && identifier.edition === itemEdition
+                );
+                if (index !== -1) {
+                  this.game.party.unlockedItems.splice(index, 1);
+                }
+              });
+            }
+
             if (rewards.calendarSection) {
               rewards.calendarSection.forEach((calendarSection) => {
                 if (calendarSection.split('-').length > 1) {
@@ -430,7 +447,13 @@ export class ScenarioManager {
             );
           }
 
-          if (gameManager.imbuementManager.imbuement) {
+          if (
+            gameManager.imbuementManager.imbuement &&
+            !internal &&
+            !scenario.conclusion &&
+            (!scenario.solo || scenario.spotlight) &&
+            gainRewards
+          ) {
             if (gameManager.imbuementManager.imbuement === 'advanced') {
               this.game.party.imbuement += 2;
             } else {

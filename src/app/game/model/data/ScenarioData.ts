@@ -142,7 +142,12 @@ export class ScenarioRewards {
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
   randomItemBlueprints: string = '';
+  randomItemDesign: number = 0;
+  randomItemDesigns: string = '';
   randomItem: string = '';
+  removeItem: string[] = [];
+  characterRetirement: string = '';
+  characterRetirementSkipEvents: string = '';
   randomItems: string = '';
   morale: number | string = '';
   inspiration: number | string = '';
@@ -194,6 +199,10 @@ export class ScenarioRewardHints {
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: string = '';
+  randomItemDesign: string = '';
+  removeItem: string[] = [];
+  characterRetirement: string = '';
+  characterRetirementSkipEvents: string = '';
   randomItem: string = '';
   randomItems: string = '';
   morale: string = '';
@@ -232,6 +241,7 @@ export class ScenarioFinish {
   randomItemIndex: number = -1;
   randomItems: (Identifier | undefined)[] = [];
   randomItemBlueprints: number[] = [];
+  randomItemDesigns: number[] = [];
   randomSideScenario: Identifier | undefined = undefined;
   trials: boolean[] = [];
   overlayCustomText: string = '';

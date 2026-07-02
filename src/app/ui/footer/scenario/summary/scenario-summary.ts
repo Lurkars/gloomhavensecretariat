@@ -90,6 +90,7 @@ export class ScenarioSummaryComponent {
   randomItemIndex: number = -1;
   randomItems: (ItemData | undefined)[] = [];
   randomItemBlueprints: number[] = [];
+  randomItemDesigns: number[] = [];
   randomSideScenario: ScenarioData | undefined;
   trials: boolean[] = [];
   trial349: Character | undefined;
@@ -290,6 +291,7 @@ export class ScenarioSummaryComponent {
       ? this.randomItems.map((itemData) => (itemData ? new Identifier(itemData.id, itemData.edition) : undefined))
       : [];
     finish.randomItemBlueprints = this.randomItemBlueprints;
+    finish.randomItemDesigns = this.randomItemDesigns;
     finish.randomSideScenario = this.randomSideScenario
       ? new Identifier(this.randomSideScenario.index, this.randomSideScenario.edition)
       : undefined;
@@ -330,6 +332,7 @@ export class ScenarioSummaryComponent {
         ? finish.randomItems.map((item) => (item ? gameManager.itemManager.getItem(item.name, item.edition, true) : undefined))
         : [];
       this.randomItemBlueprints = finish.randomItemBlueprints || [];
+      this.randomItemDesigns = finish.randomItemDesigns || [];
       this.randomSideScenario = finish.randomSideScenario
         ? gameManager.scenarioManager.getScenario(finish.randomSideScenario.name, finish.randomSideScenario.edition, this.scenario.group)
         : undefined;
@@ -460,6 +463,18 @@ export class ScenarioSummaryComponent {
           }
         }
 
+        if (
+          settingsManager.settings.drawRandomItem &&
+          this.rewards.randomItemDesign &&
+          this.randomItemDesigns.length < this.rewards.randomItemDesign
+        ) {
+          for (let i = this.randomItemDesigns.length; i < this.rewards.randomItemDesign; i++) {
+            const itemData = gameManager.itemManager.drawRandomItem(this.scenario.edition, false);
+            const item: Identifier | undefined = itemData ? new Identifier(itemData.id, itemData.edition) : undefined;
+            this.randomItemDesigns[i] = item ? +item.name : -1;
+          }
+        }
+
         if (settingsManager.settings.drawRandomItem && this.rewards.randomItem) {
           if (!this.randomItem) {
             const from = +this.rewards.randomItem.split('-')[0];
@@ -584,6 +599,11 @@ export class ScenarioSummaryComponent {
         (rewards.itemBlueprints && rewards.itemBlueprints.length) ||
         rewards.randomItemBlueprint ||
         rewards.randomItemBlueprints ||
+        rewards.randomItemDesign ||
+        rewards.randomItemDesigns ||
+        (rewards.removeItem && rewards.removeItem.length) ||
+        rewards.characterRetirement ||
+        rewards.characterRetirementSkipEvents ||
         (rewards.events && rewards.events.length) ||
         (rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length) ||
         rewards.unlockCharacter ||
@@ -1115,6 +1135,16 @@ export class ScenarioSummaryComponent {
 
       if ((this.gainRewards || this.forceCampaign) && this.randomItemBlueprints.length > 0) {
         this.randomItemBlueprints.forEach((itemId) => {
+          if (itemId === -1) {
+            gameManager.game.party.inspiration += 1;
+          } else {
+            gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
+          }
+        });
+      }
+
+      if ((this.gainRewards || this.forceCampaign) && this.randomItemDesigns.length > 0) {
+        this.randomItemDesigns.forEach((itemId) => {
           if (itemId === -1) {
             gameManager.game.party.inspiration += 1;
           } else {

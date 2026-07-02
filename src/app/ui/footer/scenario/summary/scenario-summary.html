@@ -1182,6 +1182,83 @@
                   }
                 </div>
               }
+              @if (rewards.randomItemDesigns) {
+                <div class="item item-designs">
+                  @if (rewards.randomItemDesigns.includes('-')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.randomItemDesigns'"
+                      [ghs-label-args]="rewards.randomItemDesigns.split('-')"
+                    ></span>
+                  }
+                </div>
+              }
+              @if (rewards.randomItemDesign) {
+                <div class="item item-designs">
+                  <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemDesign'"></span>
+                  @for (itemId of randomItemDesigns; track itemId; let i = $index) {
+                    @if (itemId > 0) {
+                      <span
+                        class="placeholder text-white"
+                        [ghs-label]="'scenario.rewards.itemDesign'"
+                        [ghs-label-args]="[itemId, scenario.edition || '']"
+                        (click)="openItemDialog(gameManager.itemManager.getItem(itemId, scenario.edition || '', true))"
+                      ></span>
+                    }
+                    @if (itemId === -1) {
+                      <span> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span> </span>
+                    }
+                    @if (rewards.hints && rewards.hints.randomItemDesign) {
+                      <span class="placeholder text-white hint" [ghs-label]="rewards.hints.randomItemDesign"></span>
+                    }
+                  }
+                </div>
+              }
+              @for (item of rewards.removeItem || []; track item; let i = $index) {
+                <div class="item item-designs">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.removeItem'"
+                    [ghs-label-args]="[item.split(':')[0], item.includes(':') ? item.split(':')[1] : scenario.edition || '']"
+                    (click)="
+                      openItemDialog(
+                        gameManager.itemManager.getItem(
+                          item.split(':')[0],
+                          item.includes(':') ? item.split(':')[1] : scenario.edition || '',
+                          true
+                        )
+                      )
+                    "
+                  ></span>
+                  @if (rewards.hints && rewards.hints.removeItem && rewards.hints.removeItem[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.removeItem[i]"></span>
+                  }
+                </div>
+              }
+              @if (rewards.characterRetirement) {
+                <div class="item">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.characterRetirement'"
+                    [ghs-label-args]="[rewards.characterRetirement]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.characterRetirement) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.characterRetirement"></span>
+                  }
+                </div>
+              }
+              @if (rewards.characterRetirementSkipEvents) {
+                <div class="item">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.characterRetirementSkipEvents'"
+                    [ghs-label-args]="[rewards.characterRetirementSkipEvents]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.characterRetirementSkipEvents) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.characterRetirementSkipEvents"></span>
+                  }
+                </div>
+              }
               @if (rewards.randomSideScenario) {
                 <div class="item random-scenario">
                   <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomSideScenario'"></span>

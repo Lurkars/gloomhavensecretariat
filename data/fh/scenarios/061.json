@@ -97,7 +97,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Moonshard"
           },
           "type": "dead"
