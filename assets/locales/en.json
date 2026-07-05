@@ -2072,7 +2072,7 @@
       "randomItemDesign": "Gain one random item design",
       "randomItemDesigns": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item design deck.",
       "randomItems": "Each character gains one random item ({0}-{1})",
-      "removeItem": "Return \"%data.items.{1}-{0}%\" %data.itemFh.{0}% to the unavailable item supply.",
+      "removeItem": "Return \"%data.items.{1}-{0}%\" %game.itemFh.{0}% to the unavailable item supply.",
       "randomSideScenario": "Drawn one random side scenario.",
       "removeEvent": {
         "boat": "Remove event {0} from the boat deck",
