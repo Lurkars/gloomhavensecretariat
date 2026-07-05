@@ -172,7 +172,7 @@
     {
       "type": "elite",
       "level": 6,
-      "health": 19,
+      "health": 25,
       "movement": 3,
       "attack": 5,
       "actions": [
@@ -185,7 +185,7 @@
     {
       "type": "elite",
       "level": 7,
-      "health": 25,
+      "health": 35,
       "movement": 3,
       "attack": 5,
       "actions": [
