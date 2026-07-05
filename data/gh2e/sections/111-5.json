@@ -1,0 +1,14 @@
+{
+  "index": "111.5",
+  "name": "%game.characterIconColored.spellweaver% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:C-95",
+      "road:R-62"
+    ]
+  },
+  "retirement": "spellweaver"
+}

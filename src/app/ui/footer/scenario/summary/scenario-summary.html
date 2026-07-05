@@ -1240,7 +1240,7 @@
                   <span
                     class="placeholder text-white"
                     [ghs-label]="'scenario.rewards.characterRetirement'"
-                    [ghs-label-args]="[rewards.characterRetirement]"
+                    [ghs-label-args]="[scenario.edition, rewards.characterRetirement]"
                   ></span>
                   @if (rewards.hints && rewards.hints.characterRetirement) {
                     <span class="placeholder text-white hint" [ghs-label]="rewards.hints.characterRetirement"></span>
@@ -1252,7 +1252,7 @@
                   <span
                     class="placeholder text-white"
                     [ghs-label]="'scenario.rewards.characterRetirementSkipEvents'"
-                    [ghs-label-args]="[rewards.characterRetirementSkipEvents]"
+                    [ghs-label-args]="[scenario.edition, rewards.characterRetirementSkipEvents]"
                   ></span>
                   @if (rewards.hints && rewards.hints.characterRetirementSkipEvents) {
                     <span class="placeholder text-white hint" [ghs-label]="rewards.hints.characterRetirementSkipEvents"></span>

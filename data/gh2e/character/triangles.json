@@ -5,7 +5,6 @@
   "edition": "gh2e",
   "handSize": 10,
   "unlockEvent": "road:R-42|road:R-43",
-  "retireEvent": "road:R-67|road:R-68",
   "traits": [
     "arcane",
     "educated",

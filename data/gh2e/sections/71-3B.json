@@ -1,0 +1,17 @@
+{
+  "index": "71.3B",
+  "name": "%game.characterIconColored.cragheart% Retires C-83",
+  "edition": "gh2e",
+  "parentSections": [
+    [
+      "71.3"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:C-83"
+    ]
+  }
+}

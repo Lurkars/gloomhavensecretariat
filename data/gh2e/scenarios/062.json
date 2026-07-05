@@ -5,7 +5,8 @@
   "errata": "scenario62",
   "edition": "gh2e",
   "rewards": {
-    "prosperity": 1
+    "prosperity": 1,
+    "characterRetirement": "09"
   },
   "monsters": [],
   "objectives": [

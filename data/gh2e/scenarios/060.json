@@ -4,6 +4,11 @@
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "eventType": "road",
+  "rewards": {
+    "gold": 10,
+    "prosperity": 1,
+    "characterRetirement": "08"
+  },
   "monsters": [
     "bandit-archer",
     "hound"

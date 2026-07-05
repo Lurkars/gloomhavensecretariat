@@ -27,10 +27,10 @@
     ],
     "prosperity": 1,
     "events": [
-      "city:36",
-      "city:53",
-      "city:56",
-      "road:38"
+      "city:C-36",
+      "city:C-53",
+      "city:C-56",
+      "road:R-38"
     ],
     "factionUnlock": "military",
     "reputationFactions": [

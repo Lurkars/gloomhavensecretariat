@@ -1,0 +1,19 @@
+{
+  "index": "125.4",
+  "name": "%data.personalQuest.02%",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:C-67",
+      "city:C-68"
+    ],
+    "hints": {
+      "overlayCustomText": "%data.section.rewards.gh2e.125-4.1%"
+    },
+    "characterRetirementSkipEvents": "02",
+    "overlayCustomText": {}
+  },
+  "retirement": "PQ-02"
+}

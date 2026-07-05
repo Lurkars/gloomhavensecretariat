@@ -612,6 +612,7 @@
       "educated": "Educated",
       "friend-of-the-hero": "Friend of the Hero",
       "friend-of-the-silent-knife": "Friend of the Silent Knife",
+      "herald-of-xorn": "Herald of Xorn",
       "hero": "Hero",
       "immunity": "Immunity",
       "indebted": "Indebted",
@@ -1410,7 +1411,8 @@
       "01": {
         "": "Political Intrigue",
         "1": "Votes",
-        "2": "Solved %game.section:136.1%"
+        "2": "Read %game.section:136.1%",
+        "3": "Read %game.section:133.4%"
       },
       "02": {
         "": "Inn to Hospitality",
@@ -1701,9 +1703,30 @@
   "section": {
     "rewards": {
       "gh2e": {
+        "44-4": {
+          "1": "Each character gains %game.trait:friend-of-the-silent-knife%."
+        },
+        "8-3": {
+          "1": "The character who replaces them may gain one %game.conditionIcon.poison% enhancement at no cost (ignoring enhancement shape restrictions)."
+        },
         "68-4": {
           "1": "Open the puzzle book to the first spread.",
           "2": "When the first character retires, read %game.section:68.4%"
+        },
+        "106-4": {
+          "1": "Each character gains %game.trait:immunity%"
+        },
+        "121-2": {
+          "1": "The player with the retired character may immediately create a %game.characterIcon.squidface%. If they do, the newly-created %game.characterIcon.squidface% does not gain starting gold but instead keeps all of the gold of the \"%data.personalQuest.gh2e.05%\", gains %data.items.gh2e-147% %game.itemFh.147%, gains %game.trait:herald-of-xorn%, and gains 10 %game.experience% and 1 %game.checkmark% (scenario 58 rewards)."
+        },
+        "125-4": {
+          "1": "Write the name of your inn on the front of event C-67."
+        },
+        "128-2": {
+          "1": "Return %data.items.gh2e-113% %game.itemFh.113% to the unavailable item supply."
+        },
+        "133-4B": {
+          "1": "Unlock one random item design."
         }
       }
     },
@@ -1719,10 +1742,12 @@
         "102-6": "Slave Pens",
         "103-1": "Chronal Anchor",
         "103-2": "Tribal Assault",
+        "103-4": "%game.characterIcon.sun% Retires",
         "103-5": "Vermling Camp",
         "103-6": "Shrine of Strength",
         "104-1": "Lost Island",
         "106-1": "Chasing Secrets",
+        "106-4": "%game.characterIcon.squidface% Retires",
         "106-5": "Harrower Hive",
         "107-1": "Clockwork Factory",
         "107-4": "Shrine of Strength",
@@ -1734,7 +1759,9 @@
         "110-1": "Harrower Hive",
         "110-3": "Syndicate Hideout",
         "111-3": "Chained Isle",
+        "111-5": "%game.characterIcon.spellweaver% Retires",
         "112-1": "Syndicate Hideout",
+        "112-2": "%game.characterIcon.crossed-swords% Retires",
         "113-1": "Vermling Camp",
         "113-3": "Burning Mountain",
         "113-5": "Doom Trench",
@@ -1742,16 +1769,20 @@
         "114-4": "Sunken Vessel",
         "115-1": "Vault of Secrets",
         "115-3": "Crypt Basement",
+        "115-4": "%game.characterIcon.two-mini% Retires",
         "116-1": "Alchemy Lab",
         "116-3": "Syndicate Hideout",
         "117-1": "Burning Mountain",
         "117-5": "Clockwork Factory",
         "118-2": "Crossroads Station",
+        "118-3": "%game.characterIcon.mindthief% Retires",
+        "119-1": "%game.characterIcon.eclipse% Retires",
         "119-3": "Imbuement 60",
         "119-7": "Vault of Secrets",
         "12-2": "Gloomhaven Warehouse",
         "120-5": "Magma Pit",
         "121-1": "Alchemy Lab",
+        "121-2": "%data.personalQuest.gh2e.05%",
         "121-3": "Well of the Unfortunate",
         "121-4": "Dangerous Grove",
         "123-1": "Syndicate Hideout",
@@ -1760,7 +1791,10 @@
         "124-3": "Harrower Hive",
         "125-3": "Shadows Within",
         "126-3": "Magma Pit",
+        "125-4": "%data.personalQuest.gh2e.02%",
         "127-1": "Sulfur Mine",
+        "127-5": "%game.characterIcon.angry-face% Retires",
+        "128-2": "%data.personalQuest.gh2e.15%",
         "128-3": "Chained Isle",
         "128-5": "Imbuement 80",
         "129-3": "Vermling Camp",
@@ -1769,6 +1803,9 @@
         "132-4": "Chasing Secrets",
         "133-2": "Imbuement 10",
         "133-3": "Sulfur Mine",
+        "133-4": "%data.personalQuest.gh2e.01%",
+        "133-4A": "%data.personalQuest.gh2e.01% 1 %game.prosperity%",
+        "133-4B": "%data.personalQuest.gh2e.01% Item Design",
         "133-5": "Demon Reputation 12",
         "134-3": "Chronal Anchor",
         "135-6": "Imbuement 70",
@@ -1778,8 +1815,12 @@
         "14-1": "Icecrag Ascent",
         "15-1": "Forgotten Crypt",
         "15-2": "Barrow Lair",
+        "15-3": "%game.characterIcon.lightning% Retires",
         "15-4": "Lost Island",
         "16-1": "Ruinous Crypt",
+        "16-2": "%game.characterIcon.saw% Retires",
+        "16-2A": "%game.characterIcon.saw% Retires C-93",
+        "16-2B": "%game.characterIcon.saw% Retires C-92",
         "16-4": "Echo Chamber",
         "16-5": "Prosperity 5",
         "16-6": "Investigation",
@@ -1801,11 +1842,14 @@
         "24-1": "Inox Encampment",
         "24-2": "Investigation",
         "25-1": "Frozen Hollow",
+        "25-2": "%game.characterIcon.triangles% Retires",
         "26-1": "Crypt of the Damned",
         "26-3": "Inox Encampment",
+        "26-4": "%game.characterIcon.music-note% Retires",
         "28-1": "Crypt of the Damned",
         "28-3": "Military Outpost",
         "28-5": "Drake Nest",
+        "28-6": "%game.characterIcon.bruiser% Retires",
         "29-1": "Demon Reputation 6",
         "29-3": "Gloomhaven Square A (Military Allies)",
         "3-3": "Gloomhaven Square A (Demon Allies)",
@@ -1841,9 +1885,11 @@
         "42-1": "Black Barrow",
         "42-2": "Clockwork Factory",
         "42-5": "Investigation",
+        "42-4": "%game.characterIcon.three-spears% Retires",
         "43-2": "Bandit Camp",
         "44-1": "Mountain Pass",
         "44-2": "Echo Chamber",
+        "44-4": "%game.characterIcon.silent-knife% Retires",
         "44-5": "Clockwork Factory",
         "45-1": "Military Outpost",
         "45-2": "Black Barrow",
@@ -1883,6 +1929,7 @@
         "65-2": "Savvas Armory",
         "66-3": "Fading Lighthouse",
         "66-4": "Drake Nest",
+        "66-6": "%game.characterIcon.circles% Retires",
         "67-1": "The Last Stand",
         "68-1": "Wetlands Ambush",
         "68-2": "Arcane Library",
@@ -1892,6 +1939,9 @@
         "70-1": "Decrepit Wood",
         "70-5": "Clockwork Factory",
         "71-1": "The Last Stand",
+        "71-3": "%game.characterIcon.cragheart% Retires",
+        "71-3A": "%game.characterIcon.cragheart% Retires C-84",
+        "71-3B": "%game.characterIcon.cragheart% Retires C-83",
         "71-4": "Savvas Armory",
         "72-2": "The Last Stand",
         "73-3": "Demon Reputation 16",
@@ -1908,6 +1958,7 @@
         "79-1": "Secluded Valley",
         "79-4": "Alchemy Lab",
         "8-1": "Barrow Lair",
+        "8-3": "%data.personalQuest.gh2e.16%",
         "80-1": "Deep Ruins",
         "80-2": "Underwater Lagoon",
         "80-3": "Chasing Secrets",
@@ -1923,6 +1974,7 @@
         "86-2": "Chasing Secrets",
         "86-3": "Chronal Anchor",
         "86-4": "Sunken Vessel",
+        "86-5": "%game.characterIcon.tinkerer% Retires",
         "89-1": "Wild Melee",
         "89-4": "Fading Lighthouse",
         "9-2": "Gloomhaven Square B",

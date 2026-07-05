@@ -6,9 +6,9 @@
   "named": true,
   "rewards": {
     "events": [
-      "city:48",
-      "city:51",
-      "city:52"
+      "city:C-48",
+      "city:C-51",
+      "city:C-52"
     ]
   }
 }

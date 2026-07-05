@@ -1,0 +1,14 @@
+{
+  "index": "127.5",
+  "name": "%game.characterIconColored.angry-face% Retires",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "road:R-65",
+      "road:R-66"
+    ]
+  },
+  "retirement": "angry-face"
+}

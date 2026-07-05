@@ -4,6 +4,9 @@
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "eventType": "road",
+  "rewards": {
+    "characterRetirement": "04"
+  },
   "monsters": [
     "flame-demon",
     "frost-demon",

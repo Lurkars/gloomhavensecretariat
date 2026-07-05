@@ -27,11 +27,11 @@
     ],
     "gold": 25,
     "events": [
-      "city:36",
-      "city:54",
-      "city:55",
-      "road:37",
-      "road:38"
+      "city:C-36",
+      "city:C-54",
+      "city:C-55",
+      "road:R-37",
+      "road:R-38"
     ],
     "factionUnlock": "merchant-guild",
     "reputationFactions": [

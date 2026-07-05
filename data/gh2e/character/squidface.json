@@ -5,7 +5,6 @@
   "edition": "gh2e",
   "handSize": 10,
   "unlockEvent": "city:C-76|city:C-77",
-  "retireEvent": "city:C-89|road:R-72",
   "traits": [
     "arcane",
     "intimidating",

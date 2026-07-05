@@ -211,6 +211,14 @@ export class EventCardManager {
         });
       }
 
+      if (scenarioData.rewards.removeEvents) {
+        scenarioData.rewards.removeEvents.forEach((event) => {
+          if (event.split(':').length > 1) {
+            this.removeEvent(event.split(':')[0], event.split(':')[1]);
+          }
+        });
+      }
+
       if (scenarioData.rewards.eventDecks) {
         scenarioData.rewards.eventDecks.forEach((eventDeck) => {
           const type = eventDeck.split(':')[0];
