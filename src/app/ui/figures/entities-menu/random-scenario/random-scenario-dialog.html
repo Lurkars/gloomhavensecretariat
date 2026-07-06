@@ -13,7 +13,7 @@
           [ghs-label-args]="[scenario.index, gameManager.scenarioManager.scenarioTitle(scenario, section), unlocks]"
         ></span>
       }
-      @if (!scenario && section) {
+      @if (!scenario && section && gameManager.fhRules()) {
         <span class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'"></span>
       }
     </div>

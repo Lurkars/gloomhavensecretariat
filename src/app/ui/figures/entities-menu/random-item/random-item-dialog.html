@@ -9,7 +9,7 @@
       @if (!!item) {
         <ghs-item [item]="item" [flipped]="true" [editionLabel]="gameManager.currentEdition()" (click)="openDialog()"></ghs-item>
       }
-      @if (!item && blueprint) {
+      @if (!item && blueprint && gameManager.fhRules()) {
         <span class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'"></span>
       }
     </div>

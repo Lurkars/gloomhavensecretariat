@@ -1173,7 +1173,7 @@
                         (click)="openItemDialog(gameManager.itemManager.getItem(itemId, scenario.edition || '', true))"
                       ></span>
                     }
-                    @if (itemId === -1) {
+                    @if (itemId === -1 && gameManager.fhRules()) {
                       <span> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span> </span>
                     }
                     @if (rewards.hints && rewards.hints.randomItemBlueprint) {
@@ -1205,7 +1205,7 @@
                         (click)="openItemDialog(gameManager.itemManager.getItem(itemId, scenario.edition || '', true))"
                       ></span>
                     }
-                    @if (itemId === -1) {
+                    @if (itemId === -1 && gameManager.fhRules()) {
                       <span> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span> </span>
                     }
                     @if (rewards.hints && rewards.hints.randomItemDesign) {

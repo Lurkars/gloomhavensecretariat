@@ -83,7 +83,7 @@ export class CampaignHelper {
         .closed.subscribe({
           next: (result: unknown) => {
             if (result) {
-              if (result == true) {
+              if (result == true && gameManager.fhRules()) {
                 gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
                 gameManager.game.party.inspiration += 1;
                 gameManager.stateManager.after();
@@ -119,9 +119,11 @@ export class CampaignHelper {
           next: (result: unknown) => {
             if (result) {
               if (result == true) {
-                gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
-                gameManager.game.party.inspiration += 1;
-                gameManager.stateManager.after();
+                if (gameManager.fhRules()) {
+                  gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
+                  gameManager.game.party.inspiration += 1;
+                  gameManager.stateManager.after();
+                }
               } else {
                 const scenarioData = result as ScenarioData;
                 if (section) {

@@ -10,6 +10,7 @@ import { getLootClass, herbResourceLootTypes, LootClass, LootType } from 'src/ap
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
+import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 import { v4 as uuidv4 } from 'uuid';
 
 export class ItemManager {
@@ -626,27 +627,29 @@ export class ItemManager {
   }
 
   drawRandomItem(edition: string, blueprint: boolean = false, from: number = -1, to: number = -1): ItemData | undefined {
-    const availableItems = this.getItems(undefined, true).filter(
-      (itemData) =>
-        ((!blueprint && itemData.random) ||
-          (blueprint &&
-            itemData.blueprint &&
-            (!itemData.requiredBuilding ||
-              gameManager.game.party.buildings.find(
-                (buildingModel) => buildingModel.name === itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel
-              )))) &&
-        (from === -1 || (typeof itemData.id === 'number' && itemData.id >= from)) &&
-        (to === -1 || (typeof itemData.id === 'number' && itemData.id <= to)) &&
-        !gameManager.game.party.unlockedItems.find(
-          (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
-        ) &&
-        gameManager.isEditionRelevant(itemData.edition, edition)
-    );
-    let item: ItemData | undefined = undefined;
-    if (availableItems.length > 0) {
-      item = availableItems[Math.floor(Math.random() * availableItems.length)];
-    }
-    return item;
+    return this.drawRandomItemsBatch(edition, 1, blueprint, from, to)[0];
+  }
+
+  drawRandomItemsBatch(edition: string, count: number, blueprint: boolean = false, from: number = -1, to: number = -1): ItemData[] {
+    return ghsShuffleArray(
+      this.getItems(undefined, true).filter(
+        (itemData) =>
+          ((!blueprint && itemData.random) ||
+            (blueprint &&
+              itemData.blueprint &&
+              (!itemData.requiredBuilding ||
+                gameManager.game.party.buildings.find(
+                  (buildingModel) =>
+                    buildingModel.name === itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel
+                )))) &&
+          (from === -1 || (typeof itemData.id === 'number' && itemData.id >= from)) &&
+          (to === -1 || (typeof itemData.id === 'number' && itemData.id <= to)) &&
+          !gameManager.game.party.unlockedItems.find(
+            (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
+          ) &&
+          gameManager.isEditionRelevant(itemData.edition, edition)
+      )
+    ).slice(0, count);
   }
 
   applyEquippedItemEffects(character: Character) {

@@ -53,23 +53,29 @@
           [ghs-label-args]="[personalQuest.unlockCharacter]"
         ></div>
       }
-      @if (!!characterScenario) {
+      @if (!!characterScenario && characterScenario !== true) {
         <div
           class="text-white"
           [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario'"
           [ghs-label-args]="[characterScenario.index, characterScenario.name]"
         ></div>
       }
+      @if (characterScenario === true) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario.info'"></div>
+      }
       @if (characterAlreadyUnlocked && !characterScenario && gameManager.gh2eRules()) {
         <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario.gold'"></div>
       }
-      @if (!!characterItemDesign) {
+      @if (!!characterItemDesign && characterItemDesign !== true) {
         <div
           class="text-white link"
           (click)="itemDialog(characterItemDesign)"
           [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
           [ghs-label-args]="[characterItemDesign.id, characterItemDesign.edition]"
         ></div>
+      }
+      @if (characterItemDesign === true) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign.info'"></div>
       }
       @if (characterAlreadyUnlocked && !characterItemDesign && gameManager.gh2eRules()) {
         <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign.gold'"></div>
@@ -196,23 +202,29 @@
           [ngClass]="{ 'already-unlocked': additionalCharacterAlreadyUnlocked }"
         ></div>
       }
-      @if (!!additionalCharacterScenario) {
+      @if (!!additionalCharacterScenario && additionalCharacterScenario !== true) {
         <div
           class="text-white"
           [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario'"
           [ghs-label-args]="[additionalCharacterScenario.index, additionalCharacterScenario.name]"
         ></div>
       }
-      @if (additionalCharacterAlreadyUnlocked && !additionalCharacterScenario && gameManager.gh2eRules()) {
-        <div class="text-white" [ghs-label]="'character.progress.personalQuest.randomScenario.gold'"></div>
+      @if (additionalCharacterScenario === true) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario.info'"></div>
       }
-      @if (!!additionalCharacterItemDesign) {
+      @if (additionalCharacterAlreadyUnlocked && !additionalCharacterScenario && gameManager.gh2eRules()) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario.gold'"></div>
+      }
+      @if (!!additionalCharacterItemDesign && additionalCharacterItemDesign !== true) {
         <div
           class="text-white link"
           (click)="itemDialog(additionalCharacterItemDesign)"
           [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
           [ghs-label-args]="[additionalCharacterItemDesign.id, additionalCharacterItemDesign.edition]"
         ></div>
+      }
+      @if (additionalCharacterItemDesign === true) {
+        <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign.info'"></div>
       }
       @if (additionalCharacterAlreadyUnlocked && !additionalCharacterItemDesign && gameManager.gh2eRules()) {
         <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign.gold'"></div>

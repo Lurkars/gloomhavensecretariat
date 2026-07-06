@@ -1431,10 +1431,10 @@
       },
       "05": {
         "": "Seeker of Xorn",
-        "1": "\"Crypt Basement\" %game.scenario:57% completed",
+        "1": "\"Crypt Basement\" %game.scenarioNumber:57% completed",
         "2": "Item gained",
         "3": "%game.condition.poison% gained",
-        "4": "\"Palace of Ice\" %game.scenario:58% completed"
+        "4": "\"Palace of Ice\" %game.scenarioNumber:58% completed"
       },
       "06": {
         "": "Zealot of the Blood God",
