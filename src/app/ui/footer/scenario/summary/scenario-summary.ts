@@ -1146,8 +1146,10 @@ export class ScenarioSummaryComponent {
 
       if ((this.gainRewards || this.forceCampaign) && this.randomItemBlueprints.length > 0) {
         this.randomItemBlueprints.forEach((itemId) => {
-          if (itemId === -1 && gameManager.fhRules()) {
-            gameManager.game.party.inspiration += 1;
+          if (itemId === -1) {
+            if (gameManager.fhRules()) {
+              gameManager.game.party.inspiration += 1;
+            }
           } else {
             gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
           }
@@ -1156,8 +1158,10 @@ export class ScenarioSummaryComponent {
 
       if ((this.gainRewards || this.forceCampaign) && this.randomItemDesigns.length > 0) {
         this.randomItemDesigns.forEach((itemId) => {
-          if (itemId === -1 && gameManager.fhRules()) {
-            gameManager.game.party.inspiration += 1;
+          if (itemId === -1) {
+            if (gameManager.fhRules()) {
+              gameManager.game.party.inspiration += 1;
+            }
           } else {
             gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
           }

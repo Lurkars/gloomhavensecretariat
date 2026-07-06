@@ -83,10 +83,12 @@ export class CampaignHelper {
         .closed.subscribe({
           next: (result: unknown) => {
             if (result) {
-              if (result == true && gameManager.fhRules()) {
-                gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
-                gameManager.game.party.inspiration += 1;
-                gameManager.stateManager.after();
+              if (result == true) {
+                if (gameManager.fhRules()) {
+                  gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
+                  gameManager.game.party.inspiration += 1;
+                  gameManager.stateManager.after();
+                }
               } else {
                 const itemData = result as ItemData;
                 gameManager.stateManager.before(
