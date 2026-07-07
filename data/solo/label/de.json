@@ -44,5 +44,28 @@
     "group": {
       "solo": "Solo Szenarien"
     }
+  },
+  "section": {
+    "title": {
+      "fh": {
+        "solo-20-1": "Wunder der Natur",
+        "solo-21-1": "Rennen gegen die Uhr",
+        "solo-21-2": "Rennen gegen die Uhr",
+        "solo-24-1": "Knochen im Staub",
+        "solo-24-2": "Knochen im Staub",
+        "solo-25-1": "Teilen und Herrschen",
+        "solo-27-1": "Bröckelnder Abstieg",
+        "solo-27-2": "Bröckelnder Abstieg",
+        "solo-28-1": "Anpassung der Resonanz",
+        "solo-32-1": "Unter dem Eis",
+        "solo-33-1": "Aufladen",
+        "solo-34-1": "Kesselraum",
+        "solo-34-a": "Kesselraum",
+        "solo-35-1": "Nasse Arbeit",
+        "solo-35-2": "Nasse Arbeit",
+        "solo-36-1": "Sturm gegen die Wellen",
+        "solo-36-2": "Sturm gegen die Wellen"
+      }
+    }
   }
 }

@@ -2030,6 +2030,8 @@
         }
       },
       "campaignSticker": "战役贴纸",
+      "characterRetirement": "带有\"%data.personalQuest.{0}.{1}%\"个人任务的角色在下一次城镇阶段中退休。",
+      "characterRetirementSkipEvents": "带有\"%data.personalQuest.{0}.{1}%\"个人任务的角色在下一次城镇阶段中退休，但不如往常一般按该角色的退休段落添加事件卡。",
       "chooseItem": "从以下中获得一项",
       "chooseLocation": "从以下中解锁一项",
       "collectiveGold": "{0}共同金币",
@@ -2071,6 +2073,8 @@
       "prosperity": "{0}点繁荣",
       "randomItemBlueprint": "获得一张随机物品蓝图",
       "randomItemBlueprints": "添加物品%game.itemFh.{0}%至%game.itemFh.{1}%到随机物品蓝图牌库。",
+      "randomItemDesign": "获得一张随机道具设计图",
+      "randomItemDesigns": "解锁道具%game.itemFh.{0}%至%game.itemFh.{1}%到随机道具设计图牌库。",
       "randomItems": "每名角色获得一件随机物品({0}-{1})",
       "randomSideScenario": "抽取一个随机支线剧本。",
       "removeEvent": {
@@ -2083,6 +2087,7 @@
         "winter-outpost": "从冬季前哨牌库移除事件{0}",
         "winter-road": "从冬季道路牌库移除事件{0}"
       },
+      "removeItem": "将\"%data.items.{1}-{0}%\" %data.itemFh.{0}%返回不可用道具牌库。",
       "removeLootDeckCard": "从游戏中移除拾取卡{0}。不再添加它到任何剧本的拾取牌库中。",
       "repeatScenario": "场景可以游玩！",
       "reputation": "{0}声望",
@@ -3454,7 +3459,8 @@
           "summons": "{1}x %game.condition.{0}% 召唤物{2}中的{3}"
         },
         "addImmunity": {
-          "": "%game.immunity.{0}%用于选择"
+          "": "%game.immunity.{0}%用于选择",
+          "character": "%game.immunity.{0}%于{1}"
         }
       },
       "entityDead": "击杀 {0} 的 {1} 立牌 {2}",
