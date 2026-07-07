@@ -1,0 +1,1 @@
+import {a as o}from'./chunk-CgqulQOK.js';function t(c,e){c.accDescr&&e.setAccDescription?.(c.accDescr),c.accTitle&&e.setAccTitle?.(c.accTitle),c.title&&e.setDiagramTitle?.(c.title);}o(t,"populateCommonDb");export{t};//# sourceMappingURL=chunk-C1Aa_Fne.js.map

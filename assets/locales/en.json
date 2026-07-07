@@ -233,11 +233,13 @@
           "": "Open Box %game.characterIcon.{0}%",
           "itemDesign": {
             "": "Gain \"%data.items.{1}-{0}%\" design (Item {0})",
-            "gold": "Item Design Deck deplected, gain 15 collective gold instead"
+            "gold": "Item Design Deck deplected, gain 15 collective gold instead",
+            "info": "Gain one random item design."
           },
           "randomScenario": {
             "": "Unlock \"{1}\" %data.scenarioNumber:{0}%",
-            "gold": "Random Scenario Design Deck deplected, gain 15 collective gold instead"
+            "gold": "Random Scenario Deck deplected, gain 15 collective gold instead",
+            "info": "Gain one random side scenario."
           }
         },
         "unlockPQ": "Unlock Personal Quest {0}"
@@ -1348,7 +1350,7 @@
             "": "Random Side Scenario",
             "alt": "No Random Side Scenarios left",
             "altFh": "No Random Side Scenarios left",
-            "altGh2e": "No Random Side Scenarios left",
+            "altGh2e": "No Random Side Scenarios left, gain 15 collective gold (manual)",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
