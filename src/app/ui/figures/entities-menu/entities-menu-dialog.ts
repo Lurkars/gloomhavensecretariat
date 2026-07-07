@@ -469,9 +469,8 @@ export class EntitiesMenuDialogComponent {
           event.stopPropagation();
         } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
           if (
-            (!event.shiftKey &&
-              (!!this.figure ? gameManager.attackModifierManager.countUpcomingCurses(this.isMonster) : 0) + this.curse < 10) ||
-            (event.shiftKey && (this.curseMin < 0 || this.curseMin + this.curse > 0))
+            (!event.shiftKey && (!!this.figure ? gameManager.attackModifierManager.countUpcomingBlesses() : 0) + this.bless < 10) ||
+            (event.shiftKey && (this.blessMin < 0 || this.blessMin + this.bless > 0))
           ) {
             this.bless += event.shiftKey ? -1 : 1;
           }
@@ -479,8 +478,8 @@ export class EntitiesMenuDialogComponent {
           event.stopPropagation();
         } else if (!event.ctrlKey && event.key.toLowerCase() === 'c') {
           if (
-            (!event.shiftKey && gameManager.attackModifierManager.countUpcomingBlesses() + this.bless < 10) ||
-            (event.shiftKey && (this.blessMin < 0 || this.blessMin + this.bless > 0))
+            (!event.shiftKey && gameManager.attackModifierManager.countUpcomingCurses(this.isMonster) + this.curse < 10) ||
+            (event.shiftKey && (this.curseMin < 0 || this.curseMin + this.curse > 0))
           ) {
             this.curse += event.shiftKey ? -1 : 1;
           }
