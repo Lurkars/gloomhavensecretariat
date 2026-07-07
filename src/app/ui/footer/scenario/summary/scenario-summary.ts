@@ -456,8 +456,13 @@ export class ScenarioSummaryComponent {
           this.rewards.randomItemBlueprint &&
           this.randomItemBlueprints.length < this.rewards.randomItemBlueprint
         ) {
+          const blueprints = gameManager.itemManager.drawRandomItemsBatch(
+            this.scenario.edition,
+            this.rewards.randomItemBlueprint - this.randomItemBlueprints.length,
+            true
+          );
           for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
-            const itemData = gameManager.itemManager.drawRandomItem(this.scenario.edition, true);
+            const itemData = blueprints[i];
             const item: Identifier | undefined = itemData ? new Identifier(itemData.id, itemData.edition) : undefined;
             this.randomItemBlueprints[i] = item ? +item.name : -1;
           }
@@ -468,8 +473,13 @@ export class ScenarioSummaryComponent {
           this.rewards.randomItemDesign &&
           this.randomItemDesigns.length < this.rewards.randomItemDesign
         ) {
+          const designs = gameManager.itemManager.drawRandomItemsBatch(
+            this.scenario.edition,
+            this.rewards.randomItemDesign - this.randomItemDesigns.length,
+            false
+          );
           for (let i = this.randomItemDesigns.length; i < this.rewards.randomItemDesign; i++) {
-            const itemData = gameManager.itemManager.drawRandomItem(this.scenario.edition, false);
+            const itemData = designs[i];
             const item: Identifier | undefined = itemData ? new Identifier(itemData.id, itemData.edition) : undefined;
             this.randomItemDesigns[i] = item ? +item.name : -1;
           }
@@ -494,12 +504,13 @@ export class ScenarioSummaryComponent {
             const to = +this.rewards.randomItems.split('-')[1];
             const itemEdition =
               this.rewards.randomItems.split('-').length > 2 ? this.rewards.randomItems.split('-')[2] : this.scenario.edition;
+            const items = gameManager.itemManager.drawRandomItemsBatch(itemEdition, this.characters.length, false, from, to);
             for (let i = this.randomItems.length; i < this.characters.length; i++) {
               const character = this.characters[i];
               if (character.absent) {
                 this.randomItems[i] = undefined;
               } else {
-                let itemData = gameManager.itemManager.drawRandomItem(itemEdition, false, from, to);
+                let itemData = items.pop();
                 if (
                   character.progress.items.find(
                     (owned) => itemData && owned.name === itemData.id + '' && owned.edition === itemData.edition
@@ -1136,7 +1147,9 @@ export class ScenarioSummaryComponent {
       if ((this.gainRewards || this.forceCampaign) && this.randomItemBlueprints.length > 0) {
         this.randomItemBlueprints.forEach((itemId) => {
           if (itemId === -1) {
-            gameManager.game.party.inspiration += 1;
+            if (gameManager.fhRules()) {
+              gameManager.game.party.inspiration += 1;
+            }
           } else {
             gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
           }
@@ -1146,7 +1159,9 @@ export class ScenarioSummaryComponent {
       if ((this.gainRewards || this.forceCampaign) && this.randomItemDesigns.length > 0) {
         this.randomItemDesigns.forEach((itemId) => {
           if (itemId === -1) {
-            gameManager.game.party.inspiration += 1;
+            if (gameManager.fhRules()) {
+              gameManager.game.party.inspiration += 1;
+            }
           } else {
             gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
           }

@@ -15,6 +15,7 @@ import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from 'src/app/game/model/Scenario';
+import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class ScenarioManager {
   game: Game;
@@ -1939,54 +1940,56 @@ export class ScenarioManager {
   }
 
   drawRandomScenario(edition: string): ScenarioData | undefined {
-    const availableScenarios = gameManager
-      .scenarioData(edition)
-      .filter(
-        (scenarioData) =>
-          scenarioData.random &&
-          !gameManager.game.party.manualScenarios.find(
-            (scenarioModel) =>
-              scenarioModel.index === scenarioData.index &&
-              scenarioModel.edition === scenarioData.edition &&
-              scenarioModel.group === scenarioData.group &&
-              !scenarioModel.custom
-          ) &&
-          !this.isSuccess(scenarioData)
-      );
-    let scenarioData: ScenarioData | undefined = undefined;
-    if (availableScenarios.length > 0) {
-      scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
-    }
-    return scenarioData;
+    return this.drawRandomScenariosBatch(edition, 1)[0];
+  }
+
+  drawRandomScenariosBatch(edition: string, count: number): ScenarioData[] {
+    return ghsShuffleArray(
+      gameManager
+        .scenarioData(edition)
+        .filter(
+          (scenarioData) =>
+            scenarioData.random &&
+            !gameManager.game.party.manualScenarios.find(
+              (scenarioModel) =>
+                scenarioModel.index === scenarioData.index &&
+                scenarioModel.edition === scenarioData.edition &&
+                scenarioModel.group === scenarioData.group &&
+                !scenarioModel.custom
+            ) &&
+            !this.isSuccess(scenarioData)
+        )
+    ).slice(0, count);
   }
 
   drawRandomScenarioSection(edition: string): ScenarioData | undefined {
-    const availableSections = gameManager
-      .sectionData(edition)
-      .filter(
-        (scenarioData) =>
-          scenarioData.conclusion &&
-          scenarioData.random &&
-          !gameManager.game.party.conclusions.find(
-            (scenarioModel) =>
-              scenarioModel.index === scenarioData.index &&
-              scenarioModel.edition === scenarioData.edition &&
-              scenarioModel.group === scenarioData.group &&
-              !scenarioModel.custom
-          ) &&
-          !gameManager.game.party.scenarios.find(
-            (scenarioModel) =>
-              scenarioModel.index === scenarioData.index &&
-              scenarioModel.edition === scenarioData.edition &&
-              scenarioModel.group === scenarioData.group &&
-              !scenarioModel.custom
-          )
-      );
-    let scenarioData: ScenarioData | undefined = undefined;
-    if (availableSections.length > 0) {
-      scenarioData = availableSections[Math.floor(Math.random() * availableSections.length)];
-    }
-    return scenarioData;
+    return this.drawRandomScenarioSectionsBatch(edition, 1)[0];
+  }
+
+  drawRandomScenarioSectionsBatch(edition: string, count: number): ScenarioData[] {
+    return ghsShuffleArray(
+      gameManager
+        .sectionData(edition)
+        .filter(
+          (scenarioData) =>
+            scenarioData.conclusion &&
+            scenarioData.random &&
+            !gameManager.game.party.conclusions.find(
+              (scenarioModel) =>
+                scenarioModel.index === scenarioData.index &&
+                scenarioModel.edition === scenarioData.edition &&
+                scenarioModel.group === scenarioData.group &&
+                !scenarioModel.custom
+            ) &&
+            !gameManager.game.party.scenarios.find(
+              (scenarioModel) =>
+                scenarioModel.index === scenarioData.index &&
+                scenarioModel.edition === scenarioData.edition &&
+                scenarioModel.group === scenarioData.group &&
+                !scenarioModel.custom
+            )
+        )
+    ).slice(0, count);
   }
 
   scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {
