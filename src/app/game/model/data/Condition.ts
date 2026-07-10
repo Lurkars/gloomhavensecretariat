@@ -243,6 +243,7 @@ export class Condition {
         ConditionName.strengthen,
         ConditionName.bless,
         ConditionName.dodge,
+        ConditionName.empower,
         ConditionName.safeguard
       ].includes(this.name)
     ) {

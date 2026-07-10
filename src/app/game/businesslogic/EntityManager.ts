@@ -563,6 +563,10 @@ export class EntityManager {
           this.isImmune(entity, figure, ConditionName.immobilize, ignoreManual) ||
           this.isImmune(entity, figure, ConditionName.muddle, ignoreManual)
         );
+      } else if (conditionName === ConditionName.empower) {
+        return this.isImmune(entity, figure, ConditionName.bless, ignoreManual);
+      } else if (conditionName === ConditionName.enfeeble) {
+        return this.isImmune(entity, figure, ConditionName.curse, ignoreManual);
       }
     }
 

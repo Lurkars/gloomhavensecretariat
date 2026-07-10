@@ -68,7 +68,8 @@ export class AttackModifierHelper {
 
     if (this.component.figure) {
       const amDeck = gameManager.attackModifierManager.byFigure(this.component.figure);
-      this.component.empowerMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.empower);
+      const empowerPrefix = 'additional-' + (this.component.empowerChar?.name ?? '');
+      this.component.empowerMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.empower, empowerPrefix);
       this.component.empowerMax = this.component.empowerChar
         ? this.component.empowerChar.additionalModifier
             .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
@@ -76,7 +77,8 @@ export class AttackModifierHelper {
             .reduce((a, b) => a + b) -
           gameManager.attackModifierManager.countUpcomingAdditional(this.component.empowerChar, AttackModifierType.empower)
         : -1;
-      this.component.enfeebleMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.enfeeble);
+      const enfeeblePrefix = 'additional-' + (this.component.enfeebleChar?.name ?? '');
+      this.component.enfeebleMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.enfeeble, enfeeblePrefix);
       this.component.enfeebleMax = this.component.enfeebleChar
         ? this.component.enfeebleChar.additionalModifier
             .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
@@ -225,8 +227,11 @@ export class AttackModifierHelper {
               this.component.empowerChar
             );
           } else {
+            const idPrefix = 'additional-' + (this.component.empowerChar?.name ?? '');
             for (let i = 0; i < this.component.empower * -1; i++) {
-              const empower = amDeck.cards.find((am, index) => index > amDeck.current && am.type === AttackModifierType.empower);
+              const empower = amDeck.cards.find(
+                (am, index) => index > amDeck.current && am.type === AttackModifierType.empower && am.id.startsWith(idPrefix)
+              );
               if (empower) {
                 amDeck.cards.splice(amDeck.cards.indexOf(empower), 1);
               }
@@ -260,8 +265,11 @@ export class AttackModifierHelper {
               this.component.enfeebleChar
             );
           } else {
+            const idPrefix = 'additional-' + (this.component.enfeebleChar?.name ?? '');
             for (let i = 0; i < this.component.enfeeble * -1; i++) {
-              const enfeeble = amDeck.cards.find((am, index) => index > amDeck.current && am.type === AttackModifierType.enfeeble);
+              const enfeeble = amDeck.cards.find(
+                (am, index) => index > amDeck.current && am.type === AttackModifierType.enfeeble && am.id.startsWith(idPrefix)
+              );
               if (enfeeble) {
                 amDeck.cards.splice(amDeck.cards.indexOf(enfeeble), 1);
               }

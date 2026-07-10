@@ -1,7 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
-import { Condition, ConditionName, ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { ConditionName, ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { Summon } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
@@ -106,9 +106,6 @@ export class SpecialActionsHelper {
           if (entity.name === 'lightning' && specialTagsToAdd.includes('careless-charge')) {
             entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
             entity.immunities.push(ConditionName.curse);
-            if (gameManager.entityManager.hasCondition(this.component.entity, new Condition(ConditionName.enfeeble))) {
-              entity.immunities.push(ConditionName.enfeeble);
-            }
             this.component.entityImmunities = character.immunities;
           }
 
