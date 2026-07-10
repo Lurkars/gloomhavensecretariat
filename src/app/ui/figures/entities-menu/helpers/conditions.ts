@@ -17,21 +17,21 @@ export class ConditionHelper {
         if (
           !existing &&
           self.every((otherEntity) =>
-            otherEntity.entityConditions.find((other) => other.name === entityCondition.name && other.state === entityCondition.state)
+            otherEntity.entityConditions.find(
+              (other) =>
+                other.name === entityCondition.name &&
+                other.state === entityCondition.state &&
+                (!entityCondition.types.includes(ConditionType.upgrade) || other.value === entityCondition.value)
+            )
           )
         ) {
           const condition = new EntityCondition(entityCondition.name, entityCondition.value);
           condition.state = entityCondition.state;
           condition.lastState = entityCondition.lastState;
-          if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
+          if (condition.types.includes(ConditionType.stack)) {
             condition.value = 0;
           }
           this.component.entityConditions.push(condition);
-        } else if (
-          existing &&
-          (entityCondition.types.includes(ConditionType.stack) || entityCondition.types.includes(ConditionType.upgrade))
-        ) {
-          existing.value = 0;
         }
       });
 
@@ -69,31 +69,69 @@ export class ConditionHelper {
       });
 
     this.component.entityConditions
-      .filter((condition) =>
-        this.component.entities.some((entity) => {
-          const entityCondition = entity.entityConditions.find(
-            (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
-          );
-          return condition.types.includes(ConditionType.stack) || (condition.types.includes(ConditionType.upgrade) && entityCondition);
-        })
+      .filter(
+        (condition) =>
+          condition.types.includes(ConditionType.stack) &&
+          condition.state !== EntityConditionState.new &&
+          condition.value != 0 &&
+          this.component.entities.some((entity) =>
+            entity.entityConditions.find((entityCondition) => entityCondition.name === condition.name && !entityCondition.expired)
+          )
       )
       .forEach((condition) => {
-        this.component.before('setConditionValue', condition.name, Math.max(0, condition.value));
+        this.component.before('setConditionValue', condition.name, condition.value);
         this.component.entities.forEach((entity) => {
           const figure = this.component.figureForEntity(entity);
           const entityCondition = entity.entityConditions.find(
             (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
           );
-          if ((condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) && entityCondition) {
-            entityCondition.value += condition.value;
-
-            if (entityCondition.name === ConditionName.plague && entityCondition.value > 3) {
-              entityCondition.value = 3;
+          if (condition.types.includes(ConditionType.stack) && entityCondition) {
+            if (condition.value < 0) {
+              entityCondition.value += condition.value;
+            } else if (condition.value > 0) {
+              gameManager.entityManager.addCondition(entity, figure, condition);
             }
-
             if (entityCondition.value <= 0) {
               gameManager.entityManager.removeCondition(entity, figure, entityCondition);
             }
+          }
+        });
+        gameManager.stateManager.after();
+      });
+
+    this.component.entityConditions
+      .filter(
+        (condition) =>
+          condition.types.includes(ConditionType.upgrade) &&
+          condition.value > 0 &&
+          ![EntityConditionState.new, EntityConditionState.removed].includes(condition.state)
+      )
+      .filter((condition) => {
+        const sample = this.component.entities[0]?.entityConditions.find(
+          (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
+        );
+        return (
+          sample &&
+          sample.value !== condition.value &&
+          this.component.entities.every((entity) =>
+            entity.entityConditions.some(
+              (entityCondition) =>
+                entityCondition.name === condition.name && !entityCondition.expired && entityCondition.value === sample.value
+            )
+          )
+        );
+      })
+      .forEach((condition) => {
+        this.component.before('setConditionValue', condition.name, condition.value);
+        this.component.entities.forEach((entity) => {
+          const figure = this.component.figureForEntity(entity);
+          const entityCondition = entity.entityConditions.find(
+            (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
+          );
+          if (entityCondition && condition.value < entityCondition.value) {
+            entityCondition.value = condition.value;
+          } else {
+            gameManager.entityManager.addCondition(entity, figure, condition);
           }
         });
         gameManager.stateManager.after();
