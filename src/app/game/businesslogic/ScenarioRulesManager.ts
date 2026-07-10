@@ -947,7 +947,7 @@ export class ScenarioRulesManager {
                   case 'permanentCondition':
                     const permanentCondition = new Condition(figureRule.value);
                     if (!gameManager.entityManager.hasCondition(entity, permanentCondition, true)) {
-                      gameManager.entityManager.addCondition(entity, figure, permanentCondition, true);
+                      gameManager.entityManager.addCondition(entity, figure, permanentCondition, true, true);
                     }
                     break;
                   case 'loseCondition':

@@ -587,8 +587,12 @@ export class EntityManager {
     return immune;
   }
 
-  addCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {
+  addCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false, ignoreImmunity: boolean = false) {
+    if (!ignoreImmunity && this.isImmune(entity, figure, condition.name)) {
+      return;
+    }
     if (
+      !ignoreImmunity &&
       settingsManager.settings.applyConditions &&
       !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.safeguard) &&
       this.hasCondition(entity, new Condition(ConditionName.safeguard)) &&
