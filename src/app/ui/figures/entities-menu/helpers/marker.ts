@@ -11,7 +11,7 @@ export class MarkerHelper {
     );
 
     this.component.characterMarker.forEach((marker) => {
-      if (this.component.entities.every((entity) => entity.markers.includes(marker))) {
+      if (this.component.entities.length > 0 && this.component.entities.every((entity) => entity.markers.includes(marker))) {
         this.component.characterMarkerToAdd.push(marker);
       }
     });

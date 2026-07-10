@@ -150,7 +150,7 @@ export class EntitiesMenuDialogComponent {
   figure: Figure | undefined;
   entity: Entity | undefined;
   figures: Figure[] = [];
-  entities: Entity[];
+  entities: Entity[] = [];
   allEntities: Entity[] = [];
   filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined;
   filters: ('character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined)[] = [
@@ -253,7 +253,10 @@ export class EntitiesMenuDialogComponent {
     }
 
     if (!this.figure && !this.entity) {
-      this.updateFigures();
+      this.updateFigures(true);
+    } else {
+      this.allEntities.forEach((entity) => this.entities.push(entity));
+      this.update();
     }
 
     this.dialogRef.closed.subscribe({
@@ -263,13 +266,9 @@ export class EntitiesMenuDialogComponent {
         }
       }
     });
-
-    this.entities = [];
-    this.allEntities.forEach((entity) => this.entities.push(entity));
-    this.update();
   }
 
-  updateFigures() {
+  updateFigures(selectAll: boolean = false) {
     if (gameManager.game.figures.find((figure) => figure instanceof Character) === undefined) {
       this.filters = this.filters.filter((v) => v !== 'character');
     } else if (!this.filters.includes('character')) {
@@ -323,6 +322,7 @@ export class EntitiesMenuDialogComponent {
             this.filter === 'objectives'))
     );
 
+    selectAll ||= this.entities.length === this.allEntities.length;
     this.allEntities = [];
 
     this.figures.forEach((figure) => {
@@ -333,9 +333,11 @@ export class EntitiesMenuDialogComponent {
       }
     });
 
-    if (!this.entities || this.entities.length) {
+    if (selectAll || (this.entities.length && !this.entities.some((entity) => this.allEntities.includes(entity)))) {
       this.entities = [];
       this.allEntities.forEach((entity) => this.entities.push(entity));
+    } else {
+      this.entities = this.entities.filter((entity) => this.allEntities.includes(entity));
     }
     this.update();
   }
