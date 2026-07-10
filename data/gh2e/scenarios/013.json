@@ -21,7 +21,7 @@
             "name": ".*"
           },
           "type": "amAdd",
-          "value": "minus1:1",
+          "value": "minus1extra:1",
           "scenarioEffect": true
         }
       ]
