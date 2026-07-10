@@ -2,7 +2,7 @@ import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
@@ -1235,20 +1235,7 @@ export class ScenarioRulesManager {
               let value = +figureRule.value.split(':')[1];
               if (figureRule.type === 'amAdd') {
                 for (let i = 0; i < value; i++) {
-                  if (type === AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
-                    return;
-                  } else if (
-                    type === AttackModifierType.curse &&
-                    gameManager.attackModifierManager.countUpcomingCurses(
-                      figure instanceof Monster && !figure.isAlly && !figure.isAllied
-                    ) >= 10
-                  ) {
-                    return;
-                  } else if (type === AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
-                    return;
-                  } else {
-                    gameManager.attackModifierManager.addModifier(deck, new AttackModifier(type));
-                  }
+                  gameManager.attackModifierManager.addModifierByType(deck, type);
                 }
               } else {
                 let card = deck.cards.find((attackModifier, index) => {
