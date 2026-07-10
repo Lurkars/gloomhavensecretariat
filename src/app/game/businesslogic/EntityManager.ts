@@ -588,6 +588,19 @@ export class EntityManager {
   }
 
   addCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {
+    if (
+      settingsManager.settings.applyConditions &&
+      !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.safeguard) &&
+      this.hasCondition(entity, new Condition(ConditionName.safeguard)) &&
+      condition.types.includes(ConditionType.negative)
+    ) {
+      this.removeCondition(entity, figure, new Condition(ConditionName.safeguard));
+      if (condition.value <= 1 || condition.types.includes(ConditionType.upgrade)) {
+        return;
+      } else if (condition.types.includes(ConditionType.stackable)) {
+        condition = new Condition(condition.name, condition.value - 1);
+      }
+    }
     let entityCondition: EntityCondition | undefined = entity.entityConditions.find(
       (entityCondition) => entityCondition.name === condition.name && !entityCondition.types.includes(ConditionType.multiple)
     );
@@ -598,6 +611,11 @@ export class EntityManager {
       entityCondition.expired = false;
       entityCondition.lastState = entityCondition.state;
       entityCondition.state = EntityConditionState.normal;
+      if (entityCondition.types.includes(ConditionType.stackable)) {
+        entityCondition.value += condition.value;
+      } else if (entityCondition.types.includes(ConditionType.upgrade)) {
+        entityCondition.value = Math.max(entityCondition.value, condition.value);
+      }
     }
 
     if (entityCondition.name === ConditionName.plague && entityCondition.value > 3) {
@@ -636,16 +654,6 @@ export class EntityManager {
       !this.isImmune(entity, entity, ConditionName.wound)
     ) {
       this.addCondition(entity, figure, new Condition(ConditionName.wound));
-    }
-
-    if (
-      settingsManager.settings.applyConditions &&
-      !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.safeguard) &&
-      this.hasCondition(entity, new Condition(ConditionName.safeguard)) &&
-      entityCondition.types.includes(ConditionType.negative)
-    ) {
-      this.removeCondition(entity, figure, entityCondition);
-      this.removeCondition(entity, figure, new Condition(ConditionName.safeguard));
     }
   }
 
