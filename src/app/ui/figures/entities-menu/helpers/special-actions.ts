@@ -116,6 +116,7 @@ export class SpecialActionsHelper {
             entity.entityConditions.forEach((condition) => {
               if (
                 condition.types.includes(ConditionType.negative) &&
+                !condition.types.includes(ConditionType.amDeck) &&
                 !condition.expired &&
                 condition.state !== EntityConditionState.removed &&
                 !this.component.entityConditions.find(

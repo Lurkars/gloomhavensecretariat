@@ -652,12 +652,12 @@ export class ItemManager {
     ).slice(0, count);
   }
 
-  applyEquippedItemEffects(character: Character) {
+  applyEquippedItemEffects(character: Character, immunitiesOnly: boolean = false) {
     character.immunities = [];
     character.progress.equippedItems.forEach((identifier) => {
       const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
       if (item) {
-        gameManager.itemManager.applyItemEffects(character, item, item.consumed === 'initial');
+        gameManager.itemManager.applyItemEffects(character, item, item.consumed === 'initial', immunitiesOnly);
         if (item.consumed === 'initial') {
           identifier.tags = [...(identifier.tags || []), ItemFlags.consumed];
         }
@@ -665,11 +665,13 @@ export class ItemManager {
     });
   }
 
-  applyItemEffects(character: Character, item: ItemData, equip: boolean = false) {
+  applyItemEffects(character: Character, item: ItemData, equip: boolean = false, immunitiesOnly: boolean = false) {
     if (item.effects) {
       item.effects.forEach((itemEffect) => {
         if ((!item.spent && !item.consumed) || equip || itemEffect.always) {
-          this.applyItemEffect(character, itemEffect);
+          if (itemEffect.type === ItemEffectType.immune || !immunitiesOnly) {
+            this.applyItemEffect(character, itemEffect);
+          }
         }
       });
     }

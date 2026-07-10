@@ -144,12 +144,19 @@ export class ConditionHelper {
 
             if (entityCondition.state === EntityConditionState.removed) {
               gameManager.entityManager.removeCondition(entity, figure, entityCondition, entityCondition.permanent);
-            } else if (!gameManager.entityManager.isImmune(entity, figure, entityCondition.name)) {
+            } else {
+              const shacklesImmunity =
+                entity instanceof Character &&
+                entity.name === 'shackles' &&
+                !entity.absent &&
+                entity.tags.includes('delayed_malady') &&
+                entityCondition.types.includes(ConditionType.negative) &&
+                !entityCondition.types.includes(ConditionType.amDeck);
               if (
                 entityCondition.state === EntityConditionState.new ||
                 !gameManager.entityManager.hasCondition(entity, entityCondition, entityCondition.permanent)
               ) {
-                gameManager.entityManager.addCondition(entity, figure, entityCondition, entityCondition.permanent);
+                gameManager.entityManager.addCondition(entity, figure, entityCondition, entityCondition.permanent, shacklesImmunity);
               }
 
               if (entityCondition.state === EntityConditionState.roundExpire || entityCondition.state === EntityConditionState.expire) {
@@ -161,14 +168,7 @@ export class ConditionHelper {
                 });
               }
 
-              if (
-                entity instanceof Character &&
-                entity.name === 'shackles' &&
-                !entity.absent &&
-                entity.tags.includes('delayed_malady') &&
-                entityCondition.types.includes(ConditionType.negative) &&
-                !entity.immunities.includes(entityCondition.name)
-              ) {
+              if (shacklesImmunity && !entity.immunities.includes(entityCondition.name)) {
                 entity.immunities.push(entityCondition.name);
                 this.component.entityImmunities.push(entityCondition.name);
               }

@@ -412,7 +412,7 @@ describe('SpecialActionsManager', () => {
 
       specialActionsManager.triggerSlotAfter(character, specialAction, false);
 
-      expect(addSpy).toHaveBeenCalledWith(character, character, new Condition(ConditionName.poison));
+      expect(addSpy).toHaveBeenCalledWith(character, character, new Condition(ConditionName.poison), false, true);
       expect(character.immunities).toEqual([]);
     });
 
