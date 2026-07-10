@@ -637,6 +637,23 @@ export class EntityManager {
   }
 
   addStandardCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {
+    if (condition.types.includes(ConditionType.upgrade)) {
+      const upgradeCondition = condition;
+      const baseCondition = this.activeConditions(entity).find(
+        (other) => other.name + '_x' === condition.name && other.types.includes(ConditionType.upgradable)
+      );
+      if (upgradeCondition && baseCondition) {
+        this.removeCondition(entity, figure, baseCondition);
+      }
+    } else if (condition.types.includes(ConditionType.upgradable)) {
+      const upgradeCondition = this.activeConditions(entity).find(
+        (other) => other.name === condition.name + '_x' && other.types.includes(ConditionType.upgrade)
+      );
+      if (upgradeCondition) {
+        return;
+      }
+    }
+
     let entityCondition: EntityCondition | undefined = entity.entityConditions.find(
       (entityCondition) => entityCondition.name === condition.name && !entityCondition.types.includes(ConditionType.multiple)
     );

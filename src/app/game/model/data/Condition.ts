@@ -38,6 +38,7 @@ export enum ConditionType {
   monster = 'monster',
   objective = 'objective',
   upgrade = 'upgrade',
+  upgradable = 'upgradable',
   stack = 'stack',
   stackable = 'stackable',
   turn = 'turn',
@@ -151,6 +152,10 @@ export class Condition {
     if ([ConditionName.poison_x, ConditionName.wound_x].includes(this.name)) {
       this.types.push(ConditionType.upgrade);
       this.types.push(ConditionType.value);
+    }
+
+    if ([ConditionName.poison, ConditionName.wound].includes(this.name)) {
+      this.types.push(ConditionType.upgradable);
     }
 
     if ([ConditionName.chill, ConditionName.plague].includes(this.name)) {
