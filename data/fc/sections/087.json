@@ -11,7 +11,7 @@
       "figures": [
         {
           "identifier": {
-            "type": "character",
+            "type": "all",
             "name": ".*"
           },
           "type": "damage",
@@ -26,15 +26,15 @@
       "figures": [
         {
           "identifier": {
-            "type": "character",
+            "type": "all",
             "name": ".*"
           },
-          "type": "amAdd",
+          "type": "gainCondition",
           "value": "curse:1"
         },
         {
           "identifier": {
-            "type": "character",
+            "type": "all",
             "name": ".*"
           },
           "type": "gainCondition",
@@ -42,7 +42,7 @@
         },
         {
           "identifier": {
-            "type": "character",
+            "type": "all",
             "name": ".*"
           },
           "type": "gainCondition",
@@ -50,7 +50,7 @@
         },
         {
           "identifier": {
-            "type": "character",
+            "type": "all",
             "name": ".*"
           },
           "type": "gainCondition",
@@ -58,7 +58,7 @@
         },
         {
           "identifier": {
-            "type": "character",
+            "type": "all",
             "name": ".*"
           },
           "type": "gainCondition",

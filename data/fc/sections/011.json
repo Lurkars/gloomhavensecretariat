@@ -11,10 +11,10 @@
       "figures": [
         {
           "identifier": {
-            "type": "character",
+            "type": "all",
             "name": ".*"
           },
-          "type": "amAdd",
+          "type": "gainCondition",
           "value": "curse:1"
         }
       ]

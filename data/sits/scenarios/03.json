@@ -45,8 +45,8 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "gainCondition",
-          "value": "curse",
+          "type": "amAdd",
+          "value": "curse:1",
           "scenarioEffect": true
         }
       ]
