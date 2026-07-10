@@ -204,9 +204,7 @@ export class LootManager {
       case TreasureRewardType.condition:
         if (typeof reward.value === 'string') {
           reward.value.split('+').forEach((condition) => {
-            if (!gameManager.entityManager.hasCondition(character, new Condition(condition as ConditionName))) {
-              gameManager.entityManager.addCondition(character, character, new Condition(condition as ConditionName));
-            }
+            gameManager.entityManager.addCondition(character, character, new Condition(condition as ConditionName));
           });
         }
         break;

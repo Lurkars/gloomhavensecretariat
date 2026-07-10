@@ -2,6 +2,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ActionType } from 'src/app/game/model/data/Action';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
@@ -587,7 +588,14 @@ export class EntityManager {
     return immune;
   }
 
-  addCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false, ignoreImmunity: boolean = false) {
+  addCondition(
+    entity: Entity,
+    figure: Figure,
+    condition: Condition,
+    permanent: boolean = false,
+    ignoreImmunity: boolean = false,
+    deckSource?: Character
+  ) {
     if (!ignoreImmunity && this.isImmune(entity, figure, condition.name)) {
       return;
     }
@@ -605,6 +613,26 @@ export class EntityManager {
         condition = new Condition(condition.name, condition.value - 1);
       }
     }
+    if (condition.types.includes(ConditionType.amDeck)) {
+      this.addDeckCondition(figure, condition, deckSource);
+    } else {
+      this.addStandardCondition(entity, figure, condition, permanent);
+    }
+
+    // apply Challenge #1487
+    if (
+      gameManager.challengesManager.apply &&
+      gameManager.challengesManager.isActive(1487, 'fh') &&
+      condition.types.includes(ConditionType.negative) &&
+      condition.name !== ConditionName.wound &&
+      entity instanceof Character &&
+      !this.isImmune(entity, entity, ConditionName.wound)
+    ) {
+      this.addCondition(entity, figure, new Condition(ConditionName.wound));
+    }
+  }
+
+  addStandardCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {
     let entityCondition: EntityCondition | undefined = entity.entityConditions.find(
       (entityCondition) => entityCondition.name === condition.name && !entityCondition.types.includes(ConditionType.multiple)
     );
@@ -647,18 +675,31 @@ export class EntityManager {
 
     entityCondition.permanent = permanent;
     entityCondition.highlight = false;
+  }
 
-    // apply Challenge #1487
-    if (
-      gameManager.challengesManager.apply &&
-      gameManager.challengesManager.isActive(1487, 'fh') &&
-      entityCondition.types.includes(ConditionType.negative) &&
-      entityCondition.name !== ConditionName.wound &&
-      entity instanceof Character &&
-      !this.isImmune(entity, entity, ConditionName.wound)
-    ) {
-      this.addCondition(entity, figure, new Condition(ConditionName.wound));
+  addDeckCondition(figure: Figure, condition: Condition, deckSource?: Character) {
+    let modifiers: AttackModifier[] = [];
+    switch (condition.name) {
+      case ConditionName.bless:
+        modifiers = gameManager.attackModifierManager.getBless(condition.value);
+        break;
+      case ConditionName.curse:
+        const isMonster =
+          (figure instanceof Monster &&
+            ((!figure.isAlly && !figure.isAllied) ||
+              (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules(true)))) ||
+          (figure instanceof ObjectiveContainer && figure.amDeck === 'M');
+        modifiers = gameManager.attackModifierManager.getCurse(isMonster, condition.value);
+        break;
+      case ConditionName.empower:
+      case ConditionName.enfeeble:
+        if (!deckSource) {
+          console.error('No deck source found for:', condition.name, figure);
+          return;
+        }
+        modifiers = gameManager.attackModifierManager.getAdditional(deckSource, AttackModifierType[condition.name], condition.value);
     }
+    gameManager.attackModifierManager.addModifierBatch(gameManager.attackModifierManager.byFigure(figure), modifiers);
   }
 
   removeCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {

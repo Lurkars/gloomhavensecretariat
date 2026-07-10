@@ -926,23 +926,7 @@ export class ScenarioRulesManager {
                     const conditionName = figureRule.value.split(':')[0];
                     const value = figureRule.value.split(':').length > 1 ? +figureRule.value.split(':')[1] : 1;
                     const gainCondition = new Condition(conditionName, value);
-                    if (gainCondition.name === ConditionName.curse) {
-                      for (let i = 0; i < value; i++) {
-                        gameManager.attackModifierManager.addModifierByType(
-                          gameManager.attackModifierManager.byFigure(figure),
-                          AttackModifierType.curse
-                        );
-                      }
-                    } else if (gainCondition.name === ConditionName.bless) {
-                      for (let i = 0; i < value; i++) {
-                        gameManager.attackModifierManager.addModifierByType(
-                          gameManager.attackModifierManager.byFigure(figure),
-                          AttackModifierType.bless
-                        );
-                      }
-                    } else if (!gameManager.entityManager.hasCondition(entity, gainCondition)) {
-                      gameManager.entityManager.addCondition(entity, figure, gainCondition);
-                    }
+                    gameManager.entityManager.addCondition(entity, figure, gainCondition);
                     break;
                   case 'permanentCondition':
                     const permanentCondition = new Condition(figureRule.value);

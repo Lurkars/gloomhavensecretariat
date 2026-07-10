@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
 import { AdditionalIdentifier, CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
@@ -685,7 +684,7 @@ export class ItemManager {
     if (settingsManager.settings.characterItemsApply) {
       if (item.edition === 'fh' && item.id === 258 && character.health < character.maxHealth / 2) {
         character.health += 7;
-        gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.curse));
+        gameManager.entityManager.addCondition(character, character, new Condition(ConditionName.curse));
       }
     }
   }
@@ -706,22 +705,7 @@ export class ItemManager {
       case ItemEffectType.condition:
         const condition: ConditionName = ('' + effect.value).split(':')[0] as ConditionName;
         const value: number = ('' + effect.value).split(':').length > 1 ? +('' + effect.value).split(':')[1] : 1;
-
-        if (condition === ConditionName.bless) {
-          for (let i = 0; i < value; i++) {
-            if (gameManager.attackModifierManager.countUpcomingBlesses() < 10) {
-              gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
-            }
-          }
-        } else if (condition === ConditionName.curse) {
-          for (let i = 0; i < value; i++) {
-            if (gameManager.attackModifierManager.countUpcomingCurses(false) < 10) {
-              gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.curse));
-            }
-          }
-        } else {
-          gameManager.entityManager.addCondition(character, character, new Condition(condition, value));
-        }
+        gameManager.entityManager.addCondition(character, character, new Condition(condition, value));
         break;
       case ItemEffectType.immune:
         const immunity: ConditionName = ('' + effect.value) as ConditionName;

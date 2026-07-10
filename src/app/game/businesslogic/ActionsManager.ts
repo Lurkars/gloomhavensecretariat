@@ -1,8 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
 import { Action, ActionHint, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
@@ -547,26 +545,7 @@ export class ActionsManager {
         gameManager.entityManager.applyCondition(entity, figure, healCondition, true);
         break;
       case ActionType.condition:
-        if (action.value === 'bless' || action.value === 'curse') {
-          const am =
-            figure instanceof Monster
-              ? settingsManager.settings.allyAttackModifierDeck &&
-                (gameManager.fhRules(true) || settingsManager.settings.alwaysAllyAttackModifierDeck) &&
-                (figure.isAlly || figure.isAllied)
-                ? gameManager.game.allyAttackModifierDeck
-                : gameManager.game.monsterAttackModifierDeck
-              : figure instanceof Character
-                ? figure.attackModifierDeck
-                : undefined;
-          if (am) {
-            gameManager.attackModifierManager.addModifier(
-              am,
-              new AttackModifier(action.value === 'bless' ? AttackModifierType.bless : AttackModifierType.curse)
-            );
-          }
-        } else {
-          gameManager.entityManager.addCondition(entity, figure, new Condition('' + action.value));
-        }
+        gameManager.entityManager.addCondition(entity, figure, new Condition('' + action.value));
         break;
       case ActionType.damage:
       case ActionType.sufferDamage:
