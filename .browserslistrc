@@ -20,3 +20,4 @@ not android > 0
 not chrome < 110
 not opera < 123
 not ios_saf 26.5
+not safari 26.5
