@@ -233,11 +233,13 @@
           "": "打开角色盒子 %game.characterIcon.{0}%",
           "itemDesign": {
             "": "获得\"%data.items.{1}-{0}%\"设计图(Item {0})",
-            "gold": "随机蓝图牌库已空，改为共同获得15金币"
+            "gold": "随机蓝图牌库已空，改为共同获得15金币",
+            "info": "获得一个随机道具设计图。"
           },
           "randomScenario": {
             "": "解锁\"{1}\" %data.scenarioNumber:{0}%",
-            "gold": "随机剧本牌库已空，改为共同获得15金币"
+            "gold": "随机剧本牌库已空，改为共同获得15金币",
+            "info": "解锁一个随机支线剧本。"
           }
         },
         "unlockPQ": "解锁个人任务{0}"
@@ -1349,7 +1351,7 @@
             "": "随机支线剧本",
             "alt": "随机支线剧本牌库已空",
             "altFh": "随机支线剧本牌库已空",
-            "altGh2e": "随机支线剧本牌库已空",
+            "altGh2e": "随机支线剧本牌库已空，共同获得15金币（手动）",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
@@ -2087,7 +2089,7 @@
         "winter-outpost": "从冬季前哨牌库移除事件{0}",
         "winter-road": "从冬季道路牌库移除事件{0}"
       },
-      "removeItem": "将\"%data.items.{1}-{0}%\" %data.itemFh.{0}%返回不可用道具牌库。",
+      "removeItem": "将\"%data.items.{1}-{0}%\" %game.itemFh.{0}%返回不可用道具牌库。",
       "removeLootDeckCard": "从游戏中移除拾取卡{0}。不再添加它到任何剧本的拾取牌库中。",
       "repeatScenario": "场景可以游玩！",
       "reputation": "{0}声望",
