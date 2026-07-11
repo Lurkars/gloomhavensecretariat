@@ -8,6 +8,8 @@ export class ConditionHelper {
 
   update() {
     this.component.entityConditions = [];
+    this.component.entityImmunities = [];
+    this.component.initialImmunities = [];
 
     this.component.entities.forEach((entity, index, self) => {
       entity.entityConditions.forEach((entityCondition) => {
