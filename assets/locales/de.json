@@ -944,11 +944,11 @@
       "distribution": {
         "": "Ereigniseffekte verteilen",
         "apply": "Anwenden",
-        "receive": "Erhalten",
-        "spend": "Verlieren",
-        "receiveItem": "Gegenstand erhalten",
+        "consumeItem": "Gegenstand verbrauchen",
         "loseItem": "Gegenstand verlieren",
-        "consumeItem": "Gegenstand verbrauchen"
+        "receive": "Erhalten",
+        "receiveItem": "Gegenstand erhalten",
+        "spend": "Verlieren"
       },
       "effects": {
         "additionally": "Zusätzlich",
@@ -1209,8 +1209,8 @@
         "owned": "Nur eigene Gegenstände",
         "sorted": "Sortiert"
       },
-      "remove": "'{0}' entfernen",
       "party": "Gruppen-Gegenstände",
+      "remove": "'{0}' entfernen",
       "sell": "'{0}' für {1} Gold verkaufen",
       "share": {
         "": "'{0}' teilen",
@@ -3300,8 +3300,8 @@
       "brewPotionOther": "{0} braut Trank \"%data.items.{2}-{1}%\" für {3}",
       "buildBuilding": "'%data.buildings.{1}%' ({0}) gebaut",
       "buildingAttacked": {
-        "normal": "Angriff auf '%data.buildings.{1}%' ({0}) erfolgreich verteidigt",
         "damaged": "Angriff beschädigt '%data.buildings.{1}%' ({0})",
+        "normal": "Angriff auf '%data.buildings.{1}%' ({0}) erfolgreich verteidigt",
         "wrecked": "Angriff zertrümmert '%data.buildings.{1}%' ({0})"
       },
       "buildings": {
@@ -3762,7 +3762,6 @@
       "moveResource": "{2} {1} von {0} zum Frosthaven-Vorrat hinzufügen",
       "nextIdentity": "Setze Form von %data.character.{4}.{1}.{2}% zu %data.character.{4}.{1}.{3}% für {0}",
       "nextRound": "Nächste Runde",
-      "setRoundReset": "Runden-Reset auf {0} setzen",
       "objectiveContainerChangeEntityHp": "TP {2} für %game.objectiveMarker.{1}% von {0}",
       "objectiveEntityDead": "Töte %game.objectiveMarker.{1}% von {0}",
       "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",
@@ -3956,6 +3955,7 @@
       "setResource": "{1} {2} für {0}",
       "setRetired": "{0} in Ruhestand",
       "setRetirements": "Ruhestände auf {1} für {0}",
+      "setRoundReset": "Runden-Reset auf {0} setzen",
       "setScenario": "Szenario #{0} {1} ({2})",
       "setScenarioLevel": "Szenario Level {0}",
       "setSummonState": "Beschwörung {1} {2} für {0}",
