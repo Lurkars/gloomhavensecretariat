@@ -37,7 +37,7 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm ci
-          npm run build -- --configuration unbranded
+          npm run build -- --configuration production,unbranded
       - name: Create Zip
         run: cd dist/gloomhavensecretariat && zip -r "gloomhavensecretariat-${{ github.ref_name }}.zip" .
       - name: Upload release zip

@@ -10,11 +10,6 @@
     "moduleDetection": "force",
     "target": "ES2022",
     "module": "preserve",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -23,7 +18,6 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
     "declaration": false,
     "importHelpers": true,
     "isolatedModules": true,
@@ -35,6 +29,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
+  "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.spec.json" }

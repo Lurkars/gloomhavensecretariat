@@ -18,15 +18,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { environment } from 'src/environments/environment';
 
 export type SettingsTab =
-  | 'gameplay'
-  | 'character'
-  | 'monsters'
-  | 'automation'
-  | 'gamerules'
-  | 'display'
-  | 'interface'
-  | 'locale'
-  | 'preferences';
+  'gameplay' | 'character' | 'monsters' | 'automation' | 'gamerules' | 'display' | 'interface' | 'locale' | 'preferences';
 
 @Component({
   imports: [

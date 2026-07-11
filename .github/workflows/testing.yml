@@ -27,3 +27,7 @@ jobs:
         run: |
           npm ci
           npm test -- --watch=false
+      - name: lint
+        run: npm run lint
+      - name: check formatting
+        run: npm run format:check

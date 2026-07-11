@@ -320,8 +320,7 @@ export class SettingsManager {
 
   setAutoBackupUrl(
     autoBackupUrl:
-      | { url: string; method: string; fileUpload: boolean; username: string; password: string; authorization: string }
-      | undefined
+      { url: string; method: string; fileUpload: boolean; username: string; password: string; authorization: string } | undefined
   ) {
     this.settings.autoBackupUrl = autoBackupUrl;
     if (this.settings.autoBackupUrl && !this.settings.autoBackupUrl.method) {

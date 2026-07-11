@@ -54,3 +54,21 @@ ios
 
 # temporay local files
 .local
+
+# AI
+CLAUDE.md
+.claude/
+AGENTS.md
+GEMINI.md
+.gemini/
+.codex/
+.cursorrules
+.cursor/
+.aider*
+.clinerules
+.clinerules/
+.windsurfrules
+.windsurf/
+.continue/
+.codeium/
+.github/copilot-instructions.md

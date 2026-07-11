@@ -29,8 +29,6 @@
             "polyfills": [],
             "allowedCommonJsDependencies": [
               "leaflet",
-              "vscode-jsonrpc",
-              "vscode-languageserver-protocol",
               "cytoscape-fcose",
               "cytoscape-cose-bilkent",
               "@braintree/sanitize-url",
@@ -72,85 +70,33 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": {
-                "scripts": true,
-                "styles": true,
-                "fonts": true
-              },
+              "optimization": true,
               "outputHashing": "all",
               "sourceMap": {
-                "scripts": true,
-                "hidden": false
+                "scripts": true
               },
               "extractLicenses": true
             },
             "unbranded": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "6mb",
-                  "maximumError": "12mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "256kb",
-                  "maximumError": "512kb"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.unbranded.ts"
                 }
-              ],
-              "optimization": {
-                "scripts": true,
-                "styles": true,
-                "fonts": true
-              },
-              "outputHashing": "all",
-              "sourceMap": {
-                "scripts": true,
-                "hidden": false
-              },
-              "extractLicenses": true
+              ]
             },
             "electron": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "6mb",
-                  "maximumError": "12mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "256kb",
-                  "maximumError": "512kb"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.electron.ts"
                 }
-              ],
-              "optimization": {
-                "scripts": true,
-                "styles": true,
-                "fonts": true
-              },
-              "outputHashing": "all",
-              "sourceMap": {
-                "scripts": true,
-                "hidden": false
-              },
-              "extractLicenses": true
+              ]
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "outputHashing": "media"
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -165,7 +111,7 @@
               "buildTarget": "gloomhavensecretariat:build:production"
             },
             "electron": {
-              "buildTarget": "gloomhavensecretariat:build:electron"
+              "buildTarget": "gloomhavensecretariat:build:production,electron"
             },
             "development": {
               "buildTarget": "gloomhavensecretariat:build:development"

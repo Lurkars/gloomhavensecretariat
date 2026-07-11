@@ -16,6 +16,9 @@
     "url": "https://ko-fi.com/lurkars"
   },
   "main": "main.js",
+  "engines": {
+    "node": ">=24"
+  },
   "nodemonConfig": {
     "execMap": {
       "js": "node ./scripts/build-data.js"
@@ -40,9 +43,9 @@
     "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss}\"",
     "watch": "nodemon",
-    "electron": "npm run build -- --configuration electron --base-href ./ && electron . --no-sandbox",
-    "electron:build": "npm run build -- --configuration electron --base-href ./ && electron-builder",
-    "electron:build:linux:appimage": "npm run build -- --configuration electron --base-href ./ && electron-builder --linux AppImage",
+    "electron": "npm run build -- --configuration production,electron --base-href ./ && electron . --no-sandbox",
+    "electron:build": "npm run build -- --configuration production,electron --base-href ./ && electron-builder",
+    "electron:build:linux:appimage": "npm run build -- --configuration production,electron --base-href ./ && electron-builder --linux AppImage",
     "patch-android": "node ./scripts/patch-android.js"
   },
   "build": {
@@ -88,6 +91,13 @@
     ]
   },
   "private": true,
+  "overrides": {
+    "@babel/core": "8.0.1",
+    "esbuild": "0.28.1",
+    "xcode": {
+      "uuid": "14.0.1"
+    }
+  },
   "dependencies": {
     "@angular/cdk": "~22.0.4",
     "@angular/common": "~22.0.6",
@@ -118,7 +128,6 @@
     "@capacitor/ios": "^8.4.1",
     "@types/dom-screen-wake-lock": "1.0.3",
     "@types/leaflet": "^1.9.21",
-    "@types/uuid": "^11.0.0",
     "angular-eslint": "^22.0.0",
     "browserslist": "^4.28.5",
     "electron": "^43.1.0",
@@ -144,5 +153,13 @@
     "src/**/*.scss": [
       "prettier --write"
     ]
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.6": true,
+    "electron-winstaller@5.4.0": true,
+    "esbuild@0.28.1": true,
+    "lmdb@3.5.4": true,
+    "msgpackr-extract@3.0.4": true,
+    "sharp@0.32.6": true
   }
 }
