@@ -23,6 +23,7 @@ import { ScenarioMenuComponent } from 'src/app/ui/header/menu/scenario/scenario'
 import { SectionMenuComponent } from 'src/app/ui/header/menu/section/section';
 import { ServerMenuComponent } from 'src/app/ui/header/menu/server/server';
 import { SettingsMenuComponent } from 'src/app/ui/header/menu/settings/settings';
+import { SubMenu } from 'src/app/ui/header/menu/sub-menu';
 import { UndoDialogComponent } from 'src/app/ui/header/menu/undo/dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper, ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from 'src/app/ui/helper/Static';
@@ -31,25 +32,6 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { FeedbackDialogComponent } from 'src/app/ui/tools/feedback/feedback-dialog';
 import { environment } from 'src/environments/environment';
-
-export enum SubMenu {
-  main = 'main',
-  scenario = 'scenario',
-  section = 'section',
-  monster_add = 'monster_add',
-  monster_remove = 'monster_remove',
-  character_add = 'character_add',
-  character_remove = 'character_remove',
-  objective_add = 'objective_add',
-  objective_remove = 'objective_remove',
-  settings = 'settings',
-  debug = 'debug',
-  server = 'server',
-  datamanagement = 'datamanagement',
-  editions = 'editions',
-  about = 'about',
-  campaign = 'campaign'
-}
 
 @Component({
   imports: [

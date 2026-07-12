@@ -20,11 +20,21 @@ describe('AppComponent', () => {
   });
 
   afterEach(() => {
+    settingsManager.settings.locale = settingsManager.defaultLocale;
+    settingsManager.settings.theme = '';
+    settingsManager.settings.portraitMode = true;
+    settingsManager.settings.debugRightClick = false;
     document.body.className = '';
   });
 
   it('should create the app', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('renders the template and runs ngOnInit without throwing', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    expect(() => fixture.detectChanges()).not.toThrow();
+    expect(fixture.nativeElement.querySelector('router-outlet')).toBeTruthy();
   });
 
   it(`should have as title 'gloomhavensecretariat'`, () => {
@@ -46,7 +56,6 @@ describe('AppComponent', () => {
       vi.spyOn(component, 'isAppDevMode').mockReturnValue(false);
       settingsManager.settings.debugRightClick = true;
       expect(component.onRightClick()).toEqual(true);
-      settingsManager.settings.debugRightClick = false;
     });
   });
 

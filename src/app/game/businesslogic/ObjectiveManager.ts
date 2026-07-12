@@ -21,7 +21,7 @@ export class ObjectiveManager {
   }
 
   objectiveName(objective: ObjectiveContainer) {
-    return objective.title || (objective.name && 'data.objective.' + objective.name) || objective.escort ? 'escort' : 'objective';
+    return objective.title || (objective.name && 'data.objective.' + objective.name) || (objective.escort ? 'escort' : 'objective');
   }
 
   addObjective(
@@ -135,8 +135,8 @@ export class ObjectiveManager {
 
   objectiveEntityCountIdentifier(objective: ObjectiveContainer, identifier: AdditionalIdentifier): number {
     if (
-      (identifier.type !== 'all' && (identifier.name !== objective.name || identifier.edition !== objective.edition)) ||
-      identifier.type !== 'objective'
+      identifier.type !== 'all' &&
+      (identifier.type !== 'objective' || identifier.name !== objective.name || identifier.edition !== objective.edition)
     ) {
       return 0;
     }

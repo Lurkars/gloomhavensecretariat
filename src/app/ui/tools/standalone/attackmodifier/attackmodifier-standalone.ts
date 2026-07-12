@@ -12,7 +12,7 @@ import { GameState } from 'src/app/game/model/Game';
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/character-sheet-dialog';
 import { HeaderComponent } from 'src/app/ui/header/header';
-import { SubMenu } from 'src/app/ui/header/menu/menu';
+import { SubMenu } from 'src/app/ui/header/menu/sub-menu';
 import { KeyboardShortcuts } from 'src/app/ui/helper/keyboard-shortcuts';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';

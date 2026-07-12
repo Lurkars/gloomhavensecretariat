@@ -7,8 +7,8 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { StorageManager, storageManager } from 'src/app/game/businesslogic/StorageManager';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { GameState } from 'src/app/game/model/Game';
-import { SubMenu } from 'src/app/ui/header/menu/menu';
 import { SettingMenuComponent, SettingMenuTitleComponent } from 'src/app/ui/header/menu/settings/setting/setting';
+import { SubMenu } from 'src/app/ui/header/menu/sub-menu';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { ghsTextSearch } from 'src/app/ui/helper/Static';

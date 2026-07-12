@@ -129,7 +129,7 @@
     "@types/dom-screen-wake-lock": "1.0.3",
     "@types/leaflet": "^1.9.21",
     "angular-eslint": "^22.0.0",
-    "browserslist": "^4.28.5",
+    "browserslist": "^4.28.6",
     "electron": "^43.1.0",
     "electron-builder": "^26.15.6",
     "eslint": "^10.7.0",

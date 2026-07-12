@@ -13,7 +13,8 @@ import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/en
 import { StablesComponent } from 'src/app/ui/figures/party/buildings/stables/stables';
 import { ElementComponent } from 'src/app/ui/header/element/element';
 import { GameClockDialogComponent } from 'src/app/ui/header/game-clock/game-clock';
-import { MainMenuComponent, SubMenu } from 'src/app/ui/header/menu/menu';
+import { MainMenuComponent } from 'src/app/ui/header/menu/menu';
+import { SubMenu } from 'src/app/ui/header/menu/sub-menu';
 import { PartySheetComponent } from 'src/app/ui/header/party/party-sheet';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsDurationLabelPipe } from 'src/app/ui/helper/Pipes';

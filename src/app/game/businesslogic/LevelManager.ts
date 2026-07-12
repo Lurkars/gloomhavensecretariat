@@ -139,7 +139,7 @@ export class LevelManager {
         } else if (figure instanceof ObjectiveContainer) {
           figure.entities.forEach((objectiveEntity) => {
             if (objectiveEntity.health > EntityValueFunction(figure.health)) {
-              figure.health = EntityValueFunction(figure.health);
+              objectiveEntity.health = EntityValueFunction(figure.health);
             }
           });
         }

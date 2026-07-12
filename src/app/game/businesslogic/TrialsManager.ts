@@ -46,7 +46,7 @@ export class TrialsManager {
       const editionData = gameManager.editionData.find(
         (editionData) => editionData.edition === gameManager.currentEdition() && editionData.trials && editionData.trials.length
       );
-      this.game.party.trials = this.game.party.trials || -1;
+      this.game.party.trials = this.game.party.trials ?? -1;
       if (editionData) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.progress.trial) {

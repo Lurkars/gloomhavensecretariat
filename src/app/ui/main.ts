@@ -22,7 +22,7 @@ import { MonsterComponent } from 'src/app/ui/figures/monster/monster';
 import { ObjectiveContainerComponent } from 'src/app/ui/figures/objective-container/objective-container';
 import { FooterComponent } from 'src/app/ui/footer/footer';
 import { HeaderComponent } from 'src/app/ui/header/header';
-import { SubMenu } from 'src/app/ui/header/menu/menu';
+import { SubMenu } from 'src/app/ui/header/menu/sub-menu';
 import { FigureAutoscrollDirective } from 'src/app/ui/helper/autoscroll';
 import { KeyboardShortcuts } from 'src/app/ui/helper/keyboard-shortcuts';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
