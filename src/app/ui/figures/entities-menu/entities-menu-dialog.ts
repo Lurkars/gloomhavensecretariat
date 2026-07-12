@@ -396,10 +396,35 @@ export class EntitiesMenuDialogComponent {
     }
   }
 
-  toggleAll(select: boolean) {
-    this.entities = [];
+  toggleMonster(figure: Monster | ObjectiveContainer) {
+    const monsters: Entity[] = figure.entities;
+    if (monsters.some((entitiy) => !this.entities.includes(entitiy))) {
+      figure.entities.forEach((entity) => {
+        if (!this.entities.includes(entity)) {
+          this.entities.push(entity);
+        }
+      });
+    } else {
+      figure.entities.forEach((entity) => {
+        const index = this.entities.indexOf(entity);
+        if (index != -1) {
+          this.entities.splice(index, 1);
+        }
+      });
+    }
+  }
+
+  toggleExceptMonster(figure: Monster | ObjectiveContainer) {
+    const monsters: Entity[] = figure.entities;
+    const active = this.entities.filter((entity) => monsters.includes(entity));
+    const select = this.allEntities.length - monsters.length != this.entities.length - active.length;
+    this.toggleAll(select, monsters);
+  }
+
+  toggleAll(select: boolean, except: Entity[] = []) {
+    this.entities = except.length != 0 ? (this.entities = this.entities.filter((entity) => except.includes(entity))) : [];
     if (select) {
-      this.allEntities.forEach((entity) => this.entities.push(entity));
+      this.allEntities.filter((entity) => !except.includes(entity)).forEach((entity) => this.entities.push(entity));
     }
   }
 

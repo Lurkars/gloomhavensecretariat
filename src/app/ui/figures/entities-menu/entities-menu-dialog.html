@@ -204,7 +204,9 @@
               class="name"
               [ngClass]="{ 'change-entity': !!monsterEntity }"
               tabclick
-              (click)="monsterHelper.changeMonsterEntity()"
+              ghs-pointer-input
+              (singleClick)="monsterEntity ? monsterHelper.changeMonsterEntity() : toggleMonster(monster)"
+              (doubleClick)="monsterEntity ? monsterHelper.changeMonsterEntity() : toggleExceptMonster(monster)"
               [ghs-tooltip]="'entities.title.monster' + (!!entity ? 'Entity' : '')"
               [ghs-label-args]="[...gameManager.entityManager.titleInfo(entity, monster), !!monsterEntity ? monsterEntity.type : '']"
               [originX]="'center'"
@@ -263,6 +265,9 @@
 
             <div
               class="name"
+              ghs-pointer-input
+              (singleClick)="!figure && toggleMonster(objective)"
+              (doubleClick)="!figure && toggleExceptMonster(objective)"
               [ghs-tooltip]="'entities.title.objective' + (!!entity ? 'Entity' : '')"
               [ghs-label-args]="gameManager.entityManager.titleInfo(entity, objective)"
               [originX]="'center'"
