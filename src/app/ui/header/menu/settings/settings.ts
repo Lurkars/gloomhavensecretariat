@@ -86,7 +86,7 @@ export class SettingsMenuComponent {
           this.applyConditionsExcludes.push(condition);
         }
 
-        if (condition.types.includes(ConditionType.autoApply)) {
+        if (condition.types.includes(ConditionType.autoApply) && condition.name !== ConditionName.safeguard) {
           this.activeApplyConditionsAuto.push(condition);
         }
 
