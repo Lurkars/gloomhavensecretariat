@@ -309,17 +309,18 @@ export class EntitiesMenuDialogComponent {
 
     this.figures = gameManager.game.figures.filter(
       (figure) =>
-        (figure instanceof Character && !figure.absent && (!this.filter || this.filter === 'character' || this.filter === 'allies')) ||
-        (figure instanceof Monster &&
-          (!this.filter ||
-            this.filter === 'monster' ||
-            (this.filter === 'enemies' && !figure.isAlly) ||
-            (this.filter === 'allies' && figure.isAlly))) ||
-        (figure instanceof ObjectiveContainer &&
-          (!this.filter ||
-            (this.filter === 'allies' && figure.escort) ||
-            (this.filter === 'enemies' && !figure.escort) ||
-            this.filter === 'objectives'))
+        gameManager.gameplayFigure(figure) &&
+        ((figure instanceof Character && !figure.absent && (!this.filter || this.filter === 'character' || this.filter === 'allies')) ||
+          (figure instanceof Monster &&
+            (!this.filter ||
+              this.filter === 'monster' ||
+              (this.filter === 'enemies' && !figure.isAlly) ||
+              (this.filter === 'allies' && figure.isAlly))) ||
+          (figure instanceof ObjectiveContainer &&
+            (!this.filter ||
+              (this.filter === 'allies' && figure.escort) ||
+              (this.filter === 'enemies' && !figure.escort) ||
+              this.filter === 'objectives')))
     );
 
     selectAll ||= this.entities.length === this.allEntities.length;
