@@ -12,7 +12,6 @@ import { MonsterStandeeData, RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
-import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from 'src/app/game/model/Scenario';
 import { ghsShuffleArray } from 'src/app/ui/helper/Static';
@@ -242,9 +241,10 @@ export class ScenarioManager {
             }
 
             if (rewards.prosperity) {
+              const prosperityMax = gameManager.fhRules() ? 132 : gameManager.gh2eRules() ? 89 : 64;
               this.game.party.prosperity += rewards.prosperity;
-              if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
-                this.game.party.prosperity = gameManager.fhRules() ? 132 : 64;
+              if (this.game.party.prosperity > prosperityMax) {
+                this.game.party.prosperity = prosperityMax;
               } else if (this.game.party.prosperity < 0) {
                 this.game.party.prosperity = 0;
               }
