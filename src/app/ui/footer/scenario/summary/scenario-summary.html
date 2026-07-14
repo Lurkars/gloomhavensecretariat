@@ -598,9 +598,9 @@
                 <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
               </div>
             }
-            @if (forceCampaign || gameManager.fhRules()) {
+            @if (forceCampaign || gameManager.fhRules(true)) {
               <div class="item">
-                <a (click)="characterProgress = gameManager.fhRules() ? !characterProgress : true; updateState()"
+                <a (click)="characterProgress = gameManager.fhRules(true) ? !characterProgress : true; updateState()"
                   ><span
                     [ghs-label]="'scenario.summary.casualWarning.' + (!characterProgress && !forceCampaign ? 'ignore' : 'reapply')"
                   ></span
@@ -1470,7 +1470,7 @@
           <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
           <div class="list">
             @if (
-              gameManager.fhRules() &&
+              gameManager.fhRules(true) &&
               EntityValueFunction('4-C') &&
               (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('inspiration'))
             ) {

@@ -244,7 +244,8 @@ export class ScenarioSummaryComponent {
             ) !== undefined))) ||
       false;
 
-    this.characterProgress = !this.rewardsOnly && !this.conclusionOnly && (gameManager.game.party.campaignMode || !gameManager.fhRules());
+    this.characterProgress =
+      !this.rewardsOnly && !this.conclusionOnly && (gameManager.game.party.campaignMode || !gameManager.fhRules(true));
     this.gainRewards = gameManager.game.party.campaignMode;
 
     this.updateState(this.rewardsOnly);
@@ -642,7 +643,7 @@ export class ScenarioSummaryComponent {
       this.success &&
       !this.conclusionOnly &&
       !this.scenario.solo &&
-      ((gameManager.fhRules() &&
+      ((gameManager.fhRules(true) &&
         gameManager.characterManager.characterCount() < 4 &&
         (!this.rewards || !this.rewards.ignoredBonus || !this.rewards.ignoredBonus.includes('inspiration'))) ||
         this.numberChallenges > 0)
