@@ -310,7 +310,7 @@ export class AttackModifierManager {
 
   drawAdvantage(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage') {
     let additionalDraw = false;
-    const fhRules = gameManager.fhRules() || settingsManager.settings.alwaysFhAdvantage;
+    const fhRules = gameManager.fhRules(true) || settingsManager.settings.alwaysFhAdvantage;
     attackModifierDeck.current = attackModifierDeck.current + 1;
     attackModifierDeck.lastVisible = attackModifierDeck.current;
     attackModifierDeck.state = state;
@@ -982,7 +982,7 @@ export class AttackModifierManager {
     let baseCard: AttackModifier = firstCard;
     let chooseOffset: number = 0;
     const effects: AttackModifierEffect[] = [];
-    const fh = gameManager.fhRules() || settingsManager.settings.alwaysFhAdvantage;
+    const fh = gameManager.fhRules(true) || settingsManager.settings.alwaysFhAdvantage;
 
     if (attackModifierDeck.state) {
       switch (attackModifierDeck.state) {

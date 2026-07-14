@@ -149,7 +149,7 @@
             ignored:
               !drawing &&
               deck.state === 'disadvantage' &&
-              (index < current || (!gameManager.fhRules() && !settingsManager.settings.alwaysFhAdvantage)) &&
+              (index < current || (!gameManager.fhRules(true) && !settingsManager.settings.alwaysFhAdvantage)) &&
               attackModifier.rolling
           }"
           [style.left]="

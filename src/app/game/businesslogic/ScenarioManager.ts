@@ -12,6 +12,7 @@ import { MonsterStandeeData, RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from 'src/app/game/model/Scenario';
 import { ghsShuffleArray } from 'src/app/ui/helper/Static';
