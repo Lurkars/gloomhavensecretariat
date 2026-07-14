@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { GameState } from 'src/app/game/model/Game';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Perk, PerkType } from 'src/app/game/model/data/Perks';
@@ -33,6 +34,7 @@ describe('CharacterSheetComponent', () => {
     await TestBed.configureTestingModule({ imports: [CharacterSheetComponent] }).compileComponents();
 
     gameManager.game.figures = [];
+    gameManager.game.state = GameState.draw;
     gameManager.game.round = 0;
     gameManager.game.scenario = undefined;
     gameManager.game.party.campaignMode = false;
