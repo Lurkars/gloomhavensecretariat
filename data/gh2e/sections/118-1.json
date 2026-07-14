@@ -9,7 +9,8 @@
   "objectives": [
     {
       "name": "Elemental Tether A",
-      "health": "2+(CxL)"
+      "health": "2+(CxL)",
+      "marker": "a"
     }
   ],
   "rooms": [
@@ -26,6 +27,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
         }
       ],
       "objectives": [

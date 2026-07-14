@@ -9,7 +9,8 @@
   "objectives": [
     {
       "name": "Elemental Tether D",
-      "health": "2+(CxL)"
+      "health": "2+(CxL)",
+      "marker": "d"
     }
   ],
   "rooms": [

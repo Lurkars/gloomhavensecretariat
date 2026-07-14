@@ -9,7 +9,8 @@
   "objectives": [
     {
       "name": "Elemental Tether C",
-      "health": "2+(CxL)"
+      "health": "2+(CxL)",
+      "marker": "c"
     }
   ],
   "rooms": [
@@ -26,6 +27,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
         }
       ],
       "objectives": [
