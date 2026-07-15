@@ -365,7 +365,7 @@ export class EntitiesMenuDialogComponent {
     this.updateFigures();
   }
 
-  countBlocking(condition: ConditionName, count: number = 1) {
+  countBlocking(condition: ConditionName, count: number = 1): number {
     const safeeguardEnabled =
       new Condition(condition).types.includes(ConditionType.negative) &&
       settingsManager.settings.applyConditions &&
