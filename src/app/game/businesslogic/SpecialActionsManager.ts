@@ -258,7 +258,7 @@ export class SpecialActionsManager {
           if (condition.types.includes(ConditionType.negative) && !condition.expired && condition.state !== EntityConditionState.removed) {
             condition.state = EntityConditionState.new;
             condition.state = EntityConditionState.new;
-            if (!character.immunities.includes(condition.name)) {
+            if (!character.immunities.includes(condition.name) && !condition.types.includes(ConditionType.amDeck)) {
               character.immunities.push(condition.name);
             }
           }
@@ -272,10 +272,14 @@ export class SpecialActionsManager {
       if (character.name === 'shackles' && specialAction.name === 'delayed_malady' && !character.tags.includes(specialAction.name)) {
         {
           character.immunities.forEach((immunity) => {
-            gameManager.entityManager.addCondition(character, character, new Condition(immunity));
+            const condition = new Condition(immunity);
+            if (!condition.types.includes(ConditionType.amDeck)) {
+              gameManager.entityManager.addCondition(character, character, new Condition(immunity), false, true);
+            }
           });
 
           character.immunities = [];
+          gameManager.itemManager.applyEquippedItemEffects(character, true);
         }
       }
 
@@ -310,6 +314,7 @@ export class SpecialActionsManager {
         });
 
         entity.immunities = [];
+        gameManager.itemManager.applyEquippedItemEffects(entity, true);
         entity.tags = entity.tags.filter((tag) => tag !== 'delayed_malady');
       }
 

@@ -56,7 +56,7 @@
             "name": ".*"
           },
           "type": "amAdd",
-          "value": "minus1:2",
+          "value": "minus1extra:2",
           "scenarioEffect": true
         }
       ]

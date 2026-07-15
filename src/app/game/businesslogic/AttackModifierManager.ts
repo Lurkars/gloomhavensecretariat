@@ -62,6 +62,18 @@ export class AttackModifierManager {
     return new AttackModifierDeck();
   }
 
+  getModifier(type: AttackModifierType, count: number = 1): AttackModifier[] {
+    return Array(count).fill(new AttackModifier(type));
+  }
+
+  getBless(count: number = 1): AttackModifier[] {
+    return this.getModifier(AttackModifierType.bless, Math.min(count, 10 - this.countUpcomingBlesses()));
+  }
+
+  getCurse(isMonster: boolean, count: number = 1): AttackModifier[] {
+    return this.getModifier(AttackModifierType.curse, Math.min(count, 10 - this.countUpcomingCurses(isMonster)));
+  }
+
   countUpcomingBlesses(): number {
     let count = 0;
     if (
@@ -118,7 +130,7 @@ export class AttackModifierManager {
     return count;
   }
 
-  getAdditional(character: Character, type: AttackModifierType, all: boolean = false): AttackModifier[] {
+  getAdditional(character: Character, type: AttackModifierType, count: number = 1): AttackModifier[] {
     const additional: AttackModifier[] = [];
     if (character.additionalModifier.find((perk) => perk.attackModifier && perk.attackModifier.type === type)) {
       character.additionalModifier.forEach((card, index) => {
@@ -126,8 +138,8 @@ export class AttackModifierManager {
           const am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
           am.id = 'additional-' + character.name + index;
           am.character = true;
-          const existing: number = all ? 0 : this.countUpcomingAdditional(character, type);
-          for (let i = 0; i < card.count - existing; i++) {
+          const existing: number = this.countUpcomingAdditional(character, type, am.id);
+          for (let i = 0; i < card.count - existing && additional.length < count; i++) {
             additional.push(am);
           }
         }
@@ -156,7 +168,8 @@ export class AttackModifierManager {
     return additional;
   }
 
-  countUpcomingAdditional(character: Character, type: AttackModifierType) {
+  countUpcomingAdditional(character: Character, type: AttackModifierType, idPrefix?: string) {
+    idPrefix ??= 'additional-' + character.name;
     let count = 0;
     if (
       settingsManager.settings.alwaysAllyAttackModifierDeck ||
@@ -168,7 +181,7 @@ export class AttackModifierManager {
           index > gameManager.game.allyAttackModifierDeck.current &&
           attackModifier.type === type &&
           attackModifier.id &&
-          attackModifier.id.startsWith('additional-' + character.name)
+          attackModifier.id.startsWith(idPrefix)
         );
       }).length;
     }
@@ -178,7 +191,7 @@ export class AttackModifierManager {
         index > gameManager.game.monsterAttackModifierDeck.current &&
         attackModifier.type === type &&
         attackModifier.id &&
-        attackModifier.id.startsWith('additional-' + character.name)
+        attackModifier.id.startsWith(idPrefix)
       );
     }).length;
 
@@ -191,12 +204,16 @@ export class AttackModifierManager {
             index > figure.attackModifierDeck.current &&
             attackModifier.type === type &&
             attackModifier.id &&
-            attackModifier.id.startsWith('additional-' + character.name)
+            attackModifier.id.startsWith(idPrefix)
           );
         }).length;
       });
 
     return count;
+  }
+
+  getExtraMinus1(count: number = 1): AttackModifier[] {
+    return this.getModifier(AttackModifierType.minus1extra, Math.min(count, 15 - this.countExtraMinus1()));
   }
 
   countExtraMinus1(): number {
@@ -227,6 +244,10 @@ export class AttackModifierManager {
     return count;
   }
 
+  addModifierBatch(attackModifierDeck: AttackModifierDeck, batch: AttackModifier[]) {
+    batch.forEach((card) => this.addModifier(attackModifierDeck, card));
+  }
+
   addModifier(attackModifierDeck: AttackModifierDeck, am: AttackModifier, index: number = -1, shuffle: boolean = true) {
     const attackModifier = Object.assign(new AttackModifier(am.type), am);
     if ((shuffle && index < 0) || index > attackModifierDeck.cards.length) {
@@ -240,8 +261,26 @@ export class AttackModifierManager {
     attackModifierDeck.cards = [...attackModifierDeck.cards.slice(0, index), attackModifier, ...attackModifierDeck.cards.slice(index)];
   }
 
-  addModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType) {
-    this.addModifier(attackModifierDeck, new AttackModifier(type));
+  addModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType, respectSupplyLimit: boolean = true) {
+    let modifiers: AttackModifier[] = [];
+    if (respectSupplyLimit) {
+      switch (type) {
+        case AttackModifierType.bless:
+          modifiers = this.getBless();
+          break;
+        case AttackModifierType.curse:
+          modifiers = this.getCurse(this.game.monsterAttackModifierDeck === attackModifierDeck);
+          break;
+        case AttackModifierType.minus1extra:
+          modifiers = this.getExtraMinus1();
+          break;
+        default:
+          modifiers.push(new AttackModifier(type));
+      }
+    } else {
+      modifiers.push(new AttackModifier(type));
+    }
+    this.addModifierBatch(attackModifierDeck, modifiers);
   }
 
   removeModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType) {
@@ -563,9 +602,7 @@ export class AttackModifierManager {
         for (const itemIdentifier of character.progress.equippedItems) {
           const itemData = gameManager.itemManager.getItem(itemIdentifier.name, itemIdentifier.edition, true);
           if (itemData && itemData.minusOne) {
-            for (let i = 0; i < itemData.minusOne; i++) {
-              this.addModifier(attackModifierDeck, new AttackModifier(AttackModifierType.minus1));
-            }
+            this.addModifierBatch(attackModifierDeck, this.getExtraMinus1(itemData.minusOne));
           }
         }
       }

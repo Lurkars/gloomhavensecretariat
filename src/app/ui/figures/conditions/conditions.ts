@@ -281,7 +281,7 @@ export class ConditionsComponent implements OnInit {
 
   dec(condition: Condition) {
     condition.value = this.getValue(condition) - 1;
-    if (condition.value < 1 && !condition.types.includes(ConditionType.stack) && !condition.types.includes(ConditionType.upgrade)) {
+    if (condition.value < 1 && !condition.types.includes(ConditionType.stack)) {
       condition.value = 1;
     }
     this.checkUpdate(condition);

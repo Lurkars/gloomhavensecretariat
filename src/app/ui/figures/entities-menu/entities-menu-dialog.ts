@@ -9,7 +9,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
-import { ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { EventCardCondition, EventCardEffect } from 'src/app/game/model/data/EventCard';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
@@ -365,6 +365,23 @@ export class EntitiesMenuDialogComponent {
   setFilter(filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined = undefined) {
     this.filter = filter;
     this.updateFigures();
+  }
+
+  countBlocking(condition: ConditionName, count: number = 1): number {
+    const safeeguardEnabled =
+      new Condition(condition).types.includes(ConditionType.negative) &&
+      settingsManager.settings.applyConditions &&
+      !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.safeguard);
+    const safeguard = new Condition(ConditionName.safeguard);
+    return this.entities.reduce((sum, entity) => {
+      if (gameManager.entityManager.isImmune(entity, this.figureForEntity(entity), condition)) {
+        return sum + count;
+      }
+      if (safeeguardEnabled && gameManager.entityManager.hasCondition(entity, safeguard)) {
+        return sum + 1;
+      }
+      return sum;
+    }, 0);
   }
 
   figureForEntity(entity: Entity): Figure {

@@ -467,7 +467,7 @@ export class EventCardManager {
                           .forEach((c) => {
                             gameManager.entityManager.addCondition(c, c, new Condition(condition));
                           });
-                      } else if (condition === ConditionName.curse) {
+                      } else if (condition === ConditionName.curse || condition == ConditionName.bless) {
                         const count = value.split(':')[1] ? +value.split(':')[1] : 1;
                         for (let i = 0; i < count; i++) {
                           characters
@@ -475,22 +475,7 @@ export class EventCardManager {
                               (c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0])
                             )
                             .forEach((c) => {
-                              if (gameManager.attackModifierManager.countUpcomingCurses(false) < 10) {
-                                gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.curse);
-                              }
-                            });
-                        }
-                      } else if (condition === ConditionName.bless) {
-                        const count = value.split(':')[1] ? +value.split(':')[1] : 1;
-                        for (let i = 0; i < count; i++) {
-                          characters
-                            .filter(
-                              (c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0])
-                            )
-                            .forEach((c) => {
-                              if (gameManager.attackModifierManager.countUpcomingBlesses() < 10) {
-                                gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.bless);
-                              }
+                              gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType[condition]);
                             });
                         }
                       }
@@ -523,9 +508,7 @@ export class EventCardManager {
                 if (minus1) {
                   for (let i = 0; i < minus1; i++) {
                     characters.forEach((c) => {
-                      if (gameManager.attackModifierManager.countExtraMinus1() < 15) {
-                        gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.minus1extra);
-                      }
+                      gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.minus1extra);
                     });
                   }
                 }

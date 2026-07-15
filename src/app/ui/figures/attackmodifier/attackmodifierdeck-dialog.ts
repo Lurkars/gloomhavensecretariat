@@ -377,18 +377,16 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      if (type === AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
-        return;
-      } else if (
-        type === AttackModifierType.curse &&
-        gameManager.attackModifierManager.countUpcomingCurses(!this.character && !this.ally) >= 10
-      ) {
-        return;
-      } else if (type === AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
-        return;
+      let batch: AttackModifier[] = [];
+      if (type === AttackModifierType.bless) {
+        batch = gameManager.attackModifierManager.getBless(value);
+      } else if (type === AttackModifierType.curse) {
+        batch = gameManager.attackModifierManager.getCurse(!this.character && !this.ally, value);
+      } else if (type === AttackModifierType.minus1extra) {
+        batch = gameManager.attackModifierManager.getExtraMinus1(value);
       }
 
-      gameManager.attackModifierManager.addModifier(this.deck, new AttackModifier(type));
+      gameManager.attackModifierManager.addModifierBatch(this.deck, batch);
     } else if (value < 0) {
       const card = this.deck.cards.find((attackModifier, index) => {
         return attackModifier.type === type && index > this.deck.current;
@@ -497,11 +495,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   changeEmpower(index: number, value: number) {
     if (this.empowerChars[index]) {
       this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeEmpower' : 'addEmpower'));
-      const additional = gameManager.attackModifierManager.getAdditional(this.empowerChars[index], AttackModifierType.empower);
       if (value > 0) {
-        for (let i = 0; i < Math.min(value, additional.length); i++) {
-          gameManager.attackModifierManager.addModifier(this.deck, additional[i]);
-        }
+        const additional = gameManager.attackModifierManager.getAdditional(this.empowerChars[index], AttackModifierType.empower, value);
+        gameManager.attackModifierManager.addModifierBatch(this.deck, additional);
       } else {
         for (let i = 0; i < value * -1; i++) {
           const empower = this.deck.cards.find(
@@ -525,20 +521,18 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   changeEnfeeble(index: number, value: number) {
     if (this.enfeebleChars[index]) {
       this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeEnfeeble' : 'addEnfeeble'));
-      const additional = gameManager.attackModifierManager.getAdditional(this.enfeebleChars[index], AttackModifierType.enfeeble);
       if (value > 0) {
-        for (let i = 0; i < Math.min(value, additional.length); i++) {
-          gameManager.attackModifierManager.addModifier(this.deck, additional[i]);
-        }
+        const additional = gameManager.attackModifierManager.getAdditional(this.enfeebleChars[index], AttackModifierType.enfeeble, value);
+        gameManager.attackModifierManager.addModifierBatch(this.deck, additional);
       } else {
         for (let i = 0; i < value * -1; i++) {
           const enfeeble = this.deck.cards.find(
             (am, i) =>
-              this.empowerChars[index] &&
+              this.enfeebleChars[index] &&
               i > this.deck.current &&
               am.type === AttackModifierType.enfeeble &&
               am.id &&
-              am.id.startsWith('additional-' + this.empowerChars[index].name)
+              am.id.startsWith('additional-' + this.enfeebleChars[index].name)
           );
           if (enfeeble) {
             this.deck.cards.splice(this.deck.cards.indexOf(enfeeble), 1);

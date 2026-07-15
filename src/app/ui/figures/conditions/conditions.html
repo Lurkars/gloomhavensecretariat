@@ -29,10 +29,11 @@
           }"
         >
           <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-          @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-            <span [ngClass]="{ stack: condition.types.includes(ConditionType.stack) }" class="value">{{
-              getValue(condition) | ghsValueSign
-            }}</span>
+          @if (condition.types.includes(ConditionType.stack)) {
+            <span [ngClass]="{ stack: true }" class="value">{{ getValue(condition) | ghsValueSign }}</span>
+          }
+          @if (condition.types.includes(ConditionType.upgrade)) {
+            <span class="value">{{ getValue(condition) }}</span>
           }
         </span>
         @if (isPermanent(condition.name)) {
