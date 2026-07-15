@@ -18,7 +18,7 @@ import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { OBJECTIV_MARKERS, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { OBJECTIVE_MARKERS, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
@@ -174,7 +174,7 @@ export class EntitiesMenuDialogComponent {
   MonsterType = MonsterType;
   SummonState = SummonState;
   SummonColor = SummonColor;
-  OBJECTIV_MARKERS = OBJECTIV_MARKERS;
+  OBJECTIVE_MARKERS = OBJECTIVE_MARKERS;
   AttackModifierType = AttackModifierType;
   EntityValueFunction = EntityValueFunction;
   ghsModulo = ghsModulo;

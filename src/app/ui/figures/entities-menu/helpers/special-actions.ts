@@ -56,31 +56,31 @@ export class SpecialActionsHelper {
       const character = this.component.figure;
       const entity = this.component.entity;
 
-      const specialTagsToTemove = entity.tags.filter(
+      const specialTagsToRemove = entity.tags.filter(
         (specialTag) =>
           character.specialActions &&
           character.specialActions.find((specialAction) => specialAction.name === specialTag) !== undefined &&
           !this.component.specialTags.includes(specialTag)
       );
 
-      if (specialTagsToTemove.length) {
+      if (specialTagsToRemove.length) {
         this.component.before(
           'removeSpecialTags',
-          specialTagsToTemove
+          specialTagsToRemove
             .map((specialTag) => '%data.character.' + character.edition + '.' + character.name + '.' + specialTag + '%')
             .join(',')
         );
 
-        specialTagsToTemove.forEach((specialTagToRemove) => {
+        specialTagsToRemove.forEach((specialTagToRemove) => {
           gameManager.specialActionsManager.removeSpecialAction(entity, character, specialTagToRemove);
         });
 
         if (entity instanceof Character) {
-          if (entity.name === 'lightning' && specialTagsToTemove.includes('careless-charge')) {
+          if (entity.name === 'lightning' && specialTagsToRemove.includes('careless-charge')) {
             this.component.entityImmunities = entity.immunities;
           }
 
-          if (entity.name === 'shackles' && specialTagsToTemove.includes('delayed_malady')) {
+          if (entity.name === 'shackles' && specialTagsToRemove.includes('delayed_malady')) {
             this.component.entityImmunities = entity.immunities;
           }
         }
