@@ -230,7 +230,7 @@ export class AttackModifierHelper {
             const idPrefix = 'additional-' + (this.component.empowerChar?.name ?? '');
             for (let i = 0; i < this.component.empower * -1; i++) {
               const empower = amDeck.cards.find(
-                (am, index) => index > amDeck.current && am.type === AttackModifierType.empower && am.id.startsWith(idPrefix)
+                (am, index) => index > amDeck.current && am.type === AttackModifierType.empower && am.id && am.id.startsWith(idPrefix)
               );
               if (empower) {
                 amDeck.cards.splice(amDeck.cards.indexOf(empower), 1);
@@ -268,7 +268,7 @@ export class AttackModifierHelper {
             const idPrefix = 'additional-' + (this.component.enfeebleChar?.name ?? '');
             for (let i = 0; i < this.component.enfeeble * -1; i++) {
               const enfeeble = amDeck.cards.find(
-                (am, index) => index > amDeck.current && am.type === AttackModifierType.enfeeble && am.id.startsWith(idPrefix)
+                (am, index) => index > amDeck.current && am.type === AttackModifierType.enfeeble && am.id && am.id.startsWith(idPrefix)
               );
               if (enfeeble) {
                 amDeck.cards.splice(amDeck.cards.indexOf(enfeeble), 1);

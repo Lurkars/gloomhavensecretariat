@@ -33,7 +33,7 @@
             <span [ngClass]="{ stack: true }" class="value">{{ getValue(condition) | ghsValueSign }}</span>
           }
           @if (condition.types.includes(ConditionType.upgrade)) {
-            <span [ngClass]="{ stack: false }" class="value">{{ getValue(condition) }}</span>
+            <span class="value">{{ getValue(condition) }}</span>
           }
         </span>
         @if (isPermanent(condition.name)) {

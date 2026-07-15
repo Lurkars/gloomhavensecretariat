@@ -574,7 +574,8 @@
                 [ngClass]="{
                   disabled:
                     gameManager.attackModifierManager.countUpcomingBlesses() +
-                      bless * (entities.length - countBlocking(ConditionName.bless, bless)) >=
+                      bless * entities.length -
+                      countBlocking(ConditionName.bless, bless) >=
                       10 ||
                     entityImmunities.includes(ConditionName.bless) ||
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.bless))
