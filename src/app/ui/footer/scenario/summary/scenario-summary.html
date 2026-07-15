@@ -593,9 +593,9 @@
         <div class="reward warning">
           <label><span [ghs-label]="'scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : '')"></span></label>
           <div class="list">
-            @if (!characterProgress && gameManager.fhRules()) {
+            @if (!characterProgress && gameManager.fhRules(true)) {
               <div class="item">
-                <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
+                <span><span [ghs-label]="'scenario.summary.casualWarning.hint' + (gameManager.fhRules() ? 'FH' : 'GH2E')"></span></span>
               </div>
             }
             @if (forceCampaign || gameManager.fhRules(true)) {
