@@ -549,7 +549,6 @@ export class ActionsManager {
         break;
       case ActionType.damage:
       case ActionType.sufferDamage:
-        // TODO: make this wait for highlighted conditions
         gameManager.entityManager.changeHealth(entity, figure, -EntityValueFunction(action.value, figure.level), true);
         break;
       case ActionType.switchType:
