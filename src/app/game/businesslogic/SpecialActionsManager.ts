@@ -8,6 +8,7 @@ import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditi
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Summon } from 'src/app/game/model/Summon';
 import { CharacterSpecialAction, CharacterSpecialActionSlotTrigger } from 'src/app/game/model/data/CharacterStat';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
@@ -56,7 +57,9 @@ export class SpecialActionsManager {
     }
 
     if (
-      (figure instanceof Character || (figure instanceof Monster && figure.isAlly)) &&
+      (figure instanceof Character ||
+        (figure instanceof Monster && figure.isAlly) ||
+        (figure instanceof ObjectiveContainer && figure.escort)) &&
       (entity.health < EntityValueFunction(entity.maxHealth) ||
         entity.entityConditions.find(
           (entityCondition) => !entityCondition.expired && entityCondition.types.includes(ConditionType.clearHeal)

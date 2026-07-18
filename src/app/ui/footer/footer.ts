@@ -93,8 +93,8 @@ export class FooterComponent implements OnInit {
               (figure) =>
                 (figure instanceof Monster && (figure.isAlly || figure.isAllied)) ||
                 (figure instanceof ObjectiveContainer &&
-                  figure.objectiveId &&
-                  gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck)
+                  ((figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) ||
+                    figure.amDeck === 'A'))
             )) ||
           (gameManager.game.scenario && gameManager.game.scenario.allyDeck))) ||
       false;
@@ -163,8 +163,8 @@ export class FooterComponent implements OnInit {
               (figure) =>
                 (figure instanceof Monster && (figure.isAlly || figure.isAllied)) ||
                 (figure instanceof ObjectiveContainer &&
-                  figure.objectiveId &&
-                  gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck)
+                  ((figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) ||
+                    figure.amDeck === 'A'))
             )) ||
           (gameManager.game.scenario && gameManager.game.scenario.allyDeck))) ||
       false;

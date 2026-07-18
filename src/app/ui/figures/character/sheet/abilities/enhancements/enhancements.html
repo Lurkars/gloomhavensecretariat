@@ -1,6 +1,6 @@
 <div class="header">
   @if (!gameManager.fhRules(true) && !standalone()) {
-    <div ghs-setting-menu="alwaysFhEnhancements"></div>
+    <div ghs-setting-menu="alwaysFhEnhancements" [hintAbove]="false"></div>
   }
   @if (standalone()) {
     <div class="editions">
@@ -9,7 +9,7 @@
       <a (click)="setEdition('gh2e')" [ngClass]="{ active: gameManager.game.edition === 'gh2e' }" [ghs-label]="'data.edition.gh2e'"></a>
     </div>
   }
-  <div ghs-setting-menu="temporaryEnhancements"></div>
+  <div ghs-setting-menu="temporaryEnhancements" [hintAbove]="false"></div>
 
   <div class="action">
     <ghs-action

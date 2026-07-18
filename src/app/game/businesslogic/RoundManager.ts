@@ -86,6 +86,14 @@ export class RoundManager {
 
       this.game.figures.forEach((figure) => {
         figure.active = false;
+        if (
+          settingsManager.settings.characterAttackModifierDeckActiveBottom &&
+          settingsManager.settings.characterAttackModifierDeckPermanentActive
+        ) {
+          if (figure instanceof Character) {
+            figure.attackModifierDeckVisible = false;
+          }
+        }
       });
     } else if (this.drawAvailable() || force) {
       if (this.firstRound) {
@@ -575,6 +583,25 @@ export class RoundManager {
           }
         });
       }
+    }
+
+    if (figure instanceof ObjectiveContainer) {
+      if (
+        figure.amDeck &&
+        settingsManager.settings.characterAttackModifierDeckActiveBottom &&
+        settingsManager.settings.characterAttackModifierDeckPermanentActive
+      ) {
+        const char = this.game.figures.find((other) => other instanceof Character && other.name === figure.amDeck) as Character;
+        if (!!char) {
+          char.attackModifierDeckVisible = true;
+        }
+      }
+
+      figure.entities.forEach((objectiveEntity) => {
+        if (!figure.off && gameManager.entityManager.isAlive(objectiveEntity)) {
+          gameManager.specialActionsManager.turn(objectiveEntity, figure);
+        }
+      });
     }
 
     if (

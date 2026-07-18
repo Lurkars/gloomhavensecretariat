@@ -14,7 +14,7 @@ import { Condition, ConditionType } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 
-export const ghsLabelRegex = /\%((\w+|\s|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
+export const ghsLabelRegex = /%([\w\s.,:+()|[\]{}$\/\\\-\u200B]+)%/;
 
 export const applyPlaceholder = function (
   input: string,

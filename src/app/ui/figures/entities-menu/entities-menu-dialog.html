@@ -9,7 +9,7 @@
         <div class="name"><img class="ghs-svg" src="./assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span></div>
       }
 
-      @if (!entity) {
+      @if (!entity && !objectiveOnly) {
         <div class="filter">
           @if (!eventMenu && (!figure || filter)) {
             @for (f of filters; track f) {
@@ -531,7 +531,7 @@
             !bb &&
             (!figure ||
               !gameManager.isObjectiveContainer(figure) ||
-              (gameManager.toObjectiveContainer(figure).escort && gameManager.toObjectiveContainer(figure).amDeck))
+              (gameManager.toObjectiveContainer(figure).escort && gameManager.toObjectiveContainer(figure).amDeck && !objectiveOnly))
           ) {
             <span class="item">
               <ghs-pointer-input

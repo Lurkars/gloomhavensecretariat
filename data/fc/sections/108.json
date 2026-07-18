@@ -15,28 +15,30 @@
       "monster": [
         {
           "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "player4": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
           "type": "elite"
         },
         {
-          "name": "living-bones",
+          "name": "deep-terror",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
         }
       ],
       "objectives": [

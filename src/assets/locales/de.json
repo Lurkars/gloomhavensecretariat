@@ -3267,7 +3267,7 @@
         "monster": "%game.condition.{2}% anwenden auf '{1}' von {0}",
         "monsterEntities": "%game.condition.{1}% anwenden auf alle {2}{0}",
         "objective": "%game.condition.{1}% anwenden auf {0}",
-        "objectiveContainer": "%game.condition.{2}% anwenden auf %game.objectiveMarker.{1}% von {0}",
+        "objectiveContainer": "%game.condition.{2}% anwenden auf {1} von {0}",
         "summon": "%game.condition.{2}% anwenden auf '{1}' von {0}"
       },
       "applyHighlightAction": {
@@ -3392,7 +3392,7 @@
         "monster": "Anwenden von {2} auf {1} von {0} abgelehnt",
         "monsterEntities": "Anwenden von {1} auf alle {2}{0} abgelehnt",
         "objective": "Anwenden von {1} auf {0} abgelehnt",
-        "objectiveContainer": "Anwenden von %game.condition.{2}% auf %game.objectiveMarker.{1}% von {0} abgelehnt",
+        "objectiveContainer": "Anwenden von %game.condition.{2}% auf {1} von {0} abgelehnt",
         "summon": "Anwenden von {2} auf {1} von {0} abgelehnt"
       },
       "disableAutomaticLevel": "Automatische Berechnung Level ausschalten",

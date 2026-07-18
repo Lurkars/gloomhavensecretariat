@@ -98,7 +98,7 @@ export class ConditionsComponent implements OnInit {
         } else if (this.entities.every((entity) => entity instanceof MonsterEntity || entity instanceof Summon)) {
           this.type = 'monster';
         } else if (this.entities.every((entity) => entity instanceof ObjectiveEntity)) {
-          this.type = 'objective';
+          this.type = 'monster';
         }
       }
     }

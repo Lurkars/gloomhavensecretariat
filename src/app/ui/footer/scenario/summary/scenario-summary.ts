@@ -359,6 +359,11 @@ export class ScenarioSummaryComponent {
         }
       }
 
+      // the scenario rewards can only be gained once in FH/GH2E
+      if (gameManager.fhRules(true) && this.rewards && gameManager.scenarioManager.isSuccess(this.scenario)) {
+        this.rewards = undefined;
+      }
+
       if (settingsManager.settings.scenarioRewards && this.rewards) {
         if (this.rewards.collectiveGold) {
           this.characters.forEach((char, index) => {
