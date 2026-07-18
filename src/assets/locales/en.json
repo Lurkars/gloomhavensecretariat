@@ -2304,6 +2304,7 @@
         "campaignRewards": "Enable Campaign Rewards",
         "fh": "Frosthaven Casual Mode",
         "hintFh": "In Frosthaven casual mode , all campaign effects are ignored. No event is resolved, time does not pass, and the party does not gain any experience, loot, treasures, checkmarks, personal quest progress, rewards, unlockables, etc",
+        "hintGh2e": "In casual mode, all campaign effects are ignored. No event is resolved, and the party does not gain any experience, loot, treasures, checkmarks, personal quest progress, rewards, unlockables, etc",
         "ignore": "Gain rewards anyways!",
         "reapply": "Switch back to casual mode"
       },

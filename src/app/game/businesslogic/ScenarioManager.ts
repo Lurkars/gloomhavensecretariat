@@ -242,9 +242,10 @@ export class ScenarioManager {
             }
 
             if (rewards.prosperity) {
+              const prosperityMax = gameManager.fhRules() ? 132 : gameManager.gh2eRules() ? 89 : 64;
               this.game.party.prosperity += rewards.prosperity;
-              if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
-                this.game.party.prosperity = gameManager.fhRules() ? 132 : 64;
+              if (this.game.party.prosperity > prosperityMax) {
+                this.game.party.prosperity = prosperityMax;
               } else if (this.game.party.prosperity < 0) {
                 this.game.party.prosperity = 0;
               }

@@ -566,7 +566,7 @@ export class MonsterManager {
     if (summon) {
       monsterEntity.summon = SummonState.new;
     }
-    if (!summon || gameManager.fhRules()) {
+    if (!summon || gameManager.fhRules(true)) {
       if (this.game.state === GameState.next) {
         if (monster.ability === -1) {
           if (!this.applySameDeck(monster)) {
