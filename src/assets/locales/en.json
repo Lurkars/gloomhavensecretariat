@@ -4019,8 +4019,7 @@
       "updateManualPlayerCount": "Set manual player count to {0}",
       "updatePartyAchievements": "Party achievement to {0}",
       "updateStandee": "Change {1} standee number {2} to {3} for {0}",
-      "upgradeBuilding": "Upgrade building '%data.buildings.{1}%' ({0}) to level {2}",
-      "warnInteractiveActions": "Ignore warning for standees {1} of {2}"
+      "upgradeBuilding": "Upgrade building '%data.buildings.{1}%' ({0}) to level {2}"
     },
     "loadMore": "Show more",
     "missing": "Missing states: {0}",
