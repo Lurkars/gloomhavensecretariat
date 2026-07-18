@@ -825,9 +825,9 @@
                 <span
                   class="map-marker"
                   [ngClass]="{
-                    empty: !OBJECTIV_MARKERS[(objectiveMarker + OBJECTIV_MARKERS.indexOf(objective.marker)) % OBJECTIV_MARKERS.length]
+                    empty: !OBJECTIVE_MARKERS[(objectiveMarker + OBJECTIVE_MARKERS.indexOf(objective.marker)) % OBJECTIVE_MARKERS.length]
                   }"
-                  >{{ OBJECTIV_MARKERS[(objectiveMarker + OBJECTIV_MARKERS.indexOf(objective.marker)) % OBJECTIV_MARKERS.length] }}</span
+                  >{{ OBJECTIVE_MARKERS[(objectiveMarker + OBJECTIVE_MARKERS.indexOf(objective.marker)) % OBJECTIVE_MARKERS.length] }}</span
                 >
               </span>
             }
@@ -837,10 +837,11 @@
                 <span
                   class="map-marker"
                   [ngClass]="{
-                    empty: !OBJECTIV_MARKERS[(objectiveMarker + OBJECTIV_MARKERS.indexOf(objectiveEntity.marker)) % OBJECTIV_MARKERS.length]
+                    empty:
+                      !OBJECTIVE_MARKERS[(objectiveMarker + OBJECTIVE_MARKERS.indexOf(objectiveEntity.marker)) % OBJECTIVE_MARKERS.length]
                   }"
                   >{{
-                    OBJECTIV_MARKERS[(objectiveMarker + OBJECTIV_MARKERS.indexOf(objectiveEntity.marker)) % OBJECTIV_MARKERS.length]
+                    OBJECTIVE_MARKERS[(objectiveMarker + OBJECTIVE_MARKERS.indexOf(objectiveEntity.marker)) % OBJECTIVE_MARKERS.length]
                   }}</span
                 >
               </span>

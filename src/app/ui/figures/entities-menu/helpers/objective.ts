@@ -1,6 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { OBJECTIV_MARKERS, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { OBJECTIVE_MARKERS, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { ghsModulo } from 'src/app/ui/helper/Static';
@@ -56,7 +56,7 @@ export class ObjectiveHelper {
 
   changeMarker(value: number) {
     if (this.component.figure instanceof ObjectiveContainer) {
-      this.component.objectiveMarker = ghsModulo(this.component.objectiveMarker + value, OBJECTIV_MARKERS.length);
+      this.component.objectiveMarker = ghsModulo(this.component.objectiveMarker + value, OBJECTIVE_MARKERS.length);
     }
   }
 
@@ -99,7 +99,7 @@ export class ObjectiveHelper {
     }
 
     const newMarker =
-      OBJECTIV_MARKERS[ghsModulo(this.component.objectiveMarker + OBJECTIV_MARKERS.indexOf(entity.marker), OBJECTIV_MARKERS.length)];
+      OBJECTIVE_MARKERS[ghsModulo(this.component.objectiveMarker + OBJECTIVE_MARKERS.indexOf(entity.marker), OBJECTIVE_MARKERS.length)];
 
     if (newMarker !== entity.marker) {
       if (newMarker) {
@@ -132,7 +132,7 @@ export class ObjectiveHelper {
 
     figure.marker = figure.marker || '';
     const newMarker =
-      OBJECTIV_MARKERS[ghsModulo(this.component.objectiveMarker + OBJECTIV_MARKERS.indexOf(figure.marker), OBJECTIV_MARKERS.length)];
+      OBJECTIVE_MARKERS[ghsModulo(this.component.objectiveMarker + OBJECTIVE_MARKERS.indexOf(figure.marker), OBJECTIVE_MARKERS.length)];
 
     if (newMarker !== figure.marker) {
       if (newMarker) {

@@ -150,7 +150,7 @@ export class GameObjectiveContainerModel {
   }
 }
 
-export const OBJECTIV_MARKERS: string[] = [
+export const OBJECTIVE_MARKERS: string[] = [
   '',
   '1',
   '2',
