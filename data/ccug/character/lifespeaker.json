@@ -230,7 +230,7 @@
   ],
   "additionalModifier": [
     {
-      "count": 10,
+      "count": 15,
       "attackModifier": {
         "type": "enfeeble",
         "value": 1,

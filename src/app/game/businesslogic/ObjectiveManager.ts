@@ -160,6 +160,11 @@ export class ObjectiveManager {
           return false;
         } else if (!figure.objectiveId) {
           return true;
+        } else {
+          const objectiveData = this.objectiveDataByObjectiveIdentifier(figure.objectiveId);
+          if (!objectiveData || !objectiveData.actions || objectiveData.actions.length === 0) {
+            return true;
+          }
         }
       }
     }

@@ -74,7 +74,17 @@ export class InteractiveActionsComponent implements OnInit {
         (entity, index) => settingsManager.settings.combineInteractiveAbilities || index === 0
       );
 
-      this.interactiveActions.set(gameManager.actionsManager.getAllInteractiveActions(this.figure, this.actions, this.preIndex()));
+      const interactiveActions: InteractiveAction[] = [];
+      this.interactiveActionEntities.forEach((entity) => {
+        gameManager.actionsManager
+          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
+          .forEach((interactiveAction) => {
+            if (!interactiveActions.find((other) => other.index === interactiveAction.index)) {
+              interactiveActions.push(interactiveAction);
+            }
+          });
+      });
+      this.interactiveActions.set(interactiveActions);
 
       this.toggledOffActions = [];
       if (this.checkWarning()) {
