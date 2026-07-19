@@ -1160,6 +1160,27 @@
             }
           </div>
         }
+
+        <!-- OBJECTIVE ACTIONS -->
+        @if (!!figure && gameManager.isObjectiveContainer(figure)) {
+          <div class="objective-actions" cdkDropList (cdkDropListDropped)="objectiveHelper.dropAction($event)">
+            @for (action of objectiveActions | trackUUID; track action._trackUUID) {
+              <span class="action-item" cdkDrag>
+                <span class="handle" cdkDragHandle><img class="ghs-svg" src="./assets/images/menu.svg" /></span>
+                <ghs-action (click)="objectiveHelper.editAction(action)" [action]="action"></ghs-action>
+              </span>
+            }
+            <span class="button" ghs-pointer-input tabclick (singleClick)="objectiveHelper.addAction()">
+              <img class="ghs-svg" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span>
+            </span>
+
+            @if (objectiveHelper.defaultActions.length) {
+              <span class="button" ghs-pointer-input tabclick (singleClick)="objectiveHelper.restoreDefaultActions()">
+                <img class="ghs-svg" src="./assets/images/sync.svg" /> <span [ghs-label]="'editor.action.restoreDefaults'"></span>
+              </span>
+            }
+          </div>
+        }
       }
 
       @if (eventMenu) {

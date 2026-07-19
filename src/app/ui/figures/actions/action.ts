@@ -174,7 +174,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
     this.updateSubActions();
     this.applyChallenges();
 
-    this.forceRelative = !this.monster || !this.hasEntities();
+    this.forceRelative = !this.hasEntities();
     if (
       this.monster &&
       !this.relative &&
@@ -235,6 +235,10 @@ export class ActionComponent implements OnInit, AfterViewInit {
   }
 
   hasEntities(type: MonsterType | string | undefined = undefined): boolean {
+    if (!this.monster && !!this.objective) {
+      return this.objective.entities.length > 0;
+    }
+
     if (typeof type === 'string') {
       type = type as MonsterType;
     }

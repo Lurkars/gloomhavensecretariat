@@ -1,25 +1,104 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { OBJECTIVE_MARKERS, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { ghsModulo } from 'src/app/ui/helper/Static';
+import { EditorActionDialogComponent } from 'src/app/ui/tools/editor/action/action';
 
 export class ObjectiveHelper {
   constructor(private component: EntitiesMenuDialogComponent) {}
 
+  defaultActions: Action[] = [];
+
   update() {
+    this.defaultActions = [];
     if (this.component.figure instanceof ObjectiveContainer) {
       if (this.component.figure.objectiveId) {
         this.component.objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.component.figure.objectiveId);
       } else {
         this.component.objectiveData = undefined;
       }
+
+      this.component.objectiveActions = this.component.figure.actions || [];
+      this.component.trackDamage = !!this.component.objectiveData && this.component.objectiveData.trackDamage;
+
+      if (
+        this.component.objectiveData &&
+        this.component.objectiveData.actions &&
+        JSON.stringify(this.component.objectiveData.actions) !== JSON.stringify(this.component.objectiveActions)
+      ) {
+        this.defaultActions = this.component.objectiveData.actions;
+      }
     } else {
       this.component.objectiveData = undefined;
     }
+  }
 
-    this.component.trackDamage = !!this.component.objectiveData && this.component.objectiveData.trackDamage;
+  addAction() {
+    if (this.component.figure instanceof ObjectiveContainer) {
+      const action = new Action(ActionType.attack);
+      this.component.objectiveActions = [...this.component.objectiveActions, action];
+      this.openActionDialog(action);
+    }
+  }
+
+  editAction(action: Action) {
+    this.openActionDialog(action);
+  }
+
+  dropAction(event: CdkDragDrop<number>) {
+    moveItemInArray(this.component.objectiveActions, event.previousIndex, event.currentIndex);
+    this.component.objectiveActions = [...this.component.objectiveActions];
+    this.commitActions();
+  }
+
+  restoreDefaultActions() {
+    if (!(this.component.figure instanceof ObjectiveContainer)) {
+      return;
+    }
+
+    this.component.before('restoreObjectiveActions');
+    this.component.figure.actions = JSON.parse(JSON.stringify(this.defaultActions));
+    this.component.objectiveActions = this.component.figure.actions || [];
+    gameManager.stateManager.after();
+  }
+
+  private openActionDialog(action: Action) {
+    const dialog = this.component.dialog.open(EditorActionDialogComponent, {
+      panelClass: ['dialog'],
+      data: { action }
+    });
+
+    dialog.closed.subscribe({
+      next: (value) => {
+        if (value === false) {
+          this.component.objectiveActions.splice(this.component.objectiveActions.indexOf(action), 1);
+          this.component.objectiveActions = [...this.component.objectiveActions];
+        }
+        this.commitActions();
+      }
+    });
+  }
+
+  private commitActions() {
+    if (!(this.component.figure instanceof ObjectiveContainer)) {
+      return;
+    }
+
+    this.component.before(!this.component.objectiveActions.length ? 'unsetObjectiveActions' : 'setObjectiveActions');
+    this.component.figure.actions = JSON.parse(JSON.stringify(this.component.objectiveActions));
+    gameManager.stateManager.after();
+
+    if (
+      this.component.objectiveData &&
+      this.component.objectiveData.actions &&
+      JSON.stringify(this.component.objectiveData.actions) !== JSON.stringify(this.component.objectiveActions)
+    ) {
+      this.defaultActions = this.component.objectiveData.actions;
+    }
   }
 
   showMaxHealth(): boolean {

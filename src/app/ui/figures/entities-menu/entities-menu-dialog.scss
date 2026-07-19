@@ -976,6 +976,72 @@ input.title {
   }
 }
 
+.objective-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+
+  .action-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
+    padding-right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+    ghs-action {
+      cursor: pointer;
+    }
+
+    .handle {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 2;
+      cursor: grab;
+      opacity: 0.6;
+      transform: translateY(-50%);
+
+      img {
+        height: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+        width: auto;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ghs-color-white);
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    cursor: pointer;
+
+    .ghs-svg {
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 .migrate {
   position: absolute;
   bottom: 0;
@@ -988,4 +1054,23 @@ input.title {
     filter: var(--ghs-filter-darkgray);
     transform: rotate(180deg);
   }
+}
+
+.cdk-drag-preview {
+  opacity: 0;
+  cursor: grabbing;
+  z-index: 999;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.cdk-drag-animating {
+  transition: transform calc(var(--ghs-animation-speed) * 250ms) cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
+  transition: transform calc(var(--ghs-animation-speed) * 250ms) cubic-bezier(0, 0, 0.2, 1);
 }

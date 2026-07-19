@@ -1,4 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Action } from 'src/app/game/model/data/Action';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { ScenarioObjectiveIdentifier } from 'src/app/game/model/data/ObjectiveData';
 import { Figure } from 'src/app/game/model/Figure';
@@ -11,6 +12,7 @@ export class ObjectiveContainer implements Figure {
   escort: boolean = false;
   entities: ObjectiveEntity[] = [];
   amDeck: string | undefined;
+  actions: Action[] | undefined;
 
   // workaround
   noThumbnail = true as const;
@@ -63,7 +65,8 @@ export class ObjectiveContainer implements Figure {
       this.initiative,
       this.objectiveId && 'scenario' in this.objectiveId ? this.objectiveId : undefined,
       this.objectiveId && !('scenario' in this.objectiveId) ? this.objectiveId : undefined,
-      this.amDeck
+      this.amDeck,
+      this.actions
     );
   }
 
@@ -98,6 +101,7 @@ export class ObjectiveContainer implements Figure {
     this.initiative = model.initiative;
     this.objectiveId = model.additionalObjectiveId || model.objectiveId;
     this.amDeck = model.amDeck || undefined;
+    this.actions = model.actions ? model.actions.map((value) => JSON.parse(value) as Action) : undefined;
   }
 }
 
@@ -116,6 +120,7 @@ export class GameObjectiveContainerModel {
   objectiveId: ScenarioObjectiveIdentifier | undefined;
   additionalObjectiveId: AdditionalIdentifier | undefined;
   amDeck: string | undefined;
+  actions: string[] | undefined;
 
   constructor(
     uuid: string,
@@ -131,7 +136,8 @@ export class GameObjectiveContainerModel {
     initiative: number,
     objectiveId: ScenarioObjectiveIdentifier | undefined,
     additionalObjectiveId: AdditionalIdentifier | undefined,
-    amDeck: string | undefined
+    amDeck: string | undefined,
+    actions: Action[] | undefined
   ) {
     this.uuid = uuid;
     this.marker = marker;
@@ -147,6 +153,7 @@ export class GameObjectiveContainerModel {
     this.objectiveId = (objectiveId && JSON.parse(JSON.stringify(objectiveId))) || undefined;
     this.additionalObjectiveId = (additionalObjectiveId && JSON.parse(JSON.stringify(additionalObjectiveId))) || undefined;
     this.amDeck = amDeck;
+    this.actions = actions ? actions.map((action) => JSON.stringify(action)) : undefined;
   }
 }
 

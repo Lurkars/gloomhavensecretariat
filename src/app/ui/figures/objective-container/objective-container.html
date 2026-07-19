@@ -7,7 +7,7 @@
     compact: compact,
     short: short,
     menu: shortMenu,
-    actions: !!objectiveData && objectiveData.actions
+    actions: !!objective.actions
   }"
 >
   <a class="image-container" [ngClass]="{ entity: entity }">
@@ -215,21 +215,20 @@
         </div>
       </div>
     }
-    <div class="actions-container">
-      @if (!!objectiveData && objectiveData.actions) {
+    @if (!!objective.actions) {
+      <div class="actions-container">
         <div class="actions" ghs-pointer-input (singleClick)="openEntityMenu()">
-          <ghs-actions [objective]="objective" [actions]="objectiveData.actions" [(interactiveActions)]="interactiveActions"></ghs-actions>
+          <ghs-actions [objective]="objective" [actions]="objective.actions" [(interactiveActions)]="interactiveActions"></ghs-actions>
         </div>
-      }
-      @if (interactiveActions.length) {
-        <div class="bottom-spacer"></div>
-      }
-    </div>
 
-    @if (!!objectiveData && objectiveData.actions) {
+        @if (interactiveActions.length) {
+          <div class="bottom-spacer"></div>
+        }
+      </div>
+
       <ghs-interactive-actions
         [figure]="objective"
-        [actions]="objectiveData.actions"
+        [actions]="objective.actions"
         [(interactiveActions)]="interactiveActions"
       ></ghs-interactive-actions>
     }

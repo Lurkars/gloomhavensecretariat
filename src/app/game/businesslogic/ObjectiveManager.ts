@@ -62,6 +62,10 @@ export class ObjectiveManager {
           objectiveContainer.amDeck =
             settingsManager.settings.allyAttackModifierDeck && (objectiveData.allyDeck || gameManager.fhRules(true)) ? 'A' : 'M';
         }
+
+        if (objectiveData.actions) {
+          objectiveContainer.actions = objectiveData.actions;
+        }
       }
       objectiveContainer.edition = objectiveContainer.escort ? 'escort' : 'objective';
       this.game.figures.push(objectiveContainer);
@@ -152,13 +156,10 @@ export class ObjectiveManager {
   skipObjective(figure: Figure): boolean {
     if (figure instanceof ObjectiveContainer) {
       if (!figure.escort) {
-        if (!figure.objectiveId) {
+        if (!!figure.actions && figure.actions.length > 0) {
+          return false;
+        } else if (!figure.objectiveId) {
           return true;
-        } else {
-          const objectiveData = this.objectiveDataByObjectiveIdentifier(figure.objectiveId);
-          if (!objectiveData || !objectiveData.actions || objectiveData.actions.length === 0) {
-            return true;
-          }
         }
       }
     }

@@ -1,4 +1,5 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, HostListener, inject } from '@angular/core';
@@ -52,6 +53,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
 
 @Component({
   imports: [
+    DragDropModule,
     NgClass,
     GhsLabelDirective,
     GhsTooltipDirective,
@@ -143,6 +145,7 @@ export class EntitiesMenuDialogComponent {
   objectiveId: number = 0;
   objectiveTitle: string | undefined;
   objectiveData: ObjectiveData | undefined;
+  objectiveActions: Action[] = [];
   amDecks: string[] = [];
   trackDamage: boolean = false;
 
@@ -471,6 +474,7 @@ export class EntitiesMenuDialogComponent {
   keyboardShortcuts(event: KeyboardEvent) {
     if (
       settingsManager.settings.keyboardShortcuts &&
+      this.dialog.openDialogs.length <= 1 &&
       !event.altKey &&
       !event.metaKey &&
       (!window.document.activeElement ||

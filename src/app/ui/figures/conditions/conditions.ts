@@ -1,3 +1,4 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject, input, OnInit, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -25,6 +26,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 })
 export class ConditionsComponent implements OnInit {
   private ghsManager = inject(GhsManager);
+  private dialog = inject(Dialog);
 
   private cdr = inject(ChangeDetectorRef);
 
@@ -106,7 +108,11 @@ export class ConditionsComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   onKeyPress(event: KeyboardEvent) {
-    if (settingsManager.settings.keyboardShortcuts && event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+    if (
+      settingsManager.settings.keyboardShortcuts &&
+      this.dialog.openDialogs.length <= 1 &&
+      event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    ) {
       const keyNumber = +event.key;
       if (this.timeout) {
         clearTimeout(this.timeout);
