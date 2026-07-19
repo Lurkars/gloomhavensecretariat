@@ -13,10 +13,10 @@ import { InteractiveActionsComponent } from 'src/app/ui/figures/actions/interact
 
 // InteractiveActionsComponent's applyInteractiveActions() is deeply coupled to ActionsManager's
 // apply/state-mutation pipeline and out of scope here. This spec focuses on wildToConsume()/
-// wildToCreate() (pure filters over gameManager.game.elementBoard), update()'s interactiveAbilities/
-// figure-active gating, and onInteractiveActionsChange(). Following the AppComponent.spec.ts
-// pattern: create via TestBed, never call fixture.detectChanges() (ngOnInit never runs — we call
-// update() directly instead), set the required `figure` input via setInput().
+// wildToCreate() (pure filters over gameManager.game.elementBoard), and update()'s interactiveAbilities/
+// figure-active gating, Following the AppComponent.spec.ts/ pattern: create via TestBed,
+// never call fixture.detectChanges() (ngOnInit never runs — we call update() directly instead),
+// set the required `figure` input via setInput().
 
 function buildMonster(active: boolean = true): Monster {
   const stat = new MonsterStat(MonsterType.normal, 1, 10, 2, 3, 0);
@@ -113,16 +113,6 @@ describe('InteractiveActionsComponent', () => {
       const component = createComponent(monster);
       component.chooseElementValues = [Element.fire];
       expect(component.wildToCreate()).toEqual([]);
-    });
-  });
-
-  describe('onInteractiveActionsChange', () => {
-    it('stores the given change', () => {
-      const monster = buildMonster();
-      const component = createComponent(monster);
-      const change = [{ action: new Action(ActionType.attack, 1), index: '0' }] as InteractiveAction[];
-      component.onInteractiveActionsChange(change);
-      expect(component.interactiveActions()).toEqual(change);
     });
   });
 });

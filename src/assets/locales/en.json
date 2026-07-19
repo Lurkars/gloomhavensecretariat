@@ -1495,7 +1495,8 @@
     "toggleDormant": {
       "off": "Switch back to active entities",
       "on": "Switch to dormant entities"
-    }
+    },
+    "warnInteractiveActions": "Ward or brittle impact outcome. Continue?"
   },
   "number": {
     "0": "zero",

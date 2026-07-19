@@ -461,9 +461,8 @@ export class RoundManager {
 
           if (figure.name === 'lightning' && figure.tags.includes('blood-pact')) {
             if (figure.edition !== 'gh2e' || figure.health > 1) {
-              figure.health -= 1;
+              gameManager.entityManager.changeHealth(figure, figure, -1, true);
             }
-            gameManager.entityManager.checkHealth(figure, figure);
           }
         }
       } else {
@@ -481,9 +480,8 @@ export class RoundManager {
 
         if (figure.name === 'lightning' && figure.tags.includes('blood-pact')) {
           if (figure.edition !== 'gh2e' || figure.health > 1) {
-            figure.health -= 1;
+            gameManager.entityManager.changeHealth(figure, figure, -1, true);
           }
-          gameManager.entityManager.checkHealth(figure, figure);
         }
       }
     }

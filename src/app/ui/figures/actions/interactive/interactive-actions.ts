@@ -5,7 +5,9 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
+import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -43,6 +45,7 @@ export class InteractiveActionsComponent implements OnInit {
   interactiveActionEntities: (MonsterEntity | ObjectiveEntity)[] = [];
   chooseElementAction: InteractiveAction | undefined;
   chooseElementValues: string[] = [];
+  ignoreWarning: boolean = false;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -72,10 +75,42 @@ export class InteractiveActionsComponent implements OnInit {
       );
 
       this.interactiveActions.set(gameManager.actionsManager.getAllInteractiveActions(this.figure, this.actions, this.preIndex()));
+      this.ignoreWarning = false;
     } else {
       this.interactiveActionEntities = [];
       this.interactiveActions.set([]);
     }
+  }
+
+  checkWarning(): boolean {
+    // Ward or brittle could change whether monsters survive damage.
+    // Warn if that's the case.
+    const wardEnabled =
+      settingsManager.settings.applyConditions &&
+      settingsManager.settings.activeApplyConditions &&
+      settingsManager.settings.activeApplyConditionsAuto.includes(ConditionName.ward) &&
+      !settingsManager.settings.activeApplyConditionsExcludes.includes(ConditionName.ward);
+    const brittleEnabled =
+      settingsManager.settings.applyConditions &&
+      settingsManager.settings.activeApplyConditions &&
+      settingsManager.settings.activeApplyConditionsAuto.includes(ConditionName.brittle) &&
+      !settingsManager.settings.activeApplyConditionsExcludes.includes(ConditionName.brittle);
+    return (
+      !(wardEnabled && brittleEnabled) &&
+      this.interactiveActions()
+        .filter((action) => action.action.type === ActionType.sufferDamage)
+        .some((action) => {
+          const damage = EntityValueFunction(action.action.value);
+          const result = (ward: boolean, brittle: boolean) => Math.floor((damage * (brittle ? 2 : 1)) / (ward ? 2 : 1));
+          return this.interactiveActionEntities.some((entity) => {
+            const ward = gameManager.entityManager.hasCondition(entity, new Condition(ConditionName.ward));
+            const brittle = gameManager.entityManager.hasCondition(entity, new Condition(ConditionName.brittle));
+            const shouldDie = entity.health - result(ward, brittle) <= 0;
+            const wouldDie = entity.health - result(ward && wardEnabled, brittle && brittleEnabled) <= 0;
+            return shouldDie != wouldDie;
+          });
+        })
+    );
   }
 
   applyInteractiveActions(event: PointerEvent, selectElement: boolean = false) {
@@ -117,9 +152,12 @@ export class InteractiveActionsComponent implements OnInit {
       }
     }
 
-    if (this.interactiveActionEntities.length || this.interactiveActionEntities.length) {
-      let after = true;
+    if (!this.ignoreWarning && this.checkWarning()) {
+      this.ignoreWarning = true;
+      return;
+    }
 
+    if (this.interactiveActionEntities.length) {
       const interactiveActionsLabel = (
         settingsManager.settings.combineInteractiveAbilities
           ? this.interactiveActions()
@@ -203,37 +241,8 @@ export class InteractiveActionsComponent implements OnInit {
         });
       });
 
-      if (this.interactiveActionEntities.some((entity) => entity.dead)) {
-        after = false;
-        this.ghsManager.triggerUiChange();
-        setTimeout(
-          () => {
-            this.interactiveActionEntities.forEach((entity) => {
-              if (entity.dead) {
-                if (this.figure instanceof Monster && entity instanceof MonsterEntity) {
-                  gameManager.monsterManager.removeMonsterEntity(this.figure, entity);
-                } else if (this.figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
-                  gameManager.objectiveManager.removeObjectiveEntity(this.figure, entity);
-                }
-                if (this.figure.entities.every((entity) => entity.dead || entity.health <= 0 || !entity.active)) {
-                  this.figure.off = true;
-                  if (this.figure.active) {
-                    gameManager.roundManager.toggleFigure(this.figure);
-                  }
-                }
-              }
-            });
-            this.update();
-            gameManager.stateManager.after();
-          },
-          settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-        );
-      }
-
-      if (after) {
-        this.update();
-        gameManager.stateManager.after();
-      }
+      this.update();
+      gameManager.stateManager.after();
       event.preventDefault();
       event.stopPropagation();
     }
@@ -276,9 +285,5 @@ export class InteractiveActionsComponent implements OnInit {
     this.applyInteractiveActions(event, true);
     event.preventDefault();
     event.stopPropagation();
-  }
-
-  onInteractiveActionsChange(change: InteractiveAction[]) {
-    this.interactiveActions.set(change);
   }
 }
