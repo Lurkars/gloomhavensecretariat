@@ -426,6 +426,7 @@
       "remove": "Remove Action",
       "removeEnhancement": "Remove Enhancement Slot",
       "removeSubAction": "Remove Sub-action",
+      "restoreDefaults": "Restore Default Actions",
       "small": "Smaller",
       "subActions": "Subactions",
       "summon": {
@@ -2304,6 +2305,7 @@
         "campaignRewards": "Enable Campaign Rewards",
         "fh": "Frosthaven Casual Mode",
         "hintFh": "In Frosthaven casual mode , all campaign effects are ignored. No event is resolved, time does not pass, and the party does not gain any experience, loot, treasures, checkmarks, personal quest progress, rewards, unlockables, etc",
+        "hintGh2e": "In casual mode, all campaign effects are ignored. No event is resolved, and the party does not gain any experience, loot, treasures, checkmarks, personal quest progress, rewards, unlockables, etc",
         "ignore": "Gain rewards anyways!",
         "reapply": "Switch back to casual mode"
       },
@@ -3273,7 +3275,7 @@
         "monster": "Apply %game.condition.{2}% to '{1}' of {0}",
         "monsterEntities": "Apply %game.condition.{1}% to all {2}{0}",
         "objective": "Apply %game.condition.{1}% to {0}",
-        "objectiveContainer": "Apply %game.condition.{2}% to %game.objectiveMarker.{1}% of {0}",
+        "objectiveContainer": "Apply %game.condition.{2}% to {1} of {0}",
         "summon": "Apply %game.condition.{2}% to '{1}' of {0}"
       },
       "applyHighlightAction": {
@@ -3398,7 +3400,7 @@
         "monster": "Decline apply %game.condition.{2}% to '{1}' of {0}",
         "monsterEntities": "Decline apply %game.condition.{1}% to all {2}{0}",
         "objective": "Decline apply %game.condition.{1}% to {0}",
-        "objectiveContainer": "Decline apply %game.condition.{2}% to %game.objectiveMarker.{1}% of {0}",
+        "objectiveContainer": "Decline apply %game.condition.{2}% to {1} of {0}",
         "summon": "Decline apply %game.condition.{2}% to '{1}' of {0}"
       },
       "disableAutomaticLevel": "Disable automatic level calculation",
@@ -3626,6 +3628,11 @@
           "character": "Remove special actions {0} from {1}",
           "summon": "Remove special actions {0} from {2} of {1}"
         },
+        "restoreObjectiveActions": {
+          "objective": "Restore default actions for {0}",
+          "objectiveEntity": "Restore default  actions for {0}",
+          "objectives": "Restore default  actions for {0}"
+        },
         "setAbsent": {
           "character": "{0} absent"
         },
@@ -3645,6 +3652,11 @@
         },
         "setLevel": {
           "character": "Level {0} for {1}"
+        },
+        "setObjectiveActions": {
+          "objective": "Edit actions for {0}",
+          "objectiveEntity": "Edit actions for {0}",
+          "objectives": "Edit actions for {0}"
         },
         "setObjectiveAmDeck": {
           "objective": "Set Attack Modifier Deck to %game.amDeck.{0}% for {1}",
@@ -3676,6 +3688,11 @@
         },
         "unsetAbsent": {
           "character": "{0} present"
+        },
+        "unsetObjectiveActions": {
+          "objective": "Reset actions for {0}",
+          "objectiveEntity": "Reset actions for {0}",
+          "objectives": "Reset actions for {0}"
         },
         "unsetObjectiveAmDeck": {
           "objective": "Unset Attack Modifier Deck for {1}",

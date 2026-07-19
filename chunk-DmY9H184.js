@@ -1,0 +1,1 @@
+import {a as o,p as pf}from'./chunk-BTmp_2cW.js';var g=o((t,e)=>{let n;return e==="sandbox"&&(n=pf("#i"+t)),(e==="sandbox"?pf(n.nodes()[0].contentDocument.body):pf("body")).select(`[id="${t}"]`)},"getDiagramElement");export{g};//# sourceMappingURL=chunk-DmY9H184.js.map

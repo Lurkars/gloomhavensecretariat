@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/feedback/feedback.scss"],
+  "sourcesContent": [".button {\n  cursor: pointer;\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));\n  height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));\n  top: 0;\n  right: -30%;\n  color: var(--ghs-color-blue);\n  transition: right calc(var(--ghs-animation-speed) * 200ms) ease-in-out;\n\n  img {\n    height: 100%;\n    width: auto;\n    filter: var(--ghs-filter-blue) var(--ghs-filter-shadow);\n  }\n\n  .text {\n    display: none;\n    padding: 0.3em;\n    font-size: 2em;\n\n    &:hover {\n      opacity: 0.8;\n    }\n  }\n\n  &:hover {\n    right: 0;\n    width: auto;\n\n    .text {\n      display: inline-block;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,OACE,OAAA,QACA,SAAA,SACA,QAAA,KACA,gBAAA,OACA,YAAA,OACA,MAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,oBACA,OAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,oBACA,IAAA,EACA,MAAA,KACA,MAAA,IAAA,kBACA,WAAA,MAAA,KAAA,IAAA,uBAAA,EAAA,KAAA,YAEA,CAbF,OAaE,IACE,OAAA,KACA,MAAA,KACA,OAAA,IAAA,mBAAA,IAAA,qBAGF,CAnBF,OAmBE,CAAA,KACE,QAAA,KApBJ,QAqBI,KACA,UAAA,IAEA,CAxBJ,OAwBI,CALF,IAKE,OACE,QAAA,GAIJ,CA7BF,MA6BE,OACE,MAAA,EACA,MAAA,KAEA,CAjCJ,MAiCI,OAAA,CAdF,KAeI,QAAA",
+  "names": []
+}

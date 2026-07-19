@@ -1,1 +1,0 @@
-import {a as o}from'./chunk-Cy-x2bTI.js';var s=class{constructor(i){this.init=i,this.records=this.init();}static{o(this,"ImperativeState");}reset(){this.records=this.init();}};export{s};//# sourceMappingURL=chunk-C7cZ36_A.js.map
