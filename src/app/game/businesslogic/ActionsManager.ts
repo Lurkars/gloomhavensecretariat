@@ -549,15 +549,7 @@ export class ActionsManager {
         break;
       case ActionType.damage:
       case ActionType.sufferDamage:
-        entity.health -= EntityValueFunction(action.value, figure.level);
-        if (entity.health <= 0) {
-          entity.health = 0;
-        }
-        if (figure instanceof Monster && entity instanceof MonsterEntity && entity.health <= 0) {
-          entity.dead = true;
-        } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity && entity.health <= 0) {
-          entity.dead = true;
-        }
+        gameManager.entityManager.changeHealth(entity, figure, -EntityValueFunction(action.value, figure.level), true);
         break;
       case ActionType.switchType:
         if (figure instanceof Monster && entity instanceof MonsterEntity) {

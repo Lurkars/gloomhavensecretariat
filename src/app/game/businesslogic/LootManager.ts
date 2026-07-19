@@ -169,22 +169,14 @@ export class LootManager {
         break;
       case TreasureRewardType.damage:
         if (typeof reward.value === 'number') {
-          character.health -= reward.value;
+          gameManager.entityManager.changeHealth(character, character, -reward.value, true);
         } else if (reward.value === 'terrain') {
-          character.health -= gameManager.levelManager.terrain();
-        }
-        if (character.health <= 0) {
-          character.exhausted = true;
-          character.off = true;
-          character.active = false;
+          gameManager.entityManager.changeHealth(character, character, -gameManager.levelManager.terrain(), true);
         }
         break;
       case TreasureRewardType.heal:
         if (typeof reward.value === 'number') {
-          character.health += reward.value;
-          if (character.health > character.maxHealth) {
-            character.health = character.maxHealth;
-          }
+          gameManager.entityManager.changeHealth(character, character, reward.value);
         }
         break;
       case TreasureRewardType.loot:
