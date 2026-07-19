@@ -115,6 +115,7 @@ export class HighlightConditionsComponent implements OnInit {
       gameManager.entityManager.applyCondition(this.entity, this.figure, entityCondition);
     }
 
+    console.log('applied');
     this.after();
   }
 
@@ -168,6 +169,7 @@ export class HighlightConditionsComponent implements OnInit {
             (!entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply))
         ))
     ) {
+      gameManager.triggerUiChange();
       setTimeout(
         () => {
           if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {

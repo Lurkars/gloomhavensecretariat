@@ -45,7 +45,7 @@ export class InteractiveActionsComponent implements OnInit {
   interactiveActionEntities: (MonsterEntity | ObjectiveEntity)[] = [];
   chooseElementAction: InteractiveAction | undefined;
   chooseElementValues: string[] = [];
-  ignoreWarning: boolean = false;
+  toggledOffActions: InteractiveAction[] = [];
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -75,10 +75,23 @@ export class InteractiveActionsComponent implements OnInit {
       );
 
       this.interactiveActions.set(gameManager.actionsManager.getAllInteractiveActions(this.figure, this.actions, this.preIndex()));
-      this.ignoreWarning = false;
+
+      this.toggledOffActions = [];
+      if (this.checkWarning()) {
+        const damageIndex = this.interactiveActions().findIndex(
+          (interactiveAction) => interactiveAction.action.type === ActionType.sufferDamage
+        );
+        if (damageIndex !== -1) {
+          this.toggledOffActions = this.interactiveActions().slice(damageIndex + 1);
+          if (this.toggledOffActions.length) {
+            this.interactiveActions.set(this.interactiveActions().slice(0, damageIndex + 1));
+          }
+        }
+      }
     } else {
       this.interactiveActionEntities = [];
       this.interactiveActions.set([]);
+      this.toggledOffActions = [];
     }
   }
 
@@ -150,11 +163,6 @@ export class InteractiveActionsComponent implements OnInit {
           }
         }
       }
-    }
-
-    if (!this.ignoreWarning && this.checkWarning()) {
-      this.ignoreWarning = true;
-      return;
     }
 
     if (this.interactiveActionEntities.length) {
@@ -232,7 +240,8 @@ export class InteractiveActionsComponent implements OnInit {
 
         const disabledInteractiveActions = gameManager.actionsManager
           .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
-          .filter((interactiveAction) => !this.interactiveActions().find((other) => other.index === interactiveAction.index));
+          .filter((interactiveAction) => !this.interactiveActions().find((other) => other.index === interactiveAction.index))
+          .filter((interactiveAction) => !this.toggledOffActions.find((other) => other.index === interactiveAction.index));
         disabledInteractiveActions.forEach((interactiveAction) => {
           const tag = gameManager.actionsManager.roundTag(interactiveAction.action, interactiveAction.index);
           if (!entity.tags.includes(tag)) {

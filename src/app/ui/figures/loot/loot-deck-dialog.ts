@@ -308,6 +308,14 @@ export class LootDeckDialogComponent implements OnInit {
       this.current = this.deck.current;
     }
     this.deck.cards.splice(index, 1);
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        if (figure.lootCards.includes(index)) {
+          figure.lootCards.splice(figure.lootCards.indexOf(index), 1);
+        }
+        figure.lootCards = figure.lootCards.map((i) => (i < index ? i : i - 1));
+      }
+    });
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
     this.update();
   }
