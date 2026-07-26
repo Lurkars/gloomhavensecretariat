@@ -938,7 +938,8 @@ export class GameManager {
   }
 
   prosperityTicks(): number {
-    return this.game.party.prosperity + this.extraProsperity();
+    const steps = this.prosperitySteps();
+    return Math.min(this.game.party.prosperity + this.extraProsperity(), steps[steps.length - 1]);
   }
 
   fhRules(gh2e: boolean = false): boolean {
@@ -1305,7 +1306,7 @@ export class GameManager {
     const steps = this.prosperitySteps();
     const levelMin = steps.findLast((n) => n <= this.prosperityTicks()) ?? steps[0];
     const min = (force ? 0 : levelMin) - this.extraProsperity();
-    const max = steps[steps.length - 1] - this.extraProsperity();
+    const max = steps[steps.length - 1] - steps[0];
     this.game.party.prosperity = ghsClamp(this.game.party.prosperity + value, min, max);
   }
 
