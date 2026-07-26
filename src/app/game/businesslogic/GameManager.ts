@@ -1310,8 +1310,9 @@ export class GameManager {
   }
 
   changeFactionReputation(faction: string, value: number, force: boolean = false) {
-    const max = !force && !gameManager.gh2eFactionUnlock(faction) ? 12 : 20;
-    this.game.party.factionReputation[faction] = ghsClamp((this.game.party.factionReputation[faction] || 0) + value, -10, max);
+    const current = this.game.party.factionReputation[faction] || 0;
+    const max = gameManager.gh2eFactionUnlock(faction) || force ? 20 : Math.max(12, current);
+    this.game.party.factionReputation[faction] = ghsClamp(current + value, -10, max);
   }
 
   gh2eFactionUnlocks(): string[] {
