@@ -115,7 +115,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       ...gameManager.scenarioManager.scenarioData(this.edition, !this.campaignMode),
       ...extendedEditions.flatMap((ext) => gameManager.scenarioManager.scenarioData(ext, !this.campaignMode))
     ].filter((scenarioData) => {
-      if (scenarioData.random || scenarioData.group === 'random' || scenarioData.group === 'randomDungeon') {
+      if (scenarioData.group === 'randomDungeon') {
         return false;
       }
       if (this.campaignMode && scenarioData.solo) {
