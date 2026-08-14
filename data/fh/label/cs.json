@@ -1,0 +1,21 @@
+{
+  "ability": {
+    "Accelerated Metabolism": "Zrychlený metabolismus"
+  },
+  "monster": {
+    "abael-herder": "Abaelský Pastýř",
+    "abael-scout": "Abaelský Zvěd",
+    "algox-archer": "Alogoxský Lučisník",
+    "algox-guard": "Alogoxský Strážce",
+    "algox-priest": "Alogoxský Kněž",
+    "algox-scout": "Alogoxský Zvěd",
+    "black-imp": "Černý Rarach",
+    "blacksmith": "Kovář",
+    "brother": "Bratr",
+    "chaos-demon": "Démon Chaosu",
+    "deep-terror": "Ďas z Hlubin",
+    "earth-demon": "Démon Země",
+    "flame-demon": "Démon Ohně",
+    "frozen-fist": "Ledová Pěst"
+  }
+}

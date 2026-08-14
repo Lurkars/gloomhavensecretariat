@@ -1817,10 +1817,10 @@
         },
         "4A": {
           "2": "你们在调查傲雪山脉的秘密入口时，救出了一位名叫<strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong>的冰角祭祀。她属于雪语者--一群相信神（<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>）通过天上飘下的雪与他们交流的冰角。雪语者正与冰语者交战，后者相信神通过地上结出的冰与他们交流。冰语者目前占据了傲雪山脉，但在他们进攻寒霜港时，雪语者趁机发动了攻击。",
-          "3": "你们在调查傲雪山脉的秘密入口时，救出了一位名叫<strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong>的冰角祭祀。她属于雪语者--一群相信神（<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>）通过天上飘下的雪与他们交流的冰角。雪语者正与冰语者交战，后者相信神通过地上结出的冰与他们交流。冰语者目前占据了傲雪山脉，但在他们进攻寒霜港时，雪语者趁机发动了攻击。"
+          "3": "你们冲破了两伙敌对冰角之间的战线。其中一个冰角自称冰语者，向你打了招呼并告诉你雪语者在他们进攻寒霜港时入侵了他们的家园。傲雪山脉对冰语者和雪语者都具有重要的宗教意义，这两伙人信奉同一个神<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>，但只认同自身与神交流的方式。"
         },
         "4B": {
-          "2": "你们冲破了两伙敌对冰角之间的战线。其中一个冰角自称冰语者，向你打了招呼并告诉你雪语者在他们进攻寒霜港时入侵了他们的家园。傲雪山脉对冰语者和雪语者都具有重要的宗教意义，这两伙人信奉同一个神<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>，但只认同自身与神交流的方式。",
+          "2": "你们在调查傲雪山脉的秘密入口时，救出了一位名叫<strong>%ui.tooltip:data.scenario.recap.fh.character.lanprul%</strong>的冰角祭祀。她属于雪语者--一群相信神（<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>）通过天上飘下的雪与他们交流的冰角。雪语者正与冰语者交战，后者相信神通过地上结出的冰与他们交流。冰语者目前占据了傲雪山脉，但在他们进攻寒霜港时，雪语者趁机发动了攻击。",
           "3": "你们冲破了两伙敌对冰角之间的战线。其中一个冰角自称冰语者，向你打了招呼并告诉你雪语者在他们进攻寒霜港时入侵了他们的家园。傲雪山脉对冰语者和雪语者都具有重要的宗教意义，这两伙人信奉同一个神<strong>%ui.tooltip:data.scenario.recap.fh.character.geryuu%</strong>，但只认同自身与神交流的方式。"
         },
         "5": {

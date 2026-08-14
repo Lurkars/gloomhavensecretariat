@@ -1,5 +1,30 @@
 {
   "edition": {
     "sits": "Schädel im Schnee"
+  },
+  "scenario": {
+    "rewards": {
+      "sits": {
+        "herb1": "Jeder Charakter erhält ein beliebiges Kraut"
+      }
+    },
+    "rules": {
+      "sits": {
+        "1": "Stadtwachen handeln bei Initiative 50 jede Runde mit %game.action.move% %game.action.attack.valueSign:0% +0 von Dir kontrolliert. Auf Stufen wird dieser Bonus verdoppelt.",
+        "2": "Der Ratzen Späher ist der verrückte Scharfschütze. Er hat HxC Lebenspunkte und %game.action.shield:1%.",
+        "3": "Alle elite Harrower Infester erhalten %game.action.move.valueSign:1% zu all ihren Bewegungen hinzu.",
+        "7": "Neben schwierigem Gelände %game.mapMarker.b%"
+      }
+    },
+    "title": {
+      "sits": {
+        "141": "Schädel vor den Toren",
+        "144": "Der heilende Schwarm",
+        "147": "Unter Druck",
+        "148": "Das große Käfer Rennen",
+        "149": "Abwärts",
+        "150": "Der Schwarm"
+      }
+    }
   }
 }

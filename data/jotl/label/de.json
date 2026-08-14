@@ -95,6 +95,7 @@
     "Nowhere to Run": "Kein Entkommen",
     "Noxious Blade": "Seuchenklinge",
     "One-Two Punch": "Doppelschlag",
+    "Ones-Two Punch": "Doppelschlag",
     "Overwatch": "Überwachung",
     "Parry": "Parade",
     "Patch Wounds": "Zusammenflicken",
@@ -952,6 +953,8 @@
     "Loot": "Beute",
     "Nest": "Nest",
     "Pillar": "Säule",
+    "Pillar left": "Säule links",
+    "Pillar right": "Säule rechts",
     "Summoning Stone": "Beschwörungsstein",
     "Table": "Tisch",
     "Ward": "Schutzzeichen"
@@ -970,6 +973,7 @@
           "1": "ein für jeden Schwarzwicht in Rechweite 3 eines Fanatikers, welcher dann %game.condition.stun% erhält"
         },
         "20": {
+          "1": "Beute wird durch Zielobjekte dargestellt, nach einer Beute-Aktion entferne das Zielobjek, um Güter zu finden",
           "2": "Findet 1x Waren",
           "3": "Findet Ring der Erholung (Gegenstand 32)"
         },

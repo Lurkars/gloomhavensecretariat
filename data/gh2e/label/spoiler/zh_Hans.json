@@ -132,6 +132,13 @@
             "1": "当你召唤本召唤物时，它获得%game.condition.ward%。当你充分休息时，本召唤物获得%game.condition.ward%。",
             "2": "你的召唤物以该敌人为焦点目标。在你的一个召唤物对该敌人执行了一次攻击后，每轮限一次，赋予那个召唤物：",
             "3": "该攻击必须以带有%data.action.custom.gh2e-doom%的敌人为目标。"
+          },
+          "398": {
+            "1": "如果目标带有%data.action.custom.gh2e-doom%，增加%game.action.attack.valueSign:2%并获得%game.card.experience:1%。"
+          },
+          "399": {
+            "1": "如果你与墙壁且并未占据走廊板块，获得%data.condition.invisible%。本轮结束时，失去%data.condition.invisible%。",
+            "2": "本轮中，对与你相邻的召唤物发动的所有攻击获得劣势。"
           }
         }
       },

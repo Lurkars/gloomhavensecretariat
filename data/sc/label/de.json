@@ -1,7 +1,27 @@
 {
   "battleGoals": {
     "sc-1": {
-      "": "Akrobatisch"
+      "": "Akrobatisch",
+      "text": "Verliere eine Karte um 5 oder mehr Schaden zu verhindern."
+    },
+    "sc-10": {
+      "": "Diskriminierend",
+      "text": "Töte keine elite Monster oder Bosse während des Szenarios."
+    },
+    "sc-11": {
+      "": "Abgelenkt",
+      "text": "Töte ein Monster an das du nicht angrenzt, während du an ein anderes Monster angrenzt."
+    },
+    "sc-12": {
+      "": "Schläfrig",
+      "text": "Führe eine lange Rast mit maximaler Gesundheit durch."
+    },
+    "sc-13": {
+      "": "Elitist",
+      "text": "Töte nur elite Monster."
+    },
+    "sc-14": {
+      "": "Exterminator"
     }
   }
 }

@@ -2308,6 +2308,7 @@
         "campaignRewards": "开启任务奖励",
         "fh": "霜港迷城休闲模式",
         "hintFh": "在霜港迷城休闲模式中,所有战役效果被忽略. 事件不会解决, 时间不会流逝,队伍不会获得任何经验, 战利品, 宝藏, 专长标记, 个人任务进度,奖励, 解锁进度等",
+        "hintGh2e": "在休闲模式下，所以战役触发效果均被无视。不触发任何事件，队伍也不会获得任何经验值、战利品、财宝、战斗目标、个人任务进度、剧本奖励、解锁项等",
         "ignore": "不管就要给我奖励!",
         "reapply": "切换至休闲模式"
       },
@@ -3277,7 +3278,7 @@
         "monster": "应用 %game.condition.{2}% 至 {0} 的 '{1}'",
         "monsterEntities": "应用%game.condition.{1}% 至所有 {2}{0}",
         "objective": "应用 %game.condition.{1}% 至 {0}",
-        "objectiveContainer": "应用 %game.condition.{2}% 至 {0} 的 %game.objectiveMarker.{1}%",
+        "objectiveContainer": "应用 %game.condition.{2}% 至 {0} 的{1}",
         "summon": "应用 %game.condition.{2}% 至 {0} 的 '{1}'"
       },
       "applyHighlightAction": {
@@ -3402,7 +3403,7 @@
         "monster": "拒绝将 %game.condition.{2}% 应用至 {0} 的 '{1}'",
         "monsterEntities": "拒绝将 %game.condition.{1}% 应用至所有 {2}{0}",
         "objective": "拒绝将 %game.condition.{1}% 应用至 {0}",
-        "objectiveContainer": "拒绝将 %game.condition.{2}% 应用至 {0} 的 %game.objectiveMarker.{1}%",
+        "objectiveContainer": "取消将 %game.condition.{2}% 应用至 {0} 的{1}",
         "summon": "拒绝将 %game.condition.{2}% 应用至 {0} 的 '{1}'"
       },
       "disableAutomaticLevel": "禁用自动等级计算",
