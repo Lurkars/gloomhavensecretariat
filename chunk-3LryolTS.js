@@ -1,0 +1,1 @@
+import{c as v,s as m}from"./chunk-D24PpriV2.js";export{v as createInfoServices};
