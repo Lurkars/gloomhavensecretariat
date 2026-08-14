@@ -305,7 +305,7 @@ export class ScenarioRulesManager {
     try {
       active =
         !!evaluateExpression(round, {
-          R: rule.start ? this.game.round + 1 : this.game.round,
+          R: rule.start && initial ? this.game.round + 1 : this.game.round,
           C: gameManager.characterManager.characterCount()
         }) &&
         (rule.always || this.game.state === GameState.next || (rule.start && initial));

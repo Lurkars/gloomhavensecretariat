@@ -155,10 +155,18 @@ describe('ScenarioRulesManager', () => {
       expect(scenarioRulesManager.scenarioRuleActive(rule, 0, false)).toBe(true);
     });
 
-    it('uses R = round + 1 when rule.start is set', () => {
+    it('rule.start matches game.round directly outside initial setup (game.round is already the live round once GameState.next is reached)', () => {
       const rule = Object.assign(new ScenarioRule('R==2'), { always: true, start: true });
-      gameManager.game.round = 1;
+      gameManager.game.round = 2;
       expect(scenarioRulesManager.scenarioRuleActive(rule, 0, false)).toBe(true);
+      gameManager.game.round = 1;
+      expect(scenarioRulesManager.scenarioRuleActive(rule, 0, false)).toBe(false);
+    });
+
+    it('rule.start uses R = round + 1 only during initial setup, before game.round has been incremented for round 1', () => {
+      const rule = Object.assign(new ScenarioRule('R==1'), { always: true, start: true });
+      gameManager.game.round = 0;
+      expect(scenarioRulesManager.scenarioRuleActive(rule, 0, false, true)).toBe(true);
     });
 
     it('without rule.always, is only active during GameState.next (or start+initial)', () => {

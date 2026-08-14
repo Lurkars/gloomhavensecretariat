@@ -1,4 +1,4 @@
-import { DestroyRef, Directive, ElementRef, inject, input, OnInit, output } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, HostListener, inject, input, OnInit, output } from '@angular/core';
 import { outputFromObservable } from '@angular/core/rxjs-interop';
 import { Subject } from 'rxjs';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -12,6 +12,7 @@ export const repeatInterval: number = 100;
 export const dragWidthThreshold: number = 1200;
 export const dragWidthFactor: number = 0.4;
 export const maxElementDepth: number = 50;
+export const wheelEndTreshhold: number = 400;
 
 @Directive({
   selector: 'ghs-pointer-input, [ghs-pointer-input]'
@@ -32,6 +33,7 @@ export class PointerInputDirective implements OnInit {
   readonly forceDoubleClick = input<boolean>(false);
   readonly onRelease = input<boolean>(false);
   readonly fastShift = input<boolean>(false);
+  readonly scrollWheel = input<boolean>(true);
   private _dragMove$ = new Subject<number>();
   readonly dragMove = outputFromObservable(this._dragMove$);
   private _dragEnd$ = new Subject<number>();
@@ -55,6 +57,9 @@ export class PointerInputDirective implements OnInit {
   fastOffset: number = 0;
   lastX: number = 0;
   isDragElement: boolean = false;
+  wheelBase: number = 0;
+  wheelOffset: number = 0;
+  wheelTimeout: any = null;
 
   constructor() {
     this.value = -1;
@@ -231,6 +236,47 @@ export class PointerInputDirective implements OnInit {
       this._dragEnd$.next(this.value);
     }
     this.reset();
+  }
+
+  @HostListener('wheel', ['$event'])
+  wheel(event: WheelEvent) {
+    if (
+      this.disabled() ||
+      this.draggingDisabled() ||
+      !this.scrollWheel() ||
+      !settingsManager.settings.dragValues ||
+      !(this._dragMove$.observed || this._dragEnd$.observed)
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (!this.wheelTimeout) {
+      this.elementRef.nativeElement.classList.add('dragging');
+      this.wheelOffset = 0;
+      if (this.relative()) {
+        this.wheelBase = 0;
+      } else {
+        const rect = this.elementRef.nativeElement.getBoundingClientRect();
+        this.wheelBase = Math.floor(Math.min(99, Math.max(0, ((event.clientX - rect.left) / rect.width) * 100)));
+      }
+    } else {
+      clearTimeout(this.wheelTimeout);
+    }
+
+    const step = event.shiftKey ? 5 : 1;
+    this.wheelOffset += event.deltaY < 0 ? step : -step;
+    this.value = this.wheelBase + this.wheelOffset;
+    this._dragMove$.next(this.value);
+
+    this.wheelTimeout = setTimeout(() => {
+      if (this.value >= 0 || this.relative()) {
+        this._dragEnd$.next(this.value);
+      }
+      this.reset();
+      this.wheelTimeout = null;
+    }, wheelEndTreshhold);
   }
 
   cancel() {

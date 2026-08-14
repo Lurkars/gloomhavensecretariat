@@ -128,6 +128,7 @@ export class FooterComponent implements OnInit {
         gameManager.lootManager.easter &&
         !!gameManager.game.scenario &&
         gameManager.game.state === GameState.draw &&
+        !gameManager.roundManager.firstRound &&
         gameManager.game.playSeconds >= 300
       ) {
         const waitingSteps = [300, 600, 840, 1020, 1140, 1200];

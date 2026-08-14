@@ -1,12 +1,12 @@
-# Primary supported browsers (Angular 20 baseline)
-Chrome > 110
-ChromeAndroid > 110
-Edge > 110
-Firefox > 111
-FirefoxAndroid >=111
-Safari > 16.3
+# Primary supported browsers
+Chrome > 118
+ChromeAndroid > 118
+Edge > 118
+Firefox > 118
+FirefoxAndroid >=118
+Safari > 16.8
 ios_saf > 26.5
-iOS > 16.3
+iOS > 16.8
 
 # Broader coverage - warns but still builds
 > 0.6%
@@ -17,7 +17,7 @@ not and_uc > 0
 not op_mob > 0
 not samsung > 0
 not android > 0
-not chrome < 110
+not chrome < 118
 not opera < 123
 not ios_saf 26.5
 not safari 26.5

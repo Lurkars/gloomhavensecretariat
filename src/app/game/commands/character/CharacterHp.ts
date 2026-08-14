@@ -20,8 +20,7 @@ export class CharacterHpCommand extends CommandImpl {
   executeWithParameters(number: number, hp: number) {
     const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character) {
-      character.health += hp;
-      gameManager.entityManager.checkHealth(character, character);
+      gameManager.entityManager.changeHealth(character, character, hp);
     } else {
       this.executionError('character not found or invalid');
     }
