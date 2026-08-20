@@ -1,4 +1,0 @@
-import{n as o}from"./chunk-Cvof6wl4.js";import{R as ct}from"./chunk-B3_ONX3Q.js";import{v as Zs}from"./chunk-D3lOZ7O0.js";import{t as a}from"./chunk-M3ijqKS_.js";import{j as d}from"./chunk-D24PpriV2.js";var g={parse:o(async e=>{let t=await d(`info`,e);ct.debug(t)},`parse`)};var m={version:`11.16.1`};var w={parser:g,db:{getVersion:o(()=>m.version,`getVersion`)},renderer:{draw:o((e,t,p)=>{ct.debug(`rendering info diagram
-`+e);let o=a(t);Zs(o,100,400,!0),o.append(`g`).append(`text`).attr(`x`,100).attr(`y`,40).attr(`class`,`version`).attr(`font-size`,32).style(`text-anchor`,`middle`).text(`v${p}`)},`draw`)}};export{w as diagram};
-//# debugId=73814934-632b-5ee7-b4d0-3e2eb0ac8d92
-//# sourceMappingURL=chunk-BoiNNfak2.js.map

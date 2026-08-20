@@ -1312,7 +1312,7 @@ ${error.stack}`;
   };
 
   // packages/service-worker/worker/src/debug.js
-  var SW_VERSION = "22.1.2";
+  var SW_VERSION = "22.1.3";
   var DEBUG_LOG_BUFFER_SIZE = 100;
   var DebugHandler = class {
     constructor(driver, adapter2) {
@@ -1707,7 +1707,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ "Content-Type": "text/plain" }
       }
       const desc = data.notification;
       let options = {};
-      NOTIFICATION_OPTION_NAMES.filter((name) => desc.hasOwnProperty(name)).forEach((name) => options[name] = desc[name]);
+      NOTIFICATION_OPTION_NAMES.filter((name) => Object.hasOwn(desc, name)).forEach((name) => options[name] = desc[name]);
       await this.scope.registration.showNotification(desc["title"], options);
     }
     async handleClick(notification, action) {
@@ -1873,7 +1873,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ "Content-Type": "text/plain" }
           table.read("assignments"),
           table.read("latest")
         ]);
-        if (!this.versions.has(latest.latest) && !manifests.hasOwnProperty(latest.latest)) {
+        if (!this.versions.has(latest.latest) && !Object.hasOwn(manifests, latest.latest)) {
           this.debugger.log(`Missing manifest for latest version hash ${latest.latest}`, "initialize: read from DB");
           throw new Error(`Missing manifest for latest hash ${latest.latest}`);
         }

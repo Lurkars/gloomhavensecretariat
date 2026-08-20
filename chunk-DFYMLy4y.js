@@ -1,1 +1,0 @@
-import{C,w as v}from"./chunk-D24PpriV2.js";export{v as createArchitectureServices};
