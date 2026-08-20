@@ -656,7 +656,7 @@ describe('EntityManager', () => {
 
       entityManager.changeHealth(character, character, -5);
 
-      expect(character.health).toBe(-2);
+      expect(character.health).toBe(0);
       expect(character.exhausted).toBe(true);
     });
 

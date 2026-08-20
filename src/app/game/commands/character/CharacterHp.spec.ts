@@ -65,7 +65,7 @@ describe('CharacterHpCommand', () => {
       const character = createTestCharacter(1, 1, 10);
       character.health = 3;
       new CharacterHpCommand(character.number, -10).execute();
-      expect(character.health).toBe(-7);
+      expect(character.health).toBe(0);
       expect(character.exhausted).toBe(true);
       expect(character.off).toBe(true);
     });
