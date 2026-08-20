@@ -8,6 +8,7 @@ import { ConditionName } from 'src/app/game/model/data/Condition';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { downloadJson } from 'src/app/ui/helper/Static';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { environment } from 'src/environments/environment';
@@ -22,7 +23,6 @@ export class EditionEditorComponent implements OnInit {
   readonly inputEditionData = viewChild.required<ElementRef>('inputEditionData');
 
   gameManager: GameManager = gameManager;
-  encodeURIComponent = encodeURIComponent;
   Conditions: ConditionName[] = Object.values(ConditionName).filter(
     (condition) => condition !== ConditionName.bless && condition !== ConditionName.curse
   );
@@ -51,7 +51,7 @@ export class EditionEditorComponent implements OnInit {
     this.inputEditionData().nativeElement.value = JSON.stringify(compactData, null, 2);
   }
 
-  jsonDownload(): string {
+  jsonDownload(): void {
     const compactData: any = JSON.parse(JSON.stringify(this.editionData));
 
     Object.keys(compactData).forEach((key) => {
@@ -60,7 +60,7 @@ export class EditionEditorComponent implements OnInit {
       }
     });
 
-    return this.encodeURIComponent(JSON.stringify(compactData));
+    downloadJson(compactData, this.editionData.edition + '.json');
   }
 
   loadEditionData(event: any) {

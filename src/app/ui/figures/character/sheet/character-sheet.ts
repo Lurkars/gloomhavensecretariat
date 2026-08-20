@@ -33,7 +33,7 @@ import { TrialDialogComponent } from 'src/app/ui/figures/trials/dialog/trial-dia
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
-import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from 'src/app/ui/helper/Static';
+import { downloadJson, ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from 'src/app/ui/helper/Static';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
@@ -679,15 +679,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   exportCharacter() {
-    const downloadButton = document.createElement('a');
-    downloadButton.setAttribute(
-      'href',
-      'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.character.toModel()))
-    );
-    downloadButton.setAttribute('download', (this.character.title ? this.character.title + '_' : '') + this.character.name + '.json');
-    document.body.appendChild(downloadButton);
-    downloadButton.click();
-    document.body.removeChild(downloadButton);
+    downloadJson(this.character.toModel(), (this.character.title ? this.character.title + '_' : '') + this.character.name + '.json');
   }
 
   importCharacter(event: any) {

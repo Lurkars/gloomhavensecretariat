@@ -21,6 +21,7 @@ import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { HeaderComponent } from 'src/app/ui/header/header';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { downloadJsonString } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { EditorActionDialogComponent } from 'src/app/ui/tools/editor/action/action';
 import { environment } from 'src/environments/environment';
@@ -112,7 +113,6 @@ export class DeckEditorComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   ActionType = ActionType;
   ActionValueType = ActionValueType;
-  encodeURIComponent = encodeURIComponent;
   deckData: DeckData;
   decksData: DeckData[] = [];
   editions: string[] = [];
@@ -194,6 +194,10 @@ export class DeckEditorComponent implements OnInit {
 
       return true;
     });
+  }
+
+  jsonDownload(value: string) {
+    downloadJsonString(value, this.deckData.name + '.json');
   }
 
   deckDataToJson() {

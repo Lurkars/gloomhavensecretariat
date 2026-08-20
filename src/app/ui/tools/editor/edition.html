@@ -117,7 +117,7 @@
       <div>{{ editionError }}</div>
       <textarea #inputEditionData></textarea>
 
-      <a class="button" [href]="'data:application/json;charset=utf-8,' + jsonDownload()" [download]="editionData.edition + '.json'"
+      <a class="button" (click)="jsonDownload()"
         ><img class="ghs-icon" src="./assets/images/export.svg" /> <span [ghs-label]="'editor.edition.json.download'"></span
       ></a>
     </div>

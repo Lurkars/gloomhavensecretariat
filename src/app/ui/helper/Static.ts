@@ -215,3 +215,24 @@ export function ghsDefaultDialogPositions(defaultDirection: 'right' | 'left' | '
       return [...center, ...left, ...right];
   }
 }
+
+export const downloadBlob = function (blob: Blob, filename: string): void {
+  const url = URL.createObjectURL(blob);
+  const downloadButton = document.createElement('a');
+  downloadButton.setAttribute('href', url);
+  downloadButton.setAttribute('download', filename);
+  // Safari requires the anchor to be in the document before the click is dispatched.
+  document.body.appendChild(downloadButton);
+  downloadButton.click();
+  document.body.removeChild(downloadButton);
+  // Revoking synchronously cancels the download in Safari, it has not read the blob yet.
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+};
+
+export const downloadJson = function (data: unknown, filename: string): void {
+  downloadBlob(new Blob([JSON.stringify(data)], { type: 'application/json' }), filename);
+};
+
+export const downloadJsonString = function (json: string, filename: string): void {
+  downloadBlob(new Blob([json], { type: 'application/json' }), filename);
+};

@@ -1,6 +1,7 @@
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameModel } from 'src/app/game/model/Game';
 import { Settings } from 'src/app/game/model/Settings';
+import { downloadJson } from 'src/app/ui/helper/Static';
 
 export class StorageManager {
   db: IDBDatabase | undefined;
@@ -355,12 +356,7 @@ export class StorageManager {
 
     try {
       const datadump: any = await storageManager.datadump(true);
-      const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-      downloadButton.setAttribute('download', 'ghs-migration-backup.json');
-      document.body.appendChild(downloadButton);
-      downloadButton.click();
-      document.body.removeChild(downloadButton);
+      downloadJson(datadump, 'ghs-migration-backup.json');
     } catch {
       console.warn('Could not read datadump');
     }

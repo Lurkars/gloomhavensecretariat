@@ -12,7 +12,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
-import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { downloadJson, ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { environment } from 'src/environments/environment';
 
 export type FEEDBACK_ISSUE_TYPE = 'abilityCard' | 'monsterStat' | 'characterStat' | 'artwork' | 'software' | 'feedback' | 'automatic';
@@ -130,12 +130,7 @@ export class FeedbackDialogComponent {
   async downloadDataDump() {
     try {
       const datadump: any = await storageManager.datadump();
-      const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-      downloadButton.setAttribute('download', 'ghs-data-dump.json');
-      document.body.appendChild(downloadButton);
-      downloadButton.click();
-      document.body.removeChild(downloadButton);
+      downloadJson(datadump, 'ghs-data-dump.json');
     } catch {
       console.warn('Could not read datadump');
     }

@@ -28,6 +28,7 @@ import { KeyboardShortcuts } from 'src/app/ui/helper/keyboard-shortcuts';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { PointerInputService } from 'src/app/ui/helper/pointer-input-service';
+import { downloadJson } from 'src/app/ui/helper/Static';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { environment } from 'src/environments/environment';
@@ -663,12 +664,7 @@ export class MainComponent implements OnInit {
   async exportDataDump() {
     try {
       const datadump: any = await storageManager.datadump();
-      const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-      downloadButton.setAttribute('download', 'ghs-data-dump_' + new Date().toISOString() + '.json');
-      document.body.appendChild(downloadButton);
-      downloadButton.click();
-      document.body.removeChild(downloadButton);
+      downloadJson(datadump, 'ghs-data-dump_' + new Date().toISOString() + '.json');
     } catch {
       console.warn('Could not read datadump');
     }

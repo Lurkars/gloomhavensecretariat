@@ -10,7 +10,7 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { HeaderComponent } from 'src/app/ui/header/header';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
-import { ghsIsSpoiled } from 'src/app/ui/helper/Static';
+import { downloadJsonString, ghsIsSpoiled } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { DeckEditorComponent } from 'src/app/ui/tools/editor/deck/deck';
 import { environment } from 'src/environments/environment';
@@ -28,7 +28,6 @@ export class CharacterEditorComponent implements OnInit {
   readonly inputCharacterData = viewChild.required<ElementRef>('inputCharacterData');
 
   gameManager: GameManager = gameManager;
-  encodeURIComponent = encodeURIComponent;
   isSpoiled = ghsIsSpoiled;
   characterData: CharacterData;
   characterError: any;
@@ -108,6 +107,10 @@ export class CharacterEditorComponent implements OnInit {
       });
     }
     this.characterDataToJson();
+  }
+
+  jsonDownload(value: string) {
+    downloadJsonString(value, this.characterData.name + '.json');
   }
 
   characterDataToJson() {

@@ -164,17 +164,6 @@
                   </div>
                 </div>
               </div>
-              <div class="import-export">
-                <label class="export" (click)="exportParty()" [ghs-label]="'party.export'" [ghs-label-attribute]="'title'">
-                  <img src="./assets/images/export.svg" />
-                  <span><span [ghs-label]="'party.export'"></span></span>
-                </label>
-                <label class="import" [ghs-label]="'party.import'" [ghs-label-attribute]="'title'" (click)="ghsInputFullScreenCheck()">
-                  <input type="file" accept="application/json" (change)="importParty($event)" />
-                  <img src="./assets/images/import.svg" />
-                  <span><span [ghs-label]="'party.import'"></span></span>
-                </label>
-              </div>
             </div>
           </div>
         </div>

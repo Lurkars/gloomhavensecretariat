@@ -177,6 +177,7 @@ export class EntityManager {
           !settingsManager.settings.activeApplyConditionsAuto.includes(condition.name)
       )
     ) {
+      entity.health = 0;
       if (entity instanceof Character && (!entity.off || !entity.exhausted)) {
         entity.off = true;
         entity.exhausted = true;

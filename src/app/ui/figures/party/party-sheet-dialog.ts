@@ -609,7 +609,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   selectParty(event: any) {
-    const party = gameManager.game.parties.find((party) => party.id === event.target.value);
+    const party = gameManager.game.parties.find((party) => !isNaN(+event.target.value) && party.id === +event.target.value);
     if (party) {
       gameManager.stateManager.before('changeParty', party.name || '%party% ' + party.id);
       this.changeParty(party);
@@ -698,43 +698,6 @@ export class PartySheetDialogComponent implements OnInit {
           this.unlockConclusion(this.imbuementSections[+imbuement], true);
         }
       });
-  }
-
-  exportParty() {
-    const downloadButton = document.createElement('a');
-    downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.party)));
-    downloadButton.setAttribute('download', (this.party.name ? this.party.name + '_' : '') + 'campaign.json');
-    document.body.appendChild(downloadButton);
-    downloadButton.click();
-    document.body.removeChild(downloadButton);
-  }
-
-  importParty(event: any) {
-    const parent = event.target.parentElement;
-    parent.classList.remove('error');
-    try {
-      const reader = new FileReader();
-      reader.addEventListener('load', (event: any) => {
-        const party = Object.assign(new Party(), JSON.parse(event.target.result));
-        if (!party) {
-          parent.classList.add('error');
-        } else {
-          gameManager.stateManager.before('importParty');
-          if (party.id === this.party.id && party.name && party.name === this.party.name) {
-            gameManager.game.party = party;
-          } else {
-            this.addParty(party);
-          }
-          this.party = gameManager.game.party;
-          gameManager.stateManager.after();
-        }
-      });
-
-      reader.readAsText(event.target.files[0]);
-    } catch (e: any) {
-      console.warn(e);
-      parent.classList.add('error');
-    }
   }
 
   countFinished(scenarioData: ScenarioData, casual: boolean = false): number {

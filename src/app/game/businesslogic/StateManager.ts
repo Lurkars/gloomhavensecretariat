@@ -7,6 +7,7 @@ import { Game, GameModel } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Permissions } from 'src/app/game/model/Permissions';
 import { localSettings, Settings } from 'src/app/game/model/Settings';
+import { downloadJson } from 'src/app/ui/helper/Static';
 
 export class StateManager {
   game: Game;
@@ -726,12 +727,7 @@ export class StateManager {
             console.warn('Could not post autobackup', settingsManager.settings.autoBackupUrl, error);
           }
         } else {
-          const downloadButton = document.createElement('a');
-          downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(datadump)));
-          downloadButton.setAttribute('download', filename);
-          document.body.appendChild(downloadButton);
-          downloadButton.click();
-          document.body.removeChild(downloadButton);
+          downloadJson(datadump, filename);
         }
       } catch {
         console.warn('Could not create autobackup');

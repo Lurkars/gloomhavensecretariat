@@ -292,10 +292,7 @@
       </h2>
       <div>{{ deckError }}</div>
       <textarea #inputDeckData></textarea>
-      <a
-        class="button"
-        [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputDeckData.value)"
-        [download]="deckData.name + '.json'"
+      <a class="button" (click)="jsonDownload(inputDeckData.value)"
         ><img class="ghs-icon" src="./assets/images/export.svg" /> <span [ghs-label]="'editor.deck.json.download'"></span
       ></a>
     </div>

@@ -10,7 +10,7 @@ import { GameModel } from 'src/app/game/model/Game';
 import { Settings } from 'src/app/game/model/Settings';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
-import { ghsInputFullScreenCheck } from 'src/app/ui/helper/Static';
+import { downloadJson, ghsInputFullScreenCheck } from 'src/app/ui/helper/Static';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
@@ -173,12 +173,7 @@ export class DatamanagementMenuComponent implements OnInit {
     try {
       const gameModel = await storageManager.readGameModel();
       if (gameModel) {
-        const downloadButton = document.createElement('a');
-        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(gameModel)));
-        downloadButton.setAttribute('download', 'ghs-game' + (gameModel.party.name ? '_' + gameModel.party.name : '') + '.json');
-        document.body.appendChild(downloadButton);
-        downloadButton.click();
-        document.body.removeChild(downloadButton);
+        downloadJson(gameModel, 'ghs-game' + (gameModel.party.name ? '_' + gameModel.party.name : '') + '.json');
       }
     } catch {
       console.warn('No game found');
@@ -190,15 +185,7 @@ export class DatamanagementMenuComponent implements OnInit {
       const backups = await storageManager.readAll<GameModel>('game-backup');
       if (backups && backups.length > 0) {
         const backup = backups[backups.length - 1];
-        const downloadButton = document.createElement('a');
-        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backup)));
-        downloadButton.setAttribute(
-          'download',
-          'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json'
-        );
-        document.body.appendChild(downloadButton);
-        downloadButton.click();
-        document.body.removeChild(downloadButton);
+        downloadJson(backup, 'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json');
       }
     } catch {
       console.warn('No backup found');
@@ -210,15 +197,7 @@ export class DatamanagementMenuComponent implements OnInit {
       const backups = await storageManager.readAll<GameModel>('game-backup');
       if (backups && backups.length > 0) {
         backups.forEach((backup) => {
-          const downloadButton = document.createElement('a');
-          downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backup)));
-          downloadButton.setAttribute(
-            'download',
-            'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json'
-          );
-          document.body.appendChild(downloadButton);
-          downloadButton.click();
-          document.body.removeChild(downloadButton);
+          downloadJson(backup, 'ghs-game' + (backup.party.name ? '_' + backup.party.name : '') + '-rev' + backup.revision + '.json');
         });
       }
     } catch {
@@ -309,12 +288,7 @@ export class DatamanagementMenuComponent implements OnInit {
         if (!settingsManager.settings.serverExportCode) {
           settings['serverCode'] = '';
         }
-        const downloadButton = document.createElement('a');
-        downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings)));
-        downloadButton.setAttribute('download', 'ghs-settings.json');
-        document.body.appendChild(downloadButton);
-        downloadButton.click();
-        document.body.removeChild(downloadButton);
+        downloadJson(settings, 'ghs-settings.json');
       }
     } catch {
       console.warn('No settings found');

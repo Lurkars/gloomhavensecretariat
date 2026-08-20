@@ -312,10 +312,7 @@
         <div>{{ monsterError }}</div>
         <textarea #inputMonsterData></textarea>
 
-        <a
-          class="button"
-          [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputMonsterData.value)"
-          [download]="monsterData.name + '.json'"
+        <a class="button" (click)="jsonDownload(inputMonsterData.value)"
           ><img class="ghs-icon" src="./assets/images/export.svg" /> <span [ghs-label]="'editor.monster.stats.json.download'"></span
         ></a>
       </div>

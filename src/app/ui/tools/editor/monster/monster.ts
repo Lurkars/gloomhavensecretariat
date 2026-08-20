@@ -19,6 +19,7 @@ import { MonsterStatsComponent } from 'src/app/ui/figures/monster/stats/stats';
 import { HeaderComponent } from 'src/app/ui/header/header';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
+import { downloadJsonString } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { EditorActionDialogComponent } from 'src/app/ui/tools/editor/action/action';
 import { compactAction, DeckEditorComponent } from 'src/app/ui/tools/editor/deck/deck';
@@ -59,7 +60,6 @@ export class MonsterEditorComponent implements OnInit {
   monsterData: MonsterData;
   ActionType = ActionType;
   ActionValueType = ActionValueType;
-  encodeURIComponent = encodeURIComponent;
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
   level: number = -1;
   monsterError: any;
@@ -118,6 +118,10 @@ export class MonsterEditorComponent implements OnInit {
     });
 
     this.init = true;
+  }
+
+  jsonDownload(value: string) {
+    downloadJsonString(value, this.monsterData.name + '.json');
   }
 
   monsterDataToJson() {

@@ -115,10 +115,7 @@
         <div>{{ characterError }}</div>
         <textarea #inputCharacterData></textarea>
 
-        <a
-          class="button"
-          [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputCharacterData.value)"
-          [download]="characterData.name + '.json'"
+        <a class="button" (click)="jsonDownload(inputCharacterData.value)"
           ><img class="ghs-icon" src="./assets/images/export.svg" /> <span [ghs-label]="'editor.character.data.json.download'"></span
         ></a>
       </div>
