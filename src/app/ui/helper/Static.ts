@@ -126,6 +126,10 @@ export function ghsModulo(n: number, m: number): number {
   return ((n % m) + m) % m;
 }
 
+export function ghsClamp(n: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, n));
+}
+
 export function ghsDialogClosingHelper(dialogRef: DialogRef, result: any = undefined) {
   if (
     settingsManager.settings.animations &&

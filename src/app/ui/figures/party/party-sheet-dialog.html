@@ -658,7 +658,7 @@
                     </div>
                   }
                 </div>
-                <span class="checkbox limit" [ngClass]="{ checked: (party.factionReputation[faction] || 0) > 12 }"></span>
+                <span class="checkbox limit" [ngClass]="{ checked: factionUnlocks.includes(faction) }"></span>
               </div>
             }
           </div>
@@ -668,10 +668,7 @@
               @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
                 @if (reputationSection.faction === 'special') {
                   <div class="section">
-                    <span
-                      class="checkbox"
-                      [ngClass]="{ checked: isConclusion(reputationSection.section) || additionalReputation(reputationSection) }"
-                    ></span>
+                    <span class="checkbox" [ngClass]="{ checked: isConclusion(reputationSection.section) }"></span>
                     <span
                       class="text"
                       [ghs-label]="'party.reputation.additional.special.' + reputationSection.section.split(':')[0]"
@@ -689,12 +686,10 @@
                 @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
                   @if (reputationSection.faction === faction && reputationSection.requires && reputationSection.requires.length) {
                     <div class="section">
-                      <span
-                        class="checkbox"
-                        [ngClass]="{ checked: isConclusion(reputationSection.section) || additionalReputation(reputationSection) }"
-                      ></span>
+                      <span class="checkbox" [ngClass]="{ checked: isConclusion(reputationSection.section) }"></span>
                       <span
                         class="text"
+                        [ngClass]="{ blocked: !isConclusion(reputationSection.section) && isBlocked(reputationSection.section) }"
                         ghs-pointer-input
                         (singleClick)="unlockConclusion(reputationSection.section, additionalReputation(reputationSection))"
                         (doubleClick)="unlockConclusion(reputationSection.section, additionalReputation(reputationSection), true)"
@@ -787,39 +782,47 @@
           <div class="prosperity gh2e wrapped">
             <div class="checklist">
               <div class="legend">
-                <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)"></span>
+                <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'" (click)="resetProsperity()"></span>
                 <img [ghs-tooltip]="'party.prosperity.reset'" src="./assets/images/fh/prosperity.svg" />
                 <span>:</span>
               </div>
-              <div class="tick large" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)">
+              <div class="tick large" [ghs-tooltip]="'party.prosperity.reset'" (click)="resetProsperity()">
                 <div class="level">1</div>
                 <div class="checkbox checked disabled"></div>
               </div>
-              @for (check of [] | ghsRange: prosperitySteps[prosperitySteps.length - 1] + 1; track check; let index = $index) {
+              @let prospStart = prosperitySteps[0];
+              @let prospMax = prosperitySteps[prosperitySteps.length - 1];
+              @for (check of [] | ghsRange: prospMax - prospStart; track check; let index = $index) {
+                @let checkProsp = index + prospStart + 1;
                 <div
                   class="tick"
-                  [ngClass]="{ large: prosperitySteps.includes(index), section: prosperitySections[index], break: check === 33 }"
+                  [ngClass]="{ large: prosperitySteps.includes(checkProsp), section: prosperitySections[checkProsp], break: check === 33 }"
                 >
-                  @if (prosperitySteps.includes(index)) {
-                    <div class="level" (click)="setProsperity(index + 1)">
-                      {{ prosperitySteps.indexOf(index) + 2 }}
+                  @if (prosperitySteps.includes(checkProsp)) {
+                    <div class="level" (click)="setProsperity(checkProsp, true)">
+                      {{ prosperitySteps.indexOf(checkProsp) + 1 }}
                     </div>
                   }
                   <div
                     class="checkbox"
                     [ngClass]="{
-                      checked: gameManager.prosperityTicks() > index,
-                      highlight: !prosperitySteps.includes(index) && prosperityHighlightSteps.includes(index)
+                      checked: gameManager.prosperityTicks() >= checkProsp,
+                      highlight: prosperityHighlightSteps.includes(checkProsp)
                     }"
                   >
-                    <span class="click" ghs-pointer-input (singleClick)="setProsperity(index + 1)"></span>
-                    @if (prosperitySections[index]) {
+                    <span
+                      class="click"
+                      ghs-pointer-input
+                      (singleClick)="setProsperity(checkProsp, false)"
+                      (doubleClick)="setProsperity(checkProsp, true)"
+                    ></span>
+                    @if (prosperitySections[checkProsp]) {
                       <span
                         class="section"
                         ghs-pointer-input
-                        (singleClick)="unlockConclusion(prosperitySections[index], gameManager.prosperityTicks() > index)"
-                        (doubleClick)="unlockConclusion(prosperitySections[index], gameManager.prosperityTicks() > index, true)"
-                        [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"
+                        (singleClick)="unlockConclusion(prosperitySections[checkProsp], gameManager.prosperityTicks() >= checkProsp)"
+                        (doubleClick)="unlockConclusion(prosperitySections[checkProsp], gameManager.prosperityTicks() >= checkProsp, true)"
+                        [ghs-label]="'%game.section:' + prosperitySections[checkProsp] + '%'"
                       ></span>
                     }
                   </div>
@@ -1138,9 +1141,9 @@
             <div class="prosperity" [ngClass]="{ fh: fhSheet, wrapped: settingsManager.settings.wrapProsperity }">
               <div class="legend">
                 <div class="level">
-                  <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)"></span>
+                  <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'" (click)="resetProsperity()"></span>
                   @if (fhSheet) {
-                    <img [ghs-tooltip]="'party.prosperity.reset'" src="./assets/images/fh/prosperity.svg" (click)="setProsperity(0)" />
+                    <img [ghs-tooltip]="'party.prosperity.reset'" src="./assets/images/fh/prosperity.svg" (click)="resetProsperity()" />
                   }
                   <span>:</span>
                   <img
@@ -1151,30 +1154,38 @@
                   />
                 </div>
                 @if (!fhSheet) {
-                  <div class="check" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)">
+                  <div class="check" [ghs-tooltip]="'party.prosperity.reset'" (click)="resetProsperity()">
                     <span class="checkbox checked disabled"></span><span>:</span>
                   </div>
                 }
               </div>
               <div class="checklist">
-                @for (check of [] | ghsRange: prosperitySteps[prosperitySteps.length - 1] + 1; track check; let index = $index) {
+                @let prospStart = prosperitySteps[0];
+                @let prospMax = prosperitySteps[prosperitySteps.length - 1];
+                @for (check of [] | ghsRange: prospMax - prospStart; track check; let index = $index) {
+                  @let checkProsp = index + prospStart + 1;
                   <div
                     class="tick"
-                    [autoscroll]="gameManager.prosperityTicks() === index + 1 || (gameManager.prosperityTicks() === 0 && index === 0)"
-                    [ngClass]="{ large: prosperitySteps.includes(index), section: prosperitySections[index] }"
+                    [autoscroll]="(gameManager.prosperityTicks() || 1) === checkProsp"
+                    [ngClass]="{ large: prosperitySteps.includes(checkProsp), section: prosperitySections[checkProsp] }"
                   >
-                    @if (prosperitySteps.includes(index)) {
-                      <div class="level" (click)="setProsperity(index + 1)">
-                        {{ prosperitySteps.indexOf(index) + 2 }}
+                    @if (prosperitySteps.includes(checkProsp)) {
+                      <div class="level" (click)="setProsperity(checkProsp, true)">
+                        {{ prosperitySteps.indexOf(checkProsp) + 1 }}
                       </div>
                     }
                     <div
                       class="checkbox"
-                      (click)="setProsperity(index + 1)"
-                      [ngClass]="{ checked: gameManager.prosperityTicks() > index, highlight: prosperityHighlightSteps.includes(index) }"
+                      ghs-pointer-input
+                      (singleClick)="setProsperity(checkProsp, false)"
+                      (doubleClick)="setProsperity(checkProsp, true)"
+                      [ngClass]="{
+                        checked: gameManager.prosperityTicks() >= checkProsp,
+                        highlight: prosperityHighlightSteps.includes(checkProsp)
+                      }"
                     >
-                      @if (prosperitySections[index]) {
-                        <span class="section" [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"></span>
+                      @if (prosperitySections[checkProsp]) {
+                        <span class="section" [ghs-label]="'%game.section:' + prosperitySections[checkProsp] + '%'"></span>
                       }
                     </div>
                   </div>

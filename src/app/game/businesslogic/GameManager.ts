@@ -53,7 +53,7 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Party } from 'src/app/game/model/Party';
 import { Summon } from 'src/app/game/model/Summon';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
+import { ghsClamp, ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 declare global {
   interface Window {
@@ -903,24 +903,22 @@ export class GameManager {
     return monsterData;
   }
 
-  prosperityLevel(): number {
-    let prosperityLevel = 1;
-    let prosperitySteps = GH_PROSPERITY_STEPS;
+  prosperitySteps(): number[] {
     if (this.fhRules()) {
-      prosperitySteps = FH_PROSPERITY_STEPS;
-    } else if (this.gh2eRules()) {
-      prosperitySteps = GH2E_PROSPERITY_STEPS;
+      return FH_PROSPERITY_STEPS;
     }
-    prosperitySteps.forEach((step) => {
-      if (this.prosperityTicks() > step) {
-        prosperityLevel++;
-      }
-    });
-    return prosperityLevel;
+    if (this.gh2eRules()) {
+      return GH2E_PROSPERITY_STEPS;
+    }
+    return GH_PROSPERITY_STEPS;
   }
 
-  prosperityTicks(): number {
-    let ticks = this.game.party.prosperity;
+  prosperityLevel(): number {
+    return this.prosperitySteps().findLastIndex((n) => n <= this.prosperityTicks()) + 1;
+  }
+
+  extraProsperity(): number {
+    let ticks = this.prosperitySteps()[0];
     if ((this.game.party.envelopeB && this.editionRules('gh')) || this.editionRules('cs')) {
       if (!this.editionRules('cs')) {
         ticks += 1;
@@ -936,8 +934,12 @@ export class GameManager {
       ticks += Math.floor(Math.min(this.game.party.donations, 100) / 5);
       ticks += Math.floor(Math.min(this.game.party.imbuement + 5, 80) / 10);
     }
-
     return ticks;
+  }
+
+  prosperityTicks(): number {
+    const steps = this.prosperitySteps();
+    return Math.min(this.game.party.prosperity + this.extraProsperity(), steps[steps.length - 1]);
   }
 
   fhRules(gh2e: boolean = false): boolean {
@@ -1290,6 +1292,28 @@ export class GameManager {
     });
 
     return gameClock.sort((a, b) => b.clockIn - a.clockIn);
+  }
+
+  changeReputation(value: number) {
+    this.game.party.reputation = ghsClamp(this.game.party.reputation + value, -20, 20);
+  }
+
+  changeMorale(value: number) {
+    this.game.party.morale = ghsClamp(this.game.party.morale + value, 0, 20);
+  }
+
+  changeProsperity(value: number, force: boolean = false) {
+    const steps = this.prosperitySteps();
+    const levelMin = steps.findLast((n) => n <= this.prosperityTicks()) ?? steps[0];
+    const min = (force ? 0 : levelMin) - this.extraProsperity();
+    const max = steps[steps.length - 1] - steps[0];
+    this.game.party.prosperity = ghsClamp(this.game.party.prosperity + value, min, max);
+  }
+
+  changeFactionReputation(faction: string, value: number, force: boolean = false) {
+    const current = this.game.party.factionReputation[faction] || 0;
+    const max = gameManager.gh2eFactionUnlock(faction) || force ? 20 : Math.max(12, current);
+    this.game.party.factionReputation[faction] = ghsClamp(current + value, -10, max);
   }
 
   gh2eFactionUnlocks(): string[] {

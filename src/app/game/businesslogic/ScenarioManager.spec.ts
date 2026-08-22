@@ -272,6 +272,7 @@ describe('ScenarioManager', () => {
       settingsManager.settings.events = false;
       settingsManager.settings.automaticUnlocking = false;
       vi.spyOn(gameManager, 'fhRules').mockReturnValue(false);
+      vi.spyOn(gameManager, 'gh2eRules').mockReturnValue(false);
       vi.spyOn(gameManager.characterManager, 'characterCount').mockReturnValue(4); // avoid the <4-players inspiration bonus
       vi.spyOn(gameManager.roundManager, 'resetScenario').mockImplementation(() => {});
     });
@@ -318,6 +319,14 @@ describe('ScenarioManager', () => {
       expect(gameManager.game.party.prosperity).toBe(132);
     });
 
+    it('adds prosperity, clamped to 89 under gh2e rules', () => {
+      (gameManager.gh2eRules as any).mockReturnValue(true);
+      gameManager.game.party.prosperity = 85;
+      const scenario = buildScenario({ prosperity: 10 });
+      scenarioManager.finishScenario(scenario, true, undefined);
+      expect(gameManager.game.party.prosperity).toBe(89);
+    });
+
     it('clamps reputation to [-20, 20]', () => {
       gameManager.game.party.reputation = 18;
       const scenario = buildScenario({ reputation: 10 });
@@ -337,6 +346,20 @@ describe('ScenarioManager', () => {
       const scenario = buildScenario({ inspiration: -5 });
       scenarioManager.finishScenario(scenario, true, undefined);
       expect(gameManager.game.party.inspiration).toBe(0);
+    });
+
+    it('clamps factionReputation to 12 without faction unlock', () => {
+      gameManager.game.party.factionReputation['demons'] = 10;
+      const scenario = buildScenario({ reputationFactions: ['demons:3'] });
+      scenarioManager.finishScenario(scenario, true, undefined);
+      expect(gameManager.game.party.factionReputation['demons']).toBe(12);
+    });
+
+    it('bursts factionReputation past 12 with faction unlock', () => {
+      gameManager.game.party.factionReputation['demons'] = 10;
+      const scenario = buildScenario({ reputationFactions: ['demons:3'], factionUnlock: 'demons' });
+      scenarioManager.finishScenario(scenario, true, undefined);
+      expect(gameManager.game.party.factionReputation['demons']).toBe(13);
     });
 
     it('pushes global/party achievements and campaign stickers regardless of partySheet setting', () => {

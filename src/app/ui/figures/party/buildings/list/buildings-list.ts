@@ -340,10 +340,7 @@ export class BuildingsListComponent {
                 gameManager.stateManager.before('repairBuilding', building.data.id, building.data.name);
                 if (!force && result instanceof SelectResourceResult) {
                   if (result.morale) {
-                    gameManager.game.party.morale -= result.morale;
-                    if (gameManager.game.party.morale < 0) {
-                      gameManager.game.party.morale = 0;
-                    }
+                    gameManager.changeMorale(-result.morale);
                   } else {
                     gameManager.lootManager.applySelectResources(result);
                   }

@@ -184,7 +184,7 @@ export class CharacterManager {
     this.game.figures.splice(index, 1);
 
     if (retirement && settingsManager.settings.applyRetirement) {
-      gameManager.game.party.prosperity += gameManager.fhRules(true) ? 2 : 1;
+      gameManager.changeProsperity(gameManager.fhRules(true) ? 2 : 1);
 
       if (settingsManager.settings.events) {
         if (character.retireEvent) {

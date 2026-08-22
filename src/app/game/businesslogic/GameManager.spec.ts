@@ -262,14 +262,20 @@ describe('GameManager', () => {
       expect(gameManager.prosperityTicks()).toEqual(4);
     });
 
+    it('starts gh2e prosperity at 1', () => {
+      settingsManager.settings.editions = ['gh2e'];
+      gameManager.game.edition = 'gh2e';
+      expect(gameManager.prosperityTicks()).toEqual(1);
+    });
+
     it('applies gh2e donation and imbuement based ticks without an envelope bonus', () => {
       settingsManager.settings.editions = ['gh2e'];
       gameManager.game.edition = 'gh2e';
       gameManager.game.party.prosperity = 1;
       gameManager.game.party.donations = 12;
       gameManager.game.party.imbuement = 15;
-      // 1 + floor(min(12,100)/5)=2 + floor(min(15+5,80)/10)=2 => 5
-      expect(gameManager.prosperityTicks()).toEqual(5);
+      // 1 (initial) + 1 + floor(min(12,100)/5)=2 + floor(min(15+5,80)/10)=2 => 6
+      expect(gameManager.prosperityTicks()).toEqual(6);
     });
 
     it('prosperityLevel increases once ticks pass a GH prosperity step', () => {

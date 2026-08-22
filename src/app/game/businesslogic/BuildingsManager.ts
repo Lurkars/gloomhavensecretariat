@@ -38,13 +38,10 @@ export class BuildingsManager {
       this.game.party.defense += rewards.defense;
     }
     if (rewards.loseMorale) {
-      this.game.party.morale -= rewards.loseMorale;
-      if (this.game.party.morale < 0) {
-        this.game.party.morale = 0;
-      }
+      gameManager.changeMorale(-rewards.loseMorale);
     }
     if (rewards.prosperity) {
-      this.game.party.prosperity += rewards.prosperity;
+      gameManager.changeProsperity(rewards.prosperity);
     }
 
     if (rewards.soldiers) {

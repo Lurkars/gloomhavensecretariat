@@ -331,7 +331,7 @@ export class CharacterRetirementDialog {
       } else if (gameManager.gh2eRules()) {
         gameManager.game.party.inspiration -= 12;
       }
-      gameManager.game.party.prosperity += 2;
+      gameManager.changeProsperity(2);
       if (
         this.additionalPQ &&
         this.additionalPQ.unlockCharacter &&

@@ -13,9 +13,9 @@ import { PetCard } from 'src/app/game/model/data/PetCard';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Favor, TrialCard } from 'src/app/game/model/data/Trials';
 
-export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
-export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
-export const GH2E_PROSPERITY_STEPS = [4, 11, 21, 32, 44, 58, 73, 88];
+export const GH_PROSPERITY_STEPS = [0, 4, 9, 15, 22, 30, 39, 50, 64];
+export const FH_PROSPERITY_STEPS = [0, 6, 15, 27, 42, 60, 81, 105, 132];
+export const GH2E_PROSPERITY_STEPS = [1, 6, 13, 23, 34, 46, 60, 75, 90];
 
 export type EditionType = 'standalone' | 'addon' | 'extension' | 'content';
 
