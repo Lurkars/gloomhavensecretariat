@@ -2772,10 +2772,10 @@
       "": "Werte durch ziehen ändern",
       "hint": "Cursor Ziehen(Wischen) um Werte zu ändern. Um die Initiative zu ändern, ziehe über das Charakter Portrait. Für Trefferpunkte, Erfahrung und Beute über die entsprechenden Werte"
     },
-    "dragValuesHp": "Trefferpunkte durch ziehen ändern",
-    "dragValuesInitiative": "Initiative durch ziehen ändern",
-    "dragValuesLoot": "Beute durch ziehen ändern",
-    "dragValuesXp": "Erfahrung durch ziehen ändern",
+    "dragValuesHp": "Trefferpunkte durch ziehen/scrollen ändern",
+    "dragValuesInitiative": "Initiative durch ziehen/scrollen ändern",
+    "dragValuesLoot": "Beute durch ziehen/scrollen ändern",
+    "dragValuesXp": "Erfahrung durch ziehen/scrollen ändern",
     "drawRandomItem": {
       "": "Ziehe eine zufällige Gegenstandsbelohnung",
       "hint": "Ziehe automatisch eine zufällige Gegenstandskarte."
@@ -3083,6 +3083,10 @@
     "scenarioStats": {
       "": "Szenario Statistiken",
       "hint": "Sammle Statistiken über Schaden, Tötungen, Erfahrung, Beute und Heilung während eines Scenarios"
+    },
+    "scrollWheelValues": {
+      "": "Mausrad für Werte",
+      "hint": "Werte mit dem Mausrad oder Trackpad ändern. Halte Umschalt, um in 5er-Schritten zu ändern."
     },
     "serverExportCode": {
       "": "Spielcode exportieren",

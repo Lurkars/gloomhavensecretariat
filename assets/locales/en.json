@@ -2780,10 +2780,10 @@
       "": "Drag Values",
       "hint": "Drag support for changing values. To change initiative drag over the character portrait. For hit points, experience and loot drag over the values"
     },
-    "dragValuesHp": "Drag Hit Points",
-    "dragValuesInitiative": "Drag Initiative",
-    "dragValuesLoot": "Drag Loot",
-    "dragValuesXp": "Drag XP",
+    "dragValuesHp": "Drag/Scroll Hit Points",
+    "dragValuesInitiative": "Drag/Scroll Initiative",
+    "dragValuesLoot": "Drag/Scroll Loot",
+    "dragValuesXp": "Drag/Scroll XP",
     "drawRandomItem": {
       "": "Draw Random Item rewards",
       "hint": "Automatically draw a Random Item card."
@@ -3091,6 +3091,10 @@
     "scenarioStats": {
       "": "Scenario Statistics",
       "hint": "Collect statistics about damage, kills, loot, xp and heals during a scenario"
+    },
+    "scrollWheelValues": {
+      "": "Scroll Wheel Values",
+      "hint": "Use the mouse or trackpad scroll wheel to change values. Hold Shift to change in steps of 5."
     },
     "serverExportCode": {
       "": "Export Server Code",
