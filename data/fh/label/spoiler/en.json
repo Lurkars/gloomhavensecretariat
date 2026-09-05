@@ -1296,7 +1296,7 @@
     },
     "fh-175": {
       "": "Mirrored Armor",
-      "1": "When you suffer %game.damage% from an attack, the attacker suffers and equal amount of %game.damage%."
+      "1": "When you suffer %game.damage% from an attack, the attacker suffers an equal amount of %game.damage%."
     },
     "fh-176": {
       "": "Blinking Cape",

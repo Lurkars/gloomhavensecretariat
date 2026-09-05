@@ -3,6 +3,12 @@
   "name": "Timeworn Tomb",
   "edition": "gh2e",
   "parent": "34",
+  "parentSections": [
+    [
+      "84.5"
+    ]
+  ],
+  "marker": "b",
   "monsters": [
     "ancient-artillery",
     "stone-construct"

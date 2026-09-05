@@ -3,6 +3,7 @@
   "name": "Timeworn Tomb",
   "edition": "gh2e",
   "parent": "34",
+  "marker": "1",
   "monsters": [
     "living-corpse",
     "living-spirit"

@@ -3,6 +3,11 @@
   "name": "Plane of Elemental Power",
   "edition": "gh2e",
   "parent": "15",
+  "parentSections": [
+    [
+      "62.2"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "earth-demon",

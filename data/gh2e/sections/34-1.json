@@ -3,6 +3,11 @@
   "name": "Echo Chamber",
   "edition": "gh2e",
   "parent": "14",
+  "parentSections": [
+    [
+      "48.1"
+    ]
+  ],
   "marker": "4",
   "monsters": [
     "rending-drake"

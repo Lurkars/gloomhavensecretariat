@@ -3,6 +3,9 @@
   "name": "Decaying Crypt",
   "edition": "gh2e",
   "parent": "6",
+  "blockedSections": [
+    "34.5"
+  ],
   "marker": "2",
   "monsters": [
     "living-bones",
