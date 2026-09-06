@@ -4,12 +4,21 @@
     "forceUpdate": "Forza aggiornamento",
     "ip": "Gloomhaven e tutte le proprietà, le immagini e il testo correlate sono di proprietà di {0}.",
     "license": "Concesso in licenza {0}.",
-    "sourceCode": "Codice sorgente",
-    "support": "Supporta l'autore",
+    "sourceCode": {
+      "": "Codice Sorgente",
+      "author": "Codice Sorgente Originale"
+    },
+    "support": {
+      "": "Supporta lo sviluppatore",
+      "author": "Supporta lo sviluppatore originale"
+    },
     "version": {
       "latest": "Più recente",
       "unknown": "Impossibile recuperare l'ultima versione",
-      "update": "Ultima versione <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      "update": {
+        "": "Ultima versione <a target=\"_blank\" href=\"{1}\">{0}</a>",
+        "apk": "Scarica APK Android <a target=\"_blank\" href=\"{0}\">{1}</a>"
+      }
     }
   },
   "and": "e",
@@ -222,7 +231,9 @@
         },
         "unlockCharacter": {
           "": "Apri la custodia %game.characterIcon.{0}%",
-          "itemDesign": "Ottieni il modello di \"%data.items.{1}-{0}%\" (Oggetto{0})",
+          "itemDesign": {
+            "": "Ottieni \"%data.items.{1}-{0}%\" design (oggetto {0})"
+          },
           "randomScenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%"
         },
         "unlockPQ": "Sblocca Missione Personale {0}"
@@ -3149,7 +3160,7 @@
         "monster": "Applica %game.condition.{2}% a '{1}' di {0}",
         "monsterEntities": "Applica %game.condition.{1}% a tutti {2}{0}",
         "objective": "Applica %game.condition.{1}% a {0}",
-        "objectiveContainer": "Applica %game.condition.{2}% a %game.objectiveMarker.{1}% di {0}",
+        "objectiveContainer": "Applica %game.condition.{2}% a {1} di {0}",
         "summon": "Applica %game.condition.{2}% a '{1}' di {0}"
       },
       "applyHighlightAction": {
@@ -3269,7 +3280,7 @@
         "monster": "Rifiuta di applicare %game.condition.{2}% a '{1}' di {0}",
         "monsterEntities": "Rifiuta di applicare %game.condition.{a}% a tutti {2}{0}",
         "objective": "Rifiuta di applicare %game.condition.{1}% a {0}",
-        "objectiveContainer": "Rifiuta di applicare %game.condition.{2}% a %game.objectiveMarker.{1}% di {0}",
+        "objectiveContainer": "Non applicare %game.condition.{2}% a {1} di {0}",
         "summon": "Rifiuta di applicare %game.condition.{2}% a '{1}' di {0}"
       },
       "disableAutomaticLevel": "Disabilita il calcolo del livello automatico",
