@@ -2400,7 +2400,8 @@
       "connect": "Connect to Server",
       "connected": "Server Connection"
     },
-    "ping": "Server Ping",
+    "ping": "Server Ping (in s)",
+    "pingExternal": "external Server Ping: {0}s",
     "port": "Port",
     "reconnect": "Reconnect",
     "settings": {
@@ -2915,6 +2916,10 @@
       "": "Add Frosthaven Items",
       "hint": "Add Items from Frosthaven to available supply as stated out in official FAQ."
     },
+    "gh2eForceFactionEnvelopes": {
+      "": "Always Faction Envelopes",
+      "hint": "Unlock and enables content from the sealed faction envelopes for all campaigns."
+    },
     "gh2eImbuement": {
       "": "Enable Monster Imbuements",
       "hint": "Enable option to add Monster Imbuement (Appendix F) in the Event Effect menu."
@@ -3361,6 +3366,8 @@
       "changeObjectivesHP": "HP {1} for all {0}",
       "changeParty": "Change party to '{0}'",
       "changeSummonAttack": "Attack {2} for summon '{1}' of {0}",
+      "changeSummonDamage": "Damage {2} for trap '{1}' of {0}",
+      "changeSummonHeal": "Heal {2} for trap '{1}' of {0}",
       "changeSummonHp": "HP {2} for summon '{1}' of {0}",
       "changeSummonMaxHp": "Max. HP {2} for summon '{1}' of {0}",
       "changeSummonMove": "Movement {2} for summon '{1}' of {0}",
@@ -3952,6 +3959,7 @@
       },
       "setEntitySummonState": "Set summon {3} for {1} standee {2} of {0}",
       "setExhausted": "{0} exhausted",
+      "setFactionReputation": "%data.gh2eFaction:{0}% to {1}",
       "setGold": "Gold {1} for {0}",
       "setIdentity": "Set form of {0} to %data.character.{3}.{1}.{2}%",
       "setInitiative": "Initiative {1} for {0}",

@@ -1,0 +1,3 @@
+import{n as o}from"./chunk-Cvof6wl4.js";import{W as pf}from"./chunk-B3_ONX3Q.js";import{it as ze}from"./chunk-CtxtuVRg.js";var a=o(t=>{let{securityLevel:c}=ze(),o=pf(`body`);if(c===`sandbox`)o=pf((pf(`#i${t}`).node()?.contentDocument??document).body);return o.select(`#${t}`)},`selectSvgElement`);export{a as t};
+//# debugId=7a8ae693-f803-5b53-8e04-979c7ea44b78
+//# sourceMappingURL=chunk-Bd7lVlL5.js.map
