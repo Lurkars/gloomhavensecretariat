@@ -101,7 +101,7 @@ export class BuildingsListComponent {
       }
       return true;
     } else if (building.model.level < building.data.upgrades.length + 1) {
-      if (costs.prosperity && costs.prosperity > gameManager.prosperityLevel()) {
+      if (costs.prosperity && costs.prosperity > gameManager.campaignManager.prosperityLevel()) {
         return false;
       }
 
@@ -340,10 +340,7 @@ export class BuildingsListComponent {
                 gameManager.stateManager.before('repairBuilding', building.data.id, building.data.name);
                 if (!force && result instanceof SelectResourceResult) {
                   if (result.morale) {
-                    gameManager.game.party.morale -= result.morale;
-                    if (gameManager.game.party.morale < 0) {
-                      gameManager.game.party.morale = 0;
-                    }
+                    gameManager.campaignManager.changeMorale(-result.morale);
                   } else {
                     gameManager.lootManager.applySelectResources(result);
                   }

@@ -2392,7 +2392,8 @@
       "connect": "Mit Server verbinden",
       "connected": "Server Verbindung"
     },
-    "ping": "Server-Ping",
+    "ping": "Server-Ping (in s)",
+    "pingExternal": "externer Server-Ping: {0}s",
     "port": "Port",
     "reconnect": "Neu Verbinden",
     "settings": {
@@ -3928,6 +3929,7 @@
       },
       "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
+      "setFactionReputation": "%data.gh2eFaction:{0}% auf {1}",
       "setGold": "Gold {1} für {0}",
       "setIdentity": "Setze Form auf %data.character.{3}.{1}.{2}% für {0}",
       "setInitiative": "Initiative {1} für {0}",

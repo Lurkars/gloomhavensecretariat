@@ -366,7 +366,7 @@ export class EnhancementsComponent implements OnInit {
       inputEnhancementIndex !== undefined &&
       this.inputCharacter &&
       ((this.inputCharacter.progress.gold >= costs &&
-        (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.prosperityLevel())) ||
+        (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.campaignManager.prosperityLevel())) ||
         force)
     ) {
       gameManager.stateManager.before(

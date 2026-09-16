@@ -120,7 +120,11 @@ export class ObjectiveManager {
   }
 
   removeObjectiveEntity(objectiveCOntainer: ObjectiveContainer, objectiveEntity: ObjectiveEntity) {
-    objectiveCOntainer.entities.splice(objectiveCOntainer.entities.indexOf(objectiveEntity), 1);
+    const index = objectiveCOntainer.entities.indexOf(objectiveEntity);
+    if (index === -1) {
+      return;
+    }
+    objectiveCOntainer.entities.splice(index, 1);
     if (
       objectiveCOntainer.entities.length === 0 ||
       objectiveCOntainer.entities.every((entity) => !gameManager.entityManager.isAlive(entity))

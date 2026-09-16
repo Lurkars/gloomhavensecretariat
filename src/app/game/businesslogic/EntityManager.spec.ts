@@ -671,7 +671,7 @@ describe('EntityManager', () => {
 
       entityManager.changeHealth(character, character, -3);
 
-      expect(damageSpy).toHaveBeenCalledWith(character, character, 3);
+      expect(damageSpy).toHaveBeenCalledWith(character, character, 3, true);
     });
 
     it('does not call scenarioStatsManager when the scenarioStats setting is off', () => {
@@ -683,6 +683,26 @@ describe('EntityManager', () => {
       entityManager.changeHealth(character, character, -3);
 
       expect(damageSpy).not.toHaveBeenCalled();
+    });
+
+    it('only counts one exhaust for the hit that brings health to 0, not repeat hits after', () => {
+      // checkHealth() clamps health to exactly 0 once an entity goes down, so a naive
+      // "was health + value > 0 before this hit" reconstruction (using the already-clamped 0)
+      // would look like a fresh knockout on every subsequent hit against an already-exhausted
+      // character. changeHealth() must capture the true pre-hit health instead.
+      settingsManager.settings.scenarioStats = true;
+      const character = buildCharacter();
+      character.active = true;
+      character.maxHealth = 10;
+      character.health = 3;
+      gameManager.game.figures = [character];
+
+      entityManager.changeHealth(character, character, -5);
+      expect(character.exhausted).toBe(true);
+      expect(character.scenarioStats.exhausts).toEqual(1);
+
+      entityManager.changeHealth(character, character, -4);
+      expect(character.scenarioStats.exhausts).toEqual(1);
     });
   });
 

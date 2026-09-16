@@ -239,54 +239,6 @@ describe('GameManager', () => {
     });
   });
 
-  describe('prosperityLevel / prosperityTicks', () => {
-    beforeEach(() => {
-      gameManager.editionData = [buildEdition('gh'), buildEdition('cs'), buildEdition('gh2e')];
-    });
-
-    it('prosperityTicks equals raw prosperity outside of gh/cs/gh2e envelope rules', () => {
-      settingsManager.settings.editions = ['gh'];
-      gameManager.game.edition = 'gh';
-      gameManager.game.party.prosperity = 5;
-      gameManager.game.party.envelopeB = false;
-      expect(gameManager.prosperityTicks()).toEqual(5);
-    });
-
-    it('adds an envelope-B tick plus donation ticks under gh rules', () => {
-      settingsManager.settings.editions = ['gh'];
-      gameManager.game.edition = 'gh';
-      gameManager.game.party.prosperity = 2;
-      gameManager.game.party.envelopeB = true;
-      gameManager.game.party.donations = 15;
-      // 2 (base) + 1 (envelopeB) + floor(min(15-10,30)/5)=1 => 4
-      expect(gameManager.prosperityTicks()).toEqual(4);
-    });
-
-    it('applies gh2e donation and imbuement based ticks without an envelope bonus', () => {
-      settingsManager.settings.editions = ['gh2e'];
-      gameManager.game.edition = 'gh2e';
-      gameManager.game.party.prosperity = 1;
-      gameManager.game.party.donations = 12;
-      gameManager.game.party.imbuement = 15;
-      // 1 + floor(min(12,100)/5)=2 + floor(min(15+5,80)/10)=2 => 5
-      expect(gameManager.prosperityTicks()).toEqual(5);
-    });
-
-    it('prosperityLevel increases once ticks pass a GH prosperity step', () => {
-      settingsManager.settings.editions = ['gh'];
-      gameManager.game.edition = 'gh';
-      gameManager.game.party.prosperity = 4; // > step 3, <= step 8
-      expect(gameManager.prosperityLevel()).toEqual(2);
-    });
-
-    it('prosperityLevel starts at 1 when no steps are passed', () => {
-      settingsManager.settings.editions = ['gh'];
-      gameManager.game.edition = 'gh';
-      gameManager.game.party.prosperity = 1;
-      expect(gameManager.prosperityLevel()).toEqual(1);
-    });
-  });
-
   describe('figure type guards', () => {
     it('isCharacter / isMonster / isObjectiveContainer distinguish figure types', () => {
       const character = buildCharacter('brute');
@@ -402,6 +354,34 @@ describe('GameManager', () => {
       const identifier = gameManager.additionalIdentifier(objective);
       expect(identifier.edition).toEqual('objective');
       expect(identifier.type).toEqual('objective');
+    });
+  });
+
+  describe('checkEntitiesKilled', () => {
+    it('backfills a missing counter for every alive standee, not just the first', () => {
+      // entitiesCounter is normally kept in sync via addEntityCount() calls at spawn time; this
+      // bootstrap path only kicks in as a catch-up for entities that reached the board without one
+      // (e.g. an old save). All standees here share one identifier/counter, so a naive per-entity
+      // "does a counter already exist" gate would only count the first and silently drop the rest.
+      gameManager.game.entitiesCounter = [];
+      const monster = buildMonster('bandit-guard', 'gh');
+      monster.entities = [
+        new MonsterEntity(1, MonsterType.normal, monster),
+        new MonsterEntity(2, MonsterType.normal, monster),
+        new MonsterEntity(3, MonsterType.normal, monster)
+      ];
+      gameManager.game.figures = [monster];
+
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      gameManager.checkEntitiesKilled();
+
+      const counter = gameManager.entityCounter(gameManager.additionalIdentifier(monster, monster.entities[0]));
+      expect(counter?.total).toEqual(3);
+      expect(counter?.killed).toEqual(0);
+      expect(warnSpy).not.toHaveBeenCalled();
+
+      warnSpy.mockRestore();
     });
   });
 

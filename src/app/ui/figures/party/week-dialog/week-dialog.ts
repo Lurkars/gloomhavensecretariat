@@ -22,7 +22,7 @@ export class PartyWeekDialogComponent {
   week: number = inject(DIALOG_DATA);
 
   sectionsFixed(): string[] {
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
     if (campaign.weeks && campaign.weeks[this.week]) {
       return campaign.weeks[this.week] || [];
     }

@@ -79,26 +79,28 @@ describe('ScenarioStatsManager', () => {
       expect(target.scenarioStats.monsterDamage).toBe(0);
     });
 
-    it('increments exhausts when damage brings health from positive to <= 0', () => {
-      // applyDamage() is called *after* the health field has already been decremented by
-      // `value` elsewhere; it infers "this hit exhausted the character" via
-      // `entity.health <= 0 && entity.health + value > 0` (i.e. post-hit health is non-positive,
-      // but pre-hit health, health + value, was positive).
+    it('increments exhausts when the caller reports the entity was alive before this hit', () => {
+      // applyDamage() is called *after* the health field has already been updated (and clamped to
+      // exactly 0 by checkHealth()) elsewhere, so it can no longer tell from health alone whether
+      // this specific hit was the one that brought the entity down. The caller (changeHealth())
+      // captures that pre-hit state itself and passes it in as `wasAlive`.
       const target = buildCharacter('target');
-      target.health = -2; // post-hit health; pre-hit health was -2 + 5 = 3 (positive)
+      target.health = 0; // post-hit health, as checkHealth() would leave it
       gameManager.game.figures = [target];
 
-      scenarioStatsManager.applyDamage(target, target, 5);
+      scenarioStatsManager.applyDamage(target, target, 5, true);
 
       expect(target.scenarioStats.exhausts).toBe(1);
     });
 
-    it('does not increment exhausts when health was already <= 0 before the damage', () => {
+    it('does not increment exhausts when the caller reports the entity was already down before this hit', () => {
+      // Without `wasAlive`, repeat hits on an already-exhausted character (health pinned at 0 by
+      // checkHealth()) would each look like a fresh knockout and keep incrementing exhausts.
       const target = buildCharacter('target');
-      target.health = -6; // post-hit health; pre-hit health was -6 + 5 = -1 (already <= 0)
+      target.health = 0;
       gameManager.game.figures = [target];
 
-      scenarioStatsManager.applyDamage(target, target, 5);
+      scenarioStatsManager.applyDamage(target, target, 5, false);
 
       expect(target.scenarioStats.exhausts).toBe(0);
     });
@@ -128,16 +130,28 @@ describe('ScenarioStatsManager', () => {
       expect(owner.scenarioStats.summons.otherDamage).toBe(4);
     });
 
-    it('increments summons.exhausts when a summon dies from the hit', () => {
+    it('increments summons.exhausts when the caller reports the summon was alive before this hit', () => {
       const owner = buildCharacter('owner');
       const summon = buildSummon();
-      summon.health = -2; // post-hit health; pre-hit health was -2 + 5 = 3 (positive)
+      summon.health = 0; // post-hit health, as checkHealth() would leave it
       owner.summons = [summon];
       gameManager.game.figures = [owner];
 
-      scenarioStatsManager.applyDamage(summon, owner, 5);
+      scenarioStatsManager.applyDamage(summon, owner, 5, true);
 
       expect(owner.scenarioStats.summons.exhausts).toBe(1);
+    });
+
+    it('does not increment summons.exhausts when the caller reports the summon was already dead before this hit', () => {
+      const owner = buildCharacter('owner');
+      const summon = buildSummon();
+      summon.health = 0;
+      owner.summons = [summon];
+      gameManager.game.figures = [owner];
+
+      scenarioStatsManager.applyDamage(summon, owner, 5, false);
+
+      expect(owner.scenarioStats.summons.exhausts).toBe(0);
     });
 
     it('tracks damage dealt BY an active character to a monster as dealtDamage', () => {
@@ -359,6 +373,26 @@ describe('ScenarioStatsManager', () => {
       const scenario = new Scenario(new ScenarioData());
       expect(() => scenarioStatsManager.applyScenarioStats(character, scenario, true)).not.toThrow();
       expect(character.scenarioStats.loot).toEqual({});
+    });
+
+    it('drops loot types no longer present in lootCards instead of leaving a stale total', () => {
+      // The scenario summary dialog re-runs applyScenarioStats() on every ui change while it's
+      // open, so an undo that shrinks lootCards must clear the now-absent type, not just leave
+      // its last computed value sitting in scenarioStats.loot forever.
+      const character = buildCharacter();
+      gameManager.game.lootDeck = new LootDeck();
+      gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 2), new Loot(LootType.lumber, 1, 3)];
+      vi.spyOn(gameManager.lootManager, 'getValue').mockImplementation((loot) => loot.value4P);
+      const scenario = new Scenario(new ScenarioData());
+
+      character.lootCards = [0, 1];
+      scenarioStatsManager.applyScenarioStats(character, scenario, true);
+      expect(character.scenarioStats.loot).toEqual({ [LootType.money]: 2, [LootType.lumber]: 3 });
+
+      // simulate an undo that removes the lumber draw
+      character.lootCards = [0];
+      scenarioStatsManager.applyScenarioStats(character, scenario, true);
+      expect(character.scenarioStats.loot).toEqual({ [LootType.money]: 2 });
     });
   });
 });

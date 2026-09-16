@@ -115,7 +115,7 @@ export class EventCardManager {
   }
 
   buildPartyDeck(edition: string, type: string) {
-    const campaignData = gameManager.campaignData(edition);
+    const campaignData = gameManager.campaignManager.campaignData(edition);
 
     if (campaignData && campaignData.events && campaignData.events[type]) {
       this.buildEventDeck(type, campaignData.events[type]);
@@ -124,7 +124,7 @@ export class EventCardManager {
 
   buildPartyDeckMigration(edition: string) {
     if (!this.game.party.eventDecks || !Object.keys(this.game.party.eventDecks).length) {
-      const campaignData = gameManager.campaignData(edition);
+      const campaignData = gameManager.campaignManager.campaignData(edition);
       if (campaignData.events) {
         Object.keys(campaignData.events).forEach((eventType) => {
           if (campaignData.events[eventType] && campaignData.events[eventType].length) {
@@ -636,57 +636,30 @@ export class EventCardManager {
                 break;
               }
               case EventCardEffectType.loseMorale:
-                this.game.party.morale -= +effect.values[0];
-                if (this.game.party.morale < 0) {
-                  this.game.party.morale = 0;
-                }
+                gameManager.campaignManager.changeMorale(-effect.values[0]);
                 break;
               case EventCardEffectType.loseProsperity:
-                this.game.party.prosperity -= +effect.values[0];
-                if (this.game.party.prosperity < 0) {
-                  this.game.party.prosperity = 0;
-                }
+                gameManager.campaignManager.changeProsperity(-effect.values[0]);
                 break;
               case EventCardEffectType.loseReputation:
-                this.game.party.reputation -= effect.values[0] as number;
-                if (this.game.party.reputation < -20) {
-                  this.game.party.reputation = -20;
-                }
+                gameManager.campaignManager.changeReputation(-effect.values[0]);
                 break;
-              case EventCardEffectType.loseReputationFaction: {
-                const faction = effect.values[0] as string;
-                this.game.party.factionReputation[faction] =
-                  (this.game.party.factionReputation[faction] || 0) - (effect.values[1] as number);
-                if (this.game.party.factionReputation[faction] < -10) {
-                  this.game.party.factionReputation[faction] = -10;
-                }
+              case EventCardEffectType.loseReputationFaction:
+                gameManager.campaignManager.changeFactionReputation(effect.values[0] as string, -effect.values[1]);
                 break;
-              }
               case EventCardEffectType.morale:
-                this.game.party.morale += +effect.values[0];
-                if (this.game.party.morale > 20) {
-                  this.game.party.morale = 20;
-                }
+                gameManager.campaignManager.changeMorale(+effect.values[0]);
                 break;
               case EventCardEffectType.removeEvent:
                 this.removeEvent(effect.values[0] as string, effect.values[1] as string);
                 break;
               case EventCardEffectType.reputation:
               case EventCardEffectType.reputationAdditional:
-                this.game.party.reputation += effect.values[0] as number;
-                if (this.game.party.reputation > 20) {
-                  this.game.party.reputation = 20;
-                }
+                gameManager.campaignManager.changeReputation(effect.values[0] as number);
                 break;
-              case EventCardEffectType.reputationFaction: {
-                const faction = effect.values[0] as string;
-                this.game.party.factionReputation[faction] =
-                  (this.game.party.factionReputation[faction] || 0) + (effect.values[1] as number);
-                if (this.game.party.factionReputation[faction] > 20) {
-                  this.game.party.factionReputation[faction] = 20;
-                }
+              case EventCardEffectType.reputationFaction:
+                gameManager.campaignManager.changeFactionReputation(effect.values[0] as string, effect.values[1] as number);
                 break;
-              }
               case EventCardEffectType.resource:
                 characters.forEach((c) => {
                   c.progress.loot[effect.values[1] as LootType] = (c.progress.loot[effect.values[1] as LootType] || 0) + +effect.values[0];
@@ -696,7 +669,7 @@ export class EventCardManager {
                 this.game.party.achievementsList.push(...effect.values.filter((v) => typeof v === 'string'));
                 break;
               case EventCardEffectType.prosperity:
-                this.game.party.prosperity += +effect.values[0];
+                gameManager.campaignManager.changeProsperity(+effect.values[0]);
                 break;
               case EventCardEffectType.scenarioCondition:
               case EventCardEffectType.scenarioDamage:
@@ -775,7 +748,7 @@ export class EventCardManager {
                 break;
               case EventCardEffectType.unlockEnvelope: {
                 if (eventCard.edition === 'fh') {
-                  const building = gameManager
+                  const building = gameManager.campaignManager
                     .campaignData(eventCard.edition)
                     .buildings.find((building) => building.id === effect.values[0]);
                   if (building) {
@@ -807,7 +780,7 @@ export class EventCardManager {
                 const building = this.game.party.buildings.find((model) => model.name === (effect.values[0] as string));
                 if (building) {
                   if (building.level >= +effect.values[1]) {
-                    this.game.party.morale += +effect.values[2];
+                    gameManager.campaignManager.changeMorale(+effect.values[2]);
                   } else {
                     building.level += 1;
                   }

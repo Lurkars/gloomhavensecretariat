@@ -61,7 +61,7 @@ export function EntityValueFunction(value: string | number, L: number | undefine
     result = evaluateExpression(expression, {
       C: gameManager.levelManager.characterCountVariable(),
       L: L,
-      P: gameManager.prosperityLevel(),
+      P: gameManager.campaignManager.prosperityLevel(),
       R: gameManager.game.round + (gameManager.game.state === GameState.draw ? 1 : 0)
     });
   } catch (e) {

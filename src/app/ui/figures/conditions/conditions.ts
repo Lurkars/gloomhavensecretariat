@@ -83,6 +83,10 @@ export class ConditionsComponent implements OnInit {
     this.ghsManager.uiChangeEffect(() => this.initializeConditions());
   }
 
+  get isTrapEntity(): boolean {
+    return this.entity instanceof Summon && this.entity.trap;
+  }
+
   ngOnInit(): void {
     this.type = this.inputType();
     this.initializeConditions();
@@ -164,6 +168,10 @@ export class ConditionsComponent implements OnInit {
   }
 
   initializeConditions() {
+    if (this.isTrapEntity) {
+      this.permanentEnabled = true;
+    }
+
     this.conditions = [];
     this.conditionSeparator = [];
     let negativeConditions: Condition[] = [];
@@ -197,7 +205,7 @@ export class ConditionsComponent implements OnInit {
       this.conditions.push(...neutralConditions);
     }
 
-    if (this.immunityEnabled) {
+    if (this.immunityEnabled || this.isTrapEntity) {
       this.conditionSeparator.push(this.conditions.length - 1);
       this.conditions.push(new Condition(ConditionName.curse));
       if (this.enfeeble()) {

@@ -56,6 +56,7 @@ export class Game {
   lootDeckSections: string[] = [];
   unlockedCharacters: string[] = [];
   server: boolean = false;
+  serverPing: number = 0;
   finish: ScenarioFinish | undefined;
   gameClock: GameClockTimestamp[] = [];
   challengeDeck: ChallengeDeck = new ChallengeDeck();
@@ -121,6 +122,7 @@ export class Game {
       this.lootDeckSections,
       this.unlockedCharacters,
       this.server,
+      this.serverPing,
       this.finish,
       this.gameClock,
       this.challengeDeck.toModel(),
@@ -133,7 +135,7 @@ export class Game {
     return model;
   }
 
-  fromModel(model: GameModel, server: boolean = false) {
+  fromModel(model: GameModel, server: boolean = false, keepParties: boolean = false) {
     this.revision = model.revision || 0;
     this.revisionOffset = model.revisionOffset || 0;
     this.edition = model.edition;
@@ -279,26 +281,38 @@ export class Game {
     }
 
     this.solo = model.solo;
-    this.party = Object.assign(new Party(), model.party ? JSON.parse(JSON.stringify(model.party)) : new Party());
 
-    this.parties = [this.party];
-    if (model.parties) {
-      model.parties.forEach((party) => {
-        if (party.id !== this.party.id) {
-          // migration
-          if (party.achievements) {
-            party.achievementsList.push(...party.achievements.split('\n'));
-            party.achievements = '';
+    if (keepParties) {
+      const partyId = this.party.id;
+      this.party = Object.assign(new Party(), model.party ? JSON.parse(JSON.stringify(model.party)) : new Party());
+      this.party.id = partyId;
+      const overwrite = this.parties.find((party) => party.id === this.party.id);
+      if (!!overwrite) {
+        this.parties[this.parties.indexOf(overwrite)] = this.party;
+      } else {
+        this.parties.push(this.party);
+      }
+    } else {
+      this.party = Object.assign(new Party(), model.party ? JSON.parse(JSON.stringify(model.party)) : new Party());
+      this.parties = [this.party];
+      if (model.parties) {
+        model.parties.forEach((party) => {
+          if (party.id !== this.party.id) {
+            // migration
+            if (party.achievements) {
+              party.achievementsList.push(...party.achievements.split('\n'));
+              party.achievements = '';
+            }
+
+            if (party.globalAchievements) {
+              party.globalAchievementsList.push(...party.globalAchievements.split('\n'));
+              party.globalAchievements = '';
+            }
+
+            this.parties.push(Object.assign(new Party(), party));
           }
-
-          if (party.globalAchievements) {
-            party.globalAchievementsList.push(...party.globalAchievements.split('\n'));
-            party.globalAchievements = '';
-          }
-
-          this.parties.push(Object.assign(new Party(), party));
-        }
-      });
+        });
+      }
     }
 
     if (model.lootDeck) {
@@ -373,6 +387,7 @@ export class Game {
     }
 
     this.server = model.server;
+    this.serverPing = model.serverPing;
     this.finish = model.finish;
     if (settingsManager.settings.gameClockMerge) {
       this.gameClock = gameManager.mergeGameClocks(this.gameClock, model.gameClock);
@@ -440,6 +455,7 @@ export class GameModel {
   lootDeckSections: string[];
   unlockedCharacters: string[];
   server: boolean;
+  serverPing: number;
   finish: ScenarioFinish | undefined;
   gameClock: GameClockTimestamp[];
   challengeDeck: GameChallengeDeckModel;
@@ -504,6 +520,7 @@ export class GameModel {
     lootDeckSections: string[] = [],
     unlockedCharacters: string[] = [],
     server: boolean = false,
+    serverPing: number = 0,
     finish: ScenarioFinish | undefined = undefined,
     gameClock: GameClockTimestamp[] = [],
     challengeDeck: GameChallengeDeckModel = new GameChallengeDeckModel(),
@@ -557,6 +574,7 @@ export class GameModel {
     this.lootDeckSections = JSON.parse(JSON.stringify(lootDeckSections));
     this.unlockedCharacters = JSON.parse(JSON.stringify(unlockedCharacters));
     this.server = server;
+    this.serverPing = serverPing;
     this.finish = finish ? JSON.parse(JSON.stringify(finish)) : undefined;
     this.gameClock = gameClock;
     this.challengeDeck = challengeDeck;

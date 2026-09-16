@@ -905,7 +905,7 @@ export class RoundManager {
 
     gameManager.sortFigures();
 
-    const campaignData = gameManager.campaignData();
+    const campaignData = gameManager.campaignManager.campaignData();
     if (this.game.party.townGuardDeck && campaignData.townGuardPerks) {
       const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaignData);
       gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);

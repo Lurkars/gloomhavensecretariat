@@ -36,13 +36,13 @@
             <span class="value">{{ getValue(condition) }}</span>
           }
         </span>
-        @if (isPermanent(condition.name)) {
+        @if (!isTrapEntity && isPermanent(condition.name)) {
           <span class="condition permanent permanent-overlay"></span>
         }
-        @if (isRoundExpire(condition.name)) {
+        @if (!isTrapEntity && isRoundExpire(condition.name)) {
           <span class="condition round round-overlay"></span>
         }
-        @if (isExpire(condition.name)) {
+        @if (!isTrapEntity && isExpire(condition.name)) {
           <span class="condition expire expire-overlay"></span>
         }
         @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
@@ -54,7 +54,7 @@
       }
     }
 
-    @if (conditions.length) {
+    @if (conditions.length && !isTrapEntity) {
       <div class="separator"></div>
       <a class="item">
         <span

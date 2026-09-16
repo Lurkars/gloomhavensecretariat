@@ -76,6 +76,7 @@ export class Party {
 
   // GH2E
   factionReputation: Partial<Record<string, number>> = {};
+  factionUnlocks: string[] = [];
   imbuement: number = 0;
 
   migrate() {

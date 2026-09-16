@@ -99,7 +99,46 @@ export class CharacterHelper {
     }
   }
 
+  changeTrapDamage(value: number) {
+    if (this.component.entity instanceof Summon) {
+      this.component.trapDamage += value;
+      if (this.component.entity.movement + this.component.trapDamage < 0) {
+        this.component.trapDamage = -this.component.entity.movement;
+      }
+    }
+  }
+
+  changeTrapHeal(value: number) {
+    if (this.component.entity instanceof Summon && this.component.entity.attack !== 'X') {
+      this.component.trapHeal += value;
+      if (+this.component.entity.attack + this.component.trapHeal < 0) {
+        this.component.trapHeal = -+this.component.entity.attack;
+      }
+    }
+  }
+
   close() {
+    if (this.component.entity instanceof Summon && this.component.entity.trap) {
+      const summon = this.component.entity;
+      const figure = this.component.figureForEntity(summon);
+      const summonLabel = summon.title ? summon.title : 'data.summon.' + summon.name;
+      const characterName = figure instanceof Character ? gameManager.characterManager.characterName(figure, true, true) : figure.name;
+
+      if (this.component.trapDamage !== 0) {
+        this.component.before('changeSummonDamage', characterName, summonLabel, ghsValueSign(this.component.trapDamage));
+        summon.movement += this.component.trapDamage;
+        this.component.trapDamage = 0;
+        gameManager.stateManager.after();
+      }
+
+      if (this.component.trapHeal !== 0 && summon.attack !== 'X') {
+        this.component.before('changeSummonHeal', characterName, summonLabel, ghsValueSign(this.component.trapHeal));
+        summon.attack = +summon.attack + this.component.trapHeal;
+        this.component.trapHeal = 0;
+        gameManager.stateManager.after();
+      }
+    }
+
     if (this.component.entity instanceof Character) {
       const character = this.component.entity;
       if (this.component.experience !== 0) {

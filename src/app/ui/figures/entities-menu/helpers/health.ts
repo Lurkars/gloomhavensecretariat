@@ -38,13 +38,16 @@ export class HealthHelper {
         () => {
           this.component.entities.forEach((entity) => {
             const figure: Figure = this.component.figureForEntity(entity);
+            const stillDead =
+              (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead;
             if (
-              gameManager.game.state === GameState.draw ||
-              entity.entityConditions.length === 0 ||
-              entity.entityConditions.every(
-                (entityCondition) =>
-                  !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)
-              )
+              stillDead &&
+              (gameManager.game.state === GameState.draw ||
+                entity.entityConditions.length === 0 ||
+                entity.entityConditions.every(
+                  (entityCondition) =>
+                    !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)
+                ))
             ) {
               if (entity instanceof MonsterEntity) {
                 gameManager.monsterManager.removeMonsterEntity(figure as Monster, entity);

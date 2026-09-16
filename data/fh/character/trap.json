@@ -50,6 +50,20 @@
   ],
   "availableSummons": [
     {
+      "name": "negative-trap",
+      "thumbnail": true,
+      "level": 1,
+      "count": 10,
+      "trap": true
+    },
+    {
+      "name": "positive-trap",
+      "thumbnail": true,
+      "level": 1,
+      "count": 8,
+      "trap": true
+    },
+    {
       "name": "shaggy-lure",
       "cardId": "274",
       "thumbnail": true,

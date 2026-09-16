@@ -172,7 +172,7 @@ export class HighlightConditionsComponent implements OnInit {
       gameManager.triggerUiChange();
       setTimeout(
         () => {
-          if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
+          if (this.figure instanceof Monster && this.entity instanceof MonsterEntity && this.entity.dead) {
             gameManager.monsterManager.removeMonsterEntity(this.figure, this.entity);
             if (this.figure.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity))) {
               if (this.figure.active) {

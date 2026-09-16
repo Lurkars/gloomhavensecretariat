@@ -394,12 +394,7 @@ export class PartySheetDialogComponent implements OnInit {
   setReputation(value: number) {
     if (this.party.reputation !== value) {
       gameManager.stateManager.before('setPartyReputation', value);
-      if (value > 20) {
-        value = 20;
-      } else if (value < -20) {
-        value = -20;
-      }
-      this.party.reputation = value;
+      gameManager.campaignManager.changeReputation(value - this.party.reputation);
       gameManager.stateManager.after();
       this.update();
     }
@@ -412,12 +407,10 @@ export class PartySheetDialogComponent implements OnInit {
 
     if (this.party.factionReputation[faction] !== value) {
       gameManager.stateManager.before('setFactionReputation', faction, value);
-      if (value > 20) {
-        value = 20;
-      } else if (value < -10) {
-        value = -10;
+      if (force && value > 12) {
+        gameManager.campaignManager.unlockGh2eFaction(faction);
       }
-      this.party.factionReputation[faction] = value;
+      gameManager.campaignManager.changeFactionReputation(faction, value - (this.party.factionReputation[faction] || 0), force);
       gameManager.stateManager.after();
 
       this.reputationSections
@@ -634,19 +627,14 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   setProsperity(value: number) {
-    value -= gameManager.prosperityTicks() - this.party.prosperity;
+    value -= gameManager.campaignManager.prosperityTicks() - this.party.prosperity;
 
     if (this.party.prosperity === value) {
       value--;
     }
-    if (value > this.prosperitySteps[this.prosperitySteps.length - 1] + 1) {
-      value = this.prosperitySteps[this.prosperitySteps.length - 1] + 1;
-    } else if (value < 0) {
-      value = 0;
-    }
 
     gameManager.stateManager.before('setPartyProsperity', value);
-    this.party.prosperity = value;
+    gameManager.campaignManager.changeProsperity(value - this.party.prosperity);
     gameManager.stateManager.after();
 
     Object.keys(this.prosperitySections)
@@ -986,7 +974,7 @@ export class PartySheetDialogComponent implements OnInit {
       this.moraleDefense = 15;
     }
 
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
     if (campaign.townGuardPerks) {
       this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
       if (this.party.townGuardDeck) {
@@ -1006,7 +994,7 @@ export class PartySheetDialogComponent implements OnInit {
         }
       });
 
-      this.factionUnlocks = gameManager.gh2eFactionUnlocks();
+      this.factionUnlocks = gameManager.campaignManager.gh2eFactionUnlocks();
     }
 
     if (campaign.reputationSections) {
@@ -1335,7 +1323,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   sectionsForWeekFixed(week: number): string[] {
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
     if (campaign.weeks && campaign.weeks[week + 1]) {
       return campaign.weeks[week + 1] || [];
     }
@@ -1697,8 +1685,8 @@ export class PartySheetDialogComponent implements OnInit {
 
     gameManager.stateManager.before('setPartyMorale', value);
 
-    this.party.morale = value;
-    const campaignData = gameManager.campaignData();
+    gameManager.campaignManager.changeMorale(value - this.party.morale);
+    const campaignData = gameManager.campaignManager.campaignData();
     if (value === 0 && campaignData && campaignData.lowMorale && this.lowMoraleSolved <= campaignData.lowMorale.length) {
       if (this.lowMoraleSolved < campaignData.lowMorale.length) {
         this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved]);
@@ -1742,7 +1730,10 @@ export class PartySheetDialogComponent implements OnInit {
         this.party.townGuardPerkSections.splice(index, 1);
       }
       const active = (this.townGuardDeck && this.townGuardDeck.active) || false;
-      this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, gameManager.campaignData());
+      this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
+        this.party,
+        gameManager.campaignManager.campaignData()
+      );
       this.townGuardDeck.active = active;
       gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
       this.party.townGuardDeck = this.townGuardDeck.toModel();
@@ -1759,7 +1750,7 @@ export class PartySheetDialogComponent implements OnInit {
       this.party.campaignStickers = this.party.campaignStickers || [];
 
       let total = 0;
-      const campaign = gameManager.campaignData();
+      const campaign = gameManager.campaignManager.campaignData();
       if (campaign.campaignStickers) {
         const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.value));
         if (campaignSticker) {
@@ -1790,7 +1781,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   campaignStickerImage(sticker: string, stickerIndex: number): string | undefined {
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
 
     let total = 0;
     if (campaign.campaignStickers) {

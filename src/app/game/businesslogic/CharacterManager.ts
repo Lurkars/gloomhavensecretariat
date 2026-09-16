@@ -150,9 +150,9 @@ export class CharacterManager {
 
       if (character.progress.gold === 0) {
         if (gameManager.fhRules()) {
-          character.progress.gold = 10 * gameManager.prosperityLevel() + 20;
+          character.progress.gold = 10 * gameManager.campaignManager.prosperityLevel() + 20;
         } else if (gameManager.gh2eRules()) {
-          character.progress.gold = 10 * gameManager.prosperityLevel() + 15;
+          character.progress.gold = 10 * gameManager.campaignManager.prosperityLevel() + 15;
         } else if (!gameManager.editionRules('jotl')) {
           character.progress.gold = 15 * (character.level + 1);
         }
@@ -184,7 +184,7 @@ export class CharacterManager {
     this.game.figures.splice(index, 1);
 
     if (retirement && settingsManager.settings.applyRetirement) {
-      gameManager.game.party.prosperity += gameManager.fhRules(true) ? 2 : 1;
+      gameManager.campaignManager.changeProsperity(gameManager.fhRules(true) ? 2 : 1);
 
       if (settingsManager.settings.events) {
         if (character.retireEvent) {
@@ -239,13 +239,21 @@ export class CharacterManager {
       summon.state = SummonState.true;
     }
 
+    if (summon.trap) {
+      summon.state = SummonState.true;
+    }
+
     character.summons.push(summon);
 
     gameManager.specialActionsManager.addSummon(character, summon);
   }
 
   removeSummon(character: Character, summon: Summon) {
-    character.summons.splice(character.summons.indexOf(summon), 1);
+    const index = character.summons.indexOf(summon);
+    if (index === -1) {
+      return;
+    }
+    character.summons.splice(index, 1);
     gameManager.specialActionsManager.removeSummon(character, summon);
   }
 

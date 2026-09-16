@@ -267,7 +267,7 @@ export class DatamanagementMenuComponent implements OnInit {
     if (!!gameModel.edition) {
       settingsManager.automaticTheme(gameModel.edition, gameManager.game.edition);
     }
-    gameManager.game.fromModel(gameModel);
+    gameManager.game.fromModel(gameModel, false, true);
     gameManager.stateManager.after();
   }
 

@@ -61,7 +61,7 @@ export class ItemManager {
         return true;
       }
 
-      if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= gameManager.prosperityLevel()) {
+      if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= gameManager.campaignManager.prosperityLevel()) {
         return true;
       }
 
@@ -160,7 +160,7 @@ export class ItemManager {
     }
 
     if (settingsManager.settings.gh2eFhItems && gameManager.gh2eRules() && itemData.edition === 'fh' && typeof itemData.id === 'number') {
-      const prosperity = gameManager.prosperityLevel();
+      const prosperity = gameManager.campaignManager.prosperityLevel();
 
       if (
         prosperity >= 3 &&
@@ -287,18 +287,33 @@ export class ItemManager {
         if (requiredResource > 0) {
           isCraftItem = true;
         }
-        if (
+        const fhShareResources =
           getLootClass(lootType) === LootClass.herb_resources ||
-          (settingsManager.settings.fhShareResources && getLootClass(lootType) === LootClass.material_resources)
-        ) {
-          canCraft =
-            canCraft &&
-            (((!!character && character.progress.loot[lootType]) || 0) >= requiredResource ||
-              (gameManager.game.party.loot[lootType] || 0) >= requiredResource);
-        } else {
-          canCraft = canCraft && ((!!character && character.progress.loot[lootType]) || 0) >= requiredResource;
+          (settingsManager.settings.fhShareResources && getLootClass(lootType) === LootClass.material_resources);
+        canCraft =
+          canCraft &&
+          ((!!character && character.progress.loot[lootType]) || 0) + ((fhShareResources && gameManager.game.party.loot[lootType]) || 0) >=
+            requiredResource;
+      });
+    }
+
+    if (item.resourcesAny) {
+      let requiredResource = 0;
+      item.resourcesAny.forEach((value) => {
+        if (!!value[LootClass.herb_resources]) {
+          requiredResource += value[LootClass.herb_resources];
         }
       });
+
+      if (requiredResource > 0) {
+        isCraftItem = true;
+        canCraft =
+          canCraft &&
+          herbResourceLootTypes.some(
+            (lootType) =>
+              ((!!character && character.progress.loot[lootType]) || 0) + (gameManager.game.party.loot[lootType] || 0) >= requiredResource
+          );
+      }
     }
 
     if (item.requiredItems) {
@@ -419,6 +434,37 @@ export class ItemManager {
           character.progress.loot[lootType] = (character.progress.loot[lootType] || 0) - requiredResource;
         }
       });
+    }
+
+    if (item.resourcesAny) {
+      let requiredResource = 0;
+      item.resourcesAny.forEach((value) => {
+        if (!!value[LootClass.herb_resources]) {
+          requiredResource += value[LootClass.herb_resources];
+        }
+      });
+
+      if (requiredResource > 0) {
+        let herb: LootType | undefined;
+        herbResourceLootTypes.forEach((lootType) => {
+          const lootTypeValue = ((!!character && character.progress.loot[lootType]) || 0) + (gameManager.game.party.loot[lootType] || 0);
+          const herbTypeValue =
+            (!!herb && ((!!character && character.progress.loot[herb]) || 0) + (gameManager.game.party.loot[herb] || 0)) || 0;
+          if (lootTypeValue >= requiredResource && lootTypeValue > herbTypeValue) {
+            herb = lootType;
+          }
+        });
+
+        if (!!herb) {
+          if ((character.progress.loot[herb] || 0) < requiredResource) {
+            requiredResource -= character.progress.loot[herb] || 0;
+            character.progress.loot[herb] = 0;
+            this.game.party.loot[herb] = (this.game.party.loot[herb] || 0) - requiredResource;
+          } else {
+            character.progress.loot[herb] = (character.progress.loot[herb] || 0) - requiredResource;
+          }
+        }
+      }
     }
 
     if (item.requiredItems) {

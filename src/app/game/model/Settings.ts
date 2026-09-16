@@ -154,6 +154,7 @@ export class Settings {
   gameClock: boolean = false;
   gameClockMerge: boolean = true;
   gh2eFhItems: boolean = false;
+  gh2eForceFactionEnvelopes: boolean = false;
   gh2eImbuement: boolean = true;
   gh2eImbuementKeep: boolean = false;
   globalFontsize: number = 1;

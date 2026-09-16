@@ -175,7 +175,7 @@
               @if (entity.immunities.includes(entityCondition.name)) {
                 <span class="condition immunity condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 2"></span>
               }
-              @if (entityCondition.permanent) {
+              @if (entityCondition.permanent && !isTrapSummon) {
                 <span class="condition permanent condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 3"></span>
               }
               @if (entityCondition.state === EntityConditionState.roundExpire) {

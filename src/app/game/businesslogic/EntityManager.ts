@@ -205,13 +205,14 @@ export class EntityManager {
 
   changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
     this.changeHealthHighlightConditions(entity, figure, value, damageOnly);
+    const wasAlive = this.isAlive(entity);
     entity.health += value;
     this.checkHealth(entity, figure);
     if (settingsManager.settings.scenarioStats && value !== 0) {
       if (value > 0) {
         gameManager.scenarioStatsManager.applyHeal(entity, figure, value);
       } else {
-        gameManager.scenarioStatsManager.applyDamage(entity, figure, value * -1);
+        gameManager.scenarioStatsManager.applyDamage(entity, figure, value * -1, wasAlive);
       }
     }
 
@@ -618,7 +619,7 @@ export class EntityManager {
         condition = new Condition(condition.name, condition.value - 1);
       }
     }
-    if (condition.types.includes(ConditionType.amDeck)) {
+    if (condition.types.includes(ConditionType.amDeck) && !permanent) {
       this.addDeckCondition(figure, condition, deckSource);
     } else {
       this.addStandardCondition(entity, figure, condition, permanent);

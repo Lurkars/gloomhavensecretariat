@@ -1,6 +1,9 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
 import { Ability } from 'src/app/game/model/data/Ability';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
@@ -10,6 +13,11 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
+
+function buildCharacter(name: string, edition: string = 'gh'): Character {
+  const data = Object.assign(new CharacterData(), { name, edition, stats: [new CharacterStat(1, 10)] });
+  return new Character(data, 1);
+}
 
 // This spec covers the entity bookkeeping helpers that only need a Monster + MonsterEntity
 // fixture (getStat, the entity/standee counting helpers, and the two entity comparators), plus the
@@ -106,6 +114,35 @@ describe('MonsterManager', () => {
       monster.entities = [normal, elite];
 
       expect(monsterManager.monsterEntityCount(monster, false, MonsterType.elite)).toEqual(1);
+    });
+  });
+
+  describe('removeMonsterEntity', () => {
+    it('is a no-op when called again for an entity already removed, instead of splicing out an unrelated standee', () => {
+      // Several UI flows (health dialog, standee drag, condition resolution) independently detect
+      // the same dead entity and each schedule their own delayed removal; a redundant second call
+      // must not touch the entities array at all, since `indexOf` returning -1 would otherwise make
+      // `splice(-1, 1)` delete the last (unrelated) entity instead of doing nothing.
+      const original = settingsManager.settings.scenarioStats;
+      settingsManager.settings.scenarioStats = true;
+
+      const monster = buildMonster({ name: 'bandit-guard', edition: 'gh', stats: [new MonsterStat(MonsterType.normal, 1, 10)] }, 1);
+      const killedEntity = new MonsterEntity(1, MonsterType.normal, monster);
+      killedEntity.dead = true;
+      const survivor = new MonsterEntity(2, MonsterType.normal, monster);
+      monster.entities = [killedEntity, survivor];
+
+      const character = buildCharacter('brute');
+      character.active = true;
+      gameManager.game.figures = [character, monster];
+
+      monsterManager.removeMonsterEntity(monster, killedEntity);
+      monsterManager.removeMonsterEntity(monster, killedEntity);
+
+      expect(monster.entities).toEqual([survivor]);
+      expect(character.scenarioStats.normalKills).toEqual(1);
+
+      settingsManager.settings.scenarioStats = original;
     });
   });
 

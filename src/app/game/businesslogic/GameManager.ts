@@ -3,6 +3,7 @@ import { ActionsManager } from 'src/app/game/businesslogic/ActionsManager';
 import { AttackModifierManager } from 'src/app/game/businesslogic/AttackModifierManager';
 import { BattleGoalManager } from 'src/app/game/businesslogic/BattleGoalManager';
 import { BuildingsManager } from 'src/app/game/businesslogic/BuildingsManager';
+import { CampaignManager } from 'src/app/game/businesslogic/CampaignManager';
 import { ChallengesManager } from 'src/app/game/businesslogic/ChallengesManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { EnhancementsManager } from 'src/app/game/businesslogic/EnhancementsManager';
@@ -29,13 +30,7 @@ import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { Condition, ConditionName, Conditions, ConditionType } from 'src/app/game/model/data/Condition';
 import { DeckData } from 'src/app/game/model/data/DeckData';
-import {
-  CampaignData,
-  EditionData,
-  FH_PROSPERITY_STEPS,
-  GH2E_PROSPERITY_STEPS,
-  GH_PROSPERITY_STEPS
-} from 'src/app/game/model/data/EditionData';
+import { EditionData } from 'src/app/game/model/data/EditionData';
 import { ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
@@ -74,6 +69,7 @@ export class GameManager {
   levelManager: LevelManager;
   scenarioManager: ScenarioManager;
   scenarioRulesManager: ScenarioRulesManager;
+  campaignManager: CampaignManager;
   roundManager: RoundManager;
   lootManager: LootManager;
   itemManager: ItemManager;
@@ -106,6 +102,7 @@ export class GameManager {
     this.levelManager = new LevelManager(this.game);
     this.scenarioManager = new ScenarioManager(this.game);
     this.scenarioRulesManager = new ScenarioRulesManager(this.game);
+    this.campaignManager = new CampaignManager(this.game);
     this.roundManager = new RoundManager(this.game);
     this.itemManager = new ItemManager(this.game);
     this.lootManager = new LootManager(this.game);
@@ -903,43 +900,6 @@ export class GameManager {
     return monsterData;
   }
 
-  prosperityLevel(): number {
-    let prosperityLevel = 1;
-    let prosperitySteps = GH_PROSPERITY_STEPS;
-    if (this.fhRules()) {
-      prosperitySteps = FH_PROSPERITY_STEPS;
-    } else if (this.gh2eRules()) {
-      prosperitySteps = GH2E_PROSPERITY_STEPS;
-    }
-    prosperitySteps.forEach((step) => {
-      if (this.prosperityTicks() > step) {
-        prosperityLevel++;
-      }
-    });
-    return prosperityLevel;
-  }
-
-  prosperityTicks(): number {
-    let ticks = this.game.party.prosperity;
-    if ((this.game.party.envelopeB && this.editionRules('gh')) || this.editionRules('cs')) {
-      if (!this.editionRules('cs')) {
-        ticks += 1;
-      }
-      if (this.game.party.donations > 10) {
-        ticks += Math.floor(Math.min(this.game.party.donations - 10, 30) / 5);
-      }
-
-      if (this.game.party.donations > 40) {
-        ticks += Math.floor((this.game.party.donations - 40) / 10);
-      }
-    } else if (this.gh2eRules()) {
-      ticks += Math.floor(Math.min(this.game.party.donations, 100) / 5);
-      ticks += Math.floor(Math.min(this.game.party.imbuement + 5, 80) / 10);
-    }
-
-    return ticks;
-  }
-
   fhRules(gh2e: boolean = false): boolean {
     return this.editionRules('fh') || (gh2e && this.gh2eRules());
   }
@@ -1017,11 +977,10 @@ export class GameManager {
           this.addEntityCount(figure);
         }
       } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
-        figure.entities.forEach((entity) => {
-          if (this.entityManager.isAlive(entity) && !this.entityCounter(this.additionalIdentifier(figure, entity))) {
-            this.addEntityCount(figure, entity);
-          }
-        });
+        const uncounted = figure.entities.filter(
+          (entity) => this.entityManager.isAlive(entity) && !this.entityCounter(this.additionalIdentifier(figure, entity))
+        );
+        uncounted.forEach((entity) => this.addEntityCount(figure, entity));
       }
     });
 
@@ -1135,25 +1094,6 @@ export class GameManager {
     return ElementState.inert;
   }
 
-  campaignData(edition: string | undefined = undefined): CampaignData {
-    edition = edition || this.currentEdition();
-    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-
-    if (editionData && editionData.campaign) {
-      return Object.assign(new CampaignData(), editionData.campaign);
-    }
-
-    const extensionCampaign = this.relevantEditions(edition)
-      .map((e) => this.editionData.find((editionData) => editionData.edition === e))
-      .map((editionData) => (editionData ? editionData.campaign : undefined))
-      .find((campaignData) => campaignData);
-    if (extensionCampaign) {
-      return Object.assign(new CampaignData(), extensionCampaign);
-    }
-
-    return new CampaignData();
-  }
-
   changeParty(party: Party) {
     if (!!party.edition) {
       settingsManager.automaticTheme(party.edition, this.game.edition);
@@ -1205,44 +1145,6 @@ export class GameManager {
     });
   }
 
-  resetCampaign() {
-    this.game.figures = [];
-    this.game.party.characters = [];
-    this.game.party.location = '';
-    this.game.party.achievements = '';
-    this.game.party.achievementsList = [];
-    this.game.party.reputation = 0;
-    this.game.party.prosperity = 0;
-    this.game.party.scenarios = [];
-    this.game.party.conclusions = [];
-    this.game.party.casualScenarios = [];
-    this.game.party.manualScenarios = [];
-    this.game.party.globalAchievements = '';
-    this.game.party.globalAchievementsList = [];
-    this.game.party.treasures = [];
-    this.game.party.donations = 0;
-    this.game.party.retirements = [];
-    this.game.party.unlockedItems = [];
-    this.game.party.unlockedCharacters = [];
-    this.game.party.envelopeB = false;
-    this.game.party.weeks = 0;
-    this.game.party.weekSections = [];
-    this.game.party.loot = {};
-    this.game.party.randomItemLooted = [];
-    this.game.party.inspiration = 0;
-    this.game.party.defense = 0;
-    this.game.party.soldiers = 0;
-    this.game.party.morale = 0;
-    this.game.party.townGuardPerks = 0;
-    this.game.party.townGuardPerkSections = [];
-    this.game.party.campaignStickers = [];
-    this.game.party.townGuardDeck = undefined;
-    this.game.party.buildings = [];
-    this.game.party.lootDeckEnhancements = [];
-    this.game.party.lootDeckFixed = [];
-    this.game.party.lootDeckSections = [];
-  }
-
   toggleGameClock() {
     this.game.gameClock = this.game.gameClock || [];
     let last: GameClockTimestamp | undefined = this.game.gameClock.length ? this.game.gameClock[0] : undefined;
@@ -1290,22 +1192,6 @@ export class GameManager {
     });
 
     return gameClock.sort((a, b) => b.clockIn - a.clockIn);
-  }
-
-  gh2eFactionUnlocks(): string[] {
-    return this.game.party.conclusions
-      .map((c) => gameManager.scenarioManager.sectionDataForModel(c))
-      .filter((sectionData) => {
-        if (sectionData) {
-          return sectionData.rewards && sectionData.rewards.factionUnlock;
-        }
-        return false;
-      })
-      .map((sectionData) => (sectionData && sectionData.rewards && sectionData.rewards.factionUnlock) || '');
-  }
-
-  gh2eFactionUnlock(faction: string): boolean {
-    return this.gh2eFactionUnlocks().includes(faction);
   }
 }
 

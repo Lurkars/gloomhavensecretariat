@@ -251,7 +251,7 @@ export class CampaignMenuComponent implements OnInit {
       this.confirmResetCampaign = true;
     } else {
       gameManager.stateManager.before('resetCampaign');
-      gameManager.resetCampaign();
+      gameManager.campaignManager.resetCampaign();
       gameManager.stateManager.after();
       this.closed.emit();
     }

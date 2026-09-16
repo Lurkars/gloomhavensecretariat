@@ -38,13 +38,10 @@ export class BuildingsManager {
       this.game.party.defense += rewards.defense;
     }
     if (rewards.loseMorale) {
-      this.game.party.morale -= rewards.loseMorale;
-      if (this.game.party.morale < 0) {
-        this.game.party.morale = 0;
-      }
+      gameManager.campaignManager.changeMorale(-rewards.loseMorale);
     }
     if (rewards.prosperity) {
-      this.game.party.prosperity += rewards.prosperity;
+      gameManager.campaignManager.changeProsperity(rewards.prosperity);
     }
 
     if (rewards.soldiers) {
@@ -114,7 +111,7 @@ export class BuildingsManager {
   availableBuilding(buildingData: BuildingData): boolean {
     return (
       buildingData.prosperityUnlock &&
-      buildingData.costs.prosperity <= gameManager.prosperityLevel() &&
+      buildingData.costs.prosperity <= gameManager.campaignManager.prosperityLevel() &&
       !gameManager.game.party.buildings.find((model) => buildingData.name === model.name && model.level) &&
       (!buildingData.requires ||
         gameManager.game.party.buildings.find((model) => model.name === buildingData.requires && model.level) !== undefined)
@@ -142,7 +139,7 @@ export class BuildingsManager {
   }
 
   coordinatesFromModel(input: BuildingModel): WorldMapCoordinates | undefined {
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
     if (!campaign) {
       return undefined;
     }

@@ -209,12 +209,12 @@
 
       @if (
         !!character &&
-        gameManager.gh2eRules() &&
+        (gameManager.gh2eRules() || settingsManager.settings.gh2eForceFactionEnvelopes) &&
         (edit || (!!gameManager.game.scenario && gameManager.game.round === 0 && gameManager.game.state === 'draw'))
       ) {
         <div class="factions-modifier">
           <div class="factions">
-            @for (faction of gameManager.gh2eFactionUnlocks(); track faction) {
+            @for (faction of gameManager.campaignManager.gh2eFactionUnlocks(); track faction) {
               <a class="faction" [ngClass]="{ active: faction === activeFaction }" (click)="toggleFaction(faction)">
                 <img class="ghs-svg" [src]="'./assets/images/gh2e/faction/' + faction + '.svg'" />
               </a>

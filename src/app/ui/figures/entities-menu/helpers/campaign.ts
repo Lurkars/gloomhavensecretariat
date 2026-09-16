@@ -26,7 +26,7 @@ export class CampaignHelper {
   update() {
     this.factions = [];
     if (gameManager.gh2eRules()) {
-      const campaign = gameManager.campaignData();
+      const campaign = gameManager.campaignManager.campaignData();
       if (campaign && campaign.factions) {
         this.factions = campaign.factions;
       }
@@ -36,19 +36,19 @@ export class CampaignHelper {
   close() {
     if (this.prosperity !== 0) {
       gameManager.stateManager.before('eventEffect.prosperity', ghsValueSign(this.prosperity));
-      gameManager.game.party.prosperity += this.prosperity;
+      gameManager.campaignManager.changeProsperity(this.prosperity);
       gameManager.stateManager.after();
     }
 
     if (this.reputation !== 0) {
       gameManager.stateManager.before('eventEffect.reputation', ghsValueSign(this.reputation));
-      gameManager.game.party.reputation += this.reputation;
+      gameManager.campaignManager.changeReputation(this.reputation);
       gameManager.stateManager.after();
     }
 
     if (this.morale !== 0) {
       gameManager.stateManager.before('eventEffect.morale', ghsValueSign(this.morale));
-      gameManager.game.party.morale += this.morale;
+      gameManager.campaignManager.changeMorale(this.morale);
       gameManager.stateManager.after();
     }
 
@@ -61,8 +61,7 @@ export class CampaignHelper {
     this.factions.forEach((faction) => {
       if (this.factionReputation[faction]) {
         gameManager.stateManager.before('eventEffect.factionReputation', ghsValueSign(this.factionReputation[faction] || 0), faction);
-        gameManager.game.party.factionReputation[faction] =
-          (gameManager.game.party.factionReputation[faction] || 0) + (this.factionReputation[faction] || 0);
+        gameManager.campaignManager.changeFactionReputation(faction, this.factionReputation[faction] || 0);
         gameManager.stateManager.after();
       }
     });

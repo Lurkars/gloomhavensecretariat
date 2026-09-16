@@ -341,7 +341,7 @@ describe('CharacterManager', () => {
 
     it('grants starting gold using the fh formula under fh rules', () => {
       (gameManager.fhRules as any).mockReturnValue(true);
-      vi.spyOn(gameManager, 'prosperityLevel').mockReturnValue(2);
+      vi.spyOn(gameManager.campaignManager, 'prosperityLevel').mockReturnValue(2);
       const data = buildCharacterData({ name: 'test-char', edition: 'fh', stats: [new CharacterStat(1, 10)] });
 
       characterManager.addCharacter(data, 1);

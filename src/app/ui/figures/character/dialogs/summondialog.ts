@@ -143,7 +143,8 @@ export class CharacterSummonDialog {
 
     this.summonData.forEach((summonData, index) => {
       this.summonNumbers[index] = -1;
-      for (let i = 1; i < 9; i++) {
+      const maxNumber = Math.max(8, summonData.count || 1);
+      for (let i = 1; i <= maxNumber; i++) {
         if (this.available(summonData, i) && this.summonNumbers[index] === -1) {
           this.summonNumbers[index] = i;
         }

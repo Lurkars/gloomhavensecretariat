@@ -1,5 +1,6 @@
 import { Component, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
@@ -12,6 +13,7 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 })
 export class SettingsDebugMenuComponent {
   settingsManager: SettingsManager = settingsManager;
+  gameManager: GameManager = gameManager;
 
   readonly closed = output();
 

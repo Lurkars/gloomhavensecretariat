@@ -45,6 +45,7 @@ export class Summon implements Entity {
   dormant: boolean = false;
   revealed: boolean = false;
   passive: boolean = false;
+  trap: boolean = false;
   afterTurn: boolean = false;
   afterTurnActive: boolean = false;
 
@@ -96,6 +97,10 @@ export class Summon implements Entity {
       this.thumbnailUrl = summonData.thumbnailUrl;
       this.noThumbnail = summonData.noThumbnail;
       this.passive = summonData.passive;
+      this.trap = summonData.trap;
+      if (this.trap) {
+        this.passive = true;
+      }
     }
     this.health = this.maxHealth;
     this.afterTurn = false;
@@ -128,6 +133,7 @@ export class Summon implements Entity {
       this.active,
       this.dormant,
       this.passive,
+      this.trap,
       this.afterTurn,
       this.afterTurnActive,
       this.thumbnail,
@@ -178,6 +184,7 @@ export class Summon implements Entity {
     this.active = model.active;
     this.dormant = model.dormant;
     this.passive = model.passive;
+    this.trap = model.trap;
     this.afterTurn = model.afterTurn || false;
     this.afterTurnActive = model.afterTurnActive || false;
     this.thumbnail = model.thumbnail;
@@ -242,6 +249,7 @@ export class GameSummonModel {
   active: boolean = false;
   dormant: boolean;
   passive: boolean;
+  trap: boolean;
   afterTurn: boolean;
   afterTurnActive: boolean;
   thumbnail: string | undefined;
@@ -279,6 +287,7 @@ export class GameSummonModel {
     active: boolean,
     dormant: boolean,
     passive: boolean,
+    trap: boolean,
     afterTurn: boolean,
     afterTurnActive: boolean,
     thumbnail: string | undefined,
@@ -315,6 +324,7 @@ export class GameSummonModel {
     this.active = active;
     this.dormant = dormant;
     this.passive = passive;
+    this.trap = trap;
     this.afterTurn = afterTurn;
     this.afterTurnActive = afterTurnActive;
     this.thumbnail = thumbnail;

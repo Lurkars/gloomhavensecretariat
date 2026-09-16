@@ -407,13 +407,13 @@
             <div class="grid defense-grid">
               <span class="sections" [ngClass]="{ highlight: party.morale > 19 }">
                 @for (
-                  conclusion of gameManager.campaignData().highMorale || [] | slice: 0 : highMoraleSolved + 1;
+                  conclusion of gameManager.campaignManager.campaignData().highMorale || [] | slice: 0 : highMoraleSolved + 1;
                   track conclusion;
                   let i = $index
                 ) {
-                  <span class="section" [ngClass]="{ conclusion: isConclusion(gameManager.campaignData().highMorale[i]) }">
+                  <span class="section" [ngClass]="{ conclusion: isConclusion(gameManager.campaignManager.campaignData().highMorale[i]) }">
                     <img src="./assets/images/fh/party/section.svg" />
-                    {{ gameManager.campaignData().highMorale[i] || '' }}
+                    {{ gameManager.campaignManager.campaignData().highMorale[i] || '' }}
                   </span>
                 }
               </span>
@@ -425,13 +425,13 @@
               <span class="value" [ngClass]="{ highlight: moraleDefense === -10 }">-10</span>
               <span class="sections" [ngClass]="{ highlight: party.morale < 1 }">
                 @for (
-                  conclusion of gameManager.campaignData().lowMorale || [] | slice: 0 : lowMoraleSolved + 1;
+                  conclusion of gameManager.campaignManager.campaignData().lowMorale || [] | slice: 0 : lowMoraleSolved + 1;
                   track conclusion;
                   let i = $index
                 ) {
-                  <span class="section" [ngClass]="{ conclusion: isConclusion(gameManager.campaignData().lowMorale[i]) }">
+                  <span class="section" [ngClass]="{ conclusion: isConclusion(gameManager.campaignManager.campaignData().lowMorale[i]) }">
                     <img src="./assets/images/fh/party/section.svg" />
-                    {{ gameManager.campaignData().lowMorale[i] || '' }}
+                    {{ gameManager.campaignManager.campaignData().lowMorale[i] || '' }}
                   </span>
                 }
               </span>
@@ -452,7 +452,10 @@
               }
             </div>
             <div class="perk-list">
-              @for (townGuardPerk of gameManager.campaignData().townGuardPerks | trackUUID; track townGuardPerk._trackUUID) {
+              @for (
+                townGuardPerk of gameManager.campaignManager.campaignData().townGuardPerks | trackUUID;
+                track townGuardPerk._trackUUID
+              ) {
                 <div class="perk">
                   <div class="sections">
                     @for (section of townGuardPerk.sections; track section + $index) {
@@ -808,7 +811,7 @@
                   <div
                     class="checkbox"
                     [ngClass]="{
-                      checked: gameManager.prosperityTicks() > index,
+                      checked: gameManager.campaignManager.prosperityTicks() > index,
                       highlight: !prosperitySteps.includes(index) && prosperityHighlightSteps.includes(index)
                     }"
                   >
@@ -817,8 +820,10 @@
                       <span
                         class="section"
                         ghs-pointer-input
-                        (singleClick)="unlockConclusion(prosperitySections[index], gameManager.prosperityTicks() > index)"
-                        (doubleClick)="unlockConclusion(prosperitySections[index], gameManager.prosperityTicks() > index, true)"
+                        (singleClick)="unlockConclusion(prosperitySections[index], gameManager.campaignManager.prosperityTicks() > index)"
+                        (doubleClick)="
+                          unlockConclusion(prosperitySections[index], gameManager.campaignManager.prosperityTicks() > index, true)
+                        "
                         [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"
                       ></span>
                     }
@@ -1160,7 +1165,10 @@
                 @for (check of [] | ghsRange: prosperitySteps[prosperitySteps.length - 1] + 1; track check; let index = $index) {
                   <div
                     class="tick"
-                    [autoscroll]="gameManager.prosperityTicks() === index + 1 || (gameManager.prosperityTicks() === 0 && index === 0)"
+                    [autoscroll]="
+                      gameManager.campaignManager.prosperityTicks() === index + 1 ||
+                      (gameManager.campaignManager.prosperityTicks() === 0 && index === 0)
+                    "
                     [ngClass]="{ large: prosperitySteps.includes(index), section: prosperitySections[index] }"
                   >
                     @if (prosperitySteps.includes(index)) {
@@ -1171,7 +1179,10 @@
                     <div
                       class="checkbox"
                       (click)="setProsperity(index + 1)"
-                      [ngClass]="{ checked: gameManager.prosperityTicks() > index, highlight: prosperityHighlightSteps.includes(index) }"
+                      [ngClass]="{
+                        checked: gameManager.campaignManager.prosperityTicks() > index,
+                        highlight: prosperityHighlightSteps.includes(index)
+                      }"
                     >
                       @if (prosperitySections[index]) {
                         <span class="section" [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"></span>

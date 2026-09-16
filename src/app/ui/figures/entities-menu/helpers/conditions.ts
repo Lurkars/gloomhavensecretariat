@@ -21,6 +21,7 @@ export class ConditionHelper {
               (other) =>
                 other.name === entityCondition.name &&
                 other.state === entityCondition.state &&
+                other.permanent === entityCondition.permanent &&
                 (!entityCondition.types.includes(ConditionType.upgrade) || other.value === entityCondition.value)
             )
           )
@@ -28,6 +29,7 @@ export class ConditionHelper {
           const condition = new EntityCondition(entityCondition.name, entityCondition.value);
           condition.state = entityCondition.state;
           condition.lastState = entityCondition.lastState;
+          condition.permanent = entityCondition.permanent;
           if (condition.types.includes(ConditionType.stack)) {
             condition.value = 0;
           }

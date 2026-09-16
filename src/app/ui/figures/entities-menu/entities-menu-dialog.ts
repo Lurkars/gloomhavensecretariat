@@ -89,6 +89,8 @@ export class EntitiesMenuDialogComponent {
   maxHealth: number = 0;
   bless: number = 0;
   curse: number = 0;
+  trapDamage: number = 0;
+  trapHeal: number = 0;
 
   blessMin: number = -1;
   curseMin: number = -1;
@@ -363,8 +365,17 @@ export class EntitiesMenuDialogComponent {
     this.bb =
       this.figures.every((figure) => (figure instanceof Character || figure instanceof Monster) && figure.bb) || gameManager.bbRules();
     // TODO: maybe also empower/enfeeble for multiple, like bless/curse
-    this.empowerEnabled = !this.bb && !!this.figure && !!this.entity && !this.objectiveOnly && this.empowerChars.length > 0;
-    this.enfeebleEnabled = !this.bb && !!this.figure && !!this.entity && !this.objectiveOnly && this.enfeebleChars.length > 0;
+    this.empowerEnabled =
+      !this.bb && !!this.figure && !!this.entity && !this.objectiveOnly && !this.isTrapSummon && this.empowerChars.length > 0;
+    this.enfeebleEnabled =
+      !this.bb && !!this.figure && !!this.entity && !this.objectiveOnly && !this.isTrapSummon && this.enfeebleChars.length > 0;
+  }
+
+  get isTrapSummon(): boolean {
+    return (
+      (!!this.entity && this.entity instanceof Summon && this.entity.trap) ||
+      this.entities.every((entity) => entity instanceof Summon && entity.trap)
+    );
   }
 
   setFilter(filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined = undefined) {

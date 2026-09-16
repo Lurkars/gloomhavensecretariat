@@ -1,6 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
-import { LootType } from 'src/app/game/model/data/Loot';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
@@ -17,7 +16,7 @@ export class ScenarioStatsManager {
     this.game = game;
   }
 
-  applyDamage(entity: Entity, figure: Figure, value: number) {
+  applyDamage(entity: Entity, figure: Figure, value: number, wasAlive: boolean = true) {
     const activeFigure: Figure | undefined = this.game.figures.find((figure) => figure.active);
 
     if (figure instanceof Character) {
@@ -27,7 +26,7 @@ export class ScenarioStatsManager {
         } else {
           entity.scenarioStats.otherDamage += value;
         }
-        if (entity.health <= 0 && entity.health + value > 0) {
+        if (wasAlive && entity.health <= 0) {
           entity.scenarioStats.exhausts += 1;
         }
         entity.scenarioStats.maxDamage = Math.max(entity.scenarioStats.maxDamage, value);
@@ -37,7 +36,7 @@ export class ScenarioStatsManager {
         } else {
           figure.scenarioStats.summons.otherDamage += value;
         }
-        if (entity.health <= 0 && entity.health + value > 0) {
+        if (wasAlive && entity.health <= 0) {
           figure.scenarioStats.summons.exhausts += 1;
         }
         figure.scenarioStats.summons.maxDamage = Math.max(figure.scenarioStats.summons.maxDamage, value);
@@ -71,6 +70,9 @@ export class ScenarioStatsManager {
   }
 
   killMonsterEntity(entity: MonsterEntity) {
+    if (entity.tags.includes('ignore-kill')) {
+      return;
+    }
     const activeFigure: Figure | undefined = this.game.figures.find((figure) => figure.active);
     if (activeFigure instanceof Character) {
       if (activeFigure.summons.find((summon) => summon.active)) {
@@ -116,13 +118,12 @@ export class ScenarioStatsManager {
 
     character.scenarioStats.treasures = character.treasures.length;
 
+    character.scenarioStats.loot = {};
     if (character.lootCards) {
-      const lootStats: Partial<Record<LootType, number>> = {};
       character.lootCards.forEach((index) => {
         const loot = this.game.lootDeck.cards[index];
         if (loot) {
-          lootStats[loot.type] = (lootStats[loot.type] || 0) + gameManager.lootManager.getValue(loot);
-          character.scenarioStats.loot[loot.type] = lootStats[loot.type];
+          character.scenarioStats.loot[loot.type] = (character.scenarioStats.loot[loot.type] || 0) + gameManager.lootManager.getValue(loot);
         }
       });
     }

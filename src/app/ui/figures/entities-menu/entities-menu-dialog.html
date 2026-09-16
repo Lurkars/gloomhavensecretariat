@@ -354,69 +354,132 @@
             }
 
             <!-- HP -->
-            <span class="item">
-              <ghs-pointer-input
-                class="button"
-                tabclick
-                (singleClick)="healthHelper.changeHealth(-1)"
-                [repeat]="true"
-                [ngClass]="{
-                  disabled:
-                    !!entity &&
-                    ((trackDamage && entity.health + health === 0) ||
-                      (settingsManager.settings.damageHP && entity.health - health === EntityValueFunction(entity.maxHealth)))
-                }"
-              >
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
-              </ghs-pointer-input>
-            </span>
-            <span class="item" [ghs-tooltip]="'game.health'">
-              @if (!!entity && (!settingsManager.settings.damageHP || trackDamage)) {
-                <span class="badge badge-left">{{ entity.health + health | ghsMinZero }}</span>
-              }
-              @if (!!entity && settingsManager.settings.damageHP && !trackDamage) {
-                <span class="badge badge-left">{{ entity.health - health | ghsMinZero }}</span>
-              }
-              <img
-                [ngClass]="{ damage: trackDamage || settingsManager.settings.damageHP }"
-                [src]="
-                  trackDamage || settingsManager.settings.damageHP
-                    ? './assets/images/action/damage.svg'
-                    : './assets/images/status/health.svg'
-                "
-              />
-              <span
-                class="badge badge-right health-count"
-                [value-sign]="
-                  !trackDamage &&
-                  !settingsManager.settings.damageHP &&
-                  !!entity &&
-                  entity.health + health >= EntityValueFunction(entity.maxHealth)
-                    ? maxHealth
-                    : health
-                "
-                [hideEmpty]="true"
-                [invert]="trackDamage || settingsManager.settings.damageHP"
-              ></span>
-            </span>
-            <span class="item">
-              <ghs-pointer-input
-                class="button"
-                tabclick
-                (singleClick)="healthHelper.changeHealth(1)"
-                [repeat]="true"
-                [ngClass]="{
-                  disabled:
+            @if (!isTrapSummon) {
+              <span class="item">
+                <ghs-pointer-input
+                  class="button"
+                  tabclick
+                  (singleClick)="healthHelper.changeHealth(-1)"
+                  [repeat]="true"
+                  [ngClass]="{
+                    disabled:
+                      !!entity &&
+                      ((trackDamage && entity.health + health === 0) ||
+                        (settingsManager.settings.damageHP && entity.health - health === EntityValueFunction(entity.maxHealth)))
+                  }"
+                >
+                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                </ghs-pointer-input>
+              </span>
+              <span class="item" [ghs-tooltip]="'game.health'">
+                @if (!!entity && (!settingsManager.settings.damageHP || trackDamage)) {
+                  <span class="badge badge-left">{{ entity.health + health | ghsMinZero }}</span>
+                }
+                @if (!!entity && settingsManager.settings.damageHP && !trackDamage) {
+                  <span class="badge badge-left">{{ entity.health - health | ghsMinZero }}</span>
+                }
+                <img
+                  [ngClass]="{ damage: trackDamage || settingsManager.settings.damageHP }"
+                  [src]="
+                    trackDamage || settingsManager.settings.damageHP
+                      ? './assets/images/action/damage.svg'
+                      : './assets/images/status/health.svg'
+                  "
+                />
+                <span
+                  class="badge badge-right health-count"
+                  [value-sign]="
                     !trackDamage &&
                     !settingsManager.settings.damageHP &&
                     !!entity &&
-                    entity.health + health ===
-                      Math.max(EntityValueFunction(entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHealth
-                }"
-              >
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
-              </ghs-pointer-input>
-            </span>
+                    entity.health + health >= EntityValueFunction(entity.maxHealth)
+                      ? maxHealth
+                      : health
+                  "
+                  [hideEmpty]="true"
+                  [invert]="trackDamage || settingsManager.settings.damageHP"
+                ></span>
+              </span>
+              <span class="item">
+                <ghs-pointer-input
+                  class="button"
+                  tabclick
+                  (singleClick)="healthHelper.changeHealth(1)"
+                  [repeat]="true"
+                  [ngClass]="{
+                    disabled:
+                      !trackDamage &&
+                      !settingsManager.settings.damageHP &&
+                      !!entity &&
+                      entity.health + health ===
+                        Math.max(EntityValueFunction(entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHealth
+                  }"
+                >
+                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                </ghs-pointer-input>
+              </span>
+            }
+
+            <!-- TRAP DAMAGE/HEAL -->
+            @if (!!entity && isTrapSummon) {
+              @let summon = gameManager.toSummon(entity);
+              <span class="item">
+                <ghs-pointer-input
+                  class="button"
+                  tabclick
+                  (singleClick)="characterHelper.changeTrapDamage(-1)"
+                  [repeat]="true"
+                  [ngClass]="{ disabled: summon.movement + trapDamage === 0 }"
+                >
+                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                </ghs-pointer-input>
+              </span>
+              <span class="item" [ghs-tooltip]="'game.action.damage'">
+                <span class="badge badge-left">{{ summon.movement + trapDamage }}</span>
+                <img class="ghs-svg" src="./assets/images/action/damage.svg" />
+                <span class="badge badge-right health-count" [value-sign]="trapDamage" [hideEmpty]="true"></span>
+              </span>
+              <span class="item">
+                <ghs-pointer-input class="button" tabclick (singleClick)="characterHelper.changeTrapDamage(1)" [repeat]="true">
+                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                </ghs-pointer-input>
+              </span>
+
+              <span class="item">
+                <ghs-pointer-input
+                  class="button"
+                  tabclick
+                  (singleClick)="characterHelper.changeTrapHeal(-1)"
+                  [repeat]="true"
+                  [ngClass]="{ disabled: summon.attack === 'X' || +summon.attack + trapHeal === 0 }"
+                >
+                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                </ghs-pointer-input>
+              </span>
+              <span class="item" [ghs-tooltip]="'game.action.heal'">
+                @if (summon.attack !== 'X') {
+                  <span class="badge badge-left">{{ +summon.attack + trapHeal }}</span>
+                }
+                @if (summon.attack === 'X') {
+                  <span class="badge badge-left">X</span>
+                }
+                <img class="ghs-svg" src="./assets/images/action/heal.svg" />
+                @if (summon.attack !== 'X') {
+                  <span class="badge badge-right health-count" [value-sign]="trapHeal" [hideEmpty]="true"></span>
+                }
+              </span>
+              <span class="item">
+                <ghs-pointer-input
+                  class="button"
+                  tabclick
+                  (singleClick)="characterHelper.changeTrapHeal(1)"
+                  [repeat]="true"
+                  [ngClass]="{ disabled: summon.attack === 'X' }"
+                >
+                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                </ghs-pointer-input>
+              </span>
+            }
           }
 
           <!-- XP -->
@@ -529,6 +592,7 @@
           <!-- BLESS -->
           @if (
             !bb &&
+            !isTrapSummon &&
             (!figure ||
               !gameManager.isObjectiveContainer(figure) ||
               (gameManager.toObjectiveContainer(figure).escort && gameManager.toObjectiveContainer(figure).amDeck && !objectiveOnly))
@@ -856,23 +920,25 @@
           @if (!!entity && gameManager.isSummon(entity)) {
             @let summon = gameManager.toSummon(entity);
             <div class="summon-stats-container">
-              <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
-                <img class="ghs-svg" src="./assets/images/action/move.svg" />
-                <span [value-calc]="summon.movement" [empty]="true">></span>
-              </span>
-              <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
-                <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-                @if (summon.attack !== 0) {
-                  <span [ghs-label]="'' + summon.attack"></span>
-                }
-                @if (summon.attack === 0) {
-                  <span>-</span>
-                }
-              </span>
-              <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
-                <img class="ghs-svg" src="./assets/images/action/range.svg" />
-                <span [value-calc]="summon.range" [empty]="true">></span>
-              </span>
+              @if (!summon.trap) {
+                <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
+                  <img class="ghs-svg" src="./assets/images/action/move.svg" />
+                  <span [value-calc]="summon.movement" [empty]="true">></span>
+                </span>
+                <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
+                  <img class="ghs-svg" src="./assets/images/action/attack.svg" />
+                  @if (summon.attack !== 0) {
+                    <span [ghs-label]="'' + summon.attack"></span>
+                  }
+                  @if (summon.attack === 0) {
+                    <span>-</span>
+                  }
+                </span>
+                <span class="stat" tabclick (click)="characterHelper.openLevelDialog()">
+                  <img class="ghs-svg" src="./assets/images/action/range.svg" />
+                  <span [value-calc]="summon.range" [empty]="true">></span>
+                </span>
+              }
               @if (summon.action) {
                 <span class="action">
                   <ghs-action [action]="summon.action"></ghs-action>
@@ -902,21 +968,23 @@
             </span>
 
             <!-- Max HP -->
-            <span class="item max-health-container">
-              <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeMaxHealth(-1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/minus.svg" />
-              </ghs-pointer-input>
-              @if (!!entity) {
-                <span class="badge badge-left"
-                  >{{ EntityValueFunction(entity.maxHealth) + maxHealth }}/{{ EntityValueFunction(entity.maxHealth) + maxHealth }}</span
-                >
-              }
-              <img src="./assets/images/status/health.svg" [ghs-tooltip]="'game.maxHealth'" />
-              <span class="badge badge-right health-count" [value-sign]="maxHealth" [hideEmpty]="true"></span>
-              <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeMaxHealth(1)" [repeat]="true">
-                <img class="ghs-svg" src="./assets/images/plus.svg" />
-              </ghs-pointer-input>
-            </span>
+            @if (!isTrapSummon) {
+              <span class="item max-health-container">
+                <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeMaxHealth(-1)" [repeat]="true">
+                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                </ghs-pointer-input>
+                @if (!!entity) {
+                  <span class="badge badge-left"
+                    >{{ EntityValueFunction(entity.maxHealth) + maxHealth }}/{{ EntityValueFunction(entity.maxHealth) + maxHealth }}</span
+                  >
+                }
+                <img src="./assets/images/status/health.svg" [ghs-tooltip]="'game.maxHealth'" />
+                <span class="badge badge-right health-count" [value-sign]="maxHealth" [hideEmpty]="true"></span>
+                <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeMaxHealth(1)" [repeat]="true">
+                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                </ghs-pointer-input>
+              </span>
+            }
 
             <!-- MARKER -->
             @if (!bb) {
@@ -962,7 +1030,7 @@
                   </a>
                 }
 
-                @if (!!entity && gameManager.isSummon(entity)) {
+                @if (!!entity && gameManager.isSummon(entity) && !isTrapSummon) {
                   @let summon = gameManager.toSummon(entity);
                   <a
                     class="summon"
@@ -1031,7 +1099,7 @@
         }
 
         <!-- SHIELD/RETALIATE -->
-        @if (shieldAndRetaliate && !objectiveOnly) {
+        @if (shieldAndRetaliate && !objectiveOnly && !isTrapSummon) {
           <div class="entity-container">
             <span class="shield-overlay">
               <span class="text-white" [ghs-label]="'%game.card.round%'"></span>

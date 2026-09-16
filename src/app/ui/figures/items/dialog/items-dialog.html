@@ -161,7 +161,8 @@
         }
         @if (
           !selected ||
-          ((selected.cost || selected.resources || selected.requiredItems) && !gameManager.itemManager.owned(selected, character))
+          ((selected.cost || selected.resources || selected.resourcesAny || selected.requiredItems) &&
+            !gameManager.itemManager.owned(selected, character))
         ) {
           <a
             class="primary"

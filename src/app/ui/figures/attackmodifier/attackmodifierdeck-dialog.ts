@@ -111,7 +111,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.deck = this.character.attackModifierDeck;
       this.numeration = '' + this.character.number;
       this.characterIcon = this.character.iconUrl;
-      gameManager.gh2eFactionUnlocks().forEach((faction) => {
+      gameManager.campaignManager.gh2eFactionUnlocks().forEach((faction) => {
         if (this.deck.cards.some((am) => am.id && am.id.includes(faction))) {
           this.toggleFaction(faction);
           return;
@@ -146,7 +146,10 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     if (this.character) {
       originalDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
     } else if (this.townGuard) {
-      originalDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
+      originalDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
+        gameManager.game.party,
+        gameManager.campaignManager.campaignData()
+      );
       gameManager.game.party.townGuardDeck = this.deck.toModel();
     } else {
       originalDeck = new AttackModifierDeck();
@@ -215,7 +218,10 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       );
       gameManager.attackModifierManager.fromModel(this.deck, this.character.attackModifierDeck.toModel());
     } else if (this.townGuard) {
-      this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
+      this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
+        gameManager.game.party,
+        gameManager.campaignManager.campaignData()
+      );
       gameManager.game.party.townGuardDeck = this.deck.toModel();
     } else if (!gameManager.bbRules()) {
       this.deck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck(this.ally);
@@ -563,7 +569,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.before.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
       if (!force) {
         this.deck.cards = this.deck.cards.filter(
-          (am) => !am.id || gameManager.gh2eFactionUnlocks().every((faction) => !am.id.includes(faction))
+          (am) => !am.id || gameManager.campaignManager.gh2eFactionUnlocks().every((faction) => !am.id.includes(faction))
         );
       }
       this.deck.cards = [...this.deck.cards, Object.assign(new AttackModifier(attackModifier.type), attackModifier)];

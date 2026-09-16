@@ -193,10 +193,10 @@
 </div>
 
 <div class="hints">
-  @if (!gameManager.enhancementsManager.fh && enhancedCards >= gameManager.prosperityLevel()) {
+  @if (!gameManager.enhancementsManager.fh && enhancedCards >= gameManager.campaignManager.prosperityLevel()) {
     <p
       [ghs-label]="'character.abilities.enhancements.disabled.enhancements'"
-      [ghs-label-args]="[enhancedCards, gameManager.prosperityLevel()]"
+      [ghs-label-args]="[enhancedCards, gameManager.campaignManager.prosperityLevel()]"
     ></p>
   }
   @if (
@@ -223,7 +223,7 @@
           (inputCharacter &&
             inputCharacter.progress.gold <
               gameManager.enhancementsManager.calculateCosts(enhanceAction, rootAction, level, special, enhancements)) ||
-          (!gameManager.enhancementsManager.fh && enhancedCards >= gameManager.prosperityLevel())
+          (!gameManager.enhancementsManager.fh && enhancedCards >= gameManager.campaignManager.prosperityLevel())
       }"
       ghs-pointer-input
       (singleClick)="apply()"

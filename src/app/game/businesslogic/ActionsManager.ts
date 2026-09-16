@@ -459,10 +459,17 @@ export class ActionsManager {
   }
 
   hasMultiTarget(action: Action): boolean {
+    if (action.multiTarget === false) {
+      return false;
+    }
     return action.multiTarget || (action.subActions && action.subActions.some((subAction) => this.isMultiTarget(subAction, true)));
   }
 
   isMultiTarget(action: Action, includeHex: boolean = true): boolean {
+    if (action.multiTarget === false) {
+      return false;
+    }
+
     const result =
       (action.type === ActionType.target && EntityValueFunction(action.value) > 1) ||
       this.isMultiTargetSpecial(action) ||

@@ -144,12 +144,15 @@ export class MainComponent implements OnInit {
               gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
         }
       }
-      if (this.serverPing !== settingsManager.settings.serverPing) {
+      const minServerPing = Math.min(settingsManager.settings.serverPing, gameManager.game.serverPing);
+      const maxServerPing = Math.max(settingsManager.settings.serverPing, gameManager.game.serverPing);
+      const serverPing = minServerPing <= 0 ? maxServerPing : minServerPing;
+      if (this.serverPing !== serverPing) {
         if (this.serverPingInterval) {
           clearInterval(this.serverPingInterval);
           this.serverPingInterval = null;
         }
-        this.serverPing = settingsManager.settings.serverPing;
+        this.serverPing = serverPing;
         if (this.serverPing > 0) {
           this.serverPingInterval = setInterval(() => {
             gameManager.stateManager.sendPing();

@@ -690,7 +690,11 @@ export class MonsterManager {
   }
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
-    monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
+    const index = monster.entities.indexOf(monsterEntity);
+    if (index === -1) {
+      return;
+    }
+    monster.entities.splice(index, 1);
     if (
       monster.entities.length === 0 ||
       monster.entities.every((entity) => !gameManager.entityManager.isAlive(entity) && !entity.dormant)

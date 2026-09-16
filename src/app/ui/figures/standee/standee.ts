@@ -116,12 +116,16 @@ export class StandeeComponent implements OnInit {
     this.update();
   }
 
+  get isTrapSummon(): boolean {
+    return this.entity instanceof Summon && this.entity.trap;
+  }
+
   additionalType(): string {
     return this.entity instanceof MonsterEntity ? this.entity.type : this.entity instanceof Summon ? this.entity.name : '';
   }
 
   update(): void {
-    this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true);
+    this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true, this.isTrapSummon);
     this.entity.immunities.forEach((immunity) => {
       if (!this.activeConditions.find((entityCondition) => entityCondition.name === immunity)) {
         this.activeConditions.push(new EntityCondition(immunity));
@@ -250,6 +254,15 @@ export class StandeeComponent implements OnInit {
         center: summon.entityConditions.length % 2 === 0,
         fh: summon.color === SummonColor.fh
       };
+      if (summon.trap) {
+        this.entity.extraActions = [];
+        if (summon.movement) {
+          this.entity.extraActions.push(new Action(ActionType.damage, summon.movement));
+        }
+        if (summon.attack) {
+          this.entity.extraActions.push(new Action(ActionType.heal, summon.attack));
+        }
+      }
     }
 
     this.healthClasses = {
@@ -321,12 +334,14 @@ export class StandeeComponent implements OnInit {
         gameManager.triggerUiChange(false);
         setTimeout(
           () => {
-            if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
-              gameManager.monsterManager.removeMonsterEntity(this.figure, this.entity);
-            } else if (this.figure instanceof Character && this.entity instanceof Summon) {
-              gameManager.characterManager.removeSummon(this.figure, this.entity);
-            } else if (this.figure instanceof ObjectiveContainer && this.entity instanceof ObjectiveEntity) {
-              gameManager.objectiveManager.removeObjectiveEntity(this.figure, this.entity);
+            if (this.entity.dead) {
+              if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
+                gameManager.monsterManager.removeMonsterEntity(this.figure, this.entity);
+              } else if (this.figure instanceof Character && this.entity instanceof Summon) {
+                gameManager.characterManager.removeSummon(this.figure, this.entity);
+              } else if (this.figure instanceof ObjectiveContainer && this.entity instanceof ObjectiveEntity) {
+                gameManager.objectiveManager.removeObjectiveEntity(this.figure, this.entity);
+              }
             }
             gameManager.stateManager.after();
           },

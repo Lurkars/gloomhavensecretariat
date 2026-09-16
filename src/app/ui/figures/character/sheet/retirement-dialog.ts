@@ -331,7 +331,7 @@ export class CharacterRetirementDialog {
       } else if (gameManager.gh2eRules()) {
         gameManager.game.party.inspiration -= 12;
       }
-      gameManager.game.party.prosperity += 2;
+      gameManager.campaignManager.changeProsperity(2);
       if (
         this.additionalPQ &&
         this.additionalPQ.unlockCharacter &&
@@ -368,7 +368,7 @@ export class CharacterRetirementDialog {
   }
 
   buildingsEnvelopeHelper(envelope: string, both: boolean = true): BuildingData | undefined {
-    const buildingData = gameManager.campaignData().buildings;
+    const buildingData = gameManager.campaignManager.campaignData().buildings;
     if (buildingData) {
       const buildings = envelope
         .split(':')

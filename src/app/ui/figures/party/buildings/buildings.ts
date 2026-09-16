@@ -41,7 +41,7 @@ export class PartyBuildingsComponent implements OnInit {
 
   updateBuildings() {
     this.buildings = [];
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
 
     campaign.buildings
       .filter((buildingData) => gameManager.buildingsManager.initialBuilding(buildingData))
@@ -55,7 +55,9 @@ export class PartyBuildingsComponent implements OnInit {
       });
 
     campaign.buildings
-      .filter((buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel())
+      .filter(
+        (buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.campaignManager.prosperityLevel()
+      )
       .forEach((buildingData) => {
         if (!this.party.buildings.find((model) => buildingData.name === model.name)) {
           if (!buildingData.requires || this.party.buildings.find((model) => model.name === buildingData.requires && model.level))
@@ -96,7 +98,7 @@ export class PartyBuildingsComponent implements OnInit {
   unlockBuilding(buildingElement: HTMLInputElement) {
     const building = buildingElement.value;
     this.party.buildings = this.party.buildings || [];
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
     if (campaign.buildings && building) {
       const buildingData = campaign.buildings.find(
         (buildingData) =>

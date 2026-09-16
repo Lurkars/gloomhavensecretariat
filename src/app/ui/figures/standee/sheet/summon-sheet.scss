@@ -172,9 +172,10 @@
         clip-path: polygon(0em 0em, 3.1em 0em, 4em 1.9em, 3.1em 3.8em, 0em 3.8em);
 
         img {
-          left: -1.9em;
-          top: -0.3em;
-          width: 155%;
+          left: -1em;
+          top: -0.4em;
+          width: 5.3em;
+          transform: scaleX(-1);
         }
       }
     }

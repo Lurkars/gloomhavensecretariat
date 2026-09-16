@@ -19,4 +19,5 @@ export class SummonData {
   thumbnailUrl: string | undefined;
   noThumbnail: boolean = false;
   passive: boolean = false;
+  trap: boolean = false;
 }

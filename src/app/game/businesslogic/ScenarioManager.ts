@@ -220,45 +220,24 @@ export class ScenarioManager {
 
           if (settingsManager.settings.partySheet) {
             if (rewards.reputation) {
-              this.game.party.reputation += rewards.reputation;
-              if (this.game.party.reputation > 20) {
-                this.game.party.reputation = 20;
-              } else if (this.game.party.reputation < -20) {
-                this.game.party.reputation = -20;
-              }
+              gameManager.campaignManager.changeReputation(rewards.reputation);
             }
 
             if (rewards.reputationFactions) {
               rewards.reputationFactions.forEach((reputationFaction) => {
                 const faction = reputationFaction.split(':')[0];
                 const value = +reputationFaction.split(':')[1];
-                this.game.party.factionReputation[faction] = (this.game.party.factionReputation[faction] || 0) + value;
-                if (this.game.party.factionReputation[faction] > 20) {
-                  this.game.party.factionReputation[faction] = 20;
-                } else if (this.game.party.factionReputation[faction] < -10) {
-                  this.game.party.factionReputation[faction] = -10;
-                }
+                gameManager.campaignManager.changeFactionReputation(faction, value, rewards.factionUnlock === faction);
               });
             }
 
             if (rewards.prosperity) {
-              const prosperityMax = gameManager.fhRules() ? 132 : gameManager.gh2eRules() ? 89 : 64;
-              this.game.party.prosperity += rewards.prosperity;
-              if (this.game.party.prosperity > prosperityMax) {
-                this.game.party.prosperity = prosperityMax;
-              } else if (this.game.party.prosperity < 0) {
-                this.game.party.prosperity = 0;
-              }
+              gameManager.campaignManager.changeProsperity(rewards.prosperity);
             }
 
             if (rewards.morale) {
               // TODO: replace Town Guards Placeholder
-              this.game.party.morale += EntityValueFunction(rewards.morale);
-              if (this.game.party.morale > 20) {
-                this.game.party.morale = 20;
-              } else if (this.game.party.morale < 0) {
-                this.game.party.morale = 0;
-              }
+              gameManager.campaignManager.changeMorale(EntityValueFunction(rewards.morale));
             }
 
             if (rewards.inspiration) {
@@ -473,7 +452,7 @@ export class ScenarioManager {
             }
           }
 
-          const campaignData = gameManager.campaignData();
+          const campaignData = gameManager.campaignManager.campaignData();
           if (
             rewards &&
             settingsManager.settings.partySheet &&

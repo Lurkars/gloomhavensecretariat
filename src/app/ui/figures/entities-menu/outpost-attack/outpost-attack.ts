@@ -140,7 +140,7 @@ export class OutpostAttackComponent implements OnInit {
 
   update(init: boolean = false) {
     this.allBuildings = [];
-    const campaign = gameManager.campaignData();
+    const campaign = gameManager.campaignManager.campaignData();
     if (campaign) {
       gameManager.game.party.buildings.forEach((model) => {
         const data = campaign.buildings.find((buildingData) => buildingData.name === model.name);

@@ -34,6 +34,11 @@
       [ghs-label-attribute]="'placeholder'"
     />
   </div>
+  @if (gameManager.game.serverPing) {
+    <div class="line ping">
+      <label class="label"><span [ghs-label]="'server.pingExternal'" [ghs-label-args]="[gameManager.game.serverPing]"></span></label>
+    </div>
+  }
   <div class="separator"></div>
   <div class="line">
     <a tabclick (click)="clearFeedbackErrors()"><span [ghs-label]="'settings.feedbackErrors.clear'"></span></a>
