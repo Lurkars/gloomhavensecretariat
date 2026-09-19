@@ -1,1 +1,1655 @@
-{}
+{
+  "ability": {
+    "A Moment's Peace": "Um Momento de Paz",
+    "Accelerated End": "Fim Acelerado",
+    "Aid from the Ether": "Ajuda do Éter",
+    "Airborne Toxin": "Toxina do Ar",
+    "Amputate": "Amputar",
+    "Ancient Ward": "Proteção Ancestral",
+    "Angel of Death": "Anjo da Morte",
+    "Angelic Ascension": "Ascensão Angelical",
+    "Armor of the Night": "Armadura da Noite",
+    "Auto Turret": "Torre Automática",
+    "Avalanche": "Avalanche",
+    "Backstab": "Apunhalada pelas Costas",
+    "Backup Ammunition": "Munição de Reserva",
+    "Bag of Holding": "Bolsa Dimensional",
+    "Balanced Measure": "Medida Equilibrada",
+    "Baneful Hex": "Praga Maléfica",
+    "Battlefield Medicine": "Medicina de Campo de Batalha",
+    "Beacon of Light": "Faro de Luz",
+    "Bedside Manner": "Postura Médica",
+    "Bentleman s Anger": "Ira de Bentleman",
+    "Biting Gnats": "Moscas Mordedoras",
+    "Biting Wind": "Vento Cortante",
+    "Black Arrot": "Flecha Negra",
+    "Black Fire": "Fogo Negro",
+    "Black Hole": "Buraco Negro",
+    "Black Knives": "Adagas Negras",
+    "Black Tides": "Marés Negras",
+    "Bladed Boomerang": "Bumerangue Lâmina",
+    "Blind Destruction": "Destruição Cega",
+    "Blistering Vortex": "Vórtice Escaldante",
+    "Blood Hunger": "Fome de Sangue",
+    "Blood Pact": "Pacto de Sangue",
+    "Blood Transfusion": "Transfusão de Sangue",
+    "Bloody Saw": "Serra Sangrenta",
+    "Blunt Force": "Força Bruta",
+    "Boiling Arc": "Arco Embulhado",
+    "Bonded Might": "Poder Vinculado",
+    "Bone Breaker": "Quebrador de Ossos",
+    "Booming Proclamation": "Proclamação Estrondosa",
+    "Booster Shot": "Injeção de Reforço",
+    "Borrowed Essence": "Essência Emprestada",
+    "Bounce Back": "Recuperação",
+    "Brain Leech": "Sanguessuga do Cérebro",
+    "Break the Chains": "Quebrar as Correntes",
+    "Bright Aegis": "Égide Brilhante",
+    "Brilliant Flash": "Flash Brilhante",
+    "Brilliant Prayer": "Oração Brilhante",
+    "Brisly Trauma": "Trauma Severo",
+    "Brutal Momentum": "Impulso Brutal",
+    "Brute Force": "Força Bruta",
+    "Burial": "Enterro",
+    "Burning Flash": "Flash Ardente",
+    "Burning Hatred": "Ódio Ardente",
+    "Burning Oil": "Óleo Ardente",
+    "Calastrophic Bomb": "Bomba Catastrófica",
+    "Call to Action": "Chamado à Ação",
+    "Camouflage": "Camuflagem",
+    "Captivating Performance": "Apresentação Cativante",
+    "Careless Charge": "Investida Descuidada",
+    "Cataclysm": "Cataclisma",
+    "Cauterize": "Cauterizar",
+    "Cautious Advance": "Avanço Cauteloso",
+    "Chain Lightning": "Relâmpago em Cadeia",
+    "Change Tempo": "Mudar o Ritmo",
+    "Chimeric Formula": "Fórmula Quimérica",
+    "Chromatic Explosion": "Explosão Cromática",
+    "Claws of the Night": "Garras da Noite",
+    "Cleansing Force": "Força Purificadora",
+    "Clear the Way": "Abrir Caminho",
+    "Cleaving Axe": "Machado Clivador",
+    "Cloak of Shade": "Manto da Sombra",
+    "Cloom Darts": "Dardos Sombrios",
+    "Cold Fire": "Fogo Frio",
+    "Cold Front": "Frente Fria",
+    "Commanding Presence": "Presença Imponente",
+    "Concealed Dominance": "Dominância Oculta",
+    "Concentrated Rage": "Ira Concentrada",
+    "Conjured Hid": "Esconderijo Conjurado",
+    "Continual Supply": "Suprimento Contínuo",
+    "Convert the Flock": "Converter o Rebanho",
+    "Corrupting Embrace": "Abraço Corruptor",
+    "Crackling Air": "Ar Estalando",
+    "Cranium Overload": "Sobrecarga Craniana",
+    "Crank Bow": "Arbaleste de Manivela",
+    "Crashing Wade": "Passo Esmagador",
+    "Crater": "Cratera",
+    "Creeping Curse": "Maldição Rastejante",
+    "Crippling Bow": "Arco Incapacitante",
+    "Crippling Chorus": "Coro Incapacitante",
+    "Crippling Noose": "Laço Incapacitante",
+    "Crippling Offensive": "Ofensiva Incapacitante",
+    "Crippling Poison": "Veneno Incapacitante",
+    "Crushing Grasp": "Agarrão Esmagador",
+    "Crushing Hammer": "Martelo Esmagador",
+    "Crystallizing Blast": "Explosão Cristalizante",
+    "Cull the Weak": "Abater os Fracos",
+    "Curative Aerosol": "Aerossol Curativo",
+    "Curative Mixture": "Mistura Curativa",
+    "Dancing Shadows": "Sombras Dançantes",
+    "Dangerous Contraption": "Engenhoca Perigosa",
+    "Dark Cloud": "Nuvem Negra",
+    "Dark Frenzy": "Frenesi Sombrio",
+    "Darkened Skies": "Céus Escurecidos",
+    "Daybreak": "Avorecer",
+    "Dazing Wound": "Ferimento Atordoante",
+    "Dazzling Charge": "Investida Ofuscante",
+    "Defensive Ditty": "Canção Defensiva",
+    "Defensive Stance": "Postura Defensiva",
+    "Defensive Tactics": "Táticas Defensivas",
+    "Defiance of Death": "Desafio à Morte",
+    "Detonation": "Detonação",
+    "Devastating Hack": "Golpe Devastador",
+    "Devil Horns": "Chifres do Diabo",
+    "Dig Pit": "Cavar Buraco",
+    "Dirt Tornado": "Tornado de Poeira",
+    "Disappearing Wounds": "Ferimentos Desaparecendo",
+    "Disintegration Beam": "Feixe de Desintegração",
+    "Disorienting Dirge": "Cântico Desorientador",
+    "Disorienting Flash": "Flash Desorientador",
+    "Disorienting Roar": "Rugido Desorientador",
+    "Divided Mind": "Mente Dividida",
+    "Divine Intervention": "Intervenção Divina",
+    "Do No Harm": "Não Cause Mal",
+    "Domination": "Dominação",
+    "Doomed Breeze": "Brisa Condenada",
+    "Duelist's Advance": "Avanço do Duelista",
+    "Earthen Clod": "Terrão de Terra",
+    "Earthen Spikes": "Espinhos de Terra",
+    "Earthen Steed": "Corcel de Terra",
+    "Echoing Aria": "Ária Ecoante",
+    "Elemental Aegis": "Égide Elemental",
+    "Elemental Aid": "Ajuda Elemental",
+    "Empathetic Assault": "Ataque Empático",
+    "Empowering Command": "Comando Capacitador",
+    "Empowering Void": "Vazio Capacitador",
+    "Encompassing Shadow": "Sombra Envolvente",
+    "Endless Spikes": "Espinhos Infinitos",
+    "Energizing Strike": "Golpe Energizante",
+    "Energizing Tonic": "Tônico Energizante",
+    "Enervating Wound": "Ferimento Enervante",
+    "Engulfed in Flames": "Envolto em Chamas",
+    "Engulfing Radiance": "Resplendor Envolvente",
+    "Enhancement Field": "Campo de Aprimoramento",
+    "Epidemic": "Epidemia",
+    "Eternal Equilibrium": "Equilíbrio Eterno",
+    "Ethereal Manifestation": "Manifestação Etérea",
+    "Ethereal Vines": "Vinhas Etéreas",
+    "Euthanize": "Eutanasiar",
+    "Explosive Punch": "Soco Explosivo",
+    "Expose": "Expor",
+    "Eye for an Eye": "Olho por Olho",
+    "Eye of the Hurricane": "Olho do Furacão",
+    "Eyes of the Night": "Olhos da Noite",
+    "Face Your End": "Enfrente seu Fim",
+    "Fatal Advance": "Avanço Fatal",
+    "Fatal Fury": "Fúria Fatal",
+    "Fearsome Blade": "Lâmina Temível",
+    "Feedback Loop": "Loop de Retroalimentação",
+    "Felling": "Derrubada",
+    "Feral Instincts": "Instintos Ferais",
+    "Fetid Flurry": "Raios Fétidos",
+    "Final Fight": "Luta Final",
+    "Fire Orbs": "Orbes de Fogo",
+    "First Aid": "Primeiros Socorros",
+    "Flame Strike": "Golpe de Chama",
+    "Flamethrower": "Lança-Chamas",
+    "Flanking Strike": "Golpe Flanqueado",
+    "Flashing Burst": "Explosão Ofuscante",
+    "Flight of Flame": "Voo de Chama",
+    "Flintlock": "Mosquete",
+    "Flurry of Axes": "Chuva de Machados",
+    "Flurry of Blades": "Chuva de Lâminas",
+    "Focused Aggression": "Agressão Focada",
+    "Foot Snare": "Armadilha de Pé",
+    "Forceful Storm": "Tempestade Vigorosa",
+    "Forceful Swipe": "Golpe Vigoroso",
+    "Forged Ferocity": "Ferocidade Forjada",
+    "Forked Beam": "Feixe Bifurcado",
+    "Formless Power": "Poder Sem Forma",
+    "Fortified Position": "Posição Fortificada",
+    "Foul Wind": "Vento Fétido",
+    "Freezing Nova": "Nova Congelante",
+    "Frenzied Onslaught": "Ataque Frenético",
+    "Fresh Kill": "Abate Recente",
+    "Frightening Curse": "Maldição Assustadora",
+    "Frigid Apparition": "Aparição Gélida",
+    "Frigid Torrent": "Torrente Gélida",
+    "From the Brink": "À Beira do Abismo",
+    "Frost Armor": "Armadura de Gelo",
+    "Frozen Mind": "Mente Congelada",
+    "Frozen Night": "Noite Congelada",
+    "Furious Aid": "Ajuda Furiosa",
+    "Gas Canister": "Recipiente de Gás",
+    "Gathering Doom": "Destino Reunido",
+    "Giant Club": "Clava Gigante",
+    "Glass Hammer": "Martelo de Vidro",
+    "Glorious Bolt": "Raio Glorioso",
+    "Gnawing Horde": "Horda Roedora",
+    "Grab and Go": "Pegar e Correr",
+    "Grasping Vermin": "Praga Agarradora",
+    "Grasping the Void": "Agarrando o Vazio",
+    "Gravel Vortex": "Vórtice de Cascalho",
+    "Grim Bargain": "Barganha Sombria",
+    "Grim Sustenance": "Sustento Sombrio",
+    "Growing Rage": "Ira Crescente",
+    "Gruesome Advantage": "Vantagem Macabra",
+    "Hammer Blow": "Golpe de Martelo",
+    "Hamstring": "Corta-Tendão",
+    "Hand of the Surgeon": "Mão do Cirurgião",
+    "Hardened Spikes": "Espinhos Endurecidos",
+    "Harmless Contraption": "Engenhoca Inofensiva",
+    "Harsh Stimulants": "Estimulantes Fortes",
+    "Hastened Step": "Passo Apressado",
+    "Heaving Swing": "Golpe Pesado",
+    "Hidden Daggers": "Adagas Ocultas",
+    "Hold Back the Pain": "Segurar a Dor",
+    "Holy Strike": "Golpe Sagrado",
+    "Hook Gun": "Gancho de Disparo",
+    "Hook and Chain": "Gancho e Corrente",
+    "Horned Majesty": "Majestade Chifrada",
+    "Hostile Takeover": "Dominação Hostil",
+    "Howling Bolts": "Raios Uivantes",
+    "Ice Spikes": "Espinhos de Gelo",
+    "Icy Blast": "Explosão Gelada",
+    "Illuminate the Target": "Iluminar o Alvo",
+    "Immortality": "Imortalidade",
+    "Immovable Phalanx": "Falange Inamovível",
+    "Impaling Eruption": "Explosão Empaladora",
+    "Impaling Spear": "Lança Empaladora",
+    "Impending End": "Fim Iminente",
+    "Inescapable Fate": "Destino Inescapável",
+    "Inexorable Momentum": "Impulso Inexorável",
+    "Infernal Vortex": "Vórtice Infernal",
+    "Inferno": "Inferno",
+    "Info the Night": "Pela Noite",
+    "Ink Bomb": "Bomba de Tinta",
+    "Inspiring Anthem": "Hino Inspirador",
+    "Inspiring Sanctity": "Santidade Inspiradora",
+    "Interplanar Mastery": "Domínio Interplanar",
+    "Intervening Apparitions": "Aparições Intervenientes",
+    "Iron Bulwark": "Bastião de Ferro",
+    "Jaws of Death": "Mandíbulas da Morte",
+    "Jet Propulsion": "Propulsão a Jato",
+    "Juggernaut": "Juggernaut",
+    "Kinetic Assault": "Ataque Cinético",
+    "King of the Hill": "Rei da Colina",
+    "Large Medical Pack": "Pacote Médico Grande",
+    "Lash Out": "Golpear com Força",
+    "Lava Eruption": "Erupção de Lava",
+    "Lay on Hands": "Imposição de Mãos",
+    "Lead to Slaughter": "Lavar ao Abate",
+    "Leaping Cleave": "Corte Saltante",
+    "Leathery E": "Couro Resistente",
+    "Lethal Injection": "Injeção Letal",
+    "Living Mountain": "Montanha Viva",
+    "Living Night": "Noite Viva",
+    "Living Torch": "Tocha Viva",
+    "Long Con": "Golpe Longo",
+    "Lumbering Bash": "Pancada Pesada",
+    "Lurking Ruin": "Ruína Espreitadora",
+    "Malleable Evocation": "Evocação Maleável",
+    "Mana Bolt": "Raio de Mana",
+    "Many as One": "Muitos como Um",
+    "Marching Beat": "Ritmo de Marcha",
+    "Mass Extinction": "Extinção em Massa",
+    "Mass Hysteria": "Histeria em Massa",
+    "Massive Boulder": "Pedra Maciça",
+    "Master Physician": "Mestre Médico",
+    "Maul": "Esmagar",
+    "Medical Pack": "Pacote Médico",
+    "Melody and Harmony": "Melodia e Harmonia",
+    "Meteor": "Meteoro",
+    "Micro Bots": "Micro Robôs",
+    "Mighty Bond": "Vínculo Poderoso",
+    "Mobile Response": "Resposta Móvel",
+    "Mobilizing Axiom": "Axioma Mobilizador",
+    "Mobilizing Measure": "Medida Mobilizadora",
+    "Multi Pronged Assault": "Ataque de Múltiplos Pontos",
+    "Murderous Contraption": "Engenhoca Assassina",
+    "Natural Remedy": "Remédio Natural",
+    "Nature's Hunger": "Fome da Natureza",
+    "Nature's Lift": "Elevação da Natureza",
+    "Negative Energy": "Energia Negativa",
+    "Net Shooter": "Lançador de Redes",
+    "Nightfall": "Cair da Noite",
+    "Nightmare Serenade": "Serenata do Pesadelo",
+    "Nightmarish Affliction": "Aflição Pesadelo",
+    "Nimble Knife": "Faca Ágil",
+    "Noxious Vials": "Frascos Nocivos",
+    "Numb the Pain": "Adormecer a Dor",
+    "Obsidian Shards": "Fragmentos de Obsidiana",
+    "Oozing Manifestation": "Manifestação Viscosa",
+    "Open Wound": "Ferida Aberta",
+    "Opposing Strike": "Golpe Oposto",
+    "Otherworldly Rage": "Ira de Outro Mundo",
+    "Oversized Pack": "Mochila Sobredimensionada",
+    "Overwhelming Assault": "Ataque Esmagador",
+    "Pain's End": "Fim da Dor",
+    "Paralyzing Bite": "Mordida Paralisante",
+    "Parasitic Influence": "Influência Parasitária",
+    "Patch Fur": "Remendar Pelagem",
+    "Path of Glory": "Caminho da Glória",
+    "Perverse Edge": "Lâmina Perversa",
+    "Petrify": "Petrificar",
+    "Phantasmal Killer": "Assassino Fantasmagórico",
+    "Pilfer": "Maneio",
+    "Portable Ballista": "Balista Portátil",
+    "Possession": "Posse",
+    "Potent Potables": "Bebidas Potentes",
+    "Power Ballad": "Balada do Poder",
+    "Practical Plans": "Planos Práticos",
+    "Pragmatic Reinforcement": "Reforço Pragmático",
+    "Precaution": "Precaução",
+    "Predator and Prey": "Predador e Presa",
+    "Prep for Surgery": "Preparar para Cirurgia",
+    "Prepare for the Kill": "Preparar para o Abate",
+    "Prescription": "Prescrição",
+    "Press the Attack": "Pressionar o Ataque",
+    "Prevention Is Key": "Prevenção é Chave",
+    "Primal Blessing": "Bênção Primal",
+    "Primal Duality": "Dualidade Primal",
+    "Proficiency": "Proficiência",
+    "Protective Blessing": "Bênção Protetora",
+    "Provoke Terror": "Provocar Terror",
+    "Provoking Roar": "Rugido Provocador",
+    "Proximity Mine": "Mina de Proximidade",
+    "Psychic Projection": "Projeção Psíquica",
+    "Pull the Strings": "Puxar as Cordas",
+    "Pulverize": "Pulverizar",
+    "Punch Through": "Perfurar",
+    "Pure Augmentation": "Aumento Puro",
+    "Purifying Aura": "Aura Purificadora",
+    "Quick Hands": "Mãos Rápidas",
+    "Quiet Frenzy": "Frenesi Silencioso",
+    "Quietus": "Quietus",
+    "Quiver of Arrows": "Aljava de Flechas",
+    "Race to the Grade": "Corrida para o Grau",
+    "Rain of Arrows": "Chuva de Flechas",
+    "Rampage": "Fúria",
+    "Raw Enhancement": "Aprimoramento Bruto",
+    "Reckless Offensive": "Ofensiva Imprudente",
+    "Reforge": "Reforjar",
+    "Refreshment": "Refresco",
+    "Regenerative Tissue": "Tecido Regenerativo",
+    "Reinforced Steel": "Aço Reforçado",
+    "Reinvigorating Elixir": "Elixir Reinvigorante",
+    "Relentless Ally": "Aliado Implacável",
+    "Relentless Offensive": "Ofensiva Implacável",
+    "Research the Cure": "Pesquisar a Cura",
+    "Reserved Energy": "Energia Reservada",
+    "Resolute Stand": "Posição Resoluta",
+    "Restock": "Reabastecer",
+    "Restorative Mist": "Névoa Restauradora",
+    "Reviving Ether": "Éter Revivificante",
+    "Reviving Shock": "Choque Revivificante",
+    "Ride the Wind": "Cabalgar o Vento",
+    "Righteous Strength": "Força Justa",
+    "Rising Momentum": "Impulso Crescente",
+    "Rock Slide": "Deslizamento de Rochas",
+    "Rock Tunnel": "Túnel de Rochas",
+    "Rocky End": "Fim Rochoso",
+    "Rot Maggots": "Lárvas da Podridão",
+    "Rumbling Advance": "Avanço Estrondoso",
+    "Sacrifice": "Sacrifício Voluntário",
+    "Sap Life": "Drenar Vida",
+    "Scales of Justice": "Balança da Justiça",
+    "Scattered Terror": "Terror Disperso",
+    "Scroll of Annihilation": "Pergaminho da Aniquilação",
+    "Scroll of Blizzards": "Pergaminho das Nevascas",
+    "Scroll of Judgment": "Pergaminho do Julgamento",
+    "Scroll of Lightning": "Pergaminho dos Relâmpagos",
+    "Scroll of Recall": "Pergaminho de Invocação",
+    "Scurry": "Escapar",
+    "Seeing Red": "Vendo Vermelho",
+    "Selfish Retribution": "Retribuição Egoísta",
+    "Sentient Growth": "Crescimento Consciente",
+    "Shadow Puppets": "Títeres de Sombra",
+    "Shaping the Ether": "Moldando o Éter",
+    "Shared Nightmare": "Pesadelo Compartilhado",
+    "Sharpening Kit": "Kit de Afiação",
+    "Shield Bash": "Golpe com Escudo",
+    "Shiny Distraction": "Distração Brilhante",
+    "Side Pouch": "Bolsa Lateral",
+    "Silent Force": "Força Silenciosa",
+    "Silent Scream": "Grito Silencioso",
+    "Simulacrum": "Simulacro",
+    "Singing Arrow": "Flecha Cantante",
+    "Single Out": "Isolar",
+    "Singular Focus": "Foco Singular",
+    "Sinister Opportunity": "Oportunidade Sinistra",
+    "Skewer": "Espetar",
+    "Skirmishing Maneuver": "Manobra de Escaramuça",
+    "Smoke": "Fumaça",
+    "Smoke Bomb": "Bomba de Fumaça",
+    "Soaring Ally": "Aliado Voador",
+    "Solid Bot": "Robô Sólido",
+    "Song of Speed": "Canção da Velocidade",
+    "Soothing Lullaby": "Nana Suave",
+    "Soulfire": "Fogo da Alma",
+    "Spare Dagger": "Adaga de Reserva",
+    "Special Mixture": "Mistura Especial",
+    "Spiked Armor": "Armadura com Espinhos",
+    "Spirit Swap": "Troca de Espírito",
+    "Spirit of Doom": "Espírito da Perdição",
+    "Spirit of the Night": "Espírito da Noite",
+    "Spread the Plague": "Espalhar a Praga",
+    "Spreading Scourge": "Flagelo Disseminado",
+    "Spring the Trap": "Acionar a Armadilha",
+    "Staff of Visions": "Cajado das Visões",
+    "Stamina Booster": "Reforço de Vigor",
+    "Stick to the Shadows": "Manter-se nas Sombras",
+    "Stiletto Storm": "Tempestade de Estiletes",
+    "Stinging Cloud": "Nuvem Picante",
+    "Stoking Hail": "Granizo Estimulante",
+    "Stone Fists": "Punhos de Pedra",
+    "Stone Pummel": "Golpe de Pedra",
+    "Stone Sigil": "Selo de Pedra",
+    "Storm Sigil": "Selo da Tempestade",
+    "Storm of": "Tempestade de Asas",
+    "Strength in Numbers": "Força nos Números",
+    "Strengthen in Agony": "Fortalecer na Agonia",
+    "Stun Shot": "Tiro Atordoante",
+    "Submissive Affliction": "Aflição Submissa",
+    "Succumb for the Gift": "Sucumbir ao Dom",
+    "Supportive Chant": "Cântico de Apoio",
+    "Surgeon's Satchel": "Mochila do Cirurgião",
+    "Swallowed by Fear": "Engolido pelo Medo",
+    "Sweeping Blow": "Golpe Amplo",
+    "Swift Bow": "Arco Rápido",
+    "Swift Trickery": "Astúcia Rápida",
+    "Syringe": "Seringa",
+    "Tactical Order": "Ordem Tática",
+    "Teamwork": "Trabalho em Equipe",
+    "Tear the Fabric": "Rasgar o Tecido",
+    "Terror Blade": "Lâmina do Terror",
+    "The Hunt Begins": "A Caça Começa",
+    "The Maw of Madness": "As Mandíbulas da Loucura",
+    "The Mind's Weakness": "A Fraqueza da Mente",
+    "Thief's Knack": "Aptidão do Ladrão",
+    "Throw Voice": "Projetar a Voz",
+    "Throwing Knives": "Facas de Arremesso",
+    "Tinkerer's Tools": "Ferramentas do Engenhoqueiro",
+    "Toxic Bolt": "Raio Tóxico",
+    "Trample": "Atropelar",
+    "Tranquil Trill": "Trinado Tranqüilo",
+    "Tremulant Cyclone": "Ciclone Tremulo",
+    "Triage": "Triagem",
+    "Tribal Sigil": "Selo Tribal",
+    "Trickster's Reversal": "Inversão do Trapaceiro",
+    "Tuning the Outcome": "Ajustando o Resultado",
+    "Twin Restoration": "Restauração Dupla",
+    "Tyrannical Force": "Força Tirânica",
+    "Unbridled Power": "Poder Desenfreado",
+    "Under the Skin": "Sob a Pele",
+    "Unending Chant": "Cântico Sem Fim",
+    "Unending Dominance": "Dominância Sem Fim",
+    "Unseen bread": "Pão Invisível",
+    "Unstable Upheaval": "Convulsão Instável",
+    "Unstoppable Beast": "Besta Imparável",
+    "Unstoppable Chard": "Investida Imparável",
+    "Unstoppable Destruction": "Destruição Imparável",
+    "Unwavering Hand": "Mão Inabalável",
+    "Unwavering Mandate": "Mandato Inabalável",
+    "Vaccine": "Vacina",
+    "Vengeance": "Vingança",
+    "Vengeful Barrage": "Barragem Vingativa",
+    "Venom Shiv": "Adaga Venenosa",
+    "Venomous Ally": "Aliado Venenoso",
+    "Vicious": "Vicioso",
+    "Vicious Blood": "Sangue Vicioso",
+    "Vile Pestilence": "Pestilência Vil",
+    "Virulent Strain": "Linhagem Virulenta",
+    "Visage of the Inevitable": "Semblante do Inevitável",
+    "Vital Charge": "Carga Vital",
+    "Vital Strike": "Golpe Vital",
+    "Voice of the Night": "Voz da Noite",
+    "Volatile Concoction": "Mistura Volátil",
+    "Volatile Consumption": "Consumo Volátil",
+    "Volatile Flame": "Chama Volátil",
+    "Wall of Doom": "Muralha do Destino",
+    "Warding Dagger": "Adaga Protetora",
+    "Warding Strength": "Força Protetora",
+    "Watch It Burn": "Ver Queimar",
+    "Weapon of Purity": "Arma da Pureza",
+    "Whirlwind": "Torvelinho",
+    "Wild Animation": "Animação Selvagem",
+    "Wild Command": "Comando Selvagem",
+    "Winged Congregation": "Congregação Alada",
+    "Wings of the Night": "Asas da Noite",
+    "Winter s Edge": "Gume do Inverno",
+    "Wistful Wounding": "Ferimento Melancólico",
+    "Withering Claw": "Garra Definhante",
+    "Wretched Creature": "Criatura Miserável",
+    "Wretched Swarm": "Enxame Miserável",
+    "Zephyr Wings": "Asas do Zéfiro"
+  },
+  "battleGoals": {
+    "458": {
+      "": "Estratégico",
+      "text": "Ter cinco ou mais cartas no total na sua mão e na pilha de descarte ao final do cenário."
+    },
+    "459": {
+      "": "Acomodado",
+      "text": "Ganhar 7 ou menos pontos de experiência durante o cenário."
+    },
+    "460": {
+      "": "Trabalhador",
+      "text": "Ganhar 13 ou mais pontos de experiência durante o cenário."
+    },
+    "461": {
+      "": "Fanático",
+      "text": "Ter três ou menos cartas no total na sua mão e na pilha de descarte ao final do cenário."
+    },
+    "462": {
+      "": "Masoquista",
+      "text": "Seu valor atual de pontos de vida deve ser igual ou inferior a 2 ao final do cenário."
+    },
+    "463": {
+      "": "Rápida Cura",
+      "text": "Seu valor atual de pontos de vida deve ser igual ao seu valor máximo de pontos de vida ao final do cenário."
+    },
+    "464": {
+      "": "Neutralizador",
+      "text": "Fazer com que uma armadilha seja disparada ou desarmada no seu turno ou no turno de uma de suas invocações durante o cenário."
+    },
+    "465": {
+      "": "Saqueador",
+      "text": "Saquear um teto de tesouro durante o cenário."
+    },
+    "466": {
+      "": "Protetor",
+      "text": "Não permitir que nenhum dos seus aliados personagens fique exausto durante o cenário."
+    },
+    "467": {
+      "": "Explorador",
+      "text": "Revelar um teto de sala abrindo uma porta no seu turno durante o cenário."
+    },
+    "468": {
+      "": "Acumulador",
+      "text": "Saquear cinco ou mais fichas de moedas durante o cenário."
+    },
+    "469": {
+      "": "Indigente",
+      "text": "Não saquear nenhuma ficha de moeda ou teto de tesouro durante o cenário."
+    },
+    "470": {
+      "": "Pacifista",
+      "text": "Matar três ou menos monstros durante o cenário."
+    },
+    "471": {
+      "": "Sádico",
+      "text": "Matar cinco ou mais monstros durante o cenário."
+    },
+    "472": {
+      "": "Caçador",
+      "text": "Matar um ou mais monstros elites durante o cenário."
+    },
+    "473": {
+      "": "Profissional",
+      "text": "Usar seus itens equipados um número de vezes igual ou superior ao seu nível mais 2 durante o cenário."
+    },
+    "474": {
+      "": "Agressor",
+      "text": "Ter um ou mais monstros presentes no mapa no início de cada rodada durante o cenário."
+    },
+    "475": {
+      "": "Dínamo",
+      "text": "Matar um monstro durante o cenário causando pelo menos 4 pontos de dano a mais a ele do que o necessário."
+    },
+    "476": {
+      "": "Purista",
+      "text": "Não usar itens durante o cenário."
+    },
+    "477": {
+      "": "Iniciador",
+      "text": "Ser o primeiro a matar um monstro durante o cenário."
+    },
+    "478": {
+      "": "Resistente",
+      "text": "Nunca permitir que seu valor atual de pontos de vida fique abaixo da metade do seu valor máximo de pontos de vida (arredondado para cima) durante o cenário."
+    },
+    "479": {
+      "": "Algoz",
+      "text": "Matar um monstro ileso com um único ataque durante o cenário."
+    },
+    "480": {
+      "": "Lento",
+      "text": "Fazer apenas descansos longos durante o cenário."
+    },
+    "481": {
+      "": "Apressado",
+      "text": "Fazer apenas descansos curtos durante o cenário."
+    }
+  },
+  "character": {
+    "gh": {
+      "brute": "Bruto",
+      "cragheart": "Coração de Pedra",
+      "mindthief": "Ladrão de Mentes",
+      "scoundrel": "Malandra",
+      "spellweaver": "Tecedora de Feitiços",
+      "tinkerer": "Engenhoqueiro"
+    }
+  },
+  "custom": {
+    "city-guard-saw-solo": {
+      "1": "Sofra %game.damage:1% no final da rodada até estar totalmente curado"
+    },
+    "gh": {
+      "ancient-artillery": {
+        "1": "Todos os inimigos adjacentes sofrem %game.damage:2%."
+      },
+      "archer": {
+        "1": "Crie uma armadilha de %game.damage:3% em um hexágono vazio adjacente mais próximo de um inimigo."
+      },
+      "bandit-commander": {
+        "1": "Mova-se para a próxima porta e revele a sala"
+      },
+      "brute": {
+        "abilities": {
+          "12": {
+            "1": "onde X é o número de hexágonos que você se moveu até agora neste turno.",
+            "2": "onde X é a quantidade de %game.damage% que você infligiu até agora neste turno."
+          },
+          "13": {
+            "1": "Adicione %game.action.attack.valueSign:1% a todos os seus ataques nesta rodada."
+          },
+          "14": {
+            "1": "Mate um inimigo normal adjacente."
+          },
+          "15": {
+            "1": "Nas próximas três fontes de %game.damage% a você, não sofra %game.damage% em vez disso."
+          },
+          "16": {
+            "1": "Se o movimento foi em linha reta, realize",
+            "2": "onde X é o número de hexágonos que você se moveu com esta ação."
+          },
+          "2": {
+            "1": "Ganhe %game.card.experience:1% cada vez que Retaliar nesta rodada."
+          },
+          "20": {
+            "1": "Ganhe %game.card.experience:1% para cada inimigo alvo."
+          },
+          "22": {
+            "1": "Mate um inimigo normal adjacente com %game.condition.stun%.",
+            "2": "Adicione %game.action.attack.valueSign:1% a todos os seus ataques nesta rodada."
+          },
+          "23": {
+            "1": "Você pode tratar todas as habilidades de %game.action.move% como habilidades de %game.action.attack% de valor igual."
+          },
+          "26": {
+            "1": "Adicione %game.action.attack.valueSign:3% a todos os seus ataques contra inimigos com %game.condition.disarm%, %game.condition.immobilize% ou %game.condition.stun% nesta rodada."
+          },
+          "28": {
+            "1": "Ganhe %game.card.experience:1% para cada inimigo alvo."
+          },
+          "29": {
+            "1": "Mate um inimigo normal ou elite adjacente."
+          },
+          "4": {
+            "1": "Qualquer inimigo que mirar um de seus aliados adjacentes com um ataque nesta rodada mira em você com esse ataque em vez disso, independentemente do alcance do ataque."
+          },
+          "7": {
+            "1": "Nas próximas seis fontes de %game.damage% de ataques mirando você, ganhe %game.action.shield:1%."
+          }
+        }
+      },
+      "captain-of-the-guard": {
+        "1": "Todos os aliados adicionam %game.action.attack.valueSign:1% a todos os ataques nesta rodada"
+      },
+      "cragheart": {
+        "abilities": {
+          "116": {
+            "1": "Nos próximos seis ataques corpo a corpo mirando você, ganhe %game.action.retaliate:2%."
+          },
+          "118": {
+            "1": "Crie dois obstáculos de hexágono único em hexágonos vazios adjacentes a você."
+          },
+          "119": {
+            "1": "Todos os aliados e inimigos adjacentes sofrem 1 de dano."
+          },
+          "120": {
+            "1": "Todos os aliados e inimigos adjacentes ao alvo sofrem 1 de dano."
+          },
+          "121": {
+            "1": "Nas suas próximas quatro ações de Ataque à distância, ganhe ADICIONAR ALVO."
+          },
+          "122": {
+            "1": "Destrua um obstáculo adjacente.",
+            "2": "Mire todos os inimigos atravessados"
+          },
+          "123": {
+            "1": "Mire todos os inimigos até dois",
+            "2": "hexágonos de distância em vez disso, %game.card.experience:1%",
+            "3": "Todos os aliados adjacentes sofrem 2 de dano",
+            "4": "Todos os aliados sofrem 1 de dano",
+            "5": "Afete todos os aliados"
+          },
+          "124": {
+            "1": "%game.action.push:2%, %game.card.experience:1%",
+            "2": "Todos os aliados e inimigos adjacentes sofrem 1 de dano.",
+            "3": "2 de dano em vez disso, %game.card.experience:1%"
+          },
+          "125": {
+            "1": "%game.action.attack.valueSign:1%, %game.card.experience:1%",
+            "2": "%game.condition.muddle% todos os aliados e inimigos na área de alcance."
+          },
+          "126": {
+            "1": "%game.condition.immobilize%, %game.card.experience:1%"
+          },
+          "127": {
+            "1": "Você pode empurrar o alvo para hexágonos contendo obstáculos. Em cada caso, destrua o obstáculo, o alvo sofre 2 de dano e você ganha %game.card.experience:1%.",
+            "2": "Adicione %game.action.attack.valueSign:1% a todos os seus ataques à distância nesta rodada."
+          },
+          "128": {
+            "1": "Ganhe %game.card.experience:1% para cada",
+            "2": "inimigo alvo.",
+            "3": "Adicione %game.action.attack.valueSign:2% a todos os seus ataques corpo a corpo nesta rodada."
+          },
+          "129": {
+            "1": "Nas suas próximas seis ações de Ataque à distância quando %game.element.air% estiver Forte ou Diminuindo, %game.element.consume.air% para adicionar %game.action.range.valueSign:2%."
+          },
+          "130": {
+            "1": "Destrua um obstáculo adjacente.",
+            "2": "Mire todos os inimigos adjacentes ao obstáculo destruído"
+          },
+          "131": {
+            "1": "Afete todos os aliados na área de alcance"
+          },
+          "132": {
+            "1": "Mova um obstáculo adjacente de hexágono único para um hexágono vazio dentro de %game.action.range:4%.",
+            "2": "Mire todos os inimigos adjacentes",
+            "3": "ao obstáculo movido",
+            "4": "Destrua todos os obstáculos e desarme todas as armadilhas atravessadas."
+          },
+          "134": {
+            "1": "Crie três obstáculos de hexágono único em hexágonos vazios dentro de %game.action.range:4%.",
+            "2": "Todos os aliados e inimigos adjacentes a um ou mais obstáculos criados sofrem 2 de dano.",
+            "3": "O movimento deve ser em linha reta."
+          },
+          "136": {
+            "1": "Mate um inimigo normal dentro de %game.action.range:4%.",
+            "2": "Crie um obstáculo de hexágono único no hexágono em que o inimigo morreu."
+          },
+          "137": {
+            "1": "Nos seus próximos quatro ataques corpo a corpo quando possível, destrua um obstáculo adjacente para adicionar %game.action.attack.valueSign:3%."
+          },
+          "138": {
+            "1": "Crie uma armadilha de 2 de dano e %game.condition.stun% em um hexágono vazio adjacente."
+          },
+          "139": {
+            "1": "%game.condition.immobilize% todos os aliados e inimigos na área de alcance."
+          },
+          "140": {
+            "1": "Crie um obstáculo triangular de três hexágonos em hexágonos vazios dentro de %game.action.range:3%.",
+            "2": "Mire todos os inimigos adjacentes ao obstáculo."
+          },
+          "141": {
+            "1": "Para cada hexágono em que você não puder empurrar o alvo devido a uma parede ou obstáculo, o alvo sofre 2 de dano e você ganha %game.card.experience:1%.",
+            "2": "Adicione %game.action.attack.valueSign:1% a todos os seus ataques à distância nesta rodada.",
+            "3": "Adicione %game.action.attack.valueSign:2% em vez disso, %game.card.experience:1%."
+          },
+          "142": {
+            "1": "Destrua todos os obstáculos dentro de %game.action.range:2%",
+            "2": "Onde X é o dobro do número",
+            "3": "de hexágonos que os obstáculos destruídos",
+            "4": "ocupavam.",
+            "5": "O movimento deve terminar em um hexágono adjacente a um obstáculo."
+          },
+          "143": {
+            "1": "No início dos seus próximos cinco turnos, realize uma ação de \"%game.action.heal:2%, %game.action.range:2%\"."
+          },
+          "144": {
+            "1": "Todos os aliados e inimigos adjacentes ao alvo sofrem dano igual ao dano que o alvo sofreu.",
+            "2": "Todos os aliados e inimigos adjacentes a quaisquer hexágonos em que você entrar durante o movimento sofrem 2 de dano."
+          },
+          "145": {
+            "1": "Você pode empurrar os alvos para hexágonos contendo obstáculos. Em cada caso, destrua o obstáculo, o alvo sofre 2 de dano e você ganha %game.card.experience:1%."
+          }
+        }
+      },
+      "dark-rider": {
+        "1": "X = Hexágonos movidos"
+      },
+      "deep-terror": {
+        "1": "em um hexágono adjacente ao alvo"
+      },
+      "elder-drake": {
+        "1": "Voa para o próximo poleiro de rochas"
+      },
+      "flame-demon": {
+        "1": "Todos os inimigos adjacentes sofrem %game.damage:2%.",
+        "2": "Crie uma armadilha de %game.damage:4% em um hexágono vazio adjacente mais próximo de um inimigo."
+      },
+      "flowChartGroup": {
+        "atop-mountains": "No Topo das Montanhas",
+        "city-events": "Eventos de Cidade",
+        "demon-and-rift": "Demônio e Fenda",
+        "dragons": "Dragões",
+        "intro": "Introdução",
+        "personal-quests": "Missões Pessoais",
+        "random-scenarios": "Cenários Aleatórios",
+        "rebellion-rises": "Rebelião Convocada",
+        "road-events": "Eventos de Estrada",
+        "sealed": "Selados",
+        "sewers": "Esgotos",
+        "solo": "Cenários Solo",
+        "the-merchant": "O Mercador",
+        "through-jungles": "Através das Selvas",
+        "under-oceans": "Sob os Oceanos",
+        "voice": "A Voz"
+      },
+      "giant-viper": {
+        "1": "Adicione %game.action.attack.valueSign:2% se o alvo estiver adjacente a qualquer um dos aliados do %data.monster.giant-viper%.",
+        "2": "Todos os ataques mirando a %data.monster.giant-viper% nesta rodada recebem Desvantagem."
+      },
+      "harrower-infester": {
+        "1": "Realize \"%game.action.heal:2%, %game.specialTarget.self%\" para cada alvo danificado"
+      },
+      "hound": {
+        "1": "Adicione %game.action.attack.valueSign:2% se o alvo estiver adjacente a qualquer um dos aliados do %data.monster.hound%."
+      },
+      "merciless-overseer": {
+        "1": "Todos os Batedores agem novamente",
+        "2": "V = Número de Batedores presentes"
+      },
+      "mindthief": {
+        "1": "X é a metade do valor atual de pontos de vida do rato (arredondado para cima).",
+        "abilities": {
+          "146": {
+            "1": "Adicione %game.action.attack.valueSign:1% para cada condição negativa no alvo",
+            "2": "Force um inimigo dentro de %game.action.range:5% a realizar",
+            "3": "mirando outro inimigo com você controlando a ação."
+          },
+          "149": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Ganhe %game.action.shield:1%",
+            "3": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta.",
+            "4": "Se você terminar o movimento no mesmo hexágono em que começou, realize"
+          },
+          "151": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Adicione %game.action.attack.valueSign:2%",
+            "3": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta."
+          },
+          "152": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta.",
+            "3": "Force um inimigo dentro de %game.action.range:4% a realizar",
+            "4": "com você controlando a ação."
+          },
+          "154": {
+            "1": "Adicione %game.action.attack.valueSign:2% e ganhe %game.card.experience:1% para cada condição negativa no alvo."
+          },
+          "156": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta."
+          },
+          "157": {
+            "1": "Um aliado adjacente pode realizar",
+            "2": "Um aliado dentro de %game.action.range:3% pode realizar"
+          },
+          "160": {
+            "1": "Force um inimigo normal ou elite dentro de %game.action.range:3% a realizar seu turno nesta rodada como se seus aliados fossem inimigos e seus inimigos fossem aliados.",
+            "2": "Para simbolizar isso, coloque um dos seus tokens de personagem neste inimigo pela rodada."
+          },
+          "162": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta."
+          },
+          "163": {
+            "1": "Ganhe um token de moeda adicional do suprimento para cada inimigo adjacente."
+          },
+          "164": {
+            "1": "Mate um inimigo normal dentro de %game.action.range:4%.",
+            "2": "Mire todos os inimigos adjacentes ao alvo morto",
+            "3": "Ganhe %game.card.experience:1% para cada inimigo alvo deste ataque."
+          },
+          "165": {
+            "1": "Você pode ter dois %data.custom.gh.mindthief.augments% ativos ao mesmo tempo.",
+            "2": "Se um terceiro %data.custom.gh.mindthief.augment% for jogado, descarte um dos outros."
+          },
+          "166": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta.",
+            "3": "Force um inimigo dentro de %game.action.range:5% a realizar",
+            "4": "com você controlando a ação."
+          },
+          "169": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Ganhe",
+            "3": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta."
+          },
+          "170": {
+            "1": "Todos os seus ataques à distância ganham os efeitos dos seus %data.custom.gh.mindthief.augments% nesta rodada."
+          },
+          "172": {
+            "1": "Um aliado adjacente pode realizar",
+            "2": "Este ataque ganha os efeitos dos seus %data.custom.gh.mindthief.augments%.",
+            "3": "Force um inimigo normal ou elite dentro de %game.action.range:5% a realizar seu turno nesta rodada como se seus aliados fossem inimigos e seus inimigos fossem aliados, com você controlando as ações.<br><br>Para simbolizar isso, coloque um dos seus tokens de personagem neste inimigo pela rodada."
+          },
+          "173": {
+            "1": "X é a metade do valor atual de pontos de vida do rato (arredondado para cima).",
+            "2": "Todos os aliados dentro de %game.action.range:2% adicionam +X de %game.action.attack% a todos os seus ataques nesta rodada, onde X é o número de aliados seus dentro de %game.action.range:2% de você."
+          },
+          "174": {
+            "1": "Nos seus ataques corpo a corpo:",
+            "2": "Mate um alvo normal em vez disso",
+            "3": "Quando outro %data.custom.gh.mindthief.augment% for jogado, descarte esta carta."
+          }
+        },
+        "augment": "Aprimoramento %game.characterIconColoredBg.mindthief%",
+        "augments": "Aprimoramentos %game.characterIconColoredBg.mindthief%"
+      },
+      "night-demon": {
+        "1": "Todos os inimigos e aliados adjacentes sofrem %game.damage:1%."
+      },
+      "ooze": {
+        "1": "com H igual ao valor atual de pontos de vida da %data.monster.ooze% invocadora (limitado pelo valor máximo especificado de pontos de vida de uma %data.monster.ooze% normal)"
+      },
+      "prime-demon": {
+        "1": "O Trono se move"
+      },
+      "savvas-lavaflow": {
+        "1": "Todos os aliados e inimigos adjacentes ao alvo sofrem %game.damage:2%",
+        "2": "Todos os inimigos sofrem %game.damage:2%."
+      },
+      "scoundrel": {
+        "abilities": {
+          "100": {
+            "1": "Adicione %game.condition.wound% e ganhe %game.card.experience:1% quando o alvo estiver adjacente a qualquer um dos seus aliados."
+          },
+          "103": {
+            "1": "Adicione %game.action.attack.valueSign:2% a todos os seus ataques nesta rodada mirando inimigos adjacentes a nenhum dos aliados deles."
+          },
+          "104": {
+            "1": "Ganhe Vantagem em todos os seus ataques nesta rodada."
+          },
+          "105": {
+            "1": "Adicione %game.action.attack.valueSign:3% e ganhe %game.card.experience:1% quando o alvo estiver adjacente a qualquer um dos seus aliados.",
+            "2": "Adicione %game.action.attack.valueSign:3% e ganhe %game.card.experience:1% quando o alvo não estiver adjacente a nenhum dos seus aliados."
+          },
+          "106": {
+            "1": "Adicione %game.action.attack.valueSign:2% e ganhe %game.card.experience:1% quando o alvo estiver adjacente a qualquer um dos seus aliados.",
+            "2": "Nos seus próximos seis ataques mirando inimigos com %game.condition.disarm%, %game.condition.immobilize% ou %game.condition.stun%, adicione %game.action.attack.valueSign:2%"
+          },
+          "107": {
+            "1": "Mate um inimigo normal adjacente que não esteja adjacente a nenhum dos seus aliados e também esteja adjacente a qualquer um dos seus aliados."
+          },
+          "108": {
+            "1": "Adicione %game.action.attack.valueSign:2% a todos os seus ataques mirando inimigos com %game.condition.poison%."
+          },
+          "110": {
+            "1": "Adicione %game.action.attack.valueSign:4% e ganhe %game.card.experience:2% quando o alvo estiver adjacente a qualquer um dos seus aliados."
+          },
+          "111": {
+            "1": "Desarme uma armadilha adjacente.",
+            "2": "Mire um inimigo dentro de %game.action.range:3% para sofrer os efeitos da armadilha desarmada.",
+            "3": "No seu próximo ataque mirando um inimigo não adjacente a nenhum dos seus aliados e também adjacente a qualquer um dos seus aliados, dobre o valor do ataque."
+          },
+          "113": {
+            "1": "Mate um inimigo adjacente cujo valor atual de pontos de vida seja igual ou menor que 3."
+          },
+          "114": {
+            "1": "Force um inimigo normal ou elite adjacente a realizar seu turno nesta rodada como se seus aliados fossem inimigos e seus inimigos fossem aliados, com você controlando as ações.",
+            "2": "Para simbolizar isso, coloque um dos seus tokens de personagem neste inimigo pela rodada."
+          },
+          "115": {
+            "1": "Adicione %game.condition.poison% e %game.condition.wound% a todos os seus ataques."
+          },
+          "88": {
+            "1": "Adicione %game.action.attack.valueSign:2% e ganhe %game.card.experience:1% quando o alvo estiver adjacente a qualquer um dos seus aliados.",
+            "2": "Nos seus próximos quatro ataques mirando inimigos não adjacentes a nenhum dos seus aliados, adicione %game.action.attack.valueSign:2%"
+          },
+          "89": {
+            "1": "Adicione %game.action.attack.valueSign:2% e ganhe %game.card.experience:1% quando o alvo estiver adjacente a qualquer um dos seus aliados."
+          },
+          "90": {
+            "1": "No seu próximo ataque enquanto estiver %game.condition.invisible%, dobre o valor do ataque."
+          },
+          "91": {
+            "1": "Adicione %game.action.attack.valueSign:2% e ganhe %game.card.experience:1% quando o alvo estiver adjacente a qualquer um dos seus aliados.",
+            "2": "Adicione %game.action.attack.valueSign:2% e ganhe %game.card.experience:1% quando o alvo não estiver adjacente a nenhum dos seus aliados."
+          },
+          "92": {
+            "1": "Desarme uma armadilha adjacente."
+          },
+          "97": {
+            "1": "Adicione %game.action.attack.valueSign:1% para cada um dos seus aliados adjacentes ao alvo.",
+            "2": "Adicione %game.action.attack.valueSign:2% em vez disso, %game.card.experience:1%",
+            "3": "Force um inimigo adjacente a realizar",
+            "4": "com você controlando a ação, e terminando em um hexágono adjacente a você."
+          },
+          "98": {
+            "1": "Adicione +X %game.action.attack% onde X é o dobro do valor de Escudo do alvo.",
+            "2": "A próxima vez que você sofrer dano nesta rodada, não sofra dano em vez disso."
+          },
+          "99": {
+            "1": "%game.action.loot% cada hexágono em que você entrar com esta ação."
+          }
+        }
+      },
+      "spellweaver": {
+        "abilities": {
+          "61": {
+            "1": "Ganhe %game.card.experience:1% para cada inimigo alvo."
+          },
+          "62": {
+            "1": "Adicionalmente, mire todos os inimigos no caminho para o alvo principal.",
+            "2": "Ganhe %game.card.experience:1% para cada inimigo alvo."
+          },
+          "63": {
+            "1": "Recupere %game.card.recover% todas as suas cartas perdidas."
+          },
+          "66": {
+            "1": "Nas próximas duas fontes de dano a você, não sofra dano em vez disso."
+          },
+          "69": {
+            "1": "Nos seus próximos quatro ataques, adicione %game.action.attack.valueSign:1%.",
+            "2": "Adicione %game.action.attack.valueSign:2% em vez disso."
+          },
+          "75": {
+            "1": "Afete qualquer um dos aliados",
+            "2": "Afete todos os aliados em vez disso"
+          },
+          "76": {
+            "1": "Mate um alvo normal em vez disso, %game.card.experience:1%",
+            "2": "Afete qualquer um dos aliados",
+            "3": "onde X é a metade do valor máximo de pontos de vida desse aliado (arredondado para baixo).",
+            "4": "X é o valor máximo de pontos de vida desse aliado em vez disso."
+          },
+          "79": {
+            "1": "Nos próximos cinco ataques corpo a corpo mirando você, ganhe %game.action.retaliate:3%."
+          },
+          "80": {
+            "1": "Todos os inimigos adjacentes ao alvo sofrem 2 de dano, %game.card.experience:1%."
+          },
+          "81": {
+            "1": "Ganhe %game.card.experience:1% para cada inimigo alvo"
+          },
+          "82": {
+            "1": "Recupere %game.card.recover% até duas das suas cartas perdidas."
+          },
+          "84": {
+            "1": "%game.action.loot:3% em vez disso, %game.card.experience:1%",
+            "2": "Você não pode saquear mais de quatro tokens de moeda ou tesouros com esta ação."
+          },
+          "85": {
+            "1": "Nas próximas três fontes de dano de ataques mirando você, não sofra dano em vez disso e ganhe %game.action.retaliate:3%, %game.action.range:3%."
+          },
+          "86": {
+            "1": "Ganhe %game.card.experience:1% para cada inimigo alvo",
+            "2": "Mate todos os inimigos normais na área de alcance.",
+            "3": "Escolha um hexágono dentro de %game.action.range:4%.",
+            "4": "Mire todos os inimigos dentro de %game.action.range:4% do hexágono escolhido e puxe-os em direção a ele"
+          },
+          "87": {
+            "1": "Mire todos os inimigos na mesma sala que você",
+            "2": "Todos os aliados na mesma sala que você sofrem 2 de dano."
+          }
+        }
+      },
+      "the-betrayer": {
+        "1": "Controle Mental"
+      },
+      "tinkerer": {
+        "abilities": {
+          "30": {
+            "1": "Crie uma armadilha de 6 de dano em um hexágono vazio adjacente.",
+            "2": "Ganhe %game.card.experience:2% quando a armadilha for ativada por um inimigo."
+          },
+          "34": {
+            "1": "Ganhe %game.card.experience:1% para cada inimigo alvo."
+          },
+          "35": {
+            "1": "Ganhe %game.card.experience:1% para cada inimigo alvo."
+          },
+          "37": {
+            "1": "Um aliado adjacente pode Recuperar %game.card.recover% todas as suas cartas descartadas."
+          },
+          "40": {
+            "1": "Você e todos os aliados adjacentes adicionam %game.action.attack.valueSign:1% a todos os seus ataques nesta rodada."
+          },
+          "43": {
+            "1": "Crie uma armadilha de 2 de dano e %game.condition.poison% em um hexágono vazio adjacente.",
+            "2": "Um aliado dentro de %game.action.range:2% pode Recuperar %game.card.recover% uma das suas cartas descartadas.",
+            "3": "Até duas cartas descartadas em vez disso"
+          },
+          "44": {
+            "1": "Nas suas próximas quatro ações de Cura, adicione %game.action.heal.valueSign:2%."
+          },
+          "45": {
+            "1": "Um aliado dentro de %game.action.range:3% pode Recuperar %game.card.recover% uma das suas cartas perdidas."
+          },
+          "47": {
+            "1": "Desarme uma armadilha adjacente.",
+            "2": "Crie uma armadilha de %game.condition.stun% em um hexágono vazio adjacente."
+          },
+          "51": {
+            "1": "Um aliado adjacente pode Renovar %game.card.refresh% um dos seus itens %game.items.slots.small% consumidos.",
+            "2": "Ganhe %game.card.experience:1% para cada inimigo alvo."
+          },
+          "52": {
+            "1": "Mate todos os inimigos na área de alcance cujo valor atual de pontos de vida seja igual ou menor que 5.",
+            "2": "Ganhe %game.card.experience:1% para cada inimigo morto"
+          },
+          "53": {
+            "1": "Crie uma armadilha de 4 de dano e %game.condition.muddle% em um hexágono vazio adjacente.",
+            "2": "No final dos seus próximos quatro turnos, um aliado dentro de %game.action.range:3% pode Recuperar %game.card.recover% uma das suas cartas descartadas."
+          },
+          "54": {
+            "1": "No final dos seus próximos cinco turnos, realize uma ação de \"%game.action.attack:2%, %game.action.range:5%\"."
+          },
+          "57": {
+            "1": "Todos os aliados invocados dentro de %game.action.range:3% podem realizar",
+            "2": "com você controlando as ações."
+          },
+          "58": {
+            "1": "Sofra 2 de dano",
+            "2": "Todos os aliados adjacentes adicionam %game.action.attack.valueSign:2% a todos os seus ataques nesta rodada.",
+            "3": "Todos os aliados adjacentes sofrem 2 de dano."
+          },
+          "59": {
+            "1": "Mate um inimigo normal ou elite adjacente."
+          },
+          "60": {
+            "1": "Um aliado adjacente pode Recuperar %game.card.recover% até duas das suas cartas perdidas e, em seguida, perder duas cartas.",
+            "2": "Um aliado dentro de %game.action.range:3% pode Recuperar %game.card.recover% uma carta perdida pertencente a um aliado adjacente a ele."
+          }
+        }
+      },
+      "winged-horror": {
+        "1": "Chocar ovos",
+        "2": "%game.action.summon% [C] ovos"
+      }
+    },
+    "ghost-wolf": {
+      "1": "No início de cada rodada:"
+    }
+  },
+  "deck": {
+    "archer": "Arqueiro",
+    "boss": "Chefe",
+    "guard": "Guarda",
+    "imp": "Diabrete",
+    "scout": "Batedor",
+    "shaman": "Xamã"
+  },
+  "edition": {
+    "gh": {
+      "": "Gloomhaven",
+      "hint": "Esta é a primeira edição de Gloomhaven!"
+    }
+  },
+  "globalAchievements": {
+    "ancient-technology": "Tecnologia Antiga",
+    "annihilation-of-order": "Aniquilação da Ordem",
+    "artifact-cleansed": "Artefato: Purificado",
+    "artifact-lost": "Artefato: Perdido",
+    "artifact-recovered": "Artefato: Recuperado",
+    "city-rule-demonic": "Governo da Cidade: Demoníaco",
+    "city-rule-economic": "Governo da Cidade: Econômico",
+    "city-rule-militaristic": "Governo da Cidade: Militarista",
+    "end-of-corruption": "Fim da Corrupção",
+    "end-of-gloom": "Fim do Combalimento",
+    "end-of-the-invasion": "Fim da Invasão",
+    "the-dead-invade": "Os Mortos Invadem",
+    "the-drake-aided": "O Serpe Ajudado",
+    "the-drake-slain": "O Serpe Morto",
+    "the-edge-of-darkness": "O Limiar da Escuridão",
+    "the-merchant-flees": "O Mercador Foge",
+    "the-power-of-enhancement": "O Poder do Aprimoramento",
+    "the-rift-neutralized": "A Fenda Neutralizada",
+    "the-voice-freed": "A Voz Libertada",
+    "the-voice-silenced": "A Voz Silenciada",
+    "water-breathing": "Respiração Aquática"
+  },
+  "monster": {
+    "ancient-artillery": "Artilharia Antiga",
+    "arcane-golem": "Golem Arcano",
+    "bandit-archer": "Arqueiro Bandido",
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-commander": "Comandante Bandido",
+    "bandit-guard": "Guarda Bandido",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "black-imp": "Diabrete Negro",
+    "bloated-regent": "Regente Inchado",
+    "captain-of-the-guard": "Capitão da Guarda",
+    "cave-bear": "Urso das Cavernas",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "city-archer": "Arqueiro da Cidade",
+    "city-guard": "Guarda da Cidade",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "cultist": "Cultista",
+    "dark-rider": "Cavaleiro Sombrio",
+    "deep-earth": "Terra Profunda",
+    "deep-terror": "Terror das Profundezas",
+    "earth-demon": "Demônio da Terra",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
+    "elder-drake": "Serpe Ancião",
+    "flame-demon": "Demônio da Chama",
+    "forest-imp": "Diabrete da Floresta",
+    "frost-demon": "Demônio do Gelo",
+    "ghost-wolf": "Lobo Fantasma",
+    "giant-ooze": "Gosma Gigante",
+    "giant-viper": "Víbora Gigante",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "harrower-infester": "Infestador Harrower",
+    "high-flame": "Chama Alta",
+    "hound": "Cão de Caça",
+    "hungry-soul": "Alma Faminta",
+    "infiltrator": "Infiltrador",
+    "inox-archer": "Arqueiro Inox",
+    "inox-bodyguard": "Guarda-Costas Inox",
+    "inox-guard": "Guarda Inox",
+    "inox-necromancer": "Necromante Inox",
+    "inox-shaman": "Xamã Inox",
+    "jekserah": "Jekserah",
+    "lieutenant": "Tenente",
+    "living-bones": "Ossos Vivos",
+    "living-corpse": "Cadáver Vivo",
+    "living-spirit": "Espírito Vivo",
+    "lurker": "Espreitador",
+    "lurker-king": "Rei Espreitador",
+    "merciless-overseer": "Feitor Impiedoso",
+    "night-demon": "Demônio da Noite",
+    "ooze": "Gosma",
+    "prime-demon": "Demônio Primordial",
+    "prime-lieutenant": "Tenente Primordial",
+    "rending-drake": "Serpe Dilacerador",
+    "savvas-icestorm": "Savvas Tempestade de Gelo",
+    "savvas-lavaflow": "Savvas Fluxo de Lava",
+    "siege-cannon": "Canhão de Cerco",
+    "song-of-the-deep": "Cântico das Profundezas",
+    "spitting-drake": "Serpe Cuspidor",
+    "stone-golem": "Golem de Pedra",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
+    "sun-demon": "Demônio do Sol",
+    "the-betrayer": "O Traidor",
+    "the-colorless": "O Incolor",
+    "the-gloom": "O Combalimento",
+    "the-harvester": "O Ceifador",
+    "the-sightless-eye": "O Olho Cego",
+    "vermling-scout": "Batedor Vermling",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)",
+    "vermling-shaman": "Xamã Vermling",
+    "wind-demon": "Demônio do Vento",
+    "winged-horror": "Horror Alado"
+  },
+  "objective": {
+    "Altar": "Altar",
+    "Bone Pile": "Pilha de Ossos",
+    "Captive Orchid": "Orquídea Cativa",
+    "Door": "Porta",
+    "Fish": "Peixe",
+    "Grave": "Túmulo",
+    "Hail": "Hail",
+    "Orchid": "Orquídea",
+    "Redthorn": "Espinho Vermelho",
+    "Rock Column": "Coluna de Pedra",
+    "The Crystal": "O Cristal",
+    "Totem": "Totem",
+    "Tree": "Árvore",
+    "Villager": "Aldeão",
+    "Vocal Cord": "Corda Vocal",
+    "Water Pump": "Bomba de Água",
+    "zephyr": "Zéfiro"
+  },
+  "partyAchievements": {
+    "a-demons-errand": "A Tarefa de um Demônio",
+    "a-map-to-treasure": "Um Mapa para o Tesouro",
+    "across-the-divide": "Através da Divisão",
+    "an-invitation": "Um Convite",
+    "bad-business": "Maus Negócios",
+    "dark-bounty": "Recompensa Sombria",
+    "debt-collection": "Cobrança de Dívida",
+    "first-steps": "Primeiros Passos",
+    "fishs-aid": "Ajuda de Peixe",
+    "following-clues": "Seguindo Pistas",
+    "grave-job": "Trabalho Macabro",
+    "high-sea-escort": "Escolta em Alto-Mar",
+    "jekserahs-plans": "Planos de Jekserah",
+    "redthorns-aid": "Ajuda de Espinho Vermelho",
+    "sin-ra": "Sin-Ra",
+    "stonebreakers-censer": "Incensário do Quebra-Pedras",
+    "sun-blessed": "Abençoado pelo Sol",
+    "the-drakes-command": "O Comando do Serpe",
+    "the-drakes-treasure": "O Tesouro do Serpe",
+    "the-poisons-source": "A Fonte do Veneno",
+    "the-scepter-and-the-voice": "O Cetro e a Voz",
+    "the-voices-command": "O Comando da Voz",
+    "the-voices-treasure": "O Tesouro da Voz",
+    "through-the-nest": "Através do Ninho",
+    "through-the-ruins": "Através das Ruínas",
+    "through-the-trench": "Através da Trincheira",
+    "tremors": "Tremores",
+    "water-staff": "Cajado da Água"
+  },
+  "personalQuest": {
+    "gh": {
+      "510": {
+        "": "Buscador de Xorn",
+        "1": "Cenários de \"Cripta\"",
+        "2": "Siga \"Porão Nocivo\" (Cenário 52) até a conclusão"
+      },
+      "511": {
+        "": "Classe Mercante",
+        "1": "Itens de %game.items.slots.head%",
+        "2": "Itens de %game.items.slots.body%",
+        "3": "Itens de %game.items.slots.legs%",
+        "4": "Itens de %game.items.slots.onehand% ou %game.items.slots.twohand%",
+        "5": "Itens de %game.items.slots.small%"
+      },
+      "512": {
+        "": "Ganância É Ouro"
+      },
+      "513": {
+        "": "Em Busca da Cura",
+        "1": "Diabretes da Floresta mortos",
+        "2": "Siga \"Bosque Esquecido\" (Cenário 59) até a conclusão"
+      },
+      "514": {
+        "": "Um Estudo de Anatomia",
+        "1": "Membros do Grupo Exaustos"
+      },
+      "515": {
+        "": "Portador da Lei",
+        "1": "Bandidos ou Cultistas mortos"
+      },
+      "516": {
+        "": "Quilos de Carne",
+        "1": "Vermlings mortos"
+      },
+      "517": {
+        "": "Caça ao Troféu",
+        "1": "Tipos diferentes de monstros mortos"
+      },
+      "518": {
+        "": "Eterno Mochileiro",
+        "1": "Cenários diferentes concluídos"
+      },
+      "519": {
+        "": "Lenda de Batalha",
+        "1": "Ganhe %game.checkmark% de objetivos de batalha concluídos"
+      },
+      "520": {
+        "": "Instrumento da Luz",
+        "1": "Ossos Vivos, Cadáveres Vivos ou Espíritos Vivos mortos com o Machado da Ruína das Caveiras"
+      },
+      "521": {
+        "": "Retomar as Árvores",
+        "1": "Cenários concluídos na Floresta da Adaga",
+        "2": "Siga \"Mata Nebulosa\" (Cenário 55) até a conclusão"
+      },
+      "522": {
+        "": "Os Lugares Tênues",
+        "1": "Cenários secundários concluídos (número do cenário > 51)"
+      },
+      "523": {
+        "": "Matador de Aberrações",
+        "1": "Demônio da Chama morto",
+        "2": "Demônio do Gelo morto",
+        "3": "Demônio do Vento morto",
+        "4": "Demônio da Terra morto",
+        "5": "Demônio da Noite morto",
+        "6": "Demônio do Sol morto"
+      },
+      "524": {
+        "": "Resistência Destemida",
+        "1": "Monstros elite mortos"
+      },
+      "525": {
+        "": "Piedade em Todas as Coisas",
+        "1": "Ouro doado ao Santuário do Grande Carvalho"
+      },
+      "526": {
+        "": "Vingança",
+        "1": "Cenários concluídos em Gloomhaven",
+        "2": "Siga \"Investigação\" (Cenário 57) até a conclusão"
+      },
+      "527": {
+        "": "Fanático do Deus do Sangue"
+      },
+      "528": {
+        "": "Derrubador de Gigantes",
+        "1": "Cenários de chefe concluídos"
+      },
+      "529": {
+        "": "A Queda do Homem",
+        "1": "Cenários concluídos no Pântano Persistente",
+        "2": "Siga \"Farol Decadente\" (Cenário 61) até a conclusão"
+      },
+      "530": {
+        "": "Habilidades Aprimoradas",
+        "1": "Aprimoramentos"
+      },
+      "531": {
+        "": "Amostras Elementais",
+        "1": "Cenário concluído em Gloomhaven",
+        "2": "Cenário concluído na Floresta da Adaga",
+        "3": "Cenário concluído no Pântano Persistente",
+        "4": "Cenário concluído nas Montanhas da Vigia",
+        "5": "Cenário concluído nas Montanhas de Pescoço de Cobre",
+        "6": "Cenário concluído no Mar Nebuloso"
+      },
+      "532": {
+        "": "Uma Mão Amiga",
+        "1": "Missões pessoais alcançadas"
+      },
+      "533": {
+        "": "O Veneno Perfeito",
+        "1": "Gosmas mortas",
+        "2": "Espreitadores mortos",
+        "3": "Serpes Cuspidores mortos"
+      }
+    }
+  },
+  "scenario": {
+    "group": {
+      "randomDungeon": "%scenario.random%",
+      "randomMonsterCard": "Cartas de Monstro Aleatórias",
+      "solo": "Cenários Solo"
+    },
+    "rewards": {
+      "gh": {
+        "54": "Aposente imediatamente o Buscador de Xorn. Eventos de Cidade e Estrada em vez de eventos normais de aposentadoria para a classe",
+        "56": "Missão \"Retomar as Árvores\" concluída",
+        "58": "Missão \"Vingança\" concluída",
+        "60": "Missão \"Em Busca da Cura\" concluída",
+        "62": "Missão \"A Queda do Homem\" concluída"
+      }
+    },
+    "rules": {
+      "gh": {
+        "19": {
+          "1": "em direção ao altar %game.mapMarker.b%"
+        },
+        "22": {
+          "1": "Para cada altar que não estiver destruído, independentemente de ter sido revelado ou não, os valores máximos de pontos de vida e ataque de todos os demônios aumentam em 1, e seus valores de movimento e alcance aumentam em 0,5 (arredondado para cima). Ataques corpo a corpo não aumentam o alcance."
+        },
+        "36": {
+          "1": "O Demônio Primordial começa o cenário com o dobro de pontos de vida indicados em sua carta de estatísticas."
+        },
+        "38": {
+          "1": "em direção ao xamã na peça D"
+        },
+        "42": {
+          "1": "Todos os monstros adicionam %game.action.attack.valueSign:1% a todos os seus ataques",
+          "2": "Todos os monstros ganham Vantagem em todos os seus ataques",
+          "3": "Todos os monstros curam 1 ponto de vida no início de cada um de seus turnos",
+          "4": "Todos os personagens e invocações de personagens sofrem 1 de dano no início de cada um de seus turnos.",
+          "5": "Todos os personagens e invocações de personagens ganham Desvantagem em todos os seus ataques.",
+          "6": "Todos os personagens e invocações de personagens deduzem -1 de Ataque de todos os seus ataques."
+        },
+        "54": {
+          "1": "Todos os Ursos das Cavernas adicionam %game.condition.poison% a todos os seus ataques."
+        },
+        "67": {
+          "1": "O Golem de Pedra elite é um nível mais alto que o nível do cenário, até o máximo de 7, e possui HxC pontos de vida, onde H é o valor regular de pontos de vida de um Golem de Pedra elite. Este é o Golem Arcano. Ele não pode entrar ou passar pela porta %game.mapMarker.2%."
+        },
+        "71": {
+          "1": "Mover para a esquerda",
+          "2": "Mover para cima",
+          "3": "Mover para a direita",
+          "4": "Mover para baixo"
+        },
+        "73": {
+          "1": "Rolar pedras para baixo."
+        },
+        "74": {
+          "1": "Adicionar peça de água."
+        },
+        "78": {
+          "1": "Os dois Cultistas %game.mapMarker.b%, assim como a vítima %game.mapMarker.a%, são imunes a movimento forçado, %game.condition.immobilize% e %game.condition.stun%, e também podem abrir portas.",
+          "2": "Imune a movimento forçado",
+          "3": "Pode abrir portas"
+        },
+        "79": {
+          "1": "Mover para o local inicial, se for movido para fora, então realize"
+        },
+        "86": {
+          "1": "em direção ao final dos docas %game.mapMarker.b%"
+        },
+        "89": {
+          "1": "Todos os Cultistas invocam Víboras Gigantes elite em vez de Ossos Vivos normais."
+        }
+      }
+    },
+    "title": {
+      "gh": {
+        "1": "Túmulo Negro",
+        "10": "Plano do Poder Elemental",
+        "11": "Praça de Gloomhaven A",
+        "12": "Praça de Gloomhaven B",
+        "13": "Templo da Vidente",
+        "14": "Vazio Congelado",
+        "15": "Santuário da Força",
+        "16": "Passagem da Montanha",
+        "17": "Ilha Perdida",
+        "18": "Esgotos Abandonados",
+        "19": "Cripta Esquecida",
+        "2": "Guarida do Túmulo",
+        "20": "Santuário do Necromante",
+        "21": "Trono Infernal",
+        "22": "Templo dos Elementos",
+        "23": "Ruínas Profundas",
+        "24": "Câmara do Eco",
+        "25": "Escalada do Penhasco de Gelo",
+        "26": "Cisternas Antigas",
+        "27": "Fenda Ruim",
+        "28": "Câmara do Ritual Exterior",
+        "29": "Santuário do Combalimento",
+        "3": "Acampamento Inox",
+        "30": "Santuário das Profundezas",
+        "31": "Plano da Noite",
+        "32": "Bosque Decrépito",
+        "33": "Armaria Savvas",
+        "34": "Cume Chamuscado",
+        "35": "Muralhas de Gloomhaven A",
+        "36": "Muralhas de Gloomhaven B",
+        "37": "Trincheira do Destino",
+        "38": "Cercado de Escravos",
+        "39": "Divisa Traiçoeira",
+        "4": "Cripta dos Condenados",
+        "40": "Rede de Defesa Antiga",
+        "41": "Túmulo Desgastado pelo Tempo",
+        "42": "Reino da Voz",
+        "43": "Ninho de Serpes",
+        "44": "Ataque Tribal",
+        "45": "Pântano Rebelde",
+        "46": "Pico do Pesadelo",
+        "47": "Guarida do Olho Cego",
+        "48": "Mata Sombria",
+        "49": "Resistência dos Rebeldes",
+        "5": "Cripta Ruim",
+        "50": "Fortaleza Fantasma",
+        "51": "O Vazio",
+        "52": "Porão Nocivo",
+        "53": "Subsolo da Cripta",
+        "54": "Palácio de Gelo",
+        "55": "Mata Nebulosa",
+        "56": "Bosque dos Bandidos",
+        "57": "Investigação",
+        "58": "Cabana Sangrenta",
+        "59": "Bosque Esquecido",
+        "6": "Cripta em Decomposição",
+        "60": "Laboratório de Alquimia",
+        "61": "Farol Decadente",
+        "62": "Poço das Almas",
+        "63": "Poço de Magma",
+        "64": "Lagoa Subaquática",
+        "65": "Mina de Enxofre",
+        "66": "Enseada do Mecanismo",
+        "67": "Biblioteca Arcana",
+        "68": "Pântano Tóxico",
+        "69": "Poço dos Desventurados",
+        "7": "Gruta Vibrante",
+        "70": "Ilha Acorrentada",
+        "71": "Planalto dos Ventos",
+        "72": "Bosque Borbulhante",
+        "73": "Crista do Deslizamento de Pedras",
+        "74": "Navio Mercante",
+        "75": "Cemitério Abandonado",
+        "76": "Colmeia Harrower",
+        "77": "Cópia de Segredos",
+        "78": "Poço do Sacrifício",
+        "79": "Templo Perdido",
+        "8": "Armazém de Gloomhaven",
+        "80": "Fortaleza da Vigília",
+        "81": "Templo do Eclipse",
+        "82": "Montanha em Chamas",
+        "83": "Sombras Interiores",
+        "84": "Caverna Cristalina",
+        "85": "Templo do Sol",
+        "86": "Aldeia Atormentada",
+        "87": "Enseada Corrompida",
+        "88": "Plano da Água",
+        "89": "Esconderijo do Sindicato",
+        "9": "Mina de Diamantes",
+        "90": "Fenda Demoníaca",
+        "91": "Melê Selvagem",
+        "92": "Briga no Beco",
+        "93": "Embarcação Naufragada",
+        "94": "Ninho Vermling",
+        "95": "Pagamento Devido",
+        "randomDungeon-rnd": "Masmorra Aleatória",
+        "solo-1": "Retorno ao Túmulo Negro",
+        "solo-10": "Colhendo a Noite",
+        "solo-11": "Cripta Infestada",
+        "solo-12": "Insultos Antinaturais",
+        "solo-13": "Batalha dos Bardos",
+        "solo-14": "Caçada Corrompida",
+        "solo-15": "Consequências",
+        "solo-16": "Segredos Elementais",
+        "solo-17": "O Urso Enjaulado",
+        "solo-2": "Uma Intrusão Infortunada",
+        "solo-3": "Laboratório Corrompido",
+        "solo-4": "Assalto à Armaria",
+        "solo-5": "Defesa de Pedra",
+        "solo-6": "Libertação dos Roedores",
+        "solo-7": "Escolta de Caravanas",
+        "solo-8": "Taxas de Armazenamento",
+        "solo-9": "Plano das Feras Selvagens"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "gh": {
+        "82-A": "%scenario.conclusion% A",
+        "82-B": "%scenario.conclusion% B",
+        "randomMonsterCard-554": "Sarnento",
+        "randomMonsterCard-555": "Ahogado",
+        "randomMonsterCard-556": "Sem Esperança",
+        "randomMonsterCard-557": "Profanado",
+        "randomMonsterCard-558": "Selvagem",
+        "randomMonsterCard-559": "Fortificado",
+        "randomMonsterCard-560": "Degolador",
+        "randomMonsterCard-561": "Em Decomposição",
+        "randomMonsterCard-562": "Nebuloso",
+        "randomMonsterCard-563": "Esmagador",
+        "randomMonsterCard-564": "Tribal",
+        "randomMonsterCard-565": "Horripilante",
+        "randomMonsterCard-566": "Arcaico",
+        "randomMonsterCard-567": "Escamoso",
+        "randomMonsterCard-568": "Venencoso",
+        "randomMonsterCard-569": "Instável",
+        "randomMonsterCard-570": "Corrompido",
+        "randomMonsterCard-571": "Infectado",
+        "randomMonsterCard-572": "Pútrido",
+        "randomMonsterCard-573": "Frígido",
+        "solo-15-1": "Consequências",
+        "solo-17-1": "O Urso Enjaulado",
+        "solo-17-2": "O Urso Enjaulado",
+        "solo-17-3": "O Urso Enjaulado",
+        "solo-4-A2a": "Assalto à Armaria",
+        "solo-4-B2b": "Assalto à Armaria",
+        "solo-4-H1b": "Assalto à Armaria",
+        "solo-6-1": "Libertação dos Roedores",
+        "solo-6-2": "Libertação dos Roedores",
+        "solo-6-3": "Libertação dos Roedores",
+        "solo-7-1": "Escolta de Caravanas",
+        "solo-7-2": "Escolta de Caravanas",
+        "solo-A1b": "Batalha dos Bardos",
+        "solo-G2b": "Batalha dos Bardos",
+        "solo-I1a": "Batalha dos Bardos"
+      }
+    }
+  }
+}

@@ -1,1 +1,58 @@
-{}
+{
+  "items": {
+    "gh-134": {
+      "": "Lâmina Imponente"
+    },
+    "gh-135": {
+      "": "Raio Focalizador"
+    },
+    "gh-136": {
+      "": "Elixir Volátil"
+    },
+    "gh-137": {
+      "": "Estilete Silencioso"
+    },
+    "gh-138": {
+      "": "Amuleto de Pedra"
+    },
+    "gh-139": {
+      "": "Faca Psíquica"
+    },
+    "gh-140": {
+      "": "Escudo do Sol"
+    },
+    "gh-141": {
+      "": "Cinto Utilitário"
+    },
+    "gh-142": {
+      "": "Ídolo de Fases"
+    },
+    "gh-143": {
+      "": "Elixir de Fumaça"
+    },
+    "gh-144": {
+      "": "Pingente da Praga"
+    },
+    "gh-145": {
+      "": "Mascara da Morte"
+    },
+    "gh-146": {
+      "": "Alaúde do Mestre"
+    },
+    "gh-147": {
+      "": "Manto do Caçador"
+    },
+    "gh-148": {
+      "": "Jaleco de Médico"
+    },
+    "gh-149": {
+      "": "Botas Elementais"
+    },
+    "gh-150": {
+      "": "Cajado de Comando"
+    },
+    "gh-envx-151": {
+      "": "Espada das Areias"
+    }
+  }
+}

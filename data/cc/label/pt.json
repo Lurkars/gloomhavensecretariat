@@ -1,1 +1,60 @@
-{}
+{
+  "character": {
+    "fh": {
+      "core": "CORE",
+      "wildborn": "Wildborn",
+      "woebound": "Woebound"
+    }
+  },
+  "custom": {
+    "perks": {
+      "core": {
+        "1": "Adicione %game.action.attack.valueSign:1% para cada condição que você tiver",
+        "2": "No início de cada cenário, você pode realizar \"%game.condition.strengthen%, %game.condition.wound%, Si mesmo\" ou \"%game.condition.ward%, %game.condition.immobilize%, Si mesmo\"",
+        "3": "Uma vez por cenário, evite um teste de exaustão de Overdrive",
+        "4": "Uma vez por cenário, durante seu turno, remova qualquer quantidade de condições negativas que você tiver",
+        "5": "Matar o último inimigo a morrer no cenário e terminar com nove cartas de habilidade em sua pilha de perdidas",
+        "6": "Ativar um efeito contínuo na Recursão Caótica seis ou mais vezes em uma única rodada"
+      },
+      "wildborn": {
+        "1": "em vez disso, se você sofrer %game.damage:2%",
+        "2": "Adicione %game.action.attack.valueSign:1% por %data.action.custom.cc-essence% coletada",
+        "3": "Coloque esta carta em sua área ativa. No seu próximo ataque comandado, descarte esta carta para adicionar %game.action.attack.valueSign:2%",
+        "4": "No seu próximo ataque comandado, descarte esta carta para adicionar %game.action.attack.valueSign:2%",
+        "5": "%game.custom.perks.ignoreNegativeScenario% e trate todas as %data.action.custom.cc-essence% como Estáveis durante uma rodada em cada cenário",
+        "6": "Sempre que você ou um de seus aliados for sofrer exatamente %game.damage:2%, essa figura pode perder %game.condition.ward% para não sofrer %game.damage% em vez disso",
+        "7": "No início de cada cenário, você pode %game.element.wild%",
+        "8": "Jogar pelo menos 8 ações %game.card.lost% sem exaurir",
+        "9": "Estabilizar 4 %data.action.custom.cc-essence% diferentes durante seu primeiro descanso ao longo de quaisquer 4 cenários"
+      },
+      "woebound": {
+        "1": "onde X é o número de elementos que você consumiu neste turno",
+        "2": "Sempre que você consumir um elemento como parte obrigatória de uma ação, você pode gerar esse mesmo elemento",
+        "3": "No início de cada cenário, %game.element.wild%",
+        "4": "Sempre que você realizar um descanso longo, %game.element.wild%",
+        "5": "Consumir pelo menos três elementos em cada um dos seus turnos após a primeira rodada, sem exaurir",
+        "6": "Ter %game.action.shield:2% em cada ataque direcionado a você que causaria dano, e ser atacado pelo menos 15 vezes."
+      }
+    }
+  },
+  "edition": {
+    "cc": "Custom Content Unity Guild (descontinuado!!!)"
+  },
+  "items": {
+    "fh-cc-core": {
+      "": "Escudo de Absorção",
+      "1": "Quando sofrer %game.damage% de um ataque, ganhe %game.action.shield:1% para o ataque e, em seguida, vire esta carta.",
+      "2": "No início do seu turno, ganhe %game.condition.wound%",
+      "3": "Quando %game.condition.wound% for removido de você, vire esta carta."
+    },
+    "fh-wb01": {
+      "": "Fragmentos do Esquecimento",
+      "1": "Quando fosse conceder uma habilidade a um aliado, em vez disso controle um inimigo para realizar essa habilidade. Use seu baralho de modificadores de ataque para quaisquer ataques controlados dessa forma."
+    },
+    "fh-wb02": {
+      "": "Foice do Caos",
+      "1": "Adicione %game.action.attack.valueSign:2% ao seu próximo ataque corpo a corpo visando um inimigo não adjacente a nenhum dos seus aliados e, em seguida, vire esta carta ao final do seu turno.",
+      "2": "Se você consumiu quatro ou mais elementos durante o seu turno, vire esta carta ao final do seu turno."
+    }
+  }
+}
