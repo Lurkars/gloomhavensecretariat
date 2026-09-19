@@ -1336,7 +1336,7 @@
         "10": "Attack at least three enemies with each of three different area of effect attack abilities",
         "11": "Perform a Banner summon ability on your first turn, keep the banner alive and within %game.action.range:3% of you for the entire scenario",
         "2": "At the start of their turns, grant allies within %game.range:3%:",
-        "3": "All adjacent allies gain %game.shield% 1.",
+        "3": "All adjacent allies gain %game.action.shield:1%.",
         "4": "Negate the first source of %game.damage% to an adjacent ally each round",
         "5": "All enemies within %game.action.range:4% suffer %game.damage:1% at the start of their turns.",
         "6": "Add %game.action.attack.valueSign:1% for each ally adjacent to the target",
@@ -1347,9 +1347,6 @@
           "61": {
             "1": "Suffer %game.damage:1% for each ally whose hit point value increased with the heal ability.",
             "2": "You control the movement of this summon"
-          },
-          "62": {
-            "1": "All allies within %game.action.range:2% add %game.action.attack.valueSign:1% to one of their attacks each turn."
           },
           "63": {
             "1": "All your ranged attacks have %game.action.range.valueSign:-1%."
@@ -1373,16 +1370,12 @@
           "72": {
             "1": "If the target suffers %game.damage% from this attack, the target and all enemies adjacent to the target gain %game.condition.wound%."
           },
-          "73": {
-            "1": "At the start of their turns, grant allies within %game.action.range:3%:"
-          },
           "75": {
             "1": "Add %game.action.attack.valueSign:1% for each ally adjacent to the target.",
             "2": "Grant three allies within %game.action.range:4%:"
           },
           "76": {
-            "1": "the ally in the blue hey of the attack ability and self",
-            "2": "All adjacent allies gain %game.action.shield:1%."
+            "1": "the ally in the blue hey of the attack ability and self"
           },
           "78": {
             "1": "1 enemy in the red hexes",
@@ -1390,8 +1383,7 @@
             "3": "Grant two allies within %game.action.range:3%:"
           },
           "80": {
-            "1": "Grant the ally in the blue hex of the attack ability and self:",
-            "2": "Once per turn, on your turn, while an enemy is within %game.action.range:3%, grant one adjacent ally and self:"
+            "1": "Grant the ally in the blue hex of the attack ability and self:"
           },
           "81": {
             "1": "Grant all adjacent allies:"
@@ -1408,9 +1400,6 @@
           },
           "87": {
             "1": "Grant two allies within %game.action.range:3%:"
-          },
-          "88": {
-            "1": "All enemies within %game.action.range:4% suffer %game.damage:1% at the start of their turns."
           },
           "89": {
             "1": "Add %game.action.target.valueSign:1% for each adjacent Banner summon.",
@@ -1474,7 +1463,132 @@
         "2": "Whenever you short rest, you may %game.element.consume.dark% to perform %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% as if you were occupying a hex with a %data.action.custom.fh-shadow%",
         "3": "While you are occupying a hex with a %data.action.custom.fh-shadow%, all attacks targeting you gain disadvantage",
         "4": "Remove seven %data.action.custom.fh-shadow% in one round",
-        "5": "Place or remove at least one %data.action.custom.fh-shadow% each round"
+        "5": "Place or remove at least one %data.action.custom.fh-shadow% each round",
+        "abilities": {
+          "90": {
+            "1": "During your and your summons' attacks, before drawing an attack modifier card, you may place one character token on the target of the attack. When that enemy dies, place one %data.action.custom.fh-shadow% in or adjacent to the hex it occupied.",
+            "2": "Whenever you place a character token with this ability, remove any other character token placed with this ability.",
+            "3": "Place one %data.action.custom.fh-shadow% in a hex within %game.action.range:2%."
+          },
+          "91": {
+            "1": "Remove any number of %data.action.custom.fh-shadow% within %game.action.range:3% (of yourself). For each %data.action.custom.fh-shadow% removed:",
+            "2": "all enemies occupying a hex with a %data.action.custom.fh-shadow%",
+            "3": "Whenever an enemy enters a hex with a %data.action.custom.fh-shadow% this round, that enemy gains %game.condition.wound%."
+          },
+          "92": {
+            "1": "This ability can only be performed if you remove one %data.action.custom.fh-shadow% from an adjacent hex.",
+            "2": "to a hex with a %data.action.custom.fh-shadow%."
+          },
+          "93": {
+            "1": "Perform the attack as if you were occupying a hex with a %data.action.custom.fh-shadow%, then remove the %data.action.custom.fh-shadow%.",
+            "2": "Whenever you would suffer %game.damage%, you may instead %game.action.teleport% to a hex with a %data.action.custom.fh-shadow%, remove the %data.action.custom.fh-shadow%, negate the %game.damage%, and discard this card."
+          },
+          "94": {
+            "1": "Move one %data.action.custom.fh-shadow% up to 5 %game.enhancement.square% hexes."
+          },
+          "95": {
+            "1": "Move all %data.action.custom.fh-shadow% up to 2 %game.enhancement.square% hexes."
+          },
+          "96": {
+            "1": "Perform the attacks as if you were occupying a hex with a %data.action.custom.fh-shadow%."
+          },
+          "97": {
+            "1": "Place three %data.action.custom.fh-shadow% in hexes within %game.action.range:3%."
+          },
+          "98": {
+            "1": "Perform the attacks as if you where occupying a hex with a %data.action.custom.fh-shadow%, then remove the %data.action.custom.fh-shadow%."
+          },
+          "99": {
+            "1": "This movement must end in a hex with a %data.action.custom.fh-shadow%.",
+            "2": "Place one %data.action.custom.fh-shadow% in the hex you are occupying."
+          },
+          "100": {
+            "1": "where X is the number of %data.action.custom.fh-shadow% on the map.",
+            "2": "Once during each of your move or attack abilities, you may remove one %data.action.custom.fh-shadow% within %game.action.range:3% to gain %game.card.experience:1% and add<br/><br/>%game.action.move.valueSign:2% to your move ability<br/>or<br/>%game.action.attack.valueSign:2% to one of your attacks."
+          },
+          "101": {
+            "1": "For each %data.action.custom.fh-shadow% on the map at the start of this action, perform:",
+            "2": "Perform the attacks as if you where occupying the hex with the %data.action.custom.fh-shadow%.",
+            "3": "Move all %data.action.custom.fh-shadow% up to 1 %game.enhancement.square% hex."
+          },
+          "102": {
+            "1": "%game.action.teleport% to a hex with a %data.action.custom.fh-shadow% or adjacent to a %data.action.custom.fh-shadow%."
+          },
+          "103": {
+            "1": "allies occupying hexes with %data.action.custom.fh-shadow% and self",
+            "2": "Move all %data.action.custom.fh-shadow% up to 6 hexes."
+          },
+          "104": {
+            "1": "If you are occupying a hex with a %data.action.custom.fh-shadow%, you may remove it:",
+            "2": "Move one %data.action.custom.fh-shadow% up to 4 %game.enhancement.square% hexes.",
+            "3": "If the moved %data.action.custom.fh-shadow% is in the same hex as an enemy, that enemy suffers %game.damage:3%, remove the %data.action.custom.fh-shadow%, and gain %game.card.experience:1%."
+          },
+          "105": {
+            "1": "1 enemy at any %game.action.range% adjacent to at least two %data.action.custom.fh-shadow%",
+            "2": "You and all allies may treat each hex with a %data.action.custom.fh-shadow% as being adjacent to each other hex with a %data.action.custom.fh-shadow% during move abilities this round."
+          },
+          "106": {
+            "1": "Move all %data.action.custom.fh-shadow% up to 3 %game.enhancement.square% hexes."
+          },
+          "107": {
+            "1": "Add %game.action.attack.valueSign:1% for each %data.action.custom.fh-shadow% in or adjacent to the hex occupied by the target.",
+            "2": "Remove any number of %data.action.custom.fh-shadow% within %game.action.range:3%. For each %data.action.custom.fh-shadow% removed, gain %game.card.experience:1% and grant one ally or self:"
+          },
+          "108": {
+            "1": "Perform the attacks as if you where occupying a hex with a %data.action.custom.fh-shadow%.",
+            "2": "Place one %data.action.custom.fh-shadow% in an adjacent hex."
+          },
+          "109": {
+            "1": "one normal or elite enemy occupying a hex with a %data.action.custom.fh-shadow%"
+          },
+          "110": {
+            "1": "If the attack kills an enemy, place one %data.action.custom.fh-shadow% in a hex adjacent to the hex the killed enemey occupied.",
+            "2": "At the start of each of your turns, move one %data.action.custom.fh-shadow% up to 3 hexes."
+          },
+          "111": {
+            "1": "Perform the attack as if you were occupying the hex with a %data.action.custom.fh-shadow%, then remove the %data.action.custom.fh-shadow%."
+          },
+          "112": {
+            "1": "This ability can only be performed if you remove two %data.action.custom.fh-shadow% from adjacent hexes.",
+            "2": "All attacks targeting your summons gain disadvantage.",
+            "3": "Move one %data.action.custom.fh-shadow% up to 3 %game.enhancement.square% hexes to an unoccupied hex.",
+            "4": "%game.action.teleport% to the hex with the moved %data.action.custom.fh-shadow%, then remove the %data.action.custom.fh-shadow% and gain %game.card.experience:1%."
+          },
+          "113": {
+            "1": "Remove any number of %data.action.custom.fh-shadow% within %game.action.range:3% (of yourself). For each %data.action.custom.fh-shadow% removed:",
+            "2": "Perform this ability as if you were occupying a hex with a %data.action.custom.fh-shadow%."
+          },
+          "114": {
+            "1": "Place one %data.action.custom.fh-shadow% in an adjacent hex.",
+            "2": "Whenever you or an ally would suffer %game.damage% while occupying or adjacent to a hex with a %data.action.custom.fh-shadow%, you may remove the %data.action.custom.fh-shadow%, gain %game.card.experience:1%, discard this card, and negate the %game.damage%.",
+            "3": "Move two %data.action.custom.fh-shadow% up to 4 %game.enhancement.square% hexes."
+          },
+          "115": {
+            "1": "For up to two %data.action.custom.fh-shadow% on the map at the start of this action, perform:",
+            "2": "Perform each attack as if you were occupying the hex with the %data.action.custom.fh-shadow%.",
+            "3": "For each %data.action.custom.fh-shadow% on the map at the start of this action, perform:",
+            "4": "Perform each heal as if you were occupying the hex with the %data.action.custom.fh-shadow%."
+          },
+          "116": {
+            "1": "You and all allies gain %game.action.retaliate:2%, %game.action.range:2% while occupying hexes with %data.action.custom.fh-shadow%.",
+            "2": "Move two %data.action.custom.fh-shadow% up to 3 %game.enhancement.square% hexes.",
+            "3": "One enemy adjacent to both moved %data.action.custom.fh-shadow% suffers %game.damage:3%."
+          },
+          "117": {
+            "1": "Perform this ability as if you were occupying a hex with a %data.action.custom.fh-shadow%.",
+            "2": "All enemies that have %data.condition.immobilize% suffer %game.damage:1%.",
+            "3": "Place two %data.action.custom.fh-shadow% in adjacent hexes.",
+            "4": "Move all %data.action.custom.fh-shadow% up to 5 %game.enhancement.square% hexes."
+          },
+          "118": {
+            "1": "Place one character token on an enemey within %game.action.range:4%. When that enemy dies, all enemies adjacent to it suffer %data.damage:4%.",
+            "2": "Whenever an enemy dies, you may %game.element.consume.dark% to place one %data.action.custom.fh-shadow% in the hex that enemy occupied."
+          },
+          "119": {
+            "1": "Remove any number of %data.action.custom.fh-shadow% from hexes you entered with the move ability. For each %data.action.custom.fh-shadow% removed:",
+            "2": "All enemies moved through gain %game.condition.curse%."
+          }
+        }
       },
       "deep-terror": {
         "1": "If the attack ability was performed",
