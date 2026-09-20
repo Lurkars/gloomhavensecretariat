@@ -218,7 +218,19 @@
       },
       "personalQuest": {
         "": "Persönliche Quest",
+        "autotrack": {
+          "disabled": "Automatische Fortschrittsverfolgung ist für diese Persönliche Quest deaktiviert. Klicke, um sie für Anforderungen zu aktivieren, die verfolgt werden können.",
+          "enabled": "Automatische Fortschrittsverfolgung ist für diese Persönliche Quest aktiviert. Klicke, um sie zu deaktivieren und den Fortschritt wieder manuell zu verfolgen."
+        },
         "counter": "Zähler",
+        "draw": "Persönliche-Quest-Karte ziehen",
+        "drawDialog": {
+          "": "Persönliche Quest ziehen",
+          "choose": "Markierte Karte auswählen",
+          "empty": "Aktuell sind keine Persönliche-Quest-Karten zum Ziehen verfügbar.",
+          "redraw": "Erneut ziehen",
+          "show": "Karte vollständig anzeigen"
+        },
         "openEnvelope": {
           "": "Umschlag %game.fhIcon:envelope% {0} öffnen",
           "alt": "Umschlag %game.fhIcon:envelope% {0} öffnen<br>(sonst: %game.fhIcon:envelope% {1})",
@@ -554,6 +566,11 @@
       "objective": "{0}",
       "objectiveEntity": "{1} von {0}",
       "summon": "Beschwörung {1} von {0}"
+    },
+    "trap": {
+      "apply": "Anwenden",
+      "dialog": "Ziel für Fallen-Effekt auswählen",
+      "select": "Ziel auswählen"
     }
   },
   "errata": "Druckfehler",
@@ -1365,6 +1382,12 @@
       }
     },
     "maxHealth": "Maximale Trefferpunkte",
+    "personalQuests": {
+      "setup": {
+        "": "Persönliche Quests einrichten",
+        "empty": "Keine Persönlichen Quests für diese Edition."
+      }
+    },
     "solo": "Alleine",
     "specialTarget": {
       "ability": "%game.target% das Ziel der %game.actionText.{0}% Fertigkeit",
@@ -1546,6 +1569,14 @@
       "items": "Freigeschaltete Gegenstände",
       "manage": "Globale Kampagne verwalten",
       "map": "Karte",
+      "personalQuests": {
+        "fulfilled": "Erfüllt von %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "lock": "Manuelle Freischaltung rückgängig machen",
+        "locked": "Gesperrt",
+        "picked": "Ausgewählt von %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "unlock": "Manuell freischalten",
+        "unlocked": "Freigeschaltet"
+      },
       "players": {
         "": "Spielernamen",
         "add": "Spieler hinzufügen"
@@ -3469,6 +3500,9 @@
           "character": "Aktiviere Spezialaction {0} für {1}",
           "summon": "Aktiviere Spezialaction {0} für {2} von {1}"
         },
+        "applyTrap": {
+          "summon": "Falle '{2}' von {1} auf {0} anwenden"
+        },
         "changeDamage": {
           "": "{0} %game.action.damage% für Auswahl",
           "character": "{0} %game.action.damage% für {1}",
@@ -3746,6 +3780,7 @@
       "importCharacter": "Charakter {0} von Datei importieren",
       "importParty": "Kampagne von Datei importieren",
       "loadGameFromFile": "Spiel von Datei importieren",
+      "lockPersonalQuest": "Persönliche Quest %data.personalQuest.{0}.{1}% sperren",
       "lootCharTreasure": "{2} erbeutet Schatz {0}",
       "lootDeckAddEnhancement": "Beute Karte '{1} %game.loot.{0}%' verzaubern",
       "lootDeckChangeConfig": "Beute Tabelle ändern",
@@ -3978,6 +4013,7 @@
       "toggleTypeAll": "Monstertypen tauschen für alle Aufsteller von {0}",
       "unequipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} ablegen",
       "unlockChar": "{0} freischalten",
+      "unlockPersonalQuest": "Persönliche Quest %data.personalQuest.{0}.{1}% freischalten",
       "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
       "unsetAllied": "{0} von Fraktion entfernen",

@@ -1,10 +1,12 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
 import { Action, ActionHint, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { MonsterSpawnData, ObjectiveSpawnData } from 'src/app/game/model/data/ScenarioRule';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
@@ -629,6 +631,9 @@ export class ActionsManager {
               if (elementModel.type === element) {
                 if (elementModel.state !== ElementState.always) {
                   elementModel.state = ElementState.new;
+                  if (figure instanceof Character) {
+                    gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.element, element);
+                  }
                 }
               }
             });

@@ -1,10 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { ConditionName } from 'src/app/game/model/data/Condition';
+import { EditionData } from 'src/app/game/model/data/EditionData';
+import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { EnhancementsComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancements';
 
 // EnhancementsComponent has no injected Dialog and its `close()`/`apply()` only emit an output
@@ -164,6 +167,38 @@ describe('EnhancementsComponent', () => {
       component.apply();
       expect(character.progress.enhancements.length).toEqual(1);
       expect(character.progress.gold).toBeLessThan(goldBefore);
+    });
+
+    it('bumps "enhancements" personal quest progress on a successful purchase', () => {
+      const character = buildCharacter();
+      character.progress.gold = 100;
+      character.progress.enhancements = [];
+      character.progress.personalQuest = 'PQ1';
+      character.progress.personalQuestAutotrack = true;
+      gameManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), {
+          personalQuests: [
+            Object.assign(new PersonalQuest(), {
+              cardId: 'PQ1',
+              edition: 'gh',
+              requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 5, autotrack: 'enhancements' })]
+            })
+          ]
+        })
+      ];
+      settingsManager.settings.editions = ['gh'];
+
+      const component = createComponent({
+        action: new Action(ActionType.attack, 1),
+        character,
+        actionIndex: '0',
+        cardId: 1,
+        enhancementIndex: 0
+      });
+      component.ngOnInit();
+      component.apply(true);
+
+      expect(character.progress.personalQuestProgress[0]).toEqual(1);
     });
   });
 });

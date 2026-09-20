@@ -64,7 +64,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh.513.1%",
-                "counter": 8
+                "counter": 8,
+                "autotrack": "kill:forest-imp"
             },
             {
                 "name": "%data.personalQuest.gh.513.2%",
@@ -93,7 +94,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh.515.1%",
-                "counter": 20
+                "counter": 20,
+                "autotrack": "kill:bandit-guard|bandit-archer|bandit-commander|cultist"
             }
         ],
         "unlockCharacter": "sun"
@@ -103,7 +105,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh.516.1%",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "kill:vermling-scout|vermling-shaman"
             }
         ],
         "unlockCharacter": "lightning"
@@ -182,7 +185,7 @@
             {
                 "name": "%data.personalQuest.gh.522.1%",
                 "counter": 6,
-                "autotrack": "sideScenarios"
+                "autotrack": "sideScenarios:52-95"
             }
         ],
         "unlockCharacter": "eclipse"
@@ -192,27 +195,33 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh.523.1%",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "kill:flame-demon"
             },
             {
                 "name": "%data.personalQuest.gh.523.2%",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "kill:frost-demon"
             },
             {
                 "name": "%data.personalQuest.gh.523.3%",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "kill:wind-demon"
             },
             {
                 "name": "%data.personalQuest.gh.523.4%",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "kill:earth-demon"
             },
             {
                 "name": "%data.personalQuest.gh.523.5%",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "kill:night-demon"
             },
             {
                 "name": "%data.personalQuest.gh.523.6%",
-                "counter": 1
+                "counter": 1,
+                "autotrack": "kill:sun-demon"
             }
         ],
         "unlockCharacter": "triangles"
@@ -222,7 +231,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh.524.1%",
-                "counter": 20
+                "counter": 20,
+                "autotrack": "kill:elite"
             }
         ],
         "unlockCharacter": "two-mini"
@@ -352,15 +362,18 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh.533.1%",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "kill:ooze|giant-ooze"
             },
             {
                 "name": "%data.personalQuest.gh.533.2%",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "kill:lurker"
             },
             {
                 "name": "%data.personalQuest.gh.533.3%",
-                "counter": 3
+                "counter": 3,
+                "autotrack": "kill:spitting-drake"
             }
         ],
         "unlockCharacter": "squidface"

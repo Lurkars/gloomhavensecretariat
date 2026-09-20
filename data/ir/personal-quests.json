@@ -44,11 +44,13 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.ir.D1.1%",
-                "counter": 5
+                "counter": 5,
+                "autotrack": "kill:frost-demon"
             },
             {
                 "name": "%data.personalQuest.ir.D1.2%",
-                "counter": 5
+                "counter": 5,
+                "autotrack": "kill:flame-demon"
             }
         ],
         "unlockCharacter": "dynamite"

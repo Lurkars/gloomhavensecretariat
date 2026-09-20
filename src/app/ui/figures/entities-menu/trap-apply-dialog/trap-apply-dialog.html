@@ -1,0 +1,180 @@
+<div class="trap-info">
+  @if (summon.movement) {
+    <span class="trap-value">
+      <img class="ghs-svg" src="./assets/images/action/damage.svg" />
+      <span>{{ summon.movement }}</span>
+    </span>
+  }
+  @if (summon.attack !== 'X' && summon.attack) {
+    <span class="trap-value">
+      <img class="ghs-svg" src="./assets/images/action/heal.svg" />
+      <span>{{ summon.attack }}</span>
+    </span>
+  }
+  @for (condition of summon.entityConditions; track condition.name) {
+    <span class="trap-value">
+      <img
+        class="condition-icon"
+        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/' + condition.name + '.svg'"
+      />
+    </span>
+  }
+</div>
+
+<p><span [ghs-label]="'entities.trap.dialog'"></span></p>
+
+<div class="figures">
+  @for (f of figures | trackUUID; track f._trackUUID) {
+    <div class="figure">
+      @if (gameManager.isCharacter(f)) {
+        @let character = gameManager.toCharacter(f);
+        <div class="entities">
+          <div
+            class="entity"
+            tabclick
+            (click)="select(character, character)"
+            [ghs-tooltip]="'entities.title.character'"
+            [ghs-label-args]="gameManager.entityManager.titleInfo(character)"
+            [originX]="'center'"
+            [overlayX]="'center'"
+            [ngClass]="{ inactive: !selected || selected.entity !== character }"
+          >
+            <img class="icon character-icon" [src]="character.iconUrl" />
+          </div>
+          @for (summon of summons(character) | trackUUID; track summon._trackUUID) {
+            <div
+              class="entity summon-entity"
+              tabclick
+              (click)="select(summon, character)"
+              [ngClass]="{
+                inactive: !selected || selected.entity !== summon,
+                thumbnail: settingsManager.settings.artwork && ((summon.thumbnail && !summon.noThumbnail) || summon.thumbnailUrl)
+              }"
+              [ghs-tooltip]="'entities.title.summon'"
+              [ghs-label-args]="gameManager.entityManager.titleInfo(summon, character)"
+              [originX]="'center'"
+              [overlayX]="'center'"
+            >
+              <span class="summon-state" [ngClass]="{ fh: summon.color === SummonColor.fh }">
+                @if (summon.color !== SummonColor.fh) {
+                  <img src="./assets/images/summons/{{ summon.color }}.png" />
+                }
+                <span class="summon-number">
+                  @if (summon.number === 0) {
+                    <span>-</span>
+                  }
+                  @if (summon.number > 0) {
+                    <span>{{ summon.number }}</span>
+                  }
+                </span>
+              </span>
+              @if (settingsManager.settings.artwork && ((summon.thumbnail && !summon.noThumbnail) || summon.thumbnailUrl)) {
+                <div
+                  class="background-image"
+                  [style.background-image]="
+                    summon.thumbnailUrl
+                      ? 'url(' + summon.thumbnailUrl + ')'
+                      : 'url(/assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'
+                  "
+                ></div>
+              }
+            </div>
+          }
+        </div>
+      }
+
+      @if (gameManager.isMonster(f)) {
+        @let monster = gameManager.toMonster(f);
+        <div
+          class="name"
+          tabclick
+          [ghs-tooltip]="'entities.title.monster'"
+          [ghs-label-args]="gameManager.entityManager.titleInfo(undefined, monster)"
+          [originX]="'center'"
+          [overlayX]="'center'"
+        >
+          @if (!monster.noThumbnail && settingsManager.settings.artwork) {
+            <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+          }
+          @if (monster.noThumbnail || !settingsManager.settings.artwork) {
+            <span
+              [ghs-label]="'data.monster.' + (monster.statEffect && monster.statEffect.name ? monster.statEffect.name : monster.name)"
+            ></span>
+          }
+          @if (monster.isAlly) {
+            <span class="ally"><span [ghs-label]="'game.ally'"></span></span>
+          }
+        </div>
+
+        <div class="entities">
+          @for (entity of entities(monster) | trackUUID; track entity._trackUUID) {
+            @let monsterEntity = gameManager.toMonsterEntity(entity);
+            <div
+              class="entity {{ monsterEntity.type }}"
+              tabclick
+              (click)="select(entity, monster)"
+              [ghs-tooltip]="'entities.title.monsterEntity'"
+              [ghs-label-args]="targetArgs(entity, monster)"
+              [originX]="'center'"
+              [overlayX]="'center'"
+              [ngClass]="{ inactive: !selected || selected.entity !== entity }"
+            >
+              {{ monsterEntity.number }}
+            </div>
+          }
+        </div>
+      }
+
+      @if (gameManager.isObjectiveContainer(f)) {
+        @let objective = gameManager.toObjectiveContainer(f);
+        <div class="name">
+          <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+          @if (objective.title) {
+            <span>{{ objective.title }}</span>
+          }
+          @if (!objective.title && objective.name) {
+            <span [ghs-label]="'data.objective.' + objective.name"></span>
+          }
+          @if (!objective.title && !objective.name) {
+            <span [ghs-label]="objective.escort ? 'escort' : 'objective'"></span>
+          }
+        </div>
+
+        <div class="entities">
+          @for (entity of entities(objective) | trackUUID; track entity._trackUUID) {
+            @let objectiveEntity = gameManager.toObjectiveEntity(entity);
+            <div
+              class="entity"
+              tabclick
+              (click)="select(entity, objective)"
+              [ghs-tooltip]="'entities.title.objectiveEntity'"
+              [ghs-label-args]="gameManager.entityManager.titleInfo(entity, objective)"
+              [originX]="'center'"
+              [overlayX]="'center'"
+              [ngClass]="{ inactive: !selected || selected.entity !== entity }"
+            >
+              <span class="objective-marker">{{ objectiveEntity.number }}</span>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>
+
+<div class="menu">
+  <a (click)="close()" class="cancel">
+    <span [ghs-label]="'cancel'"></span>
+  </a>
+  <a (click)="close(selected)" class="select" [ngClass]="{ disabled: !selected }">
+    @if (selected) {
+      <span
+        [ghs-label]="'entities.title.' + targetType(selected.entity)"
+        [ghs-label-args]="targetArgs(selected.entity, selected.figure)"
+      ></span>
+    }
+    @if (!selected) {
+      <span [ghs-label]="'entities.trap.select'"></span>
+    }
+  </a>
+</div>

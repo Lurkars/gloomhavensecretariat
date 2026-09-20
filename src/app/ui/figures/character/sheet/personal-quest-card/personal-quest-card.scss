@@ -1,0 +1,133 @@
+.personal-quest-card-container {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  padding-bottom: 147%;
+}
+
+.personal-quest {
+  position: absolute;
+  inset: 0;
+  font-size: 7cqw;
+
+  .card-back {
+    background-color: var(--pq-accent, #7a6a4a);
+    border-radius: 0.6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--ghs-color-white);
+    text-align: center;
+
+    .icon {
+      width: 30%;
+      height: auto;
+      filter: var(--ghs-filter-white);
+      opacity: 0.85;
+    }
+
+    .state {
+      margin-top: 0.6em;
+      font-family: var(--ghs-font-title);
+      font-size: 1.1em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+    }
+
+    .card-id {
+      position: absolute;
+      left: 0.9em;
+      bottom: 0.6em;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+
+    .alt-id {
+      font-family: var(--ghs-font-title);
+      position: absolute;
+      right: 0.9em;
+      bottom: 0.6em;
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+  }
+}
+
+.paper {
+  width: 100%;
+  height: 100%;
+  padding: 1.4em 1.3em 1.3em;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--pq-accent-light, #efe9dc);
+  border-radius: 0.6em;
+  border: 0.12em solid var(--pq-accent, #7a6a4a);
+  box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.5);
+  color: #1a1a1a;
+
+  &.selected {
+    border-color: var(--ghs-color-green);
+    box-shadow: 0 0 0 0.15em var(--ghs-color-green);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .card-name {
+    font-family: var(--ghs-font-title);
+    font-size: 1.3em;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .card-divider {
+    height: 0.07em;
+    margin: 0.7em 0;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .requirements {
+    font-family: var(--ghs-font-text);
+    font-size: 1em;
+    text-align: center;
+    overflow: auto;
+
+    .requirement {
+      margin-top: 0.5em;
+    }
+  }
+
+  .rewards {
+    margin-top: 0.8em;
+    padding-top: 0.5em;
+    font-size: 0.9em;
+    border-top: 0.05em solid rgba(0, 0, 0, 0.15);
+    text-align: center;
+
+    .reward {
+      margin-top: 0.3em;
+    }
+  }
+
+  .card-id {
+    position: absolute;
+    left: 0.9em;
+    bottom: 0.6em;
+    font-size: 0.9em;
+    opacity: 0.6;
+  }
+
+  .alt-id {
+    font-family: var(--ghs-font-title);
+    position: absolute;
+    right: 0.9em;
+    bottom: 0.6em;
+    font-size: 1.2em;
+  }
+}

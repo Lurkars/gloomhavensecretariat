@@ -332,7 +332,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
         this.drawTimeout = setTimeout(
           () => {
             this.before.emit(new AttackModiferDeckChange(this.deck, 'draw' + (state ? state : '')));
-            gameManager.attackModifierManager.drawModifier(this.deck, state);
+            gameManager.attackModifierManager.drawModifier(this.deck, state, this.character);
             this.after.emit(new AttackModiferDeckChange(this.deck, 'draw' + (state ? state : '')));
             this.drawTimeout = null;
           },

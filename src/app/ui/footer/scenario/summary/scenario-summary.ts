@@ -10,6 +10,7 @@ import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
 import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData, ScenarioFinish, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
@@ -1070,6 +1071,12 @@ export class ScenarioSummaryComponent {
         if (!character.absent) {
           if (this.battleGoals[index] > 0) {
             character.progress.battleGoals += this.battleGoals[index];
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              character,
+              PersonalQuestAutotrackType.battleGoals,
+              undefined,
+              this.battleGoals[index]
+            );
           }
 
           if (this.trials[index]) {

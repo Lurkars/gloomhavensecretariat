@@ -32,15 +32,25 @@ export class EventCard implements Editional {
   }
 }
 
-export class EventCardIdentifier {
-  cardId: string;
-  edition: string;
-  type: string;
+export class EventCardResult {
   selected: number;
   subSelections: number[];
   checks: number[];
-  scenarioApply: boolean;
   attack: boolean;
+
+  constructor(selected: number = -1, subSelections: number[] = [], checks: number[] = [], attack: boolean = false) {
+    this.selected = selected;
+    this.subSelections = subSelections;
+    this.checks = checks;
+    this.attack = attack;
+  }
+}
+
+export class EventCardIdentifier extends EventCardResult {
+  cardId: string;
+  edition: string;
+  type: string;
+  scenarioApply: boolean;
 
   constructor(
     cardId: string,
@@ -52,14 +62,11 @@ export class EventCardIdentifier {
     attack: boolean,
     scenarioApply: boolean
   ) {
+    super(selected, subSelections, checks, attack);
     this.cardId = cardId;
     this.edition = edition;
     this.type = type;
-    this.selected = selected;
-    this.subSelections = subSelections;
-    this.checks = checks;
     this.scenarioApply = scenarioApply;
-    this.attack = attack;
   }
 }
 

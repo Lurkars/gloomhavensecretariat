@@ -1,0 +1,6 @@
+<div class="personal-quest-view-dialog" (click)="close()" [ngClass]="{ closed: !opened, opened: opened }">
+  <div class="personal-quest-card-frame">
+    <ghs-personal-quest-card [personalQuest]="personalQuest"></ghs-personal-quest-card>
+  </div>
+</div>
+<div class="close-container" (click)="close()"></div>

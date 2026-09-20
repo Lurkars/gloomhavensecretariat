@@ -23,6 +23,7 @@ export class AttackModifierDeckDrawCommand extends CommandImpl {
       this.executionError('invalid game state');
     }
     let deck: AttackModifierDeck | undefined = undefined;
+    let character: Character | undefined = undefined;
     switch (id) {
       case 'm':
         deck = gameManager.game.monsterAttackModifierDeck;
@@ -31,13 +32,17 @@ export class AttackModifierDeckDrawCommand extends CommandImpl {
         deck = gameManager.game.allyAttackModifierDeck;
         break;
       default:
-        const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === id) as Character;
+        character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === id) as Character;
         if (character) {
           deck = character.attackModifierDeck;
         }
     }
     if (deck) {
-      gameManager.attackModifierManager.drawModifier(deck, state === 'advantage' || state === 'disadvantage' ? state : undefined);
+      gameManager.attackModifierManager.drawModifier(
+        deck,
+        state === 'advantage' || state === 'disadvantage' ? state : undefined,
+        character
+      );
     } else {
       this.executionError('deck not found');
     }

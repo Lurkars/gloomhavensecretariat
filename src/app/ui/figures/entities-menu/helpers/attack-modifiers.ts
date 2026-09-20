@@ -175,7 +175,9 @@ export class AttackModifierHelper {
   }
 
   close() {
-    if (this.component.bless !== 0) {
+    const applicableEntities = this.component.applicableEntities;
+
+    if (this.component.bless !== 0 && applicableEntities.length) {
       this.component.before(
         this.component.bless < 0
           ? 'removeCondition' + (this.component.bless < -1 ? 's' : '')
@@ -183,14 +185,14 @@ export class AttackModifierHelper {
         AttackModifierType.bless,
         this.component.bless > 0 ? this.component.bless : this.component.bless * -1
       );
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         this.changeAttackModifier(entity, AttackModifierType.bless, this.component.bless);
       });
       gameManager.stateManager.after();
       this.component.bless = 0;
     }
 
-    if (this.component.curse !== 0) {
+    if (this.component.curse !== 0 && applicableEntities.length) {
       this.component.before(
         this.component.curse < 0
           ? 'removeCondition' + (this.component.curse < -1 ? 's' : '')
@@ -198,14 +200,14 @@ export class AttackModifierHelper {
         AttackModifierType.curse,
         this.component.curse > 0 ? this.component.curse : this.component.curse * -1
       );
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         this.changeAttackModifier(entity, AttackModifierType.curse, this.component.curse);
       });
       gameManager.stateManager.after();
       this.component.curse = 0;
     }
 
-    if (this.component.empower !== 0) {
+    if (this.component.empower !== 0 && applicableEntities.length) {
       if (this.component.empowerChar || this.component.empower < 0) {
         this.component.before(
           this.component.empower < 0
@@ -214,7 +216,7 @@ export class AttackModifierHelper {
           AttackModifierType.empower,
           this.component.empower > 0 ? this.component.empower : this.component.empower * -1
         );
-        this.component.entities.forEach((entity) => {
+        applicableEntities.forEach((entity) => {
           const figure = this.component.figureForEntity(entity);
           const amDeck = gameManager.attackModifierManager.byFigure(figure);
           if (this.component.empowerChar && this.component.empower > 0) {
@@ -243,7 +245,7 @@ export class AttackModifierHelper {
       }
     }
 
-    if (this.component.enfeeble !== 0) {
+    if (this.component.enfeeble !== 0 && applicableEntities.length) {
       if (this.component.enfeebleChar || this.component.enfeeble < 0) {
         this.component.before(
           this.component.enfeeble < 0
@@ -252,7 +254,7 @@ export class AttackModifierHelper {
           AttackModifierType.enfeeble,
           this.component.enfeeble > 0 ? this.component.enfeeble : this.component.enfeeble * -1
         );
-        this.component.entities.forEach((entity) => {
+        applicableEntities.forEach((entity) => {
           const figure = this.component.figureForEntity(entity);
           const amDeck = gameManager.attackModifierManager.byFigure(figure);
           if (this.component.enfeebleChar && this.component.enfeeble > 0) {

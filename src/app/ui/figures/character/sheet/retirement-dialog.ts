@@ -66,7 +66,7 @@ export class CharacterRetirementDialog {
 
   constructor() {
     if (this.character.progress.personalQuest) {
-      this.personalQuest = gameManager.characterManager.personalQuestByCard(
+      this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
         gameManager.currentEdition(),
         this.character.progress.personalQuest
       );
@@ -243,6 +243,10 @@ export class CharacterRetirementDialog {
       this.addUnlockEvents(this.unlockEvent);
     }
 
+    if (this.personalQuest && this.personalQuest.unlockPQ && settingsManager.settings.automaticUnlocking) {
+      gameManager.personalQuestManager.unlockPersonalQuest(this.personalQuest.edition, this.personalQuest.unlockPQ);
+    }
+
     if (this.characterAlreadyUnlocked) {
       if (this.characterScenario && this.characterScenario !== true) {
         gameManager.game.party.manualScenarios.push(
@@ -341,6 +345,10 @@ export class CharacterRetirementDialog {
         gameManager.game.unlockedCharacters.push(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter);
         this.addUnlockEvents(this.additionalUnlockEvent);
       }
+
+      if (this.additionalPQ && this.additionalPQ.unlockPQ && settingsManager.settings.automaticUnlocking) {
+        gameManager.personalQuestManager.unlockPersonalQuest(this.additionalPQ.edition, this.additionalPQ.unlockPQ);
+      }
     }
 
     if (settingsManager.settings.unlockEnvelopeBuildings) {
@@ -395,7 +403,7 @@ export class CharacterRetirementDialog {
   }
 
   changeAdditionalPQ(event: any) {
-    this.additionalPQ = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), event.target.value);
+    this.additionalPQ = gameManager.personalQuestManager.personalQuestByCard(gameManager.currentEdition(), event.target.value);
 
     if (this.additionalPQ) {
       if (settingsManager.settings.unlockEnvelopeBuildings && this.additionalPQ.openEnvelope) {

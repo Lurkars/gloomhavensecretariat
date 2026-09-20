@@ -1,0 +1,59 @@
+<div class="personal-quest-card-container" [style.--pq-accent]="theme.accent" [style.--pq-accent-light]="theme.light">
+  <div class="card vertical reverse personal-quest" [ngClass]="{ flipped: flipped() }">
+    <div class="card-back">
+      <img class="icon" src="./assets/images/lock.svg" />
+      <div class="state" [ghs-label]="'party.campaign.personalQuests.locked'"></div>
+      <div class="card-id">{{ personalQuest.cardId }}</div>
+      @if (personalQuest.altId && personalQuest.altId !== personalQuest.cardId) {
+        <div class="alt-id">{{ personalQuest.altId }}</div>
+      }
+    </div>
+    <div class="card-front">
+      <div class="paper" [ngClass]="{ selected: selected() }">
+        <div class="content">
+          <div class="card-name">
+            <span [ghs-label]="'data.personalQuest.' + personalQuest.edition + '.' + personalQuest.cardId"></span>
+          </div>
+          <div class="card-divider"></div>
+          <div class="requirements">
+            @for (requirement of personalQuest.requirements; track $index) {
+              @if (!requirement.hidden) {
+                <div class="requirement">
+                  <span [ghs-label]="requirement.name"></span>
+                  @if (EntityValueFunction(requirement.counter) > 1) {
+                    <span>&nbsp;({{ EntityValueFunction(requirement.counter) }})</span>
+                  }
+                </div>
+              }
+            }
+          </div>
+          @if (personalQuest.unlockCharacter || personalQuest.openEnvelope || personalQuest.unlockPQ) {
+            <div class="rewards">
+              @if (personalQuest.unlockCharacter) {
+                <div
+                  class="reward"
+                  [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
+                  [ghs-label-args]="[personalQuest.unlockCharacter]"
+                ></div>
+              }
+              @if (personalQuest.openEnvelope) {
+                <div
+                  class="reward"
+                  [ghs-label]="
+                    'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')
+                  "
+                  [ghs-label-args]="personalQuest.openEnvelope.split(':')"
+                ></div>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="card-id">{{ personalQuest.cardId }}</div>
+        @if (personalQuest.altId && personalQuest.altId !== personalQuest.cardId) {
+          <div class="alt-id">{{ personalQuest.altId }}</div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

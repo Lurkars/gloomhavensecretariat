@@ -423,62 +423,67 @@
             <!-- TRAP DAMAGE/HEAL -->
             @if (!!entity && isTrapSummon) {
               @let summon = gameManager.toSummon(entity);
-              <span class="item">
-                <ghs-pointer-input
-                  class="button"
-                  tabclick
-                  (singleClick)="characterHelper.changeTrapDamage(-1)"
-                  [repeat]="true"
-                  [ngClass]="{ disabled: summon.movement + trapDamage === 0 }"
-                >
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
-                </ghs-pointer-input>
-              </span>
-              <span class="item" [ghs-tooltip]="'game.action.damage'">
-                <span class="badge badge-left">{{ summon.movement + trapDamage }}</span>
-                <img class="ghs-svg" src="./assets/images/action/damage.svg" />
-                <span class="badge badge-right health-count" [value-sign]="trapDamage" [hideEmpty]="true"></span>
-              </span>
-              <span class="item">
-                <ghs-pointer-input class="button" tabclick (singleClick)="characterHelper.changeTrapDamage(1)" [repeat]="true">
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
-                </ghs-pointer-input>
-              </span>
 
-              <span class="item">
-                <ghs-pointer-input
-                  class="button"
-                  tabclick
-                  (singleClick)="characterHelper.changeTrapHeal(-1)"
-                  [repeat]="true"
-                  [ngClass]="{ disabled: summon.attack === 'X' || +summon.attack + trapHeal === 0 }"
-                >
-                  <img class="ghs-svg" src="./assets/images/minus.svg" />
-                </ghs-pointer-input>
-              </span>
-              <span class="item" [ghs-tooltip]="'game.action.heal'">
-                @if (summon.attack !== 'X') {
-                  <span class="badge badge-left">{{ +summon.attack + trapHeal }}</span>
-                }
-                @if (summon.attack === 'X') {
-                  <span class="badge badge-left">X</span>
-                }
-                <img class="ghs-svg" src="./assets/images/action/heal.svg" />
-                @if (summon.attack !== 'X') {
-                  <span class="badge badge-right health-count" [value-sign]="trapHeal" [hideEmpty]="true"></span>
-                }
-              </span>
-              <span class="item">
-                <ghs-pointer-input
-                  class="button"
-                  tabclick
-                  (singleClick)="characterHelper.changeTrapHeal(1)"
-                  [repeat]="true"
-                  [ngClass]="{ disabled: summon.attack === 'X' }"
-                >
-                  <img class="ghs-svg" src="./assets/images/plus.svg" />
-                </ghs-pointer-input>
-              </span>
+              @if (summon.name !== 'positive-trap') {
+                <span class="item">
+                  <ghs-pointer-input
+                    class="button"
+                    tabclick
+                    (singleClick)="trapHelper.changeTrapDamage(-1)"
+                    [repeat]="true"
+                    [ngClass]="{ disabled: summon.movement + trapDamage === 0 }"
+                  >
+                    <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  </ghs-pointer-input>
+                </span>
+                <span class="item" [ghs-tooltip]="'game.action.damage'">
+                  <span class="badge badge-left">{{ summon.movement + trapDamage }}</span>
+                  <img class="ghs-svg" src="./assets/images/action/damage.svg" />
+                  <span class="badge badge-right health-count" [value-sign]="trapDamage" [hideEmpty]="true"></span>
+                </span>
+                <span class="item">
+                  <ghs-pointer-input class="button" tabclick (singleClick)="trapHelper.changeTrapDamage(1)" [repeat]="true">
+                    <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  </ghs-pointer-input>
+                </span>
+              }
+
+              @if (summon.name !== 'negative-trap') {
+                <span class="item">
+                  <ghs-pointer-input
+                    class="button"
+                    tabclick
+                    (singleClick)="trapHelper.changeTrapHeal(-1)"
+                    [repeat]="true"
+                    [ngClass]="{ disabled: summon.attack === 'X' || +summon.attack + trapHeal === 0 }"
+                  >
+                    <img class="ghs-svg" src="./assets/images/minus.svg" />
+                  </ghs-pointer-input>
+                </span>
+                <span class="item" [ghs-tooltip]="'game.action.heal'">
+                  @if (summon.attack !== 'X') {
+                    <span class="badge badge-left">{{ +summon.attack + trapHeal }}</span>
+                  }
+                  @if (summon.attack === 'X') {
+                    <span class="badge badge-left">X</span>
+                  }
+                  <img class="ghs-svg" src="./assets/images/action/heal.svg" />
+                  @if (summon.attack !== 'X') {
+                    <span class="badge badge-right health-count" [value-sign]="trapHeal" [hideEmpty]="true"></span>
+                  }
+                </span>
+                <span class="item">
+                  <ghs-pointer-input
+                    class="button"
+                    tabclick
+                    (singleClick)="trapHelper.changeTrapHeal(1)"
+                    [repeat]="true"
+                    [ngClass]="{ disabled: summon.attack === 'X' }"
+                  >
+                    <img class="ghs-svg" src="./assets/images/plus.svg" />
+                  </ghs-pointer-input>
+                </span>
+              }
             }
           }
 
@@ -602,7 +607,7 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (blessMin >= 0 && blessMin + bless * entities.length === 0) ||
+                    (blessMin >= 0 && blessMin + bless * applicableEntities.length === 0) ||
                     entityImmunities.includes(ConditionName.bless) ||
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.bless))
                 }"
@@ -614,7 +619,9 @@
               </ghs-pointer-input>
             </span>
             <span class="item">
-              <span class="badge badge-left bless-count">{{ (blessMin >= 0 ? blessMin : 0) + bless * entities.length | ghsMinZero }}</span>
+              <span class="badge badge-left bless-count">{{
+                (blessMin >= 0 ? blessMin : 0) + bless * applicableEntities.length | ghsMinZero
+              }}</span>
               <span
                 class="condition"
                 [ghs-tooltip]="'game.condition.bless.hint'"
@@ -643,7 +650,7 @@
                 [ngClass]="{
                   disabled:
                     gameManager.attackModifierManager.countUpcomingBlesses() +
-                      bless * entities.length -
+                      bless * applicableEntities.length -
                       countBlocking(ConditionName.bless, bless) >=
                       10 ||
                     entityImmunities.includes(ConditionName.bless) ||
@@ -663,7 +670,7 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (curseMin >= 0 && curseMin + curse * entities.length === 0) ||
+                    (curseMin >= 0 && curseMin + curse * applicableEntities.length === 0) ||
                     entityImmunities.includes(ConditionName.curse) ||
                     (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.curse))
                 }"
@@ -675,7 +682,9 @@
               </ghs-pointer-input>
             </span>
             <span class="item">
-              <span class="badge badge-left curse-count">{{ (curseMin >= 0 ? curseMin : 0) + curse * entities.length | ghsMinZero }}</span>
+              <span class="badge badge-left curse-count">{{
+                (curseMin >= 0 ? curseMin : 0) + curse * applicableEntities.length | ghsMinZero
+              }}</span>
               <span
                 class="condition"
                 [ghs-tooltip]="'game.condition.curse.hint'"
@@ -704,7 +713,7 @@
                 [ngClass]="{
                   disabled:
                     (!!figure ? gameManager.attackModifierManager.countUpcomingCurses(isMonster) : 0) +
-                      curse * entities.length -
+                      curse * applicableEntities.length -
                       countBlocking(ConditionName.curse, curse) >=
                       10 ||
                     entityImmunities.includes(ConditionName.curse) ||
@@ -739,7 +748,7 @@
             </span>
             <span class="item">
               <span class="badge badge-left empower-count">{{
-                (empowerMin >= 0 ? empowerMin : 0) + empower * entities.length | ghsMinZero
+                (empowerMin >= 0 ? empowerMin : 0) + empower * applicableEntities.length | ghsMinZero
               }}</span>
               <span
                 class="condition"
@@ -809,7 +818,7 @@
             </span>
             <span class="item">
               <span class="badge badge-left enfeeble-count">{{
-                (enfeebleMin >= 0 ? enfeebleMin : 0) + enfeeble * entities.length | ghsMinZero
+                (enfeebleMin >= 0 ? enfeebleMin : 0) + enfeeble * applicableEntities.length | ghsMinZero
               }}</span>
               <span
                 class="condition"
@@ -983,6 +992,14 @@
                 <ghs-pointer-input class="button" tabclick (singleClick)="healthHelper.changeMaxHealth(1)" [repeat]="true">
                   <img class="ghs-svg" src="./assets/images/plus.svg" />
                 </ghs-pointer-input>
+              </span>
+            }
+
+            @if (isTrapSummon) {
+              <span class="item" [ghs-tooltip]="'entities.trap.apply'">
+                <a class="button" tabclick (click)="trapHelper.applyTrap()">
+                  <img src="./assets/images/attackmodifier/target.svg" />
+                </a>
               </span>
             }
 

@@ -4,7 +4,7 @@ import { Component, inject } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { EventCard, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
+import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 import { EventCardDialogComponent } from 'src/app/ui/figures/event/dialog/event-card-dialog';
 import { EventCardComponent } from 'src/app/ui/figures/event/event-card';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -23,12 +23,9 @@ export class EventCardDrawComponent {
   private ghsManager = inject(GhsManager);
 
   event: EventCard | undefined;
-  selected: number = -1;
-  subSelections: number[] = [];
-  checks: number[] = [];
   globalDraw: boolean = false;
   requirementWarning: boolean = false;
-  attack: boolean = false;
+  result: EventCardResult = new EventCardResult();
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -55,11 +52,8 @@ export class EventCardDrawComponent {
     }
   }
 
-  select(change: EventCardIdentifier) {
-    this.selected = change.selected;
-    this.subSelections = change.subSelections;
-    this.checks = change.checks;
-    this.attack = change.attack;
+  select(change: EventCardIdentifier | EventCardResult) {
+    this.result = new EventCardResult(change.selected, change.subSelections, change.checks, change.attack);
   }
 
   cancel() {
@@ -72,16 +66,16 @@ export class EventCardDrawComponent {
   }
 
   accept(apply: boolean = true) {
-    if (this.event && (this.selected !== -1 || !apply)) {
+    if (this.event && (this.result.selected !== -1 || !apply)) {
       gameManager.stateManager.before('eventDraw.accept', this.event.edition, this.event.type, this.event.cardId);
       gameManager.game.eventDraw = undefined;
       const result = gameManager.eventCardManager.applyEvent(
         this.event,
-        this.selected,
-        this.subSelections,
-        this.checks,
+        this.result.selected,
+        this.result.subSelections,
+        this.result.checks,
         gameManager.game.scenario !== undefined && gameManager.roundManager.firstRound,
-        this.attack,
+        this.result.attack,
         apply
       );
       gameManager.stateManager.after(settingsManager.settings.animations ? 1000 : 250);
@@ -112,26 +106,35 @@ export class EventCardDrawComponent {
   }
 
   showEventCard(eventCard: EventCard) {
-    this.dialog.open(EventCardDialogComponent, {
-      panelClass: ['fullscreen-panel'],
-      disableClose: true,
-      data: {
-        eventCard: eventCard,
-        interactive: true,
-        id:
-          this.selected !== -1
-            ? new EventCardIdentifier(
-                eventCard.cardId,
-                eventCard.edition,
-                eventCard.type,
-                this.selected,
-                this.subSelections,
-                this.checks,
-                this.attack,
-                false
-              )
-            : undefined
-      }
-    });
+    this.dialog
+      .open(EventCardDialogComponent, {
+        panelClass: ['fullscreen-panel'],
+        disableClose: true,
+        data: {
+          eventCard: eventCard,
+          interactive: true,
+          id:
+            this.result.selected !== -1
+              ? new EventCardIdentifier(
+                  eventCard.cardId,
+                  eventCard.edition,
+                  eventCard.type,
+                  this.result.selected,
+                  this.result.subSelections,
+                  this.result.checks,
+                  this.result.attack,
+                  false
+                )
+              : undefined
+        }
+      })
+      .closed.subscribe({
+        next: (result) => {
+          if (result instanceof EventCardResult) {
+            this.select(result);
+            gameManager.triggerUiChange();
+          }
+        }
+      });
   }
 }

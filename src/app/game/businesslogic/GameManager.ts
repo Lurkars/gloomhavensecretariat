@@ -15,6 +15,7 @@ import { LevelManager } from 'src/app/game/businesslogic/LevelManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
 import { MonsterManager } from 'src/app/game/businesslogic/MonsterManager';
 import { ObjectiveManager } from 'src/app/game/businesslogic/ObjectiveManager';
+import { PersonalQuestManager } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { RoundManager } from 'src/app/game/businesslogic/RoundManager';
 import { ScenarioManager } from 'src/app/game/businesslogic/ScenarioManager';
 import { ScenarioRulesManager } from 'src/app/game/businesslogic/ScenarioRulesManager';
@@ -38,6 +39,7 @@ import { ItemData } from 'src/app/game/model/data/ItemData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Entity, EntityCounter } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
@@ -64,6 +66,7 @@ export class GameManager {
   characterManager: CharacterManager;
   monsterManager: MonsterManager;
   objectiveManager: ObjectiveManager;
+  personalQuestManager: PersonalQuestManager;
   attackModifierManager: AttackModifierManager;
   actionsManager: ActionsManager;
   levelManager: LevelManager;
@@ -97,6 +100,7 @@ export class GameManager {
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
     this.objectiveManager = new ObjectiveManager(this.game);
+    this.personalQuestManager = new PersonalQuestManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
     this.actionsManager = new ActionsManager();
     this.levelManager = new LevelManager(this.game);
@@ -1092,6 +1096,16 @@ export class GameManager {
     }
 
     return ElementState.inert;
+  }
+
+  applyElementState(element: ElementModel, elementState: ElementState) {
+    element.state = elementState;
+    if (elementState === ElementState.new) {
+      const activeFigure = this.game.figures.find((figure) => figure.active);
+      if (activeFigure instanceof Character) {
+        this.personalQuestManager.trackPersonalQuestProgress(activeFigure, PersonalQuestAutotrackType.element, element.type);
+      }
+    }
   }
 
   changeParty(party: Party) {

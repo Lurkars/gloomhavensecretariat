@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { EventCard, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
+import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 import { EventCardComponent } from 'src/app/ui/figures/event/event-card';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 
@@ -20,6 +20,8 @@ export class EventCardDialogComponent implements OnInit {
   interactive: boolean;
   spoiler: boolean;
   id: EventCardIdentifier | undefined;
+
+  result: EventCardResult = new EventCardResult();
 
   opened: boolean = false;
 
@@ -38,11 +40,15 @@ export class EventCardDialogComponent implements OnInit {
     this.opened = true;
   }
 
+  select(change: EventCardIdentifier) {
+    this.result = new EventCardResult(change.selected, change.subSelections, change.checks, change.attack);
+  }
+
   close() {
     this.opened = false;
     setTimeout(
       () => {
-        this.dialogRef.close();
+        this.dialogRef.close(this.result);
       },
       settingsManager.settings.animations ? 1000 * settingsManager.settings.animationSpeed : 0
     );

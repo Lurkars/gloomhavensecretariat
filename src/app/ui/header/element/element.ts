@@ -28,7 +28,7 @@ export class ElementComponent {
   toggleElement(double: boolean = false): void {
     const elementState = gameManager.nextElementState(this.element, double);
     gameManager.stateManager.before('updateElement', 'game.element.' + this.element.type, 'game.element.state.' + elementState);
-    this.element.state = elementState;
+    gameManager.applyElementState(this.element, elementState);
     gameManager.stateManager.after();
   }
 }

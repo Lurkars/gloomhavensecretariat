@@ -131,15 +131,18 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.588.1%",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "kill:algox-guard"
             },
             {
                 "name": "%data.personalQuest.fh.588.2%",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "kill:lurker-clawcrusher"
             },
             {
                 "name": "%data.personalQuest.fh.588.3%",
-                "counter": 2
+                "counter": 2,
+                "autotrack": "kill:robotic-boltshooter"
             }
         ],
         "openEnvelope": "44:88",
@@ -174,6 +177,7 @@
     {
         "cardId": "505",
         "altId": "11",
+        "unlockBuilding": "21",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.505.1%",
@@ -186,6 +190,7 @@
     {
         "cardId": "509",
         "altId": "12",
+        "unlockBuilding": "24",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.509.1%",
@@ -198,10 +203,12 @@
     {
         "cardId": "514",
         "altId": "13",
+        "unlockBuilding": "37",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.514.1%",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "kill:forest-imp|black-imp|snow-imp"
             }
         ],
         "openEnvelope": "44:74"
@@ -209,6 +216,7 @@
     {
         "cardId": "519",
         "altId": "14",
+        "unlockBuilding": "39",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.519.1%",
@@ -236,6 +244,7 @@
     {
         "cardId": "523",
         "altId": "15",
+        "unlockBuilding": "42",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.523.1%",
@@ -248,6 +257,7 @@
     {
         "cardId": "527",
         "altId": "16",
+        "unlockBuilding": "44",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.527.1%",
@@ -259,6 +269,7 @@
     {
         "cardId": "538",
         "altId": "17",
+        "unlockBuilding": "74",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.538.1%",
@@ -272,6 +283,7 @@
     {
         "cardId": "542",
         "altId": "18",
+        "unlockBuilding": "81",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.542.1%",
@@ -284,6 +296,7 @@
     {
         "cardId": "545",
         "altId": "19",
+        "unlockBuilding": "83",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.545.1%",
@@ -304,10 +317,12 @@
     {
         "cardId": "549",
         "altId": "20",
+        "unlockBuilding": "85",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.549.1%",
-                "counter": 15
+                "counter": 15,
+                "autotrack": "kill:ruined-machine"
             }
         ],
         "openEnvelope": "24:21"
@@ -315,6 +330,7 @@
     {
         "cardId": "552",
         "altId": "21",
+        "unlockBuilding": "88",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.552.1%",
@@ -326,6 +342,7 @@
     {
         "cardId": "557",
         "altId": "22",
+        "unlockBuilding": "90",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.557.1%",
@@ -338,12 +355,13 @@
     {
         "cardId": "543",
         "altId": "23",
+        "unlockBuilding": "81",
         "spoiler": true,
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.543.1%",
                 "counter": 10,
-                "autotrack": "exchaustedChars"
+                "autotrack": "exhaustedCharsFinish"
             }
         ],
         "openEnvelope": "A"

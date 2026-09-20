@@ -24,6 +24,7 @@ export const CollectiveDistributionEffects: EventCardEffectType[] = [
   EventCardEffectType.collectiveResourceType,
   EventCardEffectType.consumeItem,
   EventCardEffectType.consumeCollectiveItem,
+  EventCardEffectType.item,
   EventCardEffectType.itemCollective,
   EventCardEffectType.loseItem,
   EventCardEffectType.loseCollectiveExperience,
@@ -123,6 +124,7 @@ export class EventDistributionDialogComponent {
           }
           break;
         }
+        case EventCardEffectType.item:
         case EventCardEffectType.collectiveItem: {
           const itemEdition = effect.values[1] ? (effect.values[1] as string) : edition;
           const item = gameManager.itemManager.getItem(effect.values[0] as number, itemEdition, true);

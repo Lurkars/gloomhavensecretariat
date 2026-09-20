@@ -19,12 +19,14 @@ import { CharacterProgress } from 'src/app/game/model/CharacterProgress';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { herbResourceLootTypes, LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';
 import { PerkType } from 'src/app/game/model/data/Perks';
-import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
+import { PersonalQuest, PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { PerkLabelComponent } from 'src/app/ui/figures/attackmodifier/perk/label';
 import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/ability-cards-dialog';
 import { CharacterMoveResourcesDialog } from 'src/app/ui/figures/character/sheet/move-resources';
+import { PersonalQuestViewDialog } from 'src/app/ui/figures/character/sheet/personal-quest-card/personal-quest-view-dialog';
+import { PersonalQuestDrawDialog } from 'src/app/ui/figures/character/sheet/personal-quest-draw-dialog';
 import { CharacterRetirementDialog } from 'src/app/ui/figures/character/sheet/retirement-dialog';
 import { CharacterItemsComponent } from 'src/app/ui/figures/items/items';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
@@ -114,15 +116,12 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
           this.character.progress.perks[i] = 0;
         }
       }
-      this.retireEnabled = false;
-      if (!gameManager.game.scenario) {
-        if (this.personalQuest) {
-          this.retireEnabled = this.personalQuest.requirements.every(
-            (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
-          );
-        } else {
-          this.retireEnabled = true;
-        }
+      if (gameManager.game.scenario) {
+        this.retireEnabled = false;
+      } else if (this.personalQuest) {
+        this.refreshPersonalQuestRetireState();
+      } else {
+        this.retireEnabled = true;
       }
     });
   }
@@ -191,7 +190,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.character.progress.masteries.length;
 
     if (this.character.progress.personalQuest) {
-      this.personalQuest = gameManager.characterManager.personalQuestByCard(
+      this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
         gameManager.currentEdition(),
         this.character.progress.personalQuest
       );
@@ -202,9 +201,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     if (!gameManager.game.scenario) {
       if (this.personalQuest) {
-        this.retireEnabled = this.personalQuest.requirements.every(
-          (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
-        );
+        this.refreshPersonalQuestRetireState();
       } else {
         this.retireEnabled = true;
       }
@@ -363,6 +360,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       gameManager.game.party.donations += 1;
       this.character.progress.gold -= this.donations === 'fh' ? 5 : 10;
       gameManager.stateManager.after();
+      gameManager.personalQuestManager.trackPersonalQuestProgress(this.character, PersonalQuestAutotrackType.donations);
+      gameManager.personalQuestManager.trackPersonalQuestProgress(this.character, PersonalQuestAutotrackType.donatedGold);
     }
   }
 
@@ -371,7 +370,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       gameManager.stateManager.before('setPQ', gameManager.characterManager.characterName(this.character, true, true), event.target.value);
       this.character.progress.personalQuest = event.target.value;
       this.character.progress.personalQuestProgress = [];
-      this.personalQuest = gameManager.characterManager.personalQuestByCard(
+      this.character.progress.personalQuestAutotrack = false;
+      this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
         gameManager.currentEdition(),
         this.character.progress.personalQuest
       );
@@ -429,16 +429,71 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     gameManager.stateManager.after();
 
     if (!gameManager.game.scenario) {
-      const retiredEnabled = this.retireEnabled;
-      if (this.personalQuest) {
-        this.retireEnabled = this.personalQuest.requirements.every(
-          (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
-        );
-      }
+      this.refreshPersonalQuestRetireState();
+    }
+  }
 
-      if (!retiredEnabled && this.retireEnabled && settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode) {
-        this.retire(false, true);
-      }
+  refreshPersonalQuestRetireState() {
+    const retiredEnabled = this.retireEnabled;
+    if (this.personalQuest) {
+      this.retireEnabled = this.personalQuest.requirements.every(
+        (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
+      );
+    }
+
+    if (!retiredEnabled && this.retireEnabled && settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode) {
+      this.retire(false, true);
+    }
+  }
+
+  personalQuestAutotrackSupported(): boolean {
+    return (
+      !!this.personalQuest &&
+      this.personalQuest.requirements.some((requirement, i) =>
+        gameManager.personalQuestManager.personalQuestAutotrackSupported(this.personalQuest!, i)
+      )
+    );
+  }
+
+  personalQuestRequirementAutotracked(index: number): boolean {
+    return (
+      this.character.progress.personalQuestAutotrack &&
+      !!this.personalQuest &&
+      gameManager.personalQuestManager.personalQuestAutotrackSupported(this.personalQuest, index)
+    );
+  }
+
+  togglePersonalQuestAutotrack() {
+    gameManager.stateManager.before(
+      this.character.progress.personalQuestAutotrack ? 'unsetPQAutotrack' : 'setPQAutotrack',
+      gameManager.characterManager.characterName(this.character, true, true)
+    );
+    this.character.progress.personalQuestAutotrack = !this.character.progress.personalQuestAutotrack;
+    gameManager.stateManager.after();
+  }
+
+  drawPersonalQuest() {
+    this.dialog
+      .open(PersonalQuestDrawDialog, {
+        panelClass: ['dialog'],
+        data: this.character
+      })
+      .closed.subscribe({
+        next: (cardId) => {
+          if (typeof cardId === 'string' && cardId) {
+            this.setPersonalQuest({ target: { value: cardId } });
+          }
+        }
+      });
+  }
+
+  openPersonalQuestCard() {
+    if (this.personalQuest) {
+      this.dialog.open(PersonalQuestViewDialog, {
+        panelClass: ['fullscreen-panel'],
+        disableClose: true,
+        data: this.personalQuest
+      });
     }
   }
 
@@ -446,18 +501,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     if (!this.personalQuest || i < 0 || i >= this.personalQuest.requirements.length) {
       return 0;
     }
-    const requirement = this.personalQuest.requirements[i];
-    if (!requirement.checkbox || !requirement.checkbox.length) {
-      return this.character.progress.personalQuestProgress[i] || 0;
-    } else {
-      let count = 0;
-      let n = this.character.progress.personalQuestProgress[i] || 0;
-      while (n > 0) {
-        count += n & 1;
-        n >>= 1;
-      }
-      return count;
-    }
+    return gameManager.personalQuestManager.personalQuestRequirementCount(this.character, this.personalQuest, i);
   }
 
   isPersonalQuestCheckboxChecked(index: number, bit: number): boolean {

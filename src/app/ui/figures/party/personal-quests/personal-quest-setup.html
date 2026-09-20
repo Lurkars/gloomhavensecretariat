@@ -1,0 +1,65 @@
+<div class="personal-quest-setup-dialog">
+  <div class="scroll-container">
+    <div class="header" [ghs-label]="'game.personalQuests.setup'"></div>
+
+    <div class="editions">
+      @for (editionValue of editions; track editionValue) {
+        <span
+          class="name"
+          [ghs-label]="'data.edition.' + editionValue"
+          (click)="selectEdition(editionValue)"
+          [ngClass]="{ selected: editionValue === edition }"
+        ></span>
+      }
+    </div>
+
+    <div class="personal-quests">
+      @if (personalQuests.length === 0) {
+        <span class="warning" [ghs-label]="'game.personalQuests.setup.empty'"></span>
+      }
+      @for (personalQuest of personalQuests | trackUUID; track personalQuest._trackUUID) {
+        <div class="personal-quest-entry">
+          <ghs-personal-quest-card
+            [personalQuest]="personalQuest"
+            [flipped]="unlocked(personalQuest)"
+            [ngClass]="{ toggleable: toggleable(personalQuest) }"
+            [ghs-tooltip]="
+              toggleable(personalQuest)
+                ? unlocked(personalQuest)
+                  ? 'party.campaign.personalQuests.lock'
+                  : 'party.campaign.personalQuests.unlock'
+                : ''
+            "
+            (click)="toggleUnlock(personalQuest)"
+          ></ghs-personal-quest-card>
+          <a
+            class="open"
+            (click)="$event.stopPropagation(); show(personalQuest)"
+            [ghs-tooltip]="'character.progress.personalQuest.drawDialog.show'"
+          >
+            <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
+          </a>
+          <div class="status">
+            @if (fulfilledBy(personalQuest); as name) {
+              <span
+                class="fulfilled"
+                [ghs-label]="'party.campaign.personalQuests.fulfilled'"
+                [ghs-label-args]="[personalQuest.edition, name]"
+              ></span>
+            } @else if (picked(personalQuest); as character) {
+              <span
+                class="picked"
+                [ghs-label]="'party.campaign.personalQuests.picked'"
+                [ghs-label-args]="[character.edition, character.name]"
+              ></span>
+            } @else if (unlocked(personalQuest)) {
+              <span class="unlocked" [ghs-label]="'party.campaign.personalQuests.unlocked'"></span>
+            } @else {
+              <span class="locked" [ghs-label]="'party.campaign.personalQuests.locked'"></span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

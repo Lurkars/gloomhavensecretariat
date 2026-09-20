@@ -7,6 +7,7 @@ import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
 import { Enhancement, EnhancementAction, EnhancementType } from 'src/app/game/model/data/Enhancement';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
@@ -382,6 +383,7 @@ export class EnhancementsComponent implements OnInit {
       this.inputCharacter.progress.enhancements.push(
         new Enhancement(inputCardId, inputActionIndex, inputEnhancementIndex, this.enhancementAction)
       );
+      gameManager.personalQuestManager.trackPersonalQuestProgress(this.inputCharacter, PersonalQuestAutotrackType.enhancements);
 
       if (!force) {
         this.inputCharacter.progress.gold -= costs;

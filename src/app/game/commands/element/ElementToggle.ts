@@ -19,7 +19,7 @@ export class ElementToggleCommand extends CommandImpl {
     const elementType = this.elements[element - 1];
     const elementModel = gameManager.game.elementBoard.find((value) => value.type === elementType);
     if (elementModel) {
-      elementModel.state = gameManager.nextElementState(elementModel);
+      gameManager.applyElementState(elementModel, gameManager.nextElementState(elementModel));
     }
   }
 

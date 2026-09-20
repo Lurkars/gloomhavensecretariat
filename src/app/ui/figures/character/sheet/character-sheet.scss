@@ -353,6 +353,34 @@
 
         .personal-quest-name {
           font-family: var(--ghs-font-title);
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .draw-personal-quest,
+      .personal-quest-autotrack {
+        display: flex;
+        align-items: center;
+        margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        .ghs-svg {
+          height: 1em;
+          width: auto;
+        }
+
+        &.disabled {
+          .ghs-svg {
+            filter: var(--ghs-filter-gray);
+          }
         }
       }
 
@@ -376,6 +404,12 @@
           .requirement-name {
             font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
             line-height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+            .autotrack-indicator {
+              height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+              margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+              vertical-align: middle;
+            }
           }
 
           .counter {

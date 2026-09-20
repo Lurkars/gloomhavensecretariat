@@ -7,6 +7,7 @@ import { fullLootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { ScenarioObjectiveIdentifier } from 'src/app/game/model/data/ObjectiveData';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { PetIdentifier } from 'src/app/game/model/data/PetCard';
 import { MonsterStandeeData, RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
@@ -113,10 +114,24 @@ export class ScenarioManager {
         const coinValue: number = gameManager.levelManager.loot();
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {
-            gameManager.characterManager.addXP(figure, scenarioXP + figure.experience, !restart && !linked);
+            const gainedXP = scenarioXP + figure.experience;
+            gameManager.characterManager.addXP(figure, gainedXP, !restart && !linked);
+            if (figure.experience > 0) {
+              gameManager.personalQuestManager.trackPersonalQuestProgress(
+                figure,
+                PersonalQuestAutotrackType.abilityXP,
+                undefined,
+                figure.experience
+              );
+            }
+            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.scenarioXP, '' + gainedXP);
 
             if (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('gold')) {
-              figure.progress.gold += figure.loot * coinValue;
+              const goldGained = figure.loot * coinValue;
+              figure.progress.gold += goldGained;
+              if (goldGained > 0) {
+                gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.gold, undefined, goldGained);
+              }
               if (!restart && figure.lootCards) {
                 figure.lootCards.forEach((index) => {
                   gameManager.lootManager.addCharacterLoot(figure, this.game.lootDeck.cards[index]);
@@ -151,6 +166,14 @@ export class ScenarioManager {
 
                 if (rewards.gold) {
                   figure.progress.gold += rewards.gold;
+                  if (rewards.gold > 0) {
+                    gameManager.personalQuestManager.trackPersonalQuestProgress(
+                      figure,
+                      PersonalQuestAutotrackType.gold,
+                      undefined,
+                      rewards.gold
+                    );
+                  }
                 }
 
                 if (rewards.perks) {
@@ -166,6 +189,14 @@ export class ScenarioManager {
                     figure.progress.battleGoals = 18;
                   } else if (figure.progress.battleGoals < 0) {
                     figure.progress.battleGoals = 0;
+                  }
+                  if (rewards.battleGoals > 0) {
+                    gameManager.personalQuestManager.trackPersonalQuestProgress(
+                      figure,
+                      PersonalQuestAutotrackType.battleGoals,
+                      undefined,
+                      rewards.battleGoals
+                    );
                   }
                 }
 
@@ -261,6 +292,10 @@ export class ScenarioManager {
                         itemData.unlockScenario.name !== scenario.index)
                     ) {
                       this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, scenario.edition));
+                      gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
+                        PersonalQuestAutotrackType.itemBlueprint,
+                        '' + itemData.id
+                      );
                     }
                   }
                 } else {
@@ -276,6 +311,10 @@ export class ScenarioManager {
                       itemData.unlockScenario.name !== scenario.index)
                   ) {
                     this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
+                    gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
+                      PersonalQuestAutotrackType.itemBlueprint,
+                      '' + itemData.id
+                    );
                   }
                 }
               });
@@ -288,6 +327,7 @@ export class ScenarioManager {
                   const to = +item.split('-')[1];
                   for (let i = from; i <= to; i++) {
                     this.game.party.unlockedItems.push(new CountIdentifier(i, scenario.edition));
+                    gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.itemBlueprint, '' + i);
                   }
                 } else {
                   let itemEdition = scenario.edition;
@@ -295,6 +335,10 @@ export class ScenarioManager {
                     itemEdition = item.split(':')[1];
                   }
                   this.game.party.unlockedItems.push(new CountIdentifier(item, itemEdition));
+                  gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
+                    PersonalQuestAutotrackType.itemBlueprint,
+                    item.includes(':') ? item.split(':')[0] : item
+                  );
                 }
               });
             }
@@ -524,6 +568,48 @@ export class ScenarioManager {
           this.game.sections = [];
           gameManager.roundManager.resetScenario();
         }
+      }
+
+      if (success) {
+        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenario, scenario.index);
+        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenariosCompleted);
+        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.sideScenarios, scenario.index);
+
+        const requiredBuildings = new Set<string>();
+        scenario.requirements.forEach((requirement) => {
+          (requirement.buildings || []).forEach((building) => requiredBuildings.add(building));
+        });
+        requiredBuildings.forEach((building) => {
+          gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenarioRequirements, building);
+        });
+
+        const hasBossMonster = scenario.monsters.some((name) => {
+          const monsterData = gameManager.monstersData(scenario.edition).find((monster) => monster.name === name);
+          return !!monsterData && monsterData.boss;
+        });
+        if (hasBossMonster) {
+          gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.bossScenarios);
+        }
+
+        const presentCharacters = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent) as Character[];
+        presentCharacters.forEach((figure) => {
+          if (figure.health === figure.maxHealth) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedHighHP);
+          }
+          if (!figure.exhausted && figure.health > 0 && figure.health <= 2) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedLowHP);
+          }
+
+          const exhaustedAllies = presentCharacters.filter((other) => other !== figure && other.exhausted).length;
+          if (exhaustedAllies > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              figure,
+              PersonalQuestAutotrackType.exhaustedCharsFinish,
+              undefined,
+              exhaustedAllies
+            );
+          }
+        });
       }
     }
   }

@@ -362,10 +362,33 @@
           </div>
           @if (!gameManager.editionRules('jotl')) {
             <div class="personal-quest">
-              <label><span [ghs-label]="'character.progress.personalQuest'"></span>:</label>
+              <label
+                ><span [ghs-label]="'character.progress.personalQuest'"></span>:
+                @if (personalQuestAutotrackSupported()) {
+                  <a
+                    class="personal-quest-autotrack ignore-denied"
+                    [ngClass]="{ disabled: !character.progress.personalQuestAutotrack }"
+                    (click)="editable() && togglePersonalQuestAutotrack()"
+                    [ghs-tooltip]="
+                      character.progress.personalQuestAutotrack
+                        ? 'character.progress.personalQuest.autotrack.enabled'
+                        : 'character.progress.personalQuest.autotrack.disabled'
+                    "
+                  >
+                    <img class="ghs-svg" src="./assets/images/automation.svg" />
+                  </a>
+                }
+              </label>
               <div class="personal-quest-card">
                 <input class="card-id" [value]="character.progress.personalQuest" type="text" (change)="setPersonalQuest($event)" />
                 @if (editable() && !personalQuest) {
+                  <a
+                    class="draw-personal-quest ignore-denied"
+                    (click)="drawPersonalQuest()"
+                    [ghs-tooltip]="'character.progress.personalQuest.draw'"
+                  >
+                    <img class="ghs-svg" src="./assets/images/shuffle.svg" />
+                  </a>
                   <label
                     class="retire-button"
                     ghs-pointer-input
@@ -378,7 +401,7 @@
                   </label>
                 }
                 @if (personalQuest) {
-                  <span class="personal-quest-name">
+                  <span class="personal-quest-name ignore-denied" (click)="openPersonalQuestCard()">
                     <span [ghs-label]="'data.personalQuest.' + personalQuest.edition + '.' + personalQuest.cardId"></span>
                     @if (personalQuest.altId && personalQuest.altId !== personalQuest.cardId) {
                       <span>&nbsp;({{ personalQuest.altId }})</span>
@@ -422,7 +445,8 @@
                       <div
                         class="requirement"
                         [ngClass]="{
-                          disabled: !!requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i)
+                          disabled: !!requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i),
+                          autotracked: personalQuestRequirementAutotracked(i)
                         }"
                       >
                         <span class="requirement-name">
@@ -490,6 +514,13 @@
                         'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')
                       "
                       [ghs-label-args]="personalQuest.openEnvelope.split(':')"
+                    ></div>
+                  }
+                  @if (personalQuest.unlockPQ) {
+                    <div
+                      class="reward"
+                      [ghs-label]="'character.progress.personalQuest.unlockPQ'"
+                      [ghs-label-args]="[personalQuest.unlockPQ]"
                     ></div>
                   }
                 </div>

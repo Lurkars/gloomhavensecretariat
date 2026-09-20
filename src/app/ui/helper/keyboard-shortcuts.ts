@@ -316,7 +316,10 @@ export class KeyboardShortcuts implements OnInit {
 
           if (deck) {
             deck.active = true;
-            gameManager.attackModifierManager.drawModifier(deck, state);
+            const deckCharacter = gameManager.game.figures.find(
+              (figure) => figure instanceof Character && figure.attackModifierDeck === deck
+            ) as Character | undefined;
+            gameManager.attackModifierManager.drawModifier(deck, state, deckCharacter);
             gameManager.stateManager.after();
           }
           event.preventDefault();
@@ -484,7 +487,7 @@ export class KeyboardShortcuts implements OnInit {
           const element = gameManager.game.elementBoard[index];
           const elementState = gameManager.nextElementState(element, false, true);
           gameManager.stateManager.before('updateElement', 'game.element.' + element.type, 'game.element.state.' + elementState);
-          element.state = elementState;
+          gameManager.applyElementState(element, elementState);
           gameManager.stateManager.after();
           event.preventDefault();
         } else if (

@@ -1,4 +1,4 @@
-import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -6,6 +6,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
@@ -20,6 +21,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class CharacterSummonDialog {
   private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
 
   gameManager: GameManager = gameManager;
   summonColors: SummonColor[] = Object.values(SummonColor).filter(
@@ -197,6 +199,18 @@ export class CharacterSummonDialog {
       }
       summon.init = false;
       gameManager.characterManager.addSummon(this.character, summon);
+
+      if (summon.trap) {
+        ghsDialogClosingHelper(this.dialogRef);
+        this.dialog.open(EntitiesMenuDialogComponent, {
+          panelClass: ['dialog'],
+          data: {
+            entity: summon,
+            figure: this.character
+          }
+        });
+      }
+
       if (
         !summonData.count ||
         this.character.summons.filter((summon) => summon.name === summonData.name && summon.cardId === summonData.cardId).length ==

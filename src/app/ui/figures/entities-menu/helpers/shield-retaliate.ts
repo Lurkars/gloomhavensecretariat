@@ -199,9 +199,11 @@ export class ShieldRetaliateHelper {
   }
 
   close() {
+    const applicableEntities = this.component.applicableEntities;
+
     const shieldValue = this.component.entityShield.value;
     if (
-      this.component.entities.some(
+      applicableEntities.some(
         (entity) =>
           (EntityValueFunction(shieldValue) !== 0 && !this.shieldAction(entity, false)) ||
           (this.shieldAction(entity, false) &&
@@ -209,7 +211,7 @@ export class ShieldRetaliateHelper {
       )
     ) {
       this.component.before('changeShield', shieldValue);
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         if (
           (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
           (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
@@ -222,7 +224,7 @@ export class ShieldRetaliateHelper {
 
     const shieldPersistentValue = this.component.entityShieldPersistent.value;
     if (
-      this.component.entities.some(
+      applicableEntities.some(
         (entity) =>
           (EntityValueFunction(shieldPersistentValue) !== 0 && !this.shieldAction(entity, true)) ||
           (this.shieldAction(entity, true) &&
@@ -230,7 +232,7 @@ export class ShieldRetaliateHelper {
       )
     ) {
       this.component.before('changeShieldPersistent', shieldPersistentValue);
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         if (
           (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
           (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
@@ -248,7 +250,7 @@ export class ShieldRetaliateHelper {
     if (
       retaliate.length > 0 &&
       retaliate.some((retaliateAction) =>
-        this.component.entities.some(
+        applicableEntities.some(
           (entity) =>
             (EntityValueFunction(retaliateAction.value) > 0 &&
               !this.retaliateActions(entity, false).some((action) => JSON.stringify(retaliateAction) === JSON.stringify(action))) ||
@@ -277,7 +279,7 @@ export class ShieldRetaliateHelper {
           )
           .join(', ')
       );
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         if (
           (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
           (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
@@ -296,7 +298,7 @@ export class ShieldRetaliateHelper {
     if (
       retaliatePersistent.length > 0 &&
       retaliatePersistent.some((retaliatePersitentAction) =>
-        this.component.entities.some(
+        applicableEntities.some(
           (entity) =>
             (EntityValueFunction(retaliatePersitentAction.value) > 0 &&
               !this.retaliateActions(entity, true).some((action) => JSON.stringify(retaliatePersitentAction) === JSON.stringify(action))) ||
@@ -325,7 +327,7 @@ export class ShieldRetaliateHelper {
           )
           .join(', ')
       );
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         if (
           (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
           (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)

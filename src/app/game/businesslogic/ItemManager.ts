@@ -6,6 +6,7 @@ import { Element, ElementState } from 'src/app/game/model/data/Element';
 import { AdditionalIdentifier, CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemEffect, ItemEffectType, ItemFlags, ItemSlot } from 'src/app/game/model/data/ItemData';
 import { getLootClass, herbResourceLootTypes, LootClass, LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
@@ -408,6 +409,10 @@ export class ItemManager {
       this.game.party.specialItems.push(new Identifier(item.id, item.edition));
     } else {
       character.progress.items.push(new Identifier(item.id, item.edition));
+      gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.item, '' + item.id);
+      if (item.slot) {
+        gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.itemType, item.slot as string);
+      }
     }
   }
 
@@ -496,6 +501,7 @@ export class ItemManager {
 
   craftItem(item: ItemData, character: Character) {
     this.craftItemResources(item, character);
+    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.craftableItems);
     this.addItem(item, character);
   }
 
@@ -518,7 +524,9 @@ export class ItemManager {
     );
     if (item && this.itemSellValue(itemData)) {
       const index = character.progress.items.indexOf(item);
-      character.progress.gold += this.itemSellValue(itemData);
+      const sellValue = this.itemSellValue(itemData);
+      character.progress.gold += sellValue;
+      gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.gold, undefined, sellValue);
       character.progress.items.splice(index, 1);
       character.progress.equippedItems = character.progress.equippedItems.filter(
         (identifier) => identifier.name !== '' + itemData.id || identifier.edition !== itemData.edition
@@ -765,6 +773,7 @@ export class ItemManager {
           gameManager.game.elementBoard.forEach((elementModel) => {
             if (elementModel.type === element) {
               elementModel.state = ElementState.new;
+              gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.element, element);
             }
           });
         }

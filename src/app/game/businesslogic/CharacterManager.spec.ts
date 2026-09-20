@@ -9,7 +9,6 @@ import { FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Perk } from 'src/app/game/model/data/Perks';
-import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
@@ -38,6 +37,9 @@ describe('CharacterManager', () => {
     gameManager.game.state = GameState.draw;
     gameManager.game.levelCalculation = false;
     gameManager.game.party.retirements = [];
+    gameManager.game.party.scenarios = [];
+    gameManager.game.party.conclusions = [];
+    gameManager.game.party.treasures = [];
     gameManager.editionData = [];
     settingsManager.settings.editions = [];
     settingsManager.settings.characterAttackModifierDeckPermanent = false;
@@ -262,31 +264,6 @@ describe('CharacterManager', () => {
       gameManager.game.figures = [alive, absent, dead, monster];
 
       expect(characterManager.getActiveCharacters()).toEqual([alive]);
-    });
-  });
-
-  describe('personalQuestByCard', () => {
-    it('finds a personal quest by cardId within the resolved edition', () => {
-      const pq = Object.assign(new PersonalQuest(), { cardId: '101', edition: 'gh' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [pq] })];
-      settingsManager.settings.editions = ['gh'];
-
-      expect(characterManager.personalQuestByCard('gh', '101')).toBe(pq);
-    });
-
-    it('also matches by altId', () => {
-      const pq = Object.assign(new PersonalQuest(), { cardId: '101', altId: '201', edition: 'gh' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [pq] })];
-      settingsManager.settings.editions = ['gh'];
-
-      expect(characterManager.personalQuestByCard('gh', '201')).toBe(pq);
-    });
-
-    it('returns undefined when no personal quest matches', () => {
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [] })];
-      settingsManager.settings.editions = ['gh'];
-
-      expect(characterManager.personalQuestByCard('gh', '999')).toBeUndefined();
     });
   });
 

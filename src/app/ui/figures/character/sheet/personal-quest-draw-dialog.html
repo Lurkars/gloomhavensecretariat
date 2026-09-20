@@ -1,0 +1,43 @@
+<div class="personal-quest-draw-dialog">
+  <div class="title" [ghs-label]="'character.progress.personalQuest.drawDialog'"></div>
+
+  @if (drawnCards.length === 0) {
+    <div class="empty" [ghs-label]="'character.progress.personalQuest.drawDialog.empty'"></div>
+  }
+
+  @if (drawnCards.length > 0) {
+    <div class="cards">
+      @for (personalQuest of drawnCards; track personalQuest.cardId; let index = $index) {
+        <div class="card" ghs-pointer-input (singleClick)="select(index)">
+          <ghs-personal-quest-card [personalQuest]="personalQuest" [selected]="selected === index"></ghs-personal-quest-card>
+          <a
+            class="open"
+            (click)="$event.stopPropagation(); show(personalQuest)"
+            [ghs-tooltip]="'character.progress.personalQuest.drawDialog.show'"
+          >
+            <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
+          </a>
+        </div>
+      }
+    </div>
+  }
+
+  <div class="menu">
+    <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
+    <a
+      class="accept"
+      (click)="chooseSelected()"
+      [ngClass]="{ disabled: selected === -1 }"
+      [ghs-label]="'character.progress.personalQuest.drawDialog.choose'"
+    ></a>
+  </div>
+
+  @if (drawnCards.length > 0) {
+    <div class="menu small">
+      <a (click)="draw()">
+        <img class="ghs-svg" src="./assets/images/shuffle.svg" />
+        <span [ghs-label]="'character.progress.personalQuest.drawDialog.redraw'"></span>
+      </a>
+    </div>
+  }
+</div>

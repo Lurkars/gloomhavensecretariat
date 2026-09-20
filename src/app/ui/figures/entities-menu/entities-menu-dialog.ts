@@ -37,6 +37,7 @@ import { MonsterHelper } from 'src/app/ui/figures/entities-menu/helpers/monster'
 import { ObjectiveHelper } from 'src/app/ui/figures/entities-menu/helpers/objective';
 import { ShieldRetaliateHelper } from 'src/app/ui/figures/entities-menu/helpers/shield-retaliate';
 import { SpecialActionsHelper } from 'src/app/ui/figures/entities-menu/helpers/special-actions';
+import { TrapHelper } from 'src/app/ui/figures/entities-menu/helpers/trap';
 import { EventCardAttackComponent } from 'src/app/ui/figures/event/attack/event-card-attack';
 import { EventCardConditionComponent } from 'src/app/ui/figures/event/condition/event-card-condition';
 import { EventCardEffectComponent } from 'src/app/ui/figures/event/effect/event-card-effect';
@@ -200,6 +201,7 @@ export class EntitiesMenuDialogComponent {
   objectiveHelper: ObjectiveHelper;
   shieldRetaliateHelper: ShieldRetaliateHelper;
   specialActionsHelper: SpecialActionsHelper;
+  trapHelper: TrapHelper;
 
   data: {
     figure: Figure | undefined;
@@ -226,6 +228,7 @@ export class EntitiesMenuDialogComponent {
     this.objectiveHelper = new ObjectiveHelper(this);
     this.shieldRetaliateHelper = new ShieldRetaliateHelper(this);
     this.specialActionsHelper = new SpecialActionsHelper(this);
+    this.trapHelper = new TrapHelper(this);
     this.filter = !!this.data ? this.data.filter : undefined;
     this.entityIndexKey = !!this.data && this.data.entityIndexKey;
     if (!!this.data && !!this.data.eventResults) {
@@ -372,10 +375,11 @@ export class EntitiesMenuDialogComponent {
   }
 
   get isTrapSummon(): boolean {
-    return (
-      (!!this.entity && this.entity instanceof Summon && this.entity.trap) ||
-      this.entities.every((entity) => entity instanceof Summon && entity.trap)
-    );
+    return !!this.entity && this.entity instanceof Summon && this.entity.trap;
+  }
+
+  get applicableEntities(): Entity[] {
+    return this.entities.length > 1 ? this.entities.filter((entity) => !(entity instanceof Summon && entity.trap)) : this.entities;
   }
 
   setFilter(filter: 'character' | 'monster' | 'allies' | 'enemies' | 'objectives' | undefined = undefined) {
@@ -389,7 +393,7 @@ export class EntitiesMenuDialogComponent {
       settingsManager.settings.applyConditions &&
       !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.safeguard);
     const safeguard = new Condition(ConditionName.safeguard);
-    return this.entities.reduce((sum, entity) => {
+    return this.applicableEntities.reduce((sum, entity) => {
       if (gameManager.entityManager.isImmune(entity, this.figureForEntity(entity), condition)) {
         return sum + count;
       }

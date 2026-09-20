@@ -6,6 +6,7 @@ import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
@@ -108,6 +109,12 @@ export class LootManager {
       if (current + value >= 0) {
         character.progress.loot[loot.type] = current + value;
       }
+
+      if (value > 0) {
+        gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.loot);
+        gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.looted, loot.type);
+        gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.differentHerbs, loot.type);
+      }
     }
   }
 
@@ -136,6 +143,8 @@ export class LootManager {
         console.warn("Invalid treasure index: '" + index + "' for Edition " + edition);
       }
     }
+
+    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.treasures);
     return rewardResults;
   }
 
@@ -154,6 +163,14 @@ export class LootManager {
       case TreasureRewardType.goldFh:
         if (typeof reward.value === 'number') {
           character.progress.gold += reward.value;
+          if (reward.value > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              character,
+              PersonalQuestAutotrackType.gold,
+              undefined,
+              reward.value
+            );
+          }
         }
         break;
       case TreasureRewardType.experience:
@@ -165,6 +182,14 @@ export class LootManager {
       case TreasureRewardType.battleGoal:
         if (typeof reward.value === 'number') {
           character.progress.battleGoals += reward.value;
+          if (reward.value > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              character,
+              PersonalQuestAutotrackType.battleGoals,
+              undefined,
+              reward.value
+            );
+          }
         }
         break;
       case TreasureRewardType.damage:
@@ -224,7 +249,14 @@ export class LootManager {
                       (existing) => existing.name === identifier.name && existing.edition === identifier.edition
                     )
                   ) {
-                    character.progress.gold += gameManager.itemManager.itemSellValue(item);
+                    const sellValue = gameManager.itemManager.itemSellValue(item);
+                    character.progress.gold += sellValue;
+                    gameManager.personalQuestManager.trackPersonalQuestProgress(
+                      character,
+                      PersonalQuestAutotrackType.gold,
+                      undefined,
+                      sellValue
+                    );
                   } else {
                     gameManager.itemManager.addItem(item, character);
                   }

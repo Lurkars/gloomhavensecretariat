@@ -8,6 +8,7 @@ import { ElementModel, ElementState, Element as GhsElement } from 'src/app/game/
 import { FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { GameClockTimestamp } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -465,6 +466,68 @@ describe('GameManager', () => {
       const element = new ElementModel(GhsElement.fire);
       element.state = ElementState.waning;
       expect(gameManager.nextElementState(element, false, true)).toEqual(ElementState.inert);
+    });
+  });
+
+  describe('applyElementState', () => {
+    function assignPersonalQuest(character: Character, autotrack: string) {
+      character.progress.personalQuest = 'PQ1';
+      character.progress.personalQuestAutotrack = true;
+      gameManager.editionData = [
+        buildEdition('gh', {
+          personalQuests: [
+            Object.assign(new PersonalQuest(), {
+              cardId: 'PQ1',
+              edition: 'gh',
+              requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 2, autotrack })]
+            })
+          ]
+        })
+      ];
+      settingsManager.settings.editions = ['gh'];
+    }
+
+    beforeEach(() => {
+      gameManager.game.edition = 'gh';
+      gameManager.game.figures = [];
+    });
+
+    it('sets the element state and bumps "element" personal quest progress for the active character when it becomes new', () => {
+      const character = buildCharacter('brute');
+      character.active = true;
+      assignPersonalQuest(character, PersonalQuestAutotrackType.element + ':fire');
+      gameManager.game.figures = [character];
+      const element = new ElementModel(GhsElement.fire);
+
+      gameManager.applyElementState(element, ElementState.new);
+
+      expect(element.state).toEqual(ElementState.new);
+      expect(character.progress.personalQuestProgress[0]).toEqual(1);
+    });
+
+    it('does not bump when the resulting state is not "new"', () => {
+      const character = buildCharacter('brute');
+      character.active = true;
+      assignPersonalQuest(character, PersonalQuestAutotrackType.element + ':fire');
+      gameManager.game.figures = [character];
+      const element = new ElementModel(GhsElement.fire);
+
+      gameManager.applyElementState(element, ElementState.strong);
+
+      expect(element.state).toEqual(ElementState.strong);
+      expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
+    });
+
+    it('does not bump when no character is active (e.g. a monster turn)', () => {
+      const character = buildCharacter('brute');
+      character.active = false;
+      assignPersonalQuest(character, PersonalQuestAutotrackType.element + ':fire');
+      gameManager.game.figures = [character];
+      const element = new ElementModel(GhsElement.fire);
+
+      gameManager.applyElementState(element, ElementState.new);
+
+      expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
     });
   });
 });

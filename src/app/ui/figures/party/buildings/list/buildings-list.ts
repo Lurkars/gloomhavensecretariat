@@ -6,6 +6,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character } from 'src/app/game/model/Character';
 import { BuildingCosts, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { ItemsBrewDialog } from 'src/app/ui/figures/items/brew/brew';
@@ -189,6 +190,7 @@ export class BuildingsListComponent {
                     gameManager.lootManager.applySelectResources(result);
                   }
                   building.model.level++;
+                  gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.buildings);
                   if (
                     gameManager.game.party.campaignMode &&
                     settingsManager.settings.applyBuildingRewards &&

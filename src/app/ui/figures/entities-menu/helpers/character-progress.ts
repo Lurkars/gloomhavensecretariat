@@ -2,6 +2,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 
@@ -53,6 +54,9 @@ export class CharacterProgressHelper {
           if (entity.progress.gold < 0) {
             entity.progress.gold = 0;
           }
+          if (this.gold > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(entity, PersonalQuestAutotrackType.gold, undefined, this.gold);
+          }
         }
       });
       gameManager.stateManager.after();
@@ -65,6 +69,14 @@ export class CharacterProgressHelper {
           entity.progress.battleGoals += this.battleGoals;
           if (entity.progress.battleGoals < 0) {
             entity.progress.battleGoals = 0;
+          }
+          if (this.battleGoals > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              entity,
+              PersonalQuestAutotrackType.battleGoals,
+              undefined,
+              this.battleGoals
+            );
           }
         }
       });

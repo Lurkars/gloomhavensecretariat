@@ -5,11 +5,13 @@ import { Ability } from 'src/app/game/model/data/Ability';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { DeckData } from 'src/app/game/model/data/DeckData';
+import { EditionData } from 'src/app/game/model/data/EditionData';
 import { FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
@@ -141,6 +143,40 @@ describe('MonsterManager', () => {
 
       expect(monster.entities).toEqual([survivor]);
       expect(character.scenarioStats.normalKills).toEqual(1);
+
+      settingsManager.settings.scenarioStats = original;
+    });
+
+    it('bumps personal quest "kill" progress for the active character on a monster death, independent of scenarioStats', () => {
+      const original = settingsManager.settings.scenarioStats;
+      settingsManager.settings.scenarioStats = false;
+
+      const monster = buildMonster({ name: 'forest-imp', edition: 'gh', stats: [new MonsterStat(MonsterType.elite, 1, 10)] }, 1);
+      const killedEntity = new MonsterEntity(1, MonsterType.elite, monster);
+      killedEntity.dead = true;
+      monster.entities = [killedEntity];
+
+      const character = buildCharacter('brute', 'gh');
+      character.active = true;
+      character.progress.personalQuest = '513';
+      character.progress.personalQuestAutotrack = true;
+      gameManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), {
+          personalQuests: [
+            Object.assign(new PersonalQuest(), {
+              cardId: '513',
+              edition: 'gh',
+              requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 8, autotrack: 'kill:forest-imp' })]
+            })
+          ]
+        })
+      ];
+      settingsManager.settings.editions = ['gh'];
+      gameManager.game.figures = [character, monster];
+
+      monsterManager.removeMonsterEntity(monster, killedEntity);
+
+      expect(character.progress.personalQuestProgress[0]).toEqual(1);
 
       settingsManager.settings.scenarioStats = original;
     });

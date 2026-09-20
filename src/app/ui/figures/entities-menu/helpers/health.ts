@@ -106,12 +106,14 @@ export class HealthHelper {
   }
 
   close() {
-    if (this.component.health !== 0) {
+    const applicableEntities = this.component.applicableEntities;
+
+    if (this.component.health !== 0 && applicableEntities.length) {
       this.component.before(
         this.component.trackDamage || settingsManager.settings.damageHP ? 'changeDamage' : 'changeHP',
         ghsValueSign(this.component.health)
       );
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         const figure = this.component.figureForEntity(entity);
 
         let invertDamage = false;
@@ -162,9 +164,9 @@ export class HealthHelper {
       }
     }
 
-    if (this.component.maxHealth !== 0) {
+    if (this.component.maxHealth !== 0 && applicableEntities.length) {
       this.component.before('changeMaxHP', ghsValueSign(this.component.maxHealth));
-      this.component.entities.forEach((entity) => {
+      applicableEntities.forEach((entity) => {
         if (entity.health === EntityValueFunction(entity.maxHealth)) {
           entity.health += this.component.maxHealth;
         }

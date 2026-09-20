@@ -92,7 +92,7 @@
             {
                 "name": "%data.personalQuest.cs.337.1%",
                 "counter": 12,
-                "autotrack": "scenarioXP"
+                "autotrack": "scenarioXP:12"
             }
         ],
         "unlockCharacter": "tusks"

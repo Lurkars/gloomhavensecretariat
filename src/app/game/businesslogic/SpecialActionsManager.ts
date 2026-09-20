@@ -12,6 +12,7 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Summon } from 'src/app/game/model/Summon';
 import { CharacterSpecialAction, CharacterSpecialActionSlotTrigger } from 'src/app/game/model/data/CharacterStat';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 
 export class SpecialActionsManager {
   game: Game;
@@ -317,6 +318,7 @@ export class SpecialActionsManager {
         this.game.elementBoard.forEach((elementModel) => {
           if (elementModel.type === Element.dark) {
             elementModel.state = ElementState.new;
+            gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.element, Element.dark);
           }
         });
       }

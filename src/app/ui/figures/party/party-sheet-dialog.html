@@ -1444,6 +1444,9 @@
                   <a (click)="battleGoalSetup()"><span [ghs-label]="'game.battleGoals.setup'"></span></a>
                 </div>
               }
+              <div class="row personal-quests">
+                <a (click)="personalQuestSetup()"><span [ghs-label]="'game.personalQuests.setup'"></span></a>
+              </div>
             </div>
           </div>
           @if (!!party.retirements && party.retirements.length > 0) {

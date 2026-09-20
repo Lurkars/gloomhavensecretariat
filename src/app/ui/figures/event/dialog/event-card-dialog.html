@@ -7,6 +7,7 @@
       [select]="id ? id.selected : -1"
       [subSelect]="id ? id.subSelections : []"
       [checks]="id ? id.checks : []"
+      (selectCard)="select($event)"
     ></ghs-event-card>
   </div>
 </div>

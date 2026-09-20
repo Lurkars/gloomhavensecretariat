@@ -5,6 +5,7 @@ import { ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { Game, GameState } from 'src/app/game/model/Game';
@@ -179,8 +180,12 @@ export class EntityManager {
     ) {
       entity.health = 0;
       if (entity instanceof Character && (!entity.off || !entity.exhausted)) {
+        const wasExhausted = entity.exhausted;
         entity.off = true;
         entity.exhausted = true;
+        if (!wasExhausted) {
+          this.trackExhaustion(entity);
+        }
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && !entity.dead) {
         entity.dead = true;
       }
@@ -201,6 +206,20 @@ export class EntityManager {
         entity.health = 0;
       }
     }
+  }
+
+  private trackExhaustion(character: Character) {
+    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.exhaustedSelf);
+
+    const ownTurn = character.active;
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character && figure !== character) {
+        gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.exhaustedChars);
+        if (ownTurn) {
+          gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.exhaustedCharsTurn);
+        }
+      }
+    });
   }
 
   changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
@@ -623,6 +642,10 @@ export class EntityManager {
       this.addDeckCondition(figure, condition, deckSource);
     } else {
       this.addStandardCondition(entity, figure, condition, permanent);
+    }
+
+    if (figure instanceof Character && entity instanceof MonsterEntity) {
+      gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.condition, condition.name);
     }
 
     // apply Challenge #1487

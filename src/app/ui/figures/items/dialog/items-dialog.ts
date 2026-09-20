@@ -177,6 +177,15 @@ export class ItemsDialogComponent implements OnInit {
         )
     );
 
+    if (!this.all) {
+      this.items = this.items.filter(
+        (itemData) =>
+          !itemData.solo ||
+          !this.character ||
+          (!!this.character && itemData.solo === this.character.name && itemData.edition === this.character.edition)
+      );
+    }
+
     if (this.all && this.filteredOnly) {
       this.items = this.items.filter((itemData) => this.filtered(itemData));
     }

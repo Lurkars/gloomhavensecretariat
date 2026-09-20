@@ -1,7 +1,12 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
-import { ScenarioData, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
+import { ScenarioData, ScenarioRequirement, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
 
 // This spec covers the self-contained lookups and predicates (isCurrent/isSuccess/isBlocked,
@@ -404,6 +409,162 @@ describe('ScenarioManager', () => {
       scenarioManager.finishScenario(scenario, true, undefined, true);
       expect(setScenarioSpy).toHaveBeenCalledWith(scenario, true);
       expect(gameManager.roundManager.resetScenario).not.toHaveBeenCalled();
+    });
+
+    describe('personal quest autotrack', () => {
+      function buildCharacter(name: string): Character {
+        const data = Object.assign(new CharacterData(), { name, edition: 'gh', stats: [new CharacterStat(1, 10)] });
+        return new Character(data, 1);
+      }
+
+      function assignPersonalQuest(character: Character, autotrack: string, counter: number = 1) {
+        character.progress.personalQuest = 'PQ1';
+        character.progress.personalQuestAutotrack = true;
+        gameManager.editionData = [
+          Object.assign(new EditionData('gh', [], [], [], [], [], []), {
+            personalQuests: [
+              Object.assign(new PersonalQuest(), {
+                cardId: 'PQ1',
+                edition: 'gh',
+                requirements: [Object.assign(new PersonalQuestRequirement(), { counter, autotrack })]
+              })
+            ]
+          })
+        ];
+        settingsManager.settings.editions = ['gh'];
+      }
+
+      it('bumps "scenario:ID" and "scenariosCompleted" for every character on a successful finish', () => {
+        const character = buildCharacter('brute');
+        assignPersonalQuest(character, 'scenariosCompleted', 5);
+        gameManager.game.figures = [character];
+
+        scenarioManager.finishScenario(buildScenario(), true, undefined);
+
+        expect(character.progress.personalQuestProgress[0]).toEqual(1);
+      });
+
+      it('does not bump scenario progress when the scenario failed', () => {
+        const character = buildCharacter('brute');
+        assignPersonalQuest(character, 'scenariosCompleted', 5);
+        gameManager.game.figures = [character];
+
+        scenarioManager.finishScenario(buildScenario(), false, undefined);
+
+        expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
+      });
+
+      it('bumps "completedHighHP" only for a present character finishing at full health', () => {
+        const full = buildCharacter('brute');
+        full.maxHealth = 10;
+        full.health = 10;
+        assignPersonalQuest(full, 'completedHighHP', 5);
+
+        const hurt = buildCharacter('tinkerer');
+        hurt.progress.personalQuest = 'PQ1';
+        hurt.progress.personalQuestAutotrack = true;
+        hurt.maxHealth = 10;
+        hurt.health = 6;
+
+        gameManager.game.figures = [full, hurt];
+
+        scenarioManager.finishScenario(buildScenario(), true, undefined);
+
+        expect(full.progress.personalQuestProgress[0]).toEqual(1);
+        expect(hurt.progress.personalQuestProgress[0] || 0).toEqual(0);
+      });
+
+      it('bumps "completedLowHP" only for a non-exhausted character at 2 or less HP', () => {
+        const low = buildCharacter('brute');
+        low.maxHealth = 10;
+        low.health = 2;
+        low.exhausted = false;
+        assignPersonalQuest(low, 'completedLowHP', 5);
+
+        const exhausted = buildCharacter('tinkerer');
+        exhausted.progress.personalQuest = 'PQ1';
+        exhausted.progress.personalQuestAutotrack = true;
+        exhausted.maxHealth = 10;
+        exhausted.health = 0;
+        exhausted.exhausted = true;
+
+        gameManager.game.figures = [low, exhausted];
+
+        scenarioManager.finishScenario(buildScenario(), true, undefined);
+
+        expect(low.progress.personalQuestProgress[0]).toEqual(1);
+        expect(exhausted.progress.personalQuestProgress[0] || 0).toEqual(0);
+      });
+
+      it('bumps "itemBlueprint:ID" for every character when a scenario reward unlocks that item', () => {
+        const character = buildCharacter('brute');
+        assignPersonalQuest(character, 'itemBlueprint:73', 1);
+        gameManager.game.figures = [character];
+        settingsManager.settings.partySheet = true;
+
+        scenarioManager.finishScenario(buildScenario({ itemBlueprints: ['73'] }), true, undefined);
+
+        expect(character.progress.personalQuestProgress[0]).toEqual(1);
+      });
+
+      it('bumps "gold"/"battleGoals" by the reward amount, not by a flat 1', () => {
+        const character = buildCharacter('brute');
+        assignPersonalQuest(character, PersonalQuestAutotrackType.gold, 100);
+        gameManager.game.figures = [character];
+        settingsManager.settings.characterSheet = true;
+        settingsManager.settings.scenarioRewards = true;
+
+        scenarioManager.finishScenario(buildScenario({ gold: 15 }), true, undefined);
+
+        expect(character.progress.personalQuestProgress[0]).toEqual(15);
+      });
+
+      it('bumps "sideScenarios" only when the finished scenario index falls in the tag range, and "bossScenarios" only when a boss-type monster was present', () => {
+        const sideCharacter = buildCharacter('brute');
+        assignPersonalQuest(sideCharacter, 'sideScenarios:52-95', 5);
+        gameManager.game.figures = [sideCharacter];
+
+        scenarioManager.finishScenario(buildScenario(), true, undefined); // index '1', outside 52-95
+        expect(sideCharacter.progress.personalQuestProgress[0] || 0).toEqual(0);
+
+        const bossCharacter = buildCharacter('tinkerer');
+        assignPersonalQuest(bossCharacter, PersonalQuestAutotrackType.bossScenarios, 5);
+        gameManager.editionData[0].monsters.push(Object.assign(new MonsterData(), { name: 'bandit-commander', edition: 'gh', boss: true }));
+        gameManager.game.figures = [bossCharacter];
+        const data = buildScenarioData({ edition: 'gh', index: '2', monsters: ['bandit-commander'] });
+        scenarioManager.finishScenario(new Scenario(data), true, undefined);
+        expect(bossCharacter.progress.personalQuestProgress[0]).toEqual(1);
+      });
+
+      it('bumps "scenarioRequirements" for a building named in the scenario\'s requirements', () => {
+        const character = buildCharacter('brute');
+        assignPersonalQuest(character, 'scenarioRequirements:board|climbing-gear|sled', 5);
+        gameManager.game.figures = [character];
+        const data = buildScenarioData({
+          edition: 'gh',
+          index: '1',
+          requirements: [Object.assign(new ScenarioRequirement(), { buildings: ['climbing-gear'] })]
+        });
+
+        scenarioManager.finishScenario(new Scenario(data), true, undefined);
+
+        expect(character.progress.personalQuestProgress[0]).toEqual(1);
+      });
+
+      it('bumps "exhaustedCharsFinish" by the count of exhausted allies, not counting the owner', () => {
+        const owner = buildCharacter('brute');
+        owner.exhausted = false;
+        assignPersonalQuest(owner, PersonalQuestAutotrackType.exhaustedCharsFinish, 5);
+        const exhaustedAlly = buildCharacter('tinkerer');
+        exhaustedAlly.exhausted = true;
+        const activeAlly = buildCharacter('spellweaver');
+        activeAlly.exhausted = false;
+        gameManager.game.figures = [owner, exhaustedAlly, activeAlly];
+
+        scenarioManager.finishScenario(buildScenario(), true, undefined);
+
+        expect(owner.progress.personalQuestProgress[0]).toEqual(1);
+      });
     });
   });
 });

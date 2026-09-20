@@ -8,6 +8,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { getLootClass, LootClass, LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { GameState } from 'src/app/game/model/Game';
 import { ItemsBrewDialog } from 'src/app/ui/figures/items/brew/brew';
 import { ItemDistillDialogComponent } from 'src/app/ui/figures/items/character/item-distill';
@@ -317,6 +318,7 @@ export class CharacterItemsComponent implements OnInit {
         item.edition
       );
       this.craftItemResources(item);
+      gameManager.personalQuestManager.trackPersonalQuestProgress(this.character, PersonalQuestAutotrackType.craftableItems);
       gameManager.itemManager.addItem(item, this.character);
       this.items.push(item);
       this.items.sort(gameManager.itemManager.sortItems);

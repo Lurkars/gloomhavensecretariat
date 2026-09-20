@@ -20,6 +20,7 @@ import {
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CampaignData } from 'src/app/game/model/data/EditionData';
 import { Perk, PerkCard, PerkType } from 'src/app/game/model/data/Perks';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { Game } from 'src/app/game/model/Game';
@@ -290,15 +291,23 @@ export class AttackModifierManager {
     }
   }
 
-  drawModifier(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined) {
+  drawModifier(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined, character?: Character) {
     if (attackModifierDeck.bb) {
       this.drawBB(attackModifierDeck, state);
     } else if (attackModifierDeck.current >= attackModifierDeck.cards.length - 1) {
       this.shuffleModifiers(attackModifierDeck);
+      return;
     } else if (state) {
       this.drawAdvantage(attackModifierDeck, state);
     } else {
       this.drawNormal(attackModifierDeck);
+    }
+
+    if (character) {
+      const drawnCard = attackModifierDeck.cards[attackModifierDeck.current];
+      if (drawnCard && drawnCard.type === AttackModifierType.bless) {
+        gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.blessDrawn);
+      }
     }
   }
 

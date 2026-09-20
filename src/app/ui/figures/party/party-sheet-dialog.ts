@@ -31,6 +31,7 @@ import { EventCardDeckComponent } from 'src/app/ui/figures/event/deck/event-card
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { PartyBuildingsComponent } from 'src/app/ui/figures/party/buildings/buildings';
 import { BuildingUpgradeDialog } from 'src/app/ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
+import { PersonalQuestSetupDialog } from 'src/app/ui/figures/party/personal-quests/personal-quest-setup';
 import { ScenarioRequirementsDialogComponent } from 'src/app/ui/figures/party/requirements/requirements';
 import { PartyResourcesDialogComponent } from 'src/app/ui/figures/party/resources/resources';
 import { ScenarioChartPopupDialog } from 'src/app/ui/figures/party/scenario-chart/popup/scenario-chart-popup';
@@ -1875,6 +1876,13 @@ export class PartySheetDialogComponent implements OnInit {
     this.dialog.open(StatisticsDialogComponent, {
       panelClass: ['dialog-invert'],
       data: { scenario: scenarioData }
+    });
+  }
+
+  personalQuestSetup() {
+    this.dialog.open(PersonalQuestSetupDialog, {
+      panelClass: ['dialog'],
+      data: { edition: this.partyEdition }
     });
   }
 }

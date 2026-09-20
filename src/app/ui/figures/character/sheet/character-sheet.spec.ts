@@ -130,6 +130,95 @@ describe('CharacterSheetComponent', () => {
     });
   });
 
+  describe('personal quest autotrack', () => {
+    it('personalQuestAutotrackSupported is false with no personal quest set', () => {
+      const component = createComponent(buildCharacter());
+      expect(component.personalQuestAutotrackSupported()).toBe(false);
+    });
+
+    it('personalQuestAutotrackSupported is true once at least one requirement has a recognized autotrack tag', () => {
+      const component = createComponent(buildCharacter());
+      component.personalQuest = Object.assign(new PersonalQuest(), {
+        edition: 'gh',
+        requirements: [
+          Object.assign(new PersonalQuestRequirement(), { counter: 1 }),
+          Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'loot' })
+        ]
+      });
+      expect(component.personalQuestAutotrackSupported()).toBe(true);
+    });
+
+    it('togglePersonalQuestAutotrack flips the persisted flag', () => {
+      const character = buildCharacter();
+      character.progress.personalQuestAutotrack = false;
+      const component = createComponent(character);
+
+      component.togglePersonalQuestAutotrack();
+      expect(character.progress.personalQuestAutotrack).toBe(true);
+
+      component.togglePersonalQuestAutotrack();
+      expect(character.progress.personalQuestAutotrack).toBe(false);
+    });
+
+    it('personalQuestRequirementAutotracked reflects the toggle, per requirement', () => {
+      const character = buildCharacter();
+      const component = createComponent(character);
+      component.personalQuest = Object.assign(new PersonalQuest(), {
+        edition: 'gh',
+        requirements: [
+          Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'loot' }),
+          Object.assign(new PersonalQuestRequirement(), { counter: 1 })
+        ]
+      });
+
+      expect(component.personalQuestRequirementAutotracked(0)).toBe(false);
+      character.progress.personalQuestAutotrack = true;
+      expect(component.personalQuestRequirementAutotracked(0)).toBe(true);
+      expect(component.personalQuestRequirementAutotracked(1)).toBe(false);
+    });
+  });
+
+  describe('refreshPersonalQuestRetireState', () => {
+    it('only triggers auto-retire once on the false -> true edge, not again on repeated calls', () => {
+      const character = buildCharacter();
+      character.progress.personalQuest = 'PQ1';
+      gameManager.game.party.campaignMode = true;
+      settingsManager.settings.applyRetirement = true;
+      const component = createComponent(character);
+      component.personalQuest = Object.assign(new PersonalQuest(), {
+        edition: 'gh',
+        requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1 })]
+      });
+      character.progress.personalQuestProgress = [1];
+      const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
+
+      component.refreshPersonalQuestRetireState();
+      component.refreshPersonalQuestRetireState();
+      component.refreshPersonalQuestRetireState();
+
+      expect(retireSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not trigger auto-retire while requirements stay unmet', () => {
+      const character = buildCharacter();
+      character.progress.personalQuest = 'PQ1';
+      gameManager.game.party.campaignMode = true;
+      settingsManager.settings.applyRetirement = true;
+      const component = createComponent(character);
+      component.personalQuest = Object.assign(new PersonalQuest(), {
+        edition: 'gh',
+        requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1 })]
+      });
+      character.progress.personalQuestProgress = [0];
+      const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
+
+      component.refreshPersonalQuestRetireState();
+      component.refreshPersonalQuestRetireState();
+
+      expect(retireSpy).not.toHaveBeenCalled();
+    });
+  });
+
   describe('setBattleGoals', () => {
     it('decrements when setting the already-current value', () => {
       const character = buildCharacter();

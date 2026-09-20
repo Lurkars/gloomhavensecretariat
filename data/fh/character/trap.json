@@ -53,14 +53,16 @@
       "name": "negative-trap",
       "thumbnail": true,
       "level": 1,
-      "count": 10,
+      "movement": 3,
+      "count": 20,
       "trap": true
     },
     {
       "name": "positive-trap",
       "thumbnail": true,
       "level": 1,
-      "count": 8,
+      "attack": 3,
+      "count": 20,
       "trap": true
     },
     {

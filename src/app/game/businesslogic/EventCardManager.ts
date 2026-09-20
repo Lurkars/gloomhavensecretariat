@@ -13,6 +13,7 @@ import {
   EventCardIdentifier
 } from 'src/app/game/model/data/EventCard';
 import { LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { TreasureData, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Game } from 'src/app/game/model/Game';
@@ -516,11 +517,21 @@ export class EventCardManager {
             }
           } else {
             switch (effect.type) {
-              case EventCardEffectType.battleGoal:
+              case EventCardEffectType.battleGoal: {
+                const battleGoalValue = +effect.values[0];
                 characters.forEach((c) => {
-                  c.progress.battleGoals += +effect.values[0];
+                  c.progress.battleGoals += battleGoalValue;
+                  if (battleGoalValue > 0) {
+                    gameManager.personalQuestManager.trackPersonalQuestProgress(
+                      c,
+                      PersonalQuestAutotrackType.battleGoals,
+                      undefined,
+                      battleGoalValue
+                    );
+                  }
                 });
                 break;
+              }
               case EventCardEffectType.campaignSticker:
                 this.game.party.campaignStickers.push(...effect.values.filter((v) => typeof v === 'string'));
                 break;
@@ -582,11 +593,16 @@ export class EventCardManager {
                 this.game.party.globalAchievementsList.push(...effect.values.filter((v) => typeof v === 'string'));
                 break;
               case EventCardEffectType.gold:
-              case EventCardEffectType.goldAdditional:
+              case EventCardEffectType.goldAdditional: {
+                const goldValue = +effect.values[0];
                 characters.forEach((c) => {
-                  c.progress.gold += +effect.values[0];
+                  c.progress.gold += goldValue;
+                  if (goldValue > 0) {
+                    gameManager.personalQuestManager.trackPersonalQuestProgress(c, PersonalQuestAutotrackType.gold, undefined, goldValue);
+                  }
                 });
                 break;
+              }
               case EventCardEffectType.inspiration:
                 this.game.party.inspiration += +effect.values[0];
                 break;

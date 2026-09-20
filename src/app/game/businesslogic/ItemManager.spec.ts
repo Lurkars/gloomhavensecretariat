@@ -6,6 +6,8 @@ import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { ItemData } from 'src/app/game/model/data/ItemData';
+import { LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 
 // ItemManager also covers isItemAvailable()/applyItemEffect(s)()/toggleEquippedItem() (deep
 // stateful flows pulling in campaign progression, attack modifiers and entity conditions). This
@@ -212,6 +214,36 @@ describe('ItemManager', () => {
       expect(itemManager.brewingDisabled()).toBe(false);
       gameManager.game.party.buildings = [new BuildingModel('alchemist', 1, 'wrecked')];
       expect(itemManager.brewingDisabled()).toBe(true);
+    });
+  });
+
+  describe('craftItem ("craftableItems" tracking)', () => {
+    function assignPersonalQuest(character: Character, autotrack: string) {
+      character.progress.personalQuest = 'PQ1';
+      character.progress.personalQuestAutotrack = true;
+      gameManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), {
+          personalQuests: [
+            Object.assign(new PersonalQuest(), {
+              cardId: 'PQ1',
+              edition: 'gh',
+              requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 5, autotrack })]
+            })
+          ]
+        })
+      ];
+      settingsManager.settings.editions = ['gh'];
+    }
+
+    it('bumps "craftableItems" whenever a character crafts an item', () => {
+      const character = buildCharacter();
+      character.progress.loot = { [LootType.lumber]: 5 };
+      assignPersonalQuest(character, PersonalQuestAutotrackType.craftableItems);
+      const item = buildItem({ resources: { [LootType.lumber]: 3 } });
+
+      itemManager.craftItem(item, character);
+
+      expect(character.progress.personalQuestProgress[0]).toEqual(1);
     });
   });
 });

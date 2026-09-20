@@ -180,7 +180,7 @@ export class ConditionsComponent implements OnInit {
     negativeConditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
     negativeConditions = negativeConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
-    if (negativeConditions.length) {
+    if (negativeConditions.length && (!this.isTrapEntity || (this.entity instanceof Summon && this.entity.name !== 'positive-trap'))) {
       this.conditions.push(...negativeConditions);
     }
     let positiveConditions: Condition[] = [];
@@ -189,7 +189,7 @@ export class ConditionsComponent implements OnInit {
     positiveConditions.push(...gameManager.conditionsForTypes('stack', 'positive', this.type));
     positiveConditions = positiveConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
-    if (positiveConditions.length) {
+    if (positiveConditions.length && (!this.isTrapEntity || (this.entity instanceof Summon && this.entity.name !== 'negative-trap'))) {
       this.conditionSeparator.push(this.conditions.length - 1);
       this.conditions.push(...positiveConditions);
     }
@@ -205,12 +205,15 @@ export class ConditionsComponent implements OnInit {
       this.conditions.push(...neutralConditions);
     }
 
-    if (this.immunityEnabled || this.isTrapEntity) {
+    if (this.immunityEnabled || (this.isTrapEntity && this.entity instanceof Summon && this.entity.name !== 'positive-trap')) {
       this.conditionSeparator.push(this.conditions.length - 1);
       this.conditions.push(new Condition(ConditionName.curse));
       if (this.enfeeble()) {
         this.conditions.push(new Condition(ConditionName.enfeeble));
       }
+    }
+
+    if (this.immunityEnabled || (this.isTrapEntity && this.entity instanceof Summon && this.entity.name !== 'negative-trap')) {
       this.conditions.push(new Condition(ConditionName.bless));
       if (this.empower()) {
         this.conditions.push(new Condition(ConditionName.empower));

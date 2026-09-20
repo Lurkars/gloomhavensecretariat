@@ -55,6 +55,7 @@ export class Game {
   lootDeckFixed: LootType[] = [];
   lootDeckSections: string[] = [];
   unlockedCharacters: string[] = [];
+  unlockedPersonalQuests: string[] = [];
   server: boolean = false;
   serverPing: number = 0;
   finish: ScenarioFinish | undefined;
@@ -132,6 +133,7 @@ export class Game {
       this.eventDraw
     );
     model.activeScenarioRules = JSON.parse(JSON.stringify(this.activeScenarioRules));
+    model.unlockedPersonalQuests = JSON.parse(JSON.stringify(this.unlockedPersonalQuests));
     return model;
   }
 
@@ -361,6 +363,7 @@ export class Game {
     lootCardIdMigration(this.lootDeckEnhancements);
 
     this.unlockedCharacters = model.unlockedCharacters || [];
+    this.unlockedPersonalQuests = model.unlockedPersonalQuests || [];
 
     // migration
     this.unlockedCharacters = this.unlockedCharacters.map((c) => {
@@ -454,6 +457,7 @@ export class GameModel {
   lootDeckFixed: LootType[];
   lootDeckSections: string[];
   unlockedCharacters: string[];
+  unlockedPersonalQuests: string[] = [];
   server: boolean;
   serverPing: number;
   finish: ScenarioFinish | undefined;

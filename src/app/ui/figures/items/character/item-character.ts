@@ -6,6 +6,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character } from 'src/app/game/model/Character';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemFlags, ItemSlot } from 'src/app/game/model/data/ItemData';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { GameState } from 'src/app/game/model/Game';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
@@ -124,6 +125,7 @@ export class CharacterItemComponent {
           this.item.name
         );
         if (!equipped.tags.includes(flag)) {
+          const wasConsumed = equipped.tags.includes(ItemFlags.consumed);
           if (
             !force &&
             gameManager.challengesManager.apply &&
@@ -133,6 +135,13 @@ export class CharacterItemComponent {
             equipped.tags.push(ItemFlags.consumed);
           } else {
             equipped.tags.push(flag);
+          }
+          if (!wasConsumed && equipped.tags.includes(ItemFlags.consumed) && this.item.slot) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              this.character,
+              PersonalQuestAutotrackType.itemConsumed,
+              this.item.slot as string
+            );
           }
         } else {
           equipped.tags = equipped.tags.filter((tag) => tag !== flag);

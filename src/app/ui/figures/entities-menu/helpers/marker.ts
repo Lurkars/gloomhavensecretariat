@@ -6,12 +6,13 @@ export class MarkerHelper {
   constructor(private component: EntitiesMenuDialogComponent) {}
 
   update() {
-    this.component.characterMarker = [...gameManager.markers(), ...this.component.entities.flatMap((entity) => entity.markers)].filter(
+    const applicableEntities = this.component.applicableEntities;
+    this.component.characterMarker = [...gameManager.markers(), ...applicableEntities.flatMap((entity) => entity.markers)].filter(
       (marker, index, self) => index === self.indexOf(marker)
     );
 
     this.component.characterMarker.forEach((marker) => {
-      if (this.component.entities.length > 0 && this.component.entities.every((entity) => entity.markers.includes(marker))) {
+      if (applicableEntities.length > 0 && applicableEntities.every((entity) => entity.markers.includes(marker))) {
         this.component.characterMarkerToAdd.push(marker);
       }
     });
@@ -37,13 +38,15 @@ export class MarkerHelper {
   }
 
   close() {
+    const applicableEntities = this.component.applicableEntities;
+
     if (this.component.characterMarkerToAdd.length) {
       this.component.characterMarkerToAdd.forEach((marker) => {
-        if (this.component.entities.some((entity) => !entity.markers.includes(marker))) {
+        if (applicableEntities.some((entity) => !entity.markers.includes(marker))) {
           const edition = marker.split('-')[0];
           const name = marker.split('-').slice(1).join('-');
           this.component.before('addCharacterMarker', marker, edition + '.' + name);
-          this.component.entities.forEach((entity) => {
+          applicableEntities.forEach((entity) => {
             if (!entity.markers.includes(marker)) {
               entity.markers.push(marker);
             }
@@ -55,11 +58,11 @@ export class MarkerHelper {
 
     if (this.component.characterMarkerToRemove.length) {
       this.component.characterMarkerToRemove.forEach((marker) => {
-        if (this.component.entities.some((entity) => entity.markers.includes(marker))) {
+        if (applicableEntities.some((entity) => entity.markers.includes(marker))) {
           const edition = marker.split('-')[0];
           const name = marker.split('-').slice(1).join('-');
           this.component.before('removeCharacterMarker', marker, edition + '.' + name);
-          this.component.entities.forEach((entity) => {
+          applicableEntities.forEach((entity) => {
             entity.markers = entity.markers.filter((m) => m !== marker);
           });
           gameManager.stateManager.after();

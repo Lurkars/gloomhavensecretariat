@@ -1,5 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
 import { Ability } from 'src/app/game/model/data/Ability';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
@@ -8,6 +9,7 @@ import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat, MonsterStatEffect } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { MonsterSpawnData } from 'src/app/game/model/data/ScenarioRule';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
@@ -716,6 +718,16 @@ export class MonsterManager {
 
     if (settingsManager.settings.scenarioStats && monsterEntity.dead) {
       gameManager.scenarioStatsManager.killMonsterEntity(monsterEntity);
+    }
+
+    if (monsterEntity.dead) {
+      const activeFigure = this.game.figures.find((figure) => figure.active);
+      if (activeFigure instanceof Character) {
+        gameManager.personalQuestManager.trackPersonalQuestProgress(activeFigure, PersonalQuestAutotrackType.kill, monster.name);
+        if (monsterEntity.type === MonsterType.elite || monsterEntity.type === MonsterType.boss) {
+          gameManager.personalQuestManager.trackPersonalQuestProgress(activeFigure, PersonalQuestAutotrackType.kill, monsterEntity.type);
+        }
+      }
     }
   }
 

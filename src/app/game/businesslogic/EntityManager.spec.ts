@@ -4,9 +4,11 @@ import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { EditionData } from 'src/app/game/model/data/EditionData';
 import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -46,6 +48,24 @@ function buildObjectiveEntity(container: ObjectiveContainer): ObjectiveEntity {
 
 function buildSummon(): Summon {
   return new Summon('summon-1', 'imp', '1', 1, 1, SummonColor.blue);
+}
+
+// Assigns a single-requirement personal quest (given autotrack tag) to a character, with autotrack enabled.
+function assignPersonalQuest(character: Character, autotrack: string, counter: number = 20) {
+  character.progress.personalQuest = 'PQ1';
+  character.progress.personalQuestAutotrack = true;
+  gameManager.editionData = [
+    Object.assign(new EditionData(character.edition, [], [], [], [], [], []), {
+      personalQuests: [
+        Object.assign(new PersonalQuest(), {
+          cardId: 'PQ1',
+          edition: character.edition,
+          requirements: [Object.assign(new PersonalQuestRequirement(), { counter, autotrack })]
+        })
+      ]
+    })
+  ];
+  settingsManager.settings.editions = [character.edition];
 }
 
 describe('EntityManager', () => {
@@ -363,6 +383,45 @@ describe('EntityManager', () => {
       expect(character.off).toBe(true);
     });
 
+    it('bumps exhaustedSelf/exhaustedChars/exhaustedCharsTurn personal quest progress on the false -> true exhaustion edge', () => {
+      const sharedQuest = Object.assign(new PersonalQuest(), {
+        cardId: 'PQ1',
+        edition: 'gh',
+        requirements: [
+          Object.assign(new PersonalQuestRequirement(), { counter: 20, autotrack: 'exhaustedSelf' }),
+          Object.assign(new PersonalQuestRequirement(), { counter: 20, autotrack: 'exhaustedChars' }),
+          Object.assign(new PersonalQuestRequirement(), { counter: 20, autotrack: 'exhaustedCharsTurn' })
+        ]
+      });
+      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [sharedQuest] })];
+      settingsManager.settings.editions = ['gh'];
+
+      const character = buildCharacter('brute');
+      character.maxHealth = 10;
+      character.health = 0;
+      character.exhausted = false;
+      character.active = true;
+      character.progress.personalQuest = 'PQ1';
+      character.progress.personalQuestAutotrack = true;
+
+      const ally = buildCharacter('spellweaver');
+      ally.progress.personalQuest = 'PQ1';
+      ally.progress.personalQuestAutotrack = true;
+
+      gameManager.game.figures = [character, ally];
+
+      entityManager.checkHealth(character, character);
+
+      expect(character.progress.personalQuestProgress[0]).toEqual(1); // exhaustedSelf
+      expect(ally.progress.personalQuestProgress[1]).toEqual(1); // exhaustedChars
+      expect(ally.progress.personalQuestProgress[2]).toEqual(1); // exhaustedCharsTurn (own turn)
+      expect(character.progress.personalQuestProgress[1] || 0).toEqual(0); // not counted against self
+
+      // does not double-count on a repeated checkHealth call while already exhausted
+      entityManager.checkHealth(character, character);
+      expect(character.progress.personalQuestProgress[0]).toEqual(1);
+    });
+
     it('revives (un-exhausts) a character once health rises back above 0', () => {
       const character = buildCharacter();
       character.maxHealth = 10;
@@ -413,6 +472,33 @@ describe('EntityManager', () => {
       character.exhausted = false;
       entityManager.checkHealth(character, character);
       expect(character.exhausted).toBe(false);
+    });
+  });
+
+  describe('addCondition - "condition" personal quest tracking', () => {
+    it('bumps progress when a character applies a matching negative condition to a monster entity', () => {
+      const character = buildCharacter('brute');
+      assignPersonalQuest(character, 'condition:poison');
+      gameManager.game.figures = [character];
+
+      const monster = buildMonster();
+      const entity = buildMonsterEntity(monster);
+      entity.entityConditions = [];
+
+      entityManager.addCondition(entity, character, new Condition(ConditionName.poison));
+
+      expect(character.progress.personalQuestProgress[0]).toEqual(1);
+    });
+
+    it('does not bump for a condition applied to an ally (not a monster entity)', () => {
+      const character = buildCharacter('brute');
+      assignPersonalQuest(character, 'condition:poison');
+      const ally = buildCharacter('spellweaver');
+      gameManager.game.figures = [character, ally];
+
+      entityManager.addCondition(ally, character, new Condition(ConditionName.poison));
+
+      expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
     });
   });
 
