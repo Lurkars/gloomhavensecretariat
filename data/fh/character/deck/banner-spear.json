@@ -97,7 +97,7 @@
             ],
             "action": {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.62.1%",
+              "value": "%data.custom.fh.banner-spear.1%",
               "small": true
             }
           },
@@ -627,18 +627,13 @@
               "heal"
             ],
             "action": {
-              "type": "grid",
-              "value": 1,
+              "type": "custom",
+              "value": "%data.custom.fh.banner-spear.2%",
+              "small": true,
               "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.fh.banner-spear.abilities.73.1%",
-                  "small": true
-                },
                 {
                   "type": "heal",
                   "value": 1,
-                  "small": true,
                   "subActions": [
                     {
                       "type": "specialTarget",
@@ -834,7 +829,8 @@
             ],
             "action": {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.76.2%"
+              "value": "%data.custom.fh.banner-spear.3%",
+              "small": true
             }
           },
           "small": true
@@ -1176,7 +1172,7 @@
             ],
             "action": {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.82.2%",
+              "value": "%data.custom.fh.banner-spear.4%",
               "small": true
             }
           },
@@ -1417,8 +1413,7 @@
                   "value": "immobilize",
                   "small": true
                 }
-              ],
-              "multiAttack": true
+              ]
             },
             {
               "type": "area",
@@ -1558,7 +1553,7 @@
             ],
             "action": {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.88.1%",
+              "value": "%data.custom.fh.banner-spear.5%",
               "small": true
             }
           },
