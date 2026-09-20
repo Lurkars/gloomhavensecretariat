@@ -1,1 +1,11 @@
-{}
+{
+  "objective": {
+    "Altar": "Altar",
+    "Hail": "Hail"
+  },
+  "scenario": {
+    "group": {
+      "solo": "Cenários Solo"
+    }
+  }
+}

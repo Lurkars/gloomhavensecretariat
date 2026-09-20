@@ -1,1 +1,18 @@
-{}
+{
+  "ability": {
+    "Commanding Presence": "Presença Imponente",
+    "Whirlwind": "Torvelinho"
+  },
+  "deck": {
+    "boss": "Chefe",
+    "imp": "Diabrete"
+  },
+  "monster": {
+    "black-imp": "Diabrete Negro",
+    "giant-viper": "Víbora Gigante",
+    "living-corpse": "Cadáver Vivo",
+    "living-spirit": "Espírito Vivo",
+    "stone-golem": "Golem de Pedra",
+    "vermling-scout": "Batedor Vermling"
+  }
+}

@@ -1,1 +1,78 @@
-{}
+{
+  "ability": {
+    "Armed and Dangerous": "Armado e Perigoso",
+    "Bioluminescence": "Bioluminescência",
+    "Blood Drain": "Drenagem de Sangue",
+    "Bone Daggers": "Adagas de Osso",
+    "Call of the Grave": "Chamado da Sepultura",
+    "Corrupting Parasites": "Parasitas Corruptores",
+    "Cyclone of Blades": "Ciclone de Lâminas",
+    "Death March": "Marcha da Morte",
+    "Deflecting Blades": "Lâminas Defletoras",
+    "Endless": "Infindável",
+    "Engulfing Stingers": "Ferrões Envolventes",
+    "Focused Scourge": "Flagelo Focado",
+    "Fury of the Horde": "Fúria da Horda",
+    "Grasping Advance": "Avanço Agarrador",
+    "Hive Mind": "Mente de Colmeia",
+    "Incubation": "Incubação",
+    "Infest": "Infestar",
+    "Oasis": "Oásis",
+    "Omniscient Assault": "Assalto Onisciente",
+    "Overwhelming Offensive": "Ofensiva Avassaladora",
+    "Putrid Grubs": "Larvas Pútridas",
+    "Repulsive Host": "Hospedeiro Repulsivo",
+    "Scattered Defense": "Defesa Dispersa",
+    "Sunstroke": "Insolação",
+    "Swarming Minions": "Lacaios Emxameantes",
+    "The Storm's Edge": "O Limiar da Tempestade",
+    "Tomb of the Immortal": "Túmulo do Imortal",
+    "Unstoppable Army": "Exército Implacável",
+    "Vampiric Tempest": "Tempestade Vampírica",
+    "Wasteland": "Terra Devastada"
+  },
+  "character": {
+    "gh": {
+      "envx": {
+        "": "Enxame de Lâminas",
+        "call-of-the-grave": {
+          "": "Chamado da Sepultura",
+          "hint": "Inimigos que tiverem %game.condition.wound% sofrem %game.damage:2% no início de cada um de seus turnos em vez de %game.damage:1%."
+        }
+      }
+    }
+  },
+  "custom": {
+    "gh": {
+      "envx": {
+        "abilities": {
+          "641": {
+            "1": "Além dos seus itens atuais, você pode equipar imediatamente até quatro itens de %game.items.slots.onehand%, dois itens de %game.items.slots.twohand%, ou dois itens de %game.items.slots.onehand% e um item de %game.items.slots.twohand%.",
+            "2": "Todos os aliados invocados por você realizam",
+            "3": "com você controlando as ações."
+          },
+          "644": {
+            "1": "Todos os aliados invocados por você realizam",
+            "2": "com você controlando as ações.",
+            "3": "Todos os aliados invocados adjacentes adicionam %game.action.attack.valueSign:1% a todos os seus ataques"
+          }
+        }
+      }
+    }
+  },
+  "items": {
+    "gh-envx-151": {
+      "1": "Durante seu ataque corpo a corpo, adicione %game.condition.poison% e %game.condition.wound% a toda a ação."
+    }
+  },
+  "summon": {
+    "angry-wasps": "Vespas Furiosas",
+    "bloat-maggot": "Verme Inchado",
+    "creeping-beetles": "Besouros Rastejantes",
+    "lightning-moths": "Mariposas do Trovão",
+    "rage-hornets": "Zangões da Raiva",
+    "rust-vermin": "Pragas da Ferrugem",
+    "soul-leeches": "Sanguessugas de Almas",
+    "steel-scarabs": "Escaravelhos de Aço"
+  }
+}

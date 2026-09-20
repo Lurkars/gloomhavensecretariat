@@ -1,1 +1,69 @@
-{}
+{
+  "monster": {
+    "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.gh.music-note% %solo%)",
+    "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.gh.music-note% %solo%)",
+    "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.gh.circles% %solo%)",
+    "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.gh.saw% %solo%)",
+    "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.gh.scoundrel% %solo%)",
+    "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.gh.sun% %solo%)",
+    "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.gh.tinkerer% %solo%)",
+    "deep-earth": "Terra Profunda",
+    "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.gh.mindthief% %solo%)",
+    "ghost-wolf": "Lobo Fantasma",
+    "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.gh.angry-face% %solo%)",
+    "high-flame": "Chama Alta",
+    "inox-necromancer": "Necromante Inox",
+    "lieutenant": "Tenente",
+    "song-of-the-deep": "Cântico das Profundezas",
+    "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.gh.scoundrel% %solo%)",
+    "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.gh.mindthief% %solo%)"
+  },
+  "scenario": {
+    "group": {
+      "solo": "Cenários Solo"
+    },
+    "title": {
+      "gh": {
+        "solo-1": "Retorno ao Túmulo Negro",
+        "solo-10": "Colhendo a Noite",
+        "solo-11": "Cripta Infestada",
+        "solo-12": "Insultos Antinaturais",
+        "solo-13": "Batalha dos Bardos",
+        "solo-14": "Caçada Corrompida",
+        "solo-15": "Consequências",
+        "solo-16": "Segredos Elementais",
+        "solo-17": "O Urso Enjaulado",
+        "solo-18": "As Areias do Tempo",
+        "solo-2": "Uma Intrusão Infortunada",
+        "solo-3": "Laboratório Corrompido",
+        "solo-4": "Assalto à Armaria",
+        "solo-5": "Defesa de Pedra",
+        "solo-6": "Libertação dos Roedores",
+        "solo-7": "Escolta de Caravanas",
+        "solo-8": "Taxas de Armazenamento",
+        "solo-9": "Plano das Feras Selvagens"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "gh": {
+        "solo-15-1": "Consequências",
+        "solo-17-1": "O Urso Enjaulado",
+        "solo-17-2": "O Urso Enjaulado",
+        "solo-17-3": "O Urso Enjaulado",
+        "solo-4-A2a": "Assalto à Armaria",
+        "solo-4-B2b": "Assalto à Armaria",
+        "solo-4-H1b": "Assalto à Armaria",
+        "solo-6-1": "Libertação dos Roedores",
+        "solo-6-2": "Libertação dos Roedores",
+        "solo-6-3": "Libertação dos Roedores",
+        "solo-7-1": "Escolta de Caravanas",
+        "solo-7-2": "Escolta de Caravanas",
+        "solo-A1b": "Batalha dos Bardos",
+        "solo-G2b": "Batalha dos Bardos",
+        "solo-I1a": "Batalha dos Bardos"
+      }
+    }
+  }
+}

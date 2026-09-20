@@ -1,1 +1,40 @@
-{}
+{
+  "custom": {
+    "bas": {
+      "desiccated-corpse": {
+        "1": "DESSECAR",
+        "2": "Destrua toda a água carregada por inimigos adjacentes."
+      },
+      "dust-demon": {
+        "1": "%data.monster.dust-demon% se move através do maior número possível de inimigos."
+      },
+      "jackal": {
+        "1": "Matilha"
+      },
+      "sand-spider": {
+        "1": "Adicione %game.action.attack.valueSign:3% se o alvo estiver %game.condition.immobilize%.",
+        "2": "Todos os ataques direcionados a %data.monster.sand-spider% neste rodada recebem Desvantagem.",
+        "3": "Crie uma armadilha de %game.condition.immobilize% em um hexágono vazio adjacente mais próximo de um inimigo."
+      }
+    }
+  },
+  "edition": {
+    "bas": "Sangue e Areia"
+  },
+  "monster": {
+    "desiccated-corpse": "Cadáver Dessecado",
+    "dust-demon": "Demônio do Pó",
+    "giant-scorpion": "Escorpião Gigante",
+    "horned-lizard": "Lagarto Chifrudo",
+    "jackal": "Chacal",
+    "sand-spider": "Aranha da Areia"
+  },
+  "scenario": {
+    "title": {
+      "bas": {
+        "1": "Por Todo o Mapa",
+        "2": "Águas Agitadas"
+      }
+    }
+  }
+}

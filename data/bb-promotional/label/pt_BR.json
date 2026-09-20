@@ -1,1 +1,49 @@
-{}
+{
+  "edition": {
+    "bb-promotional": "Button & Bugs - Conteúdo Promocional"
+  },
+  "items": {
+    "bb-41": {
+      "": "Carapaça de Besouro",
+      "1": "Se você se mover 1 ou menos hexágonos no seu turno, ganhe %game.action.shield:1% pela rodada."
+    },
+    "bb-42": {
+      "": "Presa de Roedor",
+      "1": "Após se mover 4 ou mais hexágonos, adicione %game.action.attack.valueSign:1% a todos os seus ataques neste turno."
+    },
+    "bb-43": {
+      "": "Flecha de Prata Perfurante",
+      "1": "Durante seu ataque à distância, adicione %game.action.pierce:5%."
+    },
+    "bb-44": {
+      "": "Espada Curta Encolhida",
+      "1": "A ação superior padrão das suas cartas de habilidade é %game.action.attack:3% em vez de %game.action.attack:2%."
+    },
+    "bb-45": {
+      "": "Floco de Sol Frioeterno",
+      "1": "Durante seu ataque, %game.elementHalf.consume:ice|light% para adicionar vantagem ou %game.condition.muddle%."
+    },
+    "bb-46": {
+      "": "Gota de Poção de Cura",
+      "1": "Durante seu turno, remova todas as condições negativas e %game.action.heal:2% em si mesmo."
+    }
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "20-5": {
+          "1": "O feiticeiro da arena tem 14 pontos de vida.",
+          "2": "O besouro chifrado tem 13 pontos de vida."
+        }
+      }
+    },
+    "title": {
+      "bb": {
+        "12-5": "O Domador de Feras",
+        "2-5": "Fuga por Pouco",
+        "20-5": "Outro Conto",
+        "5-5": "Desafio da Arena"
+      }
+    }
+  }
+}

@@ -1,15 +1,238 @@
 {
   "character": {
     "bb": {
-      "bruiser": "Brigante",
-      "cragheart": "Coração de Pedra",
-      "mindthief": "Ladrão de Mentes",
-      "silent-knife": "Faca Silente",
-      "spellweaver": "Tecelã Arcana",
-      "tinkerer": "Engenhoqueiro"
+      "bruiser": "Bruiser",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "silent-knife": "Silent Knife",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
     }
   },
   "edition": {
-    "bb": "Botões & Bichinhos"
+    "bb": "Button & Bugs"
+  },
+  "items": {
+    "bb-1": {
+      "": "Faca de Espinho de Rosa",
+      "1": "Durante seu ataque, %game.elementHalf.consume:ice|earth% para adicionar %game.action.pierce:1%."
+    },
+    "bb-10": {
+      "": "Chicote de Vinha",
+      "1": "Durante seu ataque, %game.elementHalf.consume:earth|light% para adicionar %game.condition.immobilize%"
+    },
+    "bb-11": {
+      "": "Aguha Magnética",
+      "1": "Durante seu turno, controle um inimigo a até %game.action.range:5%: %game.action.move:2%."
+    },
+    "bb-12": {
+      "": "Sobras de Comida",
+      "1": "Durante seu turno, %game.action.heal:1% em si mesmo."
+    },
+    "bb-13": {
+      "": "Flechas de Pena de Tordo",
+      "1": "Durante seu ataque à distância de alvo único, %game.elementHalf.consume:fire|air% para adicionar %game.action.range.valueSign:1%, %game.action.pierce:1%."
+    },
+    "bb-14": {
+      "": "Pólen de Solanacéia",
+      "1": "Após o ataque de um inimigo, %game.elementHalf.consume:earth|dark% para aplicar %game.condition.poison% naquele inimigo."
+    },
+    "bb-15": {
+      "": "Gota de Porção de Cura",
+      "1": "Durante seu turno, %game.action.heal:3% em si mesmo."
+    },
+    "bb-16": {
+      "": "Pó Volátil",
+      "1": "Durante seu ataque à distância de alvo único, adicione:"
+    },
+    "bb-17": {
+      "": "Anzol e Linha de Pesca",
+      "1": "Durante seu ataque à distância, adicione %game.action.pierce:2%, %game.action.pull:2%."
+    },
+    "bb-18": {
+      "": "Escudo de Casca de Castanha",
+      "1": "Durante o ataque de um inimigo, ganhe %game.action.shield:1% e %game.action.retaliate:1%."
+    },
+    "bb-19": {
+      "": "Engrenagem de Latão",
+      "1": "Após determinar a iniciativa, aumente ou diminua sua iniciativa em 10."
+    },
+    "bb-2": {
+      "": "Presa Venenosa",
+      "1": "Durante seu ataque corpo a corpo, adicione %game.condition.poison%."
+    },
+    "bb-20": {
+      "": "Óleo Lubrificante",
+      "1": "Durante seu movimento, adicione %game.action.move.valueSign:2%."
+    },
+    "bb-21": {
+      "": "Gota de Poção Elementar",
+      "1": "Durante seu turno, crie %game.element.wild% %game.element.wild%."
+    },
+    "bb-22": {
+      "": "Gota de Poção de Vigor",
+      "1": "Durante seu turno, %game.card.recover% uma carta de nível 1 da sua mão ou pilha de descarte para o Lado A."
+    },
+    "bb-23": {
+      "": "Pitada de Pó da Ruína",
+      "1": "Durante seu ataque, adicione %game.condition.disarm%, %game.condition.poison%."
+    },
+    "bb-24": {
+      "": "Agulhas de Costura",
+      "1": "Durante seu ataque, adicione %game.action.pierce:1%."
+    },
+    "bb-25": {
+      "": "Lápis Apontado",
+      "1": "Durante seu ataque corpo a corpo de alvo único, adicione:"
+    },
+    "bb-26": {
+      "": "Escudo de Moeda",
+      "1": "Durante o ataque de um inimigo, ganhe %game.action.shield:2%."
+    },
+    "bb-27": {
+      "": "Arco Longo Encolhido",
+      "1": "Durante seu ataque à distância, adicione %game.action.attack.valueSign:1%, %game.action.pierce:1%."
+    },
+    "bb-28": {
+      "": "Espada Longa Encolhida",
+      "1": "Durante seu ataque corpo a corpo, adicione %game.action.attack.valueSign:1%."
+    },
+    "bb-29": {
+      "": "Urtiga-de-Fogo",
+      "1": "Após o ataque de um inimigo, %game.elementHalf.consume:fire|earth% para aplicar %game.condition.wound% naquele inimigo."
+    },
+    "bb-3": {
+      "": "Botas Gastas Encolhidas",
+      "1": "Durante seu movimento, adicione %game.action.move.valueSign:1%."
+    },
+    "bb-30": {
+      "": "Bolinha de Gude Olho de Gato da Sorte",
+      "1": "Durante seu ataque, trate seu modificador de ataque %game.bbAm.0% como um modificador de ataque %game.bbAm.1%."
+    },
+    "bb-31": {
+      "": "Cacto de Vidro",
+      "1": "Durante seu ataque corpo a corpo, adicione %game.condition.wound%."
+    },
+    "bb-32": {
+      "": "Escudo de Carta do Baralho",
+      "1": "Durante o ataque de um inimigo, ganhe %game.action.shield:4%."
+    },
+    "bb-33": {
+      "": "Gota de Elixir de Celeridade",
+      "1": "Após realizar a ação superior de uma carta de habilidade, realize também a ação inferior."
+    },
+    "bb-34": {
+      "": "Gota de Elixir de Vigor",
+      "1": "Durante seu turno, %game.card.recover% uma carta da sua mão ou pilha de descarte para o Lado A."
+    },
+    "bb-35": {
+      "": "Gema Prismática",
+      "1": "Durante seu ataque, %game.element.consume.wild% para adicionar %game.action.attack.valueSign:1%."
+    },
+    "bb-36": {
+      "": "Gota de Poção de Fortalecimento",
+      "1": "Durante seu turno, ganhe %game.condition.strengthen% em si mesmo."
+    },
+    "bb-37": {
+      "": "Gema Crepuscular",
+      "1": "Durante o ataque de um inimigo, %game.elementHalf.consume:air|dark% para ganhar %game.action.shield:1% e aplicar %game.condition.muddle% naquele inimigo."
+    },
+    "bb-38": {
+      "": "Gema do Brilho Atrativo",
+      "1": "Após seu ataque, %game.elementHalf.consume:air|light% para controlar o alvo do ataque: %game.action.move:1%."
+    },
+    "bb-39": {
+      "": "Escudo de Concha Irisada",
+      "1": "Durante seu turno, ganhe %game.action.shield:1% pela rodada. Crie %game.element.wild%."
+    },
+    "bb-4": {
+      "": "Mola Velha",
+      "1": "Durante seu turno, adicione %game.action.jump% a todos os seus movimentos."
+    },
+    "bb-40": {
+      "": "Canivete",
+      "1": "Durante seu ataque corpo a corpo, adicione %game.action.attack.valueSign:1%, %game.action.pierce:2%, %game.condition.wound%."
+    },
+    "bb-41": {
+      "": "Yelmo de Tampinha de Garrafa",
+      "1": "Durante o ataque de um inimigo, trate o modificador de ataque %game.bbAm.2% dele como um modificador de ataque %game.bbAm.1%."
+    },
+    "bb-42": {
+      "": "Yelmo de Crânio de Pardal",
+      "1": "Durante seu ataque, ganhe vantagem."
+    },
+    "bb-5": {
+      "": "Gota de Poção do Poder",
+      "1": "Durante seu turno, adicione %game.action.attack.valueSign:1% a todos os seus ataques."
+    },
+    "bb-6": {
+      "": "Gota de Água Límpida",
+      "1": "Durante seu turno, %game.elementHalf.consume:ice|air% para remover uma condição negativa."
+    },
+    "bb-7": {
+      "": "Martelo de Mola",
+      "1": "Durante seu ataque corpo a corpo, adicione %game.action.push:2%."
+    },
+    "bb-8": {
+      "": "Escudo de Botão",
+      "1": "Durante o ataque de um inimigo, ganhe %game.action.shield:1%."
+    },
+    "bb-9": {
+      "": "Prego de Ferro",
+      "1": "Durante seu turno, adicione %game.action.pierce:2% a todos os seus ataques corpo a corpo."
+    }
+  },
+  "monster": {
+    "arena-sorcerer": "Feiticeiro da Arena",
+    "bandit-archer": "Arqueiro Bandido",
+    "bandit-guard": "Guarda Bandido",
+    "demon-prince": "Príncipe Demônio",
+    "earth-demon": "Demônio da Terra",
+    "flame-demon": "Demônio da Chama",
+    "frost-demon": "Demônio do Gelo",
+    "gloomtoad": "Sapo da Penumbra",
+    "goring-beetle": "Besouro Chifrado",
+    "harrowing-infestation": "Infestação Devastadora",
+    "king-button": "Rei Botão",
+    "mounted-prince": "Príncipe Montado",
+    "mouse": "Rato",
+    "rending-beetle": "Besouro Despedaçador",
+    "sewer-rat": "Rato do Esgoto",
+    "spitting-moth": "Mariposa Cuspideira",
+    "stuffed-construct": "Constructo de Pelúcia",
+    "tattered-construct": "Constructo Harrapento",
+    "venomous-centipede": "Centopeia Venenosa",
+    "wind-demon": "Demônio do Vento"
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "15": "Vire todas as suas cartas de habilidade para o Lado B."
+      }
+    },
+    "title": {
+      "bb": {
+        "1": "Uma Recepção Hostil",
+        "10": "Rumo à Escuridão",
+        "11": "No Alto da Janela",
+        "12": "Coletando Materiais",
+        "13": "Atravessando de Zipline",
+        "14": "O Ledor de Entradas",
+        "15": "Toque o Sino",
+        "16": "Sinalizador de Emergência",
+        "17": "O Caminho Mais Longo",
+        "18": "Esmague a Bagunça",
+        "19": "Esconde-Esconde",
+        "2": "Atravessando a Rua",
+        "20": "Confronto Final",
+        "3": "Dentro das Paredes",
+        "4": "Invasão",
+        "5": "Arena do Botão",
+        "6": "Controle de Pragas",
+        "7": "Controle Mental",
+        "8": "Subindo",
+        "9": "De Volta às Paredes"
+      }
+    }
   }
 }

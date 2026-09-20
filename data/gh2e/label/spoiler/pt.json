@@ -1,1 +1,27 @@
-{}
+{
+  "summon": {
+    "angry-wasps": "Vespas Furiosas",
+    "battle-boar": "Javali de Batalha",
+    "battle-bot": "Robô de Batalha",
+    "creeping-beetles": "Besouros Rastejantes",
+    "decoy": "Chamariz",
+    "iron-beast": "Besta de Ferro",
+    "kill-bot": "Robô Exterminador",
+    "monolith": "Monólito",
+    "rage-hornets": "Zangões da Raiva",
+    "rat-king": "Rei dos Ratos",
+    "rat-swarm": "Enxame de Ratos",
+    "rock-colossus": "Colosso de Pedra",
+    "rust-vermin": "Pragas da Ferrugem",
+    "skeleton": "Esqueleto",
+    "slime-spirit": "Espírito de Gosma",
+    "soul-leeches": "Sanguessugas de Almas",
+    "steel-construct": "Constructo de Aço",
+    "steel-scarabs": "Escaravelhos de Aço",
+    "thorn-shooter": "Disparador de Espinhos",
+    "two-mini": "Urso",
+    "vicious-jackal": "Chacal Vicioso",
+    "void-eater": "Devorador do Vazio",
+    "warrior-spirit": "Espírito Guerreiro"
+  }
+}

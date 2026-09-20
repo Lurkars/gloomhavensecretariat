@@ -1,1 +1,51 @@
-{}
+{
+  "ability": {
+    "Biting Gnats": "Moscas Mordedoras",
+    "Paralyzing Bite": "Mordida Paralisante",
+    "Rampage": "Fúria",
+    "Rising Momentum": "Impulso Crescente",
+    "Venom Shiv": "Adaga Venenosa",
+    "Whirlwind": "Torvelinho"
+  },
+  "deck": {
+    "archer": "Arqueiro",
+    "boss": "Chefe",
+    "guard": "Guarda",
+    "imp": "Diabrete",
+    "scout": "Batedor"
+  },
+  "monster": {
+    "ancient-artillery": "Artilharia Antiga",
+    "black-imp": "Diabrete Negro",
+    "city-guard": "Guarda da Cidade",
+    "deep-terror": "Terror das Profundezas",
+    "earth-demon": "Demônio da Terra",
+    "flame-demon": "Demônio da Chama",
+    "forest-imp": "Diabrete da Floresta",
+    "frost-demon": "Demônio do Gelo",
+    "harrower-infester": "Infestador Harrower",
+    "hound": "Cão de Caça",
+    "living-bones": "Ossos Vivos",
+    "living-spirit": "Espírito Vivo",
+    "night-demon": "Demônio da Noite",
+    "ooze": "Gosma",
+    "rending-drake": "Serpe Dilacerador",
+    "savvas-icestorm": "Savvas Tempestade de Gelo",
+    "savvas-lavaflow": "Savvas Fluxo de Lava",
+    "spitting-drake": "Serpe Cuspidor",
+    "sun-demon": "Demônio do Sol",
+    "vermling-scout": "Batedor Vermling",
+    "wind-demon": "Demônio do Vento"
+  },
+  "objective": {
+    "Altar": "Altar",
+    "Door": "Porta",
+    "Tree": "Árvore"
+  },
+  "scenario": {
+    "group": {
+      "randomMonsterCard": "Cartas de Monstro Aleatórias",
+      "solo": "Cenários Solo"
+    }
+  }
+}
