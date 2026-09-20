@@ -218,7 +218,19 @@
       },
       "personalQuest": {
         "": "Personal Quest",
+        "autotrack": {
+          "disabled": "Automatic progress tracking is disabled for this Personal Quest. Click to enable it for requirements it can track.",
+          "enabled": "Automatic progress tracking is enabled for this Personal Quest. Click to disable it and track progress manually again."
+        },
         "counter": "Counter",
+        "draw": "Draw a Personal Quest card",
+        "drawDialog": {
+          "": "Draw Personal Quest",
+          "choose": "Choose selected Card",
+          "empty": "No Personal Quest cards are currently available to draw.",
+          "redraw": "Draw again",
+          "show": "Show Full Card"
+        },
         "openEnvelope": {
           "": "Open Envelope %game.fhIcon:envelope% {0}",
           "alt": "Open Envelope %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
@@ -557,6 +569,11 @@
       "objective": "{0}",
       "objectiveEntity": "{1} of {0}",
       "summon": "Summon {1} of {0}"
+    },
+    "trap": {
+      "apply": "Apply",
+      "dialog": "Select target for trap effect",
+      "select": "Select target"
     }
   },
   "errata": "Errata",
@@ -1367,6 +1384,12 @@
       }
     },
     "maxHealth": "Maximum hit points",
+    "personalQuests": {
+      "setup": {
+        "": "Setup Personal Quests",
+        "empty": "No Personal Quests for this edition."
+      }
+    },
     "solo": "Solo",
     "specialTarget": {
       "ability": "%game.target% the target of the %game.actionText.{0}% ability",
@@ -1548,6 +1571,14 @@
       "items": "Unlocked Items",
       "manage": "Global Campaign Management",
       "map": "Map",
+      "personalQuests": {
+        "fulfilled": "Fulfilled by %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "lock": "Undo manual unlock",
+        "locked": "Locked",
+        "picked": "Picked by %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "unlock": "Manually unlock",
+        "unlocked": "Unlocked"
+      },
       "players": {
         "": "Player Names",
         "add": "Add Player"
@@ -3483,6 +3514,9 @@
           "character": "Add special actions {0} for {1}",
           "summon": "Add special actions {0} for {2} of {1}"
         },
+        "applyTrap": {
+          "summon": "Apply trap '{2}' of {1} to {0}"
+        },
         "changeDamage": {
           "": "{0} %game.action.damage% for selection",
           "character": "{0} %game.action.damage% for {1}",
@@ -3775,6 +3809,7 @@
       "importCharacter": "Import character {0} from file",
       "importParty": "Import campaign from file",
       "loadGameFromFile": "Load game state from file",
+      "lockPersonalQuest": "Lock Personal Quest %data.personalQuest.{0}.{1}%",
       "lootCharTreasure": "{2} loots treasure {0}",
       "lootDeckAddEnhancement": "Enhance Loot Card '{1} %game.loot.{0}%'",
       "lootDeckChangeConfig": "Change Loot Table",
@@ -4007,6 +4042,7 @@
       "toggleTypeAll": "Toggle all monster standee types for {0}",
       "unequipItem": "Unequip Item {1} (%data.edition.{2}%) for {0}",
       "unlockChar": "Unlock {0}",
+      "unlockPersonalQuest": "Unlock Personal Quest %data.personalQuest.{0}.{1}%",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
       "unsetAllied": "{0} not as allied",
