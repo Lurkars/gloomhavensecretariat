@@ -16,6 +16,7 @@ import {
   CommandMissingParameterError,
   CommandUnknownError
 } from 'src/app/game/commands/Command';
+import { ElementToggleCommand } from 'src/app/game/commands/element/ElementToggle';
 import { FigureNextCommand } from 'src/app/game/commands/figure/FigureNext';
 import { LootDeckDrawCommand } from 'src/app/game/commands/lootDeck/LootDeckDraw';
 import { RoundStateCommand } from 'src/app/game/commands/round/RoundState';
@@ -39,7 +40,8 @@ export class CommandManager {
     'character.xp': CharacterXpCommand,
     'figure.next': FigureNextCommand,
     'lootDeck.draw': LootDeckDrawCommand,
-    'round.state': RoundStateCommand
+    'round.state': RoundStateCommand,
+    'element.toggle': ElementToggleCommand
   };
 
   private history: Command[] = [];
