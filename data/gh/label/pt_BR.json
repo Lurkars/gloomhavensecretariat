@@ -600,7 +600,7 @@
       "cragheart": "Coração de Pedra",
       "mindthief": "Ladrão de Mentes",
       "scoundrel": "Malandra",
-      "spellweaver": "Tecedora de Feitiços",
+      "spellweaver": "Tecelã Arcana",
       "tinkerer": "Engenhoqueiro"
     }
   },
@@ -1162,7 +1162,7 @@
     "artifact-recovered": "Artefato: Recuperado",
     "city-rule-demonic": "Governo da Cidade: Demoníaco",
     "city-rule-economic": "Governo da Cidade: Econômico",
-    "city-rule-militaristic": "Governo da Cidade: Militarista",
+    "city-rule-militaristic": "Governo da Cidade: Militar",
     "end-of-corruption": "Fim da Corrupção",
     "end-of-gloom": "Fim do Combalimento",
     "end-of-the-invasion": "Fim da Invasão",
@@ -1493,7 +1493,7 @@
     },
     "title": {
       "gh": {
-        "1": "Túmulo Negro",
+        "1": "Colina Negra",
         "10": "Plano do Poder Elemental",
         "11": "Praça de Gloomhaven A",
         "12": "Praça de Gloomhaven B",
@@ -1504,7 +1504,7 @@
         "17": "Ilha Perdida",
         "18": "Esgotos Abandonados",
         "19": "Cripta Esquecida",
-        "2": "Guarida do Túmulo",
+        "2": "Covil na Colina",
         "20": "Santuário do Necromante",
         "21": "Trono Infernal",
         "22": "Templo dos Elementos",
@@ -1589,7 +1589,7 @@
         "94": "Ninho Vermling",
         "95": "Pagamento Devido",
         "randomDungeon-rnd": "Masmorra Aleatória",
-        "solo-1": "Retorno ao Túmulo Negro",
+        "solo-1": "Retorno a Colina Negra",
         "solo-10": "Colhendo a Noite",
         "solo-11": "Cripta Infestada",
         "solo-12": "Insultos Antinaturais",

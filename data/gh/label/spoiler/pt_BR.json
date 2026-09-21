@@ -971,7 +971,7 @@
       "1": "Durante o seu turno, aplique %game.condition.curse% a todos os inimigos adjacentes."
     },
     "gh-12": {
-      "": "Pção de Cura Menor",
+      "": "Poção de Cura Menor",
       "1": "Durante o seu turno, realize uma ação de \"%game.action.heal:3%, próprio\"."
     },
     "gh-120": {
@@ -1014,7 +1014,7 @@
       "1": "Durante o seu turno, coloque um token de personagem em um inimigo normal ou elite adjacente. Você adiciona %game.action.attack.valueSign:1% a todos os seus ataques direcionados a este inimigo."
     },
     "gh-13": {
-      "": "Pção de Vigor Menor",
+      "": "Poção de Vigor Menor",
       "1": "Durante o seu turno, Recupere %game.card.recover% até duas das suas cartas descartadas."
     },
     "gh-130": {
@@ -1058,7 +1058,7 @@
       "1": "Sempre que realizar uma ação de %data.characterColored.mindthief:Augment%, adicione %game.action.attack.valueSign:1% a toda a ação."
     },
     "gh-14": {
-      "": "Pção de Poder Menor",
+      "": "Poção de Poder Menor",
       "1": "Durante o seu ataque, adicione %game.action.attack.valueSign:1% a toda a sua ação de Ataque."
     },
     "gh-140": {
