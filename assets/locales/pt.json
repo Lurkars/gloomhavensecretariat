@@ -219,6 +219,7 @@
       "personalQuest": {
         "": "Missão Pessoal",
         "counter": "Contador",
+        "draw": "Comprar carta de Missão Pessoal",
         "openEnvelope": {
           "": "Abrir Envelope %game.fhIcon:envelope% {0}",
           "alt": "Abrir Envelope %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
@@ -802,12 +803,12 @@
         "hint": "Não é uma condição, mas um auxiliar para rastrear %game.conditionIcon.plague% Marcadores de Praga"
       },
       "poison": {
-        "": "Envenenar",
-        "hint": "%game.conditionIcon.poison% Envenenar: Todos os atacantes ganham %game.action.attack.valueSign:1%. Impede cura. Remove ao ser curado."
+        "": "Veneno",
+        "hint": "%game.conditionIcon.poison% Veneno: Todos os atacantes ganham %game.action.attack.valueSign:1%. Impede cura. Remove ao ser curado."
       },
       "poison_x": {
-        "": "Envenenar {0}",
-        "hint": "%game.conditionIcon.poison_x:X% Envenenar X: Todos os atacantes ganham +X %game.action.attack%. Impede cura. Remove ao ser curado."
+        "": "Veneno {0}",
+        "hint": "%game.conditionIcon.poison_x:X% Veneno X: Todos os atacantes ganham +X %game.action.attack%. Impede cura. Remove ao ser curado."
       },
       "regenerate": {
         "": "Regenerar",
@@ -837,12 +838,12 @@
         "hint": "%game.conditionIcon.ward% Proteção: Reduz pela metade (arredondado para baixo) a próxima fonte de %game.damage%, depois remove."
       },
       "wound": {
-        "": "Ferir",
-        "hint": "%game.conditionIcon.wound% Ferir: Sofre %game.damage:1% no início de cada turno. Remove ao ser curado."
+        "": "Sangramento",
+        "hint": "%game.conditionIcon.wound% Sangramento: Sofre %game.damage:1% no início de cada turno. Remove ao ser curado."
       },
       "wound_x": {
-        "": "Ferir {0}",
-        "hint": "%game.conditionIcon.wound_x:X% Ferir X: Sofre %game.damage:X% no início de cada turno. Remove ao ser curado."
+        "": "Sangramento {0}",
+        "hint": "%game.conditionIcon.wound_x:X% Sangramento X: Sofre %game.damage:X% no início de cada turno. Remove ao ser curado."
       }
     },
     "custom": {
@@ -1367,6 +1368,11 @@
       }
     },
     "maxHealth": "Pontos de vida máximos",
+    "personalQuests": {
+      "setup": {
+        "": "Preparar Missão Pessoal"
+      }
+    },
     "solo": "Solo",
     "specialTarget": {
       "ability": "%game.target% o alvo da habilidade %game.actionText.{0}%",
