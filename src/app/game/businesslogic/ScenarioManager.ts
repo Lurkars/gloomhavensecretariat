@@ -583,10 +583,7 @@ export class ScenarioManager {
           gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenarioRequirements, building);
         });
 
-        const hasBossMonster = scenario.monsters.some((name) => {
-          const monsterData = gameManager.monstersData(scenario.edition).find((monster) => monster.name === name);
-          return !!monsterData && monsterData.boss;
-        });
+        const hasBossMonster = this.getScenarioMonster(scenario).some((monsterData) => monsterData.boss);
         if (hasBossMonster) {
           gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.bossScenarios);
         }
