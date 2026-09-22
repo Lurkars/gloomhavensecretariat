@@ -47,7 +47,7 @@
   {
     "id": 4,
     "name": "Orb of Vigor",
-    "cost": 15,
+    "cost": 20,
     "count": 2,
     "edition": "cs",
     "slot": "small",
@@ -62,7 +62,7 @@
   {
     "id": 5,
     "name": "Orb of Retribution",
-    "cost": 15,
+    "cost": 20,
     "count": 2,
     "edition": "cs",
     "slot": "small",
@@ -77,7 +77,7 @@
   {
     "id": 6,
     "name": "Orb of Infection",
-    "cost": 15,
+    "cost": 20,
     "count": 2,
     "edition": "cs",
     "slot": "small",
@@ -92,7 +92,7 @@
   {
     "id": 7,
     "name": "Orb of Vitality",
-    "cost": 15,
+    "cost": 20,
     "count": 2,
     "edition": "cs",
     "slot": "small",
@@ -107,7 +107,7 @@
   {
     "id": 8,
     "name": "Orb of Protection",
-    "cost": 15,
+    "cost": 20,
     "count": 2,
     "edition": "cs",
     "slot": "small",
@@ -122,7 +122,7 @@
   {
     "id": 9,
     "name": "Orb of Fortune",
-    "cost": 15,
+    "cost": 30,
     "count": 2,
     "edition": "cs",
     "slot": "small",
@@ -137,7 +137,7 @@
   {
     "id": 10,
     "name": "Orb of Despair",
-    "cost": 15,
+    "cost": 30,
     "count": 2,
     "edition": "cs",
     "slot": "small",
@@ -613,7 +613,7 @@
   },
   {
     "id": 39,
-    "name": "Hook Gun",
+    "name": "Hook Shot",
     "cost": 45,
     "count": 1,
     "edition": "cs",
@@ -1660,7 +1660,7 @@
   {
     "id": 100,
     "name": "Wonder Stone",
-    "cost": 25,
+    "cost": 40,
     "count": 1,
     "edition": "cs",
     "slot": "small",
