@@ -1058,7 +1058,7 @@
       "1": "Sempre que realizar uma ação de %data.characterColored.mindthief:Augment%, adicione %game.action.attack.valueSign:1% a toda a ação."
     },
     "gh-14": {
-      "": "Poção de Poder Menor",
+      "": "Poção de Poder Força",
       "1": "Durante o seu ataque, adicione %game.action.attack.valueSign:1% a toda a sua ação de Ataque."
     },
     "gh-140": {
@@ -1221,7 +1221,7 @@
       "1": "Sempre que usar a parte superior padrão de uma carta de habilidade, realize uma ação de \"%game.action.attack:3%\" em vez de uma ação de \"%game.action.attack:2%\"."
     },
     "gh-41": {
-      "": "Poção de Poder Maior",
+      "": "Poção de Poder Força",
       "1": "Durante o seu ataque, adicione %game.action.attack.valueSign:2% a toda a sua ação de Ataque."
     },
     "gh-42": {
