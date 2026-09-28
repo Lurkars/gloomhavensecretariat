@@ -103,7 +103,13 @@
       "level": 2,
       "health": 11,
       "movement": 3,
-      "attack": 2
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
     },
     {
       "type": "elite",
