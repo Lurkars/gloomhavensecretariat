@@ -575,13 +575,15 @@ export class ScenarioManager {
         gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenariosCompleted);
         gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.sideScenarios, scenario.index);
 
-        const requiredBuildings = new Set<string>();
-        scenario.requirements.forEach((requirement) => {
-          (requirement.buildings || []).forEach((building) => requiredBuildings.add(building));
-        });
-        requiredBuildings.forEach((building) => {
-          gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenarioRequirements, building);
-        });
+        if (!!scenario.requirements) {
+          const requiredBuildings = new Set<string>();
+          scenario.requirements.forEach((requirement) => {
+            (requirement.buildings || []).forEach((building) => requiredBuildings.add(building));
+          });
+          requiredBuildings.forEach((building) => {
+            gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenarioRequirements, building);
+          });
+        }
 
         const hasBossMonster = this.getScenarioMonster(scenario).some((monsterData) => monsterData.boss);
         if (hasBossMonster) {
