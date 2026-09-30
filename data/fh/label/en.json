@@ -1433,7 +1433,117 @@
         "4": "Once each scenario, when any character ally would become exhausted by suffering %game.damage%, you may suffer %game.damage:2% to reduce their hit point value to 1 instead",
         "5": "At the start of each scenario, you may play a level 1 card from your hand to performa summon action of the card",
         "6": "Kill at least fifteen of your summons",
-        "7": "Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario"
+        "7": "Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario",
+        "abilities": {
+          "120": {
+            "1": "On the next three sources of %game.damage% to you, negate the %game.damage%."
+          },
+          "124": {
+            "1": "Add %game.action.attack.valueSign:1% if the target is adjacent to at least one of your summons.",
+            "2": "All of your summons' attacks are unaffected by %game.action.retaliate%."
+          },
+          "125": {
+            "1": "Grant three of your summons:"
+          },
+          "126": {
+            "1": "On the next death of one of your summons due to %game.damage% from an attack, the attacker suffers %game.damage:2%."
+          },
+          "127": {
+            "1": "If an enemy has died this round, perform:"
+          },
+          "128": {
+            "1": "Where X is the number of your summons.",
+            "2": "Grant one of your summons:"
+          },
+          "129": {
+            "1": "Grant one of your summons:",
+            "2": "Grant one ally:"
+          },
+          "130": {
+            "1": "Grant one of your summons adjacent to the target of the curse ability:",
+            "3": "with you gaining all looted tokens and tiles.",
+            "2": "Grant one of your summons:"
+          },
+          "131": {
+            "1": "If this attack kills the target, immediately play a card from your discard pile to perform a summon action of the card, reducing any %game.damage% you suffer by 2."
+          },
+          "132": {
+            "1": "Grant one of your summons:"
+          },
+          "133": {
+            "1": "Designate one of your summons and perform:",
+            "2": "all enemies adjacent to the designated summon",
+            "3": "Kill the designated summon",
+            "4": "When the next enemy dies this round, all allies and enemies adjacent to the hex in which it died suffer %game.damage:2%."
+          },
+          "134": {
+            "1": "Grant one of your summons:",
+            "2": "On the next three sources of %game.damage% to one of your summons, negate the %game.damage%."
+          },
+          "135": {
+            "1": "Grant one of your summons:"
+          },
+          "136": {
+            "1": "Add %game.action.attack.valueSign:1% for each of your summons.",
+            "2": "If the target dies this round, immediately play a card from your discard pile to perform a summon action of the card, reducing any %game.damage% you suffer by 2."
+          },
+          "137": {
+            "1": "Play a card from your discard pile to perform a summon action of the card."
+          },
+          "138": {
+            "1": "Designate one of your summons and perform:",
+            "2": "all enemies adjacent to the designated summon",
+            "3": "Kill the designated summon",
+            "4": "Whenever an enemy attacks you or one of your summons, that enemy gains %game.condition.poison%. If that enemy already has %game.condition.poison%, it suffers %game.damage:1% after the attack instead."
+          },
+          "139": {
+            "1": "Grant one of your summons:",
+            "2": "Grant two of your summons the attack ability instead.",
+            "4": "that enemy",
+            "3": "If %game.condition.curse% causes an enemy to deal no %game.damage% during its attack, grant all your summons adjacent to that enemy:"
+          },
+          "140": {
+            "1": "Grant one ally within %game.action.range:3%:",
+            "2": "On the next source of %game.damage% to one of your summons, negate the %game.damage%."
+          },
+          "142": {
+            "1": "All Shambling Skeletons have %game.action.heal.valueSign:1%, %game.action.move.valueSign:1%, and %game.action.pierce:1%."
+          },
+          "143": {
+            "1": "Grant one of your summons:"
+          },
+          "144": {
+            "1": "Grant one of your summons:"
+          },
+          "145": {
+            "1": "Play a card from your discard pile to perform a summon action of the card.",
+            "2": "Grant all your summons:",
+            "3": "On the next three deaths of any figure, perform:"
+          },
+          "146": {
+            "1": "On the next three monster deaths within %game.action.range:3%, add 1 %game.condition.curse% card to the monster attack modifier deck.",
+            "2": "When the next monster dies this round, immediately play a card from your discard pile to perform a summon action of the card, reducing any %game.damage% you suffer by 2 and acting as if you occupied the hex in which that monster died."
+          },
+          "147": {
+            "1": "Shambling Skeletons may end their move abilities on this summon. If they do, kill them and add a token to this card, up to a maximum of five. Whenever this summon would suffer %game.damage%, you may remove a token to negate the %game.damage%.",
+            "2": "Grant one of your summons:",
+            "3": "Grant one of your summons:"
+          },
+          "148": {
+            "1": "All targets adjacent to at least one of your summons gain %game.condition.curse%."
+          },
+          "149": {
+            "1": "All Shambling Skeletons have %game.action.heal.valueSign:1%.",
+            "2": "Whenever one of your summons kills an enemy with a ranged attack, %game.elementHalf:earth|dark%.",
+            "3": "Ignore all",
+            "4": "abilities",
+            "5": "on your ability cards."
+          },
+          "150": {
+            "1": "The next enemy that kills one of your summons this round gains %game.condition.bane%.",
+            "2": "All enemies within %game.action.range:5% suffer %game.damage:1%."
+          }
+        }
       },
       "brother": {
         "1": "One Brother performs:",
