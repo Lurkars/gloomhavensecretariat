@@ -29,9 +29,11 @@ export const ActionTypesHelper: ActionType[] = [
   ActionType.box,
   ActionType.boxFhSubActions,
   ActionType.card,
+  ActionType.fast,
   ActionType.forceBox,
   ActionType.grid,
-  ActionType.nonCalc
+  ActionType.nonCalc,
+  ActionType.slow
 ];
 
 export const ActionTypesCombine: ActionType[] = [ActionType.push, ActionType.pull, ActionType.pierce];
@@ -481,7 +483,10 @@ export class ActionComponent implements OnInit, AfterViewInit {
       );
     }
     this.fhExtraActions = [];
-    if (settingsManager.settings.fhStyle && ![ActionType.boxFhSubActions, ActionType.extra].includes(this.action.type)) {
+    if (
+      settingsManager.settings.fhStyle &&
+      ![ActionType.boxFhSubActions, ActionType.extra, ActionType.fast, ActionType.slow].includes(this.action.type)
+    ) {
       this.action.subActions.forEach((action) => {
         if (action.type === ActionType.boxFhSubActions) {
           this.fhExtraActions.push(action);

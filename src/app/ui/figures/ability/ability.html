@@ -53,15 +53,28 @@
             <img [src]="identityIcon" />
           </div>
         }
-        <div class="initiative">
-          @if (ability.initiative < 10) {
-            <span>0</span>
-          }
-          {{ ability.initiative }}
-          @if (identityIcon) {
-            <img class="identity" [ngClass]="'identity-' + ability.identity" [src]="identityIcon" />
-          }
-        </div>
+        @if (ability.initiative > 99) {
+          <div class="initiative dual">
+            <span class="initiative-fast">
+              <img src="./assets/images/character/icons/fh-blinkblade-fast.svg" />
+              <span>{{ fastInitiative }}</span>
+            </span>
+            <span class="initiative-slow">
+              <span>{{ slowInitiative }}</span>
+              <img src="./assets/images/character/icons/fh-blinkblade-slow.svg" />
+            </span>
+          </div>
+        } @else {
+          <div class="initiative">
+            @if (ability.initiative < 10) {
+              <span>0</span>
+            }
+            {{ ability.initiative }}
+            @if (identityIcon) {
+              <img class="identity" [ngClass]="'identity-' + ability.identity" [src]="identityIcon" />
+            }
+          </div>
+        }
         <span class="name">{{ abilityLabel }}</span>
         <div class="ability-actions-container" [ngClass]="{ disabled: activeActions() && activeActions() === 'bottom' }">
           <div class="ability-actions">
