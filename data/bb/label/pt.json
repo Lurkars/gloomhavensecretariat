@@ -6,7 +6,7 @@
       "mindthief": "Mindthief",
       "silent-knife": "Silent Knife",
       "spellweaver": "Spellweaver",
-      "tinkerer": "Tinkerer"
+      "tinkerer": "Engenhoqueiro"
     }
   },
   "edition": {
@@ -162,7 +162,7 @@
       "1": "Durante seu ataque, ganhe vantagem."
     },
     "bb-5": {
-      "": "Gota de Poção do Poder",
+      "": "Gota de Poção do Força",
       "1": "Durante seu turno, adicione %game.action.attack.valueSign:1% a todos os seus ataques."
     },
     "bb-6": {

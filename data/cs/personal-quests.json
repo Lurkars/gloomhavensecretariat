@@ -318,7 +318,7 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.cs.QA1.1%",
-                "counter": 8
+                "counter": 12
             },
             {
                 "name": "%data.personalQuest.cs.QA1.2%",
