@@ -1,1 +1,0 @@
-import{C,w as v}from"./chunk-DAtLJMOy.js";export{v as createArchitectureServices};
