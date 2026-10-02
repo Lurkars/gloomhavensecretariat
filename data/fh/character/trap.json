@@ -83,11 +83,11 @@
           {
             "type": "pull",
             "value": 2,
-            "subactions": [
+            "subActions": [
               {
                 "type": "range",
-                "small": true,
-                "value": 2
+                "value": 3,
+                "small": true
               }
             ]
           },

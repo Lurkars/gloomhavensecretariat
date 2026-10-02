@@ -11,21 +11,24 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.273.1%",
+          "multiTarget": true,
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Furry facade",
@@ -34,22 +37,83 @@
       "initiative": 85,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "shaggy-lure",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 2,
+            "enhancements": [
+              "heal"
+            ],
+            "action": {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.trap.abilities.274.1%",
+                  "small": true
+                },
+                {
+                  "type": "pull",
+                  "value": 2,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 3,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.trap.abilities.274.2%",
+                  "small": true
+                }
+              ]
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Boar Catcher",
@@ -59,21 +123,29 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.275.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Spike Pit",
@@ -83,45 +155,43 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.276.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.276.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Electrified net",
       "cardId": 277,
       "level": 1,
       "initiative": 53,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.277.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.277.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Honeypot",
@@ -130,20 +200,28 @@
       "initiative": 18,
       "actions": [
         {
+          "type": "loot",
+          "value": 1
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.278.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.278.2%",
+          "small": true
         }
       ]
     },
@@ -155,21 +233,45 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.279.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.trap.abilities.279.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2
     },
     {
       "name": "Exploding Decoy",
@@ -178,20 +280,50 @@
       "initiative": 62,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.trap.abilities.280.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.280.2%",
+          "small": true
         }
       ]
     },
@@ -202,20 +334,42 @@
       "initiative": 68,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.281.1%",
+          "small": true,
+          "noDivider": true
         }
       ]
     },
@@ -227,19 +381,46 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.trap.abilities.282.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.282.2%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.282.3%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.282.4%",
+          "small": true
         }
       ]
     },
@@ -248,24 +429,24 @@
       "cardId": 283,
       "level": "X",
       "initiative": 15,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.283.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.283.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true,
+      "bottomPersistent": true
     },
     {
       "name": "Improvised Improvement",
@@ -275,21 +456,28 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.284.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.284.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Unavoidable Outcome",
@@ -298,22 +486,52 @@
       "initiative": 45,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.285.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.trap.abilities.285.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Path of Pain",
@@ -322,20 +540,46 @@
       "initiative": 38,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.286.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.286.2%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.286.2%",
+          "small": true
         }
       ]
     },
@@ -347,21 +591,28 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.287.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.287.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Pyrotechnics",
@@ -371,21 +622,29 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.288.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.288.2%",
+          "small": true
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "Dangerous Ground",
@@ -395,21 +654,24 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.289.1%",
+          "multiTarget": true,
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.289.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2
     },
     {
       "name": "Stalker's Spoils",
@@ -419,21 +681,42 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.290.1%",
+          "multiTarget": true,
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": "X+1",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.290.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Lure of the Snare",
@@ -442,20 +725,55 @@
       "initiative": 59,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "pull",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.291.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.291.2%",
+          "small": true,
+          "noDivider": true
         }
       ]
     },
@@ -464,24 +782,30 @@
       "cardId": 292,
       "level": 5,
       "initiative": 26,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.292.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.292.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Persistent Pitfalls",
@@ -491,21 +815,22 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.293.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.293.2%",
+          "small": true
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "Cage of Thorns",
@@ -514,22 +839,44 @@
       "initiative": 55,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.294.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.294.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Grasping Hazards",
@@ -539,21 +886,26 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.295.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.295.2%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "Foxhole",
@@ -563,21 +915,60 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.trap.abilities.296.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "X-1",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,1,target)|(1,0,target)"
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            }
           ]
-        }
-      ],
-      "bottomActions": [
+        },
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.296.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "defense-grid",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 8,
+            "attack": 2,
+            "range": 3,
+            "enhancements": [],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.fh.trap.1%"
+            }
+          },
+          "small": true
+        }
+      ],
+      "xp": 1,
+      "bottomXp": 2,
+      "bottomPersistent": true
     },
     {
       "name": "Spike Strip",
@@ -587,21 +978,26 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.297.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.297.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Magnetic Shards",
@@ -610,46 +1006,81 @@
       "initiative": 37,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.298.1%",
+          "multiTarget": true,
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 1
     },
     {
       "name": "Dangerous Cargo",
       "cardId": 299,
       "level": 9,
       "initiative": 23,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.trap.abilities.299.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.299.2%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.299.3%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Mother of All Traps",
@@ -659,21 +1090,29 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.trap.abilities.300.1%",
+          "small": true,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.trap.abilities.300.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1
     }
   ]
 }

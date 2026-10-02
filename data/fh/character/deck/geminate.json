@@ -8,238 +8,722 @@
       "cardId": 151,
       "level": 1,
       "initiative": 14,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "Draining Pincers",
       "cardId": 152,
       "level": 1,
       "initiative": 72,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%game.custom.advantage%",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Hornet Stingers",
       "cardId": 153,
       "level": 1,
       "initiative": 23,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.geminate.abilities.153.1%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.153.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Changeling's Boon",
       "cardId": 154,
       "level": 1,
       "initiative": 40,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "condition",
+          "value": "bless",
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.154.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Flailing Tendrils",
       "cardId": 155,
       "level": 1,
       "initiative": 12,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,2,target)|(1,1,enhance)|(1,2,target)|(1,3,enhance)|(2,1,target)|(2,2,active)|(2,3,target)|(3,0,target)|(3,2,enhance)|(3,4,target)",
+              "enhancementTypes": [
+                "hex",
+                "hex",
+                "hex"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.geminate.abilities.155.1%",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "allies",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Drag Down",
       "cardId": 156,
       "level": 1,
       "initiative": 34,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(1,0,target)|(1,1,target)|(1,2,active)"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Hornbeetle Carapace",
       "cardId": 157,
       "level": 1,
       "initiative": 20,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.157.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "shield",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomRound": true,
+      "persistent": true
     },
     {
       "name": "Reckless Jab",
       "cardId": 158,
-      "level": 1,
+      "level": "X",
       "initiative": 38,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.geminate.abilities.158.1%",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.geminate.abilities.158.2%",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "ice:light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "stun",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Feeding Frenzy",
       "cardId": 159,
-      "level": 1,
+      "level": "X",
       "initiative": 62,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.159.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.159.2%",
+          "small": true
+        },
+        {
+          "type": "loot",
+          "value": 1
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true
     },
     {
       "name": "Selfless Offering",
       "cardId": 160,
       "level": 1,
       "initiative": 27,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "regenerate"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -248,429 +732,1595 @@
       "cardId": 161,
       "level": 1,
       "initiative": 36,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.161.1%",
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "regenerate",
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "fire:light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "strengthen",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
-        }
-      ]
+      "bottomXp": 1
     },
     {
       "name": "Firefly Swarm",
       "cardId": 162,
       "level": 1,
       "initiative": 76,
+      "identity": 1,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,0,target)"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.162.1%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 4
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Scarab flight",
       "cardId": 163,
       "level": 1,
       "initiative": 30,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "multiTarget": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.geminate.abilities.163.1%",
+                  "small": true
+                },
+                {
+                  "type": "push",
+                  "value": 1,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(1,0,target)|(2,0,target)|(3,0,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.163.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Mind Spike",
       "cardId": 164,
       "level": 1,
       "initiative": 18,
+      "identity": 1,
+      "lost": true,
       "actions": [
         {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.164.1%",
+              "small": true
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.geminate.abilities.164.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "damage",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.164.3%",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Harvest the Essence",
       "cardId": 165,
       "level": 1,
       "initiative": 60,
+      "identity": 1,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "condition",
+          "value": "ward",
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.165.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true
     },
     {
       "name": "Hail of Thorns",
       "cardId": 166,
-      "level": "X",
+      "level": 1,
       "initiative": 88,
+      "identity": 1,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "allies",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Smoldering Hatred",
       "cardId": 167,
       "level": "X",
       "initiative": 32,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.167.1%",
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "muddle",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "curse",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "area",
+                      "value": "(0,0,target)|(1,0,target)"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Reshape the Guise",
       "cardId": 168,
       "level": "X",
       "initiative": 38,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "regenerate",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.168.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Venomous Barbs",
       "cardId": 169,
       "level": 2,
       "initiative": 17,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "disarm",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "retaliate",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        },
+                        {
+                          "type": "range",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.169.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "round": true
     },
     {
       "name": "Locust Host",
       "cardId": 170,
       "level": 2,
       "initiative": 23,
+      "identity": 1,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.170.1%",
+              "small": true
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,target)|(1,1,target)|(1,2,target)|(2,2,target)"
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "curse",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "area",
+                      "value": "(0,1,target)|(0,2,target)|(1,1,target)|(1,2,target)|(2,1,target)|(2,2,target)|(3,1,target)|(3,2,target)"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square",
+            "square"
+          ]
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.170.2%",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "round": true,
+      "xp": 2
     },
     {
       "name": "Mandible Storm",
       "cardId": 171,
       "level": 3,
       "initiative": 30,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,active)|(0,2,target)|(1,0,target)|(1,2,target)"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "ice:light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "shield",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
-        }
-      ]
+      "bottomRound": true,
+      "bottomXp": 1
     },
     {
       "name": "Dragonfly Surge",
       "cardId": 172,
       "level": 3,
       "initiative": 50,
+      "identity": 1,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.172.1%",
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "fire:light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%game.custom.advantage%",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.geminate.abilities.172.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "Thresh and Flail",
       "cardId": 173,
       "level": 4,
       "initiative": 43,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4
+        },
+        {
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "pull",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "elementHalf",
+                      "value": "fire:ice"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Luminous Descent",
       "cardId": 174,
       "level": 4,
       "initiative": 67,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "elementHalf",
+                      "value": "fire:ice"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Formless Grace",
       "cardId": 175,
       "level": 5,
       "initiative": 75,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allies",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.175.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "ward",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true
     },
     {
       "name": "Chitinous Horde",
       "cardId": 176,
       "level": 5,
       "initiative": 15,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.geminate.abilities.176.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.176.2%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.176.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "round": true,
+      "bottomXp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Corrosive Acids",
       "cardId": 177,
       "level": 6,
       "initiative": 28,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "brittle",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "condition",
+                      "value": "brittle",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "impair",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "condition",
+                      "value": "poison",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.177.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Hirudotherapy",
       "cardId": 178,
       "level": 6,
       "initiative": 92,
+      "identity": 1,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.geminate.abilities.178.1%",
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.178.2%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.178.3%",
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "immobilize",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "condition",
+                      "value": "immobilize",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": "",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "curse",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "custom",
+                          "value": ":",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -680,144 +2330,512 @@
       "cardId": 179,
       "level": 7,
       "initiative": 21,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "forceBox",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "ice:light"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,2,target)|(2,0,target)"
+            },
+            {
+              "type": "condition",
+              "value": "brittle",
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "immobilize"
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "light",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "disarm"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "round": true,
+      "bottomXp": 1
     },
     {
       "name": "Alluring Pheromones",
       "cardId": 180,
       "level": 7,
       "initiative": 49,
+      "identity": 1,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,enhance)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.180.1%",
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "forceBox",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "fire:light"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,2,target)"
+            },
+            {
+              "type": "condition",
+              "value": "regenerate",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "strengthen"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "light",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "bless"
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Accelerated Metabolism",
       "cardId": 181,
       "level": 8,
       "initiative": 85,
+      "identity": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "elementHalf",
+          "value": "fire:ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.181.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-range%"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Oscillating Entity",
       "cardId": 182,
       "level": 8,
       "initiative": 55,
+      "identity": 1,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond",
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.geminate.abilities.182.1%",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.geminate.abilities.182.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.customAction:fh-switch-melee%"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "fire:ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "strengthen",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Harbinger of Ruin",
       "cardId": 183,
       "level": 9,
       "initiative": 11,
+      "identity": 0,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.183.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
-      ]
+      ],
+      "bottomRound": true,
+      "persistent": true
     },
     {
       "name": "Voice of Salvation",
       "cardId": 184,
       "level": 9,
       "initiative": 39,
+      "identity": 1,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.184.1%",
+          "small": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.geminate.abilities.184.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "round": true,
+      "bottomPersistent": true
     }
   ]
 }

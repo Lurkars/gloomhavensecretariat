@@ -403,7 +403,120 @@
         "6": "Whenever you long rest, you may create one %game.damage:1% trap in an adjacent empty hex",
         "7": "Whenever you enter a hex with a trap, you may choose to not spring the trap",
         "8": "At the start of each scenario, you may create one %game.damage:2% trap in an adjacent empty hex",
-        "9": "Have one %game.action.heal% trap on the map with a value of at least 20"
+        "9": "Have one %game.action.heal% trap on the map with a value of at least 20",
+        "abilities": {
+          "273": {
+            "1": "Create two %game.damage:1% traps in empty hexes within %game.action.range:2% %game.enhancement.square%."
+          },
+          "274": {
+            "1": "Perform:",
+            "2": "at end of turn"
+          },
+          "275": {
+            "1": "Create one %game.damage:4% %game.enhancement.square% trap in an empty hex within %game.action.range:2%."
+          },
+          "276": {
+            "1": "Create one %game.damage:3% %game.enhancement.square%, %game.condition.immobilize% trap in an empty hex within %game.action.range:2%.",
+            "2": "Relocate up to two traps within %game.action.range:2% to empty hexes within %game.action.range:4%."
+          },
+          "277": {
+            "1": "Create three %game.damage:2%, %game.condition.stun% traps in empty hexes within %game.action.range:2%.",
+            "2": "Create one %game.condition.strengthen% trap in an adjacent empty hex."
+          },
+          "278": {
+            "1": "You may choose to not collect any number of loot tokens with this ability. For each empty hex with a loot token you did not collect, create one %game.damage:2% trap in that hex.",
+            "2": "Create one %game.action.heal:2% trap in an adjacent empty hex."
+          },
+          "279": {
+            "1": "Create one %game.action.heal:4% %game.enhancement.square% trap in an adjacent empty hex.",
+            "2": "Control all enemies targeted by the muddle ability:"
+          },
+          "280": {
+            "1": "Designate the hex you are occupying and perform:",
+            "2": "If the designated hex is empty, create one %game.damage:2% trap in that hex, regardless of line-of-sight."
+          },
+          "281": {
+            "1": "Increase the %game.damage% or %game.action.heal% value of up to two traps you move through by 1."
+          },
+          "282": {
+            "1": "Destroy one adjacent trap to perform:",
+            "2": "where X is the %game.damage% value of the destroyed trap. Also add all conditions of the destroyed trap to the attack.",
+            "3": "Destroy one adjacent trap.",
+            "4": "Add the effects of the destroyed trap to an adjacent trap."
+          },
+          "283": {
+            "1": "Whenever you or an ally springs a trap during a move ability, add %game.action.move.valueSign:2% and %game.action.jump% to that move ability.",
+            "2": "Place a character token on an enemy with %game.action.fly% within %game.action.range:3%. That enemy no longer has %game.action.fly%. When that enemy dies, discard this card."
+          },
+          "284": {
+            "1": "Replace one adjacent trap with a %game.damage:5% %game.enhancement.square%, %game.condition.wound% trap.",
+            "2": "Create one %game.condition.bless% trap in an adjacent empty hex."
+          },
+          "285": {
+            "1": "If the target is adjacent to a trap, spring the trap, applying its effects to the target.",
+            "2": "On the next instance of an enemy ending its movement in a hex adjacent to any trap, regardless of your line-of-sight, spring one trap adjacent to that enemy and apply its effects to that enemy."
+          },
+          "286": {
+            "1": "For each trap the target springs due to this attack, add %game.action.push.valueSign:2%.",
+            "2": "Create one %game.condition.wound% trap in an adjacent empty hex."
+          },
+          "287": {
+            "1": "Create one %game.damage:5% %game.enhancement.square% trap in an empty hex within %game.action.range:3%.",
+            "2": "Destroy all adjacent traps to create a trap in an empty hex within %game.action.range:2% that has the effects of all the destroyed traps added together. The new trap cannot apply the same condition more than once."
+          },
+          "288": {
+            "1": "Create one %game.action.heal:3% %game.enhancement.square%, %game.condition.strengthen%, %game.condition.bless% trap in an adjacent empty hex.",
+            "2": "Increase the %game.damage% or %game.action.heal% value of the next trap you create this round by 3."
+          },
+          "289": {
+            "1": "Create two %game.damage:3% traps in empty hexes within %game.action.range:2% %game.enhancement.square%.",
+            "2": "Regardless of your line-of-sight, spring all traps and apply the effects of each individual trap to one figure within %game.action.range:2% of that trap."
+          },
+          "290": {
+            "1": "Create two %game.action.heal:3% traps in empty hexes within %game.action.range:2% %game.enhancement.square%.",
+            "2": "where X is the number of loot tokens gained with the loot ability."
+          },
+          "291": {
+            "1": "Designate a hex containing a trap within %game.action.range:3%. Spring the trap and apply its effects to one figure adjacent to the trap.",
+            "2": "This movement must end in or adjacent to the designated hex."
+          },
+          "292": {
+            "1": "Increase the %game.damage% or %game.action.heal% value of one trap you create each round by 2.",
+            "2": "Create one %game.condition.regenerate% trap in an adjacent empty hex."
+          },
+          "293": {
+            "1": "Replace one adjacent trap with one %game.damage:6% %game.enhancement.square%, %game.condition.stun% trap.",
+            "2": "Immediately after any trap with a %game.damage% value of 2 or more is sprung this round and its effects are applied, create a trap that has half the %game.damage% value (rounded down) and all conditions of the sprung trap in the empty hex nearest to the sprung trap."
+          },
+          "294": {
+            "1": "Create one %game.damage:1% trap in each empty hex adjacent to the target.",
+            "2": "Relocate up to two traps within %game.action.range:4% to empty hexes adjacent to one enemy within %game.action.range:2%."
+          },
+          "295": {
+            "1": "Create one %game.damage:2%, %game.condition.wound%, %game.condition.poison%, %game.condition.muddle%, %game.condition.curse% trap in an adjacent empty hex.",
+            "2": "All traps affect figures with %game.action.fly% and %game.action.jump% movements this round. If any figure with %game.action.fly% is currently occupying a hex with a trap, it springs the trap."
+          },
+          "296": {
+            "1": "Destroy one adjacent %game.damage% trap to perform:",
+            "2": "where X is the %game.damage% value of the destroyed trap. Also add all conditions of the destroyed trap to the attacks."
+          },
+          "297": {
+            "1": "Designate an empty hex within %game.action.range:4%. Create one %game.damage:2% trap in that hex and each empty hex on a direct path to it.",
+            "2": "Create one %game.condition.immobilize% trap in each empty hex you leave during the movement."
+          },
+          "298": {
+            "1": "Create two %game.action.heal:1% %game.enhancement.square%, %game.condition.regenerate%, %game.condition.ward% traps in adjacent empty hexes."
+          },
+          "299": {
+            "1": "Once each round, during one of your move abilities, place one %game.damage:3% trap in one empty hex you leave.",
+            "2": "Designate all traps within %game.action.range:3%.",
+            "3": "Regardless of your line-of-sight, relocate any number of designated traps to adjacent empty hexes."
+          },
+          "300": {
+            "1": "Destroy three traps within %game.action.range:3% to create one %game.damage:9% %game.enhancement.square%, %game.condition.wound%, %game.condition.poison%, %game.condition.stun% trap in an empty hex within %game.action.range:3%.",
+            "2": "During this movement, you may apply any effects of traps sprung to any figure adjacent to the sprung trap instead of yourself."
+          }
+        }
       }
     }
   },

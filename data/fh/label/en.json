@@ -213,7 +213,7 @@
     "Eclipse": "Eclipse",
     "Electric Pulse": "Electric Pulse",
     "Electrical Discharge": "Electrical Discharge",
-    "Electrified net": "Electrified net",
+    "Electrified net": "Electrified Net",
     "Elemental Pulse": "Elemental Pulse",
     "Emerald Edge": "Emerald Edge",
     "Empowering Pulse": "Empowering Pulse",
@@ -302,7 +302,7 @@
     "Frozen in Fear": "Frozen in Fear",
     "Fuel Leak": "Fuel Leak",
     "Full Force": "Full Force",
-    "Furry facade": "Furry facade",
+    "Furry facade": "Furry Facade",
     "Fury of the Mountain": "Fury of the Mountain",
     "Future Sense": "Future Sense",
     "Gale Barrage": "Gale Barrage",
@@ -571,7 +571,7 @@
     "Sap Speed": "Sap Speed",
     "Sap Strength": "Sap Strength",
     "Scalding Blast": "Scalding Blast",
-    "Scarab flight": "Scarab flight",
+    "Scarab flight": "Scarab Flight",
     "Scarred Effigy": "Scarred Effigy",
     "Schooling": "Schooling",
     "Searing Smoke": "Searing Smoke",
@@ -630,7 +630,7 @@
     "Spinning Charge": "Spinning Charge",
     "Splashing Bile": "Splashing Bile",
     "Split": "Split",
-    "Spring Loaded": "Spring Loaded",
+    "Spring Loaded": "Spring-Loaded",
     "Stab Them All": "Stab Them All",
     "Stalker's Spoils": "Stalker's Spoils",
     "Star Strike": "Star Strike",
@@ -708,7 +708,7 @@
     "Twin Shots": "Twin Shots",
     "Twin Strike": "Twin Strike",
     "Twisted Decree": "Twisted Decree",
-    "Two Pronged Entrapment": "Two Pronged Entrapment",
+    "Two Pronged Entrapment": "Two-Pronged Entrapment",
     "Two-Fisted Strike": "Two-Fisted Strike",
     "Unavoidable Outcome": "Unavoidable Outcome",
     "Unbreakable": "Unbreakable",
@@ -1873,7 +1873,98 @@
         "2": "Once each scenario, when you would give yourself a negative condition, prevent the condition",
         "3": "Whenever you perform an action with a lost icon, you may discard one card to %game.card.recover% one card from your discard pile of equal or lower level",
         "4": "Switch forms each round",
-        "5": "Lose at least one ability card each round"
+        "5": "Lose at least one ability card each round",
+        "abilities": {
+          "153": {
+            "1": "all allies in the red hexes of the attack ability",
+            "2": "All attacks targeting you this round gain disadvantage."
+          },
+          "154": {
+            "1": "At the end of each of your turns, you may %game.element.consume.wild% to %game.elementHalf:fire|light%."
+          },
+          "155": {
+            "1": "all allies in the red hexes of the attack ability"
+          },
+          "157": {
+            "1": "On your next four attacks, add %game.action.attack.valueSign:1% if you are in %game.characterIconIdentity.geminate.0% or %game.action.attack.valueSign:2% if you are in %game.characterIconIdentity.geminate.1%."
+          },
+          "158": {
+            "1": "If you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.disarm%.",
+            "2": "If you do not have %game.condition.poison%, gain %game.condition.poison% to add %game.action.attack.valueSign:2%."
+          },
+          "159": {
+            "1": "Whenever you kill one or more enemies during your turn, you may switch forms or ignore any switch form icons at the end of this turn.",
+            "2": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "161": {
+            "1": "only %game.action.range:3/4%"
+          },
+          "162": {
+            "1": "only %game.action.range:3/4%"
+          },
+          "163": {
+            "1": "only %game.action.range:3/4%",
+            "2": "On the next four sources of %game.damage% from attacks targeting you, gain %game.action.shield:1% if you are in %game.characterIconIdentity.geminate.1% or %game.action.shield:2% if you are in %game.characterIconIdentity.geminate.0%."
+          },
+          "164": {
+            "1": "only %game.action.range:4/5%",
+            "2": "All targets of the immobilize ability suffer %game.damage:1%.",
+            "3": "only %game.action.range:3/4%"
+          },
+          "165": {
+            "1": "At the end of each of your turns, you may %game.element.consume.wild% to %game.elementHalf:ice|light%."
+          },
+          "167": {
+            "1": "only %game.action.range:4/5%"
+          },
+          "168": {
+            "1": "During your short rests, you may choose which discarded card to lose instead of losing a discarded card at random and you may switch forms."
+          },
+          "169": {
+            "1": "Gain %game.card.experience:1% whenever you retaliate this round."
+          },
+          "170": {
+            "1": "only %game.action.range:2/3%",
+            "2": "only %game.action.range:2%"
+          },
+          "172": {
+            "1": "only %game.action.range:4/5%",
+            "2": "Gain advantage on and add %game.action.pierce:2% to all your attacks this round."
+          },
+          "175": {
+            "1": "Once during each of your turns, you may suffer %game.damage:2% to %game.elementHalf:fire|light%."
+          },
+          "176": {
+            "1": "Grant one ally within %game.action.range:3%:",
+            "2": "All adjacent enemies suffer %game.damage:2%.",
+            "3": "Once during each of your turns, you may have one adjacent ally suffer %game.damage:2% to %game.elementHalf:ice|light%."
+          },
+          "177": {
+            "1": "All figures gain -2 %game.action.shield% this round while adjacent to you."
+          },
+          "178": {
+            "1": "Up to two enemies at exactly %game.action.range:2/3% suffer %game.damage:2%.",
+            "2": "where X is equal to the %game.damage% enemies suffered with the damage ability.",
+            "3": "only %game.action.range:3/4%"
+          },
+          "180": {
+            "1": "only %game.action.range:4/5%"
+          },
+          "181": {
+            "1": "At the start of your next turn, play one %game.characterIconIdentity.geminate.0% card from your hand and immediately perform the top or bottom action of the card, then lose this card."
+          },
+          "182": {
+            "1": "only %game.action.range:2/3%",
+            "2": "At the start of your next turn, play one %game.characterIconIdentity.geminate.1% card from your hand and immediately perform the top or bottom action of the card, then lose this card."
+          },
+          "183": {
+            "1": "On the next four sources of %game.damage% from melee attacks targeting you, gain %game.condition.ward%, then the attacking enemy suffers %game.damage:5%."
+          },
+          "184": {
+            "1": "All allies within %game.action.range:3% add %game.action.attack.valueSign:2% to all their attacks and all enemies within %game.action.range:3% add %game.action.attack.valueSign:-1% to all their attacks this round.",
+            "2": "On the next four cards allies would lose to negate %game.damage%, they instead do not lose a card."
+          }
+        }
       },
       "giant-piranha-pig-boss": {
         "1": "Nothing",
