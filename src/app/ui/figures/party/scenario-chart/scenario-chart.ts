@@ -55,9 +55,12 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
       this.mermaid.initialize({
         startOnLoad: false,
+        layout: 'dagre',
+        look: 'classic',
+        htmlLabels: true,
         flowchart: {
           useMaxWidth: true,
-          htmlLabels: true,
+          minNodeWidth: 0,
           curve: 'linear',
           padding: 10,
           subGraphTitleMargin: {
