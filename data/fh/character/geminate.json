@@ -6,6 +6,10 @@
     "melee",
     "range"
   ],
+  "identityColors": [
+    "#c33e69",
+    "#5d6075"
+  ],
   "handSize": "7|7",
   "traits": [
     "arcane",

@@ -213,7 +213,7 @@
     "Eclipse": "Eclipse",
     "Electric Pulse": "Electric Pulse",
     "Electrical Discharge": "Electrical Discharge",
-    "Electrified net": "Electrified net",
+    "Electrified net": "Electrified Net",
     "Elemental Pulse": "Elemental Pulse",
     "Emerald Edge": "Emerald Edge",
     "Empowering Pulse": "Empowering Pulse",
@@ -302,7 +302,7 @@
     "Frozen in Fear": "Frozen in Fear",
     "Fuel Leak": "Fuel Leak",
     "Full Force": "Full Force",
-    "Furry facade": "Furry facade",
+    "Furry facade": "Furry Facade",
     "Fury of the Mountain": "Fury of the Mountain",
     "Future Sense": "Future Sense",
     "Gale Barrage": "Gale Barrage",
@@ -571,7 +571,7 @@
     "Sap Speed": "Sap Speed",
     "Sap Strength": "Sap Strength",
     "Scalding Blast": "Scalding Blast",
-    "Scarab flight": "Scarab flight",
+    "Scarab flight": "Scarab Flight",
     "Scarred Effigy": "Scarred Effigy",
     "Schooling": "Schooling",
     "Searing Smoke": "Searing Smoke",
@@ -630,7 +630,7 @@
     "Spinning Charge": "Spinning Charge",
     "Splashing Bile": "Splashing Bile",
     "Split": "Split",
-    "Spring Loaded": "Spring Loaded",
+    "Spring Loaded": "Spring-Loaded",
     "Stab Them All": "Stab Them All",
     "Stalker's Spoils": "Stalker's Spoils",
     "Star Strike": "Star Strike",
@@ -708,7 +708,7 @@
     "Twin Shots": "Twin Shots",
     "Twin Strike": "Twin Strike",
     "Twisted Decree": "Twisted Decree",
-    "Two Pronged Entrapment": "Two Pronged Entrapment",
+    "Two Pronged Entrapment": "Two-Pronged Entrapment",
     "Two-Fisted Strike": "Two-Fisted Strike",
     "Unavoidable Outcome": "Unavoidable Outcome",
     "Unbreakable": "Unbreakable",
@@ -1433,7 +1433,117 @@
         "4": "Once each scenario, when any character ally would become exhausted by suffering %game.damage%, you may suffer %game.damage:2% to reduce their hit point value to 1 instead",
         "5": "At the start of each scenario, you may play a level 1 card from your hand to performa summon action of the card",
         "6": "Kill at least fifteen of your summons",
-        "7": "Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario"
+        "7": "Play a summon action on your first turn, have the summon kill at least six enemies, and keep it alive for the entire scenario",
+        "abilities": {
+          "120": {
+            "1": "On the next three sources of %game.damage% to you, negate the %game.damage%."
+          },
+          "124": {
+            "1": "Add %game.action.attack.valueSign:1% if the target is adjacent to at least one of your summons.",
+            "2": "All of your summons' attacks are unaffected by %game.action.retaliate%."
+          },
+          "125": {
+            "1": "Grant three of your summons:"
+          },
+          "126": {
+            "1": "On the next death of one of your summons due to %game.damage% from an attack, the attacker suffers %game.damage:2%."
+          },
+          "127": {
+            "1": "If an enemy has died this round, perform:"
+          },
+          "128": {
+            "1": "Where X is the number of your summons.",
+            "2": "Grant one of your summons:"
+          },
+          "129": {
+            "1": "Grant one of your summons:",
+            "2": "Grant one ally:"
+          },
+          "130": {
+            "1": "Grant one of your summons adjacent to the target of the curse ability:",
+            "3": "with you gaining all looted tokens and tiles.",
+            "2": "Grant one of your summons:"
+          },
+          "131": {
+            "1": "If this attack kills the target, immediately play a card from your discard pile to perform a summon action of the card, reducing any %game.damage% you suffer by 2."
+          },
+          "132": {
+            "1": "Grant one of your summons:"
+          },
+          "133": {
+            "1": "Designate one of your summons and perform:",
+            "2": "all enemies adjacent to the designated summon",
+            "3": "Kill the designated summon",
+            "4": "When the next enemy dies this round, all allies and enemies adjacent to the hex in which it died suffer %game.damage:2%."
+          },
+          "134": {
+            "1": "Grant one of your summons:",
+            "2": "On the next three sources of %game.damage% to one of your summons, negate the %game.damage%."
+          },
+          "135": {
+            "1": "Grant one of your summons:"
+          },
+          "136": {
+            "1": "Add %game.action.attack.valueSign:1% for each of your summons.",
+            "2": "If the target dies this round, immediately play a card from your discard pile to perform a summon action of the card, reducing any %game.damage% you suffer by 2."
+          },
+          "137": {
+            "1": "Play a card from your discard pile to perform a summon action of the card."
+          },
+          "138": {
+            "1": "Designate one of your summons and perform:",
+            "2": "all enemies adjacent to the designated summon",
+            "3": "Kill the designated summon",
+            "4": "Whenever an enemy attacks you or one of your summons, that enemy gains %game.condition.poison%. If that enemy already has %game.condition.poison%, it suffers %game.damage:1% after the attack instead."
+          },
+          "139": {
+            "1": "Grant one of your summons:",
+            "2": "Grant two of your summons the attack ability instead.",
+            "4": "that enemy",
+            "3": "If %game.condition.curse% causes an enemy to deal no %game.damage% during its attack, grant all your summons adjacent to that enemy:"
+          },
+          "140": {
+            "1": "Grant one ally within %game.action.range:3%:",
+            "2": "On the next source of %game.damage% to one of your summons, negate the %game.damage%."
+          },
+          "142": {
+            "1": "All Shambling Skeletons have %game.action.heal.valueSign:1%, %game.action.move.valueSign:1%, and %game.action.pierce:1%."
+          },
+          "143": {
+            "1": "Grant one of your summons:"
+          },
+          "144": {
+            "1": "Grant one of your summons:"
+          },
+          "145": {
+            "1": "Play a card from your discard pile to perform a summon action of the card.",
+            "2": "Grant all your summons:",
+            "3": "On the next three deaths of any figure, perform:"
+          },
+          "146": {
+            "1": "On the next three monster deaths within %game.action.range:3%, add 1 %game.condition.curse% card to the monster attack modifier deck.",
+            "2": "When the next monster dies this round, immediately play a card from your discard pile to perform a summon action of the card, reducing any %game.damage% you suffer by 2 and acting as if you occupied the hex in which that monster died."
+          },
+          "147": {
+            "1": "Shambling Skeletons may end their move abilities on this summon. If they do, kill them and add a token to this card, up to a maximum of five. Whenever this summon would suffer %game.damage%, you may remove a token to negate the %game.damage%.",
+            "2": "Grant one of your summons:",
+            "3": "Grant one of your summons:"
+          },
+          "148": {
+            "1": "All targets adjacent to at least one of your summons gain %game.condition.curse%."
+          },
+          "149": {
+            "1": "All Shambling Skeletons have %game.action.heal.valueSign:1%.",
+            "2": "Whenever one of your summons kills an enemy with a ranged attack, %game.elementHalf:earth|dark%.",
+            "3": "Ignore all",
+            "4": "abilities",
+            "5": "on your ability cards."
+          },
+          "150": {
+            "1": "The next enemy that kills one of your summons this round gains %game.condition.bane%.",
+            "2": "All enemies within %game.action.range:5% suffer %game.damage:1%."
+          }
+        }
       },
       "brother": {
         "1": "One Brother performs:",
@@ -1763,7 +1873,98 @@
         "2": "Once each scenario, when you would give yourself a negative condition, prevent the condition",
         "3": "Whenever you perform an action with a lost icon, you may discard one card to %game.card.recover% one card from your discard pile of equal or lower level",
         "4": "Switch forms each round",
-        "5": "Lose at least one ability card each round"
+        "5": "Lose at least one ability card each round",
+        "abilities": {
+          "153": {
+            "1": "all allies in the red hexes of the attack ability",
+            "2": "All attacks targeting you this round gain disadvantage."
+          },
+          "154": {
+            "1": "At the end of each of your turns, you may %game.element.consume.wild% to %game.elementHalf:fire|light%."
+          },
+          "155": {
+            "1": "all allies in the red hexes of the attack ability"
+          },
+          "157": {
+            "1": "On your next four attacks, add %game.action.attack.valueSign:1% if you are in %game.characterIconIdentity.geminate.0% or %game.action.attack.valueSign:2% if you are in %game.characterIconIdentity.geminate.1%."
+          },
+          "158": {
+            "1": "If you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.disarm%.",
+            "2": "If you do not have %game.condition.poison%, gain %game.condition.poison% to add %game.action.attack.valueSign:2%."
+          },
+          "159": {
+            "1": "Whenever you kill one or more enemies during your turn, you may switch forms or ignore any switch form icons at the end of this turn.",
+            "2": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "161": {
+            "1": "only %game.action.range:3/4%"
+          },
+          "162": {
+            "1": "only %game.action.range:3/4%"
+          },
+          "163": {
+            "1": "only %game.action.range:3/4%",
+            "2": "On the next four sources of %game.damage% from attacks targeting you, gain %game.action.shield:1% if you are in %game.characterIconIdentity.geminate.1% or %game.action.shield:2% if you are in %game.characterIconIdentity.geminate.0%."
+          },
+          "164": {
+            "1": "only %game.action.range:4/5%",
+            "2": "All targets of the immobilize ability suffer %game.damage:1%.",
+            "3": "only %game.action.range:3/4%"
+          },
+          "165": {
+            "1": "At the end of each of your turns, you may %game.element.consume.wild% to %game.elementHalf:ice|light%."
+          },
+          "167": {
+            "1": "only %game.action.range:4/5%"
+          },
+          "168": {
+            "1": "During your short rests, you may choose which discarded card to lose instead of losing a discarded card at random and you may switch forms."
+          },
+          "169": {
+            "1": "Gain %game.card.experience:1% whenever you retaliate this round."
+          },
+          "170": {
+            "1": "only %game.action.range:2/3%",
+            "2": "only %game.action.range:2%"
+          },
+          "172": {
+            "1": "only %game.action.range:4/5%",
+            "2": "Gain advantage on and add %game.action.pierce:2% to all your attacks this round."
+          },
+          "175": {
+            "1": "Once during each of your turns, you may suffer %game.damage:2% to %game.elementHalf:fire|light%."
+          },
+          "176": {
+            "1": "Grant one ally within %game.action.range:3%:",
+            "2": "All adjacent enemies suffer %game.damage:2%.",
+            "3": "Once during each of your turns, you may have one adjacent ally suffer %game.damage:2% to %game.elementHalf:ice|light%."
+          },
+          "177": {
+            "1": "All figures gain -2 %game.action.shield% this round while adjacent to you."
+          },
+          "178": {
+            "1": "Up to two enemies at exactly %game.action.range:2/3% suffer %game.damage:2%.",
+            "2": "where X is equal to the %game.damage% enemies suffered with the damage ability.",
+            "3": "only %game.action.range:3/4%"
+          },
+          "180": {
+            "1": "only %game.action.range:4/5%"
+          },
+          "181": {
+            "1": "At the start of your next turn, play one %game.characterIconIdentity.geminate.0% card from your hand and immediately perform the top or bottom action of the card, then lose this card."
+          },
+          "182": {
+            "1": "only %game.action.range:2/3%",
+            "2": "At the start of your next turn, play one %game.characterIconIdentity.geminate.1% card from your hand and immediately perform the top or bottom action of the card, then lose this card."
+          },
+          "183": {
+            "1": "On the next four sources of %game.damage% from melee attacks targeting you, gain %game.condition.ward%, then the attacking enemy suffers %game.damage:5%."
+          },
+          "184": {
+            "1": "All allies within %game.action.range:3% add %game.action.attack.valueSign:2% to all their attacks and all enemies within %game.action.range:3% add %game.action.attack.valueSign:-1% to all their attacks this round.",
+            "2": "On the next four cards allies would lose to negate %game.damage%, they instead do not lose a card."
+          }
+        }
       },
       "giant-piranha-pig-boss": {
         "1": "Nothing",

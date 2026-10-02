@@ -10,22 +10,79 @@
       "initiative": 91,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "shambling-skeleton",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ]
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.120.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true,
+      "bottomPersistent": true
     },
     {
       "name": "Returned Servant",
@@ -34,22 +91,53 @@
       "initiative": 81,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "shambling-skeleton",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ]
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true
     },
     {
       "name": "Damned Horde",
@@ -58,22 +146,68 @@
       "initiative": 71,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "shambling-skeleton",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ]
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true
     },
     {
       "name": "Transfer of Essence",
@@ -82,20 +216,122 @@
       "initiative": 62,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "heal",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -106,70 +342,189 @@
       "initiative": 46,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.124.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.124.2%",
+          "small": true
         }
-      ]
+      ],
+      "bottomXp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Dark Tidings",
       "cardId": 125,
       "level": 1,
       "initiative": 43,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.125.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "curse",
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "poison",
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Angry Spirits",
       "cardId": 126,
       "level": 1,
       "initiative": 76,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "wraith",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 1,
+            "attack": 1,
+            "movement": 2,
+            "range": 3,
+            "enhancements": [
+              "heal",
+              "move",
+              "range"
+            ],
+            "action": {
+              "type": "fly",
+              "value": ""
+            },
+            "additionalAction": {
+              "type": "shield",
+              "value": 2
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.126.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true,
+      "bottomPersistent": true
     },
     {
       "name": "Fell Remedy",
@@ -178,19 +533,95 @@
       "initiative": 30,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "heal",
+                      "value": 2,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "heal",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.127.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -202,19 +633,43 @@
       "initiative": 18,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "heal",
+          "value": "X+1",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.128.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.128.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
       ]
@@ -226,22 +681,56 @@
       "initiative": 83,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.129.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "pierce",
+                      "value": 2
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.129.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Eternal Torment",
@@ -250,19 +739,55 @@
       "initiative": 70,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.130.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.130.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "loot",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.boneshaper.abilities.130.3%",
+              "small": true
+            }
           ]
         }
       ]
@@ -272,72 +797,217 @@
       "cardId": 131,
       "level": 1,
       "initiative": 26,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.131.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth:dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 2,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Approach Oblivion",
       "cardId": 132,
       "level": "X",
       "initiative": 53,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allies",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.132.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Exploding Corpse",
       "cardId": 133,
       "level": "X",
       "initiative": 21,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.133.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.boneshaper.abilities.133.2%",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.boneshaper.abilities.133.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.133.4%",
+          "small": true
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "Wrath of the Turned Earth",
@@ -346,70 +1016,234 @@
       "initiative": 80,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.134.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "poison"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.134.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Unearthed Horror",
       "cardId": 135,
       "level": 2,
       "initiative": 94,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "raging-corpse",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 6,
+            "attack": 3,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ]
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.135.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
-      "name": "Bone",
+      "name": "Bone Dagger",
       "cardId": 136,
       "level": 2,
       "initiative": 29,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.136.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.136.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "Grave Digging",
@@ -418,22 +1252,79 @@
       "initiative": 96,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "shambling-skeleton",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ]
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 1,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.137.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 1,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true
     },
     {
       "name": "Putrid Cloud",
@@ -443,21 +1334,60 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.138.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.boneshaper.abilities.138.2%",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.boneshaper.abilities.138.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.138.4%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Critical Failure",
@@ -466,22 +1396,61 @@
       "initiative": 95,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.139.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.fh.boneshaper.abilities.139.2%",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.139.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.boneshaper.abilities.139.4%",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 2,
+      "bottomPersistent": true
     },
     {
       "name": "Flesh Shield",
@@ -490,70 +1459,234 @@
       "initiative": 16,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.140.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "shield",
+                      "value": 1,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "retaliate",
+              "value": 1,
+              "enhancementTypes": [
+                "diamond_plus"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "retaliate",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.140.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "round": true,
+      "bottomPersistent": true
     },
     {
       "name": "Unforgivable Methods",
       "cardId": 141,
       "level": 5,
       "initiative": 98,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "stitched-atrocity",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 8,
+            "attack": 3,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "condition",
+              "value": "wound"
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "heal",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Solid Bones",
       "cardId": 142,
       "level": 5,
       "initiative": 32,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.142.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Rotting Multitude",
@@ -562,22 +1695,79 @@
       "initiative": 66,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "shambling-skeleton",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "movement": 2,
+            "count": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ]
+          },
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 6,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 4
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.143.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "persistent": true
     },
     {
       "name": "Twisted Decree",
@@ -586,19 +1776,57 @@
       "initiative": 85,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.144.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
           ]
         }
       ]
@@ -608,24 +1836,108 @@
       "cardId": 145,
       "level": 7,
       "initiative": 52,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "element",
+          "value": "earth:dark",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.boneshaper.abilities.145.1%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.145.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.145.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "ally",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2,
+      "bottomPersistent": true
     },
     {
       "name": "Soul Claim",
@@ -635,45 +1947,144 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.146.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.146.2%",
+          "small": true
         }
-      ]
+      ],
+      "bottomRound": true,
+      "persistent": true
     },
     {
       "name": "Endless Numbers",
       "cardId": 147,
       "level": 8,
       "initiative": 86,
+      "lost": true,
       "actions": [
         {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "bone-horde",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 7,
+            "attack": 3,
+            "movement": 3,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.fh.boneshaper.1%"
+            }
+          },
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.147.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.147.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.boneshaper.abilities.147.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "wound"
+                    },
+                    {
+                      "type": "specialTarget",
+                      "value": "all",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Wailing from Beyond",
@@ -682,19 +2093,95 @@
       "initiative": 73,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "muddle"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.148.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "ally",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "ward"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -704,24 +2191,97 @@
       "cardId": 149,
       "level": 9,
       "initiative": 97,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
-        }
-      ],
-      "bottomActions": [
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "skeleton-sorcerer",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 6,
+            "attack": 3,
+            "movement": 3,
+            "range": 3,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack",
+              "range"
+            ]
+          },
+          "small": true
+        },
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.149.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.149.2%",
+          "small": true
         }
-      ]
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.boneshaper.abilities.149.3%",
+              "small": true
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "damage",
+                  "value": "X",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.boneshaper.abilities.149.4%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.boneshaper.abilities.149.5%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth:dark"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "xp": 2,
+      "persistent": true,
+      "bottomXp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Behold the Shrouded Sun",
@@ -731,21 +2291,68 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.boneshaper.abilities.150.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.boneshaper.abilities.150.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth:dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "damage",
+                      "value": 1,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "round": true
     }
   ]
 }
