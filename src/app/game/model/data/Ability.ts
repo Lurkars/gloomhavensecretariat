@@ -4,6 +4,7 @@ export class Ability {
   cardId: number | undefined;
   name: string | undefined;
   initiative: number;
+  identity: number | undefined;
   level: number | string = 0;
   shuffle: boolean;
   actions: Action[];

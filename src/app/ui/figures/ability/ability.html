@@ -42,12 +42,39 @@
       }"
     >
       @if (!!ability) {
-        <div class="initiative">
-          @if (ability.initiative < 10) {
-            <span>0</span>
-          }
-          {{ ability.initiative }}
-        </div>
+        @if (identityColor) {
+          <div class="identity-tint" [style.background-color]="identityColor"></div>
+        }
+        @if (identityIcon) {
+          <div class="identity-frame" [ngClass]="'identity-' + ability.identity">
+            <svg viewBox="-130 -10 210 304" preserveAspectRatio="none">
+              <polygon points="-120,142 -50,0 70,0 0,142 70,284 -50,284" />
+            </svg>
+            <img [src]="identityIcon" />
+          </div>
+        }
+        @if (ability.initiative > 99) {
+          <div class="initiative dual">
+            <span class="initiative-fast">
+              <img src="./assets/images/character/icons/fh-blinkblade-fast.svg" />
+              <span>{{ fastInitiative }}</span>
+            </span>
+            <span class="initiative-slow">
+              <span>{{ slowInitiative }}</span>
+              <img src="./assets/images/character/icons/fh-blinkblade-slow.svg" />
+            </span>
+          </div>
+        } @else {
+          <div class="initiative">
+            @if (ability.initiative < 10) {
+              <span>0</span>
+            }
+            {{ ability.initiative }}
+            @if (identityIcon) {
+              <img class="identity" [ngClass]="'identity-' + ability.identity" [src]="identityIcon" />
+            }
+          </div>
+        }
         <span class="name">{{ abilityLabel }}</span>
         <div class="ability-actions-container" [ngClass]="{ disabled: activeActions() && activeActions() === 'bottom' }">
           <div class="ability-actions">

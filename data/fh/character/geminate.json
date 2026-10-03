@@ -6,6 +6,10 @@
     "melee",
     "range"
   ],
+  "identityColors": [
+    "#c33e69",
+    "#5d6075"
+  ],
   "handSize": "7|7",
   "traits": [
     "arcane",
@@ -266,9 +270,5 @@
   "masteries": [
     "%data.custom.fh.geminate.4%",
     "%data.custom.fh.geminate.5%"
-  ],
-  "identityColors": [
-    "#c33e69",
-    "#5d6075"
   ]
 }

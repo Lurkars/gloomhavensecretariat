@@ -57,6 +57,11 @@ export class AbilityComponent implements OnInit, OnChanges {
   deckLabel: string = '';
   abilityIndex: number = -1;
   abilityLabel: string = '';
+  identityColor: string | undefined;
+  identityIcon: string = '';
+  // abilities with two initiatives (e.g. Blinkblade) encode them as fast * 100 + slow
+  fastInitiative: string = '';
+  slowInitiative: string = '';
   shieldStats: boolean = false;
   fh: boolean = false;
 
@@ -96,9 +101,24 @@ export class AbilityComponent implements OnInit, OnChanges {
     }
     this.abilityIndex = -1;
     this.abilityLabel = '';
+    this.identityColor = undefined;
+    this.identityIcon = '';
+    this.fastInitiative = '';
+    this.slowInitiative = '';
     if (this.ability) {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
+      if (this.ability.initiative > 99) {
+        this.fastInitiative = String(Math.floor(this.ability.initiative / 100)).padStart(2, '0');
+        this.slowInitiative = String(this.ability.initiative % 100).padStart(2, '0');
+      }
+      if (this.character && this.ability.identity !== undefined && this.character.identities.length > this.ability.identity) {
+        this.identityIcon = gameManager.characterManager.characterIdentityIcon(this.character.name, this.ability.identity);
+        const identityColor = this.character.identityColors[this.ability.identity];
+        if (identityColor && identityColor !== this.character.color) {
+          this.identityColor = identityColor;
+        }
+      }
     }
     this.fh = (this.character && gameManager.isEditionRelevant(this.character.edition, 'fh')) || false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;

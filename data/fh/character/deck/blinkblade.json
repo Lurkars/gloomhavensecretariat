@@ -10,19 +10,113 @@
       "initiative": 2050,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "subtract",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.32.1%",
+              "small": true
+            }
           ]
         }
       ]
@@ -34,19 +128,148 @@
       "initiative": 2454,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.blinkblade.abilities.33.1%",
+                  "small": true
+                },
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "air"
+                    },
+                    {
+                      "type": "card",
+                      "value": "round",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "earth"
+                }
+              ]
+            }
           ]
         }
       ]
@@ -58,19 +281,81 @@
       "initiative": 4575,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            }
           ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%game.custom.advantage%",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.34.1%",
+              "small": true
+            }
           ]
         }
       ]
@@ -82,19 +367,153 @@
       "initiative": 3666,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "fire"
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice"
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.35.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-hourglass%: ",
+                  "small": true
+                },
+                {
+                  "type": "push",
+                  "value": 3,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "all",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -104,24 +523,71 @@
       "cardId": 36,
       "level": 1,
       "initiative": 6090,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.36.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.36.2%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.36.3%",
+              "small": true
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Power Leak",
@@ -130,22 +596,86 @@
       "initiative": 1747,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 4
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.37.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 4,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Hit and Run",
@@ -154,43 +684,159 @@
       "initiative": 4171,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ],
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.38.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Drive Recharge",
       "cardId": 39,
       "level": 1,
       "initiative": 6999,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.blinkblade.abilities.39.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": ",",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "ward"
+            },
+            {
+              "type": "condition",
+              "value": "bless"
+            },
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "regenerate"
+                }
+              ]
+            }
           ]
         }
       ]
@@ -200,21 +846,127 @@
       "cardId": 40,
       "level": 1,
       "initiative": 1949,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "wound"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "wound"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 3
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.40.1%",
+              "small": true
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
           ]
         }
       ]
@@ -226,19 +978,53 @@
       "initiative": 4474,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2
+            }
           ]
+        },
+        {
+          "type": "loot",
+          "value": 1
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -250,19 +1036,141 @@
       "initiative": 1242,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.blinkblade.abilities.42.1%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "immobilize"
+                    },
+                    {
+                      "type": "condition",
+                      "value": "muddle"
+                    }
+                  ]
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "all",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "loot",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -274,19 +1182,110 @@
       "initiative": 5282,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.43.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "light"
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-hourglass%:",
+                      "small": true
+                    },
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.fh.blinkblade.abilities.43.2%",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -296,45 +1295,172 @@
       "cardId": 44,
       "level": "X",
       "initiative": 232,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.44.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.blinkblade.abilities.44.2%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.blinkblade.abilities.44.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "move",
+              "value": "X"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.44.4%",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "bottomRound": true,
+      "persistent": true
     },
     {
       "name": "Systems Reboot",
       "cardId": 45,
       "level": 2,
       "initiative": 5787,
+      "lost": true,
+      "loss": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.45.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.blinkblade.abilities.45.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "move",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-hourglass%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.fh.blinkblade.abilities.45.3%",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -346,19 +1472,119 @@
       "initiative": 1040,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "damage",
+                  "value": 1,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "damage",
+                  "value": 1,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "ward",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -370,19 +1596,115 @@
       "initiative": 5181,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "bless",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound"
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                }
+              ]
+            }
           ]
         }
       ]
@@ -394,46 +1716,168 @@
       "initiative": 2252,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.48.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 3
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 3
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Precision Timing",
       "cardId": 49,
       "level": 4,
       "initiative": 1545,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.49.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.49.2%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Potential Energy",
@@ -442,46 +1886,98 @@
       "initiative": 3262,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": "X+2",
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.50.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": "X+2",
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.50.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Breakneck Speed",
       "cardId": 51,
       "level": 5,
       "initiative": 333,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.51.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Flashing Flurry",
@@ -490,22 +1986,116 @@
       "initiative": 4070,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "subtract",
+                      "small": true
+                    },
+                    {
+                      "type": "area",
+                      "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "condition",
+          "value": "stun",
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.52.1%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Stab Them All",
@@ -514,22 +2104,95 @@
       "initiative": 434,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "ward",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.blinkblade.abilities.53.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.blinkblade.abilities.53.2%",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomRound": true,
+      "xp": 1
     },
     {
       "name": "The Knife's Edge",
@@ -538,19 +2201,87 @@
       "initiative": 6595,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesAdjacent",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.blinkblade.abilities.54.1%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "damage",
+                  "value": 1,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2
+            }
           ]
         }
       ]
@@ -560,24 +2291,47 @@
       "cardId": 55,
       "level": 7,
       "initiative": 6393,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.55.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.55.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     },
     {
       "name": "Rushed to the End",
@@ -586,19 +2340,128 @@
       "initiative": 3262,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
           ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-hourglass%: ",
+                  "small": true
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 3,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.blinkblade.abilities.56.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 4,
+                  "enhancementTypes": [
+                    "circle"
+                  ]
+                },
+                {
+                  "type": "slow",
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -610,19 +2473,101 @@
       "initiative": 3565,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.blinkblade.abilities.57.1%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.blinkblade.abilities.57.2%",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "invisible",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -634,22 +2579,71 @@
       "initiative": 131,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "fast",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.blinkblade.abilities.58.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "fast",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "move",
+              "value": 6,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "slow",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "subtract",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Reverse the Flow",
@@ -659,45 +2653,84 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.59.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.59.2%",
+          "small": true
         }
       ],
+      "bottomLost": true,
+      "bottomLoss": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.blinkblade.abilities.59.3%",
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": 10,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.blinkblade.abilities.59.4%",
+          "small": true
         }
-      ]
+      ],
+      "round": true,
+      "xp": 1
     },
     {
       "name": "Fractured Timeline",
       "cardId": 60,
       "level": 9,
       "initiative": 5585,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.blinkblade.abilities.60.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 7,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "slow",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "persistent": true
     }
   ]
 }
