@@ -57,6 +57,8 @@ export class AbilityComponent implements OnInit, OnChanges {
   deckLabel: string = '';
   abilityIndex: number = -1;
   abilityLabel: string = '';
+  identityColor: string | undefined;
+  identityIcon: string = '';
   shieldStats: boolean = false;
   fh: boolean = false;
 
@@ -96,9 +98,18 @@ export class AbilityComponent implements OnInit, OnChanges {
     }
     this.abilityIndex = -1;
     this.abilityLabel = '';
+    this.identityColor = undefined;
+    this.identityIcon = '';
     if (this.ability) {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
+      if (this.character && this.ability.identity !== undefined && this.character.identities.length > this.ability.identity) {
+        this.identityIcon = gameManager.characterManager.characterIdentityIcon(this.character.name, this.ability.identity);
+        const identityColor = this.character.identityColors[this.ability.identity];
+        if (identityColor && identityColor !== this.character.color) {
+          this.identityColor = identityColor;
+        }
+      }
     }
     this.fh = (this.character && gameManager.isEditionRelevant(this.character.edition, 'fh')) || false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;
