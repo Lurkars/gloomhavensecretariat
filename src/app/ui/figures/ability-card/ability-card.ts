@@ -105,7 +105,7 @@ export class AbilityCardComponent implements OnInit, OnChanges {
     if (this.abilityCard) {
       this.abilityIndex = this.getAbilityIndex(this.abilityCard);
       this.abilityLabel = this.getAbilityLabel(this.abilityCard);
-      const identityInitiative = this.ability.identityInitiative;
+      const identityInitiative = this.abilityCard.identityInitiative;
       if (this.character && identityInitiative) {
         const characterName = this.character.name;
         this.identityInitiatives = identityInitiative.map((initiative, identity) => ({
@@ -115,9 +115,9 @@ export class AbilityCardComponent implements OnInit, OnChanges {
           color: gameManager.characterManager.characterIdentityColor(characterName, identity)
         }));
       }
-      if (this.character && this.ability.identity !== undefined && this.character.identities.length > this.ability.identity) {
-        this.identityIcon = gameManager.characterManager.characterIdentityIcon(this.character.name, this.ability.identity);
-        const identityColor = this.character.identityColors[this.ability.identity];
+      if (this.character && this.abilityCard.identity !== undefined && this.character.identities.length > this.abilityCard.identity) {
+        this.identityIcon = gameManager.characterManager.characterIdentityIcon(this.character.name, this.abilityCard.identity);
+        const identityColor = this.character.identityColors[this.abilityCard.identity];
         if (identityColor && identityColor !== this.character.color) {
           this.identityColor = identityColor;
         }
