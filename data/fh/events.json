@@ -15984,10 +15984,7 @@
         "narrative": "data.events.fh.winter-road.WR-32.options.0.narrative",
         "outcomes": [
           {
-            "narrative": "data.events.fh.winter-road.WR-32.options.0.outcomes.0.narrative",
-            "effects": [
-              "data.events.fh.winter-road.WR-32.options.0.outcomes.0.effects.0"
-            ]
+            "narrative": "data.events.fh.winter-road.WR-32.options.0.outcomes.0.narrative"
           },
           {
             "condition": "data.events.fh.winter-road.WR-32.options.0.outcomes.1.condition",
