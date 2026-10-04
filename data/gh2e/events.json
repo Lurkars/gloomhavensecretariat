@@ -6717,7 +6717,11 @@
             "narrative": "data.events.gh2e.road.R-05.options.B.outcomes.0.narrative",
             "effects": [
               {
-                "type": "drawAnotherEvent"
+                "type": "drawAnotherEvent",
+                "alt": "gh2e",
+                "values": [
+                  "road"
+                ]
               }
             ]
           }
@@ -11060,7 +11064,11 @@
             "returnToDeck": true,
             "effects": [
               {
-                "type": "drawAnotherEvent"
+                "type": "drawAnotherEvent",
+                "alt": "gh2e",
+                "values": [
+                  "road"
+                ]
               }
             ]
           }

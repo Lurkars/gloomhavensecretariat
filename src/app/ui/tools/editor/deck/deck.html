@@ -44,32 +44,32 @@
           </div>
         </div>
 
-        @for (ability of deckData.abilities | trackUUID; track ability._trackUUID) {
+        @for (abilityCard of deckData.abilities | trackUUID; track abilityCard._trackUUID) {
           <div class="abilities-container">
             <div class="ability-input">
               <div
                 class="ability-edit"
                 [style.--ghs-ability-color]="getCharacter() && getCharacter()?.color"
                 [ngClass]="{
-                  'bottom-actions': deckData.character || (ability.bottomActions && ability.bottomActions.length > 0),
+                  'bottom-actions': deckData.character || (abilityCard.bottomActions && abilityCard.bottomActions.length > 0),
                   'character-actions': deckData.character,
                   fh: settingsManager.settings.fhStyle
                 }"
               >
                 <input
                   class="name"
-                  [(ngModel)]="ability.name"
+                  [(ngModel)]="abilityCard.name"
                   (change)="deckDataToJson()"
-                  [ghs-label]="ability.name || 'editor.deck.abilityName'"
+                  [ghs-label]="abilityCard.name || 'editor.deck.abilityName'"
                   [ghs-label-attribute]="'placeholder'"
                   (keyup)="deckDataToJson()"
                 />
                 <span class="level">
-                  @if (deckData.character || (!!ability.bottomActions && ability.bottomActions.length > 0)) {
+                  @if (deckData.character || (!!abilityCard.bottomActions && abilityCard.bottomActions.length > 0)) {
                     <input
                       class="text"
-                      [ngModel]="ability.level"
-                      (ngModelChange)="ability.level = valueChange($event)"
+                      [ngModel]="abilityCard.level"
+                      (ngModelChange)="abilityCard.level = valueChange($event)"
                       (change)="deckDataToJson()"
                     />
                   }
@@ -79,56 +79,68 @@
                   min="0"
                   max="100"
                   type="number"
-                  [value]="ability.initiative && (ability.initiative < 10 ? '0' : '') + ability.initiative"
-                  (change)="changeInitiative($event, ability)"
+                  [value]="abilityCard.initiative && (abilityCard.initiative < 10 ? '0' : '') + abilityCard.initiative"
+                  (change)="changeInitiative($event, abilityCard)"
                 />
                 <div class="actions-container">
-                  <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(ability.actions, $event)">
-                    @for (action of ability.actions | trackUUID; track action._trackUUID; let index = $index) {
+                  <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(abilityCard.actions, $event)">
+                    @for (action of abilityCard.actions | trackUUID; track action._trackUUID; let index = $index) {
                       <div class="action-container" cdkDrag>
-                        @if (divider(ability.actions, index)) {
+                        @if (divider(abilityCard.actions, index)) {
                           <div class="divider"></div>
                         }
                         <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
                         <ghs-action
-                          (click)="editAbilityAction(ability, action)"
+                          (click)="editAbilityAction(abilityCard, action)"
                           [action]="action"
                           [relative]="true"
                           [character]="getCharacter()"
-                          [cardId]="ability.cardId"
+                          [cardId]="abilityCard.cardId"
                         >
                         </ghs-action>
                       </div>
                     }
                   </div>
                 </div>
-                @if (deckData.character || (!!ability.bottomActions && ability.bottomActions.length > 0)) {
+                @if (deckData.character || (!!abilityCard.bottomActions && abilityCard.bottomActions.length > 0)) {
                   <div class="required-container">
                     <div class="xp">
                       <input
                         type="number"
-                        [ngModel]="ability.xp"
+                        [ngModel]="abilityCard.xp"
                         min="0"
-                        (ngModelChange)="ability.xp = +$event"
+                        (ngModelChange)="abilityCard.xp = +$event"
                         (change)="deckDataToJson()"
                       />
                     </div>
-                    <a class="lost" (click)="ability.lost = !ability.lost; deckDataToJson()" [ngClass]="{ enabled: ability.lost }">
+                    <a
+                      class="lost"
+                      (click)="abilityCard.lost = !abilityCard.lost; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.lost }"
+                    >
                       <img src="./assets/images/action/card/lost.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/lost.svg" />
                     </a>
-                    <a class="round" (click)="ability.round = !ability.round; deckDataToJson()" [ngClass]="{ enabled: ability.round }">
+                    <a
+                      class="round"
+                      (click)="abilityCard.round = !abilityCard.round; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.round }"
+                    >
                       <img src="./assets/images/action/card/round.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/round.svg" />
                     </a>
-                    <a class="loss" (click)="ability.loss = !ability.loss; deckDataToJson()" [ngClass]="{ enabled: ability.loss }">
+                    <a
+                      class="loss"
+                      (click)="abilityCard.loss = !abilityCard.loss; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.loss }"
+                    >
                       <img src="./assets/images/action/card/loss.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/loss.svg" />
                     </a>
                     <a
                       class="persistent"
-                      (click)="ability.persistent = !ability.persistent; deckDataToJson()"
-                      [ngClass]="{ enabled: ability.persistent }"
+                      (click)="abilityCard.persistent = !abilityCard.persistent; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.persistent }"
                     >
                       <img src="./assets/images/action/card/persistent.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg" />
@@ -136,29 +148,29 @@
                     @if (!deckData.character) {
                       <a
                         class="shuffle"
-                        (click)="ability.shuffle = !ability.shuffle; deckDataToJson()"
-                        [ngClass]="{ enabled: ability.shuffle }"
+                        (click)="abilityCard.shuffle = !abilityCard.shuffle; deckDataToJson()"
+                        [ngClass]="{ enabled: abilityCard.shuffle }"
                       >
                         <img src="./assets/images/shuffle.svg" />
                       </a>
                     }
                   </div>
                 }
-                @if (deckData.character || (!!ability.bottomActions && ability.bottomActions.length > 0)) {
+                @if (deckData.character || (!!abilityCard.bottomActions && abilityCard.bottomActions.length > 0)) {
                   <div class="actions-container bottom">
-                    <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(ability.bottomActions, $event)">
-                      @for (action of ability.bottomActions | trackUUID; track action._trackUUID; let index = $index) {
+                    <div class="actions" cdkDropList (cdkDropListDropped)="dropAction(abilityCard.bottomActions, $event)">
+                      @for (action of abilityCard.bottomActions | trackUUID; track action._trackUUID; let index = $index) {
                         <div class="action-container" cdkDrag>
-                          @if (divider(ability.bottomActions, index)) {
+                          @if (divider(abilityCard.bottomActions, index)) {
                             <div class="divider"></div>
                           }
                           <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg" /></span>
                           <ghs-action
-                            (click)="editAbilityActionBottom(ability, action)"
+                            (click)="editAbilityActionBottom(abilityCard, action)"
                             [action]="action"
                             [relative]="true"
                             [character]="getCharacter()"
-                            [cardId]="ability.cardId"
+                            [cardId]="abilityCard.cardId"
                           >
                           </ghs-action>
                         </div>
@@ -166,45 +178,45 @@
                     </div>
                   </div>
                 }
-                @if (deckData.character || (!!ability.bottomActions && ability.bottomActions.length > 0)) {
+                @if (deckData.character || (!!abilityCard.bottomActions && abilityCard.bottomActions.length > 0)) {
                   <div class="required-container bottom">
                     <div class="xp">
                       <input
                         type="number"
-                        [ngModel]="ability.bottomXp"
+                        [ngModel]="abilityCard.bottomXp"
                         min="0"
-                        (ngModelChange)="ability.bottomXp = +$event"
+                        (ngModelChange)="abilityCard.bottomXp = +$event"
                         (change)="deckDataToJson()"
                       />
                     </div>
                     <a
                       class="lost"
-                      (click)="ability.bottomLost = !ability.bottomLost; deckDataToJson()"
-                      [ngClass]="{ enabled: ability.bottomLost }"
+                      (click)="abilityCard.bottomLost = !abilityCard.bottomLost; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.bottomLost }"
                     >
                       <img src="./assets/images/action/card/lost.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/lost.svg" />
                     </a>
                     <a
                       class="round"
-                      (click)="ability.bottomRound = !ability.bottomRound; deckDataToJson()"
-                      [ngClass]="{ enabled: ability.bottomRound }"
+                      (click)="abilityCard.bottomRound = !abilityCard.bottomRound; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.bottomRound }"
                     >
                       <img src="./assets/images/action/card/round.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/round.svg" />
                     </a>
                     <a
                       class="loss"
-                      (click)="ability.bottomLoss = !ability.bottomLoss; deckDataToJson()"
-                      [ngClass]="{ enabled: ability.bottomLoss }"
+                      (click)="abilityCard.bottomLoss = !abilityCard.bottomLoss; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.bottomLoss }"
                     >
                       <img src="./assets/images/action/card/loss.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/loss.svg" />
                     </a>
                     <a
                       class="persistent"
-                      (click)="ability.bottomPersistent = !ability.bottomPersistent; deckDataToJson()"
-                      [ngClass]="{ enabled: ability.bottomPersistent }"
+                      (click)="abilityCard.bottomPersistent = !abilityCard.bottomPersistent; deckDataToJson()"
+                      [ngClass]="{ enabled: abilityCard.bottomPersistent }"
                     >
                       <img src="./assets/images/action/card/persistent.svg" />
                       <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg" />
@@ -212,8 +224,8 @@
                     @if (!deckData.character) {
                       <a
                         class="shuffle"
-                        (click)="ability.bottomShuffle = !ability.bottomShuffle; deckDataToJson()"
-                        [ngClass]="{ enabled: ability.bottomShuffle }"
+                        (click)="abilityCard.bottomShuffle = !abilityCard.bottomShuffle; deckDataToJson()"
+                        [ngClass]="{ enabled: abilityCard.bottomShuffle }"
                       >
                         <img src="./assets/images/shuffle.svg" />
                       </a>
@@ -223,43 +235,45 @@
                 <input
                   class="card-id"
                   type="number"
-                  [value]="ability.cardId && (ability.cardId < 100 ? '0' : '') + (ability.cardId < 10 ? '0' : '') + ability.cardId"
-                  (change)="changeCardId($event, ability)"
+                  [value]="
+                    abilityCard.cardId && (abilityCard.cardId < 100 ? '0' : '') + (abilityCard.cardId < 10 ? '0' : '') + abilityCard.cardId
+                  "
+                  (change)="changeCardId($event, abilityCard)"
                 />
-                <a class="remove" (click)="removeAbility(ability)"><img class="ghs-icon" src="./assets/images/minus.svg" /></a>
+                <a class="remove" (click)="removeAbility(abilityCard)"><img class="ghs-icon" src="./assets/images/minus.svg" /></a>
               </div>
               <div
                 class="buttons"
-                [ngClass]="{ 'bottom-actions': deckData.character || (ability.bottomActions && ability.bottomActions.length > 0) }"
+                [ngClass]="{ 'bottom-actions': deckData.character || (abilityCard.bottomActions && abilityCard.bottomActions.length > 0) }"
               >
-                <a class="button add" (click)="addAbilityAction(ability)"
+                <a class="button add" (click)="addAbilityAction(abilityCard)"
                   ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.add'"></span
                 ></a>
-                <a class="button add bottom" (click)="addAbilityActionBottom(ability)"
+                <a class="button add bottom" (click)="addAbilityActionBottom(abilityCard)"
                   ><img class="ghs-icon" src="./assets/images/plus.svg" /> <span [ghs-label]="'editor.action.addBottom'"></span
                 ></a>
               </div>
-              <ghs-ability
-                [ngClass]="{ 'bottom-actions': deckData.character || (ability.bottomActions && ability.bottomActions.length > 0) }"
+              <ghs-ability-card
+                [ngClass]="{ 'bottom-actions': deckData.character || (abilityCard.bottomActions && abilityCard.bottomActions.length > 0) }"
                 [character]="getCharacter()"
                 [monster]="monster"
                 [relative]="true"
                 [flipped]="true"
                 [statsCalculation]="false"
               >
-              </ghs-ability>
+              </ghs-ability-card>
             </div>
-            <ghs-ability
-              [ngClass]="{ 'bottom-actions': deckData.character || (ability.bottomActions && ability.bottomActions.length > 0) }"
-              [ability]="ability"
-              [abilities]="deckData.abilities"
+            <ghs-ability-card
+              [ngClass]="{ 'bottom-actions': deckData.character || (abilityCard.bottomActions && abilityCard.bottomActions.length > 0) }"
+              [abilityCard]="abilityCard"
+              [abilityCards]="deckData.abilities"
               [character]="getCharacter()"
               [monster]="monster"
               [relative]="true"
               [flipped]="true"
               [statsCalculation]="false"
             >
-            </ghs-ability>
+            </ghs-ability-card>
           </div>
         }
 

@@ -25,7 +25,7 @@ import { SpecialActionsManager } from 'src/app/game/businesslogic/SpecialActions
 import { StateManager } from 'src/app/game/businesslogic/StateManager';
 import { TrialsManager } from 'src/app/game/businesslogic/TrialsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
@@ -302,7 +302,7 @@ export class GameManager {
       .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.decks);
 
-    const replaces = decks.filter((deckData) => deckData.abilities.some((ability) => ability.replace));
+    const replaces = decks.filter((deckData) => deckData.abilities.some((abilityCard) => abilityCard.replace));
 
     return decks
       .filter((deckData) => !replaces.includes(deckData))
@@ -313,8 +313,11 @@ export class GameManager {
         }
         const newDeckData = new DeckData(deckData.edition, deckData.name, deckData.character);
 
-        newDeckData.abilities = deckData.abilities.map((ability) =>
-          Object.assign(new Ability(), replace.abilities.find((other) => other.cardId === ability.cardId && other.replace) || ability)
+        newDeckData.abilities = deckData.abilities.map((abilityCard) =>
+          Object.assign(
+            new AbilityCard(),
+            replace.abilities.find((other) => other.cardId === abilityCard.cardId && other.replace) || abilityCard
+          )
         );
 
         return newDeckData;
@@ -448,9 +451,9 @@ export class GameManager {
       }
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       const stat: MonsterStat = gameManager.monsterManager.getStat(figure, entity.type);
-      const ability: Ability | undefined = gameManager.monsterManager.getAbility(figure);
-      if (ability) {
-        ability.actions.forEach((action) => {
+      const abilityCard: AbilityCard | undefined = gameManager.monsterManager.getAbilityCard(figure);
+      if (abilityCard) {
+        abilityCard.actions.forEach((action) => {
           this.actionConditions(action, stat).forEach((condition) => {
             if (!conditions.find((name) => name === condition)) {
               conditions.push(condition);
@@ -630,8 +633,8 @@ export class GameManager {
       );
       if (deckData && figure.abilities.length !== deckData.abilities.length) {
         figure.abilities = deckData.abilities
-          .filter((ability) => isNaN(+ability.level) || +ability.level <= ((figure && figure.level) || 0))
-          .map((ability) => (deckData ? deckData.abilities.indexOf(ability) : -1));
+          .filter((abilityCard) => isNaN(+abilityCard.level) || +abilityCard.level <= ((figure && figure.level) || 0))
+          .map((abilityCard) => (deckData ? deckData.abilities.indexOf(abilityCard) : -1));
         ghsShuffleArray(figure.abilities);
         if (this.game.state === GameState.next) {
           figure.ability = 0;
@@ -681,12 +684,12 @@ export class GameManager {
     return deckData;
   }
 
-  abilities(figure: Monster | Character): Ability[] {
+  abilityCards(figure: Monster | Character): AbilityCard[] {
     return this.deckData(figure).abilities || [];
   }
 
-  hasBottomAbility(ability: Ability | undefined): boolean {
-    return (ability && ability.bottomActions && ability.bottomActions.length > 0) || false;
+  hasBottomAbility(abilityCard: AbilityCard | undefined): boolean {
+    return (abilityCard && abilityCard.bottomActions && abilityCard.bottomActions.length > 0) || false;
   }
 
   getCharacterData(name: string, edition: string = ''): CharacterData {

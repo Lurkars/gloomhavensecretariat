@@ -4,22 +4,22 @@
     flipped: flipped,
     'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard,
     'expanded-ability': settingsManager.settings.showExpandedAbilityCard && flipped,
-    'bottom-actions': hasBottomActions && ability && secondAbility,
-    'second-ability': secondAbility,
+    'bottom-actions': hasBottomActions && abilityCard && secondAbilityCard,
+    'second-ability': secondAbilityCard,
     fh: settingsManager.settings.fhStyle,
     disabled: !settingsManager.settings.abilities,
     denied:
       monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
   }"
 >
-  @if (!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard) {
+  @if (!secondAbilityCard && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard) {
     <div class="hover-effect initiative"></div>
   }
-  @if (!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard) {
+  @if (!secondAbilityCard && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard) {
     <div class="hover-effect title"></div>
   }
-  <ghs-ability
-    [ability]="ability"
+  <ghs-ability-card
+    [abilityCard]="abilityCard"
     [monster]="monster"
     [flipped]="flipped"
     [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'bottom' : 'top') : false"
@@ -27,10 +27,10 @@
     ghs-pointer-input
     (singleClick)="openAbilities($event)"
     (doubleClick)="openAbility($event)"
-  ></ghs-ability>
-  @if (!!secondAbility) {
-    <ghs-ability
-      [ability]="secondAbility"
+  ></ghs-ability-card>
+  @if (!!secondAbilityCard) {
+    <ghs-ability-card
+      [abilityCard]="secondAbilityCard"
       [monster]="monster"
       [flipped]="flipped"
       [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'top' : 'bottom') : false"
@@ -39,7 +39,7 @@
       (singleClick)="openAbilities($event)"
       (doubleClick)="openAbility($event)"
     >
-    </ghs-ability>
+    </ghs-ability-card>
   }
 
   @if (settingsManager.settings.abilities) {

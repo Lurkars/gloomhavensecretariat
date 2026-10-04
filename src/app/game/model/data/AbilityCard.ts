@@ -1,6 +1,6 @@
 import { Action } from 'src/app/game/model/data/Action';
 
-export class Ability {
+export class AbilityCard {
   cardId: number | undefined;
   name: string | undefined;
   initiative: number;

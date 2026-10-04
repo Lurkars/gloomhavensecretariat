@@ -5,7 +5,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { ActionValueType } from 'src/app/game/model/data/Action';
 import { Monster } from 'src/app/game/model/Monster';
 import { ActionsComponent } from 'src/app/ui/figures/actions/actions';
@@ -15,21 +15,21 @@ import { applyPlaceholder, GhsLabelDirective } from 'src/app/ui/helper/label';
 
 @Component({
   imports: [NgClass, GhsLabelDirective, CardRevealDirective, ActionsComponent, InteractiveActionsComponent],
-  selector: 'ghs-ability',
-  templateUrl: './ability.html',
-  styleUrls: ['./ability.scss']
+  selector: 'ghs-ability-card',
+  templateUrl: './ability-card.html',
+  styleUrls: ['./ability-card.scss']
 })
-export class AbilityComponent implements OnInit, OnChanges {
+export class AbilityCardComponent implements OnInit, OnChanges {
   private ghsManager = inject(GhsManager);
 
-  readonly inputAbility = input<Ability>(undefined, { alias: 'ability' });
-  get ability(): Ability | undefined {
-    return this.inputAbility();
+  readonly inputAbilityCard = input<AbilityCard>(undefined, { alias: 'abilityCard' });
+  get abilityCard(): AbilityCard | undefined {
+    return this.inputAbilityCard();
   }
 
-  readonly inputAbilities = input<Ability[]>([], { alias: 'abilities' });
-  get abilities(): Ability[] {
-    return this.inputAbilities();
+  readonly inputAbilityCards = input<AbilityCard[]>([], { alias: 'abilityCards' });
+  get abilityCards(): AbilityCard[] {
+    return this.inputAbilityCards();
   }
 
   readonly inputMonster = input<Monster>(undefined, { alias: 'monster' });
@@ -96,25 +96,25 @@ export class AbilityComponent implements OnInit, OnChanges {
     }
     this.abilityIndex = -1;
     this.abilityLabel = '';
-    if (this.ability) {
-      this.abilityIndex = this.getAbilityIndex(this.ability);
-      this.abilityLabel = this.getAbilityLabel(this.ability);
+    if (this.abilityCard) {
+      this.abilityIndex = this.getAbilityIndex(this.abilityCard);
+      this.abilityLabel = this.getAbilityLabel(this.abilityCard);
     }
     this.fh = (this.character && gameManager.isEditionRelevant(this.character.edition, 'fh')) || false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;
   }
 
-  getAbilityIndex(ability: Ability): number {
-    if (this.abilities && this.abilities.length > 0) {
-      return this.abilities.indexOf(ability);
+  getAbilityIndex(abilityCard: AbilityCard): number {
+    if (this.abilityCards && this.abilityCards.length > 0) {
+      return this.abilityCards.indexOf(abilityCard);
     } else if (this.monster) {
-      return gameManager.abilities(this.monster).indexOf(ability);
+      return gameManager.abilityCards(this.monster).indexOf(abilityCard);
     }
     return -1;
   }
 
-  getAbilityLabel(ability: Ability): string {
-    let label = ability.name || '';
+  getAbilityLabel(abilityCard: AbilityCard): string {
+    let label = abilityCard.name || '';
 
     if (label) {
       label = 'data.ability.' + label;
@@ -126,8 +126,8 @@ export class AbilityComponent implements OnInit, OnChanges {
   }
 
   onChange(revealed: boolean) {
-    if (this.ability) {
-      this.ability.revealed = revealed;
+    if (this.abilityCard) {
+      this.abilityCard.revealed = revealed;
     }
     this.revealedChanged.emit(revealed);
   }

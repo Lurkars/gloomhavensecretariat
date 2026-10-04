@@ -65,15 +65,15 @@
               </small>
             }
           </h2>
-          @for (ability of deck(character).abilities | trackUUID; track ability._trackUUID) {
-            <ghs-ability
+          @for (abilityCard of deck(character).abilities | trackUUID; track abilityCard._trackUUID) {
+            <ghs-ability-card
               class="bottom-actions"
-              [ability]="ability"
-              [abilities]="deck(character).abilities"
+              [abilityCard]="abilityCard"
+              [abilityCards]="deck(character).abilities"
               [character]="characters[i]"
               [flipped]="true"
             >
-            </ghs-ability>
+            </ghs-ability-card>
           }
         </div>
       }
@@ -89,14 +89,14 @@
               </small>
             }
           </h2>
-          @for (ability of deck(monster).abilities | trackUUID; track ability._trackUUID) {
-            <ghs-ability
-              [ability]="ability"
-              [abilities]="deck(monster).abilities"
+          @for (abilityCard of deck(monster).abilities | trackUUID; track abilityCard._trackUUID) {
+            <ghs-ability-card
+              [abilityCard]="abilityCard"
+              [abilityCards]="deck(monster).abilities"
               [monster]="monsters[i]"
               [flipped]="true"
-              [ngClass]="{ 'bottom-actions': ability.bottomActions && ability.bottomActions.length > 0 }"
-            ></ghs-ability>
+              [ngClass]="{ 'bottom-actions': abilityCard.bottomActions && abilityCard.bottomActions.length > 0 }"
+            ></ghs-ability-card>
           }
         </div>
       }

@@ -1262,13 +1262,13 @@ export class ScenarioRulesManager {
             figures.forEach((figure) => {
               if (figure instanceof Monster) {
                 if (figureRule.type === 'setAbility' || figureRule.type === 'removeAbility') {
-                  const ability = gameManager
-                    .abilities(figure)
-                    .find((ability) =>
-                      isNaN(+figureRule.value) ? ability.name === figureRule.value : ability.cardId === +figureRule.value
+                  const abilityCard = gameManager
+                    .abilityCards(figure)
+                    .find((abilityCard) =>
+                      isNaN(+figureRule.value) ? abilityCard.name === figureRule.value : abilityCard.cardId === +figureRule.value
                     );
-                  if (ability) {
-                    const index = gameManager.abilities(figure).indexOf(ability);
+                  if (abilityCard) {
+                    const index = gameManager.abilityCards(figure).indexOf(abilityCard);
                     if (index !== -1) {
                       figure.abilities = figure.abilities.filter((number) => number !== index);
                       if (figureRule.type === 'setAbility') {

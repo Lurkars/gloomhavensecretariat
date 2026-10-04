@@ -21,7 +21,7 @@
     margin-top: calc(var(--ghs-unit) * 3);
     min-width: calc(var(--ghs-unit) * 82);
 
-    ghs-ability {
+    ghs-ability-card {
       display: block;
       width: calc(var(--ghs-unit) * 40);
       min-height: calc(var(--ghs-unit) * 25.5);
@@ -467,7 +467,7 @@
         }
       }
 
-      ghs-ability {
+      ghs-ability-card {
         position: absolute;
         top: 0;
         left: 0;

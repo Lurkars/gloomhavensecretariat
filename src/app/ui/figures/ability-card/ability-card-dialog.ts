@@ -4,23 +4,23 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { Monster } from 'src/app/game/model/Monster';
-import { AbilityComponent } from 'src/app/ui/figures/ability/ability';
+import { AbilityCardComponent } from 'src/app/ui/figures/ability-card/ability-card';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, PointerInputDirective, AbilityComponent],
-  selector: 'ghs-ability-dialog',
-  templateUrl: './ability-dialog.html',
-  styleUrls: ['./ability-dialog.scss']
+  imports: [NgClass, PointerInputDirective, AbilityCardComponent],
+  selector: 'ghs-ability-card-dialog',
+  templateUrl: './ability-card-dialog.html',
+  styleUrls: ['./ability-card-dialog.scss']
 })
-export class AbilityDialogComponent implements OnInit {
+export class AbilityCardDialogComponent implements OnInit {
   private dialogRef = inject(DialogRef);
 
-  ability: Ability | undefined;
-  secondAbility: Ability | undefined;
+  abilityCard: AbilityCard | undefined;
+  secondAbilityCard: AbilityCard | undefined;
   monster: Monster | undefined;
   character: Character | undefined;
   relative: boolean;
@@ -30,25 +30,30 @@ export class AbilityDialogComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
 
-  data: { ability: Ability | undefined; monster: undefined; character: Character | undefined; relative: boolean; interactive: boolean } =
-    inject(DIALOG_DATA);
+  data: {
+    abilityCard: AbilityCard | undefined;
+    monster: undefined;
+    character: Character | undefined;
+    relative: boolean;
+    interactive: boolean;
+  } = inject(DIALOG_DATA);
 
   constructor() {
-    this.ability = this.data.ability;
+    this.abilityCard = this.data.abilityCard;
     this.monster = this.data.monster || undefined;
     this.character = this.data.character || undefined;
     this.relative = this.data.relative;
     this.interactiveAbilities = this.data.interactive;
 
-    if (!!this.monster && !this.ability) {
-      this.ability = gameManager.monsterManager.getAbility(this.monster);
+    if (!!this.monster && !this.abilityCard) {
+      this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster);
       if (gameManager.monsterManager.hasBottomActions(this.monster)) {
-        this.secondAbility = this.ability;
-        this.ability = gameManager.monsterManager.getAbility(this.monster, true);
+        this.secondAbilityCard = this.abilityCard;
+        this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster, true);
       }
     }
 
-    if (!this.ability) {
+    if (!this.abilityCard) {
       this.dialogRef.close();
     }
   }

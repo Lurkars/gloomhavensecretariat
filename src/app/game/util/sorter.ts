@@ -27,7 +27,7 @@ export const removeEmptyValues = function (object: any, ...ignores: string[]): v
   });
 };
 
-// ─── Deck / Action / Ability / Summon ─────────────────────────────────────────
+// ─── Deck / Action / AbilityCard / Summon ─────────────────────────────────────────
 
 export const sortSummon = function (summon: any): any {
   if (!summon) {
