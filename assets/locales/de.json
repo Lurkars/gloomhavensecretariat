@@ -476,17 +476,17 @@
       "new": "Neuer Charakter"
     },
     "deck": {
-      "": "Fertigkeitendeck Editor",
-      "abilityName": "Fertigkeitsname",
-      "addAbility": "Fertigkeit hinzufügen",
+      "": "Fertigkeitsdeck Editor",
+      "abilityName": "Name der Fertigkeitskarte",
+      "addAbility": "Fertigkeitskarte hinzufügen",
       "character": "Charakterdeck",
       "json": {
         "": "Fertigkeitsdeck JSON Daten",
         "download": "Fertigkeitsdeck als JSON-Datei herunterladen"
       },
       "name": "Deckname",
-      "new": "Neues Fertigkeitendeck",
-      "removeAbility": "Fertigkeit entfernen"
+      "new": "Neues Fertigkeitsdeck",
+      "removeAbility": "Fertigkeitskarte entfernen"
     },
     "edition": {
       "": "Editionseditor",
@@ -1502,7 +1502,7 @@
     "skipInteractiveActions": "Interaktive Fähigkeiten auslassen für",
     "statEffect": {
       "": "Folgende Änderungen werden durch Sonderregeln angewendet:",
-      "deck": "Verwendet geänderte Fertigkeiten:<br>\"{0}\""
+      "deck": "Verwendet geändertes Fertigkeitsdeck:<br>\"{0}\""
     },
     "toggleAction": "Schalte anwendbare Fähigkeit um",
     "toggleAllied": {
@@ -2445,12 +2445,12 @@
       "hint": "Ziehe Fertigkeitskarten für Monster. Falls deaktiviert muss die Reihenfolge der Monster manuell über drag&drop festgelegt werden."
     },
     "abilityNumbers": {
-      "": "Zeige Fertigkeitsnummern an",
+      "": "Zeige Fertigkeitskartennummern an",
       "hint": "Fertigkeitsnummern auf den Fertigkeitskarten anzeigen"
     },
     "abilityReveal": {
       "": "Fertigkeitskarten direkt aufdecken",
-      "hint": "Falls nicht ausgewählt, werden Fertigkeiten erst während des Zuges aufgedeckt"
+      "hint": "Falls nicht ausgewählt, werden Fertigkeitskarten der Monster erst während des Zuges aufgedeckt"
     },
     "activeApplyConditions": {
       "": "Bestätige anwendbare Zustände",
@@ -3444,7 +3444,7 @@
       "donate": "{0} spendet an Tempel der Großen Eiche",
       "downgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} herabstufen",
       "draw": "Ziehen",
-      "drawAbility": "Fertigkeit für {0} ziehen",
+      "drawAbility": "Fertigkeitskarte für {0} ziehen",
       "enableAutomaticLevel": "Automatische Berechnung Level einschalten",
       "enableEnvelopeB": "Umschlag B öffnen",
       "enablePartyCampaignMode": "Kampagnenmodus einschalten",
@@ -3807,7 +3807,7 @@
       "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",
       "openRoomMarker": "Öffne Raum %game.mapMarker.{3}% für Kachel '{2}' in #{0} {1}",
       "rebuildBuilding": "'%data.buildings.{1}%' ({0}) wiederaufgebaut",
-      "removeAbility": "Fertigkeit \"{1}\" von {0} entfernen",
+      "removeAbility": "Fertigkeitskarte \"{1}\" von {0} entfernen",
       "removeAllChars": "Alle Charaktere entfernen",
       "removeAllMonster": "Alle Monster entfernen",
       "removeAllObjectives": "Alle Ziele entfernen",
@@ -3910,7 +3910,7 @@
       "repairBuilding": "'%data.buildings.{1}%' ({0}) repariert",
       "resetCampaign": "Kampagne zurücksetzen",
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
-      "restoreAbility": "Fertigkeit \"{1}\" für {0} wiederherstellen",
+      "restoreAbility": "Fertigkeitskarte \"{1}\" für {0} wiederherstellen",
       "restoreDefaultAbilities": "Ursprüngliche Fertigkeitskarten für {0} wiederherstellen",
       "sellItem": "Gegenstand {1} (%data.edition.{2}%) von {0} verkaufen",
       "serverSync": "Server: {0}",
@@ -4003,8 +4003,8 @@
       "setTitle": "Titel '{1}' für {0}",
       "setXP": "EP {1} für {0}",
       "shareItem": "{0} teilt \"%data.items.{3}-{2}%\" (Gegenstand {2}) mit {1}",
-      "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
-      "shuffleAbilityDeckUpcoming": "Nicht gezogene Fertigkeiten mischen für {0}",
+      "shuffleAbilityDeck": "Fertigkeitskarten mischen für {0}",
+      "shuffleAbilityDeckUpcoming": "Nicht gezogene Fertigkeitskarten mischen für {0}",
       "skipInteractiveActions": "Interaktive Fertigkeiten auslassen für Aufsteller {1} von {2}",
       "startCampaign": "Neue {0} Kampagne starten",
       "summonActive": "Beschwörung '{1}' von {0} aktiv",
