@@ -568,7 +568,7 @@ export class EventCardManager {
                 break;
               case EventCardEffectType.drawAnotherEvent:
               case EventCardEffectType.drawEvent:
-                this.game.eventDraw = effect.values[0] as string;
+                this.game.eventDraw = effect.values && effect.values[0] ? (effect.values[0] as string) : eventCard.type;
                 break;
               case EventCardEffectType.event:
               case EventCardEffectType.eventReturn:

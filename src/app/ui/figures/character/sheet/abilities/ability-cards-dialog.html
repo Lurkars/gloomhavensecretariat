@@ -70,36 +70,40 @@
     <div class="abilities">
       @if (!exclusiveLevel && !levelToPick && !enhanced) {
         <div class="container">
-          <ghs-ability [character]="character"></ghs-ability>
+          <ghs-ability-card [character]="character"></ghs-ability-card>
         </div>
       }
-      @for (ability of visibleAbilities | trackUUID; track ability._trackUUID) {
+      @for (abilityCard of visibleAbilityCards | trackUUID; track abilityCard._trackUUID) {
         <div
           class="container ability"
           [ngClass]="{
             pick: levelToPick,
-            'in-deck': ability.level === 1 || ability.level === 'X' || character.progress.deck.indexOf(abilities.indexOf(ability)) !== -1,
-            always: ability.level === 1 || ability.level === 'X',
+            'in-deck':
+              abilityCard.level === 1 ||
+              abilityCard.level === 'X' ||
+              character.progress.deck.indexOf(abilityCards.indexOf(abilityCard)) !== -1,
+            always: abilityCard.level === 1 || abilityCard.level === 'X',
             disabled:
-              character.progress.deck.indexOf(abilities.indexOf(ability)) === -1 && (levelToPick < +ability.level || cardsToPick < 1)
+              character.progress.deck.indexOf(abilityCards.indexOf(abilityCard)) === -1 &&
+              (levelToPick < +abilityCard.level || cardsToPick < 1)
           }"
         >
-          <ghs-ability
-            [ability]="ability"
+          <ghs-ability-card
+            [abilityCard]="abilityCard"
             [character]="character"
             [flipped]="true"
             ghs-pointer-input
-            (singleClick)="clickAbility(ability)"
-            (doubleClick)="openDialog(ability)"
-          ></ghs-ability>
+            (singleClick)="clickAbility(abilityCard)"
+            (doubleClick)="openDialog(abilityCard)"
+          ></ghs-ability-card>
           @if (!deck) {
             <img
               class="deck"
               src="./assets/images/character/deck.svg"
               ghs-pointer-input
-              (doubleClick)="toggleDeck(ability, true)"
+              (doubleClick)="toggleDeck(abilityCard, true)"
               [ghs-tooltip]="
-                character.progress.deck.indexOf(abilities.indexOf(ability)) !== -1
+                character.progress.deck.indexOf(abilityCards.indexOf(abilityCard)) !== -1
                   ? 'character.abilities.removeFromDeck'
                   : 'character.abilities.forceDeck'
               "
@@ -108,14 +112,14 @@
         </div>
       }
     </div>
-    @if (smallAbilities.length) {
+    @if (smallAbilityCards.length) {
       <p class="title" [ghs-label]="'character.abilities.currentDeck'"></p>
     }
-    @if (smallAbilities.length) {
+    @if (smallAbilityCards.length) {
       <div class="abilities">
-        @for (ability of smallAbilities | trackUUID; track ability._trackUUID) {
-          <div class="container small ability" (click)="openDialog(ability)">
-            <ghs-ability [ability]="ability" [character]="character" [flipped]="true"></ghs-ability>
+        @for (abilityCard of smallAbilityCards | trackUUID; track abilityCard._trackUUID) {
+          <div class="container small ability" (click)="openDialog(abilityCard)">
+            <ghs-ability-card [abilityCard]="abilityCard" [character]="character" [flipped]="true"></ghs-ability-card>
           </div>
         }
       </div>

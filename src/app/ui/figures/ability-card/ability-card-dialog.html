@@ -1,40 +1,40 @@
 <div class="ability-dialog" ghs-pointer-input (singleClick)="close()" [ngClass]="{ closed: !opened, opened: opened }">
-  @if (!!ability) {
+  @if (!!abilityCard) {
     <div
       class="ability-container"
       [ngClass]="{
-        'bottom-actions': (ability && ability.bottomActions && ability.bottomActions.length > 0) || false,
-        'second-ability': !!secondAbility
+        'bottom-actions': (abilityCard && abilityCard.bottomActions && abilityCard.bottomActions.length > 0) || false,
+        'second-ability': !!secondAbilityCard
       }"
     >
-      <ghs-ability
-        [ability]="ability"
+      <ghs-ability-card
+        [abilityCard]="abilityCard"
         [monster]="monster"
         [character]="character"
         [flipped]="opened"
         [relative]="relative"
         [interactiveAbilities]="interactiveAbilities"
         [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'bottom' : 'top') : false"
-      ></ghs-ability>
+      ></ghs-ability-card>
     </div>
   }
-  @if (!!secondAbility) {
+  @if (!!secondAbilityCard) {
     <div
       class="ability-container"
       [ngClass]="{
-        'bottom-actions': (secondAbility && secondAbility.bottomActions && secondAbility.bottomActions.length > 0) || false,
-        'second-ability': !!secondAbility
+        'bottom-actions': (secondAbilityCard && secondAbilityCard.bottomActions && secondAbilityCard.bottomActions.length > 0) || false,
+        'second-ability': !!secondAbilityCard
       }"
     >
-      <ghs-ability
-        [ability]="secondAbility"
+      <ghs-ability-card
+        [abilityCard]="secondAbilityCard"
         [monster]="monster"
         [character]="character"
         [flipped]="opened"
         [relative]="relative"
         [interactiveAbilities]="interactiveAbilities"
         [activeActions]="!!monster && monster.firstActiveAction ? (monster.firstActiveAction === 'bottom' ? 'top' : 'bottom') : false"
-      ></ghs-ability>
+      ></ghs-ability-card>
     </div>
   }
 </div>

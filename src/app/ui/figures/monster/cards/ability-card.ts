@@ -4,16 +4,16 @@ import { Component, OnInit, inject, input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { AbiltiesDialogComponent } from 'src/app/ui/figures/ability/abilities-dialog';
-import { AbilityComponent } from 'src/app/ui/figures/ability/ability';
-import { AbilityDialogComponent } from 'src/app/ui/figures/ability/ability-dialog';
+import { AbilityCardComponent } from 'src/app/ui/figures/ability-card/ability-card';
+import { AbilityCardDialogComponent } from 'src/app/ui/figures/ability-card/ability-card-dialog';
+import { AbilityDeckDialogComponent } from 'src/app/ui/figures/ability-card/ability-deck-dialog';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 
 @Component({
-  imports: [NgClass, PointerInputDirective, AbilityComponent],
+  imports: [NgClass, PointerInputDirective, AbilityCardComponent],
   selector: 'ghs-monster-ability-card',
   templateUrl: './ability-card.html',
   styleUrls: ['./ability-card.scss']
@@ -29,8 +29,8 @@ export class MonsterAbilityCardComponent implements OnInit {
 
   readonly index = input<number>(-1);
 
-  ability: Ability | undefined = undefined;
-  secondAbility: Ability | undefined = undefined;
+  abilityCard: AbilityCard | undefined = undefined;
+  secondAbilityCard: AbilityCard | undefined = undefined;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   flipped: boolean = false;
@@ -46,19 +46,23 @@ export class MonsterAbilityCardComponent implements OnInit {
   }
 
   get minInitiative(): number {
-    let abilities = gameManager.abilities(this.monster).filter((ability, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
-    if (!abilities.length) {
-      abilities = gameManager.abilities(this.monster);
+    let abilityCards = gameManager
+      .abilityCards(this.monster)
+      .filter((abilityCard, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
+    if (!abilityCards.length) {
+      abilityCards = gameManager.abilityCards(this.monster);
     }
-    return abilities.length ? Math.min(...abilities.map((ability) => ability.initiative)) : 0;
+    return abilityCards.length ? Math.min(...abilityCards.map((abilityCard) => abilityCard.initiative)) : 0;
   }
 
   get maxInitiative(): number {
-    let abilities = gameManager.abilities(this.monster).filter((ability, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
-    if (!abilities.length) {
-      abilities = gameManager.abilities(this.monster);
+    let abilityCards = gameManager
+      .abilityCards(this.monster)
+      .filter((abilityCard, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
+    if (!abilityCards.length) {
+      abilityCards = gameManager.abilityCards(this.monster);
     }
-    return abilities.length ? Math.max(...abilities.map((ability) => ability.initiative)) : 0;
+    return abilityCards.length ? Math.max(...abilityCards.map((abilityCard) => abilityCard.initiative)) : 0;
   }
 
   update() {
@@ -74,19 +78,19 @@ export class MonsterAbilityCardComponent implements OnInit {
 
     const indexValue = this.index();
     if (indexValue === -1) {
-      this.ability = gameManager.monsterManager.getAbility(this.monster);
+      this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster);
     } else {
-      this.ability = gameManager.abilities(this.monster)[indexValue];
+      this.abilityCard = gameManager.abilityCards(this.monster)[indexValue];
     }
 
-    if (!this.ability) {
+    if (!this.abilityCard) {
       return false;
     }
 
-    if (gameManager.hasBottomAbility(this.ability)) {
+    if (gameManager.hasBottomAbility(this.abilityCard)) {
       // Manifestation of Corruption mechanic?!
-      this.ability = gameManager.monsterManager.getAbility(this.monster, true);
-      this.secondAbility = gameManager.monsterManager.getAbility(this.monster);
+      this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster, true);
+      this.secondAbilityCard = gameManager.monsterManager.getAbilityCard(this.monster);
     }
 
     let flipped =
@@ -108,7 +112,7 @@ export class MonsterAbilityCardComponent implements OnInit {
 
   openAbilities(event: any): void {
     if (settingsManager.settings.abilities && (!event.srcEvent || !event.srcEvent.defaultPrevented)) {
-      this.dialog.open(AbiltiesDialogComponent, {
+      this.dialog.open(AbilityDeckDialogComponent, {
         panelClass: ['dialog'],
         data: this.monster
       });
@@ -118,7 +122,7 @@ export class MonsterAbilityCardComponent implements OnInit {
   openAbility(event: any): void {
     if (settingsManager.settings.abilities) {
       if (this.flipped) {
-        this.dialog.open(AbilityDialogComponent, {
+        this.dialog.open(AbilityCardDialogComponent, {
           panelClass: ['fullscreen-panel'],
           disableClose: true,
           data: { monster: this.monster, interactive: settingsManager.settings.interactiveAbilities }

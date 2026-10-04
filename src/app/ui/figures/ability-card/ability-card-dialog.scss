@@ -40,19 +40,19 @@
     max-width: 600px;
     max-height: 100vh;
 
-    ghs-ability {
+    ghs-ability-card {
       display: block;
       margin: 1vh 0;
     }
 
     &.bottom-actions {
-      ghs-ability {
+      ghs-ability-card {
         height: 135vw;
         max-height: 810px;
       }
 
       @media (max-height: 600px), (orientation: portrait) {
-        &.second-ability ghs-ability {
+        &.second-ability ghs-ability-card {
           height: 67.5vw;
           max-height: 405px;
         }

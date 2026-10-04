@@ -1,5 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStatEffect } from 'src/app/game/model/data/MonsterStat';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -20,8 +20,11 @@ export class Monster extends MonsterData implements Figure {
   type: string = 'monster';
 
   getInitiative(): number {
-    const ability: Ability | undefined = gameManager.monsterManager.getAbility(this, gameManager.monsterManager.hasBottomActions(this));
-    let initiative = (gameManager.gameplayFigure(this) && ability && ability.initiative) || 100;
+    const abilityCard: AbilityCard | undefined = gameManager.monsterManager.getAbilityCard(
+      this,
+      gameManager.monsterManager.hasBottomActions(this)
+    );
+    let initiative = (gameManager.gameplayFigure(this) && abilityCard && abilityCard.initiative) || 100;
 
     if (this.statEffect && this.statEffect.initiative) {
       initiative = this.statEffect.absolute
@@ -126,7 +129,7 @@ export class Monster extends MonsterData implements Figure {
     this.lastDraw = model.lastDraw;
     this.abilities =
       (model.abilities && model.abilities.length > 0 && model.abilities) ||
-      (gameManager.abilities(this) && gameManager.abilities(this).map((ability, index) => index)) ||
+      (gameManager.abilityCards(this) && gameManager.abilityCards(this).map((abilityCard, index) => index)) ||
       [];
     this.revealedAbilities = model.revealedAbilities || [];
     this.ability = model.ability;

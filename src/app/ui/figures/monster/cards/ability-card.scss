@@ -10,7 +10,7 @@
   border-radius: calc(var(--ghs-unit) * 1);
   cursor: help;
 
-  ghs-ability {
+  ghs-ability-card {
     display: inline-block;
     position: relative;
     top: calc(var(--ghs-unit) * -3);
@@ -56,7 +56,7 @@
   }
 
   &.flipped {
-    ghs-ability {
+    ghs-ability-card {
       top: calc(var(--ghs-unit) * -4);
     }
 
@@ -65,7 +65,7 @@
     }
 
     &.fh {
-      ghs-ability {
+      ghs-ability-card {
         top: calc(var(--ghs-unit) * -3.5);
       }
     }
@@ -97,7 +97,7 @@
           height: calc(var(--ghs-unit) * 4);
         }
 
-        & ~ ghs-ability {
+        & ~ ghs-ability-card {
           top: 0;
         }
       }
@@ -107,7 +107,7 @@
   &.second-ability {
     display: flex;
 
-    ghs-ability {
+    ghs-ability-card {
       top: 0;
       width: calc(var(--ghs-unit) * 20);
       height: calc(var(--ghs-unit) * 10.75);
@@ -130,13 +130,13 @@
   &.bottom-actions {
     overflow-y: auto;
 
-    ghs-ability {
+    ghs-ability-card {
       top: 0;
       height: calc(var(--ghs-unit) * 54);
     }
 
     &.second-ability {
-      ghs-ability {
+      ghs-ability-card {
         height: calc(var(--ghs-unit) * 27);
       }
     }
@@ -146,32 +146,32 @@
     width: calc(var(--ghs-unit) * 37);
     height: calc(var(--ghs-unit) * 24);
 
-    ghs-ability {
+    ghs-ability-card {
       top: 0;
       width: calc(var(--ghs-unit) * 37);
       height: calc(var(--ghs-unit) * 24);
     }
 
     &.fh {
-      ghs-ability {
+      ghs-ability-card {
         top: 0;
       }
     }
 
     &.second-ability {
-      ghs-ability {
+      ghs-ability-card {
         width: calc(var(--ghs-unit) * 18.5);
         height: calc(var(--ghs-unit) * 12);
       }
     }
 
     &.bottom-actions {
-      ghs-ability {
+      ghs-ability-card {
         height: calc(var(--ghs-unit) * 38.2);
       }
 
       &.second-ability {
-        ghs-ability {
+        ghs-ability-card {
           height: calc(var(--ghs-unit) * 25);
         }
       }
@@ -183,7 +183,7 @@
     height: auto;
     min-height: calc(var(--ghs-unit) * 24);
 
-    ghs-ability {
+    ghs-ability-card {
       top: 0;
       width: calc(var(--ghs-unit) * 37);
       height: auto;
@@ -191,7 +191,7 @@
     }
 
     &.fh {
-      ghs-ability {
+      ghs-ability-card {
         top: 0;
       }
     }
@@ -199,12 +199,12 @@
     &.bottom-actions {
       height: calc(var(--ghs-unit) * 38.2);
 
-      ghs-ability {
+      ghs-ability-card {
         height: calc(var(--ghs-unit) * 38.2);
       }
 
       &.second-ability {
-        ghs-ability {
+        ghs-ability-card {
           height: calc(var(--ghs-unit) * 25);
         }
       }
@@ -213,7 +213,7 @@
     &.second-ability {
       height: calc(var(--ghs-unit) * 25);
 
-      ghs-ability {
+      ghs-ability-card {
         width: calc(var(--ghs-unit) * 18.5);
         height: calc(var(--ghs-unit) * 12);
         min-height: initial;

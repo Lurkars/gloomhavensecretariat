@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { DeckData } from 'src/app/game/model/data/DeckData';
@@ -11,20 +11,20 @@ import { EditionData } from 'src/app/game/model/data/EditionData';
 import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/ability-cards-dialog';
 
 // AbilityCardsDialogComponent's constructor does real work eagerly (unlike its ngOnInit-driven
-// sibling AbiltiesDialogComponent): it resolves the character's ability deck and computes
+// sibling AbilityDeckDialogComponent): it resolves the character's ability deck and computes
 // additionalLevels right away, then subscribes to dialogRef.closed. Following the
 // AppComponent.spec.ts pattern: create via TestBed, never call fixture.detectChanges() (ngOnInit
 // never runs — we call update() directly where needed). toggleEnhanced()/clickAbility()'s
 // no-existing-enhancements / non-deck branches open dialogs (EnhancementDialogComponent/
-// AbilityDialogComponent) and are avoided here by pre-populating character.progress.enhancements or
+// AbilityCardDialogComponent) and are avoided here by pre-populating character.progress.enhancements or
 // exercising only the toggleDeck() branch, per the researched gotchas for this component.
 
-function buildAbilities(): Ability[] {
+function buildAbilities(): AbilityCard[] {
   return [
-    new Ability(1, undefined, 0, [], false, [], 1),
-    Object.assign(new Ability(2), { level: 'X' }),
-    new Ability(3, undefined, 0, [], false, [], 2),
-    new Ability(4, undefined, 0, [], false, [], 3)
+    new AbilityCard(1, undefined, 0, [], false, [], 1),
+    Object.assign(new AbilityCard(2), { level: 'X' }),
+    new AbilityCard(3, undefined, 0, [], false, [], 2),
+    new AbilityCard(4, undefined, 0, [], false, [], 3)
   ];
 }
 
@@ -39,8 +39,8 @@ function buildCharacter(level: number = 2): Character {
   return character;
 }
 
-function createComponent(character: Character, abilities: Ability[]): AbilityCardsDialogComponent {
-  gameManager.editionData = [new EditionData('gh', [], [], [new DeckData('gh', 'brute', true, abilities)], [], [], [])];
+function createComponent(character: Character, abilityCards: AbilityCard[]): AbilityCardsDialogComponent {
+  gameManager.editionData = [new EditionData('gh', [], [], [new DeckData('gh', 'brute', true, abilityCards)], [], [], [])];
   TestBed.configureTestingModule({
     imports: [AbilityCardsDialogComponent],
     providers: [
@@ -76,14 +76,14 @@ describe('AbilityCardsDialogComponent', () => {
 
   describe('constructor', () => {
     it('resolves the ability deck and computes additionalLevels for special string/high-numeric levels', () => {
-      const abilities = [
+      const abilityCards = [
         ...buildAbilities(),
-        Object.assign(new Ability(5), { level: '9-1' }),
-        new Ability(6, undefined, 0, [], false, [], 10)
+        Object.assign(new AbilityCard(5), { level: '9-1' }),
+        new AbilityCard(6, undefined, 0, [], false, [], 10)
       ];
       const character = buildCharacter();
-      const component = createComponent(character, abilities);
-      expect(component.abilities.length).toEqual(6);
+      const component = createComponent(character, abilityCards);
+      expect(component.abilityCards.length).toEqual(6);
       expect(component.additionalLevels).toEqual(['9-1', 10]);
     });
   });
@@ -95,8 +95,8 @@ describe('AbilityCardsDialogComponent', () => {
       component.update();
       expect(component.cardsToPick).toEqual(1);
       expect(component.levelToPick).toEqual(2);
-      expect(component.visibleAbilities.map((a) => a.cardId)).toEqual([3]);
-      expect(component.smallAbilities.map((a) => a.cardId).sort()).toEqual([1, 2]);
+      expect(component.visibleAbilityCards.map((a) => a.cardId)).toEqual([3]);
+      expect(component.smallAbilityCards.map((a) => a.cardId).sort()).toEqual([1, 2]);
     });
   });
 
@@ -159,29 +159,29 @@ describe('AbilityCardsDialogComponent', () => {
   describe('toggleDeck', () => {
     it('adds an eligible ability to the deck', () => {
       const character = buildCharacter(2);
-      const abilities = buildAbilities();
-      const component = createComponent(character, abilities);
+      const abilityCards = buildAbilities();
+      const component = createComponent(character, abilityCards);
       component.update();
-      component.toggleDeck(abilities[2]);
+      component.toggleDeck(abilityCards[2]);
       expect(character.progress.deck).toContain(2);
     });
 
     it('removes an ability already in the deck', () => {
       const character = buildCharacter(2);
       character.progress.deck = [2];
-      const abilities = buildAbilities();
-      const component = createComponent(character, abilities);
+      const abilityCards = buildAbilities();
+      const component = createComponent(character, abilityCards);
       component.update();
-      component.toggleDeck(abilities[2]);
+      component.toggleDeck(abilityCards[2]);
       expect(character.progress.deck).not.toContain(2);
     });
 
     it('is a no-op for an ability above the pickable level without force', () => {
       const character = buildCharacter(2);
-      const abilities = buildAbilities();
-      const component = createComponent(character, abilities);
+      const abilityCards = buildAbilities();
+      const component = createComponent(character, abilityCards);
       component.update();
-      component.toggleDeck(abilities[3]);
+      component.toggleDeck(abilityCards[3]);
       expect(character.progress.deck).not.toContain(3);
     });
   });

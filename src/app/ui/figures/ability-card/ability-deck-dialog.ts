@@ -5,10 +5,10 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { AbilityComponent } from 'src/app/ui/figures/ability/ability';
+import { AbilityCardComponent } from 'src/app/ui/figures/ability-card/ability-card';
 import { applyPlaceholder, GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
@@ -25,13 +25,13 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
     CdkDropList,
     CdkDrag,
     CdkDragHandle,
-    AbilityComponent
+    AbilityCardComponent
   ],
-  selector: 'ghs-abilities-dialog',
-  templateUrl: './abilities-dialog.html',
-  styleUrls: ['./abilities-dialog.scss']
+  selector: 'ghs-ability-deck-dialog',
+  templateUrl: './ability-deck-dialog.html',
+  styleUrls: ['./ability-deck-dialog.scss']
 })
-export class AbiltiesDialogComponent implements OnInit {
+export class AbilityDeckDialogComponent implements OnInit {
   dialogRef = inject(DialogRef);
   private ghsManager = inject(GhsManager);
 
@@ -44,10 +44,10 @@ export class AbiltiesDialogComponent implements OnInit {
   GameState = GameState;
   edit: boolean = false;
   bottomActions: boolean = false;
-  abilities: Ability[] = [];
-  upcomingCards: Ability[] = [];
-  discardedCards: Ability[] = [];
-  deletedCards: Ability[] = [];
+  abilityCards: AbilityCard[] = [];
+  upcomingCards: AbilityCard[] = [];
+  discardedCards: AbilityCard[] = [];
+  deletedCards: AbilityCard[] = [];
   keepRevealed: boolean[] = [];
 
   constructor() {
@@ -57,9 +57,9 @@ export class AbiltiesDialogComponent implements OnInit {
   ngOnInit(): void {
     this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.dialogRef.closed.subscribe(() => {
-      this.abilities.forEach((ability, i) => {
-        if (ability.revealed && !this.keepRevealed[i]) {
-          ability.revealed = false;
+      this.abilityCards.forEach((abilityCard, i) => {
+        if (abilityCard.revealed && !this.keepRevealed[i]) {
+          abilityCard.revealed = false;
         }
       });
     });
@@ -73,22 +73,22 @@ export class AbiltiesDialogComponent implements OnInit {
   update(init: boolean = false) {
     const abilityNumber = this.monster.ability;
 
-    this.abilities = this.monster.abilities.map((value) => gameManager.abilities(this.monster)[value]);
+    this.abilityCards = this.monster.abilities.map((value) => gameManager.abilityCards(this.monster)[value]);
 
-    this.upcomingCards = this.abilities.filter((value, index) => index > abilityNumber);
-    this.discardedCards = this.abilities.filter((value, index) => index <= abilityNumber).reverse();
-    this.deletedCards = gameManager.deckData(this.monster).abilities.filter((ability) => !this.abilities.includes(ability));
+    this.upcomingCards = this.abilityCards.filter((value, index) => index > abilityNumber);
+    this.discardedCards = this.abilityCards.filter((value, index) => index <= abilityNumber).reverse();
+    this.deletedCards = gameManager.deckData(this.monster).abilities.filter((abilityCard) => !this.abilityCards.includes(abilityCard));
 
     if (init) {
       this.keepRevealed = [...this.monster.revealedAbilities];
-      this.abilities.forEach((ability, i) => {
-        ability.revealed = this.keepRevealed[i];
+      this.abilityCards.forEach((abilityCard, i) => {
+        abilityCard.revealed = this.keepRevealed[i];
       });
     }
   }
 
-  abilityIndex(ability: Ability) {
-    return gameManager.abilities(this.monster).indexOf(ability);
+  abilityIndex(abilityCard: AbilityCard) {
+    return gameManager.abilityCards(this.monster).indexOf(abilityCard);
   }
 
   shuffle(upcoming: boolean = false) {
@@ -126,7 +126,7 @@ export class AbiltiesDialogComponent implements OnInit {
     this.update();
   }
 
-  dropUpcoming(event: CdkDragDrop<Ability[]>) {
+  dropUpcoming(event: CdkDragDrop<AbilityCard[]>) {
     gameManager.stateManager.before('reorderAbilities', 'data.monster.' + this.monster.name);
     if (event.container === event.previousContainer) {
       const offset = this.monster.ability + 1;
@@ -147,7 +147,7 @@ export class AbiltiesDialogComponent implements OnInit {
     this.keepRevealed = [...this.monster.revealedAbilities];
   }
 
-  dropDiscarded(event: CdkDragDrop<Ability[]>) {
+  dropDiscarded(event: CdkDragDrop<AbilityCard[]>) {
     gameManager.stateManager.before('reorderAbilities', 'data.monster.' + this.monster.name);
     if (event.container === event.previousContainer) {
       moveItemInArray(this.monster.abilities, this.monster.ability - event.previousIndex, this.monster.ability - event.currentIndex);
@@ -180,24 +180,24 @@ export class AbiltiesDialogComponent implements OnInit {
   }
 
   remove(index: number) {
-    const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index]];
+    const abilityCard: AbilityCard = gameManager.abilityCards(this.monster)[this.monster.abilities[index]];
     gameManager.stateManager.before(
       'removeAbility',
       'data.monster.' + this.monster.name,
-      ability.name ? this.abilityLabel(ability) : '' + ability.cardId
+      abilityCard.name ? this.abilityLabel(abilityCard) : '' + abilityCard.cardId
     );
     gameManager.monsterManager.removeAbility(this.monster, index);
     gameManager.stateManager.after();
     this.update();
   }
 
-  restore(ability: Ability) {
+  restore(abilityCard: AbilityCard) {
     gameManager.stateManager.before(
       'restoreAbility',
       'data.monster.' + this.monster.name,
-      ability.name ? this.abilityLabel(ability) : '' + ability.cardId
+      abilityCard.name ? this.abilityLabel(abilityCard) : '' + abilityCard.cardId
     );
-    gameManager.monsterManager.restoreAbility(this.monster, ability);
+    gameManager.monsterManager.restoreAbility(this.monster, abilityCard);
     gameManager.stateManager.after();
     this.update();
   }
@@ -205,8 +205,8 @@ export class AbiltiesDialogComponent implements OnInit {
   toggleKeepRevealed(index: number) {
     gameManager.stateManager.before('toggleKeepRevelead', 'data.monster.' + this.monster.name, index);
     this.keepRevealed[index] = !this.keepRevealed[index];
-    if (this.keepRevealed[index] && !!this.abilities[index]) {
-      this.abilities[index].revealed = true;
+    if (this.keepRevealed[index] && !!this.abilityCards[index]) {
+      this.abilityCards[index].revealed = true;
     }
     this.monster.revealedAbilities = [...this.keepRevealed];
     gameManager.stateManager.after();
@@ -220,10 +220,10 @@ export class AbiltiesDialogComponent implements OnInit {
     }
   }
 
-  abilityLabel(ability: Ability): string {
+  abilityLabel(abilityCard: AbilityCard): string {
     let label = 'data.monster.' + this.monster.name;
-    if (ability && ability.name) {
-      label = 'data.ability.' + ability.name;
+    if (abilityCard && abilityCard.name) {
+      label = 'data.ability.' + abilityCard.name;
     } else if (this.monster.deck !== this.monster.name) {
       label = 'data.deck.' + this.monster.deck;
       if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {

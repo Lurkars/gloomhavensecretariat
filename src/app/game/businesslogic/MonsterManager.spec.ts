@@ -1,7 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { DeckData } from 'src/app/game/model/data/DeckData';
@@ -332,14 +332,14 @@ describe('MonsterManager', () => {
       const monster = buildMonster();
       monster.abilities = [0, 1, 2];
       monster.ability = -1;
-      expect(monsterManager.getAbility(monster)).toBeUndefined();
+      expect(monsterManager.getAbilityCard(monster)).toBeUndefined();
     });
 
     it('is undefined once monster.ability runs past the end of the abilities list', () => {
       const monster = buildMonster();
       monster.abilities = [0, 1];
       monster.ability = 2;
-      expect(monsterManager.getAbility(monster)).toBeUndefined();
+      expect(monsterManager.getAbilityCard(monster)).toBeUndefined();
     });
 
     it('is undefined when the abilities setting is disabled', () => {
@@ -347,56 +347,56 @@ describe('MonsterManager', () => {
       const monster = buildMonster();
       monster.abilities = [0];
       monster.ability = 0;
-      expect(monsterManager.getAbility(monster)).toBeUndefined();
+      expect(monsterManager.getAbilityCard(monster)).toBeUndefined();
     });
 
     it('resolves the current ability by indexing through monster.abilities into the deck', () => {
-      const a0 = new Ability(1, 'a0');
-      const a1 = new Ability(2, 'a1');
-      const a2 = new Ability(3, 'a2');
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([a0, a1, a2]);
+      const a0 = new AbilityCard(1, 'a0');
+      const a1 = new AbilityCard(2, 'a1');
+      const a2 = new AbilityCard(3, 'a2');
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([a0, a1, a2]);
       const monster = buildMonster();
       monster.abilities = [2, 0, 1];
       monster.ability = 1; // -> abilities[monster.abilities[1]] = abilities[0] = a0
 
-      expect(monsterManager.getAbility(monster)).toBe(a0);
+      expect(monsterManager.getAbilityCard(monster)).toBe(a0);
     });
 
     it('bottom=true offsets by -1 once ability > 0, otherwise by +1', () => {
-      const a0 = new Ability(1, 'a0');
-      const a1 = new Ability(2, 'a1');
-      const a2 = new Ability(3, 'a2');
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([a0, a1, a2]);
+      const a0 = new AbilityCard(1, 'a0');
+      const a1 = new AbilityCard(2, 'a1');
+      const a2 = new AbilityCard(3, 'a2');
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([a0, a1, a2]);
       const monster = buildMonster();
       monster.abilities = [2, 0, 1];
 
       monster.ability = 1; // offset -1 -> abilities[monster.abilities[0]] = abilities[2] = a2
-      expect(monsterManager.getAbility(monster, true)).toBe(a2);
+      expect(monsterManager.getAbilityCard(monster, true)).toBe(a2);
 
       monster.ability = 0; // ability not > 0 -> offset +1 -> abilities[monster.abilities[1]] = abilities[0] = a0
-      expect(monsterManager.getAbility(monster, true)).toBe(a0);
+      expect(monsterManager.getAbilityCard(monster, true)).toBe(a0);
     });
   });
 
   describe('hasBottomActions', () => {
     it('is true when every ability in the deck defines bottom actions', () => {
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([
-        new Ability(1, 'a0', 0, [], false, [{} as any]),
-        new Ability(2, 'a1', 0, [], false, [{} as any])
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([
+        new AbilityCard(1, 'a0', 0, [], false, [{} as any]),
+        new AbilityCard(2, 'a1', 0, [], false, [{} as any])
       ]);
       expect(monsterManager.hasBottomActions(buildMonster())).toBe(true);
     });
 
     it('is false once any ability in the deck lacks bottom actions', () => {
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([
-        new Ability(1, 'a0', 0, [], false, [{} as any]),
-        new Ability(2, 'a1', 0, [], false, [])
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([
+        new AbilityCard(1, 'a0', 0, [], false, [{} as any]),
+        new AbilityCard(2, 'a1', 0, [], false, [])
       ]);
       expect(monsterManager.hasBottomActions(buildMonster())).toBe(false);
     });
 
     it('is false for an empty ability deck', () => {
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([]);
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([]);
       expect(monsterManager.hasBottomActions(buildMonster())).toBe(false);
     });
   });
@@ -449,7 +449,7 @@ describe('MonsterManager', () => {
     });
 
     it('advances ability by 1 for a single-sided deck', () => {
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([new Ability(1, 'a0'), new Ability(2, 'a1')]);
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([new AbilityCard(1, 'a0'), new AbilityCard(2, 'a1')]);
       const monster = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'bandit' });
       monster.ability = 0;
       gameManager.game.figures = [monster];
@@ -460,9 +460,9 @@ describe('MonsterManager', () => {
     });
 
     it('advances ability by 2 for a two-sided (every ability has bottom actions) deck', () => {
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([
-        new Ability(1, 'a0', 0, [], false, [{} as any]),
-        new Ability(2, 'a1', 0, [], false, [{} as any])
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([
+        new AbilityCard(1, 'a0', 0, [], false, [{} as any]),
+        new AbilityCard(2, 'a1', 0, [], false, [{} as any])
       ]);
       const monster = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'bandit' });
       monster.ability = 0;
@@ -474,7 +474,7 @@ describe('MonsterManager', () => {
     });
 
     it('propagates the drawn ability index to other monsters sharing the same deck', () => {
-      vi.spyOn(gameManager, 'abilities').mockReturnValue([new Ability(1, 'a0'), new Ability(2, 'a1')]);
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([new AbilityCard(1, 'a0'), new AbilityCard(2, 'a1')]);
       const bandit = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'bandit' });
       const ally = buildMonster({ name: 'bandit-ally', edition: 'gh', deck: 'bandit' });
       bandit.ability = 0;

@@ -123,44 +123,46 @@ export class EnhancementsComponent implements OnInit {
     const inputActionIndex = this.inputActionIndex();
     const inputEnhancementIndex = this.inputEnhancementIndex();
     if (inputAction && inputActionIndex && this.inputCardId() && inputEnhancementIndex !== undefined && this.inputCharacter) {
-      const ability = gameManager.deckData(this.inputCharacter).abilities.find((ability) => ability.cardId === this.inputCardId());
+      const abilityCard = gameManager
+        .deckData(this.inputCharacter)
+        .abilities.find((abilityCard) => abilityCard.cardId === this.inputCardId());
       const rootIndex = +inputActionIndex.replace('bottom-', '').split('-')[0];
-      if (ability) {
-        this.level = typeof ability.level === 'number' ? ability.level : 1;
+      if (abilityCard) {
+        this.level = typeof abilityCard.level === 'number' ? abilityCard.level : 1;
         if (inputActionIndex.includes('bottom')) {
           if (
-            ability.bottomLost ||
-            ability.bottomActions.find((action) => action.type === ActionType.card && action.value.toString().includes('lost'))
+            abilityCard.bottomLost ||
+            abilityCard.bottomActions.find((action) => action.type === ActionType.card && action.value.toString().includes('lost'))
           ) {
             this.special = 'lost';
           }
           if (
-            ability.bottomPersistent ||
-            ability.bottomActions.find((action) => action.type === ActionType.card && action.value.toString().includes('persistent'))
+            abilityCard.bottomPersistent ||
+            abilityCard.bottomActions.find((action) => action.type === ActionType.card && action.value.toString().includes('persistent'))
           ) {
             this.special = 'persistent';
           }
-          this.rootAction = ability.bottomActions[rootIndex];
+          this.rootAction = abilityCard.bottomActions[rootIndex];
           if (!this.rootAction) {
-            console.warn('invalid root action', ability.bottomActions, inputActionIndex, rootIndex);
+            console.warn('invalid root action', abilityCard.bottomActions, inputActionIndex, rootIndex);
             this.rootAction = this.action;
           }
         } else {
           if (
-            ability.lost ||
-            ability.actions.find((action) => action.type === ActionType.card && action.value.toString().includes('lost'))
+            abilityCard.lost ||
+            abilityCard.actions.find((action) => action.type === ActionType.card && action.value.toString().includes('lost'))
           ) {
             this.special = 'lost';
           }
           if (
-            ability.persistent ||
-            ability.actions.find((action) => action.type === ActionType.card && action.value.toString().includes('persistent'))
+            abilityCard.persistent ||
+            abilityCard.actions.find((action) => action.type === ActionType.card && action.value.toString().includes('persistent'))
           ) {
             this.special = 'persistent';
           }
-          this.rootAction = ability.actions[rootIndex];
+          this.rootAction = abilityCard.actions[rootIndex];
           if (!this.rootAction) {
-            console.warn('invalid root action', ability.actions, inputActionIndex, rootIndex);
+            console.warn('invalid root action', abilityCard.actions, inputActionIndex, rootIndex);
             this.rootAction = this.action;
           }
         }

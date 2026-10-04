@@ -181,50 +181,50 @@ export class ActionsManager {
         (gameManager.game.state === GameState.next &&
           (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster)))
       ) {
-        let ability = gameManager.monsterManager.getAbility(monster);
+        let abilityCard = gameManager.monsterManager.getAbilityCard(monster);
         if (gameManager.monsterManager.hasBottomActions(monster) && monster.firstActiveAction) {
-          const secondAbility = ability;
-          ability = gameManager.monsterManager.getAbility(monster, true);
-          if (ability) {
+          const secondAbilityCard = abilityCard;
+          abilityCard = gameManager.monsterManager.getAbilityCard(monster, true);
+          if (abilityCard) {
             this.calcMonsterActionHint(
               monster,
               entity.type,
               ActionType.shield,
-              monster.firstActiveAction === 'bottom' ? ability.bottomActions : ability.actions,
+              monster.firstActiveAction === 'bottom' ? abilityCard.bottomActions : abilityCard.actions,
               actionHints
             );
             this.calcMonsterActionHint(
               monster,
               entity.type,
               ActionType.retaliate,
-              monster.firstActiveAction === 'bottom' ? ability.bottomActions : ability.actions,
+              monster.firstActiveAction === 'bottom' ? abilityCard.bottomActions : abilityCard.actions,
               actionHints
             );
           }
 
-          if (secondAbility) {
+          if (secondAbilityCard) {
             this.calcMonsterActionHint(
               monster,
               entity.type,
               ActionType.shield,
-              monster.firstActiveAction === 'bottom' ? secondAbility.actions : secondAbility.bottomActions,
+              monster.firstActiveAction === 'bottom' ? secondAbilityCard.actions : secondAbilityCard.bottomActions,
               actionHints
             );
             this.calcMonsterActionHint(
               monster,
               entity.type,
               ActionType.retaliate,
-              monster.firstActiveAction === 'bottom' ? secondAbility.actions : secondAbility.bottomActions,
+              monster.firstActiveAction === 'bottom' ? secondAbilityCard.actions : secondAbilityCard.bottomActions,
               actionHints
             );
           }
-        } else if (ability) {
-          this.calcMonsterActionHint(monster, entity.type, ActionType.shield, ability.actions, actionHints);
-          this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, ability.actions, actionHints);
+        } else if (abilityCard) {
+          this.calcMonsterActionHint(monster, entity.type, ActionType.shield, abilityCard.actions, actionHints);
+          this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, abilityCard.actions, actionHints);
 
-          if (ability.bottomActions) {
-            this.calcMonsterActionHint(monster, entity.type, ActionType.shield, ability.bottomActions, actionHints, 'bottom');
-            this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, ability.bottomActions, actionHints, 'bottom');
+          if (abilityCard.bottomActions) {
+            this.calcMonsterActionHint(monster, entity.type, ActionType.shield, abilityCard.bottomActions, actionHints, 'bottom');
+            this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, abilityCard.bottomActions, actionHints, 'bottom');
           }
         }
       }

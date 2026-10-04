@@ -9,14 +9,14 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Ability } from 'src/app/game/model/data/Ability';
+import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { Monster } from 'src/app/game/model/Monster';
 import { sortDeck } from 'src/app/game/util/sorter';
-import { AbilityComponent } from 'src/app/ui/figures/ability/ability';
+import { AbilityCardComponent } from 'src/app/ui/figures/ability-card/ability-card';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { HeaderComponent } from 'src/app/ui/header/header';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
@@ -76,7 +76,7 @@ export function compactAction(action: any) {
     NgClass,
     DragDropModule,
     FormsModule,
-    AbilityComponent,
+    AbilityCardComponent,
     ActionComponent,
     HeaderComponent,
     GhsLabelDirective,
@@ -123,7 +123,7 @@ export class DeckEditorComponent implements OnInit {
 
   constructor() {
     this.deckData = new DeckData();
-    this.deckData.abilities.push(new Ability());
+    this.deckData.abilities.push(new AbilityCard());
   }
 
   async ngOnInit() {
@@ -262,7 +262,7 @@ export class DeckEditorComponent implements OnInit {
         return;
       } catch (e) {
         this.deckData = new DeckData();
-        this.deckData.abilities.push(new Ability());
+        this.deckData.abilities.push(new AbilityCard());
         this.deckError = e;
       }
     }
@@ -275,67 +275,67 @@ export class DeckEditorComponent implements OnInit {
     return value;
   }
 
-  changeInitiative(event: any, ability: Ability) {
+  changeInitiative(event: any, abilityCard: AbilityCard) {
     if (event.target.value) {
-      ability.initiative = +event.target.value;
+      abilityCard.initiative = +event.target.value;
     } else {
-      ability.initiative = 0;
+      abilityCard.initiative = 0;
     }
-    event.target.value = (ability.initiative < 10 ? '0' : '') + ability.initiative;
+    event.target.value = (abilityCard.initiative < 10 ? '0' : '') + abilityCard.initiative;
     this.deckDataToJson();
   }
 
-  changeCardId(event: any, ability: Ability) {
+  changeCardId(event: any, abilityCard: AbilityCard) {
     if (event.target.value) {
-      ability.cardId = +event.target.value;
-      event.target.value = (ability.cardId < 100 ? '0' : '') + (ability.cardId < 10 ? '0' : '') + ability.cardId;
+      abilityCard.cardId = +event.target.value;
+      event.target.value = (abilityCard.cardId < 100 ? '0' : '') + (abilityCard.cardId < 10 ? '0' : '') + abilityCard.cardId;
     } else {
-      ability.cardId = undefined;
+      abilityCard.cardId = undefined;
     }
     this.deckDataToJson();
   }
 
   addAbility() {
-    this.deckData.abilities.push(new Ability());
+    this.deckData.abilities.push(new AbilityCard());
     this.deckDataToJson();
   }
 
-  removeAbility(ability: Ability) {
-    this.deckData.abilities.splice(this.deckData.abilities.indexOf(ability), 1);
+  removeAbility(abilityCard: AbilityCard) {
+    this.deckData.abilities.splice(this.deckData.abilities.indexOf(abilityCard), 1);
     this.deckDataToJson();
   }
 
-  addAbilityAction(ability: Ability) {
+  addAbilityAction(abilityCard: AbilityCard) {
     const action = new Action(ActionType.attack);
-    if (!ability.actions) {
-      ability.actions = [];
+    if (!abilityCard.actions) {
+      abilityCard.actions = [];
     }
-    ability.actions.push(action);
+    abilityCard.actions.push(action);
     const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: ['dialog'],
-      data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
+      data: { action: action, character: this.getCharacter(), cardId: abilityCard.cardId }
     });
 
     dialog.closed.subscribe({
       next: (value) => {
         if (value === false) {
-          ability.actions.splice(ability.actions.indexOf(action), 1);
+          abilityCard.actions.splice(abilityCard.actions.indexOf(action), 1);
         }
         this.deckDataToJson();
       }
     });
   }
 
-  editAbilityAction(ability: Ability, action: Action) {
+  editAbilityAction(abilityCard: AbilityCard, action: Action) {
     const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: ['dialog'],
-      data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
+      data: { action: action, character: this.getCharacter(), cardId: abilityCard.cardId }
     });
 
     dialog.closed.subscribe({
       next: (value) => {
         if (value === false) {
-          ability.actions.splice(ability.actions.indexOf(action), 1);
+          abilityCard.actions.splice(abilityCard.actions.indexOf(action), 1);
         }
         this.deckDataToJson();
       }
@@ -347,37 +347,37 @@ export class DeckEditorComponent implements OnInit {
     this.ghsManager.triggerUiChange();
   }
 
-  addAbilityActionBottom(ability: Ability) {
+  addAbilityActionBottom(abilityCard: AbilityCard) {
     const action = new Action(ActionType.move);
-    if (!ability.bottomActions) {
-      ability.bottomActions = [];
+    if (!abilityCard.bottomActions) {
+      abilityCard.bottomActions = [];
     }
-    ability.bottomActions.push(action);
+    abilityCard.bottomActions.push(action);
     const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: ['dialog'],
-      data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
+      data: { action: action, character: this.getCharacter(), cardId: abilityCard.cardId }
     });
 
     dialog.closed.subscribe({
       next: (value) => {
         if (value === false) {
-          ability.bottomActions.splice(ability.bottomActions.indexOf(action), 1);
+          abilityCard.bottomActions.splice(abilityCard.bottomActions.indexOf(action), 1);
         }
         this.deckDataToJson();
       }
     });
   }
 
-  editAbilityActionBottom(ability: Ability, action: Action) {
+  editAbilityActionBottom(abilityCard: AbilityCard, action: Action) {
     const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: ['dialog'],
-      data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
+      data: { action: action, character: this.getCharacter(), cardId: abilityCard.cardId }
     });
 
     dialog.closed.subscribe({
       next: (value) => {
         if (value === false) {
-          ability.bottomActions.splice(ability.actions.indexOf(action), 1);
+          abilityCard.bottomActions.splice(abilityCard.actions.indexOf(action), 1);
         }
         this.deckDataToJson();
       }
@@ -445,7 +445,7 @@ export class DeckEditorComponent implements OnInit {
     const index = +event.target.value;
     if (index === -1) {
       this.deckData = new DeckData();
-      this.deckData.abilities.push(new Ability());
+      this.deckData.abilities.push(new AbilityCard());
       if (this.character) {
         this.deckData.character = true;
       }

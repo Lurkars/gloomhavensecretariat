@@ -129,7 +129,7 @@
       }
     }
 
-    ghs-ability {
+    ghs-ability-card {
       display: block;
       position: relative;
       width: 100%;
@@ -156,7 +156,7 @@
 
     .ability {
       &.pick {
-        ghs-ability {
+        ghs-ability-card {
           cursor: pointer;
         }
       }

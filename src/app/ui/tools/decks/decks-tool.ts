@@ -10,14 +10,14 @@ import { Character } from 'src/app/game/model/Character';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Monster } from 'src/app/game/model/Monster';
-import { AbilityComponent } from 'src/app/ui/figures/ability/ability';
+import { AbilityCardComponent } from 'src/app/ui/figures/ability-card/ability-card';
 import { HeaderComponent } from 'src/app/ui/header/header';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  imports: [NgClass, FormsModule, AbilityComponent, HeaderComponent, GhsLabelDirective, TrackUUIDPipe],
+  imports: [NgClass, FormsModule, AbilityCardComponent, HeaderComponent, GhsLabelDirective, TrackUUIDPipe],
   selector: 'ghs-decks-tool',
   templateUrl: './decks-tool.html',
   styleUrls: ['./decks-tool.scss']
