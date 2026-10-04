@@ -59,9 +59,7 @@ export class AbilityComponent implements OnInit, OnChanges {
   abilityLabel: string = '';
   identityColor: string | undefined;
   identityIcon: string = '';
-  // abilities with two initiatives (e.g. Blinkblade) encode them as fast * 100 + slow
-  fastInitiative: string = '';
-  slowInitiative: string = '';
+  identityInitiatives: { identity: number; initiative: number; icon: string; color: string }[] = [];
   shieldStats: boolean = false;
   fh: boolean = false;
 
@@ -103,14 +101,19 @@ export class AbilityComponent implements OnInit, OnChanges {
     this.abilityLabel = '';
     this.identityColor = undefined;
     this.identityIcon = '';
-    this.fastInitiative = '';
-    this.slowInitiative = '';
+    this.identityInitiatives = [];
     if (this.ability) {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
-      if (this.ability.initiative > 99) {
-        this.fastInitiative = String(Math.floor(this.ability.initiative / 100)).padStart(2, '0');
-        this.slowInitiative = String(this.ability.initiative % 100).padStart(2, '0');
+      const identityInitiative = this.ability.identityInitiative;
+      if (this.character && identityInitiative) {
+        const characterName = this.character.name;
+        this.identityInitiatives = identityInitiative.map((initiative, identity) => ({
+          identity: identity,
+          initiative: initiative,
+          icon: gameManager.characterManager.characterIdentityIcon(characterName, identity),
+          color: gameManager.characterManager.characterIdentityColor(characterName, identity)
+        }));
       }
       if (this.character && this.ability.identity !== undefined && this.character.identities.length > this.ability.identity) {
         this.identityIcon = gameManager.characterManager.characterIdentityIcon(this.character.name, this.ability.identity);

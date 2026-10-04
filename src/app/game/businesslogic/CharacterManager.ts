@@ -55,6 +55,11 @@ export class CharacterManager {
     );
   }
 
+  characterIdentityColor(character: string, index: number): string {
+    const characterData = gameManager.getCharacterData(character);
+    return characterData.identityColors[index] || characterData.color;
+  }
+
   characterName(character: Character, full: boolean = false, icon: boolean = false, identity: boolean = true): string {
     let name = settingsManager.getLabel('data.character.' + character.edition + '.' + character.name);
     let hasTitle = false;

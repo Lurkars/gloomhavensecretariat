@@ -1248,12 +1248,12 @@
         "fast": "Fast",
         "overdrive": {
           "": "Overdrive",
-          "hint": "Gain %game.action.shield:1% while %game.characterIconIdentityColored.blinkblade.0%"
+          "hint": "Gain %game.action.shield:1% while %game.characterIconIdentityColored.blinkblade.1%"
         },
         "slow": "Slow",
         "time_tokens": {
           "": "%data.characterToken.blinkblade.time% Time Tokens",
-          "hint": "Automatically add/remove time tokens at start of round after defining %game.characterIconIdentityColored.blinkblade.0%/%game.characterIconIdentityColored.blinkblade.1% before"
+          "hint": "Automatically add/remove time tokens at start of round after defining %game.characterIconIdentityColored.blinkblade.1%/%game.characterIconIdentityColored.blinkblade.0% before"
         },
         "tokens": {
           "time": "Time Token"
@@ -1433,21 +1433,21 @@
             "1": "Add %game.action.pierce:2% to all your attacks this round."
           },
           "34": {
-            "1": "Ignore the %game.characterIconIdentity.blinkblade.0% effects of your other actions this turn."
+            "1": "Ignore the %game.characterIconIdentity.blinkblade.1% effects of your other actions this turn."
           },
           "35": {
             "1": "All adjacent allies and enemies suffer %game.damage:1%."
           },
           "36": {
-            "1": "Gain %game.action.shield:1% while %game.characterIconIdentity.blinkblade.0%.",
-            "2": "Add %game.action.jump% to all your move abilities while %game.characterIconIdentity.blinkblade.1%.",
+            "1": "Gain %game.action.shield:1% while %game.characterIconIdentity.blinkblade.1%.",
+            "2": "Add %game.action.jump% to all your move abilities while %game.characterIconIdentity.blinkblade.0%.",
             "3": "All your attacks targeting enemies that have %game.condition.muddle% are unaffected by %game.action.retaliate% this round."
           },
           "37": {
             "1": "If you do not have %game.condition.poison%, gain %game.condition.poison% to add %game.action.target.valueSign:1%, %game.card.experience:1%."
           },
           "38": {
-            "1": "On your next five attack actions while %game.characterIconIdentity.blinkblade.1%, perform %game.action.move:3% at the end of the action."
+            "1": "On your next five attack actions while %game.characterIconIdentity.blinkblade.0%, perform %game.action.move:3% at the end of the action."
           },
           "39": {
             "1": "Gain 2 %data.action.custom.fh-hourglass%."
@@ -1463,7 +1463,7 @@
             "2": "At the end of your turn, play one card from your hand to immediately perform the top or bottom action of the card."
           },
           "44": {
-            "1": "On your next six actions while %game.characterIconIdentity.blinkblade.0%, ignore all %game.characterIconIdentity.blinkblade.0% effects and perform %game.condition.immobilize% %game.action.range:3% at the end of the action.",
+            "1": "On your next six actions while %game.characterIconIdentity.blinkblade.1%, ignore all %game.characterIconIdentity.blinkblade.1% effects and perform %game.condition.immobilize% %game.action.range:3% at the end of the action.",
             "2": "All allies add %game.action.move.valueSign:-1% to their move abilities this round.",
             "3": "All allies add %game.action.move.valueSign:1% to their move abilities this round.",
             "4": "where X is twice the number of your allies."
@@ -1471,14 +1471,14 @@
           "45": {
             "1": "%game.card.recover% one of your lost cards.",
             "2": "This action may be performed while you have %game.condition.stun%. Remove all negative conditions you have.",
-            "3": "Trigger the %game.characterIconIdentity.blinkblade.1% effects instead of the %game.characterIconIdentity.blinkblade.0% effects of your other actions this turn."
+            "3": "Trigger the %game.characterIconIdentity.blinkblade.0% effects instead of the %game.characterIconIdentity.blinkblade.1% effects of your other actions this turn."
           },
           "48": {
-            "1": "On your next three turns while %game.characterIconIdentity.blinkblade.1%, trigger all %game.characterIconIdentity.blinkblade.1% effects twice."
+            "1": "On your next three turns while %game.characterIconIdentity.blinkblade.0%, trigger all %game.characterIconIdentity.blinkblade.0% effects twice."
           },
           "49": {
-            "1": "Add %game.action.attack.valueSign:1% to all your attacks while %game.characterIconIdentity.blinkblade.0%.",
-            "2": "Add %game.action.move.valueSign:1% to all your move abilities while %game.characterIconIdentity.blinkblade.1%."
+            "1": "Add %game.action.attack.valueSign:1% to all your attacks while %game.characterIconIdentity.blinkblade.1%.",
+            "2": "Add %game.action.move.valueSign:1% to all your move abilities while %game.characterIconIdentity.blinkblade.0%."
           },
           "50": {
             "1": "where X is the number of %data.action.custom.fh-hourglass% you have.",

@@ -1027,11 +1027,16 @@
         </span>
       }
 
-      @case (ActionType.fast)
-      @case (ActionType.slow) {
-        <span class="action-speed-box" [ngClass]="['speed-' + action.type, action.small ? 'small' : '']">
-          <span class="action-speed-marker"><img [src]="'./assets/images/character/icons/fh-blinkblade-' + action.type + '.svg'" /></span>
-          <span class="action-speed-content">
+      @case (ActionType.identity) {
+        <span
+          class="action-identity-box"
+          [ngClass]="['identity-' + identityPosition, action.small ? 'small' : '']"
+          [style.--ghs-identity-color]="identityColor"
+        >
+          @if (identityIcon) {
+            <span class="action-identity-marker"><img [src]="identityIcon" /></span>
+          }
+          <span class="action-identity-content">
             @for (subAction of subActions | trackUUID; track subAction._trackUUID; let index = $index) {
               <ghs-action
                 [ngClass]="'subaction-' + subAction.type"

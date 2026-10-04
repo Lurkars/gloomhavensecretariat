@@ -5,6 +5,8 @@ export class Ability {
   name: string | undefined;
   initiative: number;
   identity: number | undefined;
+  // initiative per identity (index = identity), for abilities with an initiative for each identity
+  identityInitiative: number[] | undefined;
   level: number | string = 0;
   shuffle: boolean;
   actions: Action[];

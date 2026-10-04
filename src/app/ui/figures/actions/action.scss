@@ -893,15 +893,15 @@
     }
   }
 
-  .action-speed-box {
-    --ghs-speed-color: #7ac144;
-    --ghs-speed-background: #1f3a12;
+  // box for actions of a specific identity (e.g. Blinkblade fast/slow), colored by identity color
+  .action-identity-box {
+    --ghs-identity-color: var(--ghs-color-white);
     position: relative;
     display: flex;
     align-items: stretch;
     margin: 0.1em 0.15em;
     font-size: 0.75em;
-    border: 0.1em solid var(--ghs-speed-color);
+    border: 0.1em solid var(--ghs-identity-color);
     border-radius: 0.3em;
     overflow: hidden;
 
@@ -912,24 +912,19 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: var(--ghs-speed-background);
+      background-color: color-mix(in srgb, var(--ghs-identity-color) 25%, black);
       opacity: 0.8;
       z-index: 0;
     }
 
-    &.speed-slow {
-      --ghs-speed-color: #edb633;
-      --ghs-speed-background: #3a3212;
-      flex-direction: row-reverse;
-    }
-
-    .action-speed-marker {
+    .action-identity-marker {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 0 0.05em;
-      background-color: color-mix(in srgb, var(--ghs-speed-color) 35%, transparent);
+      background-color: color-mix(in srgb, var(--ghs-identity-color) 35%, transparent);
+      border-right: 0.1em solid var(--ghs-identity-color);
       z-index: 1;
 
       img {
@@ -938,15 +933,7 @@
       }
     }
 
-    &.speed-fast .action-speed-marker {
-      border-right: 0.1em solid var(--ghs-speed-color);
-    }
-
-    &.speed-slow .action-speed-marker {
-      border-left: 0.1em solid var(--ghs-speed-color);
-    }
-
-    .action-speed-content {
+    .action-identity-content {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -966,18 +953,24 @@
         line-height: 1.1em;
       }
     }
+
+    // first identity is always aligned left, last identity always right
+    &.identity-start {
+      margin-right: auto;
+    }
+
+    &.identity-end {
+      margin-left: auto;
+      flex-direction: row-reverse;
+
+      .action-identity-marker {
+        border-right: none;
+        border-left: 0.1em solid var(--ghs-identity-color);
+      }
+    }
   }
 
-  // fast boxes are always aligned left, slow boxes always right
-  .action-speed-box.speed-fast {
-    margin-right: auto;
-  }
-
-  .action-speed-box.speed-slow {
-    margin-left: auto;
-  }
-
-  .action-default:has(> .action-concatenation > .subaction-fast, > .action-concatenation > .subaction-slow) {
+  .action-default:has(> .action-concatenation > .subaction-identity) {
     width: 100%;
   }
 
@@ -985,7 +978,7 @@
   .action-concatenation .action-box-container-forced {
     margin-bottom: 0;
   }
-  .action-concatenation:has(> .subaction-fast, > .subaction-slow) {
+  .action-concatenation:has(> .subaction-identity) {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
@@ -999,12 +992,12 @@
       display: none;
     }
 
-    > .subaction-fast {
+    > ghs-action.identity-start {
       grid-column: 1;
       justify-self: start;
     }
 
-    > .subaction-slow {
+    > ghs-action.identity-end {
       grid-column: 3;
       justify-self: end;
     }

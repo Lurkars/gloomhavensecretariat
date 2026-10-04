@@ -125,33 +125,43 @@
         }
       }
 
-      &.dual {
+      // one initiative per identity (e.g. Blinkblade fast/slow), first identity icon left, last identity icon right
+      &.identity-initiatives {
         width: auto;
 
-        .initiative-fast,
-        .initiative-slow {
+        .identity-initiative {
           display: flex;
           align-items: center;
           padding: 0 0.1em;
-          border: 0.04em solid #7ac144;
-          background-color: rgba(31, 58, 18, 0.8);
+          border: 0.04em solid var(--ghs-identity-color);
+          border-left: none;
+          background-color: color-mix(in srgb, var(--ghs-identity-color) 25%, rgba(0, 0, 0, 0.8));
 
           img {
             height: 0.6em;
             width: auto;
             margin: 0 0.05em;
           }
-        }
 
-        .initiative-fast {
-          border-radius: 0.15em 0 0 0.15em;
-        }
+          .identity-initiative-value {
+            display: flex;
+          }
 
-        .initiative-slow {
-          border-color: #edb633;
-          border-left: none;
-          border-radius: 0 0.15em 0.15em 0;
-          background-color: rgba(58, 50, 18, 0.8);
+          &.first {
+            border-left: 0.04em solid var(--ghs-identity-color);
+          }
+
+          &:not(.first) {
+            flex-direction: row-reverse;
+          }
+
+          &:first-child {
+            border-radius: 0.15em 0 0 0.15em;
+          }
+
+          &:last-child {
+            border-radius: 0 0.15em 0.15em 0;
+          }
         }
       }
     }

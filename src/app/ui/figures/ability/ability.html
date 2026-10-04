@@ -53,16 +53,19 @@
             <img [src]="identityIcon" />
           </div>
         }
-        @if (ability.initiative > 99) {
-          <div class="initiative dual">
-            <span class="initiative-fast">
-              <img src="./assets/images/character/icons/fh-blinkblade-fast.svg" />
-              <span>{{ fastInitiative }}</span>
-            </span>
-            <span class="initiative-slow">
-              <span>{{ slowInitiative }}</span>
-              <img src="./assets/images/character/icons/fh-blinkblade-slow.svg" />
-            </span>
+        @if (identityInitiatives.length) {
+          <div class="initiative identity-initiatives">
+            @for (identityInitiative of identityInitiatives; track identityInitiative.identity; let first = $first) {
+              <span class="identity-initiative" [ngClass]="{ first: first }" [style.--ghs-identity-color]="identityInitiative.color">
+                <img [src]="identityInitiative.icon" />
+                <span class="identity-initiative-value">
+                  @if (identityInitiative.initiative < 10) {
+                    <span>0</span>
+                  }
+                  {{ identityInitiative.initiative }}
+                </span>
+              </span>
+            }
           </div>
         } @else {
           <div class="initiative">

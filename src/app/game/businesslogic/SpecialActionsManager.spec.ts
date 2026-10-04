@@ -219,15 +219,15 @@ describe('SpecialActionsManager', () => {
   });
 
   describe('next', () => {
-    it('blinkblade + time_tokens resets identity to 0 while primaryToken is 0', () => {
+    it('blinkblade + time_tokens resets identity to 1 while primaryToken is 0', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['time_tokens'];
       character.primaryToken = 0;
-      character.identity = 1;
+      character.identity = 0;
 
       specialActionsManager.next(character);
 
-      expect(character.identity).toBe(0);
+      expect(character.identity).toBe(1);
     });
 
     it('blinkblade + roundAction-overdrive decrements the persistent shield each round', () => {
@@ -254,12 +254,12 @@ describe('SpecialActionsManager', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['time_tokens'];
       character.primaryToken = 0;
-      character.identity = 1;
+      character.identity = 0;
       character.absent = true;
 
       specialActionsManager.next(character);
 
-      expect(character.identity).toBe(1);
+      expect(character.identity).toBe(0);
     });
 
     it('coral + roundAction-perk9: removes the round-scoped Shield 1 gained from the long rest perk', () => {
@@ -274,11 +274,11 @@ describe('SpecialActionsManager', () => {
   });
 
   describe('draw', () => {
-    it('blinkblade + time_tokens (identity 0): increments tokenValues[0] up to a cap of 2', () => {
+    it('blinkblade + time_tokens (identity 1): increments tokenValues[0] up to a cap of 2', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['time_tokens'];
       character.primaryToken = 0;
-      character.identity = 0;
+      character.identity = 1;
       character.tokenValues = [1];
 
       specialActionsManager.draw(character);
@@ -286,11 +286,11 @@ describe('SpecialActionsManager', () => {
       expect(character.tokenValues[0]).toBe(2);
     });
 
-    it('blinkblade + time_tokens (identity 1, tokens remaining): decrements tokenValues[0]', () => {
+    it('blinkblade + time_tokens (identity 0, tokens remaining): decrements tokenValues[0]', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['time_tokens'];
       character.primaryToken = 0;
-      character.identity = 1;
+      character.identity = 0;
       character.tokenValues = [2];
 
       specialActionsManager.draw(character);
@@ -298,23 +298,23 @@ describe('SpecialActionsManager', () => {
       expect(character.tokenValues[0]).toBe(1);
     });
 
-    it('blinkblade + time_tokens (identity 1, no tokens left): flips back to identity 0 with 1 token', () => {
+    it('blinkblade + time_tokens (identity 0, no tokens left): flips back to identity 1 with 1 token', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['time_tokens'];
       character.primaryToken = 0;
-      character.identity = 1;
+      character.identity = 0;
       character.tokenValues = [0];
 
       specialActionsManager.draw(character);
 
-      expect(character.identity).toBe(0);
+      expect(character.identity).toBe(1);
       expect(character.tokenValues[0]).toBe(1);
     });
 
-    it('blinkblade + overdrive (identity 0, not yet applied this round): grants a persistent shield and tags roundAction-overdrive', () => {
+    it('blinkblade + overdrive (identity 1, not yet applied this round): grants a persistent shield and tags roundAction-overdrive', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['overdrive'];
-      character.identity = 0;
+      character.identity = 1;
       character.extraActionsPersistent = [];
 
       specialActionsManager.draw(character);
@@ -326,7 +326,7 @@ describe('SpecialActionsManager', () => {
     it('blinkblade + overdrive: increments an existing persistent shield instead of duplicating it', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['overdrive'];
-      character.identity = 0;
+      character.identity = 1;
       character.extraActionsPersistent = [new Action(ActionType.shield, 1)];
 
       specialActionsManager.draw(character);
@@ -338,7 +338,7 @@ describe('SpecialActionsManager', () => {
     it('does not re-apply overdrive once roundAction-overdrive is already set', () => {
       const character = buildCharacter('blinkblade');
       character.tags = ['overdrive', 'roundAction-overdrive'];
-      character.identity = 0;
+      character.identity = 1;
       character.extraActionsPersistent = [];
 
       specialActionsManager.draw(character);

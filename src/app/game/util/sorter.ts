@@ -106,6 +106,7 @@ export const sortAbility = function (ability: any): any {
     'level',
     'initiative',
     'identity',
+    'identityInitiative',
     'hint',
     'shuffle',
     'lost',
