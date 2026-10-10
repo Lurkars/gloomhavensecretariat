@@ -31,6 +31,7 @@ export const ActionTypesHelper: ActionType[] = [
   ActionType.card,
   ActionType.forceBox,
   ActionType.grid,
+  ActionType.identity,
   ActionType.nonCalc
 ];
 
@@ -54,7 +55,11 @@ export const ActionTypesCombine: ActionType[] = [ActionType.push, ActionType.pul
   ],
   selector: 'ghs-action',
   templateUrl: './action.html',
-  styleUrls: ['./action.scss']
+  styleUrls: ['./action.scss'],
+  host: {
+    '[class.identity-start]': "identityPosition === 'start'",
+    '[class.identity-end]': "identityPosition === 'end'"
+  }
 })
 export class ActionComponent implements OnInit, AfterViewInit {
   private ghsManager = inject(GhsManager);
@@ -121,6 +126,11 @@ export class ActionComponent implements OnInit, AfterViewInit {
   MonsterType = MonsterType;
 
   hasAOE: boolean = false;
+
+  // identity actions (e.g. Blinkblade fast/slow): first identity aligned start, last aligned end
+  identityIcon: string = '';
+  identityColor: string = '';
+  identityPosition: 'start' | 'end' | '' = '';
   cardConcat: boolean = false;
 
   statRelative: boolean = false;
@@ -171,6 +181,7 @@ export class ActionComponent implements OnInit, AfterViewInit {
       this.monsterType = this.action.value as MonsterType;
     }
 
+    this.updateIdentity();
     this.updateSubActions();
     this.applyChallenges();
 
@@ -462,6 +473,22 @@ export class ActionComponent implements OnInit, AfterViewInit {
     return new Condition(name).name;
   }
 
+  updateIdentity(): void {
+    this.identityIcon = '';
+    this.identityColor = '';
+    this.identityPosition = '';
+    if (this.action && this.action.type === ActionType.identity && this.character) {
+      const identity = EntityValueFunction(this.action.value);
+      this.identityIcon = gameManager.characterManager.characterIdentityIcon(this.character.name, identity);
+      this.identityColor = gameManager.characterManager.characterIdentityColor(this.character.name, identity);
+      if (identity === 0) {
+        this.identityPosition = 'start';
+      } else if (identity === this.character.identities.length - 1) {
+        this.identityPosition = 'end';
+      }
+    }
+  }
+
   updateSubActions(): void {
     if (!this.action) {
       return;
@@ -481,7 +508,10 @@ export class ActionComponent implements OnInit, AfterViewInit {
       );
     }
     this.fhExtraActions = [];
-    if (settingsManager.settings.fhStyle && ![ActionType.boxFhSubActions, ActionType.extra].includes(this.action.type)) {
+    if (
+      settingsManager.settings.fhStyle &&
+      ![ActionType.boxFhSubActions, ActionType.extra, ActionType.identity].includes(this.action.type)
+    ) {
       this.action.subActions.forEach((action) => {
         if (action.type === ActionType.boxFhSubActions) {
           this.fhExtraActions.push(action);

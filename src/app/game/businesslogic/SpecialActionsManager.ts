@@ -144,7 +144,7 @@ export class SpecialActionsManager {
       character.tags.includes('time_tokens') &&
       character.primaryToken === 0
     ) {
-      character.identity = 0;
+      character.identity = 1;
     }
 
     if (!character.absent && character.name === 'blinkblade' && character.tags.includes('roundAction-overdrive')) {
@@ -172,13 +172,13 @@ export class SpecialActionsManager {
 
   draw(character: Character) {
     if (!character.absent && character.name === 'blinkblade' && character.tags.includes('time_tokens') && character.primaryToken === 0) {
-      if (character.identity === 0 && character.tokenValues[0] < 2) {
+      if (character.identity === 1 && character.tokenValues[0] < 2) {
         character.tokenValues[0] += 1;
-      } else if (character.identity === 1) {
+      } else if (character.identity === 0) {
         if (character.tokenValues[0] > 0) {
           character.tokenValues[0] -= 1;
         } else {
-          character.identity = 0;
+          character.identity = 1;
           character.tokenValues[0] = 1;
         }
       }
@@ -189,7 +189,7 @@ export class SpecialActionsManager {
       character.name === 'blinkblade' &&
       character.tags.includes('overdrive') &&
       !character.tags.includes('roundAction-overdrive') &&
-      character.identity === 0
+      character.identity === 1
     ) {
       character.tags.push('roundAction-overdrive');
       const existingShield = character.extraActionsPersistent.find((action) => action.type === ActionType.shield);
