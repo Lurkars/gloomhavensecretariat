@@ -1,17 +1,22 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CommandImpl } from 'src/app/game/commands/Command';
+import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 
 export class LootDeckDrawCommand extends CommandImpl {
   id: string = 'lootDeck.draw';
-  requiredParameters: number = 0;
+  requiredParameters: number = 1;
 
-  validParameters(): boolean {
+  validParameters(seed: number): boolean {
+    if (!validSeed(seed)) {
+      return false;
+    }
     return true;
   }
 
-  executeWithParameters() {
+  executeWithParameters(seed: number) {
+    gameManager.game.seed = seed;
     if (gameManager.game.state !== GameState.next) {
       this.executionError('invalid game state');
     }

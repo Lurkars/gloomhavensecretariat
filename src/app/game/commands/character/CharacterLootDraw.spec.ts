@@ -23,38 +23,38 @@ describe('CharacterLootDrawCommand', () => {
       character.active = true;
       gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 10, 8, 5)];
       settingsManager.settings.lootDeck = false;
-      const command = new CharacterLootDrawCommand(character.number);
-      expect(command.validParameters(character.number)).toBe(false);
+      const command = new CharacterLootDrawCommand(character.number, 1);
+      expect(command.validParameters(character.number, 1)).toBe(false);
     });
 
     it('rejects when the loot deck has no cards', () => {
       const character = createTestCharacter(1);
       character.active = true;
       gameManager.game.lootDeck.cards = [];
-      const command = new CharacterLootDrawCommand(character.number);
-      expect(command.validParameters(character.number)).toBe(false);
+      const command = new CharacterLootDrawCommand(character.number, 1);
+      expect(command.validParameters(character.number, 1)).toBe(false);
     });
 
     it('rejects when the character is not active', () => {
       const character = createTestCharacter(1);
       character.active = false;
       gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 10, 8, 5)];
-      const command = new CharacterLootDrawCommand(character.number);
-      expect(command.validParameters(character.number)).toBe(false);
+      const command = new CharacterLootDrawCommand(character.number, 1);
+      expect(command.validParameters(character.number, 1)).toBe(false);
     });
 
     it('rejects when no character with the given number exists', () => {
       gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 10, 8, 5)];
-      const command = new CharacterLootDrawCommand(999);
-      expect(command.validParameters(999)).toBe(false);
+      const command = new CharacterLootDrawCommand(999, 1);
+      expect(command.validParameters(999, 1)).toBe(false);
     });
 
     it('accepts an active character when the loot deck has cards and lootDeck setting is on', () => {
       const character = createTestCharacter(1);
       character.active = true;
       gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 10, 8, 5)];
-      const command = new CharacterLootDrawCommand(character.number);
-      expect(command.validParameters(character.number)).toBe(true);
+      const command = new CharacterLootDrawCommand(character.number, 1);
+      expect(command.validParameters(character.number, 1)).toBe(true);
     });
   });
 
@@ -65,7 +65,7 @@ describe('CharacterLootDrawCommand', () => {
       gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 10, 8, 5)];
       gameManager.game.lootDeck.current = -1;
 
-      new CharacterLootDrawCommand(character.number).execute();
+      new CharacterLootDrawCommand(character.number, 1).execute();
 
       expect(gameManager.game.lootDeck.current).toBe(0);
       // single-character party -> 2P value column (5) is used
@@ -77,14 +77,14 @@ describe('CharacterLootDrawCommand', () => {
   describe('before', () => {
     it('returns the default command label including the character name', () => {
       const character = createTestCharacter(1);
-      const command = new CharacterLootDrawCommand(character.number);
+      const command = new CharacterLootDrawCommand(character.number, 1);
       const before = command.before();
       expect(before[0]).toBe('command.character.loot.draw');
     });
 
     it('returns an "invalid" label when the character cannot be resolved', () => {
-      const command = new CharacterLootDrawCommand(999);
-      expect(command.before()).toEqual(['command.invalid.character.loot.draw', 999]);
+      const command = new CharacterLootDrawCommand(999, 1);
+      expect(command.before()).toEqual(['command.invalid.character.loot.draw', 999, 1]);
     });
   });
 });

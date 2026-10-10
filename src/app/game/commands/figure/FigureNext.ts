@@ -1,6 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CommandImpl } from 'src/app/game/commands/Command';
+import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -9,13 +10,17 @@ import { SummonState } from 'src/app/game/model/Summon';
 
 export class FigureNextCommand extends CommandImpl {
   id: string = 'figure.next';
-  requiredParameters: number = 0;
+  requiredParameters: number = 1;
 
-  validParameters(): boolean {
+  validParameters(seed: number): boolean {
+    if (!validSeed(seed)) {
+      return false;
+    }
     return true;
   }
 
-  executeWithParameters(reverse: boolean) {
+  executeWithParameters(seed: number, reverse: boolean) {
+    gameManager.game.seed = seed;
     if (gameManager.game.state !== GameState.next) {
       this.executionError('invalid game state');
     }

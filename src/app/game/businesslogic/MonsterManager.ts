@@ -17,7 +17,6 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class MonsterManager {
   game: Game;
@@ -525,14 +524,14 @@ export class MonsterManager {
       randomCount < monsterCount &&
       [...Array(randomCount).keys()].some((n) => !gameManager.monsterManager.monsterStandeeUsed(monster, n + 1))
     ) {
-      number = Math.floor(Math.random() * randomCount) + 1;
+      number = gameManager.randomManager.int(randomCount) + 1;
       while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
-        number = Math.floor(Math.random() * randomCount) + 1;
+        number = gameManager.randomManager.int(randomCount) + 1;
       }
     } else {
-      number = Math.floor(Math.random() * monsterCount) + 1;
+      number = gameManager.randomManager.int(monsterCount) + 1;
       while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
-        number = Math.floor(Math.random() * monsterCount) + 1;
+        number = gameManager.randomManager.int(monsterCount) + 1;
       }
     }
     return number;
@@ -1075,7 +1074,7 @@ export class MonsterManager {
         ? monster.abilities.splice(0, monster.ability + 1 + sameDeckMonsters.filter((monster) => monster.drawExtra).length)
         : [];
 
-    ghsShuffleArray(monster.abilities);
+    gameManager.randomManager.shuffle(monster.abilities);
 
     if (onlyUpcoming) {
       monster.abilities.unshift(...restoreCards);

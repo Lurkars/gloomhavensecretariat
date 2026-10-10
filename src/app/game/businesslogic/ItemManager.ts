@@ -10,8 +10,6 @@ import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQues
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
-import { v4 as uuidv4 } from 'uuid';
 
 export class ItemManager {
   game: Game;
@@ -684,25 +682,27 @@ export class ItemManager {
   }
 
   drawRandomItemsBatch(edition: string, count: number, blueprint: boolean = false, from: number = -1, to: number = -1): ItemData[] {
-    return ghsShuffleArray(
-      this.getItems(undefined, true).filter(
-        (itemData) =>
-          ((!blueprint && itemData.random) ||
-            (blueprint &&
-              itemData.blueprint &&
-              (!itemData.requiredBuilding ||
-                gameManager.game.party.buildings.find(
-                  (buildingModel) =>
-                    buildingModel.name === itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel
-                )))) &&
-          (from === -1 || (typeof itemData.id === 'number' && itemData.id >= from)) &&
-          (to === -1 || (typeof itemData.id === 'number' && itemData.id <= to)) &&
-          !gameManager.game.party.unlockedItems.find(
-            (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
-          ) &&
-          gameManager.isEditionRelevant(itemData.edition, edition)
+    return gameManager.randomManager
+      .shuffle(
+        this.getItems(undefined, true).filter(
+          (itemData) =>
+            ((!blueprint && itemData.random) ||
+              (blueprint &&
+                itemData.blueprint &&
+                (!itemData.requiredBuilding ||
+                  gameManager.game.party.buildings.find(
+                    (buildingModel) =>
+                      buildingModel.name === itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel
+                  )))) &&
+            (from === -1 || (typeof itemData.id === 'number' && itemData.id >= from)) &&
+            (to === -1 || (typeof itemData.id === 'number' && itemData.id <= to)) &&
+            !gameManager.game.party.unlockedItems.find(
+              (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
+            ) &&
+            gameManager.isEditionRelevant(itemData.edition, edition)
+        )
       )
-    ).slice(0, count);
+      .slice(0, count);
   }
 
   applyEquippedItemEffects(character: Character, immunitiesOnly: boolean = false) {
@@ -730,7 +730,15 @@ export class ItemManager {
     }
 
     if (equip && item.summon) {
-      const summon = new Summon(uuidv4(), item.summon.name, item.summon.cardId, character.level, 1, SummonColor.blue, item.summon);
+      const summon = new Summon(
+        gameManager.randomManager.uuid(),
+        item.summon.name,
+        item.summon.cardId,
+        character.level,
+        1,
+        SummonColor.blue,
+        item.summon
+      );
       summon.init = false;
       gameManager.characterManager.addSummon(character, summon);
     }

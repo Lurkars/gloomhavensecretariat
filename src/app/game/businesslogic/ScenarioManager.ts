@@ -16,7 +16,6 @@ import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from 'src/app/game/model/Scenario';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class ScenarioManager {
   game: Game;
@@ -2009,22 +2008,24 @@ export class ScenarioManager {
   }
 
   drawRandomScenariosBatch(edition: string, count: number): ScenarioData[] {
-    return ghsShuffleArray(
-      gameManager
-        .scenarioData(edition)
-        .filter(
-          (scenarioData) =>
-            scenarioData.random &&
-            !gameManager.game.party.manualScenarios.find(
-              (scenarioModel) =>
-                scenarioModel.index === scenarioData.index &&
-                scenarioModel.edition === scenarioData.edition &&
-                scenarioModel.group === scenarioData.group &&
-                !scenarioModel.custom
-            ) &&
-            !this.isSuccess(scenarioData)
-        )
-    ).slice(0, count);
+    return gameManager.randomManager
+      .shuffle(
+        gameManager
+          .scenarioData(edition)
+          .filter(
+            (scenarioData) =>
+              scenarioData.random &&
+              !gameManager.game.party.manualScenarios.find(
+                (scenarioModel) =>
+                  scenarioModel.index === scenarioData.index &&
+                  scenarioModel.edition === scenarioData.edition &&
+                  scenarioModel.group === scenarioData.group &&
+                  !scenarioModel.custom
+              ) &&
+              !this.isSuccess(scenarioData)
+          )
+      )
+      .slice(0, count);
   }
 
   drawRandomScenarioSection(edition: string): ScenarioData | undefined {
@@ -2032,29 +2033,31 @@ export class ScenarioManager {
   }
 
   drawRandomScenarioSectionsBatch(edition: string, count: number): ScenarioData[] {
-    return ghsShuffleArray(
-      gameManager
-        .sectionData(edition)
-        .filter(
-          (scenarioData) =>
-            scenarioData.conclusion &&
-            scenarioData.random &&
-            !gameManager.game.party.conclusions.find(
-              (scenarioModel) =>
-                scenarioModel.index === scenarioData.index &&
-                scenarioModel.edition === scenarioData.edition &&
-                scenarioModel.group === scenarioData.group &&
-                !scenarioModel.custom
-            ) &&
-            !gameManager.game.party.scenarios.find(
-              (scenarioModel) =>
-                scenarioModel.index === scenarioData.index &&
-                scenarioModel.edition === scenarioData.edition &&
-                scenarioModel.group === scenarioData.group &&
-                !scenarioModel.custom
-            )
-        )
-    ).slice(0, count);
+    return gameManager.randomManager
+      .shuffle(
+        gameManager
+          .sectionData(edition)
+          .filter(
+            (scenarioData) =>
+              scenarioData.conclusion &&
+              scenarioData.random &&
+              !gameManager.game.party.conclusions.find(
+                (scenarioModel) =>
+                  scenarioModel.index === scenarioData.index &&
+                  scenarioModel.edition === scenarioData.edition &&
+                  scenarioModel.group === scenarioData.group &&
+                  !scenarioModel.custom
+              ) &&
+              !gameManager.game.party.scenarios.find(
+                (scenarioModel) =>
+                  scenarioModel.index === scenarioData.index &&
+                  scenarioModel.edition === scenarioData.edition &&
+                  scenarioModel.group === scenarioData.group &&
+                  !scenarioModel.custom
+              )
+          )
+      )
+      .slice(0, count);
   }
 
   scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {

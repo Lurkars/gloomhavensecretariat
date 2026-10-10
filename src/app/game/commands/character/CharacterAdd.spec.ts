@@ -39,33 +39,33 @@ describe('CharacterAddCommand', () => {
   describe('validParameters', () => {
     it('accepts a known character name for a registered, enabled edition', () => {
       registerEditionCharacter('test', 'brute');
-      const command = new CharacterAddCommand('test', 'brute', 1);
-      expect(command.validParameters('test', 'brute', 1)).toBe(true);
+      const command = new CharacterAddCommand('test', 'brute', 1, 1);
+      expect(command.validParameters('test', 'brute', 1, 1)).toBe(true);
     });
 
     it('rejects an unknown character name', () => {
       registerEditionCharacter('test', 'brute');
-      const command = new CharacterAddCommand('test', 'unknown', 1);
-      expect(command.validParameters('test', 'unknown', 1)).toBe(false);
+      const command = new CharacterAddCommand('test', 'unknown', 1, 1);
+      expect(command.validParameters('test', 'unknown', 1, 1)).toBe(false);
     });
 
     it('rejects a level of 10 or higher', () => {
       registerEditionCharacter('test', 'brute');
-      const command = new CharacterAddCommand('test', 'brute', 10);
-      expect(command.validParameters('test', 'brute', 10)).toBe(false);
+      const command = new CharacterAddCommand('test', 'brute', 10, 1);
+      expect(command.validParameters('test', 'brute', 10, 1)).toBe(false);
     });
 
     it('rejects a level of 0', () => {
       registerEditionCharacter('test', 'brute');
-      const command = new CharacterAddCommand('test', 'brute', 0);
-      expect(command.validParameters('test', 'brute', 0)).toBe(false);
+      const command = new CharacterAddCommand('test', 'brute', 0, 1);
+      expect(command.validParameters('test', 'brute', 0, 1)).toBe(false);
     });
 
     it('rejects when the edition is not enabled in settings', () => {
       registerEditionCharacter('test', 'brute');
       settingsManager.settings.editions = [];
-      const command = new CharacterAddCommand('test', 'brute', 1);
-      expect(command.validParameters('test', 'brute', 1)).toBe(false);
+      const command = new CharacterAddCommand('test', 'brute', 1, 1);
+      expect(command.validParameters('test', 'brute', 1, 1)).toBe(false);
     });
   });
 
@@ -74,7 +74,7 @@ describe('CharacterAddCommand', () => {
       registerEditionCharacter('test', 'brute');
       const addCharacterSpy = vi.spyOn(gameManager.characterManager, 'addCharacter').mockImplementation(() => {});
 
-      const command = new CharacterAddCommand('test', 'brute', 3);
+      const command = new CharacterAddCommand('test', 'brute', 3, 1);
       command.execute();
 
       // gameManager.charactersData() wraps every match in a fresh `new CharacterData(...)`, so compare
@@ -88,7 +88,7 @@ describe('CharacterAddCommand', () => {
       registerEditionCharacter('test', 'brute');
       const addCharacterSpy = vi.spyOn(gameManager.characterManager, 'addCharacter').mockImplementation(() => {});
 
-      const command = new CharacterAddCommand('test', 'does-not-exist', 1);
+      const command = new CharacterAddCommand('test', 'does-not-exist', 1, 1);
       expect(() => command.execute()).toThrow(CommandInvalidParametersError);
       expect(addCharacterSpy).not.toHaveBeenCalled();
     });
@@ -96,8 +96,8 @@ describe('CharacterAddCommand', () => {
 
   describe('before', () => {
     it('uses the default command label with all parameters', () => {
-      const command = new CharacterAddCommand('test', 'brute', 3);
-      expect(command.before()).toEqual(['command.character.add', 'test', 'brute', 3]);
+      const command = new CharacterAddCommand('test', 'brute', 3, 1);
+      expect(command.before()).toEqual(['command.character.add', 'test', 'brute', 3, 1]);
     });
   });
 });

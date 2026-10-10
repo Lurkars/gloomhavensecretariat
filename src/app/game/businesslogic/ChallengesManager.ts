@@ -11,7 +11,6 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class ChallengesManager {
   game: Game;
@@ -37,7 +36,7 @@ export class ChallengesManager {
     deck.current = -1;
     deck.finished = -1;
     deck.keep = [];
-    ghsShuffleArray(deck.cards);
+    gameManager.randomManager.shuffle(deck.cards);
     if (onlyUpcoming) {
       deck.current = current;
       deck.finished = finished;
@@ -172,14 +171,14 @@ export class ChallengesManager {
                 )
             );
           if (characters.length) {
-            const characterData = characters[Math.floor(Math.random() * characters.length)];
+            const characterData = characters[gameManager.randomManager.int(characters.length)];
             const attackModifiers = gameManager.attackModifierManager.perkCards(characterData);
             attackModifiers.forEach((am, index) => {
               am.id = 'challenge-fh-1503-' + characterData.name + '-' + index;
               am.character = true;
             });
             for (let i = 0; i < 5; i++) {
-              const am = attackModifiers.splice(Math.floor(Math.random() * attackModifiers.length), 1)[0];
+              const am = attackModifiers.splice(gameManager.randomManager.int(attackModifiers.length), 1)[0];
               this.game.monsterAttackModifierDeck.cards = [
                 ...this.game.monsterAttackModifierDeck.cards,
                 Object.assign(new AttackModifier(am.type), am)

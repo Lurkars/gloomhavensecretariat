@@ -18,7 +18,6 @@ import { TreasureData, TreasureRewardType } from 'src/app/game/model/data/RoomDa
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export const EventCardApplyEffects: EventCardEffectType[] = [
   EventCardEffectType.additionally,
@@ -244,7 +243,7 @@ export class EventCardManager {
   }
 
   shuffleEvents(type: string) {
-    ghsShuffleArray(this.game.party.eventDecks[type] || []);
+    gameManager.randomManager.shuffle(this.game.party.eventDecks[type] || []);
   }
 
   addEvent(type: string, cardId: string, newOnly: boolean = false) {
@@ -736,7 +735,7 @@ export class EventCardManager {
                   for (let i = 0; i < count; i++) {
                     this.game.party.townGuardDeck.cards = [...this.game.party.townGuardDeck.cards, effect.values[0] as string];
                     this.game.party.townGuardDeck.current = -1;
-                    ghsShuffleArray(this.game.party.townGuardDeck.cards);
+                    gameManager.randomManager.shuffle(this.game.party.townGuardDeck.cards);
                   }
                 }
                 break;

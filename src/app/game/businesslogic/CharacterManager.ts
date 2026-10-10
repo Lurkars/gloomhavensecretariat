@@ -15,7 +15,6 @@ import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
-import { v4 as uuidv4 } from 'uuid';
 
 export class CharacterManager {
   game: Game;
@@ -342,7 +341,15 @@ export class CharacterManager {
       (summon) => summon.name !== summonData.name || summon.number !== 0 || summon.color !== SummonColor.custom
     );
     if (!summonData.level || summonData.level <= character.level) {
-      const summon: Summon = new Summon(uuidv4(), summonData.name, summonData.cardId, character.level, 0, SummonColor.custom, summonData);
+      const summon: Summon = new Summon(
+        gameManager.randomManager.uuid(),
+        summonData.name,
+        summonData.cardId,
+        character.level,
+        0,
+        SummonColor.custom,
+        summonData
+      );
       summon.state = SummonState.true;
       summon.init = false;
       this.addSummon(character, summon);
@@ -415,13 +422,13 @@ export class CharacterManager {
         if (oakDouble.length > 0) {
           gameManager.attackModifierManager.addModifier(
             character.attackModifierDeck,
-            oakDouble[Math.floor(Math.random() * oakDouble.length)]
+            oakDouble[gameManager.randomManager.int(oakDouble.length)]
           );
         }
         if (oakRolling.length > 0) {
           gameManager.attackModifierManager.addModifier(
             character.attackModifierDeck,
-            oakRolling[Math.floor(Math.random() * oakRolling.length)]
+            oakRolling[gameManager.randomManager.int(oakRolling.length)]
           );
         }
       } else {

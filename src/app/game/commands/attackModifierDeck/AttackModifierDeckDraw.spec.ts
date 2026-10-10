@@ -17,90 +17,90 @@ describe('AttackModifierDeckDrawCommand', () => {
     });
 
     it('does not require the state parameter', () => {
-      const command = new AttackModifierDeckDrawCommand('m');
+      const command = new AttackModifierDeckDrawCommand('m', 1);
       expect(() => command.checkParameters()).not.toThrow();
     });
   });
 
   describe('validParameters', () => {
     it('accepts "m" (monster deck)', () => {
-      const command = new AttackModifierDeckDrawCommand('m');
-      expect(command.validParameters('m', undefined as unknown as string)).toBe(true);
+      const command = new AttackModifierDeckDrawCommand('m', 1);
+      expect(command.validParameters('m', 1, undefined as unknown as string)).toBe(true);
     });
 
     it('accepts "a" (ally deck)', () => {
-      const command = new AttackModifierDeckDrawCommand('a');
-      expect(command.validParameters('a', undefined as unknown as string)).toBe(true);
+      const command = new AttackModifierDeckDrawCommand('a', 1);
+      expect(command.validParameters('a', 1, undefined as unknown as string)).toBe(true);
     });
 
     it('accepts an existing character number', () => {
       const character = createTestCharacter(1);
-      const command = new AttackModifierDeckDrawCommand(character.number);
-      expect(command.validParameters(character.number, undefined as unknown as string)).toBe(true);
+      const command = new AttackModifierDeckDrawCommand(character.number, 1);
+      expect(command.validParameters(character.number, 1, undefined as unknown as string)).toBe(true);
     });
 
     it('rejects an id that is neither m, a, nor an existing character number', () => {
-      const command = new AttackModifierDeckDrawCommand(42);
-      expect(command.validParameters(42, undefined as unknown as string)).toBe(false);
+      const command = new AttackModifierDeckDrawCommand(42, 1);
+      expect(command.validParameters(42, 1, undefined as unknown as string)).toBe(false);
     });
 
     it('accepts "advantage" as state', () => {
-      const command = new AttackModifierDeckDrawCommand('m', 'advantage');
-      expect(command.validParameters('m', 'advantage')).toBe(true);
+      const command = new AttackModifierDeckDrawCommand('m', 1, 'advantage');
+      expect(command.validParameters('m', 1, 'advantage')).toBe(true);
     });
 
     it('accepts "disadvantage" as state', () => {
-      const command = new AttackModifierDeckDrawCommand('m', 'disadvantage');
-      expect(command.validParameters('m', 'disadvantage')).toBe(true);
+      const command = new AttackModifierDeckDrawCommand('m', 1, 'disadvantage');
+      expect(command.validParameters('m', 1, 'disadvantage')).toBe(true);
     });
 
     it('rejects an invalid state value', () => {
-      const command = new AttackModifierDeckDrawCommand('m', 'sideways');
-      expect(command.validParameters('m', 'sideways')).toBe(false);
+      const command = new AttackModifierDeckDrawCommand('m', 1, 'sideways');
+      expect(command.validParameters('m', 1, 'sideways')).toBe(false);
     });
   });
 
   describe('executeWithParameters', () => {
     it('throws CommandExecutionError when the game state is not "next"', () => {
       gameManager.game.state = GameState.draw;
-      const command = new AttackModifierDeckDrawCommand('m');
+      const command = new AttackModifierDeckDrawCommand('m', 1);
       expect(() => command.execute()).toThrow(CommandExecutionError);
     });
 
     it('draws from the monster attack modifier deck', () => {
-      const command = new AttackModifierDeckDrawCommand('m');
+      const command = new AttackModifierDeckDrawCommand('m', 1);
       expect(gameManager.game.monsterAttackModifierDeck.current).toBe(-1);
       command.execute();
       expect(gameManager.game.monsterAttackModifierDeck.current).toBe(0);
     });
 
     it('draws from the ally attack modifier deck', () => {
-      const command = new AttackModifierDeckDrawCommand('a');
+      const command = new AttackModifierDeckDrawCommand('a', 1);
       command.execute();
       expect(gameManager.game.allyAttackModifierDeck.current).toBe(0);
     });
 
     it('draws from a character attack modifier deck identified by number', () => {
       const character = createTestCharacter(3);
-      const command = new AttackModifierDeckDrawCommand(character.number);
+      const command = new AttackModifierDeckDrawCommand(character.number, 1);
       command.execute();
       expect(character.attackModifierDeck.current).toBe(0);
     });
 
     it('draws with advantage, marking the deck state', () => {
-      const command = new AttackModifierDeckDrawCommand('m', 'advantage');
+      const command = new AttackModifierDeckDrawCommand('m', 1, 'advantage');
       command.execute();
       expect(gameManager.game.monsterAttackModifierDeck.state).toBe('advantage');
     });
 
     it('draws with disadvantage, marking the deck state', () => {
-      const command = new AttackModifierDeckDrawCommand('m', 'disadvantage');
+      const command = new AttackModifierDeckDrawCommand('m', 1, 'disadvantage');
       command.execute();
       expect(gameManager.game.monsterAttackModifierDeck.state).toBe('disadvantage');
     });
 
     it('a plain draw leaves the deck state undefined', () => {
-      const command = new AttackModifierDeckDrawCommand('m');
+      const command = new AttackModifierDeckDrawCommand('m', 1);
       command.execute();
       expect(gameManager.game.monsterAttackModifierDeck.state).toBeUndefined();
     });
@@ -108,8 +108,8 @@ describe('AttackModifierDeckDrawCommand', () => {
 
   describe('before', () => {
     it('returns the default command label with parameters', () => {
-      const command = new AttackModifierDeckDrawCommand('m', 'advantage');
-      expect(command.before()).toEqual(['command.attackModifierDeck.draw', 'm', 'advantage']);
+      const command = new AttackModifierDeckDrawCommand('m', 1, 'advantage');
+      expect(command.before()).toEqual(['command.attackModifierDeck.draw', 'm', 1, 'advantage']);
     });
   });
 });

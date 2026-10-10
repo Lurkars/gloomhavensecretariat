@@ -1,14 +1,18 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CommandImpl } from 'src/app/game/commands/Command';
+import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { GameState } from 'src/app/game/model/Game';
 
 export class AttackModifierDeckDrawCommand extends CommandImpl {
   id: string = 'attackModifierDeck.draw';
-  requiredParameters: number = 1;
+  requiredParameters: number = 2;
 
-  validParameters(id: string | number, state: string): boolean {
+  validParameters(id: string | number, seed: number, state: string): boolean {
+    if (!validSeed(seed)) {
+      return false;
+    }
     return (
       (id === 'm' ||
         id === 'a' ||
@@ -18,7 +22,8 @@ export class AttackModifierDeckDrawCommand extends CommandImpl {
     );
   }
 
-  executeWithParameters(id: string | number, state: string) {
+  executeWithParameters(id: string | number, seed: number, state: string) {
+    gameManager.game.seed = seed;
     if (gameManager.game.state !== GameState.next) {
       this.executionError('invalid game state');
     }

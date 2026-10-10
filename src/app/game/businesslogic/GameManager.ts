@@ -16,6 +16,7 @@ import { LootManager } from 'src/app/game/businesslogic/LootManager';
 import { MonsterManager } from 'src/app/game/businesslogic/MonsterManager';
 import { ObjectiveManager } from 'src/app/game/businesslogic/ObjectiveManager';
 import { PersonalQuestManager } from 'src/app/game/businesslogic/PersonalQuestManager';
+import { RandomManager } from 'src/app/game/businesslogic/RandomManager';
 import { RoundManager } from 'src/app/game/businesslogic/RoundManager';
 import { ScenarioManager } from 'src/app/game/businesslogic/ScenarioManager';
 import { ScenarioRulesManager } from 'src/app/game/businesslogic/ScenarioRulesManager';
@@ -50,7 +51,6 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Party } from 'src/app/game/model/Party';
 import { Summon } from 'src/app/game/model/Summon';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 declare global {
   interface Window {
@@ -85,6 +85,7 @@ export class GameManager {
   enhancementsManager: EnhancementsManager;
   imbuementManager: ImbuementManager;
   specialActionsManager: SpecialActionsManager;
+  randomManager: RandomManager;
 
   uiChangeSignal: WritableSignal<number> = signal(0);
   uiChangeFromServer: WritableSignal<boolean> = signal(false);
@@ -95,6 +96,7 @@ export class GameManager {
   }
 
   constructor() {
+    this.randomManager = new RandomManager(this.game);
     this.stateManager = new StateManager(this.game);
     this.entityManager = new EntityManager(this.game);
     this.characterManager = new CharacterManager(this.game);
@@ -635,7 +637,7 @@ export class GameManager {
         figure.abilities = deckData.abilities
           .filter((abilityCard) => isNaN(+abilityCard.level) || +abilityCard.level <= ((figure && figure.level) || 0))
           .map((abilityCard) => (deckData ? deckData.abilities.indexOf(abilityCard) : -1));
-        ghsShuffleArray(figure.abilities);
+        this.randomManager.shuffle(figure.abilities);
         if (this.game.state === GameState.next) {
           figure.ability = 0;
         }

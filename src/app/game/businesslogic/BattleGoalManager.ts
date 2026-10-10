@@ -107,7 +107,7 @@ export class BattleGoalManager {
     }
 
     if (battleGoals.length) {
-      const battleGoal = battleGoals[Math.floor(Math.random() * battleGoals.length)];
+      const battleGoal = battleGoals[gameManager.randomManager.int(battleGoals.length)];
       character.battleGoals = character.battleGoals || [];
       if (splice && character.battleGoals.length > 2) {
         character.battleGoals.splice(character.battleGoals.length - 2, 0, new Identifier(battleGoal.name, battleGoal.edition));

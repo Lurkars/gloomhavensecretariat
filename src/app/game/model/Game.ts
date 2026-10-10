@@ -1,4 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { randomSeed } from 'src/app/game/businesslogic/RandomManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
@@ -65,6 +66,7 @@ export class Game {
   favorPoints: number[] = [];
   keepFavors: boolean = false;
   eventDraw: string | undefined;
+  seed: number = randomSeed();
 
   constructor() {
     this.elementBoard = JSON.parse(JSON.stringify(defaultElementBoard));
@@ -130,7 +132,8 @@ export class Game {
       this.favors,
       this.favorPoints,
       this.keepFavors,
-      this.eventDraw
+      this.eventDraw,
+      this.seed
     );
     model.activeScenarioRules = JSON.parse(JSON.stringify(this.activeScenarioRules));
     model.unlockedPersonalQuests = JSON.parse(JSON.stringify(this.unlockedPersonalQuests));
@@ -335,6 +338,9 @@ export class Game {
     this.favorPoints = model.favorPoints || [];
     this.keepFavors = model.keepFavors || false;
     this.eventDraw = model.eventDraw || undefined;
+    if (typeof model.seed === 'number') {
+      this.seed = model.seed;
+    }
 
     // migration
     this.lootDeckEnhancements.forEach((loot) => {
@@ -467,6 +473,7 @@ export class GameModel {
   favorPoints: number[];
   keepFavors: boolean;
   eventDraw: string | undefined;
+  seed: number | undefined;
   // migration
   disgardedScenarioRules: ScenarioRuleIdentifier[];
 
@@ -531,7 +538,8 @@ export class GameModel {
     favors: Identifier[] = [],
     favorPoints: number[] = [],
     keepFavors: boolean = false,
-    eventDraw: string | undefined = undefined
+    eventDraw: string | undefined = undefined,
+    seed: number | undefined = undefined
   ) {
     this.revision = revision;
     this.revisionOffset = revisionOffset;
@@ -586,6 +594,7 @@ export class GameModel {
     this.favorPoints = JSON.parse(JSON.stringify(favorPoints));
     this.keepFavors = keepFavors;
     this.eventDraw = eventDraw;
+    this.seed = seed;
     // migration
     this.disgardedScenarioRules = JSON.parse(JSON.stringify(discardedScenarioRules));
   }

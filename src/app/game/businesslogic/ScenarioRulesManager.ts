@@ -21,7 +21,6 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon } from 'src/app/game/model/Summon';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class ScenarioRulesManager {
   game: Game;
@@ -1359,7 +1358,7 @@ export class ScenarioRulesManager {
       }
 
       if (rule.randomDungeon && rule.randomDungeon.monsterCount && gameManager.game.scenario) {
-        const shuffledSections = ghsShuffleArray(
+        const shuffledSections = gameManager.randomManager.shuffle(
           gameManager
             .sectionData(gameManager.game.scenario.edition, true)
             .filter(

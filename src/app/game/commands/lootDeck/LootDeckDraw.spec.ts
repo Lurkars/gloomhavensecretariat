@@ -15,40 +15,40 @@ describe('LootDeckDrawCommand', () => {
 
   describe('checkParameters', () => {
     it('never throws (no required parameters, always valid)', () => {
-      expect(() => new LootDeckDrawCommand().checkParameters()).not.toThrow();
+      expect(() => new LootDeckDrawCommand(1).checkParameters()).not.toThrow();
     });
   });
 
   describe('executeWithParameters', () => {
     it('throws CommandExecutionError when the game state is not "next"', () => {
       gameManager.game.state = GameState.draw;
-      const command = new LootDeckDrawCommand();
+      const command = new LootDeckDrawCommand(1);
       expect(() => command.execute()).toThrow(CommandExecutionError);
     });
 
     it('draws the next card from the loot deck', () => {
-      new LootDeckDrawCommand().execute();
+      new LootDeckDrawCommand(1).execute();
       expect(gameManager.game.lootDeck.current).toBe(0);
     });
 
     it('applies the drawn loot to the active character', () => {
       const character = createTestCharacter(1);
       character.active = true;
-      new LootDeckDrawCommand().execute();
+      new LootDeckDrawCommand(1).execute();
       // single-character party -> 2P value column (5) is used
       expect(character.loot).toBe(5);
     });
 
     it('does not throw when there is no active character', () => {
       createTestCharacter(1).active = false;
-      expect(() => new LootDeckDrawCommand().execute()).not.toThrow();
+      expect(() => new LootDeckDrawCommand(1).execute()).not.toThrow();
       expect(gameManager.game.lootDeck.current).toBe(0);
     });
   });
 
   describe('before', () => {
     it('returns the default command label with no extra parameters', () => {
-      expect(new LootDeckDrawCommand().before()).toEqual(['command.lootDeck.draw']);
+      expect(new LootDeckDrawCommand(1).before()).toEqual(['command.lootDeck.draw', 1]);
     });
   });
 });

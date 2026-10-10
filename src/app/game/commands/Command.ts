@@ -38,9 +38,9 @@ export abstract class CommandImpl implements Command {
     throw new CommandExecutionError(this.id, this.parameters, message);
   }
 
-  abstract validParameters(...parameters: BASE_TYPE[]): boolean;
+  abstract validParameters(...parameters: (BASE_TYPE | undefined)[]): boolean;
 
-  abstract executeWithParameters(...parameters: BASE_TYPE[]): void;
+  abstract executeWithParameters(...parameters: (BASE_TYPE | undefined)[]): void;
 
   before(): BASE_TYPE[] {
     return ['command.' + this.id, ...this.parameters];

@@ -14,20 +14,20 @@ describe('RoundStateCommand', () => {
 
   describe('checkParameters', () => {
     it('never throws (no required parameters, always valid)', () => {
-      expect(() => new RoundStateCommand().checkParameters()).not.toThrow();
+      expect(() => new RoundStateCommand(1).checkParameters()).not.toThrow();
     });
   });
 
   describe('executeWithParameters', () => {
     it('delegates to roundManager.nextGameState', () => {
       const spy = vi.spyOn(gameManager.roundManager, 'nextGameState').mockImplementation(() => {});
-      new RoundStateCommand().execute();
+      new RoundStateCommand(1).execute();
       expect(spy).toHaveBeenCalledTimes(1);
     });
 
     it('actually advances the game state from "next" to "draw"', () => {
       gameManager.game.state = GameState.next;
-      new RoundStateCommand().execute();
+      new RoundStateCommand(1).execute();
       expect(gameManager.game.state).toBe(GameState.draw);
     });
 
@@ -38,7 +38,7 @@ describe('RoundStateCommand', () => {
       gameManager.game.state = GameState.draw;
       gameManager.game.round = 2;
 
-      new RoundStateCommand().execute();
+      new RoundStateCommand(1).execute();
 
       expect(gameManager.game.state).toBe(GameState.next);
       expect(gameManager.game.round).toBe(3);
@@ -48,12 +48,12 @@ describe('RoundStateCommand', () => {
   describe('before', () => {
     it('returns the ".next" label when the current state is "next"', () => {
       gameManager.game.state = GameState.next;
-      expect(new RoundStateCommand().before()).toEqual(['command.round.state.next']);
+      expect(new RoundStateCommand(1).before()).toEqual(['command.round.state.next']);
     });
 
     it('returns the ".draw" label when the current state is "draw"', () => {
       gameManager.game.state = GameState.draw;
-      expect(new RoundStateCommand().before()).toEqual(['command.round.state.draw']);
+      expect(new RoundStateCommand(1).before()).toEqual(['command.round.state.draw']);
     });
   });
 });

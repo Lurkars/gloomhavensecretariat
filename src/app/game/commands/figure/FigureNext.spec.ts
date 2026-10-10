@@ -36,14 +36,14 @@ describe('FigureNextCommand', () => {
 
   describe('checkParameters / validParameters', () => {
     it('never throws (no required parameters, always valid)', () => {
-      expect(() => new FigureNextCommand().checkParameters()).not.toThrow();
+      expect(() => new FigureNextCommand(1).checkParameters()).not.toThrow();
     });
   });
 
   describe('game state gate', () => {
     it('throws CommandExecutionError when the game state is not "next"', () => {
       gameManager.game.state = GameState.draw;
-      expect(() => new FigureNextCommand().execute()).toThrow(CommandExecutionError);
+      expect(() => new FigureNextCommand(1).execute()).toThrow(CommandExecutionError);
     });
   });
 
@@ -55,7 +55,7 @@ describe('FigureNextCommand', () => {
       figure2.off = false;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().execute();
+      new FigureNextCommand(1).execute();
 
       expect(toggleSpy).toHaveBeenCalledTimes(1);
       expect(toggleSpy.mock.calls[0][0]).toBe(figure2);
@@ -68,7 +68,7 @@ describe('FigureNextCommand', () => {
       figure3.off = true;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(true);
+      new FigureNextCommand(1).executeWithParameters(1, true);
 
       expect(toggleSpy).toHaveBeenCalledTimes(1);
       expect(toggleSpy.mock.calls[0][0]).toBe(figure3);
@@ -82,7 +82,7 @@ describe('FigureNextCommand', () => {
       figure1.active = true;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(false);
+      new FigureNextCommand(1).executeWithParameters(1, false);
 
       expect(toggleSpy).toHaveBeenCalledTimes(1);
       expect(toggleSpy.mock.calls[0][0]).toBe(figure1);
@@ -94,7 +94,7 @@ describe('FigureNextCommand', () => {
       const summon = addSummon(figure1, false, true);
       spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(false);
+      new FigureNextCommand(1).executeWithParameters(1, false);
 
       expect(summon.afterTurnActive).toBe(true);
     });
@@ -106,7 +106,7 @@ describe('FigureNextCommand', () => {
       const summon = addSummon(figure1, false, true);
       spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(false);
+      new FigureNextCommand(1).executeWithParameters(1, false);
 
       expect(summon.afterTurnActive).toBe(false);
     });
@@ -120,7 +120,7 @@ describe('FigureNextCommand', () => {
       figure3.active = true;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(true);
+      new FigureNextCommand(1).executeWithParameters(1, true);
 
       expect(toggleSpy).toHaveBeenCalledTimes(1);
       expect(toggleSpy.mock.calls[0][0]).toBe(figure2);
@@ -134,7 +134,7 @@ describe('FigureNextCommand', () => {
       figure1.active = true;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(true);
+      new FigureNextCommand(1).executeWithParameters(1, true);
 
       expect(toggleSpy).toHaveBeenCalledTimes(1);
       expect(toggleSpy.mock.calls[0][0]).toBe(figure1);
@@ -148,7 +148,7 @@ describe('FigureNextCommand', () => {
       figure2.active = true;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(true);
+      new FigureNextCommand(1).executeWithParameters(1, true);
 
       expect(summon.active).toBe(false);
       expect(toggleSpy.mock.calls[0][0]).toBe(figure1);
@@ -162,7 +162,7 @@ describe('FigureNextCommand', () => {
       figure2.active = true;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(true);
+      new FigureNextCommand(1).executeWithParameters(1, true);
 
       expect(summon0.active).toBe(false);
       expect(summon1.active).toBe(false);
@@ -177,7 +177,7 @@ describe('FigureNextCommand', () => {
       figure2.active = true;
       const toggleSpy = spyToggleFigure();
 
-      new FigureNextCommand().executeWithParameters(true);
+      new FigureNextCommand(1).executeWithParameters(1, true);
 
       // command does not touch summon.active in this branch - RoundManager.toggleFigure would
       expect(summon0.active).toBe(false);

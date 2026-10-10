@@ -236,7 +236,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
     const card = this.removedCards[index];
     if (card) {
       this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.restoreCard', card.cardId));
-      index = Math.floor(Math.random() * (this.deck.cards.length - this.deck.current)) + this.deck.current + 1;
+      index = gameManager.randomManager.int(this.deck.cards.length - this.deck.current) + this.deck.current + 1;
       this.deck.cards.splice(index, 0, card);
       this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.restoreCard'));
       this.update();

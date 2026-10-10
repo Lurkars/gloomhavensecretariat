@@ -12,7 +12,6 @@ import { ScenarioRequirementsDialogComponent } from 'src/app/ui/figures/party/re
 import { ScenarioChartDialogComponent } from 'src/app/ui/figures/party/scenario-chart/scenario-chart';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe, GhsScenarioSearch } from 'src/app/ui/helper/Pipes';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
@@ -244,7 +243,7 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   randomScenario() {
-    const shuffledSections = ghsShuffleArray(
+    const shuffledSections = gameManager.randomManager.shuffle(
       gameManager.sectionData(this.edition).filter((sectionData) => sectionData.group === 'randomMonsterCard')
     );
 

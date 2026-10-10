@@ -10,7 +10,6 @@ import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQues
 import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class LootManager {
   game: Game;
@@ -85,7 +84,7 @@ export class LootManager {
     const current = deck.current;
     const restoreCards: Loot[] = onlyUpcoming && current > -1 ? deck.cards.splice(0, current + 1) : [];
     deck.current = -1;
-    ghsShuffleArray(deck.cards);
+    gameManager.randomManager.shuffle(deck.cards);
     if (onlyUpcoming) {
       deck.current = current;
       deck.cards.unshift(...restoreCards);
@@ -451,7 +450,7 @@ export class LootManager {
   apply(deck: LootDeck, config: LootDeckConfig = {}) {
     deck.cards = [];
     Object.values(LootType).forEach((type) => {
-      const availableTypes: Loot[] = ghsShuffleArray(this.fullLootDeck().filter((loot) => loot.type === type)) as Loot[];
+      const availableTypes: Loot[] = gameManager.randomManager.shuffle(this.fullLootDeck().filter((loot) => loot.type === type)) as Loot[];
       const count = Math.min(Math.max(config[type] || 0), availableTypes.length);
       if (type !== LootType.special1 && type !== LootType.special2) {
         for (let i = 0; i < count; i++) {

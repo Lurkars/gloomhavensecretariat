@@ -328,7 +328,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   newShuffle(type: AttackModifierType) {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCardShuffled', 'game.attackModifiers.types.' + type));
     this.deck.cards.splice(
-      this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current),
+      this.deck.current + 1 + gameManager.randomManager.next() * (this.deck.cards.length - this.deck.current),
       0,
       new AttackModifier(type)
     );
@@ -351,7 +351,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   addModifierShuffle() {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
     const attackModifier = Object.assign(new AttackModifier(this.tgAM.type), this.tgAM);
-    this.deck.cards.splice(this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current), 0, attackModifier);
+    this.deck.cards.splice(
+      this.deck.current + 1 + gameManager.randomManager.next() * (this.deck.cards.length - this.deck.current),
+      0,
+      attackModifier
+    );
     if (!this.deck.attackModifiers.find((am) => am.id === attackModifier.id)) {
       this.deck.attackModifiers.push(attackModifier);
     }

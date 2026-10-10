@@ -28,7 +28,6 @@ import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Party } from 'src/app/game/model/Party';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
-import { ghsShuffleArray } from 'src/app/ui/helper/Static';
 
 export class AttackModifierManager {
   game: Game;
@@ -252,7 +251,7 @@ export class AttackModifierManager {
   addModifier(attackModifierDeck: AttackModifierDeck, am: AttackModifier, index: number = -1, shuffle: boolean = true) {
     const attackModifier = Object.assign(new AttackModifier(am.type), am);
     if ((shuffle && index < 0) || index > attackModifierDeck.cards.length) {
-      index = Math.floor(Math.random() * (attackModifierDeck.cards.length - attackModifierDeck.current)) + attackModifierDeck.current + 1;
+      index = gameManager.randomManager.int(attackModifierDeck.cards.length - attackModifierDeck.current) + attackModifierDeck.current + 1;
       this.shuffleModifiers(attackModifierDeck, true);
     }
     if (index === -1) {
@@ -411,9 +410,9 @@ export class AttackModifierManager {
       attackModifierDeck.current = -1;
       attackModifierDeck.lastVisible = -1;
     } else {
-      attackModifierDeck.current = row * 3 + Math.floor(Math.random() * 3);
+      attackModifierDeck.current = row * 3 + gameManager.randomManager.int(3);
       if (state) {
-        const secondRoll = row * 3 + Math.floor(Math.random() * 3);
+        const secondRoll = row * 3 + gameManager.randomManager.int(3);
         attackModifierDeck.lastVisible = attackModifierDeck.current;
         attackModifierDeck.current = secondRoll;
       } else {
@@ -455,7 +454,7 @@ export class AttackModifierManager {
     attackModifierDeck.current = -1;
     attackModifierDeck.lastVisible = 0;
     attackModifierDeck.discarded = [];
-    ghsShuffleArray(attackModifierDeck.cards);
+    gameManager.randomManager.shuffle(attackModifierDeck.cards);
     if (onlyUpcoming) {
       attackModifierDeck.current = current;
       attackModifierDeck.lastVisible = lastVisible;

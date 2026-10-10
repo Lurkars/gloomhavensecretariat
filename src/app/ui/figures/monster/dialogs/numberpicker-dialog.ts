@@ -137,9 +137,9 @@ export class MonsterNumberPickerDialog implements OnInit {
 
   randomStandee() {
     const count = gameManager.monsterManager.monsterStandeeMax(this.monster);
-    let number = Math.floor(Math.random() * count) + 1;
+    let number = gameManager.randomManager.int(count) + 1;
     while (this.monster.entities.some((monsterEntity) => monsterEntity.number === number)) {
-      number = Math.floor(Math.random() * count) + 1;
+      number = gameManager.randomManager.int(count) + 1;
     }
     this.pickNumber(number, true, false);
   }
