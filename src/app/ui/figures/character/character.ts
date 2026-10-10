@@ -281,7 +281,7 @@ export class CharacterComponent implements OnInit {
 
       if (
         (gameManager.game.state === GameState.next ||
-          (gameManager.game.state === GameState.draw && this.character.identity === 0 && this.character.tokenValues[0] === 0)) &&
+          (gameManager.game.state === GameState.draw && this.character.identity === 1 && this.character.tokenValues[0] === 0)) &&
         timeTokens
       ) {
         return;

@@ -30,7 +30,7 @@ export class CharacterHelper {
       if (
         (gameManager.game.state === GameState.next ||
           (gameManager.game.state === GameState.draw &&
-            this.component.entity.identity === 0 &&
+            this.component.entity.identity === 1 &&
             this.component.entity.tokenValues[0] === 0)) &&
         timeTokens
       ) {

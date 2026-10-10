@@ -1248,12 +1248,12 @@
         "fast": "Fast",
         "overdrive": {
           "": "Overdrive",
-          "hint": "Gain %game.action.shield:1% while %game.characterIconIdentityColored.blinkblade.0%"
+          "hint": "Gain %game.action.shield:1% while %game.characterIconIdentityColored.blinkblade.1%"
         },
         "slow": "Slow",
         "time_tokens": {
           "": "%data.characterToken.blinkblade.time% Time Tokens",
-          "hint": "Automatically add/remove time tokens at start of round after defining %game.characterIconIdentityColored.blinkblade.0%/%game.characterIconIdentityColored.blinkblade.1% before"
+          "hint": "Automatically add/remove time tokens at start of round after defining %game.characterIconIdentityColored.blinkblade.1%/%game.characterIconIdentityColored.blinkblade.0% before"
         },
         "tokens": {
           "time": "Time Token"
@@ -1424,7 +1424,103 @@
         "6": "At the start of your first turn each scenario, you may perform %game.action.move:3%",
         "7": "Whenever you would gain %game.condition.immobilize%, prevent the condition",
         "8": "Declare Fast for seven consecutive rounds",
-        "9": "Never be targeted by an attack"
+        "9": "Never be targeted by an attack",
+        "abilities": {
+          "32": {
+            "1": "One adjacent enemy suffers %game.damage:1%."
+          },
+          "33": {
+            "1": "Add %game.action.pierce:2% to all your attacks this round."
+          },
+          "34": {
+            "1": "Ignore the %game.characterIconIdentity.blinkblade.1% effects of your other actions this turn."
+          },
+          "35": {
+            "1": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "36": {
+            "1": "Gain %game.action.shield:1% while %game.characterIconIdentity.blinkblade.1%.",
+            "2": "Add %game.action.jump% to all your move abilities while %game.characterIconIdentity.blinkblade.0%.",
+            "3": "All your attacks targeting enemies that have %game.condition.muddle% are unaffected by %game.action.retaliate% this round."
+          },
+          "37": {
+            "1": "If you do not have %game.condition.poison%, gain %game.condition.poison% to add %game.action.target.valueSign:1%, %game.card.experience:1%."
+          },
+          "38": {
+            "1": "On your next five attack actions while %game.characterIconIdentity.blinkblade.0%, perform %game.action.move:3% at the end of the action."
+          },
+          "39": {
+            "1": "Gain 2 %data.action.custom.fh-hourglass%."
+          },
+          "40": {
+            "1": "All allies add %game.action.move.valueSign:1% to their move abilities that move from a hex adjacent to you to a hex not adjacent to you this round."
+          },
+          "42": {
+            "1": "All enemies within %game.action.range:2% suffer %game.damage:1%."
+          },
+          "43": {
+            "1": "All enemies that have %game.condition.wound% suffer %game.damage:2%.",
+            "2": "At the end of your turn, play one card from your hand to immediately perform the top or bottom action of the card."
+          },
+          "44": {
+            "1": "On your next six actions while %game.characterIconIdentity.blinkblade.1%, ignore all %game.characterIconIdentity.blinkblade.1% effects and perform %game.condition.immobilize% %game.action.range:3% at the end of the action.",
+            "2": "All allies add %game.action.move.valueSign:-1% to their move abilities this round.",
+            "3": "All allies add %game.action.move.valueSign:1% to their move abilities this round.",
+            "4": "where X is twice the number of your allies."
+          },
+          "45": {
+            "1": "%game.card.recover% one of your lost cards.",
+            "2": "This action may be performed while you have %game.condition.stun%. Remove all negative conditions you have.",
+            "3": "Trigger the %game.characterIconIdentity.blinkblade.0% effects instead of the %game.characterIconIdentity.blinkblade.1% effects of your other actions this turn."
+          },
+          "48": {
+            "1": "On your next three turns while %game.characterIconIdentity.blinkblade.0%, trigger all %game.characterIconIdentity.blinkblade.0% effects twice."
+          },
+          "49": {
+            "1": "Add %game.action.attack.valueSign:1% to all your attacks while %game.characterIconIdentity.blinkblade.1%.",
+            "2": "Add %game.action.move.valueSign:1% to all your move abilities while %game.characterIconIdentity.blinkblade.0%."
+          },
+          "50": {
+            "1": "where X is the number of %data.action.custom.fh-hourglass% you have.",
+            "2": "where X is the number of %data.action.custom.fh-hourglass% you have."
+          },
+          "51": {
+            "1": "On the start of the next four rounds during which you are not performing a long rest, suffer %game.damage:2% and play three cards instead of two, using one card as initiative. At least one top and one bottom action must still be performed."
+          },
+          "52": {
+            "1": "Gain 1 %data.action.custom.fh-hourglass% for each enemy targeted."
+          },
+          "53": {
+            "2": "that enemy",
+            "1": "Whenever an enemy ends its teleport or move ability adjacent to you, after their ability, perform:"
+          },
+          "54": {
+            "1": "Suffer %game.damage:1% for each enemy targeted with the attack ability."
+          },
+          "55": {
+            "1": "Add %game.action.pierce:3% to all your attacks.",
+            "2": "If you are adjacent to three or more enemies, gain 1 %data.action.custom.fh-hourglass%."
+          },
+          "56": {
+            "1": "Grant one ally within %game.action.range:2%:"
+          },
+          "57": {
+            "1": "Treat any %game.attackmodifier.null% attack modifier cards drawn as %game.attackmodifier.double% instead.",
+            "2": "Treat any %game.attackmodifier.double% attack modifier cards drawn as %game.attackmodifier.null% instead."
+          },
+          "58": {
+            "1": "Add %game.action.attack.valueSign:2% to all attacks targeting enemies that have %game.condition.immobilize%, %game.condition.stun%, or whose revealed ability card contains no move abilities."
+          },
+          "59": {
+            "1": "You may perform any move abilities as attack abilities of equal value this round.",
+            "2": "Play a card from your discard pile to perform the bottom action of the card.",
+            "3": "%game.action.teleport% to a starting hex.",
+            "4": "%game.card.recover% up to two of your lost cards."
+          },
+          "60": {
+            "1": "Spawn a monster with a blue base in an adjacent empty hex that is identical (except standee number) to a normal adjacent enemy, including its current hit point value and conditions. This monster is an ally to you and an enemy to all other monsters. It uses your attack modifier deck."
+          }
+        }
       },
       "boneshaper": {
         "1": "%game.action.attack.valueSign:1% for each token on this card.",

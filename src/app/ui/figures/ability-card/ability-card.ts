@@ -57,6 +57,9 @@ export class AbilityCardComponent implements OnInit, OnChanges {
   deckLabel: string = '';
   abilityIndex: number = -1;
   abilityLabel: string = '';
+  identityColor: string | undefined;
+  identityIcon: string = '';
+  identityInitiatives: { identity: number; initiative: number; icon: string; color: string }[] = [];
   shieldStats: boolean = false;
   fh: boolean = false;
 
@@ -96,9 +99,29 @@ export class AbilityCardComponent implements OnInit, OnChanges {
     }
     this.abilityIndex = -1;
     this.abilityLabel = '';
+    this.identityColor = undefined;
+    this.identityIcon = '';
+    this.identityInitiatives = [];
     if (this.abilityCard) {
       this.abilityIndex = this.getAbilityIndex(this.abilityCard);
       this.abilityLabel = this.getAbilityLabel(this.abilityCard);
+      const identityInitiative = this.abilityCard.identityInitiative;
+      if (this.character && identityInitiative) {
+        const characterName = this.character.name;
+        this.identityInitiatives = identityInitiative.map((initiative, identity) => ({
+          identity: identity,
+          initiative: initiative,
+          icon: gameManager.characterManager.characterIdentityIcon(characterName, identity),
+          color: gameManager.characterManager.characterIdentityColor(characterName, identity)
+        }));
+      }
+      if (this.character && this.abilityCard.identity !== undefined && this.character.identities.length > this.abilityCard.identity) {
+        this.identityIcon = gameManager.characterManager.characterIdentityIcon(this.character.name, this.abilityCard.identity);
+        const identityColor = this.character.identityColors[this.abilityCard.identity];
+        if (identityColor && identityColor !== this.character.color) {
+          this.identityColor = identityColor;
+        }
+      }
     }
     this.fh = (this.character && gameManager.isEditionRelevant(this.character.edition, 'fh')) || false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;

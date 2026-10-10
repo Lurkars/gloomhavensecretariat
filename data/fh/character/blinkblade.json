@@ -3,9 +3,14 @@
   "characterClass": "quatryl",
   "edition": "fh",
   "identities": [
-    "slow",
-    "fast"
+    "fast",
+    "slow"
   ],
+  "identityColors": [
+    "#7ac144",
+    "#edb633"
+  ],
+  "defaultIdentity": 1,
   "tokens": [
     "time"
   ],

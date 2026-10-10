@@ -50,6 +50,7 @@ export enum ActionType {
   grid = 'grid',
   heal = 'heal',
   hint = 'hint',
+  identity = 'identity',
   jump = 'jump',
   loot = 'loot',
   monsterType = 'monsterType',
