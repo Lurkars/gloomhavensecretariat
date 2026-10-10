@@ -331,6 +331,15 @@ export class Character extends CharacterData implements Entity, Figure {
       this.extraActionsPersistent.push(...this.retaliatePersistent);
       this.retaliatePersistent = [];
     }
+
+    // Blinkblade migration
+    if (this.edition === 'fh' && this.name === 'blinkblade' && !this.tags.includes('blinkblade-identity-migration')) {
+      this.identity = this.identity + 1;
+      if (this.identity >= this.identities.length) {
+        this.identity = 0;
+      }
+      this.tags.push('blinkblade-identity-migration');
+    }
   }
 }
 
