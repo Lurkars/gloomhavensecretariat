@@ -938,6 +938,11 @@
             {
               "type": "custom",
               "value": "%data.custom.fh.fist.abilities.372.1%"
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": true
             }
           ]
         },
@@ -1057,6 +1062,11 @@
                 {
                   "type": "custom",
                   "value": "%data.custom.fh.fist.abilities.374.2%"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
                 }
               ]
             }
@@ -2044,6 +2054,11 @@
             {
               "type": "custom",
               "value": "%data.custom.fh.fist.abilities.386.1%"
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": true
             }
           ]
         },
@@ -2076,6 +2091,11 @@
             {
               "type": "custom",
               "value": "%data.custom.fh.fist.abilities.386.2%"
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": true
             }
           ]
         },
