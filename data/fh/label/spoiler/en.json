@@ -332,7 +332,90 @@
         "3": "Whenever you heal from a long rest, you may %game.elementHalf.consume:ice|earth% to add %game.action.heal.valueSign:2%",
         "4": "Once each scenario, when you would suffer %game.damage%, you may negate the %game.damage%",
         "5": "%game.card.recover% at least one card from your discard pile each round",
-        "6": "Enter at least ten different hexes with one move ability, then cause one enemy to suffer at least %game.damage:10% with one attack ability in the same turn"
+        "6": "Enter at least ten different hexes with one move ability, then cause one enemy to suffer at least %game.damage:10% with one attack ability in the same turn",
+        "abilities": {
+          "360": {
+            "1": "At the end of each round, either before or after discarding all active round bonuses, you may %game.card.recover% one card you played this round from your discard pile by suffering %game.damage:2+(X/2)% (rounded down), where X is equal to the card's level.",
+            "2": "Whenever you do not have %game.condition.regenerate%, gain %game.condition.regenerate%."
+          },
+          "361": {
+            "1": "Create one 1-hex icy terrain tile in an adjacent featureless hex.",
+            "2": "all enemies occupying or adjacent to the hex",
+            "3": "Whenever you suffer %game.damage% from an attack this round, after the attack perform:"
+          },
+          "362": {
+            "1": "Create one 1-hex icy terrain tile in one featureless red hex of the attack ability."
+          },
+          "363": {
+            "1": "Whenever you suffer %game.damage% this round, suffer 1 less %game.damage%."
+          },
+          "364": {
+            "1": "Add %game.action.attack.valueSign:1% if the target is occupying icy terrain.",
+            "2": "Whenever you suffer %game.damage% this round, one adjacent enemy suffers %game.damage:1%."
+          },
+          "365": {
+            "1": "Add %game.action.heal.valueSign:1% to all heals targeting you this round."
+          },
+          "366": {
+            "1": "where X is the amount of %game.damage% suffered by the targets of the attack ability."
+          },
+          "368": {
+            "1": "The target suffers %game.damage:1%."
+          },
+          "369": {
+            "1": "All adjacent enemies suffer %game.damage:1%.",
+            "2": "Create one 1-hex icy terrain tile in a featureless hex within %game.action.range:3%."
+          },
+          "370": {
+            "1": "Remove any %game.condition.disarm% and %game.condition.muddle% you have.",
+            "2": "Whenever you would gain %game.condition.disarm% or %game.condition.muddle% this round, prevent the condition.",
+            "3": "One adjacent enemy suffers %game.damage:1%."
+          },
+          "372": {
+            "1": "Create one 1-hex icy terrain tile in an adjacent featureless hex"
+          },
+          "374": {
+            "1": "Create two 1-hex icy terrain tiles in adjacent featureless hexes.",
+            "2": "Enemies in those hexes gain %game.condition.brittle%"
+          },
+          "375": {
+            "1": "If the attack ability killed an enemy, perform:"
+          },
+          "377": {
+            "1": "You cannot use <i>One with the Mountain</i> to %game.card.recover% this card.",
+            "2": "%game.card.recover% up to one of your discarded cards.",
+            "3": "+1 %game.card.recover%"
+          },
+          "378": {
+            "1": "Add %game.action.attack.valueSign:1% and %game.action.push:2% if the target is occupying icy terrain."
+          },
+          "379": {
+            "1": "Whenever you suffer %game.damage% this round, suffer 1 less %game.damage%."
+          },
+          "380": {
+            "1": "Add %game.action.pierce:3% if the target is occupying icy terrain.",
+            "2": "All adjacent enemies suffer %game.damage:1%."
+          },
+          "381": {
+            "1": "At the end of each of your move abilities this round, perform:",
+            "2": "all enemies adjacent to at least one hex you entered during the move ability",
+            "3": "Perform these attacks regardless of your line-of-sight.",
+            "4": "At the end of each of your turns, perform:"
+          },
+          "384": {
+            "1": "If the attack ability targeted two enemies, perform:",
+            "2": "All enemies within %game.action.range:3% suffer %game.damage:1%.",
+            "3": "For each enemy that suffered %game.damage% with this action, perform:"
+          },
+          "385": {
+            "1": "Create three 1-hex obstacle tiles in empty hexes within %game.action.range:4%.",
+            "2": "all enemies adjacent to at least one created obstacle"
+          },
+          "386": {
+            "1": "Create three 1-hex icy terrain tiles in featureless red hexes of the attack ability",
+            "2": "One adjacent enemy suffers %game.damage:3%"
+          }
+        }
       },
       "kelp": {
         "1": "Gain 1 %game.characterToken.kelp.trophy%",
