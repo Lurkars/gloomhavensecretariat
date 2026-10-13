@@ -487,11 +487,11 @@
             "3": "One adjacent enemy suffers %game.damage:1%."
           },
           "372": {
-            "1": "Create one 1-hex icy terrain tile in an adjacent featureless hex"
+            "1": "Create one 1-hex icy terrain tile in an adjacent featureless hex, %game.card.experience:1%."
           },
           "374": {
             "1": "Create two 1-hex icy terrain tiles in adjacent featureless hexes.",
-            "2": "Enemies in those hexes gain %game.condition.brittle%"
+            "2": "Enemies in those hexes gain %game.condition.brittle%, %game.card.experience:1%."
           },
           "375": {
             "1": "If the attack ability killed an enemy, perform:"
@@ -527,8 +527,8 @@
             "2": "all enemies adjacent to at least one created obstacle"
           },
           "386": {
-            "1": "Create three 1-hex icy terrain tiles in featureless red hexes of the attack ability",
-            "2": "One adjacent enemy suffers %game.damage:3%"
+            "1": "Create three 1-hex icy terrain tiles in featureless red hexes of the attack ability, %game.card.experience:1%.",
+            "2": "One adjacent enemy suffers %game.damage:3%, %game.card.experience:1%."
           }
         }
       },
