@@ -372,11 +372,11 @@
             "3": "One adjacent enemy suffers %game.damage:1%."
           },
           "372": {
-            "1": "Create one 1-hex icy terrain tile in an adjacent featureless hex"
+            "1": "Create one 1-hex icy terrain tile in an adjacent featureless hex, %game.card.experience:1%."
           },
           "374": {
             "1": "Create two 1-hex icy terrain tiles in adjacent featureless hexes.",
-            "2": "Enemies in those hexes gain %game.condition.brittle%"
+            "2": "Enemies in those hexes gain %game.condition.brittle%, %game.card.experience:1%."
           },
           "375": {
             "1": "If the attack ability killed an enemy, perform:"
@@ -412,8 +412,8 @@
             "2": "all enemies adjacent to at least one created obstacle"
           },
           "386": {
-            "1": "Create three 1-hex icy terrain tiles in featureless red hexes of the attack ability",
-            "2": "One adjacent enemy suffers %game.damage:3%"
+            "1": "Create three 1-hex icy terrain tiles in featureless red hexes of the attack ability, %game.card.experience:1%.",
+            "2": "One adjacent enemy suffers %game.damage:3%, %game.card.experience:1%."
           }
         }
       },
@@ -432,7 +432,124 @@
         "3": "Whenever you short rest, you may %game.element.consume.fire% to perform %game.condition.wound%, %game.action.target:1% enemy occupying or adjacent to hazardous terrain",
         "4": "You and all allies are unaffected by hazardous terrain you create",
         "5": "Create or destroy at least one obstacle or hazardous terrain tile each round",
-        "6": "Move enemies through six different hexes of hazardous terrain you created in one turn"
+        "6": "Move enemies through six different hexes of hazardous terrain you created in one turn",
+        "abilities": {
+          "215": {
+            "1": "Replace one 1-hex hazardous terrain tile in an unoccupied hex within %game.action.range:4% with one 1-hex obstacle tile. All enemies adjacent to that tile suffer %game.damage:2%.",
+            "2": "On your next three move abilities, add %game.action.move.valueSign:-1%."
+          },
+          "216": {
+            "1": "Double the %game.damage% inflicted by any hazardous terrain the target moved through, then, regardless of your line-of-sight, replace those hazardous terrain tiles with obstacle tiles of the same size, %game.card.experience:1%.",
+            "2": "On your next three attacks, add %game.action.attack.valueSign:-1%, then double the value of your following attack."
+          },
+          "217": {
+            "1": "Create hazardous terrain in each empty red hex of the attack ability, %game.card.experience:1%.",
+            "2": "Now and at the start of your next two turns, suffer %game.damage:1%."
+          },
+          "218": {
+            "1": "Create one 1-hex obstacle tile in an empty hex within %game.action.range:5%.",
+            "2": "Create 1-hex hazardous terrain tiles in all occupied featureless hexes adjacent to the obstacle. The figures in those hexes suffer %game.damage:4%."
+          },
+          "219": {
+            "1": "Create one 1-hex hazardous terrain tile in the featureless hex occupied by the target."
+          },
+          "220": {
+            "1": "Designate a featureless hex within %game.action.range:4%. Create 1-hex hazardous terrain tiles in that hex and all featureless hexes on a direct path to it. Figures occupying hexes with the created tiles suffer %game.damage:3%. Gain %game.card.experience:1% for each figure damaged.",
+            "2": "Create one 1-hex hazardous terrain tile in each featureless hex you leave during the movement."
+          },
+          "221": {
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target is adjacent to at least 2 hexes with obstacles, objectives, or walls.",
+            "2": "All adjacent enemies suffer %game.damage:1%."
+          },
+          "222": {
+            "1": "Add %game.action.attack.valueSign:1%, %game.action.pierce:3%, and gain %game.card.experience:1% if the target is occupying hazardous terrain.",
+            "2": "All attacks targeting you add %game.action.attack.valueSign:1%.",
+            "3": "On your next 3 attacks, add %game.action.attack.valueSign:1%."
+          },
+          "224": {
+            "1": "Designate a hex containing an obstacle tile within %game.action.range:4%. Destroy the tile to perform:",
+            "2": "Perform the attacks as if you were occupying the designated hex.",
+            "3": "Replace one or two adjacent 1-hex hazardous terrain tiles in unoccupied hexes with 1-hex obstacle tiles. If you do, %game.element.earth% and %game.card.experience:1%."
+          },
+          "225": {
+            "1": "Destroy one adjacent hazardous terrain tile. If you do, on your next three attacks, add %game.condition.wound%, %game.condition.poison%, and %game.element.fire%."
+          },
+          "226": {
+            "1": "Destroy one adjacent obstacle tile. If you do, on the next two heals targeting you, add %game.action.heal.valueSign:3%."
+          },
+          "227": {
+            "1": "Move the character token on one of your persistent abilities forward one space."
+          },
+          "228": {
+            "1": "All enemies moved through gain %game.condition.muddle%."
+          },
+          "229": {
+            "1": "Add %game.action.attack.valueSign:1%, %game.action.push:2%, and gain %game.card.experience:1% if you are occupying hazardous terrain.",
+            "2": "If you are occupying hazardous terrain, perform:",
+            "3": "On your next attack targeting an enemy occupying hazardous terrain, double the value of the attack."
+          },
+          "230": {
+            "1": "Now and at the start of your next two turns, perform:",
+            "2": "1 enemy adjacent to hazardous terrain",
+            "3": "Move one adjacent 1-hex hazardous terrain tile up to two hexes. If it enters any hex occupied by a figure, that figure suffers hazardous terrain damage."
+          },
+          "231": {
+            "1": "Add %game.action.attack.valueSign:1% and gain %game.card.experience:1% if the target is occupying hazardous terrain.",
+            "2": "Now and at the start of your next two turns, suffer %game.damage:1%.",
+            "3": "Add %game.action.attack.valueSign:1% to your next attack this round targeting an enemy adjacent to an obstacle.",
+            "4": "%game.action.attack.valueSign:3% instead, %game.card.experience:1%"
+          },
+          "232": {
+            "1": "Create one 1-hex hazardous terrain tile in the featureless hex occupied by the target."
+          },
+          "233": {
+            "1": "All adjacent enemies suffer %game.damage:2%.",
+            "2": "At the start of your next turn, suffer %game.damage:2%.",
+            "3": "Create one 1-hex obstacle in an adjacent empty hex."
+          },
+          "234": {
+            "1": "Create two 1-hex hazardous terrain tiles in featureless hexes within %game.action.range:3%.",
+            "2": "All allies and enemies occupying or adjacent to any of those hexes suffer %game.damage:1%."
+          },
+          "235": {
+            "1": "Create one 1-hex hazardous terrain tile in an adjacent empty hex."
+          },
+          "236": {
+            "1": "When the next enemy would suffer %game.damage% from entering a hazardous terrain hex, negate the %game.damage%.",
+            "2": "Ignore hazardous terrain during this movement.",
+            "3": "where X is the number of different hazardous terrain hexes you entered during the move ability."
+          },
+          "237": {
+            "1": "On the next four sources of %game.damage% you suffer from attacks targeting you, gain %game.action.shield:1%.",
+            "2": "When your token moves off the last use slot, the attacking enemy suffers %game.damage:5%, and you create one 1-hex obstacle in an adjacent empty hex.",
+            "3": "Suffer %game.damage:2% or destroy an adjacent obstacle.",
+            "4": "Negate the next %game.damage% you suffer this round."
+          },
+          "238": {
+            "1": "You may push the target into hexes with 1-hex obstacle tiles. In each case, regardless of your line-of-sight, replace the obstacle tile with one 1-hex hazardous terrain tile, and the target suffers hazardous terrain damage.",
+            "2": "Create one 1-hex hazardous terrain tile in an adjacent empty hex."
+          },
+          "239": {
+            "1": "Designate a hex containing a hazardous terrain tile within %game.action.range:4%. Destroy the tile to perform:",
+            "2": "all enemies occupying or adjacent to the designated hex",
+            "3": "All enemies in the same room as you suffer %game.damage% equal to the number of hazardous tiles in the room, up to a maximum of %game.damage:5% per enemy."
+          },
+          "240": {
+            "1": "Designate a hex containing a hazardous terrain tile within %game.action.range:3%. Destroy one adjacent (to you) obstacle tile to create two 1-hex hazardous terrain tiles in featureless hexes adjacent to the designated hex. Each enemy occupying the designated hex or the hexes with the created tiles suffers %game.damage:5%.",
+            "2": "Destroy one adjacent hazardous terrain tile to cause the target of your next attack this round to suffer hazardous terrain damage after the attack."
+          },
+          "242": {
+            "1": "Whenever you would suffer %game.damage%, you may destroy an adjacent obstacle to negate the %game.damage%.",
+            "2": "where X is the number of adjacent hexes with obstacles or objectives."
+          },
+          "243": {
+            "1": "Create three 1-hex hazardous terrain tiles in featureless hexes and three 1-hex obstacle tiles in empty hexes in the same room as you. All enemies in this room suffer %game.damage:4%.",
+            "2": "+2 hazardous terrain tiles",
+            "3": "+2 obstacle tiles",
+            "4": "Control all enemies in the same room as you:",
+            "5": "with you controlling the abilities."
+          }
+        }
       },
       "prism": {
         "1": "At the end of turn perform:",
