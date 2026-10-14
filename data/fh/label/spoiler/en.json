@@ -315,7 +315,122 @@
         "3": "Whenever you declare a long rest during card selection, gain %game.action.shield:1% for the round",
         "4": "Gain advantage on all your attacks performed while occupying or targeting enemies occupying water hexes",
         "5": "Never suffer damage from attacks, and be targeted by at least five attacks",
-        "6": "At the start of each of your rests, have more active %game.action.custom.fh-tides% than cards in your discard pile"
+        "6": "At the start of each of your rests, have more active %game.action.custom.fh-tides% than cards in your discard pile",
+        "abilities": {
+          "474": {
+            "1": "You may play three cards instead of two each round, using one card as initiative. At least one top and one bottom action must still be performed."
+          },
+          "475": {
+            "1": "Whenever an adjacent enemy dies, perform:",
+            "2": "If you are occupying water, perform:"
+          },
+          "476": {
+            "1": "Add %game.condition.poison% to all your attacks.",
+            "2": "Create one 1-hex water tile in an adjacent featureless hex.",
+            "3": "2 enemies occupying water"
+          },
+          "477": {
+            "1": "All adjacent enemies suffer %game.damage:1%, %game.card.experience:1%."
+          },
+          "478": {
+            "1": "After each of your attacks, if the target has 3 or fewer hit points, the target gains %game.condition.bane%.",
+            "2": "Ignore hazardous terrain during this movement."
+          },
+          "479": {
+            "1": "Add %game.action.target.valueSign:1% if you are occupying water.",
+            "2": "When you rest, you may keep one %data.action.custom.fh-tides% card in your active area."
+          },
+          "480": {
+            "1": "During all your move abilities, add %game.action.move.valueSign:1% and ignore difficult terrain."
+          },
+          "481": {
+            "1": "At the start of your rest, you may perform:",
+            "2": "where X is the number of active %data.action.custom.fh-tides%."
+          },
+          "482": {
+            "1": "where X is the number of active %data.action.custom.fh-tides%."
+          },
+          "483": {
+            "1": "You may create 1-hex water tiles in any number of featureless red hexes of the attack ability.",
+            "2": "Create one 1-hex water tile in an adjacent featureless hex."
+          },
+          "484": {
+            "1": "All attacks targeting you this round gain disadvantage, %game.card.experience:1%."
+          },
+          "485": {
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if the target is occupying water.",
+            "2": "The first four hexes with water tiles you enter with this movement cost 0 movement points to enter."
+          },
+          "486": {
+            "1": "Create one 2-hex water tile such that at least one hex is adjacent to you and both hexes are featureless.",
+            "2": "Enemies in those hexes suffer %game.damage:1% and gain %game.condition.immobilize%.",
+            "3": "Designate one adjacent 1-hex water tile and perform:",
+            "4": "Regardless of your line-of-sight, relocate the designated water tile to an adjacent featureless hex."
+          },
+          "487": {
+            "1": "1 adjacent normal or elite enemy occupying water"
+          },
+          "488": {
+            "1": "One adjacent normal enemy suffers %game.damage% equal to its %game.action.shield% value.",
+            "2": "All enemies gain %game.action.shield:-1% this round while adjacent to you."
+          },
+          "489": {
+            "1": "Immediately after one of your move abilities each turn, all adjacent enemies suffer %game.damage:1%."
+          },
+          "490": {
+            "1": "Add %game.action.attack.valueSign:2% and %game.condition.wound% if the target is occupying water.",
+            "2": "Create one 2-hex water tile such that at least one hex is adjacent to you and both hexes are featureless."
+          },
+          "491": {
+            "1": "Add %game.action.pierce:2% and %game.condition.wound% to all your attacks.",
+            "2": "For each active %data.action.custom.fh-tides%, perform:"
+          },
+          "492": {
+            "1": "%game.card.recover% up to X of your discarded cards, where X is the number of your active %data.action.custom.fh-tides% at the start of this action.",
+            "2": "+2 %game.card.recover%, %game.card.experience:1%.",
+            "3": "If you are occupying water, perform:"
+          },
+          "493": {
+            "1": "This %game.action.shield% only applies to melee attacks."
+          },
+          "495": {
+            "1": "where X is the number of active %data.action.custom.fh-tides%.",
+            "2": "Add %game.action.attack.valueSign:1% to one of your attacks and %game.action.move.valueSign:1% to one of your move abilities each turn."
+          },
+          "496": {
+            "1": "%game.action.teleport% to an unoccupied hex with a water tile within 5 hexes.",
+            "2": "%game.action.teleport% to any unoccupied and revealed hex with a water tile instead, %game.card.experience:1%."
+          },
+          "497": {
+            "1": "During your melee attack abilities, you may %game.element.consume.light% %game.element.consume.dark% to add %game.condition.disarm% to one attack and gain %game.card.experience:1%."
+          },
+          "498": {
+            "1": "2 normal enemies occupying water"
+          },
+          "499": {
+            "1": "You are immune to forced movement this round, %game.card.experience:1%.",
+            "2": "At the end of each of your turns, if you did not move during your turn, perform:"
+          },
+          "500": {
+            "1": "The effects of <i>Smashing Torrent</i> and <i>Tidal Blast's</i> %data.action.custom.fh-tides% abilities can be used more than once each turn this round.",
+            "2": "All enemies within %game.action.range:5% occupying water suffer %game.damage:2%."
+          },
+          "501": {
+            "1": "Add %game.action.attack.valueSign:2% to all your attacks targeting enemies adjacent to at least one of your allies."
+          },
+          "502": {
+            "1": "If the hex the target is occupying is featureless, you may create one 1-hex water tile in it."
+          },
+          "503": {
+            "1": "where X is the number of active %data.action.custom.fh-tides%.",
+            "2": "You do not have to discard %data.action.custom.fh-tides% cards when you rest.",
+            "3": "You cannot long rest."
+          },
+          "504": {
+            "1": "Play two cards from your lost pile for their %data.action.custom.fh-tides% actions and place character tokens on them. You may choose not to discard these cards when you rest. If they are removed from your active area, return them to your lost pile.",
+            "2": "If you have two or fewer active %data.action.custom.fh-tides%, perform:"
+          }
+        }
       },
       "drill": {
         "1": "%game.action.custom.fh-pressure-up% or %game.action.custom.fh-pressure-down%",
