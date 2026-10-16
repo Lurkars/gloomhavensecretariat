@@ -8,24 +8,101 @@
       "cardId": 445,
       "level": 1,
       "initiative": 22,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.kelp.abilities.445.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-trophy%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "poison",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "range",
+                          "value": 1,
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-trophy%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "range",
+                          "value": 1,
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-trophy%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "dark",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Hollow Aura",
@@ -34,19 +111,49 @@
       "initiative": 88,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.kelp.abilities.446.1%"
+            }
           ]
         }
       ]
@@ -58,19 +165,78 @@
       "initiative": 86,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-trophy% %game.element.consume.dark%: ",
+                  "small": true
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "invisible",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "specialTarget",
+                          "value": "self",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -82,22 +248,59 @@
       "initiative": 20,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-trophy%: ",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "bane",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": "%data.custom.fh.kelp.abilities.448.1%",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Ink Cloud",
@@ -106,46 +309,146 @@
       "initiative": 28,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Lacerating Stabs",
       "cardId": 450,
       "level": 1,
       "initiative": 14,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.450.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.450.2%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Staring into the Abyss",
@@ -154,19 +457,82 @@
       "initiative": 63,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-trophy% %game.element.consume.dark%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "target",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-trophy%: ",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "disarm",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -178,22 +544,63 @@
       "initiative": 96,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "condition",
+          "value": "poison",
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.kelp.abilities.452.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 2
     },
     {
       "name": "Black Scythe",
@@ -202,20 +609,45 @@
       "initiative": 45,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "condition",
+                  "value": "curse"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "loot",
+          "value": 1
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.kelp.abilities.453.1%",
+          "small": true
         }
       ]
     },
@@ -226,46 +658,140 @@
       "initiative": 66,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "teleport",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Soul Hunger",
       "cardId": 455,
       "level": "X",
       "initiative": 91,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "bane",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.kelp.abilities.455.1%",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "heal",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.kelp.abilities.455.2%",
+          "small": true
+        },
+        {
+          "type": "teleport",
+          "value": 3
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Morbid Camouflage",
@@ -274,20 +800,32 @@
       "initiative": 31,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.456.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.456.2%",
+          "small": true,
+          "noDivider": true
         }
       ]
     },
@@ -298,22 +836,62 @@
       "initiative": 23,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound"
+                },
+                {
+                  "type": "condition",
+                  "value": "poison"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.457.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Slipping into Death",
@@ -322,19 +900,68 @@
       "initiative": 89,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.458.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "bane",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.kelp.abilities.458.2%",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bane",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.kelp.abilities.458.3%",
+              "small": true
+            }
           ]
         }
       ]
@@ -346,19 +973,82 @@
       "initiative": 98,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-trophy%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.459.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-trophy%: ",
+                  "small": true
+                },
+                {
+                  "type": "heal",
+                  "value": 3,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -368,24 +1058,81 @@
       "cardId": 460,
       "level": 3,
       "initiative": 15,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-trophy%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "push",
+                          "value": 2,
+                          "small": true
+                        },
+                        {
+                          "type": "condition",
+                          "value": "immobilize",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.460.1%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Pinning Spines",
@@ -394,22 +1141,59 @@
       "initiative": 25,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.461.1%",
+          "small": true
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Crushing Darkness",
@@ -418,19 +1202,80 @@
       "initiative": 40,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-trophy%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        },
+                        {
+                          "type": "condition",
+                          "value": "curse",
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "valueType": "add"
+                }
+              ]
+            }
           ]
         }
       ]
@@ -442,19 +1287,30 @@
       "initiative": 18,
       "actions": [
         {
+          "type": "loot",
+          "value": 1
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.kelp.abilities.463.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.kelp.abilities.463.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            },
+            {
+              "type": "attack",
+              "value": 1
+            }
           ]
         }
       ]
@@ -466,20 +1322,47 @@
       "initiative": 92,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.464.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.464.2%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.464.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -491,21 +1374,62 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.kelp.abilities.465.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.kelp.abilities.465.2%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.465.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "teleport",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "bottomRound": true
     },
     {
       "name": "Claw of Doom",
@@ -514,22 +1438,41 @@
       "initiative": 30,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "The Remorseless Deep",
@@ -538,22 +1481,59 @@
       "initiative": 22,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "brittle",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.kelp.abilities.467.1%",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.467.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Hasten the End",
@@ -562,22 +1542,62 @@
       "initiative": 65,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "bane",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.kelp.abilities.468.1%",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 10,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bane",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2
     },
     {
       "name": "Dire frenzy",
@@ -586,19 +1606,61 @@
       "initiative": 26,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.469.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -610,22 +1672,54 @@
       "initiative": 19,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.470.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.kelp.abilities.470.2%"
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.kelp.abilities.470.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 2
     },
     {
       "name": "Rip from the Bone",
@@ -634,19 +1728,47 @@
       "initiative": 11,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.kelp.abilities.471.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
       ]
@@ -658,20 +1780,101 @@
       "initiative": 26,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-trophy% %game.element.consume.dark%: "
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "invisible",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "specialTarget",
+                          "value": "self",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "teleport",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -682,22 +1885,44 @@
       "initiative": 12,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "condition",
+          "value": "bane",
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.kelp.abilities.473.1%",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.kelp.abilities.473.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 2
     }
   ]
 }

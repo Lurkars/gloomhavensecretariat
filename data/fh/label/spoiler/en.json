@@ -539,7 +539,89 @@
         "4": "At the start of each scenario gain 2 %game.action.custom.fh-trophy%",
         "5": "While you have %game.condition.invisible%, gain advantage on all your attacks",
         "6": "Perform all your attacks with advantage",
-        "7": "Infuse %game.element.dark% each round"
+        "7": "Infuse %game.element.dark% each round",
+        "abilities": {
+          "445": {
+            "1": "During your turn, you may perform any number of the following abilities:"
+          },
+          "446": {
+            "1": "Gain 1 %data.action.custom.fh-trophy%."
+          },
+          "448": {
+            "1": "1 adjacent normal or elite enemy that has three or more negative conditions"
+          },
+          "450": {
+            "1": "Add %game.action.attack.valueSign:1% if the target is different from the target of the previous attack ability.",
+            "2": "Add %game.action.attack.valueSign:2% if the target is different from the targets of both previous attack abilities."
+          },
+          "452": {
+            "1": "After one of your move or teleport abilities each turn, give %game.condition.wound% or %game.condition.muddle% to one adjacent enemy."
+          },
+          "453": {
+            "1": "Gain 1 %data.action.custom.fh-trophy%."
+          },
+          "455": {
+            "1": "1 adjacent normal or elite enemy that has two or more negative conditions",
+            "2": "If you have %game.condition.invisible%, gain 1 %data.action.custom.fh-trophy%."
+          },
+          "456": {
+            "1": "If this attack kills an enemy, gain %game.condition.invisible% and %game.card.experience:1%.",
+            "2": "If this movement ends in a hex with a loot token, gain %game.condition.invisible%."
+          },
+          "457": {
+            "1": "All adjacent enemies suffer %game.damage:2%."
+          },
+          "458": {
+            "1": "If you killed an enemy with the attack ability, perform:",
+            "2": "1 normal enemy adjacent to the hex the killed enemy occupied",
+            "3": "1 adjacent damaged enemy that has 4 or fewer hit points"
+          },
+          "459": {
+            "1": "Add %game.action.range.valueSign:1% if you have %game.condition.invisible%."
+          },
+          "460": {
+            "1": "You and all allies add %game.action.pierce:3% to all your attacks this round targeting enemies within %game.action.range:2% (of yourself) that have any negative conditions."
+          },
+          "461": {
+            "1": "All enemies that have %game.condition.immobilize% suffer %game.damage:2%."
+          },
+          "463": {
+            "1": "Gain 1 %data.action.custom.fh-trophy% for each loot token looted.",
+            "2": "Spend any number of %data.action.custom.fh-trophy%. For each %data.action.custom.fh-trophy% spent, perform:"
+          },
+          "464": {
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if you have %game.condition.invisible%.",
+            "2": "If you killed an enemy with the attack ability, gain 1 (additional) %data.action.custom.fh-trophy%.",
+            "3": "All adjacent enemies suffer %game.damage:1%."
+          },
+          "465": {
+            "1": "Add %game.condition.stun%, %game.condition.curse%, and %game.condition.curse% to your next bane ability.",
+            "2": "Gain advantage on and add %game.action.pierce:2% to all your attacks this round.",
+            "3": "If you have %game.condition.invisible%, perform:"
+          },
+          "467": {
+            "1": "1 adjacent enemy that has %game.condition.bane%",
+            "2": "Gain 1 %data.action.custom.fh-trophy%."
+          },
+          "468": {
+            "1": "1 adjacent damaged normal or elite enemy that has %game.condition.wound%"
+          },
+          "469": {
+            "1": "If you have %game.condition.invisible%, perform:"
+          },
+          "470": {
+            "1": "Add %game.action.attack.valueSign:1%, %game.condition.brittle%, and gain %game.card.experience:1% if the target has none of its allies in line-of-sight.",
+            "2": "Ignore the line-of-sight restriction.",
+            "3": "While you have %game.condition.invisible%, once during your turn, you may spend 1 %data.action.custom.fh-trophy% to add %game.action.attack.valueSign:1% and %game.condition.wound% to all your attacks for the turn."
+          },
+          "471": {
+            "1": "Gain 1 %data.action.custom.fh-trophy% for each enemy targeted with the attack ability."
+          },
+          "473": {
+            "1": "1 adjacent enemy that has %game.condition.immobilize% or %game.condition.stun%",
+            "2": "At the end of each round, if you gained at least 1 %data.action.custom.fh-trophy% this round, perform:"
+          }
+        }
       },
       "meteor": {
         "1": "Create one 1-hex hazardous terrain tile in a featureless hex adjacent to the target",
