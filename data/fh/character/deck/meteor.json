@@ -11,21 +11,75 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.215.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.meteor.abilities.215.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Quenched Rage",
@@ -34,22 +88,76 @@
       "initiative": 30,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "push",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.meteor.abilities.216.1%"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.216.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Flowing Fire",
@@ -58,46 +166,124 @@
       "initiative": 20,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,3,active)|(1,1,target)|(1,2,target)|(2,0,target)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.meteor.abilities.217.1%"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.meteor.abilities.217.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Eruption",
       "cardId": 218,
       "level": 1,
       "initiative": 47,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.218.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.218.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire:earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Lava Bomb",
@@ -106,19 +292,46 @@
       "initiative": 53,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.219.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
       ]
@@ -128,22 +341,54 @@
       "cardId": 220,
       "level": 1,
       "initiative": 18,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.220.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.220.2%",
+          "small": true
         }
       ]
     },
@@ -154,20 +399,39 @@
       "initiative": 85,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.221.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.221.2%",
+          "small": true
+        },
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -178,22 +442,74 @@
       "initiative": 62,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.222.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.meteor.abilities.222.2%",
+              "small": true
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.222.3%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Liquid Stone",
@@ -202,19 +518,58 @@
       "initiative": 28,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -227,21 +582,65 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.224.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesAdjacent",
+                  "small": true
+                },
+                {
+                  "type": "push",
+                  "value": 1,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.224.2%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.224.3%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Wildfire",
@@ -251,21 +650,78 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.225.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Force of the Earth",
@@ -274,46 +730,104 @@
       "initiative": 15,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.226.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Metamorphic Rock",
       "cardId": 227,
       "level": "X",
       "initiative": 68,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 1
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.meteor.abilities.227.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Searing Smoke",
@@ -322,20 +836,71 @@
       "initiative": 45,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.228.1%",
+          "small": true,
+          "noDivider": true
         }
       ]
     },
@@ -346,22 +911,78 @@
       "initiative": 38,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.229.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.229.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.229.3%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStartXp:2"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Living Magma",
@@ -371,21 +992,80 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.230.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.meteor.abilities.230.2%",
+                  "small": true
+                },
+                {
+                  "type": "pierce",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                },
+                {
+                  "type": "forceBox",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "fire"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.230.3%",
+          "small": true
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Hardened Spike",
@@ -394,22 +1074,84 @@
       "initiative": 80,
       "actions": [
         {
+          "type": "attack",
+          "value": 5
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.231.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.231.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "forceBox",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "earth"
+                }
+              ],
+              "noDivider": true
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.231.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.meteor.abilities.231.4%"
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "bottomRound": true
     },
     {
       "name": "Hand of Flame",
@@ -418,22 +1160,54 @@
       "initiative": 29,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.232.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Heat Wave",
@@ -443,21 +1217,104 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.233.1%",
+          "small": true
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.meteor.abilities.233.2%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.meteor.abilities.233.3%"
+            },
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "earth"
+                }
+              ],
+              "noDivider": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Rain of Fire",
@@ -467,21 +1324,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.234.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.234.2%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Magma Orbs",
@@ -490,19 +1357,61 @@
       "initiative": 82,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "fire:earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.235.1%",
+          "small": true
+        },
+        {
+          "type": "pull",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
           ]
         }
       ]
@@ -514,22 +1423,89 @@
       "initiative": 14,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "grid",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "forceBox",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.meteor.abilities.236.1%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.236.2%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "heal",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.236.3%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Obsidian Shield",
@@ -539,21 +1515,75 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.237.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.237.2%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.meteor.abilities.237.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.237.4%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "bottomRound": true
     },
     {
       "name": "Erupting Rage",
@@ -562,20 +1592,46 @@
       "initiative": 70,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.238.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.meteor.abilities.238.2%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.238.2%",
+          "small": true
         }
       ]
     },
@@ -587,21 +1643,54 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.239.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.meteor.abilities.239.2%",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                },
+                {
+                  "type": "pierce",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.239.3%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2
     },
     {
       "name": "Feed the Beast",
@@ -611,21 +1700,26 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.240.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.240.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomRound": true
     },
     {
       "name": "Cinder Lance",
@@ -634,19 +1728,101 @@
       "initiative": 90,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "forceBox",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "damage",
+                      "value": 2,
+                      "subActions": [
+                        {
+                          "type": "specialTarget",
+                          "value": "self",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "forceBox",
+                  "subActions": [
+                    {
+                      "type": "damage",
+                      "value": 1,
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "specialTarget",
+                          "value": "self",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)"
+            }
           ]
         }
       ]
@@ -656,48 +1832,113 @@
       "cardId": 242,
       "level": 9,
       "initiative": 9,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.meteor.abilities.242.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "shield",
+          "value": "X"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.242.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Calamity",
       "cardId": 243,
       "level": 9,
       "initiative": 35,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.243.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.meteor.abilities.243.2%"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.meteor.abilities.243.3%"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.meteor.abilities.243.4%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.meteor.abilities.243.5%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2
     }
   ]
 }

@@ -10,22 +10,44 @@
       "initiative": 86,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.474.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Soft Flesh",
@@ -34,22 +56,68 @@
       "initiative": 75,
       "actions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.475.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.475.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Rancid Brine",
@@ -58,22 +126,51 @@
       "initiative": 62,
       "actions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.476.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.476.2%",
+          "small": true
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.coral.abilities.476.3%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Sharp Chitin",
@@ -82,22 +179,48 @@
       "initiative": 25,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.coral.abilities.477.1%"
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Down to the Depths",
@@ -106,46 +229,107 @@
       "initiative": 74,
       "actions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.478.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 3
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.478.2%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Pool of Power",
       "cardId": 479,
       "level": 1,
       "initiative": 41,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
+          "multiTarget": true,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.coral.abilities.479.1%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.479.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true
     },
     {
       "name": "Skitter",
@@ -154,22 +338,85 @@
       "initiative": 51,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.480.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Cleansing Swell",
@@ -178,22 +425,85 @@
       "initiative": 45,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.481.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.481.2%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Cresting Force",
@@ -202,46 +512,65 @@
       "initiative": 87,
       "actions": [
         {
+          "type": "attack",
+          "value": "X"
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.482.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "loot",
+          "value": 1
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Crashing Surge",
       "cardId": 483,
       "level": 1,
       "initiative": 34,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.483.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.483.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Mighty Claws",
@@ -250,22 +579,72 @@
       "initiative": 23,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "pierce",
+                  "value": 2
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.coral.abilities.484.1%"
+            }
           ]
         }
-      ]
+      ],
+      "bottomRound": true,
+      "bottomXp": 1
     },
     {
       "name": "Submerge",
@@ -274,20 +653,59 @@
       "initiative": 68,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 4,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.485.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.485.2%",
+          "small": true,
+          "noDivider": true
         }
       ]
     },
@@ -299,19 +717,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.486.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.486.2%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.486.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.486.4%",
+          "small": true
         }
       ]
     },
@@ -320,24 +750,42 @@
       "cardId": 487,
       "level": "X",
       "initiative": 15,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "bane",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.coral.abilities.487.1%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
-      ]
+      ],
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Crush Armor",
@@ -347,21 +795,26 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.488.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.488.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomRound": true
     },
     {
       "name": "Smashing Torrent",
@@ -370,46 +823,108 @@
       "initiative": 79,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.489.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Blood in the Water",
       "cardId": 490,
       "level": 2,
       "initiative": 53,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.490.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.490.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Shuck",
@@ -418,46 +933,114 @@
       "initiative": 55,
       "actions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.491.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.491.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "light",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "bottomXp": 1
     },
     {
-      "name": "Powerful Pincer",
+      "name": "Endless Cycle",
       "cardId": 492,
       "level": 3,
-      "initiative": 70,
+      "initiative": 8,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.492.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.coral.abilities.492.2%"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 3
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.492.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomRound": true
     },
     {
       "name": "Chaotic Refraction",
@@ -466,22 +1049,50 @@
       "initiative": 26,
       "actions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.493.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "loot",
+          "value": 1
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Clean Sweep",
@@ -490,19 +1101,69 @@
       "initiative": 65,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -512,24 +1173,62 @@
       "cardId": 495,
       "level": 5,
       "initiative": 71,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "multiTarget": true,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": "X",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.coral.abilities.495.1%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.495.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2,
+      "bottomPersistent": true
     },
     {
       "name": "Sodden Soil",
@@ -538,46 +1237,131 @@
       "initiative": 17,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.coral.abilities.496.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.coral.abilities.496.2%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 1
     },
     {
-      "name": "Endless Cycle",
+      "name": "Powerful Pincer",
       "cardId": 497,
       "level": 6,
-      "initiative": 8,
+      "initiative": 70,
       "actions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.497.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "all",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Twilight Grasp",
@@ -586,22 +1370,70 @@
       "initiative": 33,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,2,target)"
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "bane",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.coral.abilities.498.1%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomXp": 2
     },
     {
       "name": "Dug In",
@@ -610,46 +1442,159 @@
       "initiative": 76,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.coral.abilities.499.1%"
+                },
+                {
+                  "type": "forceBox",
+                  "subActions": [
+                    {
+                      "type": "card",
+                      "value": "round"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.499.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Drown beneath the Waves",
       "cardId": 500,
       "level": 7,
       "initiative": 9,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.coral.abilities.500.1%"
+                },
+                {
+                  "type": "forceBox",
+                  "subActions": [
+                    {
+                      "type": "card",
+                      "value": "round"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "pull",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.500.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Death on All Sides",
@@ -658,46 +1603,114 @@
       "initiative": 73,
       "actions": [
         {
+          "type": "box",
+          "value": "%data.action.custom.fh-tides% TIDE",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.501.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "bottomXp": 1
     },
     {
       "name": "Ebb and Flow",
       "cardId": 502,
       "level": 8,
       "initiative": 24,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.502.1%",
+          "small": true,
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "High Tide",
@@ -706,46 +1719,91 @@
       "initiative": 90,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": "X",
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.503.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "attack",
+          "value": "X",
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.503.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.coral.abilities.503.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.coral.abilities.503.3%",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 2
     },
     {
       "name": "Low Tide",
       "cardId": 504,
       "level": 9,
       "initiative": 10,
+      "lost": true,
+      "loss": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.coral.abilities.504.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.coral.abilities.504.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     }
   ]
 }

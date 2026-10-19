@@ -88,6 +88,33 @@
               }
             </div>
           }
+
+          @if (fhExtraActions.length > 0 && fhStyle) {
+            <div class="fh-extra-subactions">
+              @for (subAction of fhExtraActions | trackUUID; track subAction._trackUUID; let index = $index) {
+                <ghs-action
+                  [ngClass]="'subaction-' + subAction.type"
+                  [action]="subAction"
+                  [monster]="monster"
+                  [objective]="objective"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
+                  [relative]="relative || forceRelative"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
+                  [monsterType]="monsterType"
+                  [character]="character"
+                  [cardId]="cardId()"
+                  [style]="style()"
+                >
+                </ghs-action>
+              }
+            </div>
+          }
         </span>
       }
 
@@ -410,6 +437,33 @@
           @if (subActions.length > 0) {
             <div class="custom-subactions">
               @for (subAction of subActions | slice: (hasAOE ? 1 : 0) | trackUUID; track subAction._trackUUID; let index = $index) {
+                <ghs-action
+                  [ngClass]="'subaction-' + subAction.type"
+                  [action]="subAction"
+                  [monster]="monster"
+                  [objective]="objective"
+                  [inline]="inline()"
+                  [right]="right()"
+                  [textBlack]="textBlack()"
+                  [hexSize]="hexSize()"
+                  [interactiveAbilities]="interactiveAbilities()"
+                  [(interactiveActions)]="interactiveActions"
+                  [relative]="relative || forceRelative"
+                  [statsCalculation]="statsCalculation()"
+                  [index]="(actionIndex() ? actionIndex() + '-' : '') + getOrigIndex(subAction)"
+                  [monsterType]="monsterType"
+                  [character]="character"
+                  [cardId]="cardId()"
+                  [style]="style()"
+                >
+                </ghs-action>
+              }
+            </div>
+          }
+
+          @if (fhExtraActions.length > 0 && fhStyle) {
+            <div class="fh-extra-subactions">
+              @for (subAction of fhExtraActions | trackUUID; track subAction._trackUUID; let index = $index) {
                 <ghs-action
                   [ngClass]="'subaction-' + subAction.type"
                   [action]="subAction"
