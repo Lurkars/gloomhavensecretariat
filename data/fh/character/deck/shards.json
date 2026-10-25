@@ -8,24 +8,64 @@
       "cardId": 244,
       "level": 1,
       "initiative": 26,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": "X",
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,2,target)"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "push",
+                  "value": 2,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Lifting Voice",
@@ -34,22 +74,73 @@
       "initiative": 29,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.shards.abilities.245.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": "X"
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 3,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Heartening Harmony",
@@ -58,22 +149,70 @@
       "initiative": 30,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": "X+2",
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": "X+1",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Forceful Vibrations",
@@ -82,22 +221,90 @@
       "initiative": 27,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "range",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        },
+                        {
+                          "type": "push",
+                          "value": 2,
+                          "small": true
+                        },
+                        {
+                          "type": "condition",
+                          "value": "muddle",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.247.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Resonant frequency",
@@ -107,18 +314,78 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shards.abilities.248.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.shards.abilities.248.2%",
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shards.abilities.248.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "brittle",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -130,19 +397,83 @@
       "initiative": 21,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-2 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        },
+                        {
+                          "type": "push",
+                          "value": 1,
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
       ]
@@ -154,20 +485,66 @@
       "initiative": 58,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%, %game.element.consume.air%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "brittle",
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.250.1%",
+          "small": true
         }
       ]
     },
@@ -178,19 +555,72 @@
       "initiative": 10,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-resonance%: "
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "loot",
+                      "value": 1
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.251.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ]
@@ -200,24 +630,65 @@
       "cardId": 252,
       "level": 1,
       "initiative": 22,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.252.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.shards.abilities.252.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "shield",
+              "value": 1
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomRound": true
     },
     {
       "name": "Devastating Shout",
@@ -226,22 +697,86 @@
       "initiative": 68,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": "X+1",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.shards.abilities.253.1%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.shards.abilities.253.1%",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Calamitous Yawp",
@@ -250,22 +785,77 @@
       "initiative": 65,
       "actions": [
         {
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shards.abilities.254.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "light",
+                      "valueType": "minus",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "target",
+                          "value": 1,
+                          "valueType": "add"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Din of Battle",
@@ -274,22 +864,61 @@
       "initiative": 14,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.255.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shards.abilities.255.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-X %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": "X",
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Illuminative Tone",
@@ -298,19 +927,62 @@
       "initiative": 72,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "custom",
+                  "value": "%game.custom.advantage%"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
           ]
         }
       ]
@@ -322,22 +994,83 @@
       "initiative": 13,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.257.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        },
+                        {
+                          "type": "pierce",
+                          "value": 1,
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 3
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shards.abilities.257.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Befuddling Bellow",
@@ -346,22 +1079,80 @@
       "initiative": 18,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.shards.abilities.258.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": "X/2"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.shards.abilities.258.2%",
+              "small": true,
+              "noDivider": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "round": true,
+      "xp": 1
     },
     {
       "name": "Shape the Path",
@@ -370,22 +1161,55 @@
       "initiative": 40,
       "actions": [
         {
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shards.abilities.259.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "bless",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.259.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Stealth Vibrations",
@@ -394,19 +1218,69 @@
       "initiative": 35,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.260.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-2 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "invisible",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "specialTarget",
+                          "value": "self",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -418,20 +1292,106 @@
       "initiative": 38,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "multiTarget": true,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-2 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "stun",
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-1 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.shards.abilities.261.1%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -442,70 +1402,183 @@
       "initiative": 25,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "valueType": "add"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.shards.abilities.262.1%"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "jump"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.shards.abilities.262.1%"
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Shrieking Chakram",
       "cardId": 263,
       "level": 5,
       "initiative": 8,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "X",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shards.abilities.263.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.shards.abilities.263.2%",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Empowering note",
       "cardId": 264,
       "level": 5,
       "initiative": 45,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shards.abilities.264.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.264.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Unsustainable Wave",
@@ -514,20 +1587,47 @@
       "initiative": 36,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.265.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shards.abilities.265.2%",
+          "small": true
         }
       ]
     },
@@ -538,22 +1638,90 @@
       "initiative": 28,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
-        }
-      ],
-      "bottomActions": [
+        },
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shards.abilities.266.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 7,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.266.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomXp": 1
     },
     {
       "name": "Sound Therapy",
@@ -562,22 +1730,44 @@
       "initiative": 73,
       "actions": [
         {
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shards.abilities.267.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Cloaking Refraction",
@@ -586,22 +1776,89 @@
       "initiative": 11,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "-2 %data.action.custom.fh-resonance%: ",
+                  "small": true
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "invisible",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "specialTarget",
+                          "value": "self",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.shards.abilities.268.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "shield",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Soft Spots",
@@ -610,19 +1867,100 @@
       "initiative": 47,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "brittle",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%, %game.element.consume.air%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "target",
+                          "value": 1,
+                          "valueType": "add",
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "jump",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
       ]
@@ -632,24 +1970,73 @@
       "cardId": 270,
       "level": 8,
       "initiative": 24,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shards.abilities.270.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 3,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Barbaric Yawp",
@@ -658,46 +2045,150 @@
       "initiative": 66,
       "actions": [
         {
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shards.abilities.271.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "grid",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "-1 %data.action.custom.fh-resonance%: ",
+                      "small": true
+                    },
+                    {
+                      "type": "move",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shards.abilities.271.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomRound": true
     },
     {
       "name": "Violent Vibrations",
       "cardId": 272,
       "level": 9,
       "initiative": 5,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "box",
+          "value": "WAVE: -X %data.customAction:fh-resonance%",
+          "small": true
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.shards.abilities.272.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": "X+1"
+            },
+            {
+              "type": "retaliate",
+              "value": "X+1"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "round": true,
+      "xp": 2
     }
   ]
 }

@@ -770,7 +770,110 @@
         "5": "Whenever you become exhausted, first perform %game.condition.curse%, %game.action.target% all, %game.action.range:3%",
         "6": "Increase your maximum hit point value by 5",
         "7": "Cause other figures to suffer a total of at least %game.damage:40% in one round",
-        "8": "Start a turn with %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% and %game.condition.muddle%"
+        "8": "Start a turn with %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% and %game.condition.muddle%",
+        "abilities": {
+          "301": {
+            "1": "Whenever you perform an attack, add all negative conditions you have except %game.condition.brittle%, %game.condition.bane%, and %game.condition.stun% to the attack.",
+            "2": "Remove one negative condition you have to give one adjacent enemy the same condition."
+          },
+          "302": {
+            "1": "Remove one negative condition you have to give the target the same condition."
+          },
+          "303": {
+            "1": "where X is the amount healed with the heal ability."
+          },
+          "304": {
+            "1": "Add %game.action.attack.valueSign:1% for each negative condition you have, %game.card.experience:1%.",
+            "2": "On the next three sources of %game.damage% you suffer while an enemy is within %game.action.range:3%, one enemy within %game.action.range:3% suffers an equal amount of %game.damage%."
+          },
+          "306": {
+            "1": "Whenever an ally within %game.action.range:3% gains a negative condition, you may gain that condition instead, even if you already have it."
+          },
+          "307": {
+            "1": "Whenever this summon would suffer %game.damage%, you may suffer that %game.damage% instead."
+          },
+          "308": {
+            "1": "One of your allies within %game.action.range:3% and all enemies adjacent to that ally suffer %game.damage:2%.",
+            "2": "Remove all negative conditions from an adjacent ally to gain all the conditions removed."
+          },
+          "309": {
+            "1": "All allies and enemies adjacent to the target suffer %game.damage:1%."
+          },
+          "310": {
+            "1": "where X is the number of negative conditions you have."
+          },
+          "311": {
+            "1": "This action may be performed while you have %game.condition.stun%.",
+            "2": "Remove all negative conditions you have. Play a card from your hand and perform its top action either before or after you perform the bottom action of your other card you played this round.",
+            "3": "During this and the next four rounds, you are unaffected by negative conditions you have, and they cannot be removed."
+          },
+          "312": {
+            "1": "all adjacent enemies and self"
+          },
+          "313": {
+            "1": "1 adjacent ally and self",
+            "2": "1 ally within %game.action.range:4% and self",
+            "3": "All enemies within %game.action.range:3% suffer %game.damage:1%."
+          },
+          "314": {
+            "1": "On the next %game.damage% you suffer from an attack, the attacker suffers an equal amount of %game.damage%."
+          },
+          "315": {
+            "1": "You and two enemies within %game.action.range:3% suffer %game.damage:1+X%, where X is the number of negative conditions you have.",
+            "2": "Whenever an ally within %game.action.range:3% would suffer %game.damage%, you may suffer that %game.damage% instead."
+          },
+          "316": {
+            "1": "Suffer up to %game.damage:4% to cause an enemy within %game.action.range:3% to suffer an equal amount of %game.damage%.",
+            "2": "That enemy suffers +2 %game.damage%, %game.card.experience:1%.",
+            "3": "1 adjacent enemy and self"
+          },
+          "317": {
+            "1": "Whenever you suffer %game.damage% this round, one enemy within %game.action.range:2% suffers %game.damage:2%."
+          },
+          "318": {
+            "1": "Designate an adjacent ally and perform:",
+            "2": "One enemy adjacent to the designated ally suffers %game.damage:X%, where X is the difference between the ally's current and maximum hit point values, and then gains every negative condition the ally has.",
+            "3": "One adjacent enemy gains all negative conditions you have except %game.condition.brittle%, %game.condition.bane%, and %game.condition.stun%."
+          },
+          "319": {
+            "1": "Add %game.action.attack.valueSign:3% and gain %game.card.experience:1% if your current hit point value is less than half (rounded up) your maximum hit point value.",
+            "2": "where X is the number of negative conditions you have."
+          },
+          "320": {
+            "1": "At the start of each of your turns, you may suffer up to %game.damage:3% to cause one enemy within %game.action.range:3% to suffer an equal amount of %game.damage%."
+          },
+          "321": {
+            "1": "At the start of each of your turns, you may gain any one negative condition except %game.condition.brittle% and %game.condition.bane%.",
+            "2": "Whenever an enemy gives you a negative condition this round, that enemy also gains the same condition."
+          },
+          "323": {
+            "1": "This ability can be performed while you have %game.condition.disarm%. If you have %game.condition.disarm%, add %game.action.attack.valueSign:2% and gain %game.card.experience:1%.",
+            "2": "Grant all figures whose hit point value was increased by the heal ability:"
+          },
+          "324": {
+            "1": "When you next would suffer %game.damage% this round while an enemy is adjacent to you, that enemy suffers that %game.damage% instead, and you gain %game.card.experience:1%.",
+            "2": "Whenever you gain negative conditions this round, prevent the conditions."
+          },
+          "325": {
+            "1": "All adjacent enemies suffer %game.damage:3%.",
+            "2": "where X is the number of enemies that suffered %game.damage% with this action."
+          },
+          "326": {
+            "1": "For every %game.damage:2% suffered by the target from this attack, remove one negative condition you have to give the target the same condition."
+          },
+          "327": {
+            "1": "Add %game.condition.brittle% and gain %game.card.experience:1% if your current hit point value is less than half your maximum hit point value (rounded up)."
+          },
+          "328": {
+            "1": "Whenever you suffer %game.damage%, one enemy within %game.action.range:2% suffers %game.damage:2%.",
+            "2": "Remove all %game.condition.curse% cards from your and all adjacent allies' attack modifier decks and shuffle those decks to add a number of %game.condition.curse% cards to the monster attack modifier deck equal to the number %game.condition.curse% cards removed."
+          },
+          "329": {
+            "1": "When you become exhausted, first perform:",
+            "2": "This action may be performed while you have %game.condition.stun%.",
+            "3": "During this round, you are unaffected by negative conditions you have, and they cannot be removed."
+          }
+        }
       },
       "shards": {
         "1": "Reveal the top card of the target's monster ability deck",
@@ -780,7 +883,93 @@
         "5": "At the start of each scenario you may gain %game.condition.brittle% to gain 2 %game.action.custom.fh-resonance%",
         "6": "Whenever a new room is revealed, you may reveal the top card of both the monster attack modifier deck and all allies' attack modifier decks",
         "7": "Always have 0 %game.action.custom.fh-resonance% directly before you gain %game.action.custom.fh-resonance% at the end of each of your turns",
-        "8": "Spend 5 %game.action.custom.fh-resonance% on each of five different Wave abilities"
+        "8": "Spend 5 %game.action.custom.fh-resonance% on each of five different Wave abilities",
+        "abilities": {
+          "245": {
+            "1": "Grant all allies within %game.action.range:3% and self:"
+          },
+          "247": {
+            "1": "Gain 2 %game.action.custom.fh-resonance%."
+          },
+          "248": {
+            "1": "Destroy one obstacle within %game.action.range:3% to perform:",
+            "2": "all enemies adjacent to the destroyed obstacle",
+            "3": "Gain 2 %game.action.custom.fh-resonance%."
+          },
+          "250": {
+            "1": "Gain 1 %game.action.custom.fh-resonance% if you are adjacent to at least four empty hexes."
+          },
+          "251": {
+            "1": "Reveal the top card of the monster ability deck of one monster within %game.action.range:2%."
+          },
+          "252": {
+            "1": "Gain 2 %game.action.custom.fh-resonance%.",
+            "2": "Grant one ally within %game.action.range:2%:"
+          },
+          "253": {
+            "1": "Destroy one adjacent obstacle or trap."
+          },
+          "254": {
+            "1": "All allies and enemies within %game.action.range:2% suffer %game.damage:X/2% (rounded up)."
+          },
+          "255": {
+            "1": "Gain 1 %game.action.custom.fh-resonance% if the attack ability targeted at least two enemies.",
+            "2": "You and all allies within %game.action.range:1% each add %game.action.attack.valueSign:1% to one of your attacks this round."
+          },
+          "257": {
+            "1": "Reveal the top card of the target's monster ability deck.",
+            "2": "All attacks targeting you this round gain disadvantage."
+          },
+          "258": {
+            "2": "(rounded up)",
+            "1": "Grant all allies within %game.action.range:2% and self:"
+          },
+          "259": {
+            "1": "For each %game.action.custom.fh-resonance% spent, perform:",
+            "2": "Gain 1 %game.action.custom.fh-resonance%."
+          },
+          "260": {
+            "1": "Gain 1 %game.action.custom.fh-resonance%."
+          },
+          "261": {
+            "1": "One adjacent enemy suffers %game.damage:2%."
+          },
+          "262": {
+            "1": "Gain 1 %game.action.custom.fh-resonance%."
+          },
+          "263": {
+            "1": "For each %game.action.custom.fh-resonance% spent, perform:",
+            "2": "One adjacent enemy that has not suffered %game.damage% from this action this turn suffers %game.damage:2%."
+          },
+          "264": {
+            "1": "Once for each non-persistent, non-loot ability you perform from one of your ability cards, you may spend 1 %game.action.custom.fh-resonance% to increase any one value of a numeral written on that ability except experience by 1.",
+            "2": "Destroy one adjacent obstacle to gain 1 %game.action.custom.fh-resonance%."
+          },
+          "265": {
+            "1": "Two enemies within %game.action.range:2% of the target suffer %game.damage:X-2%, where X is equal to the %game.damage% the target suffered from this attack.",
+            "2": "Suffer up to %game.damage:5% to gain the same amount of %game.action.custom.fh-resonance%."
+          },
+          "266": {
+            "1": "Reveal the top cards of the monster ability decks of all targets.",
+            "2": "Gain 3 %game.action.custom.fh-resonance%."
+          },
+          "267": {
+            "1": "One ally within %game.action.range:2% may %game.card.recover% up to X cards from their discard pile."
+          },
+          "268": {
+            "1": "Grant all adjacent allies and self:"
+          },
+          "270": {
+            "1": "Immediately after each WAVE ability, gain 1 %game.action.custom.fh-resonance%."
+          },
+          "271": {
+            "1": "All allies and enemies within %game.action.range:2% suffer %game.damage:X%.",
+            "2": "You and all adjacent allies gain advantage on all your attacks this round."
+          },
+          "272": {
+            "1": "Grant all allies within %game.action.range:2% and self:"
+          }
+        }
       },
       "snowflake": {
         "1": "If this action forces the target to move, it suffers %game.damage:1%",
