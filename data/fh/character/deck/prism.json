@@ -8,120 +8,424 @@
       "cardId": 387,
       "level": 1,
       "initiative": 80,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "armored-tank",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 6,
+            "attack": 2,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "shield",
+              "value": 1
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "shield",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.387.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "shield",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Reconstructive Aid",
       "cardId": 388,
       "level": 1,
       "initiative": 90,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "repair-drone",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 1,
+            "movement": 2,
+            "range": 3,
+            "flying": true,
+            "enhancements": [
+              "heal",
+              "move",
+              "range"
+            ],
+            "action": {
+              "type": "grid",
+              "value": "1",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.prism.1%"
+                },
+                {
+                  "type": "heal",
+                  "value": 1,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 3,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.388.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.388.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "regenerate",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Hunter Killer",
       "cardId": 389,
       "level": 1,
       "initiative": 84,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "jackal-mech",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 4,
+            "attack": 2,
+            "movement": 3,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "condition",
+              "value": "wound"
+            },
+            "additionalAction": {
+              "type": "retaliate",
+              "value": 1
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.389.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.389.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Coiled Limbs",
       "cardId": 390,
       "level": 1,
       "initiative": 82,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "leaper",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 7,
+            "attack": 1,
+            "movement": 5,
+            "enhancements": [
+              "heal",
+              "attack"
+            ],
+            "action": {
+              "type": "shield",
+              "value": 1
+            },
+            "additionalAction": {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.2%"
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 3,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.390.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Aimed Assault",
       "cardId": 391,
       "level": 1,
       "initiative": 88,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "sniper-turret",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "range": 4,
+            "enhancements": [
+              "heal",
+              "range"
+            ]
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.391.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.391.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Launch Pod",
@@ -130,19 +434,42 @@
       "initiative": 77,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.392.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ]
@@ -154,20 +481,30 @@
       "initiative": 12,
       "actions": [
         {
+          "type": "attack",
+          "value": 2
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "attack",
+          "value": 2
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 2
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "move",
+          "value": 2
         }
       ]
     },
@@ -178,22 +515,30 @@
       "initiative": 64,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Reaper Function",
@@ -202,22 +547,30 @@
       "initiative": 32,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "loot",
+          "value": 1
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "High Impact Projectiles",
@@ -226,19 +579,45 @@
       "initiative": 16,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.prism.abilities.396.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "multiTarget": true,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -251,45 +630,123 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.397.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.397.2%",
+          "small": true
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Shocking Pulse",
       "cardId": 398,
       "level": "X",
       "initiative": 86,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "arcing-generator",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 5,
+            "attack": 2,
+            "movement": 4,
+            "enhancements": [
+              "heal",
+              "move"
+            ],
+            "action": {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent"
+            },
+            "additionalAction": {
+              "type": "pierce",
+              "value": 2
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 3,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.398.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.398.2%",
+          "small": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Remote Control",
@@ -298,22 +755,33 @@
       "initiative": 48,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.prism.abilities.399.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "grant",
+          "value": "%data.custom.fh.prism.abilities.399.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "plus"
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Reassemble",
@@ -323,18 +791,32 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.400.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
+      "bottomLoss": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.prism.abilities.400.2%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
       ]
@@ -344,24 +826,64 @@
       "cardId": 401,
       "level": 2,
       "initiative": 78,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "dampening-unit",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 5,
+            "attack": 1,
+            "movement": 2,
+            "range": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "range"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.3%"
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 3,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.401.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Long Range Missile",
@@ -370,46 +892,110 @@
       "initiative": 19,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.prism.abilities.402.1%",
+          "small": true
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Rapid Fire",
       "cardId": 403,
       "level": 3,
       "initiative": 92,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "machine-bolter",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "range": 3,
+            "enhancements": [
+              "heal"
+            ],
+            "action": {
+              "type": "target",
+              "value": 2
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.403.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.403.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.prism.abilities.403.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "multiTarget": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Hijack",
@@ -419,45 +1005,120 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.prism.abilities.404.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.prism.abilities.404.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1
+            },
+            {
+              "type": "attack",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Plague Protocol",
       "cardId": 405,
       "level": 4,
       "initiative": 98,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "toxin-distributor",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 6,
+            "attack": 2,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "condition",
+              "value": "poison"
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.405.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.405.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Divergent Destruction",
@@ -466,46 +1127,121 @@
       "initiative": 22,
       "actions": [
         {
+          "type": "attack",
+          "value": 2
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "attack",
+          "value": 3
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.406.1%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Net Dispersal",
       "cardId": 407,
       "level": 5,
       "initiative": 94,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "trapping-unit",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 7,
+            "attack": 2,
+            "movement": 3,
+            "enhancements": [
+              "heal",
+              "attack"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.4%"
+            },
+            "additionalAction": {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.407.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.407.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Code Geminate",
@@ -515,21 +1251,39 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.prism.abilities.408.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.408.2%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.prism.abilities.408.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Spinning Blades",
@@ -538,22 +1292,71 @@
       "initiative": 79,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "sword-propeller",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 1,
+            "attack": 2,
+            "movement": 5,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.5%"
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 3,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.409.1%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 1
     },
     {
       "name": "Triage Program",
@@ -563,66 +1366,166 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "heal",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:fh-mode%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Mortar Shells",
       "cardId": 411,
       "level": 7,
       "initiative": 85,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "bombardier",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 5,
+            "attack": 2,
+            "movement": 1,
+            "range": 4,
+            "enhancements": [
+              "heal",
+              "range"
+            ],
+            "action": {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,0,target)",
+              "small": true
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.411.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.411.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Recall",
       "cardId": 412,
       "level": 7,
       "initiative": 91,
+      "lost": true,
+      "loss": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.prism.abilities.412.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.prism.abilities.412.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "teleport",
+              "value": 8
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.412.3%",
+              "small": true
+            }
           ]
         }
       ]
@@ -632,24 +1535,105 @@
       "cardId": 413,
       "level": 8,
       "initiative": 96,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "shield-spider",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 7,
+            "attack": 2,
+            "movement": 3,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "grid",
+              "value": "1",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.prism.1%"
+                },
+                {
+                  "type": "condition",
+                  "value": "ward",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 4,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 3,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.413.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "ward",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Burning Slash",
@@ -658,46 +1642,140 @@
       "initiative": 29,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Heavy metal",
       "cardId": 415,
       "level": 9,
       "initiative": 76,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "sledge-driver",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 9,
+            "attack": 4,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "shield",
+              "value": 1
+            },
+            "additionalAction": {
+              "type": "pierce",
+              "value": 3
+            }
+          },
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 5,
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.characterToken.prism.mode%"
+            },
+            {
+              "type": "custom",
+              "value": ":"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.415.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "+"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.prism.abilities.415.2%",
+              "small": true
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.prism.abilities.415.3%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Disassemble",
@@ -706,19 +1784,64 @@
       "initiative": 20,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%game.customAction:fh-mode%"
+        },
+        {
+          "type": "attack",
+          "value": 3
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.prism.abilities.416.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "brittle"
+                },
+                {
+                  "type": "condition",
+                  "value": "bane",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": "%data.custom.fh.prism.abilities.416.2%",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 4,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]

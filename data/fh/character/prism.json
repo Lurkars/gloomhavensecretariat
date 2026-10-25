@@ -108,8 +108,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "%data.custom.fh.prism.1%",
-            "small": true
+            "value": "%data.custom.fh.prism.1%"
           },
           {
             "type": "heal",
@@ -157,8 +156,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "%data.custom.fh.prism.2%",
-            "small": true
+            "value": "%data.custom.fh.prism.2%"
           }
         ]
       }
@@ -203,8 +201,7 @@
       "range": 2,
       "action": {
         "type": "custom",
-        "value": "%data.custom.fh.prism.3%",
-        "small": true
+        "value": "%data.custom.fh.prism.3%"
       }
     },
     {
@@ -243,8 +240,7 @@
       "movement": 3,
       "action": {
         "type": "custom",
-        "value": "%data.custom.fh.prism.4%",
-        "small": true
+        "value": "%data.custom.fh.prism.4%"
       },
       "additionalAction": {
         "type": "condition",
@@ -261,8 +257,7 @@
       "movement": 5,
       "action": {
         "type": "custom",
-        "value": "%data.custom.fh.prism.5%",
-        "small": true
+        "value": "%data.custom.fh.prism.5%"
       }
     },
     {
@@ -294,8 +289,7 @@
         "subActions": [
           {
             "type": "custom",
-            "value": "%data.custom.fh.prism.1%",
-            "small": true
+            "value": "%data.custom.fh.prism.1%"
           },
           {
             "type": "condition",

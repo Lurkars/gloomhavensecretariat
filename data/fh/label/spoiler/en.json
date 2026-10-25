@@ -760,7 +760,103 @@
         "6": "After this attack ability, grant one of your summons %game.action.move:2% card",
         "7": "After this attack ability, %game.action.custom.fh-mode%",
         "8": "Whenever you long rest, you may do so on any initiative value, choosing your initiative after all ability cards have been revealed, and you decide how your summons perform their abilities for the round",
-        "9": "At the end of each of your short rests, you may %game.action.custom.fh-mode%"
+        "9": "At the end of each of your short rests, you may %game.action.custom.fh-mode%",
+        "abilities": {
+          "387": {
+            "1": "Add %game.action.move.valueSign:-1% to all your move abilities."
+          },
+          "388": {
+            "1": "At the start of each of your turns, perform:",
+            "2": "All your ranged attacks have %game.action.range.valueSign:-1%."
+          },
+          "389": {
+            "1": "At the start of each of your turns, suffer %game.damage:2%.",
+            "2": "Add %game.action.attack.valueSign:1% to all your melee attacks."
+          },
+          "390": {
+            "1": "Add %game.action.jump% to all your move abilities."
+          },
+          "391": {
+            "1": "All your single-target melee attack abilities have %game.action.range.valueSign:2%.",
+            "2": "Add %game.action.move.valueSign:-1% to all your move abilities."
+          },
+          "392": {
+            "1": "Play one card from your hand to perform a summon action of the card as if you were occupying a hex occupied by a target of the attack ability."
+          },
+          "396": {
+            "1": "Grant two of your summons:"
+          },
+          "397": {
+            "1": "All adjacent allies and enemies suffer %game.damage:1%.",
+            "2": "All enemies that target one of your adjacent summons with an attack this round target you with the attack instead, regardless of range or line-of-sight."
+          },
+          "398": {
+            "1": "Add %game.action.attack.valueSign:-1% and %game.action.pierce:5% to all your attacks.",
+            "2": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "399": {
+            "1": "Grant one of your summons:"
+          },
+          "400": {
+            "1": "Instead of placing your previous %game.characterToken.prism.mode% card's standee on the map as a summon, move that card to your discard pile.",
+            "2": "Play one card from your lost pile to perform a summon action of the card."
+          },
+          "401": {
+            "1": "Gain %game.action.shield:2% for the first attack that damages you each round."
+          },
+          "402": {
+            "1": "Whenever one of your summons would suffer %game.damage%, you may instead suffer that amount of %game.damage% minus 1, %game.action.custom.fh-mode% with that summon, discard this card, and gain %game.card.experience:1%."
+          },
+          "403": {
+            "1": "Add %game.action.target.valueSign:1% to all your ranged attack abilities.",
+            "2": "All your ranged attacks have %game.action.range.valueSign:-1%.",
+            "3": "Grant two of your summons:"
+          },
+          "404": {
+            "1": "Grant the summon placed by the transfer ability:",
+            "2": "Control one enemy within %game.action.range:4%:"
+          },
+          "405": {
+            "1": "Heals targeting you do not increase your hit point value.",
+            "2": "Add %game.condition.poison% to all your attacks."
+          },
+          "406": {
+            "1": "All adjacent allies and enemies suffer %game.damage:1%."
+          },
+          "407": {
+            "1": "You cannot perform move abilities.",
+            "2": "Add %game.condition.immobilize% to all your attacks."
+          },
+          "408": {
+            "1": "If you have two %game.characterToken.prism.mode%, you may move one %game.characterToken.prism.mode% card from your active area to your discard pile.",
+            "2": "If you have one %game.characterToken.prism.mode%, you may place one card with a summon action from your hand in your active area (without gaining the experience) and place a %game.characterToken.prism.mode% token on it. Treat this card as an additional active %game.characterToken.prism.mode%.",
+            "3": "Grant one of your summons:"
+          },
+          "409": {
+            "1": "At the end of each of your turns, one adjacent enemy suffers %game.damage:2% and you suffer %game.damage:1%."
+          },
+          "411": {
+            "1": "Whenever you suffer %game.damage%, one adjacent ally suffers %game.damage:1%.",
+            "2": "Add %game.action.push:2% to all your attacks."
+          },
+          "412": {
+            "1": "Play two cards from your lost pile to perform the summon actions of both cards without gaining the experience.",
+            "3": "This teleport must end in a hex adjacent to you.",
+            "2": "Grant one of your summons:"
+          },
+          "413": {
+            "1": "At the start of each of your turns, perform:"
+          },
+          "415": {
+            "1": "During ordering of initiative each round, increase your initiative value by 15.",
+            "2": "Add %game.action.attack.valueSign:3% to your first attack each turn.",
+            "3": "All adjacent allies and enemies suffer %game.damage:2%."
+          },
+          "416": {
+            "1": "Kill all of your summons from actions with lost icons. For each summon killed, perform:",
+            "2": "1 normal or elite enemy"
+          }
+        }
       },
       "shackles": {
         "1": "When attacking, ignore %game.action.retaliate%",
