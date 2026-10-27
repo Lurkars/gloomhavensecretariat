@@ -60,7 +60,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Frosthaven                                                                      | ✅             | ✅          | ✅        | ✅         | ⛔        |
 | Gloomhaven 2nd Edition                                                          | ✅❗[^3.2]     | ✅❗[^3.3]  | ⛔        | ✅❗[^3.4] | ⛔        |
 | Mercenary Packs                                                                 | ✅ [^3]        | ✅          | ⛔        | ✅         | ⛔        |
-| Button & Bugs                                                                   | ✅             | ✅[^2.2]    | ⛔        | ⛔         | ⛔        |
+| Buttons & Bugs                                                                   | ✅             | ✅[^2.2]    | ⛔        | ⛔         | ⛔        |
 | The Crimson Scales                                                              | ✅[^2.1]       | ✅          | ⛔        | ✅         | ⛔        |
 | Trail Of Ashes                                                                  | ✅[^2.1]       | ✅          | ⛔        | ✅         | ⛔        |
 | Solo Scenarios (for supported Editions)                                         | ✅             | ✅          | ⛔        | ✅         | ⛔        |
@@ -71,7 +71,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | supports Frosthaven Crossover Characters                                        | ✅[^3]         | ➖[^19]     | ➖[^19]   | ✅         | ➖[^19]   |
 | support Satire's Extended Battle Goals                                          | ✅[^3.1]       | ⛔          | ⛔        | ✅         | ⛔        |
 | Skulls in the Snow (FH Mini Campaign)                                           | ✅[^3]         | ⛔          | ⛔        | ✅         | ⛔        |
-| Button & Bugs - Promotional Content                                             | ✅[^3]         | ⛔          | ⛔        | ⛔         | ⛔        |
+| Buttons & Bugs - Promotional Content                                             | ✅[^3]         | ⛔          | ⛔        | ⛔         | ⛔        |
 | CCUG classes                                                                    | ✅[^3]         | ✅          | ⛔        | ✅         | ⛔        |
 |                                                                                 |                |             |           |            |           |
 | **Additional Features**                                                         | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
