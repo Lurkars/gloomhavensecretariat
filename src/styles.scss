@@ -1610,6 +1610,15 @@ input[type='radio'] {
     }
   }
 
+  &.icon-only > .placeholder-custom-action {
+    height: auto;
+    margin: 0.15em 0;
+
+    .icon.ghs-svg {
+      margin-top: 0;
+    }
+  }
+
   .placeholder-item-fh {
     display: inline-flex;
     justify-content: flex-end;
