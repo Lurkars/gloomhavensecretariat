@@ -32,6 +32,7 @@ export class SettingsManager {
     './assets/data/cs.json',
     './assets/data/toa.json',
     './assets/data/bb.json',
+    './assets/data/bb-promotional.json',
     './assets/data/fh-crossover.json',
     './assets/data/gh-envx.json',
     './assets/data/toa-envv.json',
