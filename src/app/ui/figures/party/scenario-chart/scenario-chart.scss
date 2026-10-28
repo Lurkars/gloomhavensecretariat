@@ -28,8 +28,13 @@
 
         &.success,
         &.locked:not(.blocked),
-        &.blocked {
+        &.blocked,
+        &.linkBadge {
           cursor: initial;
+        }
+
+        &.linkBadge:hover {
+          opacity: 1;
         }
 
         &.locked::before {

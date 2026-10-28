@@ -33,12 +33,16 @@ export class MonsterMenuComponent {
     });
   }
 
+  editions(): string[] {
+    return this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions();
+  }
+
   hasBossMonster(): boolean {
-    return gameManager.relevantEditions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.boss));
+    return this.editions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.boss));
   }
 
   hasHiddenMonster(): boolean {
-    return gameManager.relevantEditions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.hidden));
+    return this.editions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.hidden));
   }
 
   monsterData(edition: string | undefined = undefined, filter: string = ''): MonsterData[] {
@@ -105,6 +109,6 @@ export class MonsterMenuComponent {
   }
 
   noResults(): boolean {
-    return gameManager.relevantEditions().every((edition) => this.monsterData(edition, this.filter).length === 0);
+    return this.editions().every((edition) => this.monsterData(edition, this.filter).length === 0);
   }
 }

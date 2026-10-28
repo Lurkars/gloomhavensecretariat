@@ -1,5 +1,5 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { NgClass } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject, input, OnInit, output } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -14,12 +14,13 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon } from 'src/app/game/model/Summon';
 import { GhsValueSignPipe } from 'src/app/ui/helper/Pipes';
+import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, GhsTooltipDirective, TrackUUIDPipe, GhsValueSignPipe],
+  imports: [NgClass, NgTemplateOutlet, GhsTooltipDirective, PointerInputDirective, TrackUUIDPipe, GhsValueSignPipe],
   selector: 'ghs-conditions',
   templateUrl: './conditions.html',
   styleUrls: ['./conditions.scss']
@@ -219,6 +220,19 @@ export class ConditionsComponent implements OnInit {
         this.conditions.push(new Condition(ConditionName.empower));
       }
     }
+  }
+
+  isValueCondition(condition: Condition): boolean {
+    return condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade);
+  }
+
+  isDisabled(condition: Condition): boolean {
+    return (
+      (!this.hasCondition(condition) &&
+        ((!this.immunityEnabled && this.isImmune(condition.name) && !this.permanentEnabled && !this.isPermanent(condition.name)) ||
+          this.isImmune(condition.name, true))) ||
+      (this.expireEnabled && !condition.types.includes(ConditionType.expire))
+    );
   }
 
   hasCondition(condition: Condition, permanent: boolean = false): boolean {

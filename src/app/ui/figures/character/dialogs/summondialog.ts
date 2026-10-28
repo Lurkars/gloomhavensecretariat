@@ -125,10 +125,7 @@ export class CharacterSummonDialog {
         }
       }
     } else {
-      const editions = gameManager.game.edition
-        ? gameManager.relevantEditions(gameManager.game.edition)
-        : gameManager.editions(false, true);
-      for (const edition of editions) {
+      for (const edition of gameManager.relevantEditions()) {
         gameManager.itemManager
           .getItems(edition, true)
           .filter((itemData) => itemData.summon)

@@ -288,7 +288,7 @@
             {
                 "name": "%data.personalQuest.fh.542.1%",
                 "counter": 8,
-                "autotrack": "scenario:65|66"
+                "autotrack": "sideScenarios:65-137"
             }
         ],
         "openEnvelope": "44:67"

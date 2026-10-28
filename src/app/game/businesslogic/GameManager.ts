@@ -164,10 +164,13 @@ export class GameManager {
   }
 
   relevantEditions(edition: string | undefined = undefined, extensionOnly: boolean = false, extraContent: boolean = true): string[] {
-    const editions: string[] = [];
     if (!edition) {
-      edition = this.currentEdition();
+      if (!this.game.edition) {
+        return this.editions(false, extraContent);
+      }
+      edition = this.game.edition;
     }
+    const editions: string[] = [];
     const editionData = this.editionData.find((e) => e.edition === edition);
     if (editionData) {
       editions.push(editionData.edition);

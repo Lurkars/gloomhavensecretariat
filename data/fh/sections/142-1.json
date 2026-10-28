@@ -1,0 +1,10 @@
+{
+  "index": "142.1",
+  "name": "Tome of Life",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.fh.142-1%"
+  }
+}

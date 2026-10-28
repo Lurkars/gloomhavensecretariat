@@ -1,0 +1,17 @@
+{
+  "index": "162.5",
+  "name": "Tome of Life",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "142.1"
+    ]
+  ],
+  "conclusion": true,
+  "rewards": {
+    "items": [
+      "218"
+    ],
+    "custom": "%data.section.rewards.fh.162-5%"
+  }
+}

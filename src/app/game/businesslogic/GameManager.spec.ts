@@ -145,6 +145,18 @@ describe('GameManager', () => {
       expect(gameManager.relevantEditions('fh-crossover')).toEqual(['fh-crossover', 'gh']);
     });
 
+    it('relevantEditions without edition uses the game edition', () => {
+      gameManager.game.edition = 'fh-crossover';
+      expect(gameManager.relevantEditions()).toEqual(['fh-crossover', 'gh']);
+    });
+
+    it('relevantEditions without edition and no game edition returns all enabled editions', () => {
+      gameManager.editionData.push(buildEdition('jotl'));
+      gameManager.game.scenario = { edition: 'jotl' } as any;
+      expect(gameManager.relevantEditions()).toEqual(['gh', 'fh-crossover', 'content-a']);
+      expect(gameManager.relevantEditions(undefined, false, false)).toEqual(['gh', 'fh-crossover']);
+    });
+
     it('isEditionRelevant is true when the other edition is a dependency of the given edition', () => {
       expect(gameManager.isEditionRelevant('gh', 'fh-crossover')).toBe(true);
     });

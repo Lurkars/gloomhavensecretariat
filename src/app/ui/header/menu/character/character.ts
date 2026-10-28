@@ -38,9 +38,13 @@ export class CharacterMenuComponent implements OnInit {
     this.update();
   }
 
+  editions(): string[] {
+    return this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions();
+  }
+
   update() {
     this.characterData = {};
-    (this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions()).forEach((edition) => {
+    this.editions().forEach((edition) => {
       this.characterData[edition] = this.getCharacterData(this.filter, edition);
     });
   }
@@ -163,8 +167,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   noResults(): boolean {
-    const editions = this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions();
-    return editions.every((edition) => !this.characterData[edition] || this.characterData[edition].length === 0);
+    return this.editions().every((edition) => !this.characterData[edition] || this.characterData[edition].length === 0);
   }
 
   addCharacter(characterData: CharacterData) {

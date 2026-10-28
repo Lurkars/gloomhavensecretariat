@@ -1,19 +1,40 @@
 <div [style.--condition-columns]="columns()" [ngClass]="{ fh: settingsManager.settings.fhStyle }">
   <div class="condition-container">
     @for (condition of conditions | trackUUID; track condition._trackUUID; let i = $index) {
-      <a
-        class="item"
-        [ngClass]="{
-          disabled:
-            (!hasCondition(condition) &&
-              ((!immunityEnabled && isImmune(condition.name) && !permanentEnabled && !isPermanent(condition.name)) ||
-                isImmune(condition.name, true))) ||
-            (expireEnabled && !condition.types.includes(ConditionType.expire))
-        }"
-      >
-        @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-          <img tabclick (click)="dec(condition)" class="ghs-svg dec" src="./assets/images/left.svg" />
-        }
+      @if (isValueCondition(condition)) {
+        <div class="value-condition">
+          <ghs-pointer-input
+            class="button"
+            [ngClass]="{
+              disabled: isDisabled(condition) || (!condition.types.includes(ConditionType.stack) && getValue(condition) <= 1)
+            }"
+            tabclick
+            (singleClick)="dec(condition)"
+            [repeat]="true"
+          >
+            <img class="ghs-svg" src="./assets/images/minus.svg" />
+          </ghs-pointer-input>
+          <ng-container *ngTemplateOutlet="conditionItem; context: { $implicit: condition }"></ng-container>
+          <ghs-pointer-input
+            class="button"
+            [ngClass]="{ disabled: isDisabled(condition) }"
+            tabclick
+            (singleClick)="inc(condition)"
+            [repeat]="true"
+          >
+            <img class="ghs-svg" src="./assets/images/plus.svg" />
+          </ghs-pointer-input>
+        </div>
+      } @else {
+        <ng-container *ngTemplateOutlet="conditionItem; context: { $implicit: condition }"></ng-container>
+      }
+      @if (conditionSeparator.includes(i)) {
+        <div class="separator"></div>
+      }
+    }
+
+    <ng-template #conditionItem let-condition>
+      <a class="item" [ngClass]="{ disabled: isDisabled(condition) }">
         <span
           class="condition"
           tabclick
@@ -45,14 +66,8 @@
         @if (!isTrapEntity && isExpire(condition.name)) {
           <span class="condition expire expire-overlay"></span>
         }
-        @if (condition.types.includes(ConditionType.stack) || condition.types.includes(ConditionType.upgrade)) {
-          <img tabclick (click)="inc(condition)" class="ghs-svg inc" src="./assets/images/right.svg" />
-        }
       </a>
-      @if (conditionSeparator.includes(i)) {
-        <div class="separator"></div>
-      }
-    }
+    </ng-template>
 
     @if (conditions.length && !isTrapEntity) {
       <div class="separator"></div>

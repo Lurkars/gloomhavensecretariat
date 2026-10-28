@@ -884,6 +884,7 @@ export class ScenarioManager {
   }
 
   openRoom(roomData: RoomData, scenarioData: ScenarioData, section: boolean) {
+    gameManager.stateManager.standeeDialogCanceled = false;
     if (this.game.scenario) {
       this.game.scenario.revealedRooms = this.game.scenario.revealedRooms || [];
       this.game.scenario.revealedRooms.push(roomData.roomNumber);

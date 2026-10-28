@@ -13,6 +13,8 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 
+type ChartContainer = { id?: string; label?: string; nodes: string[]; children: ChartContainer[] };
+
 @Component({
   imports: [NgClass, GhsLabelDirective, GhsTooltipDirective, PointerInputDirective],
   selector: 'ghs-scenario-chart',
@@ -33,9 +35,11 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
   campaignMode: boolean = true;
   legend: boolean = false;
   chart!: LeafletMap;
-  private mermaid: any = null;
+  private mermaidLoader?: Promise<any>;
+  private renderPending: boolean = false;
   initializing: boolean = false;
   private nodeScenarioMap = new Map<string, ScenarioData>();
+  private edges: { a: string; b: string; link: string; label?: string; line: string }[] = [];
 
   gameManager: GameManager = gameManager;
 
@@ -47,43 +51,56 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     this.campaignMode = gameManager.game.party.campaignMode;
   }
 
-  async ngOnInit(): Promise<void> {
-    // Lazy load mermaid only when needed
-    if (!this.mermaid) {
-      const mermaidModule = await import('mermaid');
-      this.mermaid = mermaidModule.default;
+  ngOnInit(): void {
+    this.loadMermaid();
+  }
 
-      this.mermaid.initialize({
-        startOnLoad: false,
-        layout: 'dagre',
-        look: 'classic',
-        htmlLabels: true,
-        flowchart: {
-          useMaxWidth: true,
-          minNodeWidth: 0,
-          curve: 'linear',
-          padding: 10,
-          subGraphTitleMargin: {
-            bottom: 15
-          }
-        },
-        theme: 'base',
-        themeVariables: {
-          fontSize: 'calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor))',
-          fontFamily: 'var(--ghs-font-text)',
-          darkMode: true,
-          primaryColor: '#202830',
-          secondaryColor: 'transparent',
-          tertiaryColor: '#52565f',
-          tertiaryBorderColor: '#202830',
-          tertiaryTextColor: '#eeeeee'
-        },
-        wrap: false,
-        // Disable unused diagram types to reduce bundle size
-        securityLevel: 'loose',
-        logLevel: 5
-      });
+  // Lazy load mermaid only when needed. Shared promise, so rendering always waits for initialize (otherwise the default theme is used)
+  private loadMermaid(): Promise<any> {
+    if (!this.mermaidLoader) {
+      this.mermaidLoader = import('mermaid').then((mermaidModule) => this.initMermaid(mermaidModule.default));
     }
+    return this.mermaidLoader;
+  }
+
+  private initMermaid(mermaid: any): any {
+    mermaid.initialize({
+      startOnLoad: false,
+      layout: 'elk',
+      look: 'classic',
+      htmlLabels: true,
+      flowchart: {
+        useMaxWidth: true,
+        minNodeWidth: 0,
+        curve: 'linear',
+        padding: 10,
+        subGraphTitleMargin: {
+          bottom: 15
+        }
+      },
+      elk: {
+        // merge edges sharing a source or target into one line instead of drawing parallel lines
+        mergeEdges: true,
+        // shorter edges and more compact than the default BRANDES_KOEPF, especially with many ungrouped scenarios (e.g. gh)
+        nodePlacementStrategy: 'NETWORK_SIMPLEX'
+      },
+      theme: 'base',
+      themeVariables: {
+        fontSize: 'calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor))',
+        fontFamily: 'var(--ghs-font-text)',
+        darkMode: true,
+        primaryColor: '#202830',
+        secondaryColor: 'transparent',
+        tertiaryColor: '#52565f',
+        tertiaryBorderColor: '#202830',
+        tertiaryTextColor: '#eeeeee'
+      },
+      wrap: false,
+      // Disable unused diagram types to reduce bundle size
+      securityLevel: 'loose',
+      logLevel: 5
+    });
+    return mermaid;
   }
 
   ngAfterViewInit(): void {
@@ -100,10 +117,12 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       'classDef locked stroke:#eca610;',
       'classDef success-blocked fill:#7da82a,stroke:#e2421f;',
       'classDef success-locked fill:#7da82a,stroke:#eca610;',
+      'classDef linkBadge fill:none,stroke:none;',
       'linkStyle default stroke-width:5;'
     ];
 
     this.nodeScenarioMap.clear();
+    this.edges = [];
 
     const pad = '000';
 
@@ -137,6 +156,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     // Composite key for lookups across groups
     const compositeKey = (scenarioData: ScenarioData): string => (scenarioData.group ?? '') + ':' + scenarioData.index;
     const compositeKeyFromParts = (group: string | undefined, index: string): string => (group ?? '') + ':' + index;
+    // Subgraph ids must not clash with node ids and only contain safe characters
+    const containerId = (prefix: string, key: string): string => prefix + '_' + key.replace(/\W/g, '_');
 
     const successSet = new Set(gameManager.game.party.scenarios.map((m) => `${m.edition}:${m.group ?? ''}:${m.index}`));
 
@@ -169,42 +190,33 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       if (gameManager.scenarioManager.isLocked(s)) lockedSet.add(compositeKey(s));
     });
 
-    // Get distinct groups, sorted with undefined (main campaign) first
-    const groups = Array.from(new Set(allScenarios.map((s) => s.group))).sort((a, b) => {
-      if (a === b) return 0;
-      if (!a) return -1;
-      if (!b) return 1;
-      return a.localeCompare(b);
-    });
+    // Get distinct groups, main campaign ('') first. Array.sort always moves undefined to the end, so map it to ''
+    const groups = Array.from(new Set(allScenarios.map((s) => s.group ?? ''))).sort((a, b) => a.localeCompare(b));
+
+    const root: ChartContainer = { nodes: [], children: [] };
+    const nodeLines = new Map<string, string>();
+    const nodeContainers = new Map<string, ChartContainer>();
 
     // Iterate over each group
     groups.forEach((group) => {
       const scenarios = allScenarios
-        .filter((scenarioData) => scenarioData.group === group)
-        .sort(gameManager.scenarioManager.sortScenarios)
-        .sort((a, b) => {
-          if (a.flowChartGroup === b.flowChartGroup) {
-            return 0;
-          } else if (!a.flowChartGroup && b.flowChartGroup) {
-            return -1;
-          } else if (a.flowChartGroup && !b.flowChartGroup) {
-            return 1;
-          } else if (a.flowChartGroup && b.flowChartGroup) {
-            return a.flowChartGroup < b.flowChartGroup ? -1 : 1;
-          }
-          return 0;
-        });
+        .filter((scenarioData) => (scenarioData.group ?? '') === group)
+        .sort(gameManager.scenarioManager.sortScenarios);
 
       if (scenarios.length === 0) {
         return;
       }
 
-      // Open group subgraph (only for named groups)
+      // Group container (only for named groups)
+      const groupContainer: ChartContainer = group
+        ? { id: containerId('group', group), label: settingsManager.getLabel('data.scenario.group.' + group), nodes: [], children: [] }
+        : root;
       if (group) {
-        this.flow.push('subgraph "' + settingsManager.getLabel('data.scenario.group.' + group) + '"');
+        root.children.push(groupContainer);
       }
 
-      let subgraph: string | undefined = undefined;
+      // flowChartGroup containers, ordered by their first scenario
+      const flowChartGroups = new Map<string, ChartContainer>();
 
       scenarios.forEach((scenarioData) => {
         let state = ':::unplayed';
@@ -220,33 +232,27 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         }
 
         // Handle flowChartGroup subgraphs within this group
-        if (scenarioData.flowChartGroup && scenarioData.flowChartGroup !== subgraph) {
-          if (subgraph) {
-            this.flow.push('end');
+        let container = groupContainer;
+        if (scenarioData.flowChartGroup) {
+          let flowChartGroup = flowChartGroups.get(scenarioData.flowChartGroup);
+          if (!flowChartGroup) {
+            flowChartGroup = {
+              id: containerId('fcg', group + '_' + scenarioData.flowChartGroup),
+              label: settingsManager.getLabel('data.custom.' + scenarioData.edition + '.flowChartGroup.' + scenarioData.flowChartGroup),
+              nodes: [],
+              children: []
+            };
+            flowChartGroups.set(scenarioData.flowChartGroup, flowChartGroup);
+            groupContainer.children.push(flowChartGroup);
           }
-          this.flow.push(
-            'subgraph "' +
-              settingsManager.getLabel('data.custom.' + scenarioData.edition + '.flowChartGroup.' + scenarioData.flowChartGroup) +
-              '"'
-          );
-          subgraph = scenarioData.flowChartGroup;
-        } else if (!scenarioData.flowChartGroup && subgraph) {
-          this.flow.push('end');
-          subgraph = undefined;
+          container = flowChartGroup;
         }
 
         const index = scenarioData.index.match(/\d+/g) ? (pad + scenarioData.index).slice(-pad.length) : scenarioData.index;
-        this.flow.push('\t' + nodeId(scenarioData) + '((' + index + '))' + state);
+        nodeLines.set(nodeId(scenarioData), '\t' + nodeId(scenarioData) + '((' + index + '))' + state);
+        container.nodes.push(nodeId(scenarioData));
+        nodeContainers.set(nodeId(scenarioData), container);
       });
-
-      if (subgraph) {
-        this.flow.push('end');
-      }
-
-      // Close group subgraph
-      if (group) {
-        this.flow.push('end');
-      }
     });
 
     const unlocks: { a: string; b: string }[] = [];
@@ -300,7 +306,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                   collectedLinks.push({ a: nodeId(scenarioData), b: nodeId(unlockScenarioData) });
                 }
 
-                this.flow.push('\t' + nodeId(scenarioData) + arrow + nodeId(unlockScenarioData));
+                this.addEdge(nodeId(scenarioData), arrow, nodeId(unlockScenarioData));
               }
             }
           });
@@ -319,7 +325,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 (unlocked) => unlocked.edition === other.edition && unlocked.group === other.group && unlocked.index === other.index
               )
             ) {
-              this.flow.push('\t' + nodeId(scenarioData) + arrow + nodeId(other));
+              this.addEdge(nodeId(scenarioData), arrow, nodeId(other));
               links.push(index);
             }
           });
@@ -335,7 +341,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
               !collectedLinks.some((value) => value.a === nodeId(scenarioData) && value.b === nodeId(other)) &&
               !forcedLinks.includes(index)
             ) {
-              this.flow.push('\t' + nodeId(scenarioData) + arrow + nodeId(other));
+              this.addEdge(nodeId(scenarioData), arrow, nodeId(other));
               forcedLinks.push(index);
             }
           });
@@ -392,7 +398,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                       collectedLinks.push({ a: nodeId(scenarioData), b: nodeId(other) });
                     }
 
-                    this.flow.push('\t' + nodeId(scenarioData) + arrow + nodeId(other));
+                    this.addEdge(nodeId(scenarioData), arrow, nodeId(other));
                   }
                 }
               });
@@ -407,7 +413,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     !collectedLinks.some((value) => value.a === nodeId(scenarioData) && value.b === nodeId(other)) &&
                     !links.includes(index)
                   ) {
-                    this.flow.push('\t' + nodeId(scenarioData) + arrow + nodeId(other));
+                    this.addEdge(nodeId(scenarioData), arrow, nodeId(other));
                     links.push(index);
                   }
                 });
@@ -423,7 +429,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     !collectedLinks.some((value) => value.a === nodeId(scenarioData) && value.b === nodeId(other)) &&
                     !forcedLinks.includes(index)
                   ) {
-                    this.flow.push('\t' + nodeId(scenarioData) + arrow + nodeId(other));
+                    this.addEdge(nodeId(scenarioData), arrow, nodeId(other));
                     forcedLinks.push(index);
                   }
                 });
@@ -457,11 +463,106 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       }
     });
 
+    this.splitLabelEdges(nodeLines, nodeContainers);
+    const linked = new Set(this.edges.flatMap((edge) => [edge.a, edge.b]));
+    const meta: string[] = [];
+    this.flowContainer(root, nodeLines, linked, meta);
+    this.flow.push(...this.edges.map((edge) => edge.line), ...meta);
+
     if (this.flow.join('\n') !== this.flowString) {
       this.flowString = this.flow.join('\n');
       return true;
     }
     return false;
+  }
+
+  private addEdge(a: string, arrow: string, b: string) {
+    const [, link, label] = arrow.match(/^\s*([^|\s]+)(?:\|(.*)\|)?\s*$/) || [];
+    this.edges.push({ a, b, link, label, line: '\t' + a + arrow + b });
+  }
+
+  // ELK lays out containers as single nodes and an edge label needs its own layer, so labeled edges into another container would
+  // push that container one layer further. Route the edge over a badge with the label at the start of the target container instead
+  private splitLabelEdges(nodeLines: Map<string, string>, nodeContainers: Map<string, ChartContainer>) {
+    const badges = new Map<string, string>();
+    this.edges = this.edges.flatMap((edge) => {
+      const container = nodeContainers.get(edge.b);
+      if (!edge.label || !container || container === nodeContainers.get(edge.a)) {
+        return [edge];
+      }
+      const key = edge.b + '|' + edge.link + '|' + edge.label;
+      let id = badges.get(key);
+      const edges = [];
+      if (!id) {
+        id = edge.b + '__badge' + badges.size;
+        badges.set(key, id);
+        nodeLines.set(id, '\t' + id + '("' + edge.label + '"):::linkBadge');
+        container.nodes.splice(container.nodes.indexOf(edge.b), 0, id);
+        nodeContainers.set(id, container);
+        edges.push({ a: id, b: edge.b, link: edge.link, line: '\t' + id + ' ' + edge.link + ' ' + edge.b });
+      }
+      return [{ a: edge.a, b: id, link: '---', line: '\t' + edge.a + ' --- ' + id }, ...edges];
+    });
+  }
+
+  // Layout hints for ELK: containers without any links are packed as grid, unlinked scenarios inside other containers are packed
+  // into an invisible grid and containers without links to the outside are packed together next to the main flow (as box, rectpacking
+  // overlaps differently sized containers)
+  private flowContainer(container: ChartContainer, nodeLines: Map<string, string>, linked: Set<string>, meta: string[]) {
+    const pushNodes = (nodes: string[]) => this.flow.push(...nodes.map((node) => nodeLines.get(node) as string));
+    const packed = (id: string, algorithm: string = 'elk.rectpacking') => meta.push(id + '@{ algorithm: ' + algorithm + ' }');
+    const invisible = (id: string, content: () => void, algorithm?: string) => {
+      this.flow.push('subgraph ' + id + ' [" "]');
+      content();
+      this.flow.push('end');
+      packed(id, algorithm);
+      meta.push('style ' + id + ' fill:none,stroke:none');
+    };
+    const unlinked = container.nodes.filter((node) => !linked.has(node));
+
+    if (container.id) {
+      this.flow.push('subgraph ' + container.id + ' ["' + container.label + '"]');
+    }
+
+    if (container.id && container.children.length === 0 && unlinked.length === container.nodes.length) {
+      packed(container.id);
+      pushNodes(unlinked);
+    } else {
+      pushNodes(container.nodes.filter((node) => linked.has(node)));
+      const separate = container.id ? [] : container.children.filter((child) => this.isSelfContained(child));
+      container.children
+        .filter((child) => !separate.includes(child))
+        .forEach((child) => this.flowContainer(child, nodeLines, linked, meta));
+      const id = (container.id ?? 'root') + '__unlinked';
+      if (separate.length) {
+        invisible(
+          id,
+          () => {
+            separate.forEach((child) => this.flowContainer(child, nodeLines, linked, meta));
+            pushNodes(unlinked);
+          },
+          'elk.box'
+        );
+      } else if (unlinked.length > 1) {
+        invisible(id, () => pushNodes(unlinked));
+      } else {
+        pushNodes(unlinked);
+      }
+    }
+
+    if (container.id) {
+      this.flow.push('end');
+    }
+  }
+
+  private isSelfContained(container: ChartContainer): boolean {
+    const nodes = new Set<string>();
+    const collect = (c: ChartContainer) => {
+      c.nodes.forEach((node) => nodes.add(node));
+      c.children.forEach(collect);
+    };
+    collect(container);
+    return this.edges.every((edge) => nodes.has(edge.a) === nodes.has(edge.b));
   }
 
   calendarLinkHelper(scenarioNodeId: string, scenarioData: ScenarioData, unlocks: { a: string; b: string }[]) {
@@ -476,7 +577,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
               sectionData.unlocks.forEach((index) => {
                 if (!unlocks.find((unlock) => unlock.a === scenarioNodeId && unlock.b === nodeIdFromIndex(sectionData.group, index))) {
                   unlocks.push({ a: scenarioNodeId, b: nodeIdFromIndex(sectionData.group, index) });
-                  this.flow.push('\t' + scenarioNodeId + ' --o|🗓️| ' + nodeIdFromIndex(sectionData.group, index));
+                  this.addEdge(scenarioNodeId, ' --o|🗓️| ', nodeIdFromIndex(sectionData.group, index));
                 }
               });
             } else {
@@ -491,7 +592,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     other.unlocks.forEach((index) => {
                       if (!unlocks.find((unlock) => unlock.a === scenarioNodeId && unlock.b === nodeIdFromIndex(other.group, index))) {
                         unlocks.push({ a: scenarioNodeId, b: nodeIdFromIndex(other.group, index) });
-                        this.flow.push('\t' + scenarioNodeId + ' --o|🗓️| ' + nodeIdFromIndex(other.group, index));
+                        this.addEdge(scenarioNodeId, ' --o|🗓️| ', nodeIdFromIndex(other.group, index));
                       }
                     });
                   }
@@ -510,7 +611,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
               sectionData.unlocks.forEach((index) => {
                 if (!unlocks.find((unlock) => unlock.a === scenarioNodeId && unlock.b === nodeIdFromIndex(sectionData.group, index))) {
                   unlocks.push({ a: scenarioNodeId, b: nodeIdFromIndex(sectionData.group, index) });
-                  this.flow.push('\t' + scenarioNodeId + ' --o|🗓️| ' + nodeIdFromIndex(sectionData.group, index));
+                  this.addEdge(scenarioNodeId, ' --o|🗓️| ', nodeIdFromIndex(sectionData.group, index));
                 }
               });
             } else {
@@ -525,7 +626,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     other.unlocks.forEach((index) => {
                       if (!unlocks.find((unlock) => unlock.a === scenarioNodeId && unlock.b === nodeIdFromIndex(other.group, index))) {
                         unlocks.push({ a: scenarioNodeId, b: nodeIdFromIndex(other.group, index) });
-                        this.flow.push('\t' + scenarioNodeId + ' --o|🗓️| ' + nodeIdFromIndex(other.group, index));
+                        this.addEdge(scenarioNodeId, ' --o|🗓️| ', nodeIdFromIndex(other.group, index));
                       }
                     });
                   }
@@ -538,25 +639,30 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
   updateMap() {
     if (this.update()) {
-      if (this.chart) {
-        this.chart.remove();
-      }
       this.initMap();
     }
   }
 
   async initMap() {
+    // render again after the current rendering, otherwise changes in between get lost
     if (this.initializing) {
+      this.renderPending = true;
       return;
     }
     this.initializing = true;
-    // Ensure mermaid is loaded before rendering
-    if (!this.mermaid) {
-      const mermaidModule = await import('mermaid');
-      this.mermaid = mermaidModule.default;
+    try {
+      do {
+        this.renderPending = false;
+        await this.renderMap();
+      } while (this.renderPending);
+    } finally {
+      this.initializing = false;
     }
+  }
 
-    const { svg, bindFunctions } = await this.mermaid.render('graphDiv', this.flowString);
+  private async renderMap() {
+    const mermaid = await this.loadMermaid();
+    const { svg, bindFunctions } = await mermaid.render('graphDiv', this.flowString);
     const parser = new DOMParser();
     const svgElement = parser.parseFromString(svg, 'image/svg+xml').lastChild as SVGElement;
 
@@ -569,6 +675,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
       }
     }
 
+    this.drawBadgeEdges(svgElement);
+
     const viewBox = svgElement.getAttribute('viewBox') || '0 0 600 600';
     const viewBoxArray = viewBox.split(/\s+|,/);
     const width = +viewBoxArray[2];
@@ -579,6 +687,10 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     const offsetY = boundHeight > height ? boundHeight - height : 0;
     const leafletModule = await import('leaflet');
     const L = 'default' in leafletModule ? leafletModule.default : leafletModule;
+    // replace the previous chart only once the new one is ready
+    if (this.chart) {
+      this.chart.remove();
+    }
     this.chart = L.map('chart', {
       crs: L.CRS.Simple,
       maxBounds: [
@@ -651,8 +763,39 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     if (bindFunctions) {
       bindFunctions(container);
     }
+  }
 
-    this.initializing = false;
+  // Edges end at the border of the (transparent) label badges, continue them to the center to look like a label on the edge
+  private drawBadgeEdges(svgElement: SVGElement) {
+    const edges = Array.from(svgElement.querySelectorAll('path.flowchart-link'));
+    svgElement.querySelectorAll('.node.linkBadge').forEach((badge) => {
+      const id = badge.id.split('-').slice(2, -1).join('-');
+      const center = (badge.getAttribute('transform') || '').match(/translate\(\s*(-?[\d.]+)[\s,]+(-?[\d.]+)\s*\)/);
+      if (!id || !center) {
+        return;
+      }
+      const cx = +center[1];
+      const cy = +center[2];
+      edges
+        .filter((edge) => edge.id.includes('_' + id + '_'))
+        .forEach((edge) => {
+          const values = (edge.getAttribute('d') || '').match(/-?\d+(?:\.\d+)?(?:e-?\d+)?/g)?.map(Number) || [];
+          if (values.length < 4) {
+            return;
+          }
+          const distance = (x: number, y: number) => Math.hypot(x - cx, y - cy);
+          const [x, y] =
+            distance(values[0], values[1]) < distance(values[values.length - 2], values[values.length - 1])
+              ? values.slice(0, 2)
+              : values.slice(-2);
+          const segment = edge.cloneNode() as SVGPathElement;
+          segment.removeAttribute('id');
+          segment.removeAttribute('marker-start');
+          segment.removeAttribute('marker-end');
+          segment.setAttribute('d', 'M' + x + ',' + y + 'L' + cx + ',' + cy);
+          edge.parentElement?.insertBefore(segment, edge);
+        });
+    });
   }
 
   @HostListener('document:keydown', ['$event'])

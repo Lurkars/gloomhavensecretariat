@@ -117,6 +117,61 @@ describe('ScenarioChartDialogComponent', () => {
       expect(component.flow.some((line) => line.includes('3((003))') && line.includes(':::blocked'))).toBe(false);
     });
 
+    it('packs a flowChartGroup without any links as grid, together with other self-contained containers', () => {
+      gameManager.game.party.campaignMode = false;
+      gameManager.editionData[0].scenarios.push(scenario('4', { flowChartGroup: 'events' }), scenario('5', { flowChartGroup: 'events' }));
+      const component = createComponent();
+      component.update();
+      expect(component.flow).toContain('fcg__events@{ algorithm: elk.rectpacking }');
+      expect(component.flow).toContain('root__unlinked@{ algorithm: elk.box }');
+      const pool = component.flow.indexOf('subgraph root__unlinked [" "]');
+      expect(pool).toBeGreaterThan(-1);
+      expect(component.flow.indexOf('subgraph fcg__events ["data.custom.gh.flowChartGroup.events"]')).toBeGreaterThan(pool);
+    });
+
+    it('wraps multiple unlinked scenarios into an invisible grid, but keeps linked scenarios in the flow', () => {
+      gameManager.game.party.campaignMode = false;
+      gameManager.editionData[0].scenarios.push(scenario('4'));
+      const component = createComponent();
+      component.update();
+      const wrapper = component.flow.indexOf('subgraph root__unlinked [" "]');
+      expect(wrapper).toBeGreaterThan(-1);
+      expect(component.flow.findIndex((line) => line.includes('1((001))'))).toBeLessThan(wrapper);
+      expect(component.flow.findIndex((line) => line.includes('3((003))'))).toBeGreaterThan(wrapper);
+      expect(component.flow.findIndex((line) => line.includes('4((004))'))).toBeGreaterThan(wrapper);
+      expect(component.flow).toContain('style root__unlinked fill:none,stroke:none');
+    });
+
+    it('routes labeled edges into another container over a shared label badge inside the target container', () => {
+      gameManager.game.party.campaignMode = false;
+      gameManager.editionData[0].scenarios = [
+        scenario('1', { flowChartGroup: 'a', unlocks: ['3'], links: ['3'] }),
+        scenario('2', { flowChartGroup: 'a', unlocks: ['3'], links: ['3'] }),
+        scenario('3', { flowChartGroup: 'b', unlocks: ['4'] }),
+        scenario('4', { flowChartGroup: 'b' })
+      ];
+      const component = createComponent();
+      component.update();
+      expect(component.flow).toContain('\t3__badge0("🔗"):::linkBadge');
+      expect(component.flow).toContain('\t1 --- 3__badge0');
+      expect(component.flow).toContain('\t2 --- 3__badge0');
+      expect(component.flow.filter((line) => line === '\t3__badge0 --- 3')).toHaveLength(1);
+      expect(component.flow.some((line) => line.includes('|🔗|'))).toBe(false);
+      const b = component.flow.indexOf('subgraph fcg__b ["data.custom.gh.flowChartGroup.b"]');
+      expect(component.flow.indexOf('\t3__badge0("🔗"):::linkBadge')).toBeGreaterThan(b);
+    });
+
+    it('declares the main campaign before named groups', () => {
+      gameManager.game.party.campaignMode = false;
+      gameManager.editionData[0].scenarios.push(scenario('1', { group: 'other', unlocks: ['2'] }), scenario('2', { group: 'other' }));
+      const component = createComponent();
+      component.update();
+      expect(component.flow.findIndex((line) => line.includes('\t1((001))'))).toBeLessThan(
+        component.flow.indexOf('subgraph group_other ["data.scenario.group.other"]')
+      );
+      expect(component.flow.some((line) => line.includes('other-1 --- other-2'))).toBe(true);
+    });
+
     it('returns true the first time and false on a no-op re-run', () => {
       const component = createComponent();
       expect(component.update()).toBe(true);
