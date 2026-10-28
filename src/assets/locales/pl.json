@@ -2502,7 +2502,7 @@
       "": "Limit postaci",
       "hint": "Pozwól tylko na jedną postać jak w klasycznej grze solo. Jeśli wyłączone, można dodać wiele postaci."
     },
-    "bbRules": "Zasady Button & Bugs",
+    "bbRules": "Zasady Buttons & Bugs",
     "bbStandeeLimit": {
       "": "Limit podstawek potworów",
       "hint": "Użyj domyślnego limitu 4 podstawek dla wszystkich potworów. Jeśli wyłączone, można dodać do 10 podstawek."
@@ -2977,7 +2977,7 @@
     },
     "theme": {
       "": "Motyw",
-      "bb": "Button & Bugs (%wip%)",
+      "bb": "Buttons & Bugs (%wip%)",
       "default": "Domyślny",
       "fh": "Frosthaven",
       "hint": "Wybierz motyw dla tła, pasków i czcionek.",

@@ -2662,7 +2662,7 @@
       "": "Character Limit",
       "hint": "Just allow one character as usual solo play. If disabled, mutliple characters can be added."
     },
-    "bbRules": "Button & Bugs Rules",
+    "bbRules": "Buttons & Bugs Rules",
     "bbStandeeLimit": {
       "": "Limit Monster Standees",
       "hint": "Use the default limit of 4 standees for all monsters. If disabled up to 10 standees can be added."
@@ -3183,7 +3183,7 @@
     },
     "theme": {
       "": "Theme",
-      "bb": "Button & Bugs (%wip%)",
+      "bb": "Buttons & Bugs (%wip%)",
       "default": "Default",
       "fh": "Frosthaven",
       "hint": "Choose a theme for background, bars and fonts.",

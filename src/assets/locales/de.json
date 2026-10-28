@@ -2654,7 +2654,7 @@
       "": "Charakteranzahl beschränken",
       "hint": "Erlaube maximal einen Charakter als normale Solo-Variante. Falls deaktiviert können beliebig viele Charaktere hinzugefügt werden."
     },
-    "bbRules": "Button & Bugs Regeln",
+    "bbRules": "Buttons & Bugs Regeln",
     "bbStandeeLimit": {
       "": "Monster Aufsteller beschränken",
       "hint": "Verwende das normale Limit von maximal 4 Aufstellern. Falls deaktiviert können bis zu 10 Aufsteller hinzugefügt werden."

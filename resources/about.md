@@ -16,7 +16,7 @@ It runs entirely in your browser with no installation needed, and works on any m
 
 ### Which games does it support?
 
-GHS supports all official editions: **Gloomhaven** (1st and 2nd Edition), **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, and **Button & Bugs**, as well as the Mercenary Packs and other official expansions. Several community editions are also supported, including **The Crimson Scales** and **Trail of Ashes**. Solo scenarios are available for every supported edition. Additionally custom content can be loaded via JSON data files.
+GHS supports all official editions: **Gloomhaven** (1st and 2nd Edition), **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, and **Buttons & Bugs**, as well as the Mercenary Packs and other official expansions. Several community editions are also supported, including **The Crimson Scales** and **Trail of Ashes**. Solo scenarios are available for every supported edition. Additionally custom content can be loaded via JSON data files.
 
 ---
 
