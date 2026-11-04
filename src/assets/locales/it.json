@@ -218,7 +218,19 @@
       },
       "personalQuest": {
         "": "Missione personale",
+        "autotrack": {
+          "disabled": "Il monitoraggio automatico dei progressi è disabilitato per questa missione personale. Fare clic per abilitarlo per i requisiti che può monitorare.",
+          "enabled": "Il monitoraggio automatico dei progressi è abilitato per questa missione personale. Fare clic per disattivarlo e monitorare nuovamente l'avanzamento manualmente."
+        },
         "counter": "Contatore",
+        "draw": "Pesca una carta Missione Personale",
+        "drawDialog": {
+          "": "Pesca una missione personale",
+          "choose": "Scegli la carta selezionata",
+          "empty": "Al momento non è possibile pescare carte Missione Personale.",
+          "redraw": "Pesca ancora",
+          "show": "Mostra carta intera"
+        },
         "openEnvelope": {
           "": "Apri la busta %game.fhIcon:envelope% {0}",
           "alt": "Apri la busta %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
@@ -232,9 +244,15 @@
         "unlockCharacter": {
           "": "Apri la custodia %game.characterIcon.{0}%",
           "itemDesign": {
-            "": "Ottieni \"%data.items.{1}-{0}%\" design (oggetto {0})"
+            "": "Ottieni \"%data.items.{1}-{0}%\" design (oggetto {0})",
+            "gold": "Mazzo Design Oggetti esaurito, ottieni invece 15 oro collettivo",
+            "info": "Ottieni un design di oggetto casuale."
           },
-          "randomScenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%"
+          "randomScenario": {
+            "": "Sblocca \"{1}\" %data.scenarioNumber:{0}%",
+            "gold": "Il mazzo Scenario Casuale è esaurito, ottieni invece 15 oro collettivo",
+            "info": "Ottieni uno scenario secondario casuale."
+          }
         },
         "unlockPQ": "Sblocca Missione Personale {0}"
       },
@@ -299,7 +317,7 @@
   "confirm": "Conferma",
   "datamanagement": {
     "": "Gestione dati",
-    "addEditionDataUrl": "Aggiungi URL con i dati di edizione",
+    "addEditionDataUrl": "Aggiungi Url con i dati di edizione",
     "addSpoiler": "Aggiungi spoiler",
     "addUnlock": "Sblocca",
     "backup": {
@@ -311,9 +329,9 @@
         "countHint": "Numero di azioni tra backup automatici",
         "onFinish": "Dopo aver terminato lo scenario",
         "uploadUrl": {
-          "": "Carica URL",
+          "": "Carica Url",
           "error": {
-            "": "ATTENZIONE: backup automatico non riuscito",
+            "": "Attenzione: backup automatico non riuscito",
             "status": "Backup automatico non riuscito con il codice di risposta '{0}'. Dai un'occhiata alla console del browser per maggiori dettagli.",
             "unknown": "Backup automatico non riuscito per causa sconosciuta. Si prega di dare un'occhiata alla console del browser per maggiori dettagli."
           },
@@ -415,9 +433,12 @@
       "addEnhancement": "Aggiungi slot di miglioramento",
       "addSubAction": "Aggiungi sotto-azione",
       "enhancements": "Miglioramenti",
+      "multiTarget": "Bersagli multipli",
+      "noDivider": "Senza divisorio",
       "remove": "Rimuovi l'azione",
       "removeEnhancement": "Rimuovi lo slot di miglioramento",
       "removeSubAction": "Rimuovi la sotto-azione",
+      "restoreDefaults": "Ripristina le azioni predefinite",
       "small": "Minore",
       "subActions": "Sotto-azioni",
       "summon": {
@@ -459,8 +480,8 @@
     },
     "deck": {
       "": "Editor del mazzo delle Capacità",
-      "abilityName": "Nome Capacità",
-      "addAbility": "Aggiungi Capacità",
+      "abilityName": "Nome Carta Capacità",
+      "addAbility": "Aggiungi Carta Capacità",
       "character": "Mazzo del personaggio",
       "json": {
         "": "Mazzo delle Capacità in formato JSON",
@@ -468,7 +489,7 @@
       },
       "name": "Nome del mazzo",
       "new": "Nuovo mazzo delle Capacità",
-      "removeAbility": "Rimuovi Capacità"
+      "removeAbility": "Rimuovi Carta Capacità"
     },
     "edition": {
       "": "Editor dell'edizione",
@@ -519,13 +540,40 @@
     }
   },
   "entities": {
+    "event": {
+      "entities": "Menù Entità",
+      "menu": "Menu Effetti evento"
+    },
     "filter": {
       "all": "Tutti",
       "allies": "Alleati",
       "character": "Personaggio",
       "enemies": "Nemici",
       "monster": "Mostro",
-      "objectives": "Obbiettivi"
+      "objectives": "Obbiettivi",
+      "select": {
+        "all": "Seleziona tutto",
+        "none": "Seleziona nessuno"
+      }
+    },
+    "migrate": {
+      "new": "Torna al nuovo menu Entità!",
+      "newEvent": "Torna al nuovo menu degli effetti dell'evento!",
+      "old": "Ritorna al vecchio menu Entità",
+      "oldEvent": "Ritorna al vecchio menu Effetti evento"
+    },
+    "title": {
+      "character": "{0}",
+      "monster": "{0}",
+      "monsterEntity": "%game.monsterType.{2}% Pedina {1} di {0}",
+      "objective": "{0}",
+      "objectiveEntity": "{1} di {0}",
+      "summon": "Evoca {1} di {0}"
+    },
+    "trap": {
+      "apply": "Applica",
+      "dialog": "Seleziona il bersaglio per l'effetto trappola",
+      "select": "Seleziona obiettivo"
     }
   },
   "errata": "Errata",
@@ -685,6 +733,7 @@
         "toggleBB": "Mostra come tavola BB"
       },
       "fullscreen": "Mostra a schermo intero",
+      "keepRevealed": "Mantieni la carta rivelata",
       "openDialog": "Mostra tutte le carte",
       "removeDrawnDiscards": "Rimuovi pila degli scarti",
       "restore": "Ripristina predefiniti",
@@ -891,6 +940,7 @@
         "reputationLT": "Reputazione < {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "Se %party.campaign.sheet.{0}% è {1} settimane o meno di distanza",
+        "startingGroup": "Se {0}",
         "traits": "%game.trait% {0}",
         "traitsAll": "%game.trait% {0}"
       },
@@ -899,16 +949,26 @@
         "allTypes": "Mostra tutti i mazzi",
         "draw": "Pesca Carta",
         "drawn": "Risolto ({0})",
-        "filter": "Cerca per ID della carta",
+        "filter": "Cerca per Id della carta",
         "new": "Bloccato ({0})",
         "removeCard": "Rimuovi dalle prossime carte",
         "removeDrawn": "Rimuovi dalle carte pescate",
         "removeSelection": "Reimposta esito",
+        "reset": "Ripristina mazzo",
         "resolved": "Mostra Risolto",
         "setup": "Configura i Mazzi Evento",
         "show": "Mostra la carta evento completa",
         "shuffle": "Mescola il Mazzo",
         "upcoming": "Nel mazzo ({0})"
+      },
+      "distribution": {
+        "": "Distribuisci gli effetti degli eventi",
+        "apply": "Applica",
+        "consumeItem": "Consuma oggetto",
+        "loseItem": "Perdi oggetto",
+        "receive": "Ricevi",
+        "receiveItem": "Ricevi oggetto",
+        "spend": "Paga"
       },
       "effects": {
         "additionally": "In più",
@@ -1040,6 +1100,7 @@
           "gh2e": "Ciascun personaggio inizia lo scenario successivo con %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "Uno inizia lo scenario con %game.card.minus1% x{0}.",
+        "section": "Leggi %game.section:{0}%",
         "sectionOrWeek": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in una settimana.",
         "sectionOrWeeks": "Aggiungi %game.section:{0}% OPPURE {1} al calendario in %game.number.{2}% settimane.",
         "sectionWeek": "Aggiungi %game.section:{0}% al calendario in una settimana.",
@@ -1163,9 +1224,11 @@
         "": "Cerca…",
         "affordable": "Solo articoli acquistabili",
         "all": "Mostra tutti gli oggetti",
+        "filtered": "Rimosso",
         "owned": "Solo oggetti posseduti",
         "sorted": "Ordinati"
       },
+      "party": "Oggetti del gruppo",
       "remove": "Rimuovi '{0}'",
       "sell": "Vendi '{0}' per {1} oro",
       "share": {
@@ -1282,22 +1345,37 @@
           "partyAchievement": "Traguardo di gruppo: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Ottieni un oggetto casuale (oggetti {0})",
+            "alt": "Nessun oggetto casuale rimasto",
+            "altFh": "Nessun oggetto casuale rimasto",
+            "altGh2e": "Nessun oggetto casuale rimasto",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
             "": "Progetto di un oggetto casuale",
+            "alt": "Nessun progetto di oggetto casuale rimasto",
+            "altFh": "Nessun progetto di oggetto casuale rimasto, ottieni +1 ispirazione",
+            "altGh2e": "Nessun progetto di oggetto casuale rimasto, ottieni 15 oro collettivo (manuale)",
             "result": ": {1} progetto ({0})"
           },
           "randomItemDesign": {
             "": "Modello di oggetto casuale",
+            "alt": "Nessun design di oggetto casuale rimasto",
+            "altFh": "Nessun design di oggetto casuale rimasto, ottieni +1 ispirazione",
+            "altGh2e": "Nessun design di oggetto casuale rimasto, ottieni 15 oro collettivo (manuale)",
             "result": ": {1} modello ({0})"
           },
           "randomScenario": {
             "": "Scenario secondario casuale",
+            "alt": "Non sono rimasti scenari secondari casuali",
+            "altFh": "Non sono rimasti scenari secondari casuali",
+            "altGh2e": "Non sono rimasti scenari secondari casuali, ottieni 15 oro collettivo (manuale)",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
             "": "Scenario secondario casuale",
+            "alt": "Non sono rimasti scenari secondari casuali",
+            "altFh": "Non sono rimasti scenari secondari casuali, ottieni +1 ispirazione",
+            "altGh2e": "Non sono rimasti scenari secondari casuali, ottieni 15 oro collettivo (manuale)",
             "result": ": Aprire %data.section:{0}%, sblocca {2}"
           },
           "resource": "ottieni {0}",
@@ -1306,6 +1384,12 @@
       }
     },
     "maxHealth": "Punti vita massimi",
+    "personalQuests": {
+      "setup": {
+        "": "Imposta missioni personali",
+        "empty": "Nessuna missione personale per questa edizione."
+      }
+    },
     "solo": "In solitario",
     "specialTarget": {
       "ability": "%game.target% l'obiettivo dell'abilità %game.actionText.{0}%",
@@ -1420,12 +1504,12 @@
     "skipInteractiveActions": "Salta le capacità interattive per",
     "statEffect": {
       "": "Regole speciali applicano le seguenti modifiche:",
-      "deck": "Usa capacità modificate:<br>\"{0}\""
+      "deck": "Usa mazzo capacità modificato:<br>\"{0}\""
     },
     "toggleAction": "Attiva/disattiva la capacità applicabile",
     "toggleAllied": {
       "off": "Disattiva <span class=\"monster-allied-off\">alleato</span>",
-      "on": "Attiva<span class=\"monster-allied-on\">Alleato</span>"
+      "on": "Attiva<span class=\"monster-allied-on\">Alleato</span>su"
     },
     "toggleAlly": {
       "off": "Torna a <span class=\"monster-ally-off\">Nemico</span>",
@@ -1487,6 +1571,14 @@
       "items": "Oggetti sbloccati",
       "manage": "Gestione campagna globale",
       "map": "Mappa",
+      "personalQuests": {
+        "fulfilled": "Gestito da %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "lock": "Annulla lo sblocco manuale",
+        "locked": "Chiuso a chiave",
+        "picked": "Scelto da %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "unlock": "Sbloccare manualmente",
+        "unlocked": "Aperto"
+      },
       "players": {
         "": "Nomi dei giocatori",
         "add": "Aggiungi giocatore"
@@ -1689,7 +1781,8 @@
         "special": {
           "city-event": "Aggiungi C-{0} al mazzo evento cittadino una volta che hai almeno {1} reputazione con una fazione."
         }
-      }
+      },
+      "faction": "Reputazione %game.gh2eFaction:{0}%"
     },
     "sheet": "Scheda gruppo",
     "shop": {
@@ -1769,7 +1862,12 @@
       "initiativeRoundConfirm": "Tutte le iniziative sono impostate. Inizia il prossimo round?",
       "missingInitiative": "L'iniziativa deve essere impostata per tutte le unità!"
     },
-    "next": "Prossimo round"
+    "next": "Prossimo round",
+    "resets": {
+      "": "Reimposta i round",
+      "empty": "Nessun set di ripristino",
+      "hint": "Compensa il contatore rotondo. Il positivo aggiunge rounds, il negativo sottrae. Impostare su 0 per rimuovere."
+    }
   },
   "scenario": {
     "": "Scenario",
@@ -1805,7 +1903,7 @@
           "hint": "Questo scenario è collegato."
         },
         "locked": {
-          "": "Bloccato",
+          "": "Chiuso a chiave",
           "hint": "Questo scenario è bloccato, non può ancora essere giocato a causa di requisiti insoddisfatti."
         },
         "not-campaign": {
@@ -1962,6 +2060,8 @@
         }
       },
       "campaignSticker": "Adesivo campagna",
+      "characterRetirement": "Il personaggio con la missione personale \"%data.personalQuest.{0}.{1}%\" si ritira durante la fase cittadina successiva.",
+      "characterRetirementSkipEvents": "Il personaggio con la missione personale \"%data.personalQuest.{0}.{1}%\" si ritira durante la fase cittadina successiva, ma non aggiunge i normali eventi per il ritiro della propria classe.",
       "chooseItem": "Scegli di ottenere uno dei seguenti",
       "chooseLocation": "Scegli di sbloccare solo uno dei seguenti",
       "collectiveGold": "{0} oro collettivo",
@@ -2003,6 +2103,8 @@
       "prosperity": "{0} prosperità",
       "randomItemBlueprint": "Ottieni un progetto di oggetto casuale",
       "randomItemBlueprints": "Aggiungi gli oggetti da %game.itemFh.{0}% a %game.itemFh.{1}% al mazzo dei progetti casuali.",
+      "randomItemDesign": "Ottieni un design di oggetto casuale",
+      "randomItemDesigns": "Aggiungi gli oggetti %game.itemFh.{0}% a %game.itemFh.{1}% al mazzo di progettazione oggetti casuali.",
       "randomItems": "Ogni personaggio ottiene un oggetto casuale ({0}-{1})",
       "randomSideScenario": "Pesca uno scenario secondario casuale.",
       "removeEvent": {
@@ -2015,6 +2117,7 @@
         "winter-outpost": "Rimuovi l'evento {0} dal mazzo avamposto invernale",
         "winter-road": "Rimuovi l'evento {0} dal mazzo strada invernale"
       },
+      "removeItem": "Restituisci \"%data.items.{1}-{0}%\" %game.itemFh.{0}% alla fornitura di articoli non disponibili.",
       "removeLootDeckCard": "Rimuovi la carta bottino {0} dal gioco. Non aggiungerlo più al mazzo di bottino di nessuno scenario.",
       "repeatScenario": "Lo scenario può essere rigiocato!",
       "reputation": "{0} reputazione",
@@ -2047,18 +2150,21 @@
         "amRemove": "0} rimuovi %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% dal mazzo dei modificatori attacco",
         "damage": "{0} subisci %game.damage:{2}%",
         "discard": "{0}ognuno scarta %number.{2}% carte capacità",
-        "discardAbilityToBottom": "Posiziona la capacità sul fondo della pila degli scarti per {0}",
+        "discardAbilityToBottom": "Posiziona la carta capacità sul fondo della pila degli scarti per {0}",
         "dormant": "{0} diventa dormiente",
         "drawAbility": "Pesca un'altra carta capacità per {0}",
         "gainCondition": "{0} ottieni %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
+        "killLowest": "Uccidi immediatamente {1} di {0} con i valori di punti ferita attuali più bassi.",
         "loseCondition": "{0} perdi %game.condition.{1}%",
+        "losePermanentCondition": "{0} perde %game.condition.{1}% permanentemente",
         "permanentCondition": "{0} ottieni %game.condition.{1}% permanente",
         "remove": "Rimuovi {0}",
         "removeAbility": "Rimuovi la carta abilità '{1}' di {0}",
         "scenarioEffect": "come effetto dello scenario",
         "setAbility": "Imposta la carta capacità attiva da {0} a '{1}'",
         "setHp": "{0} PV a {2}",
+        "shuffleAbilities": "Mescola il mazzo delle abilità per {0}",
         "toggleOff": "{0} a inattivo",
         "toggleOn": "{0} a attivo",
         "transfer": "{0} diventa %data.monster.{1}% {4}",
@@ -2316,7 +2422,7 @@
       "connect": "Connettiti al server",
       "connected": "Connessione al server"
     },
-    "ping": "Ping del server",
+    "ping": "Ping del server (in s)",
     "port": "Porta",
     "reconnect": "Riconnetti",
     "settings": {
@@ -2337,12 +2443,12 @@
       "hint": "Pesca carte capacità per i mostri. Se non selezionato, l'ordine dei mostri deve essere impostato manualmente con un trascinamento."
     },
     "abilityNumbers": {
-      "": "Mostra i numeri delle capacità",
+      "": "Mostra i numeri delle carte capacità",
       "hint": "Mostra il numero della carta sulle carte capacità"
     },
     "abilityReveal": {
-      "": "Rivela le capacità direttamente",
-      "hint": "Se non selezionato, le capacità dei mostri non vengono rivelate fino al turno"
+      "": "Rivela le carte capacità direttamente",
+      "hint": "Se non selezionato, le carte capacità dei mostri non vengono rivelate fino al turno"
     },
     "activeApplyConditions": {
       "": "Conferma gli stati applicabili",
@@ -2573,7 +2679,7 @@
     "character": "Personaggio",
     "characterAttackModifierAnimate": {
       "": "Mostra l'animazione del mazzo MA del personaggio",
-      "hint": "Visualizza un'animazione di pesca se un modificatore di attacco viene estratto dal mazzo MA chiuso di un personaggio."
+      "hint": "Visualizza un'animazione di pesca se un modificatore di attacco viene estratto dal mazzo modificatore attacco chiuso di un personaggio."
     },
     "characterAttackModifierDeck": {
       "": "Mazzo modificatore attacco del personaggio",
@@ -2687,10 +2793,10 @@
       "": "Trascina Valori",
       "hint": "Supporto al trascinamento per la modifica dei valori. Per cambiare l'iniziativa trascina sul ritratto del personaggio. Per i punti ferita, l'esperienza e il bottino trascina sopra i valori"
     },
-    "dragValuesHp": "Trascina Punti Ferita",
-    "dragValuesInitiative": "Trascina Iniziativa",
-    "dragValuesLoot": "Trascina Bottino",
-    "dragValuesXp": "Trascina Esp",
+    "dragValuesHp": "Trascina/Scrolla Punti Ferita",
+    "dragValuesInitiative": "Trascina/Scrolla Iniziativa",
+    "dragValuesLoot": "Trascina/Scrolla Bottino",
+    "dragValuesXp": "Trascina/Scrolla Esp",
     "drawRandomItem": {
       "": "Pesca ricompense Oggetto Casuale",
       "hint": "Pesca automaticamente una carta Oggetto Casuale."
@@ -3293,7 +3399,7 @@
       "donate": "Donazione di {0} al Santuario della Grande Quercia",
       "downgradeBuilding": "Downgrade dell'edificio '%data.buildings.{1}%' ({0}) al livello {2}",
       "draw": "Pesca",
-      "drawAbility": "Pesca la capacità per {0}",
+      "drawAbility": "Pesca carta capacità per {0}",
       "enableAutomaticLevel": "Abilita il calcolo automatico del livello",
       "enableEnvelopeB": "Apri la busta B",
       "enablePartyCampaignMode": "Abilita la modalità campagna",
@@ -3372,7 +3478,7 @@
       "openRoom": "Porta aperta per la tessera '{2}' in #{0} {1}",
       "openRoomMarker": "Apri la porta %game.mapMarker.{3}% per la tessera '{2}' in #{0} {1}",
       "rebuildBuilding": "Ricostruisci '%data.buildings.{1}%' ({0})",
-      "removeAbility": "Rimuovi la capacità \"{1}\" da {0}",
+      "removeAbility": "Rimuovi la carta capacità \"{1}\" da {0}",
       "removeAllChars": "Rimuovi tutti i personaggi",
       "removeAllMonster": "Rimuovi tutti i mostri",
       "removeAllObjectives": "Rimuovi tutti gli obiettivi",
@@ -3471,12 +3577,12 @@
       "removeTreasure": "Rimuovi il tesoro {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "removeTreasures": "Rimuovi i tesori {1} (%data.edition.{0}%)",
       "reorder": "Riordina le unità",
-      "reorderAbilities": "Riordina le capacità di {0}",
+      "reorderAbilities": "Riordina le carte capacità di {0}",
       "repairBuilding": "Ripara '%data.buildings.{1}%' ({0})",
       "resetCampaign": "Reimposta la campagna",
       "resetScenario": "Reimposta lo scenario #{0} {1} ({2})",
-      "restoreAbility": "Ripristina la capacità \"{1}\" per {0}",
-      "restoreDefaultAbilities": "Ripristina le capacità predefinite di {0}",
+      "restoreAbility": "Ripristina la carta capacità \"{1}\" per {0}",
+      "restoreDefaultAbilities": "Ripristina le carte capacità predefinite di {0}",
       "sellItem": "Vendi l'oggetto \"%data.items.{2}-{1}%\" per {0}",
       "serverSync": "Server: {0}",
       "serverSyncEmpty": "Sincronizzazione server",
@@ -3566,8 +3672,8 @@
       "setTitle": "Titolo '{1}' per {0}",
       "setXP": "Esp {1} per {0}",
       "shareItem": "{0} condivide \"%data.items.{3}-{2}%\" (Oggetto {2}) con {1}",
-      "shuffleAbilityDeck": "Mescola le capacità di {0}",
-      "shuffleAbilityDeckUpcoming": "Mescola le capacità in arrivo di {0}",
+      "shuffleAbilityDeck": "Mescola le carte capacità di {0}",
+      "shuffleAbilityDeckUpcoming": "Mescola le carte capacità in arrivo di {0}",
       "skipInteractiveActions": "Salta le capacità interattive per le pedine {1} di {2}",
       "startCampaign": "Avvia una nuova campagna {0}",
       "summonActive": "Evoca '{1}' di {0} attivo",
