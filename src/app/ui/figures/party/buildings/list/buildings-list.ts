@@ -483,6 +483,42 @@ export class BuildingsListComponent {
     });
   }
 
+  openTrade(building: Building) {
+    const trade = gameManager.buildingsManager.trade(building.model);
+    if (trade) {
+      this.dialog
+        .open(BuildingUpgradeDialog, {
+          panelClass: ['dialog'],
+          data: { building: building, action: 'trade', trade: trade }
+        })
+        .closed.subscribe({
+          next: (result) => {
+            if (result instanceof SelectResourceResult) {
+              gameManager.stateManager.before(
+                'buildingTrade',
+                building.model.name,
+                this.tradeResources([...result.characterSpent, result.fhSupportSpent]),
+                this.tradeResources([...result.characterReceived, result.fhSupportReceived])
+              );
+              gameManager.lootManager.applySelectResources(result);
+              gameManager.stateManager.after();
+              this.changed.emit();
+            }
+          }
+        });
+    }
+  }
+
+  private tradeResources(costs: (BuildingCosts | undefined)[]): string {
+    return (['gold', 'lumber', 'metal', 'hide'] as const)
+      .map((type) => {
+        const value = costs.reduce((sum, cost) => sum + ((cost && cost[type]) || 0), 0);
+        return value ? value + ' %game.resource.' + (type === 'gold' ? LootType.money : type) + '%' : '';
+      })
+      .filter((value) => value)
+      .join(', ');
+  }
+
   openGarden() {
     this.dialog.open(GardenComponent, {
       panelClass: ['dialog']

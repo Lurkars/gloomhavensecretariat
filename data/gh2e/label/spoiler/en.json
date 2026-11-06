@@ -1492,6 +1492,13 @@
       "1": "During your turn, perform:"
     }
   },
+  "section": {
+    "rules": {
+      "gh2e": {
+        "96-2": "The elite Inox Priest is the Necromancer. Whenever its attack would apply a condition, it instead summons a normal Living Corpse."
+      }
+    }
+  },
   "summon": {
     "angry-wasps": "Angry Wasps",
     "battle-boar": "Battle Boar",

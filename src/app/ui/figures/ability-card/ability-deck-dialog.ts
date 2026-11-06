@@ -203,7 +203,7 @@ export class AbilityDeckDialogComponent implements OnInit {
   }
 
   toggleKeepRevealed(index: number) {
-    gameManager.stateManager.before('toggleKeepRevelead', 'data.monster.' + this.monster.name, index);
+    gameManager.stateManager.before('toggleKeepRevealed', 'data.monster.' + this.monster.name, index);
     this.keepRevealed[index] = !this.keepRevealed[index];
     if (this.keepRevealed[index] && !!this.abilityCards[index]) {
       this.abilityCards[index].revealed = true;

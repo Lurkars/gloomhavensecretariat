@@ -16,5 +16,9 @@
     "height": 1905
   },
   "edition": "jotl",
+  "bases": {
+    "normal": 16,
+    "elite": 8
+  },
   "logoUrl": "./assets/images/logos/jotl.png"
 }

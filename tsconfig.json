@@ -6,7 +6,6 @@
         "./src/*"
       ]
     },
-    "outDir": "./dist/out-tsc",
     "moduleDetection": "force",
     "target": "ES2022",
     "module": "preserve",
@@ -24,7 +23,6 @@
     "experimentalDecorators": true
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true

@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
-import packageJson from 'src/../package.json';
+import { version as ghsVersion } from 'src/../package.json';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { environment } from 'src/environments/environment';
 
@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class AboutMenuComponent implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
-  version = packageJson.version;
+  version = ghsVersion;
   branded = environment.branded;
   platform = Capacitor.getPlatform();
   updateVersion: { latest: boolean; version: string; url: string } | undefined;

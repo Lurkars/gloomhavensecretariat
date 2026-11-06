@@ -515,6 +515,21 @@ export class LootManager {
       if (result.characterSpent[index].metal) {
         character.progress.loot[LootType.metal] = (character.progress.loot[LootType.metal] || 0) - result.characterSpent[index].metal;
       }
+      const received = result.characterReceived[index];
+      if (received) {
+        if (received.gold) {
+          character.progress.gold += received.gold;
+        }
+        if (received.hide) {
+          character.progress.loot[LootType.hide] = (character.progress.loot[LootType.hide] || 0) + received.hide;
+        }
+        if (received.lumber) {
+          character.progress.loot[LootType.lumber] = (character.progress.loot[LootType.lumber] || 0) + received.lumber;
+        }
+        if (received.metal) {
+          character.progress.loot[LootType.metal] = (character.progress.loot[LootType.metal] || 0) + received.metal;
+        }
+      }
     });
     if (result.fhSupportSpent.hide) {
       gameManager.game.party.loot[LootType.hide] = (gameManager.game.party.loot[LootType.hide] || 0) - result.fhSupportSpent.hide;
@@ -527,6 +542,14 @@ export class LootManager {
     }
     if (result.fhSupportSpent.manual) {
       gameManager.game.party.inspiration -= result.fhSupportSpent.manual;
+    }
+    const fhSupportReceived = result.fhSupportReceived;
+    if (fhSupportReceived) {
+      ([LootType.hide, LootType.lumber, LootType.metal] as const).forEach((type) => {
+        if (fhSupportReceived[type]) {
+          gameManager.game.party.loot[type] = (gameManager.game.party.loot[type] || 0) + fhSupportReceived[type];
+        }
+      });
     }
   }
 }

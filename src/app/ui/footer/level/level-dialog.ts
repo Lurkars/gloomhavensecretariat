@@ -39,7 +39,7 @@ export class LevelDialogComponent implements OnInit {
   }
 
   setLevelCalculation(levelCalculation: boolean) {
-    gameManager.stateManager.before(levelCalculation ? 'enableAutomaticLevel' : 'disabledAutomaticLevel');
+    gameManager.stateManager.before(levelCalculation ? 'enableAutomaticLevel' : 'disableAutomaticLevel');
     gameManager.game.levelCalculation = levelCalculation;
     if (gameManager.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();

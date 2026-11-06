@@ -41,6 +41,8 @@ export class PartyDistributionComponent implements OnInit {
   readonly initialPartyValues = input<Partial<Record<string, number>>>({});
   readonly globalTotal = input<number | undefined>(undefined);
   readonly externalPaid = input<number>(0);
+  readonly receiveButtons = input<boolean>(false);
+  readonly characterColumns = input<boolean | undefined>(undefined);
 
   readonly distributionChange = output<DistributionChange>();
 
@@ -57,6 +59,10 @@ export class PartyDistributionComponent implements OnInit {
   }
 
   get showCharacterColumns(): boolean {
+    const characterColumns = this.characterColumns();
+    if (characterColumns !== undefined) {
+      return characterColumns;
+    }
     return this.mode() === 'receive' || this.entries().some((e) => e.type === 'gold') || !settingsManager.settings.fhShareResources;
   }
 
@@ -65,8 +71,14 @@ export class PartyDistributionComponent implements OnInit {
   }
 
   remaining(entry: DistributionEntry): number {
-    const used = this.characterValues.reduce((sum, cv) => sum + (cv[entry.type] || 0), 0);
+    const used =
+      this.characterValues.reduce((sum, cv) => sum + (cv[entry.type] || 0), 0) +
+      (this.showParty() && this.mode() === 'receive' ? this.partyValues[entry.type] || 0 : 0);
     return entry.total - used;
+  }
+
+  partyReceivable(type: LootType | 'gold' | 'experience'): boolean {
+    return this.mode() === 'receive' && this.showParty() && type !== 'gold' && type !== 'experience';
   }
 
   paid(entry: DistributionEntry): number {
@@ -105,6 +117,9 @@ export class PartyDistributionComponent implements OnInit {
       if (this.totalPaidNonGold() + this.externalPaid() >= this.globalTotal()!) return false;
     } else {
       if (this.paid(entry) >= entry.total) return false;
+    }
+    if (this.mode() === 'receive') {
+      return source !== 'party' || this.partyReceivable(type);
     }
     if (source === 'party') {
       return (this.partyValues[type] || 0) < this.partyAvailable(type);

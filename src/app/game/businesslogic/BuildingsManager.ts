@@ -1,7 +1,8 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
-import { BuildingData, BuildingRewards } from 'src/app/game/model/data/BuildingData';
+import { BuildingData, BuildingRewards, BuildingTrade } from 'src/app/game/model/data/BuildingData';
+import { LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 import { Game } from 'src/app/game/model/Game';
@@ -31,6 +32,30 @@ export class BuildingsManager {
       gameManager.fhRules() &&
       gameManager.game.party.buildings.find((value) => value.name === 'alchemist' && value.level > 1 && value.state !== 'wrecked') !=
         undefined;
+  }
+
+  trade(building: BuildingModel): BuildingTrade | undefined {
+    if (!building.level || building.state !== 'normal') {
+      return undefined;
+    }
+    const level = building.level;
+    switch (building.name) {
+      case 'hunting-lodge':
+        return new BuildingTrade(building.name, LootType.money, 2, [LootType.hide], 1, Math.min(level, 4));
+      case 'logging-camp':
+        return new BuildingTrade(building.name, LootType.money, 2, [LootType.lumber], 1, Math.min(level, 4));
+      case 'mining-camp':
+        return new BuildingTrade(building.name, LootType.money, 2, [LootType.metal], 1, Math.min(level, 4));
+      case 'inn':
+        return new BuildingTrade(building.name, LootType.money, 2, [...materialResourceLootTypes], 1, Math.min(level, 3));
+      case 'hide-depot':
+        return new BuildingTrade(building.name, LootType.hide, 1, [LootType.money], 5, Math.min(level, 2));
+      case 'lumber-depot':
+        return new BuildingTrade(building.name, LootType.lumber, 1, [LootType.money], 5, Math.min(level, 2));
+      case 'metal-depot':
+        return new BuildingTrade(building.name, LootType.metal, 1, [LootType.money], 5, Math.min(level, 2));
+    }
+    return undefined;
   }
 
   applyRewards(rewards: BuildingRewards) {

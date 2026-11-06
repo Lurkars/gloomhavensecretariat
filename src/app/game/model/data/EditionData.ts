@@ -19,6 +19,9 @@ export const GH2E_PROSPERITY_STEPS = [4, 11, 21, 32, 44, 58, 73, 88];
 
 export type EditionType = 'standalone' | 'addon' | 'extension' | 'content';
 
+export type StandeeBaseType = 'normal' | 'elite' | 'boss' | 'ally';
+export type StandeeBases = Partial<Record<StandeeBaseType, number>>;
+
 export class EditionData implements Editional {
   // from Editional
   edition: string;
@@ -52,6 +55,7 @@ export class EditionData implements Editional {
   treasures: string[] = [];
   treasureOffset: number = 0;
   monsterAmTables: string[][] = [];
+  bases: StandeeBases | undefined;
 
   constructor(
     edition: string,

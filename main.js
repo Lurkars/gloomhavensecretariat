@@ -3,6 +3,14 @@ const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
 let mainWindow;
+let updateDownloaded = false;
+
+// Send to the renderer only while a window exists (on macOS the app keeps running after the window is closed)
+function send(channel, ...args) {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send(channel, ...args);
+  }
+}
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -12,7 +20,8 @@ function createWindow() {
     show: false,
     webPreferences: {
       nodeIntegration: false,
-      contextIsolation: true
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
     }
   });
 
@@ -24,6 +33,13 @@ function createWindow() {
     storages: ['serviceworkers', 'cachestorage']
   });
 
+  // Re-announce an already downloaded update after (re)loads, as the renderer state is lost on reload
+  mainWindow.webContents.on('did-finish-load', () => {
+    if (updateDownloaded) {
+      send('update-downloaded');
+    }
+  });
+
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
@@ -31,6 +47,10 @@ function createWindow() {
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
   });
+}
+
+function checkForUpdates() {
+  autoUpdater.checkForUpdates().catch(() => {});
 }
 
 app.whenReady().then(() => {
@@ -44,38 +64,34 @@ app.whenReady().then(() => {
 
   // Auto updater events
   autoUpdater.on('checking-for-update', () => {
-    mainWindow.webContents.send('update-status', 'checking');
+    send('update-status', 'checking');
   });
 
-  autoUpdater.on('update-available', (info) => {
-    mainWindow.webContents.send('update-status', 'available');
+  autoUpdater.on('update-available', () => {
+    send('update-status', 'available');
   });
 
-  autoUpdater.on('update-not-available', (info) => {
-    mainWindow.webContents.send('update-status', 'not-available');
+  autoUpdater.on('update-not-available', () => {
+    send('update-status', 'not-available');
   });
 
-  autoUpdater.on('error', (err) => {
-    mainWindow.webContents.send('update-status', 'error');
+  autoUpdater.on('error', () => {
+    send('update-status', 'error');
   });
 
   autoUpdater.on('download-progress', (progressObj) => {
-    mainWindow.webContents.send('update-progress', progressObj.percent);
+    send('update-progress', progressObj.percent);
   });
 
-  autoUpdater.on('update-downloaded', (info) => {
-    mainWindow.webContents.send('update-downloaded');
+  autoUpdater.on('update-downloaded', () => {
+    updateDownloaded = true;
+    send('update-downloaded');
   });
 
   // Check for updates
-  autoUpdater.checkForUpdates();
+  checkForUpdates();
   // Check for updates every 30m
-  setInterval(
-    () => {
-      autoUpdater.checkForUpdates();
-    },
-    30 * 60 * 1000
-  );
+  setInterval(checkForUpdates, 30 * 60 * 1000);
 });
 
 app.on('window-all-closed', () => {
@@ -85,5 +101,7 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('quit-and-install', () => {
-  autoUpdater.quitAndInstall(false);
+  if (updateDownloaded) {
+    autoUpdater.quitAndInstall(true, true);
+  }
 });

@@ -5,8 +5,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "vitest/globals",
-      "dom-screen-wake-lock"
+      "vitest/globals"
     ]
   },
   "include": [

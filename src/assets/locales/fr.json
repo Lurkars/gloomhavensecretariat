@@ -2822,7 +2822,7 @@
       "removeAllObjectives": "Retrait de tous les objectifs",
       "removeCampaignSticker": "Supprimer l'autocollant de campagne {0}",
       "removeChar": "Retrait du personnage {0}",
-      "removeCharTreasure": "Retirer le trésor {1} pour {2}",
+      "removeCharTreasure": "Retirer le trésor {0} pour {2}",
       "removeCharacterRetaliate": "Retirer %game.action.retaliate% pour {0}",
       "removeCharacterRetaliatePersistent": "Retirer %game.card.persistent% %game.action.retaliate% pour {0}",
       "removeCharacterShield": "Retirer %game.action.shield% pour {0}",

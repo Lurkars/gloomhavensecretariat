@@ -11,7 +11,7 @@
         }
       </span>
     }
-    @if (!!building) {
+    @if (!!building && !trade) {
       <span class="building">
         <img class="action" [src]="'./assets/images/fh/buildings/' + action + '.svg'" />
         <span
@@ -20,13 +20,18 @@
         ></span>
       </span>
     }
+    @if (!!building && trade) {
+      <span class="building">
+        <span class="text-white effect" [ghs-label]="building.data.effectNormal[building.model.level - 1]"></span>
+      </span>
+    }
     @if (!building && action === 'soldiers') {
       <span class="name">
         <span [ghs-label]="'data.buildings.barracks.soldiers'"></span>
       </span>
     }
 
-    @if (!rewardsOnly) {
+    @if (!rewardsOnly && !trade) {
       <span class="costs" [ngClass]="{ force: force }">
         @if (!repair && costs.lumber) {
           <span class="cost"><img class="ghs-svg" src="./assets/images/fh/loot/lumber.svg" /> {{ costs.lumber }}</span>
@@ -127,7 +132,7 @@
   @if ((costs.gold || costs.hide || costs.lumber || costs.metal) && !force && !rewardsOnly) {
     <div
       class="table"
-      [style.--ghs-summary-columns]="2 + (costs.gold || !settingsManager.settings.fhShareResources ? characters.length : 0)"
+      [style.--ghs-summary-columns]="2 + (costs.gold || trade || !settingsManager.settings.fhShareResources ? characters.length : 0)"
     >
       <span
         class="head-col"
@@ -143,7 +148,7 @@
         }
       </span>
       <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
-      @if (costs.gold || !settingsManager.settings.fhShareResources) {
+      @if (costs.gold || trade || !settingsManager.settings.fhShareResources) {
         @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
           <span class="first">
             <img class="icon character-icon" [src]="character.iconUrl" />
@@ -161,11 +166,13 @@
         [characters]="characters"
         [entries]="upgradeEntries"
         [initialPartyValues]="upgradeInitialPartyValues"
+        [initialCharacterValues]="upgradeInitialCharacterValues"
+        [characterColumns]="trade ? true : undefined"
         [globalTotal]="repair || undefined"
         [externalPaid]="fhSupportSpent.manual || 0"
         (distributionChange)="onCostChange($event)"
       ></ghs-party-distribution>
-      @if (gameManager.game.party.inspiration) {
+      @if (gameManager.game.party.inspiration && !trade) {
         <span class="head-col calc-col" [ghs-label]="'party.inspiration'"></span>
         <span class="calc-col">
           <a
@@ -194,6 +201,26 @@
           }
         }
       }
+      @if (trade && tradeMax > 0) {
+        <span class="head-col first"><span [ghs-label]="'game.events.distribution.receive'"></span></span>
+        <span class="first"></span>
+        @for (character of characters | trackUUID; track character._trackUUID) {
+          <span class="first"></span>
+        }
+        <ghs-party-distribution
+          mode="receive"
+          [showParty]="true"
+          [showHeader]="false"
+          [embedded]="true"
+          [receiveButtons]="true"
+          [ignoreAbsent]="true"
+          [characters]="characters"
+          [entries]="tradeReceiveEntries"
+          [globalTotal]="tradeReceiveGlobalTotal"
+          [initialPartyValues]="tradeInitialReceived"
+          (distributionChange)="onTradeReceive($event)"
+        ></ghs-party-distribution>
+      }
     </div>
   }
 
@@ -206,7 +233,11 @@
       <a
         class="apply"
         [ngClass]="{
-          disabled: !force && (requiredResources - (discount ? 1 : 0) > paidResources || (costs.gold && costs.gold > spent.gold) || false)
+          disabled:
+            !force &&
+            (trade
+              ? !tradeComplete
+              : requiredResources - (discount ? 1 : 0) > paidResources || (costs.gold && costs.gold > spent.gold) || false)
         }"
         (click)="confirm()"
         ><span [ghs-label]="'party.campaign.sheet.buildings.selectResources.confirm'"></span

@@ -3419,7 +3419,7 @@
       "removeBuilding": "Eliminar edificio '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Eliminar pegatina de campaña {0}",
       "removeChar": "Eliminar personaje {0}",
-      "removeCharTreasure": "Eliminar tesoro {1} de {2}",
+      "removeCharTreasure": "Eliminar tesoro {0} de {2}",
       "removeCharacterRetaliate": "Eliminar %game.action.retaliate% de {0}",
       "removeCharacterRetaliatePersistent": "Eliminar %game.card.persistent% %game.action.retaliate% de {0}",
       "removeCharacterShield": "Eliminar %game.action.shield% de {0}",

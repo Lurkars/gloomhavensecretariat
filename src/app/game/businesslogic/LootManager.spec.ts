@@ -1,5 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
+import { BuildingCosts, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Loot, LootDeck, LootType } from 'src/app/game/model/data/Loot';
@@ -156,6 +157,36 @@ describe('LootManager', () => {
     it('renders all three values when they all differ', () => {
       const loot = new Loot(LootType.money, 1, 4, 3, 2);
       expect(lootManager.valueLabel(loot)).toEqual('%game.loot.player.4% +4/%game.loot.player.3% +3/%game.loot.player.2% +2');
+    });
+  });
+
+  describe('applySelectResources', () => {
+    const costs = (values: Partial<BuildingCosts> = {}): BuildingCosts => ({
+      prosperity: 0,
+      lumber: 0,
+      metal: 0,
+      hide: 0,
+      gold: 0,
+      manual: 0,
+      ...values
+    });
+
+    it('subtracts spent and adds received resources', () => {
+      const brute = buildCharacter('brute');
+      brute.progress.gold = 10;
+      gameManager.game.party.loot = { [LootType.hide]: 3 };
+      lootManager.applySelectResources(
+        new SelectResourceResult([brute], [costs({ gold: 4 })], costs({ hide: 1 }), 0, [costs({ metal: 2, gold: 5 })])
+      );
+      expect(brute.progress.gold).toEqual(11);
+      expect(brute.progress.loot[LootType.metal]).toEqual(2);
+      expect(gameManager.game.party.loot[LootType.hide]).toEqual(2);
+    });
+
+    it('adds resources received by the Frosthaven supply', () => {
+      gameManager.game.party.loot = { [LootType.metal]: 1 };
+      lootManager.applySelectResources(new SelectResourceResult([], [], costs(), 0, [], costs({ metal: 2 })));
+      expect(gameManager.game.party.loot[LootType.metal]).toEqual(3);
     });
   });
 });

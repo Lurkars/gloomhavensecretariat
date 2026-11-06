@@ -1,6 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { BuildingModel } from 'src/app/game/model/Building';
-import { BuildingData, BuildingRewards } from 'src/app/game/model/data/BuildingData';
+import { BuildingData, BuildingRewards, BuildingTrade } from 'src/app/game/model/data/BuildingData';
+import { LootType } from 'src/app/game/model/data/Loot';
 import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 
 function buildRewards(overrides: Partial<BuildingRewards> = {}): BuildingRewards {
@@ -138,6 +139,33 @@ describe('BuildingsManager', () => {
       gameManager.game.party.garden = undefined;
       buildingsManager.nextWeek();
       expect(gardenFlipped()).toBe(false);
+    });
+  });
+
+  describe('trade', () => {
+    it('is undefined for buildings without trade', () => {
+      expect(buildingsManager.trade(new BuildingModel('garden', 2))).toBeUndefined();
+    });
+
+    it('is undefined for unbuilt, damaged or wrecked buildings', () => {
+      expect(buildingsManager.trade(new BuildingModel('mining-camp', 0))).toBeUndefined();
+      expect(buildingsManager.trade(new BuildingModel('mining-camp', 2, 'damaged'))).toBeUndefined();
+      expect(buildingsManager.trade(new BuildingModel('mining-camp', 2, 'wrecked'))).toBeUndefined();
+    });
+
+    it('buys a single resource type up to the building level for 2 gold', () => {
+      const trade = buildingsManager.trade(new BuildingModel('hunting-lodge', 3));
+      expect(trade).toEqual(new BuildingTrade('hunting-lodge', LootType.money, 2, [LootType.hide], 1, 3));
+    });
+
+    it('buys any material resources at the inn', () => {
+      const trade = buildingsManager.trade(new BuildingModel('inn', 2));
+      expect(trade).toEqual(new BuildingTrade('inn', LootType.money, 2, [LootType.lumber, LootType.metal, LootType.hide], 1, 2));
+    });
+
+    it('sells resources at depots for 5 gold', () => {
+      const trade = buildingsManager.trade(new BuildingModel('metal-depot', 2));
+      expect(trade).toEqual(new BuildingTrade('metal-depot', LootType.metal, 1, [LootType.money], 5, 2));
     });
   });
 });

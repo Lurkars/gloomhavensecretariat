@@ -607,6 +607,28 @@
         },
         "EditionData": {
             "properties": {
+                "bases": {
+                    "description": "Physically available standee bases of the edition (white = normal, gold/yellow = elite, red = boss, blue = ally/character summon). Bases of addons/extensions add to the bases of the extended editions.",
+                    "properties": {
+                        "ally": {
+                            "description": "blue bases for allies (character summons)",
+                            "type": "number"
+                        },
+                        "boss": {
+                            "description": "red bases for bosses",
+                            "type": "number"
+                        },
+                        "elite": {
+                            "description": "gold/yellow bases for elite monsters",
+                            "type": "number"
+                        },
+                        "normal": {
+                            "description": "white bases for normal monsters",
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
                 "type": {
                     "description": "Edition classification: 'extension' = standalone game needing parent (cs, ir); 'addon' = campaign expansion needing parent (fc, toa); 'content' = auto-included content for a parent (fh-crossover, gh-envx, etc.) or global content for any edition (sc, r100kc). Absent = standalone base game.",
                     "enum": [

@@ -1,0 +1,257 @@
+{
+  "name": "inox-priest-lightning2-solo",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Drain Speed",
+      "cardId": 656,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "living-corpse",
+                    "type": "normal"
+                  }
+                }
+              ],
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Drain Strength",
+      "cardId": 657,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "living-corpse",
+                    "type": "normal"
+                  }
+                }
+              ],
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 658,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tend to the Clan",
+      "cardId": 659,
+      "initiative": 23,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tend to the Clan",
+      "cardId": 660,
+      "initiative": 23,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 661,
+      "initiative": 74,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Divine Energy",
+      "cardId": 662,
+      "initiative": 89,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allies",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Angry Hex",
+      "cardId": 663,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "living-corpse",
+                    "type": "normal"
+                  }
+                }
+              ],
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

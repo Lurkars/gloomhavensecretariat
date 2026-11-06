@@ -5,7 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { BuildingCosts, BuildingCostType, BuildingRewards, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
+import {
+  BuildingCosts,
+  BuildingCostType,
+  BuildingRewards,
+  BuildingTrade,
+  SelectResourceResult
+} from 'src/app/game/model/data/BuildingData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
@@ -16,6 +22,10 @@ import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/sce
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+
+function tradeCostType(type: LootType): BuildingCostType {
+  return type === LootType.money ? 'gold' : (type as BuildingCostType);
+}
 
 @Component({
   imports: [NgClass, FormsModule, GhsLabelDirective, TrackUUIDPipe, PartyDistributionComponent],
@@ -30,7 +40,7 @@ export class BuildingUpgradeDialog implements OnInit {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   building: Building | undefined;
-  action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards' | 'soldiers';
+  action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards' | 'soldiers' | 'trade';
   costs: BuildingCosts;
   requiredResources: number;
   paidResources: number = 0;
@@ -43,13 +53,21 @@ export class BuildingUpgradeDialog implements OnInit {
   rewards: BuildingRewards | undefined;
   rewardsOnly: boolean;
   discount: boolean;
+  trade: BuildingTrade | undefined;
+  tradeMax: number = 0;
+  tradeReceiveEntries: DistributionEntry[] = [];
+  tradeReceiveGlobalTotal: number | undefined;
+  characterReceived: BuildingCosts[] = [];
+  fhSupportReceived: BuildingCosts = { gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0, manual: 0 };
+  tradeInitialReceived: Partial<Record<string, number>> = {};
 
   data: {
     costs: BuildingCosts | undefined;
     repair: number;
     building: Building | undefined;
-    action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards' | 'soldiers';
+    action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards' | 'soldiers' | 'trade';
     force: boolean;
+    trade: BuildingTrade | undefined;
   } = inject(DIALOG_DATA);
 
   constructor() {
@@ -59,10 +77,13 @@ export class BuildingUpgradeDialog implements OnInit {
     this.action = this.data.action;
     this.force = this.data.force || false;
     this.rewardsOnly = this.action === 'rewards';
+    this.trade = this.action === 'trade' ? this.data.trade : undefined;
     this.discount =
+      !this.trade &&
       gameManager.game.party.buildings.find(
         (buildingModel) => buildingModel.name === 'carpenter' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
-      ) !== undefined && !this.repair;
+      ) !== undefined &&
+      !this.repair;
     if (!this.repair && this.building) {
       this.costs = this.data.costs || { gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0, manual: 0 };
       this.costs.gold = this.costs.gold || 0;
@@ -126,6 +147,74 @@ export class BuildingUpgradeDialog implements OnInit {
     this.characters.forEach((character, index) => {
       this.characterSpent[index] = { gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0, manual: 0 };
     });
+
+    if (this.trade) {
+      const trade = this.trade;
+      const available =
+        trade.pay === LootType.money
+          ? this.characters.reduce((sum, character) => sum + (character.progress.gold || 0), 0)
+          : (gameManager.game.party.loot[trade.pay] || 0) +
+            this.characters.reduce((sum, character) => sum + (character.progress.loot[trade.pay] || 0), 0);
+      this.tradeMax = Math.min(trade.max, Math.floor(available / trade.payAmount));
+      this.initTrade(trade);
+    }
+  }
+
+  // distributions are limited by the maximum trade amount, the actual amount results from the distributed resources
+  private initTrade(trade: BuildingTrade) {
+    const pay = tradeCostType(trade.pay);
+    const payTotal = this.tradeMax * trade.payAmount;
+    const receiveTotal = this.tradeMax * trade.receiveAmount;
+    this.costs = { gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0, manual: 0 };
+    this.costs[pay] = payTotal;
+    this.characterReceived = this.characters.map(() => ({ gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0, manual: 0 }));
+    this.requiredResources = 0;
+
+    // pay resources from Frosthaven supply first, then from characters
+    if (trade.pay !== LootType.money) {
+      this.fhSupportSpent[pay] = Math.min(payTotal, gameManager.game.party.loot[trade.pay] || 0);
+      if (!settingsManager.settings.fhShareResources) {
+        let remaining = payTotal - this.fhSupportSpent[pay];
+        this.characters.forEach((character, index) => {
+          const value = Math.min(remaining, character.progress.loot[trade.pay] || 0);
+          this.characterSpent[index][pay] = value;
+          remaining -= value;
+        });
+      }
+    }
+
+    this.tradeReceiveEntries = trade.receive.map((type) => ({ type: type === LootType.money ? 'gold' : type, total: receiveTotal }));
+    this.tradeReceiveGlobalTotal = trade.receive.length > 1 ? receiveTotal : undefined;
+    // receive resources into Frosthaven supply by default
+    if (trade.receive.length === 1 && trade.receive[0] !== LootType.money) {
+      const receive = tradeCostType(trade.receive[0]);
+      this.fhSupportReceived[receive] = receiveTotal;
+      this.tradeInitialReceived = { [receive]: receiveTotal };
+    }
+    this.recalculatePaidResources();
+  }
+
+  onTradeReceive(change: DistributionChange): void {
+    if (change.source === 'party') {
+      this.fhSupportReceived[change.type as BuildingCostType] = change.value;
+    } else {
+      this.characterReceived[change.source][change.type as BuildingCostType] = change.value;
+    }
+  }
+
+  get tradeComplete(): boolean {
+    if (!this.trade) {
+      return false;
+    }
+    const trades = this.spent[tradeCostType(this.trade.pay)] / this.trade.payAmount;
+    const received = this.trade.receive
+      .map(tradeCostType)
+      .reduce(
+        (sum, type) =>
+          sum + (this.fhSupportReceived[type] || 0) + this.characterReceived.reduce((total, values) => total + values[type], 0),
+        0
+      );
+    return Number.isInteger(trades) && trades > 0 && trades <= this.tradeMax && received === trades * this.trade.receiveAmount;
   }
 
   ngOnInit(): void {
@@ -149,6 +238,10 @@ export class BuildingUpgradeDialog implements OnInit {
       metal: this.fhSupportSpent.metal || 0,
       hide: this.fhSupportSpent.hide || 0
     };
+  }
+
+  get upgradeInitialCharacterValues(): Partial<Record<string, number>>[] {
+    return this.characterSpent.map((spent) => ({ lumber: spent.lumber || 0, metal: spent.metal || 0, hide: spent.hide || 0 }));
   }
 
   onCostChange(change: DistributionChange): void {
@@ -233,10 +326,22 @@ export class BuildingUpgradeDialog implements OnInit {
     } else if (morale) {
       ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent, 1));
     } else if (
-      this.paidResources >= this.requiredResources - (this.discount ? 1 : 0) &&
-      (!this.costs.gold || this.costs.gold === this.spent.gold)
+      this.trade
+        ? this.tradeComplete
+        : this.paidResources >= this.requiredResources - (this.discount ? 1 : 0) &&
+          (!this.costs.gold || this.costs.gold === this.spent.gold)
     ) {
-      ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent));
+      ghsDialogClosingHelper(
+        this.dialogRef,
+        new SelectResourceResult(
+          this.characters,
+          this.characterSpent,
+          this.fhSupportSpent,
+          0,
+          this.characterReceived,
+          this.trade ? this.fhSupportReceived : undefined
+        )
+      );
     }
   }
 

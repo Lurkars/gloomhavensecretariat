@@ -210,9 +210,7 @@ export class LootComponent implements OnInit, OnChanges {
                 if (this.loot.type !== LootType.random_item) {
                   gameManager.stateManager.before(
                     'addLootCard',
-                    gameManager.characterManager.characterName(character),
-                    true,
-                    true,
+                    gameManager.characterManager.characterName(character, true, true),
                     'game.loot.' + this.loot.type,
                     gameManager.lootManager.getValue(this.loot)
                   );

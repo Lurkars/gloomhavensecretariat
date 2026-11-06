@@ -17,5 +17,11 @@
   "newAmStyle": true,
   "newItemStyle": true,
   "edition": "gh2e",
+  "bases": {
+    "normal": 16,
+    "elite": 8,
+    "boss": 2,
+    "ally": 8
+  },
   "logoUrl": "./assets/images/logos/gh2e.png"
 }

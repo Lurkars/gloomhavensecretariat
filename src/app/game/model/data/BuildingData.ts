@@ -1,5 +1,6 @@
 import { Character } from 'src/app/game/model/Character';
 import { Editional } from 'src/app/game/model/data/Editional';
+import { LootType } from 'src/app/game/model/data/Loot';
 import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 
 export class BuildingData implements Editional {
@@ -43,11 +44,40 @@ export class SelectResourceResult {
   characterSpent: BuildingCosts[];
   fhSupportSpent: BuildingCosts;
   morale: number;
+  characterReceived: BuildingCosts[];
+  fhSupportReceived: BuildingCosts | undefined;
 
-  constructor(characters: Character[], characterSpent: BuildingCosts[], fhSupportSpent: BuildingCosts, morale: number = 0) {
+  constructor(
+    characters: Character[],
+    characterSpent: BuildingCosts[],
+    fhSupportSpent: BuildingCosts,
+    morale: number = 0,
+    characterReceived: BuildingCosts[] = [],
+    fhSupportReceived: BuildingCosts | undefined = undefined
+  ) {
     this.characters = characters;
     this.characterSpent = characterSpent;
     this.fhSupportSpent = fhSupportSpent;
     this.morale = morale;
+    this.characterReceived = characterReceived;
+    this.fhSupportReceived = fhSupportReceived;
+  }
+}
+
+export class BuildingTrade {
+  building: string;
+  pay: LootType;
+  payAmount: number;
+  receive: LootType[];
+  receiveAmount: number;
+  max: number;
+
+  constructor(building: string, pay: LootType, payAmount: number, receive: LootType[], receiveAmount: number, max: number) {
+    this.building = building;
+    this.pay = pay;
+    this.payAmount = payAmount;
+    this.receive = receive;
+    this.receiveAmount = receiveAmount;
+    this.max = max;
   }
 }

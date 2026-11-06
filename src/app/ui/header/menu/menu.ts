@@ -143,7 +143,7 @@ export class MainMenuComponent implements OnInit {
       this.redoInfo = [];
     }
 
-    this.isUpdateAvailable = (window as any).electron ? (window as any).electron.updateAvailable : gameManager.stateManager.hasUpdate;
+    this.isUpdateAvailable = gameManager.stateManager.hasUpdate;
   }
 
   openUndoDialog(event: any) {
@@ -317,7 +317,7 @@ export class MainMenuComponent implements OnInit {
 
   updateApplication(force: boolean = false): void {
     if (this.isUpdateAvailable || force) {
-      if ((window as any).electron) {
+      if ((window as any).electron && gameManager.stateManager.hasUpdate) {
         (window as any).electron.quitAndInstall();
       } else if (this.swUpdate.isEnabled) {
         this.swUpdate.activateUpdate().then(() => {

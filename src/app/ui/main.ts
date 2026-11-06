@@ -187,6 +187,14 @@ export class MainComponent implements OnInit {
       this.loading = false;
     }
 
+    // electron: update downloaded by electron-updater (see preload.js)
+    if ((window as any).electron) {
+      (window as any).electron.onUpdateDownloaded(() => {
+        gameManager.stateManager.hasUpdate = true;
+        gameManager.triggerUiChange();
+      });
+    }
+
     setInterval(() => {
       this.cancelLoading = true;
       this.cdr.markForCheck();

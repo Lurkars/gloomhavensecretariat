@@ -805,7 +805,11 @@ export class ScenarioSummaryComponent {
 
   toggleTrial(event: any, index: number) {
     const character = this.characters[index];
-    gameManager.stateManager.before('finishScenario.trial', character.name, this.trials[index]);
+    gameManager.stateManager.before(
+      'finishScenario.trial',
+      gameManager.characterManager.characterName(character, true, true),
+      this.trials[index]
+    );
     this.trials[index] = event.target.checked;
     this.updateFinish();
     gameManager.stateManager.after();

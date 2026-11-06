@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { v4 as uuidv4 } from 'uuid';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
 
 declare global {
   interface Object {
@@ -24,7 +24,7 @@ export class TrackUUIDPipe implements PipeTransform {
 
   private createUUID(item: any, index: number, nestedArrayKeys?: string[]): void {
     if (!!item && !item._trackUUID) {
-      const uuid = uuidv4() + '-' + index;
+      const uuid = gameManager.randomManager.uuid() + '-' + index;
       Object.defineProperty(item, '_trackUUID', {
         value: uuid,
         writable: true,

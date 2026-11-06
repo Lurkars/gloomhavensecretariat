@@ -12,6 +12,10 @@
     "bless"
   ],
   "edition": "gh",
+  "bases": {
+    "normal": 16,
+    "elite": 8
+  },
   "worldMap": {
     "width": 2958,
     "height": 2410

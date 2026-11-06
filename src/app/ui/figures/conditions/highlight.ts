@@ -134,7 +134,7 @@ export class HighlightConditionsComponent implements OnInit {
       gameManager.entityManager.before(
         this.entity,
         this.figure,
-        (persistent ? 'changeExtraActionsPersistent' : 'changeExtraActions') + (accept ? '.accept' : 'decline'),
+        (persistent ? 'changeExtraActionsPersistent' : 'changeExtraActions') + (accept ? '.accept' : '.decline'),
         gameManager.actionsManager.extraActionLabel(action)
       );
 

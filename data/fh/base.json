@@ -17,6 +17,12 @@
     "bless"
   ],
   "edition": "fh",
+  "bases": {
+    "normal": 16,
+    "elite": 8,
+    "boss": 2,
+    "ally": 8
+  },
   "worldMap": {
     "width": 2500,
     "height": 3179

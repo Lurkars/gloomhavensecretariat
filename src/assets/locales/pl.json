@@ -3328,7 +3328,7 @@
       "removeBuilding": "Usuń budynek '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Usuń naklejkę kampanii {0}",
       "removeChar": "Usuń postać {0}",
-      "removeCharTreasure": "Usuń skarb {1} dla {2}",
+      "removeCharTreasure": "Usuń skarb {0} dla {2}",
       "removeCharacterRetaliate": "Usuń %game.action.retaliate% dla {0}",
       "removeCharacterRetaliatePersistent": "Usuń %game.card.persistent% %game.action.retaliate% dla {0}",
       "removeCharacterShield": "Usuń %game.action.shield% dla {0}",

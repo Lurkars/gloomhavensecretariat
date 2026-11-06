@@ -13,7 +13,29 @@
   "monsters": [
     "cultist",
     "inox-priest",
+    "living-bones",
     "living-corpse"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "inox-priest"
+          },
+          "statEffect": {
+            "name": "necromancer",
+            "deck": "inox-priest-lightning2-solo"
+          },
+          "note": "%data.section.rules.gh2e.96-2%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -29,7 +51,7 @@
           "type": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-bones",
           "type": "normal"
         },
         {

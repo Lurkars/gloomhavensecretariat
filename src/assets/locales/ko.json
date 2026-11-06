@@ -3083,7 +3083,7 @@
       "removeAllObjectives": "모든 목표물 제거",
       "removeCampaignSticker": "캠페인 스티커 {0} 제거",
       "removeChar": "{0} 캐릭터 제거",
-      "removeCharTreasure": "{2}에게서 보물 {1} 제거",
+      "removeCharTreasure": "{2}에게서 보물 {0} 제거",
       "removeCharacterRetaliate": "{0}에게서 %game.action.retaliate% 제거",
       "removeCharacterRetaliatePersistent": "{0}에게서 %game.card.persistent% %game.action.retaliate% 제거",
       "removeCharacterShield": "{0}에게서 %game.action.shield% 제거",

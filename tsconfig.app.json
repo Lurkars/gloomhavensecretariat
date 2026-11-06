@@ -3,9 +3,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": [
-      "dom-screen-wake-lock"
-    ],
+    "outDir": "./out-tsc/app",
+    "types": [],
     "noUnusedLocals": true
   },
   "include": [

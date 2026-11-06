@@ -12277,7 +12277,7 @@
                 ]
               },
               {
-                "type": "outpostAttack",
+                "type": "outpostTarget",
                 "values": [
                   2
                 ]

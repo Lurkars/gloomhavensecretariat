@@ -2,7 +2,7 @@ import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import packageJson from 'src/../package.json';
+import { version as ghsVersion } from 'src/../package.json';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { storageManager } from 'src/app/game/businesslogic/StorageManager';
@@ -101,8 +101,7 @@ export class FeedbackDialogComponent {
       mailto = 'mailto:feedback@gloomhaven-secretariat.de';
     }
 
-    mailto +=
-      '?subject=[GHS v' + packageJson.version + '] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
+    mailto += '?subject=[GHS v' + ghsVersion + '] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
 
     if (this.automaticText) {
       text += (text ? '\n\n' : '') + this.automaticText;

@@ -61,7 +61,8 @@
             building.data.effectNormal &&
             building.data.effectNormal[building.model.level ? building.model.level - 1 : 0]
           ) {
-            <span class="effect">
+            @let trade = gameManager.buildingsManager.trade(building.model);
+            <span class="effect" [ngClass]="{ interactive: !!trade }" (click)="trade && openTrade(building)">
               <span
                 class="icon"
                 [ghs-tooltip]="building.data.effectNormal[building.model.level ? building.model.level - 1 : 0]"

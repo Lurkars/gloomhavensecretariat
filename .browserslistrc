@@ -1,23 +1,8 @@
-# Primary supported browsers
+# Supported browsers
 Chrome > 118
 ChromeAndroid > 118
 Edge > 118
 Firefox > 118
-FirefoxAndroid >=118
+FirefoxAndroid > 118
 Safari > 16.8
-ios_saf > 26.5
 iOS > 16.8
-
-# Broader coverage - warns but still builds
-> 0.6%
-not dead
-
-# Explicit exclusions to prevent Angular warnings
-not and_uc > 0
-not op_mob > 0
-not samsung > 0
-not android > 0
-not chrome < 118
-not opera < 123
-not ios_saf 26.5
-not safari 26.5

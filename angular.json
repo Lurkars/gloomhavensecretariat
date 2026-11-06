@@ -32,7 +32,8 @@
               "cytoscape-fcose",
               "cytoscape-cose-bilkent",
               "@braintree/sanitize-url",
-              "dayjs"
+              "dayjs",
+              "elkjs"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -118,12 +119,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular/build:extract-i18n",
-          "options": {
-            "buildTarget": "gloomhavensecretariat:build"
-          }
         },
         "test": {
           "builder": "@angular/build:unit-test",

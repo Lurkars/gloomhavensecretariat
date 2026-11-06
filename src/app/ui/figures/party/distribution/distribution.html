@@ -63,6 +63,14 @@
             <a class="button" [ngClass]="{ disabled: !canIncrement(entry.type, 'party') }" (click)="increment(entry.type, 'party')">
               <img class="ghs-svg" src="./assets/images/plus.svg" />
             </a>
+          } @else if (partyReceivable(entry.type)) {
+            <a class="button" [ngClass]="{ disabled: !canDecrement(entry.type, 'party') }" (click)="decrement(entry.type, 'party')">
+              <img class="ghs-svg" src="./assets/images/minus.svg" />
+            </a>
+            <span class="value">{{ partyValues[entry.type] || '-' }}</span>
+            <a class="button" [ngClass]="{ disabled: !canIncrement(entry.type, 'party') }" (click)="increment(entry.type, 'party')">
+              <img class="ghs-svg" src="./assets/images/plus.svg" />
+            </a>
           } @else {
             <span>-</span>
           }
@@ -72,7 +80,15 @@
         @for (character of characters | trackUUID; track character._trackUUID; let i = $index) {
           <span class="calc-col" [ngClass]="{ absent: !ignoreAbsent() && character.absent }">
             @if (mode() === 'receive') {
-              @if (ignoreAbsent() || !character.absent) {
+              @if ((ignoreAbsent() || !character.absent) && receiveButtons()) {
+                <a class="button" [ngClass]="{ disabled: !canDecrement(entry.type, i) }" (click)="decrement(entry.type, i)">
+                  <img class="ghs-svg" src="./assets/images/minus.svg" />
+                </a>
+                <span class="value">{{ characterValues[i]?.[entry.type] || '-' }}</span>
+                <a class="button" [ngClass]="{ disabled: !canIncrement(entry.type, i) }" (click)="increment(entry.type, i)">
+                  <img class="ghs-svg" src="./assets/images/plus.svg" />
+                </a>
+              } @else if (ignoreAbsent() || !character.absent) {
                 <input
                   type="number"
                   min="0"

@@ -114,14 +114,14 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
   removeTreasure(character: Character, treasure: string | number) {
     if (typeof treasure === 'number') {
       gameManager.stateManager.before(
-        'removeCharTresure',
+        'removeCharTreasure',
         treasure >= 0 ? '' + treasure : '???',
         this.edition,
         gameManager.characterManager.characterName(character, true, true)
       );
       this.looted.splice(this.treasures.indexOf(treasure), 1);
     } else {
-      gameManager.stateManager.before('removeCharTresure', 'G', this.edition);
+      gameManager.stateManager.before('removeCharTreasure', 'G', this.edition);
       this.looted.splice(+treasure.replace('G-', ''), 1);
     }
     character.treasures.splice(character.treasures.indexOf(treasure), 1);

@@ -3550,7 +3550,7 @@
       "removeBuilding": "移除建筑物 '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "移除战役贴纸 {0}",
       "removeChar": "移除角色 {0}",
-      "removeCharTreasure": "为 {2} 移除财宝 {1}",
+      "removeCharTreasure": "为 {2} 移除财宝 {0}",
       "removeCharacterRetaliate": "为 {0} 移除%game.action.retaliate%",
       "removeCharacterRetaliatePersistent": "为 {0} 移除 %game.card.persistent% %game.action.retaliate%",
       "removeCharacterShield": "为 {0} 移除 %game.action.shield%",

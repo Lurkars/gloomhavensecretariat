@@ -11,6 +11,10 @@
     "regenerate"
   ],
   "edition": "fc",
+  "bases": {
+    "normal": 8,
+    "elite": 4
+  },
   "extendWorldMap": "gh",
   "logoUrl": "./assets/images/logos/fc.png",
   "treasureOffset": 75,

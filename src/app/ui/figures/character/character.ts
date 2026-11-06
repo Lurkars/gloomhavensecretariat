@@ -717,7 +717,7 @@ export class CharacterComponent implements OnInit {
           this.character,
           this.character,
           'triggerSpecialTagSlot' + (revert ? '.revert' : ''),
-          '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%'
+          '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction.name + '%'
         );
 
         for (let i = 0; i < Math.max(1, Math.abs(index - current)); i++) {
