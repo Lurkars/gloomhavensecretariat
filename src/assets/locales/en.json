@@ -754,6 +754,10 @@
         "": "Bless",
         "hint": "%game.conditionIcon.bless% Bless: Shuffle %game.attackmodifier.bless% card into attack modifier deck"
       },
+      "blind": {
+        "": "Blind",
+        "hint": "%game.conditionIcon.blind% Blind: Reduce range to 1. Remove at end of next turn."
+      },
       "brittle": {
         "": "Brittle",
         "hint": "%game.conditionIcon.brittle% Brittle: Double next source of %game.damage%, then remove. Also remove when healed."

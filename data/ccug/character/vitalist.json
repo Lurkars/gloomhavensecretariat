@@ -3,6 +3,11 @@
   "characterClass": "human",
   "edition": "ccug",
   "handSize": 9,
+  "traits": [
+    "arcane",
+    "outcast",
+    "persuasive"
+  ],
   "color": "#cd5644",
   "stats": [
     {

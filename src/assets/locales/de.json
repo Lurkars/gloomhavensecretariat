@@ -751,6 +751,10 @@
         "": "Segen",
         "hint": "%game.conditionIcon.bless% Segen: Mische eine %game.attackmodifier.bless% Karte ins Angriffsmodifikatordeck"
       },
+      "blind": {
+        "": "Blendung",
+        "hint": "%game.conditionIcon.blind% Blendung: Reduziere die Reichweite auf 1. Entferne am Ende des nächsten Zugs."
+      },
       "brittle": {
         "": "Spröde",
         "hint": "%game.conditionIcon.brittle% Spröde: Verdopple den nächsten %game.damage%, anschließend entfernen. Auch bei Heilung entfernt."

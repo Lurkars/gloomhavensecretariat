@@ -125,12 +125,17 @@
                 "value": "poison"
               },
               {
-                "type": "condition",
-                "value": "poison",
+                "type": "required",
                 "effects": [
                   {
-                    "type": "specialTarget",
-                    "value": "self"
+                    "type": "condition",
+                    "value": "poison",
+                    "effects": [
+                      {
+                        "type": "specialTarget",
+                        "value": "self"
+                      }
+                    ]
                   }
                 ]
               }

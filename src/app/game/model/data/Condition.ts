@@ -27,6 +27,7 @@ export enum ConditionName {
   retaliate = 'retaliate',
   safeguard = 'safeguard',
   plague = 'plague',
+  blind = 'blind',
   invalid = 'invalid'
 }
 
@@ -111,7 +112,8 @@ export class Condition {
         ConditionName.rupture,
         ConditionName.poison_x,
         ConditionName.wound_x,
-        ConditionName.safeguard
+        ConditionName.safeguard,
+        ConditionName.blind
       ].includes(this.name)
     ) {
       this.types.push(ConditionType.entity);
@@ -135,7 +137,8 @@ export class Condition {
         ConditionName.rupture,
         ConditionName.ward,
         ConditionName.dodge,
-        ConditionName.safeguard
+        ConditionName.safeguard,
+        ConditionName.blind
       ].includes(this.name)
     ) {
       this.types.push(ConditionType.standard);
@@ -234,7 +237,8 @@ export class Condition {
         ConditionName.muddle,
         ConditionName.invisible,
         ConditionName.strengthen,
-        ConditionName.impair
+        ConditionName.impair,
+        ConditionName.blind
       ].includes(this.name)
     ) {
       this.types.push(ConditionType.expire);

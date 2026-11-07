@@ -3,6 +3,11 @@
   "characterClass": "valrath",
   "edition": "ccug",
   "handSize": 10,
+  "traits": [
+    "arcane",
+    "chaotic",
+    "outcast"
+  ],
   "color": "#b18dbd",
   "stats": [
     {
