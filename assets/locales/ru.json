@@ -2956,7 +2956,7 @@
       "removeBuilding": "Убрано строение «%data.buildings.{1}%»",
       "removeCampaignSticker": "Удалена наклейка кампании {0}",
       "removeChar": "Удалён персонаж {0}",
-      "removeCharTreasure": "Убрано сокровище {1} у {2}",
+      "removeCharTreasure": "Убрано сокровище {0} у {2}",
       "removeCharacterRetaliate": "Убран «%game.action.retaliate%» у {0}",
       "removeCharacterRetaliatePersistent": "Убран %game.card.persistent% «%game.action.retaliate%» у {0}",
       "removeCharacterShield": "Убран «%game.action.shield%» у {0}",

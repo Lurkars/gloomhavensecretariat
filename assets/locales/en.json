@@ -866,6 +866,7 @@
       "advantage": "Advantage",
       "disadvantage": "Attackers gain Disadvantage",
       "instead": "Instead",
+      "materialResource": "+{0} material resource",
       "math": {
         "ceil": "(rounded up)",
         "floor": "(rounded down)",
@@ -2571,8 +2572,8 @@
       "hint": "Automatically add Loot after card drawn to active/chosen character"
     },
     "applyLootRandomItem": {
-      "": "Draw Random Item on Loot",
-      "hint": "Automatically draw and equip a new random item on random item loot to active/chosen character."
+      "": "Equip Random Item from Loot",
+      "hint": "Add the drawn random item from a random item loot card to the items of the active/chosen character and equip it (or sell it, if already owned). If disabled, the item is unlocked for the party instead."
     },
     "applyRetirement": {
       "": "Apply Retirement Bonuses",
@@ -2801,7 +2802,17 @@
     "debug": {
       "": "Debug Settings/Tools",
       "logServerMessages": "Log Server Messages",
-      "rightClick": "Always enable Right-Click"
+      "rightClick": "Always enable Right-Click",
+      "soundboardSounds": {
+        "": "Soundboard",
+        "hint": "Sounds of the soundboard. Add a sound by id and URL (e.g. https://example.com/sound.ogg), using the id of a built-in sound replaces it. Leave the URL empty or remove a built-in sound to disable it. Sync this setting across clients, as sounds are played by their position in the list.",
+        "id": "Id",
+        "src": "URL",
+        "play": "Play sound",
+        "add": "Add sound",
+        "remove": "Remove sound",
+        "restore": "Restore default sound"
+      }
     },
     "display": "Display",
     "dragFigures": {
@@ -3265,6 +3276,7 @@
         "summon": "{3}x %game.condition.{2}% '{1}' of {0}",
         "summons": "{2}x %game.condition.{1}% all {0} summons"
       },
+      "addCustomSummon": "Add custom summon {1} ({2}) for {0}",
       "addGameCondition": "Add %game.condition.{0}% to current game",
       "addGlobalAchievement": "Add global achievement '%data.globalAchievements.{0}%'",
       "addImmunity": {
@@ -3278,6 +3290,7 @@
         "summons": "%game.immunity.{1}% immunity all {0} summons"
       },
       "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
+      "addLootCard": "Assign loot card {1} ({2}) to {0}",
       "addManualScenario": "Unlock scenario #{0} {1} ({2})",
       "addMarker": {
         "char": "%data.characterIconColored.{2}% {1} marker to {0}",
@@ -3310,6 +3323,7 @@
       "addSummon": "Add summon '{1}' for {0}",
       "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "addTreasures": "Add treasure {1} (%data.edition.{0}%)",
+      "addUnlockedItem": "Unlock item {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%)",
       "applyCondition": {
         "char": "Apply %game.condition.{1}% to {0}",
         "monster": "Apply %game.condition.{2}% to '{1}' of {0}",
@@ -3318,6 +3332,7 @@
         "objectiveContainer": "Apply %game.condition.{2}% to {1} of {0}",
         "summon": "Apply %game.condition.{2}% to '{1}' of {0}"
       },
+      "applyFavorSelection": "Apply Favor selection",
       "applyHighlightAction": {
         "condition": "%game.condition.{0}%",
         "elementConsume": "Consume {0}",
@@ -3329,6 +3344,7 @@
         "switchType": "Switching of %game.monsterType.normal% and %game.monsterType.elite%"
       },
       "applyInteractiveActions": "Apply {0} for standees {1} of {2}",
+      "applyResourceChange": "Apply resource changes",
       "applyScenarioRule": "Apply scenario rule",
       "battleGoals": {
         "deselect": "Deselect current Battle Goal of {0}",
@@ -3352,7 +3368,16 @@
         "damaged": "Attack damaged '%data.buildings.{1}%' ({0})",
         "wrecked": "Attack wrecked '%data.buildings.{1}%' ({0})"
       },
+      "buildingTrade": "Trade {1} for {2} at %data.buildings.{0}%",
       "buildings": {
+        "garden": {
+          "automationOff": "Disable Garden automation",
+          "automationOn": "Enable Garden automation",
+          "flipHarvest": "Flip Garden to harvesting side",
+          "flipPlant": "Flip Garden to planting side",
+          "harvest": "Harvest Garden",
+          "plant": "Plant %game.resource.{0}% in Garden"
+        },
         "stables": {
           "pets": {
             "add": "Add pet %data.pets.{0}-{1}% to Stables",
@@ -3368,6 +3393,7 @@
         }
       },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
+      "cancelCampaign": "Cancel {0} campaign",
       "cancelScenario": "Cancel Scenario #{0} {1} ({2})",
       "challengeDeck": {
         "clear": "Discard drawn Challenges",
@@ -3382,6 +3408,12 @@
       },
       "changeBuildingState": "State of building '%data.buildings.{1}%' ({0}) to %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Name '{0}' for custom scenario",
+      "changeEntityExtraActions": {
+        "char": "Remove {1} from {0}",
+        "monster": "Remove {2} from '{1}' of {0}",
+        "objectiveContainer": "Remove {2} from {1} of {0}",
+        "summon": "Remove {2} from '{1}' of {0}"
+      },
       "changeEntityHp": "HP {3} for {1} standee {2} of {0}",
       "changeEntityMaxHp": "max. HP {3} for {1} standee {2} of {0}",
       "changeHP": "HP {1} for {0}",
@@ -3396,6 +3428,7 @@
       "changeObjectiveMaxHp": "Max. HP {1} for objective {0}",
       "changeObjectivesHP": "HP {1} for all {0}",
       "changeParty": "Change party to '{0}'",
+      "changeRetiredCharacterEnhancements": "Change enhancements of retired character {0}",
       "changeSummonAttack": "Attack {2} for summon '{1}' of {0}",
       "changeSummonDamage": "Damage {2} for trap '{1}' of {0}",
       "changeSummonHeal": "Heal {2} for trap '{1}' of {0}",
@@ -3404,6 +3437,12 @@
       "changeSummonMove": "Movement {2} for summon '{1}' of {0}",
       "changeSummonRange": "Range {2} for summon '{1}' of {0}",
       "changeXP": "XP {1} for {0}",
+      "character": {
+        "cardFromDeck": "Remove card '{1}' from ability deck of {0}",
+        "cardToDeck": "Add card '{1}' to ability deck of {0}",
+        "resetDeck": "Reset ability deck of {0}",
+        "undoLastCard": "Undo last drawn ability card of {0}"
+      },
       "characterItemApply": {
         "consumed": "{0} consumed item {1} \"{3}\"",
         "flipped": "{0} flipped item {1} \"{3}\"",
@@ -3469,6 +3508,7 @@
       },
       "enabledManualPlayerCount": "Enable manual player count",
       "endAllTurns": "End all turns",
+      "enhanceCard": "Enhance card {1} of {0}",
       "entities": {
         "addCharacterMarker": {
           "": "%data.characterIconColored.{0}% %data.character.{1}% marker for selection",
@@ -3531,6 +3571,36 @@
           "monsterEntity": "Change %game.monsterType.{0}% standee from %game.monsterType.{0}.{1}% to %game.monsterType.{0}.{2}% for {3}",
           "objective": "Change marker from %game.objectiveMarker.{0}% to %game.objectiveMarker.{1}% for {2}",
           "objectiveEntity": "Change marker from %game.objectiveMarker.{0}% to %game.objectiveMarker.{1}% for {3} of {2}"
+        },
+        "changeExtraActions": {
+          "accept": {
+            "character": "Accept extra action {0} for {1}",
+            "monsterEntity": "Accept extra action {0} for '{2}' of {1}",
+            "objectiveEntity": "Accept extra action {0} for {2} of {1}",
+            "summon": "Accept extra action {0} for '{2}' of {1}"
+          },
+          "character": "Extra actions {0} for {1}",
+          "decline": {
+            "character": "Decline extra action {0} for {1}",
+            "monsterEntity": "Decline extra action {0} for '{2}' of {1}",
+            "objectiveEntity": "Decline extra action {0} for {2} of {1}",
+            "summon": "Decline extra action {0} for '{2}' of {1}"
+          }
+        },
+        "changeExtraActionsPersistent": {
+          "accept": {
+            "character": "%game.card.persistent% Accept extra action {0} for {1}",
+            "monsterEntity": "%game.card.persistent% Accept extra action {0} for '{2}' of {1}",
+            "objectiveEntity": "%game.card.persistent% Accept extra action {0} for {2} of {1}",
+            "summon": "%game.card.persistent% Accept extra action {0} for '{2}' of {1}"
+          },
+          "character": "%game.card.persistent% Extra actions {0} for {1}",
+          "decline": {
+            "character": "%game.card.persistent% Decline extra action {0} for {1}",
+            "monsterEntity": "%game.card.persistent% Decline extra action {0} for '{2}' of {1}",
+            "objectiveEntity": "%game.card.persistent% Decline extra action {0} for {2} of {1}",
+            "summon": "%game.card.persistent% Decline extra action {0} for '{2}' of {1}"
+          }
         },
         "changeHP": {
           "": "{0} %game.statusIcon:health% HP for selection",
@@ -3731,6 +3801,12 @@
           "monsterEntity": "Toggle all monster standee types for '{1}' of {0}",
           "monsters": "Toggle all monster standee types for {1} of {0}"
         },
+        "triggerSpecialTagSlot": {
+          "character": "Mark slot of special action {0} for {1}",
+          "revert": {
+            "character": "Unmark slot of special action {0} for {1}"
+          }
+        },
         "unsetAbsent": {
           "character": "{0} present"
         },
@@ -3760,6 +3836,7 @@
       },
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
+      "eventDistribution": "Apply event distribution",
       "eventDraw": {
         "accept": "Resolved %game.events.type.{1}% event {2}",
         "cancel": "Cancel drawing %game.events.type.{1}% event",
@@ -3788,22 +3865,55 @@
         "reputation": "{0} Reputation",
         "setConditionValue": "%game.condition.{0}% to {1} for {2}"
       },
+      "events": {
+        "deck": {
+          "addEvent": "Add %game.events.type.{0}% event {1} to deck",
+          "changeSelection": "Change outcome of %game.events.type.{0}% event {1}",
+          "markDrawn": "Mark %game.events.type.{0}% event {1} as drawn",
+          "removeDrawn": "Remove %game.events.type.{0}% event {1} from drawn cards",
+          "removeEvent": "Remove %game.events.type.{0}% event {1} from deck",
+          "reorder": "Reorder %game.events.type.{0}% event deck",
+          "reset": "Reset %game.events.type.{0}% event deck",
+          "shuffle": "Shuffle %game.events.type.{0}% event deck"
+        }
+      },
+      "favorKeepOff": "Stop keeping Favors for every scenario",
+      "favorKeepOn": "Keep Favors for every scenario",
+      "filterItem": "Remove item {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%) from available items",
       "finishConclusion": "Finish conclusion #{0} {1} ({2})",
       "finishScenario": {
         "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}.{1}% to {2}",
         "close": "Close Scenario Summary",
-        "dialog": "Scenario summary for #{0} {1} ({2})",
+        "dialog": {
+          "": "Scenario summary for #{0} {1} ({2})",
+          "calendarSectionManual": "Set calendar section weeks to {1}",
+          "challenge": "Toggle completed Challenge",
+          "challenges": "Toggle second completed Challenge",
+          "chooseLocation": "Choose location {0} to unlock",
+          "chooseUnlockCharacter": "Choose character {0} to unlock",
+          "collectiveGold": "Set collective gold to {1}",
+          "collectiveResource": "Set collective %game.resource.{0}% to {2}",
+          "item": "Toggle reward item {1}",
+          "overlayCustomText": "Custom text \"{0}\""
+        },
         "failure": "Scenario #{0} {1} ({2}) failed",
         "linked": "Scenario #{0} {1} successful, continue with #{3} ({2})",
         "remove": "Remove scenario #{0} {1} ({2}) success",
+        "removeCasual": "Remove scenario #{0} {1} ({2}) from completed casual scenarios",
         "restart": "Restart failed Scenario #{0} {1} ({2})",
-        "success": "Scenario #{0} {1} ({2}) successful"
+        "success": "Scenario #{0} {1} ({2}) successful",
+        "trial": "Toggle Trial for {0}"
       },
       "gameClock": {
         "automaticGameClockOut": "Auto. clock out",
         "clockIn": "Clock In",
         "clockOut": "Clock out",
         "merge": "Merge Game Clock"
+      },
+      "gh2eImbuement": {
+        "": "Enable Monster Imbuement",
+        "advanced": "Enable Advanced Monster Imbuement",
+        "disable": "Disable Monster Imbuement"
       },
       "hideScenarioRule": "Don't show scenario rule again",
       "importCharacter": "Import character {0} from file",
@@ -3831,6 +3941,18 @@
       "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
       "nextIdentity": "Set form of {0} from %data.character.{4}.{1}.{2}% to %data.character.{4}.{1}.{3}%",
       "nextRound": "Next Round",
+      "removeAllUnlocks": "Remove all unlocked characters",
+      "removeConclusion": "Remove conclusion %data.section:{1}%",
+      "removeEnhancement": "Remove enhancement from card {1} of {0}",
+      "removeFilterItem": "Re-add item {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%) to available items",
+      "removeLootCard": "Remove loot card {1} ({2}) from {0}",
+      "removeUnlockedItem": "Remove unlocked item {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%)",
+      "setDormant": "Set {0} dormant",
+      "setExtraPerks": "Extra perks {1} for {0}",
+      "setItems": "Item notes \"{1}\" for {0}",
+      "setLootCardSection": "Read loot card section %data.section:{0}%",
+      "setPartyImbuement": "Set party imbuement to {0}",
+      "setPQAutotrack": "Enable automatic Personal Quest tracking for {0}",
       "setRoundReset": "Set round reset to {0}",
       "objectiveContainerChangeEntityHp": "HP {2} for %game.objectiveMarker.{1}% of {0}",
       "objectiveEntityDead": "Kill %game.objectiveMarker.{1}% of {0}",
@@ -3844,7 +3966,7 @@
       "removeBuilding": "Remove building '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Remove Campaign Sticker {0}",
       "removeChar": "Remove character {0}",
-      "removeCharTreasure": "Remove treasure {1} for {2}",
+      "removeCharTreasure": "Remove treasure {0} from {2}",
       "removeCharacterRetaliate": "Remove %game.action.retaliate% for {0}",
       "removeCharacterRetaliatePersistent": "Remove %game.card.persistent% %game.action.retaliate% for {0}",
       "removeCharacterShield": "Remove %game.action.shield% for {0}",
@@ -4030,6 +4152,7 @@
       "setScenarioLevel": "Scenario level {0}",
       "setSummonState": "Set summon {1} {2} for {0}",
       "setTitle": "Title '{1}' for {0}",
+      "setTrial": "Trial {1} for {0}",
       "setXP": "XP {1} for {0}",
       "shareItem": "{0} shares \"%data.items.{3}-{2}%\" (Item {2}) with {1}",
       "shuffleAbilityDeck": "Shuffle ability cards of {0}",
@@ -4039,8 +4162,10 @@
       "summonActive": "Summon '{1}' of {0} active",
       "summonDead": "Kill summon '{1}' of {0}",
       "summonInactive": "Summon '{1}' of {0} inactive",
+      "toggleKeepRevealed": "Toggle keep revealed for ability card {1} of {0}",
       "toggleTypeAll": "Toggle all monster standee types for {0}",
       "unequipItem": "Unequip Item {1} (%data.edition.{2}%) for {0}",
+      "unlockAllCharacters": "Unlock all characters of {0}",
       "unlockChar": "Unlock {0}",
       "unlockPersonalQuest": "Unlock Personal Quest %data.personalQuest.{0}.{1}%",
       "unsetAbsent": "{0} present",
@@ -4048,10 +4173,13 @@
       "unsetAllied": "{0} not as allied",
       "unsetAlly": "{0} as enemy",
       "unsetCustomScenario": "Unset custom scenario",
+      "unsetDormant": "Set {0} active again",
       "unsetDrawExtraAbility": "Unset draw extra for {0}",
       "unsetEntityActive": "Set standee {1} of {0} inactive",
       "unsetExhausted": "{0} not exhausted",
+      "unsetLootCardSection": "Remove loot card section %data.section:{0}%",
       "unsetObjectiveExhausted": "Objective {0} not exhausted",
+      "unsetPQAutotrack": "Disable automatic Personal Quest tracking for {0}",
       "unsetRetired": "Revoke {0}'s retirement",
       "unsetTitle": "Remove title '{1}' from {0}",
       "updateAttackModifierDeck": {
@@ -4059,6 +4187,10 @@
         "addCard": "Add {1} card to {0} AM deck",
         "addCardShuffled": "Shuffle new {1} card into {0} AM deck",
         "addCurse": "Add Curse to {0} AM deck",
+        "addEmpower": "Add Empower to {0} AM deck",
+        "addEnfeeble": "Add Enfeeble to {0} AM deck",
+        "addFactionModifier": "Add faction card {1} to {0} AM deck",
+        "addMinus1": "Add -1 card to {0} AM deck",
         "amDeckHide": "Hide {0} AM deck",
         "amDeckShow": "Show {0} AM deck",
         "discardFromActive": "Discard active card in {0} AM Deck",
@@ -4069,11 +4201,17 @@
         "removeCard": "Remove card {1} from {0} AM deck",
         "removeCurse": "Remove Curse from {0} AM deck",
         "removeDrawnDiscards": "Remove drawn discards from {0} AM deck",
+        "removeEmpower": "Remove Empower from {0} AM deck",
+        "removeEnfeeble": "Remove Enfeeble from {0} AM deck",
+        "removeFactionModifier": "Remove faction card {1} from {0} AM deck",
+        "removeMinus1": "Remove -1 card from {0} AM deck",
         "reorder": "Reorder {0} AM deck",
+        "restoreCard": "Restore card {1} of {0} AM deck",
         "restoreDefault": "Restore default {0} AM deck",
         "restoreToActive": "Restore active card for {0} AM Deck",
         "shuffle": "Shuffle {0} AM deck",
-        "shuffleUpcoming": "Shuffle upcoming cards of {0} AM deck"
+        "shuffleUpcoming": "Shuffle upcoming cards of {0} AM deck",
+        "toggleKeepRevealed": "Toggle keep revealed for card {1} of {0} AM deck"
       },
       "updateBonusAdjustment": "Bonuses adjustment {0}",
       "updateElement": "Element {0} {1}",
@@ -4083,6 +4221,7 @@
       "updateManualPlayerCount": "Set manual player count to {0}",
       "updatePartyAchievements": "Party achievement to {0}",
       "updateStandee": "Change {1} standee number {2} to {3} for {0}",
+      "updateUnlockedItemCount": "Change available count of item {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%)",
       "upgradeBuilding": "Upgrade building '%data.buildings.{1}%' ({0}) to level {2}"
     },
     "loadMore": "Show more",

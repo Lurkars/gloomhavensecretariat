@@ -863,6 +863,7 @@
       "advantage": "Vorteil",
       "disadvantage": "Angreifer erhalten Nachteil",
       "instead": "Stattdessen",
+      "materialResource": "+{0} Material",
       "math": {
         "ceil": "(aufgerundet)",
         "floor": "(abgerundet)",
@@ -2563,8 +2564,8 @@
       "hint": "Automatisch Beute dem aktiven/ausgewählten Charakter zuweisen nachdem eine Beute Karte gezogen wurde"
     },
     "applyLootRandomItem": {
-      "": "Zufälliger Gegenstand bei Beute",
-      "hint": "Automatisch einen zufälligen Gegenstand auswählen und anlegen für den aktiven/ausgewählten Charakter nachdem eine Zufälliger Gegenstand Beute Karte gezogen wurde."
+      "": "Zufälligen Gegenstand aus Beute anlegen",
+      "hint": "Den gezogenen zufälligen Gegenstand einer Zufälliger-Gegenstand-Beutekarte den Gegenständen des aktiven/ausgewählten Charakters hinzufügen und anlegen (oder verkaufen, falls bereits vorhanden). Wenn deaktiviert, wird der Gegenstand stattdessen für die Gruppe freigeschaltet."
     },
     "applyRetirement": {
       "": "Ruhestand Boni anwenden",
@@ -2793,7 +2794,17 @@
     "debug": {
       "": "Debug Einstellung/Werkzeuge",
       "logServerMessages": "Servermeldungen protokollieren",
-      "rightClick": "Rechtsklick immer erlauben"
+      "rightClick": "Rechtsklick immer erlauben",
+      "soundboardSounds": {
+        "": "Soundboard",
+        "hint": "Sounds des Soundboards. Einen Sound per ID und URL (z.B. https://example.com/sound.ogg) hinzufügen, die ID eines eingebauten Sounds ersetzt diesen. URL leer lassen oder einen eingebauten Sound entfernen, um ihn zu deaktivieren. Diese Einstellung sollte zwischen allen Clients synchronisiert werden, da Sounds über ihre Position in der Liste abgespielt werden.",
+        "id": "ID",
+        "src": "URL",
+        "play": "Sound abspielen",
+        "add": "Sound hinzufügen",
+        "remove": "Sound entfernen",
+        "restore": "Standard-Sound wiederherstellen"
+      }
     },
     "display": "Anzeige",
     "dragFigures": {
@@ -3253,6 +3264,7 @@
         "summon": "{3}x %game.condition.{2}% '{1}' von {0}",
         "summons": "{2}x %game.condition.{1}% alle {0} Beschwörungen"
       },
+      "addCustomSummon": "Eigene Beschwörung {1} ({2}) für {0} hinzufügen",
       "addGameCondition": "%game.condition.{0}% zum aktuellen Spiel hinzufügen",
       "addGlobalAchievement": "Füge globalen Erfolg '%data.globalAchievements.{0}%' hinzu",
       "addImmunity": {
@@ -3266,6 +3278,7 @@
         "summons": "%game.immunity.{1}% Immunität alle {0} Beschwörungen"
       },
       "addItem": "Gegenstand {1} (%data.edition.{2}%) für {0}",
+      "addLootCard": "Beutekarte {1} ({2}) {0} zuweisen",
       "addManualScenario": "Szenario #{0} {1} ({2}) freischalten",
       "addMarker": {
         "char": "%data.characterIconColored.{2}% {1} Markierung von {0}",
@@ -3298,6 +3311,7 @@
       "addSummon": "Beschwöre '{1}' von {0}",
       "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
       "addTreasures": "Schatz {1} (%data.edition.{0}%) hinzufügen",
+      "addUnlockedItem": "Gegenstand {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%) freischalten",
       "applyCondition": {
         "char": "%game.condition.{1}% anwenden auf {0}",
         "monster": "%game.condition.{2}% anwenden auf '{1}' von {0}",
@@ -3306,6 +3320,7 @@
         "objectiveContainer": "%game.condition.{2}% anwenden auf {1} von {0}",
         "summon": "%game.condition.{2}% anwenden auf '{1}' von {0}"
       },
+      "applyFavorSelection": "Auswahl der Gefälligkeiten anwenden",
       "applyHighlightAction": {
         "condition": "%game.condition.{0}%",
         "elementConsume": "Reiche {0} an",
@@ -3317,6 +3332,7 @@
         "switchType": "Tauschen von %game.monsterType.normal% und %game.monsterType.elite% Aufstellern"
       },
       "applyInteractiveActions": "Anwenden von {0} für Aufsteller {1} von {2}",
+      "applyResourceChange": "Ressourcenänderungen anwenden",
       "applyScenarioRule": "Szenario Regel anwenden",
       "battleGoals": {
         "deselect": "Kampfziel von {0} abwählen",
@@ -3340,7 +3356,16 @@
         "normal": "Angriff auf '%data.buildings.{1}%' ({0}) erfolgreich verteidigt",
         "wrecked": "Angriff zertrümmert '%data.buildings.{1}%' ({0})"
       },
+      "buildingTrade": "{1} gegen {2} bei %data.buildings.{0}% handeln",
       "buildings": {
+        "garden": {
+          "automationOff": "Garten-Automatisierung ausschalten",
+          "automationOn": "Garten-Automatisierung einschalten",
+          "flipHarvest": "Garten auf Ernteseite drehen",
+          "flipPlant": "Garten auf Pflanzseite drehen",
+          "harvest": "Garten ernten",
+          "plant": "%game.resource.{0}% im Garten pflanzen"
+        },
         "stables": {
           "pets": {
             "add": "Haustier %data.pets.{0}-{1}% zu Ställen hinzufügen",
@@ -3356,6 +3381,7 @@
         }
       },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
+      "cancelCampaign": "{0} Kampagne abbrechen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
       "challengeDeck": {
         "clear": "Gezogene Herausforderungen verwerfen",
@@ -3370,6 +3396,12 @@
       },
       "changeBuildingState": "Zustand von Gebäude '%data.buildings.{1}%' ({0}) zu %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Namen '{0}' für benutzerdefiniertes Szenario",
+      "changeEntityExtraActions": {
+        "char": "{1} von {0} entfernen",
+        "monster": "{2} von '{1}' von {0} entfernen",
+        "objectiveContainer": "{2} von {1} von {0} entfernen",
+        "summon": "{2} von '{1}' von {0} entfernen"
+      },
       "changeEntityHp": "TP {1} für Aufsteller {2} von {0}: {3}",
       "changeEntityMaxHp": "Max. TP {1} für Aufsteller von {0}: {3}",
       "changeHP": "TP {1} für {0}",
@@ -3384,12 +3416,19 @@
       "changeObjectiveMaxHp": "Max. TP {1} für Ziel {0}",
       "changeObjectivesHP": "HP {1} für alle {0}",
       "changeParty": "Wechsel zu Gruppe '{0}'",
+      "changeRetiredCharacterEnhancements": "Fertigkeitsverbesserungen von Charakter im Ruhestand {0} ändern",
       "changeSummonAttack": "Angriff {2} für Beschwörung '{1}' von {0}",
       "changeSummonHp": "TP {2} für Beschwörung '{1}' von {0}",
       "changeSummonMaxHp": "Max. TP {2} für Beschwörung '{1}' von {0}",
       "changeSummonMove": "Bewegung {2} für Beschwörung '{1}' von {0}",
       "changeSummonRange": "Reichweite {2} für Beschwörung '{1}' von {0}",
       "changeXP": "EP {1} für {0}",
+      "character": {
+        "cardFromDeck": "Karte '{1}' aus den Fertigkeitskarten von {0} entfernen",
+        "cardToDeck": "Karte '{1}' zu den Fertigkeitskarten von {0} hinzufügen",
+        "resetDeck": "Fertigkeitskarten von {0} zurücksetzen",
+        "undoLastCard": "Zuletzt gezogene Fertigkeitskarte von {0} zurücknehmen"
+      },
       "characterItemApply": {
         "consumed": "{0} verbraucht Gegenstand {1} \"{3}\"",
         "flipped": "{0} dreht Gegenstand {1} \"{3}\" um",
@@ -3455,6 +3494,7 @@
       },
       "enabledManualPlayerCount": "Manuelle Charakter Anzahl einschalten",
       "endAllTurns": "Alle Züge beenden",
+      "enhanceCard": "Karte {1} von {0} verbessern",
       "entities": {
         "addCharacterMarker": {
           "": "%data.characterIconColored.{0}% %data.character.{1}% Markierung auf Auswahl",
@@ -3517,6 +3557,36 @@
           "monsterEntity": "Ändere %game.monsterType.{0}% Aufsteller von %game.monsterType.{0}.{1}% auf %game.monsterType.{0}.{2}% für {3}",
           "objective": "Ändere Marker von %game.objectiveMarker.{0}% auf %game.objectiveMarker.{1}% für {2}",
           "objectiveEntity": "Ändere Marker von %game.objectiveMarker.{0}% auf %game.objectiveMarker.{1}% für {3} von {2}"
+        },
+        "changeExtraActions": {
+          "accept": {
+            "character": "Zusätzliche Aktion {0} für {1} annehmen",
+            "monsterEntity": "Zusätzliche Aktion {0} für '{2}' von {1} annehmen",
+            "objectiveEntity": "Zusätzliche Aktion {0} für {2} von {1} annehmen",
+            "summon": "Zusätzliche Aktion {0} für '{2}' von {1} annehmen"
+          },
+          "character": "Zusätzliche Aktionen {0} für {1}",
+          "decline": {
+            "character": "Zusätzliche Aktion {0} für {1} ablehnen",
+            "monsterEntity": "Zusätzliche Aktion {0} für '{2}' von {1} ablehnen",
+            "objectiveEntity": "Zusätzliche Aktion {0} für {2} von {1} ablehnen",
+            "summon": "Zusätzliche Aktion {0} für '{2}' von {1} ablehnen"
+          }
+        },
+        "changeExtraActionsPersistent": {
+          "accept": {
+            "character": "%game.card.persistent% Zusätzliche Aktion {0} für {1} annehmen",
+            "monsterEntity": "%game.card.persistent% Zusätzliche Aktion {0} für '{2}' von {1} annehmen",
+            "objectiveEntity": "%game.card.persistent% Zusätzliche Aktion {0} für {2} von {1} annehmen",
+            "summon": "%game.card.persistent% Zusätzliche Aktion {0} für '{2}' von {1} annehmen"
+          },
+          "character": "%game.card.persistent% Zusätzliche Aktionen {0} für {1}",
+          "decline": {
+            "character": "%game.card.persistent% Zusätzliche Aktion {0} für {1} ablehnen",
+            "monsterEntity": "%game.card.persistent% Zusätzliche Aktion {0} für '{2}' von {1} ablehnen",
+            "objectiveEntity": "%game.card.persistent% Zusätzliche Aktion {0} für {2} von {1} ablehnen",
+            "summon": "%game.card.persistent% Zusätzliche Aktion {0} für '{2}' von {1} ablehnen"
+          }
         },
         "changeHP": {
           "": "{0} %game.statusIcon:health% TP für Auswahl",
@@ -3707,6 +3777,12 @@
           "monsterEntity": "Monstertypen tauschen für Aufsteller '{1}' von {0}",
           "monsters": "Monstertypen tauschen für Aufsteller {1} von {0}"
         },
+        "triggerSpecialTagSlot": {
+          "character": "Feld von Spezialaktion {0} für {1} markieren",
+          "revert": {
+            "character": "Markierung von Feld der Spezialaktion {0} für {1} entfernen"
+          }
+        },
         "unsetAbsent": {
           "character": "{0} anwesend"
         },
@@ -3731,6 +3807,7 @@
       },
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
+      "eventDistribution": "Ereignis-Verteilung anwenden",
       "eventDraw": {
         "accept": "%game.events.type.{1}% Ereignis {2} abschließen",
         "cancel": "Ziehen von %game.events.type.{1}% Ereignis abbrechen",
@@ -3759,22 +3836,55 @@
         "reputation": "{0} Ansehen",
         "setConditionValue": "%game.condition.{0}% auf {1} für {2}"
       },
+      "events": {
+        "deck": {
+          "addEvent": "%game.events.type.{0}% Ereignis {1} zum Deck hinzufügen",
+          "changeSelection": "Ergebnis von %game.events.type.{0}% Ereignis {1} ändern",
+          "markDrawn": "%game.events.type.{0}% Ereignis {1} als gezogen markieren",
+          "removeDrawn": "%game.events.type.{0}% Ereignis {1} von den gezogenen Karten entfernen",
+          "removeEvent": "%game.events.type.{0}% Ereignis {1} aus dem Deck entfernen",
+          "reorder": "%game.events.type.{0}% Ereignis-Deck neu anordnen",
+          "reset": "%game.events.type.{0}% Ereignis-Deck zurücksetzen",
+          "shuffle": "%game.events.type.{0}% Ereignis-Deck mischen"
+        }
+      },
+      "favorKeepOff": "Gefälligkeiten nicht mehr für jedes Szenario beibehalten",
+      "favorKeepOn": "Gefälligkeiten für jedes Szenario beibehalten",
+      "filterItem": "Gegenstand {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%) aus verfügbaren Gegenständen entfernen",
       "finishConclusion": "Sektion #{0} {1} ({2}) abschließen",
       "finishScenario": {
         "battleGoal": "Kampfziele Harken für %data.character.{0}.{1}% auf {2} setzen",
         "close": "Szenario Zusammenfassung schließen",
-        "dialog": "Szenario Zusammenfassung von #{0} {1} ({2})",
+        "dialog": {
+          "": "Szenario Zusammenfassung von #{0} {1} ({2})",
+          "calendarSectionManual": "Wochen für Kalender-Sektion auf {1} setzen",
+          "challenge": "Abgeschlossene Herausforderung umschalten",
+          "challenges": "Zweite abgeschlossene Herausforderung umschalten",
+          "chooseLocation": "Ort {0} zum Freischalten wählen",
+          "chooseUnlockCharacter": "Charakter {0} zum Freischalten wählen",
+          "collectiveGold": "Gemeinsames Gold auf {1} setzen",
+          "collectiveResource": "Gemeinsame %game.resource.{0}% auf {2} setzen",
+          "item": "Belohnungsgegenstand {1} umschalten",
+          "overlayCustomText": "Eigener Text \"{0}\""
+        },
         "failure": "Szenario #{0} {1} ({2}) gescheitert",
         "linked": "Szenario #{0} {1} erfolgreich, weiter mit #{3} ({2})",
         "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen",
+        "removeCasual": "Entferne Szenario #{0} {1} ({2}) von abgeschlossenen Gelegenheits-Szenarien",
         "restart": "Gescheitertes Szenario #{0} {1} ({2}) neustarten",
-        "success": "Szenario #{0} {1} ({2}) erfolgreich"
+        "success": "Szenario #{0} {1} ({2}) erfolgreich",
+        "trial": "Prüfung für {0} umschalten"
       },
       "gameClock": {
         "automaticGameClockOut": "Spieltimer automatisch pausieren",
         "clockIn": "Spieltimer starten",
         "clockOut": "Spieltimer pausieren",
         "merge": "Spieltimer zusammenfügen"
+      },
+      "gh2eImbuement": {
+        "": "Monster-Durchtränkung aktivieren",
+        "advanced": "Erweiterte Monster-Durchtränkung aktivieren",
+        "disable": "Monster-Durchtränkung deaktivieren"
       },
       "hideScenarioRule": "Szenario Regel nicht mehr anzeigen",
       "importCharacter": "Charakter {0} von Datei importieren",
@@ -3811,14 +3921,16 @@
       "removeAllChars": "Alle Charaktere entfernen",
       "removeAllMonster": "Alle Monster entfernen",
       "removeAllObjectives": "Alle Ziele entfernen",
+      "removeAllUnlocks": "Alle freigeschalteten Charaktere entfernen",
       "removeBuilding": "Entferne Gebäude '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
-      "removeCharTreasure": "Entferne Schatz {1} von {2}",
+      "removeCharTreasure": "Entferne Schatz {0} von {2}",
       "removeCharacterRetaliate": "Entferne %game.action.retaliate% von {0}",
       "removeCharacterRetaliatePersistent": "Entferne %game.card.persistent% %game.action.retaliate% von {0}",
       "removeCharacterShield": "Entferne %game.action.shield% von {0}",
       "removeCharacterShieldPersistent": "Entferne %game.card.persistent% %game.action.shield% von {0}",
+      "removeConclusion": "Lösung %data.section:{1}% entfernen",
       "removeCondition": {
         "char": "%game.condition.{1}% von {0} entfernen",
         "monster": "%game.condition.{2}% von {1} von {0} entfernen",
@@ -3839,6 +3951,7 @@
         "summon": "{3}x %game.condition.{2}% von '{1}' von {0} entfernen",
         "summons": "{2}x %game.condition.{1}% von allen {0} Beschwörungen entfernen"
       },
+      "removeEnhancement": "Fertigkeitsverbesserung von Karte {1} von {0} entfernen",
       "removeEntityMarker": {
         "monster": "Entferne Markierung %game.mapMarker.{2}% für '{1}' von {0}",
         "objectiveContainer": "Entferne Markierung %game.mapMarker.{2}% für %game.objectiveMarker.{1}% von {0}"
@@ -3867,6 +3980,7 @@
         "objectiveContainer": "%game.card.persistent% %game.action.shield% für %game.objectiveMarker.{1}% von {0} entfernen",
         "summon": "%game.card.persistent% %game.action.shield% für '{1}' von {0} entfernen"
       },
+      "removeFilterItem": "Gegenstand {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%) wieder zu verfügbaren Gegenständen hinzufügen",
       "removeGameCondition": "%game.condition.{0}% vom aktuellen Spiel entfernen",
       "removeGlobalAchievement": "Entferne globalen Erfolg '%data.globalAchievements.{0}%'",
       "removeImmunity": {
@@ -3880,6 +3994,7 @@
         "summons": "%game.immunity.{1}% Immunität von allen {0} Beschwörungen entfernen"
       },
       "removeItem": "Gegenstand {1} (%data.edition.{2}%) von {0} entfernen",
+      "removeLootCard": "Beutekarte {1} ({2}) von {0} entfernen",
       "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschalteten entfernen",
       "removeMarker": {
         "char": "Markierung %data.characterIconColored.{2}% {1} von {0} entfernen",
@@ -3905,6 +4020,7 @@
       "removeSpecialTagsSummon": "Entferne Spezialaktionen {1} von {2} von {0}",
       "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
       "removeTreasures": "Schatz {1} (%data.edition.{0}%) entfernen",
+      "removeUnlockedItem": "Freigeschalteten Gegenstand {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%) entfernen",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
       "repairBuilding": "'%data.buildings.{1}%' ({0}) repariert",
@@ -3934,6 +4050,7 @@
         "summon": "%game.condition.{2}% auf {3} für '{1}' von {0}"
       },
       "setCustomScenario": "Benutzerdefiniertes Szenario",
+      "setDormant": "{0} ruhend setzen",
       "setDrawExtraAbility": "Zusätzlich Aufdecken für {0} aktivieren",
       "setEdition": "Edition {0} setzen",
       "setEditionAll": "Alle Editionen auswählen",
@@ -3964,16 +4081,21 @@
       },
       "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
+      "setExtraPerks": "Zusätzliche Verbesserungen {1} für {0}",
       "setFactionReputation": "%data.gh2eFaction:{0}% auf {1}",
       "setGold": "Gold {1} für {0}",
       "setIdentity": "Setze Form auf %data.character.{3}.{1}.{2}% für {0}",
       "setInitiative": "Initiative {1} für {0}",
+      "setItems": "Gegenstandsnotizen \"{1}\" für {0}",
       "setLevel": "Level {1} für {0}",
+      "setLootCardSection": "Beutekarten-Sektion %data.section:{0}% lesen",
       "setNotes": "Notizen \"{1}\" für {0}",
       "setObjectiveEntityMarker": "Setze Markierung für %game.objectiveMarker.{1}% von {0} auf %game.mapMarker.{2}%",
       "setObjectiveExhausted": "Ziel {0} erschöpft",
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
+      "setPartyImbuement": "Durchtränkung der Gruppe auf {0} setzen",
       "setPQ": "Persönliche Quest {1} für {0}",
+      "setPQAutotrack": "Automatische Fortschrittsverfolgung der Persönlichen Quest für {0} einschalten",
       "setPQProgress": "Setzte Persönlichen Quest Zähler {1} auf {2} für {0}",
       "setPartyAchievements": "Gruppenerfolge",
       "setPartyDonations": "Spenden auf {0}",
@@ -4001,6 +4123,7 @@
       "setScenarioLevel": "Szenario Level {0}",
       "setSummonState": "Beschwörung {1} {2} für {0}",
       "setTitle": "Titel '{1}' für {0}",
+      "setTrial": "Prüfung {1} für {0}",
       "setXP": "EP {1} für {0}",
       "shareItem": "{0} teilt \"%data.items.{3}-{2}%\" (Gegenstand {2}) mit {1}",
       "shuffleAbilityDeck": "Fertigkeitskarten mischen für {0}",
@@ -4010,8 +4133,10 @@
       "summonActive": "Beschwörung '{1}' von {0} aktiv",
       "summonDead": "Töte Beschwörung '{1}' von {0}",
       "summonInactive": "Beschwörung '{1}' von {0} nicht aktiv",
+      "toggleKeepRevealed": "Aufgedeckt lassen von Fertigkeitskarte {1} von {0} umschalten",
       "toggleTypeAll": "Monstertypen tauschen für alle Aufsteller von {0}",
       "unequipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} ablegen",
+      "unlockAllCharacters": "Alle Charaktere von {0} freischalten",
       "unlockChar": "{0} freischalten",
       "unlockPersonalQuest": "Persönliche Quest %data.personalQuest.{0}.{1}% freischalten",
       "unsetAbsent": "{0} anwesend",
@@ -4019,10 +4144,13 @@
       "unsetAllied": "{0} von Fraktion entfernen",
       "unsetAlly": "{0} als Gegner",
       "unsetCustomScenario": "Benutzerdefiniertes Szenario deaktivieren",
+      "unsetDormant": "{0} wieder aktiv setzen",
       "unsetDrawExtraAbility": "Zusätzlich Aufdecken für {0} deaktivieren",
       "unsetEntityActive": "Aufsteller {1} von {0} inaktiv",
       "unsetExhausted": "{0} nicht erschöpft",
+      "unsetLootCardSection": "Beutekarten-Sektion %data.section:{0}% entfernen",
       "unsetObjectiveExhausted": "Ziel {0} nicht erschöpft",
+      "unsetPQAutotrack": "Automatische Fortschrittsverfolgung der Persönlichen Quest für {0} ausschalten",
       "unsetRetired": "{0} zurück aus dem Ruhestand",
       "unsetTitle": "Titel '{1}' von {0} entfernen",
       "updateAttackModifierDeck": {
@@ -4030,6 +4158,10 @@
         "addCard": "Karte {1} zu {0} AM Deck hinzufügen",
         "addCardShuffled": "Neue {1} Karte in {0} AM Deck mischen",
         "addCurse": "Fluch zu {0} AM Deck zufügen",
+        "addEmpower": "Verstärkung zu {0} AM Deck zufügen",
+        "addEnfeeble": "Schwächung zu {0} AM Deck zufügen",
+        "addFactionModifier": "Fraktionskarte {1} zu {0} AM Deck zufügen",
+        "addMinus1": "-1 Karte zu {0} AM Deck zufügen",
         "amDeckHide": "{0} AM Deck ausblenden",
         "amDeckShow": "{0} AM Deck einblenden",
         "discardFromActive": "Aktive Karte in {0} AM Deck ablegen",
@@ -4040,11 +4172,17 @@
         "removeCard": "Karte {1} von {0} AM Deck entfernen",
         "removeCurse": "Fluch von {0} AM Deck entfernen",
         "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Deck",
+        "removeEmpower": "Verstärkung von {0} AM Deck entfernen",
+        "removeEnfeeble": "Schwächung von {0} AM Deck entfernen",
+        "removeFactionModifier": "Fraktionskarte {1} von {0} AM Deck entfernen",
+        "removeMinus1": "-1 Karte von {0} AM Deck entfernen",
         "reorder": "{0} AM Deck anordnen",
+        "restoreCard": "Karte {1} von {0} AM Deck wiederherstellen",
         "restoreDefault": "Standard {0} AM Deck wiederherstellen",
         "restoreToActive": "Aktive Karte für {0} AM Deck wiederherstellen",
         "shuffle": "{0} AM Deck mischen",
-        "shuffleUpcoming": "Nicht gezogene Karten von {0} AM Deck mischen"
+        "shuffleUpcoming": "Nicht gezogene Karten von {0} AM Deck mischen",
+        "toggleKeepRevealed": "Aufgedeckt lassen von Karte {1} von {0} AM Deck umschalten"
       },
       "updateBonusAdjustment": "Anpassung Boni Szenariostufe {0}",
       "updateElement": "Element {0} {1}",
@@ -4054,6 +4192,7 @@
       "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
       "updatePartyAchievements": "Gruppenerfolg auf {0}",
       "updateStandee": "Ändere {1} Aufsteller Nummer {2} zu {3} für {0}",
+      "updateUnlockedItemCount": "Verfügbare Anzahl von Gegenstand {1} \"%data.items.{0}-{1}%\" (%data.edition.{0}%) ändern",
       "upgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} aufrüsten"
     },
     "loadMore": "Mehr anzeigen",

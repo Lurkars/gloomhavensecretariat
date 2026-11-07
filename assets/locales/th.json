@@ -3217,7 +3217,7 @@
       "removeBuilding": "เอาอาคาร '%data.buildings.{1}%' ({0}) ออก",
       "removeCampaignSticker": "เอาสติกเกอร์แคมเปญ {0} ออก",
       "removeChar": "เอาตัวละคร {0} ออก",
-      "removeCharTreasure": "เอาสมบัติ {1} ออกจาก {2}",
+      "removeCharTreasure": "เอาสมบัติ {0} ออกจาก {2}",
       "removeCharacterRetaliate": "เอา %game.action.retaliate% ออกจาก {0}",
       "removeCharacterRetaliatePersistent": "เอา %game.card.persistent% %game.action.retaliate% ออกจาก {0}",
       "removeCharacterShield": "เอา %game.action.shield% ออกจาก {0}",

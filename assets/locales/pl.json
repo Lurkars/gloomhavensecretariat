@@ -4,12 +4,21 @@
     "forceUpdate": "Wymuś aktualizację",
     "ip": "Gloomhaven i wszystkie powiązane własności, grafiki i teksty są własnością {0}.",
     "license": "Licencjonowane na podstawie {0}.",
-    "sourceCode": "Kod źródłowy",
-    "support": "Wesprzyj twórcę",
+    "sourceCode": {
+      "": "Kod źródłowy",
+      "author": "Oryginalny kod źródłowy"
+    },
+    "support": {
+      "": "Wesprzyj twórcę",
+      "author": "Wesprzyj pierwotnego twórcę"
+    },
     "version": {
       "latest": "Najnowsza",
       "unknown": "Nie udało się pobrać najnowszej wersji",
-      "update": "Najnowsza wersja <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      "update": {
+        "": "Najnowsza wersja <a target=\"_blank\" href=\"{1}\">{0}</a>",
+        "apk": "Pobierz plik APK na Androida <a target=\"_blank\" href=\"{0}\">{1}</a>"
+      }
     }
   },
   "and": "i",
@@ -209,7 +218,19 @@
       },
       "personalQuest": {
         "": "Zadanie osobiste",
+        "autotrack": {
+          "disabled": "Automatyczne śledzenie postępów jest wyłączone dla tego zadania osobistego. Kliknij, aby włączyć śledzenie wymagań.",
+          "enabled": "Automatyczne śledzenie postępów jest włączone dla tego osobistego zadania. Kliknij, aby je wyłączyć i ponownie ręcznie śledzić postępy."
+        },
         "counter": "Licznik",
+        "draw": "Dobierz kartę zadania osobistego",
+        "drawDialog": {
+          "": "Dobierz zadanie osobiste",
+          "choose": "Wybierz wybraną kartę",
+          "empty": "W tej chwili nie ma możliwości dobrania żadnych kart zadań osobistych.",
+          "redraw": "Dobierz ponownie",
+          "show": "Pokaż całą kartę"
+        },
         "openEnvelope": {
           "": "Otwórz kopertę %game.fhIcon:envelope% {0}",
           "alt": "Otwórz kopertę %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
@@ -222,8 +243,16 @@
         },
         "unlockCharacter": {
           "": "Otwórz pudełko %game.characterIcon.{0}%",
-          "itemDesign": "Zyskaj projekt \"%data.items.{1}-{0}%\" (Przedmiot {0})",
-          "randomScenario": "Odblokuj „{1}” %data.scenarioNumber:{0}%"
+          "itemDesign": {
+            "": "Uzyskaj projekt „%data.items.{1}-{0}%” (element {0})",
+            "gold": "Zniszczony projekt przedmiotu, zamiast tego zyskaj 15 sztuk wspólnego złota",
+            "info": "Zdobywasz jeden losowy schemat przedmiotu."
+          },
+          "randomScenario": {
+            "": "Odblokuj „{1}” %data.scenarioNumber:{0}%",
+            "gold": "Talia losowych scenariuszy została wyczerpana. Zamiast tego zdobądźcie 15 sztuk wspólnego złota.",
+            "info": "Zdobywasz jeden losowy scenariusz poboczny."
+          }
         },
         "unlockPQ": "Odblokuj zadanie osobiste {0}"
       },
@@ -404,9 +433,12 @@
       "addEnhancement": "Dodaj slot ulepszenia",
       "addSubAction": "Dodaj podakcję",
       "enhancements": "Ulepszenia",
+      "multiTarget": "Wiele celów",
+      "noDivider": "Bez separatora",
       "remove": "Usuń akcję",
       "removeEnhancement": "Usuń slot ulepszenia",
       "removeSubAction": "Usuń podakcję",
+      "restoreDefaults": "Przywróć domyślne działania",
       "small": "Mniejsza",
       "subActions": "Podakcje",
       "summon": {
@@ -505,6 +537,39 @@
         },
         "levelSelect": "Wybierz poziom"
       }
+    }
+  },
+  "entities": {
+    "event": {
+      "entities": "Menu jednostek",
+      "menu": "Menu efektów zdarzeń"
+    },
+    "filter": {
+      "all": "Wszystko",
+      "allies": "Sojusznicy",
+      "character": "Postać",
+      "enemies": "Wrogowie",
+      "monster": "Potwór",
+      "objectives": "Cele",
+      "select": {
+        "all": "Wybierz wszystko",
+        "none": "Nie wybieraj niczego"
+      }
+    },
+    "migrate": {
+      "new": "Powrót do menu nowych podmiotów!",
+      "newEvent": "Powrót do nowego menu efektów wydarzeń!",
+      "oldEvent": "Powrót do starego menu efektów wydarzeń"
+    },
+    "title": {
+      "character": "{0}",
+      "monster": "{0}",
+      "summon": "Przywołaj {1} z {0}"
+    },
+    "trap": {
+      "apply": "Zastosuj",
+      "dialog": "Wybierz cel dla efektu pułapki",
+      "select": "Wybierz cel"
     }
   },
   "errata": "Errata",
@@ -760,6 +825,9 @@
         "": "Regeneracja",
         "hint": "%game.conditionIcon.regenerate% Regeneracja: %game.action.heal:1% na początku tury. Usuwa się po otrzymaniu obrażeń."
       },
+      "roundExpire": {
+        "hint": "Usuń stan na koniec rundy"
+      },
       "rupture": {
         "": "Pęknięcie",
         "hint": "%game.conditionIcon.rupture% Pęknięcie: Przy ruchu otrzymujesz %game.damage:1%. Usuń po leczeniu."
@@ -867,6 +935,7 @@
         "reputationLT": "Reputacja < {0}",
         "season": "%party.campaign.sheet.{0}%",
         "seasonLT": "Jeśli %party.campaign.sheet.{0}% jest oddalone o {1} tygodni lub mniej",
+        "startingGroup": "Jeśli {0}",
         "traits": "%game.trait% {0}",
         "traitsAll": "%game.trait% {0}"
       },
@@ -880,11 +949,20 @@
         "removeCard": "Usuń z nadchodzących kart",
         "removeDrawn": "Usuń z dobranych kart",
         "removeSelection": "Resetuj wynik",
+        "reset": "Zresetuj talię",
         "resolved": "Pokaż rozwiązane",
         "setup": "Ustaw talie wydarzeń",
         "show": "Pokaż pełną kartę wydarzenia",
         "shuffle": "Tasuj talię",
         "upcoming": "W talii ({0})"
+      },
+      "distribution": {
+        "": "Rozdziel efekty wydarzenia",
+        "apply": "Zastosuj",
+        "consumeItem": "Zużyj przedmiot",
+        "loseItem": "Strać przedmiot",
+        "receiveItem": "Otrzymaj przedmiot",
+        "spend": "Zapłać"
       },
       "effects": {
         "additionally": "Dodatkowo",
@@ -1016,6 +1094,7 @@
           "gh2e": "Każdy bohater rozpoczyna następny scenariusz z %game.damage:{0}%."
         },
         "scenarioSingleMinus1": "Jeden bohater rozpoczyna scenariusz z %game.card.minus1% x{0}.",
+        "section": "Przeczytaj %game.section:{0}%",
         "sectionOrWeek": "Dodaj %game.section:{0}% LUB {1} do kalendarza za tydzień.",
         "sectionOrWeeks": "Dodaj %game.section:{0}% LUB {1} do kalendarza za %game.number.{2}% tygodni.",
         "sectionWeek": "Dodaj %game.section:{0}% do kalendarza za tydzień.",
@@ -1111,9 +1190,12 @@
         "brewed": "{2} uwarzył %data.items.{1}-{0}% %game.itemFh.{0}%",
         "brewedOther": "{2} uwarzył %data.items.{1}-{0}% %game.itemFh.{0}% dla {3}",
         "disabled": "Nie można warzyć mikstur - najpierw odbuduj '%data.buildings.alchemist%' (35)",
+        "grid": "Pokaż planszę warzenia",
         "item": "%data.items.{1}-{0}% %game.itemFh.{0}%",
         "noChar": "Każda postać posiada już tę miksturę!",
-        "selectCharacter": "Wybierz postać, dla której warzyć:"
+        "selectCharacter": "Wybierz postać, dla której warzyć:",
+        "special3": "2 lub więcej takich samych",
+        "table": "Pokaż tabelę warzenia"
       },
       "buy": "Kup '{0}' za {1} złota",
       "character": {
@@ -1141,10 +1223,20 @@
       },
       "remove": "Usuń '{0}'",
       "sell": "Sprzedaj '{0}' za {1} złota",
+      "share": {
+        "": "Udostępnij '{0}'",
+        "apply": "Udostępnij przedmiot",
+        "select": "Wybierz postać"
+      },
       "shop": {
         "": "Karty przedmiotów",
+        "buy": "Kup przemioty",
         "buyingDisabled": "Nie można kupować przedmiotów - najpierw odbuduj '%data.buildings.trading-post%' (37)",
-        "character": "Sklep z przedmiotami dla %game.characterIconColored.{0}% {1}",
+        "character": {
+          "": "Sklep z przedmiotami dla %game.characterIconColored.{0}% {1}",
+          "buy": "Kup przedmioty za %game.characterIconColored.{0}% {1}"
+        },
+        "craft": "Przedmioty rzemieślnicze",
         "craftingDisabled": "Nie można wytwarzać przedmiotów - najpierw odbuduj '%data.buildings.craftsman%' (34)"
       },
       "unlock": "Odblokuj przedmiot",
@@ -1244,22 +1336,37 @@
           "partyAchievement": "Osiągnięcie drużyny: „%data.partyAchievements.{0}%”",
           "randomItem": {
             "": "Zyskaj losowy przedmiot (Przedmioty {0})",
+            "alt": "Brak losowych przedmiotów",
+            "altFh": "Brak losowych przedmiotów",
+            "altGh2e": "Brak losowych przedmiotów",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
             "": "Losowy schemat przedmiotu",
+            "alt": "Brak losowych projektów przedmiotów",
+            "altFh": "Brak losowych projektów przedmiotów, zyskaj +1 do inspiracji",
+            "altGh2e": "Brak losowych projektów przedmiotów, zdobądź 15 sztuk zbiorowego złota (ręcznie)",
             "result": ": {1} schemat ({0})"
           },
           "randomItemDesign": {
             "": "Losowy projekt przedmiotu",
+            "alt": "Brak losowych schematów przedmiotów",
+            "altFh": "Brak losowych projektów przedmiotów, zyskaj +1 do inspiracji",
+            "altGh2e": "Brak losowych projektów przedmiotów, zdobądź 15 sztuk wspólnego złota (ręcznie)",
             "result": ": {1} projekt ({0})"
           },
           "randomScenario": {
             "": "Losowy scenariusz poboczny",
+            "alt": "Nie ma żadnych losowych scenariuszy pobocznych",
+            "altFh": "Nie ma żadnych losowych scenariuszy pobocznych",
+            "altGh2e": "Brak losowych scenariuszy pobocznych, zdobądź 15 sztuk zbiorowego złota (ręcznie)",
             "result": ": {1} %data.scenarioNumber:{0}%"
           },
           "randomScenarioFh": {
             "": "Losowy scenariusz poboczny",
+            "alt": "Nie ma żadnych losowych scenariuszy pobocznych",
+            "altFh": "Brak losowych scenariuszy pobocznych, zyskaj +1 inspiracji",
+            "altGh2e": "Brak losowych scenariuszy pobocznych, zdobądź 15 sztuk zbiorowego złota (ręcznie)",
             "result": ": Otwórz %data.section:{0}%, odblokowuje {2}"
           },
           "resource": "zyskaj {0}",
@@ -1268,6 +1375,12 @@
       }
     },
     "maxHealth": "Maksymalne punkty życia",
+    "personalQuests": {
+      "setup": {
+        "": "Konfiguracja zadań osobistych",
+        "empty": "W tej edycji nie ma zadań osobistych."
+      }
+    },
     "solo": "Solo",
     "specialTarget": {
       "ability": "%game.target% celem, cel umiejętności: %game.actionText.{0}%",
@@ -1449,6 +1562,14 @@
       "items": "Odblokowane przedmioty",
       "manage": "Globalne zarządzanie kampanią",
       "map": "Mapa",
+      "personalQuests": {
+        "fulfilled": "Wykonane przez %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "lock": "Cofnij ręczne odblokowanie",
+        "locked": "Zablokowany",
+        "picked": "Wybrano przez %game.characterIconColored.{1}% %data.character.{0}.{1}%",
+        "unlock": "Odblokuj ręcznie",
+        "unlocked": "Odblokowany"
+      },
       "players": {
         "": "Imiona graczy",
         "add": "Dodaj gracza"
@@ -1651,7 +1772,8 @@
         "special": {
           "city-event": "Dodaj C-{0} do talii wydarzeń miejskich, gdy masz co najmniej {1} reputacji u jednej frakcji."
         }
-      }
+      },
+      "faction": "%game.gh2eFaction:{0}% reputacji"
     },
     "sheet": "Arkusz drużyny",
     "shop": {
@@ -1731,7 +1853,11 @@
       "initiativeRoundConfirm": "Wszystkie inicjatywy ustawione. Rozpocząć następną rundę?",
       "missingInitiative": "Inicjatywa musi być ustawiona dla wszystkich figurek!"
     },
-    "next": "Następna runda"
+    "next": "Następna runda",
+    "resets": {
+      "": "Zresetuj rundy",
+      "hint": "Przesuwa licznik rund. Wartość dodatnia dodaje rundy, wartość ujemna odejmuje. Ustaw na 0, aby usunąć."
+    }
   },
   "scenario": {
     "": "Scenariusz",
@@ -1755,7 +1881,8 @@
           "hint": "Ten scenariusz jest odblokowywany przez sekcję kalendarza."
         },
         "exclusive": {
-          "": ""
+          "": "Ekskluzywny",
+          "hint": "Ta ścieżka scenariusza jest wyłączna, więc można wybrać tylko jedną ścieżkę, a pozostałe są zablokowane."
         },
         "force-linked": {
           "hint": "Ten scenariusz jest powiązany i musi zostać rozegrany bezpośrednio po ukończeniu poprzedniego."
@@ -3328,7 +3455,7 @@
       "removeBuilding": "Usuń budynek '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Usuń naklejkę kampanii {0}",
       "removeChar": "Usuń postać {0}",
-      "removeCharTreasure": "Usuń skarb {1} dla {2}",
+      "removeCharTreasure": "Usuń skarb {0} dla {2}",
       "removeCharacterRetaliate": "Usuń %game.action.retaliate% dla {0}",
       "removeCharacterRetaliatePersistent": "Usuń %game.card.persistent% %game.action.retaliate% dla {0}",
       "removeCharacterShield": "Usuń %game.action.shield% dla {0}",
