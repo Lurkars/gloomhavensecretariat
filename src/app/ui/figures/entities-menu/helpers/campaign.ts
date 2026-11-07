@@ -1,10 +1,8 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
-import { ItemData } from 'src/app/game/model/data/ItemData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
-import { EventRandomItemDialogComponent } from 'src/app/ui/figures/entities-menu/random-item/random-item-dialog';
+import { openEventRandomItemDialog } from 'src/app/ui/figures/entities-menu/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from 'src/app/ui/figures/entities-menu/random-scenario/random-scenario-dialog';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
@@ -74,34 +72,7 @@ export class CampaignHelper {
   drawRandomItem(blueprint: boolean = false) {
     const itemData = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), blueprint);
     if (itemData || blueprint) {
-      this.component.dialog
-        .open(EventRandomItemDialogComponent, {
-          panelClass: ['dialog'],
-          data: { item: itemData, blueprint: blueprint }
-        })
-        .closed.subscribe({
-          next: (result: unknown) => {
-            if (result) {
-              if (result == true) {
-                if (gameManager.fhRules()) {
-                  gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
-                  gameManager.game.party.inspiration += 1;
-                  gameManager.stateManager.after();
-                }
-              } else {
-                const itemData = result as ItemData;
-                gameManager.stateManager.before(
-                  'eventEffect.drawRandomItem' + (blueprint ? 'Blueprint' : ''),
-                  itemData.id,
-                  itemData.edition,
-                  itemData.name
-                );
-                gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
-                gameManager.stateManager.after();
-              }
-            }
-          }
-        });
+      openEventRandomItemDialog(this.component.dialog, itemData, blueprint);
     }
   }
 

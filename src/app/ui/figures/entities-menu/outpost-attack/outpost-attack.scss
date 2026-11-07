@@ -322,6 +322,24 @@
     min-width: calc(var(--ghs-unit) * 55 * var(--ghs-dialog-factor));
   }
 
+  .resources {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    .resource {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      cursor: pointer;
+
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+
   .menu {
     display: flex;
     flex-wrap: wrap;

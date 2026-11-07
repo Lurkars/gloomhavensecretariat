@@ -11,7 +11,7 @@ import { fullLootDeck, Loot, LootType } from 'src/app/game/model/data/Loot';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { LootApplyDialogComponent } from 'src/app/ui/figures/loot/loot-apply-dialog';
-import { LootRandomItemDialogComponent } from 'src/app/ui/figures/loot/random-item/random-item-dialog';
+import { openLootRandomItemDialog } from 'src/app/ui/figures/loot/random-item/random-item-dialog';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { CardRevealDirective } from 'src/app/ui/helper/CardReveal';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -224,59 +224,13 @@ export class LootComponent implements OnInit, OnChanges {
                     result = gameManager.lootManager.applyLoot(this.loot, character, this.index());
                   }
                   if (result) {
-                    this.dialog
-                      .open(LootRandomItemDialogComponent, {
-                        panelClass: ['dialog'],
-                        data: { item: result, character: character }
-                      })
-                      .closed.subscribe({
-                        next: (result) => {
-                          if (result) {
-                            const item = result as ItemData;
-                            gameManager.stateManager.before(
-                              'lootRandomItem',
-                              item.id,
-                              item.edition,
-                              item.name,
-                              gameManager.characterManager.characterName(character, true, true)
-                            );
-                            const itemIdentifier: Identifier = new Identifier(item.id, item.edition);
-                            gameManager.itemManager.addItemCount(item);
-                            const indexValue = this.index();
-                            if (!character.lootCards.includes(indexValue)) {
-                              character.lootCards.push(indexValue);
-                              character.lootCards.sort((a, b) => a - b);
-                            }
-                            if (
-                              character.progress.items.find(
-                                (existing) => existing.name === '' + item.id && existing.edition === item.edition
-                              ) !== undefined
-                            ) {
-                              character.progress.gold += gameManager.itemManager.itemSellValue(item);
-                            } else {
-                              character.progress.items.push(itemIdentifier);
-                              character.progress.equippedItems.push(
-                                new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, 'loot-random-item')
-                              );
-                            }
-
-                            if (randomItemIdentifier && charBefore instanceof Character) {
-                              charBefore.lootCards = charBefore.lootCards.filter((index) => index !== this.index());
-                              charBefore.progress.items = charBefore.progress.items.filter(
-                                (value) =>
-                                  randomItemIdentifier &&
-                                  (value.edition !== randomItemIdentifier.edition || value.name !== randomItemIdentifier.name)
-                              );
-                              charBefore.progress.equippedItems = charBefore.progress.equippedItems.filter(
-                                (value) => value.marker !== 'loot-random-item'
-                              );
-                            }
-                            gameManager.stateManager.after();
-                          } else {
-                            character.lootCards = character.lootCards.filter((index) => index !== this.index());
-                          }
-                        }
-                      });
+                    openLootRandomItemDialog(
+                      this.dialog,
+                      result,
+                      character,
+                      this.index(),
+                      randomItemIdentifier && charBefore instanceof Character ? charBefore : undefined
+                    );
                   }
                 }
               }

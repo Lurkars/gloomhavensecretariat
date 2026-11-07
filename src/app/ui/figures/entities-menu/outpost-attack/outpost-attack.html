@@ -277,6 +277,17 @@
     <ghs-buildings-list [buildings]="allBuildings" [short]="true" [invert]="true"></ghs-buildings-list>
   }
 
+  @if (resources.length) {
+    <div class="resources">
+      @for (resource of resources; track resource) {
+        <label class="resource" [ngClass]="{ disabled: !resource.enabled }">
+          <input type="checkbox" [(ngModel)]="resource.enabled" />
+          <ghs-event-card-effect [effect]="resource.effect" [light]="true" [selected]="true"></ghs-event-card-effect>
+        </label>
+      }
+    </div>
+  }
+
   <div class="menu">
     <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
     @if (+attack.targetNumber > 0 && attacks < buildings.length) {

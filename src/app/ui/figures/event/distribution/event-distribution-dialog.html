@@ -6,6 +6,12 @@
     <span [ghs-label]="'game.events.distribution'"></span>
   </span>
 
+  <div class="distribution-effects">
+    @for (effect of summedEffects; track $index) {
+      <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
+    }
+  </div>
+
   @if (receiveEntries.length > 0) {
     <div class="distribution-section">
       <span class="section-title" [ghs-label]="'game.events.distribution.receive'"></span>
@@ -13,6 +19,7 @@
         mode="receive"
         [entries]="receiveEntries"
         [globalTotal]="receiveGlobalTotal"
+        [showParty]="settingsManager.settings.fhShareResources"
         [showHeader]="true"
         [ignoreAbsent]="true"
         [dark]="true"

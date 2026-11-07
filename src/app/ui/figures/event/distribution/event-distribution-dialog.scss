@@ -20,6 +20,13 @@
     margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
   }
 
+  .distribution-effects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
   .distribution-section {
     display: flex;
     flex-direction: column;

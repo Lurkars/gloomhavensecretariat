@@ -866,6 +866,7 @@
       "advantage": "Advantage",
       "disadvantage": "Attackers gain Disadvantage",
       "instead": "Instead",
+      "materialResource": "+{0} material resource",
       "math": {
         "ceil": "(rounded up)",
         "floor": "(rounded down)",
@@ -2571,8 +2572,8 @@
       "hint": "Automatically add Loot after card drawn to active/chosen character"
     },
     "applyLootRandomItem": {
-      "": "Draw Random Item on Loot",
-      "hint": "Automatically draw and equip a new random item on random item loot to active/chosen character."
+      "": "Equip Random Item from Loot",
+      "hint": "Add the drawn random item from a random item loot card to the items of the active/chosen character and equip it (or sell it, if already owned). If disabled, the item is unlocked for the party instead."
     },
     "applyRetirement": {
       "": "Apply Retirement Bonuses",
@@ -2801,7 +2802,17 @@
     "debug": {
       "": "Debug Settings/Tools",
       "logServerMessages": "Log Server Messages",
-      "rightClick": "Always enable Right-Click"
+      "rightClick": "Always enable Right-Click",
+      "soundboardSounds": {
+        "": "Soundboard",
+        "hint": "Sounds of the soundboard. Add a sound by id and URL (e.g. https://example.com/sound.ogg), using the id of a built-in sound replaces it. Leave the URL empty or remove a built-in sound to disable it. Sync this setting across clients, as sounds are played by their position in the list.",
+        "id": "Id",
+        "src": "URL",
+        "play": "Play sound",
+        "add": "Add sound",
+        "remove": "Remove sound",
+        "restore": "Restore default sound"
+      }
     },
     "display": "Display",
     "dragFigures": {

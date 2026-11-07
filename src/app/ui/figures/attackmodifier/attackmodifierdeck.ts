@@ -4,6 +4,7 @@ import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnI
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { GameState } from 'src/app/game/model/Game';
@@ -315,7 +316,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
               .slice(this.deck.state === 'disadvantage' ? this.deck.lastVisible : this.deck.current, this.deck.current + 1)
               .some((am) => am.type === AttackModifierType.null)
           ) {
-            new Audio('assets/media/null.ogg').play();
+            soundboardManager.play('null');
           }
         }
         this.cdr.markForCheck();

@@ -1,5 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -145,7 +146,7 @@ export class CharacterHelper {
       }
 
       if (gameManager.lootManager.easter && character.exhausted) {
-        new Audio('assets/media/2h.ogg').play();
+        soundboardManager.play('2h');
       }
     }
   }

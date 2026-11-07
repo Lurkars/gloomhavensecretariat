@@ -34,6 +34,20 @@ export const CollectiveDistributionEffects: EventCardEffectType[] = [
   EventCardEffectType.loseCollectiveResourceType
 ];
 
+// effects with an amount as first value, followed by the category (if any)
+const SummableEffects: EventCardEffectType[] = [
+  EventCardEffectType.collectiveGold,
+  EventCardEffectType.collectiveGoldAdditional,
+  EventCardEffectType.collectiveGoldOther,
+  EventCardEffectType.collectiveResource,
+  EventCardEffectType.collectiveResourceType,
+  EventCardEffectType.loseCollectiveExperience,
+  EventCardEffectType.loseCollectiveGold,
+  EventCardEffectType.loseCollectiveResource,
+  EventCardEffectType.loseCollectiveResourceAny,
+  EventCardEffectType.loseCollectiveResourceType
+];
+
 export interface ItemReceiveEntry {
   item: ItemData;
   count: number;
@@ -62,6 +76,8 @@ export class EventDistributionDialogComponent {
   dialogRef = inject(DialogRef);
   private dialog = inject(Dialog);
   effects: EventCardEffect[] = inject(DIALOG_DATA).effects;
+  // shown on top, amounts of the same effect and category added up
+  summedEffects: EventCardEffect[] = [];
 
   gameManager = gameManager;
 
@@ -77,6 +93,7 @@ export class EventDistributionDialogComponent {
 
   characters: Character[] = [];
   private receiveCharacterValues: Partial<Record<string, number>>[] = [];
+  private receivePartyValues: Partial<Record<string, number>> = {};
   private spendCharacterValues: Partial<Record<string, number>>[] = [];
   private spendPartyValues: Partial<Record<string, number>> = {};
 
@@ -87,12 +104,34 @@ export class EventDistributionDialogComponent {
     this.receiveCharacterValues = this.characters.map(() => ({}));
     this.spendCharacterValues = this.characters.map(() => ({}));
     this.buildEntries();
+    this.sumEffects();
   }
 
   private getResourceTypesForCategory(category: string): LootType[] {
     if (category === 'material_resources' || category === 'material-resource') return materialResourceLootTypes;
     if (category === 'herb_resources' || category === 'herb-resource') return herbResourceLootTypes;
     return resourceLootTypes;
+  }
+
+  private sumEffects(): void {
+    for (const effect of this.effects) {
+      const existing = SummableEffects.includes(effect.type)
+        ? this.summedEffects.find((other) => other.type === effect.type && other.values.slice(1).join() === effect.values.slice(1).join())
+        : undefined;
+      if (existing) {
+        existing.values[0] = +existing.values[0] + +effect.values[0];
+      } else {
+        this.summedEffects.push(Object.assign(new EventCardEffect(effect.type), effect, { values: [...effect.values] }));
+      }
+    }
+    this.summedEffects.sort((a, b) => {
+      if (a.type !== b.type) {
+        return a.type === EventCardEffectType.collectiveResource ? -1 : 1;
+      }
+      return 0;
+    });
+
+    console.log(this.summedEffects);
   }
 
   private buildEntries(): void {
@@ -205,8 +244,19 @@ export class EventDistributionDialogComponent {
     }
     if (collectiveResourceTypeTotal > 0 && collectiveResourceTypeCategory) {
       const types = this.getResourceTypesForCategory(collectiveResourceTypeCategory);
-      for (const type of types) this.receiveEntries.push({ type, total: collectiveResourceTypeTotal });
-      this.receiveGlobalTotal = collectiveResourceTypeTotal;
+      for (const type of types) {
+        const existing = this.receiveEntries.find((entry) => entry.type === type);
+        if (existing) {
+          existing.total += collectiveResourceTypeTotal;
+        } else {
+          this.receiveEntries.push({ type, total: collectiveResourceTypeTotal });
+        }
+      }
+      // specific resources count to the total amount of resources to receive
+      this.receiveGlobalTotal = Object.values(receiveResourcesByType).reduce(
+        (sum: number, total) => sum + (total || 0),
+        collectiveResourceTypeTotal
+      );
     }
 
     if (spendGold > 0) this.spendEntries.push({ type: 'gold', total: spendGold });
@@ -268,7 +318,9 @@ export class EventDistributionDialogComponent {
   }
 
   onReceiveChange(change: DistributionChange): void {
-    if (change.source !== 'party') {
+    if (change.source === 'party') {
+      (this.receivePartyValues as Record<string, number>)[change.type] = change.value;
+    } else {
       this.receiveCharacterValues[change.source as number] ??= {};
       (this.receiveCharacterValues[change.source as number] as Record<string, number>)[change.type] = change.value;
     }
@@ -284,9 +336,19 @@ export class EventDistributionDialogComponent {
   }
 
   get isDistributionComplete(): boolean {
+    const received = (type: string) =>
+      this.receiveCharacterValues.reduce((sum, cv) => sum + (cv[type] || 0), 0) + (this.receivePartyValues[type] || 0);
+    const globalEntries = this.receiveEntries.filter(
+      (entry) => this.receiveGlobalTotal !== undefined && entry.type !== 'gold' && entry.type !== 'experience'
+    );
     for (const entry of this.receiveEntries) {
-      const distributed = this.receiveCharacterValues.reduce((sum, cv) => sum + (cv[entry.type] || 0), 0);
-      if (distributed < entry.total) return false;
+      if (!globalEntries.includes(entry) && received(entry.type) < entry.total) return false;
+    }
+    if (
+      this.receiveGlobalTotal !== undefined &&
+      globalEntries.reduce((sum, entry) => sum + received(entry.type), 0) < this.receiveGlobalTotal
+    ) {
+      return false;
     }
     for (const entry of this.itemReceiveEntries) {
       if (entry.assignedTo < 0) return false;
@@ -329,6 +391,11 @@ export class EventDistributionDialogComponent {
         }
       }
     });
+
+    for (const [type, amount] of Object.entries(this.receivePartyValues)) {
+      if (!amount || type === 'gold' || type === 'experience') continue;
+      gameManager.game.party.loot[type as LootType] = (gameManager.game.party.loot[type as LootType] || 0) + amount;
+    }
 
     this.spendCharacterValues.forEach((cv, i) => {
       const char = this.characters[i];

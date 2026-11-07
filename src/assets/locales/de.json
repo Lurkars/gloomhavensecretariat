@@ -863,6 +863,7 @@
       "advantage": "Vorteil",
       "disadvantage": "Angreifer erhalten Nachteil",
       "instead": "Stattdessen",
+      "materialResource": "+{0} Material",
       "math": {
         "ceil": "(aufgerundet)",
         "floor": "(abgerundet)",
@@ -2563,8 +2564,8 @@
       "hint": "Automatisch Beute dem aktiven/ausgewählten Charakter zuweisen nachdem eine Beute Karte gezogen wurde"
     },
     "applyLootRandomItem": {
-      "": "Zufälliger Gegenstand bei Beute",
-      "hint": "Automatisch einen zufälligen Gegenstand auswählen und anlegen für den aktiven/ausgewählten Charakter nachdem eine Zufälliger Gegenstand Beute Karte gezogen wurde."
+      "": "Zufälligen Gegenstand aus Beute anlegen",
+      "hint": "Den gezogenen zufälligen Gegenstand einer Zufälliger-Gegenstand-Beutekarte den Gegenständen des aktiven/ausgewählten Charakters hinzufügen und anlegen (oder verkaufen, falls bereits vorhanden). Wenn deaktiviert, wird der Gegenstand stattdessen für die Gruppe freigeschaltet."
     },
     "applyRetirement": {
       "": "Ruhestand Boni anwenden",
@@ -2793,7 +2794,17 @@
     "debug": {
       "": "Debug Einstellung/Werkzeuge",
       "logServerMessages": "Servermeldungen protokollieren",
-      "rightClick": "Rechtsklick immer erlauben"
+      "rightClick": "Rechtsklick immer erlauben",
+      "soundboardSounds": {
+        "": "Soundboard",
+        "hint": "Sounds des Soundboards. Einen Sound per ID und URL (z.B. https://example.com/sound.ogg) hinzufügen, die ID eines eingebauten Sounds ersetzt diesen. URL leer lassen oder einen eingebauten Sound entfernen, um ihn zu deaktivieren. Diese Einstellung sollte zwischen allen Clients synchronisiert werden, da Sounds über ihre Position in der Liste abgespielt werden.",
+        "id": "ID",
+        "src": "URL",
+        "play": "Sound abspielen",
+        "add": "Sound hinzufügen",
+        "remove": "Sound entfernen",
+        "restore": "Standard-Sound wiederherstellen"
+      }
     },
     "display": "Anzeige",
     "dragFigures": {

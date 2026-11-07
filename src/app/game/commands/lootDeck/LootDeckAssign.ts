@@ -1,4 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, findItem, validSeed } from 'src/app/game/commands/CommandHelper';
 import { lootCardIndex } from 'src/app/game/commands/lootDeck/LootDeckEdit';
@@ -77,11 +78,12 @@ export class LootDeckAssignCommand extends CommandImpl {
     }
 
     if (character) {
-      if (loot.type === LootType.random_item && randomItem) {
+      const applyItem = settingsManager.settings.characterItems && settingsManager.settings.applyLootRandomItem;
+      if (loot.type === LootType.random_item && randomItem && applyItem) {
         applyRandomItem(character, index, randomItem);
       } else {
         const result = gameManager.lootManager.applyLoot(loot, character, index);
-        if (result) {
+        if (result && applyItem) {
           applyRandomItem(character, index, result);
         }
       }

@@ -52,8 +52,7 @@ export class LootManager {
       loot.type === LootType.random_item &&
       this.game.scenario &&
       this.game.party.campaignMode &&
-      settingsManager.settings.characterItems &&
-      settingsManager.settings.applyLootRandomItem
+      settingsManager.settings.drawRandomItem
     ) {
       result = gameManager.itemManager.drawRandomItem(this.game.scenario.edition);
       if (!result) {

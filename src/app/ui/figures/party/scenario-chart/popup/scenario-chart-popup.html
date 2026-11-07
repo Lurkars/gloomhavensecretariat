@@ -11,6 +11,12 @@
       <span class="number text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>
       <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
 
+      @if (randomItemLooted) {
+        <span class="random-item-looted" [ghs-tooltip]="'scenario.summary.randomItemLooted'">
+          <img class="ghs-svg" src="./assets/images/fh/loot/random_item.svg" />
+        </span>
+      }
+
       @if (isSuccess || forceAll) {
         <a [ngClass]="{ rewards: isSuccess }" (click)="openScenarioRewards()" [ghs-tooltip]="'scenario.summary.rewards'">
           <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg" />

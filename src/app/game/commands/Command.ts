@@ -4,6 +4,7 @@ export interface Command {
   id: string;
   parameters: BASE_TYPE[];
   server: boolean;
+  stateless: boolean;
   execute(): void;
   before(): BASE_TYPE[];
 }
@@ -12,6 +13,7 @@ export abstract class CommandImpl implements Command {
   abstract id: string;
   parameters: BASE_TYPE[];
   server: boolean = false;
+  stateless: boolean = false;
   abstract requiredParameters: number;
 
   constructor(...parameters: BASE_TYPE[]) {

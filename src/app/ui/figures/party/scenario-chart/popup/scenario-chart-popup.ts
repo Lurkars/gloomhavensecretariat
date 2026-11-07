@@ -52,6 +52,7 @@ export class ScenarioChartPopupDialog {
   treasures: string[] = [];
   lootedTreasures: number[] = [];
   forceAll: boolean = false;
+  randomItemLooted: boolean = false;
 
   private data: { scenarioData: ScenarioData; forceAll: boolean } = inject(DIALOG_DATA);
 
@@ -67,6 +68,12 @@ export class ScenarioChartPopupDialog {
     this.isBlocked = gameManager.scenarioManager.isBlocked(this.scenario);
     this.isLocked = gameManager.scenarioManager.isLocked(this.scenario);
     this.showSetup = this.isSuccess;
+    this.randomItemLooted = gameManager.game.party.randomItemLooted.some(
+      (model) =>
+        model.edition === this.scenario.edition &&
+        (model.group ?? '') === (this.scenario.group ?? '') &&
+        model.index === this.scenario.index
+    );
     this.hasRequirements = gameManager.scenarioManager.getRequirements(this.scenario, true).length > 0;
     this.hasMissingRequirements = gameManager.scenarioManager.getRequirements(this.scenario).length > 0;
     this.lootedTreasures = [];

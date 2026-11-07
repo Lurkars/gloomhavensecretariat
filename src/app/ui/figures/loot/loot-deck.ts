@@ -5,16 +5,15 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
 import { Character } from 'src/app/game/model/Character';
-import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
-import { ItemData } from 'src/app/game/model/data/ItemData';
 import { appliableLootTypes, Loot, LootDeck, LootType } from 'src/app/game/model/data/Loot';
 import { GameState } from 'src/app/game/model/Game';
 import { LootApplyDialogComponent } from 'src/app/ui/figures/loot/loot-apply-dialog';
 import { LootComponent } from 'src/app/ui/figures/loot/loot-card';
 import { LootDeckDialogComponent } from 'src/app/ui/figures/loot/loot-deck-dialog';
 import { LootDeckFullscreenComponent } from 'src/app/ui/figures/loot/loot-deck-fullscreen';
-import { LootRandomItemDialogComponent } from 'src/app/ui/figures/loot/random-item/random-item-dialog';
+import { openLootRandomItemDialog } from 'src/app/ui/figures/loot/random-item/random-item-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
@@ -194,15 +193,15 @@ export class LootDeckComponent implements OnInit, OnChanges {
 
         if (settingsManager.settings.animations && gameManager.lootManager.easter && loot) {
           if (loot.type === LootType.metal) {
-            new Audio('assets/media/metal.ogg').play();
+            soundboardManager.play('metal');
           } else if (loot.type === LootType.lumber) {
-            new Audio('assets/media/lumber.ogg').play();
+            soundboardManager.play('lumber');
             queueDelay = 2600;
           } else if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
-            new Audio('assets/media/gold.ogg').play();
+            soundboardManager.play('gold');
             queueDelay = 2200;
           } else {
-            new Audio('assets/media/loot.ogg').play();
+            soundboardManager.play('loot');
             queueDelay = 4000;
           }
         }
@@ -270,45 +269,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
       const result = gameManager.lootManager.applyLoot(loot, character, index);
       gameManager.stateManager.after();
       if (result) {
-        this.dialog
-          .open(LootRandomItemDialogComponent, {
-            panelClass: ['dialog'],
-            data: { item: result, character: character }
-          })
-          .closed.subscribe({
-            next: (result) => {
-              if (result) {
-                const item = result as ItemData;
-                gameManager.stateManager.before(
-                  'lootRandomItem',
-                  item.id,
-                  item.edition,
-                  item.name,
-                  gameManager.characterManager.characterName(character, true, true)
-                );
-                const itemIdentifier: Identifier = new Identifier(item.id, item.edition);
-                gameManager.itemManager.addItemCount(item);
-                if (!character.lootCards.includes(index)) {
-                  character.lootCards.push(index);
-                  character.lootCards.sort((a, b) => a - b);
-                }
-                if (
-                  character.progress.items.find((existing) => existing.name === '' + item.id && existing.edition === item.edition) !=
-                  undefined
-                ) {
-                  character.progress.gold += gameManager.itemManager.itemSellValue(item);
-                } else {
-                  character.progress.items.push(itemIdentifier);
-                  character.progress.equippedItems.push(
-                    new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, 'loot-random-item')
-                  );
-                }
-                gameManager.stateManager.after();
-              } else {
-                character.lootCards = character.lootCards.filter((index) => index !== index);
-              }
-            }
-          });
+        openLootRandomItemDialog(this.dialog, result, character, index);
       }
     }
   }
@@ -325,48 +286,10 @@ export class LootDeckComponent implements OnInit, OnChanges {
             if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
               const result = gameManager.lootManager.drawCard(this.deck, activeCharacter);
               if (result) {
+                const index = this.deck.current;
                 setTimeout(
                   () => {
-                    this.dialog
-                      .open(LootRandomItemDialogComponent, {
-                        panelClass: ['dialog'],
-                        data: { item: result, character: activeCharacter }
-                      })
-                      .closed.subscribe({
-                        next: (result) => {
-                          if (result) {
-                            const item = result as ItemData;
-                            gameManager.stateManager.before(
-                              'lootRandomItem',
-                              item.id,
-                              item.edition,
-                              item.name,
-                              gameManager.characterManager.characterName(activeCharacter, true, true)
-                            );
-                            const itemIdentifier: Identifier = new Identifier(item.id, item.edition);
-                            gameManager.itemManager.addItemCount(item);
-                            if (!activeCharacter.lootCards.includes(this.current)) {
-                              activeCharacter.lootCards.push(this.current);
-                              activeCharacter.lootCards.sort((a, b) => a - b);
-                            }
-                            if (
-                              activeCharacter.progress.items.find(
-                                (existing) => existing.name === '' + item.id && existing.edition === item.edition
-                              ) !== undefined
-                            ) {
-                              activeCharacter.progress.gold += gameManager.itemManager.itemSellValue(item);
-                            } else {
-                              activeCharacter.progress.items.push(itemIdentifier);
-                              activeCharacter.progress.equippedItems.push(
-                                new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, 'loot-random-item')
-                              );
-                            }
-                            gameManager.stateManager.after();
-                          } else {
-                            activeCharacter.lootCards = activeCharacter.lootCards.filter((index) => index !== this.current);
-                          }
-                        }
-                      });
+                    openLootRandomItemDialog(this.dialog, result, activeCharacter, index);
                   },
                   settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
                 );

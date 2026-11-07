@@ -40,6 +40,86 @@
     </div>
   }
   <div class="separator"></div>
+  <div class="line title span">
+    <div class="hint-container">
+      <label [ghs-label]="'settings.debug.soundboardSounds'"></label>
+      <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
+      <span class="hint">
+        <span class="text" [ghs-label]="'settings.debug.soundboardSounds.hint'"></span>
+      </span>
+    </div>
+  </div>
+  <div class="line sounds">
+    @for (sound of soundboardManager.sounds; track sound.id) {
+      <a class="sound" [ngClass]="{ off: !sound.src, custom: isCustom(sound.id) }">
+        <span class="id">{{ sound.id }}</span>
+        <span class="src">{{ sound.src || '' }}</span>
+        <span class="spacer"></span>
+        @if (sound.src) {
+          <span
+            class="sound-button play"
+            (click)="soundboardManager.play(sound)"
+            [ghs-label]="'settings.debug.soundboardSounds.play'"
+            [ghs-label-attribute]="'title'"
+          ></span>
+        }
+        @if (isDefault(sound.id) && isCustom(sound.id)) {
+          <span
+            class="sound-button restore"
+            (click)="restoreSound(sound.id)"
+            [ghs-label]="'settings.debug.soundboardSounds.restore'"
+            [ghs-label-attribute]="'title'"
+          ></span>
+        }
+        @if (sound.src || !isDefault(sound.id)) {
+          <span
+            class="sound-button remove"
+            (click)="removeSound(sound.id)"
+            [ghs-label]="'settings.debug.soundboardSounds.remove'"
+            [ghs-label-attribute]="'title'"
+          ></span>
+        }
+      </a>
+    }
+  </div>
+
+  <div class="line">
+    <span class="input-button">
+      <input
+        tabclick
+        type="text"
+        class="sound-id"
+        list="soundboard-default-ids"
+        #soundId
+        (keyup)="(0)"
+        (keyup.enter)="addSound(soundId, soundSrc)"
+        [ghs-label]="'settings.debug.soundboardSounds.id'"
+        [ghs-label-attribute]="'placeholder'"
+      />
+      <datalist id="soundboard-default-ids">
+        @for (sound of soundboardManager.defaultSounds; track sound.id) {
+          <option [value]="sound.id"></option>
+        }
+      </datalist>
+      <input
+        tabclick
+        type="text"
+        class="sound-src"
+        #soundSrc
+        (keyup.enter)="addSound(soundId, soundSrc)"
+        [ghs-label]="'settings.debug.soundboardSounds.src'"
+        [ghs-label-attribute]="'placeholder'"
+      />
+      <span
+        class="add-button"
+        [ngClass]="{ disabled: !soundId.value.trim() }"
+        (click)="addSound(soundId, soundSrc)"
+        [ghs-label]="'settings.debug.soundboardSounds.add'"
+        [ghs-label-attribute]="'title'"
+      ></span>
+    </span>
+  </div>
+  <div class="separator"></div>
   <div class="line">
     <a tabclick (click)="clearFeedbackErrors()"><span [ghs-label]="'settings.feedbackErrors.clear'"></span></a>
   </div>

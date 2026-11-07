@@ -1,4 +1,5 @@
 import { ConditionName } from 'src/app/game/model/data/Condition';
+import { Sound } from 'src/app/game/model/data/Sound';
 
 export class Settings {
   [index: string]: any;
@@ -210,6 +211,7 @@ export class Settings {
   showHiddenMonster: boolean = false;
   showOnlyUnfinishedScenarios = false;
   sortFigures: boolean = true;
+  soundboardSounds: Sound[] = [];
   spoilers: string[] = [];
   standaloneInitiativeAutomatic: boolean = false;
   standees: boolean = true;

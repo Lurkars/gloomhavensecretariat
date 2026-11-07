@@ -284,7 +284,12 @@
 
       <div class="column">
         <div class="line" ghs-setting-menu="applyLoot" [requires]="['lootDeck']"></div>
-        <div class="line" ghs-setting-menu="applyLootRandomItem" [requires]="['lootDeck', 'applyLoot', 'characterItems']"></div>
+        <div
+          class="line"
+          ghs-setting-menu="applyLootRandomItem"
+          [requires]="['lootDeck', 'applyLoot', 'characterItems', 'drawRandomItem']"
+          [hintAbove]="false"
+        ></div>
         <div class="line" ghs-setting-menu="alwaysLootApplyDialog" [requires]="['lootDeck', 'applyLoot']"></div>
         <div class="line" ghs-setting-menu="automaticPassTime"></div>
         <div class="line" ghs-setting-menu="applyBuildingRewards"></div>

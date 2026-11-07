@@ -175,8 +175,8 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "%data.section.rules.fh.019-2.1%",
-                                    "hint": "%data.section.rules.fh.019-2.1%"
+                                    "value": "%game.custom.materialResource:1%",
+                                    "hint": "%data.section.rules.fh.019-2.2%"
                                 }
                             ]
                         }
@@ -217,7 +217,7 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "%data.section.rules.fh.017-2.1%",
+                                    "value": "%game.custom.materialResource:2%",
                                     "hint": "%data.section.rules.fh.017-2.2%"
                                 }
                             ]

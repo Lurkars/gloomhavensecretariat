@@ -47,6 +47,19 @@
           filter: var(--ghs-filter-green);
         }
       }
+
+      .random-item-looted {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0.2em;
+
+        img {
+          width: 1em;
+          height: auto;
+          filter: var(--ghs-filter-yellow);
+        }
+      }
     }
 
     .subtitle {

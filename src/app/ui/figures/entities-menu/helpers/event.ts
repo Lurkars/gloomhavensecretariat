@@ -99,10 +99,14 @@ export class EventHelper {
       }
     });
 
-    if (distributionEffects.length > 0) {
+    this.openDistribution(distributionEffects);
+  }
+
+  openDistribution(effects: EventCardEffect[]) {
+    if (effects.length > 0) {
       this.component.dialog.open(EventDistributionDialogComponent, {
         panelClass: ['dialog'],
-        data: { effects: distributionEffects }
+        data: { effects: effects }
       });
     }
   }
@@ -121,6 +125,7 @@ export class EventHelper {
           if (result) {
             this.eventAttack = undefined;
             this.eventOutpostAttackEffects = [];
+            this.openDistribution(result as EventCardEffect[]);
           }
         }
       });

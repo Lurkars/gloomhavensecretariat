@@ -291,6 +291,7 @@ import {
   ScenarioRuleRemoveCommand
 } from 'src/app/game/commands/scenario/ScenarioRule';
 import { ScenarioTreasureLootCommand, ScenarioTreasureRemoveCommand } from 'src/app/game/commands/scenario/ScenarioTreasure';
+import { SoundboardCommand } from 'src/app/game/commands/soundboard/Soundboard';
 import { SummonAddCommand } from 'src/app/game/commands/summons/SummonAdd';
 import { SummonAddCustomCommand } from 'src/app/game/commands/summons/SummonAddCustom';
 import { SummonInitCommand } from 'src/app/game/commands/summons/SummonInit';
@@ -565,6 +566,7 @@ export class CommandManager {
     ScenarioSetCommand,
     ScenarioTreasureLootCommand,
     ScenarioTreasureRemoveCommand,
+    SoundboardCommand,
     SummonAddCommand,
     SummonAddCustomCommand,
     SummonInitCommand,
@@ -600,6 +602,16 @@ export class CommandManager {
       }
 
       command.server = server;
+
+      if (command.stateless) {
+        try {
+          command.execute();
+        } catch (e) {
+          this.handleError(id, e);
+        }
+        return;
+      }
+
       gameManager.stateManager.before(...command.before());
       try {
         command.execute();
@@ -607,15 +619,7 @@ export class CommandManager {
         gameManager.stateManager.after();
       } catch (e) {
         gameManager.stateManager.revertLastUndo();
-        if (e instanceof CommandExecutionError) {
-          console.error(e, e.id, e.parameters, e.message);
-        } else if (e instanceof CommandMissingParameterError) {
-          console.error('Missing Parameter', id, e.parameter);
-        } else if (e instanceof CommandInvalidParametersError) {
-          console.error('Invalid Parameters', id, e.parameters);
-        } else {
-          throw e;
-        }
+        this.handleError(id, e);
       }
     } catch (e) {
       if (e instanceof CommandUnknownError) {
@@ -623,6 +627,18 @@ export class CommandManager {
       } else {
         throw e;
       }
+    }
+  }
+
+  private handleError(id: string, e: unknown) {
+    if (e instanceof CommandExecutionError) {
+      console.error(e, e.id, e.parameters, e.message);
+    } else if (e instanceof CommandMissingParameterError) {
+      console.error('Missing Parameter', id, e.parameter);
+    } else if (e instanceof CommandInvalidParametersError) {
+      console.error('Invalid Parameters', id, e.parameters);
+    } else {
+      throw e;
     }
   }
 }

@@ -317,7 +317,7 @@ export const additionalTownGuardAttackModifier: AttackModifier[] = [
     true
   ),
   new AttackModifier(AttackModifierType.townguard, 20, AttackModifierValueType.minus, 'fh-tg-add-minus20-resource', [
-    new AttackModifierEffect(AttackModifierEffectType.custom, '+2 material resource')
+    new AttackModifierEffect(AttackModifierEffectType.custom, '%game.custom.materialResource:2%')
   ]),
   new AttackModifier(AttackModifierType.townguard, 0, AttackModifierValueType.default, 'fh-tg-add-resource-hide', [
     new AttackModifierEffect(AttackModifierEffectType.custom, '+1%game.resource.hide%', 'Gain one Hide')

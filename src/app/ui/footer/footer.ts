@@ -5,6 +5,7 @@ import { ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } f
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -136,7 +137,7 @@ export class FooterComponent implements OnInit {
           waitingSteps.includes(gameManager.game.playSeconds) ||
           (gameManager.game.playSeconds > waitingSteps[waitingSteps.length - 1] && gameManager.game.playSeconds % 60 === 0)
         ) {
-          new Audio('assets/media/waiting.ogg').play();
+          soundboardManager.play('waiting');
         }
       }
 

@@ -13,6 +13,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { AttackModifierComponent } from 'src/app/ui/figures/attackmodifier/attackmodifier';
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { EventCardAttackComponent } from 'src/app/ui/figures/event/attack/event-card-attack';
+import { EventCardEffectComponent } from 'src/app/ui/figures/event/effect/event-card-effect';
 import { Building } from 'src/app/ui/figures/party/buildings/buildings';
 import { BuildingsListComponent } from 'src/app/ui/figures/party/buildings/list/buildings-list';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
@@ -38,6 +39,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
     AttackModifierDeckComponent,
     AttackModifierComponent,
     EventCardAttackComponent,
+    EventCardEffectComponent,
     BuildingsListComponent
   ],
   selector: 'ghs-outpost-attack',
@@ -81,6 +83,9 @@ export class OutpostAttackComponent implements OnInit {
   attackResult: AttackResult | undefined;
 
   deckActive: boolean = false;
+  // resource effects of drawn town guard cards, each can be disabled
+  resources: { effect: EventCardEffect; enabled: boolean }[] = [];
+  private drawnBefore: number = -1;
 
   data: { attack: EventCardAttack; effects: EventCardEffect[] } = inject(DIALOG_DATA);
 
@@ -199,6 +204,7 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   beforeTownGuardDeck(change: AttackModiferDeckChange) {
+    this.drawnBefore = change.deck.current;
     this.attackResult = undefined;
     gameManager.stateManager.before('updateAttackModifierDeck.' + change.type, 'party.campaign.townGuard', ...change.values);
   }
@@ -211,6 +217,9 @@ export class OutpostAttackComponent implements OnInit {
       this.townGuardDeck,
       (gameManager.game.party.defense || 0) + this.moraleDefense
     );
+    if (change.type.startsWith('draw')) {
+      this.addResources(change.deck);
+    }
   }
 
   toggleAttackResult() {
@@ -259,6 +268,23 @@ export class OutpostAttackComponent implements OnInit {
 
       gameManager.stateManager.after();
     }
+  }
+
+  addResources(deck: AttackModifierDeck) {
+    deck.cards
+      .slice(this.drawnBefore + 1, deck.current + 1)
+      .filter((card) => !card.rolling || deck.state !== 'disadvantage')
+      .forEach((card) =>
+        card.effects.forEach((effect) => {
+          // '+1%game.resource.hide%' or '%game.custom.materialResource:2%'
+          const match =
+            effect.value.match(/^\+(\d+)%game\.resource\.(\w+)%$/) || effect.value.match(/^%game\.custom\.materialResource:(\d+)%$/);
+          if (match) {
+            const type = match[2] ? EventCardEffectType.collectiveResource : EventCardEffectType.collectiveResourceType;
+            this.resources.push({ effect: new EventCardEffect(type, [+match[1], match[2] || 'material_resources']), enabled: true });
+          }
+        })
+      );
   }
 
   toggleSoldier(soldier: number) {
@@ -493,6 +519,9 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   close(finish: boolean = false) {
-    ghsDialogClosingHelper(this.dialogRef, finish);
+    ghsDialogClosingHelper(
+      this.dialogRef,
+      finish ? this.resources.filter((resource) => resource.enabled).map((resource) => resource.effect) : undefined
+    );
   }
 }
