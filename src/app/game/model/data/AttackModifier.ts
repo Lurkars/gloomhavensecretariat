@@ -42,6 +42,7 @@ export class AttackModifier {
   active: boolean;
   revealed: boolean = false;
   character: boolean = false;
+  attribute: number | undefined;
 
   constructor(
     type: AttackModifierType,
@@ -251,6 +252,60 @@ export const defaultAttackModifierCards: AttackModifier[] = [
   new AttackModifier(AttackModifierType.double),
   // 1x x0
   new AttackModifier(AttackModifierType.null)
+];
+
+function rpgAttackModifier(type: AttackModifierType, attribute: number): AttackModifier {
+  const attackModifier = new AttackModifier(type, 0, AttackModifierValueType.plus, 'rpg-' + type + '-' + attribute);
+  attackModifier.attribute = attribute;
+  return attackModifier;
+}
+
+export const RPG_BLESS_CURSE_LIMIT = 6;
+
+export const RpgAttackModifier: AttackModifier[] = [
+  rpgAttackModifier(AttackModifierType.minus2, 1),
+  rpgAttackModifier(AttackModifierType.minus1, 1),
+  rpgAttackModifier(AttackModifierType.minus1, 2),
+  rpgAttackModifier(AttackModifierType.minus1, 3),
+  rpgAttackModifier(AttackModifierType.plus0, 3),
+  rpgAttackModifier(AttackModifierType.plus0, 4),
+  rpgAttackModifier(AttackModifierType.plus1, 4),
+  rpgAttackModifier(AttackModifierType.plus1, 5),
+  rpgAttackModifier(AttackModifierType.plus1, 6),
+  rpgAttackModifier(AttackModifierType.plus2, 6),
+  new AttackModifier(AttackModifierType.double),
+  new AttackModifier(AttackModifierType.null)
+];
+
+const rpgCard = (id: string): AttackModifier => RpgAttackModifier.find((attackModifier) => attackModifier.id === id) as AttackModifier;
+
+export const RpgAttackModifierCards: AttackModifier[] = [
+  // 1x -2
+  rpgCard('rpg-minus2-1'),
+  // 5x -1
+  rpgCard('rpg-minus1-1'),
+  rpgCard('rpg-minus1-2'),
+  rpgCard('rpg-minus1-2'),
+  rpgCard('rpg-minus1-2'),
+  rpgCard('rpg-minus1-3'),
+  // 6x +0
+  rpgCard('rpg-plus0-3'),
+  rpgCard('rpg-plus0-3'),
+  rpgCard('rpg-plus0-3'),
+  rpgCard('rpg-plus0-4'),
+  rpgCard('rpg-plus0-4'),
+  rpgCard('rpg-plus0-4'),
+  // 5x +1
+  rpgCard('rpg-plus1-4'),
+  rpgCard('rpg-plus1-5'),
+  rpgCard('rpg-plus1-5'),
+  rpgCard('rpg-plus1-5'),
+  rpgCard('rpg-plus1-6'),
+  // 1x +2
+  rpgCard('rpg-plus2-6'),
+  // 1x x2, 1x x0
+  rpgCard(AttackModifierType.double),
+  rpgCard(AttackModifierType.null)
 ];
 
 export const defaultTownGuardAttackModifier: AttackModifier[] = [

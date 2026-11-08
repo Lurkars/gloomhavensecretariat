@@ -1,0 +1,102 @@
+:host {
+  display: contents;
+}
+
+.resources {
+  position: relative;
+  height: calc(var(--ghs-unit) * 19 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  flex-direction: column;
+
+  &.disabled .resource-table {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .move {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--ghs-color-black);
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .resource-table {
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+    .resource {
+      display: flex;
+      padding: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+
+      img {
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        height: auto;
+      }
+
+      input {
+        min-width: 0;
+        flex-grow: 1;
+      }
+    }
+
+    .materials {
+      display: grid;
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 11.1 * var(--ghs-dialog-factor)));
+
+      .resource {
+        flex-direction: column;
+        height: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
+
+        input {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+
+    .herbs {
+      display: grid;
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 11.1 * var(--ghs-dialog-factor)));
+
+      .resource {
+        height: calc(var(--ghs-unit) * 4.7 * var(--ghs-dialog-factor));
+      }
+    }
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  input[type='number'],
+  input[type='text'] {
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+  }
+
+  .row {
+    height: auto !important;
+    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) !important;
+  }
+
+  .resource-table {
+    .materials,
+    .herbs {
+      grid-template-columns: repeat(3, 1fr);
+
+      .resource {
+        display: grid;
+        grid-template-columns: 0.3fr 1fr;
+        align-items: center;
+
+        input {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

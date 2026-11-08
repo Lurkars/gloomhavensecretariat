@@ -1,0 +1,10 @@
+<div class="row location">
+  <label><span [ghs-label]="'party.location'"></span>:</label>
+  <input
+    type="text"
+    [value]="party.location"
+    (change)="setLocation($event)"
+    [ghs-label]="'party.location'"
+    [ghs-label-attribute]="'placeholder'"
+  />
+</div>

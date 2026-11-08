@@ -1,0 +1,71 @@
+@if (sheet() === 'gh') {
+  <div class="row name">
+    <label><span [ghs-label]="'party.name'"></span>:</label>
+    <input type="text" [value]="party.name" (change)="setName($event)" [ghs-label]="'party.name'" [ghs-label-attribute]="'placeholder'" />
+    @if (!gameManager.game.scenario) {
+      @if (gameManager.game.parties.length > 1) {
+        <img
+          class="remove-party"
+          src="./assets/images/minus.svg"
+          (click)="removeParty()"
+          [ghs-label]="'party.remove'"
+          [ghs-label-attribute]="'title'"
+        />
+      }
+      <span class="spacer"></span>
+      <img
+        class="new-party"
+        src="./assets/images/plus.svg"
+        (click)="newParty()"
+        [ghs-label]="'party.new'"
+        [ghs-label-attribute]="'title'"
+      />
+    }
+    @if (!!gameManager.game.scenario) {
+      <div class="hint-container new-party-hint">
+        <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg" />
+        <span class="hint">
+          <span class="text"><span [ghs-label]="'party.new.hint'"></span></span>
+        </span>
+      </div>
+    }
+  </div>
+} @else {
+  <div class="name">
+    <label><span [ghs-label]="'party.campaign.sheet.name'"></span></label>
+    <input
+      type="text"
+      [value]="party.name"
+      (change)="setName($event)"
+      [ghs-label]="'party.campaign.sheet.name'"
+      [ghs-label-attribute]="'placeholder'"
+    />
+    @if (!gameManager.game.scenario) {
+      @if (gameManager.game.parties.length > 1) {
+        <img
+          class="remove-party"
+          src="./assets/images/minus.svg"
+          (click)="removeParty()"
+          [ghs-label]="'party.remove'"
+          [ghs-label-attribute]="'title'"
+        />
+      }
+      <ghs-party-sheet-select />
+      <img
+        class="new-party"
+        src="./assets/images/plus.svg"
+        (click)="newParty()"
+        [ghs-label]="'party.new'"
+        [ghs-label-attribute]="'title'"
+      />
+    }
+    @if (!!gameManager.game.scenario) {
+      <div class="hint-container new-party-hint">
+        <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg" />
+        <span class="hint">
+          <span class="text"><span [ghs-label]="'party.new.hint'"></span></span>
+        </span>
+      </div>
+    }
+  </div>
+}

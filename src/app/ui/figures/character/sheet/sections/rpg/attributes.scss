@@ -1,0 +1,77 @@
+:host {
+  display: contents;
+}
+
+.attributes {
+  grid-area: attributes;
+  display: flex;
+  flex-direction: column;
+}
+
+.attribute-list {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: calc(var(--rpg-gap) * 0.5);
+}
+
+.attribute {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hex {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 62%;
+    aspect-ratio: 1.1547;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    }
+
+    &::before {
+      background: #c8c8c8;
+      transform: translateX(-14%);
+    }
+
+    &::after {
+      background: var(--ghs-color-black);
+    }
+
+    input {
+      position: absolute;
+      z-index: 1;
+      inset: 7% 6%;
+      width: auto;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-family: var(--rpg-font-title);
+      font-size: 1.5em;
+      border: none;
+      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+      background: var(--ghs-color-white);
+      -moz-appearance: textfield;
+
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+    }
+  }
+
+  .attribute-label {
+    font-family: var(--rpg-font-title);
+    margin-top: calc(var(--rpg-gap) * 0.4);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}

@@ -1,0 +1,104 @@
+<div class="factions">
+  @for (faction of factions; track faction) {
+    <div class="faction-reputation">
+      <label>
+        <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'" />
+        <span [ghs-label]="'party.reputation'"></span>
+      </label>
+      <div class="grid">
+        @for (reputation of [] | ghsRange: 31; track reputation) {
+          <div class="row" [ngClass]="{ locked: 30 - reputation - 10 > 12 && !factionUnlocks.includes(faction) }">
+            <span
+              class="value"
+              ghs-pointer-input
+              (singleClick)="setFactionReputation(faction, 30 - reputation - 10)"
+              [ngClass]="{ checked: party.factionReputation[faction] === 30 - reputation - 10 }"
+              (doubleClick)="setFactionReputation(faction, 30 - reputation - 10, true)"
+            ></span>
+            <span
+              class="key"
+              ghs-pointer-input
+              (singleClick)="setFactionReputation(faction, 30 - reputation - 10)"
+              (doubleClick)="setFactionReputation(faction, 30 - reputation - 10, true)"
+              >{{ 30 - reputation - 10 }}</span
+            >
+            <span class="section">
+              @if (reputationSectionsMapped[faction] && reputationSectionsMapped[faction][reputation]) {
+                <span class="checkbox" [ngClass]="{ checked: isConclusion(reputationSectionsMapped[faction][reputation].section) }"></span>
+                <span
+                  class="text"
+                  ghs-pointer-input
+                  (singleClick)="
+                    unlockConclusion(
+                      reputationSectionsMapped[faction][reputation].section,
+                      (party.factionReputation[faction] || 0) >= 30 - reputation - 10
+                    )
+                  "
+                  (doubleClick)="
+                    unlockConclusion(
+                      reputationSectionsMapped[faction][reputation].section,
+                      (party.factionReputation[faction] || 0) >= 30 - reputation - 10,
+                      true
+                    )
+                  "
+                  [ghs-label]="'%game.section:' + reputationSectionsMapped[faction][reputation].section + '%'"
+                ></span>
+              }
+            </span>
+          </div>
+        }
+      </div>
+      <span class="checkbox limit" [ngClass]="{ checked: (party.factionReputation[faction] || 0) > 12 }"></span>
+    </div>
+  }
+</div>
+<div class="additional-factions">
+  <label><span [ghs-label]="'party.reputation.additional'"></span></label>
+  <div class="faction-reputation">
+    @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
+      @if (reputationSection.faction === 'special') {
+        <div class="section">
+          <span
+            class="checkbox"
+            [ngClass]="{ checked: isConclusion(reputationSection.section) || additionalReputation(reputationSection) }"
+          ></span>
+          <span
+            class="text"
+            [ghs-label]="'party.reputation.additional.special.' + reputationSection.section.split(':')[0]"
+            [ghs-label-args]="[reputationSection.section.split(':')[1], reputationSection.value]"
+          ></span>
+        </div>
+      }
+    }
+  </div>
+  @for (faction of factions; track faction) {
+    <div class="faction-reputation">
+      <div class="header">
+        <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'" />
+      </div>
+      @for (reputationSection of reputationSections | trackUUID; track reputationSection._trackUUID) {
+        @if (reputationSection.faction === faction && reputationSection.requires && reputationSection.requires.length) {
+          <div class="section">
+            <span
+              class="checkbox"
+              [ngClass]="{ checked: isConclusion(reputationSection.section) || additionalReputation(reputationSection) }"
+            ></span>
+            <span
+              class="text"
+              ghs-pointer-input
+              (singleClick)="unlockConclusion(reputationSection.section, additionalReputation(reputationSection))"
+              (doubleClick)="unlockConclusion(reputationSection.section, additionalReputation(reputationSection), true)"
+              [ghs-label]="'party.reputation.additional.sectionRequires' + (reputationSection.requires.length > 1 ? '.multiple' : '')"
+              [ghs-label-args]="[
+                reputationSection.section,
+                reputationSection.value,
+                reputationSection.faction,
+                reputationSection.requires.join(' & ')
+              ]"
+            ></span>
+          </div>
+        }
+      }
+    </div>
+  }
+</div>

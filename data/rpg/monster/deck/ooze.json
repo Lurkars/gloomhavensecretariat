@@ -1,0 +1,228 @@
+{
+  "name": "ooze",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.feed%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ooze.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 66,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.feed%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ooze.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.vile-sludge%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ooze.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 94,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.vile-sludge%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ooze.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.split%",
+              "subActions": [
+                {
+                  "type": "sufferDamage",
+                  "value": 2
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.ooze.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

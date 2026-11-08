@@ -2,8 +2,8 @@
   "name": "tinkerer",
   "icon": "gh-tinkerer",
   "edition": "bb",
+  "editionRules": "bb",
   "color": "#d1c3a2",
-  "bb": true,
   "stats": [
     {
       "level": 1,

@@ -1,0 +1,52 @@
+<div class="treasures">
+  <label class="treasures-title" (click)="treasuresDialog()">
+    <img class="icon" src="./assets/images/scenario/treasure.svg" /><span [ghs-label]="'party.campaign.treasures'"></span>:</label
+  >
+  <div class="treasure-add">
+    <input
+      min="1"
+      #treasureIndex
+      type="number"
+      value=""
+      (focus)="treasureIndex.select()"
+      (keyup)="treasureIndex.classList.remove('error'); treasureIndex.classList.remove('warning')"
+      (keyup.enter)="addTreasure(treasureIndex, treasureEdition)"
+    />
+    <a
+      [ngClass]="{
+        disabled: !treasureEdition || !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value, treasureEdition)
+      }"
+      (click)="addTreasure(treasureIndex, treasureEdition)"
+      ><img src="./assets/images/plus.svg"
+    /></a>
+    <select [(ngModel)]="treasureEdition" (change)="update()">
+      <option value="" [selected]="!treasureEdition"><span [ghs-label]="'edition.all'"></span></option>
+      @for (edition of gameManager.editions(); track edition) {
+        <option [value]="edition" [selected]="edition === treasureEdition">
+          <span [ghs-label]="'data.edition.' + edition"></span>
+        </option>
+      }
+    </select>
+  </div>
+  <div class="treasure-list">
+    @for (treasure of treasures() | trackUUID; track treasure._trackUUID) {
+      <label class="treasure" [ngClass]="{ edition: !treasureEdition }">
+        <span class="treasure-index">
+          <img class="icon" src="./assets/images/scenario/treasure.svg" />
+          <span class="index">{{ treasure.name }}</span>
+        </span>
+        <span class="separator">:</span>
+        <span class="checkbox" (click)="removeTreasure(treasure)"
+          ><img class="check" src="./assets/images/check.svg" /><img class="close" src="./assets/images/close.svg"
+        /></span>
+        <span class="text">
+          <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name - 1"></ghs-treasure-label>
+        </span>
+        <span></span>
+        @if (!treasureEdition) {
+          <span class="text">[<span [ghs-label]="'data.edition.' + treasure.edition"></span>]</span>
+        }
+      </label>
+    }
+  </div>
+</div>

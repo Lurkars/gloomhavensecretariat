@@ -1,0 +1,12 @@
+<div class="name">
+  <label><span [ghs-label]="'character.progress.name'"></span>:</label>
+  @if (titles.length === 0 || !settingsManager.settings.characterIdentities) {
+    <input type="text" [value]="title" (change)="setTitle($event)" />
+  }
+  @if (titles.length > 0 && settingsManager.settings.characterIdentities) {
+    @for (i of [] | ghsRange: character.identities.length; track i) {
+      <img [src]="gameManager.characterManager.characterIdentityIcon(character.name, i)" />
+      <input type="text" [value]="titles[i]" (change)="setTitle($event, i)" />
+    }
+  }
+</div>

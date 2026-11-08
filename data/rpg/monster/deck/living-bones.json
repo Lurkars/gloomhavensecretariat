@@ -1,0 +1,193 @@
+{
+  "name": "living-bones",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.drain-life%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "valueType": "minus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.drain-life%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "valueType": "minus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.focused-strikes%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.living-bones.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 74,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.focused-strikes%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.living-bones.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.powerful-hits%",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "minus"
+                },
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

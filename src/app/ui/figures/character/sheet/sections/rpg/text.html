@@ -1,0 +1,8 @@
+<label class="box" [ngClass]="{ 'text-box': multiline() }">
+  <span class="box-label"><span [ghs-label]="'character.progress.rpg.' + field()"></span>:</span>
+  @if (multiline()) {
+    <textarea [value]="rpg[field()]" (change)="setText($event)"></textarea>
+  } @else {
+    <input [value]="rpg[field()]" (change)="setText($event)" />
+  }
+</label>

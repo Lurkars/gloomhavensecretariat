@@ -22,7 +22,7 @@ declare global {
 export class SettingsManager {
   EntityValueFunction = EntityValueFunction;
   defaultLocale: string = 'en';
-  defaultEditions: string[] = ['gh', 'fh', 'jotl', 'fc', 'cs', 'toa', 'bb', 'gh2e', 'mp'];
+  defaultEditions: string[] = ['gh', 'fh', 'jotl', 'fc', 'cs', 'toa', 'bb', 'gh2e', 'mp', 'rpg'];
 
   defaultEditionDataUrls: string[] = [
     './assets/data/gh.json',
@@ -32,6 +32,8 @@ export class SettingsManager {
     './assets/data/cs.json',
     './assets/data/toa.json',
     './assets/data/bb.json',
+    './assets/data/gh2e.json',
+    './assets/data/rpg.json',
     './assets/data/bb-promotional.json',
     './assets/data/fh-crossover.json',
     './assets/data/gh-envx.json',
@@ -43,7 +45,6 @@ export class SettingsManager {
     './assets/data/sox.json',
     './assets/data/bas.json',
     './assets/data/cc.json',
-    './assets/data/gh2e.json',
     './assets/data/cq.json',
     './assets/data/ir.json',
     './assets/data/r100kc.json',

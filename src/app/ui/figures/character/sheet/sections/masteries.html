@@ -1,0 +1,16 @@
+<div class="row masteries">
+  <label><span [ghs-label]="'character.progress.masteries'"></span>:</label>
+  <div class="masteries-list">
+    @for (mastery of character.masteries; track mastery; let i = $index) {
+      <div class="mastery">
+        <span class="checkmark"> <img src="./assets/images/close.svg" />:</span>
+        <span
+          class="mastery-check checkbox"
+          [ngClass]="{ checked: character.progress.masteries.includes(i) }"
+          (click)="toggleMastery(i)"
+        ></span>
+        <span class="placeholder text" [ghs-label]="mastery"></span>
+      </div>
+    }
+  </div>
+</div>

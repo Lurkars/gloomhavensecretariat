@@ -2,7 +2,7 @@
   "name": "flame-demon",
   "noArtwork": true,
   "edition": "bb",
-  "bb": true,
+  "editionRules": "bb",
   "flying": true,
   "count": 4,
   "baseStat": {

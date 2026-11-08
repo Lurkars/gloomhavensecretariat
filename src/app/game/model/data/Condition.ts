@@ -28,6 +28,7 @@ export enum ConditionName {
   safeguard = 'safeguard',
   plague = 'plague',
   blind = 'blind',
+  pacify = 'pacify',
   invalid = 'invalid'
 }
 
@@ -113,7 +114,8 @@ export class Condition {
         ConditionName.poison_x,
         ConditionName.wound_x,
         ConditionName.safeguard,
-        ConditionName.blind
+        ConditionName.blind,
+        ConditionName.pacify
       ].includes(this.name)
     ) {
       this.types.push(ConditionType.entity);
@@ -138,7 +140,8 @@ export class Condition {
         ConditionName.ward,
         ConditionName.dodge,
         ConditionName.safeguard,
-        ConditionName.blind
+        ConditionName.blind,
+        ConditionName.pacify
       ].includes(this.name)
     ) {
       this.types.push(ConditionType.standard);
@@ -238,7 +241,8 @@ export class Condition {
         ConditionName.invisible,
         ConditionName.strengthen,
         ConditionName.impair,
-        ConditionName.blind
+        ConditionName.blind,
+        ConditionName.pacify
       ].includes(this.name)
     ) {
       this.types.push(ConditionType.expire);

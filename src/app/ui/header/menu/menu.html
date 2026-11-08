@@ -53,18 +53,28 @@
         </div>
         <div class="separator"></div>
         @if (!standalone) {
-          <div class="line" [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario }">
-            <a tabclick (click)="setActive(SubMenu.scenario)"><span [ghs-label]="'scenario.set'"></span></a>
-          </div>
-          <div
-            class="line"
-            [ngClass]="{
-              disabled: !hasSections(),
-              denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario
-            }"
-          >
-            <a tabclick (click)="setActive(SubMenu.section)"><span [ghs-label]="'section'"></span></a>
-          </div>
+          @if (gameManager.scenarioManager.hasScenarios()) {
+            <div
+              class="line"
+              [ngClass]="{
+                denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario,
+                span: !gameManager.scenarioManager.hasSections()
+              }"
+            >
+              <a tabclick (click)="setActive(SubMenu.scenario)"><span [ghs-label]="'scenario.set'"></span></a>
+            </div>
+          }
+          @if (gameManager.scenarioManager.hasSections()) {
+            <div
+              class="line"
+              [ngClass]="{
+                denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario,
+                span: !gameManager.scenarioManager.hasScenarios()
+              }"
+            >
+              <a tabclick (click)="setActive(SubMenu.section)"><span [ghs-label]="'section'"></span></a>
+            </div>
+          }
           <div
             class="line"
             [ngClass]="{

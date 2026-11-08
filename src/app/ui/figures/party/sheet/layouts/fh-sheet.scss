@@ -1,0 +1,22 @@
+:host {
+  display: contents;
+}
+
+.sheet {
+  position: relative;
+  width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 98.5 * var(--ghs-dialog-factor));
+  background-image: url('../../../../../../assets/images/fh/party/party-sheet.svg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
+}
+
+ghs-party-buildings {
+  position: absolute;
+  left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  top: calc(var(--ghs-unit) * 101.5 * var(--ghs-dialog-factor));
+  width: calc(var(--ghs-unit) * 118.5 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 28 * var(--ghs-dialog-factor));
+}

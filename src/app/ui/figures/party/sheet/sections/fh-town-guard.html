@@ -1,0 +1,46 @@
+<div class="town-guard-perks">
+  <label><span [ghs-label]="'party.campaign.sheet.townGuardPerks'"></span></label>
+  <div class="town-guard-perks-grid">
+    @for (item of [] | ghsRange: 45; track item) {
+      @if (item % 3 === 0) {
+        <span class="checkmark"> <img src="./assets/images/close.svg" />:</span>
+      }
+      <span
+        class="townguard-perk checkbox"
+        [ngClass]="{ checked: party.townGuardPerks >= item + 1 }"
+        (click)="setTownGuardPerks(item + 1)"
+      ></span>
+    }
+  </div>
+  <div class="perk-list">
+    @for (townGuardPerk of gameManager.campaignManager.campaignData().townGuardPerks | trackUUID; track townGuardPerk._trackUUID) {
+      <div class="perk">
+        <div class="sections">
+          @for (section of townGuardPerk.sections; track section + $index) {
+            <div
+              class="section"
+              [ngClass]="{
+                checked: party.townGuardPerkSections.includes(section),
+                disabled:
+                  !party.townGuardPerkSections.includes(section) &&
+                  party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)
+              }"
+              ghs-pointer-input
+              (singleClick)="toggleTownGuardPerkSection(section)"
+              (doubleClick)="toggleTownGuardPerkSection(section, true)"
+            >
+              <img src="./assets/images/fh/party/section.svg" /> {{ section }}
+            </div>
+          }
+        </div>
+        <ghs-perk-label [perk]="townGuardPerk.perk"></ghs-perk-label>
+      </div>
+    }
+  </div>
+  @if (party.townGuardPerkSections.length > (party.townGuardPerks / 3 | ghsFloor)) {
+    <div class="warning" [ghs-label]="'game.attackModifiers.perks.warning'" [ghs-label-attribute]="'title'">
+      <img class="ghs-svg" src="./assets/images/warning.svg" />
+      <span [ghs-label]="'game.attackModifiers.perks.warning'"></span>
+    </div>
+  }
+</div>

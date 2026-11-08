@@ -278,6 +278,50 @@
         "prosperity": "+{0} prosperity"
       },
       "retirements": "Retirements",
+      "rpg": {
+        "activeTalent": "Active Talent",
+        "ancestry": "Ancestry",
+        "ancestrySkills": "Ancestry Skills",
+        "attributes": {
+          "": "Attributes",
+          "cunning": "Cunning",
+          "finesse": "Finesse",
+          "grit": "Grit",
+          "intuition": "Intuition",
+          "logic": "Logic",
+          "understanding": "Understanding"
+        },
+        "availablePerks": "Available perks: {0}",
+        "backgrounds": "Backgrounds",
+        "benefits": "Benefits",
+        "classSkills": "Class Skills",
+        "currentHp": "Current HP",
+        "effect": "Effect",
+        "equip": "Equip",
+        "expended": "Expended",
+        "faction": "Faction",
+        "factions": "Faction Alignment",
+        "gained": "Gained",
+        "hostile": "Hostile",
+        "init": "Init",
+        "itemName": "Name",
+        "items": "Items",
+        "lost": "Lost",
+        "maxHp": "Max HP",
+        "modifiers": "Modifier Table",
+        "passiveTalent": "Passive Talent",
+        "perks": "Gained Perks",
+        "personalGoal": "Personal Goal",
+        "playerName": "Player Name",
+        "prepared": "Prepared",
+        "primary": "Primary",
+        "pronouns": "Pronouns",
+        "secondary": "Secondary",
+        "skill": "Skill",
+        "slot": "Slot",
+        "talent": "Talent",
+        "talents": "Active & Passive Talents"
+      },
       "title": "{1} {0}",
       "trial": "Trial",
       "xp": "XP"
@@ -813,6 +857,10 @@
       "muddle": {
         "": "Muddle",
         "hint": "%game.conditionIcon.muddle% Muddle: Disadvantage on all attacks. Remove at end of next turn."
+      },
+      "pacify": {
+        "": "Pacify",
+        "hint": "%game.conditionIcon.pacify% Pacify: Cannot perform any attack abilities. Remove at end of next turn."
       },
       "permanent": {
         "": "Permanent",
@@ -4152,6 +4200,9 @@
       "setResource": "Set {1} {2} for {0}",
       "setRetired": "{0} retired",
       "setRetirements": "Retirements {1} for {0}",
+      "setRpgAction": "Choose action '{1}' for {0}",
+      "setRpgSheet": "Set %{1}% to '{2}' for {0}",
+      "setRpgSpeed": "Set speed '%{1}%' for {0}",
       "setScenario": "Scenario #{0} {1} ({2})",
       "setScenarioLevel": "Scenario level {0}",
       "setSummonState": "Set summon {1} {2} for {0}",

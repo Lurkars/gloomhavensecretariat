@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { Component, inject, viewChild } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterSheetComponent } from 'src/app/ui/figures/character/sheet/character-sheet';
@@ -16,17 +16,7 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 export class CharacterSheetDialog {
   dialogRef = inject(DialogRef);
 
-  readonly characterSheet = viewChild.required<CharacterSheetComponent>('characterSheet');
-
   settingsManager: SettingsManager = settingsManager;
 
   data: { character: Character; viewOnly: boolean; forceEdit: boolean } = inject(DIALOG_DATA);
-
-  constructor() {
-    this.dialogRef.closed.subscribe({
-      next: () => {
-        this.characterSheet().applyValues();
-      }
-    });
-  }
 }

@@ -1,0 +1,59 @@
+:host {
+  display: contents;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2.6em 4em minmax(0, 1fr) 3em minmax(0, 2fr);
+  align-items: stretch;
+
+  > * {
+    margin: 0 calc(var(--rpg-gap) * 0.3);
+  }
+
+  > * + * {
+    margin-left: 0;
+    padding-left: calc(var(--rpg-gap) * 0.3);
+    border-left: var(--rpg-line) solid var(--ghs-color-black);
+  }
+
+  > input {
+    padding-top: calc(var(--rpg-gap) * 0.3);
+  }
+
+  &.table-head {
+    font-size: 0.9em;
+    text-align: center;
+
+    > * {
+      padding-block: calc(var(--rpg-gap) * 0.2);
+    }
+  }
+
+  &:last-child > * {
+    padding-bottom: calc(var(--rpg-gap) * 0.3);
+  }
+
+  &.spent input {
+    color: var(--ghs-color-disabled);
+    text-decoration: line-through;
+  }
+}
+
+.equip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.effect {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--rpg-gap) * 0.3);
+
+  input {
+    flex-grow: 1;
+    align-self: stretch;
+    padding-top: calc(var(--rpg-gap) * 0.3);
+  }
+}

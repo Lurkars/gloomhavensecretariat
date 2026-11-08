@@ -52,7 +52,7 @@ export class MonsterEntityAddCommand extends CommandImpl {
       const entity = gameManager.monsterManager.addMonsterEntity(
         monster,
         number,
-        monster.bb && monster.tags.includes('bb-elite') ? MonsterType.elite : type,
+        monster.editionRules === 'bb' && monster.tags.includes('bb-elite') ? MonsterType.elite : type,
         summon
       );
 

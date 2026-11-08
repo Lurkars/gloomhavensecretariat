@@ -6,7 +6,9 @@ import {
   AttackModifierDeck,
   AttackModifierType,
   AttackModifierValueType,
-  defaultAttackModifier
+  defaultAttackModifier,
+  RPG_BLESS_CURSE_LIMIT,
+  RpgAttackModifierCards
 } from 'src/app/game/model/data/AttackModifier';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
@@ -305,7 +307,7 @@ describe('AttackModifierManager', () => {
 
   describe('buildCharacterAttackModifierDeck', () => {
     it('builds a deck from amTables for a bb character, marking each card as character-owned', () => {
-      const character = buildCharacter('test-char', { bb: true });
+      const character = buildCharacter('test-char', { editionRules: 'bb' });
       character.level = 1;
       character.amTables = [[AttackModifierType.plus1, AttackModifierType.minus1]];
 
@@ -316,7 +318,7 @@ describe('AttackModifierManager', () => {
     });
 
     it('builds the default deck and applies perks for a non-bb character', () => {
-      const character = buildCharacter('test-char', { bb: false });
+      const character = buildCharacter('test-char');
       const perk = Object.assign(new Perk(), {
         type: PerkType.add,
         cards: [Object.assign(new PerkCard(), { count: 1, attackModifier: new AttackModifier(AttackModifierType.curse) })]
@@ -435,6 +437,62 @@ describe('AttackModifierManager', () => {
       attackModifierManager.applyCharacterPerks(character, deck, true);
 
       expect(deck.cards.filter((am) => am.id === AttackModifierType.minus1).length).toBe(minus1Before);
+    });
+  });
+
+  describe('Gloomhaven RPG', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('uses the 20 card base deck with attribute modifiers for RPG characters', () => {
+      vi.spyOn(attackModifierManager, 'isRpgCharacter').mockReturnValue(true);
+      const deck = attackModifierManager.buildCharacterAttackModifierDeck(buildCharacter());
+
+      expect(deck.cards.length).toBe(20);
+      expect(deck.cards.filter((am) => am.attribute === undefined).map((am) => am.type)).toEqual([
+        AttackModifierType.double,
+        AttackModifierType.null
+      ]);
+      expect(deck.cards.filter((am) => am.type === AttackModifierType.minus1).map((am) => am.attribute)).toEqual([1, 2, 2, 2, 3]);
+      expect(deck.cards.filter((am) => am.type === AttackModifierType.plus0).map((am) => am.attribute)).toEqual([3, 3, 3, 4, 4, 4]);
+      expect(deck.cards.filter((am) => am.type === AttackModifierType.plus1).map((am) => am.attribute)).toEqual([4, 5, 5, 5, 6]);
+    });
+
+    it('replaces cards by attack and attribute modifier when applying perks', () => {
+      vi.spyOn(attackModifierManager, 'isRpgCharacter').mockReturnValue(true);
+      const replacePerk = Object.assign(new Perk(), {
+        type: PerkType.replace,
+        count: 1,
+        cards: [
+          Object.assign(new PerkCard(), { count: 1, attackModifier: { type: AttackModifierType.minus1, attribute: 2 } }),
+          Object.assign(new PerkCard(), { count: 1, attackModifier: { type: AttackModifierType.plus1, attribute: 3 } })
+        ]
+      });
+      const character = buildCharacter('rpg-char', { perks: [replacePerk] });
+      character.progress.perks = [1];
+
+      const deck = attackModifierManager.buildCharacterAttackModifierDeck(character);
+
+      expect(deck.cards.length).toBe(20);
+      expect(deck.cards.filter((am) => am.type === AttackModifierType.minus1).map((am) => am.attribute)).toEqual([1, 2, 2, 3]);
+      expect(deck.cards.find((am) => am.type === AttackModifierType.plus1 && am.attribute === 3)?.character).toBe(true);
+    });
+
+    it('restores RPG cards by id from a serialized deck', () => {
+      const deck = new AttackModifierDeck(RpgAttackModifierCards);
+      const restored = new AttackModifierDeck();
+      attackModifierManager.fromModel(restored, deck.toModel());
+
+      expect(restored.cards.map((am) => am.attribute)).toEqual(deck.cards.map((am) => am.attribute));
+    });
+
+    it('limits bless cards to six per deck', () => {
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
+      const deck = new AttackModifierDeck(RpgAttackModifierCards);
+      attackModifierManager.addModifierBatch(deck, attackModifierManager.getBless(4, deck));
+
+      expect(attackModifierManager.getBless(4, deck).length).toBe(RPG_BLESS_CURSE_LIMIT - 4);
     });
   });
 });

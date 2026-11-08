@@ -12,6 +12,7 @@ import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/en
 import { FigureErrorsComponent } from 'src/app/ui/figures/errors/errors';
 import { MonsterAbilityCardComponent } from 'src/app/ui/figures/monster/cards/ability-card';
 import { MonsterImageComponent } from 'src/app/ui/figures/monster/cards/image';
+import { MonsterRpgActionsComponent } from 'src/app/ui/figures/monster/cards/rpg-actions';
 import { MonsterNumberPicker } from 'src/app/ui/figures/monster/dialogs/numberpicker';
 import { MonsterStatsComponent } from 'src/app/ui/figures/monster/stats/stats';
 import { StandeeComponent } from 'src/app/ui/figures/standee/standee';
@@ -25,6 +26,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
     GhsLabelDirective,
     TrackUUIDPipe,
     MonsterAbilityCardComponent,
+    MonsterRpgActionsComponent,
     MonsterImageComponent,
     MonsterNumberPicker,
     MonsterStatsComponent,

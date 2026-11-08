@@ -2,8 +2,8 @@
   "name": "bruiser",
   "icon": "gh-brute",
   "edition": "bb",
+  "editionRules": "bb",
   "color": "#35acd5",
-  "bb": true,
   "stats": [
     {
       "level": 1,

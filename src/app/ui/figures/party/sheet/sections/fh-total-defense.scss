@@ -1,0 +1,29 @@
+:host {
+  display: contents;
+}
+
+.total-defense {
+  position: absolute;
+  top: calc(var(--ghs-unit) * 51 * var(--ghs-dialog-factor));
+  left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 21 * var(--ghs-dialog-factor));
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    text-align: center;
+    align-self: center;
+    font-size: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+    margin-top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  }
+
+  &.total-defense {
+    left: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
+
+    input {
+      color: var(--ghs-color-red);
+    }
+  }
+}

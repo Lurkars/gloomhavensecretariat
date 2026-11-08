@@ -2,6 +2,7 @@ import { AttackModifier } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction, CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { ConditionName } from 'src/app/game/model/data/Condition';
 import { Editional } from 'src/app/game/model/data/Editional';
+import { EditionRules } from 'src/app/game/model/data/EditionRules';
 import { FigureError } from 'src/app/game/model/data/FigureError';
 import { Perk, PerkCard } from 'src/app/game/model/data/Perks';
 import { Spoilable } from 'src/app/game/model/data/Spoilable';
@@ -65,7 +66,7 @@ export class CharacterData implements Editional, Spoilable {
 
   masteries: string[] = [];
 
-  bb: boolean = false;
+  editionRules: EditionRules;
   amTables: (AttackModifier | string)[][] = [];
 
   // from Editional
@@ -116,7 +117,7 @@ export class CharacterData implements Editional, Spoilable {
       this.masteries = characterData.masteries || [];
       this.replace = characterData.replace || false;
       this.merge = characterData.merge || false;
-      this.bb = characterData.bb || false;
+      this.editionRules = characterData.editionRules;
       this.amTables = characterData.amTables || [];
     }
   }

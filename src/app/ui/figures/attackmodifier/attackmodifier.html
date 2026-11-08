@@ -235,6 +235,11 @@
               <img class="svg-icon" src="./assets/images/shuffle.svg" />
             </span>
           }
+          @if (attackModifier.attribute) {
+            <span class="attribute-modifier">
+              <span class="value">{{ attackModifier.attribute }}</span>
+            </span>
+          }
         }
         @if (townGuard()) {
           <div class="type" [ngClass]="{ 'new-style': newStyle, fh: settingsManager.settings.fhStyle }">

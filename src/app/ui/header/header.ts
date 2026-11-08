@@ -118,7 +118,11 @@ export class HeaderComponent implements OnInit {
       gameManager.game.figures.every((figure) => !(figure instanceof Character) && !(figure instanceof Monster))
     ) {
       return 'characters';
-    } else if (!gameManager.game.scenario && gameManager.game.figures.every((figure) => !(figure instanceof Monster))) {
+    } else if (
+      !gameManager.game.scenario &&
+      gameManager.scenarioManager.hasScenarios() &&
+      gameManager.game.figures.every((figure) => !(figure instanceof Monster))
+    ) {
       return 'scenario';
     } else if (gameManager.game.figures.every((figure) => !(figure instanceof Monster))) {
       return 'monsters';

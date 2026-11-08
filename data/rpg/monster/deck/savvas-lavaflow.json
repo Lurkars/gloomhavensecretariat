@@ -1,0 +1,247 @@
+{
+  "name": "savvas-lavaflow",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.stalagmite%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.stalagmite%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.lava-flow%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.meteor%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.4%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 97,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.meteor%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.savvas-lavaflow.4%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.call-elements%",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.savvas-lavaflow.5%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

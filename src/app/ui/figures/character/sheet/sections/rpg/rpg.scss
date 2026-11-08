@@ -1,0 +1,170 @@
+img {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+}
+
+input,
+textarea {
+  min-width: 0;
+  font-family: var(--ghs-font-normal);
+  font-size: inherit;
+  color: var(--ghs-color-black);
+  background: transparent;
+  border: none;
+  border-bottom: var(--rpg-line) solid #c8c8c8;
+  outline: none;
+
+  &:focus {
+    border-bottom-color: var(--ghs-character-color, var(--ghs-color-black));
+  }
+}
+
+input[type='number'] {
+  width: 4em;
+}
+
+input::placeholder {
+  font-style: italic;
+  font-size: 0.85em;
+  color: #888;
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
+  min-height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent calc(1.4em - var(--rpg-line)),
+    #c8c8c8 calc(1.4em - var(--rpg-line)),
+    #c8c8c8 1.4em
+  );
+  line-height: 1.4em;
+  border: none;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--rpg-gap);
+  height: var(--rpg-title-height);
+  font-family: var(--rpg-font-title);
+  text-transform: uppercase;
+  margin-bottom: calc(var(--rpg-gap) * 0.5);
+
+  > span {
+    font-size: 1.3em;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    flex-grow: 1;
+    border-top: var(--rpg-line) solid var(--ghs-color-black);
+  }
+}
+
+.frame {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: calc(var(--rpg-title-height) / 2) 0 0 0;
+    border: var(--rpg-line) solid var(--ghs-color-black);
+    border-top: none;
+    border-radius: 0 0 calc(var(--ghs-unit) * 0.3) calc(var(--ghs-unit) * 0.3);
+    pointer-events: none;
+  }
+
+  > .section-title {
+    margin-bottom: 0;
+  }
+}
+
+.table-head {
+  font-weight: bold;
+  border-bottom: calc(var(--rpg-line) * 2) solid var(--ghs-color-black);
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--rpg-gap) * 0.5);
+  border: var(--rpg-line) solid var(--ghs-color-black);
+  border-radius: calc(var(--ghs-unit) * 0.3);
+
+  input {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.box-label {
+  font-family: var(--rpg-font-title);
+  white-space: nowrap;
+}
+
+.state {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.3em;
+  height: 1.3em;
+  flex-shrink: 0;
+  border-radius: 50%;
+  opacity: 0.3;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    filter: grayscale(1);
+  }
+
+  &.lost {
+    border: calc(var(--rpg-line) * 1.5) solid var(--ghs-color-black);
+
+    img {
+      height: 70%;
+      filter: brightness(0);
+    }
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.checkbox {
+  flex-shrink: 0;
+
+  &.round {
+    border-radius: 50%;
+  }
+}
+
+:host-context(.rpg-sheet .box-grid) {
+  .box {
+    border: none;
+    border-radius: 0;
+    border-bottom: var(--rpg-line) dotted var(--ghs-color-black);
+
+    &:nth-child(odd) {
+      border-right: var(--rpg-line) dotted var(--ghs-color-black);
+    }
+
+    &:nth-last-child(-n + 2) {
+      border-bottom: none;
+    }
+  }
+}
+
+:host-context(.rpg-sheet.locked) {
+  input,
+  textarea,
+  a,
+  .checkbox {
+    pointer-events: none;
+  }
+}

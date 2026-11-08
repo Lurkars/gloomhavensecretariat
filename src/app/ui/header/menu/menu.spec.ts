@@ -6,7 +6,6 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
-import { EditionData } from 'src/app/game/model/data/EditionData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
@@ -100,19 +99,6 @@ describe('MainMenuComponent', () => {
       const component = createComponent();
       component.setActive(SubMenu.settings);
       expect(component.active).toEqual(SubMenu.settings);
-    });
-  });
-
-  describe('hasSections', () => {
-    it('is true when the current edition declares sections', () => {
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [Object.assign({}, { index: 's1' }) as any], []))];
-      const component = createComponent();
-      expect(component.hasSections()).toBe(true);
-    });
-
-    it('is false without any sections', () => {
-      const component = createComponent();
-      expect(component.hasSections()).toBe(false);
     });
   });
 

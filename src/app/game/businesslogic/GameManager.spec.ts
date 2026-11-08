@@ -542,4 +542,57 @@ describe('GameManager', () => {
       expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
     });
   });
+
+  describe('matchesEditionRules', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('shows every character outside of bb and rpg rules', () => {
+      vi.spyOn(gameManager, 'bbRules').mockReturnValue(false);
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(false);
+      expect(gameManager.matchesEditionRules(Object.assign(new CharacterData(), { name: 'a' }))).toBe(true);
+    });
+
+    it('only shows characters made for the current bb or rpg rules', () => {
+      vi.spyOn(gameManager, 'bbRules').mockReturnValue(true);
+      expect(gameManager.matchesEditionRules(Object.assign(new CharacterData(), { name: 'a' }))).toBe(false);
+      expect(gameManager.matchesEditionRules(Object.assign(new CharacterData(), { editionRules: 'bb' }))).toBe(true);
+      expect(gameManager.matchesEditionRules(Object.assign(new CharacterData(), { editionRules: 'rpg' }))).toBe(false);
+      expect(gameManager.matchesEditionRules(Object.assign(new MonsterData(), { editionRules: 'bb' }))).toBe(true);
+    });
+  });
+
+  describe('hasCampaignSheet / hasPartySheet', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+      gameManager.game.edition = undefined;
+      gameManager.game.party.edition = undefined;
+    });
+
+    it('offers both sheets for regular editions', () => {
+      gameManager.game.edition = 'gh';
+      expect(gameManager.hasCampaignSheet()).toBe(true);
+      expect(gameManager.hasPartySheet()).toBe(true);
+    });
+
+    it('offers neither sheet for bb or rpg rules', () => {
+      vi.spyOn(gameManager, 'bbRules').mockReturnValue(true);
+      expect(gameManager.hasCampaignSheet()).toBe(false);
+      expect(gameManager.hasPartySheet()).toBe(false);
+      vi.spyOn(gameManager, 'bbRules').mockReturnValue(false);
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
+      expect(gameManager.hasCampaignSheet()).toBe(false);
+      expect(gameManager.hasPartySheet()).toBe(false);
+    });
+
+    it('offers only the campaign sheet for jotl', () => {
+      gameManager.game.edition = 'jotl';
+      expect(gameManager.hasCampaignSheet()).toBe(true);
+      expect(gameManager.hasPartySheet()).toBe(false);
+      gameManager.game.edition = 'gh';
+      gameManager.game.party.edition = 'jotl';
+      expect(gameManager.hasPartySheet()).toBe(false);
+    });
+  });
 });

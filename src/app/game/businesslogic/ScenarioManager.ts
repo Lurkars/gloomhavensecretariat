@@ -1082,7 +1082,7 @@ export class ScenarioManager {
         }
       }
     }
-    if (monster && monster.bb) {
+    if (monster && monster.editionRules === 'bb') {
       if (entities.length && entities.every((entity) => entity.type === MonsterType.elite) && !monster.tags.includes('bb-elite')) {
         monster.tags.push('bb-elite');
       } else {
@@ -1091,6 +1091,24 @@ export class ScenarioManager {
     }
 
     return entities;
+  }
+
+  hasScenarios(): boolean {
+    const editions = this.game.edition
+      ? gameManager.relevantEditions(this.game.edition, true, false)
+      : gameManager.editionData.map((editionData) => editionData.edition);
+    return editions.some((edition) => this.scenarioData(edition, true).length > 0);
+  }
+
+  hasSections(conclusions: boolean = false): boolean {
+    const editions = this.game.edition ? gameManager.relevantEditions(this.game.edition, true, false) : settingsManager.settings.editions;
+    return gameManager.editionData.some(
+      (editionData) =>
+        editions.includes(editionData.edition) &&
+        settingsManager.settings.editions.includes(editionData.edition) &&
+        editionData.sections &&
+        editionData.sections.some((sectionData) => sectionData.edition === editionData.edition && (conclusions || !sectionData.conclusion))
+    );
   }
 
   scenarioData(edition: string | undefined, all: boolean = false): ScenarioData[] {

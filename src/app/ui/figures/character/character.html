@@ -507,13 +507,13 @@
       </a>
     }
 
-    @if (!character.bb && settingsManager.settings.characterHandSize && !character.absent) {
+    @if (character.editionRules !== 'bb' && settingsManager.settings.characterHandSize && !character.absent) {
       <div class="hand-size" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="openAbilityCards()">
         {{ character.handSize }}
       </div>
     }
 
-    @if (character.bb && settingsManager.settings.characterHandSize && !character.absent) {
+    @if (character.editionRules === 'bb' && settingsManager.settings.characterHandSize && !character.absent) {
       <div class="hand-size">{{ character.level - 1 }}|4</div>
     }
 
@@ -523,7 +523,7 @@
       </div>
     }
 
-    @if (!character.bb && settingsManager.settings.playerNumber) {
+    @if (character.editionRules !== 'bb' && settingsManager.settings.playerNumber) {
       <div class="player-number">#{{ character.number }}</div>
     }
 

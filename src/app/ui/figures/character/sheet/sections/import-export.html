@@ -1,0 +1,10 @@
+<div class="import-export">
+  <label class="export ignore-denied" (click)="exportCharacter()" [ghs-label]="'character.progress.export'" [ghs-label-attribute]="'title'">
+    <img src="./assets/images/export.svg" />
+    <span [ghs-label]="'character.progress.export'"></span>
+  </label>
+  <label class="import" [ghs-label]="'character.progress.import'" [ghs-label-attribute]="'title'" (click)="ghsInputFullScreenCheck()">
+    <input type="file" accept="application/json" (change)="importCharacter($event)" />
+    <img src="./assets/images/import.svg" /><span [ghs-label]="'character.progress.import'"></span>
+  </label>
+</div>

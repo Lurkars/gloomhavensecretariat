@@ -2,8 +2,8 @@
   "name": "spellweaver",
   "icon": "gh-spellweaver",
   "edition": "bb",
+  "editionRules": "bb",
   "color": "#b28ac2",
-  "bb": true,
   "stats": [
     {
       "level": 1,

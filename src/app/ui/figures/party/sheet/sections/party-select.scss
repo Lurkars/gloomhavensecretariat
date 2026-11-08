@@ -1,0 +1,13 @@
+:host {
+  display: contents;
+}
+
+select.select-party {
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+  appearance: none;
+  color: transparent;
+  border: none;
+  background: transparent url('../../../../../../assets/images/select-arrow.svg') no-repeat right center;
+}

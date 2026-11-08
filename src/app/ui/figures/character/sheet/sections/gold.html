@@ -1,0 +1,19 @@
+<div class="row gold-notes">
+  @if (!fh()) {
+    <label><span [ghs-label]="'character.progress.gold-notes'"></span>:</label>
+  } @else {
+    <label><span [ghs-label]="'character.progress.gold'"></span> <img src="./assets/images/fh/loot.svg" />:</label>
+  }
+  <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)" />
+  @if (donations) {
+    <span class="donations">
+      <span [ghs-label]="'character.progress.donations'" [ghs-label-args]="[character.progress.donations]"></span>
+    </span>
+    <span class="donate">
+      <span [ghs-label]="'character.progress.donate'"></span>:
+      <a (click)="donate()" [ngClass]="{ disabled: character.progress.gold < donationPrice || gameManager.game.round > 0 }"
+        ><span class="price"><img src="./assets/images/loot.svg" />{{ donationPrice }}</span></a
+      >
+    </span>
+  }
+</div>

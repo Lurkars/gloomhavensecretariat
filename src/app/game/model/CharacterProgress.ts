@@ -3,6 +3,64 @@ import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identi
 import { LootType } from 'src/app/game/model/data/Loot';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
+export enum RpgAttribute {
+  cunning = 'cunning',
+  finesse = 'finesse',
+  grit = 'grit',
+  intuition = 'intuition',
+  logic = 'logic',
+  understanding = 'understanding'
+}
+
+export class RpgItem {
+  equipped: boolean = false;
+  slot: string = '';
+  name: string = '';
+  initiative: string = '';
+  effect: string = '';
+  spent: boolean = false;
+}
+
+export class RpgFaction {
+  name: string = '';
+  tier: number = -1;
+  benefits: string[] = [];
+}
+
+export type RpgPowerState = 'expended' | 'lost' | undefined;
+
+export class RpgPower {
+  gained: boolean = false;
+  prepared: boolean = false;
+  name: string = '';
+  initiative: string = '';
+  bonus: string = '';
+  primary: string = '';
+  secondary: string = '';
+  state: RpgPowerState;
+}
+
+export const RPG_ITEM_ROWS = 10;
+export const RPG_FACTIONS = 2;
+export const RPG_FACTION_BENEFITS = 4;
+export const RPG_TALENT_ROWS = 4;
+export const RPG_ANCESTRY_SKILL_ROWS = 5;
+export const RPG_CLASS_SKILL_ROWS = 12;
+
+export class RpgProgress {
+  attributes: Partial<Record<RpgAttribute, number>> = {};
+  pronouns: string = '';
+  playerName: string = '';
+  ancestry: string = '';
+  backgrounds: string = '';
+  personalGoal: string = '';
+  items: RpgItem[] = [];
+  factions: RpgFaction[] = [];
+  talents: RpgPower[] = [];
+  ancestrySkills: RpgPower[] = [];
+  classSkills: RpgPower[] = [];
+}
+
 export class CharacterProgress {
   experience: number = 0;
   gold: number = 0;
@@ -25,6 +83,7 @@ export class CharacterProgress {
   trial: Identifier | undefined;
   deck: number[] = [];
   enhancements: Enhancement[] = [];
+  rpg: RpgProgress | undefined;
 }
 
 export class DamageStats {

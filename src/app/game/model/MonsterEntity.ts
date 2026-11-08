@@ -34,6 +34,7 @@ export class MonsterEntity implements Entity {
   retaliatePersistent: Action[] = [];
   extraActions: Action[] = [];
   extraActionsPersistent: Action[] = [];
+  rpgAction: number = -1;
 
   constructor(number: number, type: MonsterType, monster: Monster) {
     this.number = number;
@@ -85,7 +86,8 @@ export class MonsterEntity implements Entity {
       this.retaliate,
       this.retaliatePersistent,
       this.extraActions,
-      this.extraActionsPersistent
+      this.extraActionsPersistent,
+      this.rpgAction
     );
   }
 
@@ -117,6 +119,7 @@ export class MonsterEntity implements Entity {
     this.retaliatePersistent = (model.retaliatePersistent || []).map((value) => JSON.parse(value));
     this.extraActions = (model.extraActions || []).map((value) => JSON.parse(value) as Action);
     this.extraActionsPersistent = (model.extraActionsPersistent || []).map((value) => JSON.parse(value) as Action);
+    this.rpgAction = model.rpgAction ?? -1;
 
     if (this.shield) {
       this.extraActions.push(this.shield);
@@ -162,6 +165,7 @@ export class GameMonsterEntityModel {
   retaliatePersistent: string[];
   extraActions: string[];
   extraActionsPersistent: string[];
+  rpgAction: number;
 
   constructor(
     number: number,
@@ -184,7 +188,8 @@ export class GameMonsterEntityModel {
     retaliate: Action[],
     retaliatePersistent: Action[],
     extraActions: Action[],
-    extraActionsPersistent: Action[]
+    extraActionsPersistent: Action[],
+    rpgAction: number = -1
   ) {
     this.number = number;
     this.marker = marker;
@@ -207,5 +212,6 @@ export class GameMonsterEntityModel {
     this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
     this.extraActions = extraActions.map((action) => JSON.stringify(action));
     this.extraActionsPersistent = extraActionsPersistent.map((action) => JSON.stringify(action));
+    this.rpgAction = rpgAction;
   }
 }

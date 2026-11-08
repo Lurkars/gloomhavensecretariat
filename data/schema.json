@@ -494,6 +494,13 @@
                     "default": "",
                     "type": "string"
                 },
+                "editionRules": {
+                    "enum": [
+                        "bb",
+                        "rpg"
+                    ],
+                    "type": "string"
+                },
                 "errors": {
                     "items": {
                         "$ref": "#/definitions/FigureError"
@@ -928,6 +935,13 @@
                     "type": "string"
                 },
                 "edition": {
+                    "type": "string"
+                },
+                "editionRules": {
+                    "enum": [
+                        "bb",
+                        "rpg"
+                    ],
                     "type": "string"
                 },
                 "errors": {

@@ -7,6 +7,7 @@
   z-index: 1;
 
   ghs-monster-ability-card,
+  ghs-monster-rpg-actions,
   ghs-monster-stats,
   ghs-monster-image {
     transition: filter calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
@@ -18,6 +19,7 @@
 
   &.off {
     ghs-monster-ability-card,
+    ghs-monster-rpg-actions,
     ghs-monster-stats,
     ghs-monster-image {
       filter: grayscale(0.7);
@@ -77,14 +79,16 @@
     margin-right: calc(var(--ghs-unit) * 0.5);
   }
 
-  ghs-monster-ability-card {
+  ghs-monster-ability-card,
+  ghs-monster-rpg-actions {
     margin: 0 calc(var(--ghs-unit) * 0.5);
     overflow: hidden;
     border-radius: calc(var(--ghs-unit) * 1);
   }
 
   &.full-ability {
-    ghs-monster-ability-card {
+    ghs-monster-ability-card,
+    ghs-monster-rpg-actions {
       margin: 0 calc(var(--ghs-unit) * 1.25);
     }
 
@@ -102,6 +106,7 @@
 
   &.modern {
     ghs-monster-ability-card,
+    ghs-monster-rpg-actions,
     ghs-monster-stats,
     ghs-monster-image {
       filter: none;
@@ -109,10 +114,20 @@
 
     &.off {
       ghs-monster-ability-card,
+      ghs-monster-rpg-actions,
       ghs-monster-stats,
       ghs-monster-image {
         filter: grayscale(0.7);
       }
+    }
+  }
+
+  &.rpg.full-ability {
+    align-items: stretch;
+
+    .stats-container {
+      height: auto;
+      min-height: calc(var(--ghs-unit) * 24);
     }
   }
 

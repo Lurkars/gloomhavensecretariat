@@ -1,0 +1,504 @@
+{
+  "edition": {
+    "rpg": "Gloomhaven RPG (%wip%)"
+  },
+  "character": {
+    "rpg": {
+      "berserker": "Berserker",
+      "bladeswarm": "Bladeswarm",
+      "bruiser": "Bruiser",
+      "cragheart": "Cragheart",
+      "doomstalker": "Doomstalker",
+      "elementalist": "Elementalist",
+      "mindthief": "Mindthief",
+      "plagueherald": "Plagueherald",
+      "quartermaster": "Quartermaster",
+      "sawbones": "Sawbones",
+      "silent-knife": "Silent Knife",
+      "soothsinger": "Soothsinger",
+      "spellweaver": "Spellweaver",
+      "sunkeeper": "Sunkeeper",
+      "tinkerer": "Tinkerer",
+      "wildfury": "Wildfury"
+    }
+  },
+  "summon": {
+    "companion": "Companion"
+  },
+  "custom": {
+    "rpg": {
+      "berserker": {
+        "1": "You may suffer %game.damage:2% to add %game.action.attack.valueSign:2%",
+        "2": "Suffer %game.damage% equal to half your current hit point value (rounded down)"
+      },
+      "bladeswarm": {
+        "1": "Add %game.action.attack.valueSign:1% for each persistent effect you have active"
+      },
+      "bruiser": {
+        "1": "Gain %game.action.shield:1% and Taunt"
+      },
+      "cragheart": {
+        "1": "Create a 1-space obstacle adjacent to the target"
+      },
+      "doomstalker": {
+        "1": "Perform: %game.action.attack:2%, %game.action.range:5%",
+        "2": "Grant one of your summons adjacent to the target a primary action"
+      },
+      "mindthief": {
+        "1": "After the attack ability, control the target to %game.action.move:1%",
+        "2": "Add %game.action.attack.valueSign:1% for each negative condition the target has"
+      },
+      "plagueherald": {
+        "1": "%game.action.heal:1%, %game.action.target:1%"
+      },
+      "quartermaster": {
+        "1": "Gain a random item from your Supply",
+        "2": "Gain Barbed Strip or Iron Plate",
+        "3": "Gain Scroll of Relocation or Sharpened Dirk"
+      },
+      "sawbones": {
+        "1": "Give yourself or one adjacent ally one Medical Pack",
+        "2": "You may gain %game.condition.pacify% to add %game.condition.stun%",
+        "3": "Add %game.action.attack.valueSign:1% if an ally has an active Prescription"
+      },
+      "silent-knife": {
+        "1": "Gain 1 gold if this attack targeted an adjacent enemy"
+      },
+      "soothsinger": {
+        "1": "Grant one ally: %game.action.move:2% or %game.action.attack:2%"
+      },
+      "spellweaver": {
+        "1": "Add %game.action.attack.valueSign:2% if drawn during an action from a class Skill"
+      },
+      "sunkeeper": {
+        "1": "Gain %game.action.shield:1% and Taunt",
+        "2": "You or an adjacent ally may %game.card.recover% one expended Level 1 Skill"
+      },
+      "tinkerer": {
+        "1": "%game.action.heal:1%, %game.action.target% 1 ally"
+      },
+      "wildfury": {
+        "1": "%game.action.heal:2%, Companion",
+        "2": "Add %game.action.attack.valueSign:1% if you and your Companion are within %game.action.range:4% of each other"
+      },
+      "action": {
+        "acid-vomit": "Acid Vomit",
+        "aura-eruption": "Aura Eruption",
+        "basic": "Basic",
+        "beam-of-annihilation": "Beam of Annihilation",
+        "black-thorns": "Black Thorns",
+        "blood-barrier": "Blood Barrier",
+        "boil-blood": "Boil Blood",
+        "bolder-throw": "Bolder Throw",
+        "bolster-allies": "Bolster Allies",
+        "boulder-throw": "Boulder Throw",
+        "break-away": "Break Away",
+        "break-will": "Break Will",
+        "burst": "Burst",
+        "call-elements": "Call Elements",
+        "centipede-bulwark": "Centipede Bulwark",
+        "chain-pull": "Chain Pull",
+        "charge": "Charge",
+        "claw-swipes": "Claw Swipes",
+        "close-in": "Close In",
+        "cloud-of-hate": "Cloud of Hate",
+        "cold-claws": "Cold Claws",
+        "concuss": "Concuss",
+        "cutting-blast": "Cutting Blast",
+        "dark-hymn": "Dark Hymn",
+        "dark-ritual": "Dark Ritual",
+        "defense": "Defense",
+        "destabilize": "Destabilize",
+        "devoted-defender": "Devoted Defender",
+        "dissipate": "Dissipate",
+        "drain-life": "Drain Life",
+        "earth-slam": "Earth Slam",
+        "earthen-slam": "Earthen Slam",
+        "elemental-fury": "Elemental Fury",
+        "empowering-rest": "Empowering Rest",
+        "energy-of-the-grove": "Energy of the Grove",
+        "evasion-tactics": "Evasion Tactics",
+        "explosive-blast": "Explosive Blast",
+        "feed": "Feed",
+        "fire-spout": "Fire Spout",
+        "focused-strikes": "Focused Strikes",
+        "frozen-shard": "Frozen Shard",
+        "gale": "Gale",
+        "glacier": "Glacier",
+        "gripping-teeth": "Gripping Teeth",
+        "ground-pound": "Ground Pound",
+        "growth": "Growth",
+        "guardian": "Guardian",
+        "hex": "Hex",
+        "hex-whip": "Hex Whip",
+        "hibernate": "Hibernate",
+        "hide-in-the-dark": "Hide in the Dark",
+        "hoarfrost": "Hoarfrost",
+        "horrible-glare": "Horrible Glare",
+        "hungry-maw": "Hungry Maw",
+        "icy-blast": "Icy Blast",
+        "ill-omen": "Ill Omen",
+        "imp-minions": "Imp Minions",
+        "incinerate": "Incinerate",
+        "inspire-ally": "Inspire Ally",
+        "into-darkness": "Into Darkness",
+        "lava-flow": "Lava Flow",
+        "low-slash": "Low Slash",
+        "massive-burst": "Massive Burst",
+        "meteor": "Meteor",
+        "mortar": "Mortar",
+        "night-feast": "Night Feast",
+        "oaken-hex": "Oaken Hex",
+        "pack-hunting": "Pack Hunting",
+        "parry": "Parry",
+        "patch-wounds": "Patch Wounds",
+        "phase-out": "Phase Out",
+        "poison-blade": "Poison Blade",
+        "powerful-hits": "Powerful Hits",
+        "psyche-up": "Psyche Up",
+        "pull-under": "Pull Under",
+        "quicksand": "Quicksand",
+        "rampage": "Rampage",
+        "rancid-arrow": "Rancid Arrow",
+        "ray-of-warmth": "Ray of Warmth",
+        "reinforcements": "Reinforcements",
+        "release-gas": "Release Gas",
+        "restoration": "Restoration",
+        "restore-the-swarm": "Restore the Swarm",
+        "rime": "Rime",
+        "rise-and-fall": "Rise and Fall",
+        "rotting-embrace": "Rotting Embrace",
+        "runic-maelstrom": "Runic Maelstrom",
+        "sacrificial-hurl": "Sacrificial Hurl",
+        "scurry-by": "Scurry By",
+        "set-trap": "Set Trap",
+        "shadow-bolt": "Shadow Bolt",
+        "sharp-fangs": "Sharp Fangs",
+        "shoot-arm": "Shoot Arm",
+        "shoot-foot": "Shoot Foot",
+        "shoot-gut": "Shoot Gut",
+        "simple-bow": "Simple Bow",
+        "spiked-mandibles": "Spiked Mandibles",
+        "spiked-shield": "Spiked Shield",
+        "splashing-bile": "Splashing Bile",
+        "split": "Split",
+        "stalagmite": "Stalagmite",
+        "storms-eye": "Storm's Eye",
+        "strong-growth": "Strong Growth",
+        "subduing-spit": "Subduing Spit",
+        "summon-demon": "Summon Demon",
+        "supernova": "Supernova",
+        "surround": "Surround",
+        "survivor": "Survivor",
+        "swarm": "Swarm",
+        "swift-frenzy": "Swift Frenzy",
+        "terrible-growth": "Terrible Growth",
+        "thrown-knife": "Thrown Knife",
+        "tip-the-scales": "Tip the Scales",
+        "torch": "Torch",
+        "toxic-sting": "Toxic Sting",
+        "trample": "Trample",
+        "twin-shots": "Twin Shots",
+        "unending-frenzy": "Unending Frenzy",
+        "unseen-strike": "Unseen Strike",
+        "venom-glands": "Venom Glands",
+        "venom-shiv": "Venom Shiv",
+        "vicious-opportunity": "Vicious Opportunity",
+        "vile-sludge": "Vile Sludge",
+        "violent-slam": "Violent Slam",
+        "warning-strike": "Warning Strike",
+        "whirlwind": "Whirlwind"
+      },
+      "archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent hex"
+      },
+      "bandit-archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent hex"
+      },
+      "city-watch-archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent hex"
+      },
+      "great-grove-archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent hex"
+      },
+      "vermling-archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent hex"
+      },
+      "ancient-artillery": {
+        "1": "Enemies adjacent to the target suffer %game.damage:2%",
+        "2": "On all adjacent enemies",
+        "3": "On a 7-space cluster",
+        "4": "On a 3-space cluster"
+      },
+      "stone-construct": {
+        "1": "Target all adjacent enemies"
+      },
+      "deep-terror": {
+        "1": "On a five-space line away from you",
+        "2": "If the attack ability was performed, summon 1 normal deep terror in a space adjacent to the target"
+      },
+      "giant-rat": {
+        "1": "For each other rat adjacent to the target, add %game.action.attack.valueSign:1%",
+        "2": "If %game.element.dark%, gain %game.condition.invisible%"
+      },
+      "giant-viper": {
+        "1": "If the target is adjacent to any of your allies, add %game.action.attack.valueSign:2%"
+      },
+      "chaos-demon": {
+        "1": "If %game.element.fire%: %game.condition.wound%; if %game.element.air%: target a 3-space cluster",
+        "2": "If %game.element.ice%: target a 2-space adjacent arc; if %game.element.earth%: %game.action.push:2%",
+        "3": "If %game.element.light%: %game.action.heal:4%, self; if %game.element.dark%: gain %game.condition.invisible%",
+        "4": "If %game.element.wild%: %game.condition.pacify%"
+      },
+      "earth-demon": {
+        "1": "If %game.element.earth%: %game.condition.immobilize%, target all, %game.action.range:2%",
+        "2": "If %game.element.earth%: add +1 target",
+        "3": "Target all",
+        "4": "If %game.element.wild%: infuse %game.element.earth%"
+      },
+      "flame-demon": {
+        "1": "Create a %game.damage:4% trap in an adjacent empty space. If %game.element.wild%: infuse %game.element.fire%",
+        "2": "On a 2-space line away from you; if %game.element.fire%: add %game.action.attack.valueSign:1% and %game.condition.wound%",
+        "3": "If %game.element.fire%: target a 7-space cluster"
+      },
+      "frost-demon": {
+        "1": "%game.condition.immobilize%, target all, %game.action.range:2%; if %game.element.ice%: %game.action.heal:3%, self",
+        "2": "If %game.element.ice%: add %game.action.attack.valueSign:1% and +1 range",
+        "3": "On a 2-space adjacent 120-degree arc"
+      },
+      "night-demon": {
+        "1": "All adjacent characters suffer %game.damage:1%. If %game.element.wild%: infuse %game.element.dark%",
+        "2": "If %game.element.dark%: %game.condition.muddle%",
+        "3": "If %game.element.dark%: gain %game.condition.invisible%"
+      },
+      "sun-demon": {
+        "1": "If %game.element.light%: target all",
+        "2": "If %game.element.light%: %game.action.heal:3%, self"
+      },
+      "wind-demon": {
+        "1": "If %game.element.wild%: infuse %game.element.air%",
+        "2": "If %game.element.air%: %game.action.push:2%",
+        "3": "If %game.element.air%: %game.condition.pacify%"
+      },
+      "rending-drake": {
+        "1": "Gain %game.condition.strengthen%"
+      },
+      "spitting-drake": {
+        "1": "On a 3-space cluster",
+        "2": "On a 7-space cluster"
+      },
+      "guard": {
+        "1": "Taunt",
+        "2": "Gain %game.condition.strengthen%"
+      },
+      "bandit-guard": {
+        "1": "Taunt"
+      },
+      "great-grove-guard": {
+        "1": "Grant yourself and all adjacent allies %game.action.shield:1% and %game.action.retaliate:1%",
+        "2": "Gain %game.condition.strengthen%"
+      },
+      "city-watch-guard": {
+        "1": "Taunt",
+        "2": "Gain %game.condition.strengthen%"
+      },
+      "jhindari-embassy-guard": {
+        "1": "Taunt",
+        "2": "If your target is not adjacent to any of their allies, add %game.action.attack.valueSign:1%"
+      },
+      "harrower-infester": {
+        "1": "Give enemies damaged by this retaliate %game.condition.poison%",
+        "2": "If %game.element.dark%: add %game.action.attack.valueSign:1%"
+      },
+      "harrower-groundswell": {
+        "1": "Infuse %game.element.dark% or %game.element.earth%",
+        "2": "Create hazards in up to 2 spaces moved through; if %game.element.earth%: affect up to 3 spaces. %game.condition.muddle%, target all enemies moved through; if %game.element.dark%: %game.condition.immobilize%, %game.damage:2%",
+        "3": "If %game.element.wild%: infuse %game.element.earth%",
+        "4": "Target all non-flying",
+        "5": "If %game.element.dark%: %game.condition.wound%; if %game.element.earth%: %game.condition.immobilize%"
+      },
+      "black-imp": {
+        "1": "%game.condition.strengthen%, target all, %game.action.range:2%",
+        "2": "%game.condition.muddle%, target all, %game.action.range:2%",
+        "3": "If %game.element.wild%: add +1 target"
+      },
+      "blood-imp": {
+        "1": "%game.condition.strengthen%, target all, %game.action.range:2%",
+        "2": "%game.condition.muddle%, target all, %game.action.range:2%",
+        "3": "If %game.element.wild%: add +1 target"
+      },
+      "forest-imp": {
+        "1": "%game.condition.strengthen%, target all, %game.action.range:2%",
+        "2": "%game.condition.muddle%, target all, %game.action.range:2%",
+        "3": "If %game.element.wild%: add +1 target"
+      },
+      "priest": {
+        "1": "%game.condition.strengthen%, target all allies, %game.action.range:3%"
+      },
+      "cultist-priest": {
+        "1": "%game.condition.strengthen%, target all allies, %game.action.range:3%",
+        "2": "Summon one normal living bones",
+        "3": "Gain %game.condition.stun%"
+      },
+      "zealot-priest": {
+        "1": "%game.condition.strengthen%, target all allies, %game.action.range:3%",
+        "2": "If %game.element.fire%: add +2 range"
+      },
+      "grove-priest": {
+        "1": "Target all adjacent allies",
+        "2": "Gain %game.condition.bless%"
+      },
+      "great-oak-priest": {
+        "1": "%game.condition.ward%, target all adjacent allies"
+      },
+      "savvas-icestorm": {
+        "1": "Infuse %game.element.ice% or %game.element.air%",
+        "2": "If %game.element.ice%: add +1 heal. If %game.element.air%: %game.action.attack:-1%, %game.action.range:3%",
+        "3": "If %game.element.air%: %game.condition.pacify% an adjacent enemy",
+        "4": "On a 5-space 120-degree cone; if %game.element.ice%: add %game.action.attack.valueSign:2%",
+        "5": "Summon one normal frost demon or wind demon. Infuse %game.element.ice% or %game.element.air%"
+      },
+      "savvas-lavaflow": {
+        "1": "Infuse %game.element.fire% or %game.element.earth%",
+        "2": "On a 3-space line away from you; if %game.element.earth%: add %game.action.attack.valueSign:1% and %game.condition.immobilize%",
+        "3": "All enemies suffer %game.damage:2%, %game.action.range:4%; if %game.element.fire%: %game.condition.wound%; if %game.element.earth%: %game.condition.immobilize%",
+        "4": "If %game.element.fire%: add +1 target",
+        "5": "Summon one normal earth demon or flame demon. Infuse %game.element.fire% or %game.element.earth%"
+      },
+      "crystal-rot": {
+        "1": "%game.condition.muddle%, target all, %game.action.range:4%",
+        "2": "All other undead within %game.action.range:4% add %game.action.attack.valueSign:1% to all their attacks this round",
+        "3": "If %game.element.dark%: add +1 target",
+        "4": "If there are no other undead within %game.action.range:3%: %game.condition.pacify%",
+        "5": "On a 3-space cluster"
+      },
+      "living-bones": {
+        "1": "All attacks target the same enemy"
+      },
+      "living-corpse": {
+        "1": "%game.condition.muddle% and %game.condition.immobilize% one adjacent enemy. If the living corpse dies this turn, all adjacent enemies suffer %game.damage:1% and %game.condition.poison%",
+        "2": "%game.condition.poison% all adjacent enemies"
+      },
+      "city-watch-scout": {
+        "1": "Target all adjacent enemies"
+      },
+      "tune-finder-scout": {
+        "1": "If %game.element.dark%: gain %game.condition.invisible%"
+      },
+      "demonic-general": {
+        "1": "If %game.element.earth%: %game.condition.immobilize%, target all, %game.action.range:2%",
+        "2": "If %game.element.earth%: add +1 target",
+        "3": "If %game.element.fire%: add %game.action.attack.valueSign:2%; if %game.element.ice%: %game.condition.immobilize%; if %game.element.air%: add +2 range; if %game.element.earth%: %game.condition.wound%; if %game.element.light%: gain advantage; if %game.element.dark%: add +1 target",
+        "4": "Target all",
+        "5": "If %game.element.wild%: infuse %game.element.earth%"
+      },
+      "rogue-mercenary": {
+        "1": "Give %game.condition.ward% to yourself and all allies",
+        "2": "Summon 1 normal archer (bandit) or guard (guard)"
+      },
+      "dark-rider": {
+        "1": "Summon normal forest imps equal to half the mercenaries present (rounded up)",
+        "2": "%game.action.attack% +X-1, where X equals the number of spaces you moved in a straight line before attacking",
+        "3": "Jump +3",
+        "4": "Target all enemies jumped over",
+        "5": "%game.condition.muddle%, target all, %game.action.range:1%",
+        "6": "Gain %game.condition.invisible% until the start of your next turn. When you lose %game.condition.invisible%, teleport to any space on the edge of the map and add %game.action.attack.valueSign:1% to all your attacks until the end of the round"
+      },
+      "kazgal-muhjahblush": {
+        "1": "Jump +4",
+        "2": "If %game.element.dark%: gain %game.condition.invisible%",
+        "3": "Jump +1",
+        "4": "If %game.element.fire%: add +2 range",
+        "5": "Summon 1 sun demon"
+      },
+      "kazgal-ascended": {
+        "1": "If %game.element.light%: target all within range",
+        "2": "Target all adjacent enemies",
+        "3": "If %game.element.light%: %game.action.heal:3%, self"
+      },
+      "inguluan": {
+        "1": "If %game.element.light%: target all allies within range",
+        "2": "If %game.element.light%: %game.action.heal:3%, self",
+        "3": "%game.condition.muddle%, target all, %game.action.range:1%",
+        "4": "The nemesis turns into mist and leaves the map. On its next turn, it appears on any map edge; add %game.action.attack.valueSign:1% to all attacks that round",
+        "5": "If %game.element.light%: target all enemies within range"
+      },
+      "hound": {
+        "1": "If the target is adjacent to any of your allies, add %game.action.attack.valueSign:1%"
+      },
+      "ooze": {
+        "1": "If %game.element.earth%: add +1 heal",
+        "2": "If %game.element.earth%: add %game.action.attack.valueSign:1%",
+        "3": "Then summon 1 normal ooze with HP equal to your current HP (limited by a normal ooze's maximum HP)"
+      }
+    }
+  },
+  "monster": {
+    "archer": "Archer",
+    "bandit-archer": "Bandit Archer",
+    "city-watch-archer": "City Watch Archer",
+    "great-grove-archer": "Great Grove Archer",
+    "vermling-archer": "Vermling Archer",
+    "ancient-artillery": "Ancient Artillery",
+    "stone-construct": "Stone Construct",
+    "cave-bear": "Cave Bear",
+    "deep-terror": "Deep Terror",
+    "giant-rat": "Giant Rat",
+    "giant-viper": "Giant Viper",
+    "chaos-demon": "Chaos Demon",
+    "earth-demon": "Earth Demon",
+    "flame-demon": "Flame Demon",
+    "frost-demon": "Frost Demon",
+    "night-demon": "Night Demon",
+    "sun-demon": "Sun Demon",
+    "wind-demon": "Wind Demon",
+    "rending-drake": "Rending Drake",
+    "spitting-drake": "Spitting Drake",
+    "guard": "Guard",
+    "bandit-guard": "Bandit Guard",
+    "great-grove-guard": "Great Grove Guard",
+    "city-watch-guard": "City Watch Guard",
+    "jhindari-embassy-guard": "Jhindari Embassy Guard",
+    "harrower-infester": "Harrower Infester",
+    "harrower-groundswell": "Harrower Groundswell",
+    "black-imp": "Black Imp",
+    "blood-imp": "Blood Imp",
+    "forest-imp": "Forest Imp",
+    "priest": "Priest",
+    "cultist-priest": "Cultist Priest",
+    "zealot-priest": "Zealot Priest",
+    "grove-priest": "Grove Priest",
+    "great-oak-priest": "Keeper of the Great Oak Priest",
+    "savvas-icestorm": "Savvas Icestorm",
+    "savvas-lavaflow": "Savvas Lavaflow",
+    "crystal-rot": "Crystal Rot",
+    "living-bones": "Living Bones",
+    "living-corpse": "Living Corpse",
+    "scout": "Scout",
+    "bandit-scout": "Bandit Scout",
+    "city-watch-scout": "City Watch Scout",
+    "tune-finder-scout": "Tune Finder Scout",
+    "demonic-general": "Demonic General",
+    "rogue-mercenary": "Rogue Mercenary",
+    "dark-rider": "The Dark Rider",
+    "kazgal-muhjahblush": "Kaz'Gal Muhjahblush",
+    "kazgal-ascended": "Kaz'Gal Ascended",
+    "inguluan": "Inguluan",
+    "hound": "Hound",
+    "ooze": "Ooze"
+  },
+  "ability": {
+    "rpg-fast": {
+      "": "Fast",
+      "short": "F"
+    },
+    "rpg-normal": {
+      "": "Normal",
+      "short": "N"
+    },
+    "rpg-slow": {
+      "": "Slow",
+      "short": "S"
+    }
+  }
+}

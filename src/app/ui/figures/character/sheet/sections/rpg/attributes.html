@@ -1,0 +1,13 @@
+<div class="attributes">
+  <div class="section-title"><span [ghs-label]="'character.progress.rpg.attributes'"></span></div>
+  <div class="attribute-list">
+    @for (attribute of attributes; track attribute) {
+      <label class="attribute">
+        <span class="hex">
+          <input type="number" min="0" [value]="rpg.attributes[attribute] || 0" (change)="setAttribute(attribute, $event)" />
+        </span>
+        <span class="attribute-label" [ghs-label]="'character.progress.rpg.attributes.' + attribute"></span>
+      </label>
+    }
+  </div>
+</div>

@@ -1,0 +1,90 @@
+:host {
+  display: contents;
+}
+
+.soldiers {
+  position: absolute;
+  top: calc(var(--ghs-unit) * 51 * var(--ghs-dialog-factor));
+  left: calc(var(--ghs-unit) * 46 * var(--ghs-dialog-factor));
+  width: calc(var(--ghs-unit) * 15 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 21 * var(--ghs-dialog-factor));
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+
+  .soldier-table {
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--ghs-unit) * -0.3 * var(--ghs-dialog-factor));
+
+    .line {
+      display: flex;
+      margin-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+
+      label {
+        font-family: var(--ghs-font-text);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        margin-top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+        margin-right: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+        .text {
+          font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+        }
+      }
+
+      .soldiers-line {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+
+        .soldier {
+          position: relative;
+
+          img {
+            position: absolute;
+            top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
+            left: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 2.6 * var(--ghs-dialog-factor));
+            height: auto;
+          }
+
+          .check {
+            cursor: pointer;
+            position: relative;
+            width: calc(var(--ghs-unit) * 2.6 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 2.6 * var(--ghs-dialog-factor));
+            margin: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+            border: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) dashed var(--ghs-color-black);
+            border-radius: 100%;
+
+            &.checked::before {
+              content: ' ';
+              position: absolute;
+              top: 10%;
+              left: 10%;
+              width: 80%;
+              height: 80%;
+              background-image: url('../../../../../../assets/images/checkmark.svg');
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+              z-index: 1;
+              filter: var(--ghs-filter-red);
+            }
+          }
+
+          &.disabled {
+            cursor: initial;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}

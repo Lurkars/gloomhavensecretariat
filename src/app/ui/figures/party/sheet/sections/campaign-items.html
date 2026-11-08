@@ -1,0 +1,52 @@
+<div class="items">
+  <label><span [ghs-label]="'party.campaign.items'"></span>:</label>
+  <div class="item-add">
+    <input
+      min="1"
+      #itemIndex
+      type="number"
+      value=""
+      (focus)="itemIndex.select()"
+      (keyup)="itemIndex.classList.remove('error'); itemIndex.classList.remove('warning')"
+      (keyup.enter)="addItem(itemIndex, itemEdition || '')"
+    />
+    <a
+      [ngClass]="{
+        disabled: !itemEdition || !itemIndex.value || +itemIndex.value < 1 || hasItem(itemIndex.value, itemEdition)
+      }"
+      (click)="addItem(itemIndex, itemEdition || '')"
+      ><img src="./assets/images/plus.svg"
+    /></a>
+    <select [(ngModel)]="itemEdition" (change)="update()">
+      <option value="" [selected]="!itemEdition"><span [ghs-label]="'edition.all'"></span></option>
+      @for (edition of gameManager.editions(); track edition) {
+        <option [value]="edition" [selected]="edition === itemEdition">
+          <span [ghs-label]="'data.edition.' + edition"></span>
+        </option>
+      }
+    </select>
+  </div>
+  <div class="item-list">
+    @for (item of items | trackUUID; track item._trackUUID; let i = $index) {
+      <label class="item" [ngClass]="{ edition: !edition() || !itemEdition }">
+        @if (!!item) {
+          <span class="item-index open-item" (click)="openItem(item)">
+            <img class="icon" [src]="item.slot ? './assets/images/items/slots/' + item.slot + '.svg' : ''" />
+            <span class="index">{{ item.id }}</span>
+          </span>
+          <span class="separator">:</span>
+          <span class="checkbox" (click)="removeItem(item)"
+            ><img class="check" src="./assets/images/check.svg" /><img class="close" src="./assets/images/close.svg"
+          /></span>
+          <span class="text open-item" (click)="openItem(item)" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
+          <span class="count" (click)="incItemCount(item, itemIdentifier[i])">
+            {{ itemIdentifier[i].count > 0 ? itemIdentifier[i].count : '-' }}
+          </span>
+          @if (!edition() || !itemEdition) {
+            <span class="text edition">[<span [ghs-label]="'data.edition.' + item.edition"></span>]</span>
+          }
+        }
+      </label>
+    }
+  </div>
+</div>

@@ -1,0 +1,86 @@
+:host {
+  display: contents;
+}
+
+.faction-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--rpg-gap) * 1.5);
+}
+
+.faction {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--rpg-gap) * 0.5);
+
+  .faction-name {
+    display: flex;
+    gap: calc(var(--rpg-gap) * 0.5);
+
+    input {
+      flex-grow: 1;
+    }
+  }
+
+  .benefit {
+    border: var(--rpg-line) solid var(--ghs-color-black);
+    border-radius: calc(var(--ghs-unit) * 0.8);
+    padding: calc(var(--rpg-gap) * 0.3);
+    min-height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+    background-image: none;
+  }
+}
+
+.tiers {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--rpg-gap) * 5);
+  padding: calc(var(--rpg-gap) * 0.3);
+}
+
+.track {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    top: 50%;
+    border-top: calc(var(--rpg-line) * 1.5) solid var(--ghs-color-black);
+  }
+}
+
+.tier {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  border: calc(var(--rpg-line) * 1.5) solid var(--ghs-color-black);
+  border-radius: 50%;
+  background-color: var(--ghs-color-white);
+  color: var(--ghs-color-black);
+  font-family: var(--ghs-font-fh-normal);
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+
+  &.current {
+    box-shadow:
+      0 0 0 calc(var(--rpg-line) * 1.5) var(--ghs-color-white),
+      0 0 0 calc(var(--rpg-line) * 3) var(--ghs-color-black);
+  }
+
+  &.hostile {
+    img {
+      filter: var(--ghs-filter-white);
+      width: 1em;
+      height: auto;
+    }
+  }
+}

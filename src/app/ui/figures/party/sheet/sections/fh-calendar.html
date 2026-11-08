@@ -1,0 +1,79 @@
+<div class="title">
+  <label class="summer" [ngClass]="{ highlight: summer }"
+    ><img src="./assets/images/fh/party/summer.svg" />
+    <span [ghs-label]="'party.campaign.sheet.summer'"></span>
+  </label>
+  <label class="headline ignore-denied" (click)="openCampaign.emit()">
+    <span [ghs-label]="'party.campaign.sheet'"></span>
+    <span class="management">
+      <img src="./assets/images/left.svg" />
+      <span [ghs-label]="'party.campaign.manage'"></span>
+    </span>
+  </label>
+  <label class="winter" [ngClass]="{ highlight: !summer }"
+    ><span [ghs-label]="'party.campaign.sheet.winter'"></span><img src="./assets/images/fh/party/winter.svg"
+  /></label>
+</div>
+<div
+  class="calendar-lock-toggle"
+  [ghs-tooltip]="'party.campaign.sheet.weekSections.lock'"
+  [ngClass]="{ permissive: settingsManager.settings.calendarLocked === 'permissive' }"
+>
+  <a
+    ghs-pointer-input
+    (singleClick)="settingsManager.toggle('calendarLocked')"
+    (doubleClick)="settingsManager.set('calendarLocked', settingsManager.settings.calendarLocked !== 'permissive' ? 'permissive' : true)"
+  >
+    <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'" />
+  </a>
+</div>
+@if (!disableShortcuts()) {
+  <ghs-party-sheet-map-links [edition]="edition()" [dialogRef]="dialogRef()" />
+}
+@if (party.weeks === 80 + 80 * calendarSheet) {
+  <span class="next" (click)="setWeek(party.weeks + 1)"
+    ><span [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"
+  /></span>
+}
+<div class="weeks">
+  @for (week of [] | ghsRange: 80; track week; let index = $index) {
+    <div
+      class="week"
+      ghs-pointer-input
+      [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'"
+      (singleClick)="setWeek(index + 1 + 80 * calendarSheet)"
+      (doubleClick)="setWeekSection(index + 1 + 80 * calendarSheet)"
+      [ngClass]="{
+        checked: party.weeks > index + 80 * calendarSheet,
+        section: sectionsForWeekFixed(week + 80 * calendarSheet).length > 0 || sectionsForWeek(week + 80 * calendarSheet).length > 0,
+        locked:
+          settingsManager.settings.calendarLocked &&
+          (settingsManager.settings.calendarLocked !== 'permissive' ||
+            (party.weeks !== index + 80 * calendarSheet && party.weeks !== index + 80 * calendarSheet + 1))
+      }"
+    >
+      @for (section of sectionsForWeekFixed(week + 80 * calendarSheet); track section + $index) {
+        <div class="section">
+          <img
+            [src]="
+              './assets/images/' +
+              (hasConclusions(section) ? 'hint.svg' : isConclusion(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')
+            "
+          />
+          {{ section }}
+        </div>
+      }
+      @for (section of sectionsForWeek(week + 80 * calendarSheet); track section + $index) {
+        <div class="section manual">
+          <img
+            [src]="
+              './assets/images/' +
+              (hasConclusions(section) ? 'hint.svg' : isConclusion(section) ? 'scenario/conclusion.svg' : 'fh/party/section.svg')
+            "
+          />
+          {{ section }}
+        </div>
+      }
+    </div>
+  }
+</div>

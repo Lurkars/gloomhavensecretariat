@@ -1,0 +1,227 @@
+{
+  "name": "deep-terror",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.beam-of-annihilation%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "pierce",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.deep-terror.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.beam-of-annihilation%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "pierce",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.deep-terror.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.horrible-glare%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "curse",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 96,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.horrible-glare%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "curse",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.terrible-growth%",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 6,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.deep-terror.2%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

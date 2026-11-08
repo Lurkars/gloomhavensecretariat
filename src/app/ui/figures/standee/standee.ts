@@ -236,13 +236,13 @@ export class StandeeComponent implements OnInit {
       'summon-standee': isSummon,
       'bb-elite':
         isMonster &&
-        gameManager.toMonster(this.figure).bb &&
+        gameManager.toMonster(this.figure).editionRules === 'bb' &&
         isMonsterEntity &&
         gameManager.toMonsterEntity(this.entity).type === MonsterType.elite
     };
 
     this.numberClasses =
-      (isMonster && gameManager.toMonster(this.figure).bb ? 'bb-' + this.entity.number : '') +
+      (isMonster && gameManager.toMonster(this.figure).editionRules === 'bb' ? 'bb-' + this.entity.number : '') +
       (this.entity.number < 1 && settingsManager.settings.animations ? ' highlight' : '');
     this.numberDisplay = this.entity.number < 0 ? '?' : this.entity.number;
 

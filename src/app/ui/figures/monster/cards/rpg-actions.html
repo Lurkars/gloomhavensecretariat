@@ -1,0 +1,129 @@
+<div
+  class="rpg-actions"
+  ghs-pointer-input
+  (doubleClick)="openPopup()"
+  [ngClass]="{
+    round: round,
+    turn: !!current,
+    denied: gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]
+  }"
+>
+  <div class="speeds">
+    @for (abilityCard of speeds; track $index; let index = $index) {
+      @if (!round || speed === index || speed === -1) {
+        <a
+          class="speed"
+          [ngClass]="{ active: speed === index }"
+          ghs-pointer-input
+          (singleClick)="setSpeed(index)"
+          (doubleClick)="openPopup()"
+        >
+          <span class="speed-label" [ghs-label]="'data.ability.' + abilityCard.name"></span>
+          <span class="initiative">{{ abilityCard.initiative }}</span>
+        </a>
+      }
+    }
+  </div>
+
+  @if (!round && (groups.length > 1 || entities.length > 1)) {
+    <div class="standees">
+      @for (group of groups; track group.key) {
+        <a
+          class="standee"
+          [ngClass]="{
+            elite: group.type === MonsterType.elite,
+            selected: isSelected(group),
+            assigned: isAssigned(group),
+            type: !group.number
+          }"
+          ghs-pointer-input
+          (singleClick)="toggleSelect(group)"
+          (doubleClick)="openPopup()"
+        >
+          @if (group.number) {
+            {{ group.number }}
+          } @else {
+            <span [ghs-label]="'monster.' + group.type"></span>
+          }
+        </a>
+      }
+    </div>
+  }
+
+  <div class="actions" [ngClass]="{ preview: speed === -1 }">
+    @if (speed === -1) {
+      @for (action of preview; track action.label + action.elite) {
+        <a
+          class="rpg-action"
+          [ngClass]="{ elite: action.elite }"
+          ghs-pointer-input
+          (singleClick)="setPreviewAction(action)"
+          (doubleClick)="openPopup()"
+        >
+          <span class="action-label">
+            <span [ghs-label]="action.label"></span>
+            @if (action.elite) {
+              <span class="elite-label" [ghs-label]="'monster.elite'"></span>
+            }
+            <span class="action-speeds">
+              @for (s of action.speeds; track s) {
+                <span [ghs-label]="'data.ability.' + speeds[s].name + '.short'"></span>
+              }
+            </span>
+          </span>
+          <ghs-actions
+            class="action-content"
+            [actions]="action.actions"
+            [monster]="monster"
+            [relative]="true"
+            [inline]="true"
+          ></ghs-actions>
+        </a>
+      }
+    } @else {
+      @for (view of actions; track view.index) {
+        <a
+          class="rpg-action"
+          [ngClass]="{
+            active: view.groups.length > 0,
+            current: !!current && current.rpgAction === view.index,
+            elite: view.action.elite,
+            unavailable: !view.available
+          }"
+          ghs-pointer-input
+          (singleClick)="setAction(view)"
+          (doubleClick)="openPopup()"
+        >
+          <span class="action-label">
+            <span [ghs-label]="view.action.label"></span>
+            @if (view.action.elite) {
+              <span class="elite-label" [ghs-label]="'monster.elite'"></span>
+            }
+            <span class="action-standees">
+              @for (group of view.groups; track group.key) {
+                <span
+                  class="standee small"
+                  [ngClass]="{ elite: group.type === MonsterType.elite, 'current-standee': isCurrent(group), type: !group.number }"
+                >
+                  @if (group.number) {
+                    {{ group.number }}
+                  } @else {
+                    <span [ghs-label]="'monster.' + group.type"></span>
+                  }
+                </span>
+              }
+            </span>
+          </span>
+          <ghs-actions
+            class="action-content"
+            [actions]="view.action.actions"
+            [monster]="monster"
+            [monsterType]="current ? current.type : undefined"
+            [relative]="!current"
+            [inline]="true"
+          ></ghs-actions>
+        </a>
+      }
+    }
+  </div>
+</div>

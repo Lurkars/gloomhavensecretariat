@@ -1,0 +1,74 @@
+@if (!global()) {
+  <div class="row achievements">
+    <label><span [ghs-label]="'party.achievements'"></span>:</label>
+    <div class="achievements-container">
+      <div class="list">
+        @for (achievement of achievementsList; track achievement; let i = $index) {
+          <div class="achievement">
+            @if (achievement.split(':').length > 0 && achievement.split(':')[1] !== '1') {
+              <span> {{ achievement.split(':')[1] }}x&nbsp; </span>
+            }
+            <span [ghs-label]="'data.partyAchievements.' + achievement.split(':')[0]"></span>
+            <span class="spacer"></span>
+            <span class="remove" (click)="removeAchievement(achievement)"> <img class="ghs-svg" src="./assets/images/close.svg" /></span>
+          </div>
+        }
+      </div>
+      <div class="form">
+        <input
+          type="text"
+          #partyAchievementInput
+          [autocomplete]="autocompleteItems"
+          [spoiler]="true"
+          [emptyLabel]="'party.addPartyAchievement.empty'"
+          [ghs-label]="'party.addPartyAchievement'"
+          [ghs-label-attribute]="'placeholder'"
+          (keyup.enter)="addAchievement(partyAchievementInput)"
+        />
+        <a
+          class="addScenario"
+          [ghs-label]="'party.addPartyAchievement'"
+          [ghs-label-attribute]="'title'"
+          (click)="addAchievement(partyAchievementInput)"
+          ><img src="./assets/images/plus.svg"
+        /></a>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="achievements">
+    <label><span [ghs-label]="'party.campaign.achievements'"></span>:</label>
+    <div class="achievements-container">
+      <div class="list">
+        @for (achievement of achievementsList; track achievement; let i = $index) {
+          <div class="achievement">
+            @if (achievement.split(':').length > 0 && achievement.split(':')[1] !== '1') {
+              <span> {{ achievement.split(':')[1] }}x&nbsp; </span>
+            }
+            <span [ghs-label]="'data.globalAchievements.' + achievement.split(':')[0]"></span>
+            <span class="spacer"></span>
+            <span class="remove" (click)="removeAchievement(achievement)"> <img class="ghs-svg" src="./assets/images/close.svg" /></span>
+          </div>
+        }
+      </div>
+      <div class="form">
+        <input
+          type="text"
+          #globalAchievementInput
+          [autocomplete]="autocompleteItems"
+          [emptyLabel]="'party.addGlobalAchievement.empty'"
+          [ghs-label]="'party.addGlobalAchievement'"
+          [ghs-label-attribute]="'placeholder'"
+          (keyup.enter)="addAchievement(globalAchievementInput)"
+        />
+        <a
+          class="addScenario"
+          [ghs-label]="'party.addGlobalAchievement'"
+          [ghs-label-attribute]="'title'"
+          (click)="addAchievement(globalAchievementInput)"
+          ><img src="./assets/images/plus.svg"
+        /></a>
+      </div>
+    </div>
+  </div>
+}

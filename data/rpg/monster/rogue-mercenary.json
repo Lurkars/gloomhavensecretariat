@@ -1,0 +1,70 @@
+{
+  "name": "rogue-mercenary",
+  "thumbnail": "gh-bandit-commander",
+  "edition": "rpg",
+  "editionRules": "rpg",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "note": "Break: Just a Scratch"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx7",
+      "movement": 3,
+      "attack": 5,
+      "note": "Stunt: War Cry, Pool: 2"
+    },
+    {
+      "level": 1,
+      "health": "Cx10",
+      "movement": 3,
+      "attack": 5,
+      "note": "Stunt: Inspire, Pool: 2"
+    },
+    {
+      "level": 2,
+      "health": "Cx12",
+      "movement": 4,
+      "attack": 5,
+      "note": "Stunt: Riposte, Pool: 2"
+    },
+    {
+      "level": 3,
+      "health": "Cx14",
+      "movement": 4,
+      "attack": 6,
+      "note": "Pool: 2"
+    },
+    {
+      "level": 4,
+      "health": "Cx17",
+      "movement": 4,
+      "attack": 6,
+      "note": "Pool: 3"
+    },
+    {
+      "level": 5,
+      "health": "Cx19",
+      "movement": 5,
+      "attack": 7,
+      "note": "Pool: 4"
+    },
+    {
+      "level": 6,
+      "health": "Cx23",
+      "movement": 5,
+      "attack": 7,
+      "note": "Pool: 5"
+    },
+    {
+      "level": 7,
+      "health": "Cx28",
+      "movement": 5,
+      "attack": 7,
+      "note": "Pool: 6"
+    }
+  ]
+}

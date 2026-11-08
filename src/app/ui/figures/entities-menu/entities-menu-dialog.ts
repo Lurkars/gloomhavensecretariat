@@ -366,7 +366,10 @@ export class EntitiesMenuDialogComponent {
     this.shieldRetaliateHelper.update();
     this.specialActionsHelper.update();
     this.bb =
-      this.figures.every((figure) => (figure instanceof Character || figure instanceof Monster) && figure.bb) || gameManager.bbRules();
+      this.figures.every(
+        (figure) =>
+          (figure instanceof Character && figure.editionRules === 'bb') || (figure instanceof Monster && figure.editionRules === 'bb')
+      ) || gameManager.bbRules();
     // TODO: maybe also empower/enfeeble for multiple, like bless/curse
     this.empowerEnabled =
       !this.bb && !!this.figure && !!this.entity && !this.objectiveOnly && !this.isTrapSummon && this.empowerChars.length > 0;

@@ -1,0 +1,170 @@
+{
+  "name": "giant-rat",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.scurry-by%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.scurry-by%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.swarm%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.giant-rat.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.hide-in-the-dark%",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 0,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.giant-rat.2%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

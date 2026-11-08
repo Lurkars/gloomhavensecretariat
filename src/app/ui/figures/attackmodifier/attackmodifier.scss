@@ -442,6 +442,39 @@ ghs-attackmodifier {
     }
   }
 
+  .front .attribute-modifier {
+    position: absolute;
+    left: 63%;
+    top: 48%;
+    z-index: 2;
+    width: 27%;
+    aspect-ratio: 1.1547;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    background: var(--ghs-color-white);
+    mask-image: radial-gradient(91% 105% at -52% 6%, transparent 99%, #000 100%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 4%;
+      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+      background: radial-gradient(circle at 40% 35%, #f6dc84, #d9a531 60%, #a8771a);
+    }
+
+    .value {
+      position: relative;
+      left: 5%;
+      top: 5%;
+      font-family: var(--ghs-font-gh-title);
+      font-size: 12.5cqw;
+      line-height: 1;
+      color: #2b2112;
+    }
+  }
+
   .front .town-guard-icon {
     position: absolute;
     left: 7.5%;

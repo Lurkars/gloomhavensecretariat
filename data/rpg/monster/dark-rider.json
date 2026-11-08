@@ -1,0 +1,150 @@
+{
+  "name": "dark-rider",
+  "thumbnail": "gh-dark-rider",
+  "edition": "rpg",
+  "editionRules": "rpg",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "note": "Break: Furious Enervation"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx7",
+      "movement": 3,
+      "attack": 4,
+      "note": "Stunt: Counterattack, Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx9",
+      "movement": 4,
+      "attack": 4,
+      "note": "Stunt: Spread Disease, Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx11",
+      "movement": 4,
+      "attack": 5,
+      "note": "Stunt: Bulk Up, Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx14",
+      "movement": 4,
+      "attack": 5,
+      "note": "Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx18",
+      "movement": 5,
+      "attack": 5,
+      "note": "Pool: 3",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx21",
+      "movement": 5,
+      "attack": 5,
+      "note": "Pool: 4",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx23",
+      "movement": 5,
+      "attack": 6,
+      "note": "Pool: 5",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx25",
+      "movement": 5,
+      "attack": 6,
+      "note": "Pool: 6",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    }
+  ]
+}

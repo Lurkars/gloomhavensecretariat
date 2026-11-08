@@ -1,0 +1,14 @@
+<div class="frame modifiers">
+  <div class="section-title"><span [ghs-label]="'character.progress.rpg.modifiers'"></span></div>
+  <div class="modifier-list" [style.--rpg-modifier-rows]="modifierRows">
+    @for (attackModifier of modifiers; track $index) {
+      <div class="modifier" [ngClass]="{ character: attackModifier.character }">
+        <span class="am">{{ modifierLabel(attackModifier) }}</span>
+        @if (attackModifier.effects && attackModifier.effects.length) {
+          <span class="effects">*</span>
+        }
+        <span class="hex">{{ attackModifier.attribute || '-' }}</span>
+      </div>
+    }
+  </div>
+</div>

@@ -133,7 +133,7 @@ export class MonsterNumberPicker implements OnInit {
       const entity = gameManager.monsterManager.addMonsterEntity(
         this.monster,
         number,
-        this.monster.bb && this.monster.tags.includes('bb-elite') ? MonsterType.elite : this.type,
+        this.monster.editionRules === 'bb' && this.monster.tags.includes('bb-elite') ? MonsterType.elite : this.type,
         false
       );
 

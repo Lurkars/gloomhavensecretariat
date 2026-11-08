@@ -23,7 +23,8 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, NgTemplateOutlet, GhsTooltipDirective, PointerInputDirective, TrackUUIDPipe, GhsValueSignPipe],
   selector: 'ghs-conditions',
   templateUrl: './conditions.html',
-  styleUrls: ['./conditions.scss']
+  styleUrls: ['./conditions.scss'],
+  host: { '[style.display]': "conditions.length ? null : 'none'" }
 })
 export class ConditionsComponent implements OnInit {
   private ghsManager = inject(GhsManager);
@@ -90,7 +91,6 @@ export class ConditionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.type = this.inputType();
-    this.initializeConditions();
     if (this.entities) {
       const types = this.entities
         .map((entity) => entity instanceof MonsterEntity && entity.type)
@@ -105,10 +105,11 @@ export class ConditionsComponent implements OnInit {
         } else if (this.entities.every((entity) => entity instanceof MonsterEntity || entity instanceof Summon)) {
           this.type = 'monster';
         } else if (this.entities.every((entity) => entity instanceof ObjectiveEntity)) {
-          this.type = 'monster';
+          this.type = this.figure instanceof ObjectiveContainer && !this.figure.escort ? 'objective' : 'monster';
         }
       }
     }
+    this.initializeConditions();
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -142,27 +143,25 @@ export class ConditionsComponent implements OnInit {
 
   selectCondition() {
     const index = this.numberStore;
-    if (!(this.figure instanceof ObjectiveContainer) || this.figure.escort) {
-      let condition: Condition | undefined;
-      if (index <= this.conditions.length) {
-        condition = this.conditions[index - 1];
-      } else if (index === this.conditions.length + 1) {
-        this.permanentEnabled = !this.permanentEnabled;
-        this.immunityEnabled = false;
-      } else if (index === this.conditions.length + 2) {
-        this.immunityEnabled = !this.immunityEnabled;
-        this.permanentEnabled = false;
-      }
-      if (
-        condition &&
-        (!this.isImmune(condition.name) ||
-          (this.immunityEnabled &&
-            !!this.entity &&
-            !!this.figure &&
-            !gameManager.entityManager.isImmune(this.entity, this.figure, condition.name, true)))
-      ) {
-        this.toggleCondition(condition);
-      }
+    let condition: Condition | undefined;
+    if (index <= this.conditions.length) {
+      condition = this.conditions[index - 1];
+    } else if (index === this.conditions.length + 1) {
+      this.permanentEnabled = !this.permanentEnabled;
+      this.immunityEnabled = false;
+    } else if (index === this.conditions.length + 2) {
+      this.immunityEnabled = !this.immunityEnabled;
+      this.permanentEnabled = false;
+    }
+    if (
+      condition &&
+      (!this.isImmune(condition.name) ||
+        (this.immunityEnabled &&
+          !!this.entity &&
+          !!this.figure &&
+          !gameManager.entityManager.isImmune(this.entity, this.figure, condition.name, true)))
+    ) {
+      this.toggleCondition(condition);
     }
     this.timeout = undefined;
     this.numberStore = -1;

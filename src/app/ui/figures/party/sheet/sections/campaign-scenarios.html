@@ -1,0 +1,164 @@
+<div class="row title">
+  <label class="headline"><span [ghs-label]="'party.campaign.scenarios'"></span></label>
+  <select (change)="changeEdition($event)">
+    <option [value]="undefined" [selected]="!edition()"><span [ghs-label]="'edition.all'"></span></option>
+    @for (ed of gameManager.editions(); track ed) {
+      <option [selected]="ed === edition()" [value]="ed">
+        <span [ghs-label]="'data.edition.' + ed"></span>
+      </option>
+    }
+  </select>
+</div>
+<div
+  class="row scenarios ignore-denied"
+  [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party }"
+>
+  <div class="scenario header legend seperator">
+    <span><span [ghs-label]="'party.campaign.scenarios.index'"></span></span>
+    <span><span [ghs-label]="'party.campaign.scenarios.group'"></span></span>
+    <span><span [ghs-label]="'party.campaign.scenarios.name'"></span></span>
+    <span><span [ghs-label]="'party.campaign.scenarios.finished'"></span></span>
+  </div>
+  @for (edition of scenarioEditions; track edition; let index = $index) {
+    @if (index > 0) {
+      <div class="scenario seperator"></div>
+    }
+    @if (scenarioEditions.length > 1) {
+      <div class="scenario header">
+        <span class="span"><span [ghs-label]="'data.edition.' + edition"></span></span>
+      </div>
+    }
+    @for (scenarioData of scenarios[edition] | trackUUID; track scenarioData._trackUUID) {
+      <div class="scenario">
+        <span>
+          @if (!scenarioData.solo) {
+            #
+            @if (maxScenario(scenarios[edition]) > 2 && scenarioData.index.length < 3) {
+              <span>0</span>
+            }
+            @if (maxScenario(scenarios[edition]) > 1 && scenarioData.index.length < 2) {
+              <span>0</span>
+            }
+            {{ scenarioData.index }}
+          }
+          @if (scenarioData.solo) {
+            <img class="ghs-svg solo" [src]="characterIcon(scenarioData.solo)" />
+          }
+        </span>
+        <span>
+          @if (scenarioData.group) {
+            <span [ghs-label]="'data.scenario.group.' + scenarioData.group"></span>
+          }
+        </span>
+        <span
+          class="scenario-title"
+          [ngClass]="{ blocked: scenarioData.isBlocked, locked: !scenarioData.isBlocked && scenarioData.isLocked }"
+          [ghs-tooltip]="scenarioData.isBlocked ? 'scenario.blocked' : scenarioData.isLocked ? 'scenario.locked' : ''"
+          [toggable]="false"
+          (click)="scenarioRequirements(scenarioData)"
+        >
+          @if (scenarioData.isBlocked || scenarioData.isLocked) {
+            <img src="./assets/images/close.svg" />
+          }
+          <span (click)="scenarioPopUp(scenarioData)" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
+        </span>
+        <span>
+          <span class="spacer"></span>
+          @if (isManual(scenarioData) && countFinished(scenarioData) < 1) {
+            <a
+              class="toggle-manual"
+              [ghs-label]="'party.campaign.scenarios.removeManual'"
+              [ghs-label-attribute]="'title'"
+              (click)="removeManual(scenarioData)"
+              ><img class="manual" src="./assets/images/hint.svg" /><img class="remove" src="./assets/images/close.svg"
+            /></a>
+          }
+          @if (scenarioData.isLocked) {
+            <span (click)="scenarioRequirements(scenarioData)" class="locked" [ghs-tooltip]="'scenario.locked'"
+              ><img class="ghs-svg" src="./assets/images/warning.svg"
+            /></span>
+          }
+          @if (hasRandomItemLooted(scenarioData)) {
+            <span class="rewards" [ghs-tooltip]="'scenario.summary.randomItemLooted'"
+              ><img class="ghs-svg" src="./assets/images/fh/loot/random_item.svg"
+            /></span>
+          }
+          @if (countFinished(scenarioData)) {
+            <span (click)="scenarioRewards(scenarioData)" class="rewards" [ghs-tooltip]="'scenario.summary.rewards'"
+              ><img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"
+            /></span>
+          }
+          @if (settingsManager.settings.scenarioStats && hasStatistics(scenarioData)) {
+            <span (click)="statistics(scenarioData)" class="rewards stats" [ghs-tooltip]="'scenario.stats'"
+              ><img class="ghs-svg" src="./assets/images/stats.svg"
+            /></span>
+          }
+          @for (success of [] | ghsRange: countFinished(scenarioData); track success) {
+            <span>
+              <a
+                class="toggle-success"
+                [ghs-label]="'party.campaign.scenarios.removeSuccess'"
+                [ghs-label-attribute]="'title'"
+                (click)="removeSuccess(scenarioData)"
+                ><img class="success" src="./assets/images/check.svg" /><img class="remove" src="./assets/images/close.svg"
+              /></a>
+            </span>
+          }
+          @for (success of [] | ghsRange: countFinished(scenarioData, true); track success) {
+            <span>
+              <a
+                class="toggle-success casual"
+                [ghs-label]="'party.campaign.scenarios.removeSuccessCasual'"
+                [ghs-label-attribute]="'title'"
+                (click)="removeSuccess(scenarioData, true)"
+                ><img class="success" src="./assets/images/check.svg" /><img class="remove" src="./assets/images/close.svg"
+              /></a>
+            </span>
+          }
+          <a
+            class="add-success"
+            [ghs-label]="
+              scenarioData.isBlocked
+                ? 'scenario.blocked'
+                : scenarioData.isLocked
+                  ? 'scenario.locked'
+                  : 'party.campaign.scenarios.addSuccess'
+            "
+            [ghs-label-attribute]="'title'"
+            ghs-pointer-input
+            (singleClick)="addSuccess(scenarioData)"
+            (doubleClick)="addSuccess(scenarioData, true)"
+            [ngClass]="{ disabled: scenarioData.isBlocked || scenarioData.isLocked }"
+            ><img src="./assets/images/check.svg"
+          /></a>
+        </span>
+      </div>
+    }
+    @if (scenarioEditions.length === 1) {
+      <div class="scenario unlock">
+        <input
+          #unlockScenarioIndex
+          [ghs-label]="'party.campaign.scenarios.index'"
+          [ghs-label-attribute]="'placeholder'"
+          (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error')"
+          (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"
+        />
+        <input
+          #unlockScenarioGroup
+          [ghs-label]="'party.campaign.scenarios.group'"
+          [ghs-label-attribute]="'placeholder'"
+          (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error')"
+          (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"
+        />
+        <a
+          class="addScenario"
+          [ghs-label]="'party.campaign.scenarios.unlock'"
+          [ghs-label-attribute]="'title'"
+          (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"
+        >
+          <span [ghs-label]="'party.campaign.scenarios.unlock'"></span>&nbsp;<img src="./assets/images/plus.svg"
+        /></a>
+      </div>
+    }
+  }
+</div>

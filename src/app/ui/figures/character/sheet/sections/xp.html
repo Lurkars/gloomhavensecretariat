@@ -1,0 +1,10 @@
+<div class="row xp-notes">
+  <label
+    ><span [ghs-label]="'character.progress.xp'"></span> <img src="./assets/images/experience.svg" />
+    @if (!fh()) {
+      <span><span [ghs-label]="'character.progress.notes'"></span></span>
+    }
+    :</label
+  >
+  <input [value]="character.progress.experience" type="number" min="0" (change)="setXP($event)" />
+</div>

@@ -1,0 +1,84 @@
+{
+  "name": "inguluan",
+  "thumbnail": "gh-sun-demon",
+  "edition": "rpg",
+  "editionRules": "rpg",
+  "boss": true,
+  "flying": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "note": "Break: Coursing with Energy"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx9",
+      "movement": 2,
+      "attack": 4,
+      "note": "Stunt: Counterattack, Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx12",
+      "movement": 2,
+      "attack": 4,
+      "note": "Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx13",
+      "movement": 2,
+      "attack": 4,
+      "note": "Stunt: Regeneration, Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx16",
+      "movement": 3,
+      "attack": 5,
+      "note": "Pool: 3",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    }
+  ],
+  "spoiler": true
+}

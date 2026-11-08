@@ -1,0 +1,32 @@
+@if (traits()) {
+  <div class="row notes">
+    <label
+      ><span [ghs-label]="'character.progress.notes'"></span>:
+      @if (character.traits.length > 0) {
+        <div class="traits">
+          <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg" /></span>
+          @for (trait of character.traits; track trait; let i = $index) {
+            <span class="trait" [ghs-label]="'data.character.traits.' + trait"></span>
+            @if (i < character.traits.length - 1) {
+              <span class="divider">-</span>
+            }
+          }
+        </div>
+      }
+    </label>
+    <ng-container *ngTemplateOutlet="notes"></ng-container>
+  </div>
+} @else {
+  <ng-container *ngTemplateOutlet="notes"></ng-container>
+}
+
+<ng-template #notes>
+  <textarea
+    class="ignore-denied"
+    [readOnly]="!gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]"
+    [value]="character.progress.notes"
+    (change)="setNotes($event)"
+    [ghs-label]="'character.progress.notes'"
+    [ghs-label-attribute]="'placeholder'"
+  ></textarea>
+</ng-template>

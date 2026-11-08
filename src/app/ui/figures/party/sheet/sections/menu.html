@@ -1,0 +1,19 @@
+<div class="bottom-menu">
+  @if (gh2eSheet) {
+    <div
+      class="retirement-note"
+      ghs-pointer-input
+      (singleClick)="isConclusion('68.4', 'gh2e') ? conclusionRewards('68.4') : finishConclusion('68.4')"
+      (doubleClick)="removeConclusion('68.4', 'gh2e')"
+    >
+      <span class="checkbox" [ngClass]="{ checked: isConclusion('68.4', 'gh2e') }"></span>
+      <span [ghs-label]="'data.section.rewards.gh2e.68-4.2'"></span>
+    </div>
+  }
+  <span class="event-effects ignore-denied" (click)="openEventEffects()">
+    <img class="ghs-svg" src="./assets/images/event.svg" /> <span [ghs-label]="'scenario.eventEffects'"></span>
+  </span>
+  <span class="toggle-fh-sheet ignore-denied" (click)="toggleSheet.emit()">
+    <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable' : 'enable')"></span>
+  </span>
+</div>

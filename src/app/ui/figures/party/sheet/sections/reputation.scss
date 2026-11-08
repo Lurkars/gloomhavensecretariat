@@ -1,0 +1,100 @@
+:host {
+  display: contents;
+}
+
+.reputation,
+.shop {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 5.6 * var(--ghs-dialog-factor));
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  }
+
+  &.reputation {
+    .grid {
+      margin-top: calc(var(--ghs-unit) * 0.01 * var(--ghs-dialog-factor));
+      display: grid;
+      grid-template-columns: repeat(2, calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor)));
+
+      .key,
+      .value {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        font-family: var(--ghs-font-normal);
+        height: calc(var(--ghs-unit) * 1.635 * var(--ghs-dialog-factor));
+        font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+        line-height: calc(var(--ghs-unit) * 2.1 * var(--ghs-dialog-factor));
+      }
+
+      .value {
+        cursor: pointer;
+
+        &.checked::before,
+        &:hover::before {
+          content: ' ';
+          position: absolute;
+          top: 0;
+          left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+          background-image: url('../../../../../../assets/images/checkmark.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          filter: var(--ghs-filter-red);
+          z-index: 1;
+        }
+
+        &:hover::before {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  &.shop {
+    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    .table {
+      display: flex;
+      flex-direction: column;
+
+      .value {
+        font-family: var(--ghs-font-title);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        width: 100%;
+        height: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
+
+        &:nth-child(1) {
+          height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+        }
+
+        &:nth-child(6) {
+          height: calc(var(--ghs-unit) * 8.5 * var(--ghs-dialog-factor));
+        }
+
+        &:nth-child(11) {
+          height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+        }
+
+        &.active {
+          color: var(--ghs-color-yellow);
+        }
+      }
+    }
+  }
+}
+
+.columns {
+  z-index: 1;
+}

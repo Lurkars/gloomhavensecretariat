@@ -362,6 +362,7 @@ export class MainComponent implements OnInit {
     gameManager.game.edition = edition;
     gameManager.game.party.campaignMode = true;
     gameManager.game.party.edition = edition;
+    gameManager.attackModifierManager.updateDefaultDecks();
     this.welcomeEditionHint = (edition && settingsManager.getLabel('data.edition.' + edition + '.hint') !== 'hint') || false;
     gameManager.game.party.eventDecks = {};
     gameManager.eventCardManager.buildPartyDeckMigration(edition);

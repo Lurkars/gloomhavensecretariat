@@ -1,0 +1,46 @@
+<div class="campaign">
+  <div class="row title">
+    @if (edition() !== 'jotl') {
+      <span class="campaign-toggle ignore-denied" (click)="closeCampaign.emit()">
+        <img src="./assets/images/left.svg" /><span [ghs-label]="'party.sheet'"></span>
+      </span>
+    }
+    <label class="headline"><span [ghs-label]="'party.campaign'"></span></label>
+    <span class="campaign-mode" (click)="toggleCampaignMode()">
+      <span class="checkbox" [ngClass]="{ checked: party.campaignMode }"></span>
+      <span [ghs-label]="'party.campaignMode'"></span>
+    </span>
+    @if (!disableShortcuts()) {
+      <ghs-party-sheet-map-links [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+    }
+  </div>
+  <ghs-party-campaign-scenarios
+    [edition]="edition()"
+    [sheet]="sheet()"
+    [dialogRef]="dialogRef()"
+    (editionChange)="editionChange.emit($event)"
+  />
+  <ghs-party-campaign-conclusions [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  @if (gameManager.fhRules() || gameManager.editionRules('gh')) {
+    <ghs-party-sheet-prosperity [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" [campaign]="true" />
+  }
+  <ghs-party-campaign-donations [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <div class="row">
+    @if (gameManager.editionRules('gh') || gameManager.gh2eRules()) {
+      <ghs-party-sheet-achievements [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" [global]="true" />
+    }
+  </div>
+  <div class="row">
+    <ghs-party-campaign-items [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  </div>
+  <div class="row">
+    <ghs-party-campaign-treasures [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  </div>
+  <ghs-party-campaign-players [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-campaign-retirements [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <div class="row bottom-sheet">
+    <span [ghs-label]="'party.campaign.totalTime'" [ghs-label-args]="[gameManager.game.totalSeconds | ghsDurationLabel: true]"></span>
+    <span class="spacer"></span>
+    <a (click)="statistics()" [ghs-tooltip]="'scenario.stats'"><img class="ghs-svg" src="./assets/images/stats.svg" /></a>
+  </div>
+</div>

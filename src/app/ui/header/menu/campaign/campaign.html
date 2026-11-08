@@ -40,7 +40,7 @@
     </div>
   }
 
-  @if (settingsManager.settings.partySheet && !gameManager.bbRules()) {
+  @if (settingsManager.settings.partySheet && gameManager.hasPartySheet()) {
     <div class="line">
       <a tabclick (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
@@ -52,7 +52,7 @@
     </div>
   }
 
-  @if (settingsManager.settings.partySheet && !gameManager.bbRules()) {
+  @if (settingsManager.settings.partySheet && gameManager.hasCampaignSheet()) {
     <div class="line">
       <a tabclick (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
     </div>

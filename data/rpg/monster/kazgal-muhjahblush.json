@@ -1,0 +1,79 @@
+{
+  "name": "kazgal-muhjahblush",
+  "thumbnail": "gh-cultist",
+  "edition": "rpg",
+  "editionRules": "rpg",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "note": "Break: Furious Enervation"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx7",
+      "movement": 3,
+      "attack": 4,
+      "note": "Stunt: Counterattack, Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx8",
+      "movement": 3,
+      "attack": 4,
+      "note": "Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx11",
+      "movement": 4,
+      "attack": 4,
+      "note": "Stunt: Inspire, Pool: 2",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx13",
+      "movement": 4,
+      "attack": 4,
+      "note": "Pool: 3",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    }
+  ],
+  "spoiler": true
+}

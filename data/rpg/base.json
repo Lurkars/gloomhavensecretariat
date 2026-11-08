@@ -1,0 +1,21 @@
+{
+  "edition": "rpg",
+  "type": "standalone",
+  "conditions": [
+    "stun",
+    "immobilize",
+    "pacify",
+    "wound",
+    "muddle",
+    "poison",
+    "invisible",
+    "strengthen",
+    "regenerate",
+    "ward",
+    "safeguard",
+    "curse",
+    "bless"
+  ],
+  "newAmStyle": true,
+  "logoUrl": "./assets/images/logos/rpg.png"
+}

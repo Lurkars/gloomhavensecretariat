@@ -160,7 +160,7 @@
         />
       </div>
     }
-    @if (!bbRules && settingsManager.settings.partySheet) {
+    @if (gameManager.hasCampaignSheet() && settingsManager.settings.partySheet) {
       <ghs-party-sheet #partySheet></ghs-party-sheet>
     }
     @if (gameManager.buildingsManager.petsEnabled) {

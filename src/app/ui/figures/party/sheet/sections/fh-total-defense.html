@@ -1,0 +1,10 @@
+<div class="total-defense">
+  <label><span [ghs-label]="'party.campaign.sheet.totalDefense'"></span>:</label>
+  <input
+    type="number"
+    [value]="(party.defense || 0) + moraleDefense"
+    (change)="setTotalDefense($event)"
+    [ghs-label]="'party.campaign.sheet.totalDefense'"
+    [ghs-label-attribute]="'placeholder'"
+  />
+</div>

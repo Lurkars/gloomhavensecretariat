@@ -1,0 +1,75 @@
+<div class="powers" [ngClass]="{ talents: talents }">
+  <div class="section-title"><span [ghs-label]="'character.progress.rpg.' + list()"></span></div>
+  <div class="power-row table-head">
+    <span class="level">
+      @if (talents) {
+        <span [ghs-label]="'character.progress.level'"></span>
+      }
+      <img src="./assets/images/level.svg" />
+    </span>
+    <span [ghs-label]="talents ? 'character.progress.rpg.talent' : 'character.progress.rpg.skill'"></span>
+    <span [ghs-label]="'character.progress.rpg.init'"></span>
+    @if (!talents) {
+      <span class="bonus"><img src="./assets/images/rpg/bonus.svg" /></span>
+    }
+    <span [ghs-label]="'character.progress.rpg.primary'"></span>
+    <span [ghs-label]="'character.progress.rpg.secondary'"></span>
+  </div>
+  @for (power of rpg[list()]; track $index; let i = $index) {
+    <div class="power-row" [ngClass]="{ expended: power.state === 'expended', lost: power.state === 'lost' }">
+      <span class="power-state">
+        <span class="gain">
+          <span
+            class="checkbox round"
+            [ngClass]="{ checked: power.gained }"
+            [ghs-label]="'character.progress.rpg.gained'"
+            [ghs-label-attribute]="'title'"
+            (click)="setPower(i, 'gained', !power.gained)"
+          ></span>
+          @if (!talents) {
+            <span class="connector"></span>
+            <span
+              class="checkbox"
+              [ngClass]="{ checked: power.prepared }"
+              [ghs-label]="'character.progress.rpg.prepared'"
+              [ghs-label-attribute]="'title'"
+              (click)="setPower(i, 'prepared', !power.prepared)"
+            ></span>
+          }
+        </span>
+        @if (!talents) {
+          <span class="usage">
+            <a
+              class="state"
+              [ngClass]="{ active: power.state === 'expended' }"
+              [ghs-label]="'character.progress.rpg.expended'"
+              [ghs-label-attribute]="'title'"
+              (click)="toggleState(i, 'expended')"
+              ><img src="./assets/images/action/custom/fh-hourglass.svg"
+            /></a>
+            <a
+              class="state lost"
+              [ngClass]="{ active: power.state === 'lost' }"
+              [ghs-label]="'character.progress.rpg.lost'"
+              [ghs-label-attribute]="'title'"
+              (click)="toggleState(i, 'lost')"
+              ><img src="./assets/images/action/card/overlay/lost.svg"
+            /></a>
+          </span>
+        }
+      </span>
+      <span class="name">
+        <input [value]="power.name" (change)="setPower(i, 'name', $any($event.target).value)" />
+        @if (talents) {
+          <span class="talent-type">{{ talentType(i) }}</span>
+        }
+      </span>
+      <input class="init" [value]="power.initiative" (change)="setPower(i, 'initiative', $any($event.target).value)" />
+      @if (!talents) {
+        <input class="bonus" [value]="power.bonus" (change)="setPower(i, 'bonus', $any($event.target).value)" />
+      }
+      <input class="primary" [value]="power.primary" (change)="setPower(i, 'primary', $any($event.target).value)" />
+      <input class="secondary" [value]="power.secondary" (change)="setPower(i, 'secondary', $any($event.target).value)" />
+    </div>
+  }
+</div>

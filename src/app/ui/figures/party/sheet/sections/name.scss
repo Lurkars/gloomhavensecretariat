@@ -1,0 +1,79 @@
+:host {
+  display: contents;
+}
+
+.hint-container {
+  z-index: 99;
+}
+
+img.new-party,
+img.remove-party {
+  cursor: pointer;
+  height: 1.2em;
+  width: auto;
+}
+
+.name {
+  display: flex;
+  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+}
+
+:host-context(.fh-sheet) {
+  .name {
+    position: absolute;
+    top: calc(var(--ghs-unit) * 26.5 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 59 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+    margin-top: 0;
+    align-items: center;
+
+    label {
+      width: calc(var(--ghs-unit) * 7.5 * var(--ghs-dialog-factor));
+      justify-content: flex-end;
+
+      span {
+        text-align: center;
+      }
+    }
+
+    input {
+      margin-left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      flex-grow: 1;
+    }
+
+    select {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+:host-context(.gh2e-sheet) {
+  .name {
+    position: absolute;
+    top: calc(var(--ghs-unit) * 3.7 * var(--ghs-dialog-factor));
+    left: 0;
+    width: calc(var(--ghs-unit) * 58 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+    margin-top: 0;
+    align-items: center;
+
+    label {
+      width: calc(var(--ghs-unit) * 7.5 * var(--ghs-dialog-factor));
+      justify-content: flex-end;
+
+      span {
+        text-align: center;
+      }
+    }
+
+    input {
+      margin-left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      flex-grow: 1;
+    }
+
+    select {
+      flex: 1 1 auto;
+    }
+  }
+}

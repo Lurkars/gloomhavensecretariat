@@ -1,0 +1,34 @@
+<div class="resources">
+  <div class="header">
+    <label class="supply" (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
+    <span class="spacer"></span>
+    @if (characters.length > 0 && !settingsManager.settings.fhShareResources) {
+      <div class="move-resources">
+        <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
+        <div class="characters">
+          @for (character of characters | trackUUID; track character._trackUUID) {
+            <span class="character" (click)="moveResources(character)"><img [src]="character.iconUrl" /></span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+  <div class="resource-table">
+    <div class="materials">
+      @for (resource of materialResourceLootTypes; track resource) {
+        <div class="resource {{ resource }}" [ghs-tooltip]="'game.loot.' + resource">
+          <img [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
+          <input [value]="party.loot[resource] || 0" type="number" min="0" (change)="setResource(resource, $event)" />
+        </div>
+      }
+    </div>
+    <div class="herbs">
+      @for (resource of herbResourceLootTypes; track resource) {
+        <div class="resource {{ resource }}" [ghs-tooltip]="'game.loot.' + resource">
+          <img [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
+          <input [value]="party.loot[resource] || 0" type="number" min="0" (change)="setResource(resource, $event)" />
+        </div>
+      }
+    </div>
+  </div>
+</div>

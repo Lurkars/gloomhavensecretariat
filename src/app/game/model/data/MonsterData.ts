@@ -1,3 +1,4 @@
+import { EditionRules } from 'src/app/game/model/data/EditionRules';
 import { Editional } from 'src/app/game/model/data/Editional';
 import { FigureError } from 'src/app/game/model/data/FigureError';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
@@ -15,7 +16,7 @@ export class MonsterData implements Editional, Spoilable {
   stats: MonsterStat[] = [];
   deck: string = '';
   boss: boolean = false;
-  bb: boolean = false;
+  editionRules: EditionRules;
   flying: boolean = false;
   immortal: boolean = false;
 
@@ -54,7 +55,7 @@ export class MonsterData implements Editional, Spoilable {
       this.stats = monsterData.stats || [];
       this.deck = monsterData.deck;
       this.boss = monsterData.boss;
-      this.bb = monsterData.bb;
+      this.editionRules = monsterData.editionRules;
       this.flying = monsterData.flying;
       this.immortal = monsterData.immortal;
       this.thumbnail = monsterData.thumbnail;

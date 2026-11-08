@@ -1,0 +1,183 @@
+:host {
+  display: contents;
+}
+
+.compact-separator {
+  display: none;
+}
+
+.columns .column {
+  &.column-left {
+    width: calc(var(--ghs-unit) * 33 * var(--ghs-dialog-factor));
+  }
+
+  &.column-right {
+    margin-left: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 25 * var(--ghs-dialog-factor));
+  }
+}
+
+.base {
+  flex-direction: column;
+  height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+}
+
+.xp-gold-container {
+  display: flex;
+  flex-direction: column;
+}
+
+ghs-character-items {
+  height: calc(var(--ghs-unit) * 34 * var(--ghs-dialog-factor));
+  width: 100%;
+  margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+}
+
+.perks {
+  flex-direction: column;
+  height: calc(var(--ghs-unit) * 67 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+}
+
+.battlegoals {
+  flex-direction: column;
+  height: calc(var(--ghs-unit) * 9 * var(--ghs-dialog-factor));
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(var(--ghs-unit) * 15 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+}
+
+:host-context(.character-sheet.cs-sheet) {
+  .columns .column.column-right .perks {
+    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 70 * var(--ghs-dialog-factor));
+  }
+}
+
+.additional {
+  margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+  .headline {
+    margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.fh-sheet) {
+  .xp-gold-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  }
+
+  .notes {
+    position: relative;
+    height: calc(var(--ghs-unit) * 11 * var(--ghs-dialog-factor));
+  }
+
+  ghs-character-items {
+    margin-top: 0;
+    height: auto;
+  }
+
+  .columns .column.column-right {
+    flex-direction: column-reverse;
+
+    .battlegoals {
+      margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+
+    .perks {
+      margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
+    }
+  }
+
+  .notes,
+  .additional {
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    .columns .column.column-right {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+}
+
+:host-context(.character-sheet.gh2e-sheet) {
+  .columns .column.column-right .battlegoals {
+    position: relative;
+    top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
+  }
+
+  .notes {
+    position: relative;
+    margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 30 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  .compact-separator {
+    display: block;
+    width: 100%;
+    margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor)) 0;
+  }
+
+  label.headline {
+    justify-content: flex-start;
+  }
+
+  .notes {
+    height: initial;
+  }
+
+  .columns {
+    flex-direction: column;
+
+    .column {
+      width: auto !important;
+      justify-content: center;
+
+      &.column-right {
+        margin-left: 0 !important;
+      }
+
+      .xp-gold-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .row {
+        height: auto !important;
+        margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) !important;
+
+        label.headline {
+          width: auto !important;
+        }
+      }
+    }
+  }
+
+  .level .columns {
+    flex-direction: row;
+
+    .column {
+      width: auto !important;
+    }
+  }
+}
+
+.toggle-fh-sheet {
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+}

@@ -22,6 +22,7 @@ export class GameEditionCommand extends CommandImpl {
     }
     gameManager.game.edition = edition || undefined;
     gameManager.game.party.edition = edition || undefined;
+    gameManager.attackModifierManager.updateDefaultDecks();
   }
 }
 

@@ -1,0 +1,66 @@
+:host {
+  display: contents;
+}
+
+.campaign-stickers {
+  position: absolute;
+  left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  top: calc(var(--ghs-unit) * 70.5 * var(--ghs-dialog-factor));
+  width: calc(var(--ghs-unit) * 86.5 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 28 * var(--ghs-dialog-factor));
+  flex-direction: column;
+  display: flex;
+
+  .header {
+    display: flex;
+
+    img {
+      cursor: pointer;
+      height: 1.2em;
+      width: auto;
+    }
+  }
+
+  input {
+    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    width: 0;
+    flex-grow: 1;
+  }
+
+  .stickers {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(var(--ghs-unit) * 25 * var(--ghs-dialog-factor));
+    overflow-y: auto;
+
+    .sticker {
+      position: relative;
+      height: calc(var(--ghs-unit) * 14 * var(--ghs-dialog-factor));
+
+      .text {
+        padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        margin-right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      }
+
+      .image {
+        height: 100%;
+        width: auto;
+      }
+
+      .remove {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        height: auto;
+        filter: var(--ghs-filter-red);
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

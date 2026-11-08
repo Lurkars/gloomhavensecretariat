@@ -69,14 +69,14 @@ describe('MonsterManager', () => {
 
     it('uses stats[0] for a bb elite monster when it is the elite stat', () => {
       const eliteStat = new MonsterStat(MonsterType.elite, 1, 12, 2, 5, 0);
-      const monster = buildMonster({ stats: [eliteStat], bb: true }, 1);
+      const monster = buildMonster({ stats: [eliteStat], editionRules: 'bb' }, 1);
 
       expect(monsterManager.getStat(monster, MonsterType.elite).health).toEqual(12);
     });
 
     it('derives a stat from baseStat for a bb monster requesting a non-matching type', () => {
       const baseStat = new MonsterStat(MonsterType.normal, 0, 6, 1, 2, 0);
-      const monster = buildMonster({ stats: [], baseStat, bb: true }, 1);
+      const monster = buildMonster({ stats: [], baseStat, editionRules: 'bb' }, 1);
 
       const stat = monsterManager.getStat(monster, MonsterType.normal);
       expect(stat.health).toEqual(6);
@@ -250,7 +250,7 @@ describe('MonsterManager', () => {
       const original = settingsManager.settings.bbStandeeLimit;
       settingsManager.settings.bbStandeeLimit = false;
       try {
-        const monster = buildMonster({ bb: true });
+        const monster = buildMonster({ editionRules: 'bb' });
         expect(monsterManager.monsterStandeeMax(monster)).toEqual(10);
       } finally {
         settingsManager.settings.bbStandeeLimit = original;
@@ -516,6 +516,93 @@ describe('MonsterManager', () => {
       gameManager.game.figures = [bandit, ally];
 
       expect(monsterManager.drawnAbilities(bandit)).toBe(4);
+    });
+  });
+
+  describe('Gloomhaven RPG speed and action', () => {
+    function rpgMonster(): Monster {
+      const monster = buildMonster({ name: 'archer', edition: 'rpg' });
+      monster.abilities = [2, 0, 1];
+      monster.entities = [
+        new MonsterEntity(1, MonsterType.elite, monster),
+        new MonsterEntity(2, MonsterType.normal, monster),
+        new MonsterEntity(3, MonsterType.normal, monster)
+      ];
+      gameManager.game.figures = [monster];
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
+      vi.spyOn(gameManager.entityManager, 'isAlive').mockReturnValue(true);
+      const card = (name: string, initiative: number) =>
+        Object.assign(new AbilityCard(), {
+          name,
+          initiative,
+          actions: [
+            { type: 'box', value: 'Basic', subActions: [] },
+            { type: 'monsterType', value: 'elite', subActions: [{ type: 'box', value: 'Close In', subActions: [] }] }
+          ]
+        });
+      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([card('rpg-fast', 21), card('rpg-normal', 45), card('rpg-slow', 80)]);
+      vi.spyOn(gameManager, 'deckData').mockReturnValue(Object.assign(new DeckData(), { name: 'archer', edition: 'rpg' }));
+      return monster;
+    }
+
+    it('setRpgSpeed keeps the speed cards in order and resets chosen actions on change', () => {
+      const monster = rpgMonster();
+      monster.entities[0].rpgAction = 1;
+      monsterManager.setRpgSpeed(monster, 2);
+      expect(monster.abilities).toEqual([0, 1, 2]);
+      expect(monster.ability).toBe(2);
+      expect(monster.entities[0].rpgAction).toBe(-1);
+    });
+
+    it('setRpgAction assigns per standee and toggles off when all already have it', () => {
+      const monster = rpgMonster();
+      monsterManager.setRpgSpeed(monster, 1);
+      monsterManager.setRpgAction(monster, 0, [monster.entities[1]]);
+      expect(monster.entities.map((entity) => entity.rpgAction)).toEqual([-1, 0, -1]);
+      monsterManager.setRpgAction(monster, 0, [monster.entities[1]]);
+      expect(monster.entities[1].rpgAction).toBe(-1);
+    });
+
+    it('elite actions are only assigned to elite standees', () => {
+      const monster = rpgMonster();
+      monsterManager.setRpgSpeed(monster, 1);
+      monsterManager.setRpgAction(monster, 1);
+      expect(monster.entities.map((entity) => entity.rpgAction)).toEqual([1, -1, -1]);
+    });
+
+    it('new standees take over the action of their type when active standees are off', () => {
+      const monster = rpgMonster();
+      settingsManager.settings.activeStandees = false;
+      vi.spyOn(gameManager, 'addEntityCount').mockImplementation(() => {});
+      monster.stats = [new MonsterStat(MonsterType.normal, 1), new MonsterStat(MonsterType.elite, 1)];
+      monsterManager.setRpgSpeed(monster, 1);
+      monsterManager.setRpgAction(monster, 0, [monster.entities[1], monster.entities[2]]);
+      const added = monsterManager.addMonsterEntity(monster, 4, MonsterType.normal);
+      expect(added?.rpgAction).toBe(0);
+      settingsManager.settings.activeStandees = true;
+    });
+
+    it('draw keeps the chosen speed and defaults to normal speed', () => {
+      const monster = rpgMonster();
+      vi.spyOn(gameManager, 'gameplayFigure').mockReturnValue(true);
+      monsterManager.draw();
+      expect(monster.ability).toBe(1);
+      expect(monster.abilities).toEqual([0, 1, 2]);
+
+      monsterManager.setRpgSpeed(monster, 0);
+      monsterManager.draw();
+      expect(monster.ability).toBe(0);
+    });
+
+    it('next resets actions and the speed to normal for the following round', () => {
+      const monster = rpgMonster();
+      monsterManager.setRpgSpeed(monster, 2);
+      monsterManager.setRpgAction(monster, 0);
+      monster.off = true;
+      monsterManager.next();
+      expect(monster.off).toBe(false);
+      expect(monster.ability).toBe(1);
+      expect(monster.entities.every((entity) => entity.rpgAction === -1)).toBe(true);
     });
   });
 });

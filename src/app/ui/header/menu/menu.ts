@@ -159,12 +159,6 @@ export class MainMenuComponent implements OnInit {
     this.active = active;
   }
 
-  hasSections(): boolean {
-    return gameManager.editionData.some(
-      (editionData) => editionData.edition === gameManager.currentEdition() && editionData.sections && editionData.sections.length > 0
-    );
-  }
-
   characters(): Character[] {
     return gameManager.game.figures
       .filter((figure) => {

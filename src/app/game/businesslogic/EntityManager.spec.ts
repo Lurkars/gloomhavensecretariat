@@ -196,10 +196,16 @@ describe('EntityManager', () => {
   });
 
   describe('isImmune', () => {
-    it('a non-escort objective entity is always immune', () => {
+    it('a non-escort objective entity is immune to non-objective conditions', () => {
       const container = buildObjectiveContainer(false);
       const entity = buildObjectiveEntity(container);
       expect(entityManager.isImmune(entity, container, ConditionName.poison)).toBe(true);
+    });
+
+    it('a non-escort objective entity is not immune to objective conditions (plague)', () => {
+      const container = buildObjectiveContainer(false);
+      const entity = buildObjectiveEntity(container);
+      expect(entityManager.isImmune(entity, container, ConditionName.plague)).toBe(false);
     });
 
     it('respects manual entity.immunities unless ignoreManual is set', () => {

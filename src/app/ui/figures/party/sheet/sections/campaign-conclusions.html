@@ -1,0 +1,91 @@
+@if (manualConclusions) {
+  <div
+    class="row scenarios ignore-denied"
+    [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party }"
+  >
+    <div
+      class="row scenarios ignore-denied"
+      [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party }"
+    >
+      @for (edition of scenarioEditions; track edition; let index = $index) {
+        @if (index > 0) {
+          <div class="scenario seperator"></div>
+        }
+        @if (scenarioEditions.length > 1) {
+          <div class="scenario header">
+            <span class="span"><span [ghs-label]="'data.edition.' + edition"></span></span>
+          </div>
+        }
+        @if (conclusions[edition] && conclusions[edition].length > 0) {
+          @if (index > 0) {
+            <div class="scenario seperator"></div>
+          }
+          <div class="scenario header">
+            <span class="span"><span [ghs-label]="'party.campaign.scenarios.conclusions'"></span></span>
+          </div>
+          @for (scenarioData of conclusions[edition] | trackUUID; track scenarioData._trackUUID) {
+            <div class="scenario">
+              <span>
+                #
+                @if (maxScenario(conclusions[edition]) > 2 && scenarioData.index.length < 3) {
+                  <span>0</span>
+                }
+                @if (maxScenario(conclusions[edition]) > 1 && scenarioData.index.length < 2) {
+                  <span>0</span>
+                }
+                {{ scenarioData.index }}
+              </span>
+              <span>
+                @if (scenarioData.group) {
+                  <span [ghs-label]="'data.scenario.group.' + scenarioData.group"></span>
+                }
+              </span>
+              <span class="scenario-title">
+                @if (scenarioData.named) {
+                  <span [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData, true)"></span>
+                }
+                @if (scenarioData.parent) {
+                  <span [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
+                }
+              </span>
+              <span>
+                <span class="spacer"></span>
+                <span (click)="scenarioRewards(scenarioData, true)" class="rewards" [ghs-tooltip]="'scenario.summary.rewards'"
+                  ><img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"
+                /></span>
+                <a
+                  class="toggle-success"
+                  [ghs-label]="'party.campaign.scenarios.removeSuccess'"
+                  [ghs-label-attribute]="'title'"
+                  (click)="removeConclusion(scenarioData.index, edition)"
+                  ><img class="success" src="./assets/images/check.svg" /><img class="remove" src="./assets/images/close.svg"
+                /></a>
+              </span>
+            </div>
+          }
+        }
+        @if (scenarioEditions.length === 1) {
+          <div class="scenario unlock">
+            <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg" /> /
+            <img class="ghs-svg" src="./assets/images/puzzle.svg" />
+            <input
+              #unlockConclusionIndex
+              [ghs-label]="'party.campaign.scenarios.index'"
+              [ghs-label-attribute]="'placeholder'"
+              (keyup)="unlockConclusionIndex.classList.remove('error')"
+              (keyup.enter)="selectFinishConclusion(unlockConclusionIndex)"
+            />
+            <a
+              class="addScenario"
+              [ghs-label]="'party.campaign.scenarios.addConclusion'"
+              [ghs-label-attribute]="'title'"
+              (click)="selectFinishConclusion(unlockConclusionIndex)"
+            >
+              <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img src="./assets/images/plus.svg"
+            /></a>
+          </div>
+        }
+      }
+    </div>
+  </div>
+}

@@ -1098,11 +1098,7 @@
         </div>
 
         <!-- CONDITIONS -->
-        @if (
-          !figure ||
-          !gameManager.isObjectiveContainer(figure) ||
-          (gameManager.isObjectiveContainer(figure) && gameManager.toObjectiveContainer(figure).escort && !objectiveOnly)
-        ) {
+        @if (!figure || !gameManager.isObjectiveContainer(figure) || !objectiveOnly) {
           <ghs-conditions
             [entityConditions]="entityConditions"
             [immunities]="entityImmunities"

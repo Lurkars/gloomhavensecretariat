@@ -1,0 +1,22 @@
+<div class="donations">
+  <label><span [ghs-label]="'party.greatOak'"></span></label>
+  @for (row of [] | ghsRange: 10; track row) {
+    <div class="checklist-container">
+      <div class="checklist">
+        @for (check of [] | ghsRange: 10; track check) {
+          <div class="tick" [ngClass]="{ section: check % 5 === 4, 'prosperity-tick': check % 5 === 4 }">
+            <div
+              class="checkbox"
+              (click)="setDonations(row * 10 + check + 1)"
+              [ngClass]="{ checked: party.donations >= row * 10 + check + 1 }"
+            >
+              @if (check % 5 === 4) {
+                <div class="section">+1 <img src="./assets/images/fh/prosperity.svg" /></div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

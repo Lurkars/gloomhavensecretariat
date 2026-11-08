@@ -1,0 +1,46 @@
+:host {
+  display: contents;
+}
+
+.modifier-list {
+  padding: 0 calc(var(--rpg-gap) * 0.5) calc(var(--rpg-gap) * 0.5);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: calc(var(--rpg-gap) * 1.5);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(var(--rpg-modifier-rows, 10), auto);
+
+  .modifier {
+    display: grid;
+    grid-template-columns: 1fr 0.6em 1.8em;
+    align-items: center;
+    padding: calc(var(--rpg-gap) * 0.15) 0;
+    border-bottom: var(--rpg-line) dotted #c8c8c8;
+
+    .am {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .effects {
+      color: var(--ghs-character-color, var(--ghs-color-black));
+      font-weight: bold;
+    }
+
+    .hex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.8em;
+      aspect-ratio: 1.1547;
+      clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+      background-color: #ddd;
+      font-size: 0.9em;
+    }
+
+    &.character .am {
+      color: var(--ghs-character-color, var(--ghs-color-black));
+      filter: brightness(0.7);
+    }
+  }
+}

@@ -1,0 +1,43 @@
+:host {
+  display: contents;
+}
+
+:host-context(.fh-sheet) {
+  .inspiration {
+    position: absolute;
+    top: calc(var(--ghs-unit) * 51 * var(--ghs-dialog-factor));
+    left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 21 * var(--ghs-dialog-factor));
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      text-align: center;
+      align-self: center;
+      font-size: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+      margin-top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
+  }
+}
+
+:host-context(.gh2e-sheet) {
+  .inspiration {
+    position: absolute;
+    top: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));
+    left: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 56 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input {
+      font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
+      text-align: center;
+      align-self: center;
+    }
+  }
+}

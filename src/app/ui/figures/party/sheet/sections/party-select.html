@@ -1,0 +1,14 @@
+@if (gameManager.game.parties.length > 1 && !gameManager.game.scenario) {
+  <select class="select-party" (change)="selectParty($event)" [ghs-label]="'party.change'" [ghs-label-attribute]="'title'">
+    @for (p of gameManager.game.parties | trackUUID; track p._trackUUID) {
+      <option [selected]="p.id === party.id" [disabled]="p.id === party.id" value="{{ p.id }}">
+        @if (p.name) {
+          <span>{{ p.name }}</span>
+        }
+        @if (!p.name) {
+          <span><span [ghs-label]="'party.campaign'"></span>&nbsp;{{ p.id }}</span>
+        }
+      </option>
+    }
+  </select>
+}

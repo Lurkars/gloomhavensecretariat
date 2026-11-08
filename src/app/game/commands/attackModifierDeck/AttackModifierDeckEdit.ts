@@ -201,7 +201,7 @@ export class AttackModifierDeckRestoreCardCommand extends AttackModifierDeckComm
         gameManager.campaignManager.campaignData()
       );
     } else {
-      originalDeck = new AttackModifierDeck();
+      originalDeck = gameManager.attackModifierManager.defaultDeck();
     }
     resolved.deck.cards.forEach((modifier) => {
       const card = originalDeck.cards.find((orginalCard) => orginalCard.id === modifier.id);
@@ -298,9 +298,9 @@ export class AttackModifierDeckChangeCommand extends AttackModifierDeckCommandIm
       if (value > 0) {
         let batch: AttackModifier[] = [];
         if (type === AttackModifierType.bless) {
-          batch = gameManager.attackModifierManager.getBless(value);
+          batch = gameManager.attackModifierManager.getBless(value, resolved.deck);
         } else if (type === AttackModifierType.curse) {
-          batch = gameManager.attackModifierManager.getCurse(!resolved.character && !resolved.ally, value);
+          batch = gameManager.attackModifierManager.getCurse(!resolved.character && !resolved.ally, value, resolved.deck);
         } else if (type === AttackModifierType.minus1extra) {
           batch = gameManager.attackModifierManager.getExtraMinus1(value);
         }

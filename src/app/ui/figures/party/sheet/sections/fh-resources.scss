@@ -1,0 +1,86 @@
+:host {
+  display: contents;
+}
+
+.resources {
+  position: absolute;
+  top: calc(var(--ghs-unit) * 32 * var(--ghs-dialog-factor));
+  width: calc(var(--ghs-unit) * 61 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 19 * var(--ghs-dialog-factor));
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    .supply {
+      cursor: help;
+      min-width: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
+    }
+
+    .move-resources {
+      display: flex;
+      height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+
+      .label {
+        font-family: var(--ghs-font-text);
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        white-space: nowrap;
+      }
+
+      .characters {
+        display: flex;
+
+        .character {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          img {
+            width: auto;
+            height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          }
+        }
+      }
+    }
+  }
+
+  .resource-table {
+    display: flex;
+    flex-direction: column;
+
+    .resource {
+      display: flex;
+      margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+      img {
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        height: auto;
+      }
+
+      input {
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+        min-width: 0;
+        flex-grow: 1;
+      }
+    }
+
+    .materials {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      padding-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    }
+
+    .herbs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}

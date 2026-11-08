@@ -1,0 +1,24 @@
+:host {
+  display: contents;
+}
+
+.import-export {
+  display: flex;
+  justify-content: space-around;
+
+  label {
+    cursor: pointer;
+
+    input[type='file'] {
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      visibility: hidden;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

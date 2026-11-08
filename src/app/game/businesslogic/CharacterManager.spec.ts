@@ -479,7 +479,7 @@ describe('CharacterManager', () => {
         [1, 10],
         [2, 14]
       ]);
-      character.bb = true;
+      character.editionRules = 'bb';
       const buildSpy = vi
         .spyOn(gameManager.attackModifierManager, 'buildCharacterAttackModifierDeck')
         .mockReturnValue('rebuilt-deck' as any);

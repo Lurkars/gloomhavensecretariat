@@ -87,6 +87,7 @@ export class CampaignMenuComponent implements OnInit {
     }
     gameManager.game.edition = edition;
     gameManager.game.party.edition = edition;
+    gameManager.attackModifierManager.updateDefaultDecks();
     this.update();
     gameManager.stateManager.after();
   }

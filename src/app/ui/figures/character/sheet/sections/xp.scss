@@ -1,0 +1,29 @@
+:host {
+  display: contents;
+}
+
+.xp-notes {
+  flex-direction: column;
+  height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+}
+
+:host-context(.character-sheet.fh-sheet) {
+  .xp-notes {
+    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  input[type='number'],
+  input[type='text'] {
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+  }
+
+  .row {
+    height: auto !important;
+    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) !important;
+
+    flex-direction: row;
+  }
+}

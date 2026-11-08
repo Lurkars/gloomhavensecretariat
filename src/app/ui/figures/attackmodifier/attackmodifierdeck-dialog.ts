@@ -152,7 +152,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       );
       gameManager.game.party.townGuardDeck = this.deck.toModel();
     } else {
-      originalDeck = new AttackModifierDeck();
+      originalDeck = gameManager.attackModifierManager.defaultDeck();
     }
 
     this.deck.cards.forEach((modifier) => {
@@ -389,9 +389,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     if (value > 0) {
       let batch: AttackModifier[] = [];
       if (type === AttackModifierType.bless) {
-        batch = gameManager.attackModifierManager.getBless(value);
+        batch = gameManager.attackModifierManager.getBless(value, this.deck);
       } else if (type === AttackModifierType.curse) {
-        batch = gameManager.attackModifierManager.getCurse(!this.character && !this.ally, value);
+        batch = gameManager.attackModifierManager.getCurse(!this.character && !this.ally, value, this.deck);
       } else if (type === AttackModifierType.minus1extra) {
         batch = gameManager.attackModifierManager.getExtraMinus1(value);
       }

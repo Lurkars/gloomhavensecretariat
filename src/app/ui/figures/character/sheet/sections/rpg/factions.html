@@ -1,0 +1,32 @@
+<div class="factions">
+  <div class="section-title"><span [ghs-label]="'character.progress.rpg.factions'"></span></div>
+  <div class="faction-list">
+    @for (faction of rpg.factions; track $index; let i = $index) {
+      <div class="faction">
+        <label class="faction-name"
+          ><span class="box-label"><span [ghs-label]="'character.progress.rpg.faction'"></span>:</span>
+          <input [value]="faction.name" (change)="setName(i, $event)"
+        /></label>
+        <div class="tiers">
+          <div class="track">
+            @for (tier of tiers; track tier) {
+              <a class="tier" [ngClass]="{ current: faction.tier === tier }" (click)="setTier(i, tier)">{{ tierLabels[tier - 1] }}</a>
+            }
+          </div>
+          <a
+            class="tier hostile"
+            [ngClass]="{ current: faction.tier === 0 }"
+            [ghs-label]="'character.progress.rpg.hostile'"
+            [ghs-label-attribute]="'title'"
+            (click)="setTier(i, 0)"
+            ><img src="./assets/images/rpg/hostile.svg"
+          /></a>
+        </div>
+        <span class="box-label"><span [ghs-label]="'character.progress.rpg.benefits'"></span>:</span>
+        @for (benefit of benefits; track benefit) {
+          <textarea class="benefit" [value]="(faction.benefits || [])[benefit] || ''" (change)="setBenefit(i, benefit, $event)"></textarea>
+        }
+      </div>
+    }
+  </div>
+</div>

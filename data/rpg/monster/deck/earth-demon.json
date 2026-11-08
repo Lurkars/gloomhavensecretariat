@@ -1,0 +1,216 @@
+{
+  "name": "earth-demon",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.growth%",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.earth-demon.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.growth%",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.earth-demon.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.bolder-throw%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.earth-demon.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 93,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.bolder-throw%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.earth-demon.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.earthen-slam%",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "minus"
+                },
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.rpg.earth-demon.3%",
+                      "small": true
+                    },
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.earth-demon.4%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+:host {
+  display: contents;
+}
+
+.bottom-menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  .retirement-note {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .checkbox {
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+  }
+
+  .event-effects {
+    cursor: pointer;
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5em;
+
+    img {
+      height: 1em;
+      width: auto;
+      margin-right: 0.2em;
+    }
+  }
+
+  .toggle-fh-sheet {
+    cursor: pointer;
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    margin-right: 0.5em;
+  }
+}

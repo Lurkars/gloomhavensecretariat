@@ -1,0 +1,150 @@
+:host {
+  display: contents;
+}
+
+.checkbox.checked::before {
+  clip-path: none;
+  background-color: transparent;
+  background-image: url('../../../../../../assets/images/checkmark.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  filter: var(--ghs-filter-red);
+}
+
+.town-guard-perks {
+  position: absolute;
+  top: calc(var(--ghs-unit) * 26.2 * var(--ghs-dialog-factor));
+  left: calc(var(--ghs-unit) * 90 * var(--ghs-dialog-factor));
+  width: calc(var(--ghs-unit) * 28 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 72 * var(--ghs-dialog-factor));
+  flex-direction: column;
+  display: flex;
+  z-index: 1;
+
+  label {
+    font-size: calc(var(--ghs-unit) * 2.4 * var(--ghs-dialog-factor));
+    justify-content: center;
+  }
+
+  .town-guard-perks-grid {
+    margin-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+
+    img {
+      width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+      height: auto;
+    }
+
+    .town-guard-perk {
+      width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+      margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+      margin-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+    }
+
+    .checkmark {
+      height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .perk-list {
+    margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+    padding-top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+    display: flex;
+    flex-direction: column;
+    height: calc(var(--ghs-unit) * 54.5 * var(--ghs-dialog-factor));
+    overflow-y: auto;
+
+    .perk {
+      display: grid;
+      grid-template-columns: calc(var(--ghs-unit) * 6.2 * var(--ghs-dialog-factor)) auto;
+      margin-bottom: calc(var(--ghs-unit) * 0.57 * var(--ghs-dialog-factor));
+      font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+
+      .sections {
+        display: flex;
+        flex-direction: column;
+        margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+        .section {
+          cursor: pointer;
+          position: relative;
+          display: flex;
+          align-items: center;
+          margin-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+          border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+          font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+          line-height: calc(var(--ghs-unit) * 1.4 * var(--ghs-dialog-factor));
+          background-color: var(--ghs-color-white);
+
+          img {
+            height: 0.9em;
+            width: auto;
+          }
+
+          &:hover {
+            background-color: var(--ghs-color-gray);
+          }
+
+          &.disabled {
+            pointer-events: initial;
+            cursor: not-allowed;
+            border-color: var(--ghs-color-gray);
+
+            &:hover {
+              background-color: transparent;
+            }
+          }
+
+          &.checked::after {
+            content: ' ';
+            position: absolute;
+            top: 10%;
+            left: calc(var(--ghs-unit) * -1.2 * var(--ghs-dialog-factor));
+            width: 80%;
+            height: 80%;
+            background-image: url('../../../../../../assets/images/checkmark.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1;
+            filter: var(--ghs-filter-red);
+          }
+        }
+      }
+    }
+  }
+}
+
+.warning {
+  margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--ghs-color-red);
+  flex-basis: 0;
+
+  &.warning {
+    color: var(--ghs-color-yellow);
+  }
+
+  img {
+    width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+    height: auto;
+    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    filter: var(--ghs-filter-red);
+  }
+
+  &.warning {
+    img {
+      filter: var(--ghs-filter-yellow);
+    }
+  }
+}

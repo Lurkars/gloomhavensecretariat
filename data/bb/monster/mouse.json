@@ -2,7 +2,7 @@
   "name": "mouse",
   "noArtwork": true,
   "edition": "bb",
-  "bb": true,
+  "editionRules": "bb",
   "count": 4,
   "baseStat": {
     "type": "bb",

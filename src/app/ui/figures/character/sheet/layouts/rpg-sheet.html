@@ -1,0 +1,61 @@
+<div class="rpg-sheet" [ngClass]="{ locked: locked }" [style.--ghs-character-color]="character.color">
+  <div class="page">
+    <div class="top">
+      <img class="logo" src="./assets/images/logos/rpg.png" />
+      <ghs-character-sheet-rpg-attributes [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" />
+      <div class="box-grid names">
+        <div class="box"><ghs-character-sheet-name [character]="character" /></div>
+        <ghs-character-sheet-rpg-text [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" [field]="'pronouns'" />
+        <ghs-character-sheet-rpg-text [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" [field]="'playerName'" />
+        <ghs-character-sheet-rpg-text [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" [field]="'ancestry'" />
+      </div>
+      <div class="box-grid stats">
+        <div class="box">
+          <span class="box-label"><span [ghs-label]="'character.progress.level'"></span> <img src="./assets/images/level.svg" />:</span>
+          <ghs-character-sheet-level [character]="character" [xp]="false" />
+        </div>
+        <ghs-character-sheet-rpg-health [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" />
+        <div class="box"><ghs-character-sheet-gold [character]="character" [fh]="true" /></div>
+        <ghs-character-sheet-rpg-health [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" [current]="true" />
+      </div>
+      <div class="texts">
+        <ghs-character-sheet-rpg-text
+          [character]="character"
+          [editable]="editable()"
+          [forceEdit]="forceEdit()"
+          [field]="'backgrounds'"
+          [multiline]="true"
+        />
+        <ghs-character-sheet-rpg-text
+          [character]="character"
+          [editable]="editable()"
+          [forceEdit]="forceEdit()"
+          [field]="'personalGoal'"
+          [multiline]="true"
+        />
+      </div>
+    </div>
+
+    <div class="middle">
+      <ghs-character-sheet-rpg-items [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" />
+      <ghs-character-sheet-rpg-modifiers [character]="character" />
+    </div>
+
+    <div class="bottom">
+      <ghs-character-sheet-rpg-factions [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" />
+      <div class="frame perks">
+        <div class="section-title"><span [ghs-label]="'character.progress.rpg.perks'"></span></div>
+        <div class="perk-info">
+          <ghs-character-sheet-counters [character]="character" [retirements]="false" />
+        </div>
+        <ghs-character-sheet-perks [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" />
+      </div>
+    </div>
+  </div>
+
+  <div class="page page-powers">
+    @for (list of powerLists; track list) {
+      <ghs-character-sheet-rpg-powers [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" [list]="list" />
+    }
+  </div>
+</div>

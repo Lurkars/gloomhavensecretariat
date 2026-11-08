@@ -52,6 +52,7 @@ export class CharacterMenuComponent implements OnInit {
   getCharacterData(filter: string, edition: string): CharacterData[] {
     return gameManager
       .charactersData(edition)
+      .filter((characterData) => gameManager.matchesEditionRules(characterData))
       .filter(
         (characterData) =>
           ((!characterData.locked || this.unlocked(characterData)) &&

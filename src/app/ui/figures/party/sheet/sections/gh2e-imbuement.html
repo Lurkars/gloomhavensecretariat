@@ -1,0 +1,34 @@
+<div class="imbuement">
+  <label><span [ghs-label]="'party.imbuement'"></span></label>
+  @for (row of [] | ghsRange: 8; track row) {
+    <div class="checklist-container">
+      <div class="checklist">
+        @for (check of [] | ghsRange: 10; track check) {
+          <div
+            class="tick"
+            [ngClass]="{
+              section: check % 10 === 4 || imbuementSections[row * 10 + check + 1],
+              'prosperity-tick': check % 10 === 4
+            }"
+          >
+            <div class="checkbox" [ngClass]="{ checked: party.imbuement >= row * 10 + check + 1 }">
+              <span class="click" ghs-pointer-input (singleClick)="setImbuement(row * 10 + check + 1)"></span>
+              @if (check % 10 === 4) {
+                <span class="section"> +1 <img src="./assets/images/fh/prosperity.svg" /> </span>
+              }
+              @if (imbuementSections[row * 10 + check + 1]) {
+                <span
+                  class="section"
+                  ghs-pointer-input
+                  (singleClick)="unlockConclusion(imbuementSections[row * 10 + check + 1], party.imbuement >= row * 10 + check + 1)"
+                  (doubleClick)="unlockConclusion(imbuementSections[row * 10 + check + 1], party.imbuement >= row * 10 + check + 1, true)"
+                  [ghs-label]="'%game.section:' + imbuementSections[row * 10 + check + 1] + '%'"
+                ></span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

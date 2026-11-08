@@ -437,7 +437,7 @@ describe('RoundManager', () => {
 
     it('advances a bb-elite monster to its next ability and keeps it on for an extra activation', () => {
       const monster = buildMonster('bandit-guard');
-      monster.bb = true;
+      monster.editionRules = 'bb';
       monster.tags = ['bb-elite'];
       monster.abilities = ['a1', 'a2', 'a3'] as any;
       monster.ability = 0;
@@ -452,7 +452,7 @@ describe('RoundManager', () => {
 
     it('wraps the bb-elite ability index back to 0 once it reaches the end of the abilities list', () => {
       const monster = buildMonster('bandit-guard');
-      monster.bb = true;
+      monster.editionRules = 'bb';
       monster.tags = ['bb-elite'];
       monster.abilities = ['a1', 'a2'] as any;
       monster.ability = 1;

@@ -1,0 +1,293 @@
+{
+  "name": "ancient-artillery",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.mortar%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.defense%",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.2%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "shield",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.mortar%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.defense%",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.2%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "shield",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.concuss%",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.2%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.3%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.mortar%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.concuss%",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.2%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.ancient-artillery.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.massive-burst%",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 5,
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "immobilize",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.ancient-artillery.4%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "name": "night-demon",
+  "thumbnail": "gh-night-demon",
+  "edition": "rpg",
+  "editionRules": "rpg",
+  "count": 10,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 3,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 5,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 7,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 8,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 11,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 16,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 20,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 5,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 8,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 11,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 13,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 15,
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 17,
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 23,
+      "movement": 5,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 30,
+      "movement": 5,
+      "attack": 8,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        }
+      ]
+    }
+  ]
+}

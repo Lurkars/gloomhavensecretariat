@@ -1,0 +1,21 @@
+:host {
+  display: contents;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  height: calc(var(--ghs-unit) * 25 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+}
+
+:host-context(.gh2e-sheet) {
+  .notes {
+    position: absolute;
+    top: calc(var(--ghs-unit) * 61 * var(--ghs-dialog-factor));
+    left: calc(var(--ghs-unit) * 57.5 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 32 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 18 * var(--ghs-dialog-factor));
+    margin-top: 0;
+  }
+}

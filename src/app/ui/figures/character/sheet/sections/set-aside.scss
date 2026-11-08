@@ -1,0 +1,34 @@
+:host {
+  display: contents;
+}
+
+:host-context(.character-sheet .notes) {
+  .set-aside {
+    margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+    margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+    margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+    display: flex;
+    align-items: center;
+
+    label {
+      flex-shrink: 0;
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    }
+
+    input[type='number'] {
+      flex-grow: 1;
+      flex-basis: 0;
+      min-width: auto;
+    }
+
+    &.set-aside label {
+      cursor: pointer;
+      font-family: var(--ghs-font-normal);
+      font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

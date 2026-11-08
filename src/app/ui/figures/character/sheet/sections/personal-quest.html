@@ -1,0 +1,158 @@
+<div class="personal-quest">
+  <label
+    ><span [ghs-label]="'character.progress.personalQuest'"></span>:
+    @if (personalQuestAutotrackSupported()) {
+      <a
+        class="personal-quest-autotrack ignore-denied"
+        [ngClass]="{ disabled: !character.progress.personalQuestAutotrack }"
+        (click)="editable() && togglePersonalQuestAutotrack()"
+        [ghs-tooltip]="
+          character.progress.personalQuestAutotrack
+            ? 'character.progress.personalQuest.autotrack.enabled'
+            : 'character.progress.personalQuest.autotrack.disabled'
+        "
+      >
+        <img class="ghs-svg" src="./assets/images/automation.svg" />
+      </a>
+    }
+  </label>
+  <div class="personal-quest-card">
+    <input class="card-id" [value]="character.progress.personalQuest" type="text" (change)="setPersonalQuest($event)" />
+    @if (editable() && !personalQuest) {
+      <a class="draw-personal-quest ignore-denied" (click)="drawPersonalQuest()" [ghs-tooltip]="'character.progress.personalQuest.draw'">
+        <img class="ghs-svg" src="./assets/images/shuffle.svg" />
+      </a>
+      <ng-container *ngTemplateOutlet="retireButton"></ng-container>
+    }
+    @if (personalQuest) {
+      <span class="personal-quest-name ignore-denied" (click)="openPersonalQuestCard()">
+        <span [ghs-label]="'data.personalQuest.' + personalQuest.edition + '.' + personalQuest.cardId"></span>
+        @if (personalQuest.altId && personalQuest.altId !== personalQuest.cardId) {
+          <span>&nbsp;({{ personalQuest.altId }})</span>
+        }
+      </span>
+    }
+  </div>
+  @if (gameManager.trialsManager.trialsEnabled) {
+    <div class="trial">
+      <label><span [ghs-label]="'character.progress.trial'"></span>:</label>
+      <div class="trial-card">
+        <input
+          #trialIndex
+          class="card-id"
+          [value]="
+            character.progress.trial
+              ? settingsManager.settings.fhSecondEdition
+                ? gameManager.trialsManager.cardIdSecondPrinting(+character.progress.trial.name)
+                : character.progress.trial.name
+              : ''
+          "
+          type="text"
+          (change)="setTrial($event)"
+          (keyup)="trialIndex.classList.remove('error')"
+        />
+        @if (fh() && character.progress.trial) {
+          <a class="open ignore-denied" (click)="openTrial()"><img src="./assets/images/fh/trials/trial.png" /></a>
+        }
+      </div>
+    </div>
+  }
+  @if (personalQuest) {
+    <div class="requirements">
+      @for (requirement of personalQuest.requirements | trackUUID; track requirement._trackUUID; let i = $index) {
+        @if (
+          !requirement.requires ||
+          !requirement.requires.length ||
+          !requirement.hidden ||
+          (!!requirement.requires && requirement.requires.length > 0 && personalQuestRequirementUnlocked(i))
+        ) {
+          <div
+            class="requirement"
+            [ngClass]="{
+              disabled: !!requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i),
+              autotracked: personalQuestRequirementAutotracked(i)
+            }"
+          >
+            <span class="requirement-name">
+              <span [ghs-label]="requirement.name"></span>:
+              @if (EntityValueFunction(requirement.counter) > 1) {
+                <span>&nbsp;{{ getPersonalQuestCount(i) }}/{{ EntityValueFunction(requirement.counter) }}</span>
+              }
+            </span>
+            @if (!requirement.checkbox || !requirement.checkbox.length) {
+              <span class="counter">
+                @if (EntityValueFunction(requirement.counter) < 11) {
+                  @for (counter of [] | ghsRange: EntityValueFunction(requirement.counter); track counter) {
+                    <span
+                      class="checkbox"
+                      [ngClass]="{ checked: character.progress.personalQuestProgress[i] > counter }"
+                      (click)="setPersonalQuestProgress(i, counter + 1)"
+                      [ghs-label]="'character.progress.personalQuest.counter'"
+                      [ghs-label-attribute]="'title'"
+                    ></span>
+                  }
+                } @else {
+                  <input
+                    [value]="character.progress.personalQuestProgress[i]"
+                    type="number"
+                    min="0"
+                    [max]="EntityValueFunction(requirement.counter)"
+                    (change)="setPersonalQuestProgress(i, $event)"
+                  />
+                }
+              </span>
+            } @else {
+              <span class="counter">
+                @for (checkbox of requirement.checkbox; track checkbox; let index = $index) {
+                  <label>
+                    <span
+                      class="checkbox"
+                      [ngClass]="{ checked: isPersonalQuestCheckboxChecked(i, index) }"
+                      (click)="setPersonalQuestCheckboxProgress(i, index)"
+                    ></span>
+                    <span class="checkbox-label" [ghs-label]="checkbox"></span>
+                  </label>
+                }
+              </span>
+            }
+          </div>
+        }
+      }
+    </div>
+    <div class="rewards">
+      @if (personalQuest.unlockCharacter) {
+        <div
+          class="reward"
+          [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
+          [ghs-label-args]="[personalQuest.unlockCharacter]"
+        ></div>
+      }
+      @if (personalQuest.openEnvelope) {
+        <div
+          class="reward"
+          [ghs-label]="'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')"
+          [ghs-label-args]="personalQuest.openEnvelope.split(':')"
+        ></div>
+      }
+      @if (personalQuest.unlockPQ) {
+        <div class="reward" [ghs-label]="'character.progress.personalQuest.unlockPQ'" [ghs-label-args]="[personalQuest.unlockPQ]"></div>
+      }
+    </div>
+    @if (editable()) {
+      <ng-container *ngTemplateOutlet="retireButton"></ng-container>
+    }
+  }
+</div>
+
+<ng-template #retireButton>
+  <label
+    class="retire-button"
+    ghs-pointer-input
+    (singleClick)="retire()"
+    (doubleClick)="retire(true)"
+    [ngClass]="{ disabled: !retireEnabled }"
+  >
+    <img class="ghs-svg" src="./assets/images/trophy.svg" />
+    <span [ghs-label]="'character.progress.retirement'"></span>
+  </label>
+</ng-template>

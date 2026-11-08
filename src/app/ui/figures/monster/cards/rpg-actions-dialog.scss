@@ -1,0 +1,37 @@
+:host {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.rpg-actions-dialog {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transform: scale(0);
+  transition: transform calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
+  z-index: 2;
+
+  &.opened {
+    transform: scale(1);
+  }
+
+  ghs-monster-rpg-actions {
+    --ghs-unit: min(2.25vw, 2.6vh, 16px);
+    pointer-events: initial;
+  }
+}
+
+.close-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}

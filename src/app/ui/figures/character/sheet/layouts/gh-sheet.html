@@ -1,0 +1,62 @@
+<div class="columns">
+  <div class="column column-left">
+    <ghs-character-sheet-title [character]="character" />
+    <div class="row base">
+      <ghs-character-sheet-name [character]="character" />
+      <div class="level">
+        <div class="columns">
+          <div class="column">
+            <label><span [ghs-label]="'character.progress.level'"></span> <img src="./assets/images/level.svg" />:</label>
+            <label><span [ghs-label]="'character.progress.xp'"></span> <img src="./assets/images/experience.svg" />:</label>
+          </div>
+          <div class="column">
+            <ghs-character-sheet-level [character]="character" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="xp-gold-container">
+      <ghs-character-sheet-xp [character]="character" />
+      <ghs-character-sheet-gold [character]="character" />
+    </div>
+    <hr class="compact-separator" />
+    <ghs-character-items class="row" [character]="character"></ghs-character-items>
+  </div>
+
+  <div class="column column-right">
+    <hr class="compact-separator" />
+    <div class="row perks">
+      <label class="headline"><span [ghs-label]="'game.attackModifiers.perks'"></span></label>
+      <ghs-character-sheet-perks [character]="character" [editable]="editable()" [forceEdit]="forceEdit()" />
+    </div>
+    <div class="row battlegoals">
+      @if (!cs()) {
+        <label class="headline"><span [ghs-label]="'game.battleGoals'"></span></label>
+      }
+      <ghs-character-sheet-battle-goals [character]="character" [checkmark]="'check'" />
+    </div>
+  </div>
+</div>
+
+<div class="additional">
+  <hr class="compact-separator" />
+  <label class="headline"><span [ghs-label]="'character.progress.notes'"></span></label>
+  <div class="columns">
+    <div class="column column-left">
+      <ghs-character-sheet-notes [character]="character" />
+    </div>
+    <div class="column column-right notes">
+      <ghs-character-sheet-player [character]="character" />
+      @if (!jotl) {
+        <ghs-character-sheet-personal-quest [character]="character" [editable]="editable()" [dialogRef]="dialogRef()" />
+      }
+      <ghs-character-sheet-counters [character]="character" [retirements]="!jotl" />
+      <ghs-character-sheet-set-aside [character]="character" [editable]="editable()" [dialogRef]="dialogRef()" />
+      <hr class="compact-separator" />
+      <ghs-character-sheet-import-export [character]="character" />
+      <span class="toggle-fh-sheet ignore-denied" (click)="toggleSheet.emit()">
+        <span [ghs-label]="'character.progress.fh.enable'"></span>
+      </span>
+    </div>
+  </div>
+</div>

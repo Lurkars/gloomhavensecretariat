@@ -1,0 +1,105 @@
+{
+  "name": "demonic-general",
+  "thumbnail": "gh-earth-demon",
+  "edition": "rpg",
+  "editionRules": "rpg",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "note": "Break: Rallying Call",
+    "immunities": [
+      "immobilize",
+      "pacify",
+      "stun"
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx10",
+      "movement": 3,
+      "attack": 6,
+      "note": "Stunt: Counterattack, Pool: 2"
+    },
+    {
+      "level": 1,
+      "health": "Cx13",
+      "movement": 3,
+      "attack": 6,
+      "note": "Stunt: Riposte, Pool: 2"
+    },
+    {
+      "level": 2,
+      "health": "Cx18",
+      "movement": 3,
+      "attack": 6,
+      "note": "Pool: 3"
+    },
+    {
+      "level": 3,
+      "health": "Cx20",
+      "movement": 3,
+      "attack": 6,
+      "note": "Pool: 4",
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx21",
+      "movement": 4,
+      "attack": 7,
+      "note": "Pool: 5",
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx25",
+      "movement": 4,
+      "attack": 7,
+      "note": "Pool: 6",
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx32",
+      "movement": 4,
+      "attack": 7,
+      "note": "Pool: 7",
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx42",
+      "movement": 4,
+      "attack": 8,
+      "note": "Pool: 8",
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    }
+  ]
+}

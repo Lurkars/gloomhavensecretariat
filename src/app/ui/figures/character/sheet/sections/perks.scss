@@ -1,0 +1,163 @@
+:host {
+  display: contents;
+}
+
+.checkbox.disabled {
+  top: calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor));
+  left: calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor));
+  pointer-events: none;
+  border-color: var(--ghs-color-gray);
+  box-shadow: none;
+}
+
+.perk {
+  font-family: var(--ghs-font-normal);
+  font-size: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+  line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+  margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  display: flex;
+
+  .checkboxes {
+    display: flex;
+
+    .checkbox {
+      margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor) * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor) * var(--ghs-text-factor) * var(--ghs-text-factor));
+
+      &.disabled {
+        pointer-events: initial;
+        cursor: not-allowed;
+      }
+    }
+
+    &.combined {
+      flex-direction: column;
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+      .checkbox {
+        border-top-style: dashed;
+        border-bottom-style: dashed;
+        margin: 0;
+
+        &:nth-child(1) {
+          border-top-style: solid;
+        }
+
+        &:nth-last-child(1) {
+          border-bottom-style: solid;
+        }
+      }
+    }
+  }
+
+  ghs-perk-label {
+    cursor: pointer;
+
+    &.disabled {
+      cursor: initial;
+    }
+  }
+}
+
+:host-context(.character-sheet) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    height: calc(var(--ghs-unit) * 63.5 * var(--ghs-dialog-factor));
+    overflow-y: auto;
+  }
+
+  .wip,
+  .warning {
+    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ghs-color-red);
+
+    &.warning {
+      color: var(--ghs-color-yellow);
+    }
+
+    img {
+      width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+      height: auto;
+      margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      filter: var(--ghs-filter-red);
+    }
+
+    &.warning {
+      img {
+        filter: var(--ghs-filter-yellow);
+      }
+    }
+  }
+
+  .wip,
+  .warning {
+    flex-basis: 0;
+  }
+}
+
+:host-context(.character-sheet.cs-sheet) {
+  .list {
+    height: calc(var(--ghs-unit) * 69.5 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.fh-sheet) {
+  .list {
+    height: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  .checkbox {
+    width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor)) !important;
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor)) !important;
+  }
+
+  .list {
+    height: auto !important;
+    overflow-y: initial;
+  }
+
+  .perk {
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+    line-height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+
+    .checkboxes .checkbox {
+      width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+    }
+  }
+}
+
+:host-context(.rpg-sheet) {
+  .checkbox {
+    flex-shrink: 0;
+  }
+
+  .warning {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--rpg-gap) * 0.5);
+    margin-top: var(--rpg-gap);
+    color: var(--ghs-color-yellow);
+
+    img {
+      width: 2em;
+      height: auto;
+      filter: var(--ghs-filter-yellow);
+    }
+  }
+}
+
+:host-context(.rpg-sheet.locked) {
+  .checkbox {
+    pointer-events: none;
+  }
+}

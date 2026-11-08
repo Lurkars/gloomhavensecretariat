@@ -1,0 +1,52 @@
+<div class="columns">
+  <div class="column">
+    <div class="row">
+      <label><span [ghs-label]="'party.campaign.players'"></span>:</label>
+    </div>
+    <div class="row players">
+      @for (index of [] | ghsRange: party.players.length; track index) {
+        <div class="player">
+          <span class="index">#{{ index + 1 }}</span>
+          <input type="text" [value]="party.players[index]" (change)="changePlayer($event, index)" />
+          @if (availableCharacters[index]) {
+            <div class="available-characters">
+              @for (characterModel of availableCharacters[index] | trackUUID; track characterModel._trackUUID) {
+                <a
+                  class="available-character"
+                  ghs-pointer-input
+                  (singleClick)="openCharacterSheet(characterModel)"
+                  (doubleClick)="replayCharacter(characterModel)"
+                  [ghs-tooltip]="'character.replay.hint'"
+                >
+                  <img [src]="gameManager.characterManager.characterIcon(characterModel.name, characterModel.edition)" />
+                </a>
+              }
+            </div>
+          }
+          <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg" /></a>
+        </div>
+      }
+      <a class="add" (click)="party.players[party.players.length] = ''">
+        <img src="./assets/images/plus.svg" />
+        <span [ghs-label]="'party.campaign.players.add'"></span>
+      </a>
+    </div>
+  </div>
+  <div class="column">
+    @if (settingsManager.settings.events) {
+      <div class="row events">
+        <a (click)="setupEvents()">
+          <span [ghs-label]="'game.events.deck.setup'"></span>
+        </a>
+      </div>
+    }
+    @if (settingsManager.settings.battleGoals) {
+      <div class="row battle-goals">
+        <a (click)="battleGoalSetup()"><span [ghs-label]="'game.battleGoals.setup'"></span></a>
+      </div>
+    }
+    <div class="row personal-quests">
+      <a (click)="personalQuestSetup()"><span [ghs-label]="'game.personalQuests.setup'"></span></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="battlegoals-grid">
+  @for (item of [] | ghsRange: 18; track item) {
+    @if (item % 3 === 0) {
+      <span class="checkmark"> <img [src]="'./assets/images/' + checkmark() + '.svg'" />:</span>
+    }
+    <span
+      class="battlegoal checkbox"
+      [ngClass]="{ checked: character.progress.battleGoals >= item + 1 }"
+      (click)="setBattleGoals(item + 1)"
+    ></span>
+  }
+</div>

@@ -2,8 +2,8 @@
   "name": "mindthief",
   "icon": "gh-mindthief",
   "edition": "bb",
+  "editionRules": "bb",
   "color": "#6279a5",
-  "bb": true,
   "stats": [
     {
       "level": 1,

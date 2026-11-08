@@ -282,6 +282,22 @@ export class CharacterManager {
     return level;
   }
 
+  availablePerks(character: Character): number {
+    const gained = (character.progress.perks || []).reduce((a, b) => a + (b || 0), 0);
+    if (gameManager.attackModifierManager.isRpgCharacter(character)) {
+      return character.level - 1 + character.progress.extraPerks - gained;
+    }
+    return (
+      character.level +
+      Math.min(6, Math.floor(character.progress.battleGoals / 3)) -
+      gained -
+      1 +
+      character.progress.extraPerks +
+      character.progress.retirements +
+      character.progress.masteries.length
+    );
+  }
+
   setLevel(character: Character, level: number) {
     const stat = character.stats.find((characterStat) => characterStat.level === level);
     if (!stat) {
@@ -336,7 +352,7 @@ export class CharacterManager {
       gameManager.levelManager.calculateScenarioLevel();
     }
 
-    if (character.bb) {
+    if (character.editionRules === 'bb') {
       character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
     }
   }

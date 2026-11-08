@@ -414,11 +414,12 @@ export class KeyboardShortcuts implements OnInit {
           !event.altKey &&
           !event.shiftKey &&
           event.key.toLowerCase() === 'p' &&
-          settingsManager.settings.partySheet
+          settingsManager.settings.partySheet &&
+          gameManager.hasCampaignSheet()
         ) {
           this.dialog.open(PartySheetDialogComponent, {
             panelClass: ['dialog-invert'],
-            data: { partySheet: true }
+            data: { partySheet: gameManager.hasPartySheet() }
           });
           event.stopPropagation();
           event.preventDefault();

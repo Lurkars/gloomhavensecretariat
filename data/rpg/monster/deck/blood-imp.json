@@ -1,0 +1,225 @@
+{
+  "name": "blood-imp",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.blood-barrier%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            },
+            {
+              "type": "retaliate",
+              "value": 2
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.blood-barrier%",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            },
+            {
+              "type": "retaliate",
+              "value": 2
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "wild"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.tip-the-scales%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.blood-imp.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.blood-imp.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.tip-the-scales%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.blood-imp.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.blood-imp.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.hex%",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 0,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 3,
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.blood-imp.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

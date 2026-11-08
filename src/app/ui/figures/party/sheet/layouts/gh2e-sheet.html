@@ -1,0 +1,18 @@
+<div class="sheet gh2e-sheet">
+  <div class="title">
+    <label class="headline ignore-denied" (click)="openCampaign.emit()">
+      <span [ghs-label]="'party.campaign.sheet'"></span>
+      <span class="management">
+        <img src="./assets/images/left.svg" />
+        <span [ghs-label]="'party.campaign.manage'"></span>
+      </span>
+    </label>
+  </div>
+  <ghs-party-sheet-name [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-inspiration [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-gh2e-factions [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-notes [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-gh2e-imbuement [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-gh2e-great-oak [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-prosperity [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+</div>

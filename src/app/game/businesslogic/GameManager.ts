@@ -33,6 +33,7 @@ import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { Condition, ConditionName, Conditions, ConditionType } from 'src/app/game/model/data/Condition';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
+import { EditionRules } from 'src/app/game/model/data/EditionRules';
 import { ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
@@ -922,6 +923,23 @@ export class GameManager {
 
   bbRules(): boolean {
     return this.editionRules('bb');
+  }
+
+  rpgRules(): boolean {
+    return this.editionRules('rpg');
+  }
+
+  hasCampaignSheet(): boolean {
+    return !this.bbRules() && !this.rpgRules();
+  }
+
+  hasPartySheet(): boolean {
+    return this.hasCampaignSheet() && (this.game.party.edition || this.game.edition) !== 'jotl';
+  }
+
+  matchesEditionRules(data: { editionRules: EditionRules }): boolean {
+    const rules: EditionRules = this.bbRules() ? 'bb' : this.rpgRules() ? 'rpg' : undefined;
+    return !rules || data.editionRules === rules;
   }
 
   editionRules(edition: string, current: boolean = true): boolean {

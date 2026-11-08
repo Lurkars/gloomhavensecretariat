@@ -1,0 +1,156 @@
+{
+  "name": "great-grove-guard",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.devoted-defender%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.great-grove-guard.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.devoted-defender%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.great-grove-guard.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.charge%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 70,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.basic%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.charge%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "box",
+              "value": "%data.custom.rpg.action.psyche-up%",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.rpg.great-grove-guard.2%",
+                  "small": true
+                },
+                {
+                  "type": "move",
+                  "value": 1,
+                  "valueType": "minus"
+                },
+                {
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

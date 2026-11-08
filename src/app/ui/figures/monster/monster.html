@@ -7,7 +7,8 @@
     modern: settingsManager.settings.theme === 'modern',
     short: !settingsManager.settings.abilities || !settingsManager.settings.stats,
     'short-abilities': !settingsManager.settings.stats,
-    'short-stats': !settingsManager.settings.abilities
+    'short-stats': !settingsManager.settings.abilities,
+    rpg: gameManager.rpgRules() && settingsManager.settings.abilities && settingsManager.settings.stats
   }"
 >
   <ghs-monster-image
@@ -21,7 +22,11 @@
   >
   </ghs-monster-image>
   @if (settingsManager.settings.abilities) {
-    <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
+    @if (gameManager.rpgRules()) {
+      <ghs-monster-rpg-actions [monster]="monster"></ghs-monster-rpg-actions>
+    } @else {
+      <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
+    }
   }
 
   <div
@@ -49,7 +54,7 @@
       >
       </ghs-monster-numberpicker>
     }
-    @if (!monster.boss && !monster.bb) {
+    @if (!monster.boss && monster.editionRules !== 'bb') {
       <ghs-monster-numberpicker
         class="elite"
         [monster]="monster"

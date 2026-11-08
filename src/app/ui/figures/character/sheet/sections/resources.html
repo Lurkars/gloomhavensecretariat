@@ -1,0 +1,29 @@
+<div class="row resources" [ngClass]="{ disabled: settingsManager.settings.fhShareResources }">
+  <label><span [ghs-label]="'character.progress.resources'"></span>:</label>
+  <a class="move" (click)="moveResources()"
+    ><span
+      [ghs-label]="settingsManager.settings.fhShareResources ? 'character.progress.resources.shared' : 'character.progress.resources.move'"
+    ></span
+  ></a>
+  <div class="resource-table">
+    @for (group of resourceGroups; track group.name) {
+      <div [class]="group.name">
+        @for (resource of group.types; track resource) {
+          <div class="resource {{ resource }}" [ghs-tooltip]="'game.loot.' + resource">
+            <img [src]="'./assets/images/fh/loot/' + resource + '.svg'" />
+            <input
+              [value]="
+                settingsManager.settings.fhShareResources
+                  ? gameManager.game.party.loot[resource] || 0
+                  : character.progress.loot[resource] || 0
+              "
+              type="number"
+              min="0"
+              (change)="setResource(resource, $event)"
+            />
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

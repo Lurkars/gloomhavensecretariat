@@ -1,0 +1,96 @@
+:host {
+  display: contents;
+}
+
+:host-context(.character-sheet .notes) {
+  .extra-perks,
+  .retirements {
+    margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+    margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+    margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+    display: flex;
+    align-items: center;
+
+    label {
+      flex-shrink: 0;
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    }
+
+    input[type='number'] {
+      flex-grow: 1;
+      flex-basis: 0;
+      min-width: auto;
+    }
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  input[type='number'],
+  input[type='text'] {
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+  }
+}
+
+:host-context(.rpg-sheet) {
+  label {
+    display: inline;
+    align-items: normal;
+    font-family: inherit;
+    font-size: inherit;
+    white-space: inherit;
+
+    img {
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  input {
+    line-height: normal;
+    margin-left: 0;
+    flex-grow: 0;
+  }
+
+  input,
+  textarea {
+    min-width: 0;
+    font-family: var(--ghs-font-normal);
+    font-size: inherit;
+    color: var(--ghs-color-black);
+    background: transparent;
+    border: none;
+    border-bottom: var(--rpg-line) solid #c8c8c8;
+    outline: none;
+
+    &:focus {
+      border-bottom-color: var(--ghs-character-color, var(--ghs-color-black));
+    }
+  }
+
+  input[type='number'] {
+    width: 4em;
+  }
+
+  input::placeholder {
+    font-style: italic;
+    font-size: 0.85em;
+    color: #888;
+  }
+
+  .retirements,
+  .extra-perks {
+    display: flex;
+    align-items: baseline;
+    gap: calc(var(--rpg-gap) * 0.5);
+
+    input {
+      width: 4em;
+    }
+  }
+}
+
+:host-context(.rpg-sheet.locked) {
+  input {
+    pointer-events: none;
+  }
+}

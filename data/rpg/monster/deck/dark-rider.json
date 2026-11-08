@@ -1,0 +1,96 @@
+{
+  "name": "dark-rider",
+  "edition": "rpg",
+  "abilities": [
+    {
+      "name": "rpg-fast",
+      "cardId": 1,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.imp-minions%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-normal",
+      "cardId": 2,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.imp-minions%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.1%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rpg-slow",
+      "cardId": 3,
+      "initiative": 80,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.trample%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.3%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.4%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "value": "%data.custom.rpg.action.dissipate%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.5%",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.rpg.dark-rider.6%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+@if (!!party.retirements && party.retirements.length > 0) {
+  <div class="row">
+    <label><span [ghs-label]="'party.campaign.retirements'"></span>:</label>
+  </div>
+}
+@if (!!party.retirements && party.retirements.length > 0) {
+  <div class="row retirements">
+    <div class="list" [ngClass]="{ 'fh-sheet': fhSheet }">
+      <div class="character header legend seperator">
+        <span><span [ghs-label]="'party.campaign.retirements.player'"></span></span>
+        <span><span [ghs-label]="'party.campaign.retirements.character'"></span></span>
+        <span><span [ghs-label]="'party.campaign.retirements.class'"></span></span>
+        <span><span [ghs-label]="'party.campaign.retirements.level'"></span></span>
+        <span><span [ghs-label]="'party.campaign.retirements.perks'"></span></span>
+        @if (fhSheet) {
+          <span><span [ghs-label]="'party.campaign.retirements.masteries'"></span></span>
+        }
+        <span></span>
+      </div>
+      @for (characterModel of party.retirements | trackUUID; track characterModel._trackUUID) {
+        <div class="character">
+          <span>
+            #<input
+              [value]="characterModel.number"
+              type="number"
+              min="1"
+              (change)="setPlayerNumber(characterModel, $event)"
+              (keyup)="setPlayerNumber(characterModel, $event)"
+            />
+          </span>
+          <span
+            class="link"
+            ghs-pointer-input
+            (singleClick)="openCharacterSheet(characterModel)"
+            (doubleClick)="openCharacterSheet(characterModel, false)"
+            >{{ characterModel.title }}</span
+          >
+          <span
+            class="link"
+            ghs-pointer-input
+            (singleClick)="openCharacterSheet(characterModel)"
+            (doubleClick)="openCharacterSheet(characterModel, false)"
+            [ghs-label]="'data.character.' + characterModel.edition + '.' + characterModel.name"
+          ></span>
+          <span>{{ characterModel.level }}</span>
+          <span>{{ characterPerks(characterModel) || '/' }}</span>
+          @if (fhSheet) {
+            <span>
+              @if (characterModel.progress) {
+                @for (mastery of characterModel.progress.masteries; track mastery) {
+                  <span>
+                    <img class="success" src="./assets/images/check.svg" />
+                  </span>
+                }
+              }
+            </span>
+          }
+          <span
+            class="reactivate"
+            (click)="reactivateCharacter(characterModel)"
+            [ghs-label]="'party.campaign.retirements.reactivate'"
+            [ghs-label-attribute]="'title'"
+          >
+            <img class="ghs-svg" src="./assets/images/long-rest.svg" />
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+}

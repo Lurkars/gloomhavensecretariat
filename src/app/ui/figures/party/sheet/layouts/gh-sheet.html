@@ -1,0 +1,24 @@
+<div class="sheet">
+  <div class="columns">
+    <div class="column column-left">
+      <div class="row title">
+        <span class="campaign-toggle ignore-denied" (click)="openCampaign.emit()">
+          <img src="./assets/images/left.svg" /><span [ghs-label]="'party.campaign'"></span>
+        </span>
+        <label class="headline"><span [ghs-label]="'party.sheet'"></span> </label>
+        <ghs-party-sheet-select [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+        <span class="spacer"></span>
+        @if (!disableShortcuts()) {
+          <ghs-party-sheet-map-links [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+        }
+      </div>
+      <ghs-party-sheet-name [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+      <ghs-party-sheet-location [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+      <ghs-party-sheet-notes [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+      <ghs-party-sheet-achievements [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+    </div>
+    <div class="column column-right">
+      <ghs-party-sheet-reputation [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+    </div>
+  </div>
+</div>

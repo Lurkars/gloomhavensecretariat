@@ -62,6 +62,87 @@ describe('ScenarioManager', () => {
     });
   });
 
+  describe('hasScenarios / hasSections', () => {
+    afterEach(() => {
+      gameManager.game.edition = undefined;
+    });
+
+    it('is false without any scenarios or sections', () => {
+      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), {})];
+      expect(scenarioManager.hasScenarios()).toBe(false);
+      expect(scenarioManager.hasSections()).toBe(false);
+    });
+
+    it('is true when any active edition provides scenarios or sections', () => {
+      gameManager.editionData = [
+        Object.assign(
+          new EditionData(
+            'gh',
+            [],
+            [],
+            [],
+            [buildScenarioData({ index: '1', edition: 'gh' })],
+            [buildScenarioData({ index: '1a', edition: 'gh' })],
+            []
+          ),
+          {}
+        )
+      ];
+      expect(scenarioManager.hasScenarios()).toBe(true);
+      expect(scenarioManager.hasSections()).toBe(true);
+    });
+
+    it('only considers the editions relevant to the set game edition', () => {
+      settingsManager.settings.editions = ['gh', 'rpg'];
+      gameManager.editionData = [
+        Object.assign(
+          new EditionData(
+            'gh',
+            [],
+            [],
+            [],
+            [buildScenarioData({ index: '1', edition: 'gh' })],
+            [buildScenarioData({ index: '1a', edition: 'gh' })],
+            []
+          ),
+          {}
+        ),
+        Object.assign(new EditionData('rpg', [], [], [], [], [], []), {})
+      ];
+      gameManager.game.edition = 'rpg';
+      expect(scenarioManager.hasScenarios()).toBe(false);
+      expect(scenarioManager.hasSections()).toBe(false);
+      gameManager.game.edition = 'gh';
+      expect(scenarioManager.hasScenarios()).toBe(true);
+      expect(scenarioManager.hasSections()).toBe(true);
+    });
+
+    it('ignores extra content editions and conclusion sections', () => {
+      settingsManager.settings.editions = ['jotl', 'ccug'];
+      gameManager.editionData = [
+        Object.assign(
+          new EditionData('jotl', [], [], [], [], [buildScenarioData({ index: '9-7', edition: 'jotl', conclusion: true })], []),
+          {}
+        ),
+        Object.assign(
+          new EditionData(
+            'ccug',
+            [],
+            [],
+            [],
+            [buildScenarioData({ index: '1', edition: 'ccug' })],
+            [buildScenarioData({ index: '1a', edition: 'ccug' })],
+            []
+          ),
+          { type: 'content' }
+        )
+      ];
+      gameManager.game.edition = 'jotl';
+      expect(scenarioManager.hasScenarios()).toBe(false);
+      expect(scenarioManager.hasSections()).toBe(false);
+    });
+  });
+
   describe('getSections / availableSections', () => {
     it('getSections returns sections whose parent/edition/group match the scenario', () => {
       const scenario = buildScenarioData({ index: '1', edition: 'gh' });

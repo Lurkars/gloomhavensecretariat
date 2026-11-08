@@ -1,0 +1,6 @@
+<span class="map ignore-denied">
+  <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'" />
+  @if (worldMap) {
+    <img (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'" />
+  }
+</span>

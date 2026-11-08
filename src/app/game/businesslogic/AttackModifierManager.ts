@@ -15,7 +15,10 @@ import {
   defaultTownGuardAttackModifier,
   GameAttackModifierDeckModel,
   Gh2ESealedDeckAttackModifier,
-  ImbuementAttackModifier
+  ImbuementAttackModifier,
+  RPG_BLESS_CURSE_LIMIT,
+  RpgAttackModifier,
+  RpgAttackModifierCards
 } from 'src/app/game/model/data/AttackModifier';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CampaignData } from 'src/app/game/model/data/EditionData';
@@ -66,12 +69,44 @@ export class AttackModifierManager {
     return Array(count).fill(new AttackModifier(type));
   }
 
-  getBless(count: number = 1): AttackModifier[] {
-    return this.getModifier(AttackModifierType.bless, Math.min(count, 10 - this.countUpcomingBlesses()));
+  getBless(count: number = 1, attackModifierDeck: AttackModifierDeck | undefined = undefined): AttackModifier[] {
+    const supply =
+      gameManager.rpgRules() && attackModifierDeck
+        ? RPG_BLESS_CURSE_LIMIT - this.countUpcoming(attackModifierDeck, AttackModifierType.bless)
+        : 10 - this.countUpcomingBlesses();
+    return this.getModifier(AttackModifierType.bless, Math.max(0, Math.min(count, supply)));
   }
 
-  getCurse(isMonster: boolean, count: number = 1): AttackModifier[] {
-    return this.getModifier(AttackModifierType.curse, Math.min(count, 10 - this.countUpcomingCurses(isMonster)));
+  getCurse(isMonster: boolean, count: number = 1, attackModifierDeck: AttackModifierDeck | undefined = undefined): AttackModifier[] {
+    const supply =
+      gameManager.rpgRules() && attackModifierDeck
+        ? RPG_BLESS_CURSE_LIMIT - this.countUpcoming(attackModifierDeck, AttackModifierType.curse)
+        : 10 - this.countUpcomingCurses(isMonster);
+    return this.getModifier(AttackModifierType.curse, Math.max(0, Math.min(count, supply)));
+  }
+
+  countUpcoming(attackModifierDeck: AttackModifierDeck, type: AttackModifierType): number {
+    return attackModifierDeck.cards.filter((attackModifier, index) => attackModifier.type === type && index > attackModifierDeck.current)
+      .length;
+  }
+
+  isRpgCharacter(character: Character): boolean {
+    return character.editionRules === 'rpg';
+  }
+
+  defaultDeck(): AttackModifierDeck {
+    return gameManager.rpgRules() ? new AttackModifierDeck(RpgAttackModifierCards) : new AttackModifierDeck();
+  }
+
+  updateDefaultDecks() {
+    const rpg = gameManager.rpgRules();
+    const isRpgDeck = (deck: AttackModifierDeck) => deck.cards.some((attackModifier) => attackModifier.attribute);
+    if (this.game.monsterAttackModifierDeck.current < 0 && isRpgDeck(this.game.monsterAttackModifierDeck) !== rpg) {
+      this.game.monsterAttackModifierDeck = this.buildMonsterAttackModifierDeck();
+    }
+    if (this.game.allyAttackModifierDeck.current < 0 && isRpgDeck(this.game.allyAttackModifierDeck) !== rpg) {
+      this.game.allyAttackModifierDeck = this.buildMonsterAttackModifierDeck(true);
+    }
   }
 
   countUpcomingBlesses(): number {
@@ -266,10 +301,10 @@ export class AttackModifierManager {
     if (respectSupplyLimit) {
       switch (type) {
         case AttackModifierType.bless:
-          modifiers = this.getBless();
+          modifiers = this.getBless(1, attackModifierDeck);
           break;
         case AttackModifierType.curse:
-          modifiers = this.getCurse(this.game.monsterAttackModifierDeck === attackModifierDeck);
+          modifiers = this.getCurse(this.game.monsterAttackModifierDeck === attackModifierDeck, 1, attackModifierDeck);
           break;
         case AttackModifierType.minus1extra:
           modifiers = this.getExtraMinus1();
@@ -507,7 +542,7 @@ export class AttackModifierManager {
   }
 
   buildMonsterAttackModifierDeck(ally: boolean = false): AttackModifierDeck {
-    const attackModifierDeck = new AttackModifierDeck();
+    const attackModifierDeck = this.defaultDeck();
     if (!ally) {
       if (settingsManager.settings.gh2eImbuementKeep) {
         if (gameManager.imbuementManager.imbuement === 'advanced') {
@@ -527,7 +562,12 @@ export class AttackModifierManager {
   }
 
   buildCharacterAttackModifierDeck(character: Character): AttackModifierDeck {
-    if (character.bb && character.amTables && character.amTables.length >= character.level && character.amTables[character.level - 1]) {
+    if (
+      character.editionRules === 'bb' &&
+      character.amTables &&
+      character.amTables.length >= character.level &&
+      character.amTables[character.level - 1]
+    ) {
       return new AttackModifierDeck(
         character.amTables[character.level - 1].map((value, index) => {
           if (typeof value === 'string') {
@@ -545,13 +585,16 @@ export class AttackModifierManager {
       );
     }
 
-    const attackModifierDeck = new AttackModifierDeck();
+    const attackModifierDeck = this.isRpgCharacter(character) ? new AttackModifierDeck(RpgAttackModifierCards) : new AttackModifierDeck();
     this.applyCharacterPerks(character, attackModifierDeck);
     return attackModifierDeck;
   }
 
   applyCharacterPerks(character: Character, attackModifierDeck: AttackModifierDeck, monsterDeck: boolean = false) {
     let perkId = 0;
+    const baseAttackModifier = (monsterDeck ? gameManager.rpgRules() : this.isRpgCharacter(character))
+      ? RpgAttackModifier
+      : defaultAttackModifier;
     character.perks.forEach((perk) => {
       if (!!perk.monsterDeck === monsterDeck && perk.cards) {
         perk.cards.forEach((card, index) => {
@@ -559,7 +602,7 @@ export class AttackModifierManager {
             const am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
             am.id = 'perk' + perkId;
             am.shuffle = card.attackModifier.shuffle || false;
-            if (!this.findByAttackModifier(defaultAttackModifier, am) || perk.type === PerkType.add || index > 0) {
+            if (!this.findByAttackModifier(baseAttackModifier, am) || perk.type === PerkType.add || index > 0) {
               am.character = true;
             }
             if (!this.findByAttackModifier(attackModifierDeck.attackModifiers, am)) {
@@ -581,11 +624,11 @@ export class AttackModifierManager {
         if (!!perk.monsterDeck === monsterDeck) {
           if (perk.combined) {
             if (checked === perk.count) {
-              this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
+              this.addPerkCard(perk, attackModifierDeck, baseAttackModifier);
             }
           } else {
             for (let check = 0; check < checked; check++) {
-              this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
+              this.addPerkCard(perk, attackModifierDeck, baseAttackModifier);
             }
           }
         }
@@ -892,6 +935,9 @@ export class AttackModifierManager {
       }
       if (!attackModifier) {
         attackModifier = Gh2ESealedDeckAttackModifier.find((attackModifier) => attackModifier.id === id);
+      }
+      if (!attackModifier) {
+        attackModifier = RpgAttackModifier.find((attackModifier) => attackModifier.id === id);
       }
       if (!attackModifier) {
         return undefined;

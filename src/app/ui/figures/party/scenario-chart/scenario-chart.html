@@ -6,7 +6,7 @@
         <img src="./assets/images/map.svg" />
       </a>
     }
-    @if (!gameManager.bbRules()) {
+    @if (gameManager.hasCampaignSheet()) {
       <a (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'" [originY]="'top'" [overlayY]="'bottom'">
         <img src="./assets/images/sheet.svg" />
       </a>

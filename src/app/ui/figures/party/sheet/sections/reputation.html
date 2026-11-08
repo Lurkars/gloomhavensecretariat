@@ -1,0 +1,30 @@
+<div class="columns">
+  <div class="column reputation">
+    <label><span [ghs-label]="'party.reputation'"></span></label>
+    <div class="grid">
+      @for (reputation of [] | ghsRange: 41; track reputation) {
+        <span
+          class="value"
+          (click)="setReputation(40 - reputation - 20)"
+          [ngClass]="{ checked: party.reputation === 40 - reputation - 20 }"
+        ></span>
+        <span class="key">{{ 40 - reputation - 20 | ghsValueSign }}</span>
+      }
+    </div>
+  </div>
+  <div class="column shop">
+    <label><span [ghs-label]="'party.shop'"></span></label>
+    <div class="table">
+      @for (value of [] | ghsRange: 11; track value) {
+        <div class="value" [ngClass]="{ active: priceModifier === -5 + value }">
+          @if (value !== 5) {
+            <span>{{ -5 + value | ghsValueSign }}</span>
+          }
+          @if (value === 5) {
+            <span><span [ghs-label]="'party.shop.none'"></span></span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

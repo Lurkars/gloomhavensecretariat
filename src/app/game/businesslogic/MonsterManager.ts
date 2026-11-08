@@ -10,6 +10,7 @@ import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat, MonsterStatEffect } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
+import { RpgMonsterAction, rpgMonsterActions } from 'src/app/game/model/data/RpgMonsterAction';
 import { MonsterSpawnData } from 'src/app/game/model/data/ScenarioRule';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
@@ -17,6 +18,8 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
+
+export const RPG_DEFAULT_SPEED = 1;
 
 export class MonsterManager {
   game: Game;
@@ -61,7 +64,7 @@ export class MonsterManager {
       return monsterStat.level === monster.level && monsterStat.type === type;
     });
 
-    if (monster.bb) {
+    if (monster.editionRules === 'bb') {
       if (type === MonsterType.elite && monster.stats[0] && monster.stats[0].type === MonsterType.elite) {
         stat = monster.stats[0];
       } else {
@@ -321,6 +324,9 @@ export class MonsterManager {
       monster.off = true;
       this.resetMonsterAbilities(monster);
       this.game.figures.push(monster);
+      if (gameManager.rpgRules()) {
+        this.setRpgSpeed(monster, RPG_DEFAULT_SPEED);
+      }
     } else if (level !== gameManager.game.level && monster.level !== level) {
       this.setLevel(monster, level);
     }
@@ -382,7 +388,7 @@ export class MonsterManager {
         entity.health = entity.maxHealth;
       }
 
-      if (monster.bb) {
+      if (monster.editionRules === 'bb') {
         if (monster.entities.every((entity) => entity.type === MonsterType.elite)) {
           if (!monster.tags.includes('bb-elite')) {
             monster.tags.push('bb-elite');
@@ -426,9 +432,9 @@ export class MonsterManager {
   }
 
   monsterStandeeShared(monster: Monster, list: Monster[]): Monster[] {
-    if (monster.bb) {
+    if (monster.editionRules === 'bb') {
       this.game.figures.forEach((figure) => {
-        if (figure instanceof Monster && figure.bb && !list.includes(figure)) {
+        if (figure instanceof Monster && figure.editionRules === 'bb' && !list.includes(figure)) {
           list.push(figure);
         }
       });
@@ -493,7 +499,7 @@ export class MonsterManager {
   }
 
   monsterStandeeMax(monster: Monster): number {
-    if (monster.bb && !settingsManager.settings.bbStandeeLimit) {
+    if (monster.editionRules === 'bb' && !settingsManager.settings.bbStandeeLimit) {
       return 10;
     }
 
@@ -539,8 +545,8 @@ export class MonsterManager {
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
     if (
-      (monster.bb && !monster.baseStat) ||
-      (!monster.bb &&
+      (monster.editionRules === 'bb' && !monster.baseStat) ||
+      (monster.editionRules !== 'bb' &&
         !monster.stats.some((monsterStat) => {
           return monsterStat.type === type;
         }))
@@ -558,6 +564,11 @@ export class MonsterManager {
 
     const monsterEntity: MonsterEntity = new MonsterEntity(number, type, monster);
 
+    if (gameManager.rpgRules() && !settingsManager.settings.activeStandees) {
+      const sibling = monster.entities.find((other) => other.type === type && other.rpgAction > -1);
+      monsterEntity.rpgAction = sibling ? sibling.rpgAction : -1;
+    }
+
     monster.entities = monster.entities.filter((other) => other.number !== number);
     monster.entities.push(monsterEntity);
     gameManager.addEntityCount(monster, monsterEntity);
@@ -570,7 +581,12 @@ export class MonsterManager {
       monsterEntity.summon = SummonState.new;
     }
     if (!summon || gameManager.fhRules(true)) {
-      if (this.game.state === GameState.next) {
+      if (this.game.state === GameState.next && gameManager.rpgRules()) {
+        if (monster.ability === -1) {
+          this.setRpgSpeed(monster, RPG_DEFAULT_SPEED);
+          monster.lastDraw = this.game.round;
+        }
+      } else if (this.game.state === GameState.next) {
         if (monster.ability === -1) {
           if (!this.applySameDeck(monster)) {
             monster.ability = 0;
@@ -858,7 +874,7 @@ export class MonsterManager {
   next() {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Monster) {
-        let abilityCard = this.getAbilityCard(figure);
+        let abilityCard = gameManager.rpgRules() ? undefined : this.getAbilityCard(figure);
         if (abilityCard) {
           if (this.hasBottomActions(figure)) {
             const secondAbilityCard = abilityCard;
@@ -920,6 +936,11 @@ export class MonsterManager {
         figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
 
         figure.off = figure.entities.length === 0;
+
+        if (gameManager.rpgRules()) {
+          figure.entities.forEach((entity) => (entity.rpgAction = -1));
+          this.setRpgSpeed(figure, RPG_DEFAULT_SPEED);
+        }
       }
     });
   }
@@ -929,7 +950,12 @@ export class MonsterManager {
       .filter((figure) => figure instanceof Monster && !figure.drawExtra)
       .forEach((figure) => {
         if (figure instanceof Monster) {
-          if (gameManager.gameplayFigure(figure)) {
+          if (gameManager.gameplayFigure(figure) && gameManager.rpgRules()) {
+            if (figure.ability < 0) {
+              this.setRpgSpeed(figure, RPG_DEFAULT_SPEED);
+            }
+            figure.lastDraw = this.game.round;
+          } else if (gameManager.gameplayFigure(figure)) {
             figure.ability =
               figure.ability +
               1 +
@@ -952,7 +978,7 @@ export class MonsterManager {
               this.shuffleAbilities(figure);
             }
 
-            if (figure.bb && figure.tags.includes('bb-elite')) {
+            if (figure.editionRules === 'bb' && figure.tags.includes('bb-elite')) {
               let nextAbility = figure.ability + 1;
               if (nextAbility >= figure.abilities.length) {
                 nextAbility = 0;
@@ -1126,6 +1152,44 @@ export class MonsterManager {
         }
       }
     });
+  }
+
+  rpgSameDeck(monster: Monster): Monster[] {
+    const deckData = gameManager.deckData(monster);
+    return this.game.figures.filter((figure) => {
+      if (figure instanceof Monster) {
+        const otherDeckData = gameManager.deckData(figure);
+        return deckData.name === otherDeckData.name && deckData.edition === otherDeckData.edition;
+      }
+      return false;
+    }) as Monster[];
+  }
+
+  setRpgSpeed(monster: Monster, speed: number) {
+    this.rpgSameDeck(monster).forEach((figure) => {
+      figure.abilities = gameManager.abilityCards(figure).map((abilityCard, index) => index);
+      if (figure.ability !== speed) {
+        figure.entities.forEach((entity) => (entity.rpgAction = -1));
+      }
+      figure.ability = speed;
+    });
+  }
+
+  rpgActions(monster: Monster): RpgMonsterAction[] {
+    return monster.ability > -1 ? rpgMonsterActions(gameManager.abilityCards(monster)[monster.abilities[monster.ability]]) : [];
+  }
+
+  rpgActionEntities(monster: Monster, action: number, entities: MonsterEntity[] = monster.entities): MonsterEntity[] {
+    const rpgAction = this.rpgActions(monster)[action];
+    return rpgAction
+      ? entities.filter((entity) => gameManager.entityManager.isAlive(entity) && (!rpgAction.elite || entity.type === MonsterType.elite))
+      : [];
+  }
+
+  setRpgAction(monster: Monster, action: number, entities: MonsterEntity[] = monster.entities) {
+    const eligible = this.rpgActionEntities(monster, action, entities);
+    const value = eligible.length && eligible.every((entity) => entity.rpgAction === action) ? -1 : action;
+    eligible.forEach((entity) => (entity.rpgAction = value));
   }
 
   drawnAbilities(monster: Monster): number {

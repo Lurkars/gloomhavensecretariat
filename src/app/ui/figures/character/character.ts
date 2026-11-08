@@ -160,7 +160,7 @@ export class CharacterComponent implements OnInit {
     this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme !== 'modern';
     this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme !== 'modern';
     this.shortMenu = false;
-    this.bb = gameManager.bbRules() || this.character.bb;
+    this.bb = gameManager.bbRules() || this.character.editionRules === 'bb';
     this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.includes(specialAction.name));
     this.off = this.character.off || this.character.exhausted || this.character.health <= 0;
     this.battleGoalSelected = this.character.battleGoal && this.character.battleGoals.length > 0;

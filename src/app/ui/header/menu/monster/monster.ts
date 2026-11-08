@@ -51,6 +51,7 @@ export class MonsterMenuComponent {
       .filter(
         (monsterData) =>
           (!edition || gameManager.isEditionRelevant(monsterData.edition, edition)) &&
+          gameManager.matchesEditionRules(monsterData) &&
           (!monsterData.boss || monsterData.boss === settingsManager.settings.showBossMonster) &&
           (!monsterData.hidden || monsterData.hidden === settingsManager.settings.showHiddenMonster) &&
           (!filter ||

@@ -86,7 +86,9 @@ export class ActionsComponent implements OnInit {
     if (this.monster && settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       const eliteStat =
-        this.monster.boss || this.monster.bb ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
+        this.monster.boss || this.monster.editionRules === 'bb'
+          ? undefined
+          : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
 
       if (stat.actions) {
         stat.actions

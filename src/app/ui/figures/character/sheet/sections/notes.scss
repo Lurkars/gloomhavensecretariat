@@ -1,0 +1,61 @@
+:host {
+  display: contents;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(var(--ghs-unit) * 15 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+}
+
+:host-context(.character-sheet.fh-sheet) {
+  .notes {
+    position: relative;
+    height: calc(var(--ghs-unit) * 11 * var(--ghs-dialog-factor));
+
+    .traits {
+      position: relative;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-family: var(--ghs-font-normal);
+      font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+      flex-grow: 1;
+
+      .icon {
+        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+        .ghs-svg {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .notes {
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.gh2e-sheet) {
+  .notes {
+    position: relative;
+    margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 30 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  .notes {
+    height: initial;
+  }
+
+  .row {
+    height: auto !important;
+    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) !important;
+  }
+}

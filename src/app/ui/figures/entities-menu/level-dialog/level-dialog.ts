@@ -40,7 +40,7 @@ export class CharacterLevelDialogComponent implements OnInit {
 
   constructor() {
     this.character = this.data.character;
-    this.bb = this.character.bb;
+    this.bb = this.character.editionRules === 'bb';
     this.level = this.character.level;
     this.identities = settingsManager.settings.characterIdentities ? [...this.character.identities] : [];
 

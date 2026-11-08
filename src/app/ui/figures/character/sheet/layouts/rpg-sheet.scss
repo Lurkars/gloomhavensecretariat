@@ -1,0 +1,100 @@
+.rpg-sheet {
+  --rpg-line: calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor));
+  --rpg-gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  --rpg-font-title: var(--ghs-font-fh-title);
+  --rpg-title-height: 2em;
+  width: calc(var(--ghs-unit) * 115 * var(--ghs-dialog-factor));
+  max-width: 100%;
+  padding: var(--rpg-gap);
+  background-color: var(--ghs-color-white);
+  color: var(--ghs-color-black);
+  font-family: var(--ghs-font-normal);
+  font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+}
+
+.page + .page {
+  margin-top: calc(var(--rpg-gap) * 3);
+  padding-top: calc(var(--rpg-gap) * 2);
+  border-top: calc(var(--rpg-line) * 3) double var(--ghs-color-black);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 32% 1fr;
+  grid-template-areas:
+    'logo attributes'
+    'names attributes'
+    'stats texts';
+  column-gap: calc(var(--rpg-gap) * 1.5);
+  row-gap: var(--rpg-gap);
+
+  .logo {
+    grid-area: logo;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 1px var(--ghs-color-black));
+  }
+
+  .names {
+    grid-area: names;
+  }
+
+  .stats {
+    grid-area: stats;
+  }
+
+  .texts {
+    grid-area: texts;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--rpg-gap) * 1.5);
+  }
+
+  .box-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    border: var(--rpg-line) solid var(--ghs-color-black);
+    border-radius: calc(var(--ghs-unit) * 0.3);
+
+    .box {
+      border: none;
+      border-radius: 0;
+      border-bottom: var(--rpg-line) dotted var(--ghs-color-black);
+
+      &:nth-child(odd) {
+        border-right: var(--rpg-line) dotted var(--ghs-color-black);
+      }
+
+      &:nth-last-child(-n + 2) {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.middle {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--rpg-gap);
+  margin-top: calc(var(--rpg-gap) * 1.5);
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: calc(var(--rpg-gap) * 1.5);
+  margin-top: calc(var(--rpg-gap) * 1.5);
+}
+
+.perks {
+  > :not(.section-title) {
+    margin-inline: calc(var(--rpg-gap) * 0.5);
+  }
+
+  .perk-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin-bottom: calc(var(--rpg-gap) * 0.5);
+  }
+}

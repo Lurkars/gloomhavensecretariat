@@ -2,8 +2,8 @@
   "name": "cragheart",
   "icon": "gh-cragheart",
   "edition": "bb",
+  "editionRules": "bb",
   "color": "#828b3b",
-  "bb": true,
   "stats": [
     {
       "level": 1,

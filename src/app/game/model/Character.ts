@@ -253,6 +253,7 @@ export class Character extends CharacterData implements Entity, Figure {
       this.progress.scenarioStats = model.progress.scenarioStats ? [...model.progress.scenarioStats] : [];
       this.progress.deck = model.progress.deck ? [...model.progress.deck] : [];
       this.progress.enhancements = model.progress.enhancements ? [...model.progress.enhancements] : [];
+      this.progress.rpg = model.progress.rpg ? JSON.parse(JSON.stringify(model.progress.rpg)) : undefined;
 
       if (
         gameManager.currentEdition() === 'fh' &&

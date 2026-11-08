@@ -1,0 +1,167 @@
+.columns {
+  display: flex;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.row {
+  display: flex;
+}
+
+label {
+  display: flex;
+  align-items: var(--ghs-sheet-label-align-items);
+  white-space: var(--ghs-sheet-label-white-space);
+  font-family: var(--ghs-sheet-label-font-family, var(--ghs-font-title));
+  font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+
+  img {
+    width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+    height: auto;
+    margin: 0 calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+  }
+
+  &.headline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.title {
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+  justify-content: var(--ghs-sheet-title-justify-content);
+  align-items: var(--ghs-sheet-title-align-items);
+
+  label {
+    font-size: var(--ghs-sheet-title-font-size);
+    width: var(--ghs-sheet-title-label-width);
+  }
+}
+
+.checkbox {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+  border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+  border-radius: calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor));
+  box-shadow: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor))
+    var(--ghs-color-gray);
+  z-index: var(--ghs-sheet-checkbox-z-index);
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--ghs-sheet-checkbox-size);
+    height: var(--ghs-sheet-checkbox-size);
+    transform: scale(0);
+    transform-origin: top left;
+    transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
+    z-index: 1;
+    background-image: url('../../../assets/images/checkmark.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: var(--ghs-sheet-checkbox-filter);
+  }
+
+  &.checked::before {
+    transform: scale(1) translate(-50%, -50%);
+  }
+
+  &.check {
+    width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    box-shadow: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor))
+      var(--ghs-color-gray);
+  }
+
+  &.check::before {
+    left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+    top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    background-image: url('../../../assets/images/check.svg');
+    transform-origin: bottom left;
+  }
+
+  &.checked.check::before {
+    transform: scale(1);
+  }
+
+  &.highlight {
+    background-color: var(--ghs-color-gray);
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.checked:hover::before {
+    opacity: 0.6;
+  }
+
+  &:not(.checked):hover::before {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 0.6;
+  }
+}
+
+input[type='text'] {
+  margin: 0;
+  margin-left: var(--ghs-sheet-input-margin-left);
+  color: var(--ghs-color-black);
+  background-color: transparent;
+  border: none;
+  border-bottom-width: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+  border-bottom-style: solid;
+  border-bottom-color: var(--ghs-color-gray);
+  user-select: auto;
+  -webkit-user-select: auto;
+  font-family: var(--ghs-font-text);
+  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  flex-grow: var(--ghs-sheet-input-text-flex-grow);
+}
+
+input[type='number'] {
+  margin: 0;
+  margin-left: var(--ghs-sheet-input-margin-left);
+  color: var(--ghs-color-black);
+  background-color: transparent;
+  border: none;
+  user-select: auto;
+  -webkit-user-select: auto;
+  font-family: var(--ghs-font-text);
+  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  width: var(--ghs-sheet-input-number-width);
+}
+
+textarea {
+  color: var(--ghs-color-black);
+  background-color: transparent;
+  border: none;
+  user-select: auto;
+  -webkit-user-select: auto;
+  font-family: var(--ghs-font-text);
+  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  width: 100%;
+  height: 100%;
+}
+
+select {
+  display: flex;
+  border: none;
+  background: none;
+}

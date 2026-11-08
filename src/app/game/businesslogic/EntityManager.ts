@@ -524,7 +524,12 @@ export class EntityManager {
   isImmune(entity: Entity, figure: Figure, conditionName: ConditionName, ignoreManual: boolean = false): boolean {
     let immune: boolean = false;
 
-    if (entity instanceof ObjectiveEntity && figure instanceof ObjectiveContainer && !figure.escort) {
+    if (
+      entity instanceof ObjectiveEntity &&
+      figure instanceof ObjectiveContainer &&
+      !figure.escort &&
+      !new Condition(conditionName).types.includes(ConditionType.objective)
+    ) {
       return true;
     }
 
@@ -727,7 +732,7 @@ export class EntityManager {
     let modifiers: AttackModifier[] = [];
     switch (condition.name) {
       case ConditionName.bless:
-        modifiers = gameManager.attackModifierManager.getBless(condition.value);
+        modifiers = gameManager.attackModifierManager.getBless(condition.value, gameManager.attackModifierManager.byFigure(figure));
         break;
       case ConditionName.curse:
         const isMonster =
@@ -735,7 +740,11 @@ export class EntityManager {
             ((!figure.isAlly && !figure.isAllied) ||
               (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules(true)))) ||
           (figure instanceof ObjectiveContainer && figure.amDeck === 'M');
-        modifiers = gameManager.attackModifierManager.getCurse(isMonster, condition.value);
+        modifiers = gameManager.attackModifierManager.getCurse(
+          isMonster,
+          condition.value,
+          gameManager.attackModifierManager.byFigure(figure)
+        );
         break;
       case ConditionName.empower:
       case ConditionName.enfeeble:

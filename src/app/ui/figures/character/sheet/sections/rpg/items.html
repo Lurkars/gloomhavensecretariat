@@ -1,0 +1,31 @@
+<div class="frame items">
+  <div class="section-title"><span [ghs-label]="'character.progress.rpg.items'"></span></div>
+  <div class="table-row table-head">
+    <span [ghs-label]="'character.progress.rpg.equip'"></span>
+    <span [ghs-label]="'character.progress.rpg.slot'"></span>
+    <span [ghs-label]="'character.progress.rpg.itemName'"></span>
+    <span [ghs-label]="'character.progress.rpg.init'"></span>
+    <span [ghs-label]="'character.progress.rpg.effect'"></span>
+  </div>
+  @for (item of rpg.items; track $index; let i = $index) {
+    <div class="table-row" [ngClass]="{ spent: item.spent }">
+      <span class="equip">
+        <span class="checkbox" [ngClass]="{ checked: item.equipped }" (click)="setItem(i, 'equipped', !item.equipped)"></span>
+      </span>
+      <input [value]="item.slot" (change)="setItem(i, 'slot', $any($event.target).value)" />
+      <input [value]="item.name" (change)="setItem(i, 'name', $any($event.target).value)" />
+      <input [value]="item.initiative" (change)="setItem(i, 'initiative', $any($event.target).value)" />
+      <span class="effect">
+        <a
+          class="state"
+          [ngClass]="{ active: item.spent }"
+          [ghs-label]="'character.progress.rpg.expended'"
+          [ghs-label-attribute]="'title'"
+          (click)="setItem(i, 'spent', !item.spent)"
+          ><img src="./assets/images/action/custom/fh-hourglass.svg"
+        /></a>
+        <input [value]="item.effect" (change)="setItem(i, 'effect', $any($event.target).value)" />
+      </span>
+    </div>
+  }
+</div>

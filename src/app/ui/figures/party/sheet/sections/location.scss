@@ -1,0 +1,9 @@
+:host {
+  display: contents;
+}
+
+.location {
+  display: flex;
+  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+}

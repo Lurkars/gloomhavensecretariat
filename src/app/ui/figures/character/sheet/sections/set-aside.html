@@ -1,0 +1,14 @@
+@if (settingsManager.settings.partySheet) {
+  @if (editable() && !gameManager.game.scenario) {
+    <div class="set-aside">
+      <label (click)="setAside()"> <img src="./assets/images/long-rest.svg" /><span [ghs-label]="'character.setAside'"></span> </label>
+    </div>
+  }
+  @if (replayable) {
+    <div class="set-aside">
+      <label class="ignore-denied" (click)="replay()">
+        <img src="./assets/images/long-rest.svg" /><span [ghs-label]="'character.replay'"></span>
+      </label>
+    </div>
+  }
+}

@@ -1,0 +1,19 @@
+<div class="sheet fh-sheet">
+  <ghs-party-sheet-fh-calendar
+    [edition]="edition()"
+    [sheet]="sheet()"
+    [dialogRef]="dialogRef()"
+    [disableShortcuts]="disableShortcuts()"
+    (openCampaign)="openCampaign.emit()"
+  />
+  <ghs-party-sheet-name [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-fh-resources [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-inspiration [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-fh-total-defense [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-fh-soldiers [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-fh-morale [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-fh-town-guard [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-sheet-fh-campaign-stickers [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+  <ghs-party-buildings [party]="party"></ghs-party-buildings>
+  <ghs-party-sheet-fh-town-guard-deck [edition]="edition()" [sheet]="sheet()" [dialogRef]="dialogRef()" />
+</div>

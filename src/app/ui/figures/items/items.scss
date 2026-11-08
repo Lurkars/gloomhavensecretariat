@@ -223,3 +223,32 @@
     }
   }
 }
+
+:host-context(.character-sheet) {
+  .items {
+    width: 100%;
+  }
+
+  .item-list {
+    height: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+    max-height: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+    overflow: auto;
+  }
+}
+
+:host-context(.character-sheet.fh-sheet) {
+  .item-list {
+    height: auto !important;
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  input[type='number'],
+  input[type='text'] {
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+  }
+
+  .item-list {
+    height: auto !important;
+  }
+}

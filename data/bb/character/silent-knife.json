@@ -2,8 +2,8 @@
   "name": "silent-knife",
   "icon": "gh-scoundrel",
   "edition": "bb",
+  "editionRules": "bb",
   "color": "#9ecf5f",
-  "bb": true,
   "stats": [
     {
       "level": 1,

@@ -1,0 +1,45 @@
+:host {
+  display: contents;
+}
+
+.battlegoals-grid {
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+
+  img {
+    width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+    height: auto;
+  }
+
+  .battlegoal {
+    width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+    margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+    margin-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+  }
+
+  .checkmark {
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    display: flex;
+    align-items: center;
+  }
+}
+
+:host-context(.character-sheet.gh2e-sheet) {
+  .battlegoals-grid {
+    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  }
+}
+
+:host-context(.character-sheet.compact) {
+  .checkbox {
+    width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor)) !important;
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor)) !important;
+  }
+
+  .battlegoals-grid {
+    grid-template-columns: repeat(12, calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor)));
+  }
+}

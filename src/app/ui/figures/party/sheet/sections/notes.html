@@ -1,0 +1,10 @@
+<div class="row notes">
+  <label><span [ghs-label]="'party.notes'"></span>:</label>
+  <textarea
+    type="text"
+    [value]="party.notes"
+    (change)="setNotes($event)"
+    [ghs-label]="'party.notes'"
+    [ghs-label-attribute]="'placeholder'"
+  ></textarea>
+</div>

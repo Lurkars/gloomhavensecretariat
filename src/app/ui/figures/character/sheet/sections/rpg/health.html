@@ -1,0 +1,13 @@
+@if (current()) {
+  <label class="box">
+    <span class="box-label"
+      ><span [ghs-label]="'character.progress.rpg.currentHp'"></span> <img src="./assets/images/fh/stats/hp.svg" />:</span
+    >
+    <input type="number" min="0" [max]="character.maxHealth" [value]="character.health" (change)="setHealth($event)" />
+  </label>
+} @else {
+  <div class="box">
+    <span class="box-label"><span [ghs-label]="'character.progress.rpg.maxHp'"></span> <img src="./assets/images/fh/stats/hp.svg" />:</span>
+    <span class="value">{{ character.maxHealth }}</span>
+  </div>
+}

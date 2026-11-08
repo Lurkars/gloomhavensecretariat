@@ -1,0 +1,18 @@
+<div class="level-grid">
+  @for (level of [] | ghsRange: 9; track level) {
+    <div class="checkbox level-item" [ngClass]="{ checked: character.level > level }" (click)="setLevel(level + 1)">
+      {{ level + 1 }}
+    </div>
+  }
+  @if (xp()) {
+    @for (level of [] | ghsRange: 9; track level) {
+      <div
+        class="xp-item"
+        [ngClass]="{ checked: character.progress.experience >= gameManager.characterManager.xpMap[level] }"
+        (click)="setLevel(level + 1)"
+      >
+        {{ gameManager.characterManager.xpMap[level] }}
+      </div>
+    }
+  }
+</div>

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, DestroyRef, inject, input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, inject, input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -24,8 +24,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   imports: [NgClass, GhsLabelDirective, GhsTooltipDirective, PointerInputDirective, TrackUUIDPipe],
   selector: 'ghs-character-items',
   templateUrl: 'items.html',
-  styleUrls: ['./items.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['../sheet.scss', './items.scss']
 })
 export class CharacterItemsComponent implements OnInit {
   private dialog = inject(Dialog);

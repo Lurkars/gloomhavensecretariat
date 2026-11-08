@@ -223,7 +223,12 @@ export class RoundManager {
       this.afterTurn(toggleFigure);
       figure = figures.find((other, otherIndex) => gameManager.gameplayFigure(other) && !other.off && otherIndex !== index);
 
-      if (!toggleFigure.off && toggleFigure instanceof Monster && toggleFigure.bb && toggleFigure.tags.includes('bb-elite')) {
+      if (
+        !toggleFigure.off &&
+        toggleFigure instanceof Monster &&
+        toggleFigure.editionRules === 'bb' &&
+        toggleFigure.tags.includes('bb-elite')
+      ) {
         if (!figure || figure.getInitiative() > toggleFigure.getInitiative()) {
           figure = toggleFigure;
         }
@@ -739,7 +744,12 @@ export class RoundManager {
     figure.off = true;
     figure.active = false;
 
-    if (figure instanceof Monster && figure.bb && figure.tags.includes('bb-elite') && !figure.tags.includes('roundAction-bb-elite')) {
+    if (
+      figure instanceof Monster &&
+      figure.editionRules === 'bb' &&
+      figure.tags.includes('bb-elite') &&
+      !figure.tags.includes('roundAction-bb-elite')
+    ) {
       figure.tags.push('roundAction-bb-elite');
       figure.ability += 1;
       if (figure.ability >= figure.abilities.length) {

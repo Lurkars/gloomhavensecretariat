@@ -1,0 +1,130 @@
+:host {
+  display: contents;
+}
+
+.donations {
+  display: flex;
+  flex-direction: column;
+  height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+  .checklist {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    overflow: auto;
+
+    .donation {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(var(--ghs-unit) * 6.2 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 6.2 * var(--ghs-dialog-factor));
+      overflow: hidden;
+
+      .checkbox {
+        position: absolute;
+        left: 0;
+        top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        z-index: 2;
+      }
+
+      .value {
+        z-index: 2;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.envelope-b {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .checkbox {
+      margin-right: calc(var(--ghs-unit) * 0.5);
+    }
+  }
+
+  .lines {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .line {
+    display: flex;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: calc(var(--ghs-unit) * 0.5);
+      font-size: 0.8em;
+      font-family: var(--ghs-font-gh-title);
+
+      .checkpoint {
+        display: block;
+        position: relative;
+        border-radius: 100%;
+        width: calc(var(--ghs-unit) * 2.3);
+        height: calc(var(--ghs-unit) * 2.3);
+        cursor: pointer;
+
+        &::after {
+          content: ' ';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 100%;
+          background-color: var(--ghs-color-gray);
+          mask-image: url('../../../../../../assets/images/party/env-b.svg');
+          mask-size: 100% 100%;
+        }
+
+        &.prosperity::after {
+          background-color: var(--ghs-color-yellow);
+          mask-image: url('../../../../../../assets/images/party/env-b-prosp.svg');
+        }
+
+        &::before {
+          content: ' ';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 110%;
+          height: 110%;
+          transform: scale(0);
+          transform-origin: top left;
+          transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
+          z-index: 1;
+          background-image: url('../../../../../../assets/images/checkmark.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          filter: var(--ghs-filter-red);
+        }
+
+        &.checked::before {
+          transform: scale(1) translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
