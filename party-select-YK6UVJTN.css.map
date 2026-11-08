@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/sheet/sections/party-select.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\nselect.select-party {\n  cursor: pointer;\n  position: relative;\n  width: 20px;\n  appearance: none;\n  color: transparent;\n  border: none;\n  background: transparent url('../../../../../../assets/images/select-arrow.svg') no-repeat right center;\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,MAAA,CAAA,aACE,OAAA,QACA,SAAA,SACA,MAAA,KACA,WAAA,KACA,MAAA,YACA,OAAA,KACA,WAAA,YAAA,yCAAA,UAAA,MAAA",
+  "names": []
+}

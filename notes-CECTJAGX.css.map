@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/sheet/sections/notes.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.notes {\n  display: flex;\n  flex-direction: column;\n  height: calc(var(--ghs-unit) * 25 * var(--ghs-dialog-factor));\n  margin-top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n}\n\n:host-context(.gh2e-sheet) {\n  .notes {\n    position: absolute;\n    top: calc(var(--ghs-unit) * 61 * var(--ghs-dialog-factor));\n    left: calc(var(--ghs-unit) * 57.5 * var(--ghs-dialog-factor));\n    width: calc(var(--ghs-unit) * 32 * var(--ghs-dialog-factor));\n    height: calc(var(--ghs-unit) * 18 * var(--ghs-dialog-factor));\n    margin-top: 0;\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,MACE,QAAA,KACA,eAAA,OACA,OAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,WAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAIA,cAAA,CAAA,YAAA,CARF,MASI,SAAA,SACA,IAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,KAAA,KAAA,IAAA,YAAA,EAAA,KAAA,EAAA,IAAA,sBACA,MAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,OAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,WAAA",
+  "names": []
+}

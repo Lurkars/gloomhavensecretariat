@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/sheet/sections/fh-total-defense.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.total-defense {\n  position: absolute;\n  top: calc(var(--ghs-unit) * 51 * var(--ghs-dialog-factor));\n  left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));\n  width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));\n  height: calc(var(--ghs-unit) * 21 * var(--ghs-dialog-factor));\n  margin-top: 0;\n  display: flex;\n  flex-direction: column;\n\n  input {\n    text-align: center;\n    align-self: center;\n    font-size: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));\n    margin-top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n  }\n\n  &.total-defense {\n    left: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));\n\n    input {\n      color: var(--ghs-color-red);\n    }\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,cACE,SAAA,SACA,IAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,KAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,MAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,OAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,WAAA,EACA,QAAA,KACA,eAAA,OAEA,CAVF,cAUE,MACE,WAAA,OACA,WAAA,OACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,WAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAGF,CAjBF,aAiBE,CAjBF,cAkBI,KAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBAEA,CApBJ,aAoBI,CApBJ,cAoBI,MACE,MAAA,IAAA",
+  "names": []
+}

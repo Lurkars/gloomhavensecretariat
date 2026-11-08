@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/character/sheet/sections/xp.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.xp-notes {\n  flex-direction: column;\n  height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));\n  margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));\n}\n\n:host-context(.character-sheet.fh-sheet) {\n  .xp-notes {\n    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));\n  }\n}\n\n:host-context(.character-sheet.compact) {\n  input[type='number'],\n  input[type='text'] {\n    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));\n  }\n\n  .row {\n    height: auto !important;\n    margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) !important;\n\n    flex-direction: row;\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,SACE,eAAA,OACA,OAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,WAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAIA,cAAA,CAAA,eAAA,CAAA,UAAA,CAPF,SAQI,WAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBAKF,cAAA,CAAA,eAAA,CAAA,SAAA,KAAA,CAAA,aAAA,cAAA,CAAA,eAAA,CAAA,SAAA,KAAA,CAAA,WAEE,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,qBAAA,EAAA,IAAA,oBAGF,cAAA,CAAA,eAAA,CAAA,SAAA,CAAA,IACE,OAAA,eACA,WAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,gCAEA,eAAA",
+  "names": []
+}

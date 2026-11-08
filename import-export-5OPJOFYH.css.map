@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/character/sheet/sections/import-export.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.import-export {\n  display: flex;\n  justify-content: space-around;\n\n  label {\n    cursor: pointer;\n\n    input[type='file'] {\n      width: 0;\n      height: 0;\n      margin: 0;\n      padding: 0;\n      visibility: hidden;\n    }\n\n    &:hover {\n      opacity: 0.7;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,cACE,QAAA,KACA,gBAAA,aAEA,CAJF,cAIE,MACE,OAAA,QAEA,CAPJ,cAOI,MAAA,KAAA,CAAA,WACE,MAAA,EACA,OAAA,EAbN,OAcM,EAdN,QAeM,EACA,WAAA,OAGF,CAfJ,cAeI,KAAA,OACE,QAAA",
+  "names": []
+}

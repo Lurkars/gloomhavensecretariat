@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/sheet/sections/menu.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.bottom-menu {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n\n  .retirement-note {\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n\n    .checkbox {\n      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));\n    }\n  }\n\n  .event-effects {\n    cursor: pointer;\n    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-left: 0.5em;\n\n    img {\n      height: 1em;\n      width: auto;\n      margin-right: 0.2em;\n    }\n  }\n\n  .toggle-fh-sheet {\n    cursor: pointer;\n    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));\n    margin-right: 0.5em;\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,YACE,QAAA,KACA,MAAA,KACA,gBAAA,cACA,YAAA,OAEA,CANF,YAME,CAAA,gBACE,OAAA,QACA,QAAA,KACA,YAAA,OAEA,CAXJ,YAWI,CALF,gBAKE,CAAA,SACE,aAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBAIJ,CAhBF,YAgBE,CAAA,cACE,OAAA,QACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,QAAA,KACA,gBAAA,OACA,YAAA,OACA,YAAA,KAEA,CAxBJ,YAwBI,CARF,cAQE,IACE,OAAA,IACA,MAAA,KACA,aAAA,KAIJ,CA/BF,YA+BE,CAAA,gBACE,OAAA,QACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,aAAA",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/character/sheet/sections/rpg/health.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.value {\n  font-size: 1.4em;\n  padding-top: calc(var(--rpg-gap) * 0.3);\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,MACE,UAAA,MACA,YAAA,KAAA,IAAA,WAAA,EAAA",
+  "names": []
+}

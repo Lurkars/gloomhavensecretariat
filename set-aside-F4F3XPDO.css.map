@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/character/sheet/sections/set-aside.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n:host-context(.character-sheet .notes) {\n  .set-aside {\n    margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));\n    margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));\n    margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));\n    display: flex;\n    align-items: center;\n\n    label {\n      flex-shrink: 0;\n      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));\n    }\n\n    input[type='number'] {\n      flex-grow: 1;\n      flex-basis: 0;\n      min-width: auto;\n    }\n\n    &.set-aside label {\n      cursor: pointer;\n      font-family: var(--ghs-font-normal);\n      font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));\n\n      &:hover {\n        opacity: 0.7;\n      }\n    }\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAIA,cAAA,CAAA,gBAAA,CAAA,OAAA,CAAA,UACE,WAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,YAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,cAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,QAAA,KACA,YAAA,OAEA,cAAA,CAAA,gBAAA,CAAA,OAAA,CAPF,UAOE,MACE,YAAA,EACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAGF,cAAA,CAAA,gBAAA,CAAA,OAAA,CAZF,UAYE,KAAA,CAAA,aACE,UAAA,EACA,WAAA,EACA,UAAA,KAGF,cAAA,CAAA,gBAAA,CAAA,OAAA,CAlBF,SAkBE,CAlBF,UAkBE,MACE,OAAA,QACA,YAAA,IAAA,mBACA,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAEA,cAAA,CAAA,gBAAA,CAAA,OAAA,CAvBJ,SAuBI,CAvBJ,UAuBI,KAAA,OACE,QAAA",
+  "names": []
+}

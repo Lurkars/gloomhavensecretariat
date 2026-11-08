@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/sheet/sections/map-links.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.map {\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));\n\n  img {\n    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));\n    margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));\n\n    &:hover {\n      filter: var(--ghs-filter-gray);\n    }\n  }\n}\n\n:host-context(.fh-sheet) {\n  .map {\n    position: absolute;\n    top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n    right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));\n  }\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,IACE,OAAA,QACA,QAAA,KACA,YAAA,OACA,YAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAEA,CANF,IAME,IACE,OAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBACA,OAAA,EAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBAEA,CAVJ,IAUI,GAAA,OACE,OAAA,IAAA,mBAMJ,cAAA,CAAA,UAAA,CAjBF,IAkBI,SAAA,SACA,IAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,MAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA",
+  "names": []
+}

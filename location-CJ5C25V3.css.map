@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/sheet/sections/location.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.location {\n  display: flex;\n  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n  margin-top: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,SACE,QAAA,KACA,OAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBACA,WAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA",
+  "names": []
+}

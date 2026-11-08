@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/sheet/layouts/fh-sheet.scss"],
+  "sourcesContent": [":host {\n  display: contents;\n}\n\n.sheet {\n  position: relative;\n  width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));\n  height: calc(var(--ghs-unit) * 98.5 * var(--ghs-dialog-factor));\n  background-image: url('../../../../../../assets/images/fh/party/party-sheet.svg');\n  background-position: top center;\n  background-repeat: no-repeat;\n  background-size: contain;\n  padding-left: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));\n}\n\nghs-party-buildings {\n  position: absolute;\n  left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));\n  top: calc(var(--ghs-unit) * 101.5 * var(--ghs-dialog-factor));\n  width: calc(var(--ghs-unit) * 118.5 * var(--ghs-dialog-factor));\n  height: calc(var(--ghs-unit) * 28 * var(--ghs-dialog-factor));\n}\n"],
+  "mappings": "AAAA,MACE,QAAA,SAGF,CAAA,MACE,SAAA,SACA,MAAA,KAAA,IAAA,YAAA,EAAA,MAAA,EAAA,IAAA,sBACA,OAAA,KAAA,IAAA,YAAA,EAAA,KAAA,EAAA,IAAA,sBACA,iBAAA,wCACA,oBAAA,IAAA,OACA,kBAAA,UACA,gBAAA,QACA,aAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAGF,oBACE,SAAA,SACA,KAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA,sBACA,IAAA,KAAA,IAAA,YAAA,EAAA,MAAA,EAAA,IAAA,sBACA,MAAA,KAAA,IAAA,YAAA,EAAA,MAAA,EAAA,IAAA,sBACA,OAAA,KAAA,IAAA,YAAA,EAAA,GAAA,EAAA,IAAA",
+  "names": []
+}
