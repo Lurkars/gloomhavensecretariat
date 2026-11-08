@@ -60,7 +60,8 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Frosthaven                                                                      | ✅             | ✅          | ✅        | ✅         | ⛔        |
 | Gloomhaven 2nd Edition                                                          | ✅❗[^3.2]     | ✅❗[^3.3]  | ⛔        | ✅❗[^3.4] | ⛔        |
 | Mercenary Packs                                                                 | ✅ [^3]        | ✅          | ⛔        | ✅         | ⛔        |
-| Buttons & Bugs                                                                   | ✅             | ✅[^2.2]    | ⛔        | ⛔         | ⛔        |
+| Buttons & Bugs                                                                  | ✅             | ✅[^2.2]    | ⛔        | ⛔         | ⛔        |
+| Gloomhaven: The Roleplaying Game                                                | ✅❗[^3.5]     | ❔          | ⛔        | ❔         | ⛔        |
 | The Crimson Scales                                                              | ✅[^2.1]       | ✅          | ⛔        | ✅         | ⛔        |
 | Trail Of Ashes                                                                  | ✅[^2.1]       | ✅          | ⛔        | ✅         | ⛔        |
 | Solo Scenarios (for supported Editions)                                         | ✅             | ✅          | ⛔        | ✅         | ⛔        |
@@ -71,7 +72,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 | supports Frosthaven Crossover Characters                                        | ✅[^3]         | ➖[^19]     | ➖[^19]   | ✅         | ➖[^19]   |
 | support Satire's Extended Battle Goals                                          | ✅[^3.1]       | ⛔          | ⛔        | ✅         | ⛔        |
 | Skulls in the Snow (FH Mini Campaign)                                           | ✅[^3]         | ⛔          | ⛔        | ✅         | ⛔        |
-| Buttons & Bugs - Promotional Content                                             | ✅[^3]         | ⛔          | ⛔        | ⛔         | ⛔        |
+| Buttons & Bugs - Promotional Content                                            | ✅[^3]         | ⛔          | ⛔        | ⛔         | ⛔        |
 | CCUG classes                                                                    | ✅[^3]         | ✅          | ⛔        | ✅         | ⛔        |
 |                                                                                 |                |             |           |            |           |
 | **Additional Features**                                                         | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
@@ -170,6 +171,8 @@ There are a few other apps that are specialised or niche and therefore not taken
 [^3.3]: Some mechanics that are anyway used sparingly in the game may be ignored by the app
 
 [^3.4]: except events, includes appending F, envelopes, and random dungeon cards (No card images)
+
+[^3.5]: Combat support for the GM (monster actions, RPG modifier decks with attributes, Pacify condition) and RPG character sheet, no scenarios, party or campaign sheet yet
 
 [^4]: Need separate server component [_GHS_ Server](https://github.com/Lurkars/*GHS*-server), public instance available
 
