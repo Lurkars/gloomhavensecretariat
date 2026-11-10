@@ -45,6 +45,20 @@ describe('CharacterSheetPersonalQuestComponent', () => {
     vi.restoreAllMocks();
   });
 
+  it('shows an optional quest description separately from requirement rows', () => {
+    const fixture = TestBed.createComponent(CharacterSheetPersonalQuestComponent);
+    fixture.componentRef.setInput('character', buildCharacter());
+    fixture.componentInstance.personalQuest = Object.assign(new PersonalQuest(), {
+      description: 'Follow the scenario chain',
+      requirements: [Object.assign(new PersonalQuestRequirement(), { name: 'Complete 71' })]
+    });
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.quest-description').textContent).toContain('Follow the scenario chain');
+    expect(fixture.nativeElement.querySelectorAll('.requirement')).toHaveLength(1);
+    expect(fixture.nativeElement.querySelector('.requirement').textContent).not.toContain('Follow the scenario chain');
+  });
+
   describe('getPersonalQuestCount', () => {
     it('is 0 with no personal quest set', () => {
       const component = createComponent(CharacterSheetPersonalQuestComponent, buildCharacter());

@@ -2368,7 +2368,13 @@
       },
       "509": {
         "": "Threat from the Deep",
-        "1": "Follow \"Invasion of the Docks\" %game.scenarioNumber:71% to a conclusion"
+        "description": "Follow \"Invasion of the Docks (71)\" to a conclusion",
+        "1": "Complete %game.scenarioNumber:71%",
+        "2": "Complete %game.scenarioNumber:72%",
+        "3": "Complete %game.scenarioNumber:73%",
+        "4": "Complete %game.scenarioNumber:74%",
+        "5": "Complete %game.scenarioNumber:75%",
+        "6": "Complete %game.scenarioNumber:76%"
       },
       "514": {
         "": "End the Trickery",

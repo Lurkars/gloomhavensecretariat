@@ -58,6 +58,9 @@
     </div>
   }
   @if (personalQuest) {
+    @if (personalQuest.description) {
+      <div class="quest-description" [ghs-label]="personalQuest.description"></div>
+    }
     <div class="requirements">
       @for (requirement of personalQuest.requirements | trackUUID; track requirement._trackUUID; let i = $index) {
         @if (

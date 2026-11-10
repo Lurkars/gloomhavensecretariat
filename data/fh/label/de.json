@@ -880,7 +880,13 @@
     "fh": {
       "509": {
         "": "Bedrohung aus der Tiefe",
-        "1": "Schalte sofort \"Invasion der Kais\" %game.scenarioNumber:71% frei und schließe es ab"
+        "description": "Schalte sofort \"Invasion der Kais (71)\" frei und schließe es ab",
+        "1": "%game.scenarioNumber:71% abschließen",
+        "2": "%game.scenarioNumber:72% abschließen",
+        "3": "%game.scenarioNumber:73% abschließen",
+        "4": "%game.scenarioNumber:74% abschließen",
+        "5": "%game.scenarioNumber:75% abschließen",
+        "6": "%game.scenarioNumber:76% abschließen"
       },
       "523": {
         "": "Strahlende Zukunft",

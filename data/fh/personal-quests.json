@@ -190,12 +190,48 @@
     {
         "cardId": "509",
         "altId": "12",
+        "description": "%data.personalQuest.fh.509.description%",
         "unlockBuilding": "24",
         "requirements": [
             {
                 "name": "%data.personalQuest.fh.509.1%",
                 "counter": 1,
-                "autotrack": "scenario:71|72"
+                "autotrack": "scenario:71"
+            },
+            {
+                "name": "%data.personalQuest.fh.509.2%",
+                "counter": 1,
+                "autotrack": "scenario:72",
+                "hidden": true,
+                "requires": [1]
+            },
+            {
+                "name": "%data.personalQuest.fh.509.3%",
+                "counter": 1,
+                "autotrack": "scenario:73",
+                "hidden": true,
+                "requires": [1, 2]
+            },
+            {
+                "name": "%data.personalQuest.fh.509.4%",
+                "counter": 1,
+                "autotrack": "scenario:74",
+                "hidden": true,
+                "requires": [1, 2, 3]
+            },
+            {
+                "name": "%data.personalQuest.fh.509.5%",
+                "counter": 1,
+                "autotrack": "scenario:75",
+                "hidden": true,
+                "requires": [1, 2, 3, 4]
+            },
+            {
+                "name": "%data.personalQuest.fh.509.6%",
+                "counter": 1,
+                "autotrack": "scenario:76",
+                "hidden": true,
+                "requires": [1, 2, 3, 4, 5]
             }
         ],
         "openEnvelope": "90:42"

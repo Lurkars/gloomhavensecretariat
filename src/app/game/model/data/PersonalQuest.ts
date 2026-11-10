@@ -3,6 +3,7 @@ import { Editional } from 'src/app/game/model/data/Editional';
 export class PersonalQuest implements Editional {
   cardId: string = '';
   altId: string = '';
+  description: string = '';
   spoiler: boolean = false;
   requirements: PersonalQuestRequirement[] = [];
   unlockCharacter: string = '';
