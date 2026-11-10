@@ -104,17 +104,33 @@
           ></div>
         }
       </div>
+      <div class="characters">
+        @for (trait of requirement.traits; track trait) {
+          <div class="characters" [ghs-label]="'scenario.requirements.traits'" [ghs-label-args]="[trait]"></div>
+        }
+        @for (trait of requirement.traitsMissing; track trait) {
+          <div class="characters" [ghs-label]="'scenario.requirements.traitsMissing'" [ghs-label-args]="[trait]"></div>
+        }
+      </div>
       @if (requirement.scenarios.length) {
         <div class="scenarios">
           <div class="requires" [ghs-label]="'scenario.requirements.scenarios'"></div>
           @for (requires of requirement.scenarios; track requires; let i = $index) {
             <div class="scenarios">
               @for (scenario of requires; track scenario; let j = $index) {
-                <div
-                  class="scenario"
-                  [ghs-label]="'scenario.requirements.scenarios.scenario'"
-                  [ghs-label-args]="[scenario, scenarioData.edition]"
-                ></div>
+                @if (scenario.startsWith('!')) {
+                  <div
+                    class="scenario"
+                    [ghs-label]="'scenario.requirements.scenarios.scenarioNot'"
+                    [ghs-label-args]="[scenario.substring(1), scenarioData.edition]"
+                  ></div>
+                } @else {
+                  <div
+                    class="scenario"
+                    [ghs-label]="'scenario.requirements.scenarios.scenario'"
+                    [ghs-label-args]="[scenario, scenarioData.edition]"
+                  ></div>
+                }
                 @if (requires.length > 1 && j < requires.length - 1) {
                   <div class="separator" [ghs-label]="'scenario.requirements.scenarios.and'"></div>
                 }

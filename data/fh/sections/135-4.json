@@ -2,8 +2,23 @@
   "index": "135.4",
   "name": "HE-RO-IC-S",
   "edition": "fh",
+  "parentSections": [
+    [
+      "181.2"
+    ],
+    [
+      "33.1"
+    ]
+  ],
   "conclusion": true,
   "named": true,
+  "requirements": [
+    {
+      "buildings": [
+        "stables"
+      ]
+    }
+  ],
   "rewards": {
     "pet": "11"
   }

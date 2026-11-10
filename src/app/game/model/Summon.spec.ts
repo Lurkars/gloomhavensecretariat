@@ -113,6 +113,20 @@ describe('Summon model', () => {
       expect(restored.additionalAction).toEqual({ type: 'move', value: '1' });
     });
 
+    it('copies specialAction from summonData and round-trips it', () => {
+      const summonData = new SummonData();
+      summonData.specialAction = { type: 'custom', value: 'special' } as any;
+      const summon = new Summon('u1', 'decoy', '', 1, 1, SummonColor.blue, summonData);
+      expect(summon.specialAction).toEqual({ type: 'custom', value: 'special' });
+
+      const model = summon.toModel();
+      expect(typeof model.specialAction).toBe('string');
+
+      const restored = new Summon('u1', '', '', 0, 0, SummonColor.blue);
+      restored.fromModel(model);
+      expect(restored.specialAction).toEqual({ type: 'custom', value: 'special' });
+    });
+
     it('folds shield/retaliate into extraActions on fromModel and clears them', () => {
       const summon = new Summon('u1', 'bear', '1', 1, 1, SummonColor.blue);
       summon.shield = { type: 'shield' } as any;

@@ -2,7 +2,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
-import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { CharacterSpecialAction, CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { GameState } from 'src/app/game/model/Game';
@@ -13,11 +13,10 @@ import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 
 // RoundManager implements the round/turn progression rules. `drawAvailable()` is fully covered
-// below. `nextGameState()`/`toggleFigure()`/`turn()`/`beforeTurn()`/`afterTurn()` also carry a
-// large amount of hardcoded per-character-name logic (gated behind `figure.name === '<specific
-// character>'` checks) that is out of scope here — fixtures below deliberately use generic
-// names/editions ('test-char', 'bandit-guard') so none of those hardcoded branches fire, letting
-// the tests isolate the generic figure-activation/round-progression state machine instead.
+// below. Per-character special action logic is delegated to SpecialActionsManager (covered in its
+// own spec) — fixtures below deliberately use generic names/editions ('test-char', 'bandit-guard')
+// so none of those branches fire, letting the tests isolate the generic figure-activation/
+// round-progression state machine instead.
 // Collaborator managers whose own next()/draw() implementations are covered (or explicitly out of
 // scope) in their own specs are mocked here so failures point at RoundManager's own orchestration.
 
@@ -556,6 +555,29 @@ describe('RoundManager', () => {
       roundManager.toggleFigure(figure1);
 
       expect(nextGameStateSpy).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('resetScenario', () => {
+    it('removes expiring special actions via SpecialActionsManager and keeps the others', () => {
+      const character = buildCharacter('demolitionist', 'jotl');
+      character.specialActions = [
+        new CharacterSpecialAction('mech', 0, false, true, false, false, undefined, undefined),
+        new CharacterSpecialAction('permanent', 0, false, false, false, false, undefined, undefined)
+      ];
+      character.tags = ['mech', 'permanent', 'new-character'];
+      character.maxHealth = 15;
+      character.health = 12;
+      gameManager.game.figures = [character];
+      const removeSpecialActionSpy = vi.spyOn(gameManager.specialActionsManager, 'removeSpecialAction');
+
+      roundManager.resetScenario();
+
+      expect(removeSpecialActionSpy).toHaveBeenCalledTimes(1);
+      expect(removeSpecialActionSpy).toHaveBeenCalledWith(character, character, 'mech');
+      expect(character.tags).toEqual(['permanent']);
+      expect(character.maxHealth).toBe(10);
+      expect(character.health).toBe(10);
     });
   });
 });

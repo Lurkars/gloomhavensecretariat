@@ -131,4 +131,19 @@
       border-radius: 100%;
     }
   }
+
+  .attack-modifier-attribute {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-gh-title);
+    font-size: calc(var(--ghs-unit) * 1.4 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    aspect-ratio: 1.1547;
+    margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+    vertical-align: middle;
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    background: radial-gradient(circle at 40% 35%, #f6dc84, #d9a531 60%, #a8771a);
+    color: var(--ghs-color-black);
+  }
 }

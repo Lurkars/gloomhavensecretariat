@@ -411,8 +411,7 @@
                       !trackDamage &&
                       !settingsManager.settings.damageHP &&
                       !!entity &&
-                      entity.health + health ===
-                        Math.max(EntityValueFunction(entity.maxHealth), specialTags.includes('unbridled-power') ? 26 : 0) + maxHealth
+                      entity.health + health === gameManager.specialActionsManager.maxHealth(entity, specialTags) + maxHealth
                   }"
                 >
                   <img class="ghs-svg" src="./assets/images/plus.svg" />
@@ -1176,6 +1175,11 @@
                 </ghs-pointer-input>
               </span>
             }
+            @if (taunt) {
+              <span class="item taunt" [ngClass]="{ active: entityTaunt }" (click)="shieldRetaliateHelper.toggleTaunt(false)">
+                <ghs-action [action]="tauntAction" [style]="'fh'"></ghs-action>
+              </span>
+            }
             <div class="separator"></div>
             <span class="shield-overlay">
               <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
@@ -1237,6 +1241,11 @@
                 <ghs-pointer-input class="button small" tabclick (singleClick)="shieldRetaliateHelper.changeRetaliatePersistent(i, 0, 1)">
                   <img class="ghs-svg" src="./assets/images/plus.svg" />
                 </ghs-pointer-input>
+              </span>
+            }
+            @if (taunt) {
+              <span class="item taunt" [ngClass]="{ active: entityTauntPersistent }" (click)="shieldRetaliateHelper.toggleTaunt(true)">
+                <ghs-action [action]="tauntAction" [style]="'fh'"></ghs-action>
               </span>
             }
           </div>

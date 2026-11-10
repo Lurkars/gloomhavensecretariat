@@ -289,6 +289,14 @@
           "grit": "Grit",
           "intuition": "Intuition",
           "logic": "Logic",
+          "short": {
+            "cunning": "CU",
+            "finesse": "FI",
+            "grit": "GR",
+            "intuition": "IN",
+            "logic": "LO",
+            "understanding": "UN"
+          },
           "understanding": "Understanding"
         },
         "availablePerks": "Available perks: {0}",
@@ -319,6 +327,7 @@
         "secondary": "Secondary",
         "skill": "Skill",
         "slot": "Slot",
+        "special": "Special",
         "talent": "Talent",
         "talents": "Active & Passive Talents"
       },
@@ -667,6 +676,7 @@
       "swing": "Swing",
       "target": "Target",
       "targets": "Targets",
+      "taunt": "Taunt",
       "teleport": "Teleport",
       "trigger": "Trigger"
     },
@@ -1748,6 +1758,10 @@
           "hint": "Double click to set/edit sections for week",
           "lock": "Lock the calendar to avoid accidental edits. Double click to make a permissive lock, allowing to add or remove exactly one week.",
           "openConclusion": "Select continuing section",
+          "readHint": {
+            "": "Read section {0} in the Section Book.",
+            "title": "Calendar sections"
+          },
           "section": "Section"
         },
         "winter": "Winter"
@@ -2088,10 +2102,13 @@
         "": "Requires following Scenarios to be finished",
         "and": "and",
         "or": "or",
-        "scenario": "%data.scenarioNumber:{0}%"
+        "scenario": "%data.scenarioNumber:{0}%",
+        "scenarioNot": "%data.scenarioNumber:{0}% NOT finished"
       },
       "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Level 5 or higher",
-      "start": "Start Scenario anyway"
+      "start": "Start Scenario anyway",
+      "traits": "Character with %game.trait:{0}% present",
+      "traitsMissing": "No character with %game.trait:{0}% present"
     },
     "reset": "Restart Scenario",
     "rewards": {
@@ -2099,7 +2116,9 @@
       "addWeek": {
         "": "Calendar",
         "next": "Automatic pass calendar time to week {0}",
+        "read": "Read section {0} in the Section Book",
         "section": "Open %data.section:{0}% (applied automatically)",
+        "sectionDialog": "Open %data.section:{0}% (opened after finishing)",
         "summer": "New season: Summer <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
         "winter": "New season: Winter <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
@@ -2130,6 +2149,16 @@
         "summer-road": "Add event {0} to the summer road deck",
         "winter-outpost": "Add event {0} to the winter outpost deck",
         "winter-road": "Add event {0} to the winter road deck"
+      },
+      "eventRange": {
+        "boat": "Add events {0} to {1} to the boat deck",
+        "city": "Add City Events {0} to {1} to the deck",
+        "rift": "Add Rift Events {0} to {1} to the deck",
+        "road": "Add Road Events {0} to {1} to the deck",
+        "summer-outpost": "Add events {0} to {1} to the summer outpost deck",
+        "summer-road": "Add events {0} to {1} to the summer road deck",
+        "winter-outpost": "Add events {0} to {1} to the winter outpost deck",
+        "winter-road": "Add events {0} to {1} to the winter road deck"
       },
       "experience": "{0} experience each",
       "factionUnlock": "%data.gh2eFaction:{0}% reputation can now be increased above 12.",
@@ -2171,12 +2200,23 @@
         "winter-outpost": "Remove event {0} from the winter outpost deck",
         "winter-road": "Remove event {0} from the winter road deck"
       },
+      "returnEvent": {
+        "boat": "Return event {0} to the boat deck",
+        "city": "Return City Event {0} to the deck",
+        "rift": "Return Rift Event {0} to the deck",
+        "road": "Return Road Event {0} to the deck",
+        "summer-outpost": "Return event {0} to the summer outpost deck",
+        "summer-road": "Return event {0} to the summer road deck",
+        "winter-outpost": "Return event {0} to the winter outpost deck",
+        "winter-road": "Return event {0} to the winter road deck"
+      },
       "removeLootDeckCard": "Remove loot card {0} from the game. No longer add it to any scenario's loot deck.",
       "repeatScenario": "Scenario can be replayed!",
       "reputation": "{0} reputation",
       "reputationFactions": "Gain {1} %game.gh2eFaction:{0}% reputation",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
+      "soldiers": "{0} soldiers",
       "townGuardAm": "Add one %game.townGuardAm.{1}:{0}% card to the town guard deck.",
       "unlockCharacter": {
         "": "Unlock",
@@ -2288,6 +2328,7 @@
     "showAllSections": "Show all Sections",
     "stats": {
       "": "Scenario Statistics",
+      "attempts": "Attempts",
       "bossKills": {
         "": "%game.monsterType.boss%: {0}",
         "hint": "Number of %game.monsterType.boss% monster killed"
@@ -2299,6 +2340,10 @@
         "": "%game.action.attack% {0}",
         "hint": "Damage dealt"
       },
+      "difficulty": {
+        "": "%game.gameIcon:level% {0}",
+        "hint": "Scenario level"
+      },
       "eliteKills": {
         "": "%game.monsterType.elite%: {0}",
         "hint": "Number of %game.monsterType.elite% monster killed"
@@ -2307,6 +2352,7 @@
         "": "%game.gameIcon:status/exhausted% {0}",
         "hint": "Exhausted"
       },
+      "failure": "Failure",
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
         "hint": "Number of %game.gameIcon:loot% Coins looted"
@@ -2324,6 +2370,11 @@
       },
       "kills": {
         "": "Kills"
+      },
+      "level": {
+        "": "%game.gameIcon:status/level% {0}",
+        "hint": "Character level",
+        "title": "Level"
       },
       "max": {
         "": "Max."
@@ -2353,10 +2404,11 @@
         "": "Resources",
         "loot": {
           "": "%game.resource.{0}%: {1}",
-          "hint": "Number of %game.resource{0}% looted"
+          "hint": "Number of %game.resource.{0}% looted"
         }
       },
       "scenarios": "Scenarios",
+      "success": "Success",
       "toggle": {
         "hide": "Hide Scenario Statistics",
         "show": "Show Scenario Statistics"
@@ -2657,7 +2709,7 @@
     },
     "automaticPassTime": {
       "": "Auto. pass calendar time",
-      "hint": "Automatic pass time by adding a week to the calendar after finishing a scenario. This also automatically adds effects of calendar sections in this week."
+      "hint": "Automatic pass time by adding a week to the calendar after finishing a scenario. Calendar sections of this week will be resolved afterwards (see Auto. apply calendar sections)."
     },
     "automaticStandees": {
       "": "Auto. Standees",
@@ -2674,6 +2726,10 @@
     "automaticUnlocking": {
       "": "Auto. Character Unlock",
       "hint": "Automatically unlock characters from scenario rewards."
+    },
+    "automaticWeekSections": {
+      "": "Auto. apply calendar sections",
+      "hint": "Automatically apply the effects of calendar sections when passing a week, instead of opening each section to distribute rewards and showing a hint for sections to read in the Section Book."
     },
     "automation": "Automation",
     "autoscroll": {
@@ -2821,8 +2877,8 @@
       "hint": "Sort Characters by Player # number between rounds."
     },
     "characterTraits": {
-      "": "Display traits",
-      "hint": "Display the traits the character's board."
+      "": "Display traits/attributes",
+      "hint": "Display the traits or RPG attributes on the character's board."
     },
     "columns": {
       "": "Column layout",
@@ -3606,6 +3662,16 @@
           "character": "Add special actions {0} for {1}",
           "summon": "Add special actions {0} for {2} of {1}"
         },
+        "addTaunt": {
+          "": "{0}%game.action.taunt% for selection",
+          "character": "{0}%game.action.taunt% for {1}",
+          "monsterEntity": "{0}%game.action.taunt% for '{2}' of {1}",
+          "monsters": "{0}%game.action.taunt% for {2} of {1}",
+          "objectiveEntity": "{0}%game.action.taunt% for {2} of {1}",
+          "objectives": "{0}%game.action.taunt% for {2} of {1}",
+          "summon": "{0}%game.action.taunt% for '{2}' of {1}",
+          "summons": "{0}%game.action.taunt% for summons {2} of {1}"
+        },
         "applyTrap": {
           "summon": "Apply trap '{2}' of {1} to {0}"
         },
@@ -3794,6 +3860,16 @@
         "removeSpecialTags": {
           "character": "Remove special actions {0} from {1}",
           "summon": "Remove special actions {0} from {2} of {1}"
+        },
+        "removeTaunt": {
+          "": "Remove {0}%game.action.taunt% from selection",
+          "character": "Remove {0}%game.action.taunt% from {1}",
+          "monsterEntity": "Remove {0}%game.action.taunt% from '{2}' of {1}",
+          "monsters": "Remove {0}%game.action.taunt% from {2} of {1}",
+          "objectiveEntity": "Remove {0}%game.action.taunt% from {2} of {1}",
+          "objectives": "Remove {0}%game.action.taunt% from {2} of {1}",
+          "summon": "Remove {0}%game.action.taunt% from '{2}' of {1}",
+          "summons": "Remove {0}%game.action.taunt% from summons {2} of {1}"
         },
         "restoreObjectiveActions": {
           "objective": "Restore default actions for {0}",
@@ -4434,7 +4510,7 @@
       "toggleFullscreen": "Toggle <i>Fullscreen</i>",
       "toggleHandSize": "Toggle <i>Display hand size and level</i>",
       "togglePlayerNumber": "Toggle <i>Display player number</i>",
-      "toggleTraits": "Toggle <i>Display traits</i>",
+      "toggleTraits": "Toggle <i>Display traits/attributes</i>",
       "undo": "Undo",
       "zoomIn": "Zoom-in",
       "zoomOut": "Zoom-out",

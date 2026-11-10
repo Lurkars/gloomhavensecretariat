@@ -1,7 +1,7 @@
 {
   "name": "cragheart",
   "icon": "gh-cragheart",
-  "thumbnail": "gh2e-cragheart",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#828b3b",

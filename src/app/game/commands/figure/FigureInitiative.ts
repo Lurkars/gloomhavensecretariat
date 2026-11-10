@@ -28,7 +28,7 @@ export class FigureInitiativeCommand extends CommandImpl {
       figure.initiativeVisible = true;
       if (initiative === 99) {
         figure.longRest = true;
-      } else if (!initiative || figure.name !== 'prism' || !figure.tags.includes('long_rest')) {
+      } else if (!initiative || !gameManager.specialActionsManager.keepInitiativeOnLongRest(figure)) {
         figure.longRest = false;
       }
     } else if (figure instanceof ObjectiveContainer) {

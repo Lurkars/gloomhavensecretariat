@@ -2275,7 +2275,7 @@
         "": "Recursos",
         "loot": {
           "": "%game.resource.{0}%: {1}",
-          "hint": "Quantidade de %game.resource{0}% saqueados"
+          "hint": "Quantidade de %game.resource.{0}% saqueados"
         }
       },
       "scenarios": "Cenários",

@@ -245,6 +245,19 @@ describe('PersonalQuestManager', () => {
       expect(character.progress.personalQuestProgress[0]).toEqual(2);
     });
 
+    it('reverts progress with a negative value, also from a completed counter, without going below 0', () => {
+      const character = buildCharacter('brute', 'gh2e');
+      const personalQuest = pq([{ counter: 1, autotrack: PersonalQuestAutotrackType.loot }]);
+      withQuest(character, personalQuest);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.loot);
+      expect(character.progress.personalQuestProgress[0]).toEqual(1);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.loot, undefined, -1);
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.loot, undefined, -1);
+      expect(character.progress.personalQuestProgress[0]).toEqual(0);
+    });
+
     it('never overwrites or lowers previously-tracked progress, even if held resources later drop', () => {
       const character = buildCharacter('brute', 'gh2e');
       const personalQuest = pq([{ counter: 10, autotrack: PersonalQuestAutotrackType.loot }]);

@@ -7,6 +7,30 @@
             <span class="number" [ghs-label]="'%game.scenarioNumber:' + scenario.index + '%'"></span>
             <span class="name" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
           </span>
+          @if (attempts.length) {
+            <div class="attempts">
+              <span class="attempts-label" [ghs-label]="'scenario.stats.attempts'"></span>
+              @for (attempt of attempts; track attempt.key; let i = $index) {
+                <span
+                  tabclick
+                  class="attempt"
+                  [class.selected]="i === selectedAttempt"
+                  [class.success]="attempt.success"
+                  [class.failure]="!attempt.success"
+                  (click)="selectAttempt(i)"
+                  [ghs-tooltip]="attempt.success ? 'scenario.stats.success' : 'scenario.stats.failure'"
+                >
+                  <span class="attempt-number">#{{ i + 1 }}</span>
+                  @if (attempt.difficulty !== undefined) {
+                    <span [ghs-label]="'scenario.stats.difficulty'" [ghs-label-args]="[attempt.difficulty]" [style]="'fh'"></span>
+                  }
+                  @if (attempt.timestamp) {
+                    <span class="attempt-date">{{ attempt.timestamp | date: 'short' : timeZone : settingsManager.settings.locale }}</span>
+                  }
+                </span>
+              }
+            </div>
+          }
         }
       </div>
     }
@@ -50,6 +74,26 @@
                 <span class="success">{{ scenarios[characters.length][1] }}</span>
                 <span class="failure">{{ scenarios[characters.length][2] }}</span>
               </td>
+            }
+          </tr>
+        }
+        @if (!!scenario) {
+          <tr>
+            <th><span [ghs-label]="'scenario.stats.level.title'"></span></th>
+            @for (character of characters | trackUUID; track character._trackUUID) {
+              <td>
+                @if (character.scenarioStats.level !== undefined) {
+                  <span
+                    [ghs-label]="'scenario.stats.level'"
+                    [ghs-label-args]="[character.scenarioStats.level]"
+                    [style]="'fh'"
+                    [ghs-tooltip]="'scenario.stats.level.hint'"
+                  ></span>
+                }
+              </td>
+            }
+            @if (!character) {
+              <td></td>
             }
           </tr>
         }
@@ -428,6 +472,16 @@
                   ></span>
                 }
               </div>
+              <div class="loot">
+                @for (lootType of otherLoot; track lootType) {
+                  <span
+                    [ghs-label]="'scenario.stats.resources.loot'"
+                    [ghs-label-args]="[lootType, character.scenarioStats.loot[lootType] || 0]"
+                    [style]="'fh'"
+                    [ghs-tooltip]="'scenario.stats.resources.loot.hint'"
+                  ></span>
+                }
+              </div>
             </td>
           }
           @if (!character) {
@@ -444,6 +498,16 @@
               </div>
               <div class="loot">
                 @for (lootType of herbs; track lootType) {
+                  <span
+                    [ghs-label]="'scenario.stats.resources.loot'"
+                    [ghs-label-args]="[lootType, overall.loot[lootType] || 0]"
+                    [style]="'fh'"
+                    [ghs-tooltip]="'scenario.stats.resources.loot.hint'"
+                  ></span>
+                }
+              </div>
+              <div class="loot">
+                @for (lootType of otherLoot; track lootType) {
                   <span
                     [ghs-label]="'scenario.stats.resources.loot'"
                     [ghs-label-args]="[lootType, overall.loot[lootType] || 0]"

@@ -1,0 +1,25 @@
+{
+  "index": "47.1B",
+  "name": "Lurker Rumors",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "47.1"
+    ]
+  ],
+  "conclusion": true,
+  "requirements": [
+    {
+      "scenarios": [
+        [
+          "!60"
+        ]
+      ]
+    }
+  ],
+  "rewards": {
+    "events": [
+      "winter-outpost:WO-70"
+    ]
+  }
+}

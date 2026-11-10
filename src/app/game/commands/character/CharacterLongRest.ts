@@ -1,16 +1,11 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
-import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 
 export class CharacterLongRestCommand extends CommandImpl {
   id: string = 'character.longRest';
   requiredParameters: number = 2;
-
-  prismLongRest(character: Character): boolean {
-    return character.name === 'prism' && character.tags.includes('long_rest');
-  }
 
   validParameters(number: number, longRest: boolean): boolean {
     return !!findCharacter(number) && typeof longRest === 'boolean';
@@ -25,7 +20,7 @@ export class CharacterLongRestCommand extends CommandImpl {
       if (!longRest) {
         character.longRest = false;
       } else {
-        if (character.initiative !== 99 && !this.prismLongRest(character)) {
+        if (character.initiative !== 99 && !gameManager.specialActionsManager.keepInitiativeOnLongRest(character)) {
           character.initiative = 99;
           character.initiativeVisible = true;
         }

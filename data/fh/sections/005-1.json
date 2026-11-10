@@ -1,0 +1,10 @@
+{
+  "index": "5.1",
+  "name": "Vermling Siege",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.fh.005-1%"
+  }
+}

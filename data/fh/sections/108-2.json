@@ -1,0 +1,21 @@
+{
+  "index": "108.2",
+  "name": "Tavern Inquiry",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "113.2"
+    ],
+    [
+      "117.1"
+    ]
+  ],
+  "named": true,
+  "requirements": [
+    {
+      "buildings": [
+        "tavern"
+      ]
+    }
+  ]
+}

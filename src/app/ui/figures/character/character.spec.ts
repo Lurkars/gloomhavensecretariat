@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { RpgAttribute, RpgProgress } from 'src/app/game/model/CharacterProgress';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
@@ -67,6 +68,36 @@ describe('CharacterComponent', () => {
       const component = createComponent(character);
       component.update();
       expect(component.off).toBe(true);
+    });
+
+    it('lists rpg attributes with values above 0 in attribute order', () => {
+      const character = buildCharacter({ editionRules: 'rpg' });
+      character.progress.rpg = Object.assign(new RpgProgress(), {
+        attributes: { [RpgAttribute.logic]: 2, [RpgAttribute.cunning]: 1, [RpgAttribute.grit]: 0 }
+      });
+      const component = createComponent(character);
+      component.update();
+      expect(component.rpgAttributes).toEqual([
+        { attribute: RpgAttribute.cunning, value: 1 },
+        { attribute: RpgAttribute.logic, value: 2 }
+      ]);
+    });
+
+    it('flags rpg characters to hide item button', () => {
+      const component = createComponent(buildCharacter({ editionRules: 'rpg' }));
+      component.update();
+      expect(component.rpg).toBe(true);
+      const other = createComponent(buildCharacter());
+      other.update();
+      expect(other.rpg).toBe(false);
+    });
+
+    it('lists no rpg attributes for non-rpg characters', () => {
+      const character = buildCharacter();
+      character.progress.rpg = Object.assign(new RpgProgress(), { attributes: { [RpgAttribute.logic]: 2 } });
+      const component = createComponent(character);
+      component.update();
+      expect(component.rpgAttributes).toEqual([]);
     });
   });
 

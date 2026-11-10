@@ -1,0 +1,10 @@
+{
+  "index": "187.3",
+  "name": "Burnt Shack Inquiry",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "collectiveGold": 25
+  }
+}

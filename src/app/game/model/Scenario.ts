@@ -51,6 +51,8 @@ export class ScenarioMissingRequirements {
   buildingsMissing: string[] = [];
   characters: string[] = [];
   charactersMissing: string[] = [];
+  traits: string[] = [];
+  traitsMissing: string[] = [];
   scenarios: string[][] = [];
 
   isEmpty(): boolean {
@@ -70,6 +72,8 @@ export class ScenarioMissingRequirements {
       this.partyAchievementsMissing.length === 0 &&
       this.characters.length === 0 &&
       this.charactersMissing.length === 0 &&
+      this.traits.length === 0 &&
+      this.traitsMissing.length === 0 &&
       this.scenarios.length === 0
     );
   }

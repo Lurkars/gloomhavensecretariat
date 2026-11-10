@@ -1,0 +1,21 @@
+{
+  "index": "150.1",
+  "name": "Jeweler Inquiry",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "113.2"
+    ],
+    [
+      "117.1"
+    ]
+  ],
+  "named": true,
+  "requirements": [
+    {
+      "buildings": [
+        "jeweler"
+      ]
+    }
+  ]
+}

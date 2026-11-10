@@ -127,10 +127,11 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
     gameManager.stateManager.after();
 
     if (!gameManager.game.scenario) {
-      this.refreshPersonalQuestRetireState();
+      this.refreshPersonalQuestRetireState(true);
     }
   }
-  refreshPersonalQuestRetireState() {
+
+  refreshPersonalQuestRetireState(openDialog: boolean = false) {
     const retiredEnabled = this.retireEnabled;
     if (this.personalQuest) {
       this.retireEnabled = this.personalQuest.requirements.every(
@@ -138,7 +139,13 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
       );
     }
 
-    if (!retiredEnabled && this.retireEnabled && settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode) {
+    if (
+      openDialog &&
+      !retiredEnabled &&
+      this.retireEnabled &&
+      settingsManager.settings.applyRetirement &&
+      gameManager.game.party.campaignMode
+    ) {
       this.retire(false, true);
     }
   }

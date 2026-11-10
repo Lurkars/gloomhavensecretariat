@@ -1,0 +1,19 @@
+{
+  "index": "179.5",
+  "name": "Metal Shipment",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 2
+      },
+      {
+        "type": "metal",
+        "value": 5
+      }
+    ]
+  }
+}

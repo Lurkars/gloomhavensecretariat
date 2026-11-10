@@ -11,6 +11,7 @@ export class SummonData {
   flying: boolean = false;
   action: Action | undefined;
   additionalAction: Action | undefined;
+  specialAction: Action | undefined;
   level: number | undefined;
   special: boolean = false;
   count: number = 1;

@@ -1,0 +1,10 @@
+{
+  "index": "57.3",
+  "name": "Harvest Festival",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "morale": 2
+  }
+}

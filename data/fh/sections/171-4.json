@@ -1,0 +1,10 @@
+{
+  "index": "171.4",
+  "name": "Mail Call",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "randomItemBlueprint": 1
+  }
+}

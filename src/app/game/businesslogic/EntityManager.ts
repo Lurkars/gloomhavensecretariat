@@ -150,16 +150,7 @@ export class EntityManager {
   }
 
   checkHealth(entity: Entity, figure: Figure) {
-    let maxHealth = EntityValueFunction(entity.maxHealth);
-
-    if (
-      entity instanceof Character &&
-      !entity.absent &&
-      entity.name === 'lightning' &&
-      entity.tags.find((tag) => tag === 'unbridled-power')
-    ) {
-      maxHealth = Math.max(maxHealth, 26);
-    }
+    const maxHealth = gameManager.specialActionsManager.maxHealth(entity);
 
     if (maxHealth > 0 && entity.health > maxHealth) {
       entity.health = maxHealth;
@@ -185,9 +176,17 @@ export class EntityManager {
         entity.exhausted = true;
         if (!wasExhausted) {
           this.trackExhaustion(entity);
+          if (settingsManager.settings.scenarioStats) {
+            gameManager.scenarioStatsManager.changeExhausts(entity, figure, true);
+          }
         }
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && !entity.dead) {
         entity.dead = true;
+        if (entity instanceof Summon && settingsManager.settings.scenarioStats) {
+          gameManager.scenarioStatsManager.changeExhausts(entity, figure, true);
+        } else if (entity instanceof MonsterEntity && figure instanceof Monster) {
+          gameManager.monsterManager.monsterEntityKilled(figure, entity);
+        }
       }
     }
 
@@ -195,8 +194,16 @@ export class EntityManager {
       if (entity instanceof Character && entity.exhausted) {
         entity.off = false;
         entity.exhausted = false;
+        if (settingsManager.settings.scenarioStats) {
+          gameManager.scenarioStatsManager.changeExhausts(entity, figure, false);
+        }
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead) {
         entity.dead = false;
+        if (entity instanceof Summon && settingsManager.settings.scenarioStats) {
+          gameManager.scenarioStatsManager.changeExhausts(entity, figure, false);
+        } else if (entity instanceof MonsterEntity && figure instanceof Monster) {
+          gameManager.monsterManager.monsterEntityRevived(figure, entity);
+        }
       }
     }
 
@@ -222,16 +229,15 @@ export class EntityManager {
     });
   }
 
-  changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
+  changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false, trackStats: boolean = true) {
     this.changeHealthHighlightConditions(entity, figure, value, damageOnly);
-    const wasAlive = this.isAlive(entity);
     entity.health += value;
     this.checkHealth(entity, figure);
-    if (settingsManager.settings.scenarioStats && value !== 0) {
+    if (trackStats && settingsManager.settings.scenarioStats && value !== 0) {
       if (value > 0) {
         gameManager.scenarioStatsManager.applyHeal(entity, figure, value);
       } else {
-        gameManager.scenarioStatsManager.applyDamage(entity, figure, value * -1, wasAlive);
+        gameManager.scenarioStatsManager.applyDamage(entity, figure, value * -1);
       }
     }
 
@@ -569,10 +575,8 @@ export class EntityManager {
       }
 
       immune = immunities.includes(conditionName);
-    } else if (entity instanceof Summon) {
-      if (figure instanceof Character && !figure.absent && figure.name === 'prism' && entity.tags.includes('prism_mode')) {
-        return true;
-      }
+    } else if (gameManager.specialActionsManager.isImmune(entity, figure)) {
+      return true;
     }
 
     if (!immune) {
@@ -701,7 +705,7 @@ export class EntityManager {
       }
     }
 
-    if (entityCondition.name === ConditionName.plague && entityCondition.value > 3) {
+    if (entityCondition.name === ConditionName.plague && entityCondition.value > 3 && !gameManager.rpgRules()) {
       entityCondition.value = 3;
     }
 
@@ -975,7 +979,7 @@ export class EntityManager {
     entity.entityConditions.forEach((entityCondition) => {
       if (
         entityCondition.types.includes(ConditionType.expire) &&
-        (!entity.tags.includes('delayed_malady') || !entityCondition.types.includes(ConditionType.negative))
+        !gameManager.specialActionsManager.isConditionSuspended(entity, entityCondition)
       ) {
         if (entityCondition.state === EntityConditionState.expire && !entityCondition.permanent) {
           entityCondition.expired = true;
@@ -1097,15 +1101,7 @@ export class EntityManager {
           entityCondition.lastState = entityCondition.state;
           entityCondition.state = EntityConditionState.turn;
           if (entityCondition.name === ConditionName.wound || entityCondition.name === ConditionName.wound_x) {
-            entity.health = entity.health - entityCondition.value;
-
-            if (
-              figure instanceof Monster &&
-              !figure.isAlly &&
-              gameManager.characterManager.getActiveCharacters().find((c) => c.tags.includes('call-of-the-grave'))
-            ) {
-              entity.health = entity.health - 1;
-            }
+            entity.health = entity.health - entityCondition.value - gameManager.specialActionsManager.woundBonus(figure);
 
             if (
               entity instanceof Character &&
@@ -1175,14 +1171,7 @@ export class EntityManager {
           entityCondition.lastState = entityCondition.state;
           entityCondition.state = EntityConditionState.normal;
           if (entityCondition.name === ConditionName.wound || entityCondition.name === ConditionName.wound_x) {
-            entity.health = entity.health + entityCondition.value;
-            if (
-              figure instanceof Monster &&
-              !figure.isAlly &&
-              gameManager.characterManager.getActiveCharacters().find((c) => c.tags.includes('call-of-the-grave'))
-            ) {
-              entity.health = entity.health + 1;
-            }
+            entity.health = entity.health + entityCondition.value + gameManager.specialActionsManager.woundBonus(figure);
             this.checkHealth(entity, figure);
           }
         }

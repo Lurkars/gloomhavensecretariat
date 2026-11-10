@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { fullLootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -17,8 +16,17 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from 'src/app/game/model/Scenario';
 
+export interface PendingWeekSection {
+  week: number;
+  index: string;
+  edition: string;
+  group: string | undefined;
+}
+
 export class ScenarioManager {
   game: Game;
+  // calendar sections of passed weeks waiting to be resolved by the UI (not persisted)
+  pendingWeekSections: PendingWeekSection[] = [];
 
   constructor(game: Game) {
     this.game = game;
@@ -74,6 +82,119 @@ export class ScenarioManager {
     gameManager.stateManager.standeeDialogCanceled = false;
   }
 
+  // apply the rewards gained by each present character (gold, experience, perks, battle goals, resources)
+  applyCharacterRewards(rewards: ScenarioRewards, restart: boolean = false, linked: boolean = false) {
+    if (!settingsManager.settings.characterSheet || !settingsManager.settings.scenarioRewards) {
+      return;
+    }
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character && !figure.absent) {
+        if (rewards.experience) {
+          gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linked);
+        }
+
+        if (rewards.gold) {
+          figure.progress.gold += rewards.gold;
+          if (rewards.gold > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.gold, undefined, rewards.gold);
+          }
+        }
+
+        if (rewards.perks) {
+          figure.progress.extraPerks += rewards.perks;
+          if (figure.progress.extraPerks < 0) {
+            figure.progress.extraPerks = 0;
+          }
+        }
+
+        if (rewards.battleGoals) {
+          figure.progress.battleGoals += rewards.battleGoals;
+          if (figure.progress.battleGoals > 18) {
+            figure.progress.battleGoals = 18;
+          } else if (figure.progress.battleGoals < 0) {
+            figure.progress.battleGoals = 0;
+          }
+          if (rewards.battleGoals > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              figure,
+              PersonalQuestAutotrackType.battleGoals,
+              undefined,
+              rewards.battleGoals
+            );
+          }
+        }
+
+        if (rewards.resources) {
+          rewards.resources.forEach((item) => {
+            figure.progress.loot[item.type] = (figure.progress.loot[item.type] || 0) + EntityValueFunction(item.value);
+
+            if ((figure.progress.loot[item.type] || 0) < 0) {
+              figure.progress.loot[item.type] = 0;
+            }
+          });
+        }
+      }
+    });
+  }
+
+  // all sections of the calendar for the given week (fixed campaign sections and sections added to the party calendar)
+  weekSections(week: number, edition: string): string[] {
+    const editionData = gameManager.editionData.find((editionData) => editionData.edition === edition);
+    const sections: string[] = [];
+    if (editionData && editionData.campaign && editionData.campaign.weeks) {
+      sections.push(...(editionData.campaign.weeks[week] || []));
+    }
+    sections.push(...(this.game.party.weekSections[week] || []));
+    return sections;
+  }
+
+  // conclusion data of a calendar section, if available
+  weekSectionConclusion(section: string, edition: string, group: string | undefined = undefined): ScenarioData | undefined {
+    return gameManager
+      .sectionData(edition)
+      .find(
+        (sectionData) =>
+          sectionData.index === section && (sectionData.group || undefined) === (group || undefined) && sectionData.conclusion
+      );
+  }
+
+  /**
+   * resolve all calendar sections of the given week: either apply conclusions automatically or
+   * add the sections to pendingWeekSections for the UI to open the corresponding dialogs
+   */
+  passWeekSections(week: number, edition: string, group: string | undefined = undefined, gainRewards: boolean = true) {
+    this.weekSections(week, edition).forEach((section) => {
+      const sectionData = this.weekSectionConclusion(section, edition, group);
+      if (
+        sectionData &&
+        !sectionData.repeatable &&
+        this.game.party.conclusions.some(
+          (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
+        )
+      ) {
+        return;
+      }
+
+      if (settingsManager.settings.automaticWeekSections) {
+        if (sectionData) {
+          const conclusion = new Scenario(sectionData);
+          // collective resources of automatically resolved week sections cannot be distributed, add them to the Frosthaven supply
+          if (gainRewards && sectionData.rewards && sectionData.rewards.collectiveResources) {
+            sectionData.rewards.collectiveResources.forEach((resource) => {
+              const value = EntityValueFunction(resource.value);
+              this.game.party.loot[resource.type] = Math.max(0, (this.game.party.loot[resource.type] || 0) + value);
+            });
+          }
+          this.finishScenario(conclusion, true, conclusion, false, undefined, false, gainRewards, true);
+        }
+      } else if (
+        !this.pendingWeekSections.some((pending) => pending.index === section && pending.edition === edition && pending.group === group)
+      ) {
+        this.pendingWeekSections.push({ week, index: section, edition, group });
+      }
+    });
+  }
+
   finishScenario(
     scenario: Scenario | undefined,
     success: boolean = true,
@@ -96,10 +217,12 @@ export class ScenarioManager {
       }
 
       if (!internal && characterProgress && settingsManager.settings.scenarioStats) {
+        const timestamp = Date.now();
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {
             figure.progress.scenarioStats = figure.progress.scenarioStats || [];
             gameManager.scenarioStatsManager.applyScenarioStats(figure, scenario, success);
+            figure.scenarioStats.timestamp = timestamp;
             figure.progress.scenarioStats.push(figure.scenarioStats);
           }
         });
@@ -156,60 +279,8 @@ export class ScenarioManager {
             });
           }
 
-          if (!internal && settingsManager.settings.characterSheet) {
-            this.game.figures.forEach((figure) => {
-              if (rewards && figure instanceof Character && !figure.absent && settingsManager.settings.scenarioRewards) {
-                if (rewards.experience) {
-                  gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linked);
-                }
-
-                if (rewards.gold) {
-                  figure.progress.gold += rewards.gold;
-                  if (rewards.gold > 0) {
-                    gameManager.personalQuestManager.trackPersonalQuestProgress(
-                      figure,
-                      PersonalQuestAutotrackType.gold,
-                      undefined,
-                      rewards.gold
-                    );
-                  }
-                }
-
-                if (rewards.perks) {
-                  figure.progress.extraPerks += rewards.perks;
-                  if (figure.progress.extraPerks < 0) {
-                    figure.progress.extraPerks = 0;
-                  }
-                }
-
-                if (rewards.battleGoals) {
-                  figure.progress.battleGoals += rewards.battleGoals;
-                  if (figure.progress.battleGoals > 18) {
-                    figure.progress.battleGoals = 18;
-                  } else if (figure.progress.battleGoals < 0) {
-                    figure.progress.battleGoals = 0;
-                  }
-                  if (rewards.battleGoals > 0) {
-                    gameManager.personalQuestManager.trackPersonalQuestProgress(
-                      figure,
-                      PersonalQuestAutotrackType.battleGoals,
-                      undefined,
-                      rewards.battleGoals
-                    );
-                  }
-                }
-
-                if (rewards.resources) {
-                  rewards.resources.forEach((item) => {
-                    figure.progress.loot[item.type] = (figure.progress.loot[item.type] || 0) + EntityValueFunction(item.value);
-
-                    if ((figure.progress.loot[item.type] || 0) < 0) {
-                      figure.progress.loot[item.type] = 0;
-                    }
-                  });
-                }
-              }
-            });
+          if (!internal) {
+            this.applyCharacterRewards(rewards, restart, linked);
           }
 
           // always add achievements/stickers for scenario unlock
@@ -393,10 +464,18 @@ export class ScenarioManager {
 
             if (rewards.events && settingsManager.settings.events) {
               rewards.events.forEach((event) => {
-                if (event.split(':').length > 1) {
-                  gameManager.eventCardManager.addEvent(event.split(':')[0], event.split(':')[1], true);
-                }
+                gameManager.eventCardManager.addEventReward(event, scenario.edition, true);
               });
+            }
+
+            if (rewards.returnEvents && settingsManager.settings.events) {
+              rewards.returnEvents.forEach((event) => {
+                gameManager.eventCardManager.returnEventReward(event, scenario.edition);
+              });
+            }
+
+            if (rewards.soldiers) {
+              gameManager.buildingsManager.addSoldiers(rewards.soldiers);
             }
 
             if (rewards.removeEvents && settingsManager.settings.events) {
@@ -530,23 +609,7 @@ export class ScenarioManager {
 
           gameManager.buildingsManager.nextWeek();
 
-          const editionData = gameManager.editionData.find((editionData) => editionData.edition === scenario.edition);
-          const weekSections: string[] = [];
-          if (editionData && editionData.campaign) {
-            weekSections.push(...((editionData.campaign.weeks && editionData.campaign.weeks[this.game.party.weeks]) || []));
-          }
-
-          weekSections.push(...(this.game.party.weekSections[this.game.party.weeks] || []));
-
-          weekSections.forEach((section) => {
-            const sectionData = gameManager
-              .sectionData(scenario.edition)
-              .find((sectionData) => sectionData.index === section && sectionData.group === scenario.group && sectionData.conclusion);
-            if (sectionData) {
-              const conclusion = new Scenario(sectionData);
-              this.finishScenario(conclusion, true, conclusion, false, undefined, false, gainRewards, true);
-            }
-          });
+          this.passWeekSections(this.game.party.weeks, scenario.edition, scenario.group, gainRewards);
         }
 
         if (success && !scenario.hideIndex && (!gameManager.game.party.campaignMode || (!gainRewards && !conclusionSection))) {
@@ -620,9 +683,10 @@ export class ScenarioManager {
     ) {
       this.applyScenarioData(section, true);
       if (settingsManager.settings.scenarioRules && section.rules) {
+        const roundStart = this.game.state === GameState.draw;
         section.rules.forEach((rule, index) => {
-          if (!rule.alwaysApply || !settingsManager.settings.scenarioRulesAutoapply) {
-            gameManager.scenarioRulesManager.addScenarioRule(section, rule, index, true);
+          if ((!rule.alwaysApply || !settingsManager.settings.scenarioRulesAutoapply) && (!rule.start || rule.always || roundStart)) {
+            gameManager.scenarioRulesManager.addScenarioRule(section, rule, index, true, roundStart);
           }
         });
 
@@ -959,21 +1023,7 @@ export class ScenarioManager {
         });
       }
 
-      if (
-        this.game.figures.find(
-          (figure) => figure instanceof Character && !figure.absent && figure.name === 'snowflake' && figure.tags.includes('muddle-monster')
-        )
-      ) {
-        this.game.figures.forEach((figure) => {
-          if (figure instanceof Monster && !figure.isAlly) {
-            figure.entities.forEach((entity) => {
-              if (entities.includes(entity) && !gameManager.entityManager.isImmune(entity, figure, ConditionName.muddle)) {
-                gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.muddle));
-              }
-            });
-          }
-        });
-      }
+      gameManager.specialActionsManager.revealMonsterEntities(entities);
     }
 
     if (roomData.objectives) {
@@ -1233,6 +1283,29 @@ export class ScenarioManager {
     );
   }
 
+  // whether any present character has the given trait (or class, e.g. 'human')
+  hasTrait(trait: string): boolean {
+    trait = trait.toLowerCase();
+    return this.game.figures.some(
+      (figure) =>
+        figure instanceof Character &&
+        !figure.absent &&
+        (figure.traits.some((value) => value.toLowerCase() === trait) || ('' + figure.characterClass).toLowerCase() === trait)
+    );
+  }
+
+  // scenario requirement: scenario is completed, or not completed if prefixed with '!'
+  scenarioRequirementMet(index: string, scenarioData: ScenarioData): boolean {
+    const negate = index.startsWith('!');
+    if (negate) {
+      index = index.substring(1, index.length);
+    }
+    const completed = this.game.party.scenarios.some(
+      (model) => model.index === index && model.edition === scenarioData.edition && model.group === scenarioData.group
+    );
+    return negate ? !completed : completed;
+  }
+
   isLocked(scenarioData: ScenarioData): boolean {
     return (
       (this.game.party.campaignMode &&
@@ -1340,15 +1413,12 @@ export class ScenarioManager {
                   );
                 }
               })) ||
+            (requirement.traits &&
+              requirement.traits.some((trait) =>
+                trait.startsWith('!') ? this.hasTrait(trait.substring(1, trait.length)) : !this.hasTrait(trait)
+              )) ||
             (requirement.scenarios &&
-              requirement.scenarios.every((scenarios) =>
-                scenarios.some(
-                  (index) =>
-                    this.game.party.scenarios.find(
-                      (model) => model.index === index && model.edition === scenarioData.edition && model.group === scenarioData.group
-                    ) === undefined
-                )
-              ))
+              requirement.scenarios.every((scenarios) => scenarios.some((index) => !this.scenarioRequirementMet(index, scenarioData))))
         )) ||
       (scenarioData.solo &&
         !this.game.figures.find(
@@ -1559,23 +1629,33 @@ export class ScenarioManager {
           });
         }
 
+        if (requirement.traits) {
+          requirement.traits.forEach((trait) => {
+            if (trait.startsWith('!')) {
+              trait = trait.substring(1, trait.length);
+              if (all || this.hasTrait(trait)) {
+                missingRequirement.traitsMissing.push(trait);
+                add = true;
+              }
+            } else if (all || !this.hasTrait(trait)) {
+              missingRequirement.traits.push(trait);
+              add = true;
+            }
+          });
+        }
+
         if (requirement.scenarios && requirement.scenarios.length) {
           const missingScenarios: string[][] = [];
           requirement.scenarios.forEach((scenarios, i) => {
+            missingScenarios[i] = [];
             scenarios.forEach((index) => {
-              if (
-                this.game.party.scenarios.find(
-                  (model) => model.index === index && model.edition === scenarioData.edition && model.group === scenarioData.group
-                ) === undefined ||
-                all
-              ) {
-                missingScenarios[i] = missingScenarios[i] || [];
+              if (all || !this.scenarioRequirementMet(index, scenarioData)) {
                 missingScenarios[i].push(index);
               }
             });
           });
 
-          if (all || (missingScenarios.length === scenarioData.requires.length && missingScenarios.every((value) => value.length))) {
+          if (all || missingScenarios.every((value) => value.length)) {
             missingRequirement.scenarios = missingScenarios;
             add = true;
           }

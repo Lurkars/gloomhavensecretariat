@@ -3,7 +3,11 @@
     <div #standee class="standee" [ngClass]="standeeClasses">
       @if (gameManager.isSummon(entity) && gameManager.toSummon(entity).active) {
         <div class="sheet">
-          <ghs-summon-sheet [summon]="gameManager.toSummon(entity)"></ghs-summon-sheet>
+          @if (gameManager.rpgRules()) {
+            <ghs-summon-sheet-rpg [summon]="gameManager.toSummon(entity)"></ghs-summon-sheet-rpg>
+          } @else {
+            <ghs-summon-sheet [summon]="gameManager.toSummon(entity)"></ghs-summon-sheet>
+          }
         </div>
       }
 

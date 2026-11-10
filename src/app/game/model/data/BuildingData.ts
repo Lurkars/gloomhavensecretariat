@@ -71,13 +71,23 @@ export class BuildingTrade {
   receive: LootType[];
   receiveAmount: number;
   max: number;
+  distinct: boolean;
 
-  constructor(building: string, pay: LootType, payAmount: number, receive: LootType[], receiveAmount: number, max: number) {
+  constructor(
+    building: string,
+    pay: LootType,
+    payAmount: number,
+    receive: LootType[],
+    receiveAmount: number,
+    max: number,
+    distinct: boolean = false
+  ) {
     this.building = building;
     this.pay = pay;
     this.payAmount = payAmount;
     this.receive = receive;
     this.receiveAmount = receiveAmount;
     this.max = max;
+    this.distinct = distinct;
   }
 }

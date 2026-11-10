@@ -21,6 +21,9 @@ import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
 
 export const RPG_DEFAULT_SPEED = 1;
 
+/** tag on a dead monster entity: 'killed' or 'killed:<edition>:<character>:[summon]' */
+export const KILLED_TAG = 'killed';
+
 export class MonsterManager {
   game: Game;
 
@@ -733,18 +736,59 @@ export class MonsterManager {
       }
     }
 
-    if (settingsManager.settings.scenarioStats && monsterEntity.dead) {
-      gameManager.scenarioStatsManager.killMonsterEntity(monsterEntity);
-    }
-
+    // fallback for deaths that did not pass monsterEntityKilled (e.g. older saves)
     if (monsterEntity.dead) {
-      const activeFigure = this.game.figures.find((figure) => figure.active);
-      if (activeFigure instanceof Character) {
-        gameManager.personalQuestManager.trackPersonalQuestProgress(activeFigure, PersonalQuestAutotrackType.kill, monster.name);
-        if (monsterEntity.type === MonsterType.elite || monsterEntity.type === MonsterType.boss) {
-          gameManager.personalQuestManager.trackPersonalQuestProgress(activeFigure, PersonalQuestAutotrackType.kill, monsterEntity.type);
-        }
+      this.monsterEntityKilled(monster, monsterEntity);
+    }
+  }
+
+  /**
+   * Credit a kill to the figure acting at the moment of death (scenario stats and personal quests).
+   * The killer is stored as tag, so a later removal does not count again and a revive can revert it.
+   */
+  monsterEntityKilled(monster: Monster, monsterEntity: MonsterEntity) {
+    if (this.killedTag(monsterEntity)) {
+      return;
+    }
+    const killer = gameManager.scenarioStatsManager.activeKiller();
+    monsterEntity.tags.push(
+      killer ? [KILLED_TAG, killer.character.edition, killer.character.name, killer.summon ? 'summon' : ''].join(':') : KILLED_TAG
+    );
+    if (killer) {
+      if (settingsManager.settings.scenarioStats) {
+        gameManager.scenarioStatsManager.killMonsterEntity(monsterEntity, monster, killer);
       }
+      this.trackKillPersonalQuest(killer.character, monster, monsterEntity, 1);
+    }
+  }
+
+  /** revert a credited kill when a dead monster entity is revived */
+  monsterEntityRevived(monster: Monster, monsterEntity: MonsterEntity) {
+    const tag = this.killedTag(monsterEntity);
+    if (!tag) {
+      return;
+    }
+    monsterEntity.tags = monsterEntity.tags.filter((value) => value !== tag);
+    const [, edition, name, summon] = tag.split(':');
+    const character = this.game.figures.find(
+      (figure) => figure instanceof Character && figure.edition === edition && figure.name === name
+    ) as Character | undefined;
+    if (character) {
+      if (settingsManager.settings.scenarioStats) {
+        gameManager.scenarioStatsManager.killMonsterEntity(monsterEntity, monster, { character, summon: summon === 'summon' }, true);
+      }
+      this.trackKillPersonalQuest(character, monster, monsterEntity, -1);
+    }
+  }
+
+  private killedTag(monsterEntity: MonsterEntity): string | undefined {
+    return monsterEntity.tags.find((tag) => tag === KILLED_TAG || tag.startsWith(KILLED_TAG + ':'));
+  }
+
+  private trackKillPersonalQuest(character: Character, monster: Monster, monsterEntity: MonsterEntity, value: number) {
+    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.kill, monster.name, value);
+    if (monsterEntity.type === MonsterType.elite || monsterEntity.type === MonsterType.boss) {
+      gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.kill, monsterEntity.type, value);
     }
   }
 
@@ -1172,6 +1216,7 @@ export class MonsterManager {
         figure.entities.forEach((entity) => (entity.rpgAction = -1));
       }
       figure.ability = speed;
+      figure.abilityVisible = true;
     });
   }
 
@@ -1190,6 +1235,7 @@ export class MonsterManager {
     const eligible = this.rpgActionEntities(monster, action, entities);
     const value = eligible.length && eligible.every((entity) => entity.rpgAction === action) ? -1 : action;
     eligible.forEach((entity) => (entity.rpgAction = value));
+    monster.abilityVisible = true;
   }
 
   drawnAbilities(monster: Monster): number {

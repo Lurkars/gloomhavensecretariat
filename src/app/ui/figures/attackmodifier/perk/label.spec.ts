@@ -36,6 +36,20 @@ describe('PerkLabelComponent', () => {
       expect(html).toContain('+3');
     });
 
+    it('renders the rpg attribute value', () => {
+      const component = createComponent(new Perk());
+      const attackModifier = new AttackModifier(AttackModifierType.plus0);
+      attackModifier.attribute = 4;
+      const html = component.attackModifierHtml(attackModifier);
+      expect(html).toContain('<span class="attack-modifier-attribute">4</span>');
+    });
+
+    it('renders no attribute value for regular modifiers', () => {
+      const component = createComponent(new Perk());
+      const html = component.attackModifierHtml(new AttackModifier(AttackModifierType.plus0));
+      expect(html).not.toContain('attack-modifier-attribute');
+    });
+
     it('renders a minus value icon', () => {
       const component = createComponent(new Perk());
       const html = component.attackModifierHtml(new AttackModifier(AttackModifierType.minus, 2, AttackModifierValueType.minus));

@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -14,16 +15,9 @@ export class CharacterTokenValueCommand extends CommandImpl {
   }
 
   newValue(character: Character, index: number, value: number): number {
-    let tokenValue = Math.max(0, character.tokenValues[index] + value);
-    if (
-      character.name === 'blinkblade' &&
-      character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) &&
-      index === 0 &&
-      tokenValue > 5
-    ) {
-      tokenValue = 5;
-    }
-    return tokenValue;
+    const tokenValue = Math.max(0, character.tokenValues[index] + value);
+    const maxTokenValue = gameManager.specialActionsManager.maxTokenValue(character, index);
+    return maxTokenValue !== undefined ? Math.min(tokenValue, maxTokenValue) : tokenValue;
   }
 
   executeWithParameters(number: number, index: number, value: number) {

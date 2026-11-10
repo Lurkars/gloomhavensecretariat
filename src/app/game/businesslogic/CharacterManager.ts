@@ -324,9 +324,7 @@ export class CharacterManager {
       character.maxHealth += 5;
     }
 
-    if (character.name === 'astral' && character.tags.includes('veil-of-protection')) {
-      character.maxHealth += 3;
-    }
+    character.maxHealth += gameManager.specialActionsManager.maxHealthBonus(character);
 
     if (character.progress.equippedItems.find((identifier) => identifier.edition === 'fh' && identifier.name === '3')) {
       character.maxHealth += 1;

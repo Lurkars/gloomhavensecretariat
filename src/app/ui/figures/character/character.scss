@@ -843,6 +843,43 @@
       z-index: 2;
     }
 
+    &.rpg-attributes {
+      margin-left: calc(var(--ghs-unit) * 16.5);
+      transform: translateX(-50%);
+      width: auto;
+      padding: 0 calc(var(--ghs-unit) * 3.5);
+      justify-content: center;
+      gap: calc(var(--ghs-unit) * 0.6);
+
+      &::before,
+      &::after {
+        mask-image: none;
+      }
+
+      &::before {
+        clip-path: polygon(0 0, 100% 0, calc(100% - var(--ghs-unit) * 2.31) 100%, calc(var(--ghs-unit) * 2.31) 100%);
+      }
+
+      &::after {
+        clip-path: polygon(
+          calc(var(--ghs-unit) * 0.2) 0,
+          calc(100% - var(--ghs-unit) * 0.2) 0,
+          calc(100% - var(--ghs-unit) * 2.44) 92%,
+          calc(var(--ghs-unit) * 2.44) 92%
+        );
+      }
+
+      .trait,
+      .divider {
+        font-family: var(--ghs-font-fh-title);
+        font-size: calc(var(--ghs-unit) * 1.9);
+      }
+
+      .trait {
+        white-space: nowrap;
+      }
+    }
+
     .icon {
       position: absolute;
       display: flex;

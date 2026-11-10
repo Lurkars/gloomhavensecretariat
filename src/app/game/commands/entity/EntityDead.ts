@@ -26,6 +26,9 @@ export class EntityDeadCommand extends CommandImpl {
       entities.forEach((entity) => {
         if (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) {
           entity.dead = true;
+          if (entity instanceof MonsterEntity && figure instanceof Monster) {
+            gameManager.monsterManager.monsterEntityKilled(figure, entity);
+          }
         }
       });
 

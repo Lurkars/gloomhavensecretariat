@@ -946,9 +946,10 @@ export class SettingsManager {
           this.set('theme', 'default');
         }
       }
-      if (edition === 'fh' || edition === 'gh2e') {
+      const fhStyleEditions = ['fh', 'gh2e', 'rpg'];
+      if (fhStyleEditions.includes(edition)) {
         this.set('fhStyle', true);
-      } else if ((previousEdition === 'fh' || previousEdition === 'gh2e') && edition !== 'fh' && edition !== 'gh2e') {
+      } else if (previousEdition && fhStyleEditions.includes(previousEdition)) {
         this.set('fhStyle', false);
       }
     }

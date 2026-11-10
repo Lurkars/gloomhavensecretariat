@@ -1,0 +1,13 @@
+{
+  "index": "178.1",
+  "name": "Mysterious Crate",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "unlocks": [
+    "127"
+  ],
+  "forcedLinks": [
+    "127"
+  ]
+}

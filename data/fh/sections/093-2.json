@@ -1,0 +1,21 @@
+{
+  "index": "93.2",
+  "name": "Vermling Siege",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "5.1"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.fh.093-2%",
+    "collectiveResources": [
+      {
+        "type": "hide",
+        "value": 4
+      }
+    ]
+  }
+}

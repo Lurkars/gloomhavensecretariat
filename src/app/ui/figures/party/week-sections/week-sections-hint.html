@@ -1,0 +1,14 @@
+<div class="week-sections-hint">
+  <div class="title">
+    <img class="ghs-svg" src="./assets/images/fh/party/section.svg" />
+    <span [ghs-label]="'party.campaign.sheet.weekSections.readHint.title'"></span>
+  </div>
+  <div class="sections">
+    @for (section of sections; track section) {
+      <span class="section" [ghs-label]="'party.campaign.sheet.weekSections.readHint'" [ghs-label-args]="[section]"></span>
+    }
+  </div>
+  <div class="menu">
+    <a class="confirm" (click)="close()"><span [ghs-label]="'close'"></span></a>
+  </div>
+</div>

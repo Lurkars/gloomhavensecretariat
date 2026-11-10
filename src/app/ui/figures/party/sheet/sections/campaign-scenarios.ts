@@ -2,7 +2,6 @@ import { NgClass } from '@angular/common';
 import { Component, output } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Party } from 'src/app/game/model/Party';
 import { Scenario, ScenarioCache } from 'src/app/game/model/Scenario';
@@ -309,18 +308,7 @@ export class PartyCampaignScenariosComponent extends PartySheetSection {
     }
   }
   hasStatistics(scenarioData: ScenarioData | undefined = undefined): boolean {
-    return gameManager.game.figures.some(
-      (figure) =>
-        figure instanceof Character &&
-        figure.progress.scenarioStats.some(
-          (value) =>
-            !!scenarioData &&
-            value.scenario &&
-            value.scenario.index === scenarioData.index &&
-            value.scenario.edition === scenarioData.edition &&
-            value.scenario.group === scenarioData.group
-        )
-    );
+    return !!scenarioData && gameManager.scenarioStatsManager.hasScenarioStats(scenarioData);
   }
   statistics(scenarioData: ScenarioData | undefined = undefined) {
     this.dialog.open(StatisticsDialogComponent, {

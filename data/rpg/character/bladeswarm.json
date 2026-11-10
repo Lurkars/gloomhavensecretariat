@@ -1,10 +1,17 @@
 {
   "name": "bladeswarm",
   "icon": "gh-envx",
-  "thumbnail": "gh2e-crossed-swords",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#cb9070",
+  "specialActions": [
+    {
+      "name": "call-of-the-grave",
+      "expire": true,
+      "level": 1
+    }
+  ],
   "stats": [
     {
       "level": 1,
@@ -41,6 +48,137 @@
     {
       "level": 9,
       "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "angry-wasps",
+      "level": 1,
+      "health": 5,
+      "flying": true,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.angry-wasps-primary%"
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 4
+      }
+    },
+    {
+      "name": "soul-leeches",
+      "level": 1,
+      "health": 6,
+      "action": {
+        "type": "attack",
+        "value": 0
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      },
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.soul-leeches-special%"
+      }
+    },
+    {
+      "name": "steel-scarabs",
+      "level": 1,
+      "health": 6,
+      "action": {
+        "type": "attack",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 2
+      },
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.steel-scarabs-special%"
+      }
+    },
+    {
+      "name": "creeping-beetles",
+      "level": 1,
+      "health": 7,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.creeping-beetles-primary%"
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 2
+      }
+    },
+    {
+      "name": "bloat-maggots",
+      "level": 4,
+      "health": 3,
+      "count": 3,
+      "action": {
+        "type": "attack",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      },
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.bloat-maggots-special%"
+      }
+    },
+    {
+      "name": "lightning-moths",
+      "level": 6,
+      "health": 4,
+      "flying": true,
+      "count": 2,
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      },
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.lightning-moths-special%"
+      }
+    },
+    {
+      "name": "rage-hornet",
+      "level": 8,
+      "health": 8,
+      "flying": true,
+      "action": {
+        "type": "attack",
+        "value": 3
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      },
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.rage-hornet-special%"
+      }
+    },
+    {
+      "name": "rust-vermin",
+      "level": 9,
+      "health": 12,
+      "action": {
+        "type": "attack",
+        "value": 3
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 4
+      },
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.bladeswarm.rust-vermin-special%"
+      }
     }
   ],
   "perks": [

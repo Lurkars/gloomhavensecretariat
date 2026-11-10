@@ -1,0 +1,10 @@
+{
+  "index": "68.1",
+  "name": "Xain's Gambit",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "collectiveGold": 50
+  }
+}

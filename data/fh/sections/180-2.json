@@ -1,0 +1,18 @@
+{
+  "index": "180.2",
+  "name": "Accuse Cecil",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "88.2"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "prosperity": 1,
+    "items": [
+      "240"
+    ]
+  }
+}

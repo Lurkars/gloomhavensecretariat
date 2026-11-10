@@ -56,6 +56,7 @@ export class Settings {
   automaticStandeesDialog: boolean = false;
   automaticTheme: boolean = true;
   automaticUnlocking: boolean = true;
+  automaticWeekSections: boolean = true;
   autoscroll: boolean = true;
   barsize: number = 1;
   backupHint: boolean = true;

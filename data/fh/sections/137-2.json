@@ -1,0 +1,11 @@
+{
+  "index": "137.2",
+  "name": "End of the Calendar",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "prosperity": 1,
+    "custom": "%data.section.rewards.fh.137-2%"
+  }
+}

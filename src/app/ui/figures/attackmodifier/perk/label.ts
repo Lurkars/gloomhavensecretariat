@@ -103,6 +103,7 @@ export class PerkLabelComponent implements OnInit {
 
   attackModifierHtml(attackModifier: AttackModifier): string {
     let html = '';
+    const attribute = attackModifier.attribute;
     attackModifier = new AttackModifier(
       attackModifier.type,
       attackModifier.value,
@@ -133,6 +134,10 @@ export class PerkLabelComponent implements OnInit {
       } else {
         html += '<span class="attack-modifier-icon' + (attackModifier.value > 9 ? ' small' : '') + '">+' + attackModifier.value + '</span>';
       }
+    }
+
+    if (attribute) {
+      html += '<span class="attack-modifier-attribute">' + attribute + '</span>';
     }
 
     if (attackModifier.effects) {

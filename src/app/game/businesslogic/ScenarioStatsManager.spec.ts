@@ -1,5 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
+import { ScenarioStats } from 'src/app/game/model/CharacterProgress';
 import { CharacterClass, CharacterData, CharacterGender } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Loot, LootDeck, LootType } from 'src/app/game/model/data/Loot';
@@ -9,7 +10,7 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { Scenario } from 'src/app/game/model/Scenario';
+import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 
 function buildCharacter(name: string = 'test-char'): Character {
@@ -79,28 +80,12 @@ describe('ScenarioStatsManager', () => {
       expect(target.scenarioStats.monsterDamage).toBe(0);
     });
 
-    it('increments exhausts when the caller reports the entity was alive before this hit', () => {
-      // applyDamage() is called *after* the health field has already been updated (and clamped to
-      // exactly 0 by checkHealth()) elsewhere, so it can no longer tell from health alone whether
-      // this specific hit was the one that brought the entity down. The caller (changeHealth())
-      // captures that pre-hit state itself and passes it in as `wasAlive`.
-      const target = buildCharacter('target');
-      target.health = 0; // post-hit health, as checkHealth() would leave it
-      gameManager.game.figures = [target];
-
-      scenarioStatsManager.applyDamage(target, target, 5, true);
-
-      expect(target.scenarioStats.exhausts).toBe(1);
-    });
-
-    it('does not increment exhausts when the caller reports the entity was already down before this hit', () => {
-      // Without `wasAlive`, repeat hits on an already-exhausted character (health pinned at 0 by
-      // checkHealth()) would each look like a fresh knockout and keep incrementing exhausts.
+    it('does not track exhausts itself (exhausts are tracked on state transitions)', () => {
       const target = buildCharacter('target');
       target.health = 0;
       gameManager.game.figures = [target];
 
-      scenarioStatsManager.applyDamage(target, target, 5, false);
+      scenarioStatsManager.applyDamage(target, target, 5);
 
       expect(target.scenarioStats.exhausts).toBe(0);
     });
@@ -128,30 +113,6 @@ describe('ScenarioStatsManager', () => {
       scenarioStatsManager.applyDamage(summon, owner, 4);
 
       expect(owner.scenarioStats.summons.otherDamage).toBe(4);
-    });
-
-    it('increments summons.exhausts when the caller reports the summon was alive before this hit', () => {
-      const owner = buildCharacter('owner');
-      const summon = buildSummon();
-      summon.health = 0; // post-hit health, as checkHealth() would leave it
-      owner.summons = [summon];
-      gameManager.game.figures = [owner];
-
-      scenarioStatsManager.applyDamage(summon, owner, 5, true);
-
-      expect(owner.scenarioStats.summons.exhausts).toBe(1);
-    });
-
-    it('does not increment summons.exhausts when the caller reports the summon was already dead before this hit', () => {
-      const owner = buildCharacter('owner');
-      const summon = buildSummon();
-      summon.health = 0;
-      owner.summons = [summon];
-      gameManager.game.figures = [owner];
-
-      scenarioStatsManager.applyDamage(summon, owner, 5, false);
-
-      expect(owner.scenarioStats.summons.exhausts).toBe(0);
     });
 
     it('tracks damage dealt BY an active character to a monster as dealtDamage', () => {
@@ -244,7 +205,95 @@ describe('ScenarioStatsManager', () => {
     });
   });
 
+  describe('hasScenarioStats', () => {
+    afterEach(() => {
+      gameManager.game.party.retirements = [];
+      gameManager.game.party.availableCharacters = [];
+    });
+
+    function withStats(index: string): Character {
+      const character = buildCharacter('c' + index);
+      character.progress.scenarioStats = [Object.assign(new ScenarioStats(), { scenario: new GameScenarioModel(index, 'gh') })];
+      return character;
+    }
+
+    it('finds stats of active, available and retired characters', () => {
+      gameManager.game.figures = [withStats('1')];
+      gameManager.game.party.availableCharacters = [withStats('2').toModel()];
+      gameManager.game.party.retirements = [withStats('3').toModel()];
+
+      expect(scenarioStatsManager.hasScenarioStats({ index: '1', edition: 'gh' })).toBe(true);
+      expect(scenarioStatsManager.hasScenarioStats({ index: '2', edition: 'gh' })).toBe(true);
+      expect(scenarioStatsManager.hasScenarioStats({ index: '3', edition: 'gh' })).toBe(true);
+      expect(scenarioStatsManager.hasScenarioStats({ index: '4', edition: 'gh' })).toBe(false);
+      expect(scenarioStatsManager.hasScenarioStats({ index: '1', edition: 'fh' })).toBe(false);
+    });
+  });
+
+  describe('changeExhausts', () => {
+    it('increments and reverts exhausts of a character', () => {
+      const character = buildCharacter();
+
+      scenarioStatsManager.changeExhausts(character, character, true);
+      expect(character.scenarioStats.exhausts).toBe(1);
+
+      scenarioStatsManager.changeExhausts(character, character, false);
+      expect(character.scenarioStats.exhausts).toBe(0);
+    });
+
+    it('never goes below 0', () => {
+      const character = buildCharacter();
+
+      scenarioStatsManager.changeExhausts(character, character, false);
+
+      expect(character.scenarioStats.exhausts).toBe(0);
+    });
+
+    it('tracks summon deaths under the owning character summons stats', () => {
+      const owner = buildCharacter('owner');
+      const summon = buildSummon();
+      owner.summons = [summon];
+
+      scenarioStatsManager.changeExhausts(summon, owner, true);
+
+      expect(owner.scenarioStats.summons.exhausts).toBe(1);
+      expect(owner.scenarioStats.exhausts).toBe(0);
+    });
+  });
+
   describe('killMonsterEntity', () => {
+    it('does not count kills of ally or allied monsters', () => {
+      const character = buildCharacter('attacker');
+      character.active = true;
+      const ally = buildMonster('ally');
+      ally.isAlly = true;
+      const allied = buildMonster('allied');
+      allied.isAllied = true;
+      const allyEntity = buildMonsterEntity(ally);
+      allyEntity.dead = true;
+      const alliedEntity = buildMonsterEntity(allied);
+      alliedEntity.dead = true;
+      gameManager.game.figures = [character, ally, allied];
+
+      scenarioStatsManager.killMonsterEntity(allyEntity, ally);
+      scenarioStatsManager.killMonsterEntity(alliedEntity, allied);
+
+      expect(character.scenarioStats.normalKills).toBe(0);
+    });
+
+    it('counts kills of enemy monsters when the monster is passed', () => {
+      const character = buildCharacter('attacker');
+      character.active = true;
+      const monster = buildMonster();
+      const entity = buildMonsterEntity(monster);
+      entity.dead = true;
+      gameManager.game.figures = [character, monster];
+
+      scenarioStatsManager.killMonsterEntity(entity, monster);
+
+      expect(character.scenarioStats.normalKills).toBe(1);
+    });
+
     it('increments normalKills for the active character on a dead normal monster entity', () => {
       const character = buildCharacter('attacker');
       character.active = true;
@@ -300,6 +349,23 @@ describe('ScenarioStatsManager', () => {
       scenarioStatsManager.killMonsterEntity(entity);
 
       expect(character.scenarioStats.summons.normalKills).toBe(1);
+      expect(character.scenarioStats.normalKills).toBe(0);
+    });
+
+    it('credits an explicit killer and reverts without going below 0', () => {
+      const character = buildCharacter('attacker');
+      const monster = buildMonster();
+      const entity = buildMonsterEntity(monster);
+      entity.dead = true;
+      gameManager.game.figures = [character, monster];
+      const killer = { character, summon: false };
+
+      scenarioStatsManager.killMonsterEntity(entity, monster, killer);
+      expect(character.scenarioStats.normalKills).toBe(1);
+
+      entity.dead = false;
+      scenarioStatsManager.killMonsterEntity(entity, monster, killer, true);
+      scenarioStatsManager.killMonsterEntity(entity, monster, killer, true);
       expect(character.scenarioStats.normalKills).toBe(0);
     });
 

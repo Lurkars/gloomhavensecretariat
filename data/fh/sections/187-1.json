@@ -1,0 +1,20 @@
+{
+  "index": "187.1",
+  "name": "All Trials Complete",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "envelopes": [
+      "A"
+    ],
+    "hints": {
+      "envelopes": [
+        "%data.section.rewards.fh.187-1%"
+      ]
+    },
+    "removeEvents": [
+      "summer-road:SR-51"
+    ]
+  }
+}

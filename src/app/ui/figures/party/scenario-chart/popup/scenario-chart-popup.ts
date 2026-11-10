@@ -3,6 +3,7 @@ import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { ScenarioRequirementsComponent, ScenarioRequirementsDialogComponent } from 'src/app/ui/figures/party/requirements/requirements';
@@ -40,6 +41,7 @@ export class ScenarioChartPopupDialog {
   gameManager: GameManager = gameManager;
   scenario: Scenario;
   isSuccess: boolean = false;
+  hasStatistics: boolean = false;
   isBlocked: boolean = false;
   isLocked: boolean = false;
   showSetup: boolean = false;
@@ -65,6 +67,7 @@ export class ScenarioChartPopupDialog {
 
   update() {
     this.isSuccess = gameManager.scenarioManager.isSuccess(this.scenario);
+    this.hasStatistics = settingsManager.settings.scenarioStats && gameManager.scenarioStatsManager.hasScenarioStats(this.scenario);
     this.isBlocked = gameManager.scenarioManager.isBlocked(this.scenario);
     this.isLocked = gameManager.scenarioManager.isLocked(this.scenario);
     this.showSetup = this.isSuccess;

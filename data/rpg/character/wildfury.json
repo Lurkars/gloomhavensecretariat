@@ -1,7 +1,7 @@
 {
   "name": "wildfury",
   "icon": "gh-two-mini",
-  "thumbnail": "gh2e-two-mini",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#ca9789",
@@ -46,9 +46,38 @@
   "availableSummons": [
     {
       "name": "companion",
+      "level": 1,
       "health": "8+Lx2",
-      "attack": 2,
-      "movement": 3
+      "action": {
+        "type": "attack",
+        "value": 2
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      },
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.wildfury.companion-special%"
+      }
+    },
+    {
+      "name": "wind-idol",
+      "level": 7,
+      "health": 1,
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.wildfury.wind-idol-special%"
+      }
+    },
+    {
+      "name": "monolith",
+      "level": 7,
+      "health": 2,
+      "specialAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.wildfury.monolith-special%"
+      }
     }
   ],
   "perks": [

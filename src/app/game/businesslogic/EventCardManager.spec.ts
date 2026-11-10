@@ -84,6 +84,43 @@ describe('EventCardManager', () => {
     });
   });
 
+  describe('event rewards', () => {
+    beforeEach(() => {
+      gameManager.editionData[0].events.push(
+        new EventCard('3', 'gh', 'city', '', '', []),
+        new EventCard('4', 'gh', 'city', '', '', []),
+        new EventCard('1', 'gh', 'road', '', '', [])
+      );
+    });
+
+    it('expands a single card reward', () => {
+      expect(eventCardManager.eventRewardCardIds('city:2', 'gh')).toEqual({ type: 'city', cardIds: ['2'] });
+    });
+
+    it('expands a range of cards of the given type', () => {
+      expect(eventCardManager.eventRewardCardIds('city:2|4', 'gh')).toEqual({ type: 'city', cardIds: ['2', '3', '4'] });
+    });
+
+    it('expands an unknown range to no cards and ignores invalid rewards', () => {
+      expect(eventCardManager.eventRewardCardIds('city:2|9', 'gh')).toEqual({ type: 'city', cardIds: [] });
+      expect(eventCardManager.eventRewardCardIds('city', 'gh')).toBeUndefined();
+    });
+
+    it('returns already drawn cards of a reward to the deck', () => {
+      gameManager.game.party.eventCards = [{ type: 'city', cardId: '2', edition: 'gh' } as any];
+      eventCardManager.addEventReward('city:2', 'gh', true);
+      expect(gameManager.game.party.eventDecks['city']).toEqual([]);
+      eventCardManager.returnEventReward('city:2', 'gh');
+      expect(gameManager.game.party.eventDecks['city']).toEqual(['2']);
+    });
+
+    it('adds all cards of a range reward to the deck', () => {
+      eventCardManager.addEventReward('city:1|3', 'gh');
+      expect((gameManager.game.party.eventDecks['city'] || []).sort()).toEqual(['1', '2', '3']);
+      expect(gameManager.game.party.eventDecks['road']).toBeUndefined();
+    });
+  });
+
   describe('applicableEffect', () => {
     it('is true for effect types in EventCardApplyEffects (e.g. gold)', () => {
       expect(eventCardManager.applicableEffect(new EventCardEffect(EventCardEffectType.gold, [5]))).toBe(true);

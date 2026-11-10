@@ -6,7 +6,7 @@ import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
-import { RpgMonsterAction, rpgMonsterActions } from 'src/app/game/model/data/RpgMonsterAction';
+import { RpgMonsterAction } from 'src/app/game/model/data/RpgMonsterAction';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -70,9 +70,9 @@ export class MonsterRpgActionsComponent implements OnInit {
   groups: RpgStandeeGroup[] = [];
   selected: string[] = [];
   current: MonsterEntity | undefined;
-  preview: RpgMonsterAction[] = [];
   actions: RpgActionView[] = [];
   round: boolean = false;
+  hidden: boolean = false;
   popupOpen: boolean = false;
 
   constructor() {
@@ -85,8 +85,10 @@ export class MonsterRpgActionsComponent implements OnInit {
 
   update() {
     this.speeds = gameManager.abilityCards(this.monster);
-    this.speed = this.monster.ability > -1 ? this.monster.abilities[this.monster.ability] : -1;
     this.round = gameManager.game.state === GameState.next;
+    // hide speed chosen by other clients before round start, same as character initiative
+    this.hidden = !this.round && !this.monster.abilityVisible;
+    this.speed = this.monster.ability > -1 && !this.hidden ? this.monster.abilities[this.monster.ability] : -1;
     this.entities = this.monster.entities
       .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new)
       .sort(gameManager.monsterManager.sortEntities);
@@ -111,20 +113,8 @@ export class MonsterRpgActionsComponent implements OnInit {
         ? this.entities.find((entity) => entity.active)
         : undefined;
 
-    this.preview = [];
     this.actions = [];
     if (this.speed === -1) {
-      this.speeds.forEach((abilityCard, speed) => {
-        rpgMonsterActions(abilityCard).forEach((action) => {
-          const existing = this.preview.find((other) => other.label === action.label && other.elite === action.elite);
-          if (existing) {
-            existing.speeds.push(speed);
-          } else {
-            action.speeds.push(speed);
-            this.preview.push(action);
-          }
-        });
-      });
       return;
     }
 
@@ -176,7 +166,7 @@ export class MonsterRpgActionsComponent implements OnInit {
   }
 
   isAssigned(group: RpgStandeeGroup): boolean {
-    return group.entities.every((entity) => entity.rpgAction > -1);
+    return !this.hidden && group.entities.every((entity) => entity.rpgAction > -1);
   }
 
   isCurrent(group: RpgStandeeGroup): boolean {
@@ -215,24 +205,6 @@ export class MonsterRpgActionsComponent implements OnInit {
       gameManager.stateManager.before('setRpgAction', 'data.monster.' + this.monster.name, view.action.label);
       gameManager.monsterManager.setRpgAction(this.monster, view.index, this.actionTargets(view.index));
       this.selected = [];
-      gameManager.stateManager.after();
-    }
-  }
-
-  setPreviewAction(action: RpgMonsterAction) {
-    if (this.round) {
-      return;
-    }
-    if (action.speeds.length === 1) {
-      const speed = action.speeds[0];
-      gameManager.stateManager.before('setRpgAction', 'data.monster.' + this.monster.name, action.label);
-      gameManager.monsterManager.setRpgSpeed(this.monster, speed);
-      const index = rpgMonsterActions(this.speeds[speed]).findIndex(
-        (other) => other.label === action.label && other.elite === action.elite
-      );
-      gameManager.monsterManager.setRpgAction(this.monster, index, this.actionTargets(index));
-      this.selected = [];
-      gameManager.sortFigures();
       gameManager.stateManager.after();
     }
   }

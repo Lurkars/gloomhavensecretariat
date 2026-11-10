@@ -188,7 +188,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
       if (this.character) {
         gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative);
         this.character.initiativeVisible = true;
-        if (this.character.name !== 'prism' || !this.character.tags.includes('long_rest')) {
+        if (!gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
           this.character.longRest = false;
         }
         if (initiative === 99) {

@@ -106,6 +106,36 @@ describe('SettingsManager', () => {
     });
   });
 
+  describe('automaticTheme', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    function fhStyleCalls(edition: string, previousEdition: string | undefined): unknown[] {
+      settingsManager.settings.automaticTheme = true;
+      settingsManager.settings.theme = 'modern';
+      const set = vi.spyOn(settingsManager, 'set').mockResolvedValue();
+      settingsManager.automaticTheme(edition, previousEdition);
+      const calls = set.mock.calls.filter((call) => call[0] === 'fhStyle').map((call) => call[1]);
+      set.mockRestore();
+      return calls;
+    }
+
+    it('enables fh style for fh, gh2e and rpg', () => {
+      expect(fhStyleCalls('fh', 'gh')).toEqual([true]);
+      expect(fhStyleCalls('gh2e', 'gh')).toEqual([true]);
+      expect(fhStyleCalls('rpg', 'gh')).toEqual([true]);
+    });
+
+    it('disables fh style when leaving rpg for a non fh style edition', () => {
+      expect(fhStyleCalls('gh', 'rpg')).toEqual([false]);
+    });
+
+    it('leaves fh style untouched between non fh style editions', () => {
+      expect(fhStyleCalls('jotl', 'gh')).toEqual([]);
+    });
+  });
+
   describe('isObject', () => {
     it('is true for plain objects, false for arrays/null/primitives', () => {
       expect(settingsManager.isObject({})).toBe(true);

@@ -1,0 +1,15 @@
+{
+  "index": "111.1",
+  "name": "Not Sure",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "88.2"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.fh.wrong-accusation%"
+  }
+}

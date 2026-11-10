@@ -22,11 +22,18 @@ export class HealthHelper {
     );
     this.component.entities.forEach((entity) => {
       if (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) {
+        const figure = this.component.figureForEntity(entity);
+        if (entity instanceof Summon && !entity.dead && settingsManager.settings.scenarioStats) {
+          gameManager.scenarioStatsManager.changeExhausts(entity, figure, true);
+        }
         entity.dead = true;
+        if (entity instanceof MonsterEntity && figure instanceof Monster) {
+          gameManager.monsterManager.monsterEntityKilled(figure, entity);
+        }
       } else if (entity instanceof Character) {
         entity.exhausted = !entity.exhausted;
-        if (entity.exhausted && settingsManager.settings.scenarioStats) {
-          entity.scenarioStats.exhausts += 1;
+        if (settingsManager.settings.scenarioStats) {
+          gameManager.scenarioStatsManager.changeExhausts(entity, entity, entity.exhausted);
         }
       }
     });
@@ -78,14 +85,7 @@ export class HealthHelper {
   changeHealth(value: number) {
     this.component.health += value;
     if (!!this.component.entity) {
-      let maxHealth = EntityValueFunction(this.component.entity.maxHealth);
-      if (
-        this.component.entity instanceof Character &&
-        this.component.entity.name === 'lightning' &&
-        this.component.specialTags.includes('unbridled-power')
-      ) {
-        maxHealth = Math.max(maxHealth, 26);
-      }
+      const maxHealth = gameManager.specialActionsManager.maxHealth(this.component.entity, this.component.specialTags);
 
       if (this.component.maxHealth && this.component.entity.health + this.component.health > maxHealth + this.component.maxHealth) {
         this.component.health = maxHealth + this.component.maxHealth - this.component.entity.health;

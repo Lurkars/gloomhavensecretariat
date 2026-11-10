@@ -1,0 +1,10 @@
+{
+  "index": "32.3",
+  "name": "Visiting Trader",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.fh.visiting-trader%"
+  }
+}

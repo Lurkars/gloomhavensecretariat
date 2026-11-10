@@ -21,11 +21,11 @@
         <a [ngClass]="{ rewards: isSuccess }" (click)="openScenarioRewards()" [ghs-tooltip]="'scenario.summary.rewards'">
           <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg" />
         </a>
-        @if (isSuccess) {
-          <a (click)="openStatisticsDialog()" [ghs-tooltip]="'scenario.stats'">
-            <img class="ghs-svg" src="./assets/images/stats.svg" />
-          </a>
-        }
+      }
+      @if (hasStatistics) {
+        <a (click)="openStatisticsDialog()" [ghs-tooltip]="'scenario.stats'">
+          <img class="ghs-svg" src="./assets/images/stats.svg" />
+        </a>
       }
     </span>
   </div>

@@ -1,0 +1,18 @@
+{
+  "index": "107.2",
+  "name": "Tome of Time",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "181.1"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "items": [
+      "217"
+    ],
+    "custom": "%data.section.rewards.fh.107-2%"
+  }
+}

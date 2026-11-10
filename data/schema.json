@@ -116,6 +116,7 @@
                 "summon",
                 "swing",
                 "target",
+                "taunt",
                 "teleport",
                 "trigger"
             ],
@@ -1725,6 +1726,17 @@
                 "reputation": {
                     "default": "",
                     "type": "string"
+                },
+                "returnEvents": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "soldiers": {
+                    "default": "",
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -1826,6 +1838,17 @@
                     "type": "number"
                 },
                 "reputation": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "returnEvents": {
+                    "default": [],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "soldiers": {
                     "default": 0,
                     "type": "number"
                 }
@@ -1949,6 +1972,9 @@
                     "$ref": "#/definitions/Action"
                 },
                 "additionalAction": {
+                    "$ref": "#/definitions/Action"
+                },
+                "specialAction": {
                     "$ref": "#/definitions/Action"
                 },
                 "attack": {

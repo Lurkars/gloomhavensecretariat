@@ -807,7 +807,8 @@
           }
         }
 
-        ghs-summon-sheet {
+        ghs-summon-sheet,
+        ghs-summon-sheet-rpg {
           position: absolute;
           top: 0;
           left: 0;
@@ -860,6 +861,31 @@
     ghs-pointer-input.drag-hp {
       width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
       height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
+    }
+
+    // RPG summon sheet needs more space for primary, secondary and special
+    &:has(.rpg-summon) {
+      .entity {
+        height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
+
+        .summon-standee.rpg-summon {
+          width: calc(var(--ghs-unit) * 34 * var(--ghs-text-factor));
+          height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
+
+          .sheet {
+            height: calc(var(--ghs-unit) * 16 * var(--ghs-text-factor));
+          }
+        }
+      }
+
+      ghs-healthbar {
+        width: calc(var(--ghs-unit) * 33.2 * var(--ghs-text-factor));
+      }
+
+      ghs-pointer-input.drag-hp {
+        width: calc(var(--ghs-unit) * 34 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
+      }
     }
   }
 

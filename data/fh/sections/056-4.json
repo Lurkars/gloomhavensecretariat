@@ -1,0 +1,12 @@
+{
+  "index": "56.4",
+  "name": "Selling the Amulet",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "returnEvents": [
+      "summer-road:SR-52"
+    ]
+  }
+}

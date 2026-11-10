@@ -29,7 +29,9 @@ export class SummonAddCommand extends CommandImpl {
     if (color && Object.values(SummonColor).includes(color as SummonColor)) {
       return color as SummonColor;
     }
-    return gameManager.isEditionRelevant(character.edition, 'fh') ? SummonColor.fh : SummonColor.blue;
+    return gameManager.isEditionRelevant(character.edition, 'fh') || gameManager.attackModifierManager.isRpgCharacter(character)
+      ? SummonColor.fh
+      : SummonColor.blue;
   }
 
   number(character: Character, summonData: SummonData, color: SummonColor, number: BASE_TYPE): number {

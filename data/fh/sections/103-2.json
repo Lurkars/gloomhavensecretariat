@@ -1,0 +1,19 @@
+{
+  "index": "103.2",
+  "name": "Lumber Shipment",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 5
+      },
+      {
+        "type": "metal",
+        "value": 2
+      }
+    ]
+  }
+}

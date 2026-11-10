@@ -2,9 +2,23 @@
   "index": "127.1",
   "name": "Puzzle Solution",
   "edition": "fh",
+  "parentSections": [
+    [
+      "26.5"
+    ]
+  ],
   "conclusion": true,
   "named": true,
   "unlocks": [
     "31"
+  ],
+  "requirements": [
+    {
+      "scenarios": [
+        [
+          "20"
+        ]
+      ]
+    }
   ]
 }

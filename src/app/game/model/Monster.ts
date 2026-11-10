@@ -42,6 +42,7 @@ export class Monster extends MonsterData implements Figure {
 
   // Monster
   ability: number = -1;
+  abilityVisible: boolean = false;
   abilities: number[] = [];
   revealedAbilities: boolean[] = [];
   entities: MonsterEntity[] = [];
@@ -108,7 +109,8 @@ export class Monster extends MonsterData implements Figure {
       this.entities.map((value) => value.toModel()),
       this.isAlly,
       this.isAllied,
-      this.tags
+      this.tags,
+      this.abilityVisible
     );
   }
 
@@ -132,6 +134,14 @@ export class Monster extends MonsterData implements Figure {
       (gameManager.abilityCards(this) && gameManager.abilityCards(this).map((abilityCard, index) => index)) ||
       [];
     this.revealedAbilities = model.revealedAbilities || [];
+    // local only like Character.initiativeVisible: keep visibility while neither speed nor chosen actions changed
+    const rpgActionsChanged = model.entities.some((value) => {
+      const entity = this.entities.find((monsterEntity) => monsterEntity.number === value.number && monsterEntity.type === value.type);
+      return (entity ? entity.rpgAction : -1) !== (value.rpgAction ?? -1);
+    });
+    if (!this.abilityVisible || this.ability !== model.ability || rpgActionsChanged) {
+      this.abilityVisible = !!model.abilityVisible;
+    }
     this.ability = model.ability;
     this.entities = this.entities.filter((monsterEntity) =>
       model.entities.find((gmem) => gmem.number === monsterEntity.number && gmem.type === monsterEntity.type)
@@ -171,6 +181,7 @@ export class GameMonsterModel {
   isAlly: boolean;
   isAllied: boolean;
   tags: string[];
+  abilityVisible: boolean;
 
   constructor(
     name: string,
@@ -186,7 +197,8 @@ export class GameMonsterModel {
     entities: GameMonsterEntityModel[],
     isAlly: boolean,
     isAllied: boolean,
-    tags: string[]
+    tags: string[],
+    abilityVisible: boolean = false
   ) {
     this.name = name;
     this.edition = edition;
@@ -202,5 +214,6 @@ export class GameMonsterModel {
     this.isAlly = isAlly;
     this.isAllied = isAllied;
     this.tags = JSON.parse(JSON.stringify(tags));
+    this.abilityVisible = abilityVisible;
   }
 }

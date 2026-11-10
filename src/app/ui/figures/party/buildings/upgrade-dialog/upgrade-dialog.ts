@@ -183,7 +183,8 @@ export class BuildingUpgradeDialog implements OnInit {
       }
     }
 
-    this.tradeReceiveEntries = trade.receive.map((type) => ({ type: type === LootType.money ? 'gold' : type, total: receiveTotal }));
+    const receiveTypeTotal = trade.distinct ? Math.min(trade.receiveAmount, receiveTotal) : receiveTotal;
+    this.tradeReceiveEntries = trade.receive.map((type) => ({ type: type === LootType.money ? 'gold' : type, total: receiveTypeTotal }));
     this.tradeReceiveGlobalTotal = trade.receive.length > 1 ? receiveTotal : undefined;
     // receive resources into Frosthaven supply by default
     if (trade.receive.length === 1 && trade.receive[0] !== LootType.money) {
@@ -206,15 +207,16 @@ export class BuildingUpgradeDialog implements OnInit {
     if (!this.trade) {
       return false;
     }
-    const trades = this.spent[tradeCostType(this.trade.pay)] / this.trade.payAmount;
-    const received = this.trade.receive
+    const trade = this.trade;
+    const trades = this.spent[tradeCostType(trade.pay)] / trade.payAmount;
+    const receivedByType = trade.receive
       .map(tradeCostType)
-      .reduce(
-        (sum, type) =>
-          sum + (this.fhSupportReceived[type] || 0) + this.characterReceived.reduce((total, values) => total + values[type], 0),
-        0
-      );
-    return Number.isInteger(trades) && trades > 0 && trades <= this.tradeMax && received === trades * this.trade.receiveAmount;
+      .map((type) => (this.fhSupportReceived[type] || 0) + this.characterReceived.reduce((total, values) => total + values[type], 0));
+    const received = receivedByType.reduce((sum, value) => sum + value, 0);
+    if (trade.distinct && receivedByType.some((value) => value > trade.receiveAmount)) {
+      return false;
+    }
+    return Number.isInteger(trades) && trades > 0 && trades <= this.tradeMax && received === trades * trade.receiveAmount;
   }
 
   ngOnInit(): void {

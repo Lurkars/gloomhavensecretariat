@@ -43,7 +43,9 @@ export class RpgPower {
 export const RPG_ITEM_ROWS = 10;
 export const RPG_FACTIONS = 2;
 export const RPG_FACTION_BENEFITS = 4;
-export const RPG_TALENT_ROWS = 4;
+export const RPG_ACTIVE_TALENT_ROWS = 3;
+export const RPG_PASSIVE_TALENT_ROWS = 4;
+export const RPG_TALENT_ROWS = RPG_ACTIVE_TALENT_ROWS + RPG_PASSIVE_TALENT_ROWS;
 export const RPG_ANCESTRY_SKILL_ROWS = 5;
 export const RPG_CLASS_SKILL_ROWS = 12;
 
@@ -102,6 +104,7 @@ export class DamageStats {
 
 export class ScenarioStats extends DamageStats {
   scenario: GameScenarioModel | undefined;
+  timestamp: number | undefined;
   success: boolean = false;
   level: number = 0;
   difficulty: number = 0;

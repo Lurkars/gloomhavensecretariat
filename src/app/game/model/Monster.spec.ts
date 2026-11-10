@@ -127,6 +127,34 @@ describe('Monster model', () => {
       expect(monster.entities[0].number).toBe(1);
     });
 
+    it('keeps abilityVisible locally only while the ability is unchanged (server drops the field)', () => {
+      const monster = new Monster(buildMonsterData(), 1);
+      monster.ability = 1;
+      monster.abilityVisible = true;
+
+      const serverModel = monster.toModel();
+      delete (serverModel as any).abilityVisible;
+      monster.fromModel(serverModel);
+      expect(monster.abilityVisible).toBe(true);
+
+      serverModel.ability = 2;
+      monster.fromModel(serverModel);
+      expect(monster.abilityVisible).toBe(false);
+    });
+
+    it('drops local abilityVisible when chosen rpg actions change remotely', () => {
+      const monster = new Monster(buildMonsterData(), 1);
+      monster.entities = [new MonsterEntity(1, MonsterType.normal, monster)];
+      monster.ability = 1;
+      monster.abilityVisible = true;
+
+      const serverModel = monster.toModel();
+      delete (serverModel as any).abilityVisible;
+      serverModel.entities[0].rpgAction = 0;
+      monster.fromModel(serverModel);
+      expect(monster.abilityVisible).toBe(false);
+    });
+
     it('resets statEffect to undefined on fromModel', () => {
       const monster = new Monster(buildMonsterData(), 1);
       monster.statEffect = { name: 'effect' } as any;

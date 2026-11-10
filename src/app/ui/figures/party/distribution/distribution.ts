@@ -115,6 +115,8 @@ export class PartyDistributionComponent implements OnInit {
     if (!entry) return false;
     if (this.globalTotal() !== undefined && type !== 'gold' && type !== 'experience') {
       if (this.totalPaidNonGold() + this.externalPaid() >= this.globalTotal()!) return false;
+
+      if (this.mode() === 'receive' && this.paid(entry) >= entry.total) return false;
     } else {
       if (this.paid(entry) >= entry.total) return false;
     }

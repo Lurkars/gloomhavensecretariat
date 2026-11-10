@@ -47,7 +47,7 @@ export class BuildingsManager {
       case 'mining-camp':
         return new BuildingTrade(building.name, LootType.money, 2, [LootType.metal], 1, Math.min(level, 4));
       case 'inn':
-        return new BuildingTrade(building.name, LootType.money, 2, [...materialResourceLootTypes], 1, Math.min(level, 3));
+        return new BuildingTrade(building.name, LootType.money, 2, [...materialResourceLootTypes], 1, Math.min(level, 3), true);
       case 'hide-depot':
         return new BuildingTrade(building.name, LootType.hide, 1, [LootType.money], 5, Math.min(level, 2));
       case 'lumber-depot':
@@ -70,22 +70,27 @@ export class BuildingsManager {
     }
 
     if (rewards.soldiers) {
-      this.game.party.soldiers += rewards.soldiers;
-      const baracks = this.game.party.buildings.find((model) => model.name === 'barracks');
-      if (baracks) {
-        let limit = 0;
-        if (baracks.level === 1) {
-          limit = 4;
-        } else if (baracks.level === 2) {
-          limit = 6;
-        } else if (baracks.level === 3) {
-          limit = 8;
-        } else if (baracks.level === 4) {
-          limit = 10;
-        }
-        if (this.game.party.soldiers > limit) {
-          this.game.party.soldiers = limit;
-        }
+      this.addSoldiers(rewards.soldiers);
+    }
+  }
+
+  // add soldiers, limited by the capacity of the barracks
+  addSoldiers(value: number) {
+    this.game.party.soldiers = Math.max(0, this.game.party.soldiers + value);
+    const baracks = this.game.party.buildings.find((model) => model.name === 'barracks');
+    if (baracks) {
+      let limit = 0;
+      if (baracks.level === 1) {
+        limit = 4;
+      } else if (baracks.level === 2) {
+        limit = 6;
+      } else if (baracks.level === 3) {
+        limit = 8;
+      } else if (baracks.level === 4) {
+        limit = 10;
+      }
+      if (this.game.party.soldiers > limit) {
+        this.game.party.soldiers = limit;
       }
     }
   }

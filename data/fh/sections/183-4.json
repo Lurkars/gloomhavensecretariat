@@ -1,0 +1,12 @@
+{
+  "index": "183.4",
+  "name": "Mail Call",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "items": [
+      "206"
+    ]
+  }
+}

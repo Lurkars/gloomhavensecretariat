@@ -1,7 +1,7 @@
 {
   "name": "soothsinger",
   "icon": "gh-music-note",
-  "thumbnail": "gh2e-music-note",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#e3726b",

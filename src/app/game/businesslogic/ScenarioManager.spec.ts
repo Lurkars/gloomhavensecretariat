@@ -4,9 +4,12 @@ import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
+import { LootType } from 'src/app/game/model/data/Loot';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData, ScenarioRequirement, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
+import { ScenarioRule } from 'src/app/game/model/data/ScenarioRule';
+import { GameState } from 'src/app/game/model/Game';
 import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
 
 // This spec covers the self-contained lookups and predicates (isCurrent/isSuccess/isBlocked,
@@ -241,6 +244,72 @@ describe('ScenarioManager', () => {
     });
   });
 
+  describe('scenarios requirement', () => {
+    it('requires a completed scenario, or a not completed scenario if negated', () => {
+      gameManager.game.party.campaignMode = true;
+      gameManager.game.party.scenarios = [];
+      const completed = buildScenarioData({ index: '1A', requirements: [{ scenarios: [['60']] } as any] });
+      const notCompleted = buildScenarioData({ index: '1B', requirements: [{ scenarios: [['!60']] } as any] });
+
+      expect(scenarioManager.isLocked(completed)).toBe(true);
+      expect(scenarioManager.getRequirements(completed)[0].scenarios).toEqual([['60']]);
+      expect(scenarioManager.isLocked(notCompleted)).toBe(false);
+      expect(scenarioManager.getRequirements(notCompleted).length).toBe(0);
+
+      gameManager.game.party.scenarios = [new GameScenarioModel('60', 'gh')];
+
+      expect(scenarioManager.isLocked(completed)).toBe(false);
+      expect(scenarioManager.getRequirements(completed).length).toBe(0);
+      expect(scenarioManager.isLocked(notCompleted)).toBe(true);
+      expect(scenarioManager.getRequirements(notCompleted)[0].scenarios).toEqual([['!60']]);
+    });
+  });
+
+  describe('traits requirement', () => {
+    function buildCharacter(name: string, traits: string[]): Character {
+      const data = Object.assign(new CharacterData(), { name, edition: 'fh', traits, stats: [new CharacterStat(1, 10)] });
+      return new Character(data, 1);
+    }
+
+    afterEach(() => {
+      gameManager.game.figures = [];
+    });
+
+    it('requires no present character with the trait for a negated trait', () => {
+      gameManager.game.party.campaignMode = true;
+      const scenarioData = buildScenarioData({ requirements: [{ traits: ['!educated'] } as any] });
+      gameManager.game.figures = [buildCharacter('blinkblade', ['educated', 'resourceful'])];
+      expect(scenarioManager.getRequirements(scenarioData).length).toBe(1);
+      expect(scenarioManager.getRequirements(scenarioData)[0].traitsMissing).toEqual(['educated']);
+      expect(scenarioManager.isLocked(scenarioData)).toBe(true);
+
+      (gameManager.game.figures[0] as Character).absent = true;
+      expect(scenarioManager.getRequirements(scenarioData).length).toBe(0);
+      expect(scenarioManager.isLocked(scenarioData)).toBe(false);
+    });
+
+    it('treats the character class as trait', () => {
+      gameManager.game.party.campaignMode = true;
+      const character = buildCharacter('banner-spear', ['armored']);
+      character.characterClass = 'human' as any;
+      gameManager.game.figures = [character];
+      expect(scenarioManager.hasTrait('human')).toBe(true);
+      expect(scenarioManager.isLocked(buildScenarioData({ requirements: [{ traits: ['!human'] } as any] }))).toBe(true);
+    });
+
+    it('requires a present character with the trait', () => {
+      gameManager.game.party.campaignMode = true;
+      const scenarioData = buildScenarioData({ requirements: [{ traits: ['educated'] } as any] });
+      gameManager.game.figures = [buildCharacter('drifter', ['outcast'])];
+      expect(scenarioManager.getRequirements(scenarioData)[0].traits).toEqual(['educated']);
+      expect(scenarioManager.isLocked(scenarioData)).toBe(true);
+
+      gameManager.game.figures.push(buildCharacter('blinkblade', ['educated']));
+      expect(scenarioManager.getRequirements(scenarioData).length).toBe(0);
+      expect(scenarioManager.isLocked(scenarioData)).toBe(false);
+    });
+  });
+
   describe('isLocked', () => {
     it('is false outside of campaign mode regardless of requirements', () => {
       const scenarioData = buildScenarioData({ requirements: [{ global: ['achievement-a'] } as any] });
@@ -336,6 +405,55 @@ describe('ScenarioManager', () => {
     });
   });
 
+  describe('addSection scenario rules', () => {
+    // FH 111.2: "at the start of every odd/even round, spawn ..." (issue #1097)
+    const oddRule = () => Object.assign(new ScenarioRule('R % 2 == 1'), { start: true });
+    const evenRule = () => Object.assign(new ScenarioRule('R % 2 == 0'), { start: true });
+
+    beforeEach(() => {
+      settingsManager.settings.scenarioRules = true;
+      gameManager.game.figures = [];
+      gameManager.game.scenarioRules = [];
+      gameManager.game.appliedScenarioRules = [];
+      gameManager.game.discardedScenarioRules = [];
+    });
+
+    it('does not show start-of-round rules when the section is added mid-round', () => {
+      gameManager.game.round = 2;
+      gameManager.game.state = GameState.next;
+      scenarioManager.addSection(buildScenarioData({ index: '111.2', rules: [oddRule(), evenRule()] }));
+
+      expect(gameManager.game.scenarioRules).toEqual([]);
+      expect(gameManager.game.sections.map((section) => section.index)).toEqual(['111.2']);
+    });
+
+    it('picks up start-of-round rules of a mid-round section at the end of the round', () => {
+      gameManager.game.round = 2;
+      gameManager.game.state = GameState.next;
+      scenarioManager.addSection(buildScenarioData({ index: '111.2', rules: [oddRule(), evenRule()] }));
+
+      gameManager.scenarioRulesManager.addScenarioRules();
+      expect(gameManager.game.scenarioRules.map((model) => model.identifier.index)).toEqual([0]);
+    });
+
+    it('shows start-of-round rules for the upcoming round when the section is added between rounds', () => {
+      gameManager.game.round = 2;
+      gameManager.game.state = GameState.draw;
+      scenarioManager.addSection(buildScenarioData({ index: '111.2', rules: [oddRule(), evenRule()] }));
+
+      expect(gameManager.game.scenarioRules.map((model) => model.identifier.index)).toEqual([0]);
+    });
+
+    it('still shows always rules immediately when the section is added mid-round', () => {
+      gameManager.game.round = 2;
+      gameManager.game.state = GameState.next;
+      const alwaysRule = Object.assign(new ScenarioRule('true'), { always: true, once: true });
+      scenarioManager.addSection(buildScenarioData({ index: '111.2', rules: [oddRule(), alwaysRule] }));
+
+      expect(gameManager.game.scenarioRules.map((model) => model.identifier.index)).toEqual([1]);
+    });
+  });
+
   describe('finishScenario', () => {
     beforeEach(() => {
       gameManager.game.figures = [];
@@ -370,6 +488,26 @@ describe('ScenarioManager', () => {
       const data = buildScenarioData({ edition: 'gh', index: '1', rewards: Object.assign(new ScenarioRewards(), rewards) });
       return new Scenario(data);
     }
+
+    it('records scenario stats for every present character with one shared attempt timestamp', () => {
+      settingsManager.settings.scenarioStats = true;
+      const first = new Character(
+        Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+        1
+      );
+      const second = new Character(
+        Object.assign(new CharacterData(), { name: 'tinkerer', edition: 'gh', stats: [new CharacterStat(1, 8)] }),
+        1
+      );
+      gameManager.game.figures = [first, second];
+
+      scenarioManager.finishScenario(buildScenario(), true, undefined);
+
+      expect(first.progress.scenarioStats.length).toBe(1);
+      expect(second.progress.scenarioStats.length).toBe(1);
+      expect(first.progress.scenarioStats[0].timestamp).toBeGreaterThan(0);
+      expect(second.progress.scenarioStats[0].timestamp).toBe(first.progress.scenarioStats[0].timestamp);
+    });
 
     it('always resets game.finish to undefined', () => {
       const scenario = buildScenario();
@@ -434,6 +572,13 @@ describe('ScenarioManager', () => {
       expect(gameManager.game.party.campaignStickers).toContain('my-sticker');
     });
 
+    it('adds soldiers from rewards', () => {
+      gameManager.game.party.soldiers = 1;
+      gameManager.game.party.buildings = [];
+      scenarioManager.finishScenario(buildScenario({ soldiers: 2 }), true, undefined);
+      expect(gameManager.game.party.soldiers).toBe(3);
+    });
+
     it('removes lostPartyAchievements from the achievements list', () => {
       gameManager.game.party.achievementsList = ['keep', 'lose'];
       const scenario = buildScenario({ lostPartyAchievements: ['lose'] });
@@ -490,6 +635,107 @@ describe('ScenarioManager', () => {
       scenarioManager.finishScenario(scenario, true, undefined, true);
       expect(setScenarioSpy).toHaveBeenCalledWith(scenario, true);
       expect(gameManager.roundManager.resetScenario).not.toHaveBeenCalled();
+    });
+
+    describe('character rewards', () => {
+      function buildCharacter(name: string): Character {
+        const data = Object.assign(new CharacterData(), { name, edition: 'gh', stats: [new CharacterStat(1, 10)] });
+        return new Character(data, 1);
+      }
+
+      beforeEach(() => {
+        settingsManager.settings.characterSheet = true;
+        settingsManager.settings.scenarioRewards = true;
+      });
+
+      it('applies gold to present characters only', () => {
+        const present = buildCharacter('brute');
+        const absent = buildCharacter('tinkerer');
+        absent.absent = true;
+        gameManager.game.figures = [present, absent];
+
+        scenarioManager.applyCharacterRewards(Object.assign(new ScenarioRewards(), { gold: 50 }));
+
+        expect(present.progress.gold).toEqual(50);
+        expect(absent.progress.gold).toEqual(0);
+      });
+
+      it('does not apply character rewards for internally finished conclusions', () => {
+        const character = buildCharacter('brute');
+        gameManager.game.figures = [character];
+        const conclusion = new Scenario(
+          buildScenarioData({ index: '1a', conclusion: true, rewards: Object.assign(new ScenarioRewards(), { gold: 50 }) })
+        );
+
+        scenarioManager.finishScenario(conclusion, true, conclusion, false, false, false, true, true);
+
+        expect(character.progress.gold).toEqual(0);
+      });
+    });
+
+    describe('week sections', () => {
+      let weekSection: ScenarioData;
+
+      beforeEach(() => {
+        (gameManager.fhRules as any).mockReturnValue(true);
+        vi.spyOn(gameManager.buildingsManager, 'nextWeek').mockImplementation(() => {});
+        settingsManager.settings.automaticPassTime = true;
+        settingsManager.settings.characterSheet = false;
+        weekSection = buildScenarioData({
+          index: '2.1',
+          conclusion: true,
+          rewards: Object.assign(new ScenarioRewards(), {
+            collectiveResources: [{ type: LootType.axenut, value: 3 }],
+            prosperity: 1
+          })
+        });
+        gameManager.editionData = [new EditionData('gh', [], [], [], [], [weekSection], [])];
+        gameManager.game.party.weeks = 0;
+        gameManager.game.party.weekSections = { 1: ['2.1', '3.2'] };
+        gameManager.game.party.loot = {};
+        scenarioManager.pendingWeekSections = [];
+      });
+
+      afterEach(() => {
+        settingsManager.settings.automaticWeekSections = false;
+        scenarioManager.pendingWeekSections = [];
+      });
+
+      it('adds calendar sections of the passed week as pending instead of applying them', () => {
+        settingsManager.settings.automaticWeekSections = false;
+
+        scenarioManager.finishScenario(buildScenario(), true, undefined);
+
+        expect(gameManager.game.party.weeks).toEqual(1);
+        expect(gameManager.game.party.prosperity).toEqual(0);
+        expect(gameManager.game.party.loot[LootType.axenut]).toBeUndefined();
+        expect(gameManager.game.party.conclusions).toEqual([]);
+        expect(scenarioManager.pendingWeekSections).toEqual([
+          { week: 1, index: '2.1', edition: 'gh', group: undefined },
+          { week: 1, index: '3.2', edition: 'gh', group: undefined }
+        ]);
+      });
+
+      it('skips already solved conclusions', () => {
+        settingsManager.settings.automaticWeekSections = false;
+        gameManager.game.party.conclusions = [new GameScenarioModel('2.1', 'gh')];
+
+        scenarioManager.passWeekSections(1, 'gh');
+
+        expect(scenarioManager.pendingWeekSections.map((pending) => pending.index)).toEqual(['3.2']);
+      });
+
+      it('applies conclusions automatically with collective resources to the Frosthaven supply if enabled', () => {
+        settingsManager.settings.automaticWeekSections = true;
+
+        scenarioManager.finishScenario(buildScenario(), true, undefined);
+
+        expect(gameManager.game.party.weeks).toEqual(1);
+        expect(gameManager.game.party.prosperity).toEqual(1);
+        expect(gameManager.game.party.loot[LootType.axenut]).toEqual(3);
+        expect(gameManager.game.party.conclusions.some((model) => model.index === '2.1')).toBe(true);
+        expect(scenarioManager.pendingWeekSections).toEqual([]);
+      });
     });
 
     describe('personal quest autotrack', () => {

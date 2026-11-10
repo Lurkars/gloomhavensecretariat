@@ -26,6 +26,10 @@
       "name": "careless-charge",
       "level": 7,
       "expire": true
+    },
+    {
+      "name": "rapid_recovery",
+      "perk": 10
     }
   ],
   "stats": [

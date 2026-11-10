@@ -205,9 +205,13 @@ export class EventCardManager {
     if (scenarioData && scenarioData.rewards) {
       if (scenarioData.rewards.events) {
         scenarioData.rewards.events.forEach((event) => {
-          if (event.split(':').length > 1) {
-            this.addEvent(event.split(':')[0], event.split(':')[1], true);
-          }
+          this.addEventReward(event, scenarioData.edition, true);
+        });
+      }
+
+      if (scenarioData.rewards.returnEvents) {
+        scenarioData.rewards.returnEvents.forEach((event) => {
+          this.returnEventReward(event, scenarioData.edition);
         });
       }
 
@@ -244,6 +248,43 @@ export class EventCardManager {
 
   shuffleEvents(type: string) {
     gameManager.randomManager.shuffle(this.game.party.eventDecks[type] || []);
+  }
+
+  /**
+   * card ids of an event reward, either a single card ('type:cardId') or a range of cards ('type:fromCardId|toCardId')
+   */
+  eventRewardCardIds(event: string, edition: string): { type: string; cardIds: string[] } | undefined {
+    if (event.split(':').length < 2) {
+      return undefined;
+    }
+    const type = event.split(':')[0];
+    const cards = event.split(':')[1];
+    if (!cards.includes('|')) {
+      return { type, cardIds: [cards] };
+    }
+    const events = this.getEventCardsForEdition(edition, type).map((eventCard) => eventCard.cardId);
+    const from = events.indexOf(cards.split('|')[0]);
+    const to = events.indexOf(cards.split('|')[1]);
+    if (from === -1 || to === -1 || from > to) {
+      console.warn('Could not find ' + type + ' Events ' + cards + ' for Edition ' + edition);
+      return { type, cardIds: [] };
+    }
+    return { type, cardIds: events.slice(from, to + 1) };
+  }
+
+  addEventReward(event: string, edition: string, newOnly: boolean = false) {
+    const reward = this.eventRewardCardIds(event, edition);
+    if (reward) {
+      reward.cardIds.forEach((cardId) => this.addEvent(reward.type, cardId, newOnly));
+    }
+  }
+
+  // return (already drawn) cards of an event reward to the deck
+  returnEventReward(event: string, edition: string) {
+    const reward = this.eventRewardCardIds(event, edition);
+    if (reward) {
+      reward.cardIds.forEach((cardId) => this.returnEvent(reward.type, cardId));
+    }
   }
 
   addEvent(type: string, cardId: string, newOnly: boolean = false) {

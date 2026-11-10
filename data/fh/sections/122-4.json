@@ -1,0 +1,23 @@
+{
+  "index": "122.4",
+  "name": "Great Dallum",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "180.1"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "requirements": [
+    {
+      "traits": [
+        "!educated"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "%data.section.rewards.fh.122-4%",
+    "inspiration": 2
+  }
+}

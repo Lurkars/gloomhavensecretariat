@@ -71,7 +71,7 @@ export class CharacterInitiativeDialogComponent {
       gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative > 0 && initiative < 100 ? initiative : 0);
       if (initiative > 0 && initiative < 100) {
         this.setInitiative(initiative);
-        if (this.character && initiative !== 99 && (this.character.name !== 'prism' || !this.character.tags.includes('long_rest'))) {
+        if (this.character && initiative !== 99 && !gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
           this.character.longRest = false;
         }
       } else if (gameManager.game.state === GameState.draw) {
@@ -106,7 +106,7 @@ export class CharacterInitiativeDialogComponent {
         gameManager.stateManager.after();
       } else {
         gameManager.stateManager.before('characterLongRest', gameManager.characterManager.characterName(this.character, true, true));
-        if (this.character.initiative === 99 || (this.character.name === 'prism' && this.character.tags.includes('long_rest'))) {
+        if (this.character.initiative === 99 || gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
           this.character.longRest = true;
         } else {
           this.setInitiative(99);

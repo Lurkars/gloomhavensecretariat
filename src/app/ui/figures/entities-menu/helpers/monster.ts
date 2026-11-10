@@ -124,6 +124,7 @@ export class MonsterHelper {
       );
 
       this.component.entity.dead = true;
+      gameManager.monsterManager.monsterEntityKilled(this.component.figure, this.component.entity);
 
       if (this.component.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
         if (this.component.figure.active) {

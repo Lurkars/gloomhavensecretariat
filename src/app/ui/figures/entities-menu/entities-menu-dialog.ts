@@ -112,6 +112,9 @@ export class EntitiesMenuDialogComponent {
   entityRetaliatePersistent: Action[] = [new Action(ActionType.retaliate, 0)];
   entityRetaliateRange: Action[] = [new Action(ActionType.range, 1, ActionValueType.fixed, [], true)];
   entityRetaliateRangePersistent: Action[] = [new Action(ActionType.range, 1, ActionValueType.fixed, [], true)];
+  entityTaunt: boolean = false;
+  entityTauntPersistent: boolean = false;
+  tauntAction: Action = new Action(ActionType.taunt);
 
   // character specific
   loot: number = 0;
@@ -174,6 +177,7 @@ export class EntitiesMenuDialogComponent {
   forceEventMenu: boolean = false;
   objectiveOnly: boolean = false;
   shieldAndRetaliate: boolean = false;
+  taunt: boolean = false;
 
   ConditionName = ConditionName;
   ConditionType = ConditionType;

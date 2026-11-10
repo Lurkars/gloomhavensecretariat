@@ -1,7 +1,7 @@
 {
   "name": "tinkerer",
   "icon": "gh-tinkerer",
-  "thumbnail": "gh2e-tinkerer",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#d1c3a2",
@@ -41,6 +41,46 @@
     {
       "level": 9,
       "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "decoy",
+      "level": 1,
+      "health": 8,
+      "action": {
+        "type": "taunt"
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      }
+    },
+    {
+      "name": "battle-bot",
+      "level": 3,
+      "health": 9,
+      "action": {
+        "type": "attack",
+        "value": 3
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      }
+    },
+    {
+      "name": "kill-bot",
+      "level": 7,
+      "health": 10,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.rpg.tinkerer.kill-bot-primary%"
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 4
+      }
     }
   ],
   "perks": [

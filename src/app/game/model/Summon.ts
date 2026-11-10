@@ -39,6 +39,7 @@ export class Summon implements Entity {
   init: boolean = true;
   action: Action | undefined;
   additionalAction: Action | undefined;
+  specialAction: Action | undefined;
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
   noThumbnail: boolean = false;
@@ -91,6 +92,7 @@ export class Summon implements Entity {
       this.flying = summonData.flying;
       this.action = summonData.action ? JSON.parse(JSON.stringify(summonData.action)) : undefined;
       this.additionalAction = summonData.additionalAction ? JSON.parse(JSON.stringify(summonData.additionalAction)) : undefined;
+      this.specialAction = summonData.specialAction ? JSON.parse(JSON.stringify(summonData.specialAction)) : undefined;
       if (summonData.thumbnail) {
         this.thumbnail = summonData.edition + '-' + summonData.name;
       }
@@ -144,7 +146,8 @@ export class Summon implements Entity {
       this.retaliate,
       this.retaliatePersistent,
       this.extraActions,
-      this.extraActionsPersistent
+      this.extraActionsPersistent,
+      this.specialAction ? JSON.stringify(this.specialAction) : undefined
     );
   }
 
@@ -179,6 +182,10 @@ export class Summon implements Entity {
 
     if (model.additionalAction) {
       this.additionalAction = JSON.parse(model.additionalAction);
+    }
+
+    if (model.specialAction) {
+      this.specialAction = JSON.parse(model.specialAction);
     }
 
     this.active = model.active;
@@ -246,6 +253,7 @@ export class GameSummonModel {
   tags: string[];
   action: string | undefined;
   additionalAction: string | undefined;
+  specialAction: string | undefined;
   active: boolean = false;
   dormant: boolean;
   passive: boolean;
@@ -298,7 +306,8 @@ export class GameSummonModel {
     retaliate: Action[],
     retaliatePersistent: Action[],
     extraActions: Action[],
-    extraActionsPersistent: Action[]
+    extraActionsPersistent: Action[],
+    specialAction: string | undefined = undefined
   ) {
     this.uuid = uuid;
     this.name = name;
@@ -336,5 +345,6 @@ export class GameSummonModel {
     this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
     this.extraActions = extraActions.map((action) => JSON.stringify(action));
     this.extraActionsPersistent = extraActionsPersistent.map((action) => JSON.stringify(action));
+    this.specialAction = specialAction;
   }
 }

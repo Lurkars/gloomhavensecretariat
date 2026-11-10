@@ -2276,7 +2276,7 @@
         "": "Zasoby",
         "loot": {
           "": "%game.resource.{0}%: {1}",
-          "hint": "Liczba zrabowanych %game.resource{0}%"
+          "hint": "Liczba zrabowanych %game.resource.{0}%"
         }
       },
       "scenarios": "Scenariusze",

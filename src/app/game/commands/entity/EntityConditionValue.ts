@@ -34,7 +34,7 @@ export class EntityConditionValueCommand extends CommandImpl {
           }
         } else if (entityCondition) {
           entityCondition.value = value;
-          if (entityCondition.name === ConditionName.plague && entityCondition.value > 3) {
+          if (entityCondition.name === ConditionName.plague && entityCondition.value > 3 && !gameManager.rpgRules()) {
             entityCondition.value = 3;
           }
         } else {

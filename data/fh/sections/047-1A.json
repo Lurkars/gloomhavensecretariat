@@ -1,0 +1,23 @@
+{
+  "index": "47.1A",
+  "name": "Lurker Rumors",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "47.1"
+    ]
+  ],
+  "conclusion": true,
+  "requirements": [
+    {
+      "scenarios": [
+        [
+          "60"
+        ]
+      ]
+    }
+  ],
+  "rewards": {
+    "morale": 2
+  }
+}

@@ -82,18 +82,7 @@
             </span>
           }
         }
-        @if (success && !!rewards && collectiveEntries.length > 0) {
-          <ghs-party-distribution
-            mode="receive"
-            [characters]="characters"
-            [entries]="collectiveEntries"
-            [initialCharacterValues]="collectiveInitialCharacterValues"
-            [showHeader]="false"
-            [embedded]="true"
-            [ignoreAbsent]="true"
-            (distributionChange)="onCollectiveChange($event)"
-          ></ghs-party-distribution>
-        }
+        <ng-container *ngTemplateOutlet="collectiveRows"></ng-container>
         @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && wealthFavor) {
           <span class="head-col calc-col">
             <span [ghs-label]="'data.favors.fh.wealth.reward'" [ghs-tooltip]="'data.favors.fh.wealth.text'"></span>
@@ -320,50 +309,7 @@
             </span>
           }
         }
-        @for (itemData of rewardItems | trackUUID; track itemData._trackUUID; let itemIndex = $index) {
-          <span (click)="openItemDialog(itemData)" class="head-col"
-            ><span [ghs-label]="'scenario.summary.item'" [ghs-label-args]="[itemData.id, itemData.edition]"></span
-          ></span>
-          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
-            <span>
-              @if (items[index] && items[index].includes(itemIndex)) {
-                <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
-              }
-              <input
-                type="checkbox"
-                [disabled]="itemDistributed(index, itemIndex)"
-                [checked]="items[index] && items[index].includes(itemIndex)"
-                (change)="toggleItem($event, index, itemIndex)"
-              />
-            </span>
-          }
-        }
-        @if (!!randomItem) {
-          <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'" [ghs-label-args]="[randomItem.name]"></span></span>
-          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
-            <span>
-              @if (randomItemIndex === index) {
-                <ghs-item (click)="openItemDialog(randomItem)" [item]="randomItem" [flipped]="true"></ghs-item>
-              }
-              <input
-                type="checkbox"
-                [disabled]="randomItemIndex > -1 && randomItemIndex !== index"
-                [checked]="randomItemIndex === index"
-                (change)="toggleRandomItem($event, index)"
-              />
-            </span>
-          }
-        }
-        @if (!!randomItems && randomItems.length > 0) {
-          <span class="head-col"><span [ghs-label]="'scenario.summary.randomItems'"></span></span>
-          @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
-            <span>
-              @if (!!randomItems[index]) {
-                <ghs-item (click)="openItemDialog(randomItems[index])" [item]="randomItems[index]" [flipped]="true"></ghs-item>
-              }
-            </span>
-          }
-        }
+        <ng-container *ngTemplateOutlet="rewardItemRows"></ng-container>
         @if (success) {
           <span class="head-col"><span [ghs-label]="'game.battleGoals'"></span></span>
           @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
@@ -567,6 +513,20 @@
             </span>
           }
         }
+      </div>
+    }
+
+    @if (conclusionCharacterRewards()) {
+      <div class="table" [style.--ghs-summary-columns]="1 + characters.length">
+        <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
+        @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+          <span class="first">
+            <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
+            <span class="name">{{ gameManager.characterManager.characterName(character, true) }}</span>
+          </span>
+        }
+        <ng-container *ngTemplateOutlet="collectiveRows"></ng-container>
+        <ng-container *ngTemplateOutlet="rewardItemRows"></ng-container>
       </div>
     }
 
@@ -813,7 +773,7 @@
                   <input
                     type="number"
                     min="-1"
-                    [value]="calendarSectionManual[i] || -1"
+                    [value]="calendarSectionManual[i] ?? -1"
                     (change)="changeCalendarSectionManual($event, i)"
                   />
                 </div>
@@ -986,6 +946,18 @@
                   ></span>
                   @if (rewards.hints && rewards.hints.battleGoals) {
                     <span class="placeholder text-white hint" [ghs-label]="rewards.hints.battleGoals"></span>
+                  }
+                </div>
+              }
+              @if (rewards.soldiers) {
+                <div class="item soldiers">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.soldiers'"
+                    [ghs-label-args]="[rewards.soldiers | ghsValueSign]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.soldiers) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.soldiers"></span>
                   }
                 </div>
               }
@@ -1275,13 +1247,33 @@
               }
               @for (event of rewards.events || []; track event; let i = $index) {
                 <div class="item events">
-                  <span
-                    class="placeholder text-white"
-                    [ghs-label]="'scenario.rewards.event.' + event.split(':')[0]"
-                    [ghs-label-args]="[event.split(':')[1]]"
-                  ></span>
+                  @if (event.split(':')[1].includes('|')) {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.eventRange.' + event.split(':')[0]"
+                      [ghs-label-args]="[event.split(':')[1].split('|')[0], event.split(':')[1].split('|')[1]]"
+                    ></span>
+                  } @else {
+                    <span
+                      class="placeholder text-white"
+                      [ghs-label]="'scenario.rewards.event.' + event.split(':')[0]"
+                      [ghs-label-args]="[event.split(':')[1]]"
+                    ></span>
+                  }
                   @if (rewards.hints && rewards.hints.events && rewards.hints.events[i]) {
                     <span class="placeholder text-white hint" [ghs-label]="rewards.hints.events[i]"></span>
+                  }
+                </div>
+              }
+              @for (event of rewards.returnEvents || []; track event; let i = $index) {
+                <div class="item events">
+                  <span
+                    class="placeholder text-white"
+                    [ghs-label]="'scenario.rewards.returnEvent.' + event.split(':')[0]"
+                    [ghs-label-args]="[event.split(':')[1]]"
+                  ></span>
+                  @if (rewards.hints && rewards.hints.returnEvents && rewards.hints.returnEvents[i]) {
+                    <span class="placeholder text-white hint" [ghs-label]="rewards.hints.returnEvents[i]"></span>
                   }
                 </div>
               }
@@ -1542,15 +1534,20 @@
                 <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
               </div>
             }
-            @if (weekSections().length) {
+            @if (weekSections().length || weekReadSections().length) {
               <div class="item week-sections">
                 @for (weekSection of weekSections() | trackUUID; track weekSection._trackUUID) {
                   <span
                     class="week-section text-white"
                     (click)="showWeekConclusion(weekSection)"
-                    [ghs-label]="'scenario.rewards.addWeek.section'"
+                    [ghs-label]="
+                      'scenario.rewards.addWeek.' + (settingsManager.settings.automaticWeekSections ? 'section' : 'sectionDialog')
+                    "
                     [ghs-label-args]="[weekSection.index]"
                   ></span>
+                }
+                @for (section of weekReadSections(); track section) {
+                  <span class="text-white" [ghs-label]="'scenario.rewards.addWeek.read'" [ghs-label-args]="[section]"></span>
                 }
               </div>
             }
@@ -1636,3 +1633,65 @@
     </div>
   }
 </div>
+
+<ng-template #collectiveRows>
+  @if (success && !!rewards && collectiveEntries.length > 0) {
+    <ghs-party-distribution
+      mode="receive"
+      [characters]="characters"
+      [entries]="collectiveEntries"
+      [initialCharacterValues]="collectiveInitialCharacterValues"
+      [showHeader]="false"
+      [embedded]="true"
+      [ignoreAbsent]="true"
+      (distributionChange)="onCollectiveChange($event)"
+    ></ghs-party-distribution>
+  }
+</ng-template>
+
+<ng-template #rewardItemRows>
+  @for (itemData of rewardItems | trackUUID; track itemData._trackUUID; let itemIndex = $index) {
+    <span (click)="openItemDialog(itemData)" class="head-col"
+      ><span [ghs-label]="'scenario.summary.item'" [ghs-label-args]="[itemData.id, itemData.edition]"></span
+    ></span>
+    @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+      <span>
+        @if (items[index] && items[index].includes(itemIndex)) {
+          <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
+        }
+        <input
+          type="checkbox"
+          [disabled]="itemDistributed(index, itemIndex)"
+          [checked]="items[index] && items[index].includes(itemIndex)"
+          (change)="toggleItem($event, index, itemIndex)"
+        />
+      </span>
+    }
+  }
+  @if (!!randomItem) {
+    <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'" [ghs-label-args]="[randomItem.name]"></span></span>
+    @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+      <span>
+        @if (randomItemIndex === index) {
+          <ghs-item (click)="openItemDialog(randomItem)" [item]="randomItem" [flipped]="true"></ghs-item>
+        }
+        <input
+          type="checkbox"
+          [disabled]="randomItemIndex > -1 && randomItemIndex !== index"
+          [checked]="randomItemIndex === index"
+          (change)="toggleRandomItem($event, index)"
+        />
+      </span>
+    }
+  }
+  @if (!!randomItems && randomItems.length > 0) {
+    <span class="head-col"><span [ghs-label]="'scenario.summary.randomItems'"></span></span>
+    @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
+      <span>
+        @if (!!randomItems[index]) {
+          <ghs-item (click)="openItemDialog(randomItems[index])" [item]="randomItems[index]" [flipped]="true"></ghs-item>
+        }
+      </span>
+    }
+  }
+</ng-template>

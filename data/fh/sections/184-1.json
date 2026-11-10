@@ -1,0 +1,15 @@
+{
+  "index": "184.1",
+  "name": "The Third Year",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "winter-outpost:WO-48|WO-56",
+      "winter-road:WR-31",
+      "summer-road:SR-52"
+    ],
+    "soldiers": 3
+  }
+}

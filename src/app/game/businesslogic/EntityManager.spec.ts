@@ -508,6 +508,32 @@ describe('EntityManager', () => {
     });
   });
 
+  describe('addCondition - plague stack limit', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('caps plague at 3', () => {
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(false);
+      const monster = buildMonster();
+      const entity = buildMonsterEntity(monster);
+      entity.entityConditions = [];
+      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      expect(entity.entityConditions.find((condition) => condition.name === ConditionName.plague)?.value).toBe(3);
+    });
+
+    it('does not cap plague under rpg rules', () => {
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
+      const monster = buildMonster();
+      const entity = buildMonsterEntity(monster);
+      entity.entityConditions = [];
+      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      expect(entity.entityConditions.find((condition) => condition.name === ConditionName.plague)?.value).toBe(4);
+    });
+  });
+
   describe('applyCondition', () => {
     let originalApplyConditions: boolean;
     let originalExcludes: ConditionName[];
@@ -763,7 +789,7 @@ describe('EntityManager', () => {
 
       entityManager.changeHealth(character, character, -3);
 
-      expect(damageSpy).toHaveBeenCalledWith(character, character, 3, true);
+      expect(damageSpy).toHaveBeenCalledWith(character, character, 3);
     });
 
     it('does not call scenarioStatsManager when the scenarioStats setting is off', () => {
@@ -795,6 +821,85 @@ describe('EntityManager', () => {
 
       entityManager.changeHealth(character, character, -4);
       expect(character.scenarioStats.exhausts).toEqual(1);
+    });
+
+    it('reverts the exhaust count when the character is revived (correction)', () => {
+      settingsManager.settings.scenarioStats = true;
+      const character = buildCharacter();
+      character.maxHealth = 10;
+      character.health = 3;
+      gameManager.game.figures = [character];
+
+      entityManager.changeHealth(character, character, -3);
+      expect(character.scenarioStats.exhausts).toEqual(1);
+
+      entityManager.changeHealth(character, character, 2);
+      expect(character.exhausted).toBe(false);
+      expect(character.scenarioStats.exhausts).toEqual(0);
+
+      entityManager.changeHealth(character, character, -2);
+      expect(character.scenarioStats.exhausts).toEqual(1);
+    });
+
+    it('does not count an exhaust when health reaches 0 but the character is not exhausted', () => {
+      settingsManager.settings.scenarioStats = true;
+      const originalApply = settingsManager.settings.applyConditions;
+      const originalActive = settingsManager.settings.activeApplyConditions;
+      settingsManager.settings.applyConditions = true;
+      settingsManager.settings.activeApplyConditions = true;
+      const character = buildCharacter();
+      character.maxHealth = 10;
+      character.health = 0;
+      const pending = new EntityCondition(ConditionName.ward);
+      pending.highlight = true;
+      pending.types = [ConditionType.apply];
+      character.entityConditions = [pending];
+      gameManager.game.figures = [character];
+
+      entityManager.checkHealth(character, character);
+
+      expect(character.exhausted).toBe(false);
+      expect(character.scenarioStats.exhausts).toEqual(0);
+      settingsManager.settings.applyConditions = originalApply;
+      settingsManager.settings.activeApplyConditions = originalActive;
+    });
+
+    it('counts a summon death once under the owner summons stats', () => {
+      settingsManager.settings.scenarioStats = true;
+      const owner = buildCharacter();
+      const summon = buildSummon();
+      summon.maxHealth = 4;
+      summon.health = 2;
+      owner.summons = [summon];
+      gameManager.game.figures = [owner];
+
+      entityManager.changeHealth(summon, owner, -3);
+      entityManager.changeHealth(summon, owner, -1);
+
+      expect(summon.dead).toBe(true);
+      expect(owner.scenarioStats.summons.exhausts).toEqual(1);
+    });
+
+    it('does not record heal/damage stats when trackStats is false', () => {
+      settingsManager.settings.scenarioStats = true;
+      const owner = buildCharacter();
+      owner.active = true;
+      const summon = buildSummon();
+      summon.maxHealth = 6;
+      summon.health = 3;
+      owner.summons = [summon];
+      gameManager.game.figures = [owner];
+      const healSpy = vi.spyOn(gameManager.scenarioStatsManager, 'applyHeal');
+      const damageSpy = vi.spyOn(gameManager.scenarioStatsManager, 'applyDamage');
+
+      entityManager.changeHealth(summon, owner, 2, false, false);
+      entityManager.changeHealth(summon, owner, -1, false, false);
+
+      expect(summon.health).toBe(4);
+      expect(healSpy).not.toHaveBeenCalled();
+      expect(damageSpy).not.toHaveBeenCalled();
+      expect(owner.scenarioStats.heals).toBe(0);
+      expect(owner.scenarioStats.summons.healedDamage).toBe(0);
     });
   });
 

@@ -2272,7 +2272,7 @@
         "": "资源",
         "loot": {
           "": "%game.resource.{0}%: {1}",
-          "hint": "拾取的%game.resource{0}%数量"
+          "hint": "拾取的%game.resource.{0}%数量"
         }
       },
       "scenarios": "场景",

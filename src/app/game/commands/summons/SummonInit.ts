@@ -31,7 +31,7 @@ export class SummonInitCommand extends CommandImpl {
       gameManager.characterManager.removeSummon(character, summon);
       summon.init = false;
       if (health !== 0) {
-        gameManager.entityManager.changeHealth(summon, character, health);
+        gameManager.entityManager.changeHealth(summon, character, health, false, false);
       }
       if (attack !== 0 && typeof summon.attack === 'number') {
         summon.attack += attack;

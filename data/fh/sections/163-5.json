@@ -1,0 +1,16 @@
+{
+  "index": "163.5",
+  "name": "Portal of Pain",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "unlocks": [
+    "123"
+  ],
+  "forcedLinks": [
+    "123"
+  ],
+  "rewards": {
+    "custom": "%data.section.rewards.fh.163-5%"
+  }
+}

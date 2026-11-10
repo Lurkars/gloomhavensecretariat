@@ -620,6 +620,7 @@
       "swing": "Schwingen",
       "target": "Ziel",
       "targets": "Ziele",
+      "taunt": "Hohn",
       "teleport": "Teleportieren",
       "trigger": "Auslöser"
     },
@@ -2298,7 +2299,7 @@
         "": "Ressourcen",
         "loot": {
           "": "%game.resource.{0}%: {1}",
-          "hint": "Anzahl an erbeuteten %game.resource{0}%"
+          "hint": "Anzahl an erbeuteten %game.resource.{0}%"
         }
       },
       "scenarios": "Szenarien",
@@ -2765,8 +2766,8 @@
       "hint": "Sortiere Charaktere zwischen den Runden nach Spieler # Nummer."
     },
     "characterTraits": {
-      "": "Eigenschaften anzeigen",
-      "hint": "Zeige die Eigenschaften auf dem Charakterboard an."
+      "": "Eigenschaften/Attribute anzeigen",
+      "hint": "Zeige die Eigenschaften oder RPG-Attribute auf dem Charakterboard an."
     },
     "columns": {
       "": "Mehrspaltiges Layout",
@@ -3544,6 +3545,16 @@
           "character": "Aktiviere Spezialaction {0} für {1}",
           "summon": "Aktiviere Spezialaction {0} für {2} von {1}"
         },
+        "addTaunt": {
+          "": "{0}%game.action.taunt% für Auswahl",
+          "character": "{0}%game.action.taunt% für {1}",
+          "monsterEntity": "{0}%game.action.taunt% für '{2}' von {1}",
+          "monsters": "{0}%game.action.taunt% für {2} von {1}",
+          "objectiveEntity": "{0}%game.action.taunt% für {2} von {1}",
+          "objectives": "{0}%game.action.taunt% für {2} von {1}",
+          "summon": "{0}%game.action.taunt% für '{2}' von {1}",
+          "summons": "{0}%game.action.taunt% für Beschwörungen {2} von {1}"
+        },
         "applyTrap": {
           "summon": "Falle '{2}' von {1} auf {0} anwenden"
         },
@@ -3732,6 +3743,16 @@
         "removeSpecialTags": {
           "character": "Spezialactionen {0} von {1} entfernen",
           "summon": "Spezialactionen {0} von {2} von {1} entfernen"
+        },
+        "removeTaunt": {
+          "": "{0}%game.action.taunt% von Auswahl entfernen",
+          "character": "{0}%game.action.taunt% von {1} entfernen",
+          "monsterEntity": "{0}%game.action.taunt% von '{2}' von {1} entfernen",
+          "monsters": "{0}%game.action.taunt% von {2} von {1} entfernen",
+          "objectiveEntity": "{0}%game.action.taunt% von {2} von {1} entfernen",
+          "objectives": "{0}%game.action.taunt% von {2} von {1} entfernen",
+          "summon": "{0}%game.action.taunt% von '{2}' von {1} entfernen",
+          "summons": "{0}%game.action.taunt% von Beschwörungen {2} von {1} entfernen"
         },
         "setAbsent": {
           "character": "{0} abwesend"
@@ -4354,7 +4375,7 @@
       "toggleFullscreen": "<i>Vollbild</i> umschalten",
       "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen</i> umschalten",
       "togglePlayerNumber": "<i>Spielernummer anzeigen</i> umschalten",
-      "toggleTraits": "<i>Eigenschaften anzeigen</i> umschalten",
+      "toggleTraits": "<i>Eigenschaften/Attribute anzeigen</i> umschalten",
       "undo": "Rückgängig",
       "zoomIn": "Reinzoomen",
       "zoomOut": "Rauszoomen",

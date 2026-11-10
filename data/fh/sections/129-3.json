@@ -1,0 +1,16 @@
+{
+  "index": "129.3",
+  "name": "The Second Year",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "winter-outpost:WO-21|WO-47",
+      "summer-outpost:SO-21|SO-35",
+      "winter-road:WR-21|WR-30",
+      "summer-road:SR-21|SR-32"
+    ],
+    "soldiers": 2
+  }
+}

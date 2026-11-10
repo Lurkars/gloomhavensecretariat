@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -166,6 +167,75 @@ describe('EntitiesMenuDialogComponent', () => {
       const character = buildCharacter();
       const component = createComponent({});
       expect(component.figureForEntity(character)).toBe(character);
+    });
+  });
+
+  describe('taunt', () => {
+    let standeeShieldRetaliate: boolean;
+
+    beforeEach(() => {
+      standeeShieldRetaliate = settingsManager.settings.standeeShieldRetaliate;
+      settingsManager.settings.standeeShieldRetaliate = true;
+    });
+
+    afterEach(() => {
+      settingsManager.settings.standeeShieldRetaliate = standeeShieldRetaliate;
+      vi.restoreAllMocks();
+    });
+
+    function hasTaunt(entity: MonsterEntity, persistent: boolean = false): boolean {
+      return (persistent ? entity.extraActionsPersistent : entity.extraActions).some((action) => action.type === ActionType.taunt);
+    }
+
+    it('is not offered without rpg rules', () => {
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(false);
+      const { monster, entity } = buildMonster();
+      gameManager.game.figures = [monster];
+      expect(createComponent({ figure: monster, entity }).taunt).toBe(false);
+    });
+
+    it('adds and removes round taunt without touching persistent taunt', () => {
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
+      const { monster, entity } = buildMonster();
+      gameManager.game.figures = [monster];
+
+      let component = createComponent({ figure: monster, entity });
+      expect(component.taunt).toBe(true);
+      expect(component.entityTaunt).toBe(false);
+      component.shieldRetaliateHelper.toggleTaunt(false);
+      component.close();
+      expect(hasTaunt(entity)).toBe(true);
+      expect(hasTaunt(entity, true)).toBe(false);
+
+      TestBed.resetTestingModule();
+      component = createComponent({ figure: monster, entity });
+      expect(component.entityTaunt).toBe(true);
+      component.shieldRetaliateHelper.toggleTaunt(false);
+      component.close();
+      expect(hasTaunt(entity)).toBe(false);
+    });
+
+    it('adds persistent taunt', () => {
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
+      const { monster, entity } = buildMonster();
+      gameManager.game.figures = [monster];
+
+      const component = createComponent({ figure: monster, entity });
+      component.shieldRetaliateHelper.toggleTaunt(true);
+      component.close();
+      expect(hasTaunt(entity, true)).toBe(true);
+      expect(hasTaunt(entity)).toBe(false);
+    });
+
+    it('leaves taunt unchanged when not toggled', () => {
+      vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
+      const { monster, entity } = buildMonster();
+      gameManager.game.figures = [monster];
+      const undoInfos = gameManager.stateManager.undoInfos.length;
+
+      createComponent({ figure: monster, entity }).close();
+      expect(hasTaunt(entity)).toBe(false);
+      expect(gameManager.stateManager.undoInfos.length).toBe(undoInfos);
     });
   });
 

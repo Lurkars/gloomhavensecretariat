@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
@@ -13,8 +14,8 @@ export class CharacterExhaustedCommand extends CommandImpl {
   executeWithParameters(number: number, exhausted: boolean) {
     const character = findCharacter(number);
     if (character) {
-      if (exhausted && !character.exhausted && settingsManager.settings.scenarioStats) {
-        character.scenarioStats.exhausts += 1;
+      if (exhausted !== character.exhausted && settingsManager.settings.scenarioStats) {
+        gameManager.scenarioStatsManager.changeExhausts(character, character, exhausted);
       }
       character.exhausted = exhausted;
     } else {

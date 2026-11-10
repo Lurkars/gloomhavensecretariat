@@ -1,5 +1,5 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { NgClass } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -34,6 +34,7 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 @Component({
   imports: [
     NgClass,
+    NgTemplateOutlet,
     GhsLabelDirective,
     GhsTooltipDirective,
     GhsValueSignPipe,
@@ -138,8 +139,9 @@ export class ScenarioSummaryComponent {
       this.conclusion = this.scenario;
       this.success = true;
       gameManager.game.finish = undefined;
+      // repeatable conclusions can be solved again, others only show their rewards once solved
       if (
-        this.conclusion.repeatable ||
+        !this.conclusion.repeatable &&
         gameManager.game.party.conclusions.find(
           (conclusion) =>
             conclusion.index === this.scenario.index &&
@@ -451,9 +453,10 @@ export class ScenarioSummaryComponent {
           }
         }
         if (this.rewards.calendarSectionManual) {
+          // -1: section not added to the calendar
           this.rewards.calendarSectionManual.forEach((section, index) => {
-            if (!this.calendarSectionManual[index]) {
-              this.calendarSectionManual[index] = 0;
+            if (this.calendarSectionManual[index] === undefined || this.calendarSectionManual[index] === null) {
+              this.calendarSectionManual[index] = -1;
             }
           });
         }
@@ -611,6 +614,7 @@ export class ScenarioSummaryComponent {
         rewards.morale ||
         rewards.perks ||
         rewards.battleGoals ||
+        rewards.soldiers ||
         (rewards.items && rewards.items.length) ||
         (rewards.chooseItem && rewards.chooseItem.length) ||
         (rewards.itemDesigns && rewards.itemDesigns.length) ||
@@ -623,6 +627,7 @@ export class ScenarioSummaryComponent {
         rewards.characterRetirement ||
         rewards.characterRetirementSkipEvents ||
         (rewards.events && rewards.events.length) ||
+        (rewards.returnEvents && rewards.returnEvents.length) ||
         (rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length) ||
         rewards.unlockCharacter ||
         rewards.custom ||
@@ -641,6 +646,19 @@ export class ScenarioSummaryComponent {
       return true;
     }
     return false;
+  }
+
+  // conclusions only show a character table for rewards that need to be distributed to characters
+  conclusionCharacterRewards(): boolean {
+    return (
+      this.conclusionOnly &&
+      !this.rewardsOnly &&
+      this.success &&
+      this.characters.length > 0 &&
+      settingsManager.settings.characterSheet &&
+      !gameManager.bbRules() &&
+      (this.rewardItems.length > 0 || !!this.randomItem || this.randomItems.length > 0 || this.collectiveEntries.length > 0)
+    );
   }
 
   hasBonus(): boolean {
@@ -674,25 +692,20 @@ export class ScenarioSummaryComponent {
   }
 
   weekSections(): ScenarioData[] {
-    const result: ScenarioData[] = [];
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.scenario.edition);
-    const weekSections: string[] = [];
-    if (editionData && editionData.campaign) {
-      weekSections.push(...((editionData.campaign.weeks && editionData.campaign.weeks[gameManager.game.party.weeks + 1]) || []));
+    return gameManager.scenarioManager
+      .weekSections(gameManager.game.party.weeks + 1, this.scenario.edition)
+      .map((section) => gameManager.scenarioManager.weekSectionConclusion(section, this.scenario.edition, this.scenario.group))
+      .filter((sectionData) => sectionData !== undefined);
+  }
+
+  // calendar sections without conclusion data, to be read in the Section Book
+  weekReadSections(): string[] {
+    if (settingsManager.settings.automaticWeekSections) {
+      return [];
     }
-
-    weekSections.push(...(gameManager.game.party.weekSections[gameManager.game.party.weeks + 1] || []));
-
-    weekSections.forEach((section) => {
-      const sectionData = gameManager
-        .sectionData(this.scenario.edition)
-        .find((sectionData) => sectionData.index === section && sectionData.group === this.scenario.group && sectionData.conclusion);
-      if (sectionData) {
-        result.push(sectionData);
-      }
-    });
-
-    return result;
+    return gameManager.scenarioManager
+      .weekSections(gameManager.game.party.weeks + 1, this.scenario.edition)
+      .filter((section) => !gameManager.scenarioManager.weekSectionConclusion(section, this.scenario.edition, this.scenario.group));
   }
 
   showWeekConclusion(sectionData: ScenarioData) {
@@ -1205,6 +1218,16 @@ export class ScenarioSummaryComponent {
       gameManager.trialsManager.applyTrialCards();
     }
     if (this.conclusionOnly) {
+      // conclusions are finished internally, so apply character rewards (gold, experience, ...) here
+      if (
+        settingsManager.settings.scenarioRewards &&
+        this.success &&
+        this.rewards &&
+        (this.gainRewards || this.forceCampaign) &&
+        !gameManager.bbRules()
+      ) {
+        gameManager.scenarioManager.applyCharacterRewards(this.rewards);
+      }
       gameManager.scenarioManager.finishScenario(
         this.scenario,
         true,

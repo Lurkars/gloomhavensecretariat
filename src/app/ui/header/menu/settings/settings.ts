@@ -323,6 +323,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.automaticStandeesDialog = false;
     settingsManager.settings.automaticTheme = true;
     settingsManager.settings.automaticUnlocking = true;
+    settingsManager.settings.automaticWeekSections = false;
     settingsManager.settings.backupHint = false;
     settingsManager.settings.battleGoals = true;
     settingsManager.settings.battleGoalsCharacter = false;

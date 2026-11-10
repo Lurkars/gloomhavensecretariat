@@ -269,6 +269,23 @@ describe('BuildingUpgradeDialog', () => {
       expect(component.tradeComplete).toBe(true);
     });
 
+    it('only allows different material resources at the inn', () => {
+      gameManager.game.figures = [buildCharacter('brute', 10)];
+      const component = createTrade('inn', 3);
+      expect(component.tradeReceiveGlobalTotal).toEqual(3);
+      expect(component.tradeReceiveEntries).toEqual([
+        { type: LootType.lumber, total: 1 },
+        { type: LootType.metal, total: 1 },
+        { type: LootType.hide, total: 1 }
+      ]);
+      component.onCostChange({ type: 'gold', source: 0, value: 4 });
+      component.onTradeReceive({ type: LootType.lumber, source: 0, value: 2 });
+      expect(component.tradeComplete).toBe(false);
+      component.onTradeReceive({ type: LootType.lumber, source: 0, value: 1 });
+      component.onTradeReceive({ type: LootType.metal, source: 'party', value: 1 });
+      expect(component.tradeComplete).toBe(true);
+    });
+
     it('spends resources from the Frosthaven supply first, then from characters, when selling', () => {
       settingsManager.settings.fhShareResources = false;
       const brute = buildCharacter('brute', 0);

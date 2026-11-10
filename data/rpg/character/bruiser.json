@@ -1,7 +1,7 @@
 {
   "name": "bruiser",
   "icon": "gh-brute",
-  "thumbnail": "gh2e-bruiser",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#35acd5",

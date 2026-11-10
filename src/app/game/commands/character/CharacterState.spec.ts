@@ -62,6 +62,9 @@ describe('Character state commands', () => {
       expect(character.scenarioStats.exhausts).toBe(1);
       new CharacterExhaustedCommand(1, false).execute();
       expect(character.exhausted).toBe(false);
+      expect(character.scenarioStats.exhausts).toBe(0);
+      new CharacterExhaustedCommand(1, true).execute();
+      expect(character.scenarioStats.exhausts).toBe(1);
     });
   });
 

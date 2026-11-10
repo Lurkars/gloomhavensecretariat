@@ -147,7 +147,9 @@ export class PersonalQuestManager {
         return;
       }
 
-      if (current < counter) {
+      if (value < 0) {
+        character.progress.personalQuestProgress[i] = Math.max(0, current + value);
+      } else if (current < counter) {
         character.progress.personalQuestProgress[i] = Math.min(counter, current + value);
       }
     });

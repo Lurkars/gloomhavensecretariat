@@ -1,4 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { KILLED_TAG } from 'src/app/game/businesslogic/MonsterManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
@@ -14,7 +15,7 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { SummonState } from 'src/app/game/model/Summon';
+import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 
 function buildCharacter(name: string, edition: string = 'gh'): Character {
   const data = Object.assign(new CharacterData(), { name, edition, stats: [new CharacterStat(1, 10)] });
@@ -179,6 +180,146 @@ describe('MonsterManager', () => {
       expect(character.progress.personalQuestProgress[0]).toEqual(1);
 
       settingsManager.settings.scenarioStats = original;
+    });
+  });
+
+  describe('kill attribution', () => {
+    let original: boolean;
+
+    beforeEach(() => {
+      original = settingsManager.settings.scenarioStats;
+      settingsManager.settings.scenarioStats = true;
+    });
+
+    afterEach(() => {
+      settingsManager.settings.scenarioStats = original;
+    });
+
+    function setup(type: MonsterType = MonsterType.normal) {
+      const monster = buildMonster({ name: 'forest-imp', edition: 'gh', stats: [new MonsterStat(type, 1, 3)] }, 1);
+      const entity = new MonsterEntity(1, type, monster);
+      entity.maxHealth = 3;
+      entity.health = 3;
+      monster.entities = [entity];
+      const killer = buildCharacter('brute');
+      killer.active = true;
+      const other = buildCharacter('tinkerer');
+      gameManager.game.figures = [killer, other, monster];
+      return { monster, entity, killer, other };
+    }
+
+    function assignKillQuest(character: Character) {
+      character.progress.personalQuest = '513';
+      character.progress.personalQuestAutotrack = true;
+      gameManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), {
+          personalQuests: [
+            Object.assign(new PersonalQuest(), {
+              cardId: '513',
+              edition: 'gh',
+              requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 8, autotrack: 'kill:forest-imp' })]
+            })
+          ]
+        })
+      ];
+      settingsManager.settings.editions = ['gh'];
+    }
+
+    it('credits the character active at the moment of death, not at removal', () => {
+      const { monster, entity, killer, other } = setup();
+
+      gameManager.entityManager.changeHealth(entity, monster, -3);
+      expect(entity.dead).toBe(true);
+      expect(killer.scenarioStats.normalKills).toBe(1);
+
+      // turn passes before the delayed removal happens
+      killer.active = false;
+      other.active = true;
+      monsterManager.removeMonsterEntity(monster, entity);
+
+      expect(killer.scenarioStats.normalKills).toBe(1);
+      expect(other.scenarioStats.normalKills).toBe(0);
+    });
+
+    it('keeps the kill when a dead entity with lingering conditions is removed at round end with nobody active', () => {
+      const { monster, entity, killer } = setup();
+
+      gameManager.entityManager.changeHealth(entity, monster, -3);
+      killer.active = false;
+      monsterManager.removeMonsterEntity(monster, entity);
+
+      expect(killer.scenarioStats.normalKills).toBe(1);
+    });
+
+    it('credits summon kills to the summons stats of the owner', () => {
+      const { monster, entity, killer } = setup(MonsterType.elite);
+      const summon = new Summon('summon-1', 'bear', '1', 1, 1, SummonColor.blue);
+      summon.active = true;
+      killer.summons = [summon];
+
+      gameManager.entityManager.changeHealth(entity, monster, -3);
+      summon.active = false;
+      monsterManager.removeMonsterEntity(monster, entity);
+
+      expect(killer.scenarioStats.summons.eliteKills).toBe(1);
+      expect(killer.scenarioStats.eliteKills).toBe(0);
+    });
+
+    it('reverts stats and personal quest progress when the entity is revived', () => {
+      const { monster, entity, killer, other } = setup();
+      assignKillQuest(killer);
+
+      gameManager.entityManager.changeHealth(entity, monster, -3);
+      expect(killer.progress.personalQuestProgress[0]).toBe(1);
+
+      killer.active = false;
+      other.active = true;
+      gameManager.entityManager.changeHealth(entity, monster, 2);
+
+      expect(entity.dead).toBe(false);
+      expect(entity.tags.some((tag) => tag.startsWith(KILLED_TAG))).toBe(false);
+      expect(killer.scenarioStats.normalKills).toBe(0);
+      expect(killer.progress.personalQuestProgress[0]).toBe(0);
+
+      // killed again, now by the other character
+      gameManager.entityManager.changeHealth(entity, monster, -2);
+      expect(other.scenarioStats.normalKills).toBe(1);
+      expect(killer.scenarioStats.normalKills).toBe(0);
+    });
+
+    it('tracks personal quest kills at death independent of the scenarioStats setting', () => {
+      settingsManager.settings.scenarioStats = false;
+      const { monster, entity, killer } = setup();
+      assignKillQuest(killer);
+
+      gameManager.entityManager.changeHealth(entity, monster, -3);
+      killer.active = false;
+      monsterManager.removeMonsterEntity(monster, entity);
+
+      expect(killer.progress.personalQuestProgress[0]).toBe(1);
+      expect(killer.scenarioStats.normalKills).toBe(0);
+    });
+
+    it('does not count a death twice when it is marked dead repeatedly', () => {
+      const { monster, entity, killer } = setup();
+
+      entity.dead = true;
+      monsterManager.monsterEntityKilled(monster, entity);
+      monsterManager.monsterEntityKilled(monster, entity);
+      gameManager.entityManager.changeHealth(entity, monster, -3);
+
+      expect(killer.scenarioStats.normalKills).toBe(1);
+    });
+
+    it('marks the death even when no character is active, so a later removal does not credit anyone', () => {
+      const { monster, entity, killer } = setup();
+      killer.active = false;
+
+      gameManager.entityManager.changeHealth(entity, monster, -3);
+      killer.active = true;
+      monsterManager.removeMonsterEntity(monster, entity);
+
+      expect(killer.scenarioStats.normalKills).toBe(0);
     });
   });
 
@@ -552,13 +693,16 @@ describe('MonsterManager', () => {
       expect(monster.abilities).toEqual([0, 1, 2]);
       expect(monster.ability).toBe(2);
       expect(monster.entities[0].rpgAction).toBe(-1);
+      expect(monster.abilityVisible).toBe(true);
     });
 
     it('setRpgAction assigns per standee and toggles off when all already have it', () => {
       const monster = rpgMonster();
       monsterManager.setRpgSpeed(monster, 1);
+      monster.abilityVisible = false;
       monsterManager.setRpgAction(monster, 0, [monster.entities[1]]);
       expect(monster.entities.map((entity) => entity.rpgAction)).toEqual([-1, 0, -1]);
+      expect(monster.abilityVisible).toBe(true);
       monsterManager.setRpgAction(monster, 0, [monster.entities[1]]);
       expect(monster.entities[1].rpgAction).toBe(-1);
     });

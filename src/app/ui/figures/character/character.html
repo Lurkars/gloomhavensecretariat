@@ -393,7 +393,7 @@
           }
         </div>
       }
-      @if (settingsManager.settings.characterItems) {
+      @if (settingsManager.settings.characterItems && !rpg) {
         <div
           class="items-button"
           ghs-pointer-input
@@ -540,6 +540,23 @@
           }
           @if (i === character.traits.length - 1) {
             <span class="divider"></span>
+          }
+        }
+      </div>
+    } @else if (settingsManager.settings.characterTraits && !character.absent && rpgAttributes.length > 0) {
+      <div
+        class="character-traits rpg-attributes"
+        ghs-pointer-input
+        (singleClick)="openEntityMenu()"
+        (doubleClick)="compact && openCharacterSheet()"
+      >
+        @for (rpgAttribute of rpgAttributes; track rpgAttribute.attribute; let i = $index) {
+          <span class="trait" [ghs-label]="'character.progress.rpg.attributes.' + rpgAttribute.attribute" [ghs-label-attribute]="'title'">
+            <span [ghs-label]="'character.progress.rpg.attributes.short.' + rpgAttribute.attribute"></span>
+            {{ rpgAttribute.value }}
+          </span>
+          @if (i < rpgAttributes.length - 1) {
+            <span class="divider">|</span>
           }
         }
       </div>

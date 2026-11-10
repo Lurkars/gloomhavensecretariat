@@ -2,8 +2,6 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { applyPayment, paymentValid } from 'src/app/game/commands/party/payment';
 import { LootType } from 'src/app/game/model/data/Loot';
-import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { Scenario } from 'src/app/game/model/Scenario';
 
 const PARTY_FIELDS: { [key: string]: { text: boolean } } = {
   name: { text: true },
@@ -168,31 +166,8 @@ export class PartyWeeksCommand extends CommandImpl {
 
   executeWithParameters(value: number) {
     const party = gameManager.game.party;
-    const campaignData = gameManager.campaignManager.campaignData();
     for (let week = party.weeks; week < value; week++) {
-      const sections = [...((campaignData.weeks && campaignData.weeks[week + 1]) || []), ...(party.weekSections[week + 1] || [])];
-      sections.forEach((section) => {
-        const sectionData: ScenarioData | undefined = gameManager
-          .sectionData(gameManager.game.edition)
-          .find((sectionData) => sectionData.index === section && sectionData.conclusion);
-        if (
-          sectionData &&
-          !party.conclusions.some(
-            (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
-          )
-        ) {
-          gameManager.scenarioManager.finishScenario(
-            new Scenario(sectionData),
-            true,
-            undefined,
-            false,
-            false,
-            false,
-            party.campaignMode,
-            true
-          );
-        }
-      });
+      gameManager.scenarioManager.passWeekSections(week + 1, gameManager.currentEdition(), undefined, party.campaignMode);
     }
     party.weeks = value;
   }

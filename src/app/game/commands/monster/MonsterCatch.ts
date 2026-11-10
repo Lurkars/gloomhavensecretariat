@@ -41,6 +41,7 @@ export class MonsterCatchCommand extends CommandImpl {
     const entity = findEntity(monster, number);
     if (monster && entity instanceof MonsterEntity) {
       entity.dead = true;
+      gameManager.monsterManager.monsterEntityKilled(monster, entity);
 
       if (monster.entities.every((monsterEntity) => monsterEntity.dead) && monster.active) {
         gameManager.roundManager.toggleFigure(monster);

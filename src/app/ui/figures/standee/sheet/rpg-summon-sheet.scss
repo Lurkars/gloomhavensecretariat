@@ -1,0 +1,92 @@
+:host {
+  display: block;
+}
+
+// same colors as summon sheet ability card images
+.rpg-summon-sheet {
+  --rpg-summon-unit: calc(var(--ghs-unit) * var(--ghs-text-factor));
+  --rpg-summon-box: rgba(0, 0, 0, 0.5);
+  --rpg-summon-border: #d0d0d0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--rpg-summon-unit) * 0.2);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  // keep space on the left for number and health of standee and on the bottom for health bar
+  padding: calc(var(--rpg-summon-unit) * 0.2) calc(var(--rpg-summon-unit) * 0.3) calc(var(--rpg-summon-unit) * 1.2)
+    calc(var(--rpg-summon-unit) * 6);
+  color: var(--ghs-color-white);
+  font-family: var(--ghs-font-normal);
+  text-shadow: var(--ghs-outline);
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--rpg-summon-unit) * 0.6);
+
+    .name {
+      flex-grow: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--rpg-summon-unit) * 1.9);
+
+      .flying {
+        height: calc(var(--rpg-summon-unit) * 1.8);
+        margin-right: calc(var(--rpg-summon-unit) * 1);
+        width: auto;
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+
+      .count {
+        margin-right: calc(var(--rpg-summon-unit) * 0.3);
+      }
+    }
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: calc(var(--rpg-summon-unit) * 0.2);
+  }
+
+  .row {
+    flex: 1 0 auto;
+    display: grid;
+    grid-template-columns: calc(var(--rpg-summon-unit) * 6.5) minmax(0, 1fr);
+    align-items: center;
+    column-gap: calc(var(--rpg-summon-unit) * 0.5);
+    min-height: calc(var(--rpg-summon-unit) * 2.4);
+    padding: calc(var(--rpg-summon-unit) * 0.1) calc(var(--rpg-summon-unit) * 0.4);
+    background-color: var(--rpg-summon-box);
+    border: calc(var(--rpg-summon-unit) * 0.15) solid var(--rpg-summon-border);
+
+    .row-label {
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--rpg-summon-unit) * 1.3);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .row-content {
+      font-size: calc(var(--rpg-summon-unit) * 1.7);
+      line-height: 1.15;
+
+      ::ng-deep ghs-action {
+        display: block;
+      }
+
+      .none {
+        color: var(--ghs-color-gray);
+      }
+    }
+
+    &.empty .row-label {
+      opacity: 0.5;
+    }
+  }
+}

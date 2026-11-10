@@ -116,6 +116,8 @@ export class ScenarioRequirement {
   campaignSticker: string[] | undefined;
   puzzle: string[] | undefined;
   characters: string[] | undefined;
+  // character traits of present characters, '!' for no present character with this trait
+  traits: string[] | undefined;
   scenarios: string[][] | undefined;
 }
 
@@ -132,6 +134,7 @@ export class ScenarioRewards {
   prosperity: number = 0;
   perks: number = 0;
   battleGoals: number = 0;
+  soldiers: number = 0;
   items: string[] = [];
   chooseItem: string[][] = [];
   chooseLocation: string[] = [];
@@ -139,6 +142,7 @@ export class ScenarioRewards {
   events: string[] = [];
   eventDecks: string[] = [];
   removeEvents: string[] = [];
+  returnEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
   randomItemBlueprints: string = '';
@@ -190,6 +194,7 @@ export class ScenarioRewardHints {
   prosperity: string = '';
   perks: string = '';
   battleGoals: string = '';
+  soldiers: string = '';
   items: string[] = [];
   chooseItem: string[] = [];
   chooseLocation: string[] = [];
@@ -197,6 +202,7 @@ export class ScenarioRewardHints {
   events: string[] = [];
   eventDecks: string[] = [];
   removeEvents: string[] = [];
+  returnEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: string = '';
   randomItemDesign: string = '';

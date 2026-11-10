@@ -1,0 +1,36 @@
+<div class="rpg-summon-sheet">
+  <div class="header">
+    <span class="name">
+      @if (count > 1) {
+        <span class="count">{{ count }}&times;</span>
+      }
+      @if (flying) {
+        <img
+          class="flying"
+          [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'"
+          [ghs-label]="'game.action.fly'"
+          [ghs-label-attribute]="'title'"
+        />
+      }
+      @if (title) {
+        {{ title }}
+      } @else {
+        <span [ghs-label]="'data.summon.' + name"></span>
+      }
+    </span>
+  </div>
+  <div class="rows">
+    @for (row of rows; track row.type) {
+      <div class="row" [ngClass]="[row.type, row.action ? '' : 'empty']">
+        <span class="row-label" [ghs-label]="'character.progress.rpg.' + row.type"></span>
+        <span class="row-content">
+          @if (row.action) {
+            <ghs-action [action]="row.action" [style]="'fh'"></ghs-action>
+          } @else {
+            <span class="none">&ndash;</span>
+          }
+        </span>
+      </div>
+    }
+  </div>
+</div>

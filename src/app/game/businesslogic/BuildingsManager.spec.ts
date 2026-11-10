@@ -160,7 +160,7 @@ describe('BuildingsManager', () => {
 
     it('buys any material resources at the inn', () => {
       const trade = buildingsManager.trade(new BuildingModel('inn', 2));
-      expect(trade).toEqual(new BuildingTrade('inn', LootType.money, 2, [LootType.lumber, LootType.metal, LootType.hide], 1, 2));
+      expect(trade).toEqual(new BuildingTrade('inn', LootType.money, 2, [LootType.lumber, LootType.metal, LootType.hide], 1, 2, true));
     });
 
     it('sells resources at depots for 5 gold', () => {

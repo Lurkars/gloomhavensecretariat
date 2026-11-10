@@ -1,0 +1,10 @@
+{
+  "index": "41.3",
+  "name": "Former Prisoner Guests",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "collectiveGold": 10
+  }
+}

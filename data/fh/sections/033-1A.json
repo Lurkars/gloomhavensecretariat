@@ -1,0 +1,28 @@
+{
+  "index": "33.1A",
+  "name": "HE-RO-IC-S",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "181.2"
+    ],
+    [
+      "33.1"
+    ]
+  ],
+  "conclusion": true,
+  "repeatable": true,
+  "named": true,
+  "requirements": [
+    {
+      "buildings": [
+        "!stables"
+      ]
+    }
+  ],
+  "rewards": {
+    "calendarSection": [
+      "33.1-3"
+    ]
+  }
+}

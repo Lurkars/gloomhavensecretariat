@@ -1,0 +1,18 @@
+{
+  "index": "104.3",
+  "name": "Tome of Elements",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "44.4"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "items": [
+      "216"
+    ],
+    "custom": "%data.section.rewards.fh.104-3%"
+  }
+}

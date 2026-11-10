@@ -118,7 +118,7 @@ export class SummonDialogComponent implements AfterViewInit {
     gameManager.stateManager.before('addSummon', gameManager.characterManager.characterName(this.character, true, true), this.summon.name);
     this.summon.init = false;
     if (this.health !== 0) {
-      gameManager.entityManager.changeHealth(this.summon, this.character, this.health);
+      gameManager.entityManager.changeHealth(this.summon, this.character, this.health, false, false);
     }
     if (this.attack !== 0 && typeof this.summon.attack === 'number') {
       this.summon.attack += this.attack;

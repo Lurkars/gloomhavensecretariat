@@ -71,6 +71,7 @@ export enum ActionType {
   swing = 'swing',
   switchType = 'switchType',
   target = 'target',
+  taunt = 'taunt',
   teleport = 'teleport',
   trigger = 'trigger'
 }
@@ -87,6 +88,7 @@ export const ActionTypesIcons: ActionType[] = [
   ActionType.retaliate,
   ActionType.shield,
   ActionType.target,
+  ActionType.taunt,
   ActionType.teleport
 ];
 

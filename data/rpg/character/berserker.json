@@ -1,10 +1,16 @@
 {
   "name": "berserker",
   "icon": "gh-lightning",
-  "thumbnail": "gh2e-lightning",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#d75f49",
+  "specialActions": [
+    {
+      "name": "strength-in-agony",
+      "expire": true
+    }
+  ],
   "stats": [
     {
       "level": 1,

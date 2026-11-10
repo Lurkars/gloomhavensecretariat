@@ -1,0 +1,29 @@
+{
+  "index": "12.3",
+  "name": "Vermling Siege",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "123.2"
+    ]
+  ],
+  "conclusion": true,
+  "named": true,
+  "requirements": [
+    {
+      "traits": [
+        "human"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "%data.section.rewards.fh.012-3%",
+    "morale": 2,
+    "resources": [
+      {
+        "type": "lumber",
+        "value": 1
+      }
+    ]
+  }
+}

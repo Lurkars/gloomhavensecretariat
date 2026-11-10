@@ -7,6 +7,7 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Party } from 'src/app/game/model/Party';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { ScenarioChartDialogComponent } from 'src/app/ui/figures/party/scenario-chart/scenario-chart';
+import { openSection } from 'src/app/ui/figures/party/week-sections/week-sections';
 import { WorldMapComponent } from 'src/app/ui/figures/party/world-map/world-map';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
@@ -197,20 +198,8 @@ export abstract class PartySheetSection implements OnInit {
           (value) => value.edition === conclusion.edition && value.group === conclusion.group && value.index === conclusion.index
         ))
     ) {
-      const scenario = new Scenario(conclusion as ScenarioData);
-      if (this.hasConclusions(scenario.index)) {
-        this.openConclusions(scenario.index);
-      } else {
-        this.dialog
-          .open(ScenarioSummaryComponent, {
-            panelClass: ['dialog'],
-            data: {
-              scenario: scenario,
-              conclusionOnly: true
-            }
-          })
-          .closed.subscribe({ next: () => this.update() });
-      }
+      // conclusion followed by continuing sections, if any
+      openSection(this.dialog, conclusion.index, conclusion.edition, conclusion.group, () => this.update());
     }
   }
 

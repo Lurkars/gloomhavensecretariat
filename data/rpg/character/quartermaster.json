@@ -1,7 +1,7 @@
 {
   "name": "quartermaster",
   "icon": "gh-three-spears",
-  "thumbnail": "gh2e-three-spears",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#cd8229",

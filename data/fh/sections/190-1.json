@@ -1,0 +1,13 @@
+{
+  "index": "190.1",
+  "name": "All Challenges Complete",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "collectiveGold": 20,
+    "prosperity": 1,
+    "custom": "%data.section.rewards.fh.190-1%",
+    "randomItemBlueprint": 1
+  }
+}

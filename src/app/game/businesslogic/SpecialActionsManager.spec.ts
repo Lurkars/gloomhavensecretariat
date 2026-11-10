@@ -1,18 +1,23 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterSpecialAction, CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 
 // This spec covers the generic, name-independent mechanics (beforeTurn's extraActions/
 // entityConditions cleanup, and the triggerSlot() slot-advancing state machine used by every
-// character with slot-based special actions), plus the per-character-name effects below
-// (boneshaper, astral, blinkblade, shackles, eclipse, fist, demolitionist, lightning). The file
-// covers only 7-8 characters total, so unlike the other business-logic managers this one is
-// small enough to cover fairly exhaustively rather than sampling a slice.
+// character with slot-based special actions), plus the per-character-name effects and queries
+// for every character with special actions. The manager is small enough to cover fairly
+// exhaustively rather than sampling a slice.
 
 function buildCharacter(name: string = 'generic-character', edition: string = 'gh'): Character {
   const data = Object.assign(new CharacterData(), { name, edition, stats: [new CharacterStat(1, 10)] });
@@ -700,6 +705,315 @@ describe('SpecialActionsManager', () => {
       // but the autoapply-gated damage transfer does not run
       expect(changeHealthSpy).not.toHaveBeenCalled();
       expect(summon.health).toBe(6);
+    });
+  });
+
+  describe('addSpecialAction (immunities)', () => {
+    it('lightning careless-charge grants immunity to all negative conditions and curse', () => {
+      const character = buildCharacter('lightning');
+      character.specialActions = [];
+      character.immunities = [];
+
+      specialActionsManager.addSpecialAction(character, character, 'careless-charge');
+
+      expect(character.immunities).toContain(ConditionName.curse);
+      gameManager
+        .conditionsForTypes('character', 'negative')
+        .forEach((condition) => expect(character.immunities).toContain(condition.name));
+    });
+
+    it('shackles delayed_malady adds active negative non-amDeck conditions as immunities', () => {
+      const character = buildCharacter('shackles', 'fh');
+      character.specialActions = [];
+      character.immunities = [];
+      const poison = new EntityCondition(ConditionName.poison);
+      const expiredWound = Object.assign(new EntityCondition(ConditionName.wound), { expired: true });
+      const curse = new EntityCondition(ConditionName.curse);
+      const strengthen = new EntityCondition(ConditionName.strengthen);
+      character.entityConditions = [poison, expiredWound, curse, strengthen];
+
+      specialActionsManager.addSpecialAction(character, character, 'delayed_malady');
+
+      expect(character.immunities).toEqual([ConditionName.poison]);
+    });
+  });
+
+  describe('queries', () => {
+    it('keepInitiativeOnLongRest only for prism with long_rest', () => {
+      const prism = buildCharacter('prism', 'fh');
+      expect(specialActionsManager.keepInitiativeOnLongRest(prism)).toBe(false);
+      prism.tags = ['long_rest'];
+      expect(specialActionsManager.keepInitiativeOnLongRest(prism)).toBe(true);
+      const other = buildCharacter('other');
+      other.tags = ['long_rest'];
+      expect(specialActionsManager.keepInitiativeOnLongRest(other)).toBe(false);
+    });
+
+    it('isIdentityLocked for blinkblade with time_tokens during next state', () => {
+      const character = buildCharacter('blinkblade', 'fh');
+      character.tags = ['time_tokens'];
+      character.primaryToken = 0;
+      const originalState = gameManager.game.state;
+      try {
+        gameManager.game.state = GameState.next;
+        expect(specialActionsManager.isIdentityLocked(character)).toBe(true);
+        gameManager.game.state = GameState.draw;
+        character.identity = 0;
+        character.tokenValues = [0];
+        expect(specialActionsManager.isIdentityLocked(character)).toBe(false);
+        character.identity = 1;
+        expect(specialActionsManager.isIdentityLocked(character)).toBe(true);
+        character.tags = [];
+        expect(specialActionsManager.isIdentityLocked(character)).toBe(false);
+      } finally {
+        gameManager.game.state = originalState;
+      }
+    });
+
+    it('maxTokenValue caps blinkblade time tokens and shards resonance tokens at 5', () => {
+      const character = buildCharacter('blinkblade', 'fh');
+      expect(specialActionsManager.maxTokenValue(character, 0)).toBeUndefined();
+      character.tags = ['time_tokens'];
+      expect(specialActionsManager.maxTokenValue(character, 0)).toBe(5);
+      expect(specialActionsManager.maxTokenValue(character, 1)).toBeUndefined();
+      const shards = buildCharacter('shards', 'fh');
+      expect(specialActionsManager.maxTokenValue(shards, 0)).toBeUndefined();
+      shards.tags = ['resonance_tokens'];
+      expect(specialActionsManager.maxTokenValue(shards, 0)).toBe(5);
+    });
+
+    it('maxHealthBonus for demolitionist mech and astral veil-of-protection', () => {
+      const demolitionist = buildCharacter('demolitionist', 'jotl');
+      expect(specialActionsManager.maxHealthBonus(demolitionist)).toBe(0);
+      demolitionist.tags = ['mech'];
+      expect(specialActionsManager.maxHealthBonus(demolitionist)).toBe(5);
+      const astral = buildCharacter('astral', 'fh');
+      astral.tags = ['veil-of-protection'];
+      expect(specialActionsManager.maxHealthBonus(astral)).toBe(3);
+    });
+
+    it('maxHealth is at least 26 for lightning with unbridled-power, also for pending tags', () => {
+      const character = buildCharacter('lightning');
+      character.maxHealth = 10;
+      expect(specialActionsManager.maxHealth(character)).toBe(10);
+      expect(specialActionsManager.maxHealth(character, ['unbridled-power'])).toBe(26);
+      character.tags = ['unbridled-power'];
+      expect(specialActionsManager.maxHealth(character)).toBe(26);
+      character.maxHealth = 30;
+      expect(specialActionsManager.maxHealth(character)).toBe(30);
+    });
+
+    it('isImmune for prism summons in prism_mode', () => {
+      const character = buildCharacter('prism', 'fh');
+      const summon = buildSummon('prism-summon');
+      expect(specialActionsManager.isImmune(summon, character)).toBe(false);
+      summon.tags = ['prism_mode'];
+      expect(specialActionsManager.isImmune(summon, character)).toBe(true);
+      expect(specialActionsManager.isImmune(character, character)).toBe(false);
+    });
+
+    it('isConditionSuspended for negative non-amDeck conditions on shackles with delayed_malady', () => {
+      const character = buildCharacter('shackles', 'fh');
+      character.tags = ['delayed_malady'];
+      expect(specialActionsManager.isConditionSuspended(character, new Condition(ConditionName.poison))).toBe(true);
+      expect(specialActionsManager.isConditionSuspended(character, new Condition(ConditionName.curse))).toBe(false);
+      expect(specialActionsManager.isConditionSuspended(character, new Condition(ConditionName.strengthen))).toBe(false);
+      character.tags = [];
+      expect(specialActionsManager.isConditionSuspended(character, new Condition(ConditionName.poison))).toBe(false);
+    });
+
+    it('woundBonus applies to enemy monsters while a character has call-of-the-grave', () => {
+      const monster = new Monster(Object.assign(new MonsterData(), { name: 'test-monster', edition: 'gh' }));
+      const character = buildCharacter('envx');
+      character.tags = ['call-of-the-grave'];
+      vi.spyOn(gameManager.characterManager, 'getActiveCharacters').mockReturnValue([character]);
+      expect(specialActionsManager.woundBonus(monster)).toBe(1);
+      monster.isAlly = true;
+      expect(specialActionsManager.woundBonus(monster)).toBe(0);
+      monster.isAlly = false;
+      expect(specialActionsManager.woundBonus(character)).toBe(0);
+      character.tags = [];
+      expect(specialActionsManager.woundBonus(monster)).toBe(0);
+    });
+
+    it('preventElementWaning for fire/ice/air/earth while triangles has element_waning', () => {
+      const character = buildCharacter('triangles', 'gh2e');
+      character.tags = ['element_waning'];
+      const originalFigures = gameManager.game.figures;
+      try {
+        gameManager.game.figures = [character];
+        expect(specialActionsManager.preventElementWaning(Element.fire)).toBe(true);
+        expect(specialActionsManager.preventElementWaning(Element.dark)).toBe(false);
+        character.tags = [];
+        expect(specialActionsManager.preventElementWaning(Element.fire)).toBe(false);
+      } finally {
+        gameManager.game.figures = originalFigures;
+      }
+    });
+
+    it('longRestHealBonus for lightning perks', () => {
+      const gh2e = buildCharacter('lightning', 'gh2e');
+      expect(specialActionsManager.longRestHealBonus(gh2e)).toBe(0);
+      gh2e.tags = ['long_rest_heal'];
+      expect(specialActionsManager.longRestHealBonus(gh2e)).toBe(1);
+      const fhCrossover = buildCharacter('lightning', 'fh-crossover');
+      fhCrossover.tags = ['rapid_recovery'];
+      expect(specialActionsManager.longRestHealBonus(fhCrossover)).toBe(1);
+    });
+  });
+
+  describe('hooks', () => {
+    it('afterTurn only triggers turnEnd slots, not turnStart', () => {
+      const character = buildCharacter();
+      const triggerSlotSpy = vi.spyOn(specialActionsManager, 'triggerSlot');
+      specialActionsManager.afterTurn(character);
+      expect(triggerSlotSpy).toHaveBeenCalledTimes(1);
+      expect(triggerSlotSpy).toHaveBeenCalledWith(character, 'turnEnd');
+    });
+
+    it('beforeTurn / turn adjust music-note experience with song_active', () => {
+      const character = buildCharacter('music-note');
+      character.tags = ['song_active'];
+      character.experience = 3;
+      specialActionsManager.beforeTurn(character);
+      expect(character.experience).toBe(2);
+      specialActionsManager.turn(character, character);
+      expect(character.experience).toBe(3);
+    });
+
+    it('turn applies prism repair_mode and spider_mode once per round', () => {
+      const character = buildCharacter('prism', 'fh');
+      character.tags = ['repair_mode', 'spider_mode'];
+      const addConditionSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
+      vi.spyOn(gameManager.entityManager, 'applyCondition').mockImplementation(() => {});
+      character.health = 5;
+
+      specialActionsManager.turn(character, character);
+      specialActionsManager.turn(character, character);
+
+      expect(character.health).toBe(7);
+      expect(character.tags).toContain('roundAction-repair_mode');
+      expect(character.tags).toContain('roundAction-spider_mode');
+      expect(addConditionSpy).toHaveBeenCalledWith(character, character, new Condition(ConditionName.ward));
+      expect(addConditionSpy).toHaveBeenCalledTimes(2);
+    });
+
+    it('turn: lightning blood-pact deals 1 damage, gh2e not below 1 health', () => {
+      const changeHealthSpy = vi.spyOn(gameManager.entityManager, 'changeHealth').mockImplementation(() => {});
+      const gh = buildCharacter('lightning', 'gh');
+      gh.tags = ['blood-pact'];
+      gh.health = 1;
+      specialActionsManager.turn(gh, gh);
+      expect(changeHealthSpy).toHaveBeenCalledWith(gh, gh, -1, true);
+
+      changeHealthSpy.mockClear();
+      const gh2e = buildCharacter('lightning', 'gh2e');
+      gh2e.tags = ['blood-pact'];
+      gh2e.health = 1;
+      specialActionsManager.turn(gh2e, gh2e);
+      expect(changeHealthSpy).not.toHaveBeenCalled();
+    });
+
+    it('turn: rpg berserker strength-in-agony deals 1 damage only above 1 health', () => {
+      const changeHealthSpy = vi.spyOn(gameManager.entityManager, 'changeHealth').mockImplementation(() => {});
+      const berserker = buildCharacter('berserker', 'rpg');
+      berserker.health = 2;
+      specialActionsManager.turn(berserker, berserker);
+      expect(changeHealthSpy).not.toHaveBeenCalled();
+
+      berserker.tags = ['strength-in-agony'];
+      specialActionsManager.turn(berserker, berserker);
+      expect(changeHealthSpy).toHaveBeenCalledWith(berserker, berserker, -1, true);
+
+      changeHealthSpy.mockClear();
+      berserker.health = 1;
+      specialActionsManager.turn(berserker, berserker);
+      expect(changeHealthSpy).not.toHaveBeenCalled();
+    });
+
+    it('turn adds three-spears supply token with perk only while long resting', () => {
+      const character = buildCharacter('three-spears', 'gh2e');
+      character.tags = ['supply_tokens_perk'];
+      character.primaryToken = 0;
+      character.tokenValues = [1];
+      character.progress.perks[10] = 2;
+      const applyLongRest = settingsManager.settings.applyLongRest;
+      try {
+        settingsManager.settings.applyLongRest = true;
+        specialActionsManager.turn(character, character);
+        expect(character.tokenValues[0]).toBe(1);
+        character.longRest = true;
+        specialActionsManager.turn(character, character);
+        expect(character.tokenValues[0]).toBe(2);
+      } finally {
+        settingsManager.settings.applyLongRest = applyLongRest;
+      }
+    });
+
+    it('afterTurn: shards resonance token up to 5, skull spirits summons lose health', () => {
+      const shards = buildCharacter('shards', 'fh');
+      shards.tags = ['resonance_tokens'];
+      shards.tokenValues = [4];
+      specialActionsManager.afterTurn(shards);
+      specialActionsManager.afterTurn(shards);
+      expect(shards.tokenValues[0]).toBe(5);
+
+      const skull = buildCharacter('skull', 'cs');
+      skull.tags = ['spirits'];
+      const spirit = buildSummon('spirit');
+      spirit.afterTurn = true;
+      const regular = buildSummon('regular');
+      skull.summons = [spirit, regular];
+      vi.spyOn(gameManager.entityManager, 'checkHealth').mockImplementation(() => {});
+      specialActionsManager.afterTurn(skull);
+      expect(spirit.health).toBe(4);
+      expect(regular.health).toBe(5);
+    });
+
+    it('afterTurn: fist gift-of-the-mountain heals 2 when damaged', () => {
+      const character = buildCharacter('fist', 'fh');
+      character.tags = ['gift-of-the-mountain'];
+      character.health = 5;
+      vi.spyOn(gameManager.entityManager, 'applyCondition').mockImplementation(() => {});
+      specialActionsManager.afterTurn(character);
+      expect(character.health).toBe(7);
+      expect(character.entityConditions.find((condition) => condition.name === ConditionName.heal)?.value).toBe(2);
+    });
+
+    it('startScenario initializes tokens', () => {
+      const kelp = buildCharacter('kelp', 'fh');
+      kelp.tags = ['trophy_tokens'];
+      kelp.tokenValues = [];
+      specialActionsManager.startScenario(kelp);
+      expect(kelp.tokenValues[0]).toBe(2);
+
+      const shards = buildCharacter('shards', 'fh');
+      shards.tags = ['resonance_tokens', 'extra_resonance_tokens'];
+      shards.tokenValues = [];
+      const addConditionSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
+      specialActionsManager.startScenario(shards);
+      expect(shards.tokenValues[0]).toBe(3);
+      expect(addConditionSpy).toHaveBeenCalledWith(shards, shards, new Condition(ConditionName.brittle));
+    });
+
+    it('revealMonsterEntities muddles revealed enemies while snowflake has muddle-monster', () => {
+      const character = buildCharacter('snowflake', 'fh');
+      character.tags = ['muddle-monster'];
+      const monster = new Monster(Object.assign(new MonsterData(), { name: 'test-monster', edition: 'gh' }));
+      const revealed = new MonsterEntity(1, MonsterType.normal, monster);
+      const hidden = new MonsterEntity(2, MonsterType.normal, monster);
+      monster.entities = [revealed, hidden];
+      vi.spyOn(gameManager.entityManager, 'isImmune').mockReturnValue(false);
+      const addConditionSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
+      const originalFigures = gameManager.game.figures;
+      try {
+        gameManager.game.figures = [character, monster];
+        specialActionsManager.revealMonsterEntities([revealed]);
+      } finally {
+        gameManager.game.figures = originalFigures;
+      }
+      expect(addConditionSpy).toHaveBeenCalledTimes(1);
+      expect(addConditionSpy).toHaveBeenCalledWith(revealed, monster, new Condition(ConditionName.muddle));
     });
   });
 });

@@ -1,13 +1,15 @@
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 
 import { Character } from 'src/app/game/model/Character';
-import { Game } from 'src/app/game/model/Game';
+import { Game, GameState } from 'src/app/game/model/Game';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Summon } from 'src/app/game/model/Summon';
 import { CharacterSpecialAction, CharacterSpecialActionSlotTrigger } from 'src/app/game/model/data/CharacterStat';
@@ -21,7 +23,151 @@ export class SpecialActionsManager {
     this.game = game;
   }
 
-  beforeTurn(entity: Entity) {
+  keepInitiativeOnLongRest(character: Character): boolean {
+    return character.name === 'prism' && character.tags.includes('long_rest');
+  }
+
+  isIdentityLocked(character: Character): boolean {
+    return (
+      character.name === 'blinkblade' &&
+      character.tags.includes('time_tokens') &&
+      character.primaryToken === 0 &&
+      (this.game.state === GameState.next ||
+        (this.game.state === GameState.draw && character.identity === 1 && character.tokenValues[0] === 0))
+    );
+  }
+
+  maxTokenValue(character: Character, index: number): number | undefined {
+    if (
+      index === 0 &&
+      ((character.name === 'blinkblade' && character.tags.includes('time_tokens')) ||
+        (character.name === 'shards' && character.tags.includes('resonance_tokens')))
+    ) {
+      return 5;
+    }
+    return undefined;
+  }
+
+  maxHealthBonus(character: Character): number {
+    let bonus = 0;
+    if (character.name === 'demolitionist' && character.tags.includes('mech')) {
+      bonus += 5;
+    }
+    if (character.name === 'astral' && character.tags.includes('veil-of-protection')) {
+      bonus += 3;
+    }
+    return bonus;
+  }
+
+  maxHealth(entity: Entity, tags: string[] = entity.tags): number {
+    let maxHealth = EntityValueFunction(entity.maxHealth);
+    if (entity instanceof Character && !entity.absent && entity.name === 'lightning' && tags.includes('unbridled-power')) {
+      maxHealth = Math.max(maxHealth, 26);
+    }
+    return maxHealth;
+  }
+
+  isImmune(entity: Entity, figure: Figure): boolean {
+    return (
+      entity instanceof Summon &&
+      figure instanceof Character &&
+      !figure.absent &&
+      figure.name === 'prism' &&
+      entity.tags.includes('prism_mode')
+    );
+  }
+
+  isConditionSuspended(entity: Entity, condition: Condition): boolean {
+    return (
+      entity instanceof Character &&
+      entity.name === 'shackles' &&
+      !entity.absent &&
+      entity.tags.includes('delayed_malady') &&
+      condition.types.includes(ConditionType.negative) &&
+      !condition.types.includes(ConditionType.amDeck)
+    );
+  }
+
+  woundBonus(figure: Figure): number {
+    return figure instanceof Monster &&
+      !figure.isAlly &&
+      gameManager.characterManager.getActiveCharacters().some((c) => c.tags.includes('call-of-the-grave'))
+      ? 1
+      : 0;
+  }
+
+  preventElementWaning(element: Element): boolean {
+    return (
+      [Element.fire, Element.ice, Element.air, Element.earth].includes(element) &&
+      this.game.figures.some(
+        (figure) => figure instanceof Character && !figure.absent && figure.name === 'triangles' && figure.tags.includes('element_waning')
+      )
+    );
+  }
+
+  skipSummonTurn(summon: Summon): boolean {
+    return summon.tags.includes('prism_mode');
+  }
+
+  longRestHealBonus(character: Character): number {
+    if (character.name === 'lightning' && character.edition === 'fh-crossover' && character.tags.includes('rapid_recovery')) {
+      return 1;
+    } else if (character.name === 'lightning' && character.edition === 'gh2e' && character.tags.includes('long_rest_heal')) {
+      return 1;
+    }
+    return 0;
+  }
+
+  startScenario(character: Character) {
+    if (character.absent) {
+      return;
+    }
+
+    if (character.name === 'blinkblade' && character.tags.includes('time_tokens')) {
+      character.tokenValues[0] = 1;
+    }
+
+    if (character.name === 'kelp' && character.tags.includes('trophy_tokens')) {
+      character.tokenValues[0] = 2;
+    }
+
+    if (character.name === 'shards' && character.tags.includes('resonance_tokens')) {
+      character.tokenValues[0] = 1;
+    }
+
+    if (character.name === 'shards' && character.tags.includes('extra_resonance_tokens')) {
+      character.tokenValues[0] = (character.tokenValues[0] || 0) + 2;
+      gameManager.entityManager.addCondition(character, character, new Condition(ConditionName.brittle));
+    }
+
+    if (character.name === 'three-spears' && character.tags.includes('supply_tokens_scenario')) {
+      character.tokenValues[0] = 1;
+    }
+
+    if (character.name === 'swarmshift' && character.tags.includes('hive_tokens')) {
+      character.tokenValues[0] = 1;
+    }
+  }
+
+  revealMonsterEntities(entities: MonsterEntity[]) {
+    if (
+      this.game.figures.some(
+        (figure) => figure instanceof Character && !figure.absent && figure.name === 'snowflake' && figure.tags.includes('muddle-monster')
+      )
+    ) {
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Monster && !figure.isAlly) {
+          figure.entities.forEach((entity) => {
+            if (entities.includes(entity) && !gameManager.entityManager.isImmune(entity, figure, ConditionName.muddle)) {
+              gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.muddle));
+            }
+          });
+        }
+      });
+    }
+  }
+
+  private resetTurnState(entity: Entity) {
     entity.extraActions = entity.extraActions.filter(
       (action) =>
         action.type !== ActionType.extra &&
@@ -31,12 +177,76 @@ export class SpecialActionsManager {
     entity.entityConditions = entity.entityConditions.filter(
       (entityCondition) => !entityCondition.highlight || entityCondition.state !== EntityConditionState.new
     );
+  }
+
+  beforeTurn(entity: Entity) {
+    this.resetTurnState(entity);
+
     if (entity instanceof Character) {
       this.triggerSlot(entity, 'turnStart');
+
+      if (!entity.absent) {
+        if (entity.name === 'music-note' && entity.tags.includes('song_active')) {
+          entity.experience -= 1;
+        }
+
+        if (!entity.active && entity.name === 'skull' && entity.tags.includes('spirits')) {
+          entity.summons
+            .filter((summon) => summon.afterTurn)
+            .forEach((summon) => {
+              if (summon.maxHealth) {
+                summon.health += 1;
+                gameManager.entityManager.checkHealth(summon, entity);
+              }
+            });
+        }
+      }
     }
   }
 
   turn(entity: Entity, figure: Figure) {
+    if (entity instanceof Character && !entity.absent) {
+      if (entity.name === 'lightning' && entity.tags.includes('blood-pact') && gameManager.entityManager.isAlive(entity)) {
+        if (entity.edition !== 'gh2e' || entity.health > 1) {
+          gameManager.entityManager.changeHealth(entity, entity, -1, true);
+        }
+      }
+
+      if (entity.name === 'berserker' && entity.tags.includes('strength-in-agony') && entity.health > 1) {
+        gameManager.entityManager.changeHealth(entity, entity, -1, true);
+      }
+
+      if (entity.name === 'music-note' && entity.tags.includes('song_active')) {
+        entity.experience += 1;
+      }
+
+      if (entity.longRest && settingsManager.settings.applyLongRest) {
+        if (
+          entity.name === 'three-spears' &&
+          entity.tags.includes('supply_tokens_perk') &&
+          entity.primaryToken === 0 &&
+          entity.tokenValues[0] < 5 &&
+          entity.progress.perks[10] >= 2
+        ) {
+          entity.tokenValues[0] += 1;
+        }
+      }
+
+      if (entity.name === 'prism') {
+        if (entity.tags.includes('repair_mode') && !entity.tags.includes('roundAction-repair_mode')) {
+          entity.health += 2;
+          const heal = new EntityCondition(ConditionName.heal, 2);
+          gameManager.entityManager.addCondition(entity, entity, heal);
+          gameManager.entityManager.applyCondition(entity, entity, heal, true);
+          entity.tags.push('roundAction-repair_mode');
+        }
+        if (entity.tags.includes('spider_mode') && !entity.tags.includes('roundAction-spider_mode')) {
+          gameManager.entityManager.addCondition(entity, entity, new Condition(ConditionName.ward));
+          entity.tags.push('roundAction-spider_mode');
+        }
+      }
+    }
+
     if (
       (figure instanceof Character || (figure instanceof Monster && figure.isAlly)) &&
       this.game.figures.find(
@@ -83,9 +293,47 @@ export class SpecialActionsManager {
   }
 
   afterTurn(entity: Entity) {
-    this.beforeTurn(entity);
+    this.resetTurnState(entity);
+
     if (entity instanceof Character) {
       this.triggerSlot(entity, 'turnEnd');
+
+      if (!entity.absent) {
+        if (entity.name === 'skull' && entity.tags.includes('spirits')) {
+          entity.summons
+            .filter((summon) => summon.afterTurn)
+            .forEach((summon) => {
+              if (summon.maxHealth) {
+                summon.health -= 1;
+                gameManager.entityManager.checkHealth(summon, entity);
+              }
+            });
+        }
+
+        if (
+          entity.name === 'fist' &&
+          entity.tags.includes('gift-of-the-mountain') &&
+          (entity.health < EntityValueFunction(entity.maxHealth, entity.level) ||
+            entity.entityConditions.find(
+              (condition) => condition.types.includes(ConditionType.clearHeal) && !condition.permanent && !condition.expired
+            ))
+        ) {
+          let heal = entity.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.heal);
+          if (!heal) {
+            heal = new EntityCondition(ConditionName.heal, 2);
+            entity.entityConditions.push(heal);
+          }
+          heal.value = 2;
+          heal.expired = false;
+          heal.state = EntityConditionState.normal;
+          entity.health += 2;
+          gameManager.entityManager.applyCondition(entity, entity, heal, true);
+        }
+
+        if (entity.name === 'shards' && entity.tags.includes('resonance_tokens') && entity.tokenValues[0] < 5) {
+          entity.tokenValues[0] += 1;
+        }
+      }
     }
   }
 
@@ -411,6 +659,25 @@ export class SpecialActionsManager {
     }
 
     if (entity instanceof Character) {
+      if (entity.name === 'lightning' && tag === 'careless-charge') {
+        entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
+        entity.immunities.push(ConditionName.curse);
+      }
+
+      if (entity.name === 'shackles' && tag === 'delayed_malady') {
+        entity.entityConditions.forEach((condition) => {
+          if (
+            condition.types.includes(ConditionType.negative) &&
+            !condition.types.includes(ConditionType.amDeck) &&
+            !condition.expired &&
+            condition.state !== EntityConditionState.removed &&
+            !entity.immunities.includes(condition.name)
+          ) {
+            entity.immunities.push(condition.name);
+          }
+        });
+      }
+
       if (entity.name === 'fist' && tag === 'one-with-the-mountain') {
         let regenerate = entity.entityConditions.find((entityCondition) => entityCondition.name === ConditionName.regenerate);
         if (regenerate) {

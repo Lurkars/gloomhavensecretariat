@@ -14,6 +14,7 @@ import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui
 import { ChallengeDeckChange, ChallengeDeckComponent } from 'src/app/ui/figures/challenges/challenge-deck';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { LootDeckChange, LootDeckComponent } from 'src/app/ui/figures/loot/loot-deck';
+import { openPendingWeekSections } from 'src/app/ui/figures/party/week-sections/week-sections';
 import { HintDialogComponent } from 'src/app/ui/footer/hint-dialog/hint-dialog';
 import { LevelComponent } from 'src/app/ui/footer/level/level';
 import { ScenarioRulesComponent } from 'src/app/ui/footer/scenario-rules/scenario-rules';
@@ -82,6 +83,8 @@ export class FooterComponent implements OnInit {
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
       this.update();
+      // open dialogs for calendar sections of passed weeks
+      openPendingWeekSections(this.dialog);
     });
   }
 

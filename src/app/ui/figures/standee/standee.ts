@@ -23,6 +23,7 @@ import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/en
 import { HealthbarComponent } from 'src/app/ui/figures/healthbar/healthbar';
 import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
 import { EntityIndexKeyComponent } from 'src/app/ui/figures/standee/entity-index-key/entity-index-key';
+import { RpgSummonSheetComponent } from 'src/app/ui/figures/standee/sheet/rpg-summon-sheet';
 import { SummonSheetComponent } from 'src/app/ui/figures/standee/sheet/summon-sheet';
 import { EntityAnimationDirective } from 'src/app/ui/helper/EntityAnimation';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -46,6 +47,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
     HealthbarComponent,
     HighlightConditionsComponent,
     SummonSheetComponent,
+    RpgSummonSheetComponent,
     ActionComponent
   ],
   selector: 'ghs-standee',
@@ -234,6 +236,7 @@ export class StandeeComponent implements OnInit {
       'monster-standee': isMonsterEntity,
       'objective-standee': isObjectiveEntity,
       'summon-standee': isSummon,
+      'rpg-summon': isSummon && gameManager.rpgRules(),
       'bb-elite':
         isMonster &&
         gameManager.toMonster(this.figure).editionRules === 'bb' &&

@@ -178,6 +178,79 @@ describe('ScenarioSummaryComponent', () => {
     });
   });
 
+  describe('conclusion character rewards', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    function buildConclusion(rewards: Partial<ScenarioRewards>): Scenario {
+      return new Scenario(
+        Object.assign(new ScenarioData(), {
+          edition: 'gh',
+          index: '1.1',
+          conclusion: true,
+          rewards: Object.assign(new ScenarioRewards(), rewards)
+        })
+      );
+    }
+
+    it('allows solving repeatable conclusions again, but only shows rewards of solved conclusions', () => {
+      gameManager.game.party.conclusions = [{ index: '1.1', edition: 'gh', group: undefined } as any];
+      const repeatable = buildConclusion({});
+      repeatable.repeatable = true;
+      expect(createComponent(repeatable).rewardsOnly).toBe(false);
+      TestBed.resetTestingModule();
+      expect(createComponent(buildConclusion({})).rewardsOnly).toBe(true);
+    });
+
+    it('does not add manual calendar sections by default', () => {
+      gameManager.game.party.campaignMode = true;
+      settingsManager.settings.scenarioRewards = true;
+      const component = createComponent(buildConclusion({ calendarSectionManual: [{ section: '5.1', hint: '' }] }));
+      expect(component.calendarSectionManual).toEqual([-1]);
+    });
+
+    it('shows the character table for conclusions with reward items to distribute', () => {
+      settingsManager.settings.characterSheet = true;
+      gameManager.game.figures = [buildCharacter('brute'), buildCharacter('tinkerer')];
+      const component = createComponent(buildConclusion({}));
+      expect(component.conclusionCharacterRewards()).toBe(false);
+      component.rewardItems = [Object.assign(new ItemData(), { id: 5, edition: 'gh', count: 1 })];
+      expect(component.conclusionCharacterRewards()).toBe(true);
+      component.rewardsOnly = true;
+      expect(component.conclusionCharacterRewards()).toBe(false);
+    });
+
+    it('applies character rewards and the selected reward item when solving a conclusion', async () => {
+      settingsManager.settings.characterSheet = true;
+      settingsManager.settings.characterItems = true;
+      settingsManager.settings.scenarioRewards = true;
+      gameManager.game.party.campaignMode = true;
+      const brute = buildCharacter('brute');
+      const tinkerer = buildCharacter('tinkerer');
+      gameManager.game.figures = [brute, tinkerer];
+      vi.spyOn(gameManager.stateManager, 'before').mockImplementation(() => {});
+      vi.spyOn(gameManager.stateManager, 'after').mockImplementation(async () => {});
+      vi.spyOn(gameManager.scenarioManager, 'finishScenario').mockImplementation(() => {});
+      const addItem = vi.spyOn(gameManager.itemManager, 'addItem').mockImplementation(() => {});
+      vi.spyOn(gameManager.itemManager, 'addItemCount').mockImplementation(() => {});
+
+      const component = createComponent(buildConclusion({ gold: 50 }));
+      const item = Object.assign(new ItemData(), { id: 5, edition: 'gh', count: 1 });
+      component.rewardItems = [item];
+      component.rewardItemCount = [1];
+      component.items = [[], [0]];
+      vi.spyOn(component, 'close').mockImplementation(() => {});
+
+      await component.finish();
+
+      expect(brute.progress.gold).toEqual(50);
+      expect(tinkerer.progress.gold).toEqual(50);
+      expect(addItem).toHaveBeenCalledTimes(1);
+      expect(addItem).toHaveBeenCalledWith(item, component.characters[1]);
+    });
+  });
+
   describe('itemDistributed', () => {
     it('is true once the character already owns the reward item', () => {
       const component = createComponent(scenario);

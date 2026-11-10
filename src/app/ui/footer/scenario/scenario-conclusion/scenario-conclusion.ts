@@ -17,7 +17,8 @@ export class ScenarioConclusionComponent {
 
   gameManager: GameManager = gameManager;
 
-  data: { conclusions: ScenarioData[]; parent: ScenarioData } = inject(DIALOG_DATA);
+  // continue: sections continue the parent section instead of finishing a scenario
+  data: { conclusions: ScenarioData[]; parent: ScenarioData; continue?: boolean } = inject(DIALOG_DATA);
 
   constructor() {
     if (this.data.conclusions.length === 1) {

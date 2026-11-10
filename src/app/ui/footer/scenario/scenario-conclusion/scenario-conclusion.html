@@ -8,7 +8,9 @@
     @for (sectionData of data.conclusions | trackUUID; track sectionData._trackUUID) {
       <span
         class="placeholder text-white conclusion"
-        [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' : '') + (sectionData.named ? '.named' : '')"
+        [ghs-label]="
+          'scenario.section.conclusion' + (data.continue || data.parent.conclusion ? '.continue' : '') + (sectionData.named ? '.named' : '')
+        "
         [ghs-label-args]="[
           sectionData.hideIndex ? '' : '%data.section:' + sectionData.index + '%',
           sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData, true) : ''

@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
-import { ConditionName, ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { Summon } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
@@ -76,13 +75,7 @@ export class SpecialActionsHelper {
         });
 
         if (entity instanceof Character) {
-          if (entity.name === 'lightning' && specialTagsToRemove.includes('careless-charge')) {
-            this.component.entityImmunities = entity.immunities;
-          }
-
-          if (entity.name === 'shackles' && specialTagsToRemove.includes('delayed_malady')) {
-            this.component.entityImmunities = entity.immunities;
-          }
+          this.component.entityImmunities = entity.immunities;
         }
 
         gameManager.stateManager.after();
@@ -103,36 +96,7 @@ export class SpecialActionsHelper {
         });
 
         if (entity instanceof Character) {
-          if (entity.name === 'lightning' && specialTagsToAdd.includes('careless-charge')) {
-            entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
-            entity.immunities.push(ConditionName.curse);
-            this.component.entityImmunities = character.immunities;
-          }
-
-          if (entity.name === 'shackles' && specialTagsToAdd.includes('delayed_malady')) {
-            entity.entityConditions.forEach((condition) => {
-              if (
-                condition.types.includes(ConditionType.negative) &&
-                !condition.types.includes(ConditionType.amDeck) &&
-                !condition.expired &&
-                condition.state !== EntityConditionState.removed &&
-                !this.component.entityConditions.find(
-                  (removed) => removed.state === EntityConditionState.removed && removed.name === condition.name
-                ) &&
-                !entity.immunities.includes(condition.name)
-              ) {
-                entity.immunities.push(condition.name);
-              }
-            });
-
-            this.component.entityConditions.forEach((condition) => {
-              if (condition.state === EntityConditionState.new) {
-                entity.immunities.push(condition.name);
-              }
-            });
-
-            this.component.entityImmunities = character.immunities;
-          }
+          this.component.entityImmunities = entity.immunities;
         }
 
         gameManager.stateManager.after();

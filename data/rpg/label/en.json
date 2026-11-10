@@ -4,8 +4,20 @@
   },
   "character": {
     "rpg": {
-      "berserker": "Berserker",
-      "bladeswarm": "Bladeswarm",
+      "berserker": {
+        "": "Berserker",
+        "strength-in-agony": {
+          "": "Strength in Agony",
+          "hint": "At the start of each of your turns, if your current hit point value is greater than 1, suffer %game.damage:1%."
+        }
+      },
+      "bladeswarm": {
+        "": "Bladeswarm",
+        "call-of-the-grave": {
+          "": "Call of the Grave",
+          "hint": "Enemies with %game.condition.wound% suffer 1 additional %game.damage% at the start of their turns."
+        }
+      },
       "bruiser": "Bruiser",
       "cragheart": "Cragheart",
       "doomstalker": "Doomstalker",
@@ -23,7 +35,29 @@
     }
   },
   "summon": {
-    "companion": "Companion"
+    "angry-wasps": "Angry Wasps",
+    "battle-boar": "Battle Boar",
+    "battle-bot": "Battle Bot",
+    "bloat-maggots": "Bloat Maggots",
+    "chromatic-construct": "Chromatic Construct",
+    "companion": "Companion",
+    "creeping-beetles": "Creeping Beetles",
+    "decoy": "Decoy",
+    "elemental-conduit": "Elemental Conduit",
+    "great-archinotl": "Great Archinotl",
+    "green-snake": "Green Snake",
+    "horned-hristek": "Horned Hristek",
+    "kill-bot": "Kill Bot",
+    "lightning-moths": "Lightning Moths",
+    "monolith": "Monolith",
+    "rage-hornet": "Rage Hornet",
+    "rust-vermin": "Rust Vermin",
+    "soul-leeches": "Soul Leeches",
+    "staunch-garralev": "Staunch Garralev",
+    "steel-scarabs": "Steel Scarabs",
+    "vicious-jackal": "Vicious Jackal",
+    "war-raptor": "War Raptor",
+    "wind-idol": "Wind Idol"
   },
   "custom": {
     "rpg": {
@@ -32,7 +66,15 @@
         "2": "Suffer %game.damage% equal to half your current hit point value (rounded down)"
       },
       "bladeswarm": {
-        "1": "Add %game.action.attack.valueSign:1% for each persistent effect you have active"
+        "1": "Add %game.action.attack.valueSign:1% for each persistent effect you have active",
+        "angry-wasps-primary": "All adjacent characters suffer %game.damage:2%",
+        "soul-leeches-special": "For each adjacent character to this summon when it attacks, add %game.action.attack.valueSign:1%",
+        "steel-scarabs-special": "%game.action.shield:1% and %game.action.taunt%. All allies adjacent to this summon gain %game.action.shield:1%",
+        "creeping-beetles-primary": "%game.action.attack:2%. Grant all adjacent allies: %game.action.move:2%",
+        "bloat-maggots-special": "Enemies suffer %game.action.attack.valueSign:-1% to all their attacks for each adjacent Bloat Maggot",
+        "lightning-moths-special": "All summons add %game.action.attack.valueSign:1% to all their attacks for each adjacent Lightning Moth",
+        "rage-hornet-special": "If this summon's target is adjacent to any of its allies, add %game.action.attack.valueSign:2%",
+        "rust-vermin-special": "If this summon's target has any negative conditions, add %game.condition.pacify%"
       },
       "bruiser": {
         "1": "Gain %game.action.shield:1% and Taunt"
@@ -42,7 +84,13 @@
       },
       "doomstalker": {
         "1": "Perform: %game.action.attack:2%, %game.action.range:5%",
-        "2": "Grant one of your summons adjacent to the target a primary action"
+        "2": "Grant one of your summons adjacent to the target a primary action",
+        "green-snake-special": "This summon is unaffected by difficult terrain. All attacks made against this summon gain disadvantage",
+        "battle-boar-special": "Attacks made by this summon ignore all %game.action.shield% values",
+        "vicious-jackal-special": "This summon has %game.action.shield:1% and %game.action.taunt%",
+        "staunch-garralev-special": "When summoned, this summon gains %game.condition.ward%. After it is attacked, it gains %game.action.shield:1%",
+        "horned-hristek-special": "If this summon starts its turn not adjacent to enemies, add %game.action.attack.valueSign:2% to all its attacks for the round",
+        "great-archinotl-special": "At initiative 100 each round, this summon takes an additional turn"
       },
       "mindthief": {
         "1": "After the attack ability, control the target to %game.action.move:1%",
@@ -75,11 +123,15 @@
         "2": "You or an adjacent ally may %game.card.recover% one expended Level 1 Skill"
       },
       "tinkerer": {
-        "1": "%game.action.heal:1%, %game.action.target% 1 ally"
+        "1": "%game.action.heal:1%, %game.action.target% 1 ally",
+        "kill-bot-primary": "%game.action.attack:3%, adjacent 2-space line away from you"
       },
       "wildfury": {
         "1": "%game.action.heal:2%, Companion",
-        "2": "Add %game.action.attack.valueSign:1% if you and your Companion are within %game.action.range:4% of each other"
+        "2": "Add %game.action.attack.valueSign:1% if you and your Companion are within %game.action.range:4% of each other",
+        "companion-special": "The companion may be Commanded by the wildfury",
+        "wind-idol-special": "All allies within %game.action.range:3% add %game.action.attack.valueSign:1% to their first attack each turn",
+        "monolith-special": "All allies within %game.action.range:3% have %game.action.shield:1%"
       },
       "action": {
         "acid-vomit": "Acid Vomit",
@@ -430,6 +482,10 @@
         "1": "If %game.element.earth%: add +1 heal",
         "2": "If %game.element.earth%: add %game.action.attack.valueSign:1%",
         "3": "Then summon 1 normal ooze with HP equal to your current HP (limited by a normal ooze's maximum HP)"
+      },
+      "elementalist": {
+        "chromatic-construct-primary": "%game.action.attack% X, where X equals each active element",
+        "elemental-conduit-secondary": "%game.action.move:3%. Infuse %game.element.wild%"
       }
     }
   },
@@ -488,17 +544,8 @@
     "ooze": "Ooze"
   },
   "ability": {
-    "rpg-fast": {
-      "": "Fast",
-      "short": "F"
-    },
-    "rpg-normal": {
-      "": "Normal",
-      "short": "N"
-    },
-    "rpg-slow": {
-      "": "Slow",
-      "short": "S"
-    }
+    "rpg-fast": "Fast",
+    "rpg-normal": "Normal",
+    "rpg-slow": "Slow"
   }
 }

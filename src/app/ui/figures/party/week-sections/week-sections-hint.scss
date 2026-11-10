@@ -1,0 +1,40 @@
+.week-sections-hint {
+  position: relative;
+  color: var(--ghs-color-white);
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+    img {
+      height: 1em;
+    }
+  }
+
+  .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    margin: 0.5em 0;
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+      cursor: pointer;
+      font-size: 2em;
+      padding: 0.3em;
+
+      &.confirm {
+        color: var(--ghs-color-green);
+      }
+    }
+  }
+}

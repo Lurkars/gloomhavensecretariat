@@ -31,6 +31,7 @@ export class CharacterSummonDialog {
   summonName: string = '';
   summonFilter: string;
   fhSummon: boolean = false;
+  rpg: boolean = false;
   summonData: SummonData[] = [];
   summonNumbers: number[] = [];
   showAll: boolean = false;
@@ -39,7 +40,9 @@ export class CharacterSummonDialog {
 
   constructor() {
     this.summonFilter = '';
-    this.fhSummon = gameManager.isEditionRelevant(this.character.edition, 'fh');
+    this.rpg = gameManager.attackModifierManager.isRpgCharacter(this.character);
+    // RPG uses numbered summons like FH
+    this.fhSummon = gameManager.isEditionRelevant(this.character.edition, 'fh') || this.rpg;
     if (this.fhSummon) {
       this.summonColor = SummonColor.fh;
     }
@@ -109,7 +112,10 @@ export class CharacterSummonDialog {
     const summons: SummonData[] = [];
     summons.push(...this.character.availableSummons.filter((summonData) => !summonData.level || summonData.level <= this.character.level));
 
-    if (settingsManager.settings.characterItems) {
+    // TODO: items not implemented for RPG yet
+    if (this.rpg) {
+      // no item summons
+    } else if (settingsManager.settings.characterItems) {
       if (this.character.progress && this.character.progress.items) {
         for (const itemIdentifier of this.character.progress.items) {
           const item = gameManager.itemManager.getItem(itemIdentifier.name, itemIdentifier.edition, true);

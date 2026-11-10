@@ -41,6 +41,10 @@ describe('CharacterSheetPersonalQuestComponent', () => {
     resetGame();
   });
 
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   describe('getPersonalQuestCount', () => {
     it('is 0 with no personal quest set', () => {
       const component = createComponent(CharacterSheetPersonalQuestComponent, buildCharacter());
@@ -176,9 +180,9 @@ describe('CharacterSheetPersonalQuestComponent', () => {
       character.progress.personalQuestProgress = [1];
       const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
 
-      component.refreshPersonalQuestRetireState();
-      component.refreshPersonalQuestRetireState();
-      component.refreshPersonalQuestRetireState();
+      component.refreshPersonalQuestRetireState(true);
+      component.refreshPersonalQuestRetireState(true);
+      component.refreshPersonalQuestRetireState(true);
 
       expect(retireSpy).toHaveBeenCalledTimes(1);
     });
@@ -196,10 +200,68 @@ describe('CharacterSheetPersonalQuestComponent', () => {
       character.progress.personalQuestProgress = [0];
       const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
 
-      component.refreshPersonalQuestRetireState();
-      component.refreshPersonalQuestRetireState();
+      component.refreshPersonalQuestRetireState(true);
+      component.refreshPersonalQuestRetireState(true);
 
       expect(retireSpy).not.toHaveBeenCalled();
+    });
+
+    it('only updates retireEnabled without opening the dialog by default', () => {
+      const character = buildCharacter();
+      character.progress.personalQuest = 'PQ1';
+      gameManager.game.party.campaignMode = true;
+      settingsManager.settings.applyRetirement = true;
+      const component = createComponent(CharacterSheetPersonalQuestComponent, character);
+      component.personalQuest = Object.assign(new PersonalQuest(), {
+        edition: 'gh',
+        requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1 })]
+      });
+      character.progress.personalQuestProgress = [1];
+      const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
+
+      component.refreshPersonalQuestRetireState();
+
+      expect(component.retireEnabled).toBe(true);
+      expect(retireSpy).not.toHaveBeenCalled();
+    });
+
+    it('does not open the retirement dialog on init for an already completed personal quest', () => {
+      const character = buildCharacter();
+      character.progress.personalQuest = 'PQ1';
+      character.progress.personalQuestProgress = [1];
+      gameManager.game.party.campaignMode = true;
+      settingsManager.settings.applyRetirement = true;
+      vi.spyOn(gameManager.personalQuestManager, 'personalQuestByCard').mockReturnValue(
+        Object.assign(new PersonalQuest(), {
+          edition: 'gh',
+          requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1 })]
+        })
+      );
+      const component = createComponent(CharacterSheetPersonalQuestComponent, character);
+      const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
+
+      component.ngOnInit();
+
+      expect(component.retireEnabled).toBe(true);
+      expect(retireSpy).not.toHaveBeenCalled();
+    });
+
+    it('opens the retirement dialog when the user completes the personal quest', () => {
+      const character = buildCharacter();
+      character.progress.personalQuest = 'PQ1';
+      character.progress.personalQuestProgress = [0];
+      gameManager.game.party.campaignMode = true;
+      settingsManager.settings.applyRetirement = true;
+      const component = createComponent(CharacterSheetPersonalQuestComponent, character);
+      component.personalQuest = Object.assign(new PersonalQuest(), {
+        edition: 'gh',
+        requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1 })]
+      });
+      const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
+
+      component.setPersonalQuestProgress(0, 1);
+
+      expect(retireSpy).toHaveBeenCalledWith(false, true);
     });
   });
 });

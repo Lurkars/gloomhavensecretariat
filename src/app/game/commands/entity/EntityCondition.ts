@@ -44,14 +44,9 @@ export class EntityConditionCommand extends CommandImpl {
             ) {
               condition = new Condition(ConditionName.strengthen);
             }
-            const shacklesImmunity =
-              entity instanceof Character &&
-              entity.name === 'shackles' &&
-              !entity.absent &&
-              entity.tags.includes('delayed_malady') &&
-              condition.types.includes(ConditionType.negative);
-            gameManager.entityManager.addCondition(entity, figure, condition, permanent, shacklesImmunity);
-            if (shacklesImmunity && !entity.immunities.includes(condition.name)) {
+            const suspended = gameManager.specialActionsManager.isConditionSuspended(entity, condition);
+            gameManager.entityManager.addCondition(entity, figure, condition, permanent, suspended);
+            if (suspended && !entity.immunities.includes(condition.name)) {
               entity.immunities.push(condition.name);
             }
           });

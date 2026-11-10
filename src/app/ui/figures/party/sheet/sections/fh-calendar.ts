@@ -2,7 +2,6 @@ import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Scenario } from 'src/app/game/model/Scenario';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { PartySheetMapLinksComponent } from 'src/app/ui/figures/party/sheet/sections/map-links';
 import { PartyWeekDialogComponent } from 'src/app/ui/figures/party/week-dialog/week-dialog';
@@ -57,49 +56,25 @@ export class PartySheetFhCalendarComponent extends PartySheetSection {
       value = 0;
     }
 
-    const conclusions: string[] = [];
-    for (let week = this.party.weeks; week < value; week++) {
-      this.sectionsForWeekFixed(week).forEach((section) => {
-        if (this.hasConclusions(section) && !conclusions.includes(section)) {
-          conclusions.push(section);
-        }
-      });
-      this.sectionsForWeek(week).forEach((section) => {
-        if (this.hasConclusions(section) && !conclusions.includes(section)) {
-          conclusions.push(section);
-        }
+    // automatic resolving: select continuing sections via dialog, apply conclusions automatically
+    if (settingsManager.settings.automaticWeekSections) {
+      const conclusions: string[] = [];
+      for (let week = this.party.weeks; week < value; week++) {
+        [...this.sectionsForWeekFixed(week), ...this.sectionsForWeek(week)].forEach((section) => {
+          if (this.hasConclusions(section) && !conclusions.includes(section)) {
+            conclusions.push(section);
+          }
+        });
+      }
+
+      conclusions.forEach((conclusion) => {
+        this.openConclusions(conclusion, value);
       });
     }
 
-    conclusions.forEach((conclusion) => {
-      this.openConclusions(conclusion, value);
-    });
-
     gameManager.stateManager.before('setPartyWeeks', value);
     for (let week = this.party.weeks; week < value; week++) {
-      const sectionsForWeeks = [...this.sectionsForWeekFixed(week), ...this.sectionsForWeek(week)];
-      sectionsForWeeks.forEach((section) => {
-        const sectionData = gameManager
-          .sectionData(gameManager.game.edition)
-          .find((sectionData) => sectionData.index === section && sectionData.conclusion);
-        if (
-          sectionData &&
-          !gameManager.game.party.conclusions.find(
-            (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
-          )
-        ) {
-          gameManager.scenarioManager.finishScenario(
-            new Scenario(sectionData),
-            true,
-            undefined,
-            false,
-            false,
-            false,
-            gameManager.game.party.campaignMode,
-            true
-          );
-        }
-      });
+      gameManager.scenarioManager.passWeekSections(week + 1, gameManager.currentEdition(), undefined, gameManager.game.party.campaignMode);
     }
     this.party.weeks = value;
     gameManager.stateManager.after();

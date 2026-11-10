@@ -1,0 +1,25 @@
+{
+  "index": "28.1",
+  "name": "Mysterious Crate",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "115.1"
+    ]
+  ],
+  "conclusion": true,
+  "requirements": [
+    {
+      "buildings": [
+        "library"
+      ]
+    }
+  ],
+  "rewards": {
+    "experience": 10,
+    "custom": "%data.section.rewards.fh.028-1%",
+    "calendarSection": [
+      "178.1-3"
+    ]
+  }
+}

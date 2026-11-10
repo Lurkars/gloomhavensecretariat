@@ -1,0 +1,10 @@
+{
+  "index": "35.1",
+  "name": "Ancient Technology Solution",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "unlockCharacter": "drill"
+  }
+}

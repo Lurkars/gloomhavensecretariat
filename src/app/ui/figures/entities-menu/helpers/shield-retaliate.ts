@@ -8,7 +8,29 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
 export class ShieldRetaliateHelper {
+  private initialTaunt: boolean = false;
+  private initialTauntPersistent: boolean = false;
+
   constructor(private component: EntitiesMenuDialogComponent) {}
+
+  private enabled(entity: any): boolean {
+    return (
+      (entity instanceof Character && settingsManager.settings.characterShieldRetaliate) ||
+      (!(entity instanceof Character) && settingsManager.settings.standeeShieldRetaliate)
+    );
+  }
+
+  private hasTaunt(entity: any, persistent: boolean): boolean {
+    return entity[this.actionList(persistent)].some((action: Action) => action.type === ActionType.taunt);
+  }
+
+  private setTaunt(entity: any, persistent: boolean, value: boolean) {
+    const actionList = this.actionList(persistent);
+    entity[actionList] = entity[actionList].filter((action: Action) => action.type !== ActionType.taunt);
+    if (value) {
+      entity[actionList].push(new Action(ActionType.taunt));
+    }
+  }
 
   private actionList(persistent: boolean) {
     return persistent ? 'extraActionsPersistent' : 'extraActions';
@@ -124,6 +146,15 @@ export class ShieldRetaliateHelper {
           this.component.figures.find((figure) => figure instanceof ObjectiveContainer && figure.escort) !== undefined)) ||
       (settingsManager.settings.standeeShieldRetaliate && this.component.figures.find((figure) => figure instanceof Monster) !== undefined);
 
+    this.component.taunt = this.component.shieldAndRetaliate && gameManager.rpgRules();
+    if (this.component.taunt) {
+      const entities = this.component.applicableEntities.filter((entity) => this.enabled(entity));
+      this.initialTaunt = entities.length > 0 && entities.every((entity) => this.hasTaunt(entity, false));
+      this.initialTauntPersistent = entities.length > 0 && entities.every((entity) => this.hasTaunt(entity, true));
+      this.component.entityTaunt = this.initialTaunt;
+      this.component.entityTauntPersistent = this.initialTauntPersistent;
+    }
+
     if (this.component.shieldAndRetaliate && this.component.entity) {
       this.component.entityShield.value = this.effectiveActionValue(this.shieldAction(this.component.entity, false));
       this.component.entityShieldPersistent.value = this.effectiveActionValue(this.shieldAction(this.component.entity, true));
@@ -144,6 +175,15 @@ export class ShieldRetaliateHelper {
         ? retaliatePersistent.map((action) => this.createRangeAction(this.rangeValue(action)))
         : [this.createRangeAction()];
     }
+  }
+
+  toggleTaunt(persistent: boolean) {
+    if (persistent) {
+      this.component.entityTauntPersistent = !this.component.entityTauntPersistent;
+    } else {
+      this.component.entityTaunt = !this.component.entityTaunt;
+    }
+    this.component.ghsManager.triggerUiChange();
   }
 
   changeShield(value: number) {
@@ -200,6 +240,18 @@ export class ShieldRetaliateHelper {
 
   close() {
     const applicableEntities = this.component.applicableEntities;
+
+    if (this.component.taunt) {
+      [false, true].forEach((persistent) => {
+        const value = persistent ? this.component.entityTauntPersistent : this.component.entityTaunt;
+        const initial = persistent ? this.initialTauntPersistent : this.initialTaunt;
+        if (value !== initial) {
+          this.component.before(value ? 'addTaunt' : 'removeTaunt', persistent ? '%game.card.persistent% ' : '');
+          applicableEntities.filter((entity) => this.enabled(entity)).forEach((entity) => this.setTaunt(entity, persistent, value));
+          gameManager.stateManager.after();
+        }
+      });
+    }
 
     const shieldValue = this.component.entityShield.value;
     if (

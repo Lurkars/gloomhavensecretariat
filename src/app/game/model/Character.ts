@@ -69,7 +69,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     if (
       this.exhausted ||
-      (this.longRest && (this.name !== 'prism' || !this.tags.includes('long_rest'))) ||
+      (this.longRest && !gameManager.specialActionsManager.keepInitiativeOnLongRest(this)) ||
       this.health <= 0 ||
       this.absent
     ) {

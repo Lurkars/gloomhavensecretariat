@@ -21,6 +21,10 @@
           "": "Careless Charge",
           "hint": "You are immune to all negative conditions."
         },
+        "rapid_recovery": {
+          "": "Perk 10",
+          "hint": "%data.custom.fh.lightning.1%"
+        },
         "unbridled-power": {
           "": "Unbridled Power",
           "hint": "You may overheal to a maximum of 26 hit points, but your maximum hit point value remains the same for the purpose of all ability effects."

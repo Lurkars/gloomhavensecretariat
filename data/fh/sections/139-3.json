@@ -1,0 +1,16 @@
+{
+  "index": "139.3",
+  "name": "Vermling Attack",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "%data.section.rewards.fh.139-3%",
+    "collectiveResources": [
+      {
+        "type": "hide",
+        "value": 2
+      }
+    ]
+  }
+}

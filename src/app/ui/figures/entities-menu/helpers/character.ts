@@ -2,7 +2,6 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
 import { Character } from 'src/app/game/model/Character';
-import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { CharacterLevelDialogComponent } from 'src/app/ui/figures/entities-menu/level-dialog/level-dialog';
@@ -24,17 +23,7 @@ export class CharacterHelper {
 
   setIdentity(index: number) {
     if (this.component.entity instanceof Character && index !== this.component.entity.identity) {
-      const timeTokens =
-        this.component.entity.name === 'blinkblade' &&
-        this.component.entity.tags.includes('time_tokens') &&
-        this.component.entity.primaryToken === 0;
-      if (
-        (gameManager.game.state === GameState.next ||
-          (gameManager.game.state === GameState.draw &&
-            this.component.entity.identity === 1 &&
-            this.component.entity.tokenValues[0] === 0)) &&
-        timeTokens
-      ) {
+      if (gameManager.specialActionsManager.isIdentityLocked(this.component.entity)) {
         return;
       }
       this.component.before(

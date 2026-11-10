@@ -799,6 +799,26 @@ img {
   cursor: not-allowed;
 }
 
+span.item.taunt {
+  grid-column: 2;
+  cursor: pointer;
+  border-radius: 100%;
+
+  &:not(.active) {
+    opacity: 0.5;
+  }
+
+  // same hover as conditions
+  &:hover {
+    opacity: 1;
+    border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+  }
+
+  &.active:hover {
+    border: calc(var(--ghs-unit) / 5) var(--ghs-color-red) solid;
+  }
+}
+
 .level-button {
   .button {
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));

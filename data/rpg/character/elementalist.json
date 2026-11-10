@@ -1,7 +1,7 @@
 {
   "name": "elementalist",
   "icon": "gh-triangles",
-  "thumbnail": "gh2e-triangles",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#dcdcdc",
@@ -41,6 +41,42 @@
     {
       "level": 9,
       "health": 14
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "chromatic-construct",
+      "level": 7,
+      "health": 10,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.rpg.elementalist.chromatic-construct-primary%"
+      },
+      "additionalAction": {
+        "type": "move",
+        "value": 3
+      }
+    },
+    {
+      "name": "elemental-conduit",
+      "level": 9,
+      "health": 6,
+      "flying": true,
+      "action": {
+        "type": "attack",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          }
+        ]
+      },
+      "additionalAction": {
+        "type": "custom",
+        "value": "%data.custom.rpg.elementalist.elemental-conduit-secondary%"
+      }
     }
   ],
   "perks": [

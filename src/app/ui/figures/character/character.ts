@@ -7,11 +7,11 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { RpgAttribute } from 'src/app/game/model/CharacterProgress';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
 import { ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
@@ -121,8 +121,11 @@ export class CharacterComponent implements OnInit {
   off: boolean = false;
   battleGoalSelected: boolean = false;
   identityIcon: string = '';
+  rpgAttributes: { attribute: RpgAttribute; value: number }[] = [];
 
   bb: boolean = false;
+  // TODO: items not implemented for RPG yet
+  rpg: boolean = false;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -161,6 +164,7 @@ export class CharacterComponent implements OnInit {
     this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme !== 'modern';
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.editionRules === 'bb';
+    this.rpg = gameManager.attackModifierManager.isRpgCharacter(this.character);
     this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.includes(specialAction.name));
     this.off = this.character.off || this.character.exhausted || this.character.health <= 0;
     this.battleGoalSelected = this.character.battleGoal && this.character.battleGoals.length > 0;
@@ -170,6 +174,12 @@ export class CharacterComponent implements OnInit {
         : '';
     this.extraActions = [...this.character.extraActions.filter((action) => action.type !== ActionType.extra)];
     this.extraActionsPersistent = [...this.character.extraActionsPersistent.filter((action) => action.type !== ActionType.extra)];
+    const attributes = this.character.progress.rpg?.attributes || {};
+    this.rpgAttributes = gameManager.attackModifierManager.isRpgCharacter(this.character)
+      ? Object.values(RpgAttribute)
+          .map((attribute) => ({ attribute, value: attributes[attribute] || 0 }))
+          .filter((rpgAttribute) => rpgAttribute.value > 0)
+      : [];
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -217,7 +227,7 @@ export class CharacterComponent implements OnInit {
       this.character.initiative = value;
       if (value === 99) {
         this.character.longRest = true;
-      } else if (!value || this.character.name !== 'prism' || !this.character.tags.includes('long_rest')) {
+      } else if (!value || !gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
         this.character.longRest = false;
       }
       this.initiative = -1;
@@ -276,14 +286,7 @@ export class CharacterComponent implements OnInit {
 
   nextIdentity(event: any): void {
     if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
-      const timeTokens =
-        this.character.name === 'blinkblade' && this.character.tags.includes('time_tokens') && this.character.primaryToken === 0;
-
-      if (
-        (gameManager.game.state === GameState.next ||
-          (gameManager.game.state === GameState.draw && this.character.identity === 1 && this.character.tokenValues[0] === 0)) &&
-        timeTokens
-      ) {
+      if (gameManager.specialActionsManager.isIdentityLocked(this.character)) {
         return;
       }
 
@@ -332,10 +335,7 @@ export class CharacterComponent implements OnInit {
 
   dragHpMove(value: number) {
     this.health = value;
-    let maxHealth = EntityValueFunction(this.character.maxHealth);
-    if (this.character.name === 'lightning' && this.character.tags.find((tag) => tag === 'unbridled-power')) {
-      maxHealth = Math.max(maxHealth, 26);
-    }
+    const maxHealth = gameManager.specialActionsManager.maxHealth(this.character);
 
     if (this.character.health + this.health > maxHealth) {
       this.health = maxHealth - this.character.health;
@@ -383,13 +383,11 @@ export class CharacterComponent implements OnInit {
       this.token = -this.character.token;
     } else if (this.character.primaryToken >= 0 && this.character.tokenValues[this.character.primaryToken] + this.token < 0) {
       this.token = -this.character.tokenValues[this.character.primaryToken];
-    } else if (
-      this.character.name === 'blinkblade' &&
-      this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) &&
-      this.character.primaryToken === 0 &&
-      this.character.tokenValues[0] + this.token > 5
-    ) {
-      this.token = 5 - this.character.tokenValues[this.character.primaryToken];
+    } else if (this.character.primaryToken >= 0) {
+      const maxTokenValue = gameManager.specialActionsManager.maxTokenValue(this.character, this.character.primaryToken);
+      if (maxTokenValue !== undefined && this.character.tokenValues[this.character.primaryToken] + this.token > maxTokenValue) {
+        this.token = maxTokenValue - this.character.tokenValues[this.character.primaryToken];
+      }
     }
   }
 
@@ -417,13 +415,9 @@ export class CharacterComponent implements OnInit {
         );
         this.character.tokenValues[this.character.primaryToken] += this.token;
 
-        if (
-          this.character.name === 'blinkblade' &&
-          this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) &&
-          this.character.primaryToken === 0 &&
-          this.character.tokenValues[0] > 5
-        ) {
-          this.character.tokenValues[0] = 5;
+        const maxTokenValue = gameManager.specialActionsManager.maxTokenValue(this.character, this.character.primaryToken);
+        if (maxTokenValue !== undefined && this.character.tokenValues[this.character.primaryToken] > maxTokenValue) {
+          this.character.tokenValues[this.character.primaryToken] = maxTokenValue;
         }
 
         this.token = 0;

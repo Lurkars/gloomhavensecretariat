@@ -6,13 +6,11 @@ export class RpgMonsterAction {
   label: string;
   elite: boolean;
   actions: Action[];
-  speeds: number[];
 
-  constructor(label: string, elite: boolean, actions: Action[], speeds: number[] = []) {
+  constructor(label: string, elite: boolean, actions: Action[]) {
     this.label = label;
     this.elite = elite;
     this.actions = actions;
-    this.speeds = speeds;
   }
 }
 

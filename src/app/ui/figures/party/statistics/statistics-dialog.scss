@@ -13,6 +13,57 @@
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
       }
     }
+
+    .attempts {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+
+      .attempt {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+        padding: 0 calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.2s;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &.selected {
+          opacity: 1;
+          font-weight: bold;
+          font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+          cursor: default;
+        }
+
+        .attempt-number {
+          font-family: var(--ghs-font-title);
+        }
+
+        &.success .attempt-number {
+          color: var(--ghs-color-green);
+        }
+
+        &.failure .attempt-number {
+          color: var(--ghs-color-red);
+        }
+
+        .attempt-date {
+          font-size: 0.8em;
+        }
+
+        .ghs-svg {
+          width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          height: auto;
+        }
+      }
+    }
   }
 
   table {
