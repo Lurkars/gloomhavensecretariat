@@ -5,6 +5,12 @@
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#d75f49",
+  "specialActions": [
+    {
+      "name": "strength-in-agony",
+      "expire": true
+    }
+  ],
   "stats": [
     {
       "level": 1,

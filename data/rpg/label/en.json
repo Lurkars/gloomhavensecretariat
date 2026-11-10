@@ -4,7 +4,13 @@
   },
   "character": {
     "rpg": {
-      "berserker": "Berserker",
+      "berserker": {
+        "": "Berserker",
+        "strength-in-agony": {
+          "": "Strength in Agony",
+          "hint": "At the start of each of your turns, if your current hit point value is greater than 1, suffer %game.damage:1%."
+        }
+      },
       "bladeswarm": {
         "": "Bladeswarm",
         "call-of-the-grave": {

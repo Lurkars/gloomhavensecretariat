@@ -469,6 +469,11 @@ export class RoundManager {
               gameManager.entityManager.changeHealth(figure, figure, -1, true);
             }
           }
+
+          // RPG Berserker's version of Blood Pact
+          if (figure.name === 'berserker' && figure.tags.includes('strength-in-agony') && figure.health > 1) {
+            gameManager.entityManager.changeHealth(figure, figure, -1, true);
+          }
         }
       } else {
         figure.summons.forEach((summon) => {
@@ -487,6 +492,11 @@ export class RoundManager {
           if (figure.edition !== 'gh2e' || figure.health > 1) {
             gameManager.entityManager.changeHealth(figure, figure, -1, true);
           }
+        }
+
+        // RPG Berserker's version of Blood Pact
+        if (figure.name === 'berserker' && figure.tags.includes('strength-in-agony') && figure.health > 1) {
+          gameManager.entityManager.changeHealth(figure, figure, -1, true);
         }
       }
     }
