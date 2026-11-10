@@ -5,7 +5,13 @@
   "character": {
     "rpg": {
       "berserker": "Berserker",
-      "bladeswarm": "Bladeswarm",
+      "bladeswarm": {
+        "": "Bladeswarm",
+        "call-of-the-grave": {
+          "": "Call of the Grave",
+          "hint": "Enemies with %game.condition.wound% suffer 1 additional %game.damage% at the start of their turns."
+        }
+      },
       "bruiser": "Bruiser",
       "cragheart": "Cragheart",
       "doomstalker": "Doomstalker",

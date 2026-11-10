@@ -5,6 +5,13 @@
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#cb9070",
+  "specialActions": [
+    {
+      "name": "call-of-the-grave",
+      "expire": true,
+      "level": 1
+    }
+  ],
   "stats": [
     {
       "level": 1,
