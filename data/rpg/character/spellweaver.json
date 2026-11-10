@@ -1,7 +1,7 @@
 {
   "name": "spellweaver",
   "icon": "gh-spellweaver",
-  "thumbnail": "gh2e-spellweaver",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#b28ac2",

@@ -1,7 +1,7 @@
 {
   "name": "plagueherald",
   "icon": "gh-squidface",
-  "thumbnail": "gh2e-squidface",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#72e0be",

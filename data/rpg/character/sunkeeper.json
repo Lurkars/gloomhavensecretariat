@@ -1,7 +1,7 @@
 {
   "name": "sunkeeper",
   "icon": "gh-sun",
-  "thumbnail": "gh2e-sun",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#fce434",

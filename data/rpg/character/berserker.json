@@ -1,7 +1,7 @@
 {
   "name": "berserker",
   "icon": "gh-lightning",
-  "thumbnail": "gh2e-lightning",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#d75f49",

@@ -1,7 +1,7 @@
 {
   "name": "doomstalker",
   "icon": "gh-angry-face",
-  "thumbnail": "gh2e-angry-face",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#69cde0",

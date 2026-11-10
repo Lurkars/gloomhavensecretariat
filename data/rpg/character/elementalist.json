@@ -1,7 +1,7 @@
 {
   "name": "elementalist",
   "icon": "gh-triangles",
-  "thumbnail": "gh2e-triangles",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#dcdcdc",

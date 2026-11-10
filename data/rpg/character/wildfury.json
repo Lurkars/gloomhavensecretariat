@@ -1,7 +1,7 @@
 {
   "name": "wildfury",
   "icon": "gh-two-mini",
-  "thumbnail": "gh2e-two-mini",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#ca9789",

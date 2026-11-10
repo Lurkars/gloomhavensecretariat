@@ -1,7 +1,7 @@
 {
   "name": "silent-knife",
   "icon": "gh-scoundrel",
-  "thumbnail": "gh2e-silent-knife",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#9ecf5f",

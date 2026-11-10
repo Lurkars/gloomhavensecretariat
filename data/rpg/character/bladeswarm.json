@@ -1,7 +1,7 @@
 {
   "name": "bladeswarm",
   "icon": "gh-envx",
-  "thumbnail": "gh2e-crossed-swords",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#cb9070",

@@ -1,7 +1,7 @@
 {
   "name": "tinkerer",
   "icon": "gh-tinkerer",
-  "thumbnail": "gh2e-tinkerer",
+  "noThumbnail": true,
   "edition": "rpg",
   "editionRules": "rpg",
   "color": "#d1c3a2",
