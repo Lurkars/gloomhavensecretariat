@@ -2050,7 +2050,7 @@
         "": "ทรัพยากร",
         "loot": {
           "": "%game.resource.{0}%: {1}",
-          "hint": "จำนวน %game.resource{0}% ที่ปล้นได้"
+          "hint": "จำนวน %game.resource.{0}% ที่ปล้นได้"
         }
       },
       "scenarios": "ฉาก",

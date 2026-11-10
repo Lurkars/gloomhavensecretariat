@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/party/week-sections/week-sections-hint.scss"],
+  "sourcesContent": [".week-sections-hint {\n  position: relative;\n  color: var(--ghs-color-white);\n\n  .title {\n    display: flex;\n    align-items: center;\n    gap: 0.3em;\n    font-family: var(--ghs-font-title);\n    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));\n\n    img {\n      height: 1em;\n    }\n  }\n\n  .sections {\n    display: flex;\n    flex-direction: column;\n    gap: 0.3em;\n    margin: 0.5em 0;\n    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));\n  }\n\n  .menu {\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n\n    a {\n      cursor: pointer;\n      font-size: 2em;\n      padding: 0.3em;\n\n      &.confirm {\n        color: var(--ghs-color-green);\n      }\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,mBACE,SAAA,SACA,MAAA,IAAA,mBAEA,CAJF,mBAIE,CAAA,MACE,QAAA,KACA,YAAA,OACA,IAAA,KACA,YAAA,IAAA,kBACA,UAAA,KAAA,IAAA,YAAA,EAAA,IAAA,EAAA,IAAA,sBAEA,CAXJ,mBAWI,CAPF,MAOE,IACE,OAAA,IAIJ,CAhBF,mBAgBE,CAAA,SACE,QAAA,KACA,eAAA,OACA,IAAA,KAnBJ,OAoBI,KAAA,EACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAGF,CAxBF,mBAwBE,CAAA,KACE,QAAA,KACA,gBAAA,aACA,YAAA,OAEA,CA7BJ,mBA6BI,CALF,KAKE,EACE,OAAA,QACA,UAAA,IA/BN,QAgCM,KAEA,CAlCN,mBAkCM,CAVJ,KAUI,CAAA,CAAA,QACE,MAAA,IAAA",
+  "names": []
+}

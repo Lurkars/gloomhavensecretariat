@@ -2295,7 +2295,7 @@
         "": "Risorse",
         "loot": {
           "": "%game.resource.{0}%: {1}",
-          "hint": "Numero di risorse %game.resource{0}% raccolte"
+          "hint": "Numero di risorse %game.resource.{0}% raccolte"
         }
       },
       "scenarios": "Scenari",
