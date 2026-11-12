@@ -21,7 +21,7 @@
   ],
   "rewards": {
     "prosperity": 1,
-    "custom": "%data.scenario.rewards.fh.070%"
+    "characterRetirement": "582"
   },
   "monsters": [
     "city-guard",

@@ -11,7 +11,8 @@
                 "counter": 1,
                 "requires": [
                     1
-                ]
+                ],
+                "autotrack": "scenario:78"
             }
         ],
         "unlockCharacter": "three-eyes"
@@ -45,7 +46,7 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.ir.644.1%",
-                "counter": 13
+                "counter": 30
             }
         ],
         "unlockCharacter": "ice-meteor"

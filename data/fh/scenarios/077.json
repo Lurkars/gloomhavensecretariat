@@ -36,7 +36,7 @@
     "events": [
       "boat:B-19"
     ],
-    "custom": "%data.scenario.rewards.fh.077%"
+    "characterRetirement": "509"
   },
   "monsters": [
     "fish-king",

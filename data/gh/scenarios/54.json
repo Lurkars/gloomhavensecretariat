@@ -17,6 +17,7 @@
       "road:59"
     ],
     "custom": "%data.scenario.rewards.gh.54%",
+    "characterRetirement": "510",
     "unlockCharacter": "squidface"
   },
   "monsters": [

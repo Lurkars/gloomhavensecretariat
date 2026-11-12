@@ -15,7 +15,7 @@
       "X"
     ],
     "reputation": 2,
-    "custom": "%data.scenario.rewards.gh.58%"
+    "characterRetirement": "526"
   },
   "monsters": [
     "black-imp",

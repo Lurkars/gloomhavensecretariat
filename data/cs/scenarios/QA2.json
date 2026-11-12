@@ -8,7 +8,8 @@
     "envelopes": [
       "%data.characterIcon.tools%"
     ],
-    "custom": "%data.scenario.rewards.cs.QA2%"
+    "custom": "%data.scenario.rewards.cs.QA2%",
+    "characterRetirement": "QA2"
   },
   "monsters": [
     "giant-viper",

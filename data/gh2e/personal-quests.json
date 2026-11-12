@@ -35,7 +35,14 @@
             {
                 "name": "%data.personalQuest.gh2e.02.1%",
                 "counter": 60,
-                "autotrack": "loot"
+                "autotrack": "looted:money"
+            },
+            {
+                "name": "%data.personalQuest.gh2e.02.2%",
+                "counter": 1,
+                "requires": [
+                    1
+                ]
             }
         ]
     },
@@ -381,7 +388,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh2e.14.1%",
-                "counter": 12
+                "counter": 12,
+                "autotrack": "scenariosCompleted"
             },
             {
                 "name": "%data.personalQuest.gh2e.14.2%",
@@ -407,7 +415,8 @@
                 "counter": 6,
                 "requires": [
                     1
-                ]
+                ],
+                "autotrack": "sideScenarios:57-100"
             },
             {
                 "name": "%data.personalQuest.gh2e.15.2%",
@@ -477,7 +486,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh2e.18.1%",
-                "counter": 12
+                "counter": 12,
+                "autotrack": "battleGoals"
             },
             {
                 "name": "%data.personalQuest.gh2e.18.2%",
@@ -513,7 +523,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh2e.20.1%",
-                "counter": 120
+                "counter": 120,
+                "autotrack": "donatedGold"
             },
             {
                 "name": "%data.personalQuest.gh2e.20.2%",
@@ -531,7 +542,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh2e.21.1%",
-                "counter": 120
+                "counter": 120,
+                "autotrack": "abilityXP"
             },
             {
                 "name": "%data.personalQuest.gh2e.21.2%",

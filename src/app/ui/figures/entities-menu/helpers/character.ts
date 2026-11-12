@@ -103,10 +103,12 @@ export class CharacterHelper {
 
       if (this.component.loot !== 0) {
         this.component.before('changeLoot', ghsValueSign(this.component.loot));
+        const lootBefore = character.loot;
         character.loot += this.component.loot;
         if (character.loot < 0) {
           character.loot = 0;
         }
+        gameManager.personalQuestManager.trackMoneyTokens(character, character.loot - lootBefore);
         gameManager.stateManager.after();
       }
 

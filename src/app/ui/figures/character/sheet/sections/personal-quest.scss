@@ -87,6 +87,12 @@
           margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         }
 
+        .concluded {
+          display: flex;
+          align-items: center;
+          margin-left: auto;
+        }
+
         input[type='number'] {
           margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
           width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));

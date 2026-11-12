@@ -596,13 +596,14 @@ export class KeyboardShortcuts implements OnInit {
               case 'l':
                 gameManager.entityManager.before(character, character, 'changeLoot', ghsValueSign(1));
                 character.loot += 1;
+                gameManager.personalQuestManager.trackMoneyTokens(character, 1);
                 gameManager.stateManager.after();
                 break;
               case 'L':
                 gameManager.entityManager.before(character, character, 'changeLoot', ghsValueSign(-1));
-                character.loot -= 1;
-                if (character.loot < 0) {
-                  character.loot = 0;
+                if (character.loot > 0) {
+                  character.loot -= 1;
+                  gameManager.personalQuestManager.trackMoneyTokens(character, -1);
                 }
                 gameManager.stateManager.after();
                 break;

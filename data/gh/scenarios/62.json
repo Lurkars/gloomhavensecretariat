@@ -13,7 +13,7 @@
   "eventType": "road",
   "rewards": {
     "experience": 10,
-    "custom": "%data.scenario.rewards.gh.62%",
+    "characterRetirement": "529",
     "unlockCharacter": "eclipse"
   },
   "monsters": [

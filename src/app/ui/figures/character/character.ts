@@ -437,6 +437,7 @@ export class CharacterComponent implements OnInit {
     if (this.loot !== 0) {
       gameManager.entityManager.before(this.character, this.character, 'changeLoot', ghsValueSign(this.loot));
       this.character.loot += this.loot;
+      gameManager.personalQuestManager.trackMoneyTokens(this.character, this.loot);
       this.loot = 0;
       gameManager.stateManager.after();
     }
@@ -447,6 +448,7 @@ export class CharacterComponent implements OnInit {
     if (this.character.loot + this.loot >= 0) {
       gameManager.entityManager.before(this.character, this.character, 'changeLoot', ghsValueSign(this.loot));
       this.character.loot += this.loot;
+      gameManager.personalQuestManager.trackMoneyTokens(this.character, this.loot);
       gameManager.stateManager.after();
     }
     this.loot = 0;

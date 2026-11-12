@@ -19,6 +19,7 @@ export class CharacterPersonalQuestCommand extends CommandImpl {
       const personalQuest = gameManager.personalQuestManager.personalQuestByCard(gameManager.currentEdition(), cardId);
       if (personalQuest) {
         character.progress.personalQuest = personalQuest.cardId;
+        gameManager.personalQuestManager.personalQuestAssigned(character);
       }
     } else {
       this.executionError('character not found');

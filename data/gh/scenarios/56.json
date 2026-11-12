@@ -14,7 +14,7 @@
   "rewards": {
     "gold": 10,
     "reputation": 2,
-    "custom": "%data.scenario.rewards.gh.56%",
+    "characterRetirement": "521",
     "unlockCharacter": "angry-face"
   },
   "monsters": [

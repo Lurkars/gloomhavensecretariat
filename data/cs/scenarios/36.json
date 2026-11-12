@@ -7,7 +7,8 @@
     "envelopes": [
       "%data.characterIcon.chain-helmet%"
     ],
-    "gold": 10
+    "gold": 10,
+    "characterRetirement": "335"
   },
   "monsters": [
     "bandit-archer",

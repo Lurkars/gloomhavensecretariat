@@ -79,7 +79,27 @@
                 <span>&nbsp;{{ getPersonalQuestCount(i) }}/{{ EntityValueFunction(requirement.counter) }}</span>
               }
             </span>
-            @if (!requirement.checkbox || !requirement.checkbox.length) {
+            @if (isScenarioChain(i)) {
+              <span class="counter">
+                @for (box of [] | ghsRange: scenarioChainBoxes(i); track box) {
+                  <span
+                    class="checkbox"
+                    [ngClass]="{ checked: box < getPersonalQuestCount(i) }"
+                    (click)="setScenarioChainCount(i, box)"
+                    [ghs-label]="'character.progress.personalQuest.scenarioChain'"
+                    [ghs-label-attribute]="'title'"
+                  ></span>
+                }
+                <label class="concluded">
+                  <span
+                    class="checkbox"
+                    [ngClass]="{ checked: isScenarioChainConcluded(i) }"
+                    (click)="toggleScenarioChainConcluded(i)"
+                  ></span>
+                  <span class="checkbox-label" [ghs-label]="'character.progress.personalQuest.concluded'"></span>
+                </label>
+              </span>
+            } @else if (!requirement.checkbox || !requirement.checkbox.length) {
               <span class="counter">
                 @if (EntityValueFunction(requirement.counter) < 11) {
                   @for (counter of [] | ghsRange: EntityValueFunction(requirement.counter); track counter) {

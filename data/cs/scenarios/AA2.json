@@ -11,7 +11,7 @@
     "items": [
       "102"
     ],
-    "custom": "%data.scenario.rewards.cs.AA2%"
+    "characterRetirement": "AA2"
   },
   "monsters": [
     "giant-viper",

@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 export class CharacterPersonalQuestProgressCommand extends CommandImpl {
   id: string = 'character.personalQuest.progress';
@@ -30,12 +29,13 @@ export class CharacterPersonalQuestProgressCommand extends CommandImpl {
           if (
             requirement.requires &&
             requirement.requires.some(
-              (j) => character.progress.personalQuestProgress[j - 1] < EntityValueFunction(personalQuest.requirements[j - 1].counter)
+              (j) => !gameManager.personalQuestManager.personalQuestRequirementFulfilled(character, personalQuest, j - 1)
             )
           ) {
             character.progress.personalQuestProgress[i] = 0;
           }
         });
+        gameManager.personalQuestManager.unlockPersonalQuestScenarios(character);
       }
     } else {
       this.executionError('character not found');

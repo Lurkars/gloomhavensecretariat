@@ -19,6 +19,7 @@ import { CharacterBattleGoalsDialog } from 'src/app/ui/figures/battlegoal/dialog
 import { ChallengeCardComponent } from 'src/app/ui/figures/challenges/challenge-card';
 import { ChallengeDialogComponent } from 'src/app/ui/figures/challenges/dialog/challenge-dialog';
 import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/character-sheet-dialog';
+import { CharacterRetirementDialog } from 'src/app/ui/figures/character/sheet/retirement-dialog';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
 import { DistributionChange, DistributionEntry, PartyDistributionComponent } from 'src/app/ui/figures/party/distribution/distribution';
@@ -598,6 +599,23 @@ export class ScenarioSummaryComponent {
     });
   }
 
+  characterRetirementLabel(): string {
+    return gameManager.isEditionRelevant('gh2e', this.scenario.edition)
+      ? 'scenario.rewards.characterRetirement'
+      : 'scenario.rewards.questComplete';
+  }
+
+  retirementCharacter(cardId: string): string {
+    const character = gameManager.game.figures.find((figure) => {
+      if (!(figure instanceof Character) || !figure.progress.personalQuest) {
+        return false;
+      }
+      const personalQuest = gameManager.personalQuestManager.personalQuestByCard(figure.edition, figure.progress.personalQuest);
+      return !!personalQuest && (personalQuest.cardId === cardId || personalQuest.altId === cardId);
+    }) as Character | undefined;
+    return character ? ' (' + gameManager.characterManager.characterName(character, false, true) + ')' : '';
+  }
+
   hasRewards(): boolean {
     const rewards = this.rewards;
     if (
@@ -1073,6 +1091,7 @@ export class ScenarioSummaryComponent {
     const linkedScenarioData = gameManager
       .scenarioData(this.scenario.edition)
       .find((scenarioData) => scenarioData.group === this.scenario.group && scenarioData.index === linkedIndex);
+    const personalQuestsCompleted = this.personalQuestsCompleted();
     if (this.conclusionOnly) {
       gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(this.scenario));
     } else {
@@ -1288,6 +1307,31 @@ export class ScenarioSummaryComponent {
     );
 
     this.close();
+
+    if (!linkedScenarioData) {
+      this.openRetirements(this.personalQuestsCompleted().filter((character) => !personalQuestsCompleted.includes(character)));
+    }
+  }
+
+  personalQuestsCompleted(): Character[] {
+    return gameManager.game.figures.filter(
+      (figure) => figure instanceof Character && gameManager.personalQuestManager.personalQuestCompleted(figure)
+    ) as Character[];
+  }
+
+  openRetirements(characters: Character[]) {
+    if (!characters.length || !settingsManager.settings.applyRetirement || !gameManager.game.party.campaignMode) {
+      return;
+    }
+    const [character, ...remaining] = characters;
+    this.dialog
+      .open(CharacterRetirementDialog, {
+        panelClass: ['dialog'],
+        data: character
+      })
+      .closed.subscribe({
+        next: () => this.openRetirements(remaining)
+      });
   }
 
   restart() {

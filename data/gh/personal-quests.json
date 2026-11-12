@@ -9,7 +9,7 @@
             {
                 "name": "%data.personalQuest.gh.510.2%",
                 "counter": 1,
-                "autotrack": "scenario:52|53",
+                "autotrack": "scenario:52|54",
                 "requires": [
                     1
                 ]
@@ -311,7 +311,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.gh.530.1%",
-                "counter": 4
+                "counter": 4,
+                "autotrack": "enhancements"
             }
         ],
         "unlockCharacter": "circles"

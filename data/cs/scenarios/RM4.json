@@ -11,7 +11,7 @@
       "112",
       "113"
     ],
-    "custom": "%data.scenario.rewards.cs.RM4%"
+    "characterRetirement": "RM2"
   },
   "monsters": [
     "gnashing-drake",

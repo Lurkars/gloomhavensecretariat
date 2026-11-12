@@ -1417,7 +1417,8 @@
       },
       "02": {
         "": "Inn to Hospitality",
-        "1": "Money Tokens looted"
+        "1": "Money Tokens looted",
+        "2": "Read %game.section:125.4%"
       },
       "03": {
         "": "Augmented Abilities",

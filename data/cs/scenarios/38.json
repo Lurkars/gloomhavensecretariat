@@ -6,7 +6,8 @@
   "rewards": {
     "envelopes": [
       "%data.characterIcon.crescent-sun%"
-    ]
+    ],
+    "characterRetirement": "344"
   },
   "monsters": [
     "black-imp",

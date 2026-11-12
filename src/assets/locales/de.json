@@ -222,6 +222,7 @@
           "disabled": "Automatische Fortschrittsverfolgung ist für diese Persönliche Quest deaktiviert. Klicke, um sie für Anforderungen zu aktivieren, die verfolgt werden können.",
           "enabled": "Automatische Fortschrittsverfolgung ist für diese Persönliche Quest aktiviert. Klicke, um sie zu deaktivieren und den Fortschritt wieder manuell zu verfolgen."
         },
+        "concluded": "Abgeschlossen",
         "counter": "Zähler",
         "draw": "Persönliche-Quest-Karte ziehen",
         "drawDialog": {
@@ -241,6 +242,7 @@
           "randomScenario": "%data.section:{0}% öffnen, %data.scenarioNumber:{1}% freischalten",
           "randomScenarioInfo": "Erhalte ein zufälliges Nebenszenario."
         },
+        "scenarioChain": "Abgeschlossenes Szenario der Kette",
         "unlockCharacter": {
           "": "Schachtel %game.characterIcon.{0}% öffnen",
           "itemDesign": {
@@ -2064,6 +2066,8 @@
         }
       },
       "campaignSticker": "Kampagnenbogensticker",
+      "characterRetirement": "Der Charakter mit der Persönlichen Quest \"%data.personalQuest.{0}.{1}%\" {2} geht in der nächsten Stadtphase in den Ruhestand.",
+      "characterRetirementSkipEvents": "Der Charakter mit der Persönlichen Quest \"%data.personalQuest.{0}.{1}%\" {2} geht in der nächsten Stadtphase in den Ruhestand, fügt aber nicht die normalen Ereignisse für den Ruhestand seiner Klasse hinzu.",
       "chooseItem": "Wähle eines der folgenden aus",
       "chooseLocation": "Schalte eine der folgenden Optionen frei",
       "collectiveGold": "{0} gemeinschaftliches Gold",
@@ -2103,6 +2107,7 @@
       "perks": "Jeweils {0} Verbesserungen",
       "pet": "Füge %data.pets.{1}-{0}% (Haustier {0}) zu den Ställen hinzu. Dies kann die Kapazität der Ställe überschreiten.",
       "prosperity": "{0} Wohlstand",
+      "questComplete": "Quest \"%data.personalQuest.{0}.{1}%\" abgeschlossen. {2}",
       "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan",
       "randomItemBlueprints": "Füge Gegenstände %game.itemFh.{0}% bis %game.itemFh.{1}% zu den zufälligen Gegenstandsblaupausen hinzu.",
       "randomItems": "Jeder Charakter erhält ein zufälligen Gegenstand ({0}-{1})",
@@ -3830,6 +3835,7 @@
           "summon": "Titel '{0}' von {2} von {1] entfernen"
         }
       },
+      "dismissRetirement": "Ruhestand für {0} verwerfen",
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
       "eventDistribution": "Ereignis-Verteilung anwenden",

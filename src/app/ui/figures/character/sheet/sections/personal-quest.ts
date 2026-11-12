@@ -3,6 +3,7 @@ import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, inject, input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { PERSONAL_QUEST_SCENARIO_CONCLUDED } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Identifier } from 'src/app/game/model/data/Identifier';
@@ -19,6 +20,8 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
+
+export const RETIREMENT_DIALOG_DISMISSED_TAG = 'retirement-dialog-dismissed';
 
 @Component({
   imports: [NgClass, NgTemplateOutlet, GhsLabelDirective, GhsRangePipe, GhsTooltipDirective, PointerInputDirective, TrackUUIDPipe],
@@ -62,7 +65,7 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
 
     if (!gameManager.game.scenario) {
       if (this.personalQuest) {
-        this.refreshPersonalQuestRetireState();
+        this.refreshPersonalQuestRetireState(!this.character.tags.includes(RETIREMENT_DIALOG_DISMISSED_TAG));
       } else {
         this.retireEnabled = true;
       }
@@ -75,27 +78,21 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
       this.character.progress.personalQuest = event.target.value;
       this.character.progress.personalQuestProgress = [];
       this.character.progress.personalQuestAutotrack = false;
+      this.character.tags = this.character.tags.filter((tag) => tag !== RETIREMENT_DIALOG_DISMISSED_TAG);
       this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
         gameManager.currentEdition(),
         this.character.progress.personalQuest
       );
       if (this.personalQuest) {
         this.character.progress.personalQuest = this.personalQuest.cardId;
-        this.retireEnabled = this.personalQuest.requirements.every(
-          (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
-        );
+        gameManager.personalQuestManager.personalQuestAssigned(this.character);
+        this.retireEnabled = this.personalQuest.requirements.every((_, i) => this.personalQuestRequirementFulfilled(i));
       }
 
       gameManager.stateManager.after();
     }
   }
   setPersonalQuestProgress(index: number, input: number | any) {
-    for (let i = 0; i <= index; i++) {
-      if (!this.character.progress.personalQuestProgress[i]) {
-        this.character.progress.personalQuestProgress[i] = 0;
-      }
-    }
-
     let value: number = 0;
     if (typeof input === 'number') {
       value = input;
@@ -107,22 +104,26 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
       value--;
     }
 
+    this.applyPersonalQuestProgress(index, value);
+  }
+
+  private applyPersonalQuestProgress(index: number, value: number) {
+    for (let i = 0; i <= index; i++) {
+      if (!this.character.progress.personalQuestProgress[i]) {
+        this.character.progress.personalQuestProgress[i] = 0;
+      }
+    }
+
     gameManager.stateManager.before('setPQProgress', this.characterName, index + 1, value);
     this.character.progress.personalQuestProgress[index] = value;
 
     if (!!this.personalQuest) {
       this.personalQuest.requirements.forEach((requirement, i) => {
-        if (
-          !!requirement.requires &&
-          requirement.requires.some(
-            (j) =>
-              !!this.personalQuest &&
-              this.character.progress.personalQuestProgress[j - 1] < EntityValueFunction(this.personalQuest.requirements[j - 1].counter)
-          )
-        ) {
+        if (!!requirement.requires && requirement.requires.some((j) => !this.personalQuestRequirementFulfilled(j - 1))) {
           this.character.progress.personalQuestProgress[i] = 0;
         }
       });
+      gameManager.personalQuestManager.unlockPersonalQuestScenarios(this.character);
     }
     gameManager.stateManager.after();
 
@@ -134,9 +135,7 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
   refreshPersonalQuestRetireState(openDialog: boolean = false) {
     const retiredEnabled = this.retireEnabled;
     if (this.personalQuest) {
-      this.retireEnabled = this.personalQuest.requirements.every(
-        (requirement, i) => this.getPersonalQuestCount(i) >= EntityValueFunction(requirement.counter)
-      );
+      this.retireEnabled = this.personalQuest.requirements.every((_, i) => this.personalQuestRequirementFulfilled(i));
     }
 
     if (
@@ -218,8 +217,14 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
           .closed.subscribe({
             next: (retired) => {
               const dialogRef = this.dialogRef();
-              if (retired && dialogRef) {
-                ghsDialogClosingHelper(dialogRef);
+              if (retired) {
+                if (dialogRef) {
+                  ghsDialogClosingHelper(dialogRef);
+                }
+              } else if (!this.character.tags.includes(RETIREMENT_DIALOG_DISMISSED_TAG)) {
+                gameManager.stateManager.before('dismissRetirement', this.characterName);
+                this.character.tags.push(RETIREMENT_DIALOG_DISMISSED_TAG);
+                gameManager.stateManager.after();
               }
             }
           });
@@ -243,12 +248,37 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
       this.personalQuest !== undefined &&
       this.personalQuest.requirements[index] !== undefined &&
       this.personalQuest.requirements[index].requires &&
-      this.personalQuest.requirements[index].requires.every(
-        (requireIndex) =>
-          this.personalQuest &&
-          this.getPersonalQuestCount(requireIndex - 1) >= EntityValueFunction(this.personalQuest.requirements[requireIndex - 1].counter)
-      )
+      this.personalQuest.requirements[index].requires.every((requireIndex) => this.personalQuestRequirementFulfilled(requireIndex - 1))
     );
+  }
+
+  personalQuestRequirementFulfilled(index: number): boolean {
+    return (
+      !!this.personalQuest && gameManager.personalQuestManager.personalQuestRequirementFulfilled(this.character, this.personalQuest, index)
+    );
+  }
+
+  isScenarioChain(index: number): boolean {
+    return !!this.personalQuest && gameManager.personalQuestManager.isScenarioChainRequirement(this.personalQuest.requirements[index]);
+  }
+
+  isScenarioChainConcluded(index: number): boolean {
+    return gameManager.personalQuestManager.personalQuestRequirementConcluded(this.character, index);
+  }
+
+  // checked box per completed chain scenario, plus one open box as long as the chain is not concluded
+  scenarioChainBoxes(index: number): number {
+    return this.getPersonalQuestCount(index) + (this.isScenarioChainConcluded(index) ? 0 : 1);
+  }
+
+  setScenarioChainCount(index: number, box: number) {
+    const count = this.getPersonalQuestCount(index);
+    const value = box + 1 === count ? box : box + 1;
+    this.applyPersonalQuestProgress(index, value | (this.isScenarioChainConcluded(index) ? PERSONAL_QUEST_SCENARIO_CONCLUDED : 0));
+  }
+
+  toggleScenarioChainConcluded(index: number) {
+    this.applyPersonalQuestProgress(index, (this.character.progress.personalQuestProgress[index] || 0) ^ PERSONAL_QUEST_SCENARIO_CONCLUDED);
   }
   openTrial() {
     if (this.character.progress.trial) {

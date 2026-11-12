@@ -3,11 +3,12 @@
         "cardId": "330",
         "requirements": [
             {
-                "name": "Inox killed",
-                "counter": 10
+                "name": "%data.personalQuest.cs.330.1%",
+                "counter": 10,
+                "autotrack": "kill:inox-archer|inox-bloodguard|inox-bodyguard|inox-guard|inox-necromancer|inox-shaman"
             },
             {
-                "name": "%data.personalQuest.cs.330.1%",
+                "name": "%data.personalQuest.cs.330.2%",
                 "counter": 1,
                 "autotrack": "scenario:33|34",
                 "requires": [
@@ -81,7 +82,8 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.cs.336.1%",
-                "counter": 20
+                "counter": 20,
+                "autotrack": "kill:ooze|giant-ooze|blood-ooze|forest-imp|black-imp"
             }
         ],
         "unlockCharacter": "tusks"
@@ -112,7 +114,7 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.cs.339.1%",
-                "counter": 15
+                "counter": 30
             }
         ],
         "unlockCharacter": "ladder-axe"
@@ -216,7 +218,7 @@
             {
                 "name": "%data.personalQuest.cs.346.2%",
                 "counter": 1,
-                "autotrack": "scenario:39|40",
+                "autotrack": "scenario:39",
                 "requires": [
                     1
                 ]
@@ -271,7 +273,7 @@
             {
                 "name": "%data.personalQuest.cs.351.1%",
                 "counter": 30,
-                "autotrack": "looted:gold"
+                "autotrack": "looted:money"
             }
         ],
         "unlockCharacter": "galaxy"
@@ -346,7 +348,7 @@
             {
                 "name": "%data.personalQuest.cs.QA2.3%",
                 "counter": 1,
-                "autotrack": "QA2",
+                "autotrack": "scenario:QA2",
                 "requires": [
                     1,
                     2
@@ -360,12 +362,12 @@
         "requirements": [
             {
                 "name": "%data.personalQuest.cs.RM1.1%",
-                "counter": 13
+                "counter": 30
             },
             {
                 "name": "%data.personalQuest.cs.RM1.2%",
                 "counter": 1,
-                "autotrack": "RM1",
+                "autotrack": "scenario:RM1|RM2",
                 "requires": [
                     1
                 ]
@@ -383,7 +385,7 @@
             {
                 "name": "%data.personalQuest.cs.RM2.2%",
                 "counter": 1,
-                "autotrack": "RM3",
+                "autotrack": "scenario:RM3|RM4",
                 "requires": [
                     1
                 ]

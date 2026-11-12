@@ -1211,8 +1211,9 @@
                 <div class="item">
                   <span
                     class="placeholder text-white"
-                    [ghs-label]="'scenario.rewards.characterRetirement'"
-                    [ghs-label-args]="[scenario.edition, rewards.characterRetirement]"
+                    [ghs-label]="characterRetirementLabel()"
+                    [ghs-label-args]="[scenario.edition, rewards.characterRetirement, retirementCharacter(rewards.characterRetirement)]"
+                    [ghs-label-args-replace]="false"
                   ></span>
                   @if (rewards.hints && rewards.hints.characterRetirement) {
                     <span class="placeholder text-white hint" [ghs-label]="rewards.hints.characterRetirement"></span>
@@ -1224,7 +1225,12 @@
                   <span
                     class="placeholder text-white"
                     [ghs-label]="'scenario.rewards.characterRetirementSkipEvents'"
-                    [ghs-label-args]="[scenario.edition, rewards.characterRetirementSkipEvents]"
+                    [ghs-label-args]="[
+                      scenario.edition,
+                      rewards.characterRetirementSkipEvents,
+                      retirementCharacter(rewards.characterRetirementSkipEvents)
+                    ]"
+                    [ghs-label-args-replace]="false"
                   ></span>
                   @if (rewards.hints && rewards.hints.characterRetirementSkipEvents) {
                     <span class="placeholder text-white hint" [ghs-label]="rewards.hints.characterRetirementSkipEvents"></span>

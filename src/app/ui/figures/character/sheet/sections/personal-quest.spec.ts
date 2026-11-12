@@ -1,5 +1,6 @@
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -7,7 +8,10 @@ import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { GameState } from 'src/app/game/model/Game';
-import { CharacterSheetPersonalQuestComponent } from 'src/app/ui/figures/character/sheet/sections/personal-quest';
+import {
+  CharacterSheetPersonalQuestComponent,
+  RETIREMENT_DIALOG_DISMISSED_TAG
+} from 'src/app/ui/figures/character/sheet/sections/personal-quest';
 
 function buildCharacter(overrides: Partial<CharacterData> = {}): Character {
   const data = Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }, overrides);
@@ -166,6 +170,50 @@ describe('CharacterSheetPersonalQuestComponent', () => {
       expect(component.personalQuestRequirementAutotracked(1)).toBe(false);
     });
   });
+  describe('scenario chain requirement', () => {
+    function chainComponent(): { component: CharacterSheetPersonalQuestComponent; character: Character } {
+      const character = buildCharacter();
+      const component = createComponent(CharacterSheetPersonalQuestComponent, character);
+      component.personalQuest = Object.assign(new PersonalQuest(), {
+        requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:71|77' })]
+      });
+      character.progress.personalQuestProgress = [];
+      return { component, character };
+    }
+
+    it('shows one open box more than completed chain scenarios until concluded', () => {
+      const { component } = chainComponent();
+      expect(component.isScenarioChain(0)).toBe(true);
+      expect(component.scenarioChainBoxes(0)).toEqual(1);
+
+      component.setScenarioChainCount(0, 0);
+      component.setScenarioChainCount(0, 1);
+      expect(component.getPersonalQuestCount(0)).toEqual(2);
+      expect(component.scenarioChainBoxes(0)).toEqual(3);
+      expect(component.personalQuestRequirementFulfilled(0)).toBe(false);
+
+      component.toggleScenarioChainConcluded(0);
+      expect(component.isScenarioChainConcluded(0)).toBe(true);
+      expect(component.scenarioChainBoxes(0)).toEqual(2);
+      expect(component.personalQuestRequirementFulfilled(0)).toBe(true);
+    });
+
+    it('unchecks the last checked box and keeps the conclusion flag', () => {
+      const { component } = chainComponent();
+      component.setScenarioChainCount(0, 0);
+      component.setScenarioChainCount(0, 1);
+      component.toggleScenarioChainConcluded(0);
+
+      component.setScenarioChainCount(0, 1);
+      expect(component.getPersonalQuestCount(0)).toEqual(1);
+      expect(component.isScenarioChainConcluded(0)).toBe(true);
+
+      component.toggleScenarioChainConcluded(0);
+      expect(component.isScenarioChainConcluded(0)).toBe(false);
+      expect(component.getPersonalQuestCount(0)).toEqual(1);
+    });
+  });
+
   describe('refreshPersonalQuestRetireState', () => {
     it('only triggers auto-retire once on the false -> true edge, not again on repeated calls', () => {
       const character = buildCharacter();
@@ -225,25 +273,75 @@ describe('CharacterSheetPersonalQuestComponent', () => {
       expect(retireSpy).not.toHaveBeenCalled();
     });
 
-    it('does not open the retirement dialog on init for an already completed personal quest', () => {
+    function completedPersonalQuestCharacter(cardId: string): Character {
       const character = buildCharacter();
-      character.progress.personalQuest = 'PQ1';
+      character.progress.personalQuest = cardId;
       character.progress.personalQuestProgress = [1];
       gameManager.game.party.campaignMode = true;
       settingsManager.settings.applyRetirement = true;
       vi.spyOn(gameManager.personalQuestManager, 'personalQuestByCard').mockReturnValue(
         Object.assign(new PersonalQuest(), {
           edition: 'gh',
+          cardId: cardId,
           requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1 })]
         })
       );
+      return character;
+    }
+
+    function mockRetirementDialog(component: CharacterSheetPersonalQuestComponent, result: boolean | undefined) {
+      return vi.spyOn((component as any).dialog, 'open').mockReturnValue({ closed: of(result) } as any);
+    }
+
+    it('opens the retirement dialog on first init for an already completed personal quest', () => {
+      const character = completedPersonalQuestCharacter('PQ-init');
       const component = createComponent(CharacterSheetPersonalQuestComponent, character);
-      const retireSpy = vi.spyOn(component, 'retire').mockImplementation(() => {});
+      const openSpy = mockRetirementDialog(component, true);
 
       component.ngOnInit();
 
       expect(component.retireEnabled).toBe(true);
-      expect(retireSpy).not.toHaveBeenCalled();
+      expect(openSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not open the retirement dialog again on later inits once it was canceled', () => {
+      const character = completedPersonalQuestCharacter('PQ-cancel');
+      const first = createComponent(CharacterSheetPersonalQuestComponent, character);
+      const firstOpenSpy = mockRetirementDialog(first, undefined);
+      first.ngOnInit();
+      expect(firstOpenSpy).toHaveBeenCalledTimes(1);
+      expect(character.tags).toContain(RETIREMENT_DIALOG_DISMISSED_TAG);
+      firstOpenSpy.mockClear();
+
+      const second = createComponent(CharacterSheetPersonalQuestComponent, character);
+      const secondOpenSpy = mockRetirementDialog(second, undefined);
+      second.ngOnInit();
+
+      expect(second.retireEnabled).toBe(true);
+      expect(secondOpenSpy).not.toHaveBeenCalled();
+    });
+
+    it('persists the dismissal through character serialization', () => {
+      const character = completedPersonalQuestCharacter('PQ-persist');
+      const component = createComponent(CharacterSheetPersonalQuestComponent, character);
+      mockRetirementDialog(component, undefined);
+      component.ngOnInit();
+
+      const restored = buildCharacter();
+      restored.fromModel(character.toModel());
+
+      expect(restored.tags).toContain(RETIREMENT_DIALOG_DISMISSED_TAG);
+    });
+
+    it('clears the dismissal when a new personal quest is set', () => {
+      const character = completedPersonalQuestCharacter('PQ-old');
+      character.tags.push(RETIREMENT_DIALOG_DISMISSED_TAG);
+      const component = createComponent(CharacterSheetPersonalQuestComponent, character);
+      mockRetirementDialog(component, undefined);
+
+      component.setPersonalQuest({ target: { value: 'PQ-new' } });
+
+      expect(character.tags).not.toContain(RETIREMENT_DIALOG_DISMISSED_TAG);
     });
 
     it('opens the retirement dialog when the user completes the personal quest', () => {

@@ -1,4 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { PERSONAL_QUEST_SCENARIO_CONCLUDED } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
@@ -8,6 +9,8 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { CampaignData, EditionData } from 'src/app/game/model/data/EditionData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 function buildCharacter(name: string, edition: string = 'gh', overrides: Partial<CharacterData> = {}): Character {
   const data = Object.assign(new CharacterData(), { name, edition, stats: [new CharacterStat(1, 10)], ...overrides });
@@ -293,6 +296,56 @@ describe('PersonalQuestManager', () => {
       expect(character.progress.personalQuestProgress[0]).toEqual(1);
     });
 
+    it('"scenario:from|to" counts every scenario of the chain within the range, without ever fulfilling it by count', () => {
+      const character = buildCharacter('brute', 'gh2e');
+      const personalQuest = pq([{ counter: 1, autotrack: 'scenario:71|77' as PersonalQuestAutotrackType }]);
+      withQuest(character, personalQuest);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, '70');
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, '78');
+      expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
+
+      ['71', '72', '73', '74A', '76', '77'].forEach((index) =>
+        personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, index)
+      );
+      expect(personalQuestManager.personalQuestRequirementCount(character, personalQuest, 0)).toEqual(6);
+      expect(personalQuestManager.personalQuestRequirementFulfilled(character, personalQuest, 0)).toBe(false);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, '77', -1);
+      expect(personalQuestManager.personalQuestRequirementCount(character, personalQuest, 0)).toEqual(5);
+    });
+
+    it('keeps counting a concluded scenario chain (rewards may conclude first) and keeps the conclusion when reverting', () => {
+      const character = buildCharacter('brute', 'gh2e');
+      const personalQuest = pq([{ counter: 1, autotrack: 'scenario:65|68' as PersonalQuestAutotrackType }]);
+      withQuest(character, personalQuest);
+      character.progress.personalQuestProgress = [2 | PERSONAL_QUEST_SCENARIO_CONCLUDED];
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, '68');
+      expect(personalQuestManager.personalQuestRequirementCount(character, personalQuest, 0)).toEqual(3);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, '68', -1);
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, '67', -1);
+      expect(personalQuestManager.personalQuestRequirementCount(character, personalQuest, 0)).toEqual(1);
+      expect(personalQuestManager.personalQuestRequirementFulfilled(character, personalQuest, 0)).toBe(true);
+    });
+
+    it('"scenario:ID" requires an exact match and is concluded by completing that scenario', () => {
+      const character = buildCharacter('brute', 'gh2e');
+      const personalQuest = pq([{ counter: 1, autotrack: 'scenario:AA1' as PersonalQuestAutotrackType }]);
+      withQuest(character, personalQuest);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, 'AA2');
+      expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, 'AA1');
+      expect(personalQuestManager.personalQuestRequirementCount(character, personalQuest, 0)).toEqual(1);
+      expect(personalQuestManager.personalQuestRequirementFulfilled(character, personalQuest, 0)).toBe(true);
+
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.scenario, 'AA1', -1);
+      expect(character.progress.personalQuestProgress[0]).toEqual(0);
+    });
+
     it('leaves an unrelated requirement kind untouched', () => {
       const character = buildCharacter('brute', 'gh2e');
       const personalQuest = pq([{ counter: 1, autotrack: 'item:148' as PersonalQuestAutotrackType }]);
@@ -368,6 +421,219 @@ describe('PersonalQuestManager', () => {
       personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.bossScenarios);
 
       expect(character.progress.personalQuestProgress[0]).toEqual(1);
+    });
+  });
+
+  describe('unlockPersonalQuestScenarios', () => {
+    const initial = Object.assign(new ScenarioData(), { edition: 'fh', index: '1', initial: true });
+    const chainStart = Object.assign(new ScenarioData(), { edition: 'fh', index: '71' });
+    const gatedStart = Object.assign(new ScenarioData(), { edition: 'fh', index: '69' });
+
+    function withQuest(requirements: Partial<PersonalQuestRequirement>[]): Character {
+      const personalQuest = Object.assign(new PersonalQuest(), {
+        cardId: '509',
+        edition: 'fh',
+        requirements: requirements.map((requirement) => Object.assign(new PersonalQuestRequirement(), requirement))
+      });
+      gameManager.editionData = [
+        Object.assign(new EditionData('fh', [], [], [], [initial, chainStart, gatedStart], [], []), { personalQuests: [personalQuest] })
+      ];
+      const character = buildCharacter('blinkblade', 'fh');
+      character.progress.personalQuest = '509';
+      character.progress.personalQuestProgress = [];
+      return character;
+    }
+
+    beforeEach(() => {
+      settingsManager.settings.editions = ['fh'];
+      settingsManager.settings.automaticUnlocking = true;
+      gameManager.game.party.campaignMode = true;
+      gameManager.game.party.scenarios = [];
+      gameManager.game.party.conclusions = [];
+      gameManager.game.party.manualScenarios = [];
+    });
+
+    afterEach(() => {
+      settingsManager.settings.automaticUnlocking = true;
+      gameManager.game.party.campaignMode = false;
+      gameManager.game.party.manualScenarios = [];
+    });
+
+    it('unlocks the first scenario of a "scenario" requirement without requires right away, only once', () => {
+      const character = withQuest([{ counter: 6, autotrack: 'scenario:71|77' as PersonalQuestAutotrackType }]);
+
+      expect(personalQuestManager.unlockPersonalQuestScenarios(character)).toBe(true);
+      expect(gameManager.game.party.manualScenarios).toEqual([new GameScenarioModel('71', 'fh', undefined)]);
+      expect(gameManager.scenarioManager.scenarioData('fh')).toContain(chainStart);
+
+      expect(personalQuestManager.unlockPersonalQuestScenarios(character)).toBe(false);
+      expect(gameManager.game.party.manualScenarios.length).toBe(1);
+    });
+
+    it('unlocks the scenario of a requirement with requires once the required requirements are fulfilled', () => {
+      const character = withQuest([
+        { counter: 8, autotrack: 'looted:lumber' as PersonalQuestAutotrackType },
+        { counter: 2, autotrack: 'scenario:69|70' as PersonalQuestAutotrackType, requires: [1] }
+      ]);
+      character.progress.personalQuestAutotrack = true;
+
+      expect(personalQuestManager.unlockPersonalQuestScenarios(character)).toBe(false);
+
+      character.progress.personalQuestProgress = [7];
+      personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.looted, 'lumber');
+
+      expect(character.progress.personalQuestProgress[0]).toEqual(8);
+      expect(gameManager.game.party.manualScenarios).toEqual([new GameScenarioModel('69', 'fh', undefined)]);
+    });
+
+    it('does nothing outside campaign mode, without automatic unlocking or for unknown scenarios', () => {
+      const character = withQuest([{ counter: 1, autotrack: 'scenario:999' as PersonalQuestAutotrackType }]);
+      expect(personalQuestManager.unlockPersonalQuestScenarios(character)).toBe(false);
+
+      const chainCharacter = withQuest([{ counter: 6, autotrack: 'scenario:71|77' as PersonalQuestAutotrackType }]);
+      settingsManager.settings.automaticUnlocking = false;
+      expect(personalQuestManager.unlockPersonalQuestScenarios(chainCharacter)).toBe(false);
+
+      settingsManager.settings.automaticUnlocking = true;
+      gameManager.game.party.campaignMode = false;
+      expect(personalQuestManager.unlockPersonalQuestScenarios(chainCharacter)).toBe(false);
+      expect(gameManager.game.party.manualScenarios.length).toBe(0);
+    });
+  });
+
+  describe('trackMoneyTokens', () => {
+    function withMoneyQuest(): Character {
+      const personalQuest = Object.assign(new PersonalQuest(), {
+        cardId: '02',
+        edition: 'gh2e',
+        requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 60, autotrack: 'looted:money' })]
+      });
+      gameManager.editionData = [Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      settingsManager.settings.editions = ['gh2e'];
+      const character = buildCharacter('brute', 'gh2e');
+      character.progress.personalQuest = '02';
+      character.progress.personalQuestAutotrack = true;
+      return character;
+    }
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('tracks money token changes as looted money, including reverts', () => {
+      const character = withMoneyQuest();
+      vi.spyOn(gameManager, 'fhRules').mockReturnValue(false);
+
+      personalQuestManager.trackMoneyTokens(character, 3);
+      expect(character.progress.personalQuestProgress[0]).toEqual(3);
+
+      personalQuestManager.trackMoneyTokens(character, -1);
+      expect(character.progress.personalQuestProgress[0]).toEqual(2);
+    });
+
+    it('ignores money changes under FH rules', () => {
+      const character = withMoneyQuest();
+      vi.spyOn(gameManager, 'fhRules').mockReturnValue(true);
+
+      personalQuestManager.trackMoneyTokens(character, 3);
+      expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
+    });
+  });
+
+  describe('personalQuestCompleted', () => {
+    it('is true once every requirement is fulfilled, including concluded scenario chains', () => {
+      const personalQuest = Object.assign(new PersonalQuest(), {
+        cardId: '582',
+        edition: 'fh',
+        requirements: [
+          Object.assign(new PersonalQuestRequirement(), { counter: 8, autotrack: 'looted:lumber' }),
+          Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:69|70', requires: [1] })
+        ]
+      });
+      gameManager.editionData = [Object.assign(new EditionData('fh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      settingsManager.settings.editions = ['fh'];
+      const character = buildCharacter('blinkblade', 'fh');
+      expect(personalQuestManager.personalQuestCompleted(character)).toBe(false);
+
+      character.progress.personalQuest = '582';
+      character.progress.personalQuestProgress = [8, 2];
+      expect(personalQuestManager.personalQuestCompleted(character)).toBe(false);
+
+      character.progress.personalQuestProgress = [8, 2 | PERSONAL_QUEST_SCENARIO_CONCLUDED];
+      expect(personalQuestManager.personalQuestCompleted(character)).toBe(true);
+    });
+  });
+
+  describe('completePersonalQuestScenarios', () => {
+    it('concludes the matching scenario requirement of characters holding the quest with autotrack enabled', () => {
+      const personalQuest = Object.assign(new PersonalQuest(), {
+        cardId: '509',
+        altId: '12',
+        edition: 'fh',
+        requirements: [
+          Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:71|77' }),
+          Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:80' })
+        ]
+      });
+      gameManager.editionData = [Object.assign(new EditionData('fh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      settingsManager.settings.editions = ['fh'];
+
+      const tracked = buildCharacter('blinkblade', 'fh');
+      tracked.progress.personalQuest = '509';
+      tracked.progress.personalQuestAutotrack = true;
+      tracked.progress.personalQuestProgress = [5];
+      const untracked = buildCharacter('drifter', 'fh');
+      untracked.progress.personalQuest = '509';
+      untracked.progress.personalQuestProgress = [5];
+      gameManager.game.figures = [tracked, untracked];
+
+      personalQuestManager.completePersonalQuestScenarios('12', '76');
+
+      expect(personalQuestManager.personalQuestRequirementFulfilled(tracked, personalQuest, 0)).toBe(true);
+      expect(personalQuestManager.personalQuestRequirementCount(tracked, personalQuest, 0)).toEqual(5);
+      expect(personalQuestManager.personalQuestRequirementFulfilled(tracked, personalQuest, 1)).toBe(false);
+      expect(personalQuestManager.personalQuestRequirementFulfilled(untracked, personalQuest, 0)).toBe(false);
+    });
+  });
+
+  describe('migrateScenarioChainProgress', () => {
+    function withQuest(): Character {
+      const personalQuest = Object.assign(new PersonalQuest(), {
+        cardId: '510',
+        edition: 'gh',
+        requirements: [
+          Object.assign(new PersonalQuestRequirement(), { counter: 3 }),
+          Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:52|54', requires: [1] })
+        ]
+      });
+      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      settingsManager.settings.editions = ['gh'];
+      const character = buildCharacter('brute', 'gh');
+      character.progress.personalQuest = '510';
+      return character;
+    }
+
+    it('concludes scenario requirements completed with the former counter semantics, once', () => {
+      const character = withQuest();
+      character.progress.personalQuestProgress = [3, 1];
+
+      personalQuestManager.migrateScenarioChainProgress(character);
+      expect(character.progress.personalQuestProgress).toEqual([3, 1 | PERSONAL_QUEST_SCENARIO_CONCLUDED]);
+
+      character.progress.personalQuestProgress[1] = 2;
+      personalQuestManager.migrateScenarioChainProgress(character);
+      expect(character.progress.personalQuestProgress[1]).toEqual(2);
+    });
+
+    it('does not migrate characters whose quest was assigned with chain semantics', () => {
+      const character = withQuest();
+      vi.spyOn(personalQuestManager, 'unlockPersonalQuestScenarios').mockReturnValue(false);
+      personalQuestManager.personalQuestAssigned(character);
+      character.progress.personalQuestProgress = [3, 2];
+
+      personalQuestManager.migrateScenarioChainProgress(character);
+      expect(character.progress.personalQuestProgress).toEqual([3, 2]);
+      vi.restoreAllMocks();
     });
   });
 

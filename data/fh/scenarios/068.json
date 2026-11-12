@@ -19,7 +19,7 @@
     }
   ],
   "rewards": {
-    "custom": "%data.scenario.rewards.fh.068%",
+    "characterRetirement": "587",
     "calendarSection": [
       "133.1-2"
     ]

@@ -265,6 +265,8 @@ export class Character extends CharacterData implements Entity, Figure {
         this.progress.personalQuestProgress[0] = (1 << this.progress.personalQuestProgress[0]) - 1;
       }
 
+      gameManager.personalQuestManager.migrateScenarioChainProgress(this);
+
       gameManager.characterManager.previousEnhancements(this, gameManager.enhancementsManager.temporary);
     }
 

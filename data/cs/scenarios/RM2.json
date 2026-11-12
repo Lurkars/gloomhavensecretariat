@@ -9,7 +9,7 @@
       "%data.characterIcon.bleeding-claw%"
     ],
     "prosperity": 1,
-    "custom": "%data.scenario.rewards.cs.RM2%"
+    "characterRetirement": "RM1"
   },
   "monsters": [
     "bandit-guard",

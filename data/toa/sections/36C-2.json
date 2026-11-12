@@ -9,6 +9,6 @@
       "%data.characterIcon.three-eyes%"
     ],
     "battleGoals": 2,
-    "custom": "%data.section.rewards.toa.36C-2%"
+    "characterRetirement": "641"
   }
 }

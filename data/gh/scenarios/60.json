@@ -15,7 +15,7 @@
       "X"
     ],
     "prosperity": 1,
-    "custom": "%data.scenario.rewards.gh.60%"
+    "characterRetirement": "513"
   },
   "monsters": [
     "giant-viper",

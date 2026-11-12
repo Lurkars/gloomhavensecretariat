@@ -520,6 +520,29 @@ describe('ScenarioManager', () => {
       expect(gameManager.game.party.prosperity).toBe(0);
     });
 
+    it('concludes the personal quest scenario chain via characterRetirement reward, counting the final scenario', () => {
+      const personalQuest = Object.assign(new PersonalQuest(), {
+        cardId: '510',
+        edition: 'gh',
+        requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:1|3' })]
+      });
+      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      settingsManager.settings.editions = ['gh'];
+      const character = new Character(
+        Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+        1
+      );
+      character.progress.personalQuest = '510';
+      character.progress.personalQuestAutotrack = true;
+      character.progress.personalQuestProgress = [1];
+      gameManager.game.figures = [character];
+
+      scenarioManager.finishScenario(buildScenario({ characterRetirement: '510' }), true, undefined);
+
+      expect(gameManager.personalQuestManager.personalQuestRequirementCount(character, personalQuest, 0)).toBe(2);
+      expect(gameManager.personalQuestManager.personalQuestRequirementFulfilled(character, personalQuest, 0)).toBe(true);
+    });
+
     it('does not apply rewards when success is false', () => {
       const scenario = buildScenario({ prosperity: 5, reputation: 3 });
       scenarioManager.finishScenario(scenario, false, undefined);

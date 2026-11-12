@@ -16,6 +16,6 @@
     "events": [
       "boat:B-18"
     ],
-    "custom": "%data.section.rewards.fh.096-3%"
+    "characterRetirement": "509"
   }
 }

@@ -497,6 +497,11 @@ export class ScenarioManager {
             this.game.unlockedCharacters.push(scenario.edition + ':' + rewards.unlockCharacter);
           }
 
+          // a retirement reward completes the personal quest, so conclude its scenario chain
+          [rewards.characterRetirement, rewards.characterRetirementSkipEvents]
+            .filter((cardId) => !!cardId)
+            .forEach((cardId) => gameManager.personalQuestManager.completePersonalQuestScenarios(cardId, scenario.index));
+
           if (rewards.lootDeckCards) {
             rewards.lootDeckCards.forEach((lootDeckCard) => {
               const loot = fullLootDeck.find((loot) => loot.cardId === lootDeckCard);

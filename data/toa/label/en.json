@@ -255,8 +255,8 @@
     "toa": {
       "641": {
         "": "Grave Robber",
-        "1": "Money tokes looted in scenarios with Living Bons, Living Corpses, or Living Spritits",
-        "2": "Follow \"Ternion Tomb\" (Scenario 67) to a conclusion"
+        "1": "Money tokens looted in scenarios with Living Bones, Living Corpses, or Living Spirits",
+        "2": "Follow \"Ternion Tomb\" (Scenario 78) to a conclusion"
       },
       "642": {
         "": "Stand as One",
@@ -322,8 +322,6 @@
     "rewards": {
       "toa": {
         "33C": "Each character loses 1 %game.items.slots.legs% item",
-        "36C-1": "\"Grave Robber\" quest complete",
-        "36C-2": "\"Grave Robber\" quest complete",
         "51A": "To view your reward, visit <a href=\"https://www.thecrimsonscales.com/reveal\" target=\"_blank\">thecrimsonscales.com/reveal</a><br>Password: ashes"
       }
     },

@@ -8,6 +8,7 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { Loot, LootType } from 'src/app/game/model/data/Loot';
+import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
@@ -75,10 +76,92 @@ describe('ScenarioSummaryComponent', () => {
       expect(component.hasRewards()).toBe(true);
     });
 
+    it('is true for a character retirement (personal quest complete) reward only', () => {
+      const component = createComponent(scenario);
+      component.rewards = Object.assign(new ScenarioRewards(), { characterRetirement: '510' });
+      expect(component.hasRewards()).toBe(true);
+    });
+
     it('is false when rewards exist but every tracked field is empty', () => {
       const component = createComponent(scenario);
       component.rewards = new ScenarioRewards();
       expect(component.hasRewards()).toBe(false);
+    });
+  });
+
+  describe('openRetirements', () => {
+    function mockDialog(component: ScenarioSummaryComponent) {
+      const open = vi.fn(() => ({ closed: { subscribe: (observer: { next: () => void }) => observer.next() } }));
+      (component as any).dialog = { open };
+      return open;
+    }
+
+    afterEach(() => {
+      settingsManager.settings.applyRetirement = false;
+      gameManager.game.party.campaignMode = false;
+    });
+
+    it('opens the retirement dialog one after another for each given character', () => {
+      const component = createComponent(scenario);
+      const open = mockDialog(component);
+      settingsManager.settings.applyRetirement = true;
+      gameManager.game.party.campaignMode = true;
+      const first = buildCharacter('brute');
+      const second = buildCharacter('tinkerer');
+
+      component.openRetirements([first, second]);
+
+      expect(open).toHaveBeenCalledTimes(2);
+      expect((open.mock.calls[0] as any[])[1].data).toBe(first);
+      expect((open.mock.calls[1] as any[])[1].data).toBe(second);
+    });
+
+    it('opens nothing without apply retirement setting or outside campaign mode', () => {
+      const component = createComponent(scenario);
+      const open = mockDialog(component);
+      gameManager.game.party.campaignMode = true;
+      component.openRetirements([buildCharacter()]);
+
+      settingsManager.settings.applyRetirement = true;
+      gameManager.game.party.campaignMode = false;
+      component.openRetirements([buildCharacter()]);
+
+      expect(open).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('retirementCharacter', () => {
+    it('names the character holding the personal quest, matched by card id or alt id', () => {
+      const personalQuest = Object.assign(new PersonalQuest(), { cardId: '509', altId: '12', edition: 'gh' });
+      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      const component = createComponent(scenario);
+      const character = buildCharacter('brute');
+      character.progress.personalQuest = '509';
+      gameManager.game.figures = [buildCharacter('tinkerer'), character];
+
+      const expected = ' (' + gameManager.characterManager.characterName(character, false, true) + ')';
+      expect(component.retirementCharacter('509')).toBe(expected);
+      expect(component.retirementCharacter('12')).toBe(expected);
+    });
+
+    it('is empty when no character holds the personal quest', () => {
+      const component = createComponent(scenario);
+      gameManager.game.figures = [buildCharacter('brute')];
+      expect(component.retirementCharacter('509')).toBe('');
+    });
+  });
+
+  describe('characterRetirementLabel', () => {
+    it('describes a completed personal quest as quest complete outside of GH2E', () => {
+      const component = createComponent(scenario);
+      expect(component.characterRetirementLabel()).toBe('scenario.rewards.questComplete');
+    });
+
+    it('describes a completed personal quest as retirement for GH2E', () => {
+      const component = createComponent(scenario);
+      vi.spyOn(gameManager, 'isEditionRelevant').mockReturnValue(true);
+      expect(component.characterRetirementLabel()).toBe('scenario.rewards.characterRetirement');
+      vi.restoreAllMocks();
     });
   });
 
