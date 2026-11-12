@@ -3,27 +3,27 @@
     "bb-promotional": "Boutons & Bestioles - Contenu Promotionnel"
   },
   "items": {
-    "bb-41": {
+    "bb-43": {
       "": "Carapace de Scarabée",
       "1": "Si vous vous déplacez de 1 hexagone ou moins à votre tour, gagnez %game.action.shield:1% pour le round."
     },
-    "bb-42": {
+    "bb-44": {
       "": "Croc de Rat",
       "1": "Après vous être déplacé d'au moins 4 hexagones, ajouter %game.action.attack.valueSign:1% à toutes vos attaques ce tour."
     },
-    "bb-43": {
+    "bb-45": {
       "": "Écharde Pointue",
       "1": "Pendant votre attaque à distance, ajoutez %game.action.pierce:5%."
     },
-    "bb-44": {
+    "bb-46": {
       "": "Épée courte rétrécie",
       "1": "L'action supérieure par défaut de vos cartes Capacité est %game.action.attack:3% au lieu de %game.action.attack:2%."
     },
-    "bb-45": {
+    "bb-47": {
       "": "Écaille Solaire du Frisson Éternel",
       "1": "Pendant votre attaque, %game.elementHalf.consume:ice|light% pour gagner Avantage ou %game.condition.muddle%."
     },
-    "bb-46": {
+    "bb-48": {
       "": "Goutte de Potion de Guérison",
       "1": "Pendant votre tour, retirez tous les états négatifs, et %game.action.heal:2% sur vous même."
     }

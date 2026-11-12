@@ -3,27 +3,27 @@
     "bb-promotional": "Buttons & Bugs - Conteúdo Promocional"
   },
   "items": {
-    "bb-41": {
+    "bb-43": {
       "": "Carapaça de Besouro",
       "1": "Se você se mover 1 ou menos hexágonos no seu turno, ganhe %game.action.shield:1% pela rodada."
     },
-    "bb-42": {
+    "bb-44": {
       "": "Presa de Roedor",
       "1": "Após se mover 4 ou mais hexágonos, adicione %game.action.attack.valueSign:1% a todos os seus ataques neste turno."
     },
-    "bb-43": {
+    "bb-45": {
       "": "Flecha de Prata Perfurante",
       "1": "Durante seu ataque à distância, adicione %game.action.pierce:5%."
     },
-    "bb-44": {
+    "bb-46": {
       "": "Espada Curta Encolhida",
       "1": "A ação superior padrão das suas cartas de habilidade é %game.action.attack:3% em vez de %game.action.attack:2%."
     },
-    "bb-45": {
+    "bb-47": {
       "": "Floco de Sol Frioeterno",
       "1": "Durante seu ataque, %game.elementHalf.consume:ice|light% para adicionar vantagem ou %game.condition.muddle%."
     },
-    "bb-46": {
+    "bb-48": {
       "": "Gota de Poção de Cura",
       "1": "Durante seu turno, remova todas as condições negativas e %game.action.heal:2% em si mesmo."
     }

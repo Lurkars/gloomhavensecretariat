@@ -3,27 +3,27 @@
     "bb-promotional": "纽扣 & 虫子 - 拓展内容"
   },
   "items": {
-    "bb-41": {
+    "bb-43": {
       "": "甲壳",
       "1": "如果你在你的回合中移动 1 格或更少，则在该回合中获得 %game.action.shield:1%。"
     },
-    "bb-42": {
+    "bb-44": {
       "": "啮齿动物的尖牙",
       "1": "移动 4 个以上格后，本回合的所有攻击增加%game.action.attack.valueSign:1%。"
     },
-    "bb-43": {
+    "bb-45": {
       "": "穿刺银箭",
       "1": "在你的远程攻击期间，添加 %game.action.pierce:5%。"
     },
-    "bb-44": {
+    "bb-46": {
       "": "缩小短剑",
       "1": "你的能力卡牌的默认顶部动作是 %game.action.attack:2% 而不是 %game.action.attack:2%。"
     },
-    "bb-45": {
+    "bb-47": {
       "": "冰火两重眼",
       "1": "攻击时，%game.elementHalf.consume：ice|light% 来增加优势，或 %game.condition.muddle%。"
     },
-    "bb-46": {
+    "bb-48": {
       "": "治疗药滴",
       "1": "你的回合里，移除所有负面并 %game.action.heal:2% 自身。"
     }
