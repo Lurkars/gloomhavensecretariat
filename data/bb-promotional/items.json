@@ -1,6 +1,6 @@
 [
   {
-    "id": 41,
+    "id": 43,
     "name": "Beetle's Carapace",
     "count": 1,
     "edition": "bb",
@@ -8,44 +8,6 @@
     "spent": true,
     "unlockScenario": {
       "name": "5.5",
-      "edition": "bb"
-    },
-    "actions": [
-      {
-        "type": "custom",
-        "value": "%data.items.bb-41.1%",
-        "small": true
-      }
-    ]
-  },
-  {
-    "id": 42,
-    "name": "Beetle's Carapace",
-    "count": 1,
-    "edition": "bb",
-    "slot": "onehand",
-    "spent": true,
-    "unlockScenario": {
-      "name": "5.5",
-      "edition": "bb"
-    },
-    "actions": [
-      {
-        "type": "custom",
-        "value": "%data.items.bb-42.1%",
-        "small": true
-      }
-    ]
-  },
-  {
-    "id": 43,
-    "name": "Piercing Silver Arrow",
-    "count": 1,
-    "edition": "bb",
-    "slot": "twohand",
-    "consumed": true,
-    "unlockScenario": {
-      "name": "2.5",
       "edition": "bb"
     },
     "actions": [
@@ -58,12 +20,13 @@
   },
   {
     "id": 44,
-    "name": "Shrunken Short Sword",
+    "name": "Rodent's Fang",
     "count": 1,
     "edition": "bb",
     "slot": "onehand",
+    "spent": true,
     "unlockScenario": {
-      "name": "2.5",
+      "name": "5.5",
       "edition": "bb"
     },
     "actions": [
@@ -76,12 +39,13 @@
   },
   {
     "id": 45,
-    "name": "Everchill Sunflake",
+    "name": "Piercing Silver Arrow",
     "count": 1,
     "edition": "bb",
-    "slot": "small",
+    "slot": "twohand",
+    "consumed": true,
     "unlockScenario": {
-      "name": "12.5",
+      "name": "2.5",
       "edition": "bb"
     },
     "actions": [
@@ -94,6 +58,42 @@
   },
   {
     "id": 46,
+    "name": "Shrunken Short Sword",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "unlockScenario": {
+      "name": "2.5",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-46.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Everchill Sunflake",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "unlockScenario": {
+      "name": "12.5",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-47.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 48,
     "name": "Drop of Cure Potion",
     "count": 1,
     "edition": "bb",
@@ -106,7 +106,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.items.bb-46.1%",
+        "value": "%data.items.bb-48.1%",
         "small": true
       }
     ]
