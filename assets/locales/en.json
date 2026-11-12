@@ -222,6 +222,7 @@
           "disabled": "Automatic progress tracking is disabled for this Personal Quest. Click to enable it for requirements it can track.",
           "enabled": "Automatic progress tracking is enabled for this Personal Quest. Click to disable it and track progress manually again."
         },
+        "concluded": "Concluded",
         "counter": "Counter",
         "draw": "Draw a Personal Quest card",
         "drawDialog": {
@@ -241,6 +242,7 @@
           "randomScenario": "Open %data.section:{0}%, unlock %data.scenarioNumber:{1}%",
           "randomScenarioInfo": "Gain one random side scenario."
         },
+        "scenarioChain": "Completed scenario of the chain",
         "unlockCharacter": {
           "": "Open Box %game.characterIcon.{0}%",
           "itemDesign": {
@@ -2132,8 +2134,8 @@
         }
       },
       "campaignSticker": "Campaign Sticker",
-      "characterRetirement": "The character with the \"%data.personalQuest.{0}.{1}%\" personal quest retires during the next city phase.",
-      "characterRetirementSkipEvents": "The character with the \"%data.personalQuest.{0}.{1}%\" personal quest retires during the next city phase, but does not add the normal events for their class's retirement.",
+      "characterRetirement": "The character with the \"%data.personalQuest.{0}.{1}%\" personal quest {2} retires during the next city phase.",
+      "characterRetirementSkipEvents": "The character with the \"%data.personalQuest.{0}.{1}%\" personal quest {2} retires during the next city phase, but does not add the normal events for their class's retirement.",
       "chooseItem": "Choose to gain one of the following",
       "chooseLocation": "Choose to unlock only one of the following",
       "collectiveGold": "{0} collective gold",
@@ -2183,6 +2185,7 @@
       "perks": "Gain {0} perk each",
       "pet": "Add %data.pets.{1}-{0}% (Pet {0}) to the Stables. This can exceed the capacity of the Stables.",
       "prosperity": "{0} prosperity",
+      "questComplete": "\"%data.personalQuest.{0}.{1}%\" quest complete. {2}",
       "randomItemBlueprint": "Gain one random item blueprint",
       "randomItemBlueprints": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item blueprint deck.",
       "randomItemDesign": "Gain one random item design",
@@ -3962,6 +3965,7 @@
           "summon": "Remove title '{0}' from {2} of {1]"
         }
       },
+      "dismissRetirement": "Dismiss retirement for {0}",
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
       "eventDistribution": "Apply event distribution",
