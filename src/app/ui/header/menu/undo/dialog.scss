@@ -91,21 +91,47 @@
       }
     }
 
-    &.current {
-      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
-      border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid transparent;
-      border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid transparent;
+    &.log {
+      .entry {
+        align-items: baseline;
+        gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        cursor: default;
+        color: var(--ghs-color-gray);
 
-      .entry .info {
-        font-style: italic;
-      }
+        &.linked {
+          cursor: pointer;
+          color: var(--ghs-color-white);
+        }
 
-      &.has-undos {
-        border-bottom-color: var(--ghs-color-gray);
-      }
+        &.current {
+          margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+          padding: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) 0;
+          border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+          border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+          color: var(--ghs-color-white);
 
-      &.has-redos {
-        border-top-color: var(--ghs-color-gray);
+          &:hover {
+            filter: none;
+          }
+
+          .info {
+            font-style: italic;
+          }
+        }
+
+        // keep the metadata tooltip working, selection is guarded in the component
+        &.disabled {
+          pointer-events: auto;
+          cursor: default;
+
+          &:hover {
+            filter: none;
+          }
+        }
+
+        .revision {
+          margin-right: 0;
+        }
       }
     }
 

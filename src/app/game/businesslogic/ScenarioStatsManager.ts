@@ -146,6 +146,7 @@ export class ScenarioStatsManager {
     character.scenarioStats.xp = character.experience;
 
     character.scenarioStats.treasures = character.treasures.length;
+    character.scenarioStats.rounds = this.game.round;
 
     character.scenarioStats.loot = {};
     if (character.lootCards) {

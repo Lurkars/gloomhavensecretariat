@@ -9,6 +9,7 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { LogEntry } from 'src/app/game/model/LogEntry';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { MainMenuComponent } from 'src/app/ui/header/menu/menu';
@@ -65,7 +66,7 @@ describe('MainMenuComponent', () => {
     settingsManager.settings.editions = ['gh'];
     gameManager.stateManager.undos = [];
     gameManager.stateManager.redos = [];
-    gameManager.stateManager.undoInfos = [];
+    gameManager.stateManager.log = [];
   });
 
   it('constructs and applies the requested subMenu/standalone from DIALOG_DATA', () => {
@@ -211,7 +212,7 @@ describe('MainMenuComponent', () => {
 
     it('resolves the latest non-serverSync undo entry', () => {
       gameManager.stateManager.undos = [{ revision: 1, revisionOffset: 0 } as any];
-      gameManager.stateManager.undoInfos = [['setInitiative', 'brute', '5']];
+      gameManager.stateManager.log = [new LogEntry('update', 1, ['setInitiative', 'brute', '5'])];
       gameManager.game.revision = 1;
       const component = createComponent();
       component.update();

@@ -14,7 +14,7 @@ export class StorageManager {
 
     return new Promise<any>((resolve, reject) => {
       if (window.indexedDB) {
-        const request: IDBOpenDBRequest = window.indexedDB.open('ghs-db', 1);
+        const request: IDBOpenDBRequest = window.indexedDB.open('ghs-db', 2);
 
         request.onupgradeneeded = (event: any) => {
           console.debug('Upgrade DB', event);
@@ -26,6 +26,10 @@ export class StorageManager {
             db.createObjectStore('redo', { autoIncrement: true });
             db.createObjectStore('undo-infos', { autoIncrement: true });
             db.createObjectStore('game-backup', { autoIncrement: true });
+          }
+          if (event.oldVersion < 2) {
+            // replaces 'undo-infos', which is kept for migration of existing data and imported data dumps
+            db.createObjectStore('log', { autoIncrement: true });
           }
         };
 
@@ -259,6 +263,66 @@ export class StorageManager {
     });
   }
 
+  /**
+   * Append a single object to an (auto increment) array store without rewriting the whole store.
+   * The local storage fallback has no partial writes, so all objects (including the new one) are required.
+   */
+  append(store: string, object: any, objects: any[]): Promise<void> {
+    if (this.db) {
+      return this.write(store, undefined, object);
+    }
+    return this.writeArray(store, objects);
+  }
+
+  /** remove the most recent object of an (auto increment) array store */
+  removeLast(store: string, objects: any[]): Promise<void> {
+    if (!this.db) {
+      return this.writeArray(store, objects);
+    }
+    return new Promise((resolve, reject) => {
+      const transaction = this.db!.transaction(store, 'readwrite');
+      const request = transaction.objectStore(store).openCursor(null, 'prev');
+      request.onsuccess = (event: any) => {
+        const cursor: IDBCursorWithValue | null = event.target.result;
+        if (cursor) {
+          cursor.delete();
+        }
+      };
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error);
+      transaction.onabort = () => reject(transaction.error);
+    });
+  }
+
+  /** remove the oldest objects of an (auto increment) array store, keeping at most `keep` objects */
+  trim(store: string, keep: number, objects: any[]): Promise<void> {
+    if (!this.db) {
+      return this.writeArray(store, objects);
+    }
+    return new Promise((resolve, reject) => {
+      const transaction = this.db!.transaction(store, 'readwrite');
+      const objectStore = transaction.objectStore(store);
+      const countRequest = objectStore.count();
+      countRequest.onsuccess = () => {
+        let remove = countRequest.result - Math.max(0, keep);
+        if (remove > 0) {
+          const request = objectStore.openCursor();
+          request.onsuccess = (event: any) => {
+            const cursor: IDBCursorWithValue | null = event.target.result;
+            if (cursor && remove > 0) {
+              cursor.delete();
+              remove--;
+              cursor.continue();
+            }
+          };
+        }
+      };
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error);
+      transaction.onabort = () => reject(transaction.error);
+    });
+  }
+
   clear(store: string | undefined = undefined): Promise<void> {
     return new Promise((resolve, reject) => {
       if (this.db) {
@@ -327,7 +391,7 @@ export class StorageManager {
       datadump['settings'] = await this.read('settings', 'default');
       datadump['undo'] = await this.readAll('undo');
       datadump['redo'] = await this.readAll('redo');
-      datadump['undo-infos'] = await this.readAll('undo-infos');
+      datadump['log'] = await this.readAll('log');
       datadump['game-backup'] = await this.readAll('game-backup');
     } else {
       if (!migrate) {

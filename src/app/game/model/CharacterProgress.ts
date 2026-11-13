@@ -111,6 +111,7 @@ export class ScenarioStats extends DamageStats {
   gold: number = 0;
   xp: number = 0;
   treasures: number = 0;
+  rounds: number = 0;
   loot: Partial<Record<LootType, number>> = {};
   summons: DamageStats = new DamageStats();
 }

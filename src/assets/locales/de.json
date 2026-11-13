@@ -2239,6 +2239,7 @@
     "showAllSections": "Alle Sektionen anzeigen",
     "stats": {
       "": "Szenario Statistiken",
+      "attempts": "Versuche",
       "bossKills": {
         "": "%game.monsterType.boss%: {0}",
         "hint": "Anzahl an getöteten %game.monsterType.boss% Monster"
@@ -2250,6 +2251,10 @@
         "": "%game.action.attack% {0}",
         "hint": "Verteilter Schaden"
       },
+      "difficulty": {
+        "": "%game.gameIcon:level% {0}",
+        "hint": "Szenariostufe"
+      },
       "eliteKills": {
         "": "%game.monsterType.elite%: {0}",
         "hint": "Anzahl an getöteten %game.monsterType.elite% Monster"
@@ -2257,6 +2262,10 @@
       "exhausts": {
         "": "%game.gameIcon:status/exhausted% {0}",
         "hint": "Erschöpft"
+      },
+      "failure": {
+        "": "Niederlage",
+        "date": "Niederlage ({0})"
       },
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
@@ -2275,6 +2284,11 @@
       },
       "kills": {
         "": "Tötungen"
+      },
+      "level": {
+        "": "%game.gameIcon:status/level% {0}",
+        "hint": "Charakterstufe",
+        "title": "Stufe"
       },
       "max": {
         "": "Max."
@@ -2307,7 +2321,16 @@
           "hint": "Anzahl an erbeuteten %game.resource.{0}%"
         }
       },
+      "rounds": {
+        "": "Runden: {0}",
+        "hint": "Anzahl gespielter Runden",
+        "title": "Runden"
+      },
       "scenarios": "Szenarien",
+      "success": {
+        "": "Erfolg",
+        "date": "Erfolg ({0})"
+      },
       "summons": {
         "": "Beschwörungen"
       },
@@ -3045,6 +3068,10 @@
       "hint": "Beute Deck aktivieren"
     },
     "lurkarsDefaults": "Lurkars' persönliche Einstellungen anwenden",
+    "maxLog": {
+      "": "Max. Anzahl Protokolleinträge",
+      "hint": "Das Protokoll speichert alle Änderungen, Rückgängig- und Wiederherstellen-Vorgänge ohne den Spielstand und kann daher deutlich länger sein als der Rückgängig-Verlauf. Die Beschriftungen des Rückgängig-Verlaufs stammen aus dem Protokoll, daher ist es mindestens so lang wie die max. Anzahl Rückgängigvorgänge. -1 für ein unbegrenztes Protokoll."
+    },
     "maxUndo": {
       "": "Max. Anzahl Rückgängigvorgänge",
       "hint": {
@@ -3246,6 +3273,7 @@
   "state": {
     "clear": {
       "": "Aufräumen",
+      "log": "Protokoll aufräumen",
       "redos": "Wiederherstellen aufräumen",
       "undos": "Rückgängig aufräumen"
     },
@@ -3467,7 +3495,9 @@
         "round": {
           "state": {
             "draw": "Ziehen",
-            "next": "Nächste Runde"
+            "next": "Nächste Runde",
+            "roundDraw": "Ziehen (Runde {0})",
+            "roundNext": "Nächste Runde (Ende Runde {0})"
           }
         }
       },
@@ -4059,6 +4089,8 @@
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
       "restoreAbility": "Fertigkeitskarte \"{1}\" für {0} wiederherstellen",
       "restoreDefaultAbilities": "Ursprüngliche Fertigkeitskarten für {0} wiederherstellen",
+      "roundDraw": "Ziehen (Runde {0})",
+      "roundNext": "Nächste Runde (Ende Runde {0})",
       "sellItem": "Gegenstand {1} (%data.edition.{2}%) von {0} verkaufen",
       "serverSync": "Server: {0}",
       "serverSyncEmpty": "Server Sync",
@@ -4227,6 +4259,16 @@
       "upgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} aufrüsten"
     },
     "loadMore": "Mehr anzeigen",
+    "log": {
+      "": "Protokoll",
+      "allParties": "Alle Kampagnen",
+      "currentParty": "Aktuelle Kampagne",
+      "party": "Kampagne: {0}",
+      "server": "Vom Server empfangen",
+      "time": "Zeit: {0}",
+      "tooltip": "{0}",
+      "unknown": "Änderung"
+    },
     "missing": "Fehlende Zustände: {0}",
     "redo": "Wiederherstellen",
     "reset": "Zurücksetzen",

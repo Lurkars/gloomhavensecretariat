@@ -54,13 +54,24 @@
           color: var(--ghs-color-red);
         }
 
-        .attempt-date {
-          font-size: 0.8em;
-        }
+        .attempt-info {
+          display: inline-flex;
+          align-items: center;
+          padding-left: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor));
+          border-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
+          line-height: 1;
 
-        .ghs-svg {
-          width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-          height: auto;
+          ::ng-deep .placeholder-game-icon {
+            display: inline-flex;
+            align-items: center;
+            margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+
+            .ghs-svg {
+              width: 1em;
+              height: auto;
+              margin: 0;
+            }
+          }
         }
       }
     }
@@ -132,6 +143,23 @@
     .ghs-svg {
       width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       height: auto;
+    }
+
+    .character-level {
+      display: inline-flex;
+      align-items: center;
+
+      ::ng-deep .placeholder-game-icon {
+        display: inline-flex;
+        align-items: center;
+        margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+
+        // the character level icon is white, the dialog background is light
+        .ghs-svg {
+          margin: 0;
+          filter: invert(1);
+        }
+      }
     }
 
     .loot {

@@ -9,8 +9,10 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { SummonData } from 'src/app/game/model/data/SummonData';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
+import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
 // EntitiesMenuDialogComponent's constructor instantiates 12 helper classes and then calls update(),
@@ -231,20 +233,57 @@ describe('EntitiesMenuDialogComponent', () => {
       vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
       const { monster, entity } = buildMonster();
       gameManager.game.figures = [monster];
-      const undoInfos = gameManager.stateManager.undoInfos.length;
+      const logLength = gameManager.stateManager.log.length;
 
       createComponent({ figure: monster, entity }).close();
       expect(hasTaunt(entity)).toBe(false);
-      expect(gameManager.stateManager.undoInfos.length).toBe(undoInfos);
+      expect(gameManager.stateManager.log.length).toBe(logLength);
+    });
+  });
+
+  describe('trap', () => {
+    function buildTrap(name: string, summonData: Partial<SummonData>): { character: Character; trap: Summon } {
+      const character = buildCharacter();
+      const trap = new Summon(
+        '',
+        name,
+        '',
+        1,
+        1,
+        SummonColor.fh,
+        Object.assign(new SummonData(), { name, edition: 'fh', trap: true }, summonData)
+      );
+      trap.init = false;
+      character.summons = [trap];
+      gameManager.game.figures = [character];
+      return { character, trap };
+    }
+
+    it('assigns adjusted trap damage on close', () => {
+      const { character, trap } = buildTrap('negative-trap', { movement: 3 });
+      const component = createComponent({ figure: character, entity: trap });
+      component.trapHelper.changeTrapDamage(-2);
+      component.close();
+      expect(trap.movement).toBe(1);
+      expect(component.trapDamage).toBe(0);
+    });
+
+    it('assigns adjusted trap heal on close', () => {
+      const { character, trap } = buildTrap('positive-trap', { attack: 3 });
+      const component = createComponent({ figure: character, entity: trap });
+      component.trapHelper.changeTrapHeal(-1);
+      component.close();
+      expect(trap.attack).toBe(2);
+      expect(component.trapHeal).toBe(0);
     });
   });
 
   describe('before', () => {
     it('records an undo entry without throwing', () => {
       const component = createComponent({});
-      const before = gameManager.stateManager.undoInfos.length;
+      const before = gameManager.stateManager.log.length;
       component.before('testAction');
-      expect(gameManager.stateManager.undoInfos.length).toEqual(before + 1);
+      expect(gameManager.stateManager.log.length).toEqual(before + 1);
       gameManager.stateManager.after();
     });
   });

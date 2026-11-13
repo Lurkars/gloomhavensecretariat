@@ -350,9 +350,9 @@ export class MainComponent implements OnInit {
   async automaticClockOut() {
     const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
     if (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut) {
-      gameManager.stateManager.before('gameClock.automaticGameClockOut');
+      gameManager.stateManager.beforeAutomatic('gameClock.automaticGameClockOut');
       gameManager.toggleGameClock();
-      await gameManager.stateManager.after();
+      await gameManager.stateManager.afterAutomatic();
     }
   }
 

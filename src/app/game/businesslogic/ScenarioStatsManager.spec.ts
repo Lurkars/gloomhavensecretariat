@@ -384,13 +384,14 @@ describe('ScenarioStatsManager', () => {
   });
 
   describe('applyScenarioStats', () => {
-    it('records scenario identity, success, level, difficulty, gold, xp and treasure count', () => {
+    it('records scenario identity, success, level, difficulty, gold, xp, treasure count and rounds', () => {
       const character = buildCharacter();
       character.loot = 12;
       character.experience = 34;
       character.treasures = ['a', 'b'];
       character.level = 3;
       gameManager.game.level = 4;
+      gameManager.game.round = 7;
 
       const scenarioData = new ScenarioData();
       scenarioData.index = '1';
@@ -405,6 +406,7 @@ describe('ScenarioStatsManager', () => {
       expect(character.scenarioStats.gold).toBe(12);
       expect(character.scenarioStats.xp).toBe(34);
       expect(character.scenarioStats.treasures).toBe(2);
+      expect(character.scenarioStats.rounds).toBe(7);
       expect(character.scenarioStats.scenario).toMatchObject({ index: '1', edition: 'gh' });
     });
 

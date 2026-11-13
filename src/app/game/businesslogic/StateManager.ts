@@ -4,10 +4,21 @@ import { storageManager } from 'src/app/game/businesslogic/StorageManager';
 import { commandManager } from 'src/app/game/commands/CommandManager';
 import { Character } from 'src/app/game/model/Character';
 import { Game, GameModel } from 'src/app/game/model/Game';
+import { effectiveRevision, LogEntry, LogEntryType } from 'src/app/game/model/LogEntry';
 import { Monster } from 'src/app/game/model/Monster';
 import { Permissions } from 'src/app/game/model/Permissions';
 import { localSettings, Settings } from 'src/app/game/model/Settings';
 import { downloadJson } from 'src/app/ui/helper/Static';
+
+/** log entries describing the undo/redo snapshots, `undo` aligned with `undos`, `redo[0]` describes the next redo (last of `redos`) */
+export type HistoryInfo = {
+  undo: (LogEntry | undefined)[];
+  redo: (LogEntry | undefined)[];
+  // log entries linked to an undo/redo snapshot, with the undos index or redo index (0 = next redo)
+  links: Map<LogEntry, { type: 'undo' | 'redo'; index: number }>;
+  // update entries which were undone and never redone
+  undone: Set<LogEntry>;
+};
 
 export class StateManager {
   game: Game;
@@ -16,7 +27,9 @@ export class StateManager {
 
   undos: GameModel[] = [];
   redos: GameModel[] = [];
-  undoInfos: string[][] = [];
+  log: LogEntry[] = [];
+  private historyVersion: number = 0;
+  private historyCache: { key: string; history: HistoryInfo } | undefined;
 
   lastSaveTimestamp: number;
 
@@ -80,12 +93,7 @@ export class StateManager {
     }
 
     await this.loadStorage();
-
-    // migration
-    const missingUndoInfos = this.undos.length + this.redos.length - this.undoInfos.length;
-    for (let i = 0; i < missingUndoInfos; i++) {
-      this.undoInfos.unshift([]);
-    }
+    await this.migrateUndoInfos();
 
     this.ready = true;
     gameManager.triggerUiChange(false);
@@ -100,14 +108,78 @@ export class StateManager {
   }
 
   async loadStorage() {
+    this.undos = await this.readArray<GameModel>('undo');
+    this.redos = await this.readArray<GameModel>('redo');
+    this.log = await this.readArray<LogEntry>('log');
+    this.historyVersion++;
+    this.updatePermissions();
+  }
+
+  private async readArray<T>(store: string): Promise<T[]> {
     try {
-      this.undos = await storageManager.readAll<GameModel>('undo');
-      this.redos = await storageManager.readAll<GameModel>('redo');
-      this.undoInfos = await storageManager.readAll<string[]>('undo-infos');
-      this.updatePermissions();
+      return (await storageManager.readAll<T>(store)) || [];
     } catch {
-      this.updatePermissions();
+      return [];
     }
+  }
+
+  /** migration: undo infos (one per undo/redo snapshot) are replaced by the log */
+  async migrateUndoInfos() {
+    const undoInfos = await this.readArray<string[]>('undo-infos');
+    if (!undoInfos.length) {
+      return;
+    }
+    try {
+      if (!this.log.length) {
+        this.log = StateManager.undoInfosToLog(undoInfos, this.undos, this.redos, this.game);
+        this.historyVersion++;
+        await storageManager.writeArray('log', this.log);
+      }
+      await storageManager.clear('undo-infos');
+    } catch (error) {
+      console.error('Failed to migrate undo infos to log:', error);
+    }
+  }
+
+  /**
+   * Convert the former undo infos into log entries.
+   * Layout of the undo infos: one per undo snapshot (oldest first), followed by one per redo snapshot (next redo first).
+   * Missing infos were padded at the front, they become entries without info to keep the snapshots linked.
+   */
+  static undoInfosToLog(
+    undoInfos: string[][],
+    undos: GameModel[],
+    redos: GameModel[],
+    game: { revision: number; revisionOffset: number }
+  ): LogEntry[] {
+    const length = undos.length + redos.length;
+    const infos: (string[] | undefined)[] =
+      undoInfos.length >= length ? undoInfos.slice(undoInfos.length - length) : [...new Array(length - undoInfos.length), ...undoInfos];
+    const log: LogEntry[] = [];
+    infos.forEach((info, index) => {
+      if (!info || !Array.isArray(info)) {
+        info = [];
+      }
+      let revision: number;
+      if (index < undos.length) {
+        revision = effectiveRevision(undos[index]);
+      } else {
+        const redo = index - undos.length;
+        revision = redo === 0 ? effectiveRevision(game) : effectiveRevision(redos[redos.length - redo]);
+      }
+      log.push(
+        new LogEntry(
+          'update',
+          revision,
+          info.map((value) => '' + value),
+          0,
+          undefined,
+          undefined,
+          info[0] === 'serverSync'
+        )
+      );
+    });
+    return log;
   }
 
   async saveStorage() {
@@ -116,7 +188,6 @@ export class StateManager {
       try {
         await storageManager.writeArray('undo', this.undos);
         await storageManager.writeArray('redo', this.redos);
-        await storageManager.writeArray('undo-infos', this.undoInfos);
       } catch (error) {
         console.error('Failed to save undo/redo storage:', error);
         throw error;
@@ -215,6 +286,7 @@ export class StateManager {
           window.document.body.classList.add('working');
           window.document.body.classList.add('server-sync');
           const gameUndo: GameModel = message.payload as GameModel;
+          gameManager.stateManager.addServerLog('undo', gameUndo, message);
 
           if (message.revision !== undefined) {
             const undoRevision = message.revision || 0;
@@ -231,17 +303,6 @@ export class StateManager {
                 undoCount++;
               }
             }
-            if (!undoGame || undoGame.revision - (undoGame.revisionOffset || 0) !== undoRevision) {
-              gameManager.stateManager.undoInfos.splice(
-                gameManager.stateManager.undos.length - gameManager.stateManager.redos.length,
-                0,
-                message.undoinfo
-                  ? message.undoinfo[0] === 'serverSync'
-                    ? message.undoinfo
-                    : ['serverSync', ...message.undoinfo]
-                  : ['serverSync']
-              );
-            }
             gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - undoCount, 0, gameManager.game.toModel());
           } else {
             gameManager.stateManager.redos.push(gameManager.game.toModel());
@@ -251,12 +312,6 @@ export class StateManager {
               undoGame.revision - undoGame.revisionOffset === gameManager.game.revision - gameManager.game.revisionOffset - 1
             ) {
               gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - 1, 1);
-            } else {
-              gameManager.stateManager.undoInfos.splice(
-                gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length,
-                0,
-                message.undoinfo ? ['serverSync', ...message.undoinfo] : ['serverSync']
-              );
             }
           }
 
@@ -274,6 +329,7 @@ export class StateManager {
           window.document.body.classList.add('working');
           window.document.body.classList.add('server-sync');
           const gameRedo: GameModel = message.payload as GameModel;
+          gameManager.stateManager.addServerLog('redo', gameRedo, message);
 
           if (message.revision !== undefined) {
             const redoRevision = message.revision || 0;
@@ -292,17 +348,6 @@ export class StateManager {
                 redoCount++;
               }
             }
-            if (!redoGame || redoGame.revision - (redoGame.revisionOffset || 0) !== redoRevision) {
-              gameManager.stateManager.undoInfos.splice(
-                gameManager.stateManager.undos.length + redoCount,
-                0,
-                message.undoinfo
-                  ? message.undoinfo[0] === 'serverSync'
-                    ? message.undoinfo
-                    : ['serverSync', ...message.undoinfo]
-                  : ['serverSync']
-              );
-            }
             gameManager.stateManager.undos.splice(gameManager.stateManager.undos.length - redoCount, 0, gameManager.game.toModel());
           } else {
             gameManager.stateManager.undos.push(gameManager.game.toModel());
@@ -315,12 +360,6 @@ export class StateManager {
               redoGame.revision - redoGame.revisionOffset === gameManager.game.revision - gameManager.game.revisionOffset + 1
             ) {
               gameManager.stateManager.redos.splice(gameManager.stateManager.redos.length - 1, 1);
-            } else {
-              gameManager.stateManager.undoInfos.splice(
-                gameManager.stateManager.undoInfos.length - gameManager.stateManager.redos.length,
-                0,
-                (message.undoinfo && ['serverSync', ...message.undoinfo]) || ['serverSync']
-              );
             }
           }
 
@@ -539,6 +578,11 @@ export class StateManager {
     storageManager.clear('undo');
     storageManager.clear('redo');
     storageManager.clear('undo-infos');
+    storageManager.clear('log');
+    this.undos = [];
+    this.redos = [];
+    this.log = [];
+    this.historyVersion++;
   }
 
   saveLocal() {
@@ -606,6 +650,21 @@ export class StateManager {
     this.addToUndo((info && info.map((value) => '' + value)) || []);
   }
 
+  /**
+   * Start an automatic change done in background (e.g. auto. clock out), must be finished with `afterAutomatic()`.
+   * No undo snapshot is created, so the redo history is kept. The change only gets logged.
+   */
+  beforeAutomatic(...info: (string | number | boolean)[]) {
+    window.document.body.classList.add('working');
+    this.addLog(this.createLog('automatic', (info && info.map((value) => '' + value)) || []));
+  }
+
+  /** finish an automatic change: persist and sync it, without changing the effective revision (undo/redo position) */
+  async afterAutomatic(timeout: number = 1) {
+    this.game.revisionOffset += 1;
+    await this.after(timeout);
+  }
+
   async after(
     timeout: number = 1,
     autoBackup: boolean = false,
@@ -618,10 +677,15 @@ export class StateManager {
     this.saveLocal();
     if (this.ws && this.ws.readyState === WebSocket.OPEN && settingsManager.settings.serverCode) {
       window.document.body.classList.add('server-sync');
-      let undoInfo = this.undoInfos[this.undos.length - 1];
-
-      if (type === 'game-undo') {
-        undoInfo = this.undoInfos[this.undos.length + undolength - 1];
+      const lastEntry: LogEntry | undefined = this.log[this.log.length - 1];
+      let undoInfo: string[] | undefined;
+      if (
+        lastEntry &&
+        ((type === 'game' && lastEntry.type === 'update') ||
+          (type === 'game-undo' && lastEntry.type === 'undo') ||
+          (type === 'game-redo' && lastEntry.type === 'redo'))
+      ) {
+        undoInfo = lastEntry.info;
       }
 
       const message = {
@@ -738,34 +802,218 @@ export class StateManager {
   }
 
   addToUndo(info: string[]) {
-    if (this.game.toModel() !== this.undos[this.undos.length - 1]) {
-      this.undos.push(this.game.toModel());
-      const maxUndos = storageManager.db ? settingsManager.settings.maxUndo : Math.min(settingsManager.settings.maxUndo, 50);
-      if (this.undos.length > maxUndos) {
-        this.undos.splice(0, this.undos.length - maxUndos);
-      }
-
-      this.undoInfos.splice(this.undoInfos.length - this.redos.length, this.redos.length);
-
-      this.undoInfos.push(info);
-
-      if (this.undoInfos.length > this.undos.length) {
-        this.undoInfos.splice(0, this.undoInfos.length - this.undos.length);
-      }
-
-      if (this.redos.length > 5) {
-        storageManager.addBackup(this.redos[0]);
-      }
-
-      this.redos = [];
-
-      this.saveStorage();
+    this.undos.push(this.game.toModel());
+    const maxUndos = storageManager.db ? settingsManager.settings.maxUndo : Math.min(settingsManager.settings.maxUndo, 50);
+    if (this.undos.length > maxUndos) {
+      this.undos.splice(0, this.undos.length - maxUndos);
     }
+
+    if (this.redos.length > 5) {
+      storageManager.addBackup(this.redos[0]);
+    }
+
+    this.redos = [];
+
+    // the snapshot has the effective revision of the current game, which links the entry to it
+    this.addLog(this.createLog('update', info, info.length > 0 && info[0] === 'serverSync'));
+
+    this.saveStorage();
+  }
+
+  createLog(
+    type: LogEntryType,
+    info: string[],
+    server: boolean = false,
+    target: number | undefined = undefined,
+    length: number | undefined = undefined
+  ): LogEntry {
+    return new LogEntry(
+      type,
+      effectiveRevision(this.game),
+      info,
+      Date.now(),
+      this.game.party ? this.game.party.id : undefined,
+      this.game.edition,
+      server,
+      target,
+      length
+    );
+  }
+
+  addLog(entry: LogEntry) {
+    // -1: unlimited
+    const maxLog = settingsManager.settings.maxLog ?? 1000;
+    this.historyVersion++;
+    if (maxLog === 0) {
+      if (this.log.length) {
+        this.log = [];
+        storageManager.clear('log').catch((error) => console.error('Failed to clear log:', error));
+      }
+      return;
+    }
+    this.log.push(entry);
+    storageManager.append('log', entry, this.log).catch((error) => console.error('Failed to save log:', error));
+    if (maxLog > 0 && this.log.length > maxLog) {
+      // never drop entries describing an existing undo/redo snapshot
+      const links = this.history().links;
+      const linked = this.log.findIndex((logEntry) => links.has(logEntry));
+      const remove = Math.min(this.log.length - maxLog, linked === -1 ? this.log.length : linked);
+      if (remove > 0) {
+        this.log.splice(0, remove);
+        this.historyVersion++;
+        storageManager.trim('log', this.log.length, this.log).catch((error) => console.error('Failed to trim log:', error));
+      }
+    }
+  }
+
+  /** log an undo/redo received from the server, must be called before the game state gets applied */
+  addServerLog(type: 'undo' | 'redo', gameModel: GameModel, message: any) {
+    const undoinfo: string[] | undefined = Array.isArray(message.undoinfo) ? message.undoinfo.map((value: any) => '' + value) : undefined;
+    const info = undoinfo ? (undoinfo[0] === 'serverSync' ? undoinfo : ['serverSync', ...undoinfo]) : ['serverSync'];
+    this.addLog(this.createLog(type, info, true, effectiveRevision(gameModel), message.undolength || 1));
+  }
+
+  /** log entries describing the undo/redo snapshots, cached until the history changes */
+  history(): HistoryInfo {
+    const key = [
+      this.historyVersion,
+      this.undos.length,
+      this.redos.length,
+      this.log.length,
+      this.game.revision,
+      this.game.revisionOffset
+    ].join('|');
+    if (!this.historyCache || this.historyCache.key !== key) {
+      this.historyCache = { key, history: this.buildHistory() };
+    }
+    return this.historyCache.history;
+  }
+
+  /**
+   * Link the log to the undo/redo snapshots by effective revision.
+   * The entry of a change from state `a` to state `b` is the latest `update` entry with a revision in [a, b) (or exactly `a`, if b <= a).
+   * Searching the undos downwards only before already matched entries (and the redos upwards only after them) keeps entries of an
+   * earlier game (e.g. another server game with overlapping revisions) from being linked to newer snapshots.
+   */
+  private buildHistory(): HistoryInfo {
+    const history: HistoryInfo = {
+      undo: new Array(this.undos.length),
+      redo: new Array(this.redos.length),
+      links: new Map(),
+      undone: this.undoneEntries()
+    };
+    const find = (from: number, to: number, maxIndex: number, minIndex: number): number => {
+      for (let index = maxIndex; index >= minIndex; index--) {
+        const entry = this.log[index];
+        if (entry && entry.type === 'update' && (to > from ? entry.revision >= from && entry.revision < to : entry.revision === from)) {
+          return index;
+        }
+      }
+      return -1;
+    };
+
+    let maxIndex = this.log.length - 1;
+    let minIndex = -1;
+    let next = effectiveRevision(this.game);
+    for (let i = this.undos.length - 1; i >= 0; i--) {
+      const revision = effectiveRevision(this.undos[i]);
+      const index = find(revision, next, maxIndex, 0);
+      if (index !== -1) {
+        history.undo[i] = this.log[index];
+        history.links.set(this.log[index], { type: 'undo', index: i });
+        maxIndex = index - 1;
+        if (minIndex === -1) {
+          minIndex = index;
+        }
+      }
+      next = revision;
+    }
+
+    let previous = effectiveRevision(this.game);
+    for (let i = 0; i < this.redos.length; i++) {
+      const revision = effectiveRevision(this.redos[this.redos.length - 1 - i]);
+      const index = find(previous, revision, this.log.length - 1, minIndex + 1);
+      if (index !== -1) {
+        history.redo[i] = this.log[index];
+        history.links.set(this.log[index], { type: 'redo', index: i });
+        minIndex = index;
+      }
+      previous = revision;
+    }
+    return history;
+  }
+
+  /**
+   * Replay the log to find the update entries which were undone and never redone,
+   * including undone changes which got discarded by a later change (and therefore have no redo snapshot anymore).
+   */
+  private undoneEntries(): Set<LogEntry> {
+    const applied: LogEntry[] = [];
+    // last element is the next to redo
+    const undone: LogEntry[] = [];
+    const result = new Set<LogEntry>();
+    this.log.forEach((entry) => {
+      if (entry.type === 'update') {
+        // changes on an earlier revision replace later ones (e.g. an older game got loaded)
+        while (applied.length && applied[applied.length - 1].revision >= entry.revision) {
+          applied.pop();
+        }
+        undone.length = 0;
+        applied.push(entry);
+      } else if (entry.type === 'undo') {
+        const target = entry.target ?? entry.revision - (entry.length || 1);
+        while (applied.length && applied[applied.length - 1].revision >= target) {
+          const undoneEntry = applied.pop()!;
+          undone.push(undoneEntry);
+          result.add(undoneEntry);
+        }
+      } else if (entry.type === 'redo') {
+        const target = entry.target ?? entry.revision + (entry.length || 1);
+        while (undone.length && undone[undone.length - 1].revision < target) {
+          const redoneEntry = undone.pop()!;
+          applied.push(redoneEntry);
+          result.delete(redoneEntry);
+        }
+      }
+    });
+    return result;
+  }
+
+  /** info of the undo snapshot at the given undos index */
+  undoInfo(index: number, hideInitiative: boolean = true): string[] {
+    return this.displayInfo(this.history().undo[index], hideInitiative);
+  }
+
+  /** info of the redo snapshot at the given redo index (0 = next redo) */
+  redoInfo(index: number, hideInitiative: boolean = true): string[] {
+    return this.displayInfo(this.history().redo[index], hideInitiative);
+  }
+
+  /** label key and arguments of a log entry, server infos get resolved into a single argument */
+  displayInfo(entry: LogEntry | undefined, hideInitiative: boolean = true): string[] {
+    const info = entry && entry.info;
+    if (!info || !info.length) {
+      return [];
+    }
+    if (info.length > 1 && info[0] === 'serverSync') {
+      if (hideInitiative && info[1] === 'setInitiative' && info.length > 3) {
+        return ['serverSync', settingsManager.getLabel('state.info.' + info[1], [info[2], ''])];
+      }
+      return ['serverSync', settingsManager.getLabel('state.info.' + info[1], info.slice(2))];
+    } else if (info.length === 1 && info[0] === 'serverSync') {
+      return ['serverSync', ''];
+    }
+    return info;
   }
 
   revertLastUndo() {
     this.undos.splice(this.undos.length - 1, 1);
-    this.undoInfos.splice(this.undoInfos.length - 1, 1);
+    const lastEntry = this.log[this.log.length - 1];
+    if (lastEntry && lastEntry.type === 'update') {
+      this.log.pop();
+      storageManager.removeLast('log', this.log).catch((error) => console.error('Failed to save log:', error));
+    }
+    this.historyVersion++;
     window.document.body.classList.remove('working');
     window.document.body.classList.remove('server-sync');
     this.saveStorage();
@@ -783,6 +1031,10 @@ export class StateManager {
   fixedUndo(undolength: number, sync: boolean = true) {
     if (undolength > 0 && undolength <= this.undos.length) {
       window.document.body.classList.add('working');
+      const entry = this.history().undo[this.undos.length - 1];
+      this.addLog(
+        this.createLog('undo', entry ? entry.info : [], false, effectiveRevision(this.undos[this.undos.length - undolength]), undolength)
+      );
       this.redos.push(this.game.toModel());
       const revision = gameManager.game.revision;
       const revisionOffset = gameManager.game.revisionOffset + undolength - 1;
@@ -815,6 +1067,10 @@ export class StateManager {
   fixedRedo(redolength: number, sync: boolean = true) {
     if (redolength > 0 && redolength <= this.redos.length) {
       window.document.body.classList.add('working');
+      const entry = this.history().redo[redolength - 1];
+      this.addLog(
+        this.createLog('redo', entry ? entry.info : [], false, effectiveRevision(this.redos[this.redos.length - redolength]), redolength)
+      );
       this.undos.push(this.game.toModel());
       const revision = gameManager.game.revision;
       const revisionOffset = gameManager.game.revisionOffset - redolength + 1;
@@ -837,15 +1093,23 @@ export class StateManager {
   }
 
   clearUndos() {
-    this.undoInfos.splice(0, this.undoInfos.length - this.redos.length);
     this.undos = [];
+    this.historyVersion++;
     this.saveStorage();
   }
 
   clearRedos() {
-    this.undoInfos.splice(this.undos.length, this.undoInfos.length);
     this.redos = [];
+    this.historyVersion++;
     this.saveStorage();
+  }
+
+  /** clear the log, except entries describing an existing undo/redo snapshot */
+  clearLog() {
+    const links = this.history().links;
+    this.log = this.log.filter((entry) => links.has(entry));
+    this.historyVersion++;
+    storageManager.writeArray('log', this.log).catch((error) => console.error('Failed to clear log:', error));
   }
 
   savePermissions(code: string, permissions: Permissions | undefined) {

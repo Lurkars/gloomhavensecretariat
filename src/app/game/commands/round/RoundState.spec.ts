@@ -46,14 +46,16 @@ describe('RoundStateCommand', () => {
   });
 
   describe('before', () => {
-    it('returns the ".next" label when the current state is "next"', () => {
+    it('returns the ".roundNext" label with the finished round when the current state is "next"', () => {
       gameManager.game.state = GameState.next;
-      expect(new RoundStateCommand(1).before()).toEqual(['command.round.state.next']);
+      gameManager.game.round = 3;
+      expect(new RoundStateCommand(1).before()).toEqual(['command.round.state.roundNext', 3]);
     });
 
-    it('returns the ".draw" label when the current state is "draw"', () => {
+    it('returns the ".roundDraw" label with the upcoming round when the current state is "draw"', () => {
       gameManager.game.state = GameState.draw;
-      expect(new RoundStateCommand(1).before()).toEqual(['command.round.state.draw']);
+      gameManager.game.round = 3;
+      expect(new RoundStateCommand(1).before()).toEqual(['command.round.state.roundDraw', 4]);
     });
   });
 });

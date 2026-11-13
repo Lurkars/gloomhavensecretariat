@@ -490,6 +490,7 @@ export class EntitiesMenuDialogComponent {
     this.conditionHelper.close();
     this.healthHelper.close();
     this.specialActionsHelper.close();
+    this.trapHelper.close();
   }
 
   @HostListener('document:keydown', ['$event'])

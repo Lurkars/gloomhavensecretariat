@@ -18,14 +18,21 @@
                   [class.success]="attempt.success"
                   [class.failure]="!attempt.success"
                   (click)="selectAttempt(i)"
-                  [ghs-tooltip]="attempt.success ? 'scenario.stats.success' : 'scenario.stats.failure'"
+                  [ghs-tooltip]="'scenario.stats.' + (attempt.success ? 'success' : 'failure') + (attempt.timestamp ? '.date' : '')"
+                  [ghs-label-args]="attempt.timestamp ? [attemptDate(attempt.timestamp)] : []"
+                  [ghs-label-args-replace]="false"
                 >
                   <span class="attempt-number">#{{ i + 1 }}</span>
                   @if (attempt.difficulty !== undefined) {
-                    <span [ghs-label]="'scenario.stats.difficulty'" [ghs-label-args]="[attempt.difficulty]" [style]="'fh'"></span>
+                    <span
+                      class="attempt-info"
+                      [ghs-label]="'scenario.stats.difficulty'"
+                      [ghs-label-args]="[attempt.difficulty]"
+                      [style]="'fh'"
+                    ></span>
                   }
-                  @if (attempt.timestamp) {
-                    <span class="attempt-date">{{ attempt.timestamp | date: 'short' : timeZone : settingsManager.settings.locale }}</span>
+                  @if (attempt.rounds) {
+                    <span class="attempt-info" [ghs-label]="'scenario.stats.rounds'" [ghs-label-args]="[attempt.rounds]"></span>
                   }
                 </span>
               }
@@ -76,6 +83,27 @@
               </td>
             }
           </tr>
+          <tr>
+            <th><span [ghs-label]="'scenario.stats.rounds.title'"></span></th>
+            @for (character of characters | trackUUID; track character._trackUUID) {
+              <td>
+                <span
+                  [ghs-label]="'scenario.stats.rounds'"
+                  [ghs-label-args]="[character.scenarioStats.rounds]"
+                  [ghs-tooltip]="'scenario.stats.rounds.hint'"
+                ></span>
+              </td>
+            }
+            @if (!character) {
+              <td>
+                <span
+                  [ghs-label]="'scenario.stats.rounds'"
+                  [ghs-label-args]="[overall.rounds]"
+                  [ghs-tooltip]="'scenario.stats.rounds.hint'"
+                ></span>
+              </td>
+            }
+          </tr>
         }
         @if (!!scenario) {
           <tr>
@@ -84,6 +112,7 @@
               <td>
                 @if (character.scenarioStats.level !== undefined) {
                   <span
+                    class="character-level"
                     [ghs-label]="'scenario.stats.level'"
                     [ghs-label-args]="[character.scenarioStats.level]"
                     [style]="'fh'"

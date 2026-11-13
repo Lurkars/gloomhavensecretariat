@@ -2355,7 +2355,10 @@
         "": "%game.gameIcon:status/exhausted% {0}",
         "hint": "Exhausted"
       },
-      "failure": "Failure",
+      "failure": {
+        "": "Failure",
+        "date": "Failure ({0})"
+      },
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
         "hint": "Number of %game.gameIcon:loot% Coins looted"
@@ -2410,8 +2413,16 @@
           "hint": "Number of %game.resource.{0}% looted"
         }
       },
+      "rounds": {
+        "": "Rounds: {0}",
+        "hint": "Number of rounds played",
+        "title": "Rounds"
+      },
       "scenarios": "Scenarios",
-      "success": "Success",
+      "success": {
+        "": "Success",
+        "date": "Success ({0})"
+      },
       "toggle": {
         "hide": "Hide Scenario Statistics",
         "show": "Show Scenario Statistics"
@@ -3158,6 +3169,10 @@
       "hint": "Enable Loot Deck"
     },
     "lurkarsDefaults": "Apply Lurkars' personal settings",
+    "maxLog": {
+      "": "Max. number of log entries",
+      "hint": "The log records every change, undo and redo without storing the game state, so it can be much longer than the undo history. Undo history labels are taken from the log, therefore it is at least as long as the max. number of undos. Use -1 for an unlimited log."
+    },
     "maxUndo": {
       "": "Max. number of undos",
       "hint": {
@@ -3359,6 +3374,7 @@
   "state": {
     "clear": {
       "": "Clear",
+      "log": "Clear Log",
       "redos": "Clear Redos",
       "undos": "Clear Undos"
     },
@@ -3582,7 +3598,9 @@
         "round": {
           "state": {
             "draw": "Draw",
-            "next": "Next Round"
+            "next": "Next Round",
+            "roundDraw": "Draw (Round {0})",
+            "roundNext": "Next Round (end of Round {0})"
           }
         }
       },
@@ -4196,6 +4214,8 @@
       "resetScenario": "Reset scenario #{0} {1} ({2})",
       "restoreAbility": "Restore ability card \"{1}\" for {0}",
       "restoreDefaultAbilities": "Restore default ability cards of {0}",
+      "roundDraw": "Draw (Round {0})",
+      "roundNext": "Next Round (end of Round {0})",
       "sellItem": "Sell Item \"%data.items.{2}-{1}%\" for {0}",
       "serverSync": "Server: {0}",
       "serverSyncEmpty": "Server Sync",
@@ -4360,6 +4380,16 @@
       "upgradeBuilding": "Upgrade building '%data.buildings.{1}%' ({0}) to level {2}"
     },
     "loadMore": "Show more",
+    "log": {
+      "": "Log",
+      "allParties": "All campaigns",
+      "currentParty": "Current campaign",
+      "party": "Campaign: {0}",
+      "server": "Received via server",
+      "time": "Time: {0}",
+      "tooltip": "{0}",
+      "unknown": "Change"
+    },
     "missing": "Missing states: {0}",
     "redo": "Redo",
     "reset": "Reset",

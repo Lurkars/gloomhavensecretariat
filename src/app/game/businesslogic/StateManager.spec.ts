@@ -1,10 +1,12 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { StateManager } from 'src/app/game/businesslogic/StateManager';
 import { storageManager } from 'src/app/game/businesslogic/StorageManager';
 import { commandManager } from 'src/app/game/commands/CommandManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { LogEntry } from 'src/app/game/model/LogEntry';
 import { Permissions } from 'src/app/game/model/Permissions';
 
 // StateManager backs the game's undo/redo stack, local persistence and websocket sync.
@@ -36,7 +38,7 @@ describe('StateManager', () => {
 
     stateManager.undos = [];
     stateManager.redos = [];
-    stateManager.undoInfos = [];
+    stateManager.log = [];
     stateManager.ws = undefined;
     stateManager.permissions = undefined;
     stateManager.updateBlocked = false;
@@ -95,7 +97,8 @@ describe('StateManager', () => {
     it('pushes a new undo snapshot with the given label', () => {
       stateManager.before('undoLabel', 'arg1', 2);
       expect(stateManager.undos.length).toEqual(1);
-      expect(stateManager.undoInfos[stateManager.undoInfos.length - 1]).toEqual(['undoLabel', 'arg1', '2']);
+      expect(stateManager.log[stateManager.log.length - 1].info).toEqual(['undoLabel', 'arg1', '2']);
+      expect(stateManager.undoInfo(0)).toEqual(['undoLabel', 'arg1', '2']);
     });
 
     it('adds the working class to body', () => {
@@ -115,7 +118,7 @@ describe('StateManager', () => {
       stateManager.before('second');
       stateManager.before('third');
       expect(stateManager.undos.length).toEqual(3);
-      expect(stateManager.undoInfos.map((info) => info[0])).toEqual(['first', 'second', 'third']);
+      expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['first', 'second', 'third']);
     });
 
     it('caps undo stack length at maxUndo (capped at 50 without a real db)', () => {
@@ -142,8 +145,8 @@ describe('StateManager', () => {
       stateManager.revertLastUndo();
 
       expect(stateManager.undos.length).toEqual(1);
-      expect(stateManager.undoInfos.length).toEqual(1);
-      expect(stateManager.undoInfos[0][0]).toEqual('first');
+      expect(stateManager.log.length).toEqual(1);
+      expect(stateManager.log[0].info[0]).toEqual('first');
     });
 
     it('removes the working/server-sync classes and triggers a ui change', () => {
@@ -160,11 +163,13 @@ describe('StateManager', () => {
   });
 
   describe('clearUndos / clearRedos', () => {
-    it('clearUndos empties the undo stack and matching undoInfos', () => {
+    it('clearUndos empties the undo stack but keeps the log', () => {
       stateManager.before('a');
       stateManager.before('b');
       stateManager.clearUndos();
       expect(stateManager.undos.length).toEqual(0);
+      expect(stateManager.log.length).toEqual(2);
+      expect(stateManager.undoInfo(0)).toEqual([]);
     });
 
     it('clearRedos empties the redo stack', () => {
@@ -230,6 +235,315 @@ describe('StateManager', () => {
       expect(gameManager.game.party.location).toEqual('loc-1');
       expect(stateManager.undos.length).toEqual(0);
       expect(stateManager.redos.length).toEqual(3);
+    });
+  });
+
+  describe('log', () => {
+    async function change(label: string) {
+      stateManager.before(label);
+      gameManager.game.party.location = label;
+      await stateManager.after(0);
+    }
+
+    it('records an update entry bound to the effective revision of the undo snapshot', async () => {
+      gameManager.game.revision = 10;
+      gameManager.game.revisionOffset = 4;
+      await change('a');
+      expect(stateManager.log.length).toBe(1);
+      expect(stateManager.log[0].type).toBe('update');
+      expect(stateManager.log[0].revision).toBe(6);
+      expect(stateManager.log[0].revision).toBe(stateManager.undos[0].revision - stateManager.undos[0].revisionOffset);
+      expect(stateManager.log[0].party).toBe(gameManager.game.party.id);
+      expect(stateManager.log[0].timestamp).toBeGreaterThan(0);
+    });
+
+    it('labels undo and redo snapshots from the log while undoing and redoing', async () => {
+      await change('a');
+      await change('b');
+      await change('c');
+      expect([0, 1, 2].map((i) => stateManager.undoInfo(i)[0])).toEqual(['a', 'b', 'c']);
+
+      stateManager.undo();
+      expect(stateManager.undoInfo(1)[0]).toBe('b');
+      expect(stateManager.redoInfo(0)[0]).toBe('c');
+      expect(stateManager.log[stateManager.log.length - 1]).toMatchObject({ type: 'undo', info: ['c'], length: 1 });
+
+      stateManager.undo();
+      expect(stateManager.undoInfo(0)[0]).toBe('a');
+      expect(stateManager.redoInfo(0)[0]).toBe('b');
+      expect(stateManager.redoInfo(1)[0]).toBe('c');
+
+      stateManager.redo();
+      expect(stateManager.undoInfo(1)[0]).toBe('b');
+      expect(stateManager.redoInfo(0)[0]).toBe('c');
+      expect(stateManager.log[stateManager.log.length - 1]).toMatchObject({ type: 'redo', info: ['b'], length: 1 });
+      expect(gameManager.game.party.location).toBe('b');
+    });
+
+    it('links a new change after an undo instead of the undone one', async () => {
+      await change('a');
+      await change('b');
+      stateManager.undo();
+      await change('x');
+      expect(stateManager.undoInfo(0)[0]).toBe('a');
+      expect(stateManager.undoInfo(1)[0]).toBe('x');
+      expect(stateManager.hasRedo()).toBe(false);
+    });
+
+    it('logs a multi-step undo as a single entry with length and target revision', async () => {
+      await change('a');
+      await change('b');
+      await change('c');
+      stateManager.fixedUndo(3);
+      const entry = stateManager.log[stateManager.log.length - 1];
+      expect(entry).toMatchObject({ type: 'undo', info: ['c'], length: 3, revision: 3, target: 0 });
+      expect(stateManager.redoInfo(0)[0]).toBe('a');
+      expect(stateManager.redoInfo(2)[0]).toBe('c');
+    });
+
+    it('does not link entries of an older game with overlapping revisions to newer snapshots', async () => {
+      await change('old');
+      // an older revision gets loaded (e.g. another server game)
+      gameManager.game.revision = 0;
+      await change('new');
+      expect(stateManager.undoInfo(1)[0]).toBe('new');
+      expect(stateManager.undoInfo(0)[0]).toBe('old');
+    });
+
+    it('exposes links from log entries to the snapshots', async () => {
+      await change('a');
+      await change('b');
+      stateManager.undo();
+      const links = stateManager.history().links;
+      expect(links.get(stateManager.log[0])).toEqual({ type: 'undo', index: 0 });
+      expect(links.get(stateManager.log[1])).toEqual({ type: 'redo', index: 0 });
+      expect(links.get(stateManager.log[2])).toBeUndefined();
+    });
+
+    it('keeps the log when undo snapshots are trimmed and trims the log to maxLog', async () => {
+      const maxUndo = settingsManager.settings.maxUndo;
+      const maxLog = settingsManager.settings.maxLog;
+      settingsManager.settings.maxUndo = 2;
+      settingsManager.settings.maxLog = 4;
+      try {
+        for (const label of ['a', 'b', 'c', 'd', 'e']) {
+          await change(label);
+        }
+        expect(stateManager.undos.length).toBe(2);
+        expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['b', 'c', 'd', 'e']);
+        expect(stateManager.undoInfo(0)[0]).toBe('d');
+      } finally {
+        settingsManager.settings.maxUndo = maxUndo;
+        settingsManager.settings.maxLog = maxLog;
+      }
+    });
+
+    it('never trims the log with maxLog -1', async () => {
+      const maxUndo = settingsManager.settings.maxUndo;
+      const maxLog = settingsManager.settings.maxLog;
+      settingsManager.settings.maxUndo = 1;
+      settingsManager.settings.maxLog = -1;
+      try {
+        for (const label of ['a', 'b', 'c', 'd']) {
+          await change(label);
+        }
+        expect(stateManager.undos.length).toBe(1);
+        expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['a', 'b', 'c', 'd']);
+      } finally {
+        settingsManager.settings.maxUndo = maxUndo;
+        settingsManager.settings.maxLog = maxLog;
+      }
+    });
+
+    it('stores no log with maxLog 0', async () => {
+      const maxLog = settingsManager.settings.maxLog;
+      settingsManager.settings.maxLog = 0;
+      try {
+        await change('a');
+        expect(stateManager.log.length).toBe(0);
+        expect(stateManager.undos.length).toBe(1);
+        expect(stateManager.undoInfo(0)).toEqual([]);
+      } finally {
+        settingsManager.settings.maxLog = maxLog;
+      }
+    });
+
+    it('sends the info of the matching log entry to the server', async () => {
+      const send = vi.fn();
+      stateManager.ws = { readyState: WebSocket.OPEN, send } as any;
+      settingsManager.settings.serverCode = 'code';
+      await change('a');
+      await change('b');
+      expect(JSON.parse(send.mock.calls[1][0])).toMatchObject({ type: 'game', undoinfo: ['b'] });
+      stateManager.undo();
+      expect(JSON.parse(send.mock.calls[2][0])).toMatchObject({ type: 'game-undo', undoinfo: ['b'], undolength: 1 });
+      stateManager.redo();
+      expect(JSON.parse(send.mock.calls[3][0])).toMatchObject({ type: 'game-redo', undoinfo: ['b'] });
+    });
+
+    it('logs an undo received from the server', async () => {
+      await change('a');
+      await change('b');
+      const model = stateManager.undos[1];
+      stateManager.onMessage({ data: JSON.stringify({ type: 'game-undo', payload: model, revision: 1, undoinfo: ['b'], undolength: 1 }) });
+      const entry = stateManager.log[stateManager.log.length - 1];
+      expect(entry).toMatchObject({ type: 'undo', server: true, info: ['serverSync', 'b'], revision: 2, target: 1 });
+      expect(stateManager.redoInfo(0)[0]).toBe('b');
+    });
+
+    it('displays server infos as a single resolved argument', () => {
+      vi.spyOn(settingsManager, 'getLabel').mockImplementation((key: string, args: string[] = []) => key + ':' + args.join(','));
+      expect(stateManager.displayInfo(new LogEntry('update', 0, ['serverSync', 'setInitiative', 'brute', '50']))).toEqual([
+        'serverSync',
+        'state.info.setInitiative:brute,'
+      ]);
+      expect(stateManager.displayInfo(new LogEntry('update', 0, ['serverSync', 'setInitiative', 'brute', '50']), false)).toEqual([
+        'serverSync',
+        'state.info.setInitiative:brute,50'
+      ]);
+      expect(stateManager.displayInfo(new LogEntry('update', 0, ['serverSync']))).toEqual(['serverSync', '']);
+      expect(stateManager.displayInfo(undefined)).toEqual([]);
+    });
+
+    it('clearLog keeps only entries linked to undo/redo snapshots', async () => {
+      await change('a');
+      await change('b');
+      stateManager.undo();
+      stateManager.clearUndos();
+      stateManager.clearLog();
+      expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['b']);
+      expect(stateManager.redoInfo(0)[0]).toBe('b');
+    });
+
+    it('never trims entries linked to undo/redo snapshots', async () => {
+      const maxUndo = settingsManager.settings.maxUndo;
+      const maxLog = settingsManager.settings.maxLog;
+      settingsManager.settings.maxUndo = 3;
+      settingsManager.settings.maxLog = 3;
+      try {
+        await change('a');
+        await change('b');
+        await change('c');
+        // undo/redo entries take log slots as well
+        stateManager.undo();
+        stateManager.redo();
+        expect(stateManager.log.length).toBe(5);
+        expect([0, 1, 2].map((i) => stateManager.undoInfo(i)[0])).toEqual(['a', 'b', 'c']);
+        await change('d');
+        expect(stateManager.undoInfo(0)[0]).toBe('b');
+        expect(stateManager.log[0].info[0]).toBe('b');
+      } finally {
+        settingsManager.settings.maxUndo = maxUndo;
+        settingsManager.settings.maxLog = maxLog;
+      }
+    });
+  });
+
+  describe('automatic changes', () => {
+    async function change(label: string) {
+      stateManager.before(label);
+      gameManager.game.party.location = label;
+      await stateManager.after(0);
+    }
+
+    it('keeps the redo history and the undo/redo position', async () => {
+      await change('a');
+      await change('b');
+      stateManager.undo();
+      const revision = gameManager.game.revision;
+      const effective = gameManager.game.revision - gameManager.game.revisionOffset;
+
+      stateManager.beforeAutomatic('gameClock.automaticGameClockOut');
+      await stateManager.afterAutomatic(0);
+
+      expect(stateManager.redos.length).toBe(1);
+      expect(stateManager.undos.length).toBe(1);
+      expect(gameManager.game.revision).toBe(revision + 1);
+      expect(gameManager.game.revision - gameManager.game.revisionOffset).toBe(effective);
+      expect(stateManager.log[stateManager.log.length - 1]).toMatchObject({
+        type: 'automatic',
+        info: ['gameClock.automaticGameClockOut']
+      });
+      expect(stateManager.undoInfo(0)[0]).toBe('a');
+      expect(stateManager.redoInfo(0)[0]).toBe('b');
+
+      stateManager.redo();
+      expect(gameManager.game.party.location).toBe('b');
+      expect(stateManager.undoInfo(1)[0]).toBe('b');
+    });
+
+    it('syncs the change with a higher revision but without undo info', async () => {
+      const send = vi.fn();
+      stateManager.ws = { readyState: WebSocket.OPEN, send } as any;
+      settingsManager.settings.serverCode = 'code';
+      await change('a');
+      stateManager.beforeAutomatic('gameClock.automaticGameClockOut');
+      await stateManager.afterAutomatic(0);
+      const message = JSON.parse(send.mock.calls[1][0]);
+      expect(message.type).toBe('game');
+      expect(message.undoinfo).toBeUndefined();
+      expect(message.payload.revision).toBe(2);
+    });
+  });
+
+  describe('migration of undo infos', () => {
+    const snapshot = (revision: number, revisionOffset: number = 0) => ({ revision, revisionOffset }) as any;
+
+    it('binds undo infos to the revisions of the undo/redo snapshots', () => {
+      const undos = [snapshot(1), snapshot(4, 2)];
+      const redos = [snapshot(5), snapshot(4)];
+      const log = StateManager.undoInfosToLog([['a'], ['b'], ['c'], ['d']], undos, redos, { revision: 3, revisionOffset: 0 });
+      expect(log.map((entry) => [entry.revision, entry.info[0]])).toEqual([
+        [1, 'a'],
+        [2, 'b'],
+        [3, 'c'],
+        [4, 'd']
+      ]);
+      expect(log.every((entry) => entry.type === 'update' && !entry.timestamp)).toBe(true);
+
+      gameManager.game.revision = 3;
+      stateManager.undos = undos;
+      stateManager.redos = redos;
+      stateManager.log = log;
+      expect(stateManager.undoInfo(0)[0]).toBe('a');
+      expect(stateManager.undoInfo(1)[0]).toBe('b');
+      expect(stateManager.redoInfo(0)[0]).toBe('c');
+      expect(stateManager.redoInfo(1)[0]).toBe('d');
+    });
+
+    it('handles padded (missing) and surplus infos and marks server infos', () => {
+      const undos = [snapshot(1), snapshot(2)];
+      expect(StateManager.undoInfosToLog([['b']], undos, [], { revision: 3, revisionOffset: 0 }).map((e) => [e.revision, e.info])).toEqual([
+        [1, []],
+        [2, ['b']]
+      ]);
+      const log = StateManager.undoInfosToLog([['x'], [], ['serverSync', 'c']], undos, [], { revision: 3, revisionOffset: 0 });
+      expect(log.length).toBe(2);
+      expect(log[0]).toMatchObject({ revision: 1, info: [] });
+      expect(log[1]).toMatchObject({ revision: 2, server: true, info: ['serverSync', 'c'] });
+    });
+
+    it('migrates stored undo infos once into the log and clears them', async () => {
+      stateManager.undos = [snapshot(1)];
+      vi.spyOn(storageManager, 'readAll').mockImplementation(async (store: string) => (store === 'undo-infos' ? [['a']] : []) as any);
+      const clear = vi.spyOn(storageManager, 'clear').mockResolvedValue(undefined);
+
+      await stateManager.migrateUndoInfos();
+
+      expect(stateManager.log.map((entry) => entry.info)).toEqual([['a']]);
+      expect(storageManager.writeArray).toHaveBeenCalledWith('log', stateManager.log);
+      expect(clear).toHaveBeenCalledWith('undo-infos');
+    });
+
+    it('keeps an existing log and only drops the undo infos', async () => {
+      stateManager.log = [new LogEntry('update', 0, ['existing'])];
+      vi.spyOn(storageManager, 'readAll').mockResolvedValue([['a']] as any);
+      const clear = vi.spyOn(storageManager, 'clear').mockResolvedValue(undefined);
+
+      await stateManager.migrateUndoInfos();
+
+      expect(stateManager.log.map((entry) => entry.info)).toEqual([['existing']]);
+      expect(clear).toHaveBeenCalledWith('undo-infos');
     });
   });
 

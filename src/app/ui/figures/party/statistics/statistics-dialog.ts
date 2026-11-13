@@ -1,5 +1,5 @@
 import { DIALOG_DATA } from '@angular/cdk/dialog';
-import { DatePipe } from '@angular/common';
+import { formatDate } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -18,11 +18,13 @@ export type ScenarioAttempt = {
   success: boolean;
   // missing on records synced through ghs-server before its 'difficutly' typo fix
   difficulty: number | undefined;
+  // missing on records created before rounds were tracked
+  rounds: number | undefined;
   stats: Map<Character, ScenarioStats>;
 };
 
 @Component({
-  imports: [DatePipe, GhsLabelDirective, GhsTooltipDirective, TabClickDirective, TrackUUIDPipe],
+  imports: [GhsLabelDirective, GhsTooltipDirective, TabClickDirective, TrackUUIDPipe],
   selector: 'ghs-statistics-dialog',
   templateUrl: 'statistics-dialog.html',
   styleUrls: ['./statistics-dialog.scss']
@@ -37,7 +39,8 @@ export class StatisticsDialogComponent implements OnInit {
   available: boolean = false;
   materials: LootType[] = [...materialResourceLootTypes];
   herbs: LootType[] = [...herbResourceLootTypes];
-  otherLoot: LootType[] = [LootType.money, LootType.random_item];
+  // money is not listed, it equals the gold of the progress row
+  otherLoot: LootType[] = [LootType.random_item];
   attempts: ScenarioAttempt[] = [];
   // index of the selected attempt in scenario mode, -1 selects the latest
   selectedAttempt: number = -1;
@@ -127,6 +130,7 @@ export class StatisticsDialogComponent implements OnInit {
     });
 
     this.overall = this.scenarioStatisticsSum(this.characters.map((character) => character.scenarioStats));
+    this.overall.rounds = this.scenario ? this.attempts[this.selectedAttempt]?.rounds || 0 : this.overallRounds(this.characters);
 
     const scenarioKeyMap = this.characters.reduce((map, character) => {
       const charMap = character.progress.scenarioStats
@@ -151,6 +155,27 @@ export class StatisticsDialogComponent implements OnInit {
     );
   }
 
+  /** rounds are shared by all characters of an attempt, so count every attempt (same scenario and timestamp) only once */
+  private overallRounds(characters: Character[]): number {
+    const rounds = new Map<string, number>();
+    characters.forEach((character) => {
+      character.progress.scenarioStats
+        .filter((stat) => stat.scenario && stat.timestamp && stat.rounds)
+        .forEach((stat) => {
+          rounds.set(`${stat.scenario!.index}_${stat.scenario!.edition}_${stat.scenario!.group ?? ''}_${stat.timestamp}`, stat.rounds);
+        });
+    });
+    return [...rounds.values()].reduce((a, b) => a + b, 0);
+  }
+
+  attemptDate(timestamp: number): string {
+    try {
+      return formatDate(timestamp, 'short', settingsManager.settings.locale, this.timeZone);
+    } catch {
+      return new Date(timestamp).toLocaleString();
+    }
+  }
+
   selectAttempt(index: number) {
     this.selectedAttempt = index;
     this.update();
@@ -169,7 +194,14 @@ export class StatisticsDialogComponent implements OnInit {
           const key = stat.timestamp ? 't' + stat.timestamp : 'i' + index;
           let attempt = attempts.get(key);
           if (!attempt) {
-            attempt = { key, timestamp: stat.timestamp, success: stat.success, difficulty: stat.difficulty ?? undefined, stats: new Map() };
+            attempt = {
+              key,
+              timestamp: stat.timestamp,
+              success: stat.success,
+              difficulty: stat.difficulty ?? undefined,
+              rounds: stat.rounds ?? undefined,
+              stats: new Map()
+            };
             attempts.set(key, attempt);
           }
           attempt.stats.set(character, stat);
@@ -217,6 +249,7 @@ export class StatisticsDialogComponent implements OnInit {
       scenarioStats.gold = stats.map((stat) => stat.gold || 0).reduce((a, b) => a + b);
       scenarioStats.xp = stats.map((stat) => stat.xp || 0).reduce((a, b) => a + b);
       scenarioStats.treasures = stats.map((stat) => stat.treasures || 0).reduce((a, b) => a + b);
+      scenarioStats.rounds = stats.map((stat) => stat.rounds || 0).reduce((a, b) => a + b);
 
       scenarioStats.loot = {};
       stats.forEach((stat) => {

@@ -318,6 +318,10 @@ export class DatamanagementMenuComponent implements OnInit {
     gameManager.stateManager.errorLog = data.errorLog || [];
     const keys = Object.keys(data);
     let success = false;
+    // migration: data dumps of older versions contain undo infos instead of a log, they get migrated on reload
+    if (!keys.some((key) => key === 'log' || key === 'ghs-log')) {
+      await storageManager.clear('log');
+    }
     for (let i = 0; i < keys.length; i++) {
       const origKey = keys[i];
       const key = origKey.startsWith('ghs-') ? origKey.replace('ghs-', '') : origKey;
@@ -332,6 +336,8 @@ export class DatamanagementMenuComponent implements OnInit {
         await storageManager.writeArray('redo', data[origKey]);
       } else if (key === 'undo-infos') {
         await storageManager.writeArray('undo-infos', data[origKey]);
+      } else if (key === 'log') {
+        await storageManager.writeArray('log', data[origKey]);
       } else if (key === 'game-backup') {
         await storageManager.writeArray('game-backup', data[origKey]);
       }

@@ -117,6 +117,7 @@ export class SettingsManager {
     await this.apply('portraitMode', this.settings.portraitMode);
     await this.apply('zoom', this.settings.zoom);
     await this.apply('customCss', this.settings.customCss);
+    await this.apply('maxLog', this.settings.maxLog);
   }
 
   setSettings(settings: Settings) {
@@ -303,6 +304,13 @@ export class SettingsManager {
       styleEl.textContent = value || '';
     } else if (setting === 'zoom') {
       this.applyZoom(value as number);
+    } else if (setting === 'maxLog' || setting === 'maxUndo') {
+      // -1: unlimited log, otherwise the log must not be shorter than the undo history, which is labeled by it
+      if (this.settings.maxLog < 0) {
+        this.settings.maxLog = -1;
+      } else if (this.settings.maxLog < this.settings.maxUndo) {
+        this.settings.maxLog = this.settings.maxUndo;
+      }
     }
   }
 

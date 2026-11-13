@@ -14,6 +14,41 @@ describe('SettingsManager', () => {
     gameManager.editionData = [];
   });
 
+  describe('apply maxLog / maxUndo', () => {
+    it('does not allow a log shorter than the undo history', async () => {
+      settingsManager.settings.maxUndo = 100;
+      settingsManager.settings.maxLog = 50;
+      await settingsManager.apply('maxLog', 50);
+      expect(settingsManager.settings.maxLog).toBe(100);
+    });
+
+    it('raises the log length together with the undo history', async () => {
+      settingsManager.settings.maxLog = 1000;
+      settingsManager.settings.maxUndo = 2000;
+      await settingsManager.apply('maxUndo', 2000);
+      expect(settingsManager.settings.maxLog).toBe(2000);
+    });
+
+    it('accepts -1 as unlimited log and normalizes other negative values to it', async () => {
+      settingsManager.settings.maxUndo = 100;
+      settingsManager.settings.maxLog = -1;
+      await settingsManager.apply('maxLog', -1);
+      expect(settingsManager.settings.maxLog).toBe(-1);
+      await settingsManager.apply('maxUndo', 100);
+      expect(settingsManager.settings.maxLog).toBe(-1);
+      settingsManager.settings.maxLog = -5;
+      await settingsManager.apply('maxLog', -5);
+      expect(settingsManager.settings.maxLog).toBe(-1);
+    });
+
+    it('keeps a longer log untouched', async () => {
+      settingsManager.settings.maxUndo = 100;
+      settingsManager.settings.maxLog = 500;
+      await settingsManager.apply('maxUndo', 100);
+      expect(settingsManager.settings.maxLog).toBe(500);
+    });
+  });
+
   describe('setSettings', () => {
     it('fills in default editions when none are set', () => {
       const settings = new Settings();

@@ -146,7 +146,14 @@ describe('StatisticsDialogComponent', () => {
     expect(loot[LootType.lumber]).toBe(3);
     expect(loot[LootType.money]).toBe(3);
     expect(loot[LootType.random_item]).toBe(1);
-    expect(component.otherLoot).toEqual([LootType.money, LootType.random_item]);
+    // money equals the gold of the progress row, so only random items are listed besides resources
+    expect(component.otherLoot).toEqual([LootType.random_item]);
+  });
+
+  it('formats the attempt date for the tooltip', () => {
+    const component = createComponent({});
+
+    expect(component.attemptDate(1700000000000)).toBeTruthy();
   });
 
   it('tolerates records without loot', () => {

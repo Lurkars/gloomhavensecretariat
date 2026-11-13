@@ -175,6 +175,7 @@ export class Settings {
   locale: string = 'en';
   logServerMessages: boolean = false;
   lootDeck: boolean = true;
+  maxLog: number = 1000;
   maxUndo: number = 100;
   portraitMode: boolean = true;
   monsters: boolean = true;

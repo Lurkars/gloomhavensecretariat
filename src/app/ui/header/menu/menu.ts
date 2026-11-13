@@ -103,45 +103,18 @@ export class MainMenuComponent implements OnInit {
   update() {
     const undos = gameManager.stateManager.undos;
     const redos = gameManager.stateManager.redos;
-    const undoInfos = gameManager.stateManager.undoInfos;
-    if (undos.length > 0 && undoInfos.length >= undos.length) {
-      this.undoInfo = undoInfos[undos.length - 1];
+    if (undos.length > 0) {
+      this.undoInfo = gameManager.stateManager.undoInfo(undos.length - 1, gameManager.game.state === GameState.draw);
       this.undoOffset =
         gameManager.game.revision -
         (gameManager.game.revisionOffset || 0) -
         (undos[undos.length - 1].revision - (undos[undos.length - 1].revisionOffset || 0)) -
         1;
-      if (this.undoInfo && this.undoInfo.length > 1 && this.undoInfo[0] === 'serverSync') {
-        if (gameManager.game.state === GameState.draw && this.undoInfo[1] === 'setInitiative' && this.undoInfo.length > 3) {
-          this.undoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.undoInfo[1], [this.undoInfo[2], ''])];
-        } else {
-          this.undoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.undoInfo[1], this.undoInfo.slice(2))];
-        }
-      } else if (this.undoInfo && this.undoInfo.length === 1 && this.undoInfo[0] === 'serverSync') {
-        this.undoInfo = ['serverSync', ''];
-      } else if (!this.undoInfo) {
-        this.undoInfo = ['unknown'];
-      }
     } else {
       this.undoInfo = [];
       this.undoOffset = 0;
     }
-    if (redos.length > 0 && undoInfos.length > undos.length) {
-      this.redoInfo = undoInfos[undos.length];
-      if (this.redoInfo && this.redoInfo.length > 1 && this.redoInfo[0] === 'serverSync') {
-        if (this.redoInfo[1] === 'setInitiative' && this.redoInfo.length > 3) {
-          this.redoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.redoInfo[1], [this.redoInfo[2], ''])];
-        } else {
-          this.redoInfo = ['serverSync', settingsManager.getLabel('state.info.' + this.redoInfo[1], this.redoInfo.slice(2))];
-        }
-      } else if (this.redoInfo && this.redoInfo.length === 1 && this.redoInfo[0] === 'serverSync') {
-        this.redoInfo = ['serverSync', ''];
-      } else if (!this.redoInfo) {
-        this.redoInfo = ['unknown'];
-      }
-    } else {
-      this.redoInfo = [];
-    }
+    this.redoInfo = redos.length > 0 ? gameManager.stateManager.redoInfo(0) : [];
 
     this.isUpdateAvailable = gameManager.stateManager.hasUpdate;
   }
