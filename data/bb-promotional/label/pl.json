@@ -3,27 +3,27 @@
     "bb-promotional": "Buttons & Bugs - Materiały Promocyjne"
   },
   "items": {
-    "bb-41": {
+    "bb-43": {
       "": "Pancerz Żuka",
       "1": "Jeśli podczas swojej tury poruszysz się o 1 heks lub mniej, zyskaj %game.action.shield:1% na rundę."
     },
-    "bb-42": {
+    "bb-44": {
       "": "Kieł Gryzonia",
       "1": "Po wykonaniu ruchu o 4 heksy lub więcej, dodaj %game.action.attack.valueSign:1% do wszystkich swoich ataków w tej turze."
     },
-    "bb-43": {
+    "bb-45": {
       "": "Przebijająca Srebrna Strzała",
       "1": "Podczas swojego ataku dystansowego, dodaj %game.action.pierce:5%."
     },
-    "bb-44": {
+    "bb-46": {
       "": "Skurczony Krótki Miecz",
       "1": "Domyślna górna akcja Twoich kart zdolności to %game.action.attack:2% zamiast %game.action.attack:2%."
     },
-    "bb-45": {
+    "bb-47": {
       "": "Wiecznochłodny Płatek Słońca",
       "1": "Podczas swojego ataku, %game.elementHalf.consume:ice|light% aby dodać przewagę lub %game.condition.muddle%."
     },
-    "bb-46": {
+    "bb-48": {
       "": "Kropla Mikstury Leczniczej",
       "1": "Podczas swojej tury usuń wszystkie negatywne stany i %game.action.heal:2% na siebie."
     }
