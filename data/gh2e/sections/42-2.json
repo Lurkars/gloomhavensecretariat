@@ -3,6 +3,12 @@
   "name": "Clockwork Factory",
   "edition": "gh2e",
   "parent": "71",
+  "parentSections": [
+    [
+      "44.5"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "ooze",

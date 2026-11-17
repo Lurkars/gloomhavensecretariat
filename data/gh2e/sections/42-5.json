@@ -3,6 +3,7 @@
   "name": "Investigation",
   "edition": "gh2e",
   "parent": "18",
+  "marker": "1",
   "monsters": [
     "bandit-scout",
     "hound"

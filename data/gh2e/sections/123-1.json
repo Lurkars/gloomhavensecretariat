@@ -3,6 +3,7 @@
   "name": "Syndicate Hideout",
   "edition": "gh2e",
   "parent": "82",
+  "marker": "3",
   "monsters": [
     "bandit-archer",
     "bandit-scout",

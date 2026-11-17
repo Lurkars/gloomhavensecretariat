@@ -4,10 +4,43 @@
   "edition": "gh2e",
   "parent": "27",
   "marker": "1",
+  "resetRound": "visible",
   "monsters": [
     "night-demon",
     "the-prime-demon",
     "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R >= 3 && R % 4 == 3",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.27.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R >= 5 && R % 4 == 1",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.27.2%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
   ],
   "rooms": [
     {

@@ -3,6 +3,7 @@
   "name": "Sulfur Mine",
   "edition": "gh2e",
   "parent": "87",
+  "marker": "5",
   "monsters": [
     "hound",
     "vermling-scout"

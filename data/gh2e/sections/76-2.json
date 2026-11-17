@@ -3,10 +3,104 @@
   "edition": "gh2e",
   "parent": "69",
   "marker": "1",
+  "resetRound": "visible",
   "monsters": [
     "black-imp",
     "deep-terror",
-    "giant-ooze"
+    "giant-ooze",
+    "ooze"
+  ],
+  "rules": [
+    {
+      "round": "R % 6 == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

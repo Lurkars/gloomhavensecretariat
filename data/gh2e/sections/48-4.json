@@ -2,6 +2,11 @@
   "index": "48.4",
   "edition": "gh2e",
   "parent": "44",
+  "parentSections": [
+    [
+      "97.5"
+    ]
+  ],
   "marker": "3",
   "monsters": [
     "flame-demon"

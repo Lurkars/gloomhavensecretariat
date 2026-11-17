@@ -3,6 +3,11 @@
   "name": "Tribal Assault",
   "edition": "gh2e",
   "parent": "49",
+  "parentSections": [
+    [
+      "13.3"
+    ]
+  ],
   "marker": "3",
   "monsters": [
     "hound",

@@ -2,6 +2,11 @@
   "index": "95.1",
   "edition": "gh2e",
   "parent": "45",
+  "parentSections": [
+    [
+      "93.3"
+    ]
+  ],
   "marker": "2",
   "resetRound": "visible",
   "monsters": [

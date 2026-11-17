@@ -38,10 +38,10 @@
           "subActions": [
             {
               "type": "heal",
-              "value": 3,
+              "value": "[2+Math.floor(L/3)]",
               "subActions": [
                 {
-                  "type": "target",
+                  "type": "range",
                   "value": 3,
                   "small": true
                 }

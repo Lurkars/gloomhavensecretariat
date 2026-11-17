@@ -1,7 +1,13 @@
 {
   "index": "124.1",
+  "name": "A Friend in Need",
   "edition": "gh2e",
   "parent": "66",
+  "parentSections": [
+    [
+      "6.2"
+    ]
+  ],
   "marker": "1",
   "monsters": [
     "bandit-archer",
@@ -10,7 +16,7 @@
   ],
   "rooms": [
     {
-      "roomNumber": 3,
+      "roomNumber": 2,
       "initial": true,
       "monster": [
         {

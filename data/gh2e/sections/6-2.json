@@ -1,5 +1,6 @@
 {
   "index": "6.2",
+  "name": "A Friend in Need",
   "edition": "gh2e",
   "parent": "66",
   "monsters": [
@@ -9,26 +10,42 @@
   "allies": [
     "cave-bear"
   ],
-  "rooms": [
+  "rules": [
     {
-      "roomNumber": 2,
-      "initial": true,
-      "monster": [
+      "round": "true",
+      "start": true,
+      "once": true,
+      "spawns": [
         {
-          "name": "bandit-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "monster": {
+            "name": "bandit-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
         },
         {
-          "name": "bandit-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
+          "monster": {
+            "name": "cave-bear",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "note": "at any empty starting hex",
+      "spawns": [
         {
-          "name": "cave-bear",
-          "type": "normal"
+          "monster": {
+            "name": "bandit-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
         }
       ]
     }

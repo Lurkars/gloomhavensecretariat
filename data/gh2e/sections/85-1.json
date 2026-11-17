@@ -3,6 +3,7 @@
   "name": "Bandit's Wood",
   "edition": "gh2e",
   "parent": "60",
+  "marker": "1",
   "monsters": [
     "bandit-archer",
     "bandit-scout",

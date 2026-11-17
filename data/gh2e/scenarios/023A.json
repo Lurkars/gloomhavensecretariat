@@ -3,6 +3,9 @@
   "name": "Gloomhaven Square A (Demon Allies)",
   "flowChartGroup": "demons",
   "edition": "gh2e",
+  "blocks": [
+    "23B"
+  ],
   "monsters": [
     "cultist",
     "earth-demon",

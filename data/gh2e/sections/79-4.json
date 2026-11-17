@@ -3,6 +3,7 @@
   "name": "Alchemy Lab",
   "edition": "gh2e",
   "parent": "62",
+  "marker": "3/4",
   "monsters": [
     "ooze"
   ],

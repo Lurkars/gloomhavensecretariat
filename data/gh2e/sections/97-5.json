@@ -3,6 +3,7 @@
   "name": "Temple of the Elements",
   "edition": "gh2e",
   "parent": "44",
+  "marker": "1",
   "monsters": [
     "cultist",
     "living-bones"

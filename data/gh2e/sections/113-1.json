@@ -3,6 +3,12 @@
   "name": "Vermling Camp",
   "edition": "gh2e",
   "parent": "97",
+  "parentSections": [
+    [
+      "129.3"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "cave-bear",
     "vermling-priest",

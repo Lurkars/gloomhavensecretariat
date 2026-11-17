@@ -3,6 +3,7 @@
   "name": "Vault of Secrets",
   "edition": "gh2e",
   "parent": "78",
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
     "city-guard",

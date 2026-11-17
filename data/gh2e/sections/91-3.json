@@ -3,6 +3,7 @@
   "name": "Underwater Lagoon",
   "edition": "gh2e",
   "parent": "70",
+  "marker": "1",
   "monsters": [
     "forest-imp",
     "ooze"

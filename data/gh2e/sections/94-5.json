@@ -1,0 +1,18 @@
+{
+  "index": "74.4",
+  "name": "Harrower Hive",
+  "edition": "gh2e",
+  "parent": "77",
+  "parentSections": [
+    [
+      "74.4"
+    ]
+  ],
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 7,
+      "initial": true
+    }
+  ]
+}

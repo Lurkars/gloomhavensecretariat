@@ -1555,6 +1555,14 @@
         "10": {
           "1": "Each Character occupying tile 01-D, 02-H, or any corridor tiles connecting those two tiles suffers hazardous terrain damage."
         },
+        "27": {
+          "1": "Relocate the altar to %game.mapMarker.b%, destroying any overlay tiles in that hex and relocating any figure in that hex to the closest empty hex, then spawn the demon adjacent to the altar.",
+          "2": "Relocate the altar to %game.mapMarker.a%, destroying any overlay tiles in that hex and relocating any figure in that hex to the closest empty hex, then spawn the demon adjacent to the altar.",
+          "3": "Relocate the altar to %game.mapMarker.d%, destroying any overlay tiles in that hex and relocating any figure in that hex to the closest empty hex, then spawn the demon adjacent to the altar.",
+          "4": "Relocate the altar to %game.mapMarker.c%, destroying any overlay tiles in that hex and relocating any figure in that hex to the closest empty hex, then spawn the demon adjacent to the altar.",
+          "5": "Relocate the altar to %game.mapMarker.f%, destroying any overlay tiles in that hex and relocating any figure in that hex to the closest empty hex, then spawn the demon adjacent to the altar.",
+          "6": "Relocate the altar to %game.mapMarker.e%, destroying any overlay tiles in that hex and relocating any figure in that hex to the closest empty hex, then spawn the demon adjacent to the altar."
+        },
         "55": {
           "1": "Remove one damage token from the pile next to the map."
         },

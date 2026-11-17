@@ -3,6 +3,7 @@
   "name": "Vibrant Grotto",
   "edition": "gh2e",
   "parent": "39",
+  "marker": "1",
   "monsters": [
     "earth-demon",
     "forest-imp"

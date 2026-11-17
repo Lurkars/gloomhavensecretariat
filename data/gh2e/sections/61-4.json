@@ -1,0 +1,31 @@
+{
+  "index": "61.4",
+  "name": "Infernal Throne",
+  "edition": "gh2e",
+  "parent": "27",
+  "parentSections": [
+    [
+      "20.2"
+    ]
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "gh2e",
+          "scenario": "20.2",
+          "index": 0,
+          "section": true
+        },
+        {
+          "edition": "gh2e",
+          "scenario": "20.2",
+          "index": 1,
+          "section": true
+        }
+      ]
+    }
+  ]
+}

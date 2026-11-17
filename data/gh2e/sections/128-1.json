@@ -5,6 +5,18 @@
   "monsters": [
     "flame-demon"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "fire",
+          "state": "strong"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 4,

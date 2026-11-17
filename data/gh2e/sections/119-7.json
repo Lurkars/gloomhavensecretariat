@@ -3,6 +3,12 @@
   "name": "Vault of Secrets",
   "edition": "gh2e",
   "parent": "78",
+  "parentSections": [
+    [
+      "115.1"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "ancient-artillery",
     "stone-construct"

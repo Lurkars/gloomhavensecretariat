@@ -1,13 +1,56 @@
 {
   "index": "59.2",
+  "name": "Palace of Ice",
   "edition": "gh2e",
   "parent": "58",
   "marker": "1",
+  "resetRound": "visible",
   "monsters": [
     "cave-bear-scenario-58",
     "frost-demon",
     "harrower-infester",
     "living-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "cave-bear-scenario-58",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "cave-bear-scenario-58",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    }
   ],
   "rooms": [
     {

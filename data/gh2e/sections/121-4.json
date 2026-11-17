@@ -3,6 +3,12 @@
   "name": "Dangerous Grove",
   "edition": "gh2e",
   "parent": "61",
+  "parentSections": [
+    [
+      "78.2"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "cave-bear",
     "forest-imp",

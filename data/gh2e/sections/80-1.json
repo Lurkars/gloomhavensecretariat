@@ -3,6 +3,7 @@
   "name": "Deep Ruins",
   "edition": "gh2e",
   "parent": "37",
+  "marker": "1",
   "monsters": [
     "ancient-artillery",
     "crystal-rot",

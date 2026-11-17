@@ -3,6 +3,14 @@
   "name": "Decrepit Wood",
   "edition": "gh2e",
   "parent": "31",
+  "parentSections": [
+    [
+      "41.1"
+    ],
+    [
+      "48.3"
+    ]
+  ],
   "monsters": [
     "black-imp",
     "giant-viper",

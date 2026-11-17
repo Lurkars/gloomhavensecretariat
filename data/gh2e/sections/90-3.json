@@ -3,6 +3,7 @@
   "name": "Sunken Vessel",
   "edition": "gh2e",
   "parent": "68",
+  "marker": "1",
   "monsters": [
     "frost-demon",
     "lurker-soldier"

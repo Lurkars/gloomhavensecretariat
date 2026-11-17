@@ -3,6 +3,12 @@
   "name": "Deep Ruins",
   "edition": "gh2e",
   "parent": "37",
+  "parentSections": [
+    [
+      "80.1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "ancient-artillery",
     "stone-construct"

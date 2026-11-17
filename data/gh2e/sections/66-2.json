@@ -1,7 +1,13 @@
 {
   "index": "66.2",
+  "name": "Savvas Armory",
   "edition": "gh2e",
   "parent": "32",
+  "parentSections": [
+    [
+      "71.4"
+    ]
+  ],
   "marker": "3",
   "monsters": [
     "earth-demon",

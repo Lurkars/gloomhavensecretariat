@@ -3,6 +3,7 @@
   "name": "Hero's Mausoleum",
   "edition": "gh2e",
   "parent": "65",
+  "marker": "1",
   "monsters": [
     "crystal-rot",
     "living-bones",

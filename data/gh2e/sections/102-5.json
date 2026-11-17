@@ -3,6 +3,11 @@
   "name": "Well of the Unfortunate",
   "edition": "gh2e",
   "parent": "72",
+  "parentSections": [
+    [
+      "121.3"
+    ]
+  ],
   "marker": "3",
   "monsters": [
     "living-spirit"

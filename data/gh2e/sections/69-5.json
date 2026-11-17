@@ -1,22 +1,30 @@
 {
   "index": "69.5",
+  "name": "Savvas Armory",
   "edition": "gh2e",
   "parent": "32",
-  "monsters": [
-    "frost-demon",
-    "savvas-icestorm",
-    "wind-demon"
+  "parentSections": [
+    [
+      "66.2"
+    ]
   ],
-  "rooms": [
+  "monsters": [
+    "savvas-icestorm"
+  ],
+  "rules": [
     {
-      "roomNumber": 5,
-      "initial": true,
-      "monster": [
+      "round": "true",
+      "start": true,
+      "once": true,
+      "spawns": [
         {
-          "name": "savvas-icestorm",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
         }
       ]
     }

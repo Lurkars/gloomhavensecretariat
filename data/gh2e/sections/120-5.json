@@ -3,6 +3,12 @@
   "name": "Magma Pit",
   "edition": "gh2e",
   "parent": "86",
+  "parentSections": [
+    [
+      "126.3"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "flame-demon",
     "inox-archer",

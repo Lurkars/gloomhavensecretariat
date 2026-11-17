@@ -3,6 +3,11 @@
   "name": "Burning Mountain",
   "edition": "gh2e",
   "parent": "90",
+  "parentSections": [
+    [
+      "113.3"
+    ]
+  ],
   "marker": "3",
   "monsters": [
     "earth-demon",

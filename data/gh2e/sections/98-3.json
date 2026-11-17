@@ -3,6 +3,7 @@
   "name": "Shrine of Strength",
   "edition": "gh2e",
   "parent": "53",
+  "marker": "1",
   "monsters": [
     "frost-demon",
     "savvas-icestorm",

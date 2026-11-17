@@ -3,6 +3,7 @@
   "name": "Wild Melee",
   "edition": "gh2e",
   "parent": "84",
+  "marker": "1",
   "monsters": [
     "bandit-archer",
     "bandit-scout",

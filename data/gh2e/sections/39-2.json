@@ -3,6 +3,15 @@
   "name": "Vibrant Grotto",
   "edition": "gh2e",
   "parent": "39",
+  "parentSections": [
+    [
+      "84.1"
+    ],
+    [
+      "83.2"
+    ]
+  ],
+  "marker": "4",
   "monsters": [
     "cave-bear",
     "earth-demon"

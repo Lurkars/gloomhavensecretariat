@@ -3,6 +3,12 @@
   "name": "Doom Trench",
   "edition": "gh2e",
   "parent": "46",
+  "parentSections": [
+    [
+      "27.2"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "deep-terror",
     "harrower-infester"

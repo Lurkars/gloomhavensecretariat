@@ -3,6 +3,7 @@
   "name": "Gloomhaven Warehouse",
   "edition": "gh2e",
   "parent": "20",
+  "marker": "1",
   "monsters": [
     "crystal-rot",
     "living-bones"
