@@ -3,6 +3,12 @@
   "name": "Sunken Vessel",
   "edition": "gh2e",
   "parent": "68",
+  "parentSections": [
+    [
+      "90.3"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "frost-demon",
     "living-spirit",

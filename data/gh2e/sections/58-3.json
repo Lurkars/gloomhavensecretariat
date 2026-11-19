@@ -1,7 +1,13 @@
 {
   "index": "58.3",
+  "name": "Shadows Within",
   "edition": "gh2e",
   "parent": "91",
+  "parentSections": [
+    [
+      "125.3"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "cultist",

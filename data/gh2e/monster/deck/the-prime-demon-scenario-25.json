@@ -9,8 +9,50 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "Refer to special rules"
+          "type": "spawn",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "flame-demon",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              },
+              "count": "[R-4*Math.floor(R/4)==1]",
+              "marker": "a"
+            },
+            {
+              "monster": {
+                "name": "earth-demon",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              },
+              "count": "[R-4*Math.floor(R/4)==2]",
+              "marker": "b"
+            },
+            {
+              "monster": {
+                "name": "frost-demon",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              },
+              "count": "[R-4*Math.floor(R/4)==3]",
+              "marker": "c"
+            },
+            {
+              "monster": {
+                "name": "wind-demon",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              },
+              "count": "[R-4*Math.floor(R/4)==0]",
+              "marker": "d"
+            }
+          ]
         }
       ]
     }

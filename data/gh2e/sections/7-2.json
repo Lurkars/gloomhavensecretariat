@@ -2,6 +2,11 @@
   "index": "7.2",
   "edition": "gh2e",
   "parent": "35",
+  "parentSections": [
+    [
+      "134.1"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "deep-terror",

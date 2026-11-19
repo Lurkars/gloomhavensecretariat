@@ -3,6 +3,7 @@
   "name": "Crossroads Station",
   "edition": "gh2e",
   "parent": "85",
+  "marker": "1",
   "monsters": [
     "black-imp",
     "earth-demon",

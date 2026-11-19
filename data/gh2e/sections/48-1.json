@@ -3,6 +3,11 @@
   "name": "Echo Chamber",
   "edition": "gh2e",
   "parent": "14",
+  "parentSections": [
+    [
+      "16.4"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "living-spirit",

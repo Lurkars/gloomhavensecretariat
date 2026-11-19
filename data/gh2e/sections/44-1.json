@@ -3,6 +3,11 @@
   "name": "Mountain Pass",
   "edition": "gh2e",
   "parent": "10",
+  "parentSections": [
+    [
+      "21.2"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "earth-demon",

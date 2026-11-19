@@ -3,6 +3,12 @@
   "name": "Ancient Defense Network",
   "edition": "gh2e",
   "parent": "33",
+  "parentSections": [
+    [
+      "97.4"
+    ]
+  ],
+  "marker": "6",
   "monsters": [
     "stone-construct"
   ],

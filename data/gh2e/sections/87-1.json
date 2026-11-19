@@ -1,16 +1,49 @@
 {
   "index": "87.1",
+  "name": "A Friend in Need",
   "edition": "gh2e",
   "parent": "66",
+  "parentSections": [
+    [
+      "124.1"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "bandit-archer",
     "bandit-scout",
     "hound"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "bandit-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
-      "roomNumber": 4,
+      "roomNumber": 3,
       "initial": true,
       "treasures": [
         48
@@ -35,24 +68,12 @@
         },
         {
           "name": "bandit-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-scout",
           "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "hound",
           "type": "normal"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
         }
       ]
     }

@@ -3,6 +3,12 @@
   "name": "The Void",
   "edition": "gh2e",
   "parent": "54",
+  "parentSections": [
+    [
+      "4.1"
+    ]
+  ],
+  "marker": "2",
   "monsters": [
     "black-imp",
     "chaos-demon",

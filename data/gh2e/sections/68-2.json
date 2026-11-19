@@ -3,6 +3,7 @@
   "name": "Arcane Library",
   "edition": "gh2e",
   "parent": "88",
+  "marker": "1",
   "monsters": [
     "cave-bear",
     "forest-imp"

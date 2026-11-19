@@ -3,6 +3,12 @@
   "name": "Gloomhaven Warehouse",
   "edition": "gh2e",
   "parent": "20",
+  "parentSections": [
+    [
+      "18.5"
+    ]
+  ],
+  "marker": "3",
   "monsters": [
     "inox-bodyguard"
   ],

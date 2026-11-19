@@ -3,6 +3,11 @@
   "name": "Frozen Hollow",
   "edition": "gh2e",
   "parent": "3",
+  "parentSections": [
+    [
+      "23.1"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "frost-demon",

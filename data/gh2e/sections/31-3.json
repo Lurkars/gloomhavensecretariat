@@ -3,6 +3,11 @@
   "name": "Forgotten Crypt",
   "edition": "gh2e",
   "parent": "5",
+  "parentSections": [
+    [
+      "37.1"
+    ]
+  ],
   "marker": "3",
   "monsters": [
     "living-corpse",

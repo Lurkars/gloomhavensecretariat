@@ -3,6 +3,7 @@
   "name": "Ancient Defense Network",
   "edition": "gh2e",
   "parent": "33",
+  "marker": "1",
   "monsters": [
     "cave-bear",
     "forest-imp"

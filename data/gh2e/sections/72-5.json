@@ -2,6 +2,11 @@
   "index": "72.5",
   "edition": "gh2e",
   "parent": "85",
+  "parentSections": [
+    [
+      "118.2"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "black-imp",

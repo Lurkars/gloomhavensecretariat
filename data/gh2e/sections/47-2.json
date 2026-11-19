@@ -3,6 +3,7 @@
   "name": "Ancient Cistern",
   "edition": "gh2e",
   "parent": "41",
+  "marker": "5",
   "monsters": [
     "night-demon",
     "ooze"

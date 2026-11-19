@@ -2,6 +2,11 @@
   "index": "99.2",
   "edition": "gh2e",
   "parent": "44",
+  "parentSections": [
+    [
+      "97.5"
+    ]
+  ],
   "marker": "5",
   "monsters": [
     "frost-demon"

@@ -3,6 +3,7 @@
   "name": "Plane of Night",
   "edition": "gh2e",
   "parent": "45",
+  "marker": "1",
   "monsters": [
     "black-imp",
     "night-demon"

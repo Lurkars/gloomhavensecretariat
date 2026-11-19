@@ -3,6 +3,11 @@
   "name": "Crypt of the Damned",
   "edition": "gh2e",
   "parent": "4",
+  "parentSections": [
+    [
+      "26.1"
+    ]
+  ],
   "marker": "3",
   "monsters": [
     "cultist",

@@ -3,6 +3,7 @@
   "name": "Shadows Within",
   "edition": "gh2e",
   "parent": "91",
+  "marker": "1",
   "monsters": [
     "cultist",
     "living-bones",

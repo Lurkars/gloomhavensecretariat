@@ -3,6 +3,12 @@
   "name": "Well of the Unfortunate",
   "edition": "gh2e",
   "parent": "72",
+  "parentSections": [
+    [
+      "84.4"
+    ]
+  ],
+  "marker": "b",
   "monsters": [
     "vermling-priest",
     "vermling-scout"

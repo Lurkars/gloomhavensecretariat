@@ -3,6 +3,11 @@
   "name": "Training Course",
   "edition": "gh2e",
   "parent": "0",
+  "parentSections": [
+    [
+      "5.2"
+    ]
+  ],
   "marker": "2",
   "monsters": [
     "city-guard"

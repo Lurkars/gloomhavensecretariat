@@ -1,7 +1,13 @@
 {
   "index": "107.5",
+  "name": "Cargo Ship",
   "edition": "gh2e",
   "parent": "95",
+  "parentSections": [
+    [
+      "11.4"
+    ]
+  ],
   "monsters": [
     "bandit-archer",
     "bandit-scout",

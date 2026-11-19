@@ -3,6 +3,7 @@
   "name": "Syndicate Hideout",
   "edition": "gh2e",
   "parent": "82",
+  "marker": "1",
   "monsters": [
     "cultist-scenario-82",
     "giant-viper"

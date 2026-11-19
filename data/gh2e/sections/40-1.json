@@ -3,6 +3,11 @@
   "name": "Decaying Crypt",
   "edition": "gh2e",
   "parent": "6",
+  "parentSections": [
+    [
+      "36.1"
+    ]
+  ],
   "marker": "4",
   "monsters": [
     "crystal-rot",

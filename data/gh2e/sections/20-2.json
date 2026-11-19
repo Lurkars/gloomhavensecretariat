@@ -3,10 +3,48 @@
   "name": "Infernal Throne",
   "edition": "gh2e",
   "parent": "27",
+  "parentSections": [
+    [
+      "23.2"
+    ]
+  ],
   "marker": "2",
+  "resetRound": "visible",
   "monsters": [
     "earth-demon",
     "flame-demon"
+  ],
+  "rules": [
+    {
+      "round": "R >= 3 && R % 4 == 3",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.27.3%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R >= 5 && R % 4 == 1",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.27.4%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
   ],
   "rooms": [
     {

@@ -3,10 +3,48 @@
   "name": "Infernal Throne",
   "edition": "gh2e",
   "parent": "27",
+  "parentSections": [
+    [
+      "61.4"
+    ]
+  ],
   "marker": "3",
+  "resetRound": "visible",
   "monsters": [
     "frost-demon",
     "sun-demon"
+  ],
+  "rules": [
+    {
+      "round": "R >= 3 && R % 4 == 3",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.27.5%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R >= 5 && R % 4 == 1",
+      "start": true,
+      "note": "%data.scenario.rules.gh2e.27.6%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "sun-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
   ],
   "rooms": [
     {

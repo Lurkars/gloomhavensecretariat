@@ -3,6 +3,11 @@
   "name": "Investigation",
   "edition": "gh2e",
   "parent": "18",
+  "parentSections": [
+    [
+      "75.1"
+    ]
+  ],
   "marker": "5",
   "monsters": [
     "city-archer",

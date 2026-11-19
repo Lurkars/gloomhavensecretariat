@@ -3,6 +3,7 @@
   "name": "Drake Nest",
   "edition": "gh2e",
   "parent": "38",
+  "marker": "1",
   "monsters": [
     "flame-demon",
     "rending-drake",

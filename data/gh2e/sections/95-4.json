@@ -3,6 +3,12 @@
   "name": "Clockwork Factory",
   "edition": "gh2e",
   "parent": "71",
+  "parentSections": [
+    [
+      "107.1"
+    ]
+  ],
+  "marker": "6",
   "monsters": [
     "living-spirit"
   ],

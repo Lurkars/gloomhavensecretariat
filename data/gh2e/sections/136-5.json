@@ -3,6 +3,12 @@
   "name": "Alchemy Lab",
   "edition": "gh2e",
   "parent": "62",
+  "parentSections": [
+    [
+      "116.1"
+    ]
+  ],
+  "marker": "5",
   "monsters": [
     "giant-viper"
   ],
