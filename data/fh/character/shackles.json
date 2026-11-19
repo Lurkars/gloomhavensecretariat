@@ -99,15 +99,22 @@
             "value": 2,
             "subActions": [
               {
-                "type": "element",
-                "value": "fire"
-              },
-              {
                 "type": "target",
                 "value": "%data.custom.fh.shackles.2%",
                 "small": true
               }
             ]
+          },
+          {
+            "type": "forceBox",
+            "small": true,
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire"
+              }
+            ],
+            "noDivider": true
           }
         ]
       }

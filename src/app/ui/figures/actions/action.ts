@@ -1078,6 +1078,10 @@ export class ActionComponent implements OnInit, AfterViewInit {
     }
   }
 
+  isCustomIconOnly(): boolean {
+    return typeof this.action?.value === 'string' && /^%(game|data)\.customAction:[^%]+%$/.test(this.action.value);
+  }
+
   getOrigIndex(action: Action): number {
     if (this.origAction && this.origAction.subActions) {
       const origAction = this.origAction.subActions.find((subAction) => JSON.stringify(action) === JSON.stringify(subAction));

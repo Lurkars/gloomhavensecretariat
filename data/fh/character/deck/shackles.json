@@ -8,24 +8,41 @@
       "cardId": 301,
       "level": 1,
       "initiative": 61,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.301.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.301.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Line of Transference",
@@ -34,19 +51,52 @@
       "initiative": 25,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.302.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
       ]
@@ -58,19 +108,99 @@
       "initiative": 74,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "attack",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.303.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -82,22 +212,67 @@
       "initiative": 78,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.shackles.abilities.304.1%"
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.304.2%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Unending Torment",
@@ -106,19 +281,117 @@
       "initiative": 29,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self"
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": ": "
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "fire",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "boxFhSubActions",
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self"
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": ": "
+                },
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "air",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -130,46 +403,103 @@
       "initiative": 56,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.306.1%",
+          "small": true
         }
-      ]
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 2
     },
     {
       "name": "Scarred Effigy",
       "cardId": 307,
       "level": 1,
       "initiative": 19,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "flesh-fiend",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 7,
+            "attack": 1,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.fh.shackles.1%"
+            }
+          },
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.shackles.abilities.307.1%"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
           ]
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Explosive Wounds",
@@ -179,19 +509,41 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.308.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "damage",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.308.2%",
+          "small": true
         }
       ]
     },
@@ -202,19 +554,70 @@
       "initiative": 64,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.309.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ]
@@ -226,22 +629,65 @@
       "initiative": 21,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "curse",
+          "multiTarget": true,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "X",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.310.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "loot",
+          "value": 1
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Delayed Malady",
@@ -251,45 +697,155 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.311.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.311.2%",
+          "small": true,
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.311.3%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStartXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXpFh:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotEndXp:1"
+            }
           ]
         }
-      ]
+      ],
+      "bottomPersistent": true
     },
     {
       "name": "Unstable Effigy",
       "cardId": 312,
       "level": "X",
       "initiative": 18,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "flesh-bomb",
+            "thumbnail": true,
+            "edition": "fh",
+            "health": 3,
+            "attack": 2,
+            "movement": 3,
+            "enhancements": [
+              "heal",
+              "move",
+              "attack"
+            ],
+            "action": {
+              "type": "grid",
+              "value": "1",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%game.custom.ondeath%",
+                  "small": true
+                },
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": "%data.custom.fh.shackles.2%",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "forceBox",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "fire"
+                    }
+                  ],
+                  "noDivider": true
+                }
+              ]
+            }
+          },
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.shackles.abilities.312.1%",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "Pleasure in Pain",
@@ -298,46 +854,128 @@
       "initiative": 47,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.fh.shackles.abilities.313.1%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.shackles.abilities.313.2%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.313.3%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1
     },
     {
       "name": "Reversal of Fate",
       "cardId": 314,
       "level": 2,
       "initiative": 23,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.314.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "slotStart"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            }
           ]
         }
-      ]
+      ],
+      "xp": 2,
+      "bottomPersistent": true
     },
     {
       "name": "Infection Purge",
@@ -347,21 +985,32 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.315.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.315.2%",
+          "small": true
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 2
     },
     {
       "name": "Burned at Both Ends",
@@ -371,19 +1020,58 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.316.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.shackles.abilities.316.2%"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.fh.shackles.abilities.316.3%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -394,46 +1082,105 @@
       "initiative": 70,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "retaliate",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "%data.custom.fh.shackles.abilities.317.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Mirrored Misery",
       "cardId": 318,
       "level": 4,
       "initiative": 72,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.318.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.shackles.abilities.318.2%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.318.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "Down to the Dirt",
@@ -442,20 +1189,50 @@
       "initiative": 39,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.319.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "heal",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.319.2%",
+          "small": true,
+          "noDivider": true
         }
       ]
     },
@@ -464,48 +1241,93 @@
       "cardId": 320,
       "level": 5,
       "initiative": 15,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.320.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Chained by Despair",
       "cardId": 321,
       "level": 5,
       "initiative": 15,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.321.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.321.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     },
     {
       "name": "Hopelessness",
@@ -514,19 +1336,40 @@
       "initiative": 83,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "bane",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": 4,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -538,22 +1381,71 @@
       "initiative": 75,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.323.1%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.fh.shackles.abilities.323.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3
+            }
           ]
         }
       ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
-        }
-      ]
+      "bottomXp": 2
     },
     {
       "name": "Reject the Gift",
@@ -563,21 +1455,26 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.324.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.324.2%",
+          "small": true
         }
-      ]
+      ],
+      "round": true,
+      "bottomRound": true
     },
     {
       "name": "Penance",
@@ -587,21 +1484,92 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.325.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "damage",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "damage",
+              "value": "X",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.shackles.abilities.325.2%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Wave of Anguish",
@@ -610,20 +1578,80 @@
       "initiative": 68,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.326.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 5
+        },
+        {
+          "type": "forceBox",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
         }
       ]
     },
@@ -634,19 +1662,63 @@
       "initiative": 22,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "concatenation",
+          "value": ",",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.327.1%",
+          "small": true,
+          "noDivider": true
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                }
+              ]
+            }
           ]
         }
       ]
@@ -656,48 +1728,75 @@
       "cardId": 328,
       "level": 9,
       "initiative": 33,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.328.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.328.2%",
+          "small": true
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2
     },
     {
       "name": "The End of Everything",
       "cardId": 329,
       "level": 9,
       "initiative": 99,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.fh.shackles.abilities.329.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 5,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%data.custom.fh.shackles.abilities.329.2%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.shackles.abilities.329.3%",
+          "small": true,
+          "noDivider": true
+        },
+        {
+          "type": "move",
+          "value": 4
         }
-      ]
+      ],
+      "persistent": true,
+      "xp": 2,
+      "bottomRound": true
     }
   ]
 }

@@ -395,7 +395,7 @@
                 [ghs-label]="action.value + ''"
                 [relative]="relative || forceRelative"
                 [style]="style()"
-                [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right() }"
+                [ngClass]="{ small: action.small, 'text-white': !textBlack() && !right(), 'icon-only': isCustomIconOnly() }"
               ></span>
 
               @for (
