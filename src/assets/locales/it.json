@@ -278,6 +278,29 @@
         "prosperity": "+{0} prosperità"
       },
       "retirements": "Ritiri",
+      "rpg": {
+        "activeTalent": "Talento attivo",
+        "ancestry": "Ascendenza",
+        "ancestrySkills": "Competenze genealogiche",
+        "attributes": {
+          "": "Attributi",
+          "cunning": "Astuzia",
+          "finesse": "Finezza",
+          "grit": "Determinazione",
+          "intuition": "Intuizione",
+          "logic": "Logica",
+          "understanding": "Comprensione"
+        },
+        "availablePerks": "Vantaggi disponibili: {0}",
+        "backgrounds": "Contesti",
+        "benefits": "Vantaggi",
+        "classSkills": "Abilità di classe",
+        "currentHp": "PV Attuali",
+        "effect": "Effetto",
+        "equip": "Equipaggia",
+        "expended": "Impiegato",
+        "faction": "Fazione"
+      },
       "title": "{1} {0}",
       "trial": "Prova",
       "xp": "XP"
@@ -2097,7 +2120,7 @@
       "morale": "{0} morale",
       "overlayCampaignSticker": "Colloca l'adesivo \"%data.campaignSticker.{0}%\" sulla mappa della città nella posizione {1}",
       "overlaySticker": "Posiziona l'adesivo di sovrapposizione {0} sul luogo della mappa {0} ({1}).",
-      "partyAchievements": "Traguardi del gruppo",
+      "partyAchievements": "Traguardi del Gruppo",
       "perks": "Ognuno ottiene {0} talenti",
       "pet": "Aggiungi %data.pets.{1}-{0}% (Animale {0}) alle stalle. Ciò può superare la capacità delle scuderie.",
       "prosperity": "{0} prosperità",
@@ -2561,8 +2584,8 @@
       "hint": "Aggiungi automaticamente il bottino dopo che la carta è stata pescata dal personaggio attivo/scelto"
     },
     "applyLootRandomItem": {
-      "": "Pesca un oggetto casuale nel bottino",
-      "hint": "Pesca ed equipaggia automaticamente un nuovo oggetto casuale del bottino casuale per il personaggio attivo/scelto."
+      "": "Equipaggia un oggetto casuale dal bottino",
+      "hint": "Aggiungi l'oggetto casuale pescato da una carta bottino oggetto casuale agli oggetti del personaggio attivo/scelto ed equipaggialo (o vendilo, se già posseduto). Se disabilitato, l'oggetto viene invece sbloccato per il gruppo."
     },
     "applyRetirement": {
       "": "Applica bonus di ritiro",
