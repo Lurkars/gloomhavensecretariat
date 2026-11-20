@@ -189,6 +189,13 @@
       "allEditions": "All Editions",
       "noResult": "No Result"
     },
+    "fullview": {
+      "": "Full View",
+      "board": "Board",
+      "noCharacters": "No characters in current game.",
+      "notFound": "Character '{0}' not found in current game.",
+      "sheet": "Character Sheet"
+    },
     "lootCards": {
       "drawn": "Order by time drawn",
       "sort": "Order by type"
@@ -2840,7 +2847,7 @@
     },
     "characterFullView": {
       "": "Character Full View",
-      "hint": "Double click on Character icon to display a standalone view for the character."
+      "hint": "Double click on Character icon to open a standalone full view for the character (character board and sheet), e.g. for a player's own device."
     },
     "characterHandSize": {
       "": "Display hand size and level",

@@ -16,7 +16,6 @@ import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { CharacterComponent } from 'src/app/ui/figures/character/character';
-import { CharacterFullViewComponent } from 'src/app/ui/figures/character/fullview/fullview';
 import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
 import { MonsterComponent } from 'src/app/ui/figures/monster/monster';
 import { ObjectiveContainerComponent } from 'src/app/ui/figures/objective-container/objective-container';
@@ -38,7 +37,6 @@ import { environment } from 'src/environments/environment';
     NgClass,
     DragDropModule,
     CharacterComponent,
-    CharacterFullViewComponent,
     MonsterComponent,
     ObjectiveContainerComponent,
     FooterComponent,
@@ -78,7 +76,6 @@ export class MainComponent implements OnInit {
   welcome: boolean = false;
   welcomeOtherEditions: boolean = false;
   welcomeEditionHint: boolean = false;
-  fullviewChar: Character | undefined;
   showBackupHint: boolean = false;
 
   draggingEnabled: boolean = false;
@@ -101,18 +98,13 @@ export class MainComponent implements OnInit {
           (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent)
       );
       if (this.initialized) {
-        const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
-        if (figure) {
-          this.fullviewChar = figure as Character;
-          this.welcome = false;
-        } else if (gameManager.game.figures.length === 0) {
+        if (gameManager.game.figures.length === 0) {
           this.welcome = true;
           this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
           this.welcomeEditionHint =
             (gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') !== 'hint') ||
             false;
         } else {
-          this.fullviewChar = undefined;
           this.welcome = false;
           this.calcColumns();
           if (
@@ -252,13 +244,7 @@ export class MainComponent implements OnInit {
       this.automaticClockIn();
     }
 
-    const figure = this.figures.find((figure) => figure instanceof Character && figure.fullview);
-    if (figure) {
-      this.fullviewChar = figure as Character;
-    } else {
-      this.fullviewChar = undefined;
-      this.calcColumns();
-    }
+    this.calcColumns();
 
     if (Capacitor.isNativePlatform()) {
       if (settingsManager.settings.fullscreen) {
@@ -283,15 +269,11 @@ export class MainComponent implements OnInit {
     }
 
     window.addEventListener('resize', () => {
-      if (!this.fullviewChar) {
-        this.calcColumns();
-      }
+      this.calcColumns();
     });
 
     window.addEventListener('fullscreenchange', () => {
-      if (!this.fullviewChar) {
-        this.calcColumns();
-      }
+      this.calcColumns();
     });
 
     window.addEventListener('focus', () => {

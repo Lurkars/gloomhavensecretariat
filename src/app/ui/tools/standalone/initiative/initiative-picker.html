@@ -1,0 +1,81 @@
+@let c = character();
+<div class="dialog" [ngClass]="{ vertical: vertical() }">
+  <div class="dialog-container initiative-dialog">
+    <div class="title">
+      @if (!hideCharacter()) {
+        <span class="character" (click)="openCharacterSheet()">
+          <img class="icon" [src]="c.iconUrl" />
+          {{ gameManager.characterManager.characterName(c) }}
+          @if (c.title) {
+            <span>&nbsp;(<span [ghs-label]="'data.character.' + c.edition + '.' + c.name"></span>)</span>
+          }
+        </span>
+      }
+      <div class="initiative" [ngClass]="{ error: statusCode !== 200 && statusCode !== 403, warn: statusCode === 403 }">
+        @if (c.initiative && (c.initiativeVisible || gameManager.game.state === 'next')) {
+          <span class="value">
+            @if (c.initiative < 10) {
+              <span>0</span>
+            }
+            <span>{{ c.initiative }}</span>
+          </span>
+        }
+        @if (c.initiative && !c.initiativeVisible && gameManager.game.state !== 'next') {
+          <span class="value"> ?? </span>
+        }
+        @if (!c.initiative) {
+          <span class="value"> -- </span>
+        }
+        @if (c.initiativeVisible && c.initiative === 99 && c.longRest) {
+          <img class="ghs-svg" src="./assets/images/long-rest.svg" />
+        }
+      </div>
+      @if (!vertical()) {
+        <span class="spacer"></span>
+        <span class="long-rest-button" [ngClass]="{ active: longRest }" (click)="setLongRest()">
+          <img class="ghs-svg" src="./assets/images/long-rest.svg" />
+          <span [ghs-label]="'game.figure.longRest' + (longRest ? 'Off' : '')"></span>
+        </span>
+      }
+    </div>
+    <div class="number-container">
+      <span></span>
+      <span class="value"
+        >{{ value }}
+        @if (longRest) {
+          <img class="ghs-svg" src="./assets/images/long-rest.svg" />
+        }
+      </span>
+      <span></span>
+      @for (number of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track number) {
+        <span class="number-button" (click)="pickNumber(number)">
+          <span class="number">{{ number }}</span>
+        </span>
+      }
+      <span class="number-button" (click)="value = '__'">
+        <span class="number">*</span>
+      </span>
+      <span class="number-button" (click)="pickNumber(0)">
+        <span class="number">0</span>
+      </span>
+      <span class="number-button" (click)="setCurrentValue()">
+        <span class="number">#</span>
+      </span>
+    </div>
+    @if (vertical()) {
+      <span class="long-rest-button" [ngClass]="{ active: longRest }" (click)="setLongRest()">
+        <img class="ghs-svg" src="./assets/images/long-rest.svg" />
+        <span [ghs-label]="'game.figure.longRest' + (longRest ? 'Off' : '')"></span>
+      </span>
+    }
+  </div>
+</div>
+
+<label class="automatic">
+  <input
+    type="checkbox"
+    [checked]="settingsManager.settings.standaloneInitiativeAutomatic"
+    (change)="settingsManager.toggle('standaloneInitiativeAutomatic')"
+  />
+  <span [ghs-label]="'Automatic'"></span>
+</label>

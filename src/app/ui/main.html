@@ -36,7 +36,7 @@
       </div>
     </div>
   }
-  @if (!fullviewChar && welcome) {
+  @if (welcome) {
     <div class="welcome" [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }">
       <img class="ghs-logo" src="./assets/images/logo-transparent.svg" />
       @if (gameManager.stateManager.installPrompt) {
@@ -139,7 +139,7 @@
       }
     </div>
   }
-  @if (!fullviewChar && !welcome) {
+  @if (!welcome) {
     <div
       class="figures"
       cdkDropListGroup
@@ -289,9 +289,6 @@
         </label>
       </div>
     </div>
-  }
-  @if (fullviewChar) {
-    <ghs-character-fullview [character]="fullviewChar"></ghs-character-fullview>
   }
 </main>
 <ghs-footer #footer></ghs-footer>

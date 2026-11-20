@@ -1,99 +1,422 @@
-<div class="container">
+@let permitted = gameManager.stateManager.characterPermissions[character.name + '|' + character.edition];
+<div class="board" [ngClass]="{ off: off, denied: !permitted }" [style.--ghs-character-color]="character.color">
   <div
-    class="summons-container"
-    [ngClass]="{ empty: summonCount === 0, off: character.off || character.exhausted || character.health <= 0 }"
+    class="row summary"
+    [ngClass]="{
+      active: character.active,
+      off: off,
+      fh: settingsManager.settings.theme === 'fh',
+      modern: settingsManager.settings.theme === 'modern'
+    }"
   >
-    <span class="spacer"></span>
-    <span class="icon" [ngClass]="{ empty: summonCount === 0 }" [entityAnimation]="summonCount === 0">
-      <img [src]="character.iconUrl" />
-    </span>
-    <div class="summons">
-      @for (summon of character.summons | trackUUID; track summon._trackUUID) {
-        <ghs-standee [figure]="character" [entity]="summon"> </ghs-standee>
+    <div class="main">
+      <div class="portrait">
+        <ghs-character-image
+          [character]="character"
+          [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }"
+        >
+        </ghs-character-image>
+
+        <ghs-pointer-input
+          class="drag-initiative"
+          (dragMove)="permitted && dragInitiativeMove($event)"
+          (dragEnd)="permitted && dragInitiativeEnd($event)"
+          [draggingDisabled]="!settingsManager.settings.dragValuesInitiative"
+          (singleClick)="toggleFigure($event)"
+          (doubleClick)="permitted && initiativeDoubleClick($event)"
+          [ngClass]="{
+            'outer-denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !permitted
+          }"
+        >
+        </ghs-pointer-input>
+
+        <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
+      </div>
+
+      <ghs-character-initiative [figure]="character" [initiative]="initiative"></ghs-character-initiative>
+
+      <div class="stats" #characterName>
+        <a
+          class="stat health"
+          [ghs-label]="'game.health'"
+          [ghs-label-attribute]="'title'"
+          ghs-pointer-input
+          (dragMove)="dragHpMove($event)"
+          (dragEnd)="dragHpEnd()"
+          (dragCancel)="dragCancel()"
+          [draggingDisabled]="!settingsManager.settings.dragValuesHp"
+          [relative]="true"
+          [screenWidth]="true"
+          [fastShift]="true"
+        >
+          <img src="./assets/images/status/health.svg" />
+          <span>{{ characterHp + health | ghsMinZero }}/{{ characterMaxHp }}</span>
+          <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+        </a>
+        @if (!bb && !settingsManager.settings.hideCharacterXP) {
+          <a
+            class="stat experience"
+            [ghs-label]="'game.experience'"
+            [ghs-label-attribute]="'title'"
+            ghs-pointer-input
+            (singleClick)="addExperience(1)"
+            (doubleClick)="addExperience(-1)"
+            (dragMove)="dragXpMove($event)"
+            (dragEnd)="dragXpEnd()"
+            (dragCancel)="dragCancel()"
+            [draggingDisabled]="!settingsManager.settings.dragValuesXp"
+            [relative]="true"
+            [screenWidth]="true"
+          >
+            <img src="./assets/images/status/experience.svg" />
+            <span>{{ character.experience + experience }}</span>
+            <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
+          </a>
+        }
+        @if (
+          !bb &&
+          (!settingsManager.settings.lootDeck || (!settingsManager.settings.alwaysLootDeck && !gameManager.fhRules())) &&
+          !settingsManager.settings.hideCharacterLoot
+        ) {
+          <a
+            class="stat loot"
+            [ghs-label]="'game.loot'"
+            [ghs-label-attribute]="'title'"
+            ghs-pointer-input
+            (singleClick)="addLoot(1)"
+            (doubleClick)="addLoot(-1)"
+            (dragMove)="dragLootMove($event)"
+            (dragEnd)="dragLootEnd()"
+            (dragCancel)="dragCancel()"
+            [draggingDisabled]="!settingsManager.settings.dragValuesLoot"
+            [relative]="true"
+            [screenWidth]="true"
+          >
+            <img src="./assets/images/status/loot.svg" />
+            <span>{{ character.loot + loot }}</span>
+            <span class="value-overlay" [value-sign]="loot" [hideEmpty]="true" [container]="true"></span>
+          </a>
+        }
+      </div>
+
+      @if (!bb && settingsManager.settings.summons) {
+        <a
+          #summonButton
+          class="summon-dialog-button"
+          ghs-pointer-input
+          (singleClick)="openSummonDialog()"
+          [ghs-label]="'summon'"
+          [ghs-label-attribute]="'title'"
+        >
+          <img class="ghs-svg" src="./assets/images/plus.svg" />
+        </a>
+      }
+
+      <div class="buttons">
+        @if (
+          !bb &&
+          settingsManager.settings.lootDeck &&
+          !!character.lootCards &&
+          character.lootCards.length > 0 &&
+          !settingsManager.settings.hideCharacterLoot
+        ) {
+          <a
+            class="button loot-cards-button"
+            ghs-pointer-input
+            (singleClick)="toggleLootCardsVisible()"
+            [ngClass]="{ active: character.lootCardsVisible }"
+          >
+            <img src="./assets/images/fh/loot-token.png" />
+            <span class="badge">{{ character.lootCards.length }}</span>
+          </a>
+        }
+        @if ((bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck) {
+          <a
+            class="button attack-modifier-button"
+            ghs-pointer-input
+            (singleClick)="toggleAttackModifierDeckVisible()"
+            [ghs-label]="'game.attackModifiers'"
+            [ghs-label-attribute]="'title'"
+            [ngClass]="{ active: character.attackModifierDeckVisible }"
+          >
+            <img src="./assets/images/attackmodifier/icon.png" />
+          </a>
+        }
+        @if (!bb && !!gameManager.game.scenario && settingsManager.settings.battleGoals) {
+          <a
+            class="button battlegoals-button"
+            ghs-pointer-input
+            (singleClick)="openBattleGoals()"
+            [ghs-label]="'game.battleGoals'"
+            [ghs-label-attribute]="'title'"
+          >
+            <img
+              [src]="
+                settingsManager.settings.fhStyle
+                  ? './assets/images/fh/battlegoals/battle-goal-back-fh.png'
+                  : './assets/images/battlegoals/battle-goal-back.png'
+              "
+            />
+            @if (battleGoalSelected) {
+              <img class="check" src="./assets/images/check.svg" />
+            }
+          </a>
+        }
+        @if (settingsManager.settings.characterItems && !rpg) {
+          <a
+            class="button items-button"
+            ghs-pointer-input
+            (singleClick)="openItems()"
+            (doubleClick)="openItems(true)"
+            [ghs-label]="'game.items'"
+            [ghs-label-attribute]="'title'"
+          >
+            <img
+              [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'"
+            />
+          </a>
+        }
+      </div>
+
+      @if (settingsManager.settings.characterHandSize || (character.editionRules !== 'bb' && settingsManager.settings.playerNumber)) {
+        <div class="badges">
+          @if (settingsManager.settings.characterHandSize) {
+            @if (character.editionRules !== 'bb') {
+              <span class="hand-size" ghs-pointer-input (doubleClick)="openAbilityCards()">{{ character.handSize }}</span>
+            } @else {
+              <span class="hand-size">{{ character.level - 1 }}|4</span>
+            }
+            <span class="character-level">{{ character.level }}</span>
+          }
+          @if (character.editionRules !== 'bb' && settingsManager.settings.playerNumber) {
+            <span class="player-number">#{{ character.number }}</span>
+          }
+        </div>
       }
     </div>
-  </div>
 
-  <div class="fullview">
-    <div class="row">
-      <ghs-character-image
-        [character]="character"
-        [ngClass]="{ denied: gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }"
-      >
-      </ghs-character-image>
-
-      <ghs-pointer-input
-        class="drag-initiative"
-        (dragMove)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeMove($event)"
-        (dragEnd)="gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && dragInitiativeEnd($event)"
-        [draggingDisabled]="!settingsManager.settings.dragValuesInitiative"
-        (singleClick)="toggleFigure($event)"
-        (doubleClick)="
-          gameManager.stateManager.characterPermissions[character.name + '|' + character.edition] && initiativeDoubleClick($event)
-        "
-        [ngClass]="{
-          'outer-denied':
-            gameManager.stateManager.permissions &&
-            !gameManager.stateManager.permissions.round &&
-            !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]
-        }"
-      >
-      </ghs-pointer-input>
-
-      <ghs-character-initiative [figure]="character"></ghs-character-initiative>
-
-      <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
-    </div>
-
-    <div class="row">
-      <div class="conditions">
-        @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID) {
-          <span class="condition">
-            <img
-              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
-              [style.z-index]="entityCondition.value"
-            />
-            @if (entityCondition.types.includes(ConditionType.stack)) {
-              @for (i of [] | ghsRange: entityCondition.value - 1; track i) {
+    @if (
+      activeConditions.length ||
+      character.markers.length ||
+      (settingsManager.settings.characterTraits && (character.traits.length || rpgAttributes.length)) ||
+      extraActions.length ||
+      extraActionsPersistent.length ||
+      character.token + (character.primaryToken < 0 ? token : 0) > 0 ||
+      character.tokenValues.some((value) => value > 0) ||
+      specialActions.length
+    ) {
+      <div class="details">
+        @if (settingsManager.settings.characterTraits && character.traits.length) {
+          <div class="character-traits">
+            <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg" /></span>
+            @for (trait of character.traits; track trait; let i = $index) {
+              @if (i === 0) {
+                <span class="divider"></span>
+              }
+              <span class="trait" [ghs-label]="'data.character.traits.' + trait"></span>
+              @if (i < character.traits.length - 1) {
+                <span class="divider">|</span>
+              }
+              @if (i === character.traits.length - 1) {
+                <span class="divider"></span>
+              }
+            }
+          </div>
+        } @else if (settingsManager.settings.characterTraits && rpgAttributes.length) {
+          <div class="character-traits rpg-attributes">
+            @for (rpgAttribute of rpgAttributes; track rpgAttribute.attribute; let i = $index) {
+              <span
+                class="trait"
+                [ghs-label]="'character.progress.rpg.attributes.' + rpgAttribute.attribute"
+                [ghs-label-attribute]="'title'"
+              >
+                <span [ghs-label]="'character.progress.rpg.attributes.short.' + rpgAttribute.attribute"></span>
+                {{ rpgAttribute.value }}
+              </span>
+              @if (i < rpgAttributes.length - 1) {
+                <span class="divider">|</span>
+              }
+            }
+          </div>
+        }
+        @if (character.markers.length) {
+          <div class="markers">
+            @for (marker of character.markers; track marker) {
+              <span class="marker" ghs-pointer-input (doubleClick)="removeMarker(marker)">
+                <img [src]="gameManager.characterManager.characterIcon(marker)" />
+              </span>
+            }
+          </div>
+        }
+        @if (activeConditions.length) {
+          <div class="conditions">
+            @for (entityCondition of activeConditions | trackUUID; track entityCondition._trackUUID; let index = $index) {
+              <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
                 <img
-                  class="stack"
-                  [style.z-index]="entityCondition.value - i - 1"
                   [src]="
                     './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
                   "
+                  [style.z-index]="index * 10 + entityCondition.value"
                 />
+                @if (entityCondition.types.includes(ConditionType.stack)) {
+                  @for (i of [] | ghsRange: entityCondition.value - 1; track i) {
+                    <img
+                      class="stack"
+                      [style.z-index]="index * 10 + entityCondition.value - i - 1"
+                      [src]="
+                        './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'
+                      "
+                    />
+                  }
+                }
+                @if (entityCondition.types.includes(ConditionType.value) && !entityCondition.types.includes(ConditionType.stack)) {
+                  <span class="value" [style.z-index]="index * 10 + entityCondition.value + 1">{{ entityCondition.value }}</span>
+                }
+                @if (character.immunities.includes(entityCondition.name)) {
+                  <span class="condition immunity condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+                }
+                @if (entityCondition.permanent) {
+                  <span class="condition permanent condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 3"></span>
+                }
+                @if (entityCondition.state === EntityConditionState.roundExpire) {
+                  <span class="condition round condition-overlay" [style.z-index]="index * 10 + entityCondition.value + 4"></span>
+                }
+              </span>
+            }
+          </div>
+        }
+        @if (character.token + (character.primaryToken < 0 ? token : 0) > 0 || character.tokenValues.some((value) => value > 0)) {
+          <div class="tokens">
+            @if (character.token + (character.primaryToken < 0 ? token : 0) > 0) {
+              <span
+                class="token"
+                [ghs-label]="'%data.characterToken.' + character.name + '%'"
+                ghs-pointer-input
+                (dragMove)="dragTokenMove($event)"
+                (dragEnd)="dragTokenEnd()"
+                (dragCancel)="dragCancel()"
+                [relative]="true"
+                [screenWidth]="true"
+                (singleClick)="nextIdentity($event)"
+              ></span>
+            }
+            @if (character.token + (character.primaryToken < 0 ? token : 0) > 1) {
+              <span class="token value">x{{ character.token + (character.primaryToken < 0 ? token : 0) }}</span>
+            }
+            @for (addToken of character.tokens; track addToken; let i = $index) {
+              @if (character.tokenValues[i] + (character.primaryToken === i ? token : 0) > 0) {
+                <span class="token" [ghs-label]="'%data.characterToken.' + character.name + '.' + addToken + '%'"></span>
+              }
+              @if (character.tokenValues[i] + (character.primaryToken === i ? token : 0) > 1) {
+                <span class="token value">x{{ character.tokenValues[i] + (character.primaryToken === i ? token : 0) }}</span>
               }
             }
-            @if (entityCondition.types.includes(ConditionType.value)) {
-              <span class="value">{{ entityCondition.value }}</span>
+          </div>
+        }
+        @if (extraActions.length || extraActionsPersistent.length) {
+          <div class="actions">
+            @for (action of extraActions | trackUUID; track action._trackUUID) {
+              <span class="action" ghs-pointer-input (doubleClick)="removeExtraAction(action)">
+                <ghs-action [action]="action" [style]="'fh'"></ghs-action>
+              </span>
             }
-          </span>
+            @for (persistentAction of extraActionsPersistent | trackUUID; track persistentAction._trackUUID) {
+              <span class="action" ghs-pointer-input (doubleClick)="removeExtraAction(persistentAction, true)">
+                <span class="action-overlay">
+                  <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+                </span>
+                <ghs-action [action]="persistentAction" [style]="'fh'"></ghs-action>
+              </span>
+            }
+          </div>
+        }
+        @if (specialActions.length) {
+          <div class="special-actions">
+            @for (specialAction of specialActions | trackUUID; track specialAction._trackUUID; let i = $index) {
+              <span
+                class="special-tag"
+                [ghs-label]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name"
+                ghs-pointer-input
+                (doubleClick)="removeSpecialAction(specialAction.name)"
+                [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint'"
+                [originY]="'top'"
+                [overlayY]="'bottom'"
+                [originX]="'center'"
+                [overlayX]="'center'"
+              ></span>
+              @if (!!specialAction.slots) {
+                <span class="special-action-slots">
+                  @let current =
+                    specialAction.slots.length -
+                    character.tags.filter((tag) => tag === specialAction.name).length -
+                    (specialAction.slots[0].toLowerCase().includes('start') ? 0 : 1);
+                  @for (slot of specialAction.slots; track slot + j; let j = $index) {
+                    <span
+                      class="special-action-slot"
+                      [ngClass]="{ manual: specialAction.slotTrigger === 'manual' }"
+                      ghs-pointer-input
+                      (singleClick)="triggerSpecialActionSlot(specialAction, j)"
+                      (doubleClick)="triggerSpecialActionSlot(specialAction, j, true)"
+                    >
+                      <span class="slot" [ghs-label]="'%game.card.' + slot + '%'"></span>
+                      <span
+                        class="token"
+                        [ngClass]="{ active: j === current }"
+                        [ghs-label]="'%data.characterToken.' + character.name + '%'"
+                      ></span>
+                    </span>
+                  }
+                </span>
+              }
+              @if (i < specialActions.length - 1) {
+                <span class="separator">|</span>
+              }
+            }
+          </div>
         }
       </div>
-    </div>
-
-    <div class="row">
-      <div class="dialog">
-        <div class="dialog-container">
-          <ghs-conditions
-            [entity]="character"
-            [figure]="character"
-            [entityConditions]="character.entityConditions"
-            [immunities]="character.immunities"
-            type="character"
-            [columns]="6"
-          >
-          </ghs-conditions>
-        </div>
-      </div>
-    </div>
-
-    <div class="row sheet">
-      <ghs-character-sheet [character]="character"></ghs-character-sheet>
-    </div>
+    }
   </div>
 
-  <a class="wip" (click)="cancel()"
-    ><img class="ghs-svg" src="./assets/images/warning.svg" /> <span [ghs-label]="'wip'"></span>!&nbsp;<span [ghs-label]="'cancel'"></span>!
-  </a>
+  @let amDeck =
+    (bb || settingsManager.settings.characterSheet) &&
+    settingsManager.settings.characterAttackModifierDeck &&
+    !settingsManager.settings.characterAttackModifierDeckActiveBottom &&
+    character.attackModifierDeckVisible;
+  @let lootCards = !bb && settingsManager.settings.lootDeck && character.lootCardsVisible && character.lootCards.length > 0;
+  @let items = settingsManager.settings.characterItems && character.itemsVisible;
+  @if (amDeck || lootCards || items) {
+    <div class="row expanded">
+      @if (amDeck) {
+        <ghs-attackmodifier-deck
+          [deck]="character.attackModifierDeck"
+          [character]="character"
+          (before)="beforeAttackModifierDeck($event)"
+          (after)="afterAttackModifierDeck($event)"
+        ></ghs-attackmodifier-deck>
+      }
+      @if (lootCards) {
+        <div class="loot-cards">
+          @for (index of character.lootCards; track index) {
+            <div class="loot-card" (click)="openLootDeckDialog()">
+              <ghs-loot [loot]="gameManager.game.lootDeck.cards[index]" [flipped]="true" [disableFlip]="true"></ghs-loot>
+            </div>
+          }
+        </div>
+      }
+      @if (items) {
+        <ghs-character-item-list [character]="character"></ghs-character-item-list>
+      }
+    </div>
+  }
+
+  @if (summons.length && settingsManager.settings.summons) {
+    <div class="row summons">
+      @for (summon of summons | trackUUID; track summon._trackUUID) {
+        <ghs-standee [figure]="character" [entity]="summon"> </ghs-standee>
+      }
+    </div>
+  }
+
+  <ghs-entities-menu-inline class="entities-menu" [figure]="character" [entity]="character"></ghs-entities-menu-inline>
 </div>

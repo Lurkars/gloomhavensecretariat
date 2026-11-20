@@ -2,6 +2,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, inject, input, viewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
@@ -43,6 +44,7 @@ import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Stati
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
+import { ghsCharacterRouteId } from 'src/app/ui/tools/standalone/standalone-character';
 
 @Component({
   imports: [
@@ -74,6 +76,7 @@ import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
 export class CharacterComponent implements OnInit {
   private dialog = inject(Dialog);
   private overlay = inject(Overlay);
+  private router = inject(Router);
   protected ghsManager = inject(GhsManager);
   protected cdr = inject(ChangeDetectorRef);
 
@@ -555,14 +558,7 @@ export class CharacterComponent implements OnInit {
 
   characterFullView() {
     if (settingsManager.settings.characterFullView) {
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          figure.fullview = false;
-        }
-      });
-      this.character.fullview = true;
-      gameManager.stateManager.saveLocal();
-      this.ghsManager.triggerUiChange();
+      this.router.navigate(['/fullview', ghsCharacterRouteId(this.character)]);
     } else if (settingsManager.settings.characterSheet) {
       this.openCharacterSheet();
     } else {

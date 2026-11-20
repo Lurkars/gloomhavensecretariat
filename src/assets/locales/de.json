@@ -189,6 +189,13 @@
       "allEditions": "Alle Editionen",
       "noResult": "Kein Ergebnis"
     },
+    "fullview": {
+      "": "Vollansicht",
+      "board": "Board",
+      "noCharacters": "Keine Charaktere im aktuellen Spiel.",
+      "notFound": "Charakter '{0}' im aktuellen Spiel nicht gefunden.",
+      "sheet": "Characterbogen"
+    },
     "lootCards": {
       "drawn": "In gezogener Reihenfolge anordnen",
       "sort": "Nach Typ anordnen"
@@ -2743,7 +2750,7 @@
     },
     "characterFullView": {
       "": "Charakter Vollansicht",
-      "hint": "Doppelklick auf das Charaktericon um eine Vollansicht für den Charakter zu aktivieren."
+      "hint": "Doppelklick auf das Charaktericon öffnet eine eigenständige Vollansicht für den Charakter (Charakterboard und -bogen), z.B. für das eigene Gerät eines Spielers."
     },
     "characterHandSize": {
       "": "Handkartenanzahl und Stufe anzeigen",

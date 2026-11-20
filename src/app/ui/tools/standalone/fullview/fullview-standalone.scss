@@ -1,0 +1,160 @@
+// same layout as main view: fixed header and footer, content in between
+ghs-header,
+ghs-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+ghs-header {
+  top: 0;
+  height: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor) * var(--ghs-barsize));
+}
+
+ghs-footer {
+  bottom: 0;
+  height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
+}
+
+// header sized unit, also for content projected into header
+:host {
+  --ghs-bar-unit: calc(var(--ghs-unit) * var(--ghs-text-factor) * var(--ghs-barsize));
+}
+
+.fullview-standalone {
+  // default GHS unit, respecting zoom setting
+  --ghs-fullview-unit: calc(var(--ghs-width) / var(--ghs-factor));
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor) * var(--ghs-barsize));
+  bottom: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+// projected into header (instead of hints)
+.back {
+  display: flex;
+  flex-shrink: 0;
+  cursor: pointer;
+  margin: 0 calc(var(--ghs-bar-unit) * 1);
+
+  img {
+    width: calc(var(--ghs-bar-unit) * 2.5);
+    height: calc(var(--ghs-bar-unit) * 2.5);
+    filter: var(--ghs-filter-gray);
+  }
+
+  &:hover img {
+    filter: var(--ghs-filter-white);
+  }
+}
+
+ghs-standalone-character-chooser.chooser {
+  --ghs-unit: var(--ghs-bar-unit);
+
+  min-width: 0;
+}
+
+// mode links on top of the content, scrolling with it
+.modes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--ghs-bar-unit) * 2);
+  margin: 0 0 calc(var(--ghs-bar-unit) * 1) !important;
+
+  .mode {
+    cursor: pointer;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-bar-unit) * 2.8);
+    color: var(--ghs-color-gray);
+    text-shadow: var(--ghs-outline);
+
+    &:hover {
+      color: var(--ghs-color-white);
+    }
+
+    &.active {
+      cursor: initial;
+      color: var(--ghs-color-white);
+    }
+  }
+}
+
+.fullview-content {
+  --ghs-unit: var(--ghs-fullview-unit);
+
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: calc(var(--ghs-unit) * 1) max(calc(var(--ghs-unit) * 2), env(safe-area-inset-left, 0px));
+  // space to scroll content above the floating attack modifier deck of the footer
+  padding-bottom: calc(var(--ghs-bar-unit) * 16);
+
+  // center small content vertically, but keep scrolling from top for large content
+  & > :not(.modes) {
+    flex-shrink: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &.empty {
+    justify-content: center;
+    font-size: calc(var(--ghs-unit) * 3);
+    color: var(--ghs-color-white);
+    text-shadow: var(--ghs-outline);
+    text-align: center;
+  }
+
+  &.mode-sheet {
+    // sheet fits to screen width
+    --ghs-unit: min(calc((100vw - 4 * var(--ghs-fullview-unit)) / 64 / var(--ghs-dialog-factor)), var(--ghs-fullview-unit));
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.sheet {
+  position: relative;
+  padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  background-color: var(--ghs-color-white);
+  border-radius: calc(var(--ghs-unit) * 0.5);
+
+  ghs-character-sheet {
+    display: block;
+  }
+
+  .lock-toggle {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 3;
+
+    a {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

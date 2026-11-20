@@ -1,0 +1,63 @@
+<ghs-header #header [projectContent]="true">
+  <a class="back" [routerLink]="'/'" [ghs-label]="'tools.backToGhs'" [ghs-label-attribute]="'title'">
+    <img class="ghs-svg" src="./assets/images/left.svg" />
+  </a>
+  @if (characters.length > 1 || (!character && characters.length)) {
+    <ghs-standalone-character-chooser
+      class="chooser"
+      [characters]="characters"
+      [selected]="character"
+      [bar]="true"
+      (characterSelect)="selectCharacter($event)"
+      (characterOpen)="openCharacter($event)"
+    ></ghs-standalone-character-chooser>
+  }
+</ghs-header>
+<main
+  class="fullview-standalone"
+  [ngClass]="{ vertical: vertical(), fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }"
+  ghs-keyboard-shortcuts
+  [header]="header"
+  [footer]="footer"
+>
+  @if (character) {
+    <div class="fullview-content" [ngClass]="'mode-' + mode">
+      <nav class="modes">
+        @for (m of modes; track m) {
+          <a class="mode" [ngClass]="{ active: mode === m }" (click)="setMode(m)">
+            <span [ghs-label]="'character.fullview.' + m"></span>
+          </a>
+        }
+      </nav>
+      @switch (mode) {
+        @case ('board') {
+          <!-- recreate on character change, so all values are updated -->
+          @for (c of [character]; track c) {
+            <ghs-character-fullview [character]="c"></ghs-character-fullview>
+          }
+        }
+        @case ('sheet') {
+          <div class="sheet light">
+            <div class="lock-toggle" [ghs-tooltip]="'character.progress.lock'">
+              <a ghs-pointer-input (singleClick)="toggleSheetLocked()">
+                <img [src]="'./assets/images/lock' + (settingsManager.settings.characterSheetLocked ? '' : '-open') + '.svg'" />
+              </a>
+            </div>
+            @for (c of [character]; track c) {
+              <ghs-character-sheet [character]="c"></ghs-character-sheet>
+            }
+          </div>
+        }
+      }
+    </div>
+  } @else {
+    <div class="fullview-content empty">
+      @if (notFound) {
+        <span [ghs-label]="'character.fullview.notFound'" [ghs-label-args]="[characterParam || '']"></span>
+      } @else if (initialized) {
+        <span [ghs-label]="'character.fullview.noCharacters'"></span>
+      }
+    </div>
+  }
+</main>
+<ghs-footer #footer></ghs-footer>

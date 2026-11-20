@@ -92,7 +92,11 @@
     @if (!syncing && gameManager.stateManager.wsState() !== -99 && gameManager.game.server) {
       <span class="game-server">°</span>
     }
-    @if (settingsManager.settings.hints) {
+    @if (projectContent()) {
+      <div class="projected">
+        <ng-content></ng-content>
+      </div>
+    } @else if (settingsManager.settings.hints) {
       <div class="hints" [ngClass]="{ visible: init }">
         @switch (hintState) {
           @case ('characters') {

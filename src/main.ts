@@ -1,14 +1,28 @@
 import { DEFAULT_DIALOG_CONFIG } from '@angular/cdk/dialog';
 import { ErrorHandler, provideZonelessChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Routes, UrlMatcher, UrlSegment } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { AppComponent } from 'src/app/app.component';
 import { MainComponent } from 'src/app/ui/main';
 import { GhsErrorHandler } from 'src/app/ui/tools/error-handler';
 import { environment } from 'src/environments/environment';
 
-const routes = [
+/** matches `/<path>` and `/<path>/:character` with a single route, so the component is reused on parameter change */
+const characterRouteMatcher =
+  (path: string): UrlMatcher =>
+  (segments: UrlSegment[]) => {
+    if (segments.length === 0 || segments.length > 2 || segments[0].path !== path) {
+      return null;
+    }
+    const posParams: Record<string, UrlSegment> = {};
+    if (segments.length === 2) {
+      posParams['character'] = segments[1];
+    }
+    return { consumed: segments, posParams };
+  };
+
+const routes: Routes = [
   { path: 'editor/edition', loadComponent: () => import('src/app/ui/tools/editor/edition').then((m) => m.EditionEditorComponent) },
   { path: 'editor/deck', loadComponent: () => import('src/app/ui/tools/editor/deck/deck').then((m) => m.DeckEditorComponent) },
   { path: 'editor/monster', loadComponent: () => import('src/app/ui/tools/editor/monster/monster').then((m) => m.MonsterEditorComponent) },
@@ -50,8 +64,13 @@ const routes = [
       )
   },
   {
-    path: 'initiative',
+    matcher: characterRouteMatcher('initiative'),
     loadComponent: () => import('src/app/ui/tools/standalone/initiative/initiative-standalone').then((m) => m.InitiativeStandaloneComponent)
+  },
+  {
+    matcher: characterRouteMatcher('fullview'),
+    loadComponent: () =>
+      import('src/app/ui/tools/standalone/fullview/fullview-standalone').then((m) => m.CharacterFullViewStandaloneComponent)
   },
   { path: '**', component: MainComponent }
 ];

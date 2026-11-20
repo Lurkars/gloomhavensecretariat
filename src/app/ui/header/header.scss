@@ -114,6 +114,13 @@ header {
     }
   }
 
+  .projected {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-width: 0;
+  }
+
   .hints {
     display: flex;
     align-items: center;

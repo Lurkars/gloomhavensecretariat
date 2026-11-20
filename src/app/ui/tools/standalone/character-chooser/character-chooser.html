@@ -1,0 +1,21 @@
+<div
+  class="characters"
+  [ngClass]="{
+    vertical: vertical() && !bar(),
+    bar: bar(),
+    fh: settingsManager.settings.theme === 'fh',
+    modern: settingsManager.settings.theme === 'modern'
+  }"
+>
+  @for (c of characters() | trackUUID; track c._trackUUID) {
+    <a
+      class="character"
+      [ngClass]="{ active: selected() === c }"
+      [title]="gameManager.characterManager.characterName(c)"
+      ghs-pointer-input
+      (singleClick)="characterSelect.emit(c)"
+      (doubleClick)="characterOpen.emit(c)"
+      ><img [src]="c.iconUrl"
+    /></a>
+  }
+</div>

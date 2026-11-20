@@ -47,6 +47,8 @@ export class HeaderComponent implements OnInit {
 
   readonly standalone = input<boolean>(false);
   readonly connection = input<boolean>(false);
+  /** show projected content instead of hints */
+  readonly projectContent = input<boolean>(false);
   readonly mainMenuButton = viewChild.required<ElementRef>('mainMenuButton');
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
