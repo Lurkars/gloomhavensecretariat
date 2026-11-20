@@ -968,7 +968,71 @@
         "6": "In a single scenario, kill 4 or more enemies with %data.action.custom.gh2e-command% attacks of 7 or greater (after all bonuses, before attack modifiers)",
         "7": "All allies within %game.action.range:3% add %game.action.pierce:1% to all their attacks.",
         "8": "All allies within %game.action.range:3% gain %game.action.shield:1%.",
-        "9": "All allies within %game.action.range:3% add %game.action.attack.valueSign:2% to their first attack each round."
+        "9": "All allies within %game.action.range:3% add %game.action.attack.valueSign:2% to their first attack each round.",
+        "abilities": {
+          "475": {
+            "1": "Whenever %data.action.custom.gh2e-bear-summon% attacks or suffers %game.damage% from %game.action.retaliate%, place one damage token on this card. Whenever %data.action.custom.gh2e-bear-summon% attacks and there are already three or more damage tokens on this card, instead of adding one, remove three to add %game.action.attack.valueSign:3% to the attack."
+          },
+          "479": {
+            "1": "Grant one adjacent ally:",
+            "2": "If the target of the grant ability is %data.action.custom.gh2e-bear-summon%, also grant them:"
+          },
+          "480": {
+            "1": "The Wildfury gains all looted tokens and tiles."
+          },
+          "481": {
+            "1": "All enemies within %game.action.range:2% that have %game.condition.muddle% add -1 %game.action.attack% to their attacks this round.",
+            "2": "After each of %data.action.custom.gh2e-bear-summon%'s next three attacks, triggering no more than once each round, %data.action.custom.gh2e-command%:"
+          },
+          "483": {
+            "1": "%game.action.teleport% the Wildfury to an adjacent empty hex.",
+            "2": "%game.action.teleport% any normal or elite enemy to a hex occupied by a different normal or elite enemy and simultaneously %game.action.teleport% that enemy to the hex occupied by the first."
+          },
+          "484": {
+            "1": "After each of %data.action.custom.gh2e-bear-summon%'s next three attacks, triggering no more than once each round, %data.action.custom.gh2e-command%:"
+          },
+          "485": {
+            "1": "1 enemy within 3 hexes",
+            "2": "After each of %data.action.custom.gh2e-bear-summon%'s next three attacks, triggering no more than once each round, perform the following as if you occupied the same hex as %data.action.custom.gh2e-bear-summon%:",
+            "3": "Add %game.action.heal.valueSign:1% if the target is %data.action.custom.gh2e-bear-summon%."
+          },
+          "488": {
+            "1": "If you performed the attack ability, perform:",
+            "2": "all allies"
+          },
+          "490": {
+            "1": "Add %game.action.attack.valueSign:1% to all your attacks this round."
+          },
+          "491": {
+            "1": "If you are adjacent to %data.action.custom.gh2e-bear-summon%, perform:"
+          },
+          "495": {
+            "1": "After each of %data.action.custom.gh2e-bear-summon%'s next four attacks, triggering no more than once each round, control the target of the attack:",
+            "2": "Grant one ally within %game.action.range:4%:",
+            "3": "all enemies adjacent to the target of the grant ability"
+          },
+          "496": {
+            "1": "If you performed the attack ability, perform:",
+            "2": "At the end of each round, if you neither attacked nor were attacked that round, move this card to the lost pile."
+          },
+          "498": {
+            "1": "Where X is the number of enemies that suffered %game.damage%.",
+            "2": "After each of %data.action.custom.gh2e-bear-summon%'s next three attacks, triggering no more than once each round, all enemies within %game.action.range:2% of %data.action.custom.gh2e-bear-summon% suffer %game.damage:1% and %data.action.custom.gh2e-bear-summon% performs:"
+          },
+          "499": {
+            "1": "Double the value of all %game.action.attack% bonuses from your ability cards on this attack."
+          },
+          "500": {
+            "1": "%game.action.teleport% to the hex occupied by %data.action.custom.gh2e-bear-summon% and simultaneously %game.action.teleport% %data.action.custom.gh2e-bear-summon% to the hex occupied by you."
+          },
+          "501": {
+            "1": "Perform this attack as if you occupied the same hex as %data.action.custom.gh2e-bear-summon%.",
+            "2": "On the next three rounds, skip your card selection and your turn. Your character token does not advance on any of your other persistent abilities. %data.action.custom.gh2e-bear-summon% performs their turn twice at initiative 14 each round with you controlling it."
+          },
+          "503": {
+            "1": "If this attack kills an enemy, gain %game.card.experience:1% and repeat this action."
+          }
+        }
       }
     }
   },

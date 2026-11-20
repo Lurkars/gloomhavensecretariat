@@ -1,0 +1,2095 @@
+{
+  "name": "two-mini",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Concentrated Rage",
+      "cardId": 475,
+      "level": 1,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.475.1%",
+          "small": true
+        }
+      ],
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Maul",
+      "cardId": 476,
+      "level": 1,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 6,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomXp": 2
+    },
+    {
+      "name": "Howling Bolts",
+      "cardId": 477,
+      "level": 1,
+      "initiative": 31,
+      "lost": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "multiTarget": true,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Nature's Gift",
+      "cardId": 478,
+      "level": 1,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "safeguard",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "concatenation",
+          "value": ",",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Focused Aggression",
+      "cardId": 479,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.gh2e.two-mini.abilities.479.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.gh2e.two-mini.abilities.479.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Gnaw",
+      "cardId": 480,
+      "level": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "loot",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.480.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ],
+      "bottomXp": 1
+    },
+    {
+      "name": "Disorienting Roar",
+      "cardId": 481,
+      "level": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.481.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "! %game.element.consume.air%:",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.481.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "round": true,
+      "xp": 1,
+      "bottomPersistent": true
+    },
+    {
+      "name": "Vitality Siphon",
+      "cardId": 482,
+      "level": 1,
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "heal",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spirit Swap",
+      "cardId": 483,
+      "level": 1,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "elementHalf",
+          "value": "air:earth",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.483.1%"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.483.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ]
+    },
+    {
+      "name": "Invocation of Endurance",
+      "cardId": 484,
+      "level": 1,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "box",
+          "value": "! %game.element.consume.earth%:",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.484.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Invocation of Spirit",
+      "cardId": 485,
+      "level": "X",
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "box",
+          "value": "! %game.elementHalf.consume:air|earth%:",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.485.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.two-mini.abilities.485.1%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 1,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                },
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "heal",
+                          "value": 1,
+                          "valueType": "add"
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.485.3%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Gust Sigil",
+      "cardId": 486,
+      "level": "X",
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "box",
+          "value": "! %game.element.consume.air%:",
+          "small": true
+        },
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "wind-idol",
+            "thumbnail": true,
+            "edition": "gh2e",
+            "health": 1,
+            "enhancements": [
+              "heal"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.7%"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Forceful Swipe",
+      "cardId": 487,
+      "level": "X",
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "push",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Energizing Strike",
+      "cardId": 488,
+      "level": 2,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.488.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.two-mini.abilities.488.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Earthen Spikes",
+      "cardId": 489,
+      "level": 2,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Punch Through",
+      "cardId": 490,
+      "level": 3,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 2,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.490.1%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Stone Sigil",
+      "cardId": 491,
+      "level": 3,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "box",
+          "value": "! %game.element.consume.earth%:",
+          "small": true
+        },
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "monolith",
+            "thumbnail": true,
+            "edition": "gh2e",
+            "health": 2,
+            "enhancements": [
+              "heal"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.8%"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.491.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "pierce",
+                  "value": 1,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add"
+                        },
+                        {
+                          "type": "pierce",
+                          "value": 1,
+                          "valueType": "add"
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Unstoppable Beast",
+      "cardId": 492,
+      "level": 4,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Forest's Blessing",
+      "cardId": 493,
+      "level": 4,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air:earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Rampage",
+      "cardId": 494,
+      "level": 5,
+      "initiative": 16,
+      "lost": true,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "xp": 2,
+      "bottomXp": 1
+    },
+    {
+      "name": "Invocation of Domination",
+      "cardId": 495,
+      "level": 5,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "box",
+          "value": "! %game.element.consume.air%:",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.495.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2
+            },
+            {
+              "type": "attack",
+              "value": 2
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grant",
+          "value": "%data.custom.gh2e.two-mini.abilities.495.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.two-mini.abilities.495.3%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Blood Hunger",
+      "cardId": 496,
+      "level": 6,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.496.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.496.2%"
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Ancient Ward",
+      "cardId": 497,
+      "level": 6,
+      "initiative": 59,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "multiTarget": true,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "air:earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "air:earth",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "heal",
+                      "value": 1,
+                      "valueType": "add"
+                    },
+                    {
+                      "type": "condition",
+                      "value": "safeguard"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Invocation of Absorption",
+      "cardId": 498,
+      "level": 7,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "box",
+          "value": "! %game.element.consume.earth%:",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.498.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.498.1%",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEnd"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Unleashed Fury",
+      "cardId": 499,
+      "level": 7,
+      "initiative": 65,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.499.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lash Out",
+      "cardId": 500,
+      "level": 8,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.500.1%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "xp": 1
+    },
+    {
+      "name": "Unbreakable Bond",
+      "cardId": 501,
+      "level": 8,
+      "initiative": 55,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.501.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "air:earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.two-mini.abilities.501.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Spirit Sigil",
+      "cardId": 502,
+      "level": 9,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "box",
+          "value": "! %game.element.consume.air% %game.element.consume.earth%:",
+          "small": true
+        },
+        {
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "vital-force",
+            "thumbnail": true,
+            "edition": "gh2e",
+            "health": 3,
+            "enhancements": [
+              "heal"
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.9%"
+            }
+          },
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": ",",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "safeguard"
+            },
+            {
+              "type": "condition",
+              "value": "bless",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "ally",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true,
+                  "enhancementTypes": [
+                    "square"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "air:earth"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "persistent": true,
+      "xp": 1
+    },
+    {
+      "name": "Jaws of Death",
+      "cardId": 503,
+      "level": 9,
+      "initiative": 18,
+      "lost": true,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 6,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.two-mini.abilities.503.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "box",
+          "value": "%data.action.custom.gh2e-command% COMMAND",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomXp": 1
+    }
+  ]
+}
