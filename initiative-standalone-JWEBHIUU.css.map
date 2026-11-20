@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/tools/standalone/initiative/initiative-standalone.scss"],
+  "sourcesContent": [".initiative-standalone {\n  display: flex;\n  flex-direction: column;\n  width: 100vw;\n  height: 100vh;\n  height: 100dvh;\n\n  ghs-header {\n    z-index: 2;\n  }\n\n  .scroll-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n  }\n\n  ghs-initiative-picker {\n    max-width: calc(50vw - var(--ghs-unit) * 4);\n  }\n\n  .not-found {\n    margin: calc(var(--ghs-unit) * 2);\n    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));\n  }\n\n  &.vertical {\n    overflow-y: auto;\n    overflow-x: hidden;\n\n    .scroll-container {\n      flex-direction: column;\n    }\n\n    ghs-initiative-picker {\n      max-width: 100%;\n    }\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,sBACE,QAAA,KACA,eAAA,OACA,MAAA,MACA,OAAA,MACA,OAAA,OAEA,CAPF,sBAOE,WACE,QAAA,EAGF,CAXF,sBAWE,CAAA,iBACE,QAAA,KACA,gBAAA,OACA,YAAA,OAGF,CAjBF,sBAiBE,sBACE,UAAA,KAAA,KAAA,EAAA,IAAA,YAAA,EAAA,GAGF,CArBF,sBAqBE,CAAA,UACE,OAAA,KAAA,IAAA,YAAA,EAAA,GACA,UAAA,KAAA,IAAA,YAAA,EAAA,EAAA,EAAA,IAAA,sBAGF,CA1BF,qBA0BE,CAAA,SACE,WAAA,KACA,WAAA,OAEA,CA9BJ,qBA8BI,CAJF,SAIE,CAnBF,iBAoBI,eAAA,OAGF,CAlCJ,qBAkCI,CARF,SAQE,sBACE,UAAA",
+  "names": []
+}

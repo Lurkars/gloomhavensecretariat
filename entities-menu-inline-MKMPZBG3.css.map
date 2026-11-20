@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/entities-menu/entities-menu-inline.ts"],
+  "sourcesContent": [".dialog { margin: calc(var(--ghs-unit) * 1); }"],
+  "mappings": "AAAA,CAAA,OAAU,OAAA,KAAA,IAAA,YAAA,EAAA",
+  "names": []
+}

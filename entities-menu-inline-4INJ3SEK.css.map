@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/figures/entities-menu/entities-menu-inline.ts"],
+  "sourcesContent": [".dialog-container { max-width: 100%; }"],
+  "mappings": "AAAA,CAAA,iBAAoB,UAAA",
+  "names": []
+}
