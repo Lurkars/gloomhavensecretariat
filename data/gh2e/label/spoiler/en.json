@@ -197,8 +197,105 @@
         "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, all your summons gain %game.condition.invisible%",
         "6": "Perform 3 different summon actions before your first rest and keep those cards in your active area for the entire scenario",
         "7": "Perform 6 different summon abilities from your ability cards over the course of the first rounds of 6 scenarios",
-        "8": "At end of turn, grant one ally within %game.action.range:3%: %game.action.shield:1%",
-        "9": "%game.action.move.valueSign:3% if %game.element.air% is strong or waning."
+        "8": "At end of turn, grant one ally within %game.action.range:3%:",
+        "9": "%game.action.move.valueSign:3% if %game.element.air% is strong or waning.",
+        "abilities": {
+          "235": {
+            "1": "Grant two of your summons:"
+          },
+          "236": {
+            "1": "1 of your summons"
+          },
+          "237": {
+            "1": "Whenever a Shadow Wolf dies, %game.element.dark% and all Shadow Wolves gain %game.condition.invisible%.",
+            "2": "On the next two attacks targeting one of your summons, the attacker gains disadvantage for the attack and suffers %game.damage:1% after the attack."
+          },
+          "239": {
+            "1": "You control the grant abilities of this summon."
+          },
+          "240": {
+            "1": "Grant one of your summons:"
+          },
+          "241": {
+            "1": "Grant one of your summons:"
+          },
+          "242": {
+            "1": "Negate the next %game.damage% one of your summons would suffer this round."
+          },
+          "243": {
+            "1": "%game.card.recover% one card from your lost pile.",
+            "2": "On the next summon action you perform, any summons summoned by that action gain %game.condition.invisible%.",
+            "3": "Grant one of your summons:"
+          },
+          "244": {
+            "1": "All your summons' attacks are unaffected by %game.action.retaliate%."
+          },
+          "246": {
+            "1": "Grant two of your summons:"
+          },
+          "248": {
+            "1": "Each target suffers %game.damage:2% after the push.",
+            "2": "Grant one of your summons:"
+          },
+          "249": {
+            "1": "Grant one of your summons:",
+            "2": "Control one enemy within %game.action.range:4%:"
+          },
+          "250": {
+            "1": "Grant one of your summons:",
+            "2": "On the next three sources of %game.damage% that would kill one of your summons, negate the %game.damage% and that summon gains %game.condition.invisible%, %game.condition.stun%."
+          },
+          "251": {
+            "1": "On the next three attacks performed by your summons, add %game.action.attack.valueSign:1%, %game.action.pierce:1% to the attack.",
+            "2": "Grant two of your summons the move ability instead, %game.card.experience:1%",
+            "3": "Grant one of your summons:"
+          },
+          "252": {
+            "1": "all your summons"
+          },
+          "253": {
+            "1": "Whenever this summon kills an enemy, you gain the money token directly instead of placing it in the hex that enemy occupied."
+          },
+          "254": {
+            "1": "Add %game.action.heal.valueSign:1% on each target adjacent to two or more allies.",
+            "2": "where X is the number of your summons."
+          },
+          "256": {
+            "1": "Add %game.action.heal.valueSign:1% to all heals targeting this summon. At the end of each of this summon's turns, it performs:",
+            "2": "Grant one of your summons:"
+          },
+          "257": {
+            "1": "Grant one of your summons:",
+            "2": "Your summons gain %game.action.attack.valueSign:1% while %game.element.fire% is strong or waning, %game.action.move.valueSign:1% and %game.action.jump% while %game.element.air% is strong or waning, and %game.action.shield:1% while %game.element.dark% is strong or waning."
+          },
+          "258": {
+            "1": "1 of your summons",
+            "2": "Grant all your summons:"
+          },
+          "259": {
+            "1": "When this summon would die, if there is no character token on this card, instead negate the %game.damage% and place a character token on this card to summon a Slime Spirit in an empty hex adjacent to this summon."
+          },
+          "260": {
+            "1": "Grant the target of the heal ability:",
+            "2": "Grant two of your summons the attack ability instead, %game.card.experience:1%",
+            "3": "Grant one of your summons:"
+          },
+          "261": {
+            "1": "Whenever this summon kills an enemy while %game.element.dark% is strong or waning, shuffle a %game.condition.curse% card into the monster attack modifier deck."
+          },
+          "262": {
+            "1": "Grant one of your summons:",
+            "2": "%game.card.recover% one card from your lost pile that has a summon action and immediately play that card to perform the summon action. Any summons summoned by that action gain %game.condition.ward%, %game.condition.invisible%, and %game.condition.strengthen%."
+          },
+          "263": {
+            "1": "Grant one of your summons:",
+            "2": "All adjacent enemies suffer %game.damage:1% and gain %game.condition.muddle%."
+          },
+          "264": {
+            "1": "Whenever this summon attacks a normal or elite enemy, after the attack ability control that enemy:",
+            "2": "Whenever one of your summons is attacked, if that summon does not have %game.condition.ward%, it gains %game.condition.ward% after the attack and the attacker suffers %game.damage:1%."
+          }
+        }
       },
       "crossed-swords": {
         "1": "Add %game.action.attack.valueSign:1% for each card with a %game.card.lost% in %game.characterIcon.envx%'s active area",
@@ -553,7 +650,93 @@
         "3": "Whenever you long rest, you may %game.element.light%",
         "4": "Whenever one of your heals would cause an ally's hit point value to increase beyond their maximum hit point value, that ally gains %game.condition.ward%",
         "5": "In a single scenario, infuse or consume %game.element.light% during each of your turns",
-        "6": "In a single scenario, deal 8 or more %game.damage% with an attack 3 or more times"
+        "6": "In a single scenario, deal 8 or more %game.damage% with an attack 3 or more times",
+        "abilities": {
+          "177": {
+            "1": "Grant one adjacent ally:"
+          },
+          "179": {
+            "1": "where X is the target's maximum hit point value."
+          },
+          "180": {
+            "1": "Grant one ally within %game.action.range:3%:"
+          },
+          "181": {
+            "1": "One adjacent ally may %game.card.recover% one card from their lost pile."
+          },
+          "182": {
+            "1": "The target may %game.card.recover% one level 1 card from their discard pile, %game.card.experience:1%."
+          },
+          "183": {
+            "1": "On the next five attacks targeting you performed by an adjacent enemy, gain %game.action.retaliate:3%.",
+            "2": "all allies"
+          },
+          "184": {
+            "1": "Whenever you or an adjacent ally would suffer %game.damage% this round, negate the %game.damage%."
+          },
+          "185": {
+            "1": "Reduce the %game.action.pierce% value of all attacks targeting you by 2.",
+            "2": "Whenever you perform a move ability, add -1 %game.action.move%."
+          },
+          "186": {
+            "1": "All attacks targeting you this round gain disadvantage."
+          },
+          "187": {
+            "1": "On the next three attacks performed by allies within %game.action.range:2%, add %game.action.attack.valueSign:1% to the attack. If they have %game.condition.ward%, add %game.action.attack.valueSign:2% instead."
+          },
+          "188": {
+            "1": "On your next three single-target heal abilities from your ability cards, additionally target all allies within %game.action.range:2% of the primary target."
+          },
+          "190": {
+            "1": "Grant all allies within %game.action.range:5% and self:"
+          },
+          "191": {
+            "1": "All attacks targeting you or any ally within %game.action.range:4% (of you) gain disadvantage this round."
+          },
+          "192": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "193": {
+            "1": "all allies"
+          },
+          "195": {
+            "1": "Grant one ally within %game.action.range:3%:",
+            "2": "the target of the grant ability",
+            "3": "Grant one ally within %game.action.range:3%:"
+          },
+          "196": {
+            "1": "all allies moved through with the move ability"
+          },
+          "197": {
+            "1": "Whenever an ally would suffer %game.damage%, you may suffer that %game.damage% instead.",
+            "2": "Grant all allies within %game.action.range:3% and self:",
+            "3": "Treat all positive and %game.attackmodifier.double% attack modifier cards drawn by enemies this round to be %game.attackmodifier.plus0% instead, %game.card.experience:1%."
+          },
+          "198": {
+            "1": "Whenever you %game.element.consume.light% during one of your attack abilities, add %game.action.attack.valueSign:1%, %game.action.pierce:1% to all the attacks and treat all %game.attackmodifier.null% attack modifier cards drawn as %game.attackmodifier.double% instead."
+          },
+          "199": {
+            "1": "One adjacent ally may %game.card.recover% one card from their lost pile.",
+            "2": "That ally may immediately play up to two cards from their hand, performing at most one top and one bottom action of the cards, %game.card.experience:1%."
+          },
+          "200": {
+            "1": "the enemy occupying the designated hex",
+            "2": "Designate an adjacent hex containing an enemy to perform:",
+            "3": "all allies adjacent to you or the designated hex",
+            "4": "Grant one adjacent ally:"
+          },
+          "202": {
+            "1": "Grant all allies within %game.action.range:3%:",
+            "2": "All allies add %game.action.attack.valueSign:1% to all their attacks this round.",
+            "3": "They also gain advantage on all their attacks this round, %game.card.experience:1%."
+          },
+          "203": {
+            "1": "Gain %game.action.fly%. On your next five melee attack abilities, add %game.action.attack.valueSign:4% to and gain advantage on all attacks."
+          },
+          "204": {
+            "1": "One ally targeted with the heal ability may %game.card.recover% one card from their discard pile, %game.card.experience:1%."
+          }
+        }
       },
       "three-spears": {
         "1": "Gain 10 %data.action.custom.gh2e-supplies%",
@@ -1509,7 +1692,7 @@
     "creeping-beetles": "Creeping Beetles",
     "decoy": "Decoy",
     "elemental-conduit": "Elemental Conduit",
-    "ember-sprite": "Ember Sprite",
+    "ember-sprite": "Ember Sprite %game.action.fly%",
     "fey-subjugator": "Fey Subjugator",
     "floating-jellyfish": "Floating Jellyfish",
     "great-archinotl": "Great Archinotl",
@@ -1527,7 +1710,7 @@
     "rift-spirit": "Rift Spirit",
     "rock-colossus": "Rock Colossus",
     "rust-vermin": "Rust Vermin",
-    "shadow-wolf": "Shadow Wolf",
+    "shadow-wolf": "Shadow Wolves",
     "skeleton": "Skeleton",
     "slime-spirit": "Slime Spirit",
     "soul-leeches": "Soul Leeches",

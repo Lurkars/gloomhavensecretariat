@@ -355,11 +355,13 @@
                     {
                       "type": "heal",
                       "value": 1,
-                      "valueType": "add"
+                      "valueType": "add",
+                      "small": true
                     },
                     {
                       "type": "card",
-                      "value": "experience:1"
+                      "value": "experience:1",
+                      "small": true
                     }
                   ]
                 }
