@@ -1,7 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, viewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EditionData } from 'src/app/game/model/data/EditionData';
@@ -25,7 +24,7 @@ import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
-  imports: [NgClass, FormsModule, GhsLabelDirective, TabClickDirective, TrackUUIDPipe, ScenarioSetupComponent],
+  imports: [NgClass, GhsLabelDirective, TabClickDirective, TrackUUIDPipe, ScenarioSetupComponent],
   selector: 'ghs-scenario-dialog',
   templateUrl: './scenario-dialog.html',
   styleUrls: ['./scenario-dialog.scss']
@@ -39,7 +38,6 @@ export class ScenarioDialogComponent {
 
   readonly setupComponent = viewChild<ScenarioSetupComponent>('setupComponent');
 
-  setup: boolean = false;
   openRooms: RoomData[] = [];
   closedRooms: RoomData[] = [];
   availableSections: ScenarioData[] = [];
@@ -52,6 +50,10 @@ export class ScenarioDialogComponent {
     this.closedRooms = gameManager.scenarioManager.closedRooms();
     this.availableSections = gameManager.scenarioManager.availableSections();
     this.characterCount = gameManager.characterManager.characterCount(true);
+  }
+
+  toggleSetup() {
+    settingsManager.toggle('scenarioDialogSetup');
   }
 
   finishScenario(success: boolean) {

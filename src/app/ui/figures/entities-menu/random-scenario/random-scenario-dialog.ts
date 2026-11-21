@@ -1,11 +1,11 @@
-import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
-import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { ghsDialogClosingHelper, ghsDialogConfirmKey } from 'src/app/ui/helper/Static';
 
 @Component({
   imports: [NgClass, GhsLabelDirective],
@@ -15,6 +15,7 @@ import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 })
 export class EventRandomScenarioDialogComponent {
   private dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
@@ -41,5 +42,14 @@ export class EventRandomScenarioDialogComponent {
 
   apply() {
     ghsDialogClosingHelper(this.dialogRef, this.scenario || true);
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  keydown(event: KeyboardEvent) {
+    if (ghsDialogConfirmKey(event, this.dialog, this.dialogRef)) {
+      this.apply();
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 }

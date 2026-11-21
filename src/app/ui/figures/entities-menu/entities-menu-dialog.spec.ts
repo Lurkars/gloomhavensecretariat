@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { ActionType } from 'src/app/game/model/data/Action';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -238,6 +238,81 @@ describe('EntitiesMenuDialogComponent', () => {
       createComponent({ figure: monster, entity }).close();
       expect(hasTaunt(entity)).toBe(false);
       expect(gameManager.stateManager.log.length).toBe(logLength);
+    });
+  });
+
+  describe('shield and retaliate', () => {
+    let standeeShieldRetaliate: boolean;
+
+    beforeEach(() => {
+      standeeShieldRetaliate = settingsManager.settings.standeeShieldRetaliate;
+      settingsManager.settings.standeeShieldRetaliate = true;
+    });
+
+    afterEach(() => {
+      settingsManager.settings.standeeShieldRetaliate = standeeShieldRetaliate;
+    });
+
+    function buildSelection(): { monster: Monster; first: MonsterEntity; second: MonsterEntity } {
+      const { monster, entity: first } = buildMonster();
+      const second = new MonsterEntity(2, MonsterType.normal, monster);
+      monster.entities = [first, second];
+      first.extraActions = [new Action(ActionType.shield, 2), new Action(ActionType.retaliate, 1)];
+      first.extraActionsPersistent = [new Action(ActionType.shield, 1), new Action(ActionType.retaliate, 2)];
+      gameManager.game.figures = [monster];
+      return { monster, first, second };
+    }
+
+    function value(entity: MonsterEntity, type: ActionType, persistent: boolean = false): number | undefined {
+      const action = (persistent ? entity.extraActionsPersistent : entity.extraActions).find((action) => action.type === type);
+      return action ? +action.value : undefined;
+    }
+
+    it('does not create undo entries for an unchanged selection', () => {
+      const { monster, first, second } = buildSelection();
+      const logLength = gameManager.stateManager.log.length;
+
+      createComponent({ figure: monster }).close();
+
+      expect(gameManager.stateManager.log.length).toBe(logLength);
+      expect(value(first, ActionType.shield)).toBe(2);
+      expect(value(first, ActionType.retaliate)).toBe(1);
+      expect(value(first, ActionType.shield, true)).toBe(1);
+      expect(value(first, ActionType.retaliate, true)).toBe(2);
+      expect(second.extraActions.length).toBe(0);
+      expect(second.extraActionsPersistent.length).toBe(0);
+    });
+
+    it('adds shield to every entity of the selection', () => {
+      const { monster, first, second } = buildSelection();
+      const component = createComponent({ figure: monster });
+      component.shieldRetaliateHelper.changeShield(1);
+      component.close();
+
+      expect(value(first, ActionType.shield)).toBe(3);
+      expect(value(second, ActionType.shield)).toBe(1);
+      expect(value(first, ActionType.shield, true)).toBe(1);
+    });
+
+    it('does not create undo entries for an unchanged single entity', () => {
+      const { monster, first } = buildSelection();
+      const logLength = gameManager.stateManager.log.length;
+
+      createComponent({ figure: monster, entity: first }).close();
+
+      expect(gameManager.stateManager.log.length).toBe(logLength);
+      expect(value(first, ActionType.shield)).toBe(2);
+      expect(value(first, ActionType.retaliate)).toBe(1);
+    });
+
+    it('sets shield of a single entity', () => {
+      const { monster, first } = buildSelection();
+      const component = createComponent({ figure: monster, entity: first });
+      component.shieldRetaliateHelper.changeShield(-2);
+      component.close();
+
+      expect(value(first, ActionType.shield)).toBeUndefined();
+      expect(value(first, ActionType.shield, true)).toBe(1);
     });
   });
 

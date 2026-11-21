@@ -1,6 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
@@ -8,7 +8,7 @@ import { ItemData } from 'src/app/game/model/data/ItemData';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
-import { ghsDialogClosingHelper, ghsValueSign } from 'src/app/ui/helper/Static';
+import { ghsDialogClosingHelper, ghsDialogConfirmKey, ghsValueSign } from 'src/app/ui/helper/Static';
 
 /**
  * Shows a random item (or blueprint) and unlocks it for the party on accept. Without an item, FH rules grant one inspiration instead.
@@ -81,5 +81,14 @@ export class EventRandomItemDialogComponent {
 
   apply() {
     ghsDialogClosingHelper(this.dialogRef, this.item || true);
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  keydown(event: KeyboardEvent) {
+    if (ghsDialogConfirmKey(event, this.dialog, this.dialogRef)) {
+      this.apply();
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 }

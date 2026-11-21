@@ -1,6 +1,6 @@
-import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -12,7 +12,7 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { applyPlaceholder, GhsLabelDirective } from 'src/app/ui/helper/label';
-import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { ghsDialogClosingHelper, ghsDialogConfirmKey } from 'src/app/ui/helper/Static';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
@@ -60,6 +60,7 @@ export function trapTargetLabel(entity: Entity, figure: Figure): string {
 })
 export class TrapApplyDialogComponent {
   dialogRef = inject(DialogRef);
+  private dialog = inject(Dialog);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -120,5 +121,16 @@ export class TrapApplyDialogComponent {
 
   close(result: TrapApplyTarget | undefined = undefined) {
     ghsDialogClosingHelper(this.dialogRef, result);
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  keydown(event: KeyboardEvent) {
+    if (ghsDialogConfirmKey(event, this.dialog, this.dialogRef)) {
+      if (this.selected) {
+        this.close(this.selected);
+      }
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 }

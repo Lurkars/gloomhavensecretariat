@@ -32,7 +32,7 @@
       }
     </div>
 
-    @if (setup || gameManager.game.round < 1) {
+    @if (settingsManager.settings.scenarioDialogSetup || gameManager.game.round < 1) {
       <ghs-scenario-setup #setupComponent [scenario]="scenario"> </ghs-scenario-setup>
     }
 
@@ -104,9 +104,11 @@
     @if (gameManager.game.round > 0) {
       @let setupComponentInstance = setupComponent();
       <label class="setup-checkbox">
-        <input type="checkbox" [(ngModel)]="setup" (change)="!!setupComponentInstance && setupComponentInstance.updateMonster()" /><span
-          [ghs-label]="'scenario.setup'"
-        ></span>
+        <input
+          type="checkbox"
+          [checked]="settingsManager.settings.scenarioDialogSetup"
+          (change)="toggleSetup(); !!setupComponentInstance && setupComponentInstance.updateMonster()"
+        /><span [ghs-label]="'scenario.setup'"></span>
       </label>
 
       <div class="round-menu" tabclick (click)="openRoundMenu()">

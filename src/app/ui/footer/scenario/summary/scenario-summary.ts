@@ -139,7 +139,6 @@ export class ScenarioSummaryComponent {
     if (this.conclusionOnly) {
       this.conclusion = this.scenario;
       this.success = true;
-      gameManager.game.finish = undefined;
       // repeatable conclusions can be solved again, others only show their rewards once solved
       if (
         !this.conclusion.repeatable &&
@@ -151,6 +150,10 @@ export class ScenarioSummaryComponent {
         )
       ) {
         this.rewardsOnly = true;
+      }
+
+      if (!this.rewardsOnly) {
+        gameManager.game.finish = undefined;
       }
     }
 

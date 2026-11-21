@@ -189,6 +189,7 @@ export class Settings {
   randomStandees: boolean = false;
   removeUnusedMonster: boolean = false;
   roundClock: boolean = true;
+  scenarioDialogSetup: boolean = false;
   scenarioNumberInput: boolean = false;
   scenarioRewards: boolean = true;
   scenarioRooms: boolean = true;
@@ -311,6 +312,7 @@ export const localSettings: string[] = [
   'portraitMode',
   'pressDoubleClick',
   'roundClock',
+  'scenarioDialogSetup',
   'scrollWheelValues',
   'serverAutoconnect',
   'serverCode',

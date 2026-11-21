@@ -67,7 +67,7 @@ export class TreasureLabelComponent implements OnInit {
 
     if (this.treasure) {
       this.treasure.rewards.forEach((reward, index) => {
-        this.rewardLabel[index] = this.calcRewardLabel(reward);
+        this.rewardLabel[index] = this.calcRewardLabel(reward, index);
       });
 
       if (this.itemCards()) {
@@ -109,7 +109,7 @@ export class TreasureLabelComponent implements OnInit {
     }
   }
 
-  calcRewardLabel(reward: TreasureReward): string[] {
+  calcRewardLabel(reward: TreasureReward, index: number = -1): string[] {
     if (reward.type === 'custom') {
       return ['' + reward.value];
     }
@@ -134,7 +134,7 @@ export class TreasureLabelComponent implements OnInit {
       case TreasureRewardType.randomItem:
       case TreasureRewardType.randomItemDesign:
       case TreasureRewardType.randomItemBlueprint:
-        if (reward.value) {
+        if (!this.isRandomRewardDepleted(reward, index)) {
           return [this.labelPrefix + reward.type, value];
         } else if (gameManager.fhRules()) {
           return [this.labelPrefix + reward.type + '.altFh', value];
@@ -236,6 +236,17 @@ export class TreasureLabelComponent implements OnInit {
     }
 
     return [];
+  }
+
+  isRandomRewardDepleted(reward: TreasureReward, index: number): boolean {
+    const result = index >= 0 && this.rewardResults ? this.rewardResults[index] : undefined;
+    if (!result || result.some((value) => !!value)) {
+      return false;
+    }
+    if ([TreasureRewardType.randomScenario, TreasureRewardType.randomScenarioFh].includes(reward.type)) {
+      return settingsManager.settings.drawRandomScenario;
+    }
+    return settingsManager.settings.drawRandomItem;
   }
 
   openItemDialog(itemData: ItemData) {

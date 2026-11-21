@@ -1,4 +1,4 @@
-import { DialogRef } from '@angular/cdk/dialog';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { Capacitor } from '@capacitor/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -119,6 +119,24 @@ export function ghsFilterInputFocus(): boolean {
     (window.document.activeElement.tagName !== 'INPUT' &&
       window.document.activeElement.tagName !== 'SELECT' &&
       window.document.activeElement.tagName !== 'TEXTAREA')
+  );
+}
+
+/**
+ * Whether a keydown event should confirm the given dialog: Enter (without modifiers) with keyboard shortcuts enabled,
+ * no input focused and the dialog being the topmost open dialog.
+ */
+export function ghsDialogConfirmKey(event: KeyboardEvent, dialog: Dialog, dialogRef: DialogRef): boolean {
+  return (
+    settingsManager.settings.keyboardShortcuts &&
+    event.key === 'Enter' &&
+    !event.repeat &&
+    !event.ctrlKey &&
+    !event.metaKey &&
+    !event.altKey &&
+    !event.shiftKey &&
+    ghsFilterInputFocus() &&
+    dialog.openDialogs[dialog.openDialogs.length - 1] === dialogRef
   );
 }
 
