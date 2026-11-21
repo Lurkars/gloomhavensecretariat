@@ -17,7 +17,13 @@
       "level": 1,
       "health": 8,
       "movement": 3,
-      "attack": 2
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
     },
     {
       "level": 2,
