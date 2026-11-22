@@ -426,7 +426,120 @@
         "4": "Once each scenario, when %game.damage% from an attack would reduce your current hit point value to less than 1, instead set your current hit point value to 1 and perform: %game.action.attack:2%, %game.action.target% the attacker",
         "5": "At the end of each of your turns, you may control all adjacent enemies: %game.action.attack% %game.action.target.valueSign:0% %game.characterIcon.lightning%",
         "6": "Kill 20 enemies with your retaliate",
-        "7": "In a single scenario, end all your turns with your hit point value at half your maximum or lower without exhausting"
+        "7": "In a single scenario, end all your turns with your hit point value at half your maximum or lower without exhausting",
+        "abilities": {
+          "323": {
+            "1": "Whenever you suffer %game.damage% this round, if your current hit point value is half your maximum or less, suffer 1 less %game.damage%."
+          },
+          "324": {
+            "1": "Gain advantage on all your attacks this round.",
+            "2": "All attacks targeting you this round gain disadvantage."
+          },
+          "325": {
+            "1": "Add %game.action.attack.valueSign:2% and gain %game.card.experience:1% if your current hit point value is half your maximum or less.",
+            "2": "You may suffer up to %game.damage:3%.",
+            "3": "where X is the amount of %game.damage% you chose to suffer."
+          },
+          "326": {
+            "1": "You may suffer %game.damage:2% to add %game.action.attack.valueSign:2% and gain %game.card.experience:1%.",
+            "2": "On the next source of %game.damage% you would suffer that would reduce your current hit point value to less than 1, negate the %game.damage%."
+          },
+          "327": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "328": {
+            "1": "Add %game.action.attack.valueSign:1% to all your attacks.",
+            "2": "At the start of each of your turns, if your current hit point value is greater than 1, suffer %game.damage:1%."
+          },
+          "329": {
+            "1": "Add %game.action.target.valueSign:1% and gain %game.card.experience:1% if your current hit point value is half your maximum or less.",
+            "2": "You may suffer %game.damage:2% to perform:"
+          },
+          "330": {
+            "1": "You may suffer %game.damage:2% to add %game.condition.stun% and gain %game.card.experience:1%."
+          },
+          "331": {
+            "1": "%game.action.target% 1 enemy up to two hexes away instead, %game.action.attack.valueSign:1%",
+            "2": "Gain %game.card.experience:1% the next time you retaliate this round."
+          },
+          "332": {
+            "1": "Remove all negative conditions you have. If your current hit point value is 1, you may %game.card.recover% one card from your lost pile.",
+            "2": "Set your current hit point value to half of your maximum (rounded up) and gain %game.condition.strengthen%."
+          },
+          "333": {
+            "1": "where X is your current hit point value. Gain %game.card.experience:1% for every 5 %game.damage% an enemy suffers from this attack.",
+            "2": "Set your current hit point value to 1."
+          },
+          "334": {
+            "1": "If, after the heal, your current hit point value is half your maximum or less, repeat this ability once.",
+            "2": "Whenever you retaliate, perform:",
+            "3": "If your current hit point value is half your maximum or less, gain %game.card.experience:1% and perform:"
+          },
+          "335": {
+            "1": "You may suffer %game.damage:2% to add %game.action.target.valueSign:1% and gain %game.card.experience:1%.",
+            "2": "Add %game.action.move.valueSign:2% and gain %game.card.experience:1% if your current hit point value is half your maximum or less."
+          },
+          "336": {
+            "1": "Add %game.condition.muddle% and gain %game.card.experience:1% if your current hit point value is half your maximum or less.",
+            "2": "You may suffer %game.damage:2% to %game.element.fire% and perform:"
+          },
+          "337": {
+            "1": "When this card is moved from your active area to your lost pile, you become exhausted. At the end of this and your next three turns, perform:",
+            "2": "Add %game.action.attack.valueSign:1% to all your attacks this round."
+          },
+          "338": {
+            "1": "Gain %game.card.experience:1% the next time you retaliate this round.",
+            "2": "All attacks targeting you this round gain disadvantage.",
+            "3": "If you short rest at the end of this round, gain all the benefits of a long rest."
+          },
+          "339": {
+            "1": "All enemies adjacent to the target but not adjacent to you suffer %game.damage:2%."
+          },
+          "340": {
+            "1": "Add %game.action.heal.valueSign:2% and gain %game.card.experience:1% if your current hit point value is half your maximum or less."
+          },
+          "341": {
+            "1": "You may suffer %game.damage:2% to add %game.action.attack.valueSign:2%.",
+            "2": "If your current hit point value is half your maximum or less, gain %game.card.experience:1% and perform:",
+            "3": "%game.action.target% 2 enemies up to two hexes away instead"
+          },
+          "342": {
+            "1": "On the next six sources of %game.damage% you suffer while an enemy is adjacent to you, after the ability that caused you to suffer the %game.damage%, perform %game.action.attack:4%."
+          },
+          "343": {
+            "1": "You may suffer up to %game.damage:4%.",
+            "2": "all enemies within 3 hexes",
+            "3": "where X is the amount of %game.damage% you chose to suffer."
+          },
+          "345": {
+            "1": "If you moved in a straight line in one direction with the move ability and you do not have %game.condition.wound%, gain %game.condition.wound% to add +X %game.action.attack%, where X is the number of hexes you moved with the move ability.",
+            "2": "Whenever you are attacked this round, gain %game.action.retaliate:X% for the attack, where X is the number of enemies adjacent to you when the attack is performed."
+          },
+          "346": {
+            "1": "where X is the amount of %game.damage% enemies suffered from the attack ability.",
+            "2": "You may suffer %game.damage:2% to add %game.action.move.valueSign:2% and gain %game.card.experience:1%.",
+            "3": "all enemies moved through with the move ability that have %game.condition.wound%"
+          },
+          "347": {
+            "1": "Add %game.action.push:2% and gain %game.card.experience:1% if your current hit point value is half your maximum or less.",
+            "2": "Place your character token on the target. The target loses %game.action.fly%."
+          },
+          "348": {
+            "1": "You may suffer %game.damage:2% to add %game.action.retaliate.valueSign:1% and gain %game.card.experience:1%.",
+            "2": "Whenever an enemy suffers %game.damage% from your %game.action.retaliate% this round, they gain %game.condition.wound%.",
+            "3": "Negate the next %game.damage% you suffer this round.",
+            "4": "Add %game.condition.strengthen% and gain %game.card.experience:1% if your current hit point value is half your maximum or less."
+          },
+          "349": {
+            "1": "%game.action.target% all enemies up to two hexes away instead",
+            "2": "You may suffer %game.damage:2% to add %game.action.attack.valueSign:1% and gain %game.card.experience:1%.",
+            "3": "You may perform this action any number of times in succession, increasing the %game.damage% suffered by 1 each time.",
+            "4": "Suffer %game.damage:1%. This %game.damage% cannot be negated."
+          },
+          "350": {
+            "1": "Whenever you suffer %game.damage%, all enemies that have %game.condition.wound% suffer %game.damage:1%."
+          }
+        }
       },
       "music-note": {
         "1": "Skip moving your character tokens on active %data.action.custom.gh2e-song% at the end of this round",
