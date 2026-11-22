@@ -124,11 +124,8 @@ export class FavorsComponent implements OnInit {
     if (this.change) {
       gameManager.stateManager.before('applyFavorSelection');
 
-      this.gameFavorPoints = gameManager.trialsManager.refundFavorPoints(this.gameFavorPoints, this.availablePoints);
+      gameManager.trialsManager.applyFavors(this.gameFavors, this.gameFavorPoints, this.availablePoints);
       this.availablePoints = 0;
-
-      gameManager.game.favors = this.gameFavors;
-      gameManager.game.favorPoints = this.gameFavorPoints;
       gameManager.stateManager.after();
       this.dialogRef.close();
     }

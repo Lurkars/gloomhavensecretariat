@@ -59,6 +59,29 @@ export class OutpostAttackManager {
     return true;
   }
 
+  townGuardPerkSectionAvailable(section: string): boolean {
+    const sections = this.game.party.townGuardPerkSections || [];
+    return sections.includes(section) || sections.length < Math.floor(this.game.party.townGuardPerks / 3);
+  }
+
+  setTownGuardPerkSection(section: string, value: boolean) {
+    const party = this.game.party;
+    party.townGuardPerkSections = party.townGuardPerkSections || [];
+    if (party.townGuardPerkSections.includes(section) === value) {
+      return;
+    }
+    if (value) {
+      party.townGuardPerkSections.push(section);
+    } else {
+      party.townGuardPerkSections.splice(party.townGuardPerkSections.indexOf(section), 1);
+    }
+    const active = !!party.townGuardDeck && party.townGuardDeck.active;
+    const deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(party, gameManager.campaignManager.campaignData());
+    deck.active = active;
+    gameManager.attackModifierManager.shuffleModifiers(deck);
+    party.townGuardDeck = deck.toModel();
+  }
+
   townGuardDeck(): AttackModifierDeck | undefined {
     const campaign = gameManager.campaignManager.campaignData();
     if (!campaign || !campaign.townGuardPerks) {

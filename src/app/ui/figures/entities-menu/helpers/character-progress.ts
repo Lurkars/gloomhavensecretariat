@@ -1,7 +1,6 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 
@@ -32,79 +31,42 @@ export class CharacterProgressHelper {
       .map((character) => '%game.characterIconColored.' + character.name + '%')
       .join(',');
 
+    const characters = this.component.entities.filter((entity) => entity instanceof Character) as Character[];
+
     if (this.experience !== 0) {
       gameManager.stateManager.before('eventEffect.changeCharacterXP', ghsValueSign(this.experience), characterIcons);
-      this.component.entities.forEach((entity) => {
-        if (entity instanceof Character) {
-          entity.progress.experience += this.experience;
-          if (entity.progress.experience < 0) {
-            entity.progress.experience = 0;
-          }
-        }
-      });
+      gameManager.eventCardManager.changeCharacterValue(characters, 'experience', this.experience);
       gameManager.stateManager.after();
     }
 
     if (this.gold !== 0) {
       gameManager.stateManager.before('eventEffect.changeCharacterGold', ghsValueSign(this.gold), characterIcons);
-      this.component.entities.forEach((entity) => {
-        if (entity instanceof Character) {
-          entity.progress.gold += this.gold;
-          if (entity.progress.gold < 0) {
-            entity.progress.gold = 0;
-          }
-          if (this.gold > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(entity, PersonalQuestAutotrackType.gold, undefined, this.gold);
-          }
-        }
-      });
+      gameManager.eventCardManager.changeCharacterValue(characters, 'gold', this.gold);
       gameManager.stateManager.after();
     }
 
     if (this.battleGoals !== 0) {
       gameManager.stateManager.before('eventEffect.changeCharacterBattleGoals', ghsValueSign(this.battleGoals), characterIcons);
-      this.component.entities.forEach((entity) => {
-        if (entity instanceof Character) {
-          entity.progress.battleGoals += this.battleGoals;
-          if (entity.progress.battleGoals < 0) {
-            entity.progress.battleGoals = 0;
-          }
-          if (this.battleGoals > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              entity,
-              PersonalQuestAutotrackType.battleGoals,
-              undefined,
-              this.battleGoals
-            );
-          }
-        }
-      });
+      gameManager.eventCardManager.changeCharacterValue(characters, 'battleGoals', this.battleGoals);
       gameManager.stateManager.after();
     }
 
     this.lootColumns.forEach((type) => {
-      if (this.loot[type] && this.loot[type] !== 0) {
+      const value = this.loot[type] || 0;
+      if (value !== 0) {
         if (settingsManager.settings.fhShareResources) {
           gameManager.stateManager.before(
             'eventEffect.changeCharacterResource',
             type,
-            ghsValueSign(this.loot[type] || 0),
+            ghsValueSign(value),
             '%party.campaign.sheet.supply%'
           );
-          gameManager.game.party.loot[type] = (gameManager.game.party.loot[type] || 0) + (this.loot[type] || 0);
-          gameManager.stateManager.after();
+          gameManager.eventCardManager.changeSupplyResource(type, value);
         } else {
-          gameManager.stateManager.before('eventEffect.changeCharacterResource', type, ghsValueSign(this.loot[type] || 0), characterIcons);
-          this.component.entities.forEach((entity) => {
-            if (entity instanceof Character) {
-              entity.progress.loot[type] = (entity.progress.loot[type] || 0) + (this.loot[type] || 0);
-              if (entity.progress.loot[type] < 0) {
-                entity.progress.loot[type] = 0;
-              }
-            }
-          });
-          gameManager.stateManager.after();
+          gameManager.stateManager.before('eventEffect.changeCharacterResource', type, ghsValueSign(value), characterIcons);
+          gameManager.eventCardManager.changeCharacterValue(characters, 'resource', value, type);
         }
+        gameManager.stateManager.after();
       }
     });
   }

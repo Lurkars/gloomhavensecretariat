@@ -1,14 +1,8 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { ConditionType } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { Figure } from 'src/app/game/model/Figure';
-import { GameState } from 'src/app/game/model/Game';
-import { Monster } from 'src/app/game/model/Monster';
-import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
-import { Summon } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { ghsDialogClosingHelper, ghsRemoveDeadEntities, ghsValueSign } from 'src/app/ui/helper/Static';
 
@@ -20,63 +14,20 @@ export class HealthHelper {
       this.component.entity instanceof Character ? (this.component.entity.exhausted ? 'notExhausted' : 'exhausted') : 'dead'
     );
     this.component.entities.forEach((entity) => {
-      if (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) {
-        const figure = this.component.figureForEntity(entity);
-        if (entity instanceof Summon && !entity.dead && settingsManager.settings.scenarioStats) {
-          gameManager.scenarioStatsManager.changeExhausts(entity, figure, true);
-        }
-        entity.dead = true;
-        if (entity instanceof MonsterEntity && figure instanceof Monster) {
-          gameManager.monsterManager.monsterEntityKilled(figure, entity);
-        }
-      } else if (entity instanceof Character) {
-        entity.exhausted = !entity.exhausted;
-        if (settingsManager.settings.scenarioStats) {
-          gameManager.scenarioStatsManager.changeExhausts(entity, entity, entity.exhausted);
-        }
+      if (entity instanceof Character) {
+        gameManager.entityManager.setExhausted(entity, !entity.exhausted);
+      } else {
+        gameManager.entityManager.killEntity(entity, this.component.figureForEntity(entity));
       }
     });
 
     if (this.component.entity instanceof Character) {
       gameManager.stateManager.after();
     } else {
-      setTimeout(
-        () => {
-          this.component.entities.forEach((entity) => {
-            const figure: Figure = this.component.figureForEntity(entity);
-            const stillDead =
-              (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead;
-            if (
-              stillDead &&
-              (gameManager.game.state === GameState.draw ||
-                entity.entityConditions.length === 0 ||
-                entity.entityConditions.every(
-                  (entityCondition) =>
-                    !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)
-                ))
-            ) {
-              if (entity instanceof MonsterEntity) {
-                gameManager.monsterManager.removeMonsterEntity(figure as Monster, entity);
-              } else if (entity instanceof Summon) {
-                gameManager.characterManager.removeSummon(figure as Character, entity);
-              } else if (entity instanceof ObjectiveEntity) {
-                gameManager.objectiveManager.removeObjectiveEntity(figure as ObjectiveContainer, entity);
-              }
-            }
-            if (
-              (figure instanceof Monster || figure instanceof ObjectiveContainer) &&
-              figure.active &&
-              figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))
-            ) {
-              gameManager.roundManager.toggleFigure(figure);
-            }
-          });
-
-          gameManager.stateManager.after();
-          this.component.ghsManager.triggerUiChange();
-        },
-        settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-      );
+      const entities = this.component.entities.map((entity) => ({ entity, figure: this.component.figureForEntity(entity) }));
+      entities.forEach(({ figure }) => gameManager.entityManager.deactivateDeadFigure(figure));
+      ghsRemoveDeadEntities(entities.filter(({ entity }) => gameManager.entityManager.deadRemovable(entity)));
+      gameManager.stateManager.after();
       ghsDialogClosingHelper(this.component.dialogRef, true);
     }
   }

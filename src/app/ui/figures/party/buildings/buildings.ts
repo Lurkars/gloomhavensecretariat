@@ -75,23 +75,13 @@ export class PartyBuildingsComponent implements OnInit {
   }
 
   unlockBuilding(buildingElement: HTMLInputElement) {
-    const building = buildingElement.value;
-    this.party.buildings = this.party.buildings || [];
-    const campaign = gameManager.campaignManager.campaignData();
-    if (campaign.buildings && building) {
-      const buildingData = campaign.buildings.find(
-        (buildingData) =>
-          buildingData.name === building.toLowerCase().replaceAll(' ', '-') ||
-          buildingData.id === building ||
-          (!isNaN(+buildingData.id) && !isNaN(+building) && +buildingData.id === +building)
-      );
-      if (buildingData && !this.party.buildings.find((buildingModel) => buildingModel.name === buildingData.name)) {
-        gameManager.stateManager.before('addBuilding', buildingData.id, buildingData.name);
-        this.party.buildings.push(new BuildingModel(buildingData.name, 0));
-        this.updateBuildings();
-        buildingElement.value = '';
-        gameManager.stateManager.after();
-      }
+    const buildingData = gameManager.buildingsManager.findBuilding(buildingElement.value);
+    if (buildingData && !this.party.buildings.some((buildingModel) => buildingModel.name === buildingData.name)) {
+      gameManager.stateManager.before('addBuilding', buildingData.id, buildingData.name);
+      gameManager.buildingsManager.addBuilding(buildingData);
+      this.updateBuildings();
+      buildingElement.value = '';
+      gameManager.stateManager.after();
     }
   }
 }

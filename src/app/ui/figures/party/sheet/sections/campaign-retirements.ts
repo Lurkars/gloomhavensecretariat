@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { Character, GameCharacterModel } from 'src/app/game/model/Character';
+import { GameCharacterModel } from 'src/app/game/model/Character';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { openCharacterSheet } from 'src/app/ui/figures/party/sheet/sections/campaign-players';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -38,21 +38,9 @@ export class PartyCampaignRetirementsComponent extends PartySheetSection {
     }
   }
   reactivateCharacter(characterModel: GameCharacterModel) {
-    if (
-      !gameManager.game.figures.find(
-        (figure) => figure instanceof Character && figure.name === characterModel.name && figure.edition === characterModel.edition
-      ) &&
-      !gameManager.game.party.availableCharacters.find(
-        (availableCharacter) => availableCharacter.name === characterModel.name && availableCharacter.edition === characterModel.edition
-      )
-    ) {
+    if (gameManager.retirementManager.reactivatable(characterModel)) {
       gameManager.stateManager.before('unsetRetired', 'data.character.' + characterModel.edition + '.' + characterModel.name);
-      const character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
-      character.fromModel(characterModel);
-      character.progress.retired = false;
-      character.progress.personalQuestProgress = [];
-      gameManager.game.figures.push(character);
-      this.party.retirements.splice(this.party.retirements.indexOf(characterModel), 1);
+      gameManager.retirementManager.reactivateCharacter(characterModel);
       gameManager.stateManager.after();
     }
   }

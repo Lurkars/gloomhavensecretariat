@@ -14,10 +14,9 @@ import { ScenarioRecapDialogComponent } from 'src/app/ui/figures/scenario-recap/
 import { ScenarioRulesDialogComponent } from 'src/app/ui/footer/scenario-rules/dialog/scenario-rules-dialog';
 import { RandomMonsterCardDialogComponent } from 'src/app/ui/footer/scenario/dialog/random-monster-card/random-monster-card-dialog';
 import { RoundDialogComponent } from 'src/app/ui/footer/scenario/dialog/round/round-dialog';
-import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSetupComponent } from 'src/app/ui/footer/scenario/scenario-setup/scenario-setup';
 import { SectionDialogComponent } from 'src/app/ui/footer/scenario/section/section-dialog';
-import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
+import { openScenarioFinish } from 'src/app/ui/footer/scenario/summary/scenario-finish';
 import { ScenarioTreasuresDialogComponent } from 'src/app/ui/footer/scenario/treasures/treasures-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
@@ -69,36 +68,7 @@ export class ScenarioDialogComponent {
           sectionData.conclusion &&
           gameManager.scenarioManager.getRequirements(sectionData).length === 0
       );
-    if (conclusions.length < 2 || !success) {
-      this.dialog.open(ScenarioSummaryComponent, {
-        panelClass: ['dialog'],
-        data: {
-          scenario: this.scenario,
-          conclusion: conclusions.length === 1 ? conclusions[0] : undefined,
-          success: success
-        }
-      });
-    } else {
-      this.dialog
-        .open(ScenarioConclusionComponent, {
-          panelClass: ['dialog'],
-          data: { conclusions: conclusions, parent: this.scenario }
-        })
-        .closed.subscribe({
-          next: (conclusion: unknown) => {
-            if (conclusion) {
-              this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: ['dialog'],
-                data: {
-                  scenario: this.scenario,
-                  conclusion: conclusion,
-                  success: success
-                }
-              });
-            }
-          }
-        });
-    }
+    openScenarioFinish(this.dialog, this.scenario, success, conclusions);
   }
 
   resetScenario() {

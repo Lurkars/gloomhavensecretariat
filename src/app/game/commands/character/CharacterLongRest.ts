@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
-import { GameState } from 'src/app/game/model/Game';
 
 export class CharacterLongRestCommand extends CommandImpl {
   id: string = 'character.longRest';
@@ -14,21 +13,7 @@ export class CharacterLongRestCommand extends CommandImpl {
   executeWithParameters(number: number, longRest: boolean) {
     const character = findCharacter(number);
     if (character) {
-      if (character.longRest === longRest) {
-        return;
-      }
-      if (!longRest) {
-        character.longRest = false;
-      } else {
-        if (character.initiative !== 99 && !gameManager.specialActionsManager.keepInitiativeOnLongRest(character)) {
-          character.initiative = 99;
-          character.initiativeVisible = true;
-        }
-        character.longRest = true;
-      }
-      if (gameManager.game.state === GameState.next) {
-        gameManager.sortFigures(character);
-      }
+      gameManager.roundManager.setLongRest(character, longRest);
     } else {
       this.executionError('character not found');
     }

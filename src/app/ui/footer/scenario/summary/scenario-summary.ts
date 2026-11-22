@@ -819,8 +819,7 @@ export class ScenarioSummaryComponent {
   toggleChallenges(event: any, second: boolean = false) {
     gameManager.stateManager.before('finishScenario.dialog.challenge' + (second ? 's' : ''));
     if (this.challenges < 1 && second && gameManager.challengesManager.enabled) {
-      const card = gameManager.game.challengeDeck.cards.splice(gameManager.game.challengeDeck.keep[0], 1)[0];
-      gameManager.game.challengeDeck.cards.splice(gameManager.game.challengeDeck.keep[1], 0, card);
+      gameManager.challengesManager.swapKeptCards(gameManager.game.challengeDeck);
       this.challenges = 1;
       event.target.checked = false;
     } else if (this.challenges > (second ? 1 : 0)) {

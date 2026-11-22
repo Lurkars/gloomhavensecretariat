@@ -1,7 +1,7 @@
+import { LOOT_RANDOM_ITEM_MARKER } from 'src/app/game/businesslogic/LootManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { ScenarioStats } from 'src/app/game/model/CharacterProgress';
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { ElementState } from 'src/app/game/model/data/Element';
 import { ItemFlags } from 'src/app/game/model/data/ItemData';
@@ -36,6 +36,48 @@ export class RoundManager {
               (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired))
         ))
     );
+  }
+
+  validInitiative(initiative: number): boolean {
+    return (
+      initiative >= 0 &&
+      initiative <= 99 &&
+      (initiative > 0 || this.game.state === GameState.draw || !settingsManager.settings.initiativeRequired)
+    );
+  }
+
+  clampInitiative(initiative: number): number {
+    const value = Math.min(99, Math.max(0, initiative));
+    return value === 0 && this.game.state === GameState.next && settingsManager.settings.initiativeRequired ? 1 : value;
+  }
+
+  setInitiative(figure: Character | ObjectiveContainer, initiative: number) {
+    figure.initiative = initiative;
+    if (figure instanceof Character) {
+      figure.initiativeVisible = true;
+      if (initiative === 99) {
+        figure.longRest = true;
+      } else if (!initiative || !gameManager.specialActionsManager.keepInitiativeOnLongRest(figure)) {
+        figure.longRest = false;
+      }
+    }
+    if (this.game.state === GameState.next) {
+      gameManager.sortFigures(figure);
+    }
+  }
+
+  setLongRest(character: Character, longRest: boolean) {
+    if (character.longRest === longRest) {
+      return;
+    }
+    if (longRest && character.initiative !== 99 && !gameManager.specialActionsManager.keepInitiativeOnLongRest(character)) {
+      character.initiative = 99;
+      character.initiativeVisible = true;
+    }
+    character.longRest = longRest;
+    if (this.game.state === GameState.next) {
+      gameManager.sortFigures(character);
+    }
   }
 
   missingInitiative(): boolean {
@@ -254,6 +296,80 @@ export class RoundManager {
 
     gameManager.triggerUiChange(false);
     setTimeout(() => (this.working = false), 1);
+  }
+
+  setRoundReset(value: number) {
+    const hidden = this.game.roundResetsHidden;
+    if (hidden.length === 0) {
+      if (value !== 0) {
+        hidden.push(value);
+      }
+    } else if (value === 0) {
+      hidden.splice(hidden.length - 1, 1);
+    } else {
+      hidden[hidden.length - 1] = value;
+    }
+  }
+
+  nextFigure(reverse: boolean = false): Figure | undefined {
+    const figures = this.game.figures.filter((figure) => gameManager.gameplayFigure(figure));
+    const active = figures.find((figure) => figure.active);
+    if (!active) {
+      return reverse ? figures[figures.length - 1] : figures.find((figure) => !figure.off);
+    }
+    if (reverse && figures.indexOf(active) > 0) {
+      if (active instanceof Character) {
+        const summons = active.summons.filter((summon) => gameManager.entityManager.isAlive(summon) && summon.state !== SummonState.new);
+        const activeSummon = summons.find((summon) => summon.active);
+        if (activeSummon && summons.indexOf(activeSummon) > 0) {
+          return active;
+        }
+      }
+      return figures[figures.indexOf(active) - 1];
+    }
+    return active;
+  }
+
+  nextFigureUndoInfos(figure: Figure, reverse: boolean = false): (string | number)[] {
+    if (figure instanceof Character) {
+      return gameManager.characterManager.toggleActiveUndoInfos(figure);
+    } else if (figure instanceof Monster) {
+      const entity = settingsManager.settings.activeStandees ? gameManager.monsterManager.nextActiveStandee(figure, reverse) : undefined;
+      if (entity) {
+        return [
+          entity.active ? 'unsetEntityActive' : 'setEntityActive',
+          'data.monster.' + figure.name,
+          'monster.' + entity.type,
+          entity.number
+        ];
+      }
+      return [figure.active ? 'unsetActive' : 'setActive', 'data.monster.' + figure.name];
+    } else if (figure instanceof ObjectiveContainer) {
+      return [figure.active ? 'unsetActive' : 'setActive', figure.title || figure.name];
+    }
+    return [];
+  }
+
+  toggleNextFigure(figure: Figure, reverse: boolean = false) {
+    const active = this.game.figures.find((other) => gameManager.gameplayFigure(other) && other.active);
+    if (reverse && active instanceof Character && active !== figure) {
+      active.summons.forEach((summon) => (summon.active = false));
+    }
+    if (figure instanceof Character) {
+      gameManager.characterManager.toggleActive(figure);
+    } else if (figure instanceof Monster) {
+      const entity = settingsManager.settings.activeStandees ? gameManager.monsterManager.nextActiveStandee(figure, reverse) : undefined;
+      if (entity) {
+        gameManager.monsterManager.stepActiveStandee(figure, entity, reverse);
+      } else {
+        if (reverse && !figure.active && settingsManager.settings.activeStandees) {
+          gameManager.monsterManager.activateStandees(figure);
+        }
+        this.toggleFigure(figure);
+      }
+    } else if (figure instanceof ObjectiveContainer) {
+      this.toggleFigure(figure);
+    }
   }
 
   toggleFigure(toggleFigure: Figure, initial: boolean = false) {
@@ -753,21 +869,8 @@ export class RoundManager {
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => (element.state = ElementState.inert));
 
-    gameManager.game.monsterAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck();
+    gameManager.game.monsterAttackModifierDeck = gameManager.attackModifierManager.defaultMonsterAttackModifierDeck();
     gameManager.game.allyAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck(true);
-
-    if (gameManager.bbRules()) {
-      const editionData = gameManager.editionData.find(
-        (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
-      );
-      if (editionData) {
-        const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
-        this.game.monsterAttackModifierDeck = new AttackModifierDeck(
-          editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)),
-          settingsManager.settings.bbAm
-        );
-      }
-    }
 
     this.game.figures = this.game.figures.filter(
       (figure) => figure instanceof Character || (this.game.scenario && this.game.scenario.custom)
@@ -840,7 +943,7 @@ export class RoundManager {
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
         figure.lootCardsVisible = false;
 
-        figure.progress.equippedItems = figure.progress.equippedItems.filter((value) => value.marker !== 'loot-random-item');
+        figure.progress.equippedItems = figure.progress.equippedItems.filter((value) => value.marker !== LOOT_RANDOM_ITEM_MARKER);
 
         figure.progress.equippedItems.forEach((identifier) => (identifier.tags = []));
         gameManager.characterManager.applyDonations(figure);

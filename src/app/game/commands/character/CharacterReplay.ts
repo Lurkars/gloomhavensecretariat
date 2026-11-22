@@ -25,15 +25,7 @@ export class CharacterReplayCommand extends CommandImpl {
   executeWithParameters(edition: string, name: string, number: number) {
     const model = this.model(edition, name, number);
     if (model) {
-      const character = this.character(model);
-      gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter((other) => other !== model);
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character && figure.number === character.number) {
-          gameManager.game.party.availableCharacters.push(figure.toModel());
-          gameManager.characterManager.removeCharacter(figure);
-        }
-      });
-      gameManager.game.figures.push(character);
+      gameManager.characterManager.replayCharacter(this.character(model));
     } else {
       this.executionError('character not found');
     }

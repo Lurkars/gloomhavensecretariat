@@ -5,10 +5,7 @@ import { ItemData } from 'src/app/game/model/data/ItemData';
 import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
-import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
-import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
-import { Summon } from 'src/app/game/model/Summon';
 
 export function figureIdentifier(figure: Figure): string {
   return figure.edition + '-' + (figure instanceof ObjectiveContainer ? figure.uuid : figure.name);
@@ -119,14 +116,4 @@ export function fillParameter(command: CommandImpl, index: number, defaults: BAS
 
 export function validSeed(seed: BASE_TYPE | undefined): boolean {
   return typeof seed === 'number' && Number.isInteger(seed);
-}
-
-export function removeDeadEntity(figure: Figure, entity: Entity) {
-  if (figure instanceof Monster && entity instanceof MonsterEntity && entity.dead) {
-    gameManager.monsterManager.removeMonsterEntity(figure, entity);
-  } else if (figure instanceof Character && entity instanceof Summon && entity.dead) {
-    gameManager.characterManager.removeSummon(figure, entity);
-  } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity && entity.dead) {
-    gameManager.objectiveManager.removeObjectiveEntity(figure, entity);
-  }
 }

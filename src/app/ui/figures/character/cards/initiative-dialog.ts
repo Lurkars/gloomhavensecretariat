@@ -68,34 +68,11 @@ export class CharacterInitiativeDialogComponent {
   }
 
   updateInitiative(initiative: number) {
-    if (this.figure.initiative !== initiative) {
-      gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative > 0 && initiative < 100 ? initiative : 0);
-      if (initiative > 0 && initiative < 100) {
-        this.setInitiative(initiative);
-        if (this.character && initiative !== 99 && !gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
-          this.character.longRest = false;
-        }
-      } else if (gameManager.game.state === GameState.draw) {
-        this.figure.initiative = 0;
-      }
-      if (gameManager.game.state === GameState.next) {
-        gameManager.sortFigures(this.character);
-      }
+    const value = initiative > 0 && initiative < 100 ? initiative : 0;
+    if (this.figure.initiative !== value && gameManager.roundManager.validInitiative(value)) {
+      gameManager.entityManager.before(this.character, this.figure, 'setInitiative', value);
+      gameManager.roundManager.setInitiative(this.figure, value);
       gameManager.stateManager.after();
-    }
-  }
-
-  setInitiative(initiative: number) {
-    if (
-      (((gameManager.game.state === GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) ||
-        initiative > 0) &&
-      initiative < 100 &&
-      initiative !== this.figure.initiative
-    ) {
-      this.figure.initiative = initiative;
-      if (this.character) {
-        this.character.initiativeVisible = true;
-      }
     }
   }
 
@@ -103,21 +80,11 @@ export class CharacterInitiativeDialogComponent {
     if (this.character) {
       if (this.character.longRest) {
         gameManager.entityManager.before(this.character, this.character, 'setInitiative', this.character.initiative);
-        this.character.longRest = false;
-        gameManager.stateManager.after();
       } else {
         gameManager.stateManager.before('characterLongRest', gameManager.characterManager.characterName(this.character, true, true));
-        if (this.character.initiative === 99 || gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
-          this.character.longRest = true;
-        } else {
-          this.setInitiative(99);
-          this.character.longRest = true;
-          if (gameManager.game.state === GameState.next) {
-            gameManager.sortFigures(this.character);
-          }
-        }
-        gameManager.stateManager.after();
       }
+      gameManager.roundManager.setLongRest(this.character, !this.character.longRest);
+      gameManager.stateManager.after();
       ghsDialogClosingHelper(this.dialogRef);
     }
   }

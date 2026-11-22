@@ -1,9 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
-import { EditionData } from 'src/app/game/model/data/EditionData';
-import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { RandomDungeonRule, ScenarioFigureRule, ScenarioRule } from 'src/app/game/model/data/ScenarioRule';
-import { Scenario } from 'src/app/game/model/Scenario';
 import { ScenarioRulesComponent } from 'src/app/ui/footer/scenario-rules/scenario-rules';
 
 // ScenarioRulesComponent's constructor only registers a uiChangeEffect() (confirmed elsewhere not to
@@ -110,44 +107,6 @@ describe('ScenarioRulesComponent', () => {
       });
       expect(prevented).toBe(true);
       expect(stopped).toBe(true);
-    });
-  });
-
-  describe('randomDungeonsMonsterLabel / randomDungeonsDungeonLabel', () => {
-    it('is empty with no randomDungeon data', () => {
-      const component = createComponent();
-      expect(component.randomDungeonsMonsterLabel(new ScenarioRule(''))).toEqual([]);
-      expect(component.randomDungeonsDungeonLabel(new ScenarioRule(''))).toEqual([]);
-    });
-
-    it('falls back to the raw card id when no matching section is found', () => {
-      const component = createComponent();
-      gameManager.game.scenario = new Scenario(Object.assign(new ScenarioData(), { edition: 'gh', index: '1' }));
-      const rule = Object.assign(new ScenarioRule(''), {
-        randomDungeon: Object.assign(new RandomDungeonRule(), { monsterCards: ['m1'], dungeonCards: ['d1'] })
-      });
-      expect(component.randomDungeonsMonsterLabel(rule)).toEqual(['&nbspm1']);
-      expect(component.randomDungeonsDungeonLabel(rule)).toEqual(['&nbspd1']);
-    });
-
-    it('excludes card ids already present in additionalSections', () => {
-      const component = createComponent();
-      gameManager.game.scenario = new Scenario(Object.assign(new ScenarioData(), { edition: 'gh', index: '1' }), [], ['m1']);
-      const rule = Object.assign(new ScenarioRule(''), {
-        randomDungeon: Object.assign(new RandomDungeonRule(), { monsterCards: ['m1', 'm2'] })
-      });
-      expect(component.randomDungeonsMonsterLabel(rule)).toEqual(['&nbspm2']);
-    });
-
-    it('resolves a labeled title when a matching randomMonsterCard section exists', () => {
-      const component = createComponent();
-      const section = Object.assign(new ScenarioData(), { edition: 'gh', index: 'm1', group: 'randomMonsterCard' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [section], []))];
-      gameManager.game.scenario = new Scenario(Object.assign(new ScenarioData(), { edition: 'gh', index: '1' }));
-      const rule = Object.assign(new ScenarioRule(''), {
-        randomDungeon: Object.assign(new RandomDungeonRule(), { monsterCards: ['m1'] })
-      });
-      expect(component.randomDungeonsMonsterLabel(rule)[0]).toContain('#m1');
     });
   });
 });

@@ -110,43 +110,14 @@ export abstract class PartySheetSection implements OnInit {
 
   async openConclusions(section: string, week: number = -1) {
     const conclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(section, gameManager.game.edition, true);
-
-    if (conclusions.length > 0) {
-      const { ScenarioConclusionComponent } = await import('src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion');
-      const { ScenarioSummaryComponent } = await import('src/app/ui/footer/scenario/summary/scenario-summary');
-      this.dialog
-        .open(ScenarioConclusionComponent, {
-          panelClass: ['dialog'],
-          data: {
-            conclusions: conclusions,
-            parent: gameManager
-              .sectionData(gameManager.game.edition)
-              .find((sectionData) => sectionData.index === section && !sectionData.group)
-          }
-        })
-        .closed.subscribe({
-          next: (conclusion) => {
-            if (conclusion) {
-              const scenario = new Scenario(conclusion as ScenarioData);
-              if (week !== -1) {
-                gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-                gameManager.scenarioManager.finishWeekConclusion(scenario, week);
-                gameManager.stateManager.after();
-
-                this.dialog.open(ScenarioSummaryComponent, {
-                  panelClass: ['dialog'],
-                  data: {
-                    scenario: scenario,
-                    conclusionOnly: true
-                  }
-                });
-              } else {
-                this.finishConclusion(scenario.index);
-              }
-            }
-          }
-        });
-    }
+    const { openConclusionChoice, finishWeekConclusion } = await import('src/app/ui/figures/party/week-sections/week-sections');
+    openConclusionChoice(this.dialog, section, conclusions, (conclusion) => {
+      if (week !== -1) {
+        finishWeekConclusion(this.dialog, conclusion, week);
+      } else {
+        this.finishConclusion(conclusion.index);
+      }
+    });
   }
 
   async finishConclusion(index: string, force: boolean = false) {
@@ -181,9 +152,7 @@ export abstract class PartySheetSection implements OnInit {
   removeConclusion(section: string, edition: string) {
     if (this.isConclusion(section, edition)) {
       gameManager.stateManager.before('removeConclusion', gameManager.game.party.name, section);
-      gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-        (conclusion) => conclusion.edition !== edition || conclusion.index !== section
-      );
+      gameManager.scenarioManager.removeConclusion(edition, section);
       gameManager.stateManager.after();
       this.update();
     }

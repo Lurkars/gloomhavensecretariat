@@ -4,8 +4,7 @@ import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { GameState } from 'src/app/game/model/Game';
-import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
+import { openScenarioFinish } from 'src/app/ui/footer/scenario/summary/scenario-finish';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
@@ -59,37 +58,7 @@ export class HintDialogComponent {
 
   finishScenario(success: boolean) {
     if (gameManager.game.scenario) {
-      const conclusions = gameManager.scenarioManager.scenarioConclusions(gameManager.game.scenario);
-
-      if (conclusions.length === 0 || !success) {
-        this.dialog.open(ScenarioSummaryComponent, {
-          panelClass: ['dialog'],
-          data: {
-            scenario: gameManager.game.scenario,
-            success: success
-          }
-        });
-      } else {
-        this.dialog
-          .open(ScenarioConclusionComponent, {
-            panelClass: ['dialog'],
-            data: { conclusions: conclusions, parent: gameManager.game.scenario }
-          })
-          .closed.subscribe({
-            next: (conclusion) => {
-              if (conclusion) {
-                this.dialog.open(ScenarioSummaryComponent, {
-                  panelClass: ['dialog'],
-                  data: {
-                    scenario: gameManager.game.scenario,
-                    conclusion: conclusion,
-                    success: success
-                  }
-                });
-              }
-            }
-          });
-      }
+      openScenarioFinish(this.dialog, gameManager.game.scenario, success);
       ghsDialogClosingHelper(this.dialogRef, false);
     }
   }

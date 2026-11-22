@@ -1,17 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  HostListener,
-  inject,
-  input,
-  OnChanges,
-  OnInit,
-  output,
-  SimpleChanges
-} from '@angular/core';
+import { Component, HostListener, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
@@ -25,7 +14,9 @@ import { LootComponent } from 'src/app/ui/figures/loot/loot-card';
 import { LootDeckDialogComponent } from 'src/app/ui/figures/loot/loot-deck-dialog';
 import { LootDeckFullscreenComponent } from 'src/app/ui/figures/loot/loot-deck-fullscreen';
 import { openLootRandomItemDialog } from 'src/app/ui/figures/loot/random-item/random-item-dialog';
+import { DeckDrawDirective } from 'src/app/ui/helper/deck-draw';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
+import { ghsCompactPortrait } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 export class LootDeckChange {
@@ -46,12 +37,10 @@ export class LootDeckChange {
   templateUrl: './loot-deck.html',
   styleUrls: ['./loot-deck.scss']
 })
-export class LootDeckComponent implements OnInit, OnChanges {
-  private element = inject(ElementRef);
+export class LootDeckComponent extends DeckDrawDirective implements OnInit, OnChanges {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
-
-  private cdr = inject(ChangeDetectorRef);
+  protected drawingClass: string = 'deck';
 
   readonly inputLootDeck = input.required<LootDeck>({ alias: 'deck' });
   get deck(): LootDeck {
@@ -69,62 +58,36 @@ export class LootDeckComponent implements OnInit, OnChanges {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   lootManager: LootManager = gameManager.lootManager;
-  current: number = -1;
   internalDraw: number = -99;
   LootType = LootType;
   GameState = GameState;
-  drawing: boolean = false;
-  drawTimeout: any = null;
-  queue: number = 0;
-  queueTimeout: any = null;
   compact: boolean = false;
   disabled: boolean = false;
-  init: boolean = false;
-  initServer: boolean = false;
 
   constructor() {
+    super();
     this.ghsManager.uiChangeEffect((fromServer: boolean) => {
       this.update(fromServer);
     });
-    this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
-      const elements = document.elementsFromPoint(event.clientX, event.clientY);
-      if (elements[0].classList.contains('deck') && elements.length > 2) {
-        (elements[2] as HTMLElement).click();
-      }
-    });
+    this.clickThrough();
+  }
+
+  protected deckCurrent(): number {
+    return this.deck.current;
   }
 
   ngOnInit(): void {
-    this.current = this.deck.current;
     this.internalDraw = -99;
-    this.compact =
-      this.deck.cards.length > 0 &&
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = this.deck.cards.length > 0 && ghsCompactPortrait();
     this.disabled = !this.standalone() && gameManager.game.state === GameState.draw;
 
-    if (!this.init) {
-      this.drawTimeout = setTimeout(
-        () => {
-          this.current = this.deck.current;
-          this.drawTimeout = null;
-          this.init = true;
-          this.cdr.markForCheck();
-        },
-        settingsManager.settings.animations ? this.initTimeout() * settingsManager.settings.animationSpeed : 0
-      );
-    }
+    this.initQueue(this.initTimeout());
   }
 
   @HostListener('window:resize')
   @HostListener('window:fullscreenchange')
   onWindowResize() {
-    this.compact =
-      this.deck.cards.length > 0 &&
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = this.deck.cards.length > 0 && ghsCompactPortrait();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -136,131 +99,62 @@ export class LootDeckComponent implements OnInit, OnChanges {
   update(fromServer: boolean = false) {
     this.disabled = !this.standalone() && gameManager.game.state === GameState.draw;
 
-    if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
-      this.initServer = false;
-    }
+    this.updateQueue(this.deck.active || this.standalone(), fromServer);
 
-    if (!this.deck.active && !this.standalone()) {
-      if (this.queueTimeout) {
-        clearTimeout(this.queueTimeout);
-        this.queueTimeout = null;
-      }
-      this.queue = 0;
-      this.drawing = false;
-      this.current = this.deck.current;
-      this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
-    } else if (this.init && (!fromServer || this.initServer)) {
-      if (this.current < this.deck.current) {
-        const delta = this.deck.current - this.current;
-        if (!fromServer && this.current === -1 && delta > 1) {
-          this.current = this.deck.current;
-        } else {
-          this.queue = Math.max(0, delta);
-          if (!this.queueTimeout) {
-            this.queue--;
-            this.current++;
-            this.drawQueue(fromServer);
-          }
-        }
-      } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
-        if (this.queueTimeout) {
-          clearTimeout(this.queueTimeout);
-          this.queueTimeout = null;
-        }
-        this.queue = 0;
-        this.drawing = false;
-        this.current = this.deck.current;
-      }
-    } else {
-      this.current = this.deck.current;
-      if (fromServer && !this.initServer) {
-        this.initServer = true;
-      }
-    }
-
-    this.compact =
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = ghsCompactPortrait();
   }
 
-  drawQueue(fromServer: boolean) {
-    this.drawing = true;
-    this.element.nativeElement.getElementsByClassName('deck')[0].classList.add('drawing');
-    this.queueTimeout = setTimeout(
-      () => {
-        this.drawing = false;
-        this.queueTimeout = null;
-        const currentIndex = this.current;
-        const loot = this.deck.cards[currentIndex];
+  protected override drawn(index: number, fromServer: boolean): number {
+    const loot = this.deck.cards[index];
+    let delay = 0;
 
-        let queueDelay = 0;
+    if (settingsManager.settings.animations && gameManager.lootManager.easter && loot) {
+      if (loot.type === LootType.metal) {
+        soundboardManager.play('metal');
+      } else if (loot.type === LootType.lumber) {
+        soundboardManager.play('lumber');
+        delay = 2600;
+      } else if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
+        soundboardManager.play('gold');
+        delay = 2200;
+      } else {
+        soundboardManager.play('loot');
+        delay = 4000;
+      }
+    }
 
-        if (settingsManager.settings.animations && gameManager.lootManager.easter && loot) {
-          if (loot.type === LootType.metal) {
-            soundboardManager.play('metal');
-          } else if (loot.type === LootType.lumber) {
-            soundboardManager.play('lumber');
-            queueDelay = 2600;
-          } else if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
-            soundboardManager.play('gold');
-            queueDelay = 2200;
-          } else {
-            soundboardManager.play('loot');
-            queueDelay = 4000;
-          }
-        }
-
-        this.queueTimeout = setTimeout(() => {
-          if (this.queue > 0) {
-            this.queue--;
-            this.current++;
-            this.drawQueue(fromServer);
-          } else {
-            this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
-            if (this.queue < 0) {
-              this.queue = 0;
-            }
-          }
-          this.queueTimeout = null;
-        }, queueDelay);
-
-        if (
-          !fromServer &&
-          loot &&
-          appliableLootTypes.indexOf(loot.type) !== null &&
-          settingsManager.settings.applyLoot &&
-          !this.standalone() &&
-          this.fullscreen() &&
-          gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) &&
-          gameManager.game.figures.every((figure) => !(figure instanceof Character) || !figure.lootCards.includes(currentIndex))
-        ) {
-          const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
-          if (!activeCharacter || settingsManager.settings.alwaysLootApplyDialog) {
-            const dialog = this.dialog.open(LootApplyDialogComponent, {
-              panelClass: ['dialog'],
-              data: { loot: loot }
-            });
-
-            dialog.closed.subscribe({
-              next: (name) => {
-                if (name) {
-                  const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === name);
-                  if (character instanceof Character) {
-                    this.applyLoot(character, loot, currentIndex);
-                  }
+    if (
+      !fromServer &&
+      loot &&
+      appliableLootTypes.indexOf(loot.type) !== null &&
+      settingsManager.settings.applyLoot &&
+      !this.standalone() &&
+      this.fullscreen() &&
+      gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) &&
+      gameManager.game.figures.every((figure) => !(figure instanceof Character) || !figure.lootCards.includes(index))
+    ) {
+      const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
+      if (!activeCharacter || settingsManager.settings.alwaysLootApplyDialog) {
+        this.dialog
+          .open(LootApplyDialogComponent, {
+            panelClass: ['dialog'],
+            data: { loot: loot }
+          })
+          .closed.subscribe({
+            next: (name) => {
+              if (name) {
+                const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === name);
+                if (character instanceof Character) {
+                  this.applyLoot(character, loot, index);
                 }
               }
-            });
-          } else if (activeCharacter) {
-            this.applyLoot(activeCharacter, loot, currentIndex);
-          }
-        }
-
-        this.cdr.markForCheck();
-      },
-      settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
-    );
+            }
+          });
+      } else if (activeCharacter) {
+        this.applyLoot(activeCharacter, loot, index);
+      }
+    }
+    return delay;
   }
 
   applyLoot(character: Character, loot: Loot, index: number) {
@@ -285,28 +179,24 @@ export class LootDeckComponent implements OnInit, OnChanges {
     } else if (!this.disabled && this.deck.cards.length > 0) {
       if (!this.drawTimeout && this.deck.current + 1 < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
         const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
-        this.drawTimeout = setTimeout(
-          () => {
-            this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
-            if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
-              const result = gameManager.lootManager.drawCard(this.deck, activeCharacter);
-              if (result) {
-                const index = this.deck.current;
-                setTimeout(
-                  () => {
-                    openLootRandomItemDialog(this.dialog, result, activeCharacter, index);
-                  },
-                  settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
-                );
-              }
-            } else {
-              gameManager.lootManager.drawCard(this.deck, undefined);
+        this.delayedDraw(() => {
+          this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
+          if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
+            const result = gameManager.lootManager.drawCard(this.deck, activeCharacter);
+            if (result) {
+              const index = this.deck.current;
+              setTimeout(
+                () => {
+                  openLootRandomItemDialog(this.dialog, result, activeCharacter, index);
+                },
+                settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
+              );
             }
-            this.after.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
-            this.drawTimeout = null;
-          },
-          settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0
-        );
+          } else {
+            gameManager.lootManager.drawCard(this.deck, undefined);
+          }
+          this.after.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
+        });
       }
     } else {
       this.dialog.open(LootDeckDialogComponent, {
@@ -357,14 +247,7 @@ export class LootDeckComponent implements OnInit, OnChanges {
   }
 
   open(event: any) {
-    if (
-      this.deck.cards.length > 0 &&
-      gameManager.game.state === GameState.next &&
-      this.fullscreen() &&
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400)
-    ) {
+    if (this.deck.cards.length > 0 && gameManager.game.state === GameState.next && this.fullscreen() && ghsCompactPortrait()) {
       this.openFullscreen(event);
     } else {
       this.dialog.open(LootDeckDialogComponent, {

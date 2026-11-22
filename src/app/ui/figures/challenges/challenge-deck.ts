@@ -1,17 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  HostListener,
-  inject,
-  input,
-  OnChanges,
-  OnInit,
-  output,
-  SimpleChanges
-} from '@angular/core';
+import { Component, HostListener, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
@@ -21,8 +10,10 @@ import { GameState } from 'src/app/game/model/Game';
 import { ChallengeCardComponent } from 'src/app/ui/figures/challenges/challenge-card';
 import { ChallengeDeckDialogComponent } from 'src/app/ui/figures/challenges/challenge-deck-dialog';
 import { ChallengeDeckFullscreenComponent } from 'src/app/ui/figures/challenges/challenge-deck-fullscreen';
+import { DeckDrawDirective } from 'src/app/ui/helper/deck-draw';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { ghsCompactPortrait } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 export class ChallengeDeckChange {
@@ -43,12 +34,10 @@ export class ChallengeDeckChange {
   templateUrl: './challenge-deck.html',
   styleUrls: ['./challenge-deck.scss']
 })
-export class ChallengeDeckComponent implements OnInit, OnChanges {
-  private element = inject(ElementRef);
+export class ChallengeDeckComponent extends DeckDrawDirective implements OnInit, OnChanges {
   private dialog = inject(Dialog);
   private ghsManager = inject(GhsManager);
-
-  private cdr = inject(ChangeDetectorRef);
+  protected drawingClass: string = 'deck';
 
   readonly inputChallengeDeck = input.required<ChallengeDeck>({ alias: 'deck' });
   get deck(): ChallengeDeck {
@@ -63,41 +52,29 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
   readonly initTimeout = input<number>(1500);
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  current: number = -1;
   internalDraw: number = -99;
   GameState = GameState;
-  drawing: boolean = false;
-  drawTimeout: any = null;
-  queue: number = 0;
-  queueTimeout: any = null;
   compact: boolean = false;
   disabled: boolean = false;
   drawDisabled: boolean = false;
-  init: boolean = false;
-  initServer: boolean = false;
   drawAvailable: number = 0;
   keepAvailable: number = 0;
 
   constructor() {
+    super();
     this.ghsManager.uiChangeEffect((fromServer: boolean) => {
       this.update(fromServer);
     });
-    this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
-      const elements = document.elementsFromPoint(event.clientX, event.clientY);
-      if (elements[0].classList.contains('deck') && elements.length > 2) {
-        (elements[2] as HTMLElement).click();
-      }
-    });
+    this.clickThrough();
+  }
+
+  protected deckCurrent(): number {
+    return this.deck.current;
   }
 
   ngOnInit(): void {
-    this.current = this.deck.current;
     this.internalDraw = -99;
-    this.compact =
-      this.deck.cards.length > 0 &&
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = this.deck.cards.length > 0 && ghsCompactPortrait();
 
     const building = gameManager.game.party.buildings.find(
       (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
@@ -114,27 +91,13 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
       !this.deck.cards.length;
     this.drawDisabled = this.disabled || this.deck.current - this.deck.finished >= this.drawAvailable;
 
-    if (!this.init) {
-      this.drawTimeout = setTimeout(
-        () => {
-          this.current = this.deck.current;
-          this.drawTimeout = null;
-          this.init = true;
-          this.cdr.markForCheck();
-        },
-        settingsManager.settings.animations ? this.initTimeout() * settingsManager.settings.animationSpeed : 0
-      );
-    }
+    this.initQueue(this.initTimeout());
   }
 
   @HostListener('window:resize')
   @HostListener('window:fullscreenchange')
   onWindowResize() {
-    this.compact =
-      this.deck.cards.length > 0 &&
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = this.deck.cards.length > 0 && ghsCompactPortrait();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -159,76 +122,9 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
       !this.deck.cards.length;
     this.drawDisabled = this.disabled || this.deck.current - this.deck.finished >= this.drawAvailable;
 
-    if (this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
-      this.initServer = false;
-    }
+    this.updateQueue(this.deck.active, fromServer);
 
-    if (!this.deck.active) {
-      if (this.queueTimeout) {
-        clearTimeout(this.queueTimeout);
-        this.queueTimeout = null;
-      }
-      this.queue = 0;
-      this.drawing = false;
-      this.current = this.deck.current;
-      this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
-    } else if (this.init && (!fromServer || this.initServer)) {
-      if (this.current < this.deck.current) {
-        const delta = this.deck.current - this.current;
-        if (!fromServer && this.current === -1 && delta > 1) {
-          this.current = this.deck.current;
-        } else {
-          this.queue = Math.max(0, delta);
-          if (!this.queueTimeout) {
-            this.queue--;
-            this.current++;
-            this.drawQueue(fromServer);
-          }
-        }
-      } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
-        if (this.queueTimeout) {
-          clearTimeout(this.queueTimeout);
-          this.queueTimeout = null;
-        }
-        this.queue = 0;
-        this.drawing = false;
-        this.current = this.deck.current;
-      }
-    } else {
-      this.current = this.deck.current;
-      if (fromServer && !this.initServer) {
-        this.initServer = true;
-      }
-    }
-
-    this.compact =
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
-  }
-
-  drawQueue(fromServer: boolean) {
-    this.drawing = true;
-    this.element.nativeElement.getElementsByClassName('deck')[0].classList.add('drawing');
-    this.queueTimeout = setTimeout(
-      () => {
-        this.drawing = false;
-        this.queueTimeout = null;
-
-        if (this.queue > 0) {
-          this.queue--;
-          this.current++;
-          this.drawQueue(fromServer);
-        } else {
-          this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
-          if (this.queue < 0) {
-            this.queue = 0;
-          }
-        }
-        this.cdr.markForCheck();
-      },
-      settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0
-    );
+    this.compact = ghsCompactPortrait();
   }
 
   draw(event: any) {
@@ -236,15 +132,11 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
       this.openFullscreen(event);
     } else if (!this.drawDisabled && this.deck.cards.length > 0) {
       if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
-        this.drawTimeout = setTimeout(
-          () => {
-            this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
-            gameManager.challengesManager.drawCard(this.deck);
-            this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
-            this.drawTimeout = null;
-          },
-          settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0
-        );
+        this.delayedDraw(() => {
+          this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
+          gameManager.challengesManager.drawCard(this.deck);
+          this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
+        });
       }
     } else {
       this.dialog.open(ChallengeDeckDialogComponent, {
@@ -292,13 +184,7 @@ export class ChallengeDeckComponent implements OnInit, OnChanges {
   }
 
   open(event: any) {
-    if (
-      this.deck.cards.length > 0 &&
-      this.fullscreen() &&
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400)
-    ) {
+    if (this.deck.cards.length > 0 && this.fullscreen() && ghsCompactPortrait()) {
       this.openFullscreen(event);
     } else {
       this.dialog.open(ChallengeDeckDialogComponent, {

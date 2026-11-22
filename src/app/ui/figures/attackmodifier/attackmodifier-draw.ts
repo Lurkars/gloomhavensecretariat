@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
@@ -7,6 +7,7 @@ import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { AttackModifierComponent } from 'src/app/ui/figures/attackmodifier/attackmodifier';
+import { DeckDrawDirective } from 'src/app/ui/helper/deck-draw';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
@@ -15,11 +16,11 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
   templateUrl: './attackmodifier-draw.html',
   styleUrls: ['./attackmodifier-draw.scss']
 })
-export class AttackModifierDrawComponent implements OnInit, OnChanges {
-  element = inject(ElementRef);
+export class AttackModifierDrawComponent extends DeckDrawDirective implements OnInit, OnChanges {
   private ghsManager = inject(GhsManager);
-
-  private cdr = inject(ChangeDetectorRef);
+  protected drawingClass: string = 'attack-modifier-draw';
+  protected override serverAware: boolean = false;
+  override init: boolean = true;
 
   readonly inputCharacter = input.required<Character>({ alias: 'character' });
   get character(): Character {
@@ -37,21 +38,25 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   characterIcon: string = '';
 
   AttackModifierType = AttackModifierType;
-  current: number = -1;
-  drawing: boolean = false;
-  drawTimeout: any = null;
-  queue: number = 0;
-  queueTimeout: any = null;
   newStyle: boolean = false;
 
   constructor() {
+    super();
     this.ghsManager.uiChangeEffect((fromServer: boolean) => this.update(fromServer));
-    this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
-      const elements = document.elementsFromPoint(event.clientX, event.clientY);
-      if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
-        (elements[2] as HTMLElement).click();
-      }
-    });
+    this.clickThrough('attack-modifiers');
+  }
+
+  protected deckCurrent(): number {
+    return this.deck ? this.deck.current : -1;
+  }
+
+  protected override drawDuration(): number {
+    return 2500;
+  }
+
+  protected override setDrawing(drawing: boolean) {
+    this.drawing = drawing;
+    this.drawingEmitter.emit(drawing);
   }
 
   ngOnInit(): void {
@@ -74,50 +79,6 @@ export class AttackModifierDrawComponent implements OnInit, OnChanges {
   }
 
   update(fromServer: boolean = false) {
-    if (this.current < this.deck.current) {
-      const delta = this.deck.current - this.current;
-      if (!fromServer && this.current === -1 && delta > 1) {
-        this.current = this.deck.current;
-      } else if (!this.queueTimeout) {
-        this.queue = Math.max(0, delta);
-        this.queue--;
-        this.current++;
-        this.drawQueue();
-      }
-    } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
-      if (this.queueTimeout) {
-        clearTimeout(this.queueTimeout);
-        this.queueTimeout = null;
-      }
-      this.queue = 0;
-      this.drawing = false;
-      this.drawingEmitter.emit(false);
-      this.current = this.deck.current;
-    }
-  }
-
-  drawQueue() {
-    this.drawing = true;
-    this.drawingEmitter.emit(true);
-    this.element.nativeElement.getElementsByClassName('attack-modifier-draw')[0].classList.add('drawing');
-    this.queueTimeout = setTimeout(
-      () => {
-        this.drawing = false;
-        this.drawingEmitter.emit(false);
-        this.queueTimeout = null;
-        if (this.queue > 0) {
-          this.queue--;
-          this.current++;
-          this.drawQueue();
-        } else {
-          this.element.nativeElement.getElementsByClassName('attack-modifier-draw')[0].classList.remove('drawing');
-          if (this.queue < 0) {
-            this.queue = 0;
-          }
-        }
-        this.cdr.markForCheck();
-      },
-      settingsManager.settings.animations ? 2500 * settingsManager.settings.animationSpeed : 0
-    );
+    this.updateQueue(true, fromServer);
   }
 }

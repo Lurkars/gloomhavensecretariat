@@ -1,14 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
-import { findEntities, findFigure, removeDeadEntity } from 'src/app/game/commands/CommandHelper';
+import { findEntities, findFigure } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
-import { ConditionType } from 'src/app/game/model/data/Condition';
-import { GameState } from 'src/app/game/model/Game';
-import { Monster } from 'src/app/game/model/Monster';
-import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
-import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
-import { Summon } from 'src/app/game/model/Summon';
 
 export class EntityDeadCommand extends CommandImpl {
   id: string = 'entity.dead';
@@ -23,33 +16,11 @@ export class EntityDeadCommand extends CommandImpl {
     const figure = findFigure(figureId);
     const entities = findEntities(figure, entityId);
     if (figure && entities.length) {
-      entities.forEach((entity) => {
-        if (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) {
-          entity.dead = true;
-          if (entity instanceof MonsterEntity && figure instanceof Monster) {
-            gameManager.monsterManager.monsterEntityKilled(figure, entity);
-          }
-        }
-      });
-
-      entities.forEach((entity) => {
-        if (
-          gameManager.game.state === GameState.draw ||
-          entity.entityConditions.every(
-            (entityCondition) => !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)
-          )
-        ) {
-          removeDeadEntity(figure, entity);
-        }
-      });
-
-      if (
-        (figure instanceof Monster || figure instanceof ObjectiveContainer) &&
-        figure.active &&
-        figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))
-      ) {
-        gameManager.roundManager.toggleFigure(figure);
-      }
+      entities.forEach((entity) => gameManager.entityManager.killEntity(entity, figure));
+      gameManager.entityManager.removeDeadEntities(
+        entities.filter((entity) => gameManager.entityManager.deadRemovable(entity)).map((entity) => ({ entity, figure }))
+      );
+      gameManager.entityManager.deactivateDeadFigure(figure);
     } else {
       this.executionError('entity not found');
     }

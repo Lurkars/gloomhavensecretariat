@@ -20,15 +20,7 @@ export class CharacterBattleGoalDrawCommand extends CommandImpl {
     gameManager.game.seed = seed;
     const character = findCharacter(number);
     if (character) {
-      character.battleGoals = [];
-      character.battleGoal = false;
-      gameManager.battleGoalManager.drawBattleGoal(character);
-      if (!gameManager.trialsManager.apply || !gameManager.trialsManager.activeTrial('fh', 360)) {
-        gameManager.battleGoalManager.drawBattleGoal(character);
-        if (gameManager.fhRules(true) || settingsManager.settings.battleGoalsFh) {
-          gameManager.battleGoalManager.drawBattleGoal(character);
-        }
-      }
+      gameManager.battleGoalManager.drawBattleGoals(character);
     } else {
       this.executionError('character not found');
     }

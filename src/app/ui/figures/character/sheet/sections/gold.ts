@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 
@@ -18,21 +17,12 @@ export class CharacterSheetGoldComponent extends CharacterSheetSection implement
   goldTimeout: any = null;
 
   ngOnInit(): void {
-    this.donations =
-      !gameManager.fhRules(false) && !gameManager.editionRules('jotl') && !gameManager.attackModifierManager.isRpgCharacter(this.character);
-    if (
-      this.fh() &&
-      gameManager.fhRules(false) &&
-      gameManager.game.party.buildings.find(
-        (buildingModel) => buildingModel.name === 'temple' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
-      )
-    ) {
-      this.donations = 'fh';
-    }
+    const available = gameManager.characterManager.donationsAvailable(this.character);
+    this.donations = available && gameManager.fhRules(false) ? (this.fh() ? 'fh' : false) : available;
   }
 
   get donationPrice(): number {
-    return this.donations === 'fh' ? 5 : 10;
+    return gameManager.characterManager.donationCosts();
   }
 
   setGold(event: any) {
@@ -56,15 +46,10 @@ export class CharacterSheetGoldComponent extends CharacterSheetSection implement
   }
 
   donate() {
-    if (gameManager.game.round < 1 && this.character.progress.gold > this.donationPrice - 1) {
+    if (gameManager.characterManager.canDonate(this.character)) {
       gameManager.stateManager.before('donate', this.characterName);
-      this.character.progress.donations += 1;
-      this.character.donations += 1;
-      gameManager.game.party.donations += 1;
-      this.character.progress.gold -= this.donationPrice;
+      gameManager.characterManager.donate(this.character);
       gameManager.stateManager.after();
-      gameManager.personalQuestManager.trackPersonalQuestProgress(this.character, PersonalQuestAutotrackType.donations);
-      gameManager.personalQuestManager.trackPersonalQuestProgress(this.character, PersonalQuestAutotrackType.donatedGold);
     }
   }
 }

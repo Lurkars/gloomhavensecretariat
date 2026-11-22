@@ -41,7 +41,7 @@ import { EntityAnimationDirective } from 'src/app/ui/helper/EntityAnimation';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsMinZeroPipe, GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
-import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
+import { ghsCompactPortrait, ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
@@ -200,45 +200,20 @@ export class CharacterComponent implements OnInit {
   }
 
   dragInitiativeMove(value: number) {
-    if (value > 99) {
-      value = 99;
-    } else if (value < 0) {
-      value = 0;
-    }
-
-    if (gameManager.game.state === GameState.next && value === 0 && settingsManager.settings.initiativeRequired) {
-      value = 1;
-    }
+    value = gameManager.roundManager.clampInitiative(value);
 
     this.initiative = value;
     this.cdr.markForCheck();
   }
 
   dragInitiativeEnd(value: number) {
-    if (value > 99) {
-      value = 99;
-    } else if (value < 0) {
-      value = 0;
-    }
-
-    if (gameManager.game.state === GameState.next && value === 0 && settingsManager.settings.initiativeRequired) {
-      value = 1;
-    }
+    value = gameManager.roundManager.clampInitiative(value);
 
     if (this.character.initiative !== this.initiative) {
       this.character.initiative = this.initiative;
       gameManager.entityManager.before(this.character, this.character, 'setInitiative', value);
-      this.character.initiative = value;
-      if (value === 99) {
-        this.character.longRest = true;
-      } else if (!value || !gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
-        this.character.longRest = false;
-      }
+      gameManager.roundManager.setInitiative(this.character, value);
       this.initiative = -1;
-      this.character.initiativeVisible = true;
-      if (gameManager.game.state === GameState.next) {
-        gameManager.sortFigures(this.character);
-      }
       gameManager.stateManager.after();
     }
   }
@@ -414,8 +389,7 @@ export class CharacterComponent implements OnInit {
   dragLootEnd() {
     if (this.loot !== 0) {
       gameManager.entityManager.before(this.character, this.character, 'changeLoot', ghsValueSign(this.loot));
-      this.character.loot += this.loot;
-      gameManager.personalQuestManager.trackMoneyTokens(this.character, this.loot);
+      gameManager.characterManager.changeLoot(this.character, this.loot);
       this.loot = 0;
       gameManager.stateManager.after();
     }
@@ -425,8 +399,7 @@ export class CharacterComponent implements OnInit {
     this.loot = value;
     if (this.character.loot + this.loot >= 0) {
       gameManager.entityManager.before(this.character, this.character, 'changeLoot', ghsValueSign(this.loot));
-      this.character.loot += this.loot;
-      gameManager.personalQuestManager.trackMoneyTokens(this.character, this.loot);
+      gameManager.characterManager.changeLoot(this.character, this.loot);
       gameManager.stateManager.after();
     }
     this.loot = 0;
@@ -575,11 +548,7 @@ export class CharacterComponent implements OnInit {
       this.character.attackModifierDeck.active = true;
       this.character.attackModifierDeckVisible = true;
       this.character.lootCardsVisible = false;
-    } else if (
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400)
-    ) {
+    } else if (ghsCompactPortrait()) {
       this.character.lootCardsVisible = false;
 
       const before = new EventEmitter<AttackModiferDeckChange>();
@@ -619,11 +588,7 @@ export class CharacterComponent implements OnInit {
   toggleLootCardsVisible() {
     if (this.character.lootCardsVisible) {
       this.character.lootCardsVisible = false;
-    } else if (
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400)
-    ) {
+    } else if (ghsCompactPortrait()) {
       this.character.lootCardsVisible = false;
       this.openLootDeckDialog();
     } else {
@@ -671,36 +636,22 @@ export class CharacterComponent implements OnInit {
       'removeSpecialTags',
       '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%'
     );
-    this.character.tags = this.character.tags.filter((specialTag) => specialTag !== specialAction);
-
     gameManager.specialActionsManager.removeSpecialAction(this.character, this.character, specialAction);
 
     gameManager.stateManager.after();
   }
 
   triggerSpecialActionSlot(specialAction: CharacterSpecialAction, index: number, force: boolean = false) {
-    if (!!specialAction.slots) {
-      const current = specialAction.slots.length - this.character.tags.filter((tag) => tag === specialAction.name).length;
-      const revert = index < current;
-      if (((current != index || index === specialAction.slots.length) && specialAction.slotTrigger === 'manual') || force) {
-        gameManager.entityManager.before(
-          this.character,
-          this.character,
-          'triggerSpecialTagSlot' + (revert ? '.revert' : ''),
-          '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction.name + '%'
-        );
-
-        for (let i = 0; i < Math.max(1, Math.abs(index - current)); i++) {
-          gameManager.specialActionsManager.triggerSlot(
-            this.character,
-            force ? specialAction.slotTrigger : 'manual',
-            specialAction.name,
-            revert,
-            force
-          );
-        }
-        gameManager.stateManager.after();
-      }
+    if (gameManager.specialActionsManager.slotChangeable(this.character, specialAction, index, force)) {
+      const revert = index < gameManager.specialActionsManager.slotIndex(this.character, specialAction);
+      gameManager.entityManager.before(
+        this.character,
+        this.character,
+        'triggerSpecialTagSlot' + (revert ? '.revert' : ''),
+        '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction.name + '%'
+      );
+      gameManager.specialActionsManager.setSlot(this.character, specialAction, index, force);
+      gameManager.stateManager.after();
     }
   }
 

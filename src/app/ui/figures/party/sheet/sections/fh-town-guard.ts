@@ -28,26 +28,14 @@ export class PartySheetFhTownGuardComponent extends PartySheetSection {
     gameManager.stateManager.after();
   }
   toggleTownGuardPerkSection(section: string, force: boolean = false) {
-    this.party.townGuardPerkSections = this.party.townGuardPerkSections || [];
-    const index = this.party.townGuardPerkSections.indexOf(section);
-    if (index !== -1 || this.party.townGuardPerkSections.length < Math.floor(this.party.townGuardPerks / 3) || force) {
-      gameManager.stateManager.before(index === -1 ? 'addPartyTownGuardPerkSection' : 'removePartyTownGuardPerkSection', section);
-      if (index === -1) {
-        this.party.townGuardPerkSections.push(section);
-        this.finishConclusion(section);
-      } else {
-        this.party.townGuardPerkSections.splice(index, 1);
-      }
-      const active = (this.party.townGuardDeck && this.party.townGuardDeck.active) || false;
-      const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
-        this.party,
-        gameManager.campaignManager.campaignData()
-      );
-      townGuardDeck.active = active;
-      gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
-      this.party.townGuardDeck = townGuardDeck.toModel();
-
+    const added = !(this.party.townGuardPerkSections || []).includes(section);
+    if (gameManager.outpostAttackManager.townGuardPerkSectionAvailable(section) || force) {
+      gameManager.stateManager.before(added ? 'addPartyTownGuardPerkSection' : 'removePartyTownGuardPerkSection', section);
+      gameManager.outpostAttackManager.setTownGuardPerkSection(section, added);
       gameManager.stateManager.after();
+      if (added) {
+        this.finishConclusion(section);
+      }
     }
   }
 }

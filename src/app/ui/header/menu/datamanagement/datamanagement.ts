@@ -123,19 +123,7 @@ export class DatamanagementMenuComponent implements OnInit {
       }
       if (characterData && !gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) {
         gameManager.stateManager.before('unlockChar', 'data.character.' + characterData.edition + '.' + characterData.name);
-        gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
-        if (settingsManager.settings.events) {
-          if (characterData.unlockEvent) {
-            characterData.unlockEvent.split('|').forEach((unlockEvent) => {
-              if (unlockEvent.split(':').length > 1) {
-                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-              } else {
-                gameManager.eventCardManager.addEvent('city', unlockEvent, true);
-                gameManager.eventCardManager.addEvent('road', unlockEvent, true);
-              }
-            });
-          }
-        }
+        gameManager.characterManager.unlockCharacter(characterData.edition, characterData.name);
         gameManager.stateManager.after();
         target.value = '';
         target.disabled = false;
@@ -259,15 +247,7 @@ export class DatamanagementMenuComponent implements OnInit {
 
   importGame(gameModel: GameModel) {
     gameManager.stateManager.before('loadGameFromFile');
-    if (gameModel.revision < gameManager.game.revision) {
-      storageManager.addBackup(gameManager.game.toModel());
-      gameModel.revision = gameManager.game.revision;
-      gameModel.revisionOffset = gameManager.game.revisionOffset;
-    }
-    if (!!gameModel.edition) {
-      settingsManager.automaticTheme(gameModel.edition, gameManager.game.edition);
-    }
-    gameManager.game.fromModel(gameModel, false, true);
+    gameManager.importGame(gameModel);
     gameManager.stateManager.after();
   }
 

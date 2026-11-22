@@ -106,13 +106,9 @@ export class EventCardDeckComponent {
   dropUpcoming(event: CdkDragDrop<EventCard[]>) {
     gameManager.stateManager.before('events.deck.reorder', this.type);
     if (event.container === event.previousContainer) {
-      moveItemInArray(gameManager.game.party.eventDecks[this.type] || [], event.previousIndex, event.currentIndex);
+      gameManager.eventCardManager.moveEvent(this.type, event.previousIndex, event.currentIndex);
     } else {
-      (gameManager.game.party.eventDecks[this.type] || []).splice(
-        event.currentIndex < 0 ? 0 : event.currentIndex,
-        0,
-        this.newCards[event.previousIndex].cardId
-      );
+      gameManager.eventCardManager.insertEvent(this.type, this.newCards[event.previousIndex].cardId, event.currentIndex);
     }
     gameManager.stateManager.after();
   }
@@ -122,7 +118,7 @@ export class EventCardDeckComponent {
     if (event.container === event.previousContainer) {
       moveItemInArray(this.newCards, event.previousIndex, event.currentIndex);
     } else {
-      (gameManager.game.party.eventDecks[this.type] || []).splice(event.previousIndex, 1);
+      gameManager.eventCardManager.removeEvent(this.type, this.upcomingCards[event.previousIndex].cardId);
     }
     gameManager.stateManager.after();
   }
@@ -137,20 +133,7 @@ export class EventCardDeckComponent {
 
     if (eventCard) {
       gameManager.stateManager.before('events.deck.markDrawn', eventCard.type, eventCard.cardId);
-      gameManager.game.party.eventCards.splice(
-        event.currentIndex,
-        0,
-        new EventCardIdentifier(
-          eventCard.cardId,
-          eventCard.edition,
-          eventCard.type,
-          -1,
-          [],
-          [...(gameManager.eventCardManager.lastEventCardResult(eventCard.edition, eventCard.type, eventCard.cardId)?.checks || [])],
-          false,
-          false
-        )
-      );
+      gameManager.eventCardManager.markEventDrawn(eventCard, event.currentIndex);
       gameManager.stateManager.after();
     }
   }
@@ -240,13 +223,7 @@ export class EventCardDeckComponent {
   resetDeck() {
     if (this.confirmReset) {
       gameManager.stateManager.before('events.deck.reset', this.type);
-      if (!!gameManager.game.party.eventDecks[this.type]) {
-        gameManager.game.party.eventDecks[this.type] = [];
-        gameManager.game.party.eventCards = gameManager.game.party.eventCards.filter(
-          (value) => value.edition !== this.edition && value.type !== this.type
-        );
-      }
-      gameManager.eventCardManager.buildPartyDeck(this.edition, this.type);
+      gameManager.eventCardManager.resetEventDeck(this.edition, this.type);
       gameManager.stateManager.after();
       this.update();
     } else {

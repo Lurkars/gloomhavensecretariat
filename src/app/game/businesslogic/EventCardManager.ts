@@ -161,33 +161,11 @@ export class EventCardManager {
 
           this.game.unlockedCharacters
             .map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0]))
-            .forEach((characterData) => {
-              if (characterData.unlockEvent) {
-                characterData.unlockEvent.split('|').forEach((unlockEvent) => {
-                  if (unlockEvent.split(':').length > 1) {
-                    this.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-                  } else {
-                    this.addEvent('city', unlockEvent, true);
-                    this.addEvent('road', unlockEvent, true);
-                  }
-                });
-              }
-            });
+            .forEach((characterData) => this.addEvents(characterData.unlockEvent));
 
           this.game.party.retirements
             .map((c) => gameManager.getCharacterData(c.name, c.edition))
-            .forEach((characterData) => {
-              if (characterData.retireEvent) {
-                characterData.retireEvent.split('|').forEach((retireEvent) => {
-                  if (retireEvent.split(':').length > 1) {
-                    this.addEvent(retireEvent.split(':')[0], retireEvent.split(':')[1], true);
-                  } else {
-                    this.addEvent('city', retireEvent, true);
-                    this.addEvent('road', retireEvent, true);
-                  }
-                });
-              }
-            });
+            .forEach((characterData) => this.addEvents(characterData.retireEvent));
 
           const treasures = gameManager.editionData
             .filter((editionData) => editionData.treasures && gameManager.isEditionRelevant(editionData.edition, edition, true))
@@ -314,6 +292,47 @@ export class EventCardManager {
     });
   }
 
+  changeCharacterValue(
+    characters: Character[],
+    type: 'experience' | 'gold' | 'battleGoals' | 'resource',
+    value: number,
+    lootType: LootType | undefined = undefined
+  ) {
+    characters.forEach((character) => {
+      switch (type) {
+        case 'experience':
+          character.progress.experience = Math.max(0, character.progress.experience + value);
+          break;
+        case 'gold':
+          character.progress.gold = Math.max(0, character.progress.gold + value);
+          if (value > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.gold, undefined, value);
+          }
+          break;
+        case 'battleGoals':
+          character.progress.battleGoals = Math.max(0, character.progress.battleGoals + value);
+          if (value > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              character,
+              PersonalQuestAutotrackType.battleGoals,
+              undefined,
+              value
+            );
+          }
+          break;
+        case 'resource':
+          if (lootType) {
+            character.progress.loot[lootType] = Math.max(0, (character.progress.loot[lootType] || 0) + value);
+          }
+          break;
+      }
+    });
+  }
+
+  changeSupplyResource(lootType: LootType, value: number) {
+    this.game.party.loot[lootType] = (this.game.party.loot[lootType] || 0) + value;
+  }
+
   applyRandomItem(item: ItemData | undefined) {
     if (item) {
       gameManager.itemManager.setItemUnlocked(item, true);
@@ -333,6 +352,20 @@ export class EventCardManager {
     } else if (gameManager.fhRules()) {
       this.game.party.inspiration += 1;
     }
+  }
+
+  addEvents(events: string | undefined, newOnly: boolean = true) {
+    (events || '')
+      .split('|')
+      .filter((event) => !!event)
+      .forEach((event) => {
+        if (event.split(':').length > 1) {
+          this.addEvent(event.split(':')[0], event.split(':')[1], newOnly);
+        } else {
+          this.addEvent('city', event, newOnly);
+          this.addEvent('road', event, newOnly);
+        }
+      });
   }
 
   shuffleEvents(type: string) {
@@ -416,6 +449,39 @@ export class EventCardManager {
     if (index !== -1) {
       this.game.party.eventDecks[type].splice(index, 1);
     }
+  }
+
+  insertEvent(type: string, cardId: string, index: number) {
+    if (!this.game.party.eventDecks[type]) {
+      this.game.party.eventDecks[type] = [];
+    }
+    this.game.party.eventDecks[type].splice(Math.max(index, 0), 0, cardId);
+  }
+
+  moveEvent(type: string, from: number, to: number) {
+    const deck = this.game.party.eventDecks[type] || [];
+    if (from >= 0 && from < deck.length) {
+      const cardId = deck.splice(from, 1)[0];
+      deck.splice(Math.min(Math.max(to, 0), deck.length), 0, cardId);
+    }
+  }
+
+  markEventDrawn(eventCard: EventCard, index: number = -1) {
+    const checks = this.lastEventCardResult(eventCard.edition, eventCard.type, eventCard.cardId)?.checks || [];
+    const identifier = new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, -1, [], [...checks], false, false);
+    if (index < 0) {
+      this.game.party.eventCards.push(identifier);
+    } else {
+      this.game.party.eventCards.splice(index, 0, identifier);
+    }
+  }
+
+  resetEventDeck(edition: string, type: string) {
+    if (this.game.party.eventDecks[type]) {
+      this.game.party.eventDecks[type] = [];
+      this.game.party.eventCards = this.game.party.eventCards.filter((value) => value.edition !== edition || value.type !== type);
+    }
+    this.buildPartyDeck(edition, type);
   }
 
   applyEvent(

@@ -24,6 +24,43 @@ export function openSection(dialog: Dialog, index: string, edition: string, grou
   openNextWeekSection(dialog, [{ week: -1, index, edition, group }], done);
 }
 
+export function openConclusionChoice(
+  dialog: Dialog,
+  section: string,
+  conclusions: ScenarioData[],
+  selected: (conclusion: ScenarioData) => void
+) {
+  if (!conclusions.length) {
+    return;
+  }
+  dialog
+    .open(ScenarioConclusionComponent, {
+      panelClass: ['dialog'],
+      data: {
+        conclusions: conclusions,
+        parent: gameManager.sectionData(gameManager.game.edition).find((sectionData) => sectionData.index === section && !sectionData.group)
+      }
+    })
+    .closed.subscribe({
+      next: (conclusion) => {
+        if (conclusion) {
+          selected(conclusion as ScenarioData);
+        }
+      }
+    });
+}
+
+export function finishWeekConclusion(dialog: Dialog, conclusion: ScenarioData, week: number) {
+  const scenario = new Scenario(conclusion);
+  gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
+  gameManager.scenarioManager.finishWeekConclusion(scenario, week);
+  gameManager.stateManager.after();
+  dialog.open(ScenarioSummaryComponent, {
+    panelClass: ['dialog'],
+    data: { scenario: scenario, conclusionOnly: true }
+  });
+}
+
 function sectionData(pending: PendingWeekSection): ScenarioData | undefined {
   return gameManager
     .sectionData(pending.edition)

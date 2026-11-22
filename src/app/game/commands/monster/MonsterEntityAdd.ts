@@ -2,7 +2,6 @@ import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findMonster, validSeed } from 'src/app/game/commands/CommandHelper';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
-import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 
 export class MonsterEntityAddCommand extends CommandImpl {
@@ -38,32 +37,10 @@ export class MonsterEntityAddCommand extends CommandImpl {
       if (number === 0) {
         number = gameManager.monsterManager.monsterRandomStandee(monster);
       } else if (number === -1) {
-        number = 1;
-        while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
-          number += 1;
-        }
+        number = gameManager.monsterManager.nextStandeeNumber(monster);
       }
-
-      const dead = monster.entities.find((monsterEntity) => monsterEntity.number === number);
-      if (dead) {
-        gameManager.monsterManager.removeMonsterEntity(monster, dead);
-      }
-
-      const entity = gameManager.monsterManager.addMonsterEntity(
-        monster,
-        number,
-        monster.editionRules === 'bb' && monster.tags.includes('bb-elite') ? MonsterType.elite : type,
-        summon
-      );
-
-      if (!entity) {
+      if (!gameManager.monsterManager.placeStandee(monster, number, type, summon)) {
         this.executionError('could not add standee');
-      } else if (gameManager.game.state === GameState.next) {
-        monster.active = !gameManager.game.figures.some((figure) => figure.active);
-        if (monster.active) {
-          gameManager.sortFigures(monster);
-          entity.active = true;
-        }
       }
     } else {
       this.executionError('monster not found');

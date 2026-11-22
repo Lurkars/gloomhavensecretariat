@@ -14,7 +14,7 @@ import { Building } from 'src/app/ui/figures/party/buildings/buildings';
 import { GardenComponent } from 'src/app/ui/figures/party/buildings/garden/garden';
 import { StablesComponent } from 'src/app/ui/figures/party/buildings/stables/stables';
 import { BuildingUpgradeDialog } from 'src/app/ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
-import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
+import { openConclusionChoice } from 'src/app/ui/figures/party/week-sections/week-sections';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
@@ -114,27 +114,7 @@ export class BuildingsListComponent {
 
   openConclusions(section: string) {
     const conclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(section, gameManager.game.edition, true);
-
-    if (conclusions.length > 0) {
-      this.dialog
-        .open(ScenarioConclusionComponent, {
-          panelClass: ['dialog'],
-          data: {
-            conclusions: conclusions,
-            parent: gameManager
-              .sectionData(gameManager.game.edition)
-              .find((sectionData) => sectionData.index === section && !sectionData.group)
-          }
-        })
-        .closed.subscribe({
-          next: (conclusion) => {
-            if (conclusion) {
-              const scenario = new Scenario(conclusion as ScenarioData);
-              this.openConclusion(scenario.index);
-            }
-          }
-        });
-    }
+    openConclusionChoice(this.dialog, section, conclusions, (conclusion) => this.openConclusion(conclusion.index));
   }
 
   rebuild(building: Building, force: boolean = false) {

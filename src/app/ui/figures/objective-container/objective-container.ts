@@ -145,39 +145,20 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   dragInitiativeMove(value: number) {
-    if (value > 99) {
-      value = 99;
-    } else if (value < 0) {
-      value = 0;
-    }
-
-    if (gameManager.game.state === GameState.next && value === 0 && settingsManager.settings.initiativeRequired) {
-      value = 1;
-    }
+    value = gameManager.roundManager.clampInitiative(value);
 
     this.initiative = value;
     this.cdr.markForCheck();
   }
 
   dragInitiativeEnd(value: number) {
-    if (value > 99) {
-      value = 99;
-    } else if (value < 0) {
-      value = 0;
-    }
-
-    if (gameManager.game.state === GameState.next && value === 0 && settingsManager.settings.initiativeRequired) {
-      value = 1;
-    }
+    value = gameManager.roundManager.clampInitiative(value);
 
     if (this.objective.initiative !== this.initiative) {
       this.objective.initiative = this.initiative;
       gameManager.entityManager.before(undefined, this.objective, 'setInitiative', value);
-      this.objective.initiative = value;
+      gameManager.roundManager.setInitiative(this.objective, value);
       this.initiative = -1;
-      if (gameManager.game.state === GameState.next) {
-        gameManager.sortFigures(this.objective);
-      }
       gameManager.stateManager.after();
     }
   }

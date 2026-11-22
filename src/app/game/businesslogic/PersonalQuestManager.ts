@@ -11,6 +11,8 @@ import { GameScenarioModel } from 'src/app/game/model/Scenario';
 export const PERSONAL_QUEST_SCENARIO_CONCLUDED = 1 << 10;
 const SCENARIO_CHAIN_MIGRATION_TAG = 'pq-scenario-chain-migration';
 
+export const RETIREMENT_DIALOG_DISMISSED_TAG = 'retirement-dialog-dismissed';
+
 export class PersonalQuestManager {
   game: Game;
 
@@ -74,6 +76,18 @@ export class PersonalQuestManager {
       (personalQuest) =>
         this.personalQuestUnlocked(personalQuest) && !this.personalQuestPicked(personalQuest) && !this.personalQuestFulfilled(personalQuest)
     );
+  }
+
+  setPersonalQuest(character: Character, cardId: string) {
+    character.progress.personalQuest = cardId;
+    character.progress.personalQuestProgress = [];
+    character.progress.personalQuestAutotrack = false;
+    character.tags = character.tags.filter((tag) => tag !== RETIREMENT_DIALOG_DISMISSED_TAG);
+    const personalQuest = this.personalQuestByCard(gameManager.currentEdition(), cardId);
+    if (personalQuest) {
+      character.progress.personalQuest = personalQuest.cardId;
+      this.personalQuestAssigned(character);
+    }
   }
 
   drawPersonalQuests(edition: string, count: number = 2): PersonalQuest[] {

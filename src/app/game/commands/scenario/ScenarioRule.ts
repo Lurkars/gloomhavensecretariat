@@ -109,14 +109,7 @@ export class ScenarioRuleDiscardCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    const index = appliedRuleIndex(this.parameters);
-    const identifier = gameManager.game.appliedScenarioRules[index];
-    const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
-    const rule = scenario && scenario.rules ? scenario.rules[identifier.index] : undefined;
-    gameManager.game.appliedScenarioRules.splice(index, 1);
-    if (rule && (rule.once || rule.alwaysApplyTurn)) {
-      gameManager.game.discardedScenarioRules.push(identifier);
-    }
+    gameManager.scenarioRulesManager.discardAppliedRule(gameManager.game.appliedScenarioRules[appliedRuleIndex(this.parameters)]);
   }
 }
 
@@ -129,6 +122,6 @@ export class ScenarioRuleClearDiscardedCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    gameManager.game.discardedScenarioRules = [];
+    gameManager.scenarioRulesManager.clearDiscardedRules();
   }
 }

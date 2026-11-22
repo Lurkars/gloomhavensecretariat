@@ -8,7 +8,6 @@ import { Entity } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
-import { SummonState } from 'src/app/game/model/Summon';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
 import { ScenarioChartDialogComponent } from 'src/app/ui/figures/party/scenario-chart/scenario-chart';
@@ -594,16 +593,12 @@ export class KeyboardShortcuts implements OnInit {
             switch (event.key) {
               case 'l':
                 gameManager.entityManager.before(character, character, 'changeLoot', ghsValueSign(1));
-                character.loot += 1;
-                gameManager.personalQuestManager.trackMoneyTokens(character, 1);
+                gameManager.characterManager.changeLoot(character, 1);
                 gameManager.stateManager.after();
                 break;
               case 'L':
                 gameManager.entityManager.before(character, character, 'changeLoot', ghsValueSign(-1));
-                if (character.loot > 0) {
-                  character.loot -= 1;
-                  gameManager.personalQuestManager.trackMoneyTokens(character, -1);
-                }
+                gameManager.characterManager.changeLoot(character, -1);
                 gameManager.stateManager.after();
                 break;
             }
@@ -641,61 +636,15 @@ export class KeyboardShortcuts implements OnInit {
   }
 
   toggleEntity(reverse: boolean) {
-    const figures = gameManager.game.figures.filter((figure) => gameManager.gameplayFigure(figure));
-    let activeFigure = figures.find((figure) => figure.active);
-
-    if (!activeFigure && reverse) {
-      activeFigure = figures[figures.length - 1];
-    } else if (activeFigure && reverse && figures.indexOf(activeFigure) > 0) {
-      if (activeFigure instanceof Character) {
-        const summons = activeFigure.summons.filter(
-          (summon) => gameManager.entityManager.isAlive(summon) && summon.state !== SummonState.new
-        );
-        const activeSummon = summons.find((summon) => summon.active);
-        if (!activeSummon || (activeSummon && summons.indexOf(activeSummon) === 0)) {
-          activeFigure.summons.forEach((summon) => (summon.active = false));
-          activeFigure = figures[figures.indexOf(activeFigure) - 1];
-        }
-      } else {
-        activeFigure = figures[figures.indexOf(activeFigure) - 1];
-      }
-    }
-
-    if (activeFigure) {
-      if (activeFigure instanceof Character) {
-        gameManager.stateManager.before(...gameManager.characterManager.toggleActiveUndoInfos(activeFigure));
-        gameManager.characterManager.toggleActive(activeFigure);
-        gameManager.stateManager.after();
-      } else if (activeFigure instanceof Monster) {
-        const entity = settingsManager.settings.activeStandees
-          ? gameManager.monsterManager.nextActiveStandee(activeFigure, reverse)
-          : undefined;
-        if (entity) {
-          gameManager.stateManager.before(
-            entity.active ? 'unsetEntityActive' : 'setEntityActive',
-            'data.monster.' + activeFigure.name,
-            'monster.' + entity.type,
-            entity.number
-          );
-          gameManager.monsterManager.stepActiveStandee(activeFigure, entity, reverse);
-          gameManager.stateManager.after();
-        } else {
-          gameManager.stateManager.before(activeFigure.active ? 'unsetActive' : 'setActive', 'data.monster.' + activeFigure.name);
-          if (reverse && !activeFigure.active && settingsManager.settings.activeStandees) {
-            gameManager.monsterManager.activateStandees(activeFigure);
-          }
-          gameManager.roundManager.toggleFigure(activeFigure);
-          gameManager.stateManager.after();
-        }
-      } else if (activeFigure instanceof ObjectiveContainer) {
-        gameManager.stateManager.before(activeFigure.active ? 'unsetActive' : 'setActive', activeFigure.title || activeFigure.name);
-        gameManager.roundManager.toggleFigure(activeFigure);
-        gameManager.stateManager.after();
-      }
+    const figure = gameManager.roundManager.nextFigure(reverse);
+    if (figure) {
+      gameManager.stateManager.before(...gameManager.roundManager.nextFigureUndoInfos(figure, reverse));
+      gameManager.roundManager.toggleNextFigure(figure, reverse);
+      gameManager.stateManager.after();
 
       const roundButton = document.querySelector('.round-container');
       if (roundButton) {
-        if (figures.find((figure) => figure.active) === undefined) {
+        if (!gameManager.game.figures.some((other) => gameManager.gameplayFigure(other) && other.active)) {
           (roundButton as HTMLElement).focus();
         } else {
           (roundButton as HTMLElement).blur();

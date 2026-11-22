@@ -103,6 +103,11 @@ export class TrialsManager {
     });
   }
 
+  applyFavors(favors: Identifier[], favorPoints: number[], availablePoints: number) {
+    this.game.favors = favors;
+    this.game.favorPoints = this.refundFavorPoints(favorPoints, availablePoints);
+  }
+
   refundFavorPoints(favorPoints: number[], availablePoints: number): number[] {
     const points = [...favorPoints];
     let unspent = availablePoints;
@@ -170,6 +175,16 @@ export class TrialsManager {
     if (!this.game.party.trials || this.game.party.trials !== currentTrialIndex) {
       this.game.party.trials = currentTrialIndex;
     }
+  }
+
+  characterTrial(character: Character, cardId: string, edition: string = 'fh'): boolean {
+    return (
+      this.apply &&
+      this.trialsEnabled &&
+      !!character.progress.trial &&
+      character.progress.trial.edition === edition &&
+      character.progress.trial.name === cardId
+    );
   }
 
   cardIdSecondPrinting(cardId: number): number {

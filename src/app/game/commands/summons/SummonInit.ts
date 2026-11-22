@@ -28,27 +28,7 @@ export class SummonInitCommand extends CommandImpl {
     const character = findCharacter(number);
     const summon = this.summon(character, uuid);
     if (character && summon) {
-      gameManager.characterManager.removeSummon(character, summon);
-      summon.init = false;
-      if (health !== 0) {
-        gameManager.entityManager.changeHealth(summon, character, health, false, false);
-      }
-      if (attack !== 0 && typeof summon.attack === 'number') {
-        summon.attack += attack;
-      }
-      if (movement !== 0) {
-        summon.movement += movement;
-      }
-      if (range !== 0) {
-        summon.range += range;
-      }
-      if (maxHp) {
-        if (summon.maxHealth + maxHp < summon.maxHealth || summon.health === summon.maxHealth) {
-          summon.health = summon.maxHealth + maxHp;
-        }
-        summon.maxHealth += maxHp;
-      }
-      gameManager.characterManager.addSummon(character, summon);
+      gameManager.characterManager.initSummon(character, summon, { health, maxHp, attack, movement, range });
     } else {
       this.executionError('summon not found');
     }

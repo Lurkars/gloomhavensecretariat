@@ -21,6 +21,20 @@ import { ElementIconComponent } from 'src/app/ui/header/element/element-icon';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
+function randomDungeonCardLabels(cardIds: string[] | undefined, group: string): string[] {
+  const scenario = gameManager.game.scenario;
+  return (cardIds || [])
+    .filter((cardId) => !scenario || !scenario.additionalSections || !scenario.additionalSections.includes(cardId))
+    .map((cardId) => {
+      const section = scenario
+        ? gameManager.sectionData(scenario.edition, true).find((sectionData) => sectionData.index === cardId && sectionData.group === group)
+        : undefined;
+      return section
+        ? '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')'
+        : '&nbsp' + cardId;
+    });
+}
+
 @Component({
   imports: [FormsModule, GhsLabelDirective, TrackUUIDPipe, ElementIconComponent],
   selector: 'ghs-scenario-rule',
@@ -53,55 +67,11 @@ export class ScenarioRuleComponent implements OnInit {
   }
 
   randomDungeonsMonsterLabel(rule: ScenarioRule): string[] {
-    if (!rule.randomDungeon || !rule.randomDungeon.monsterCards || !rule.randomDungeon.monsterCards.length) {
-      return [];
-    }
-
-    return rule.randomDungeon.monsterCards
-      .filter(
-        (cardId) =>
-          !gameManager.game.scenario ||
-          !gameManager.game.scenario.additionalSections ||
-          !gameManager.game.scenario.additionalSections.includes(cardId)
-      )
-      .map((cardId) => {
-        if (gameManager.game.scenario) {
-          const section = gameManager
-            .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomMonsterCard');
-          if (section) {
-            return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
-          }
-        }
-
-        return '&nbsp' + cardId;
-      });
+    return randomDungeonCardLabels(rule.randomDungeon?.monsterCards, 'randomMonsterCard');
   }
 
   randomDungeonsDungeonLabel(): string[] {
-    if (!this.rule.randomDungeon || !this.rule.randomDungeon.dungeonCards || !this.rule.randomDungeon.dungeonCards.length) {
-      return [];
-    }
-
-    return this.rule.randomDungeon.dungeonCards
-      .filter(
-        (cardId) =>
-          !gameManager.game.scenario ||
-          !gameManager.game.scenario.additionalSections ||
-          !gameManager.game.scenario.additionalSections.includes(cardId)
-      )
-      .map((cardId) => {
-        if (gameManager.game.scenario) {
-          const section = gameManager
-            .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomDungeonCard');
-          if (section) {
-            return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
-          }
-        }
-
-        return '&nbsp' + cardId;
-      });
+    return randomDungeonCardLabels(this.rule.randomDungeon?.dungeonCards, 'randomDungeonCard');
   }
 
   prevent(event: any) {

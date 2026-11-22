@@ -180,26 +180,9 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   setInitiative(initiative: number) {
-    if (
-      (((gameManager.game.state === GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0) ||
-        initiative > 0) &&
-      initiative < 100 &&
-      initiative !== this.figure.initiative
-    ) {
-      if (this.character) {
-        gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative);
-        this.character.initiativeVisible = true;
-        if (!gameManager.specialActionsManager.keepInitiativeOnLongRest(this.character)) {
-          this.character.longRest = false;
-        }
-        if (initiative === 99) {
-          this.character.longRest = true;
-        }
-      }
-      this.figure.initiative = initiative;
-      if (gameManager.game.state === GameState.next) {
-        gameManager.sortFigures(this.character);
-      }
+    if (gameManager.roundManager.validInitiative(initiative) && initiative !== this.figure.initiative) {
+      gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative);
+      gameManager.roundManager.setInitiative(this.figure, initiative);
       gameManager.stateManager.after();
     }
   }
@@ -207,10 +190,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   longRestOff(event: any) {
     if (this.character && this.character.longRest) {
       gameManager.stateManager.before('characterLongRestOff', gameManager.characterManager.characterName(this.character, true, true));
-      this.character.longRest = false;
-      if (gameManager.game.state === GameState.next) {
-        gameManager.sortFigures(this.character);
-      }
+      gameManager.roundManager.setLongRest(this.character, false);
       gameManager.stateManager.after();
       event.preventDefault();
     }

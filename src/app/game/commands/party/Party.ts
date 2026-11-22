@@ -10,24 +10,12 @@ export class PartyAddCommand extends CommandImpl {
   id: string = 'party.add';
   requiredParameters: number = 0;
 
-  nextId(): number {
-    let id = 0;
-    while (gameManager.game.parties.some((party) => party.id === id)) {
-      id++;
-    }
-    return id;
-  }
-
   validParameters(name: string = ''): boolean {
     return typeof name === 'string';
   }
 
   executeWithParameters(name: string = '') {
-    const party = new Party();
-    party.id = this.nextId();
-    party.name = name;
-    gameManager.game.parties.push(party);
-    gameManager.changeParty(party);
+    gameManager.addParty(name);
   }
 }
 
@@ -42,10 +30,7 @@ export class PartyRemoveCommand extends CommandImpl {
   executeWithParameters(id: number) {
     const party = findParty(id);
     if (party) {
-      gameManager.game.parties.splice(gameManager.game.parties.indexOf(party), 1);
-      if (gameManager.game.party.id === party.id) {
-        gameManager.changeParty(gameManager.game.parties[0]);
-      }
+      gameManager.removeParty(party);
     } else {
       this.executionError('party not found');
     }

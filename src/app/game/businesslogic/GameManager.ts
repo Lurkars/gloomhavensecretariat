@@ -13,7 +13,7 @@ import { ImbuementManager } from 'src/app/game/businesslogic/ImbuementManager';
 import { ItemManager } from 'src/app/game/businesslogic/ItemManager';
 import { LevelManager } from 'src/app/game/businesslogic/LevelManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { MonsterManager } from 'src/app/game/businesslogic/MonsterManager';
 import { ObjectiveManager } from 'src/app/game/businesslogic/ObjectiveManager';
 import { OutpostAttackManager } from 'src/app/game/businesslogic/OutpostAttackManager';
@@ -24,6 +24,7 @@ import { RoundManager } from 'src/app/game/businesslogic/RoundManager';
 import { ScenarioManager } from 'src/app/game/businesslogic/ScenarioManager';
 import { ScenarioRulesManager } from 'src/app/game/businesslogic/ScenarioRulesManager';
 import { ScenarioStatsManager } from 'src/app/game/businesslogic/ScenarioStatsManager';
+import { ShieldRetaliateManager } from 'src/app/game/businesslogic/ShieldRetaliateManager';
 import { SpecialActionsManager } from 'src/app/game/businesslogic/SpecialActionsManager';
 import { StateManager } from 'src/app/game/businesslogic/StateManager';
 import { TrialsManager } from 'src/app/game/businesslogic/TrialsManager';
@@ -47,7 +48,7 @@ import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQues
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Entity, EntityCounter } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
-import { Game, GameClockTimestamp, GameState } from 'src/app/game/model/Game';
+import { Game, GameClockTimestamp, GameModel, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -71,6 +72,7 @@ export class GameManager {
   objectiveManager: ObjectiveManager;
   personalQuestManager: PersonalQuestManager;
   retirementManager: RetirementManager;
+  shieldRetaliateManager: ShieldRetaliateManager;
   attackModifierManager: AttackModifierManager;
   actionsManager: ActionsManager;
   levelManager: LevelManager;
@@ -109,6 +111,7 @@ export class GameManager {
     this.objectiveManager = new ObjectiveManager(this.game);
     this.personalQuestManager = new PersonalQuestManager(this.game);
     this.retirementManager = new RetirementManager(this.game);
+    this.shieldRetaliateManager = new ShieldRetaliateManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
     this.actionsManager = new ActionsManager();
     this.levelManager = new LevelManager(this.game);
@@ -128,6 +131,27 @@ export class GameManager {
     this.enhancementsManager = new EnhancementsManager(this.game);
     this.imbuementManager = new ImbuementManager(this.game);
     this.specialActionsManager = new SpecialActionsManager(this.game);
+  }
+
+  setEdition(edition: string | undefined) {
+    if (edition) {
+      settingsManager.automaticTheme(edition, this.game.edition);
+    }
+    this.game.edition = edition || undefined;
+    this.game.party.edition = edition || undefined;
+    this.attackModifierManager.updateDefaultDecks();
+  }
+
+  importGame(gameModel: GameModel) {
+    if (gameModel.revision < this.game.revision) {
+      storageManager.addBackup(this.game.toModel());
+      gameModel.revision = this.game.revision;
+      gameModel.revisionOffset = this.game.revisionOffset;
+    }
+    if (gameModel.edition) {
+      settingsManager.automaticTheme(gameModel.edition, this.game.edition);
+    }
+    this.game.fromModel(gameModel, false, true);
   }
 
   editions(all: boolean = false, extraContent: boolean = false): string[] {
@@ -1137,6 +1161,40 @@ export class GameManager {
       if (activeFigure instanceof Character) {
         this.personalQuestManager.trackPersonalQuestProgress(activeFigure, PersonalQuestAutotrackType.element, element.type);
       }
+    }
+  }
+
+  nextPartyId(): number {
+    let id = 0;
+    while (this.game.parties.some((party) => party.id === id)) {
+      id++;
+    }
+    return id;
+  }
+
+  addParty(name: string = ''): Party {
+    const party = new Party();
+    party.id = this.nextPartyId();
+    party.name = name;
+    this.game.parties.push(party);
+    this.changeParty(party);
+    return party;
+  }
+
+  removeParty(party: Party) {
+    if (this.game.parties.length < 2 || !this.game.parties.includes(party)) {
+      return;
+    }
+    this.game.parties.splice(this.game.parties.indexOf(party), 1);
+    if (this.game.party.id === party.id) {
+      this.changeParty(this.game.parties[0]);
+    }
+  }
+
+  setGameCondition(condition: ConditionName, value: boolean) {
+    this.game.conditions = this.game.conditions.filter((other) => other !== condition);
+    if (value) {
+      this.game.conditions.push(condition);
     }
   }
 

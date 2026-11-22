@@ -181,16 +181,9 @@ export class EventHelper {
   }
 
   toggleImbuement(advanced: boolean = false) {
-    if (gameManager.imbuementManager.imbuement) {
-      gameManager.stateManager.before('gh2eImbuement.disable');
-      gameManager.imbuementManager.disable(gameManager.game.monsterAttackModifierDeck);
-    } else if (advanced) {
-      gameManager.stateManager.before('gh2eImbuement.advanced');
-      gameManager.imbuementManager.advanced(gameManager.game.monsterAttackModifierDeck);
-    } else {
-      gameManager.stateManager.before('gh2eImbuement');
-      gameManager.imbuementManager.enable(gameManager.game.monsterAttackModifierDeck);
-    }
+    const mode = gameManager.imbuementManager.imbuement ? 'disable' : advanced ? 'advanced' : 'enable';
+    gameManager.stateManager.before(mode === 'enable' ? 'gh2eImbuement' : 'gh2eImbuement.' + mode);
+    gameManager.imbuementManager.setMode(mode);
     gameManager.stateManager.after();
   }
 }

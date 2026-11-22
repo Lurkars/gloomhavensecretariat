@@ -56,16 +56,7 @@ export class RoundDialogComponent {
 
   setReset(value: number): void {
     gameManager.stateManager.before('setRoundReset', '' + value);
-    const hidden = gameManager.game.roundResetsHidden;
-    if (hidden.length === 0) {
-      if (value !== 0) {
-        hidden.push(value);
-      }
-    } else if (value === 0) {
-      hidden.splice(hidden.length - 1, 1);
-    } else {
-      hidden[hidden.length - 1] = value;
-    }
+    gameManager.roundManager.setRoundReset(value);
     gameManager.stateManager.after();
   }
 

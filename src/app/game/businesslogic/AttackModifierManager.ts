@@ -56,13 +56,27 @@ export class AttackModifierManager {
         return this.game.allyAttackModifierDeck;
       } else {
         const character = gameManager.game.figures.find((char) => char instanceof Character && char.name === figure.amDeck) as Character;
-        if (character && settingsManager.settings.characterAttackModifierDeck) {
+        if (!character) {
+          return this.game.monsterAttackModifierDeck;
+        } else if (settingsManager.settings.characterAttackModifierDeck) {
           return character.attackModifierDeck;
         }
       }
     }
 
     return new AttackModifierDeck();
+  }
+
+  objectiveAmDecks(): string[] {
+    const amDecks = ['M'];
+    if (
+      settingsManager.settings.allyAttackModifierDeck &&
+      (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules(true))
+    ) {
+      amDecks.push('A');
+    }
+    amDecks.push(...this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => figure.name));
+    return amDecks;
   }
 
   getModifier(type: AttackModifierType, count: number = 1): AttackModifier[] {
@@ -347,6 +361,101 @@ export class AttackModifierManager {
     }
   }
 
+  removeCard(attackModifierDeck: AttackModifierDeck, index: number) {
+    if (index <= attackModifierDeck.current) {
+      attackModifierDeck.current--;
+    }
+    attackModifierDeck.cards.splice(index, 1);
+    this.updateLastVisible(attackModifierDeck);
+  }
+
+  toggleDeckActive(attackModifierDeck: AttackModifierDeck, exclusive: boolean = false) {
+    if (exclusive && (this.game.lootDeck.active || this.game.challengeDeck.active)) {
+      this.game.lootDeck.active = false;
+      this.game.challengeDeck.active = false;
+      attackModifierDeck.active = true;
+    } else {
+      attackModifierDeck.active = !attackModifierDeck.active;
+    }
+  }
+
+  setDiscarded(attackModifierDeck: AttackModifierDeck, index: number, discarded: boolean) {
+    attackModifierDeck.discarded = attackModifierDeck.discarded.filter((value) => value !== index);
+    if (discarded) {
+      attackModifierDeck.discarded.push(index);
+    }
+  }
+
+  restoreCard(attackModifierDeck: AttackModifierDeck, attackModifier: AttackModifier) {
+    attackModifierDeck.cards.splice(attackModifierDeck.current + 1, 0, attackModifier);
+  }
+
+  changeModifierCount(attackModifierDeck: AttackModifierDeck, type: AttackModifierType, value: number, isMonster: boolean) {
+    if (value > 0) {
+      let batch: AttackModifier[] = [];
+      if (type === AttackModifierType.bless) {
+        batch = this.getBless(value, attackModifierDeck);
+      } else if (type === AttackModifierType.curse) {
+        batch = this.getCurse(isMonster, value, attackModifierDeck);
+      } else if (type === AttackModifierType.minus1extra) {
+        batch = this.getExtraMinus1(value);
+      }
+      this.addModifierBatch(attackModifierDeck, batch);
+    } else {
+      this.removeUpcoming(attackModifierDeck, -value, (attackModifier) => attackModifier.type === type);
+    }
+  }
+
+  changeAdditionalCount(attackModifierDeck: AttackModifierDeck, character: Character | undefined, type: AttackModifierType, value: number) {
+    if (value > 0) {
+      if (character) {
+        this.addModifierBatch(attackModifierDeck, this.getAdditional(character, type, value));
+      }
+    } else {
+      this.removeUpcoming(
+        attackModifierDeck,
+        -value,
+        (attackModifier) =>
+          attackModifier.type === type &&
+          !!attackModifier.id &&
+          attackModifier.id.startsWith('additional-' + (character ? character.name : ''))
+      );
+    }
+  }
+
+  private removeUpcoming(attackModifierDeck: AttackModifierDeck, count: number, filter: (attackModifier: AttackModifier) => boolean) {
+    for (let i = 0; i < count; i++) {
+      const index = attackModifierDeck.cards.findIndex(
+        (attackModifier, index) => index > attackModifierDeck.current && filter(attackModifier)
+      );
+      if (index !== -1) {
+        attackModifierDeck.cards.splice(index, 1);
+      }
+    }
+  }
+
+  factionModifierInUse(character: Character, id: string): boolean {
+    return this.game.figures.some(
+      (figure) =>
+        figure instanceof Character &&
+        (figure.edition !== character.edition || figure.name !== character.name) &&
+        figure.attackModifierDeck.cards.some((attackModifier) => attackModifier.id === id)
+    );
+  }
+
+  setFactionModifier(attackModifierDeck: AttackModifierDeck, attackModifier: AttackModifier, value: boolean, force: boolean = false) {
+    if (!value) {
+      attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => am.id !== attackModifier.id);
+      return;
+    }
+    if (!force) {
+      attackModifierDeck.cards = attackModifierDeck.cards.filter(
+        (am) => !am.id || gameManager.campaignManager.gh2eFactionUnlocks().every((faction) => !am.id.includes(faction))
+      );
+    }
+    attackModifierDeck.cards = [...attackModifierDeck.cards, Object.assign(new AttackModifier(attackModifier.type), attackModifier)];
+  }
+
   drawModifier(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined, character?: Character) {
     if (attackModifierDeck.bb) {
       this.drawBB(attackModifierDeck, state);
@@ -593,6 +702,27 @@ export class AttackModifierManager {
       });
     }
     return attackModifierDeck;
+  }
+
+  bbMonsterAttackModifiers(): AttackModifier[] | undefined {
+    const editionData = gameManager.editionData.find(
+      (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
+    );
+    return editionData
+      ? editionData.monsterAmTables[gameManager.levelManager.bbMonsterDifficutly()].map(
+          (value) => new AttackModifier(value as AttackModifierType)
+        )
+      : undefined;
+  }
+
+  defaultMonsterAttackModifierDeck(ally: boolean = false): AttackModifierDeck {
+    if (!gameManager.bbRules()) {
+      return this.buildMonsterAttackModifierDeck(ally);
+    }
+    const attackModifiers = this.bbMonsterAttackModifiers();
+    return attackModifiers
+      ? new AttackModifierDeck(attackModifiers, settingsManager.settings.bbAm)
+      : this.buildMonsterAttackModifierDeck(ally);
   }
 
   buildCharacterAttackModifierDeck(character: Character): AttackModifierDeck {

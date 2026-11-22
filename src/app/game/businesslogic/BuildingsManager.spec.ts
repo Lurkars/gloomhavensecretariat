@@ -434,3 +434,21 @@ describe('BuildingsManager unlockBuildings', () => {
     expect(gameManager.game.party.soldiers).toBe(1);
   });
 });
+
+describe('BuildingsManager findBuilding', () => {
+  const buildingsManager = gameManager.buildingsManager;
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('finds buildings by name or number and adds them once', () => {
+    const data = Object.assign(new BuildingData(), { id: '05', name: 'mining-camp' });
+    vi.spyOn(gameManager.campaignManager, 'campaignData').mockReturnValue(Object.assign(new CampaignData(), { buildings: [data] }));
+    gameManager.game.party.buildings = [];
+    expect(buildingsManager.findBuilding('Mining Camp')).toBe(data);
+    expect(buildingsManager.findBuilding('5')).toBe(data);
+    expect(buildingsManager.findBuilding('unknown')).toBeUndefined();
+    expect(buildingsManager.addBuilding(data)).toBe(true);
+    expect(buildingsManager.addBuilding(data)).toBe(false);
+    expect(gameManager.game.party.buildings.map((model) => [model.name, model.level])).toEqual([['mining-camp', 0]]);
+  });
+});

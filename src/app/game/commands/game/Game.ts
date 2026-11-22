@@ -1,4 +1,4 @@
-import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
@@ -15,12 +15,7 @@ export class GameEditionCommand extends CommandImpl {
   }
 
   executeWithParameters(edition: string) {
-    if (edition) {
-      settingsManager.automaticTheme(edition, gameManager.game.edition);
-    }
-    gameManager.game.edition = edition || undefined;
-    gameManager.game.party.edition = edition || undefined;
-    gameManager.attackModifierManager.updateDefaultDecks();
+    gameManager.setEdition(edition);
   }
 }
 
@@ -38,10 +33,7 @@ export class GameConditionCommand extends CommandImpl {
   }
 
   executeWithParameters(name: ConditionName, value: boolean) {
-    gameManager.game.conditions = gameManager.game.conditions.filter((conditionName) => conditionName !== name);
-    if (value) {
-      gameManager.game.conditions.push(name);
-    }
+    gameManager.setGameCondition(name, value);
   }
 }
 
@@ -98,8 +90,11 @@ export class GameFavorsCommand extends CommandImpl {
     const spentPoints = favors.length ? favors.map((favor) => favor.points).reduce((a, b) => a + b) : 0;
     const availablePoints = Math.min(Math.max((gameFavorPoints.length ? gameFavorPoints.reduce((a, b) => a + b) : 0) - spentPoints, 0), 7);
 
-    gameManager.game.favors = favors.map((favor) => new Identifier(favor.name, favor.edition));
-    gameManager.game.favorPoints = gameManager.trialsManager.refundFavorPoints(gameFavorPoints, availablePoints);
+    gameManager.trialsManager.applyFavors(
+      favors.map((favor) => new Identifier(favor.name, favor.edition)),
+      gameFavorPoints,
+      availablePoints
+    );
   }
 }
 
@@ -116,14 +111,7 @@ export class GameImbuementCommand extends CommandImpl {
 
   executeWithParameters(mode: string, seed: number) {
     gameManager.game.seed = seed;
-    const deck = gameManager.game.monsterAttackModifierDeck;
-    if (mode === 'disable') {
-      gameManager.imbuementManager.disable(deck);
-    } else if (mode === 'advanced') {
-      gameManager.imbuementManager.advanced(deck);
-    } else {
-      gameManager.imbuementManager.enable(deck);
-    }
+    gameManager.imbuementManager.setMode(mode as 'enable' | 'advanced' | 'disable');
   }
 }
 
@@ -147,15 +135,7 @@ export class GameImportCommand extends CommandImpl {
   executeWithParameters(json: string) {
     const gameModel = this.model(json);
     if (gameModel) {
-      if (gameModel.revision < gameManager.game.revision) {
-        storageManager.addBackup(gameManager.game.toModel());
-        gameModel.revision = gameManager.game.revision;
-        gameModel.revisionOffset = gameManager.game.revisionOffset;
-      }
-      if (gameModel.edition) {
-        settingsManager.automaticTheme(gameModel.edition, gameManager.game.edition);
-      }
-      gameManager.game.fromModel(gameModel, false, true);
+      gameManager.importGame(gameModel);
     } else {
       this.executionError('invalid game model');
     }

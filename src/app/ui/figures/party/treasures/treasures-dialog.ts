@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { Identifier } from 'src/app/game/model/data/Identifier';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { TreasureLabelComponent } from 'src/app/ui/footer/scenario/treasures/label/label';
 import { ScenarioTreasuresDialogComponent } from 'src/app/ui/footer/scenario/treasures/treasures-dialog';
@@ -112,10 +111,7 @@ export class TreasuresDialogComponent implements OnInit {
   }
 
   hasTreasure(treasure: string | number, edition: string): boolean {
-    return (
-      gameManager.game.party.treasures &&
-      gameManager.game.party.treasures.some((identifier) => identifier.name === '' + treasure && identifier.edition === edition)
-    );
+    return gameManager.lootManager.hasPartyTreasure(edition, treasure);
   }
 
   apply() {
@@ -123,15 +119,13 @@ export class TreasuresDialogComponent implements OnInit {
     const addTreasures = this.selected.filter((index) => !this.looted.includes(index));
     if (removeTreasures.length > 0) {
       gameManager.stateManager.before('removeTreasures', this.edition, '[' + removeTreasures.join(',') + ']');
-      gameManager.game.party.treasures = gameManager.game.party.treasures.filter(
-        (value) => value.edition !== this.edition || isNaN(+value.name) || !removeTreasures.includes(+value.name)
-      );
+      removeTreasures.forEach((treasure) => gameManager.lootManager.setPartyTreasure(this.edition, treasure, false));
       gameManager.stateManager.after();
     }
 
     if (addTreasures.length > 0) {
       gameManager.stateManager.before('addTreasures', this.edition, '[' + addTreasures.join(',') + ']');
-      gameManager.game.party.treasures.push(...addTreasures.map((index) => new Identifier(index, this.edition)));
+      addTreasures.forEach((treasure) => gameManager.lootManager.setPartyTreasure(this.edition, treasure, true));
       gameManager.stateManager.after();
     }
 

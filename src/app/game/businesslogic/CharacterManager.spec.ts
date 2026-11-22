@@ -824,3 +824,133 @@ describe('CharacterManager XP regressions', () => {
     expect(character.maxHealth).toBe(10);
   });
 });
+
+describe('CharacterManager unlockCharacter', () => {
+  const characterManager = gameManager.characterManager;
+
+  beforeEach(() => {
+    gameManager.game.unlockedCharacters = [];
+    settingsManager.settings.events = true;
+    vi.spyOn(gameManager, 'charactersData').mockReturnValue([
+      Object.assign(new CharacterData(), { name: 'squidface', edition: 'gh', unlockEvent: 'city:81' })
+    ]);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    settingsManager.settings.events = false;
+  });
+
+  it('unlocks a character once with its unlock events', () => {
+    const addEvents = vi.spyOn(gameManager.eventCardManager, 'addEvents').mockImplementation(() => {});
+    expect(characterManager.unlockCharacter('gh', 'squidface')).toBe(true);
+    expect(characterManager.unlockCharacter('gh', 'squidface')).toBe(false);
+    expect(gameManager.game.unlockedCharacters).toEqual(['gh:squidface']);
+    expect(addEvents).toHaveBeenCalledTimes(1);
+    expect(addEvents).toHaveBeenCalledWith('city:81');
+
+    characterManager.lockCharacter('gh', 'squidface');
+    expect(characterManager.characterUnlocked('gh', 'squidface')).toBe(false);
+  });
+
+  it('skips unlock events without the events setting', () => {
+    settingsManager.settings.events = false;
+    const addEvents = vi.spyOn(gameManager.eventCardManager, 'addEvents').mockImplementation(() => {});
+    characterManager.unlockCharacter('gh', 'squidface');
+    expect(addEvents).not.toHaveBeenCalled();
+  });
+});
+
+describe('CharacterManager summon setup', () => {
+  const characterManager = gameManager.characterManager;
+
+  function summon(): Summon {
+    const result = new Summon('uuid', 'spirit', '1', 1, 1, SummonColor.blue);
+    result.maxHealth = 4;
+    result.health = 4;
+    result.attack = 2;
+    result.movement = 1;
+    result.range = 0;
+    result.init = true;
+    return result;
+  }
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('initializes a summon with its changed stats', () => {
+    const character = new Character(
+      Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+      1
+    );
+    const value = summon();
+    character.summons = [value];
+    characterManager.initSummon(character, value, { maxHp: 2, attack: 1, movement: 2, range: 1 });
+    expect(value.init).toBe(false);
+    expect([value.maxHealth, value.health, value.attack, value.movement, value.range]).toEqual([6, 6, 3, 3, 1]);
+    expect(character.summons).toEqual([value]);
+  });
+
+  it('changes summon stats and ignores non numeric attacks', () => {
+    const value = summon();
+    characterManager.changeSummonStat(value, 'attack', 2);
+    characterManager.changeSummonStat(value, 'trapDamage', 1);
+    characterManager.changeSummonStat(value, 'maxHp', -1);
+    expect([value.attack, value.movement, value.maxHealth]).toEqual([4, 2, 3]);
+    value.attack = 'X';
+    characterManager.changeSummonStat(value, 'attack', 1);
+    expect(value.attack).toBe('X');
+  });
+});
+
+describe('CharacterManager party characters and donations', () => {
+  const characterManager = gameManager.characterManager;
+
+  function build(name: string, number: number): Character {
+    const character = new Character(Object.assign(new CharacterData(), { name, edition: 'gh', stats: [new CharacterStat(1, 10)] }), 1);
+    character.number = number;
+    return character;
+  }
+
+  beforeEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.party.availableCharacters = [];
+    gameManager.game.party.buildings = [];
+    gameManager.game.party.donations = 0;
+    gameManager.game.round = 0;
+  });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('sets characters aside and replays them by player number', () => {
+    const brute = build('brute', 1);
+    const tinkerer = build('tinkerer', 1);
+    gameManager.game.figures = [brute];
+    characterManager.setAsideCharacter(brute);
+    expect(gameManager.game.figures).toEqual([]);
+    expect(gameManager.game.party.availableCharacters.map((model) => model.name)).toEqual(['brute']);
+
+    gameManager.game.figures = [tinkerer];
+    characterManager.replayCharacter(build('brute', 1));
+    expect(gameManager.game.figures.map((figure) => (figure as Character).name)).toEqual(['brute']);
+    expect(gameManager.game.party.availableCharacters.map((model) => model.name)).toEqual(['tinkerer']);
+  });
+
+  it('donates with edition costs and tracks personal quest progress', () => {
+    vi.spyOn(gameManager, 'fhRules').mockReturnValue(false);
+    vi.spyOn(gameManager, 'editionRules').mockReturnValue(false);
+    const track = vi.spyOn(gameManager.personalQuestManager, 'trackPersonalQuestProgress').mockImplementation(() => {});
+    const brute = build('brute', 1);
+    brute.progress.gold = 15;
+    expect(characterManager.donationCosts()).toBe(10);
+    expect(characterManager.canDonate(brute)).toBe(true);
+    characterManager.donate(brute);
+    expect(brute.progress.gold).toBe(5);
+    expect(brute.progress.donations).toBe(1);
+    expect(gameManager.game.party.donations).toBe(1);
+    expect(track).toHaveBeenCalledTimes(2);
+    expect(characterManager.canDonate(brute)).toBe(false);
+    gameManager.game.round = 1;
+    brute.progress.gold = 50;
+    expect(characterManager.canDonate(brute)).toBe(false);
+  });
+});

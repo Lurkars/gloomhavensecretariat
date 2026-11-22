@@ -509,6 +509,25 @@ export class SpecialActionsManager {
       });
   }
 
+  slotIndex(character: Character, specialAction: CharacterSpecialAction): number {
+    return (specialAction.slots || []).length - character.tags.filter((tag) => tag === specialAction.name).length;
+  }
+
+  slotChangeable(character: Character, specialAction: CharacterSpecialAction, index: number, force: boolean = false): boolean {
+    if (!specialAction.slots || index < 0 || index > specialAction.slots.length) {
+      return false;
+    }
+    const current = this.slotIndex(character, specialAction);
+    return ((current !== index || index === specialAction.slots.length) && specialAction.slotTrigger === 'manual') || force;
+  }
+
+  setSlot(character: Character, specialAction: CharacterSpecialAction, index: number, force: boolean = false) {
+    const current = this.slotIndex(character, specialAction);
+    for (let i = 0; i < Math.max(1, Math.abs(index - current)); i++) {
+      this.triggerSlot(character, force ? specialAction.slotTrigger : 'manual', specialAction.name, index < current, force);
+    }
+  }
+
   isSlotTriggering(character: Character, specialAction: CharacterSpecialAction): boolean {
     if (character.name === 'blinkblade' && specialAction.name === 'breaknet_speed' && character.longRest) {
       return false;

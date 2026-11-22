@@ -111,20 +111,8 @@ export class CharacterMenuComponent implements OnInit {
     if (!gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) {
       if (this.confirm === characterData.name) {
         gameManager.stateManager.before('unlockChar', 'data.character.' + characterData.edition + '.' + characterData.name);
-        gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
+        gameManager.characterManager.unlockCharacter(characterData.edition, characterData.name);
         this.newUnlocks.push(characterData.name);
-        if (settingsManager.settings.events) {
-          if (characterData.unlockEvent) {
-            characterData.unlockEvent.split('|').forEach((unlockEvent) => {
-              if (unlockEvent.split(':').length > 1) {
-                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-              } else {
-                gameManager.eventCardManager.addEvent('city', unlockEvent, true);
-                gameManager.eventCardManager.addEvent('road', unlockEvent, true);
-              }
-            });
-          }
-        }
         gameManager.stateManager.after();
       } else {
         this.confirm = characterData.name;
@@ -144,23 +132,7 @@ export class CharacterMenuComponent implements OnInit {
     if (chars.length > 0) {
       if (this.confirm === 'confirm-all-' + edition) {
         gameManager.stateManager.before('unlockAllCharacters', 'data.edition.' + edition);
-        gameManager.game.unlockedCharacters.push(...chars.map((c) => edition + ':' + c));
-        if (settingsManager.settings.events) {
-          chars
-            .map((name) => gameManager.getCharacterData(name, edition))
-            .forEach((characterData) => {
-              if (characterData.unlockEvent) {
-                characterData.unlockEvent.split('|').forEach((unlockEvent) => {
-                  if (unlockEvent.split(':').length > 1) {
-                    gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-                  } else {
-                    gameManager.eventCardManager.addEvent('city', unlockEvent, true);
-                    gameManager.eventCardManager.addEvent('road', unlockEvent, true);
-                  }
-                });
-              }
-            });
-        }
+        chars.forEach((name) => gameManager.characterManager.unlockCharacter(edition, name));
         gameManager.stateManager.after();
       } else {
         this.confirm = 'confirm-all-' + edition;

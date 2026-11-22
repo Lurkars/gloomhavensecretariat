@@ -21,16 +21,7 @@ export class BuildingAddCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   data(building: BASE_TYPE): BuildingData | undefined {
-    const campaign = gameManager.campaignManager.campaignData();
-    if (!campaign || !campaign.buildings || typeof building !== 'string') {
-      return undefined;
-    }
-    return campaign.buildings.find(
-      (buildingData) =>
-        buildingData.name === building.toLowerCase().replaceAll(' ', '-') ||
-        buildingData.id === building ||
-        (!isNaN(+buildingData.id) && !isNaN(+building) && +buildingData.id === +building)
-    );
+    return typeof building === 'string' ? gameManager.buildingsManager.findBuilding(building) : undefined;
   }
 
   validParameters(building: string): boolean {
@@ -41,7 +32,7 @@ export class BuildingAddCommand extends CommandImpl {
   executeWithParameters(building: string) {
     const data = this.data(building);
     if (data) {
-      gameManager.game.party.buildings.push(new BuildingModel(data.name, 0));
+      gameManager.buildingsManager.addBuilding(data);
     } else {
       this.executionError('building not found');
     }
@@ -165,9 +156,7 @@ export class GardenFlipCommand extends CommandImpl {
   }
 
   executeWithParameters(value: boolean) {
-    const model = garden();
-    model.flipped = value;
-    gameManager.game.party.garden = model;
+    gameManager.buildingsManager.setGardenFlipped(value);
   }
 }
 
@@ -180,9 +169,7 @@ export class GardenAutomationCommand extends CommandImpl {
   }
 
   executeWithParameters(value: boolean) {
-    const model = garden();
-    model.automated = value;
-    gameManager.game.party.garden = model;
+    gameManager.buildingsManager.setGardenAutomated(value);
   }
 }
 
@@ -200,7 +187,7 @@ export class GardenHarvestCommand extends CommandImpl {
 }
 
 function pet(edition: BASE_TYPE, name: BASE_TYPE): PetIdentifier | undefined {
-  return gameManager.game.party.pets.find((value) => value.edition === edition && value.name === name);
+  return gameManager.buildingsManager.findPet(edition as string, name as string);
 }
 
 export class PetCommand extends CommandImpl {
@@ -212,10 +199,10 @@ export class PetCommand extends CommandImpl {
   }
 
   executeWithParameters(edition: string, name: string, value: boolean) {
-    if (!value) {
-      gameManager.game.party.pets = gameManager.game.party.pets.filter((value) => value.edition !== edition || value.name !== name);
-    } else if (!pet(edition, name)) {
-      gameManager.game.party.pets.push(new PetIdentifier(name, edition));
+    if (value) {
+      gameManager.buildingsManager.addPet(edition, name);
+    } else {
+      gameManager.buildingsManager.removePet(edition, name);
     }
   }
 }

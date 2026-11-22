@@ -1,6 +1,5 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -195,17 +194,10 @@ export class LevelManager {
 
   setBbMonsterDifficulty(level: number) {
     this.game.levelAdjustment = level - 2;
-    const editionData = gameManager.editionData.find(
-      (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
-    );
-    if (editionData) {
-      const monsterDifficulty = this.bbMonsterDifficutly();
-      this.game.monsterAttackModifierDeck.attackModifiers = editionData.monsterAmTables[monsterDifficulty].map(
-        (value) => new AttackModifier(value as AttackModifierType)
-      );
-      this.game.monsterAttackModifierDeck.cards = editionData.monsterAmTables[monsterDifficulty].map(
-        (value) => new AttackModifier(value as AttackModifierType)
-      );
+    const attackModifiers = gameManager.attackModifierManager.bbMonsterAttackModifiers();
+    if (attackModifiers) {
+      this.game.monsterAttackModifierDeck.attackModifiers = attackModifiers;
+      this.game.monsterAttackModifierDeck.cards = gameManager.attackModifierManager.bbMonsterAttackModifiers() || [];
     }
     this.game.monsterAttackModifierDeck.bb = settingsManager.settings.bbAm;
   }

@@ -95,6 +95,41 @@ describe('EventCardManager', () => {
     });
   });
 
+  describe('event deck editing', () => {
+    it('inserts and moves cards in the deck', () => {
+      eventCardManager.insertEvent('city', '1', 0);
+      eventCardManager.insertEvent('city', '2', -1);
+      eventCardManager.insertEvent('city', '3', 5);
+      expect(gameManager.game.party.eventDecks['city']).toEqual(['2', '1', '3']);
+      eventCardManager.moveEvent('city', 0, 2);
+      expect(gameManager.game.party.eventDecks['city']).toEqual(['1', '3', '2']);
+      eventCardManager.moveEvent('city', 5, 0);
+      expect(gameManager.game.party.eventDecks['city']).toEqual(['1', '3', '2']);
+    });
+
+    it('marks a card as drawn with the checks of its last result', () => {
+      gameManager.game.party.eventCards = [new EventCardIdentifier('1', 'gh', 'city', 0, [], [1, 0], false, false)];
+      const card = new EventCard('1', 'gh', 'city', '', '', []);
+      eventCardManager.markEventDrawn(card, 0);
+      expect(gameManager.game.party.eventCards.length).toBe(2);
+      expect(gameManager.game.party.eventCards[0].selected).toBe(-1);
+      expect(gameManager.game.party.eventCards[0].checks).toEqual([1, 0]);
+    });
+
+    it('resets only the drawn cards of the reset type', () => {
+      gameManager.game.party.eventDecks['city'] = ['1'];
+      gameManager.game.party.eventCards = [
+        new EventCardIdentifier('2', 'gh', 'city', 0, [], [], false, false),
+        new EventCardIdentifier('1', 'gh', 'road', 0, [], [], false, false)
+      ];
+      const build = vi.spyOn(eventCardManager, 'buildPartyDeck').mockImplementation(() => {});
+      eventCardManager.resetEventDeck('gh', 'city');
+      expect(gameManager.game.party.eventCards.map((value) => value.type)).toEqual(['road']);
+      expect(build).toHaveBeenCalledWith('gh', 'city');
+      build.mockRestore();
+    });
+  });
+
   describe('event rewards', () => {
     beforeEach(() => {
       gameManager.editionData[0].events.push(
@@ -431,5 +466,23 @@ describe('EventCardManager distribution and random effects', () => {
     expect(gameManager.game.party.manualScenarios.map((model) => model.index)).toEqual(['7']);
     expect(gameManager.game.party.conclusions.map((model) => model.index)).toEqual(['7']);
     expect(gameManager.game.party.inspiration).toBe(2);
+  });
+});
+
+describe('EventCardManager addEvents', () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  it('adds typed events and untyped ones to city and road', () => {
+    const addEvent = vi.spyOn(gameManager.eventCardManager, 'addEvent').mockImplementation(() => {});
+    gameManager.eventCardManager.addEvents('boat:12|81');
+    expect(addEvent.mock.calls).toEqual([
+      ['boat', '12', true],
+      ['city', '81', true],
+      ['road', '81', true]
+    ]);
+    addEvent.mockClear();
+    gameManager.eventCardManager.addEvents(undefined);
+    gameManager.eventCardManager.addEvents('');
+    expect(addEvent).not.toHaveBeenCalled();
   });
 });

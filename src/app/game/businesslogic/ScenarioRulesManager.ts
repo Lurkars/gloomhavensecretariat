@@ -806,6 +806,23 @@ export class ScenarioRulesManager {
     }
   }
 
+  discardAppliedRule(identifier: ScenarioRuleIdentifier) {
+    const index = this.game.appliedScenarioRules.indexOf(identifier);
+    if (index === -1) {
+      return;
+    }
+    const scenario = this.getScenarioForRule(identifier).scenario;
+    const rule = scenario && scenario.rules ? scenario.rules[identifier.index] : undefined;
+    this.game.appliedScenarioRules.splice(index, 1);
+    if (rule && (rule.once || rule.alwaysApplyTurn)) {
+      this.game.discardedScenarioRules.push(identifier);
+    }
+  }
+
+  clearDiscardedRules() {
+    this.game.discardedScenarioRules = [];
+  }
+
   hideScenarioRule(model: ScenarioRuleModel) {
     const index = this.ruleModelIndex(model);
     if (index !== -1) {

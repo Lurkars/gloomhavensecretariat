@@ -146,8 +146,7 @@ export class GardenComponent implements OnInit {
   flipGarden(force: boolean = false) {
     if ((!this.disabled || force) && this.level && this.level < 3) {
       gameManager.stateManager.before('buildings.garden.' + (this.garden.flipped ? 'flipPlant' : 'flipHarvest'));
-      this.garden.flipped = !this.garden.flipped;
-      gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+      gameManager.buildingsManager.setGardenFlipped(!this.garden.flipped);
       gameManager.stateManager.after();
     }
   }
@@ -155,8 +154,7 @@ export class GardenComponent implements OnInit {
   toggleAutomation() {
     if (settingsManager.settings.automaticPassTime) {
       gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
-      this.garden.automated = !this.garden.automated;
-      gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+      gameManager.buildingsManager.setGardenAutomated(!this.garden.automated);
       gameManager.stateManager.after();
     }
   }

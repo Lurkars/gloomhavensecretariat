@@ -226,3 +226,24 @@ describe('RetirementManager', () => {
     });
   });
 });
+
+describe('RetirementManager reactivate', () => {
+  const retirementManager = gameManager.retirementManager;
+
+  it('reactivates retired characters not already in play', () => {
+    const character = new Character(
+      Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+      1
+    );
+    character.progress.retired = true;
+    const model = character.toModel();
+    gameManager.game.figures = [];
+    gameManager.game.party.availableCharacters = [];
+    gameManager.game.party.retirements = [model];
+    expect(retirementManager.reactivatable(model)).toBe(true);
+    retirementManager.reactivateCharacter(model);
+    expect(gameManager.game.party.retirements).toEqual([]);
+    expect((gameManager.game.figures[0] as Character).progress.retired).toBe(false);
+    expect(retirementManager.reactivatable(model)).toBe(false);
+  });
+});

@@ -13,9 +13,7 @@ export class CharacterSetAsideCommand extends CommandImpl {
   executeWithParameters(number: number) {
     const character = findCharacter(number);
     if (character) {
-      gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters || [];
-      gameManager.game.party.availableCharacters.push(character.toModel());
-      gameManager.characterManager.removeCharacter(character);
+      gameManager.characterManager.setAsideCharacter(character);
     } else {
       this.executionError('character not found');
     }

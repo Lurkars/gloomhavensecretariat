@@ -10,6 +10,7 @@ import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { ChallengeDeckChange, ChallengeDeckComponent } from 'src/app/ui/figures/challenges/challenge-deck';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
@@ -19,8 +20,7 @@ import { HintDialogComponent } from 'src/app/ui/footer/hint-dialog/hint-dialog';
 import { LevelComponent } from 'src/app/ui/footer/level/level';
 import { ScenarioRulesComponent } from 'src/app/ui/footer/scenario-rules/scenario-rules';
 import { ScenarioComponent } from 'src/app/ui/footer/scenario/scenario';
-import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
+import { openScenarioFinish } from 'src/app/ui/footer/scenario/summary/scenario-finish';
 import { ConfirmDialogComponent } from 'src/app/ui/helper/confirm/confirm';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
@@ -349,37 +349,7 @@ export class FooterComponent implements OnInit {
 
   finishScenario(success: boolean) {
     if (gameManager.game.scenario) {
-      const conclusions = gameManager.scenarioManager.scenarioConclusions(gameManager.game.scenario);
-
-      if (conclusions.length === 0 || !success) {
-        this.dialog.open(ScenarioSummaryComponent, {
-          panelClass: ['dialog'],
-          data: {
-            scenario: gameManager.game.scenario,
-            success: success
-          }
-        });
-      } else {
-        this.dialog
-          .open(ScenarioConclusionComponent, {
-            panelClass: ['dialog'],
-            data: { conclusions: conclusions, parent: gameManager.game.scenario }
-          })
-          .closed.subscribe({
-            next: (conclusion) => {
-              if (conclusion) {
-                this.dialog.open(ScenarioSummaryComponent, {
-                  panelClass: ['dialog'],
-                  data: {
-                    scenario: gameManager.game.scenario,
-                    conclusion: conclusion,
-                    success: success
-                  }
-                });
-              }
-            }
-          });
-      }
+      openScenarioFinish(this.dialog, gameManager.game.scenario, success);
     }
   }
 
@@ -457,78 +427,28 @@ export class FooterComponent implements OnInit {
 
   toggleActiveCharacterAttackModifierDeck() {
     if (this.activeCharacter) {
-      this.beforeCharacterAttackModifierDeck(
-        this.activeCharacter,
-        new AttackModiferDeckChange(
-          this.activeCharacter.attackModifierDeck,
-          this.activeCharacter.attackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active)
-            ? 'amDeckHide'
-            : 'amDeckShow'
-        )
-      );
-
-      if (this.compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active)) {
-        gameManager.game.lootDeck.active = false;
-        gameManager.game.challengeDeck.active = false;
-        this.activeCharacter.attackModifierDeck.active = true;
-      } else {
-        this.activeCharacter.attackModifierDeck.active = !this.activeCharacter.attackModifierDeck.active;
-      }
-      this.afterCharacterAttackModifierDeck(
-        this.activeCharacter,
-        new AttackModiferDeckChange(
-          this.activeCharacter.attackModifierDeck,
-          !this.activeCharacter.attackModifierDeck.active ? 'amDeckHide' : 'amDeckShow'
-        )
+      this.toggleAttackModifierDeck(
+        this.activeCharacter.attackModifierDeck,
+        gameManager.characterManager.characterName(this.activeCharacter, true, true)
       );
     }
   }
 
   toggleActiveAllyAttackModifierDeck() {
-    this.beforeAllyAttackModifierDeck(
-      new AttackModiferDeckChange(
-        gameManager.game.allyAttackModifierDeck,
-        gameManager.game.allyAttackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'
-      )
-    );
-    if (this.compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active)) {
-      gameManager.game.lootDeck.active = false;
-      gameManager.game.challengeDeck.active = false;
-      gameManager.game.allyAttackModifierDeck.active = true;
-    } else {
-      gameManager.game.allyAttackModifierDeck.active = !gameManager.game.allyAttackModifierDeck.active;
-    }
-    this.afterAllyAttackModifierDeck(
-      new AttackModiferDeckChange(
-        gameManager.game.allyAttackModifierDeck,
-        !gameManager.game.allyAttackModifierDeck.active ? 'amDeckHide' : 'amDeckShow'
-      )
-    );
+    this.toggleAttackModifierDeck(gameManager.game.allyAttackModifierDeck, 'ally');
   }
 
   toggleActiveMonsterAttackModifierDeck() {
-    this.beforeMonsterAttackModifierDeck(
-      new AttackModiferDeckChange(
-        gameManager.game.monsterAttackModifierDeck,
-        gameManager.game.monsterAttackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active)
-          ? 'amDeckHide'
-          : 'amDeckShow'
-      )
-    );
+    this.toggleAttackModifierDeck(gameManager.game.monsterAttackModifierDeck, 'monster');
+  }
 
-    if (this.compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active)) {
-      gameManager.game.lootDeck.active = false;
-      gameManager.game.challengeDeck.active = false;
-      gameManager.game.monsterAttackModifierDeck.active = true;
-    } else {
-      gameManager.game.monsterAttackModifierDeck.active = !gameManager.game.monsterAttackModifierDeck.active;
-    }
-    this.afterMonsterAttackModifierDeck(
-      new AttackModiferDeckChange(
-        gameManager.game.monsterAttackModifierDeck,
-        !gameManager.game.monsterAttackModifierDeck.active ? 'amDeckHide' : 'amDeckShow'
-      )
+  private toggleAttackModifierDeck(deck: AttackModifierDeck, name: string) {
+    gameManager.stateManager.before(
+      'updateAttackModifierDeck.' + (deck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'),
+      name
     );
+    gameManager.attackModifierManager.toggleDeckActive(deck, this.compact);
+    gameManager.stateManager.after();
   }
 
   toggleLootDeck() {

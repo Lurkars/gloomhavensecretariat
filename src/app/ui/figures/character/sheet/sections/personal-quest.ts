@@ -3,7 +3,7 @@ import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
-import { PERSONAL_QUEST_SCENARIO_CONCLUDED } from 'src/app/game/businesslogic/PersonalQuestManager';
+import { PERSONAL_QUEST_SCENARIO_CONCLUDED, RETIREMENT_DIALOG_DISMISSED_TAG } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { PersonalQuestViewDialog } from 'src/app/ui/figures/character/sheet/personal-quest-card/personal-quest-view-dialog';
@@ -17,8 +17,6 @@ import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
-
-export const RETIREMENT_DIALOG_DISMISSED_TAG = 'retirement-dialog-dismissed';
 
 @Component({
   imports: [NgClass, NgTemplateOutlet, GhsLabelDirective, GhsRangePipe, GhsTooltipDirective, PointerInputDirective, TrackUUIDPipe],
@@ -72,17 +70,12 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
   setPersonalQuest(event: any) {
     if (this.character.progress.personalQuest !== event.target.value) {
       gameManager.stateManager.before('setPQ', this.characterName, event.target.value);
-      this.character.progress.personalQuest = event.target.value;
-      this.character.progress.personalQuestProgress = [];
-      this.character.progress.personalQuestAutotrack = false;
-      this.character.tags = this.character.tags.filter((tag) => tag !== RETIREMENT_DIALOG_DISMISSED_TAG);
+      gameManager.personalQuestManager.setPersonalQuest(this.character, event.target.value);
       this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
         gameManager.currentEdition(),
         this.character.progress.personalQuest
       );
       if (this.personalQuest) {
-        this.character.progress.personalQuest = this.personalQuest.cardId;
-        gameManager.personalQuestManager.personalQuestAssigned(this.character);
         this.retireEnabled = this.personalQuest.requirements.every((_, i) => this.personalQuestRequirementFulfilled(i));
       }
 

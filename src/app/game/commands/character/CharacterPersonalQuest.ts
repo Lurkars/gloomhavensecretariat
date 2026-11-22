@@ -13,14 +13,7 @@ export class CharacterPersonalQuestCommand extends CommandImpl {
   executeWithParameters(number: number, cardId: string) {
     const character = findCharacter(number);
     if (character) {
-      character.progress.personalQuest = cardId;
-      character.progress.personalQuestProgress = [];
-      character.progress.personalQuestAutotrack = false;
-      const personalQuest = gameManager.personalQuestManager.personalQuestByCard(gameManager.currentEdition(), cardId);
-      if (personalQuest) {
-        character.progress.personalQuest = personalQuest.cardId;
-        gameManager.personalQuestManager.personalQuestAssigned(character);
-      }
+      gameManager.personalQuestManager.setPersonalQuest(character, cardId);
     } else {
       this.executionError('character not found');
     }

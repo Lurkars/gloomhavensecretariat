@@ -1,10 +1,14 @@
+import { LOOT_RANDOM_ITEM_MARKER } from 'src/app/game/businesslogic/LootManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { createTestCharacter, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { Character } from 'src/app/game/model/Character';
 import { BuildingCosts, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Identifier } from 'src/app/game/model/data/Identifier';
+import { ItemData } from 'src/app/game/model/data/ItemData';
 import { Loot, LootDeck, LootType } from 'src/app/game/model/data/Loot';
+import { ScenarioData, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 
 // LootManager also covers drawCard()/applyLoot()/applyTreasureReward() (deep stateful flows
 // pulling in itemManager/entityManager/scenarioManager) and apply()/fullLootDeck() (deck
@@ -247,5 +251,89 @@ describe('LootManager drawCard on an exhausted deck', () => {
     expect(deck.current).toEqual(1);
     expect(character.loot).toEqual(0);
     expect(character.lootCards).toEqual([]);
+  });
+});
+
+describe('LootManager loot card assignment', () => {
+  const lootManager = gameManager.lootManager;
+  const item = Object.assign(new ItemData(), { id: 7, edition: 'test', name: 'item7' });
+  let first: Character;
+  let second: Character;
+
+  beforeEach(() => {
+    resetTestGame();
+    first = createTestCharacter(1);
+    second = createTestCharacter(2);
+    gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 2), new Loot(LootType.random_item, 2, 1)];
+    gameManager.game.lootDeck.current = 1;
+    vi.spyOn(gameManager.itemManager, 'getItem').mockReturnValue(item);
+    vi.spyOn(gameManager.itemManager, 'addItemCount').mockImplementation(() => {});
+    settingsManager.settings.characterItems = true;
+    settingsManager.settings.applyLootRandomItem = true;
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('moves the random item of a loot card to the new holder without drawing again', () => {
+    lootManager.applyRandomItem(first, 1, item);
+    const draw = vi.spyOn(gameManager.itemManager, 'drawRandomItem');
+
+    expect(lootManager.assignLootCard(1, second)).toBe(item);
+    expect(draw).not.toHaveBeenCalled();
+    expect(first.lootCards).toEqual([]);
+    expect(first.progress.items).toEqual([]);
+    expect(first.progress.equippedItems).toEqual([]);
+    expect(second.lootCards).toEqual([1]);
+    expect(second.progress.items).toEqual([]);
+
+    lootManager.applyRandomItem(second, 1, item);
+    expect(lootManager.lootRandomItem(second)).toBe(item);
+    expect(second.progress.equippedItems[0].marker).toBe(LOOT_RANDOM_ITEM_MARKER);
+  });
+
+  it('applies the random item directly when requested', () => {
+    lootManager.applyRandomItem(first, 1, item);
+    lootManager.assignLootCard(1, second, true);
+    expect(second.progress.items.map((identifier) => identifier.name)).toEqual(['7']);
+  });
+
+  it('auto sells an already owned random item', () => {
+    second.progress.items.push(new Identifier(7, 'test'));
+    vi.spyOn(gameManager.itemManager, 'itemSellValue').mockReturnValue(5);
+    lootManager.applyRandomItem(second, 1, item);
+    expect(second.progress.gold).toBe(5);
+    expect(second.progress.items.length).toBe(1);
+  });
+
+  it('removes money loot from the holder', () => {
+    lootManager.assignLootCard(0, first);
+    expect(first.loot).toBeGreaterThan(0);
+    expect(lootManager.assignLootCard(0, undefined)).toBeUndefined();
+    expect(first.lootCards).toEqual([]);
+    expect(first.loot).toBe(0);
+  });
+
+  it('applies loot deck section rewards', () => {
+    vi.spyOn(gameManager, 'currentEdition').mockReturnValue('test');
+    const conclusion = Object.assign(new ScenarioData(), {
+      index: '1.1',
+      edition: 'test',
+      conclusion: true,
+      rewards: Object.assign(new ScenarioRewards(), { lootingGold: 5, items: ['3'], removeLootDeckCards: [1418] })
+    });
+    vi.spyOn(gameManager, 'sectionData').mockReturnValue([conclusion]);
+    gameManager.game.lootDeckFixed = [LootType.special1];
+
+    lootManager.addLootDeckSection('1.1', first);
+    expect(gameManager.game.lootDeckSections).toEqual(['1.1']);
+    expect(lootManager.lootDeckSectionApplied('1.1')).toBe(true);
+    expect(first.progress.gold).toBe(5);
+    expect(first.progress.items.map((identifier) => identifier.name)).toEqual(['3']);
+    expect(gameManager.game.lootDeckFixed).toEqual([]);
+
+    lootManager.removeLootDeckSection('1.1');
+    expect(lootManager.lootDeckSectionApplied('1.1')).toBe(false);
   });
 });

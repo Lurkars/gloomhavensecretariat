@@ -1,20 +1,11 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { deckTargetValid, validSeed } from 'src/app/game/commands/CommandHelper';
-import { Character } from 'src/app/game/model/Character';
-import { enhancableLootTypes, Loot, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import { Loot, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
 import { deckCardList } from 'src/app/game/util/deck';
 
 export function lootCardIndex(cardId: BASE_TYPE | undefined): number {
   return typeof cardId === 'number' ? gameManager.game.lootDeck.cards.findIndex((loot) => loot.cardId === cardId) : -1;
-}
-
-function dropUpcomingLootCards() {
-  gameManager.game.figures.forEach((figure) => {
-    if (figure instanceof Character) {
-      figure.lootCards = figure.lootCards.filter((index) => index <= gameManager.game.lootDeck.current);
-    }
-  });
 }
 
 export class LootDeckShuffleCommand extends CommandImpl {
@@ -28,7 +19,7 @@ export class LootDeckShuffleCommand extends CommandImpl {
   executeWithParameters(seed: number, upcoming: boolean = false) {
     gameManager.game.seed = seed;
     gameManager.lootManager.shuffleDeck(gameManager.game.lootDeck, upcoming);
-    dropUpcomingLootCards();
+    gameManager.lootManager.dropUpcomingLootCards(gameManager.game.lootDeck);
   }
 }
 
@@ -56,17 +47,7 @@ export class LootDeckRemoveCardCommand extends CommandImpl {
   }
 
   executeWithParameters(cardId: number) {
-    const deck = gameManager.game.lootDeck;
-    const index = lootCardIndex(cardId);
-    if (index <= deck.current) {
-      deck.current--;
-    }
-    deck.cards.splice(index, 1);
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
-        figure.lootCards = figure.lootCards.filter((i) => i !== index).map((i) => (i < index ? i : i - 1));
-      }
-    });
+    gameManager.lootManager.removeCard(gameManager.game.lootDeck, lootCardIndex(cardId));
   }
 }
 
@@ -75,10 +56,7 @@ export class LootDeckEnhancementCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   enhancementDeck(): Loot[] {
-    return gameManager.lootManager
-      .fullLootDeck()
-      .filter((loot) => enhancableLootTypes.includes(loot.type))
-      .sort((a, b) => a.cardId - b.cardId);
+    return gameManager.lootManager.enhancementDeck();
   }
 
   validParameters(cardId: number, value: number): boolean {
@@ -90,8 +68,7 @@ export class LootDeckEnhancementCommand extends CommandImpl {
     const enhancementDeck = this.enhancementDeck();
     const loot = enhancementDeck.find((loot) => loot.cardId === cardId);
     if (loot) {
-      loot.enhancements += value;
-      gameManager.game.lootDeckEnhancements = enhancementDeck.filter((loot) => loot.enhancements > 0);
+      gameManager.lootManager.changeEnhancement(enhancementDeck, loot, value);
     } else {
       this.executionError('loot card not found');
     }
@@ -107,10 +84,7 @@ export class LootDeckFixedCommand extends CommandImpl {
   }
 
   executeWithParameters(type: LootType, value: boolean) {
-    gameManager.game.lootDeckFixed = gameManager.game.lootDeckFixed.filter((fixed) => fixed !== type);
-    if (value) {
-      gameManager.game.lootDeckFixed.push(type);
-    }
+    gameManager.lootManager.setFixed(type, value);
   }
 }
 export class LootDeckConfigCommand extends CommandImpl {
@@ -144,7 +118,7 @@ export class LootDeckConfigCommand extends CommandImpl {
   executeWithParameters(seed: number) {
     gameManager.game.seed = seed;
     gameManager.lootManager.apply(gameManager.game.lootDeck, this.config());
-    dropUpcomingLootCards();
+    gameManager.lootManager.dropUpcomingLootCards(gameManager.game.lootDeck);
   }
 }
 

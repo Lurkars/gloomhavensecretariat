@@ -1,3 +1,5 @@
+import { SummonStatType } from 'src/app/game/businesslogic/CharacterManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -39,24 +41,7 @@ export class SummonStatCommand extends CommandImpl {
   executeWithParameters(number: number, uuid: string, stat: string, value: number) {
     const summon = this.summon(findCharacter(number), uuid);
     if (summon) {
-      switch (stat) {
-        case 'maxHp':
-          summon.maxHealth += value;
-          break;
-        case 'attack':
-          summon.attack = +summon.attack + value;
-          break;
-        case 'trapHeal':
-          summon.attack = +summon.attack + value;
-          break;
-        case 'movement':
-        case 'trapDamage':
-          summon.movement += value;
-          break;
-        case 'range':
-          summon.range += value;
-          break;
-      }
+      gameManager.characterManager.changeSummonStat(summon, stat as SummonStatType, value);
     } else {
       this.executionError('summon not found');
     }

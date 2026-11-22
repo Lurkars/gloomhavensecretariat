@@ -1,4 +1,4 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findEntity, findFigure } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -22,28 +22,7 @@ export class EntityActiveCommand extends CommandImpl {
       return;
     }
     if (figure instanceof Character && entity instanceof Summon) {
-      if (entity.active) {
-        if (settingsManager.settings.activeSummons && figure.active) {
-          gameManager.roundManager.toggleFigure(figure);
-        } else {
-          entity.active = false;
-        }
-      } else {
-        const activeSummon = figure.summons.find((summon) => summon.active);
-        if (
-          settingsManager.settings.activeSummons &&
-          figure.active &&
-          gameManager.entityManager.isAlive(entity, true) &&
-          (!activeSummon || figure.summons.indexOf(activeSummon) < figure.summons.indexOf(entity))
-        ) {
-          while (!entity.active && figure.active) {
-            gameManager.roundManager.toggleFigure(figure);
-          }
-        } else {
-          figure.summons.forEach((summon) => (summon.active = false));
-          entity.active = true;
-        }
-      }
+      gameManager.characterManager.toggleSummonActive(figure, entity);
     } else if (figure && entity) {
       gameManager.entityManager.toggleActive(figure, entity);
     } else {

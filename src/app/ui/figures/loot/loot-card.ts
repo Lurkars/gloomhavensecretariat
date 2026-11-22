@@ -6,11 +6,7 @@ import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
-import { ItemData } from 'src/app/game/model/data/ItemData';
-import { fullLootDeck, Loot, LootType } from 'src/app/game/model/data/Loot';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { Loot, LootType } from 'src/app/game/model/data/Loot';
 import { LootApplyDialogComponent } from 'src/app/ui/figures/loot/loot-apply-dialog';
 import { openLootRandomItemDialog } from 'src/app/ui/figures/loot/random-item/random-item-dialog';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
@@ -83,19 +79,14 @@ export class LootComponent implements OnInit, OnChanges {
   }
 
   hasSection(section: string): boolean {
-    return (
-      gameManager.game.party.conclusions.find((model) => model.edition === gameManager.currentEdition() && model.index === section) !=
-      undefined
-    );
+    return gameManager.lootManager.lootDeckSectionApplied(section);
   }
 
   toggleSection(event: TouchEvent | MouseEvent, section: string, force: boolean = false) {
     if (this.hasSection(section)) {
       if (force) {
         gameManager.stateManager.before('unsetLootCardSection', section);
-        gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-          (model) => model.edition !== gameManager.currentEdition() || model.index !== section
-        );
+        gameManager.lootManager.removeLootDeckSection(section);
         gameManager.stateManager.after();
       }
     } else {
@@ -114,48 +105,28 @@ export class LootComponent implements OnInit, OnChanges {
           .closed.subscribe({
             next: () => {
               if (this.hasSection(section)) {
-                gameManager.stateManager.before('setLootCardSection', section);
-                gameManager.game.lootDeckSections.push(section);
-                if (this.character() && conclusion.rewards) {
-                  const character = gameManager.game.figures.find(
-                    (figure) => figure instanceof Character && figure.name === this.character()
-                  );
-                  if (character instanceof Character) {
-                    if (conclusion.rewards.lootingGold) {
-                      character.progress.gold += EntityValueFunction(conclusion.rewards.lootingGold);
-                    }
-                    if (conclusion.rewards.items) {
-                      conclusion.rewards.items.forEach((item) => {
-                        if (
-                          !character.progress.items.find((value) => value.edition === gameManager.currentEdition() && value.name === item)
-                        ) {
-                          character.progress.items.push(new Identifier(item, gameManager.currentEdition()));
-                        }
-                      });
-                    }
-                  }
-                }
-                if (conclusion.rewards && conclusion.rewards.removeLootDeckCards) {
-                  conclusion.rewards.removeLootDeckCards.forEach((lootDeckCard) => {
-                    const loot = fullLootDeck.find((loot) => loot.cardId === lootDeckCard);
-                    if (loot && gameManager.game.lootDeckFixed.includes(loot.type)) {
-                      gameManager.game.lootDeckFixed.splice(gameManager.game.lootDeckFixed.indexOf(loot.type), 1);
-                    }
-                  });
-                }
-                gameManager.stateManager.after();
+                this.addSection(section);
               }
             }
           });
       } else {
-        gameManager.stateManager.before('setLootCardSection', section);
-        gameManager.game.lootDeckSections.push(section);
-        gameManager.game.party.conclusions.push(new GameScenarioModel(section, gameManager.currentEdition()));
-        gameManager.stateManager.after();
+        this.addSection(section);
       }
     }
     event.stopPropagation();
     event.preventDefault();
+  }
+
+  addSection(section: string) {
+    gameManager.stateManager.before('setLootCardSection', section);
+    gameManager.lootManager.addLootDeckSection(section, this.characterFigure(this.character()));
+    gameManager.stateManager.after();
+  }
+
+  characterFigure(name: string | undefined): Character | undefined {
+    return name
+      ? (gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === name) as Character | undefined)
+      : undefined;
   }
 
   changeCharacter(event: any) {
@@ -170,72 +141,37 @@ export class LootComponent implements OnInit, OnChanges {
 
       dialog.closed.subscribe({
         next: (name) => {
-          if (typeof name === 'string') {
-            const charBefore = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === this.character());
-            let randomItemIdentifier: AdditionalIdentifier | undefined;
-            if (charBefore instanceof Character && charBefore.name !== name) {
-              if (this.loot.type === LootType.random_item && name) {
-                randomItemIdentifier = charBefore.progress.equippedItems.find((value) => value.marker === 'loot-random-item');
-              } else {
-                gameManager.stateManager.before(
-                  'removeLootCard',
-                  gameManager.characterManager.characterName(charBefore, true, true),
-                  'game.loot.' + this.loot.type,
-                  gameManager.lootManager.getValue(this.loot)
-                );
-                charBefore.lootCards = charBefore.lootCards.filter((index) => index !== this.index());
-                if (this.loot.type === LootType.money) {
-                  charBefore.loot -= gameManager.lootManager.getValue(this.loot);
-                }
-
-                if (this.loot.type === LootType.random_item) {
-                  randomItemIdentifier = charBefore.progress.equippedItems.find((value) => value.marker === 'loot-random-item');
-                  if (randomItemIdentifier) {
-                    charBefore.progress.items = charBefore.progress.items.filter(
-                      (value) =>
-                        randomItemIdentifier && (value.edition !== randomItemIdentifier.edition || value.name !== randomItemIdentifier.name)
-                    );
-                    charBefore.progress.equippedItems = charBefore.progress.equippedItems.filter(
-                      (value) =>
-                        randomItemIdentifier && (value.edition !== randomItemIdentifier.edition || value.name !== randomItemIdentifier.name)
-                    );
-                  }
-                }
-                gameManager.stateManager.after();
-              }
-            }
-
-            if (name && (!charBefore || charBefore.name !== name)) {
-              const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name === name);
-              if (character instanceof Character) {
-                if (this.loot.type !== LootType.random_item) {
-                  gameManager.stateManager.before(
-                    'addLootCard',
-                    gameManager.characterManager.characterName(character, true, true),
-                    'game.loot.' + this.loot.type,
-                    gameManager.lootManager.getValue(this.loot)
-                  );
-                  gameManager.lootManager.applyLoot(this.loot, character, this.index());
-                  gameManager.stateManager.after();
-                } else {
-                  let result: ItemData | undefined = randomItemIdentifier
-                    ? gameManager.itemManager.getItem(randomItemIdentifier.name, randomItemIdentifier.edition, true)
-                    : undefined;
-                  if (!result) {
-                    result = gameManager.lootManager.applyLoot(this.loot, character, this.index());
-                  }
-                  if (result) {
-                    openLootRandomItemDialog(
-                      this.dialog,
-                      result,
-                      character,
-                      this.index(),
-                      randomItemIdentifier && charBefore instanceof Character ? charBefore : undefined
-                    );
-                  }
-                }
-              }
-            }
+          if (typeof name !== 'string') {
+            return;
+          }
+          const index = this.index();
+          const holder = gameManager.lootManager.lootCardHolder(index);
+          const character = this.characterFigure(name);
+          if (holder === character) {
+            return;
+          }
+          const value = gameManager.lootManager.getValue(this.loot);
+          if (character) {
+            gameManager.stateManager.before(
+              'addLootCard',
+              gameManager.characterManager.characterName(character, true, true),
+              'game.loot.' + this.loot.type,
+              value
+            );
+          } else if (holder) {
+            gameManager.stateManager.before(
+              'removeLootCard',
+              gameManager.characterManager.characterName(holder, true, true),
+              'game.loot.' + this.loot.type,
+              value
+            );
+          } else {
+            return;
+          }
+          const result = gameManager.lootManager.assignLootCard(index, character);
+          gameManager.stateManager.after();
+          if (character && result) {
+            openLootRandomItemDialog(this.dialog, result, character, index);
           }
         }
       });

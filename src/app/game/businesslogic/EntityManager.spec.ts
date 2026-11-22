@@ -10,6 +10,7 @@ import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
+import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -1096,5 +1097,64 @@ describe('EntityManager dead entities', () => {
     expect(removeMonsterEntity).toHaveBeenCalledWith(monster, dead);
     expect(removeSummon).toHaveBeenCalledTimes(1);
     expect(removeObjectiveEntity).toHaveBeenCalledWith(container, objective);
+  });
+});
+
+describe('EntityManager kill and exhaust', () => {
+  const entityManager = gameManager.entityManager;
+
+  beforeEach(() => {
+    gameManager.game.state = GameState.next;
+    settingsManager.settings.scenarioStats = true;
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    settingsManager.settings.scenarioStats = false;
+  });
+
+  it('kills entities and tracks summon exhausts once', () => {
+    const character = buildCharacter();
+    const summon = buildSummon();
+    const changeExhausts = vi.spyOn(gameManager.scenarioStatsManager, 'changeExhausts').mockImplementation(() => {});
+    entityManager.killEntity(summon, character);
+    entityManager.killEntity(summon, character);
+    expect(summon.dead).toBe(true);
+    expect(changeExhausts).toHaveBeenCalledTimes(1);
+
+    const monster = buildMonster();
+    const entity = buildMonsterEntity(monster);
+    const killed = vi.spyOn(gameManager.monsterManager, 'monsterEntityKilled').mockImplementation(() => {});
+    entityManager.killEntity(entity, monster);
+    expect(entity.dead).toBe(true);
+    expect(killed).toHaveBeenCalledWith(monster, entity);
+  });
+
+  it('sets exhausted with scenario stats', () => {
+    const character = buildCharacter();
+    const changeExhausts = vi.spyOn(gameManager.scenarioStatsManager, 'changeExhausts').mockImplementation(() => {});
+    entityManager.setExhausted(character, true);
+    entityManager.setExhausted(character, true);
+    expect(character.exhausted).toBe(true);
+    expect(changeExhausts).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps dead entities with pending conditions and deactivates dead figures', () => {
+    const monster = buildMonster();
+    const entity = buildMonsterEntity(monster);
+    monster.entities = [entity];
+    entity.dead = true;
+    expect(entityManager.deadRemovable(entity)).toBe(true);
+    const condition = new EntityCondition(ConditionName.wound);
+    condition.types = [ConditionType.turn];
+    entity.entityConditions = [condition];
+    expect(entityManager.deadRemovable(entity)).toBe(false);
+    gameManager.game.state = GameState.draw;
+    expect(entityManager.deadRemovable(entity)).toBe(true);
+
+    monster.active = true;
+    const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+    entityManager.deactivateDeadFigure(monster);
+    expect(toggleFigure).toHaveBeenCalledWith(monster);
   });
 });

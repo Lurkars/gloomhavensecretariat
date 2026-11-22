@@ -16,20 +16,14 @@ export class CharacterSpecialActionSlotCommand extends CommandImpl {
     );
   }
 
-  current(character: Character, specialAction: CharacterSpecialAction): number {
-    return (specialAction.slots || []).length - character.tags.filter((tag) => tag === specialAction.name).length;
-  }
-
   validParameters(number: number, name: string, index: number, force: boolean = false): boolean {
     const character = findCharacter(number);
     const specialAction = this.specialAction(character, name);
-    if (!character || !specialAction || !specialAction.slots || typeof index !== 'number' || index < 0) {
-      return false;
-    }
-    const current = this.current(character, specialAction);
     return (
-      index <= specialAction.slots.length &&
-      (((current !== index || index === specialAction.slots.length) && specialAction.slotTrigger === 'manual') || force)
+      !!character &&
+      !!specialAction &&
+      typeof index === 'number' &&
+      gameManager.specialActionsManager.slotChangeable(character, specialAction, index, force)
     );
   }
 
@@ -37,17 +31,7 @@ export class CharacterSpecialActionSlotCommand extends CommandImpl {
     const character = findCharacter(number);
     const specialAction = this.specialAction(character, name);
     if (character && specialAction) {
-      const current = this.current(character, specialAction);
-      const revert = index < current;
-      for (let i = 0; i < Math.max(1, Math.abs(index - current)); i++) {
-        gameManager.specialActionsManager.triggerSlot(
-          character,
-          force ? specialAction.slotTrigger : 'manual',
-          specialAction.name,
-          revert,
-          force
-        );
-      }
+      gameManager.specialActionsManager.setSlot(character, specialAction, index, force);
     } else {
       this.executionError('character or special action not found');
     }

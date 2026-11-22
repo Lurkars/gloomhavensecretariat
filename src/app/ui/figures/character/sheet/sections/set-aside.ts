@@ -27,9 +27,7 @@ export class CharacterSheetSetAsideComponent extends CharacterSheetSection imple
 
   setAside() {
     gameManager.stateManager.before('characterSetAside', this.characterName, this.playerLabel);
-    gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters || [];
-    gameManager.game.party.availableCharacters.push(this.character.toModel());
-    gameManager.characterManager.removeCharacter(this.character);
+    gameManager.characterManager.setAsideCharacter(this.character);
     gameManager.stateManager.after();
     this.closeDialog();
   }
@@ -37,19 +35,7 @@ export class CharacterSheetSetAsideComponent extends CharacterSheetSection imple
   replay() {
     if (this.replayable) {
       gameManager.stateManager.before('characterReplay', this.characterName, this.playerLabel);
-      gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter(
-        (availableCharacter) =>
-          availableCharacter.name !== this.character.name ||
-          availableCharacter.edition !== this.character.edition ||
-          availableCharacter.number !== this.character.number
-      );
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character && figure.number === this.character.number) {
-          gameManager.game.party.availableCharacters.push(figure.toModel());
-          gameManager.characterManager.removeCharacter(figure);
-        }
-      });
-      gameManager.game.figures.push(this.character);
+      gameManager.characterManager.replayCharacter(this.character);
       gameManager.stateManager.after();
       this.closeDialog();
     }

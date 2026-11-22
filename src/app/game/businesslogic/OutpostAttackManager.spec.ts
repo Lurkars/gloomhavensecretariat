@@ -218,3 +218,34 @@ describe('OutpostAttackManager town guard deck setup', () => {
     expect(outpostAttackManager.setupTownGuardDeck()).toBe(false);
   });
 });
+
+describe('OutpostAttackManager town guard perk sections', () => {
+  const outpostAttackManager = gameManager.outpostAttackManager;
+
+  beforeEach(() => {
+    vi.spyOn(gameManager.campaignManager, 'campaignData').mockReturnValue(Object.assign(new CampaignData(), { townGuardPerks: [{}] }));
+    vi.spyOn(gameManager.attackModifierManager, 'buildTownGuardAttackModifierDeck').mockImplementation(
+      () => new AttackModifierDeck([new AttackModifier(AttackModifierType.success)])
+    );
+    gameManager.game.party.townGuardPerkSections = [];
+    gameManager.game.party.townGuardPerks = 3;
+    gameManager.game.party.townGuardDeck = Object.assign(new AttackModifierDeck([]).toModel(), { active: true });
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    gameManager.game.party.townGuardDeck = undefined;
+  });
+
+  it('limits sections by perks and rebuilds the deck keeping it active', () => {
+    expect(outpostAttackManager.townGuardPerkSectionAvailable('1.1')).toBe(true);
+    outpostAttackManager.setTownGuardPerkSection('1.1', true);
+    expect(gameManager.game.party.townGuardPerkSections).toEqual(['1.1']);
+    expect(gameManager.game.party.townGuardDeck?.cards.length).toBe(1);
+    expect(gameManager.game.party.townGuardDeck?.active).toBe(true);
+    expect(outpostAttackManager.townGuardPerkSectionAvailable('2.1')).toBe(false);
+    expect(outpostAttackManager.townGuardPerkSectionAvailable('1.1')).toBe(true);
+    outpostAttackManager.setTownGuardPerkSection('1.1', false);
+    expect(gameManager.game.party.townGuardPerkSections).toEqual([]);
+  });
+});

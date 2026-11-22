@@ -143,9 +143,7 @@ export class PartyConclusionRemoveCommand extends CommandImpl {
   }
 
   executeWithParameters(edition: string, index: string) {
-    gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-      (conclusion) => conclusion.edition !== edition || conclusion.index !== index
-    );
+    gameManager.scenarioManager.removeConclusion(edition, index);
   }
 }
 

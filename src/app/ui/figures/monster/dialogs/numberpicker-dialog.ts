@@ -6,7 +6,6 @@ import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
-import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -142,11 +141,7 @@ export class MonsterNumberPickerDialog implements OnInit {
   }
 
   nextStandee() {
-    let number = 1;
-    while (this.monster.entities.some((monsterEntity) => monsterEntity.number === number)) {
-      number += 1;
-    }
-    this.pickNumber(number, true, true);
+    this.pickNumber(gameManager.monsterManager.nextStandeeNumber(this.monster), true, true);
   }
 
   pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
@@ -162,15 +157,12 @@ export class MonsterNumberPickerDialog implements OnInit {
         undoType = 'addNextStandee';
       }
       gameManager.stateManager.before(undoType, 'data.monster.' + this.monster.name, 'monster.' + this.type, number);
-      const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number === number);
-      if (dead) {
-        gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
-      }
       if (this.entity) {
-        this.entity.number = number;
-        if (this.entity.revealed) {
-          this.entity.revealed = false;
+        const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number === number);
+        if (dead) {
+          gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
         }
+        gameManager.monsterManager.renumberStandee(this.monster, this.entity, number);
         this.entity =
           (this.entities &&
             (this.entities.find((entity) => entity.number < 0 && entity.type === this.type) ||
@@ -180,15 +172,7 @@ export class MonsterNumberPickerDialog implements OnInit {
           this.type = this.entity.type;
         }
       } else {
-        const entity = gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
-
-        if (gameManager.game.state === GameState.next && entity) {
-          this.monster.active = !gameManager.game.figures.some((figure) => figure.active);
-          if (this.monster.active) {
-            gameManager.sortFigures(this.monster);
-            entity.active = true;
-          }
-        }
+        gameManager.monsterManager.placeStandee(this.monster, number, this.type, this.summon);
       }
       gameManager.stateManager.after();
       if (
@@ -208,15 +192,7 @@ export class MonsterNumberPickerDialog implements OnInit {
       }
     } else if (this.change && this.entity && this.entity.number !== number) {
       gameManager.entityManager.before(this.entity, this.monster, 'changeEntityNumber', this.entity.type, this.entity.number, number);
-      const existing = gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
-      if (existing) {
-        let otherNumber = -1;
-        while (gameManager.monsterManager.monsterStandeeUsed(this.monster, otherNumber)) {
-          otherNumber -= 1;
-        }
-        existing.number = otherNumber;
-      }
-      this.entity.number = number;
+      gameManager.monsterManager.renumberStandee(this.monster, this.entity, number);
       gameManager.stateManager.after();
     }
 

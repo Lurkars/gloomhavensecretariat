@@ -8,12 +8,15 @@ import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { Enhancement } from 'src/app/game/model/data/Enhancement';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { ItemData } from 'src/app/game/model/data/ItemData';
+import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+
+export type SummonStatType = 'maxHp' | 'attack' | 'trapHeal' | 'movement' | 'trapDamage' | 'range';
 
 export class CharacterManager {
   game: Game;
@@ -179,6 +182,75 @@ export class CharacterManager {
     gameManager.trialsManager.applyTrialCards();
   }
 
+  setAsideCharacter(character: Character) {
+    this.game.party.availableCharacters = this.game.party.availableCharacters || [];
+    this.game.party.availableCharacters.push(character.toModel());
+    this.removeCharacter(character);
+  }
+
+  replayCharacter(character: Character) {
+    this.game.party.availableCharacters = this.game.party.availableCharacters.filter(
+      (model) => model.name !== character.name || model.edition !== character.edition || model.number !== character.number
+    );
+    this.game.figures
+      .filter((figure) => figure instanceof Character && figure.number === character.number)
+      .forEach((figure) => {
+        this.game.party.availableCharacters.push((figure as Character).toModel());
+        this.removeCharacter(figure as Character);
+      });
+    this.game.figures.push(character);
+  }
+
+  donationsAvailable(character: Character | undefined = undefined): boolean {
+    if (character && gameManager.attackModifierManager.isRpgCharacter(character)) {
+      return false;
+    }
+    if (gameManager.fhRules(false)) {
+      return this.game.party.buildings.some(
+        (buildingModel) => buildingModel.name === 'temple' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
+      );
+    }
+    return !gameManager.editionRules('jotl');
+  }
+
+  donationCosts(): number {
+    return gameManager.fhRules(false) && this.donationsAvailable() ? 5 : 10;
+  }
+
+  canDonate(character: Character): boolean {
+    return this.game.round < 1 && this.donationsAvailable(character) && character.progress.gold >= this.donationCosts();
+  }
+
+  donate(character: Character) {
+    const costs = this.donationCosts();
+    character.progress.donations += 1;
+    character.donations += 1;
+    this.game.party.donations += 1;
+    character.progress.gold -= costs;
+    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.donations);
+    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.donatedGold);
+  }
+
+  characterUnlocked(edition: string, name: string): boolean {
+    return this.game.unlockedCharacters.includes(edition + ':' + name);
+  }
+
+  unlockCharacter(edition: string, name: string): boolean {
+    if (this.characterUnlocked(edition, name)) {
+      return false;
+    }
+    this.game.unlockedCharacters.push(edition + ':' + name);
+    if (settingsManager.settings.events) {
+      const characterData = gameManager.charactersData(edition).find((data) => data.name === name && data.edition === edition);
+      gameManager.eventCardManager.addEvents(characterData && characterData.unlockEvent);
+    }
+    return true;
+  }
+
+  lockCharacter(edition: string, name: string) {
+    this.game.unlockedCharacters = this.game.unlockedCharacters.filter((unlock) => unlock !== edition + ':' + name);
+  }
+
   removeCharacter(character: Character, retirement: boolean = false) {
     const index = this.game.figures.indexOf(character);
     if (index === -1) {
@@ -190,16 +262,7 @@ export class CharacterManager {
       gameManager.campaignManager.changeProsperity(gameManager.fhRules(true) ? 2 : 1);
 
       if (settingsManager.settings.events) {
-        if (character.retireEvent) {
-          character.retireEvent.split('|').forEach((retireEvent) => {
-            if (retireEvent.split(':').length > 1) {
-              gameManager.eventCardManager.addEvent(retireEvent.split(':')[0], retireEvent.split(':')[1], true);
-            } else {
-              gameManager.eventCardManager.addEvent('city', retireEvent, true);
-              gameManager.eventCardManager.addEvent('road', retireEvent, true);
-            }
-          });
-        }
+        gameManager.eventCardManager.addEvents(character.retireEvent);
       }
     }
 
@@ -320,6 +383,46 @@ export class CharacterManager {
     return [character.active ? 'unsetActive' : 'setActive', name];
   }
 
+  moveResourceToSupply(character: Character, type: LootType, value: number): number {
+    const moved = Math.min(value, character.progress.loot[type] || 0);
+    if (moved > 0) {
+      gameManager.eventCardManager.changeSupplyResource(type, moved);
+      character.progress.loot[type] = (character.progress.loot[type] || 0) - moved;
+    }
+    return moved;
+  }
+
+  changeLoot(character: Character, value: number) {
+    const lootBefore = character.loot;
+    character.loot = Math.max(0, character.loot + value);
+    gameManager.personalQuestManager.trackMoneyTokens(character, character.loot - lootBefore);
+  }
+
+  toggleSummonActive(character: Character, summon: Summon) {
+    if (summon.active) {
+      if (settingsManager.settings.activeSummons && character.active) {
+        gameManager.roundManager.toggleFigure(character);
+      } else {
+        summon.active = false;
+      }
+      return;
+    }
+    const activeSummon = character.summons.find((other) => other.active);
+    if (
+      settingsManager.settings.activeSummons &&
+      character.active &&
+      gameManager.entityManager.isAlive(summon, true) &&
+      (!activeSummon || character.summons.indexOf(activeSummon) < character.summons.indexOf(summon))
+    ) {
+      while (!summon.active && character.active) {
+        gameManager.roundManager.toggleFigure(character);
+      }
+    } else {
+      character.summons.forEach((other) => (other.active = false));
+      summon.active = true;
+    }
+  }
+
   toggleActive(character: Character) {
     if (this.activateSummonsAfterTurn(character)) {
       character.summons.filter((summon) => summon.afterTurn).forEach((summon) => (summon.afterTurnActive = true));
@@ -407,6 +510,55 @@ export class CharacterManager {
 
     if (character.editionRules === 'bb') {
       character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
+    }
+  }
+
+  initSummon(
+    character: Character,
+    summon: Summon,
+    changes: { health?: number; maxHp?: number; attack?: number; movement?: number; range?: number } = {}
+  ) {
+    this.removeSummon(character, summon);
+    summon.init = false;
+    if (changes.health) {
+      gameManager.entityManager.changeHealth(summon, character, changes.health, false, false);
+    }
+    if (changes.attack && typeof summon.attack === 'number') {
+      summon.attack += changes.attack;
+    }
+    if (changes.movement) {
+      summon.movement += changes.movement;
+    }
+    if (changes.range) {
+      summon.range += changes.range;
+    }
+    if (changes.maxHp) {
+      if (summon.maxHealth + changes.maxHp < summon.maxHealth || summon.health === summon.maxHealth) {
+        summon.health = summon.maxHealth + changes.maxHp;
+      }
+      summon.maxHealth += changes.maxHp;
+    }
+    this.addSummon(character, summon);
+  }
+
+  changeSummonStat(summon: Summon, stat: SummonStatType, value: number) {
+    switch (stat) {
+      case 'maxHp':
+        summon.maxHealth += value;
+        break;
+      case 'attack':
+      case 'trapHeal':
+        if (!isNaN(+summon.attack)) {
+          summon.attack = +summon.attack + value;
+        }
+        break;
+      case 'movement':
+      case 'trapDamage':
+        summon.movement += value;
+        break;
+      case 'range':
+        summon.range += value;
+        break;
     }
   }
 

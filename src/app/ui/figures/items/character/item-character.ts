@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { LOOT_RANDOM_ITEM_MARKER } from 'src/app/game/businesslogic/LootManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -61,7 +62,7 @@ export class CharacterItemComponent {
   isLootRandomItem() {
     return this.character.progress.equippedItems.find(
       (identifier) =>
-        identifier.name === '' + this.item.id && identifier.edition === this.item.edition && identifier.marker === 'loot-random-item'
+        identifier.name === '' + this.item.id && identifier.edition === this.item.edition && identifier.marker === LOOT_RANDOM_ITEM_MARKER
     );
   }
 

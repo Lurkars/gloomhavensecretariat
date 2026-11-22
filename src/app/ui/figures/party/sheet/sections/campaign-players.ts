@@ -82,19 +82,7 @@ export class PartyCampaignPlayersComponent extends PartySheetSection {
       gameManager.characterManager.characterName(character, true, true),
       this.party.players[characterModel.number - 1] ? this.party.players[characterModel.number - 1] : '' + characterModel.number
     );
-    gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter(
-      (availableCharacter) =>
-        availableCharacter.name !== character.name ||
-        availableCharacter.edition !== character.edition ||
-        availableCharacter.number !== character.number
-    );
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character && figure.number === character.number) {
-        gameManager.game.party.availableCharacters.push(figure.toModel());
-        gameManager.characterManager.removeCharacter(figure);
-      }
-    });
-    gameManager.game.figures.push(character);
+    gameManager.characterManager.replayCharacter(character);
     gameManager.stateManager.after();
     this.update();
   }

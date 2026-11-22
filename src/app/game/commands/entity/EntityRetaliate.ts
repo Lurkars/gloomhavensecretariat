@@ -1,11 +1,6 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findEntities, findFigure, isAllEntities } from 'src/app/game/commands/CommandHelper';
-import {
-  createRetaliateAction,
-  retaliateActions,
-  setRetaliateActions,
-  shieldRetaliateEnabled
-} from 'src/app/game/commands/entity/shieldRetaliate';
 import { Action } from 'src/app/game/model/data/Action';
 
 export class EntityRetaliateCommand extends CommandImpl {
@@ -15,7 +10,9 @@ export class EntityRetaliateCommand extends CommandImpl {
   retaliate(): Action[] {
     const retaliate: Action[] = [];
     for (let i = 3; i < this.parameters.length; i += 2) {
-      retaliate.push(createRetaliateAction(this.parameters[i] as number, (this.parameters[i + 1] as number) || 1));
+      retaliate.push(
+        gameManager.shieldRetaliateManager.retaliateAction(this.parameters[i] as number, (this.parameters[i + 1] as number) || 1)
+      );
     }
     return retaliate;
   }
@@ -24,7 +21,7 @@ export class EntityRetaliateCommand extends CommandImpl {
     return (
       values.every((value) => typeof value === 'number') &&
       values.filter((value, index) => index % 2 === 1).every((range) => range > 0) &&
-      findEntities(findFigure(figureId), entityId).some((entity) => shieldRetaliateEnabled(entity))
+      findEntities(findFigure(figureId), entityId).some((entity) => gameManager.shieldRetaliateManager.enabled(entity))
     );
   }
 
@@ -33,13 +30,14 @@ export class EntityRetaliateCommand extends CommandImpl {
     if (entities.length) {
       const retaliate = this.retaliate();
       entities
-        .filter((entity) => shieldRetaliateEnabled(entity))
+        .filter((entity) => gameManager.shieldRetaliateManager.enabled(entity))
         .forEach((entity) =>
-          setRetaliateActions(
+          gameManager.shieldRetaliateManager.setRetaliate(
             entity,
             persistent,
             retaliate,
-            isAllEntities(findFigure(figureId), entityId) && retaliateActions(entity, persistent).length > 0
+            isAllEntities(findFigure(figureId), entityId) &&
+              gameManager.shieldRetaliateManager.retaliateActions(entity, persistent).length > 0
           )
         );
     } else {

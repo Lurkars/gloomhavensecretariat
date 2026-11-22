@@ -2,14 +2,25 @@ import { gameManager, settingsManager } from 'src/app/game/businesslogic/Manager
 import { Character } from 'src/app/game/model/Character';
 import { SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
-import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { AdditionalIdentifier, CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
-import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import {
+  appliableLootTypes,
+  enhancableLootTypes,
+  fullLootDeck,
+  Loot,
+  LootDeck,
+  LootDeckConfig,
+  LootType
+} from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { deckMove } from 'src/app/game/util/deck';
+
+export const LOOT_RANDOM_ITEM_MARKER = 'loot-random-item';
 
 export class LootManager {
   game: Game;
@@ -77,6 +88,168 @@ export class LootManager {
     }
 
     return result;
+  }
+
+  lootCardHolder(index: number): Character | undefined {
+    return this.game.figures.find((figure) => figure instanceof Character && figure.lootCards.includes(index)) as Character | undefined;
+  }
+
+  applyRandomItemEnabled(): boolean {
+    return settingsManager.settings.characterItems && settingsManager.settings.applyLootRandomItem;
+  }
+
+  applyRandomItem(character: Character, index: number, item: ItemData) {
+    gameManager.itemManager.addItemCount(item);
+    if (!character.lootCards.includes(index)) {
+      character.lootCards.push(index);
+      character.lootCards.sort((a, b) => a - b);
+    }
+    if (character.progress.items.some((existing) => existing.name === '' + item.id && existing.edition === item.edition)) {
+      character.progress.gold += gameManager.itemManager.itemSellValue(item);
+    } else {
+      const itemIdentifier: Identifier = new Identifier(item.id, item.edition);
+      character.progress.items.push(itemIdentifier);
+      character.progress.equippedItems.push(
+        new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, LOOT_RANDOM_ITEM_MARKER)
+      );
+    }
+  }
+
+  lootRandomItem(character: Character): ItemData | undefined {
+    const identifier = character.progress.equippedItems.find((value) => value.marker === LOOT_RANDOM_ITEM_MARKER);
+    return identifier ? gameManager.itemManager.getItem(identifier.name, identifier.edition, true) : undefined;
+  }
+
+  removeLootCard(character: Character, index: number): ItemData | undefined {
+    const loot = this.game.lootDeck.cards[index];
+    character.lootCards = character.lootCards.filter((value) => value !== index);
+    if (loot && loot.type === LootType.money) {
+      character.loot -= this.getValue(loot);
+    } else if (loot && loot.type === LootType.random_item) {
+      const identifier = character.progress.equippedItems.find((value) => value.marker === LOOT_RANDOM_ITEM_MARKER);
+      if (identifier) {
+        character.progress.items = character.progress.items.filter(
+          (value) => value.edition !== identifier.edition || value.name !== identifier.name
+        );
+        character.progress.equippedItems = character.progress.equippedItems.filter((value) => value !== identifier);
+        return gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
+      }
+    }
+    return undefined;
+  }
+
+  assignLootCard(index: number, character: Character | undefined, applyRandomItem: boolean = false): ItemData | undefined {
+    const loot = this.game.lootDeck.cards[index];
+    const holder = this.lootCardHolder(index);
+    if (!loot || holder === character) {
+      return undefined;
+    }
+    const randomItem = holder ? this.removeLootCard(holder, index) : undefined;
+    if (!character) {
+      return undefined;
+    }
+    let result: ItemData | undefined;
+    if (loot.type === LootType.random_item && randomItem) {
+      result = randomItem;
+      character.lootCards.push(index);
+      character.lootCards.sort((a, b) => a - b);
+    } else {
+      result = this.applyLoot(loot, character, index);
+    }
+    if (result && applyRandomItem && this.applyRandomItemEnabled()) {
+      this.applyRandomItem(character, index, result);
+    }
+    return result;
+  }
+
+  enhancementDeck(): Loot[] {
+    return this.fullLootDeck()
+      .filter((loot) => enhancableLootTypes.includes(loot.type))
+      .sort((a, b) => a.cardId - b.cardId);
+  }
+
+  changeEnhancement(enhancementDeck: Loot[], loot: Loot, value: number) {
+    loot.enhancements = Math.max(0, loot.enhancements + value);
+    this.game.lootDeckEnhancements = enhancementDeck.filter((other) => other.enhancements > 0);
+  }
+
+  setFixed(type: LootType, value: boolean) {
+    this.game.lootDeckFixed = this.game.lootDeckFixed.filter((fixed) => fixed !== type);
+    if (value) {
+      this.game.lootDeckFixed.push(type);
+    }
+  }
+
+  removeCard(deck: LootDeck, index: number) {
+    if (index <= deck.current) {
+      deck.current--;
+    }
+    deck.cards.splice(index, 1);
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        figure.lootCards = figure.lootCards.filter((other) => other !== index).map((other) => (other < index ? other : other - 1));
+      }
+    });
+  }
+
+  dropUpcomingLootCards(deck: LootDeck) {
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        figure.lootCards = figure.lootCards.filter((index) => index <= deck.current);
+      }
+    });
+  }
+
+  hasPartyTreasure(edition: string, treasure: string | number): boolean {
+    return (this.game.party.treasures || []).some((identifier) => identifier.edition === edition && identifier.name === '' + treasure);
+  }
+
+  setPartyTreasure(edition: string, treasure: string | number, value: boolean) {
+    if (!value) {
+      this.game.party.treasures = this.game.party.treasures.filter(
+        (identifier) => identifier.edition !== edition || identifier.name !== '' + treasure
+      );
+    } else if (!this.hasPartyTreasure(edition, treasure)) {
+      this.game.party.treasures.push(new Identifier('' + treasure, edition));
+    }
+  }
+
+  lootDeckSectionApplied(section: string): boolean {
+    return this.game.party.conclusions.some((model) => model.edition === gameManager.currentEdition() && model.index === section);
+  }
+
+  removeLootDeckSection(section: string) {
+    gameManager.scenarioManager.removeConclusion(gameManager.currentEdition(), section);
+  }
+
+  addLootDeckSection(section: string, character: Character | undefined = undefined) {
+    const edition = gameManager.currentEdition();
+    this.game.lootDeckSections.push(section);
+    if (!this.lootDeckSectionApplied(section)) {
+      this.game.party.conclusions.push(new GameScenarioModel(section, edition));
+    }
+    const rewards = gameManager
+      .sectionData(edition)
+      .find((sectionData) => sectionData.index === section && sectionData.conclusion)?.rewards;
+    if (!rewards) {
+      return;
+    }
+    if (character) {
+      if (rewards.lootingGold) {
+        character.progress.gold += EntityValueFunction(rewards.lootingGold);
+      }
+      (rewards.items || []).forEach((item) => {
+        if (!character.progress.items.some((value) => value.edition === edition && value.name === item)) {
+          character.progress.items.push(new Identifier(item, edition));
+        }
+      });
+    }
+    (rewards.removeLootDeckCards || []).forEach((cardId) => {
+      const loot = fullLootDeck.find((loot) => loot.cardId === cardId);
+      if (loot && this.game.lootDeckFixed.includes(loot.type)) {
+        this.game.lootDeckFixed.splice(this.game.lootDeckFixed.indexOf(loot.type), 1);
+      }
+    });
   }
 
   moveCard(deck: LootDeck, fromList: string, fromIndex: number, toList: string, toIndex: number) {

@@ -894,3 +894,47 @@ describe('MonsterManager regressions', () => {
     expect(cityGuard.ability).toBe(2);
   });
 });
+
+describe('MonsterManager standees', () => {
+  const monsterManager = gameManager.monsterManager;
+
+  beforeEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.state = GameState.draw;
+    vi.spyOn(gameManager, 'addEntityCount').mockImplementation(() => {});
+  });
+
+  function standeeMonster(): Monster {
+    const monster = buildMonster({ count: 6 });
+    monster.stats = [new MonsterStat(MonsterType.normal, 1), new MonsterStat(MonsterType.elite, 1)];
+    return monster;
+  }
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('places standees, reusing dead numbers and activating during the round', () => {
+    const monster = standeeMonster();
+    gameManager.game.figures = [monster];
+    const first = monsterManager.placeStandee(monster, 1, MonsterType.normal) as MonsterEntity;
+    expect(monsterManager.nextStandeeNumber(monster)).toBe(2);
+    first.dead = true;
+    expect(monsterManager.nextStandeeNumber(monster)).toBe(1);
+
+    gameManager.game.state = GameState.next;
+    vi.spyOn(gameManager, 'sortFigures').mockImplementation(() => {});
+    const second = monsterManager.placeStandee(monster, 1, MonsterType.elite) as MonsterEntity;
+    expect(monster.entities).toEqual([second]);
+    expect(second.type).toBe(MonsterType.elite);
+    expect(second.active).toBe(true);
+    expect(monster.active).toBe(true);
+  });
+
+  it('renumbers standees and moves an existing one aside', () => {
+    const monster = standeeMonster();
+    const one = monsterManager.placeStandee(monster, 1, MonsterType.normal) as MonsterEntity;
+    const two = monsterManager.placeStandee(monster, 2, MonsterType.normal) as MonsterEntity;
+    monsterManager.renumberStandee(monster, one, 2);
+    expect(one.number).toBe(2);
+    expect(two.number).toBe(-1);
+  });
+});

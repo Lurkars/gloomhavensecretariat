@@ -548,6 +548,50 @@ export class MonsterManager {
     return number;
   }
 
+  nextStandeeNumber(monster: Monster): number {
+    let number = 1;
+    while (this.monsterStandeeUsed(monster, number)) {
+      number += 1;
+    }
+    return number;
+  }
+
+  placeStandee(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
+    const dead = monster.entities.find((monsterEntity) => monsterEntity.number === number);
+    if (dead) {
+      this.removeMonsterEntity(monster, dead);
+    }
+    const entity = this.addMonsterEntity(
+      monster,
+      number,
+      monster.editionRules === 'bb' && monster.tags.includes('bb-elite') ? MonsterType.elite : type,
+      summon
+    );
+    if (entity && this.game.state === GameState.next) {
+      monster.active = !this.game.figures.some((figure) => figure.active);
+      if (monster.active) {
+        gameManager.sortFigures(monster);
+        entity.active = true;
+      }
+    }
+    return entity;
+  }
+
+  renumberStandee(monster: Monster, entity: MonsterEntity, number: number) {
+    const existing = this.monsterStandeeUsed(monster, number);
+    if (existing && existing !== entity) {
+      let otherNumber = -1;
+      while (this.monsterStandeeUsed(monster, otherNumber)) {
+        otherNumber -= 1;
+      }
+      existing.number = otherNumber;
+    }
+    if (entity.number < 0) {
+      entity.revealed = false;
+    }
+    entity.number = number;
+  }
+
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
     if (
       (monster.editionRules === 'bb' && !monster.baseStat) ||

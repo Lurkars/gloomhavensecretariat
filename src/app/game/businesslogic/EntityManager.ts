@@ -764,6 +764,45 @@ export class EntityManager {
     gameManager.attackModifierManager.addModifierBatch(gameManager.attackModifierManager.byFigure(figure), modifiers);
   }
 
+  killEntity(entity: Entity, figure: Figure) {
+    if (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) {
+      if (entity instanceof Summon && !entity.dead && settingsManager.settings.scenarioStats) {
+        gameManager.scenarioStatsManager.changeExhausts(entity, figure, true);
+      }
+      entity.dead = true;
+      if (entity instanceof MonsterEntity && figure instanceof Monster) {
+        gameManager.monsterManager.monsterEntityKilled(figure, entity);
+      }
+    }
+  }
+
+  setExhausted(character: Character, exhausted: boolean) {
+    if (exhausted !== character.exhausted && settingsManager.settings.scenarioStats) {
+      gameManager.scenarioStatsManager.changeExhausts(character, character, exhausted);
+    }
+    character.exhausted = exhausted;
+  }
+
+  // dead entities with pending turn or apply conditions stay until those are resolved
+  deadRemovable(entity: Entity): boolean {
+    return (
+      this.game.state === GameState.draw ||
+      entity.entityConditions.every(
+        (entityCondition) => !entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply)
+      )
+    );
+  }
+
+  deactivateDeadFigure(figure: Figure) {
+    if (
+      (figure instanceof Monster || figure instanceof ObjectiveContainer) &&
+      figure.active &&
+      figure.entities.every((entity) => !this.isAlive(entity))
+    ) {
+      gameManager.roundManager.toggleFigure(figure);
+    }
+  }
+
   deadEntities(entities: { entity: Entity; figure: Figure }[]): { entity: Entity; figure: Figure }[] {
     return entities.filter(
       ({ entity, figure }) =>

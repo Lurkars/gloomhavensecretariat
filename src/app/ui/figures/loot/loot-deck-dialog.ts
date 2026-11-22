@@ -6,7 +6,7 @@ import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import { Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
 import { GameState } from 'src/app/game/model/Game';
 import { LootComponent } from 'src/app/ui/figures/loot/loot-card';
 import { LootDeckChange } from 'src/app/ui/figures/loot/loot-deck';
@@ -92,10 +92,7 @@ export class LootDeckDialogComponent implements OnInit {
       }
     });
 
-    this.enhancementDeck = gameManager.lootManager
-      .fullLootDeck()
-      .filter((loot) => enhancableLootTypes.includes(loot.type))
-      .sort((a, b) => a.cardId - b.cardId);
+    this.enhancementDeck = gameManager.lootManager.enhancementDeck();
     this.update();
   }
 
@@ -106,8 +103,7 @@ export class LootDeckDialogComponent implements OnInit {
 
   enhanceCard(loot: Loot) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckAddEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
-    loot.enhancements++;
-    gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
+    gameManager.lootManager.changeEnhancement(this.enhancementDeck, loot, 1);
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckAddEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
     this.update();
   }
@@ -115,8 +111,7 @@ export class LootDeckDialogComponent implements OnInit {
   unenhanceCard(loot: Loot) {
     if (loot.enhancements > 0) {
       this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
-      loot.enhancements--;
-      gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
+      gameManager.lootManager.changeEnhancement(this.enhancementDeck, loot, -1);
       this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
     }
     this.update();
@@ -144,16 +139,9 @@ export class LootDeckDialogComponent implements OnInit {
     const index = gameManager.game.lootDeckFixed.indexOf(lootType);
     const config = this.deck.cards.length !== 0;
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
-    if (index === -1) {
-      gameManager.game.lootDeckFixed.push(lootType);
-      if (config) {
-        this.lootDeckConfig[lootType] = 1;
-      }
-    } else {
-      gameManager.game.lootDeckFixed.splice(index, 1);
-      if (config) {
-        this.lootDeckConfig[lootType] = 0;
-      }
+    gameManager.lootManager.setFixed(lootType, index === -1);
+    if (config) {
+      this.lootDeckConfig[lootType] = index === -1 ? 1 : 0;
     }
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
     this.update();
@@ -210,11 +198,7 @@ export class LootDeckDialogComponent implements OnInit {
   shuffle(upcoming: boolean = false): void {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? 'Upcoming' : '')));
     gameManager.lootManager.shuffleDeck(this.deck, upcoming);
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
-        figure.lootCards = figure.lootCards.filter((number) => number <= this.deck.current);
-      }
-    });
+    gameManager.lootManager.dropUpcomingLootCards(this.deck);
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? 'Upcoming' : '')));
     this.update();
   }
@@ -247,19 +231,8 @@ export class LootDeckDialogComponent implements OnInit {
 
   remove(index: number) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
-    if (index <= this.deck.current) {
-      this.deck.current--;
-      this.current = this.deck.current;
-    }
-    this.deck.cards.splice(index, 1);
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
-        if (figure.lootCards.includes(index)) {
-          figure.lootCards.splice(figure.lootCards.indexOf(index), 1);
-        }
-        figure.lootCards = figure.lootCards.map((i) => (i < index ? i : i - 1));
-      }
-    });
+    gameManager.lootManager.removeCard(this.deck, index);
+    this.current = this.deck.current;
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
     this.update();
   }

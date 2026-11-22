@@ -78,6 +78,15 @@ describe('ScenarioRuleComponent', () => {
       expect(component.randomDungeonsDungeonLabel()).toEqual(['&nbspd1']);
     });
 
+    it('excludes card ids already present in additionalSections', () => {
+      gameManager.game.scenario = new Scenario(Object.assign(new ScenarioData(), { edition: 'gh', index: '1' }), [], ['m1']);
+      const rule = Object.assign(new ScenarioRule(''), {
+        randomDungeon: Object.assign(new RandomDungeonRule(), { monsterCards: ['m1', 'm2'] })
+      });
+      const component = createComponent(rule);
+      expect(component.randomDungeonsMonsterLabel(rule)).toEqual(['&nbspm2']);
+    });
+
     it('resolves a labeled title when a matching randomDungeonCard section exists', () => {
       const section = Object.assign(new ScenarioData(), { edition: 'gh', index: 'd1', group: 'randomDungeonCard' });
       gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [section], []))];

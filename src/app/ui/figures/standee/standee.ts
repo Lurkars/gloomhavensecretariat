@@ -328,11 +328,7 @@ export class StandeeComponent implements OnInit {
       gameManager.entityManager.before(this.entity, this.figure, 'changeHP', ghsValueSign(this.health));
       gameManager.entityManager.changeHealth(this.entity, this.figure, this.health);
 
-      if (this.figure instanceof Monster && this.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
-        if (this.figure.active) {
-          gameManager.roundManager.toggleFigure(this.figure);
-        }
-      }
+      gameManager.entityManager.deactivateDeadFigure(this.figure);
 
       ghsRemoveDeadEntities([{ entity: this.entity, figure: this.figure }]);
       gameManager.stateManager.after();
@@ -461,40 +457,13 @@ export class StandeeComponent implements OnInit {
 
   toggleActive() {
     if (this.entity instanceof Summon && this.figure instanceof Character) {
-      if (this.entity.active) {
-        gameManager.stateManager.before(
-          'summonInactive',
-          gameManager.characterManager.characterName(this.figure, true, true),
-          'data.summon.' + this.entity.name
-        );
-        if (settingsManager.settings.activeSummons && this.figure.active) {
-          gameManager.roundManager.toggleFigure(this.figure);
-        } else {
-          this.entity.active = false;
-        }
-        gameManager.stateManager.after();
-      } else {
-        gameManager.stateManager.before(
-          'summonActive',
-          gameManager.characterManager.characterName(this.figure, true, true),
-          'data.summon.' + this.entity.name
-        );
-        const activeSummon = this.figure.summons.find((summon) => summon.active);
-        if (
-          settingsManager.settings.activeSummons &&
-          this.figure.active &&
-          gameManager.entityManager.isAlive(this.entity, true) &&
-          (!activeSummon || this.figure.summons.indexOf(activeSummon) < this.figure.summons.indexOf(this.entity))
-        ) {
-          while (!this.entity.active) {
-            gameManager.roundManager.toggleFigure(this.figure);
-          }
-        } else {
-          this.figure.summons.forEach((summon) => (summon.active = false));
-          this.entity.active = true;
-        }
-        gameManager.stateManager.after();
-      }
+      gameManager.stateManager.before(
+        this.entity.active ? 'summonInactive' : 'summonActive',
+        gameManager.characterManager.characterName(this.figure, true, true),
+        'data.summon.' + this.entity.name
+      );
+      gameManager.characterManager.toggleSummonActive(this.figure, this.entity);
+      gameManager.stateManager.after();
     }
   }
 

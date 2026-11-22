@@ -2,15 +2,13 @@ import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { RETIREMENT_DIALOG_DISMISSED_TAG } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { GameState } from 'src/app/game/model/Game';
-import {
-  CharacterSheetPersonalQuestComponent,
-  RETIREMENT_DIALOG_DISMISSED_TAG
-} from 'src/app/ui/figures/character/sheet/sections/personal-quest';
+import { CharacterSheetPersonalQuestComponent } from 'src/app/ui/figures/character/sheet/sections/personal-quest';
 
 function buildCharacter(overrides: Partial<CharacterData> = {}): Character {
   const data = Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }, overrides);

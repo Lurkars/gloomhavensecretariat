@@ -1,8 +1,7 @@
-import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
-import { EventCard, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
+import { EventCard } from 'src/app/game/model/data/EventCard';
 
 function eventEdition(): string {
   return gameManager.game.party.edition || gameManager.game.edition || gameManager.currentEdition();
@@ -55,7 +54,7 @@ export class EventDeckMoveCommand extends CommandImpl {
   }
 
   executeWithParameters(type: string, cardId: string, to: number) {
-    moveItemInArray(deck(type), deck(type).indexOf(cardId), to);
+    gameManager.eventCardManager.moveEvent(type, deck(type).indexOf(cardId), to);
   }
 }
 
@@ -75,8 +74,7 @@ export class EventDeckAddCommand extends CommandImpl {
     if (index < 0) {
       gameManager.eventCardManager.addEvent(type, cardId);
     } else {
-      gameManager.game.party.eventDecks[type] = deck(type);
-      deck(type).splice(index, 0, cardId);
+      gameManager.eventCardManager.insertEvent(type, cardId, index);
     }
   }
 }
@@ -105,13 +103,7 @@ export class EventDeckMarkDrawnCommand extends CommandImpl {
   executeWithParameters(type: string, cardId: string, index: number = -1) {
     const card = eventCard(type, cardId);
     if (card) {
-      const checks = gameManager.eventCardManager.lastEventCardResult(card.edition, card.type, card.cardId)?.checks || [];
-      const identifier = new EventCardIdentifier(card.cardId, card.edition, card.type, -1, [], [...checks], false, false);
-      if (index < 0) {
-        gameManager.game.party.eventCards.push(identifier);
-      } else {
-        gameManager.game.party.eventCards.splice(index, 0, identifier);
-      }
+      gameManager.eventCardManager.markEventDrawn(card, index);
     } else {
       this.executionError('event card not found');
     }
@@ -164,14 +156,7 @@ export class EventDeckResetCommand extends CommandImpl {
 
   executeWithParameters(type: string, seed: number) {
     gameManager.game.seed = seed;
-    const edition = eventEdition();
-    if (gameManager.game.party.eventDecks[type]) {
-      gameManager.game.party.eventDecks[type] = [];
-      gameManager.game.party.eventCards = gameManager.game.party.eventCards.filter(
-        (value) => value.edition !== edition && value.type !== type
-      );
-    }
-    gameManager.eventCardManager.buildPartyDeck(edition, type);
+    gameManager.eventCardManager.resetEventDeck(eventEdition(), type);
   }
 }
 

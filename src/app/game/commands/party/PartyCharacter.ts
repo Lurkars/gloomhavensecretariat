@@ -11,22 +11,14 @@ export class PartyCharacterReactivateCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(edition: string, name: string): boolean {
-    return (
-      !!retired(edition, name) &&
-      !gameManager.game.figures.some((figure) => figure instanceof Character && figure.name === name && figure.edition === edition) &&
-      !gameManager.game.party.availableCharacters.some((model) => model.name === name && model.edition === edition)
-    );
+    const model = retired(edition, name);
+    return !!model && gameManager.retirementManager.reactivatable(model);
   }
 
   executeWithParameters(edition: string, name: string) {
     const characterModel = retired(edition, name);
     if (characterModel) {
-      const character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
-      character.fromModel(characterModel);
-      character.progress.retired = false;
-      character.progress.personalQuestProgress = [];
-      gameManager.game.figures.push(character);
-      gameManager.game.party.retirements.splice(gameManager.game.party.retirements.indexOf(characterModel), 1);
+      gameManager.retirementManager.reactivateCharacter(characterModel);
     } else {
       this.executionError('retired character not found');
     }

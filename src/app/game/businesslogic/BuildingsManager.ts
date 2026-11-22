@@ -184,6 +184,27 @@ export class BuildingsManager {
     });
   }
 
+  findBuilding(nameOrId: string): BuildingData | undefined {
+    const campaign = gameManager.campaignManager.campaignData();
+    if (!campaign || !campaign.buildings || !nameOrId) {
+      return undefined;
+    }
+    return campaign.buildings.find(
+      (buildingData) =>
+        buildingData.name === nameOrId.toLowerCase().replaceAll(' ', '-') ||
+        buildingData.id === nameOrId ||
+        (!isNaN(+buildingData.id) && !isNaN(+nameOrId) && +buildingData.id === +nameOrId)
+    );
+  }
+
+  addBuilding(data: BuildingData): boolean {
+    if (this.game.party.buildings.some((model) => model.name === data.name)) {
+      return false;
+    }
+    this.game.party.buildings.push(new BuildingModel(data.name, 0));
+    return true;
+  }
+
   unlockBuildings(): boolean {
     const campaign = gameManager.campaignManager.campaignData();
     if (!campaign || !campaign.buildings) {
@@ -390,6 +411,31 @@ export class BuildingsManager {
         }
       });
     }
+  }
+
+  findPet(edition: string, name: string): PetIdentifier | undefined {
+    return this.game.party.pets.find((pet) => pet.edition === edition && pet.name === name);
+  }
+
+  addPet(edition: string, name: string): PetIdentifier {
+    let pet = this.findPet(edition, name);
+    if (!pet) {
+      pet = new PetIdentifier(name, edition);
+      this.game.party.pets.push(pet);
+    }
+    return pet;
+  }
+
+  removePet(edition: string, name: string) {
+    this.game.party.pets = this.game.party.pets.filter((pet) => pet.edition !== edition || pet.name !== name);
+  }
+
+  setGardenFlipped(flipped: boolean) {
+    this.game.party.garden = Object.assign(new GardenModel(), this.game.party.garden || new GardenModel(), { flipped: flipped });
+  }
+
+  setGardenAutomated(automated: boolean) {
+    this.game.party.garden = Object.assign(new GardenModel(), this.game.party.garden || new GardenModel(), { automated: automated });
   }
 
   setPetActive(pet: PetIdentifier, active: boolean, force: boolean = false) {

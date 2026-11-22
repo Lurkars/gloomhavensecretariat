@@ -293,10 +293,14 @@ export class ScenarioManager {
       if (sections.length === 0) {
         delete this.game.party.weekSections[week];
       }
-      this.game.party.conclusions = this.game.party.conclusions.filter(
-        (conclusion) => conclusion.edition !== edition || conclusion.index !== section
-      );
+      this.removeConclusion(edition, section);
     }
+  }
+
+  removeConclusion(edition: string | undefined, index: string) {
+    this.game.party.conclusions = this.game.party.conclusions.filter(
+      (conclusion) => conclusion.edition !== edition || conclusion.index !== index
+    );
   }
 
   finishWeekConclusion(conclusion: Scenario, week: number = -1) {
@@ -472,12 +476,8 @@ export class ScenarioManager {
         this.game.party.manualScenarios.push(new GameScenarioModel(finish.chooseLocation, scenario.edition, scenario.group));
       }
 
-      if (
-        settingsManager.settings.automaticUnlocking &&
-        finish.chooseUnlockCharacter &&
-        !this.game.unlockedCharacters.includes(scenario.edition + ':' + finish.chooseUnlockCharacter)
-      ) {
-        this.game.unlockedCharacters.push(scenario.edition + ':' + finish.chooseUnlockCharacter);
+      if (settingsManager.settings.automaticUnlocking && finish.chooseUnlockCharacter) {
+        gameManager.characterManager.unlockCharacter(scenario.edition, finish.chooseUnlockCharacter);
       }
 
       this.game.party.townGuardPerks += challenges;
@@ -853,12 +853,8 @@ export class ScenarioManager {
             }
           }
 
-          if (
-            settingsManager.settings.automaticUnlocking &&
-            rewards.unlockCharacter &&
-            !this.game.unlockedCharacters.includes(scenario.edition + ':' + rewards.unlockCharacter)
-          ) {
-            this.game.unlockedCharacters.push(scenario.edition + ':' + rewards.unlockCharacter);
+          if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter) {
+            gameManager.characterManager.unlockCharacter(scenario.edition, rewards.unlockCharacter);
           }
 
           // a retirement reward completes the personal quest, so conclude its scenario chain

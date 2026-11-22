@@ -43,17 +43,7 @@ export class PartyBattleGoalEditionCommand extends CommandImpl {
   }
 
   executeWithParameters(edition: string, value: boolean) {
-    gameManager.game.battleGoalEditions = gameManager.game.battleGoalEditions || [];
-    gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals || [];
-    if (gameManager.game.battleGoalEditions.includes(edition) === value) {
-      return;
-    }
-    if (value) {
-      gameManager.game.battleGoalEditions.push(edition);
-    } else {
-      gameManager.game.battleGoalEditions = gameManager.game.battleGoalEditions.filter((other) => other !== edition);
-      gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals.filter((other) => other.edition !== edition);
-    }
+    gameManager.battleGoalManager.setBattleGoalEdition(edition, value);
   }
 }
 
@@ -61,25 +51,11 @@ export class PartyBattleGoalFilterCommand extends CommandImpl {
   id: string = 'party.battleGoalFilter';
   requiredParameters: number = 3;
 
-  filtered(edition: BASE_TYPE, name: BASE_TYPE): boolean {
-    return (gameManager.game.filteredBattleGoals || []).some((identifier) => identifier.edition === edition && identifier.name === name);
-  }
-
   validParameters(edition: string, name: string, value: boolean): boolean {
     return !!gameManager.battleGoalManager.getBattleGoal(new Identifier(name, edition)) && typeof value === 'boolean';
   }
 
   executeWithParameters(edition: string, name: string, value: boolean) {
-    gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals || [];
-    if (this.filtered(edition, name) === value) {
-      return;
-    }
-    if (!value) {
-      gameManager.game.filteredBattleGoals = gameManager.game.filteredBattleGoals.filter(
-        (identifier) => identifier.edition !== edition || identifier.name !== name
-      );
-    } else {
-      gameManager.game.filteredBattleGoals.push(new Identifier(name, edition));
-    }
+    gameManager.battleGoalManager.setBattleGoalFilter(edition, name, value);
   }
 }

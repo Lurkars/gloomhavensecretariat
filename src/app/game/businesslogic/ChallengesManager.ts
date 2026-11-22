@@ -124,6 +124,13 @@ export class ChallengesManager {
     moveItemInArray(deck.cards, from, to);
   }
 
+  swapKeptCards(deck: ChallengeDeck) {
+    if (deck.keep.length > 1) {
+      const card = deck.cards.splice(deck.keep[0], 1)[0];
+      deck.cards.splice(deck.keep[1], 0, card);
+    }
+  }
+
   toggleKeep(deck: ChallengeDeck, index: number, keepAvailable: number) {
     if (!deck.keep.includes(index)) {
       if (deck.keep.length === keepAvailable) {

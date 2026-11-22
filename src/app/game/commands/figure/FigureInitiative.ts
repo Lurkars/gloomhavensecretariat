@@ -1,8 +1,7 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findFigure } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
-import { GameState } from 'src/app/game/model/Game';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 export class FigureInitiativeCommand extends CommandImpl {
@@ -14,29 +13,16 @@ export class FigureInitiativeCommand extends CommandImpl {
     return (
       (figure instanceof Character || figure instanceof ObjectiveContainer) &&
       typeof initiative === 'number' &&
-      initiative >= 0 &&
-      initiative <= 99 &&
-      (initiative > 0 || gameManager.game.state === GameState.draw || !settingsManager.settings.initiativeRequired)
+      gameManager.roundManager.validInitiative(initiative)
     );
   }
 
   executeWithParameters(figureId: string | number, initiative: number) {
     const figure = findFigure(figureId);
-    if (figure instanceof Character) {
-      figure.initiative = initiative;
-      figure.initiativeVisible = true;
-      if (initiative === 99) {
-        figure.longRest = true;
-      } else if (!initiative || !gameManager.specialActionsManager.keepInitiativeOnLongRest(figure)) {
-        figure.longRest = false;
-      }
-    } else if (figure instanceof ObjectiveContainer) {
-      figure.initiative = initiative;
+    if (figure instanceof Character || figure instanceof ObjectiveContainer) {
+      gameManager.roundManager.setInitiative(figure, initiative);
     } else {
       this.executionError('figure not found');
-    }
-    if (figure && gameManager.game.state === GameState.next) {
-      gameManager.sortFigures(figure);
     }
   }
 }

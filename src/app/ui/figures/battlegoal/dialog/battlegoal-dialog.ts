@@ -82,15 +82,7 @@ export class CharacterBattleGoalsDialog {
   drawCards() {
     if (this.redrawAvailable) {
       gameManager.stateManager.before('battleGoals.drawCards', gameManager.characterManager.characterName(this.character, true, true));
-      this.character.battleGoals = [];
-      this.character.battleGoal = false;
-      gameManager.battleGoalManager.drawBattleGoal(this.character);
-      if (!gameManager.trialsManager.apply || !gameManager.trialsManager.activeTrial('fh', 360)) {
-        gameManager.battleGoalManager.drawBattleGoal(this.character);
-        if (gameManager.fhRules(true) || settingsManager.settings.battleGoalsFh) {
-          gameManager.battleGoalManager.drawBattleGoal(this.character);
-        }
-      }
+      gameManager.battleGoalManager.drawBattleGoals(this.character);
       gameManager.stateManager.after();
     }
     this.update();
@@ -107,26 +99,14 @@ export class CharacterBattleGoalsDialog {
     if (this.character.battleGoal && !this.revealed.includes(0)) {
       this.revealed.push(0);
     }
-    this.trial349 =
-      (gameManager.trialsManager.apply &&
-        gameManager.trialsManager.trialsEnabled &&
-        this.character.progress.trial &&
-        this.character.progress.trial.edition === 'fh' &&
-        this.character.progress.trial.name === '349') ||
-      false;
-    this.trial356 =
-      (gameManager.trialsManager.apply &&
-        gameManager.trialsManager.trialsEnabled &&
-        this.character.progress.trial &&
-        this.character.progress.trial.edition === 'fh' &&
-        this.character.progress.trial.name === '356') ||
-      false;
+    this.trial349 = gameManager.trialsManager.characterTrial(this.character, '349');
+    this.trial356 = gameManager.trialsManager.characterTrial(this.character, '356');
   }
 
   drawCard() {
     if (this.available) {
       gameManager.stateManager.before('battleGoals.drawCard', gameManager.characterManager.characterName(this.character, true, true));
-      gameManager.battleGoalManager.drawBattleGoal(this.character, this.trial356);
+      gameManager.battleGoalManager.drawAdditionalBattleGoal(this.character);
       gameManager.stateManager.after();
     }
     this.update();

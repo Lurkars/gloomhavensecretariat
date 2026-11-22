@@ -6,7 +6,6 @@ import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
-import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -110,11 +109,7 @@ export class MonsterNumberPicker implements OnInit {
   }
 
   nextStandee() {
-    let number = 1;
-    while (this.monster.entities.some((monsterEntity) => monsterEntity.number === number)) {
-      number += 1;
-    }
-    this.pickNumber(number, true, true);
+    this.pickNumber(gameManager.monsterManager.nextStandeeNumber(this.monster), true, true);
   }
 
   pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
@@ -126,24 +121,7 @@ export class MonsterNumberPicker implements OnInit {
         undoType = 'addNextStandee';
       }
       gameManager.stateManager.before(undoType, 'data.monster.' + this.monster.name, 'monster.' + this.type, '' + number);
-      const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number === number);
-      if (dead) {
-        gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
-      }
-      const entity = gameManager.monsterManager.addMonsterEntity(
-        this.monster,
-        number,
-        this.monster.editionRules === 'bb' && this.monster.tags.includes('bb-elite') ? MonsterType.elite : this.type,
-        false
-      );
-
-      if (gameManager.game.state === GameState.next && entity) {
-        this.monster.active = !gameManager.game.figures.some((figure) => figure.active);
-        if (this.monster.active) {
-          gameManager.sortFigures(this.monster);
-          entity.active = true;
-        }
-      }
+      gameManager.monsterManager.placeStandee(this.monster, number, this.type);
       gameManager.stateManager.after();
     }
   }

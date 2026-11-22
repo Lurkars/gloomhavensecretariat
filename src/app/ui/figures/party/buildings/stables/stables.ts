@@ -116,10 +116,8 @@ export class StablesComponent implements OnInit {
       gameManager.game.party.pets.find((value) => pet.card && value.edition === pet.card.edition && value.name === pet.card.id) ===
         undefined
     ) {
-      const model = new PetIdentifier(pet.card.id, pet.card.edition);
-      gameManager.stateManager.before('buildings.stables.pets.add', model.edition, model.name);
-      gameManager.game.party.pets.push(model);
-      pet.model = model;
+      gameManager.stateManager.before('buildings.stables.pets.add', pet.card.edition, pet.card.id);
+      pet.model = gameManager.buildingsManager.addPet(pet.card.edition, pet.card.id);
       this.used++;
       gameManager.stateManager.after();
     }
@@ -142,9 +140,7 @@ export class StablesComponent implements OnInit {
   removePet(model: PetIdentifier | undefined) {
     if (model) {
       gameManager.stateManager.before('buildings.stables.pets.remove', model.edition, model.name);
-      gameManager.game.party.pets = gameManager.game.party.pets.filter(
-        (value) => value.edition !== model.edition || value.name !== model.name
-      );
+      gameManager.buildingsManager.removePet(model.edition, model.name);
       this.update();
       gameManager.stateManager.after();
     }

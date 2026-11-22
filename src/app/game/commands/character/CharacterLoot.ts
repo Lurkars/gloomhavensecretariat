@@ -22,12 +22,7 @@ export class CharacterLootCommand extends CommandImpl {
   executeWithParameters(number: number, loot: number) {
     const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character) {
-      const lootBefore = character.loot;
-      character.loot += loot;
-      if (character.loot < 0) {
-        character.loot = 0;
-      }
-      gameManager.personalQuestManager.trackMoneyTokens(character, character.loot - lootBefore);
+      gameManager.characterManager.changeLoot(character, loot);
     } else {
       this.executionError('character not found or invalid');
     }

@@ -1,22 +1,10 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
-import { Character } from 'src/app/game/model/Character';
 
 export class CharacterBattleGoalDrawCardCommand extends CommandImpl {
   id: string = 'character.battleGoal.drawCard';
   requiredParameters: number = 2;
-
-  trial356(character: Character): boolean {
-    return (
-      (gameManager.trialsManager.apply &&
-        gameManager.trialsManager.trialsEnabled &&
-        character.progress.trial &&
-        character.progress.trial.edition === 'fh' &&
-        character.progress.trial.name === '356') ||
-      false
-    );
-  }
 
   validParameters(number: number, seed: number): boolean {
     if (!validSeed(seed)) {
@@ -31,7 +19,7 @@ export class CharacterBattleGoalDrawCardCommand extends CommandImpl {
     gameManager.game.seed = seed;
     const character = findCharacter(number);
     if (character) {
-      gameManager.battleGoalManager.drawBattleGoal(character, this.trial356(character));
+      gameManager.battleGoalManager.drawAdditionalBattleGoal(character);
     } else {
       this.executionError('character not found');
     }

@@ -72,16 +72,13 @@ export class ScenarioRulesDialogComponent implements OnInit {
 
   clearDiscardedScenarioRules() {
     gameManager.stateManager.before('clearDiscardedScenarioRules');
-    gameManager.game.discardedScenarioRules = [];
+    gameManager.scenarioRulesManager.clearDiscardedRules();
     gameManager.stateManager.after();
   }
 
   discardScenarioRule(ruleModel: { identifier: ScenarioRuleIdentifier; rule: ScenarioRule }) {
     gameManager.stateManager.before('removeScenarioRule');
-    gameManager.game.appliedScenarioRules.splice(gameManager.game.appliedScenarioRules.indexOf(ruleModel.identifier), 1);
-    if (ruleModel.rule.once || ruleModel.rule.alwaysApplyTurn) {
-      gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
-    }
+    gameManager.scenarioRulesManager.discardAppliedRule(ruleModel.identifier);
     gameManager.stateManager.after();
   }
 }

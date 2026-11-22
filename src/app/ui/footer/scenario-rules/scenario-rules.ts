@@ -10,8 +10,7 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { ScenarioFigureRule, ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { ScenarioRuleComponent } from 'src/app/ui/footer/scenario-rules/scenario-rule';
-import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
+import { openScenarioFinish, openScenarioSummary } from 'src/app/ui/footer/scenario/summary/scenario-finish';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
@@ -37,58 +36,6 @@ export class ScenarioRulesComponent {
 
   update(): void {
     this.scenarioRules = [...gameManager.game.scenarioRules];
-  }
-
-  randomDungeonsMonsterLabel(rule: ScenarioRule): string[] {
-    if (!rule.randomDungeon || !rule.randomDungeon.monsterCards || !rule.randomDungeon.monsterCards.length) {
-      return [];
-    }
-
-    return rule.randomDungeon.monsterCards
-      .filter(
-        (cardId) =>
-          !gameManager.game.scenario ||
-          !gameManager.game.scenario.additionalSections ||
-          !gameManager.game.scenario.additionalSections.includes(cardId)
-      )
-      .map((cardId) => {
-        if (gameManager.game.scenario) {
-          const section = gameManager
-            .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomMonsterCard');
-          if (section) {
-            return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
-          }
-        }
-
-        return '&nbsp' + cardId;
-      });
-  }
-
-  randomDungeonsDungeonLabel(rule: ScenarioRule): string[] {
-    if (!rule.randomDungeon || !rule.randomDungeon.dungeonCards || !rule.randomDungeon.dungeonCards.length) {
-      return [];
-    }
-
-    return rule.randomDungeon.dungeonCards
-      .filter(
-        (cardId) =>
-          !gameManager.game.scenario ||
-          !gameManager.game.scenario.additionalSections ||
-          !gameManager.game.scenario.additionalSections.includes(cardId)
-      )
-      .map((cardId) => {
-        if (gameManager.game.scenario) {
-          const section = gameManager
-            .sectionData(gameManager.game.scenario.edition, true)
-            .find((sectionData) => sectionData.index === cardId && sectionData.group === 'randomDungeonCard');
-          if (section) {
-            return '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')';
-          }
-        }
-
-        return '&nbsp' + cardId;
-      });
   }
 
   prevent(event: any) {
@@ -132,56 +79,16 @@ export class ScenarioRulesComponent {
             gameManager.stateManager.after();
 
             result.conclusions.forEach((conclusion) => {
-              this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: ['dialog'],
-                data: {
-                  scenario: gameManager.game.scenario,
-                  success: true,
-                  conclusion: conclusion
-                }
-              });
+              openScenarioSummary(this.dialog, gameManager.game.scenario || scenario, true, conclusion);
             });
 
             if (result.finish) {
-              this.openFinish(result.finish.success, result.finish.conclusions, gameManager.game.scenario || scenario);
+              openScenarioFinish(this.dialog, gameManager.game.scenario || scenario, result.finish.success, result.finish.conclusions);
             }
           },
           settingsManager.settings.animations ? 100 * settingsManager.settings.animationSpeed : 0
         );
       }
-    }
-  }
-
-  openFinish(success: boolean, conclusions: ScenarioData[], scenario: ScenarioData) {
-    if (success && conclusions.length > 1) {
-      this.dialog
-        .open(ScenarioConclusionComponent, {
-          panelClass: ['dialog'],
-          data: { conclusions: conclusions, parent: scenario }
-        })
-        .closed.subscribe({
-          next: (conclusion: unknown) => {
-            if (conclusion) {
-              this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: ['dialog'],
-                data: {
-                  scenario: scenario,
-                  conclusion: conclusion,
-                  success: success
-                }
-              });
-            }
-          }
-        });
-    } else {
-      this.dialog.open(ScenarioSummaryComponent, {
-        panelClass: ['dialog'],
-        data: {
-          scenario: scenario,
-          conclusion: conclusions.length === 1 ? conclusions[0] : undefined,
-          success: success
-        }
-      });
     }
   }
 

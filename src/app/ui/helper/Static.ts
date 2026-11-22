@@ -129,6 +129,14 @@ export function ghsDialogConfirmKey(event: KeyboardEvent, dialog: Dialog, dialog
   );
 }
 
+export function ghsCompactPortrait(): boolean {
+  return (
+    settingsManager.settings.automaticAttackModifierFullscreen &&
+    settingsManager.settings.portraitMode &&
+    (window.innerWidth < 800 || window.innerHeight < 400)
+  );
+}
+
 export function ghsModulo(n: number, m: number): number {
   return ((n % m) + m) % m;
 }

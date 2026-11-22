@@ -1,7 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findItem, validSeed } from 'src/app/game/commands/CommandHelper';
-import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { Party } from 'src/app/game/model/Party';
 
@@ -62,25 +62,7 @@ export class PartyTownGuardPerkSectionCommand extends CommandImpl {
 
   executeWithParameters(section: string, value: boolean, seed: number) {
     gameManager.game.seed = seed;
-    const party = gameManager.game.party;
-    if (value) {
-      party.townGuardPerkSections.push(section);
-    } else {
-      party.townGuardPerkSections.splice(party.townGuardPerkSections.indexOf(section), 1);
-    }
-    let active = false;
-    if (party.townGuardDeck) {
-      const current = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(party, gameManager.campaignManager.campaignData());
-      gameManager.attackModifierManager.fromModel(current, party.townGuardDeck);
-      active = current.active;
-    }
-    const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
-      party,
-      gameManager.campaignManager.campaignData()
-    );
-    townGuardDeck.active = active;
-    gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
-    party.townGuardDeck = townGuardDeck.toModel();
+    gameManager.outpostAttackManager.setTownGuardPerkSection(section, value);
   }
 }
 
@@ -88,22 +70,12 @@ export class PartyTreasureCommand extends CommandImpl {
   id: string = 'party.treasure';
   requiredParameters: number = 3;
 
-  has(edition: BASE_TYPE, treasure: BASE_TYPE): boolean {
-    return gameManager.game.party.treasures.some((identifier) => identifier.edition === edition && identifier.name === '' + treasure);
-  }
-
   validParameters(edition: string, treasure: number, value: boolean): boolean {
     return typeof edition === 'string' && typeof treasure === 'number' && treasure > 0 && typeof value === 'boolean';
   }
 
   executeWithParameters(edition: string, treasure: number, value: boolean) {
-    if (!value) {
-      gameManager.game.party.treasures = gameManager.game.party.treasures.filter(
-        (identifier) => identifier.edition !== edition || identifier.name !== '' + treasure
-      );
-    } else if (!this.has(edition, treasure)) {
-      gameManager.game.party.treasures.push(new Identifier('' + treasure, edition));
-    }
+    gameManager.lootManager.setPartyTreasure(edition, treasure, value);
   }
 }
 

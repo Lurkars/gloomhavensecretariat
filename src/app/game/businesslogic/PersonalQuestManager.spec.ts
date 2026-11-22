@@ -1,5 +1,5 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
-import { PERSONAL_QUEST_SCENARIO_CONCLUDED } from 'src/app/game/businesslogic/PersonalQuestManager';
+import { PERSONAL_QUEST_SCENARIO_CONCLUDED, RETIREMENT_DIALOG_DISMISSED_TAG } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { BuildingModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
@@ -681,5 +681,22 @@ describe('PersonalQuestManager', () => {
       expect(a.progress.personalQuestProgress[0]).toEqual(1);
       expect(b.progress.personalQuestProgress[0]).toEqual(1);
     });
+  });
+});
+
+describe('PersonalQuestManager setPersonalQuest', () => {
+  it('resets progress, autotrack and the retirement dismissed tag', () => {
+    const character = new Character(
+      Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+      1
+    );
+    character.progress.personalQuestProgress = [2];
+    character.progress.personalQuestAutotrack = true;
+    character.tags = [RETIREMENT_DIALOG_DISMISSED_TAG];
+    gameManager.personalQuestManager.setPersonalQuest(character, '999');
+    expect(character.progress.personalQuest).toBe('999');
+    expect(character.progress.personalQuestProgress).toEqual([]);
+    expect(character.progress.personalQuestAutotrack).toBe(false);
+    expect(character.tags).toEqual([]);
   });
 });

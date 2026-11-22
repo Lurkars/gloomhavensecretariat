@@ -21,8 +21,7 @@ export class CharacterMoveResourceCommand extends CommandImpl {
   executeWithParameters(number: number, type: LootType, value: number) {
     const character = findCharacter(number);
     if (character) {
-      gameManager.game.party.loot[type] = (gameManager.game.party.loot[type] || 0) + value;
-      character.progress.loot[type] = (character.progress.loot[type] || 0) - value;
+      gameManager.characterManager.moveResourceToSupply(character, type, value);
     } else {
       this.executionError('character not found');
     }

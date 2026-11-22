@@ -11,6 +11,38 @@ export class BattleGoalManager {
     this.game = game;
   }
 
+  setBattleGoalEdition(edition: string, value: boolean) {
+    this.game.battleGoalEditions = this.game.battleGoalEditions || [];
+    this.game.filteredBattleGoals = this.game.filteredBattleGoals || [];
+    if (this.game.battleGoalEditions.includes(edition) === value) {
+      return;
+    }
+    if (value) {
+      this.game.battleGoalEditions.push(edition);
+    } else {
+      this.game.battleGoalEditions = this.game.battleGoalEditions.filter((other) => other !== edition);
+      this.game.filteredBattleGoals = this.game.filteredBattleGoals.filter((other) => other.edition !== edition);
+    }
+  }
+
+  battleGoalFiltered(edition: string, name: string): boolean {
+    return (this.game.filteredBattleGoals || []).some((identifier) => identifier.edition === edition && identifier.name === name);
+  }
+
+  setBattleGoalFilter(edition: string, name: string, value: boolean) {
+    this.game.filteredBattleGoals = this.game.filteredBattleGoals || [];
+    if (this.battleGoalFiltered(edition, name) === value) {
+      return;
+    }
+    if (value) {
+      this.game.filteredBattleGoals.push(new Identifier(name, edition));
+    } else {
+      this.game.filteredBattleGoals = this.game.filteredBattleGoals.filter(
+        (identifier) => identifier.edition !== edition || identifier.name !== name
+      );
+    }
+  }
+
   getBattleGoalEditions(): string[] {
     return gameManager.editionData
       .filter(
@@ -96,6 +128,22 @@ export class BattleGoalManager {
     return this.getBattleGoals(undefined, true).find(
       (battleGoal) => battleGoal.edition === identifier.edition && battleGoal.name === identifier.name
     );
+  }
+
+  drawBattleGoals(character: Character) {
+    character.battleGoals = [];
+    character.battleGoal = false;
+    this.drawBattleGoal(character);
+    if (!gameManager.trialsManager.apply || !gameManager.trialsManager.activeTrial('fh', 360)) {
+      this.drawBattleGoal(character);
+      if (gameManager.fhRules(true) || settingsManager.settings.battleGoalsFh) {
+        this.drawBattleGoal(character);
+      }
+    }
+  }
+
+  drawAdditionalBattleGoal(character: Character) {
+    this.drawBattleGoal(character, gameManager.trialsManager.characterTrial(character, '356'));
   }
 
   drawBattleGoal(character: Character, splice: boolean = false) {

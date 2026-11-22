@@ -647,3 +647,67 @@ describe('RoundManager', () => {
     });
   });
 });
+
+describe('RoundManager initiative', () => {
+  const roundManager = gameManager.roundManager;
+
+  beforeEach(() => {
+    gameManager.game.state = GameState.draw;
+    settingsManager.settings.initiativeRequired = true;
+  });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('validates and clamps initiatives', () => {
+    expect(roundManager.validInitiative(0)).toBe(true);
+    expect(roundManager.validInitiative(100)).toBe(false);
+    expect(roundManager.clampInitiative(120)).toBe(99);
+    gameManager.game.state = GameState.next;
+    expect(roundManager.validInitiative(0)).toBe(false);
+    expect(roundManager.clampInitiative(-5)).toBe(1);
+    settingsManager.settings.initiativeRequired = false;
+    expect(roundManager.validInitiative(0)).toBe(true);
+    expect(roundManager.clampInitiative(-5)).toBe(0);
+  });
+
+  it('sets initiative and long rest of characters', () => {
+    const character = buildCharacter('brute');
+    vi.spyOn(gameManager.specialActionsManager, 'keepInitiativeOnLongRest').mockReturnValue(false);
+    roundManager.setInitiative(character, 99);
+    expect(character.longRest).toBe(true);
+    expect(character.initiativeVisible).toBe(true);
+    roundManager.setInitiative(character, 30);
+    expect(character.longRest).toBe(false);
+
+    roundManager.setLongRest(character, true);
+    expect(character.initiative).toBe(99);
+    expect(character.longRest).toBe(true);
+    roundManager.setLongRest(character, false);
+    expect(character.longRest).toBe(false);
+    expect(character.initiative).toBe(99);
+  });
+
+  it('keeps the initiative on long rest when allowed', () => {
+    const character = buildCharacter('brute');
+    vi.spyOn(gameManager.specialActionsManager, 'keepInitiativeOnLongRest').mockReturnValue(true);
+    roundManager.setInitiative(character, 30);
+    roundManager.setLongRest(character, true);
+    expect(character.initiative).toBe(30);
+    expect(character.longRest).toBe(true);
+    roundManager.setInitiative(character, 40);
+    expect(character.longRest).toBe(true);
+    roundManager.setInitiative(character, 0);
+    expect(character.longRest).toBe(false);
+  });
+
+  it('sorts figures when changing initiative during the round', () => {
+    const objective = new ObjectiveContainer('uuid', undefined);
+    const sortFigures = vi.spyOn(gameManager, 'sortFigures').mockImplementation(() => {});
+    roundManager.setInitiative(objective, 20);
+    expect(sortFigures).not.toHaveBeenCalled();
+    gameManager.game.state = GameState.next;
+    roundManager.setInitiative(objective, 25);
+    expect(objective.initiative).toBe(25);
+    expect(sortFigures).toHaveBeenCalledWith(objective);
+  });
+});

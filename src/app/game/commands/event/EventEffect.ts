@@ -6,7 +6,6 @@ import { findScenarioData, findSectionData } from 'src/app/game/commands/scenari
 import { Character } from 'src/app/game/model/Character';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 
 const CAMPAIGN_EFFECTS = ['prosperity', 'reputation', 'morale', 'inspiration', 'factionReputation'];
@@ -67,36 +66,15 @@ export class EventEffectCharactersCommand extends CommandImpl {
   executeWithParameters(type: string, value: number, lootType: LootType) {
     const characters = this.characters();
     if (type === 'resource' && !characters.length) {
-      gameManager.game.party.loot[lootType] = (gameManager.game.party.loot[lootType] || 0) + value;
-      return;
+      gameManager.eventCardManager.changeSupplyResource(lootType, value);
+    } else {
+      gameManager.eventCardManager.changeCharacterValue(
+        characters,
+        type as 'experience' | 'gold' | 'battleGoals' | 'resource',
+        value,
+        lootType
+      );
     }
-    characters.forEach((character) => {
-      switch (type) {
-        case 'experience':
-          character.progress.experience = Math.max(0, character.progress.experience + value);
-          break;
-        case 'gold':
-          character.progress.gold = Math.max(0, character.progress.gold + value);
-          if (value > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.gold, undefined, value);
-          }
-          break;
-        case 'battleGoals':
-          character.progress.battleGoals = Math.max(0, character.progress.battleGoals + value);
-          if (value > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              character,
-              PersonalQuestAutotrackType.battleGoals,
-              undefined,
-              value
-            );
-          }
-          break;
-        case 'resource':
-          character.progress.loot[lootType] = Math.max(0, (character.progress.loot[lootType] || 0) + value);
-          break;
-      }
-    });
   }
 }
 

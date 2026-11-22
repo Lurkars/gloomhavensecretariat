@@ -1,6 +1,6 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel } from 'src/app/game/model/Building';
-import { Character } from 'src/app/game/model/Character';
+import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
@@ -55,6 +55,23 @@ export class RetirementManager {
       this.game.party.retirements.push(character.toModel());
       gameManager.characterManager.removeCharacter(character, true);
     }
+  }
+
+  reactivatable(model: GameCharacterModel): boolean {
+    return (
+      this.game.party.retirements.includes(model) &&
+      !this.game.figures.some((figure) => figure instanceof Character && figure.name === model.name && figure.edition === model.edition) &&
+      !this.game.party.availableCharacters.some((other) => other.name === model.name && other.edition === model.edition)
+    );
+  }
+
+  reactivateCharacter(model: GameCharacterModel) {
+    const character = new Character(gameManager.getCharacterData(model.name, model.edition), model.level);
+    character.fromModel(model);
+    character.progress.retired = false;
+    character.progress.personalQuestProgress = [];
+    this.game.figures.push(character);
+    this.game.party.retirements.splice(this.game.party.retirements.indexOf(model), 1);
   }
 
   retirement(character: Character): Retirement {
@@ -211,13 +228,8 @@ export class RetirementManager {
 
   private applyQuest(quest: RetirementQuest) {
     const personalQuest = quest.personalQuest;
-    if (
-      personalQuest.unlockCharacter &&
-      settingsManager.settings.automaticUnlocking &&
-      !this.game.unlockedCharacters.includes(personalQuest.edition + ':' + personalQuest.unlockCharacter)
-    ) {
-      this.game.unlockedCharacters.push(personalQuest.edition + ':' + personalQuest.unlockCharacter);
-      this.addUnlockEvents(quest.unlockEvent);
+    if (personalQuest.unlockCharacter && settingsManager.settings.automaticUnlocking) {
+      gameManager.characterManager.unlockCharacter(personalQuest.edition, personalQuest.unlockCharacter);
     }
 
     if (personalQuest.unlockPQ && settingsManager.settings.automaticUnlocking) {
@@ -255,19 +267,6 @@ export class RetirementManager {
 
     if (settingsManager.settings.unlockEnvelopeBuildings && quest.building) {
       this.game.party.buildings.push(new BuildingModel(quest.building.name, 0));
-    }
-  }
-
-  private addUnlockEvents(unlockEvents: string) {
-    if (settingsManager.settings.events && unlockEvents) {
-      unlockEvents.split('|').forEach((unlockEvent) => {
-        if (unlockEvent.split(':').length > 1) {
-          gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-        } else {
-          gameManager.eventCardManager.addEvent('city', unlockEvent, true);
-          gameManager.eventCardManager.addEvent('road', unlockEvent, true);
-        }
-      });
     }
   }
 }

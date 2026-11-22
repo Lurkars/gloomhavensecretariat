@@ -40,6 +40,16 @@ export class ImbuementManager {
     }
   }
 
+  setMode(mode: 'enable' | 'advanced' | 'disable', attackModifierDeck: AttackModifierDeck = this.game.monsterAttackModifierDeck) {
+    if (mode === 'disable') {
+      this.disable(attackModifierDeck);
+    } else if (mode === 'advanced') {
+      this.advanced(attackModifierDeck);
+    } else {
+      this.enable(attackModifierDeck);
+    }
+  }
+
   disable(attackModifierDeck: AttackModifierDeck) {
     attackModifierDeck.cards = attackModifierDeck.cards.filter(
       (am) => am.type !== AttackModifierType.imbue && am.type !== AttackModifierType.advancedImbue

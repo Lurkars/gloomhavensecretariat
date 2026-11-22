@@ -5,7 +5,7 @@ import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
-import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
+import { finishWeekConclusion, openConclusionChoice } from 'src/app/ui/figures/party/week-sections/week-sections';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 
@@ -79,37 +79,7 @@ export class PartyWeekDialogComponent {
         conclusion.name = '';
         return conclusion;
       });
-
-    if (conclusions.length > 0) {
-      this.dialog
-        .open(ScenarioConclusionComponent, {
-          panelClass: ['dialog'],
-          data: {
-            conclusions: conclusions,
-            parent: gameManager
-              .sectionData(gameManager.game.edition)
-              .find((sectionData) => sectionData.index === section && !sectionData.group)
-          }
-        })
-        .closed.subscribe({
-          next: (conclusion) => {
-            if (conclusion) {
-              const scenario = new Scenario(conclusion as ScenarioData);
-              gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-              gameManager.scenarioManager.finishWeekConclusion(scenario, this.week);
-              gameManager.stateManager.after();
-
-              this.dialog.open(ScenarioSummaryComponent, {
-                panelClass: ['dialog'],
-                data: {
-                  scenario: scenario,
-                  conclusionOnly: true
-                }
-              });
-            }
-          }
-        });
-    }
+    openConclusionChoice(this.dialog, section, conclusions, (conclusion) => finishWeekConclusion(this.dialog, conclusion, this.week));
   }
 
   addSection(sectionElement: HTMLInputElement) {

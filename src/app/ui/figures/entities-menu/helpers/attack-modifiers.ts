@@ -1,9 +1,8 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import { Entity } from 'src/app/game/model/Entity';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { AdditionalAMSelectDialogComponent } from 'src/app/ui/figures/entities-menu/additional-am-select/additional-am-select';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
@@ -94,26 +93,7 @@ export class AttackModifierHelper {
   }
 
   updateAmDecks() {
-    this.component.amDecks = ['M'];
-
-    if (
-      settingsManager.settings.allyAttackModifierDeck &&
-      (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules(true))
-    ) {
-      this.component.amDecks.push('A');
-    }
-
-    this.component.amDecks.push(
-      ...gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => figure.name)
-    );
-
-    if (
-      this.component.figure instanceof ObjectiveContainer &&
-      this.component.figure.amDeck &&
-      !this.component.amDecks.includes(this.component.figure.amDeck)
-    ) {
-      this.component.figure.amDeck = 'M';
-    }
+    this.component.amDecks = gameManager.attackModifierManager.objectiveAmDecks();
   }
 
   countAttackModifier(amDeck: AttackModifierDeck, type: AttackModifierType): number {
@@ -139,12 +119,7 @@ export class AttackModifierHelper {
     if (value > 0) {
       gameManager.entityManager.addCondition(entity, figure, new Condition(type, value));
     } else if (value < 0) {
-      let card = amDeck.cards.find((attackModifier, index) => attackModifier.type === type && index > amDeck.current);
-      while (card && value < 0) {
-        amDeck.cards.splice(amDeck.cards.indexOf(card), 1);
-        card = amDeck.cards.find((attackModifier, index) => attackModifier.type === type && index > amDeck.current);
-        value++;
-      }
+      gameManager.attackModifierManager.changeModifierCount(amDeck, type, value, false);
     }
   }
 
@@ -228,15 +203,12 @@ export class AttackModifierHelper {
               this.component.empowerChar
             );
           } else {
-            const idPrefix = 'additional-' + (this.component.empowerChar?.name ?? '');
-            for (let i = 0; i < this.component.empower * -1; i++) {
-              const empower = amDeck.cards.find(
-                (am, index) => index > amDeck.current && am.type === AttackModifierType.empower && am.id && am.id.startsWith(idPrefix)
-              );
-              if (empower) {
-                amDeck.cards.splice(amDeck.cards.indexOf(empower), 1);
-              }
-            }
+            gameManager.attackModifierManager.changeAdditionalCount(
+              amDeck,
+              this.component.empowerChar,
+              AttackModifierType.empower,
+              this.component.empower
+            );
           }
         });
         gameManager.stateManager.after();
@@ -266,15 +238,12 @@ export class AttackModifierHelper {
               this.component.enfeebleChar
             );
           } else {
-            const idPrefix = 'additional-' + (this.component.enfeebleChar?.name ?? '');
-            for (let i = 0; i < this.component.enfeeble * -1; i++) {
-              const enfeeble = amDeck.cards.find(
-                (am, index) => index > amDeck.current && am.type === AttackModifierType.enfeeble && am.id && am.id.startsWith(idPrefix)
-              );
-              if (enfeeble) {
-                amDeck.cards.splice(amDeck.cards.indexOf(enfeeble), 1);
-              }
-            }
+            gameManager.attackModifierManager.changeAdditionalCount(
+              amDeck,
+              this.component.enfeebleChar,
+              AttackModifierType.enfeeble,
+              this.component.enfeeble
+            );
           }
         });
         gameManager.stateManager.after();

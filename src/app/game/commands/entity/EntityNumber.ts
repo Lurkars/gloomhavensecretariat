@@ -32,19 +32,7 @@ export class EntityNumberCommand extends CommandImpl {
     const figure = findFigure(figureId);
     const entity = findEntity(figure, entityId);
     if (figure instanceof Monster && entity instanceof MonsterEntity) {
-      const newNumber = this.newNumber(figure, number);
-      const existing = gameManager.monsterManager.monsterStandeeUsed(figure, newNumber);
-      if (existing && existing !== entity) {
-        let otherNumber = -1;
-        while (gameManager.monsterManager.monsterStandeeUsed(figure, otherNumber)) {
-          otherNumber -= 1;
-        }
-        existing.number = otherNumber;
-      }
-      if (entity.number < 0) {
-        entity.revealed = false;
-      }
-      entity.number = newNumber;
+      gameManager.monsterManager.renumberStandee(figure, entity, this.newNumber(figure, number));
     } else if (entity instanceof ObjectiveEntity) {
       entity.number = number;
     } else {

@@ -70,9 +70,7 @@ export class PartySheetFhMoraleComponent extends PartySheetSection {
       if (this.lowMoraleSolved < campaignData.lowMorale.length) {
         this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved]);
       } else {
-        this.party.conclusions = this.party.conclusions.filter(
-          (model) => model.edition !== gameManager.game.edition || model.index !== campaignData.lowMorale[this.lowMoraleSolved - 1]
-        );
+        gameManager.scenarioManager.removeConclusion(gameManager.game.edition, campaignData.lowMorale[this.lowMoraleSolved - 1]);
         this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved - 1]);
       }
     } else if (value === 20 && campaignData && campaignData.highMorale && this.highMoraleSolved < campaignData.highMorale.length) {

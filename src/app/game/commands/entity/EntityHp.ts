@@ -1,8 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
-import { findEntities, findFigure, removeDeadEntity } from 'src/app/game/commands/CommandHelper';
-import { Monster } from 'src/app/game/model/Monster';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { findEntities, findFigure } from 'src/app/game/commands/CommandHelper';
 
 export class EntityHpCommand extends CommandImpl {
   id: string = 'entity.hp';
@@ -18,15 +16,8 @@ export class EntityHpCommand extends CommandImpl {
     if (figure && entities.length) {
       entities.forEach((entity) => gameManager.entityManager.changeHealth(entity, figure, value));
 
-      if (
-        (figure instanceof Monster || figure instanceof ObjectiveContainer) &&
-        figure.active &&
-        figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))
-      ) {
-        gameManager.roundManager.toggleFigure(figure);
-      }
-
-      entities.forEach((entity) => removeDeadEntity(figure, entity));
+      gameManager.entityManager.deactivateDeadFigure(figure);
+      gameManager.entityManager.removeDeadEntities(entities.map((entity) => ({ entity, figure })));
     } else {
       this.executionError('entity not found');
     }
