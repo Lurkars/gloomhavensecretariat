@@ -1,0 +1,1695 @@
+{
+  "name": "lightning",
+  "edition": "gh2e",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Numb the Pain",
+      "cardId": 323,
+      "level": 1,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.323.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Shiny Distraction",
+      "cardId": 324,
+      "level": 1,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.324.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.324.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "round": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Strength in Agony",
+      "cardId": 325,
+      "level": 1,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.325.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.325.2%",
+              "small": true
+            },
+            {
+              "type": "move",
+              "value": "4+X"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.325.3%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defiance of Death",
+      "cardId": 326,
+      "level": 1,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.326.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.326.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStartXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Resolute Stand",
+      "cardId": 327,
+      "level": 1,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.327.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Blood Pact",
+      "cardId": 328,
+      "level": 1,
+      "initiative": 76,
+      "actions": [
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.2%"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 6,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.328.1%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.328.2%"
+            }
+          ]
+        }
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 2
+    },
+    {
+      "name": "Cauterize",
+      "cardId": 329,
+      "level": 1,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.329.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.329.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound"
+                },
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dazing Wound",
+      "cardId": 330,
+      "level": 1,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.330.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unbridled Power",
+      "cardId": 331,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.lightning.abilities.331.1%"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.331.2%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "From the Brink",
+      "cardId": 332,
+      "level": "X",
+      "initiative": 24,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.332.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.332.2%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "pull",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Glass Hammer",
+      "cardId": 333,
+      "level": "X",
+      "initiative": 43,
+      "lost": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "X"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.333.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.333.2%"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Growing Rage",
+      "cardId": 334,
+      "level": "X",
+      "initiative": 85,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.334.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 1,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.lightning.abilities.334.1%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.334.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    },
+    {
+      "name": "Reckless Offensive",
+      "cardId": 335,
+      "level": 2,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "multiTarget": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.335.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ],
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 2,
+                      "valueType": "add"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.335.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Into the Fight",
+      "cardId": 336,
+      "level": 2,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "pull",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.336.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.336.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final Fight",
+      "cardId": 337,
+      "level": 3,
+      "initiative": 89,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.337.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "advantage",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.lightning.abilities.337.2%"
+                },
+                {
+                  "type": "card",
+                  "value": "round"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true
+    },
+    {
+      "name": "Tireless Retribution",
+      "cardId": 338,
+      "level": 3,
+      "initiative": 7,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 3,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.338.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.338.2%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.338.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "round": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Unstoppable Destruction",
+      "cardId": 339,
+      "level": 4,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.lightning.abilities.339.1%"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inner Fire",
+      "cardId": 340,
+      "level": 4,
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 4,
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.340.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Seeing Red",
+      "cardId": 341,
+      "level": 5,
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.341.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.341.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.lightning.abilities.341.3%"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vengeful Barrage",
+      "cardId": 342,
+      "level": 5,
+      "initiative": 16,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.342.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "slotStart"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "slotXpFh:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotEndXp:1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "retaliate",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "bottomRound": true
+    },
+    {
+      "name": "Flurry of Axes",
+      "cardId": 343,
+      "level": 6,
+      "initiative": 17,
+      "lost": true,
+      "loss": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.343.1%",
+              "small": true
+            },
+            {
+              "type": "attack",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%data.custom.gh2e.lightning.abilities.343.2%",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.343.3%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ]
+        }
+      ],
+      "xp": 2
+    },
+    {
+      "name": "Devil Horns",
+      "cardId": 344,
+      "level": 6,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Careless Charge",
+      "cardId": 345,
+      "level": 7,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.345.1%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.345.2%",
+          "small": true
+        }
+      ],
+      "bottomRound": true
+    },
+    {
+      "name": "Fueled by Pain",
+      "cardId": 346,
+      "level": 7,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": "X",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh2e.lightning.abilities.346.1%"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "enhancementTypes": [
+                "circle"
+              ],
+              "subActions": [
+                {
+                  "type": "jump",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.346.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%data.custom.gh2e.lightning.abilities.346.3%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bone Breaker",
+      "cardId": 347,
+      "level": 8,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "small": true
+                    },
+                    {
+                      "type": "condition",
+                      "value": "immobilize",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.347.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "noDivider": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.347.2%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomPersistent": true
+    },
+    {
+      "name": "Spiked Armor",
+      "cardId": 348,
+      "level": 8,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "enhancementTypes": [
+                "square"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.348.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.348.2%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.348.3%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 5,
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.348.4%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "round": true
+    },
+    {
+      "name": "Burning Hatred",
+      "cardId": 349,
+      "level": 9,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesAdjacent",
+                  "small": true
+                },
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "valueType": "minus",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh2e.lightning.abilities.349.1%"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.349.2%",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomLost": true,
+      "bottomLoss": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.349.3%",
+          "small": true
+        },
+        {
+          "type": "forceBox",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.lightning.abilities.349.4%"
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ],
+      "bottomXp": 2
+    },
+    {
+      "name": "Bathe in Blood",
+      "cardId": 350,
+      "level": 9,
+      "initiative": 83,
+      "lost": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.gh2e.lightning.abilities.350.1%",
+          "small": true
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "pull",
+          "value": 1,
+          "enhancementTypes": [
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        }
+      ],
+      "persistent": true,
+      "xp": 2
+    }
+  ]
+}

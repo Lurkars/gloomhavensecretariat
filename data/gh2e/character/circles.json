@@ -99,9 +99,15 @@
       "movement": 2,
       "range": 3,
       "action": {
-        "type": "custom",
+        "type": "grant",
         "value": "%data.custom.gh2e.circles.8%",
-        "small": true
+        "small": true,
+        "subActions": [
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
       }
     },
     {
