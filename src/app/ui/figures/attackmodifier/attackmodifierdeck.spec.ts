@@ -180,3 +180,59 @@ describe('AttackModifierDeckComponent', () => {
     });
   });
 });
+
+describe('AttackModifierDeckComponent window listeners', () => {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  function setWindowSize(innerWidth: number, innerHeight: number) {
+    Object.defineProperty(window, 'innerWidth', { value: innerWidth, configurable: true });
+    Object.defineProperty(window, 'innerHeight', { value: innerHeight, configurable: true });
+  }
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({ imports: [AttackModifierDeckComponent] }).compileComponents();
+    gameManager.game.state = GameState.draw;
+    settingsManager.settings.automaticAttackModifierFullscreen = true;
+    settingsManager.settings.portraitMode = true;
+    settingsManager.settings.animations = false;
+    // wide but low, e.g. a large phone in landscape
+    setWindowSize(900, 380);
+  });
+
+  afterEach(() => {
+    setWindowSize(width, height);
+    settingsManager.settings.automaticAttackModifierFullscreen = false;
+    settingsManager.settings.portraitMode = false;
+  });
+
+  it('only fullscreen capable decks become compact, also on update and resize', () => {
+    const fullscreen = createComponent(buildDeck([AttackModifierType.plus1]));
+    const inDialog = createComponent(buildDeck([AttackModifierType.plus1]), { fullscreen: false });
+
+    fullscreen.update();
+    inDialog.update();
+    expect(fullscreen.compact).toBe(true);
+    expect(inDialog.compact).toBe(false);
+
+    window.dispatchEvent(new Event('resize'));
+    expect(fullscreen.compact).toBe(true);
+    expect(inDialog.compact).toBe(false);
+  });
+
+  it('removes its window listeners once destroyed', () => {
+    const added = vi.spyOn(window, 'addEventListener');
+    const removed = vi.spyOn(window, 'removeEventListener');
+    const count = (spy: { mock: { calls: any[][] } }, type: string) => spy.mock.calls.filter((call) => call[0] === type).length;
+
+    const fixture = TestBed.createComponent(AttackModifierDeckComponent);
+    fixture.componentRef.setInput('deck', buildDeck([AttackModifierType.plus1]));
+    fixture.componentInstance.ngOnInit();
+    fixture.destroy();
+
+    ['resize', 'fullscreenchange'].forEach((type) => {
+      expect(count(added, type)).toBeGreaterThan(0);
+      expect(count(removed, type)).toBe(count(added, type));
+    });
+  });
+});

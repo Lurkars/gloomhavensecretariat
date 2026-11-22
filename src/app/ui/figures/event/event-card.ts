@@ -2,7 +2,13 @@ import { NgClass } from '@angular/common';
 import { Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { EventCard, EventCardConditionType, EventCardEffectType, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
+import {
+  EventCard,
+  EventCardConditionType,
+  EventCardEffectType,
+  EventCardIdentifier,
+  EventCardOutcome
+} from 'src/app/game/model/data/EventCard';
 import { EventCardAttackComponent } from 'src/app/ui/figures/event/attack/event-card-attack';
 import { EventCardConditionComponent } from 'src/app/ui/figures/event/condition/event-card-condition';
 import { EventCardEffectComponent } from 'src/app/ui/figures/event/effect/event-card-effect';
@@ -79,11 +85,9 @@ export class EventCardComponent implements OnInit, OnChanges {
         }
       });
       this.noLabel = this.event.options.every((o) => !o.label);
+      // latest result of this card, so checked boxes carry over between draws of a card returned to the deck
       const model =
-        this.identifier ||
-        gameManager.game.party.eventCards.find(
-          (id) => this.event && id.cardId === this.event.cardId && id.type === this.event.type && id.edition === this.event.edition
-        );
+        this.identifier || gameManager.eventCardManager.lastEventCardResult(this.event.edition, this.event.type, this.event.cardId);
       if (model && model.checks) {
         this.checks = [...model.checks];
       }
@@ -193,16 +197,15 @@ export class EventCardComponent implements OnInit, OnChanges {
       } else if ((this.resolvable[this.selected] && this.resolvable[this.selected][index]) || force) {
         this.subSelections.push(index);
         if (!force) {
-          const condition = this.event.options[this.selected].outcomes[index].condition;
-          if (condition && typeof condition !== 'string' && condition.type === EventCardConditionType.otherwise) {
+          const outcomes = this.event.options[this.selected].outcomes;
+          const isOtherwise = (outcome: EventCardOutcome) =>
+            !!outcome.condition && typeof outcome.condition !== 'string' && outcome.condition.type === EventCardConditionType.otherwise;
+          if (isOtherwise(outcomes[index])) {
             this.subSelections = [index];
           } else {
-            const otherwise = this.event.options[this.selected].outcomes.find(
-              (outcome) =>
-                outcome.condition && typeof outcome.condition !== 'string' && outcome.condition.type === EventCardConditionType.otherwise
-            );
-            if (otherwise) {
-              this.subSelections = this.subSelections.splice(this.event.options[this.selected].outcomes.indexOf(otherwise), 1);
+            const otherwiseIndex = outcomes.findIndex((outcome) => isOtherwise(outcome));
+            if (otherwiseIndex !== -1) {
+              this.subSelections = this.subSelections.filter((value) => value !== otherwiseIndex);
             }
           }
         }
@@ -220,7 +223,7 @@ export class EventCardComponent implements OnInit, OnChanges {
           false
         )
       );
-    } else if (force) {
+    } else if (this.selected !== optionIndex) {
       this.selectOption(optionIndex, false);
     }
     if (event) {
@@ -229,7 +232,7 @@ export class EventCardComponent implements OnInit, OnChanges {
   }
 
   onCheck(index: number, checks: number) {
-    this.checks = this.checks || [];
+    this.checks = [...(this.checks || [])];
     this.checks[index] = checks;
     if (this.event) {
       this.selectCard.emit(

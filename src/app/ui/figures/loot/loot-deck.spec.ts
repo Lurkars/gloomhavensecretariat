@@ -163,3 +163,25 @@ describe('LootDeckComponent', () => {
     });
   });
 });
+
+describe('LootDeckComponent window listeners', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({ imports: [LootDeckComponent] }).compileComponents();
+  });
+
+  it('removes its window listeners once destroyed', () => {
+    const added = vi.spyOn(window, 'addEventListener');
+    const removed = vi.spyOn(window, 'removeEventListener');
+    const count = (spy: { mock: { calls: any[][] } }, type: string) => spy.mock.calls.filter((call) => call[0] === type).length;
+
+    const fixture = TestBed.createComponent(LootDeckComponent);
+    fixture.componentRef.setInput('deck', buildDeck([LootType.money]));
+    fixture.componentInstance.ngOnInit();
+    fixture.destroy();
+
+    ['resize', 'fullscreenchange'].forEach((type) => {
+      expect(count(added, type)).toBeGreaterThan(0);
+      expect(count(removed, type)).toBe(count(added, type));
+    });
+  });
+});

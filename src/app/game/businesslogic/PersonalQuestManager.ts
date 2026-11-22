@@ -214,9 +214,9 @@ export class PersonalQuestManager {
     }
   }
 
-  trackPersonalQuestProgressForParty(type: PersonalQuestAutotrackType, arg?: string, value: number = 1) {
+  trackPersonalQuestProgressForParty(type: PersonalQuestAutotrackType, arg?: string, value: number = 1, presentOnly: boolean = false) {
     this.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
+      if (figure instanceof Character && (!presentOnly || !figure.absent)) {
         this.trackPersonalQuestProgress(figure, type, arg, value);
       }
     });

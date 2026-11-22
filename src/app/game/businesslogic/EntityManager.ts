@@ -489,12 +489,13 @@ export class EntityManager {
           muddle.highlight = true;
           if (!existingMuddle) {
             muddle.types.push(ConditionType.hidden);
+            muddle.temporary = true;
             character.entityConditions.push(muddle);
           }
           setTimeout(() => {
             muddle.highlight = false;
             if (!existingMuddle) {
-              character.entityConditions.splice(character.entityConditions.indexOf(muddle), 1);
+              character.entityConditions = character.entityConditions.filter((condition) => condition !== muddle);
             }
             gameManager.triggerUiChange(false);
           }, 1000 * settingsManager.settings.animationSpeed);
@@ -630,6 +631,9 @@ export class EntityManager {
     ignoreImmunity: boolean = false,
     deckSource?: Character
   ) {
+    if (condition.types.includes(ConditionType.immunityOnly)) {
+      return;
+    }
     if (!ignoreImmunity && this.isImmune(entity, figure, condition.name)) {
       return;
     }
@@ -1041,27 +1045,6 @@ export class EntityManager {
         });
 
       if (heal) {
-        let clearHeal = entity.entityConditions.find(
-          (condition) =>
-            condition.types.includes(ConditionType.clearHeal) &&
-            condition.state !== EntityConditionState.expire &&
-            condition.state !== EntityConditionState.new &&
-            !condition.permanent &&
-            !condition.expired
-        );
-        while (clearHeal) {
-          clearHeal.lastState = clearHeal.state;
-          clearHeal.state = EntityConditionState.expire;
-          clearHeal.expired = true;
-          clearHeal = entity.entityConditions.find(
-            (condition) =>
-              condition.types.includes(ConditionType.clearHeal) &&
-              condition.state !== EntityConditionState.expire &&
-              condition.state !== EntityConditionState.new &&
-              !condition.permanent &&
-              !condition.expired
-          );
-        }
         regenerateCondition.lastState = regenerateCondition.state;
         regenerateCondition.state = EntityConditionState.expire;
         entity.health += regenerateCondition.value;
@@ -1333,6 +1316,16 @@ export class EntityManager {
       return new Monster(new MonsterData());
     }
     return result;
+  }
+
+  removeImmunityPlaceholder(entity: Entity, figure: Figure, entityCondition: EntityCondition): boolean {
+    if (entity.entityConditions.includes(entityCondition) || !entity.immunities.includes(entityCondition.name)) {
+      return false;
+    }
+    this.before(entity, figure, 'removeImmunity', entityCondition.name);
+    entity.immunities = entity.immunities.filter((immunity) => immunity !== entityCondition.name);
+    gameManager.stateManager.after();
+    return true;
   }
 
   before(entity: Entity | undefined, figure: Figure | undefined, info: string, ...values: (string | number | boolean)[]) {

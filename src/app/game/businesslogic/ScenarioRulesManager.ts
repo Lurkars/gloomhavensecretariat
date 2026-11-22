@@ -1235,8 +1235,15 @@ export class ScenarioRulesManager {
                   let card = deck.cards.find((attackModifier) => {
                     return attackModifier.type === type;
                   });
-                  while (card && value < 0) {
-                    deck.cards.splice(deck.cards.indexOf(card), 1);
+                  while (card && value > 0) {
+                    const cardIndex = deck.cards.indexOf(card);
+                    deck.cards.splice(cardIndex, 1);
+                    if (cardIndex <= deck.current) {
+                      deck.current--;
+                      if (deck.lastVisible > deck.current) {
+                        deck.lastVisible = Math.max(deck.current, 0);
+                      }
+                    }
                     card = deck.cards.find((attackModifier) => {
                       return attackModifier.type === type;
                     });

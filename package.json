@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.176.2",
+  "version": "0.177.0",
   "license": "AGPL-3.0-or-later",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -125,7 +125,7 @@
     "husky": "^9.1.7",
     "jsdom": "^31.0.1",
     "leaflet": "^1.9.4",
-    "lint-staged": "^17.6.1",
+    "lint-staged": "^17.6.2",
     "mermaid": "^12.3.0",
     "nodemon": "^3.1.14",
     "prettier": "^3.10.1",

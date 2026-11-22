@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { EventCard, EventCardIdentifier } from 'src/app/game/model/data/EventCard';
+import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { EventCardDialogComponent } from 'src/app/ui/figures/event/dialog/event-card-dialog';
 import { EventCardDrawComponent } from 'src/app/ui/figures/event/draw/event-card-draw';
@@ -140,7 +140,16 @@ export class EventCardDeckComponent {
       gameManager.game.party.eventCards.splice(
         event.currentIndex,
         0,
-        new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, -1, [], [], false, false)
+        new EventCardIdentifier(
+          eventCard.cardId,
+          eventCard.edition,
+          eventCard.type,
+          -1,
+          [],
+          [...(gameManager.eventCardManager.lastEventCardResult(eventCard.edition, eventCard.type, eventCard.cardId)?.checks || [])],
+          false,
+          false
+        )
       );
       gameManager.stateManager.after();
     }
@@ -167,27 +176,43 @@ export class EventCardDeckComponent {
     }
   }
 
-  updateDrawnSelect(id: EventCardIdentifier, change: EventCardIdentifier | undefined = undefined) {
+  updateDrawnSelect(id: EventCardIdentifier, change: EventCardResult | undefined = undefined) {
     const newSelected = change ? change.selected : -1;
-    const newSubSelections = change ? change.subSelections : [];
+    const newSubSelections = change ? change.subSelections || [] : [];
+    const checks = id.checks || [];
+    const newChecks = change ? change.checks || [] : checks;
+    const newAttack = change ? change.attack : id.attack;
     if (
       id.selected !== newSelected ||
       id.subSelections.length !== newSubSelections.length ||
-      id.subSelections.some((value) => !newSubSelections.includes(value))
+      id.subSelections.some((value) => !newSubSelections.includes(value)) ||
+      checks.length !== newChecks.length ||
+      checks.some((value, index) => (value || 0) !== (newChecks[index] || 0)) ||
+      id.attack !== newAttack
     ) {
       gameManager.stateManager.before('events.deck.changeSelection', this.type, id.cardId);
       id.selected = newSelected;
-      id.subSelections = newSubSelections;
+      id.subSelections = [...newSubSelections];
+      id.checks = [...newChecks];
+      id.attack = newAttack;
       gameManager.stateManager.after(!change ? 750 : 0);
     }
   }
 
   showEventCard(eventCard: EventCard, id: EventCardIdentifier | undefined = undefined) {
-    this.dialog.open(EventCardDialogComponent, {
-      panelClass: ['fullscreen-panel'],
-      disableClose: true,
-      data: { eventCard: eventCard, interactive: true, id: id }
-    });
+    this.dialog
+      .open(EventCardDialogComponent, {
+        panelClass: ['fullscreen-panel'],
+        disableClose: true,
+        data: { eventCard: eventCard, interactive: true, id: id }
+      })
+      .closed.subscribe({
+        next: (result) => {
+          if (id && result instanceof EventCardResult) {
+            this.updateDrawnSelect(id, result);
+          }
+        }
+      });
   }
 
   drawEvent(cardId: string | undefined = undefined) {

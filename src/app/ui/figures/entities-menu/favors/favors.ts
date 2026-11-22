@@ -68,7 +68,10 @@ export class FavorsComponent implements OnInit {
       .map((am) => (am.type === AttackModifierType.minus1 ? 1 : 2));
 
     this.gameFavorPoints.forEach((point) => {
-      this.leftPoints.splice(this.leftPoints.indexOf(point), 1);
+      const index = this.leftPoints.indexOf(point);
+      if (index !== -1) {
+        this.leftPoints.splice(index, 1);
+      }
     });
   }
 
@@ -120,15 +123,8 @@ export class FavorsComponent implements OnInit {
     if (this.change) {
       gameManager.stateManager.before('applyFavorSelection');
 
-      while (this.availablePoints) {
-        if (this.availablePoints > 2 && this.gameFavorPoints.includes(2)) {
-          this.gameFavorPoints.splice(this.gameFavorPoints.indexOf(2), 1);
-          this.availablePoints -= 2;
-        } else {
-          this.gameFavorPoints.splice(this.gameFavorPoints.indexOf(1), 1);
-          this.availablePoints--;
-        }
-      }
+      this.gameFavorPoints = gameManager.trialsManager.refundFavorPoints(this.gameFavorPoints, this.availablePoints);
+      this.availablePoints = 0;
 
       gameManager.game.favors = this.gameFavors;
       gameManager.game.favorPoints = this.gameFavorPoints;

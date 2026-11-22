@@ -6,6 +6,7 @@ import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { FigureErrorType } from 'src/app/game/model/data/FigureError';
+import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Perk } from 'src/app/game/model/data/Perks';
@@ -657,5 +658,55 @@ describe('CharacterManager', () => {
 
       expect(character.off).toBe(true);
     });
+  });
+});
+
+describe('CharacterManager regressions', () => {
+  beforeEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.levelCalculation = false;
+  });
+
+  it('removeCharacter removes only the marker of the removed character', () => {
+    const removed = buildCharacter('a', 'gh', { marker: true });
+    const other = buildCharacter('b', 'gh', { marker: true });
+    const marked = buildCharacter('c');
+    marked.markers = ['gh-b'];
+    gameManager.game.figures = [removed, other, marked];
+
+    gameManager.characterManager.removeCharacter(removed);
+
+    expect(marked.markers).toEqual(['gh-b']);
+  });
+
+  it('setLevel with FH item 3 equipped does not heal on every call', () => {
+    const character = buildCharacter('c');
+    character.progress.equippedItems = [new AdditionalIdentifier('3', 'fh')];
+    gameManager.characterManager.setLevel(character, 1);
+    character.health = 5;
+
+    gameManager.characterManager.setLevel(character, 1);
+    gameManager.characterManager.setLevel(character, 1);
+
+    expect(character.maxHealth).toEqual(11);
+    expect(character.health).toEqual(5);
+  });
+});
+
+describe('CharacterManager XP regressions', () => {
+  beforeEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.levelCalculation = false;
+  });
+
+  it('addXP never drops the experience below zero or the level below 1', () => {
+    const character = buildCharacter('brute');
+    gameManager.game.figures = [character];
+
+    gameManager.characterManager.addXP(character, -5);
+
+    expect(character.progress.experience).toBe(0);
+    expect(character.level).toBe(1);
+    expect(character.maxHealth).toBe(10);
   });
 });

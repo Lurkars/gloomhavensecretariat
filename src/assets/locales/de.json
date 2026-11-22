@@ -837,6 +837,14 @@
         "": "Gift {0}",
         "hint": "%game.conditionIcon.poison_x:X% Gift X: Alle Angreifer bekommen +X %game.action.attack%. Verhindert Heilung. Bei Heilung entfernen."
       },
+      "pull": {
+        "": "Ziehen",
+        "hint": "%game.conditionIcon.pull% Ziehen X: Bewege das Ziel X Felder, jedes näher zum Angreifer."
+      },
+      "push": {
+        "": "Schieben",
+        "hint": "%game.conditionIcon.push% Schieben X: Bewege das Ziel X Felder, jedes weiter weg vom Angreifer."
+      },
       "regenerate": {
         "": "Regeneration",
         "hint": "%game.conditionIcon.regenerate% Regeneration: %game.action.heal:1% zu Beginn des Zuges. Bei Schaden entfernen."

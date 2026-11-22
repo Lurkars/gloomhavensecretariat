@@ -61,7 +61,7 @@ export class PartyResourcesDialogComponent implements OnInit {
 
   update() {
     this.lootColumns.forEach((type) => {
-      this.total[type] = gameManager.game.party.loot[type] || 0;
+      this.total[type] = this.party.loot[type] || 0;
       if (this.characters.length > 0) {
         this.total[type] =
           (this.total[type] || 0) + this.characters.map((character) => character.progress.loot[type] || 0).reduce((a, b) => a + b);

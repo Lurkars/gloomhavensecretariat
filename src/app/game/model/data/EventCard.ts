@@ -244,6 +244,7 @@ export class EventCardAttack {
   targetDescription: string;
   narrative: string;
   effects: string[];
+  attackValueX?: string;
 
   constructor(
     attackValue: string | number,

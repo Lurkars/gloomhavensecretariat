@@ -190,3 +190,22 @@ describe('LootManager', () => {
     });
   });
 });
+
+describe('LootManager drawCard on an exhausted deck', () => {
+  it('does not apply the last card again', () => {
+    const deck = new LootDeck();
+    deck.cards = [new Loot(LootType.money, 1, 1), new Loot(LootType.money, 2, 2)];
+    deck.current = 1;
+    const character = new Character(
+      Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+      1
+    );
+    character.loot = 0;
+
+    gameManager.lootManager.drawCard(deck, character);
+
+    expect(deck.current).toEqual(1);
+    expect(character.loot).toEqual(0);
+    expect(character.lootCards).toEqual([]);
+  });
+});

@@ -206,7 +206,7 @@ export class ServerMenuComponent implements OnInit {
         (value) => value.name === character.name && value.edition === character.edition
       );
       if (value) {
-        this.permissions.character.splice(this.permissions.character.indexOf(value, 1));
+        this.permissions.character.splice(this.permissions.character.indexOf(value), 1);
       } else {
         this.permissions.character.push(new Identifier(character.name, character.edition));
       }
@@ -230,7 +230,7 @@ export class ServerMenuComponent implements OnInit {
         (value) => value.name === monster.name && value.edition === monster.edition
       );
       if (value) {
-        this.permissions.monster.splice(this.permissions.monster.indexOf(value, 1));
+        this.permissions.monster.splice(this.permissions.monster.indexOf(value), 1);
       } else {
         this.permissions.monster.push(new Identifier(monster.name, monster.edition));
       }

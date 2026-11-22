@@ -33,6 +33,8 @@
 
     .ability-input {
       position: relative;
+      width: calc(var(--ghs-unit) * 40);
+      flex-shrink: 0;
       container-type: inline-size;
 
       .ability-edit {

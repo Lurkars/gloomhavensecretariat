@@ -94,7 +94,7 @@
                     margin: outcome.condition || outcome.narrative
                   }"
                   ghs-pointer-input
-                  (singleClick)="selectSub(i, outcomeIndex, $event)"
+                  (singleClick)="selectSub(i, outcomeIndex, false, $event)"
                   (doubleClick)="selectSub(i, outcomeIndex, true, $event)"
                 >
                   @if (outcome.condition) {
@@ -147,6 +147,8 @@
                       [light]="light"
                       [selected]="attack"
                       (selectedChange)="toggleAttack($event)"
+                      [checks]="checks"
+                      (checksChange)="onCheck($event.index, $event.checks)"
                       [debug]="debug()"
                     ></ghs-event-card-attack>
                   }

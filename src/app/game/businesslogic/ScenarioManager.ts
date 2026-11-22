@@ -595,6 +595,28 @@ export class ScenarioManager {
         }
       }
 
+      if (success) {
+        const presentCharacters = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent) as Character[];
+        presentCharacters.forEach((figure) => {
+          if (figure.health === figure.maxHealth) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedHighHP);
+          }
+          if (!figure.exhausted && figure.health > 0 && figure.health <= 2) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedLowHP);
+          }
+
+          const exhaustedAllies = presentCharacters.filter((other) => other !== figure && other.exhausted).length;
+          if (exhaustedAllies > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              figure,
+              PersonalQuestAutotrackType.exhaustedCharsFinish,
+              undefined,
+              exhaustedAllies
+            );
+          }
+        });
+      }
+
       if (restart) {
         gameManager.scenarioManager.setScenario(scenario, true);
       } else {
@@ -638,9 +660,19 @@ export class ScenarioManager {
       }
 
       if (success) {
-        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenario, scenario.index);
-        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenariosCompleted);
-        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.sideScenarios, scenario.index);
+        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenario, scenario.index, 1, true);
+        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
+          PersonalQuestAutotrackType.scenariosCompleted,
+          undefined,
+          1,
+          true
+        );
+        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
+          PersonalQuestAutotrackType.sideScenarios,
+          scenario.index,
+          1,
+          true
+        );
 
         if (!!scenario.requirements) {
           const requiredBuildings = new Set<string>();
@@ -648,34 +680,19 @@ export class ScenarioManager {
             (requirement.buildings || []).forEach((building) => requiredBuildings.add(building));
           });
           requiredBuildings.forEach((building) => {
-            gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenarioRequirements, building);
+            gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
+              PersonalQuestAutotrackType.scenarioRequirements,
+              building,
+              1,
+              true
+            );
           });
         }
 
         const hasBossMonster = this.getScenarioMonster(scenario).some((monsterData) => monsterData.boss);
         if (hasBossMonster) {
-          gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.bossScenarios);
+          gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.bossScenarios, undefined, 1, true);
         }
-
-        const presentCharacters = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent) as Character[];
-        presentCharacters.forEach((figure) => {
-          if (figure.health === figure.maxHealth) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedHighHP);
-          }
-          if (!figure.exhausted && figure.health > 0 && figure.health <= 2) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedLowHP);
-          }
-
-          const exhaustedAllies = presentCharacters.filter((other) => other !== figure && other.exhausted).length;
-          if (exhaustedAllies > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              figure,
-              PersonalQuestAutotrackType.exhaustedCharsFinish,
-              undefined,
-              exhaustedAllies
-            );
-          }
-        });
       }
     }
   }

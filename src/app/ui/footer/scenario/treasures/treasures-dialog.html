@@ -2,7 +2,7 @@
   <div class="title"><span [ghs-label]="'game.loot.treasures'"></span></div>
 
   <div class="treasures">
-    @for (treasure of treasures; track treasure; let i = $index) {
+    @for (treasure of treasures; track $index; let i = $index) {
       <div class="treasure" [ngClass]="{ looted: looted.includes(i), highlight: i === treasureIndex }" (click)="toggleTreasure(i)">
         @if (('' + treasure).startsWith('G') || +treasure >= 0) {
           <span>
@@ -37,7 +37,7 @@
               <div class="treasure hint-trigger" ghs-pointer-input (doubleClick)="removeTreasure(char, treasure)">
                 @if (('' + treasure).startsWith('G') || +('' + treasure).split(':')[0] >= 0) {
                   <span>
-                    @if (!('' + treasure).startsWith('G') && +treasure < 10 && +treasure >= 0) {
+                    @if (!('' + treasure).startsWith('G') && +('' + treasure).split(':')[0] < 10 && +('' + treasure).split(':')[0] >= 0) {
                       <span>0</span>
                     }
                     {{ ('' + treasure).startsWith('G-') ? 'G' : ('' + treasure).split(':')[0] }}

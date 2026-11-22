@@ -16,7 +16,12 @@ export class CharacterSheetXpComponent extends CharacterSheetSection {
   xpTimeout: any = null;
 
   setXP(event: any) {
-    if (!isNaN(+event.target.value) && this.character.progress.experience !== +event.target.value) {
+    if (isNaN(+event.target.value)) {
+      return;
+    }
+    const value = Math.max(0, +event.target.value);
+    event.target.value = value;
+    if (this.character.progress.experience !== value) {
       if (this.xpTimeout) {
         clearTimeout(this.xpTimeout);
         this.xpTimeout = null;
@@ -26,11 +31,11 @@ export class CharacterSheetXpComponent extends CharacterSheetSection {
           this.character,
           this.character,
           'changeXP',
-          ghsValueSign(+event.target.value - this.character.progress.experience)
+          ghsValueSign(value - this.character.progress.experience)
         );
         gameManager.characterManager.addXP(
           this.character,
-          event.target.value - this.character.progress.experience,
+          value - this.character.progress.experience,
           !gameManager.game.scenario && gameManager.roundManager.firstRound
         );
         gameManager.stateManager.after();

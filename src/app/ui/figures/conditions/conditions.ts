@@ -5,7 +5,14 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import {
+  Condition,
+  ConditionName,
+  Conditions,
+  ConditionType,
+  EntityCondition,
+  EntityConditionState
+} from 'src/app/game/model/data/Condition';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
@@ -217,6 +224,17 @@ export class ConditionsComponent implements OnInit {
       this.conditions.push(new Condition(ConditionName.bless));
       if (this.empower()) {
         this.conditions.push(new Condition(ConditionName.empower));
+      }
+    }
+
+    // immunity only conditions (e.g. push/pull), cannot be applied as condition
+    if (this.immunityEnabled) {
+      const immunityOnly = Conditions.filter((condition) => condition.types.includes(ConditionType.immunityOnly)).map(
+        (condition) => new Condition(condition.name)
+      );
+      if (immunityOnly.length) {
+        this.conditionSeparator.push(this.conditions.length - 1);
+        this.conditions.push(...immunityOnly);
       }
     }
   }

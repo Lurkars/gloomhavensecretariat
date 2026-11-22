@@ -125,7 +125,7 @@ export class KeyboardShortcuts implements OnInit {
             gameManager.stateManager.keyboardSelecting = false;
           } else if (event.key === 'Enter') {
             this.applySelect();
-          } else if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+          } else if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(event.key)) {
             const entities = gameManager.entityManager.getIndexedEntities(gameManager.stateManager.keyboardSelecting === 'w');
             const keyNumber = +event.key;
             if (this.timeout) {

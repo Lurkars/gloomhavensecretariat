@@ -221,11 +221,7 @@ export class ItemManager {
     return (
       this.game.figures
         .filter((figure) => figure instanceof Character && figure.progress && figure.progress.items)
-        .map((figure) => figure as Character)
-        .map((figure) => figure.progress && figure.progress.items)
-        .reduce((pre, cur): Identifier[] => {
-          return pre && cur && pre.concat(cur);
-        })
+        .flatMap((figure) => (figure as Character).progress.items)
         .filter((identifier) => item && identifier.name === '' + item.id && identifier.edition === item.edition).length +
       this.game.party.specialItems.filter((identifier) => item && identifier.name === '' + item.id && identifier.edition === item.edition)
         .length
@@ -660,7 +656,17 @@ export class ItemManager {
       equippedItems.push(item);
     }
 
-    character.progress.equippedItems = equippedItems.map((itemData) => new AdditionalIdentifier(itemData.id, itemData.edition));
+    const previousIdentifiers = [...character.progress.equippedItems];
+    character.progress.equippedItems = equippedItems.map((itemData) => {
+      const existing = previousIdentifiers.find(
+        (identifier) => '' + identifier.name === '' + itemData.id && identifier.edition === itemData.edition
+      );
+      if (existing) {
+        previousIdentifiers.splice(previousIdentifiers.indexOf(existing), 1);
+        return existing;
+      }
+      return new AdditionalIdentifier(itemData.id, itemData.edition);
+    });
 
     if (item.minusOne && !gameManager.characterManager.ignoreNegativeItemEffects(character)) {
       character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);

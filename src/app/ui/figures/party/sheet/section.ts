@@ -6,11 +6,6 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Party } from 'src/app/game/model/Party';
 import { Scenario } from 'src/app/game/model/Scenario';
-import { ScenarioChartDialogComponent } from 'src/app/ui/figures/party/scenario-chart/scenario-chart';
-import { openSection } from 'src/app/ui/figures/party/week-sections/week-sections';
-import { WorldMapComponent } from 'src/app/ui/figures/party/world-map/world-map';
-import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
-import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 
 export type PartySheetType = 'gh' | 'fh' | 'gh2e';
 
@@ -58,9 +53,10 @@ export abstract class PartySheetSection implements OnInit {
     return !!editionData && (!!editionData.worldMap || !!editionData.extendWorldMap);
   }
 
-  openMap() {
+  async openMap() {
     if (this.hasWorldMap()) {
       this.dialogRef()?.close();
+      const { WorldMapComponent } = await import('src/app/ui/figures/party/world-map/world-map');
       this.dialog.open(WorldMapComponent, {
         panelClass: ['fullscreen-panel', 'no-dialog-animations'],
         backdropClass: ['fullscreen-backdrop'],
@@ -69,8 +65,9 @@ export abstract class PartySheetSection implements OnInit {
     }
   }
 
-  openFlowChart() {
+  async openFlowChart() {
     this.dialogRef()?.close();
+    const { ScenarioChartDialogComponent } = await import('src/app/ui/figures/party/scenario-chart/scenario-chart');
     this.dialog.open(ScenarioChartDialogComponent, {
       panelClass: ['fullscreen-panel'],
       backdropClass: ['fullscreen-backdrop'],
@@ -127,7 +124,7 @@ export abstract class PartySheetSection implements OnInit {
     );
   }
 
-  openConclusions(section: string, week: number = -1) {
+  async openConclusions(section: string, week: number = -1) {
     const conclusions: ScenarioData[] = gameManager
       .sectionData(gameManager.game.edition)
       .filter(
@@ -140,6 +137,8 @@ export abstract class PartySheetSection implements OnInit {
       );
 
     if (conclusions.length > 0) {
+      const { ScenarioConclusionComponent } = await import('src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion');
+      const { ScenarioSummaryComponent } = await import('src/app/ui/footer/scenario/summary/scenario-summary');
       this.dialog
         .open(ScenarioConclusionComponent, {
           panelClass: ['dialog'],
@@ -187,7 +186,7 @@ export abstract class PartySheetSection implements OnInit {
     }
   }
 
-  finishConclusion(index: string, force: boolean = false) {
+  async finishConclusion(index: string, force: boolean = false) {
     const conclusion = gameManager
       .sectionData(this.edition() || gameManager.currentEdition())
       .find((sectionData) => sectionData.index === index);
@@ -199,6 +198,7 @@ export abstract class PartySheetSection implements OnInit {
         ))
     ) {
       // conclusion followed by continuing sections, if any
+      const { openSection } = await import('src/app/ui/figures/party/week-sections/week-sections');
       openSection(this.dialog, conclusion.index, conclusion.edition, conclusion.group, () => this.update());
     }
   }
@@ -226,11 +226,12 @@ export abstract class PartySheetSection implements OnInit {
     }
   }
 
-  conclusionRewards(index: string) {
+  async conclusionRewards(index: string) {
     const conclusion = gameManager
       .sectionData(this.edition() || gameManager.currentEdition())
       .find((sectionData) => sectionData.index === index);
     if (conclusion) {
+      const { ScenarioSummaryComponent } = await import('src/app/ui/footer/scenario/summary/scenario-summary');
       this.dialog.open(ScenarioSummaryComponent, {
         panelClass: ['dialog'],
         data: {

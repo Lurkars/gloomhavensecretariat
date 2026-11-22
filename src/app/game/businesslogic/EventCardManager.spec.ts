@@ -4,10 +4,15 @@ import { BuildingModel } from 'src/app/game/model/Building';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import {
   EventCard,
+  EventCardAttack,
+  EventCardAttackTarget,
   EventCardCondition,
   EventCardConditionType,
   EventCardEffect,
-  EventCardEffectType
+  EventCardEffectType,
+  EventCardIdentifier,
+  EventCardOption,
+  EventCardOutcome
 } from 'src/app/game/model/data/EventCard';
 
 // EventCardManager also covers applyEffects()/applyEvent() (a huge switch over every event
@@ -203,5 +208,153 @@ describe('EventCardManager', () => {
       const condition = Object.assign(new EventCardCondition(), { type: EventCardConditionType.payCollectiveItem, values: [] });
       expect(eventCardManager.resolvableCondition(condition)).toBe(false);
     });
+  });
+});
+
+describe('EventCardManager campaignStickerReplace', () => {
+  it('replaces only the named sticker', () => {
+    gameManager.game.party.campaignStickers = ['bug-in-a-jar', 'other-a', 'other-b'];
+    const card = new EventCard('SR-17', 'fh', 'road', '', '', []);
+
+    gameManager.eventCardManager.applyEffects(
+      card,
+      [new EventCardEffect(EventCardEffectType.campaignStickerReplace, ['empty-jar', 'bug-in-a-jar'])],
+      [],
+      false
+    );
+
+    expect(gameManager.game.party.campaignStickers).toEqual(['other-a', 'other-b', 'empty-jar']);
+  });
+
+  it('keeps all stickers when the replaced sticker is missing', () => {
+    gameManager.game.party.campaignStickers = ['other-a', 'other-b'];
+    const card = new EventCard('SR-17', 'fh', 'road', '', '', []);
+
+    gameManager.eventCardManager.applyEffects(
+      card,
+      [new EventCardEffect(EventCardEffectType.campaignStickerReplace, ['empty-jar', 'bug-in-a-jar'])],
+      [],
+      false
+    );
+
+    expect(gameManager.game.party.campaignStickers).toEqual(['other-a', 'other-b', 'empty-jar']);
+  });
+});
+
+describe('EventCardManager resolveAttack', () => {
+  function so26(): EventCard {
+    return new EventCard('SO-26', 'fh', 'summer-outpost', '', '', []);
+  }
+
+  function attackX(attackValueX: string): EventCardAttack {
+    const attack = new EventCardAttack('15+X', 4, new EventCardAttackTarget(), '', '', [
+      'text',
+      new EventCardEffect(EventCardEffectType.checkbox, ['', '', '']) as any
+    ]);
+    attack.attackValueX = attackValueX;
+    return attack;
+  }
+
+  beforeEach(() => {
+    gameManager.game.party.eventCards = [];
+    gameManager.game.party.defense = 0;
+  });
+
+  it('resolves X to 0 checked boxes on the first draw', () => {
+    expect(gameManager.eventCardManager.resolveAttack(so26(), attackX('checks:15')).attackValue).toEqual(15);
+  });
+
+  it('resolves X from the boxes checked on the previous draw of the card', () => {
+    gameManager.game.party.eventCards = [
+      new EventCardIdentifier('SO-26', 'fh', 'summer-outpost', 2, [], [undefined as any, 1], true, false),
+      new EventCardIdentifier('SO-26', 'fh', 'summer-outpost', 2, [], [undefined as any, 2], true, false)
+    ];
+
+    expect(gameManager.eventCardManager.resolveAttack(so26(), attackX('checks:15')).attackValue).toEqual(45);
+  });
+
+  it('resolves X to the defense of the walls', () => {
+    gameManager.game.party.defense = 7;
+    const card = new EventCard('SO-29', 'fh', 'summer-outpost', '', '', []);
+
+    expect(gameManager.eventCardManager.resolveAttack(card, attackX('defense')).attackValue).toEqual(22);
+  });
+
+  it('keeps attacks without variable unchanged', () => {
+    const attack = new EventCardAttack(30, 4, new EventCardAttackTarget(), '', '', []);
+
+    expect(gameManager.eventCardManager.resolveAttack(so26(), attack)).toBe(attack);
+  });
+
+  it('lastEventCardResult returns the latest result of a card', () => {
+    const first = new EventCardIdentifier('SO-26', 'fh', 'summer-outpost', 2, [], [0, 1], true, false);
+    const latest = new EventCardIdentifier('SO-26', 'fh', 'summer-outpost', 2, [], [0, 2], true, false);
+    gameManager.game.party.eventCards = [first, latest];
+
+    expect(gameManager.eventCardManager.lastEventCardResult('fh', 'summer-outpost', 'SO-26')).toBe(latest);
+  });
+});
+
+describe('EventCardManager applyEvent return to deck', () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  it('returns a card to the deck when the unlabeled attack outcome is marked return to deck (e.g. SO-26)', () => {
+    const attackOutcome = Object.assign(new EventCardOutcome(), {
+      returnToDeck: true,
+      attack: new EventCardAttack('15+X', 4, new EventCardAttackTarget(), '', '', [])
+    });
+    const card = new EventCard('SO-26', 'fh', 'summer-outpost', '', '', [
+      new EventCardOption('A', '', [new EventCardOutcome()]),
+      new EventCardOption('', '', [attackOutcome])
+    ]);
+    gameManager.game.party.eventCards = [];
+    const returnEvent = vi.spyOn(gameManager.eventCardManager, 'returnEvent').mockImplementation(() => {});
+    const removeEvent = vi.spyOn(gameManager.eventCardManager, 'removeEvent').mockImplementation(() => {});
+
+    gameManager.eventCardManager.applyEvent(card, 0, [], [], false, true, false);
+
+    expect(returnEvent).toHaveBeenCalledWith('summer-outpost', 'SO-26');
+    expect(removeEvent).not.toHaveBeenCalled();
+  });
+});
+
+describe('EventCardManager applyEvent checked boxes', () => {
+  function cardWithItemBoxes(): EventCard {
+    const outcome = Object.assign(new EventCardOutcome(), {
+      effects: [
+        new EventCardEffect(EventCardEffectType.checkbox, [new EventCardEffect(EventCardEffectType.custom, ['first box'])]),
+        new EventCardEffect(EventCardEffectType.checkbox, [new EventCardEffect(EventCardEffectType.custom, ['second box'])])
+      ]
+    });
+    return new EventCard('SR-26', 'fh', 'summer-road', '', '', [new EventCardOption('A', '', [outcome])]);
+  }
+
+  beforeEach(() => {
+    gameManager.game.party.eventCards = [];
+    settingsManager.settings.eventsApply = true;
+    vi.spyOn(gameManager.eventCardManager, 'returnEvent').mockImplementation(() => {});
+    vi.spyOn(gameManager.eventCardManager, 'removeEvent').mockImplementation(() => {});
+  });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  function customValues(results: any[]): string[] {
+    return results.filter((result) => result instanceof EventCardEffect).flatMap((effect) => effect.values as string[]);
+  }
+
+  it('applies only boxes checked on this draw', () => {
+    gameManager.game.party.eventCards = [new EventCardIdentifier('SR-26', 'fh', 'summer-road', 0, [0], [1], false, false)];
+
+    const results = gameManager.eventCardManager.applyEvent(cardWithItemBoxes(), 0, [0], [1, 1], false, false, true);
+
+    expect(customValues(results)).toEqual(['second box']);
+  });
+
+  it('keeps boxes checked on previous draws in the stored result', () => {
+    gameManager.game.party.eventCards = [new EventCardIdentifier('SR-26', 'fh', 'summer-road', 0, [0], [1], false, false)];
+
+    gameManager.eventCardManager.applyEvent(cardWithItemBoxes(), 0, [0], [], false, false, true);
+
+    expect(gameManager.eventCardManager.lastEventCardResult('fh', 'summer-road', 'SR-26')?.checks).toEqual([1]);
   });
 });

@@ -1,6 +1,17 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  input,
+  OnChanges,
+  OnInit,
+  output,
+  SimpleChanges
+} from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
@@ -104,22 +115,16 @@ export class LootDeckComponent implements OnInit, OnChanges {
         settingsManager.settings.animations ? this.initTimeout() * settingsManager.settings.animationSpeed : 0
       );
     }
+  }
 
-    window.addEventListener('resize', () => {
-      this.compact =
-        this.deck.cards.length > 0 &&
-        settingsManager.settings.automaticAttackModifierFullscreen &&
-        settingsManager.settings.portraitMode &&
-        (window.innerWidth < 800 || window.innerHeight < 400);
-    });
-
-    window.addEventListener('fullscreenchange', () => {
-      this.compact =
-        this.deck.cards.length > 0 &&
-        settingsManager.settings.automaticAttackModifierFullscreen &&
-        settingsManager.settings.portraitMode &&
-        (window.innerWidth < 800 || window.innerHeight < 400);
-    });
+  @HostListener('window:resize')
+  @HostListener('window:fullscreenchange')
+  onWindowResize() {
+    this.compact =
+      this.deck.cards.length > 0 &&
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400);
   }
 
   ngOnChanges(changes: SimpleChanges): void {

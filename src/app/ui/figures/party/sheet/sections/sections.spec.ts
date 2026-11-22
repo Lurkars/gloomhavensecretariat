@@ -202,6 +202,8 @@ describe('Party sheet sections', () => {
       gameManager.game.party.reputation = -7;
       component.update();
       expect(component.priceModifier).toEqual(2);
+      // spec files share the gameManager singleton (vitest runs non-isolated), do not leak the reputation
+      gameManager.game.party.reputation = 0;
     });
   });
 

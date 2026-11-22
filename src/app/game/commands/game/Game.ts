@@ -3,7 +3,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { storageManager } from 'src/app/game/businesslogic/StorageManager';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
-import { ConditionName } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Favor } from 'src/app/game/model/data/Trials';
 import { GameModel } from 'src/app/game/model/Game';
@@ -31,7 +31,12 @@ export class GameConditionCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(name: string, value: boolean): boolean {
-    return Object.values(ConditionName).includes(name as ConditionName) && name !== ConditionName.invalid && typeof value === 'boolean';
+    return (
+      Object.values(ConditionName).includes(name as ConditionName) &&
+      name !== ConditionName.invalid &&
+      !new Condition(name).types.includes(ConditionType.immunityOnly) &&
+      typeof value === 'boolean'
+    );
   }
 
   executeWithParameters(name: ConditionName, value: boolean) {
@@ -93,23 +98,10 @@ export class GameFavorsCommand extends CommandImpl {
     const gameFavorPoints = this.points();
     const favors = this.favors();
     const spentPoints = favors.length ? favors.map((favor) => favor.points).reduce((a, b) => a + b) : 0;
-    let availablePoints = Math.min(Math.max((gameFavorPoints.length ? gameFavorPoints.reduce((a, b) => a + b) : 0) - spentPoints, 0), 7);
-
-    while (availablePoints) {
-      if (availablePoints > 2 && gameFavorPoints.includes(2)) {
-        gameFavorPoints.splice(gameFavorPoints.indexOf(2), 1);
-        availablePoints -= 2;
-      } else if (gameFavorPoints.includes(1)) {
-        gameFavorPoints.splice(gameFavorPoints.indexOf(1), 1);
-        availablePoints--;
-      } else {
-        gameFavorPoints.splice(gameFavorPoints.indexOf(2), 1);
-        availablePoints = Math.max(availablePoints - 2, 0);
-      }
-    }
+    const availablePoints = Math.min(Math.max((gameFavorPoints.length ? gameFavorPoints.reduce((a, b) => a + b) : 0) - spentPoints, 0), 7);
 
     gameManager.game.favors = favors.map((favor) => new Identifier(favor.name, favor.edition));
-    gameManager.game.favorPoints = gameFavorPoints;
+    gameManager.game.favorPoints = gameManager.trialsManager.refundFavorPoints(gameFavorPoints, availablePoints);
   }
 }
 

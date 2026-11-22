@@ -30,6 +30,7 @@
   .distribution-section {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5em;
     margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
@@ -41,7 +42,6 @@
 
     .item-receive-row {
       display: flex;
-      flex-direction: column;
       align-items: center;
       gap: 0.5em;
 

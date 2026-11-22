@@ -58,6 +58,7 @@ export class StateManager {
   serverVersion: string = '';
 
   storageBlocked: boolean = false;
+  private storagePending: boolean = false;
   autoBackupTimeout: any = null;
 
   ready: boolean = false;
@@ -183,17 +184,24 @@ export class StateManager {
   }
 
   async saveStorage() {
-    if (!this.storageBlocked) {
-      this.storageBlocked = true;
-      try {
+    if (this.storageBlocked) {
+      // a save is running (or storage got blocked on purpose, e.g. clearing all data): the running save writes the latest state again
+      this.storagePending = true;
+      return;
+    }
+    this.storageBlocked = true;
+    try {
+      do {
+        this.storagePending = false;
         await storageManager.writeArray('undo', this.undos);
         await storageManager.writeArray('redo', this.redos);
-      } catch (error) {
-        console.error('Failed to save undo/redo storage:', error);
-        throw error;
-      } finally {
-        this.storageBlocked = false;
-      }
+      } while (this.storagePending);
+    } catch (error) {
+      console.error('Failed to save undo/redo storage:', error);
+      throw error;
+    } finally {
+      this.storagePending = false;
+      this.storageBlocked = false;
     }
   }
 
@@ -673,6 +681,8 @@ export class StateManager {
     revision: number = 0,
     undolength: number = 1
   ) {
+    // set synchronously, a server error for this message must be able to revert it in the right direction
+    this.lastAction = type === 'game-undo' ? 'undo' : type === 'game-redo' ? 'redo' : 'update';
     this.game.revision += revisionChange;
     this.saveLocal();
     if (this.ws && this.ws.readyState === WebSocket.OPEN && settingsManager.settings.serverCode) {
@@ -711,13 +721,11 @@ export class StateManager {
 
     if (timeout && settingsManager.settings.animations) {
       setTimeout(() => {
-        this.lastAction = 'update';
         gameManager.triggerUiChange(false);
         window.document.body.classList.remove('working');
         window.document.body.classList.remove('server-sync');
       }, timeout * settingsManager.settings.animationSpeed);
     } else {
-      this.lastAction = 'update';
       gameManager.triggerUiChange(false);
       window.document.body.classList.remove('working');
       window.document.body.classList.remove('server-sync');
@@ -1007,7 +1015,14 @@ export class StateManager {
   }
 
   revertLastUndo() {
-    this.undos.splice(this.undos.length - 1, 1);
+    const snapshot = this.undos.splice(this.undos.length - 1, 1)[0];
+    if (snapshot) {
+      const revision = this.game.revision;
+      const revisionOffset = this.game.revisionOffset;
+      this.game.fromModel(snapshot);
+      this.game.revision = revision;
+      this.game.revisionOffset = revisionOffset;
+    }
     const lastEntry = this.log[this.log.length - 1];
     if (lastEntry && lastEntry.type === 'update') {
       this.log.pop();
@@ -1045,11 +1060,13 @@ export class StateManager {
       const gameModel: GameModel = undos[0];
       this.game.fromModel(gameModel);
       this.game.revision = revision;
-      this.game.revisionOffset = revisionOffset + 2;
+      // after() increases the revision by one when syncing
+      this.game.revisionOffset = revisionOffset + (sync ? 2 : 1);
       this.saveStorage();
       if (sync) {
         this.after(1, false, 1, 'game-undo', undos[0].revision - (undos[0].revisionOffset || 0), undolength);
       } else {
+        this.saveLocal();
         gameManager.triggerUiChange(false);
       }
       this.lastAction = 'undo';
@@ -1081,14 +1098,16 @@ export class StateManager {
       const gameModel: GameModel = redos[0];
       this.game.fromModel(gameModel);
       this.game.revision = revision;
-      this.game.revisionOffset = revisionOffset;
+      // after() increases the revision by one when syncing
+      this.game.revisionOffset = revisionOffset - (sync ? 0 : 1);
       this.saveStorage();
       if (sync) {
         this.after(1, false, 1, 'game-redo', redos[0].revision - (redos[0].revisionOffset || 0), redolength);
       } else {
+        this.saveLocal();
         gameManager.triggerUiChange(false);
       }
-      this.lastAction = 'undo';
+      this.lastAction = 'redo';
     }
   }
 

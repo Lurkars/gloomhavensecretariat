@@ -42,6 +42,9 @@ describe('CharacterItemsComponent', () => {
     gameManager.game.round = 0;
     gameManager.game.party.loot = {};
     gameManager.game.party.buildings = [];
+    // spec files share the gameManager singleton (vitest runs non-isolated), reputation changes item prices
+    gameManager.game.party.reputation = 0;
+    gameManager.game.party.specialItems = [];
     gameManager.game.party.campaignMode = false;
     gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []))];
     settingsManager.settings.editions = ['gh'];

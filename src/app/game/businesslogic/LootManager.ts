@@ -22,10 +22,10 @@ export class LootManager {
 
   drawCard(deck: LootDeck, character: Character | undefined = undefined): ItemData | undefined {
     let result: ItemData | undefined = undefined;
-    deck.current++;
-    if (deck.current >= deck.cards.length) {
-      deck.current = deck.cards.length - 1;
+    if (deck.current + 1 >= deck.cards.length) {
+      return result;
     }
+    deck.current++;
 
     const loot = deck.cards[deck.current];
     if (loot) {

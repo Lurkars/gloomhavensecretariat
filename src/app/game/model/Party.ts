@@ -83,15 +83,14 @@ export class Party {
     // migration
     if (this.achievementsList) {
       const partyAchievementsLabel = settingsManager.label.data.partyAchievements;
-      let partyAchievementsLabelEn = settingsManager.label.data.globalAchievements;
+      let partyAchievementsLabelEn = settingsManager.label.data.partyAchievements;
       if (settingsManager.settings.locale !== settingsManager.defaultLocale) {
         partyAchievementsLabelEn = gameManager.editionData
           .map(
             (editionData) =>
-              (editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements) ||
-              {}
+              (editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].partyAchievements) || {}
           )
-          .reduce((a, b) => Object.assign(a, b));
+          .reduce((a, b) => Object.assign(a, b), {});
       }
       this.achievementsList = this.achievementsList.filter((item) => item);
       this.achievementsList = this.achievementsList.map((value) => {
@@ -123,7 +122,7 @@ export class Party {
               (editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements) ||
               {}
           )
-          .reduce((a, b) => Object.assign(a, b));
+          .reduce((a, b) => Object.assign(a, b), {});
       }
       this.globalAchievementsList = this.globalAchievementsList.filter((item) => item);
       this.globalAchievementsList = this.globalAchievementsList.map((value) => {
@@ -198,7 +197,7 @@ export class Party {
     }
 
     this.eventCards.forEach((value) => {
-      if (Object.keys(!value).includes('attack')) {
+      if (!Object.keys(value).includes('attack')) {
         const eventCard = gameManager.eventCardManager.getEventCardForEdition(value.edition, value.type, value.cardId);
         value.attack =
           (eventCard &&

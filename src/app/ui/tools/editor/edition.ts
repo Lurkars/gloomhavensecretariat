@@ -1,33 +1,41 @@
-import { Component, ElementRef, OnInit, viewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
-import { ConditionName } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { HeaderComponent } from 'src/app/ui/header/header';
 import { downloadJson } from 'src/app/ui/helper/Static';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  imports: [FormsModule, RouterModule, GhsLabelDirective, TrackUUIDPipe],
+  imports: [FormsModule, GhsLabelDirective, TrackUUIDPipe, HeaderComponent],
   selector: 'ghs-edition-editor',
   templateUrl: './edition.html',
   styleUrls: ['./editor.scss', './edition.scss']
 })
 export class EditionEditorComponent implements OnInit {
   readonly inputEditionData = viewChild.required<ElementRef>('inputEditionData');
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   gameManager: GameManager = gameManager;
   Conditions: ConditionName[] = Object.values(ConditionName).filter(
-    (condition) => condition !== ConditionName.bless && condition !== ConditionName.curse
+    (condition) =>
+      condition !== ConditionName.invalid &&
+      condition !== ConditionName.bless &&
+      condition !== ConditionName.curse &&
+      !new Condition(condition).types.includes(ConditionType.helper) &&
+      !new Condition(condition).types.includes(ConditionType.immunityOnly)
   );
 
   editionData: EditionData;
+  // copy of the loaded edition data: the trackUUID pipe is pure and does not see changes of the mutated gameManager.editionData array
+  editionsData: EditionData[] = [];
   editionError: any;
 
   constructor() {
@@ -36,7 +44,10 @@ export class EditionEditorComponent implements OnInit {
 
   async ngOnInit() {
     await settingsManager.init(!environment.production);
+    this.editionsData = [...gameManager.editionData];
     this.editionDataToJson();
+    // zoneless: render the loaded edition data
+    this.changeDetectorRef.markForCheck();
   }
 
   editionDataToJson() {
@@ -65,7 +76,7 @@ export class EditionEditorComponent implements OnInit {
 
   loadEditionData(event: any) {
     const index = +event.target.value;
-    this.editionData = index !== -1 ? gameManager.editionData[index] : new EditionData('', [], [], [], [], [], []);
+    this.editionData = index !== -1 ? this.editionsData[index] : new EditionData('', [], [], [], [], [], []);
     this.editionDataToJson();
   }
 

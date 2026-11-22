@@ -203,8 +203,19 @@ export class AttackModifierManager {
     return additional;
   }
 
-  countUpcomingAdditional(character: Character, type: AttackModifierType, idPrefix?: string) {
-    idPrefix ??= 'additional-' + character.name;
+  /** additional modifier ids are 'additional-' + character name + index, `id` matches exactly, otherwise any index of the character */
+  isAdditionalId(attackModifierId: string | undefined, character: Character, id?: string): boolean {
+    if (!attackModifierId) {
+      return false;
+    }
+    if (id) {
+      return attackModifierId === id;
+    }
+    const prefix = 'additional-' + character.name;
+    return attackModifierId.startsWith(prefix) && /^\d+$/.test(attackModifierId.slice(prefix.length));
+  }
+
+  countUpcomingAdditional(character: Character, type: AttackModifierType, id?: string) {
     let count = 0;
     if (
       settingsManager.settings.alwaysAllyAttackModifierDeck ||
@@ -215,8 +226,7 @@ export class AttackModifierManager {
         return (
           index > gameManager.game.allyAttackModifierDeck.current &&
           attackModifier.type === type &&
-          attackModifier.id &&
-          attackModifier.id.startsWith(idPrefix)
+          this.isAdditionalId(attackModifier.id, character, id)
         );
       }).length;
     }
@@ -225,8 +235,7 @@ export class AttackModifierManager {
       return (
         index > gameManager.game.monsterAttackModifierDeck.current &&
         attackModifier.type === type &&
-        attackModifier.id &&
-        attackModifier.id.startsWith(idPrefix)
+        this.isAdditionalId(attackModifier.id, character, id)
       );
     }).length;
 
@@ -238,8 +247,7 @@ export class AttackModifierManager {
           return (
             index > figure.attackModifierDeck.current &&
             attackModifier.type === type &&
-            attackModifier.id &&
-            attackModifier.id.startsWith(idPrefix)
+            this.isAdditionalId(attackModifier.id, character, id)
           );
         }).length;
       });
@@ -406,6 +414,7 @@ export class AttackModifierManager {
       additionalDraw = fhRules;
       while (card.rolling) {
         if (attackModifierDeck.current === attackModifierDeck.cards.length - 1) {
+          attackModifierDeck.state = undefined;
           return;
         }
         attackModifierDeck.current = attackModifierDeck.current + 1;
@@ -413,6 +422,10 @@ export class AttackModifierManager {
         gameManager.triggerUiChange(false);
       }
     } else {
+      if (attackModifierDeck.current === attackModifierDeck.cards.length - 1) {
+        attackModifierDeck.state = undefined;
+        return;
+      }
       attackModifierDeck.current = attackModifierDeck.current + 1;
       card = attackModifierDeck.cards[attackModifierDeck.current];
       gameManager.triggerUiChange(false);
@@ -431,6 +444,7 @@ export class AttackModifierManager {
 
     if (additionalDraw) {
       if (attackModifierDeck.current === attackModifierDeck.cards.length - 1) {
+        attackModifierDeck.state = undefined;
         return;
       }
       attackModifierDeck.current = attackModifierDeck.current + 1;
@@ -467,22 +481,19 @@ export class AttackModifierManager {
     const lastVisible = attackModifierDeck.lastVisible;
     const restoreCards: AttackModifier[] = onlyUpcoming && current > -1 ? attackModifierDeck.cards.splice(0, current + 1) : [];
     if (!onlyUpcoming) {
+      // apply Challenge #1500: drawn -1/-2 cards of the monster deck are removed for the rest of the scenario
+      const removeMinus =
+        attackModifierDeck === this.game.monsterAttackModifierDeck &&
+        gameManager.challengesManager.apply &&
+        gameManager.challengesManager.isActive(1500, 'fh');
       attackModifierDeck.cards = attackModifierDeck.cards.filter(
         (attackModifier, index) =>
-          index > attackModifierDeck.current ||
+          index > current ||
           (attackModifier.type !== AttackModifierType.bless &&
             attackModifier.type !== AttackModifierType.curse &&
             attackModifier.type !== AttackModifierType.empower &&
-            attackModifier.type !== AttackModifierType.enfeeble)
-      );
-    }
-
-    // apply Challenge #1500
-    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1500, 'fh')) {
-      attackModifierDeck.cards = attackModifierDeck.cards.filter(
-        (attackModifier, index) =>
-          index > attackModifierDeck.current ||
-          (attackModifier.type !== AttackModifierType.minus1 && attackModifier.type !== AttackModifierType.minus2)
+            attackModifier.type !== AttackModifierType.enfeeble &&
+            (!removeMinus || (attackModifier.type !== AttackModifierType.minus1 && attackModifier.type !== AttackModifierType.minus2)))
       );
     }
 
@@ -643,8 +654,7 @@ export class AttackModifierManager {
         character.progress.trial.edition === 'fh' &&
         character.progress.trial.name === '348'
       ) {
-        attackModifierDeck = new AttackModifierDeck();
-        attackModifierDeck.cards = attackModifierDeck.cards.filter(
+        attackModifierDeck.cards = new AttackModifierDeck().cards.filter(
           (am) => ![AttackModifierType.double, AttackModifierType.plus1, AttackModifierType.plus2].includes(am.type)
         );
       }
@@ -1070,6 +1080,10 @@ export class AttackModifierManager {
     let rollingOffset: number = 1;
     const firstCard: AttackModifier = attackModifierDeck.cards[attackModifierDeck.current];
     const secondCard: AttackModifier = attackModifierDeck.cards[attackModifierDeck.current - 1];
+    if (!firstCard || (attackModifierDeck.state && !secondCard)) {
+      console.warn('Invalid Attack Modifier draw', attackModifierDeck);
+      return undefined;
+    }
     let baseCard: AttackModifier = firstCard;
     let chooseOffset: number = 0;
     const effects: AttackModifierEffect[] = [];

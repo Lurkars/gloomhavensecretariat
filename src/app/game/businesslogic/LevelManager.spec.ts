@@ -420,3 +420,19 @@ describe('LevelManager', () => {
     });
   });
 });
+
+describe('LevelManager regressions', () => {
+  afterEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.playerCount = -1;
+  });
+
+  it('calculates the scenario level with a manual player count and all characters absent', () => {
+    gameManager.game.playerCount = 2;
+    const character = buildCharacter();
+    character.absent = true;
+    gameManager.game.figures = [character];
+
+    expect(() => gameManager.levelManager.calculateScenarioLevel()).not.toThrow();
+  });
+});

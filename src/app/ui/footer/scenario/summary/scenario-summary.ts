@@ -997,48 +997,6 @@ export class ScenarioSummaryComponent {
     }
   }
 
-  changeCollectiveGold(event: any, index: number) {
-    let value = +event.target.value;
-    const old = this.collectiveGold[index] || 0;
-    this.collectiveGold[index] = 0;
-    if (value < 0) {
-      value = 0;
-    } else if (value > this.availableCollectiveGold()) {
-      value = this.availableCollectiveGold();
-    }
-    this.collectiveGold[index] = old;
-    if (value !== (this.collectiveGold[index] || 0)) {
-      gameManager.stateManager.before('finishScenario.dialog.collectiveGold', index, event.target.value);
-      this.collectiveGold[index] = +event.target.value;
-      this.updateFinish();
-      gameManager.stateManager.after();
-    }
-    event.target.value = value;
-  }
-
-  changeCollectiveResource(event: any, index: number, type: LootType) {
-    let value = +event.target.value;
-    if (!this.collectiveResources[index]) {
-      this.collectiveResources[index] = {};
-    }
-    const old = this.collectiveResources[index][type] || 0;
-    this.collectiveResources[index][type] = 0;
-    if (value < 0) {
-      value = 0;
-    } else if (value > this.availableCollectiveResource(type)) {
-      value = this.availableCollectiveResource(type);
-    }
-    this.collectiveResources[index][type] = old;
-    if (value !== (this.collectiveResources[index][type] || 0)) {
-      gameManager.stateManager.before('finishScenario.dialog.collectiveResource', type, index, event.target.value);
-      this.collectiveResources[index] = this.collectiveResources[index] || {};
-      this.collectiveResources[index][type] = value;
-      this.updateFinish();
-      gameManager.stateManager.after();
-    }
-    event.target.value = value;
-  }
-
   changeCalendarSectionManual(event: any, index: number) {
     gameManager.stateManager.before('finishScenario.dialog.calendarSectionManual', index, event.target.value);
     this.calendarSectionManual[index] = +event.target.value;

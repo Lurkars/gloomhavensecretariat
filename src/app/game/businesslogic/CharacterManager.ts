@@ -209,15 +209,15 @@ export class CharacterManager {
       const marker = character.edition + '-' + character.name;
       this.game.figures.forEach((figure) => {
         if (figure instanceof Character) {
-          figure.markers.splice(figure.markers.indexOf(marker), 1);
+          figure.markers = (figure.markers || []).filter((value) => value !== marker);
           if (figure.summons) {
             figure.summons.forEach((summon) => {
-              summon.markers.splice(summon.markers.indexOf(marker), 1);
+              summon.markers = (summon.markers || []).filter((value) => value !== marker);
             });
           }
         } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           figure.entities.forEach((entity) => {
-            entity.markers.splice(entity.markers.indexOf(marker), 1);
+            entity.markers = (entity.markers || []).filter((value) => value !== marker);
           });
         }
       });
@@ -266,7 +266,7 @@ export class CharacterManager {
   }
 
   addXP(character: Character, value: number, levelUp: boolean = true) {
-    character.progress.experience += value;
+    character.progress.experience = Math.max(0, character.progress.experience + value);
     if (levelUp) {
       this.setLevel(character, this.levelForXp(character.progress.experience));
     }
@@ -328,7 +328,6 @@ export class CharacterManager {
 
     if (character.progress.equippedItems.find((identifier) => identifier.edition === 'fh' && identifier.name === '3')) {
       character.maxHealth += 1;
-      character.health += 1;
     }
 
     if (character.health > character.maxHealth || adjustHealth) {

@@ -12,15 +12,12 @@ import {
 } from 'src/app/game/model/data/AttackModifier';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { Perk, PerkCard, PerkType } from 'src/app/game/model/data/Perks';
 
 // This spec covers the small, clearly-scoped pure/near-pure helpers, plus calculateAttackResult/
-// buildCharacterAttackModifierDeck/applyCharacterPerks below. Note: applyCharacterPerks's fh
-// trial-348 branch reassigns its local `attackModifierDeck` parameter to a brand-new deck and
-// filters *that*, never writing back into the deck object the caller (and buildCharacterAttack-
-// ModifierDeck) actually holds a reference to — its filtering has no observable effect on the
-// returned deck. That looks like a pre-existing bug rather than intended behavior, so it is
-// deliberately not asserted on here.
+// buildCharacterAttackModifierDeck/applyCharacterPerks below (including the fh trial-348 branch,
+// see 'AttackModifierManager regressions').
 
 function buildCharacter(name: string = 'test-char', overrides: Partial<CharacterData> = {}): Character {
   const data = Object.assign(new CharacterData(), { name, edition: 'gh', stats: [new CharacterStat(1, 10)], ...overrides });
@@ -494,5 +491,149 @@ describe('AttackModifierManager', () => {
 
       expect(attackModifierManager.getBless(4, deck).length).toBe(RPG_BLESS_CURSE_LIMIT - 4);
     });
+  });
+});
+
+describe('AttackModifierManager regressions', () => {
+  const attackModifierManager = gameManager.attackModifierManager;
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    gameManager.challengesManager.apply = false;
+    gameManager.trialsManager.apply = false;
+    gameManager.trialsManager.trialsEnabled = false;
+  });
+
+  function enableChallenge1500() {
+    gameManager.challengesManager.apply = true;
+    vi.spyOn(gameManager.challengesManager, 'isActive').mockImplementation((cardId: number) => cardId === 1500);
+  }
+
+  function cards(type: AttackModifierType, count: number): AttackModifier[] {
+    return Array.from({ length: count }, () => new AttackModifier(type));
+  }
+
+  it('challenge #1500 removes drawn -1/-2 cards from the monster deck on shuffle', () => {
+    enableChallenge1500();
+    const deck = new AttackModifierDeck();
+    deck.cards = [...cards(AttackModifierType.minus1, 2), ...cards(AttackModifierType.plus0, 2), ...cards(AttackModifierType.minus1, 2)];
+    deck.current = 3;
+    gameManager.game.monsterAttackModifierDeck = deck;
+
+    attackModifierManager.shuffleModifiers(deck);
+
+    expect(deck.cards.filter((am) => am.type === AttackModifierType.minus1).length).toEqual(2);
+    expect(deck.cards.length).toEqual(4);
+  });
+
+  it('challenge #1500 does not affect character decks', () => {
+    enableChallenge1500();
+    const deck = new AttackModifierDeck();
+    const before = deck.cards.length;
+    deck.current = deck.cards.length - 1;
+
+    attackModifierManager.shuffleModifiers(deck);
+
+    expect(deck.cards.length).toEqual(before);
+  });
+
+  it('challenge #1500 does not remove upcoming -1 cards when a card is added', () => {
+    enableChallenge1500();
+    const deck = new AttackModifierDeck();
+    deck.cards = [...cards(AttackModifierType.plus0, 6), ...cards(AttackModifierType.minus1, 6), ...cards(AttackModifierType.plus0, 8)];
+    deck.current = 5;
+    gameManager.game.monsterAttackModifierDeck = deck;
+
+    attackModifierManager.addModifier(deck, new AttackModifier(AttackModifierType.bless));
+
+    expect(deck.cards.filter((am, index) => index > deck.current && am.type === AttackModifierType.minus1).length).toEqual(6);
+  });
+
+  it('trial #348 reverts the deck to the starting deck without positive cards and keeps item effects', () => {
+    gameManager.trialsManager.apply = true;
+    gameManager.trialsManager.trialsEnabled = true;
+    const character = buildCharacter('trial-char');
+    character.progress.trial = new Identifier('348', 'fh');
+    character.progress.equippedItems = [new AdditionalIdentifier('11', 'fh')];
+
+    const deck = attackModifierManager.buildCharacterAttackModifierDeck(character);
+
+    expect(deck.cards.some((am) => [AttackModifierType.plus1, AttackModifierType.plus2, AttackModifierType.double].includes(am.type))).toBe(
+      false
+    );
+    expect(deck.cards.filter((am) => am.type === AttackModifierType.minus1).length).toEqual(4);
+  });
+
+  it('an advantage draw with only one card left stays inside the deck', () => {
+    const deck = new AttackModifierDeck();
+    deck.cards = [
+      new AttackModifier(AttackModifierType.plus0),
+      new AttackModifier(AttackModifierType.plus1),
+      new AttackModifier(AttackModifierType.minus1)
+    ];
+    deck.current = 1;
+
+    attackModifierManager.drawModifier(deck, 'advantage');
+
+    expect(deck.current).toEqual(2);
+    expect(() => attackModifierManager.calculateAttackResult(deck, 3)).not.toThrow();
+    expect(attackModifierManager.calculateAttackResult(deck, 3)?.result).toEqual(2);
+  });
+});
+
+describe('AttackModifierManager end of deck and additional regressions', () => {
+  const attackModifierManager = gameManager.attackModifierManager;
+  let alwaysFhAdvantage: boolean;
+  let amAdvantage: boolean;
+
+  beforeEach(() => {
+    alwaysFhAdvantage = settingsManager.settings.alwaysFhAdvantage;
+    amAdvantage = settingsManager.settings.amAdvantage;
+    settingsManager.settings.amAdvantage = true;
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    settingsManager.settings.alwaysFhAdvantage = alwaysFhAdvantage;
+    settingsManager.settings.amAdvantage = amAdvantage;
+  });
+
+  function rolling(value: number): AttackModifier {
+    return new AttackModifier(AttackModifierType.plus, value, AttackModifierValueType.plus, undefined, [], true);
+  }
+
+  it('an advantage draw running out of cards during rolling modifiers resolves as normal draw', () => {
+    settingsManager.settings.alwaysFhAdvantage = true;
+    const deck = new AttackModifierDeck();
+    deck.cards = [new AttackModifier(AttackModifierType.plus0), rolling(1), rolling(1)];
+    deck.current = 0;
+
+    attackModifierManager.drawModifier(deck, 'advantage');
+
+    expect(deck.current).toBe(2);
+    expect(deck.state).toBeUndefined();
+    expect(attackModifierManager.calculateAttackResult(deck, 3)?.result).toBe(5);
+  });
+
+  it('an advantage draw without a card left for the additional draw resolves as normal draw', () => {
+    settingsManager.settings.alwaysFhAdvantage = true;
+    const deck = new AttackModifierDeck();
+    deck.cards = [new AttackModifier(AttackModifierType.plus0), rolling(1), new AttackModifier(AttackModifierType.plus1)];
+    deck.current = 0;
+
+    attackModifierManager.drawModifier(deck, 'advantage');
+
+    expect(deck.current).toBe(2);
+    expect(deck.state).toBeUndefined();
+    expect(attackModifierManager.calculateAttackResult(deck, 3)?.result).toBe(5);
+  });
+
+  it('matches additional modifier ids exactly or by character with an index', () => {
+    const character = buildCharacter('brute');
+    expect(attackModifierManager.isAdditionalId('additional-brute1', character, 'additional-brute1')).toBe(true);
+    expect(attackModifierManager.isAdditionalId('additional-brute10', character, 'additional-brute1')).toBe(false);
+    expect(attackModifierManager.isAdditionalId('additional-brute10', character)).toBe(true);
+    expect(attackModifierManager.isAdditionalId('additional-brute-two0', character)).toBe(false);
+    expect(attackModifierManager.isAdditionalId(undefined, character)).toBe(false);
   });
 });

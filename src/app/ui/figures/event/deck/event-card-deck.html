@@ -139,7 +139,8 @@
                   [select]="model.identifier.selected"
                   [identifier]="model.identifier"
                   [subSelect]="model.identifier.subSelections"
-                  (selectCard)="updateDrawnSelect(model.identifier)"
+                  [checks]="model.identifier.checks || []"
+                  (selectCard)="updateDrawnSelect(model.identifier, $event)"
                 ></ghs-event-card>
                 @if (model.card) {
                   <a class="button open" (click)="showEventCard(model.card, model.identifier)" [ghs-tooltip]="'game.events.deck.show'">

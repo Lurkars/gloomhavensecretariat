@@ -11,9 +11,14 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 })
 export class PartySheetInspirationComponent extends PartySheetSection {
   setInspiration(event: any) {
-    if (!isNaN(+event.target.value) && this.party.inspiration !== +event.target.value) {
-      gameManager.stateManager.before('setPartyInspiration', this.party.name, event.target.value);
-      this.party.inspiration = +event.target.value;
+    if (isNaN(+event.target.value)) {
+      return;
+    }
+    const value = Math.max(0, +event.target.value);
+    event.target.value = value;
+    if (this.party.inspiration !== value) {
+      gameManager.stateManager.before('setPartyInspiration', this.party.name, value);
+      this.party.inspiration = value;
       gameManager.stateManager.after();
     }
   }

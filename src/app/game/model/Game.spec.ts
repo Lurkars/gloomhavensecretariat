@@ -172,3 +172,30 @@ describe('Game model', () => {
     });
   });
 });
+
+describe('Game model regressions', () => {
+  beforeEach(() => {
+    settingsManager.settings.locale = settingsManager.defaultLocale;
+    settingsManager.label.data = { partyAchievements: {}, globalAchievements: {} };
+    settingsManager.settings.gameClockMerge = false;
+  });
+
+  it('migrates achievements of other parties from old saves without achievement lists', () => {
+    const game = new Game();
+    const model = game.toModel();
+    const oldParty: any = JSON.parse(JSON.stringify(game.party));
+    oldParty.id = game.party.id + 1;
+    oldParty.achievements = 'first\nsecond';
+    oldParty.globalAchievements = 'global';
+    delete oldParty.achievementsList;
+    delete oldParty.globalAchievementsList;
+    model.parties = [model.party, oldParty];
+
+    const restored = new Game();
+    expect(() => restored.fromModel(model)).not.toThrow();
+
+    const party = restored.parties.find((value) => value.id === oldParty.id);
+    expect(party?.achievementsList).toEqual(['first', 'second']);
+    expect(party?.globalAchievementsList).toEqual(['global']);
+  });
+});

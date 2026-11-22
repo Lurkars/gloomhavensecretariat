@@ -112,22 +112,30 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
   }
 
   removeTreasure(character: Character, treasure: string | number) {
-    if (typeof treasure === 'number') {
+    const index = character.treasures.indexOf(treasure);
+    if (index === -1) {
+      return;
+    }
+    // goal treasures are stored as 'G-<index>' of the scenario treasure list
+    const goal = typeof treasure === 'string' && treasure.startsWith('G-');
+    // looted treasures with applied rewards are stored as '<number>:<rewards>'
+    const treasureNumber = typeof treasure === 'number' ? treasure : goal ? NaN : +treasure.split(':')[0];
+    if (goal) {
+      gameManager.stateManager.before('removeCharTreasure', 'G', this.edition);
+    } else {
       gameManager.stateManager.before(
         'removeCharTreasure',
-        treasure >= 0 ? '' + treasure : '???',
+        treasureNumber >= 0 ? '' + treasureNumber : '???',
         this.edition,
         gameManager.characterManager.characterName(character, true, true)
       );
-      this.looted.splice(this.treasures.indexOf(treasure), 1);
-    } else {
-      gameManager.stateManager.before('removeCharTreasure', 'G', this.edition);
-      this.looted.splice(+treasure.replace('G-', ''), 1);
     }
-    character.treasures.splice(character.treasures.indexOf(treasure), 1);
-    if (typeof treasure === 'number') {
+    const treasureIndex = goal ? +(treasure as string).replace('G-', '') : this.treasures.indexOf(treasureNumber);
+    this.looted = this.looted.filter((value) => value !== treasureIndex);
+    character.treasures.splice(index, 1);
+    if (!isNaN(treasureNumber)) {
       gameManager.game.party.treasures = gameManager.game.party.treasures.filter(
-        (value) => value.edition !== this.edition || value.name !== '' + treasure
+        (value) => value.edition !== this.edition || value.name !== '' + treasureNumber
       );
     }
     gameManager.stateManager.after();

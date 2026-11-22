@@ -2876,6 +2876,7 @@
             "returnToDeck": true,
             "attack": {
               "attackValue": "15+X",
+              "attackValueX": "checks:15",
               "targetNumber": 4,
               "target": {
                 "manual": true
@@ -3108,6 +3109,7 @@
           {
             "attack": {
               "attackValue": "15+X",
+              "attackValueX": "defense",
               "targetNumber": 2,
               "target": {
                 "manual": true

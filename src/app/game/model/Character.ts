@@ -118,6 +118,10 @@ export class Character extends CharacterData implements Entity, Figure {
       this.tokenValues[index] = this.tokenValues[index] || 0;
     });
     this.availableSummons.forEach((summonData) => (summonData.edition = this.edition));
+
+    if (this.edition === 'fh' && this.name === 'blinkblade') {
+      this.tags.push('blinkblade-identity-migration');
+    }
   }
 
   toModel(): GameCharacterModel {
@@ -137,7 +141,7 @@ export class Character extends CharacterData implements Entity, Figure {
       this.active,
       this.health,
       this.maxHealth,
-      this.entityConditions.map((condition) => condition.toModel()),
+      this.entityConditions.filter((condition) => !condition.temporary).map((condition) => condition.toModel()),
       this.immunities,
       this.markers,
       this.tags || [],
@@ -221,8 +225,9 @@ export class Character extends CharacterData implements Entity, Figure {
       });
     }
     this.immunities = model.immunities || [];
-    this.markers = model.markers || this.markers;
-    this.tags = model.tags || this.tags || [];
+    // copies, migrations below must not change the model (e.g. an undo snapshot)
+    this.markers = [...(model.markers || this.markers || [])];
+    this.tags = [...(model.tags || this.tags || [])];
     this.identity = model.identity || 0;
 
     this.summons = this.summons.filter((summon) => model.summons.some((value) => value.uuid && value.uuid === summon.uuid));
@@ -295,7 +300,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.donations = model.donations || 0;
     this.token = model.token || 0;
-    this.tokenValues = model.tokenValues || [];
+    this.tokenValues = [...(model.tokenValues || [])];
     this.tokens.forEach((token, index) => {
       this.tokenValues[index] = this.tokenValues[index] || 0;
     });

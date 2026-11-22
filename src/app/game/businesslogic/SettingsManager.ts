@@ -58,6 +58,12 @@ export class SettingsManager {
   debugManager: DebugManager = debugManager;
 
   async init(developent: boolean) {
+    // storage must be ready to read the stored settings, editors and tools are entry points as well (e.g. on reload)
+    try {
+      await storageManager.init();
+    } catch {
+      // fallback to local storage
+    }
     await this.loadSettings();
     this.developent = developent;
     for (const defaultEditionDataUrl of this.defaultEditionDataUrls) {
@@ -72,6 +78,8 @@ export class SettingsManager {
     await Promise.all(settingsManager.settings.editionDataUrls.map((editionDataUrl) => settingsManager.loadEditionData(editionDataUrl)));
 
     await this.applyInitial();
+    // apply loaded settings (theme, style, ...) to the UI
+    gameManager.triggerUiChange();
   }
 
   async loadSettings() {
@@ -465,7 +473,8 @@ export class SettingsManager {
           return response.json();
         })
         .then((value: EditionData) => {
-          if (gameManager.editions(true).includes(value.edition) && !force) {
+          // include extra content editions, otherwise they get added again on every init (e.g. opening an editor)
+          if (gameManager.editions(true, true).includes(value.edition) && !force) {
             console.warn('Edition already exists: ' + value.edition);
             return undefined;
           }

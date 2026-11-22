@@ -5,7 +5,8 @@ import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
-import { ItemData } from 'src/app/game/model/data/ItemData';
+import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { ItemData, ItemFlags, ItemSlot } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 
@@ -245,5 +246,42 @@ describe('ItemManager', () => {
 
       expect(character.progress.personalQuestProgress[0]).toEqual(1);
     });
+  });
+});
+
+describe('ItemManager toggleEquippedItem', () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  it('keeps tags and markers of the other equipped items', () => {
+    const potion = Object.assign(new ItemData(), { id: 9001, edition: 'gh', slot: ItemSlot.small, consumed: true });
+    const lootItem = Object.assign(new ItemData(), { id: 9002, edition: 'gh', slot: ItemSlot.legs });
+    const helmet = Object.assign(new ItemData(), { id: 9003, edition: 'gh', slot: ItemSlot.head });
+    vi.spyOn(gameManager, 'itemData').mockReturnValue([potion, lootItem, helmet]);
+    const character = new Character(
+      Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+      1
+    );
+    character.progress.equippedItems = [
+      new AdditionalIdentifier(9001, 'gh', undefined, undefined, [ItemFlags.consumed]),
+      new AdditionalIdentifier(9002, 'gh', undefined, 'loot-random-item')
+    ];
+
+    gameManager.itemManager.toggleEquippedItem(helmet, character);
+
+    const equipped = character.progress.equippedItems;
+    expect(equipped.map((identifier) => identifier.name)).toEqual(['9001', '9002', '9003']);
+    expect(equipped[0].tags).toEqual([ItemFlags.consumed]);
+    expect(equipped[1].marker).toEqual('loot-random-item');
+  });
+});
+
+describe('ItemManager regressions', () => {
+  afterEach(() => {
+    gameManager.game.figures = [];
+  });
+
+  it('assigned does not throw without characters', () => {
+    gameManager.game.figures = [];
+    expect(gameManager.itemManager.assigned(buildItem())).toBe(0);
   });
 });

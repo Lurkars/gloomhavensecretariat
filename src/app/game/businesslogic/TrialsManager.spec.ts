@@ -383,3 +383,27 @@ describe('TrialsManager', () => {
     });
   });
 });
+
+describe('TrialsManager refundFavorPoints', () => {
+  const refund = (points: number[], available: number) => gameManager.trialsManager.refundFavorPoints(points, available);
+
+  it('never refunds more than the unspent points', () => {
+    // -2 card pays a 1-point favor: keep it removed
+    expect(refund([2], 1)).toEqual([2]);
+    // -1 and -2 removed, 1-point favor: return the -2, keep the -1
+    expect(refund([1, 2], 2)).toEqual([1]);
+    expect(refund([1, 1, 2], 1)).toEqual([1, 2]);
+    expect(refund([1, 1, 1, 2], 3)).toEqual([1, 1]);
+  });
+
+  it('refunds everything when nothing was spent', () => {
+    expect(refund([1, 2], 3)).toEqual([]);
+    expect(refund([], 0)).toEqual([]);
+  });
+
+  it('does not change the passed points', () => {
+    const points = [1, 2];
+    refund(points, 3);
+    expect(points).toEqual([1, 2]);
+  });
+});

@@ -105,7 +105,8 @@ export class EventDeckMarkDrawnCommand extends CommandImpl {
   executeWithParameters(type: string, cardId: string, index: number = -1) {
     const card = eventCard(type, cardId);
     if (card) {
-      const identifier = new EventCardIdentifier(card.cardId, card.edition, card.type, -1, [], [], false, false);
+      const checks = gameManager.eventCardManager.lastEventCardResult(card.edition, card.type, card.cardId)?.checks || [];
+      const identifier = new EventCardIdentifier(card.cardId, card.edition, card.type, -1, [], [...checks], false, false);
       if (index < 0) {
         gameManager.game.party.eventCards.push(identifier);
       } else {

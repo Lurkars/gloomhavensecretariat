@@ -61,7 +61,12 @@ export class EditorActionComponent implements OnInit {
   readonly cardId = input<number>();
   readonly actionChange = output<Action>();
   readonly subActionRemoved = output<number>();
-  conditionNames: ConditionName[] = Object.values(ConditionName);
+  conditionNames: ConditionName[] = Object.values(ConditionName).filter(
+    (condition) =>
+      !new Condition(condition).types.includes(ConditionType.helper) &&
+      !new Condition(condition).types.includes(ConditionType.immunityOnly) &&
+      condition != ConditionName.invalid
+  );
   ActionType = ActionType;
   ActionSpecialTarget: ActionSpecialTarget[] = Object.values(ActionSpecialTarget);
   Elements: Element[] = Object.values(Element);

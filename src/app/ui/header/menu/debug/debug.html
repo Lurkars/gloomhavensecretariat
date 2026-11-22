@@ -40,6 +40,39 @@
     </div>
   }
   <div class="separator"></div>
+  <div class="line">
+    <a tabclick (click)="clearFeedbackErrors()"><span [ghs-label]="'settings.feedbackErrors.clear'"></span></a>
+  </div>
+  <div class="line title span">
+    <label><span [ghs-label]="'editor'"></span></label>
+  </div>
+  <div class="line">
+    <a tabclick [routerLink]="'/editor/monster'"><span [ghs-label]="'editor.monster'"></span></a>
+  </div>
+  <div class="line">
+    <a tabclick [routerLink]="'/editor/character'"><span [ghs-label]="'editor.character'"></span></a>
+  </div>
+  <div class="line">
+    <a tabclick [routerLink]="'/editor/deck'"><span [ghs-label]="'editor.deck'"></span></a>
+  </div>
+  <div class="line">
+    <a tabclick [routerLink]="'/editor/edition'"><span [ghs-label]="'editor.edition'"></span></a>
+  </div>
+  <div class="line title span">
+    <label><span [ghs-label]="'tools'"></span></label>
+  </div>
+  <div class="line">
+    <a tabclick [routerLink]="'/tools/decks'"><span [ghs-label]="'tools.decks'"></span></a>
+  </div>
+  <div class="line">
+    <a tabclick [routerLink]="'/tools/attackmodifier'"><span [ghs-label]="'tools.attackModifier'"></span></a>
+  </div>
+  <div class="separator"></div>
+  <div class="line">
+    <a tabclick (click)="settingsManager.validateEditionData()"><span [ghs-label]="'tools.validateEditionData'"></span></a>
+  </div>
+
+  <div class="separator"></div>
   <div class="line title span">
     <div class="hint-container">
       <label [ghs-label]="'settings.debug.soundboardSounds'"></label>
@@ -118,38 +151,6 @@
         [ghs-label-attribute]="'title'"
       ></span>
     </span>
-  </div>
-  <div class="separator"></div>
-  <div class="line">
-    <a tabclick (click)="clearFeedbackErrors()"><span [ghs-label]="'settings.feedbackErrors.clear'"></span></a>
-  </div>
-  <div class="line title span">
-    <label><span [ghs-label]="'editor'"></span></label>
-  </div>
-  <div class="line">
-    <a tabclick [routerLink]="'/editor/monster'"><span [ghs-label]="'editor.monster'"></span></a>
-  </div>
-  <div class="line">
-    <a tabclick [routerLink]="'/editor/character'"><span [ghs-label]="'editor.character'"></span></a>
-  </div>
-  <div class="line">
-    <a tabclick [routerLink]="'/editor/deck'"><span [ghs-label]="'editor.deck'"></span></a>
-  </div>
-  <div class="line">
-    <a tabclick [routerLink]="'/editor/edition'"><span [ghs-label]="'editor.edition'"></span></a>
-  </div>
-  <div class="line title span">
-    <label><span [ghs-label]="'tools'"></span></label>
-  </div>
-  <div class="line">
-    <a tabclick [routerLink]="'/tools/decks'"><span [ghs-label]="'tools.decks'"></span></a>
-  </div>
-  <div class="line">
-    <a tabclick [routerLink]="'/tools/attackmodifier'"><span [ghs-label]="'tools.attackModifier'"></span></a>
-  </div>
-  <div class="separator"></div>
-  <div class="line">
-    <a tabclick (click)="settingsManager.validateEditionData()"><span [ghs-label]="'tools.validateEditionData'"></span></a>
   </div>
   <div class="separator"></div>
   <div class="line">

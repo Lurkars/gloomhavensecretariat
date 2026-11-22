@@ -1,3 +1,14 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  ghs-header {
+    z-index: 2;
+  }
+}
+
 .files {
   .file-list {
     display: flex;
@@ -12,6 +23,11 @@
       }
     }
   }
+}
+
+select.extends {
+  display: block;
+  width: 100%;
 }
 
 .conditions {

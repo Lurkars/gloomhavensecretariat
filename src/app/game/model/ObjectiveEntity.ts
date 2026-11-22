@@ -46,7 +46,7 @@ export class ObjectiveEntity implements Entity {
       this.dormant,
       this.health,
       this.maxHealth,
-      this.entityConditions.map((condition) => condition.toModel()),
+      this.entityConditions.filter((condition) => !condition.temporary).map((condition) => condition.toModel()),
       this.immunities,
       this.markers,
       this.tags || [],

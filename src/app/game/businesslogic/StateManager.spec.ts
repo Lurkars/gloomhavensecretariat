@@ -6,7 +6,7 @@ import { commandManager } from 'src/app/game/commands/CommandManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
-import { LogEntry } from 'src/app/game/model/LogEntry';
+import { effectiveRevision, LogEntry } from 'src/app/game/model/LogEntry';
 import { Permissions } from 'src/app/game/model/Permissions';
 
 // StateManager backs the game's undo/redo stack, local persistence and websocket sync.
@@ -833,5 +833,197 @@ describe('StateManager', () => {
       expect(stateManager.updateBlocked).toBe(true);
       expect(stateManager.permissions).toEqual(new Permissions());
     });
+  });
+});
+
+describe('StateManager revertLastUndo', () => {
+  const stateManager = gameManager.stateManager;
+
+  beforeEach(() => {
+    vi.spyOn(storageManager, 'writeGameModel').mockResolvedValue(undefined);
+    vi.spyOn(storageManager, 'writeArray').mockResolvedValue(undefined);
+    vi.spyOn(storageManager, 'removeLast').mockResolvedValue(undefined);
+    vi.spyOn(gameManager, 'triggerUiChange').mockImplementation(() => undefined);
+    gameManager.game.figures = [];
+    stateManager.undos = [];
+    stateManager.redos = [];
+    stateManager.log = [];
+    settingsManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    settingsManager.label = {};
+  });
+
+  it('restores the game from the discarded snapshot', () => {
+    gameManager.game.round = 1;
+    gameManager.game.seed = 42;
+    const revision = gameManager.game.revision;
+    stateManager.before('test');
+
+    gameManager.game.round = 5;
+    gameManager.game.seed = 7;
+    stateManager.revertLastUndo();
+
+    expect(gameManager.game.round).toEqual(1);
+    expect(gameManager.game.seed).toEqual(42);
+    expect(gameManager.game.revision).toEqual(revision);
+    expect(stateManager.undos.length).toEqual(0);
+  });
+});
+
+describe('StateManager server error regressions', () => {
+  const stateManager = gameManager.stateManager;
+  let character: Character;
+  let animations: boolean;
+  let animationSpeed: number;
+  let autoBackup: number;
+
+  beforeEach(async () => {
+    vi.spyOn(storageManager, 'writeGameModel').mockResolvedValue(undefined);
+    vi.spyOn(storageManager, 'writeArray').mockResolvedValue(undefined);
+    vi.spyOn(storageManager, 'append').mockResolvedValue(undefined as any);
+    vi.spyOn(storageManager, 'addBackup').mockImplementation(() => undefined as any);
+    vi.spyOn(gameManager, 'triggerUiChange').mockImplementation(() => undefined);
+    animations = settingsManager.settings.animations;
+    animationSpeed = settingsManager.settings.animationSpeed;
+    autoBackup = settingsManager.settings.autoBackup;
+    settingsManager.settings.autoBackup = 0;
+    settingsManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+    stateManager.undos = [];
+    stateManager.redos = [];
+    stateManager.log = [];
+    stateManager.ws = undefined;
+    stateManager.permissions = undefined;
+    stateManager.lastAction = 'update';
+    gameManager.game.revision = 0;
+    gameManager.game.revisionOffset = 0;
+    character = buildCharacter('brute');
+    gameManager.game.figures = [character];
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+    settingsManager.settings.animations = animations;
+    settingsManager.settings.animationSpeed = animationSpeed;
+    settingsManager.settings.autoBackup = autoBackup;
+    settingsManager.label = {};
+    document.body.className = '';
+    gameManager.game.figures = [];
+  });
+
+  async function changes() {
+    stateManager.before('a');
+    character.health = 9;
+    await stateManager.after(0);
+    stateManager.before('b');
+    character.health = 8;
+    await stateManager.after(0);
+  }
+
+  function permissionError() {
+    stateManager.onMessage({ data: JSON.stringify({ type: 'error', message: 'Permission(s) missing' }) });
+  }
+
+  it('reverts a rejected redo by undoing it', async () => {
+    settingsManager.settings.animations = false;
+    await changes();
+    stateManager.undo();
+    stateManager.undo();
+    stateManager.redo();
+    expect(character.health).toBe(9);
+
+    permissionError();
+
+    expect(character.health).toBe(10);
+  });
+
+  it('reverts a rejected undo by redoing it, even after the animation timeout', async () => {
+    vi.useFakeTimers();
+    settingsManager.settings.animations = true;
+    settingsManager.settings.animationSpeed = 1;
+    await changes();
+    stateManager.undo();
+    expect(character.health).toBe(9);
+    vi.advanceTimersByTime(50);
+
+    permissionError();
+
+    expect(character.health).toBe(8);
+  });
+
+  it('an unsynced undo restores the effective revision of the snapshot', async () => {
+    await changes();
+    const snapshot = effectiveRevision(stateManager.undos[stateManager.undos.length - 1]);
+
+    stateManager.undo(false);
+
+    expect(effectiveRevision(gameManager.game)).toBe(snapshot);
+  });
+
+  it('an unsynced redo restores the effective revision of the snapshot', async () => {
+    await changes();
+    stateManager.undo();
+    const snapshot = effectiveRevision(stateManager.redos[stateManager.redos.length - 1]);
+
+    stateManager.redo(false);
+
+    expect(effectiveRevision(gameManager.game)).toBe(snapshot);
+  });
+
+  it('synced undo and redo keep the effective revisions of the snapshots', async () => {
+    await changes();
+    const undoSnapshot = effectiveRevision(stateManager.undos[stateManager.undos.length - 1]);
+    stateManager.undo();
+    expect(effectiveRevision(gameManager.game)).toBe(undoSnapshot);
+    const redoSnapshot = effectiveRevision(stateManager.redos[stateManager.redos.length - 1]);
+    stateManager.redo();
+    expect(effectiveRevision(gameManager.game)).toBe(redoSnapshot);
+  });
+});
+
+describe('StateManager saveStorage regressions', () => {
+  const stateManager = gameManager.stateManager;
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    stateManager.storageBlocked = false;
+    stateManager.undos = [];
+    stateManager.redos = [];
+  });
+
+  it('a save requested while another save runs writes the latest state afterwards', async () => {
+    let release: () => void = () => {};
+    const written: number[] = [];
+    vi.spyOn(storageManager, 'writeArray').mockImplementation(async (store: string, objects: any[]) => {
+      if (store === 'undo') {
+        written.push(objects.length);
+        if (written.length === 1) {
+          await new Promise<void>((resolve) => (release = resolve));
+        }
+      }
+    });
+    stateManager.undos = [{} as any];
+    stateManager.redos = [];
+
+    const first = stateManager.saveStorage();
+    stateManager.undos = [{} as any, {} as any];
+    await stateManager.saveStorage();
+    release();
+    await first;
+
+    expect(written).toEqual([1, 2]);
+    expect(stateManager.storageBlocked).toBe(false);
+  });
+
+  it('does not save while storage is blocked on purpose', async () => {
+    const write = vi.spyOn(storageManager, 'writeArray').mockResolvedValue(undefined);
+    stateManager.storageBlocked = true;
+
+    await stateManager.saveStorage();
+
+    expect(write).not.toHaveBeenCalled();
   });
 });

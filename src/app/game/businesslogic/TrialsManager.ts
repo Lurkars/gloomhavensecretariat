@@ -103,6 +103,23 @@ export class TrialsManager {
     });
   }
 
+  refundFavorPoints(favorPoints: number[], availablePoints: number): number[] {
+    const points = [...favorPoints];
+    let unspent = availablePoints;
+    while (unspent > 0) {
+      if (unspent >= 2 && points.includes(2)) {
+        points.splice(points.indexOf(2), 1);
+        unspent -= 2;
+      } else if (points.includes(1)) {
+        points.splice(points.indexOf(1), 1);
+        unspent--;
+      } else {
+        break;
+      }
+    }
+    return points;
+  }
+
   activeFavor(edition: string, name: string): number {
     return this.game.favors.filter((value) => value.edition === edition && value.name === name).length;
   }

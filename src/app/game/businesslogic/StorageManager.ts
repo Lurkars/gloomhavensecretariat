@@ -7,6 +7,10 @@ export class StorageManager {
   db: IDBDatabase | undefined;
 
   async init(): Promise<any> {
+    // already initialized (e.g. main app and an editor/tool both initialize on load)
+    if (this.db) {
+      return true;
+    }
     const persistent = await navigator.storage.persist();
     if (!persistent) {
       console.warn('Storage may be cleared by the UA under storage pressure.');
@@ -402,14 +406,22 @@ export class StorageManager {
         if (key) {
           const data = localStorage.getItem(key);
           if (data) {
-            datadump[key] = JSON.parse(data);
+            try {
+              datadump[key] = JSON.parse(data);
+            } catch {
+              // keep values which are no JSON (e.g. written by other code on the same origin) instead of failing the whole dump
+              datadump[key] = data;
+            }
           }
         }
       }
     }
 
     if (!settingsManager.settings.serverExportCode) {
-      datadump['settings']['serverCode'] = '';
+      const settings = datadump['settings'] || datadump['ghs-settings'];
+      if (settings) {
+        settings['serverCode'] = '';
+      }
     }
 
     return Promise.resolve(datadump);
@@ -460,11 +472,10 @@ export class StorageManager {
       this.writeArray('undo', undos)
         .then(() => {
           localStorage.removeItem('ghs-undo');
-          let additionalUndoString = localStorage.getItem('ghs-undo-' + count);
-          while (additionalUndoString) {
-            localStorage.removeItem('ghs-undo-' + count);
-            count++;
-            additionalUndoString = localStorage.getItem('ghs-undo-' + count);
+          let removeIndex = 1;
+          while (localStorage.getItem('ghs-undo-' + removeIndex)) {
+            localStorage.removeItem('ghs-undo-' + removeIndex);
+            removeIndex++;
           }
         })
         .catch();
@@ -484,11 +495,10 @@ export class StorageManager {
       this.writeArray('redo', redos)
         .then(() => {
           localStorage.removeItem('ghs-redo');
-          let additionalRedoString = localStorage.getItem('ghs-redo-' + count);
-          while (additionalRedoString) {
-            localStorage.removeItem('ghs-redo-' + count);
-            count++;
-            additionalRedoString = localStorage.getItem('ghs-redo-' + count);
+          let removeIndex = 1;
+          while (localStorage.getItem('ghs-redo-' + removeIndex)) {
+            localStorage.removeItem('ghs-redo-' + removeIndex);
+            removeIndex++;
           }
         })
         .catch();
@@ -509,11 +519,10 @@ export class StorageManager {
       this.writeArray('undo-infos', undoInfos)
         .then(() => {
           localStorage.removeItem('ghs-undo-infos');
-          let additionalUndoInfosString = localStorage.getItem('ghs-undo-infos-' + count);
-          while (additionalUndoInfosString) {
-            localStorage.removeItem('ghs-undo-infos-' + count);
-            count++;
-            additionalUndoInfosString = localStorage.getItem('ghs-undo-infos-' + count);
+          let removeIndex = 1;
+          while (localStorage.getItem('ghs-undo-infos-' + removeIndex)) {
+            localStorage.removeItem('ghs-undo-infos-' + removeIndex);
+            removeIndex++;
           }
         })
         .catch();
@@ -522,9 +531,16 @@ export class StorageManager {
     let count = 1;
     let backup = localStorage.getItem('ghs-game-backup-' + count);
     while (backup) {
-      this.write('game-backup', undefined, backup)
+      const backupKey = 'ghs-game-backup-' + count;
+      let backupModel: any = backup;
+      try {
+        backupModel = JSON.parse(backup);
+      } catch {
+        console.warn('Could not parse backup: ' + backupKey);
+      }
+      this.write('game-backup', undefined, backupModel)
         .then(() => {
-          localStorage.removeItem('ghs-game-backup-' + count);
+          localStorage.removeItem(backupKey);
         })
         .catch();
       count++;

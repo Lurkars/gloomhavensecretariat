@@ -195,7 +195,7 @@ export class ChallengesManager {
     this.activeCards().forEach((card) => {
       this.applyCardAlways(card);
       this.game.figures.forEach((figure) => {
-        if (figure instanceof Monster) {
+        if (figure instanceof Monster && !figure.isAlly && !figure.isAllied) {
           this.applyCardStatEffect(figure, card);
         }
       });
@@ -305,7 +305,7 @@ export class ChallengesManager {
                 if (retaliateAction) {
                   entity.extraActionsPersistent.splice(entity.extraActionsPersistent.indexOf(retaliateAction), 1);
                 }
-                entity.tags.splice(entity.tags.indexOf('challenge-fh-1492'));
+                entity.tags = entity.tags.filter((tag) => tag !== 'challenge-fh-1492');
               }
               break;
             case 1493:
@@ -349,7 +349,7 @@ export class ChallengesManager {
                     challengeShield1515Remove.value = EntityValueFunction(challengeShield1515Remove.value) - 1;
                   }
                 }
-                entity.tags.splice(entity.tags.indexOf('challenge-fh-1515'));
+                entity.tags = entity.tags.filter((tag) => tag !== 'challenge-fh-1515');
               }
               break;
             case 1524:
@@ -375,7 +375,7 @@ export class ChallengesManager {
                     challengeShield1524Remove.value = EntityValueFunction(challengeShield1524Remove.value) - 1;
                   }
                 }
-                entity.tags.splice(entity.tags.indexOf('challenge-fh-1524'));
+                entity.tags = entity.tags.filter((tag) => tag !== 'challenge-fh-1524');
               }
               break;
           }

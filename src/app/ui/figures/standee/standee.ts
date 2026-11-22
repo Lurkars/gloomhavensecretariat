@@ -431,6 +431,9 @@ export class StandeeComponent implements OnInit {
   }
 
   removeCondition(entityCondition: EntityCondition) {
+    if (gameManager.entityManager.removeImmunityPlaceholder(this.entity, this.figure, entityCondition)) {
+      return;
+    }
     gameManager.entityManager.before(this.entity, this.figure, 'removeCondition', entityCondition.name);
     if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
       entityCondition.value--;

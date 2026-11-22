@@ -30,8 +30,10 @@ export class PartySheetFhResourcesComponent extends PartySheetSection {
 
   setResource(type: LootType, event: any) {
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before('setPartyResource', this.party.name, 'game.loot.' + type, event.target.value);
-      this.party.loot[type] = +event.target.value;
+      const value = Math.max(0, +event.target.value);
+      event.target.value = value;
+      gameManager.stateManager.before('setPartyResource', this.party.name, 'game.loot.' + type, value);
+      this.party.loot[type] = value;
       gameManager.stateManager.after();
     }
   }

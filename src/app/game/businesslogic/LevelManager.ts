@@ -93,7 +93,7 @@ export class LevelManager {
       ? this.game.figures
           .filter((figure) => figure instanceof Character && !figure.absent)
           .map((figure) => (figure as Character).level)
-          .reduce((a, b) => a + b)
+          .reduce((a, b) => a + b, 0)
       : 1;
 
     return (

@@ -76,6 +76,14 @@ describe('Game commands', () => {
     expect(gameManager.game.favorPoints).toEqual([2]);
   });
 
+  it('keeps the -2 card removed when it pays for a 1-point favor', () => {
+    createTestEdition({ favors: [Object.assign(new Favor(), { name: 'knowledge', edition: 'test', points: 1 })] });
+    vi.spyOn(gameManager, 'currentEdition').mockReturnValue('test');
+    new GameFavorsCommand(2, 'knowledge').execute();
+    expect(gameManager.game.favors.map((favor) => favor.name)).toEqual(['knowledge']);
+    expect(gameManager.game.favorPoints).toEqual([2]);
+  });
+
   it('toggles the imbuement mode', () => {
     const enable = vi.spyOn(gameManager.imbuementManager, 'enable').mockImplementation(() => {});
     const disable = vi.spyOn(gameManager.imbuementManager, 'disable').mockImplementation(() => {});

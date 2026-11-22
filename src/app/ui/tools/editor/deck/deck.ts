@@ -289,9 +289,12 @@ export class DeckEditorComponent implements OnInit {
     if (event.target.value) {
       abilityCard.cardId = +event.target.value;
       event.target.value = (abilityCard.cardId < 100 ? '0' : '') + (abilityCard.cardId < 10 ? '0' : '') + abilityCard.cardId;
-    } else {
+    }
+
+    if (abilityCard.cardId !== undefined && abilityCard.cardId < 1) {
       abilityCard.cardId = undefined;
     }
+
     this.deckDataToJson();
   }
 
@@ -377,7 +380,7 @@ export class DeckEditorComponent implements OnInit {
     dialog.closed.subscribe({
       next: (value) => {
         if (value === false) {
-          abilityCard.bottomActions.splice(abilityCard.actions.indexOf(action), 1);
+          abilityCard.bottomActions.splice(abilityCard.bottomActions.indexOf(action), 1);
         }
         this.deckDataToJson();
       }

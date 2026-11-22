@@ -750,3 +750,69 @@ describe('MonsterManager', () => {
     });
   });
 });
+
+describe('MonsterManager regressions', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+    gameManager.game.figures = [];
+  });
+
+  it('drawAbility only propagates the ability to monsters sharing the drawn deck', () => {
+    vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
+    vi.spyOn(gameManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
+    const banditGuard = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'guard' });
+    const cityGuard = buildMonster({ name: 'city-guard', edition: 'gh', deck: 'guard' });
+    const banditArcher = buildMonster({ name: 'bandit-archer', edition: 'gh', deck: 'archer' });
+    const cityArcher = buildMonster({ name: 'city-archer', edition: 'gh', deck: 'archer' });
+    banditGuard.ability = 0;
+    cityGuard.ability = 0;
+    banditArcher.ability = 4;
+    cityArcher.ability = 4;
+    gameManager.game.figures = [banditGuard, cityGuard, banditArcher, cityArcher];
+
+    gameManager.monsterManager.drawAbility(banditGuard);
+
+    expect(banditGuard.ability).toBe(1);
+    expect(cityGuard.ability).toBe(1);
+    expect(banditArcher.ability).toBe(4);
+    expect(cityArcher.ability).toBe(4);
+  });
+
+  it('drawAbility still applies drawExtra for monsters sharing the drawn deck', () => {
+    vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
+    vi.spyOn(gameManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
+    const banditGuard = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'guard' });
+    const cityGuard = buildMonster({ name: 'city-guard', edition: 'gh', deck: 'guard' });
+    const banditArcher = buildMonster({ name: 'bandit-archer', edition: 'gh', deck: 'archer' });
+    [banditGuard, cityGuard, banditArcher].forEach((monster) => (monster.abilities = [...Array(8).keys()]));
+    cityGuard.drawExtra = true;
+    banditGuard.ability = 0;
+    cityGuard.ability = 1;
+    banditArcher.ability = 4;
+    gameManager.game.figures = [banditGuard, cityGuard, banditArcher];
+
+    gameManager.monsterManager.drawAbility(banditGuard);
+
+    expect(banditGuard.ability).toBe(1);
+    // drawExtra draws the card after the shared deck's current one
+    expect(cityGuard.ability).toBe(2);
+    expect(banditArcher.ability).toBe(4);
+  });
+
+  it('drawAbility on a drawExtra monster draws for the monster it shares the deck with', () => {
+    vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
+    vi.spyOn(gameManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
+    const banditGuard = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'guard' });
+    const cityGuard = buildMonster({ name: 'city-guard', edition: 'gh', deck: 'guard' });
+    [banditGuard, cityGuard].forEach((monster) => (monster.abilities = [...Array(8).keys()]));
+    cityGuard.drawExtra = true;
+    banditGuard.ability = 0;
+    cityGuard.ability = 1;
+    gameManager.game.figures = [banditGuard, cityGuard];
+
+    gameManager.monsterManager.drawAbility(cityGuard);
+
+    expect(banditGuard.ability).toBe(1);
+    expect(cityGuard.ability).toBe(2);
+  });
+});

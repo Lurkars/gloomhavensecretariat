@@ -1,12 +1,14 @@
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { Monster } from 'src/app/game/model/Monster';
@@ -192,6 +194,30 @@ describe('EntityManager', () => {
       character.entityConditions = [hidden];
       expect(entityManager.activeConditions(character)).toEqual([]);
       expect(entityManager.activeConditions(character, false, true)).toEqual([hidden]);
+    });
+  });
+
+  describe('removeImmunityPlaceholder', () => {
+    it('removes the immunity for an immunity placeholder icon (e.g. push)', () => {
+      const monster = buildMonster();
+      const entity = buildMonsterEntity(monster);
+      entity.immunities = [ConditionName.push, ConditionName.stun];
+      expect(entityManager.removeImmunityPlaceholder(entity, monster, new EntityCondition(ConditionName.push))).toBe(true);
+      expect(entity.immunities).toEqual([ConditionName.stun]);
+    });
+
+    it('keeps immunities and returns false for an active condition', () => {
+      const character = buildCharacter();
+      const poison = new EntityCondition(ConditionName.poison);
+      character.entityConditions = [poison];
+      character.immunities = [ConditionName.poison];
+      expect(entityManager.removeImmunityPlaceholder(character, character, poison)).toBe(false);
+      expect(character.immunities).toEqual([ConditionName.poison]);
+    });
+
+    it('returns false without a matching immunity', () => {
+      const character = buildCharacter();
+      expect(entityManager.removeImmunityPlaceholder(character, character, new EntityCondition(ConditionName.pull))).toBe(false);
     });
   });
 
@@ -978,5 +1004,55 @@ describe('EntityManager', () => {
 
       expect(character.health).toBe(10);
     });
+  });
+});
+
+describe('EntityManager disadvantage highlight', () => {
+  function setup(): { character: Character; monster: Monster; entity: MonsterEntity } {
+    settingsManager.settings.calculateAdvantageStats = true;
+    settingsManager.settings.animations = true;
+    settingsManager.settings.applyConditions = true;
+    const character = new Character(
+      Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+      1
+    );
+    character.active = true;
+    const stat = new MonsterStat(MonsterType.normal, 1, 10);
+    stat.actions = [new Action(ActionType.custom, '%game.custom.disadvantage%')];
+    const monster = new Monster(Object.assign(new MonsterData(), { name: 'night-demon', edition: 'gh', stats: [stat] }), 1);
+    const entity = new MonsterEntity(1, MonsterType.normal, monster);
+    entity.maxHealth = 10;
+    entity.health = 10;
+    monster.entities = [entity];
+    gameManager.game.figures = [character, monster];
+    return { character, monster, entity };
+  }
+
+  afterEach(() => vi.useRealTimers());
+
+  it('does not serialize the temporary muddle', () => {
+    vi.useFakeTimers();
+    const { character, monster, entity } = setup();
+
+    gameManager.entityManager.changeHealth(entity, monster, -3);
+
+    expect(character.entityConditions.some((condition) => condition.name === ConditionName.muddle)).toBe(true);
+    expect(character.toModel().entityConditions.map((condition) => condition.name)).not.toContain(ConditionName.muddle);
+  });
+
+  it('cleanup keeps real conditions when the conditions got replaced in the meantime', () => {
+    vi.useFakeTimers();
+    const { character, monster, entity } = setup();
+
+    gameManager.entityManager.changeHealth(entity, monster, -3);
+    character.entityConditions = [new EntityCondition(ConditionName.strengthen)];
+    vi.runAllTimers();
+
+    expect(character.entityConditions.map((condition) => condition.name)).toEqual([ConditionName.strengthen]);
+  });
+
+  it('unknown condition names are marked invalid', () => {
+    expect(new Condition('not-a-condition').name).toEqual(ConditionName.invalid);
+    expect(new Condition('poison').name).toEqual(ConditionName.poison);
   });
 });

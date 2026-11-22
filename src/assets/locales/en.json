@@ -897,6 +897,14 @@
         "": "Poison {0}",
         "hint": "%game.conditionIcon.poison_x:X% Poison X: All attackers gain +X %game.action.attack%. Prevents healing. Remove when healed."
       },
+      "pull": {
+        "": "Pull",
+        "hint": "%game.conditionIcon.pull% Pull X: Move the target X hexes, each one closer to the attacker."
+      },
+      "push": {
+        "": "Push",
+        "hint": "%game.conditionIcon.push% Push X: Move the target X hexes, each one farther away from the attacker."
+      },
       "regenerate": {
         "": "Regenerate",
         "hint": "%game.conditionIcon.regenerate% Regenerate: %game.action.heal:1% at start of turn. Removed when damaged."

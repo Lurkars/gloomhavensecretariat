@@ -184,3 +184,64 @@ describe('Character model', () => {
     });
   });
 });
+
+describe('Character regressions', () => {
+  function buildBlinkblade(): Character {
+    const data = Object.assign(new CharacterData(), {
+      name: 'blinkblade',
+      edition: 'fh',
+      identities: ['fast', 'slow'],
+      defaultIdentity: 1,
+      stats: [new CharacterStat(1, 10)]
+    });
+    return new Character(data, 1);
+  }
+
+  it('a new Blinkblade keeps its identity through a toModel/fromModel round trip', () => {
+    const character = buildBlinkblade();
+    character.identity = 1;
+    const restored = buildBlinkblade();
+
+    restored.fromModel(character.toModel());
+
+    expect(restored.identity).toBe(1);
+  });
+
+  it('a Blinkblade model from before the identity swap still gets migrated', () => {
+    const character = buildBlinkblade();
+    character.identity = 1;
+    const model = character.toModel();
+    model.tags = [];
+    const restored = buildBlinkblade();
+
+    restored.fromModel(model);
+
+    expect(restored.identity).toBe(0);
+    expect(restored.tags).toContain('blinkblade-identity-migration');
+  });
+});
+
+describe('Character model copies', () => {
+  it('fromModel does not change the arrays of the model', () => {
+    const data = Object.assign(new CharacterData(), {
+      name: 'blinkblade',
+      edition: 'fh',
+      identities: ['fast', 'slow'],
+      tokens: ['time'],
+      stats: [new CharacterStat(1, 10)]
+    });
+    const model = new Character(data, 1).toModel();
+    model.tags = [];
+    model.tokenValues = [];
+    model.markers = [];
+    const restored = new Character(data, 1);
+
+    restored.fromModel(model);
+    restored.markers.push('gh-brute');
+
+    expect(restored.tags).toContain('blinkblade-identity-migration');
+    expect(model.tags).toEqual([]);
+    expect(model.tokenValues).toEqual([]);
+    expect(model.markers).toEqual([]);
+  });
+});

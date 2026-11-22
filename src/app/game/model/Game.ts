@@ -305,12 +305,12 @@ export class Game {
           if (party.id !== this.party.id) {
             // migration
             if (party.achievements) {
-              party.achievementsList.push(...party.achievements.split('\n'));
+              party.achievementsList = [...(party.achievementsList || []), ...party.achievements.split('\n')];
               party.achievements = '';
             }
 
             if (party.globalAchievements) {
-              party.globalAchievementsList.push(...party.globalAchievements.split('\n'));
+              party.globalAchievementsList = [...(party.globalAchievementsList || []), ...party.globalAchievements.split('\n')];
               party.globalAchievements = '';
             }
 

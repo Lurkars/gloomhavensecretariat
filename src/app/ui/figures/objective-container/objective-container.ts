@@ -265,6 +265,9 @@ export class ObjectiveContainerComponent implements OnInit {
 
   removeCondition(entityCondition: EntityCondition) {
     if (this.entity) {
+      if (gameManager.entityManager.removeImmunityPlaceholder(this.entity, this.objective, entityCondition)) {
+        return;
+      }
       gameManager.entityManager.before(this.entity, this.objective, 'removeCondition', entityCondition.name);
       if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
         entityCondition.value--;

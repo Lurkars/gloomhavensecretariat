@@ -1,6 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { EventCard, EventCardIdentifier, EventCardOption, EventCardOutcome } from 'src/app/game/model/data/EventCard';
+import {
+  EventCard,
+  EventCardCondition,
+  EventCardConditionType,
+  EventCardIdentifier,
+  EventCardOption,
+  EventCardOutcome
+} from 'src/app/game/model/data/EventCard';
 import { EventCardComponent } from 'src/app/ui/figures/event/event-card';
 
 // EventCardComponent has no injected dependencies, so it's cheaply constructible. Following the
@@ -145,6 +152,63 @@ describe('EventCardComponent', () => {
       component.selectSub(0, 1);
       expect(component.subSelections).toEqual([1]);
     });
+
+    function otherwiseCard(): EventCard {
+      const condition = Object.assign(new EventCardCondition(), { type: EventCardConditionType.otherwise });
+      return buildCard([
+        new EventCardOption('label', 'narrative', [buildOutcome(), buildOutcome(), buildOutcome({ condition: condition })])
+      ]);
+    }
+
+    it('selecting the otherwise outcome deselects the other outcomes', () => {
+      const component = createComponent(otherwiseCard());
+      component.ngOnInit();
+      component.selected = 0;
+      component.subSelections = [0, 1];
+      component.selectSub(0, 2, false);
+      expect(component.subSelections).toEqual([2]);
+    });
+
+    it('selecting another outcome deselects only the otherwise outcome', () => {
+      const component = createComponent(otherwiseCard());
+      component.ngOnInit();
+      component.selected = 0;
+      component.subSelections = [0, 2];
+      component.selectSub(0, 1, false);
+      expect(component.subSelections).toEqual([0, 1]);
+    });
+
+    it('a double click keeps the otherwise outcome together with other outcomes', () => {
+      const component = createComponent(otherwiseCard());
+      component.ngOnInit();
+      component.selected = 0;
+      component.subSelections = [0];
+      component.selectSub(0, 2, true);
+      component.selectSub(0, 1, true);
+      expect(component.subSelections).toEqual([0, 2, 1]);
+    });
+
+    it('a single click does not select an unresolvable outcome', () => {
+      const card = buildCard([new EventCardOption('label', 'narrative', [buildOutcome(), buildOutcome()])]);
+      const component = createComponent(card);
+      component.ngOnInit();
+      component.selected = 0;
+      component.subSelections = [];
+      component.resolvable[0][1] = false;
+      component.selectSub(0, 1, false);
+      expect(component.subSelections).toEqual([]);
+    });
+
+    it('allows selecting an unresolvable outcome manually (double click)', () => {
+      const card = buildCard([new EventCardOption('label', 'narrative', [buildOutcome(), buildOutcome()])]);
+      const component = createComponent(card);
+      component.ngOnInit();
+      component.selected = 0;
+      component.subSelections = [];
+      component.resolvable[0][1] = false;
+      component.selectSub(0, 1, true);
+      expect(component.subSelections).toEqual([1]);
+    });
   });
 
   describe('onCheck / toggleAttack / setSpoilerFree / toggleShowDebug', () => {
@@ -157,6 +221,32 @@ describe('EventCardComponent', () => {
       component.onCheck(0, 3);
       expect(component.checks[0]).toEqual(3);
       expect(emitted).toBeTruthy();
+    });
+
+    it('onCheck keeps the selected option and does not mutate the input checks', () => {
+      const card = buildCard([new EventCardOption('label', 'narrative', [buildOutcome()])]);
+      const inputChecks = [1];
+      const component = createComponent(card, { select: 0, checks: inputChecks });
+      component.ngOnInit();
+      component.ngOnChanges({});
+      component.selected = 0;
+      let emitted: EventCardIdentifier | undefined;
+      component.selectCard.subscribe((value) => (emitted = value));
+      component.onCheck(0, 2);
+      expect(emitted?.selected).toEqual(0);
+      expect(emitted?.checks).toEqual([2]);
+      expect(inputChecks).toEqual([1]);
+    });
+
+    it('loads the checks of the latest stored result of the card', () => {
+      const card = buildCard([new EventCardOption('label', 'narrative', [buildOutcome()])]);
+      gameManager.game.party.eventCards = [
+        new EventCardIdentifier('1', 'gh', 'city', 0, [], [0, 1], true, false),
+        new EventCardIdentifier('1', 'gh', 'city', 0, [], [0, 2], true, false)
+      ];
+      const component = createComponent(card);
+      component.ngOnInit();
+      expect(component.checks).toEqual([0, 2]);
     });
 
     it('toggleAttack sets the attack flag and emits', () => {

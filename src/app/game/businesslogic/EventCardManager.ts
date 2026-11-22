@@ -16,6 +16,7 @@ import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { TreasureData, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
@@ -340,6 +341,9 @@ export class EventCardManager {
   ): (EventCardEffect | EventCardCondition | EventCardAttack)[] {
     const results: (EventCardEffect | EventCardCondition | EventCardAttack)[] = [];
     const option = eventCard.options[selected];
+    const storedChecks = this.lastEventCardResult(eventCard.edition, eventCard.type, eventCard.cardId)?.checks || [];
+    const allChecks = this.mergeChecks(storedChecks, checks || []);
+    const newChecks = allChecks.map((value, index) => Math.max(0, value - (storedChecks[index] || 0)));
     let returnToDeck = false;
     let removeFromDeck = ['fh', 'jotl', 'gh2e', 'cs', 'toa'].includes(eventCard.edition); // default to remove from deck for JOTL, FH, GH2E, CS and ToA
     if (option) {
@@ -361,10 +365,10 @@ export class EventCardManager {
       }
 
       if (settingsManager.settings.eventsApply && apply) {
-        results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, checks, false));
+        results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, newChecks, false));
 
         if (scenario) {
-          results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, checks, true));
+          results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, newChecks, true));
         }
 
         if (attack && !results.some((value) => value instanceof EventCardEffect && value.type === EventCardEffectType.skipThreat)) {
@@ -373,12 +377,12 @@ export class EventCardManager {
             .forEach((option) => {
               option.outcomes.forEach((outcome) => {
                 if (outcome.attack) {
-                  results.push(outcome.attack);
+                  results.push(this.resolveAttack(eventCard, outcome.attack));
                   if (outcome.effects) {
-                    results.push(...this.applyEffects(eventCard, outcome.effects, checks, scenario));
+                    results.push(...this.applyEffects(eventCard, outcome.effects, newChecks, scenario));
                   }
                   if (outcome.attack.effects) {
-                    results.push(...this.applyEffects(eventCard, outcome.attack.effects, checks, scenario));
+                    results.push(...this.applyEffects(eventCard, outcome.attack.effects, newChecks, scenario));
                   }
                 }
               });
@@ -388,7 +392,9 @@ export class EventCardManager {
     }
 
     if (!returnToDeck && ['fh'].includes(eventCard.edition)) {
-      returnToDeck = eventCard.options.some((o) => !o.label && o.returnToDeck);
+      returnToDeck = eventCard.options.some(
+        (o) => !o.label && (o.returnToDeck || (!!o.outcomes && o.outcomes.some((outcome) => outcome.returnToDeck)))
+      );
     }
 
     if (!returnToDeck && !removeFromDeck) {
@@ -404,10 +410,66 @@ export class EventCardManager {
     }
 
     this.game.party.eventCards.push(
-      new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, checks, attack, !scenario)
+      new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, allChecks, attack, !scenario)
     );
 
     return results;
+  }
+
+  mergeChecks(stored: number[], checks: number[]): number[] {
+    return Array.from({ length: Math.max(stored.length, checks.length) }, (_, index) => Math.max(stored[index] || 0, checks[index] || 0));
+  }
+
+  lastEventCardResult(edition: string, type: string, cardId: string): EventCardIdentifier | undefined {
+    for (let i = this.game.party.eventCards.length - 1; i >= 0; i--) {
+      const identifier = this.game.party.eventCards[i];
+      if (identifier.cardId === cardId && identifier.type === type && identifier.edition === edition) {
+        return identifier;
+      }
+    }
+    return undefined;
+  }
+
+  resolveAttack(eventCard: EventCard, attack: EventCardAttack): EventCardAttack {
+    if (!attack.attackValueX || typeof attack.attackValue !== 'string' || !attack.attackValue.includes('X')) {
+      return attack;
+    }
+
+    const [type, factor] = attack.attackValueX.split(':');
+    let x = 0;
+    if (type === 'checks') {
+      const previous = this.lastEventCardResult(eventCard.edition, eventCard.type, eventCard.cardId);
+      const checked = attack.effects
+        ? (attack.effects as (string | EventCardEffect)[]).reduce(
+            (sum, effect, index) =>
+              sum +
+              (typeof effect === 'object' && effect.type === EventCardEffectType.checkbox && previous && previous.checks
+                ? previous.checks[index] || 0
+                : 0),
+            0
+          )
+        : 0;
+      x = checked * (factor ? +factor : 1);
+    } else if (type === 'defense') {
+      x = this.game.party.defense || 0;
+    } else {
+      console.warn('Unknown attack value variable: ' + attack.attackValueX, eventCard);
+      return attack;
+    }
+
+    const resolved = Object.assign(
+      new EventCardAttack(
+        attack.attackValue,
+        attack.targetNumber,
+        attack.target,
+        attack.targetDescription,
+        attack.narrative,
+        attack.effects
+      ),
+      attack
+    );
+    resolved.attackValue = EntityValueFunction(attack.attackValue.replaceAll('X', '(' + x + ')'));
+    return resolved;
   }
 
   applyEventOutcomes(
@@ -583,8 +645,13 @@ export class EventCardManager {
                 break;
               }
               case EventCardEffectType.campaignStickerReplace:
-                this.game.party.campaignStickers.splice(this.game.party.campaignStickers.indexOf(effect.values[1] as string, 1));
-                this.game.party.campaignStickers.push(effect.values[0] as string);
+                {
+                  const replaceIndex = this.game.party.campaignStickers.indexOf(effect.values[1] as string);
+                  if (replaceIndex !== -1) {
+                    this.game.party.campaignStickers.splice(replaceIndex, 1);
+                  }
+                  this.game.party.campaignStickers.push(effect.values[0] as string);
+                }
                 break;
               case EventCardEffectType.checkbox:
                 if (checks[i] && !!effect.values && effect.values.length) {
@@ -592,7 +659,7 @@ export class EventCardManager {
                     results.push(
                       ...this.applyEffects(
                         eventCard,
-                        effect.values.filter((e) => typeof e !== 'number'),
+                        effect.values.filter((e): e is string | EventCardEffect => typeof e !== 'number' && e !== ''),
                         checks,
                         scenario
                       )

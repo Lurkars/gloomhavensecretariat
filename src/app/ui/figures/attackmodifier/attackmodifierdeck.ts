@@ -1,6 +1,17 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, inject, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  input,
+  OnChanges,
+  OnInit,
+  output,
+  SimpleChanges
+} from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -126,12 +137,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     }
     this.current = this.deck.current;
     this.lastVisible = this.deck.lastVisible;
-    this.compact =
-      !this.drawing &&
-      this.fullscreen() &&
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = !this.drawing && this.isCompact();
 
     if (this.deck.bb) {
       this.bbCurrent = Math.ceil((this.deck.current + 1) / 3);
@@ -163,20 +169,21 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
     this.disabled =
       !this.standalone() &&
       ((!townGuard && gameManager.game.state === GameState.draw) || (townGuard && gameManager.game.scenario !== undefined));
+  }
 
-    window.addEventListener('resize', () => {
-      this.compact =
-        settingsManager.settings.automaticAttackModifierFullscreen &&
-        settingsManager.settings.portraitMode &&
-        (window.innerWidth < 800 || window.innerHeight < 400);
-    });
+  @HostListener('window:resize')
+  @HostListener('window:fullscreenchange')
+  onWindowResize() {
+    this.compact = this.isCompact();
+  }
 
-    window.addEventListener('fullscreenchange', () => {
-      this.compact =
-        settingsManager.settings.automaticAttackModifierFullscreen &&
-        settingsManager.settings.portraitMode &&
-        (window.innerWidth < 800 || window.innerHeight < 400);
-    });
+  isCompact(): boolean {
+    return (
+      this.fullscreen() &&
+      settingsManager.settings.automaticAttackModifierFullscreen &&
+      settingsManager.settings.portraitMode &&
+      (window.innerWidth < 800 || window.innerHeight < 400)
+    );
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -281,10 +288,7 @@ export class AttackModifierDeckComponent implements OnInit, OnChanges {
       this.bbRows = Math.ceil(this.deck.cards.length / 3);
     }
 
-    this.compact =
-      settingsManager.settings.automaticAttackModifierFullscreen &&
-      settingsManager.settings.portraitMode &&
-      (window.innerWidth < 800 || window.innerHeight < 400);
+    this.compact = this.isCompact();
 
     this.activeAMs = this.deck.cards.filter((am, i) => am.active && i < this.deck.lastVisible && !this.deck.discarded.includes(i));
 

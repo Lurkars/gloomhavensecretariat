@@ -29,6 +29,8 @@ export enum ConditionName {
   plague = 'plague',
   blind = 'blind',
   pacify = 'pacify',
+  push = 'push',
+  pull = 'pull',
   invalid = 'invalid'
 }
 
@@ -59,6 +61,8 @@ export enum ConditionType {
   hidden = 'hidden',
   amDeck = 'amDeck',
   highlightOnly = 'highlightOnly',
+  immunityOnly = 'immunityOnly',
+  helper = 'helper',
   special = 'special',
   multiple = 'multiple'
 }
@@ -81,7 +85,7 @@ export class Condition {
 
   constructor(name: ConditionName | string, value: number = 1) {
     if (typeof name === 'string') {
-      if (Object.keys(!ConditionName).includes(name)) {
+      if (!(Object.values(ConditionName) as string[]).includes(name)) {
         console.warn('Invalid condition name: ' + name);
         this.name = ConditionName.invalid;
       } else {
@@ -271,6 +275,13 @@ export class Condition {
       this.types.push(ConditionType.positive);
       this.types.push(ConditionType.hidden);
       this.types.push(ConditionType.value);
+      this.types.push(ConditionType.helper);
+    }
+
+    if ([ConditionName.push, ConditionName.pull].includes(this.name)) {
+      this.types.push(ConditionType.negative);
+      this.types.push(ConditionType.hidden);
+      this.types.push(ConditionType.immunityOnly);
     }
 
     if ([ConditionName.bless, ConditionName.curse, ConditionName.empower, ConditionName.enfeeble].includes(this.name)) {
@@ -309,6 +320,7 @@ export class EntityCondition extends Condition {
   expired: boolean = false;
   highlight: boolean = false;
   highlightValue: number | undefined;
+  temporary: boolean = false;
 
   constructor(name: ConditionName, value: number = 1) {
     super(name, value);

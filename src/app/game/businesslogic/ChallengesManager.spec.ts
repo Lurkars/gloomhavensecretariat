@@ -2,7 +2,12 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ChallengeCard, ChallengeDeck } from 'src/app/game/model/data/Challenges';
 import { EditionData } from 'src/app/game/model/data/EditionData';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { GameState } from 'src/app/game/model/Game';
+import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 
 // ChallengesManager also covers update()/applyCard*() (FH-specific card effects pulling in
 // many other managers). This spec sticks to the small, clearly-scoped deck-bookkeeping helpers
@@ -166,5 +171,56 @@ describe('ChallengesManager', () => {
       expect(challengesManager.isActive(10)).toBe(true);
       expect(challengesManager.isActive(30)).toBe(false);
     });
+  });
+});
+
+describe('ChallengesManager stat effects', () => {
+  const challengesManager = gameManager.challengesManager;
+
+  function buildEntity(): { monster: Monster; entity: MonsterEntity } {
+    const monster = new Monster(
+      Object.assign(new MonsterData(), { name: 'test-monster', edition: 'fh', stats: [new MonsterStat(MonsterType.normal, 1, 10)] }),
+      1
+    );
+    const entity = new MonsterEntity(1, MonsterType.normal, monster);
+    entity.maxHealth = 10;
+    entity.health = 10;
+    monster.entities = [entity];
+    return { monster, entity };
+  }
+
+  beforeEach(() => {
+    gameManager.game.level = 3;
+    gameManager.game.figures = [];
+  });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('removing the #1492 tag keeps the other tags, so #1493 is not applied twice', () => {
+    const { monster, entity } = buildEntity();
+    const card1492 = new ChallengeCard(1492, 'fh', 'fully');
+    const card1493 = new ChallengeCard(1493, 'fh', 'fully');
+    challengesManager.applyCardStatEffect(monster, card1492);
+    challengesManager.applyCardStatEffect(monster, card1493);
+    expect(entity.maxHealth).toEqual(12);
+
+    entity.health -= 5;
+    challengesManager.applyCardStatEffect(monster, card1492);
+    challengesManager.applyCardStatEffect(monster, card1493);
+
+    expect(entity.maxHealth).toEqual(12);
+    expect(entity.health).toEqual(7);
+    expect(entity.tags).toEqual(['challenge-fh-1493']);
+  });
+
+  it('stat effects for enemies are not applied to allied monsters', () => {
+    const { monster, entity } = buildEntity();
+    monster.isAlly = true;
+    gameManager.game.figures = [monster];
+    vi.spyOn(challengesManager, 'activeCards').mockReturnValue([new ChallengeCard(1493, 'fh', 'fully')]);
+
+    challengesManager.applyCardsAlways();
+
+    expect(entity.maxHealth).toEqual(10);
   });
 });

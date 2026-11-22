@@ -46,10 +46,18 @@ export class EventCardDrawComponent {
       console.debug('No event card found for', this.data.edition, this.data.type);
       this.dialogRef.close();
     }
+    this.resetResult();
 
     if (this.event && this.event.requirement && this.event.requirement.partyAchievement) {
       this.requirementWarning = !gameManager.game.party.achievementsList.includes(this.event.requirement.partyAchievement);
     }
+  }
+
+  resetResult() {
+    const stored = this.event
+      ? gameManager.eventCardManager.lastEventCardResult(this.event.edition, this.event.type, this.event.cardId)
+      : undefined;
+    this.result = new EventCardResult(-1, [], stored ? [...(stored.checks || [])] : [], false);
   }
 
   select(change: EventCardIdentifier | EventCardResult) {
@@ -93,6 +101,7 @@ export class EventCardDrawComponent {
       const deck = gameManager.game.party.eventDecks[type];
       if (deck) {
         this.event = gameManager.eventCardManager.getEventCardForEdition(edition, type, deck[0]);
+        this.resetResult();
         if (this.event) {
           this.requirementWarning = false;
           if (this.event.requirement && this.event.requirement.partyAchievement) {

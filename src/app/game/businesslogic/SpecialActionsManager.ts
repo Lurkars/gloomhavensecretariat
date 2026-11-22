@@ -552,7 +552,7 @@ export class SpecialActionsManager {
         {
           character.immunities.forEach((immunity) => {
             const condition = new Condition(immunity);
-            if (!condition.types.includes(ConditionType.amDeck)) {
+            if (!condition.types.includes(ConditionType.amDeck) && !condition.types.includes(ConditionType.immunityOnly)) {
               gameManager.entityManager.addCondition(character, character, new Condition(immunity), false, true);
             }
           });

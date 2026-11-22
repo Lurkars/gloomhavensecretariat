@@ -218,4 +218,28 @@ describe('ConditionsComponent', () => {
       expect(component.expireEnabled).toBe(false);
     });
   });
+
+  describe('immunity only conditions', () => {
+    it('offers push and pull only while selecting immunities', () => {
+      const component = createComponent({ entityConditions: [] });
+      component.initializeConditions();
+      expect(component.conditions.map((condition) => condition.name)).not.toContain(ConditionName.push);
+
+      component.toggleImmunityEnabled();
+      const names = component.conditions.map((condition) => condition.name);
+      expect(names).toContain(ConditionName.push);
+      expect(names).toContain(ConditionName.pull);
+
+      component.toggleImmunityEnabled();
+      expect(component.conditions.map((condition) => condition.name)).not.toContain(ConditionName.pull);
+    });
+
+    it('toggles push as immunity', () => {
+      const immunities: ConditionName[] = [];
+      const component = createComponent({ entityConditions: [], immunities });
+      component.toggleImmunityEnabled();
+      component.toggleCondition(new Condition(ConditionName.push));
+      expect(immunities).toEqual([ConditionName.push]);
+    });
+  });
 });

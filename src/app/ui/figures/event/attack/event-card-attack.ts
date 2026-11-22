@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, model, output } from '@angular/core';
 import { EventCardAttack } from 'src/app/game/model/data/EventCard';
 import { EventCardEffectComponent } from 'src/app/ui/figures/event/effect/event-card-effect';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -35,6 +35,10 @@ export class EventCardAttackComponent {
   readonly light = input<boolean>(false);
 
   selected = model<boolean>(false);
+
+  // checked boxes of the attack effects, by effect index
+  readonly checks = input<number[]>([]);
+  readonly checksChange = output<{ index: number; checks: number }>();
 
   readonly debug = input<boolean>(false);
 

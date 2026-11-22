@@ -510,6 +510,9 @@ export class CharacterComponent implements OnInit {
   }
 
   removeCondition(entityCondition: EntityCondition) {
+    if (gameManager.entityManager.removeImmunityPlaceholder(this.character, this.character, entityCondition)) {
+      return;
+    }
     gameManager.entityManager.before(this.character, this.character, 'removeCondition', entityCondition.name);
     const immunityIndex = this.character.immunities.indexOf(entityCondition.name);
     if (immunityIndex !== -1) {

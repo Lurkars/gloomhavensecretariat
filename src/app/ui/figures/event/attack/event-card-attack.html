@@ -13,13 +13,15 @@
   </span>
   @if (effects() && attack.effects) {
     <div class="effects">
-      @for (effect of attack.effects; track effect) {
+      @for (effect of attack.effects; track effect; let effectIndex = $index) {
         <ghs-event-card-effect
           [effect]="effect"
           [edition]="edition"
           [eventType]="eventType"
           [light]="light()"
           [selected]="true"
+          [checks]="(!!checks() && checks()[effectIndex]) || 0"
+          (checksChange)="checksChange.emit({ index: effectIndex, checks: $event })"
           [debug]="debug()"
         ></ghs-event-card-effect>
       }

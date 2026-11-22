@@ -918,3 +918,95 @@ describe('ScenarioManager', () => {
     });
   });
 });
+
+describe('ScenarioManager finishScenario personal quest tracking with a real scenario reset', () => {
+  function buildCharacter(name: string): Character {
+    const character = new Character(Object.assign(new CharacterData(), { name, edition: 'gh', stats: [new CharacterStat(1, 10)] }), 1);
+    character.maxHealth = 10;
+    character.health = 10;
+    return character;
+  }
+
+  function assignPersonalQuest(character: Character, autotrack: string) {
+    character.progress.personalQuest = 'PQ1';
+    character.progress.personalQuestAutotrack = true;
+    gameManager.editionData = [
+      Object.assign(new EditionData('gh', [], [], [], [], [], []), {
+        personalQuests: [
+          Object.assign(new PersonalQuest(), {
+            cardId: 'PQ1',
+            edition: 'gh',
+            requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 5, autotrack })]
+          })
+        ]
+      })
+    ];
+    settingsManager.settings.editions = ['gh'];
+  }
+
+  function finish() {
+    const scenario = new Scenario(buildScenarioData({ edition: 'gh', index: '1', rewards: new ScenarioRewards() }));
+    gameManager.scenarioManager.finishScenario(scenario, true, undefined);
+  }
+
+  beforeEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.levelCalculation = false;
+    gameManager.game.state = GameState.next;
+    gameManager.game.party.campaignMode = false;
+    settingsManager.settings.scenarioStats = false;
+    settingsManager.settings.characterSheet = false;
+    settingsManager.settings.events = false;
+    vi.spyOn(gameManager, 'fhRules').mockReturnValue(false);
+    vi.spyOn(gameManager.characterManager, 'characterCount').mockReturnValue(4);
+  });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('tracks "completedLowHP" before health gets restored', () => {
+    const character = buildCharacter('brute');
+    character.health = 2;
+    assignPersonalQuest(character, 'completedLowHP');
+    gameManager.game.figures = [character];
+
+    finish();
+
+    expect(character.progress.personalQuestProgress[0]).toEqual(1);
+  });
+
+  it('does not track "completedHighHP" for a damaged character', () => {
+    const character = buildCharacter('brute');
+    character.health = 6;
+    assignPersonalQuest(character, 'completedHighHP');
+    gameManager.game.figures = [character];
+
+    finish();
+
+    expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
+  });
+
+  it('tracks "exhaustedCharsFinish" before exhaustion gets reset', () => {
+    const owner = buildCharacter('brute');
+    assignPersonalQuest(owner, 'exhaustedCharsFinish');
+    const ally = buildCharacter('tinkerer');
+    ally.exhausted = true;
+    ally.health = 0;
+    gameManager.game.figures = [owner, ally];
+
+    finish();
+
+    expect(owner.progress.personalQuestProgress[0]).toEqual(1);
+  });
+
+  it('does not track scenario progress for absent characters', () => {
+    const present = buildCharacter('brute');
+    const absent = buildCharacter('tinkerer');
+    absent.absent = true;
+    assignPersonalQuest(absent, 'scenariosCompleted');
+    gameManager.game.figures = [present, absent];
+
+    finish();
+
+    expect(absent.progress.personalQuestProgress[0] || 0).toEqual(0);
+  });
+});

@@ -1187,8 +1187,14 @@ export class MonsterManager {
       monster.ability += 1;
     }
 
+    const deckData = gameManager.deckData(monster);
     this.game.figures.forEach((figure) => {
-      if (figure instanceof Monster && this.getSameDeckMonster(figure)) {
+      if (
+        figure instanceof Monster &&
+        figure !== monster &&
+        gameManager.deckData(figure).name === deckData.name &&
+        gameManager.deckData(figure).edition === deckData.edition
+      ) {
         figure.ability = monster.ability;
 
         if (figure.drawExtra) {

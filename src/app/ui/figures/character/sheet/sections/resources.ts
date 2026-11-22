@@ -26,8 +26,10 @@ export class CharacterSheetResourcesComponent extends CharacterSheetSection {
 
   setResource(type: LootType, event: any) {
     if (!settingsManager.settings.fhShareResources && !isNaN(+event.target.value)) {
-      gameManager.stateManager.before('setResource', this.characterName, 'game.loot.' + type, event.target.value);
-      this.character.progress.loot[type] = +event.target.value;
+      const value = Math.max(0, +event.target.value);
+      event.target.value = value;
+      gameManager.stateManager.before('setResource', this.characterName, 'game.loot.' + type, value);
+      this.character.progress.loot[type] = value;
       gameManager.stateManager.after();
     }
   }

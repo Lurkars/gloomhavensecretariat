@@ -14,6 +14,7 @@ export class EntityConditionCommand extends CommandImpl {
       Object.values(ConditionName).includes(name as ConditionName) &&
       name !== ConditionName.invalid &&
       !new Condition(name).types.includes(ConditionType.amDeck) &&
+      !new Condition(name).types.includes(ConditionType.immunityOnly) &&
       findEntities(findFigure(figureId), entityId).length > 0
     );
   }

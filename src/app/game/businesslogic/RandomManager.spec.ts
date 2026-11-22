@@ -1,4 +1,3 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { RandomManager, randomSeed } from 'src/app/game/businesslogic/RandomManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Game } from 'src/app/game/model/Game';
@@ -62,11 +61,12 @@ describe('RandomManager', () => {
   it('serializes the seed with the game model', () => {
     settingsManager.settings.locale = settingsManager.defaultLocale;
     settingsManager.label.data = { partyAchievements: {}, globalAchievements: {} };
-    const seed = gameManager.game.seed;
-    gameManager.randomManager.next();
-    const model = gameManager.game.toModel();
-    expect(model.seed).toBe(gameManager.game.seed);
-    expect(model.seed).not.toBe(seed);
+    const source = new Game();
+    source.seed = 12345;
+    new RandomManager(source).next();
+    const model = source.toModel();
+    expect(model.seed).toBe(source.seed);
+    expect(model.seed).not.toBe(12345);
 
     const game = new Game();
     game.fromModel(model);
