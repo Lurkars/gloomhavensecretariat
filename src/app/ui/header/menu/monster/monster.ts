@@ -1,8 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Monster } from 'src/app/game/model/Monster';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

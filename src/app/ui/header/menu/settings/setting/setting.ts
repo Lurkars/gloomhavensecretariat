@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';

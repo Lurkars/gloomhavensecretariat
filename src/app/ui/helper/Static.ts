@@ -1,9 +1,10 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { Capacitor } from '@capacitor/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Spoilable } from 'src/app/game/model/data/Spoilable';
+import { Entity } from 'src/app/game/model/Entity';
+import { Figure } from 'src/app/game/model/Figure';
 
 export function ghsUnit(): number {
   return (
@@ -12,18 +13,6 @@ export function ghsUnit(): number {
       .getPropertyValue('--ghs-width')
       .replace(/[^\d\+]/g, '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')
   );
-}
-
-export function ghsShuffleArray(array: any[]): any[] {
-  let i = array.length,
-    r;
-  while (i !== 0) {
-    r = Math.floor(Math.random() * i);
-    i--;
-    [array[i], array[r]] = [array[r], array[i]];
-  }
-
-  return array;
 }
 
 export function ghsHasSpoilers(items: Spoilable[], multiple: boolean = false): boolean {
@@ -258,3 +247,21 @@ export const downloadJson = function (data: unknown, filename: string): void {
 export const downloadJsonString = function (json: string, filename: string): void {
   downloadBlob(new Blob([json], { type: 'application/json' }), filename);
 };
+
+export function ghsRemoveDeadEntities(entities: { entity: Entity; figure: Figure }[]) {
+  if (!gameManager.entityManager.deadEntities(entities).length) {
+    return;
+  }
+  if (!settingsManager.settings.animations) {
+    gameManager.entityManager.removeDeadEntities(entities);
+    return;
+  }
+  gameManager.triggerUiChange(false);
+  setTimeout(async () => {
+    if (gameManager.entityManager.deadEntities(entities).length) {
+      gameManager.stateManager.beforeAutomatic('removeDeadEntities');
+      gameManager.entityManager.removeDeadEntities(entities);
+      await gameManager.stateManager.afterAutomatic();
+    }
+  }, 1500 * settingsManager.settings.animationSpeed);
+}

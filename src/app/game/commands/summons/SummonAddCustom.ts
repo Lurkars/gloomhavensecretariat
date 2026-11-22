@@ -1,7 +1,7 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
-import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { SummonColor } from 'src/app/game/model/Summon';
 
 export class SummonAddCustomCommand extends CommandImpl {
   id: string = 'summon.addCustom';
@@ -29,9 +29,7 @@ export class SummonAddCustomCommand extends CommandImpl {
     gameManager.game.seed = seed;
     const character = findCharacter(number);
     if (character) {
-      const summon: Summon = new Summon(gameManager.randomManager.uuid(), name, '', character.level, summonNumber, color);
-      summon.state = SummonState.new;
-      gameManager.characterManager.addSummon(character, summon);
+      gameManager.characterManager.addCustomSummon(character, name, summonNumber, color);
     } else {
       this.executionError('character not found');
     }

@@ -1,7 +1,6 @@
 import { Directive, ElementRef, OnChanges, OnInit, inject, input } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { applyMathFunctionLabels, ghsLabelRegex } from 'src/app/ui/helper/label';
 

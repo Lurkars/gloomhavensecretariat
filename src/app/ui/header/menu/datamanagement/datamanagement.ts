@@ -1,10 +1,10 @@
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, inject, input, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { GameModel } from 'src/app/game/model/Game';
 import { Settings } from 'src/app/game/model/Settings';

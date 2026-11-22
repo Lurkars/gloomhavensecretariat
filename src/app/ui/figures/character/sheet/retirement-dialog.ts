@@ -1,17 +1,15 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { BuildingModel } from 'src/app/game/model/Building';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { Retirement } from 'src/app/game/businesslogic/RetirementManager';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
-import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { CharacterMoveResourcesDialog } from 'src/app/ui/figures/character/sheet/move-resources';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
@@ -32,115 +30,75 @@ export class CharacterRetirementDialog {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  conclusion: ScenarioData | undefined;
-  personalQuest: PersonalQuest | undefined;
-  personalQuestConclusion: ScenarioData | undefined;
-  skipCharacterConclusion: boolean = false;
-  personalQuestBuilding: BuildingData | undefined;
-  unlockEvent: string = '';
-  alreadyRetired: boolean = false;
-  characterAlreadyUnlocked: boolean = false;
-  characterScenario: ScenarioData | boolean | undefined;
-  characterItemDesign: ItemData | boolean | undefined;
-  envelopeAlreadyUnlocked: boolean = false;
-  envelopeSection: ScenarioData | boolean | undefined;
-  envelopeItemBlueprint: ItemData | boolean | undefined;
-
-  reservedRandomScenario: ScenarioData | undefined = undefined;
-  reservedRandomItem: ItemData | undefined = undefined;
-
-  additional: boolean = false;
-  additionalPQ: PersonalQuest | undefined;
-  additionalPQBuilding: BuildingData | undefined;
-  additionalUnlockEvent: string = '';
-  additionalCharacterAlreadyUnlocked: boolean = false;
-  additionalCharacterScenario: ScenarioData | boolean | undefined;
-  additionalCharacterItemDesign: ItemData | boolean | undefined;
-  additionalEnvelopeAlreadyUnlocked: boolean = false;
-  additionalEnvelopeSection: ScenarioData | boolean | undefined;
-  additionalEnvelopeItemBlueprint: ItemData | boolean | undefined;
-
-  hasResources: boolean = false;
-
   character: Character = inject(DIALOG_DATA);
+  retirement: Retirement = gameManager.retirementManager.retirement(this.character);
+  additional: boolean = false;
 
-  constructor() {
-    if (this.character.progress.personalQuest) {
-      this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
-        gameManager.currentEdition(),
-        this.character.progress.personalQuest
-      );
-      if (this.personalQuest) {
-        const pqRef = 'PQ-' + this.personalQuest.cardId;
-        this.personalQuestConclusion = gameManager
-          .sectionData(this.personalQuest.edition)
-          .find((sectionData) => sectionData.retirement === pqRef && sectionData.conclusion);
-        if (this.personalQuestConclusion) {
-          this.skipCharacterConclusion = this.personalQuestConclusion.rewards?.characterRetirementSkipEvents !== undefined;
-        }
-      }
-
-      if (settingsManager.settings.unlockEnvelopeBuildings && this.personalQuest && this.personalQuest.openEnvelope) {
-        this.personalQuestBuilding = this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope);
-      }
-    }
-    if (!this.skipCharacterConclusion) {
-      this.conclusion = gameManager
-        .sectionData(this.character.edition)
-        .find((sectionData) => sectionData.retirement === this.character.name && sectionData.conclusion);
-    }
-
-    for (const key of Object.keys(this.character.progress.loot)) {
-      const loot: LootType = key as LootType;
-      if (resourceLootTypes.includes(loot) && this.character.progress.loot[loot]) {
-        this.hasResources = true;
-      }
-    }
-
-    if (this.personalQuest) {
-      const isFhquest = !!this.personalQuest.openEnvelope && gameManager.fhRules();
-      const scenarios = isFhquest
-        ? gameManager.scenarioManager.drawRandomScenarioSectionsBatch(this.personalQuest.edition, 2)
-        : gameManager.scenarioManager.drawRandomScenariosBatch(this.personalQuest.edition, 2);
-      const items = gameManager.itemManager.drawRandomItemsBatch(this.personalQuest.edition, 2, isFhquest);
-      if (this.personalQuest.unlockCharacter) {
-        this.characterAlreadyUnlocked = gameManager.game.unlockedCharacters.includes(
-          this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter
-        );
-        if (!this.characterAlreadyUnlocked) {
-          const unlockCharacter = gameManager
-            .charactersData(this.personalQuest.edition)
-            .find(
-              (characterData) =>
-                this.personalQuest &&
-                characterData.edition === this.personalQuest.edition &&
-                characterData.name === this.personalQuest.unlockCharacter
-            );
-          this.unlockEvent = (unlockCharacter && unlockCharacter.unlockEvent) || '';
-        } else {
-          this.characterScenario = settingsManager.settings.drawRandomScenario ? scenarios.pop() : !!scenarios.pop();
-          this.characterItemDesign = settingsManager.settings.drawRandomItem ? items.pop() : !!items.pop();
-        }
-      }
-
-      if (isFhquest) {
-        this.envelopeAlreadyUnlocked =
-          !this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope, false) &&
-          !this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope);
-        if (this.envelopeAlreadyUnlocked) {
-          this.envelopeSection = settingsManager.settings.drawRandomScenario ? scenarios.pop() : !!scenarios.pop();
-          this.envelopeItemBlueprint = settingsManager.settings.drawRandomItem ? items.pop() : !!items.pop();
-        }
-      }
-
-      this.reservedRandomScenario = scenarios.pop();
-      this.reservedRandomItem = items.pop();
-    }
-
-    this.alreadyRetired =
-      gameManager.game.party.retirements.find(
-        (retired) => retired.edition === this.character.edition && retired.name === this.character.name
-      ) !== undefined;
+  get conclusion(): ScenarioData | undefined {
+    return this.retirement.conclusion;
+  }
+  get personalQuestConclusion(): ScenarioData | undefined {
+    return this.retirement.personalQuestConclusion;
+  }
+  get alreadyRetired(): boolean {
+    return this.retirement.alreadyRetired;
+  }
+  get hasResources(): boolean {
+    return this.retirement.hasResources;
+  }
+  get personalQuest(): PersonalQuest | undefined {
+    return this.retirement.personalQuest && this.retirement.personalQuest.personalQuest;
+  }
+  get personalQuestBuilding(): BuildingData | undefined {
+    return this.retirement.personalQuest && this.retirement.personalQuest.building;
+  }
+  get unlockEvent(): string {
+    return (this.retirement.personalQuest && this.retirement.personalQuest.unlockEvent) || '';
+  }
+  get characterAlreadyUnlocked(): boolean {
+    return !!this.retirement.personalQuest && this.retirement.personalQuest.characterAlreadyUnlocked;
+  }
+  get characterScenario(): ScenarioData | boolean | undefined {
+    return this.retirement.personalQuest && this.retirement.personalQuest.characterScenario;
+  }
+  get characterItemDesign(): ItemData | boolean | undefined {
+    return this.retirement.personalQuest && this.retirement.personalQuest.characterItemDesign;
+  }
+  get envelopeAlreadyUnlocked(): boolean {
+    return !!this.retirement.personalQuest && this.retirement.personalQuest.envelopeAlreadyUnlocked;
+  }
+  get envelopeSection(): ScenarioData | boolean | undefined {
+    return this.retirement.personalQuest && this.retirement.personalQuest.envelopeSection;
+  }
+  get envelopeItemBlueprint(): ItemData | boolean | undefined {
+    return this.retirement.personalQuest && this.retirement.personalQuest.envelopeItemBlueprint;
+  }
+  get additionalPQ(): PersonalQuest | undefined {
+    return this.retirement.additional && this.retirement.additional.personalQuest;
+  }
+  get additionalPQBuilding(): BuildingData | undefined {
+    return this.retirement.additional && this.retirement.additional.building;
+  }
+  get additionalUnlockEvent(): string {
+    return (this.retirement.additional && this.retirement.additional.unlockEvent) || '';
+  }
+  get additionalCharacterAlreadyUnlocked(): boolean {
+    return !!this.retirement.additional && this.retirement.additional.characterAlreadyUnlocked;
+  }
+  get additionalCharacterScenario(): ScenarioData | boolean | undefined {
+    return this.retirement.additional && this.retirement.additional.characterScenario;
+  }
+  get additionalCharacterItemDesign(): ItemData | boolean | undefined {
+    return this.retirement.additional && this.retirement.additional.characterItemDesign;
+  }
+  get additionalEnvelopeAlreadyUnlocked(): boolean {
+    return !!this.retirement.additional && this.retirement.additional.envelopeAlreadyUnlocked;
+  }
+  get additionalEnvelopeSection(): ScenarioData | boolean | undefined {
+    return this.retirement.additional && this.retirement.additional.envelopeSection;
+  }
+  get additionalEnvelopeItemBlueprint(): ItemData | boolean | undefined {
+    return this.retirement.additional && this.retirement.additional.envelopeItemBlueprint;
   }
 
   openConclusions(conclusions: ScenarioData[]) {
@@ -148,28 +106,12 @@ export class CharacterRetirementDialog {
       return;
     }
     const conclusionSection = conclusions[conclusions.length - 1];
-    const childConclusions: ScenarioData[] = gameManager
-      .sectionData(conclusionSection.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.find(
-            (parentSections) => parentSections.length === 1 && parentSections.includes(conclusionSection.index)
-          ) &&
-          gameManager.scenarioManager.getRequirements(sectionData).length === 0
-      );
-    if (
-      childConclusions.length > 0 &&
-      childConclusions.every(
-        (childConclusion) =>
-          !gameManager.game.party.conclusions.find(
-            (model) =>
-              model.edition === childConclusion.edition && model.index === childConclusion.index && model.group === childConclusion.group
-          )
-      )
-    ) {
+    const childConclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(
+      conclusionSection.index,
+      conclusionSection.edition,
+      true
+    );
+    if (gameManager.scenarioManager.hasOpenConclusions(conclusionSection.index, conclusionSection.edition, true)) {
       this.dialog
         .open(ScenarioConclusionComponent, {
           panelClass: ['dialog'],
@@ -194,11 +136,7 @@ export class CharacterRetirementDialog {
           data: {
             scenario: conclusion,
             conclusionOnly: true,
-            rewardsOnly:
-              gameManager.game.party.conclusions.find(
-                (value) =>
-                  conclusion && value.edition === conclusion.edition && value.group === conclusion.group && value.index === conclusion.index
-              ) !== undefined
+            rewardsOnly: !!conclusion && gameManager.scenarioManager.conclusionFinished(conclusion)
           }
         })
         .closed.subscribe({ next: () => this.openConclusions(conclusions) });
@@ -212,248 +150,16 @@ export class CharacterRetirementDialog {
     });
   }
 
-  addUnlockEvents(unlockEvents: string) {
-    if (settingsManager.settings.events && unlockEvents) {
-      unlockEvents.split('|').forEach((unlockEvent) => {
-        if (unlockEvent.split(':').length > 1) {
-          gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
-        } else {
-          gameManager.eventCardManager.addEvent('city', unlockEvent, true);
-          gameManager.eventCardManager.addEvent('road', unlockEvent, true);
-        }
-      });
-    }
-  }
-
   apply() {
     ghsDialogClosingHelper(this.dialogRef, true);
-
     gameManager.stateManager.before('setRetired', gameManager.characterManager.characterName(this.character, true, true));
-    this.character.progress.retired = true;
-    gameManager.game.party.retirements.push(this.character.toModel());
-    gameManager.characterManager.removeCharacter(this.character, true);
-
-    if (
-      this.personalQuest &&
-      this.personalQuest.unlockCharacter &&
-      settingsManager.settings.automaticUnlocking &&
-      !gameManager.game.unlockedCharacters.includes(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter)
-    ) {
-      gameManager.game.unlockedCharacters.push(this.personalQuest.edition + ':' + this.personalQuest.unlockCharacter);
-      this.addUnlockEvents(this.unlockEvent);
-    }
-
-    if (this.personalQuest && this.personalQuest.unlockPQ && settingsManager.settings.automaticUnlocking) {
-      gameManager.personalQuestManager.unlockPersonalQuest(this.personalQuest.edition, this.personalQuest.unlockPQ);
-    }
-
-    if (this.characterAlreadyUnlocked) {
-      if (this.characterScenario && this.characterScenario !== true) {
-        gameManager.game.party.manualScenarios.push(
-          new GameScenarioModel(this.characterScenario.index, this.characterScenario.edition, this.characterScenario.group)
-        );
-      }
-
-      if (this.characterItemDesign && this.characterItemDesign !== true) {
-        gameManager.game.party.unlockedItems.push(new CountIdentifier(this.characterItemDesign.id, this.characterItemDesign.edition));
-      }
-    }
-
-    if (this.additionalCharacterAlreadyUnlocked) {
-      if (this.additionalCharacterScenario && this.additionalCharacterScenario !== true) {
-        gameManager.game.party.manualScenarios.push(
-          new GameScenarioModel(
-            this.additionalCharacterScenario.index,
-            this.additionalCharacterScenario.edition,
-            this.additionalCharacterScenario.group
-          )
-        );
-      }
-
-      if (this.additionalCharacterItemDesign && this.additionalCharacterItemDesign !== true) {
-        gameManager.game.party.unlockedItems.push(
-          new CountIdentifier(this.additionalCharacterItemDesign.id, this.additionalCharacterItemDesign.edition)
-        );
-      }
-    }
-
-    if (this.envelopeAlreadyUnlocked) {
-      if (this.envelopeSection && this.envelopeSection !== true) {
-        gameManager.game.party.conclusions.push(
-          new GameScenarioModel(this.envelopeSection.index, this.envelopeSection.edition, this.envelopeSection.group)
-        );
-        if (this.envelopeSection.unlocks) {
-          this.envelopeSection.unlocks.forEach((unlock) => {
-            if (this.envelopeSection && this.envelopeSection !== true) {
-              gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, this.envelopeSection.edition));
-            }
-          });
-        }
-      } else {
-        gameManager.game.party.inspiration += 1;
-      }
-
-      if (this.envelopeItemBlueprint && this.envelopeItemBlueprint !== true) {
-        gameManager.game.party.unlockedItems.push(new CountIdentifier(this.envelopeItemBlueprint.id, this.envelopeItemBlueprint.edition));
-      } else {
-        gameManager.game.party.inspiration += 1;
-      }
-    }
-
-    if (this.additionalEnvelopeAlreadyUnlocked) {
-      if (this.additionalEnvelopeSection && this.additionalEnvelopeSection !== true) {
-        gameManager.game.party.conclusions.push(
-          new GameScenarioModel(
-            this.additionalEnvelopeSection.index,
-            this.additionalEnvelopeSection.edition,
-            this.additionalEnvelopeSection.group
-          )
-        );
-        if (this.additionalEnvelopeSection.unlocks) {
-          this.additionalEnvelopeSection.unlocks.forEach((unlock) => {
-            if (this.additionalEnvelopeSection && this.additionalEnvelopeSection !== true) {
-              gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, this.additionalEnvelopeSection.edition));
-            }
-          });
-        }
-      } else {
-        gameManager.game.party.inspiration += 1;
-      }
-
-      if (this.additionalEnvelopeItemBlueprint && this.additionalEnvelopeItemBlueprint !== true) {
-        gameManager.game.party.unlockedItems.push(
-          new CountIdentifier(this.additionalEnvelopeItemBlueprint.id, this.additionalEnvelopeItemBlueprint.edition)
-        );
-      } else {
-        gameManager.game.party.inspiration += 1;
-      }
-    }
-
-    if (this.additional) {
-      if (gameManager.fhRules()) {
-        gameManager.game.party.inspiration -= 15;
-      } else if (gameManager.gh2eRules()) {
-        gameManager.game.party.inspiration -= 12;
-      }
-      gameManager.campaignManager.changeProsperity(2);
-      if (
-        this.additionalPQ &&
-        this.additionalPQ.unlockCharacter &&
-        settingsManager.settings.automaticUnlocking &&
-        !gameManager.game.unlockedCharacters.includes(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter)
-      ) {
-        gameManager.game.unlockedCharacters.push(this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter);
-        this.addUnlockEvents(this.additionalUnlockEvent);
-      }
-
-      if (this.additionalPQ && this.additionalPQ.unlockPQ && settingsManager.settings.automaticUnlocking) {
-        gameManager.personalQuestManager.unlockPersonalQuest(this.additionalPQ.edition, this.additionalPQ.unlockPQ);
-      }
-    }
-
-    if (settingsManager.settings.unlockEnvelopeBuildings) {
-      if (this.personalQuestBuilding) {
-        gameManager.game.party.buildings.push(new BuildingModel(this.personalQuestBuilding.name, 0));
-      }
-      if (this.additionalPQBuilding) {
-        gameManager.game.party.buildings.push(new BuildingModel(this.additionalPQBuilding.name, 0));
-      }
-    }
-
+    const conclusions = gameManager.retirementManager.retire(this.retirement, this.additional);
     gameManager.stateManager.after();
-
-    this.openConclusions(
-      [this.conclusion, this.personalQuestConclusion]
-        .filter((conclusion) => !!conclusion)
-        .filter(
-          (conclusion) =>
-            !gameManager.game.party.conclusions.find(
-              (value) =>
-                conclusion && value.edition === conclusion.edition && value.group === conclusion.group && value.index === conclusion.index
-            )
-        )
-    );
-  }
-
-  buildingsEnvelopeHelper(envelope: string, both: boolean = true): BuildingData | undefined {
-    const buildingData = gameManager.campaignManager.campaignData().buildings;
-    if (buildingData) {
-      const buildings = envelope
-        .split(':')
-        .map((id) => buildingData.find((buildingData) => buildingData.id === id))
-        .filter((buildingData) => buildingData)
-        .map((buildingData) => buildingData as BuildingData);
-      if (buildings.length > 0) {
-        if (
-          !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === buildings[0].name) &&
-          (!this.personalQuestBuilding || this.personalQuestBuilding !== buildings[0])
-        ) {
-          return buildings[0];
-        } else if (
-          both &&
-          buildings.length > 1 &&
-          !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === buildings[1].name)
-        ) {
-          return buildings[1];
-        }
-      }
-    }
-
-    return undefined;
+    this.openConclusions(conclusions);
   }
 
   changeAdditionalPQ(event: any) {
-    this.additionalPQ = gameManager.personalQuestManager.personalQuestByCard(gameManager.currentEdition(), event.target.value);
-
-    if (this.additionalPQ) {
-      if (settingsManager.settings.unlockEnvelopeBuildings && this.additionalPQ.openEnvelope) {
-        this.additionalPQBuilding = this.buildingsEnvelopeHelper(this.additionalPQ.openEnvelope);
-      }
-
-      if (this.additionalPQ.unlockCharacter) {
-        this.additionalCharacterAlreadyUnlocked = gameManager.game.unlockedCharacters.includes(
-          this.additionalPQ.edition + ':' + this.additionalPQ.unlockCharacter
-        );
-        if (!this.additionalCharacterAlreadyUnlocked) {
-          const unlockCharacter = gameManager
-            .charactersData(this.additionalPQ.edition)
-            .find(
-              (characterData) =>
-                this.additionalPQ &&
-                characterData.edition === this.additionalPQ.edition &&
-                characterData.name === this.additionalPQ.unlockCharacter
-            );
-          this.additionalUnlockEvent = (unlockCharacter && unlockCharacter.unlockEvent) || '';
-          this.additionalCharacterScenario = undefined;
-          this.additionalCharacterItemDesign = undefined;
-        } else {
-          this.additionalCharacterScenario = settingsManager.settings.drawRandomScenario
-            ? this.reservedRandomScenario
-            : !!this.reservedRandomScenario;
-          this.additionalCharacterItemDesign = settingsManager.settings.drawRandomItem
-            ? this.reservedRandomItem
-            : !!this.reservedRandomItem;
-        }
-      }
-
-      if (this.additionalPQ.openEnvelope && gameManager.fhRules()) {
-        this.additionalEnvelopeAlreadyUnlocked =
-          !this.buildingsEnvelopeHelper(this.additionalPQ.openEnvelope, false) &&
-          !this.buildingsEnvelopeHelper(this.additionalPQ.openEnvelope);
-
-        if (this.additionalEnvelopeAlreadyUnlocked) {
-          this.additionalEnvelopeSection = settingsManager.settings.drawRandomScenario
-            ? this.reservedRandomScenario
-            : !!this.reservedRandomScenario;
-          this.additionalEnvelopeItemBlueprint = settingsManager.settings.drawRandomItem
-            ? this.reservedRandomItem
-            : !!this.reservedRandomItem;
-        } else {
-          this.additionalEnvelopeSection = undefined;
-          this.additionalEnvelopeItemBlueprint = undefined;
-        }
-      }
-    }
+    gameManager.retirementManager.setAdditionalQuest(this.retirement, event.target.value);
   }
 
   itemDialog(item: ItemData) {

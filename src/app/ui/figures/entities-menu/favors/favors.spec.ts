@@ -1,8 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { createTestEdition, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { Favor } from 'src/app/game/model/data/Trials';
 import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors';

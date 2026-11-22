@@ -1,8 +1,9 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Directive, ElementRef, OnInit, inject, input } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Entity } from 'src/app/game/model/Entity';
@@ -11,6 +12,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { ghsRemoveDeadEntities } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Directive({
@@ -169,23 +171,11 @@ export class HighlightConditionsComponent implements OnInit {
             (!entityCondition.types.includes(ConditionType.turn) && !entityCondition.types.includes(ConditionType.apply))
         ))
     ) {
-      gameManager.triggerUiChange();
-      setTimeout(
-        () => {
-          if (this.figure instanceof Monster && this.entity instanceof MonsterEntity && this.entity.dead) {
-            gameManager.monsterManager.removeMonsterEntity(this.figure, this.entity);
-            if (this.figure.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity))) {
-              if (this.figure.active) {
-                gameManager.roundManager.toggleFigure(this.figure);
-              }
-            }
-          }
-          gameManager.stateManager.after();
-        },
-        settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-      );
-    } else {
-      gameManager.stateManager.after();
+      if (this.figure.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity)) && this.figure.active) {
+        gameManager.roundManager.toggleFigure(this.figure);
+      }
+      ghsRemoveDeadEntities([{ entity: this.entity, figure: this.figure }]);
     }
+    gameManager.stateManager.after();
   }
 }

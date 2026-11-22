@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CLASSIC_SHEET_IMPORTS } from 'src/app/ui/figures/character/sheet/layouts/imports';
 import { CharacterSheetLayout } from 'src/app/ui/figures/character/sheet/layouts/layout';
 import { CharacterSheetMasteriesComponent } from 'src/app/ui/figures/character/sheet/sections/masteries';

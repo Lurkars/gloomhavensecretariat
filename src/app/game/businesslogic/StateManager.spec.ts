@@ -1,8 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { commandManager, gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { StateManager } from 'src/app/game/businesslogic/StateManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
-import { commandManager } from 'src/app/game/commands/CommandManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
@@ -99,6 +96,33 @@ describe('StateManager', () => {
       expect(stateManager.undos.length).toEqual(1);
       expect(stateManager.log[stateManager.log.length - 1].info).toEqual(['undoLabel', 'arg1', '2']);
       expect(stateManager.undoInfo(0)).toEqual(['undoLabel', 'arg1', '2']);
+    });
+
+    it('advances a previewed seed inside the new undo step', async () => {
+      const randomManager = gameManager.randomManager;
+      vi.spyOn(stateManager, 'saveLocal').mockImplementation(() => {});
+      randomManager.previewOutsideChanges = true;
+      try {
+        randomManager.endChange();
+        gameManager.game.seed = 42;
+        const preview = randomManager.shuffle([1, 2, 3, 4, 5, 6, 7, 8]);
+        expect(gameManager.game.seed).toBe(42);
+
+        stateManager.before('label');
+        expect(stateManager.undos[stateManager.undos.length - 1].seed).toBe(42);
+        expect(gameManager.game.seed).not.toBe(42);
+        const committed = gameManager.game.seed;
+        randomManager.next();
+        expect(gameManager.game.seed).not.toBe(committed);
+
+        await stateManager.after(0);
+        const seed = gameManager.game.seed;
+        expect(randomManager.shuffle([1, 2, 3, 4, 5, 6, 7, 8])).not.toEqual(preview);
+        expect(gameManager.game.seed).toBe(seed);
+      } finally {
+        randomManager.previewOutsideChanges = false;
+        randomManager.endChange();
+      }
     });
 
     it('adds the working class to body', () => {

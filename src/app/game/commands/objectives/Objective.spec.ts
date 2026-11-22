@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { createTestCharacter, createTestObjective, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { ObjectiveActionsCommand, ObjectiveActionsRestoreCommand } from 'src/app/game/commands/objectives/ObjectiveActions';
 import { ObjectiveAddCommand } from 'src/app/game/commands/objectives/ObjectiveAdd';

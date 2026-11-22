@@ -1,6 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { LevelManager } from 'src/app/game/businesslogic/LevelManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterClass, CharacterData, CharacterGender } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
@@ -384,6 +383,50 @@ describe('LevelManager', () => {
 
       expect(entity.health).toBe(3);
       expect(objective.health).toBe(5);
+    });
+  });
+
+  describe('level settings', () => {
+    it('recalculates the level on changes only when the level calculation is enabled', () => {
+      const calculate = vi.spyOn(levelManager, 'calculateScenarioLevel').mockImplementation(() => {});
+      gameManager.game.levelCalculation = false;
+      levelManager.setLevelAdjustment(1);
+      levelManager.setBonusAdjustment(1);
+      levelManager.setGe5Player(true);
+      expect(calculate).not.toHaveBeenCalled();
+      levelManager.setLevelCalculation(true);
+      levelManager.setLevelAdjustment(2);
+      expect(calculate).toHaveBeenCalledTimes(2);
+      expect(gameManager.game.levelAdjustment).toBe(2);
+      expect(gameManager.game.bonusAdjustment).toBe(1);
+      expect(gameManager.game.ge5Player).toBe(true);
+    });
+
+    it('disables the level calculation when setting a level manually or enabling a manual player count', () => {
+      gameManager.game.levelCalculation = true;
+      levelManager.setManualLevel(3);
+      expect(gameManager.game.level).toBe(3);
+      expect(gameManager.game.levelCalculation).toBe(false);
+
+      gameManager.game.levelCalculation = true;
+      levelManager.setPlayerCount(2);
+      expect(gameManager.game.playerCount).toBe(2);
+      expect(gameManager.game.levelCalculation).toBe(false);
+    });
+
+    it('recalculates when changing or disabling a manual player count', () => {
+      const calculate = vi.spyOn(levelManager, 'calculateScenarioLevel').mockImplementation(() => {});
+      gameManager.game.playerCount = 2;
+      gameManager.game.levelCalculation = true;
+      levelManager.setPlayerCount(3);
+      levelManager.setPlayerCount(-1);
+      expect(gameManager.game.playerCount).toBe(-1);
+      expect(calculate).toHaveBeenCalledTimes(2);
+    });
+
+    it('sets the bb monster difficulty as level adjustment', () => {
+      levelManager.setBbMonsterDifficulty(4);
+      expect(gameManager.game.levelAdjustment).toBe(2);
     });
   });
 

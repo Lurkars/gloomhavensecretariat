@@ -1,12 +1,11 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { EventDistribution } from 'src/app/game/businesslogic/EventCardManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
-import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
-import { ItemData, ItemFlags, ItemSlot } from 'src/app/game/model/data/ItemData';
+import { ItemData, ItemSlot } from 'src/app/game/model/data/ItemData';
 import { herbResourceLootTypes, LootType, materialResourceLootTypes, resourceLootTypes } from 'src/app/game/model/data/Loot';
 import { EventCardEffectComponent } from 'src/app/ui/figures/event/effect/event-card-effect';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
@@ -130,8 +129,6 @@ export class EventDistributionDialogComponent {
       }
       return 0;
     });
-
-    console.log(this.summedEffects);
   }
 
   private buildEntries(): void {
@@ -376,81 +373,31 @@ export class EventDistributionDialogComponent {
 
   apply(force: boolean = false): void {
     if (!force && !this.isDistributionComplete) return;
+    const distribution = new EventDistribution();
+    this.characters.forEach((character, index) => {
+      distribution.receive.push({ character, values: this.receiveCharacterValues[index] || {} });
+      distribution.spend.push({ character, values: this.spendCharacterValues[index] || {} });
+    });
+    distribution.receiveParty = this.receivePartyValues;
+    distribution.spendParty = this.spendPartyValues;
+    this.itemReceiveEntries
+      .filter((entry) => entry.assignedTo >= 0 && this.characters[entry.assignedTo])
+      .forEach((entry) => distribution.itemsReceive.push({ item: entry.item, character: this.characters[entry.assignedTo] }));
+    this.itemConsumeEntries.forEach((entry) =>
+      entry.selected.forEach((selected, index) => {
+        const character = this.characters[index];
+        selected
+          .map((itemIndex) => entry.characterItems[index][itemIndex])
+          .filter((item) => !!item && !!character)
+          .forEach((item) => distribution.itemsConsume.push({ item, character }));
+      })
+    );
+    this.itemLoseEntries
+      .filter((entry) => entry.assignedTo >= 0 && this.characters[entry.assignedTo])
+      .forEach((entry) => distribution.itemsLose.push({ item: entry.item, character: this.characters[entry.assignedTo] }));
+
     gameManager.stateManager.before('eventDistribution');
-    this.receiveCharacterValues.forEach((cv, i) => {
-      const char = this.characters[i];
-      if (!char) return;
-      for (const [type, amount] of Object.entries(cv)) {
-        if (!amount) continue;
-        if (type === 'gold') {
-          char.progress.gold += amount;
-        } else if (type === 'experience') {
-          char.progress.experience += amount;
-        } else {
-          char.progress.loot[type as LootType] = (char.progress.loot[type as LootType] || 0) + amount;
-        }
-      }
-    });
-
-    for (const [type, amount] of Object.entries(this.receivePartyValues)) {
-      if (!amount || type === 'gold' || type === 'experience') continue;
-      gameManager.game.party.loot[type as LootType] = (gameManager.game.party.loot[type as LootType] || 0) + amount;
-    }
-
-    this.spendCharacterValues.forEach((cv, i) => {
-      const char = this.characters[i];
-      if (!char) return;
-      for (const [type, amount] of Object.entries(cv)) {
-        if (!amount) continue;
-        if (type === 'gold') {
-          char.progress.gold = Math.max(0, char.progress.gold - amount);
-        } else if (type === 'experience') {
-          char.progress.experience = Math.max(0, char.progress.experience - amount);
-        } else {
-          char.progress.loot[type as LootType] = Math.max(0, (char.progress.loot[type as LootType] || 0) - amount);
-        }
-      }
-    });
-
-    for (const [type, amount] of Object.entries(this.spendPartyValues)) {
-      if (!amount || type === 'gold' || type === 'experience') continue;
-      gameManager.game.party.loot[type as LootType] = Math.max(0, (gameManager.game.party.loot[type as LootType] || 0) - amount);
-    }
-
-    for (const entry of this.itemReceiveEntries) {
-      if (entry.assignedTo >= 0) {
-        const char = this.characters[entry.assignedTo];
-        if (char) gameManager.itemManager.addItem(entry.item, char);
-      }
-    }
-
-    for (const entry of this.itemConsumeEntries) {
-      entry.selected.forEach((sel, charIndex) => {
-        const char = this.characters[charIndex];
-        if (!char) return;
-        for (const itemIndex of sel) {
-          const item = entry.characterItems[charIndex][itemIndex];
-          if (!item) continue;
-          let equipped = char.progress.equippedItems.find((id) => id.name === '' + item.id && id.edition === item.edition);
-          if (!equipped) {
-            equipped = new AdditionalIdentifier(item.id, item.edition);
-            char.progress.equippedItems.push(equipped);
-          }
-          equipped.tags = equipped.tags || [];
-          if (!equipped.tags.includes(ItemFlags.consumed)) {
-            equipped.tags.push(ItemFlags.consumed);
-          }
-        }
-      });
-    }
-
-    for (const entry of this.itemLoseEntries) {
-      if (entry.assignedTo >= 0) {
-        const char = this.characters[entry.assignedTo];
-        if (char) gameManager.itemManager.removeItem(entry.item, char);
-      }
-    }
-
+    gameManager.eventCardManager.applyDistribution(distribution);
     gameManager.stateManager.after();
     this.dialogRef.close(true);
   }

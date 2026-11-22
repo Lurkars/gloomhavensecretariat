@@ -1,6 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';

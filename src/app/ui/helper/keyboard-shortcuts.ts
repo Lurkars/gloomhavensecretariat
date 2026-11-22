@@ -1,8 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { DestroyRef, Directive, inject, input, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { Entity } from 'src/app/game/model/Entity';
@@ -664,85 +663,26 @@ export class KeyboardShortcuts implements OnInit {
 
     if (activeFigure) {
       if (activeFigure instanceof Character) {
-        const activeSummon = activeFigure.summons.find((summon) => summon.active);
-        const summonsAfterTurn = activeFigure.summons.filter((summon) => summon.afterTurn);
-        if (
-          settingsManager.settings.activeSummons &&
-          !activeSummon &&
-          activeFigure.active &&
-          summonsAfterTurn.length &&
-          !summonsAfterTurn.find((summon) => summon.active)
-        ) {
-          gameManager.stateManager.before(
-            'summonInactive',
-            gameManager.characterManager.characterName(activeFigure, true, true),
-            'data.summon.' + summonsAfterTurn[0].name
-          );
-          summonsAfterTurn.forEach((spirit) => (spirit.afterTurnActive = true));
-        } else if (settingsManager.settings.activeSummons && activeFigure.active && activeSummon) {
-          gameManager.stateManager.before(
-            'summonInactive',
-            gameManager.characterManager.characterName(activeFigure, true, true),
-            'data.summon.' + activeSummon.name
-          );
-        } else {
-          gameManager.stateManager.before(
-            activeFigure.active ? 'unsetActive' : 'setActive',
-            gameManager.characterManager.characterName(activeFigure, true, true)
-          );
-        }
-        gameManager.roundManager.toggleFigure(activeFigure);
+        gameManager.stateManager.before(...gameManager.characterManager.toggleActiveUndoInfos(activeFigure));
+        gameManager.characterManager.toggleActive(activeFigure);
         gameManager.stateManager.after();
       } else if (activeFigure instanceof Monster) {
-        let toggleFigure = true;
-        const entities = activeFigure.entities
-          .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new)
-          .sort(gameManager.monsterManager.sortEntities);
-        if (settingsManager.settings.activeStandees) {
-          let activeEntity = entities.find((entity) => entity.active);
-          if (!activeEntity && entities.length > 0 && reverse && activeFigure.active) {
-            activeEntity = entities[entities.length - 1];
-            gameManager.stateManager.before(
-              activeEntity ? 'unsetEntityActive' : 'setEntityActive',
-              'data.monster.' + activeFigure.name,
-              'monster.' + activeEntity.type,
-              activeEntity.number
-            );
-            gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
-            activeEntity.active = true;
-            toggleFigure = false;
-            gameManager.stateManager.after();
-          } else if (activeEntity && !reverse) {
-            gameManager.stateManager.before(
-              activeEntity ? 'unsetEntityActive' : 'setEntityActive',
-              'data.monster.' + activeFigure.name,
-              'monster.' + activeEntity.type,
-              activeEntity.number
-            );
-            gameManager.monsterManager.toggleActive(activeFigure, activeEntity);
-            const entityIndex = entities.indexOf(activeEntity);
-            if (entityIndex < entities.length - 1) {
-              let offset = 1;
-              while (entityIndex + offset < entities.length && entities[entityIndex + offset].off) {
-                offset++;
-              }
-              if (entityIndex + offset < entities.length) {
-                entities[entityIndex + offset].active = true;
-              }
-            }
-            toggleFigure = false;
-            gameManager.stateManager.after();
-          }
-        }
-        if (toggleFigure) {
+        const entity = settingsManager.settings.activeStandees
+          ? gameManager.monsterManager.nextActiveStandee(activeFigure, reverse)
+          : undefined;
+        if (entity) {
+          gameManager.stateManager.before(
+            entity.active ? 'unsetEntityActive' : 'setEntityActive',
+            'data.monster.' + activeFigure.name,
+            'monster.' + entity.type,
+            entity.number
+          );
+          gameManager.monsterManager.stepActiveStandee(activeFigure, entity, reverse);
+          gameManager.stateManager.after();
+        } else {
           gameManager.stateManager.before(activeFigure.active ? 'unsetActive' : 'setActive', 'data.monster.' + activeFigure.name);
           if (reverse && !activeFigure.active && settingsManager.settings.activeStandees) {
-            activeFigure.entities.forEach((entity) => {
-              if (gameManager.entityManager.isAlive(entity)) {
-                entity.active = true;
-                entity.off = false;
-              }
-            });
+            gameManager.monsterManager.activateStandees(activeFigure);
           }
           gameManager.roundManager.toggleFigure(activeFigure);
           gameManager.stateManager.after();

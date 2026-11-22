@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { DeckData } from 'src/app/game/model/data/DeckData';

@@ -1,7 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
@@ -216,21 +215,6 @@ describe('ScenarioSummaryComponent', () => {
       component.rewards = Object.assign(new ScenarioRewards(), { collectiveGold: 10 });
       component.collectiveGold = [3, 2];
       expect(component.availableCollectiveGold()).toEqual(5);
-    });
-  });
-
-  describe('availableCollectiveResource', () => {
-    it('is 0 with no matching collective resource reward', () => {
-      const component = createComponent(scenario);
-      component.rewards = undefined;
-      expect(component.availableCollectiveResource(LootType.hide)).toEqual(0);
-    });
-
-    it('is the reward pool minus already-distributed amounts', () => {
-      const component = createComponent(scenario);
-      component.rewards = Object.assign(new ScenarioRewards(), { collectiveResources: [{ type: LootType.hide, value: 5 }] });
-      component.collectiveResources = [{ hide: 2 }, { hide: 1 }];
-      expect(component.availableCollectiveResource(LootType.hide)).toEqual(2);
     });
   });
 

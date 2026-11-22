@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandInvalidParametersError } from 'src/app/game/commands/Command';
 import { createTestCharacter, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { LootDeckAssignCommand, LootDeckRandomItemCommand, LootDeckSectionCommand } from 'src/app/game/commands/lootDeck/LootDeckAssign';

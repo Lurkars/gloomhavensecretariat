@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { EnhancementsComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancements';
 import { environment } from 'src/environments/environment';
 

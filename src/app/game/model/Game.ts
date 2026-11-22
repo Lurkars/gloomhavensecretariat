@@ -1,6 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { randomSeed } from 'src/app/game/businesslogic/RandomManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
 import { ChallengeDeck, GameChallengeDeckModel } from 'src/app/game/model/data/Challenges';

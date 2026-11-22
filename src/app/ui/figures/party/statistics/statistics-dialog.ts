@@ -1,8 +1,9 @@
 import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { formatDate } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { DamageStats, ScenarioStats } from 'src/app/game/model/CharacterProgress';
 import { herbResourceLootTypes, LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';

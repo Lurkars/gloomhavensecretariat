@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 
 export const doubleClickTreshhold: number = 250;

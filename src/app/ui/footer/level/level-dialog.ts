@@ -1,9 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsNumberInput } from 'src/app/ui/helper/number-input/number-input';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
@@ -40,63 +40,37 @@ export class LevelDialogComponent implements OnInit {
 
   setLevelCalculation(levelCalculation: boolean) {
     gameManager.stateManager.before(levelCalculation ? 'enableAutomaticLevel' : 'disableAutomaticLevel');
-    gameManager.game.levelCalculation = levelCalculation;
-    if (gameManager.game.levelCalculation) {
-      gameManager.levelManager.calculateScenarioLevel();
-    }
+    gameManager.levelManager.setLevelCalculation(levelCalculation);
     gameManager.stateManager.after();
   }
 
   setLevelAdjustment(levelAdjustment: number) {
     gameManager.stateManager.before('updateLevelAdjustment', ghsValueSign(levelAdjustment));
-    gameManager.game.levelAdjustment = levelAdjustment;
-    if (gameManager.game.levelCalculation) {
-      gameManager.levelManager.calculateScenarioLevel();
-    }
+    gameManager.levelManager.setLevelAdjustment(levelAdjustment);
     gameManager.stateManager.after();
   }
 
   setBbMonsterDifficutly(level: number) {
     gameManager.stateManager.before('updateLevelAdjustmentBb', level);
-    gameManager.game.levelAdjustment = level - 2;
-    const editionData = gameManager.editionData.find(
-      (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
-    );
-    if (editionData) {
-      const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
-      gameManager.game.monsterAttackModifierDeck.attackModifiers = editionData.monsterAmTables[monsterDifficulty].map(
-        (value) => new AttackModifier(value as AttackModifierType)
-      );
-      gameManager.game.monsterAttackModifierDeck.cards = editionData.monsterAmTables[monsterDifficulty].map(
-        (value) => new AttackModifier(value as AttackModifierType)
-      );
-    }
-    gameManager.game.monsterAttackModifierDeck.bb = settingsManager.settings.bbAm;
+    gameManager.levelManager.setBbMonsterDifficulty(level);
     gameManager.stateManager.after();
   }
 
   setBonusAdjustment(bonusAdjustment: number) {
     gameManager.stateManager.before('updateBonusAdjustment', ghsValueSign(bonusAdjustment));
-    gameManager.game.bonusAdjustment = bonusAdjustment;
-    if (gameManager.game.levelCalculation) {
-      gameManager.levelManager.calculateScenarioLevel();
-    }
+    gameManager.levelManager.setBonusAdjustment(bonusAdjustment);
     gameManager.stateManager.after();
   }
 
   setGe5Player(ge5Player: boolean) {
     gameManager.stateManager.before(ge5Player ? 'enabledGe5Player' : 'disabledGe5Player');
-    gameManager.game.ge5Player = ge5Player;
-    if (gameManager.game.levelCalculation) {
-      gameManager.levelManager.calculateScenarioLevel();
-    }
+    gameManager.levelManager.setGe5Player(ge5Player);
     gameManager.stateManager.after();
   }
 
   setGe5PlayerCapped(ge5PlayerCapped: boolean) {
     gameManager.stateManager.before(ge5PlayerCapped ? 'enabledGe5Player.capped' : 'disabledGe5Player.capped');
-    gameManager.game.ge5PlayerCapped = ge5PlayerCapped;
-    gameManager.levelManager.setLevel(gameManager.game.level, true);
+    gameManager.levelManager.setGe5PlayerCapped(ge5PlayerCapped);
     gameManager.stateManager.after();
   }
 
@@ -106,28 +80,19 @@ export class LevelDialogComponent implements OnInit {
 
   togglePlayerCount(event: any) {
     gameManager.stateManager.before(event.target.checked ? 'enabledManualPlayerCount' : 'disabledManualPlayerCount');
-    gameManager.game.playerCount = event.target.checked ? 2 : -1;
-    if (event.target.checked) {
-      gameManager.game.levelCalculation = false;
-    } else if (gameManager.game.levelCalculation) {
-      gameManager.levelManager.calculateScenarioLevel();
-    }
+    gameManager.levelManager.setPlayerCount(event.target.checked ? 2 : -1);
     gameManager.stateManager.after();
   }
 
   setPlayerCount(playerCount: number) {
     gameManager.stateManager.before('updateManualPlayerCount', playerCount);
-    gameManager.game.playerCount = playerCount;
-    if (gameManager.game.levelCalculation) {
-      gameManager.levelManager.calculateScenarioLevel();
-    }
+    gameManager.levelManager.setPlayerCount(playerCount);
     gameManager.stateManager.after();
   }
 
   setLevel(level: number) {
     gameManager.stateManager.before('setScenarioLevel', level);
-    gameManager.levelManager.setLevel(level);
-    gameManager.game.levelCalculation = false;
+    gameManager.levelManager.setManualLevel(level);
     gameManager.stateManager.after();
   }
 

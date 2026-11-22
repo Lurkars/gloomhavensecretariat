@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterSpecialAction, CharacterStat } from 'src/app/game/model/data/CharacterStat';
@@ -130,6 +129,73 @@ describe('RoundManager', () => {
 
       settingsManager.settings.initiativeRequired = false;
       expect(roundManager.drawAvailable()).toBe(true);
+    });
+  });
+
+  describe('round state predicates', () => {
+    afterEach(() => {
+      settingsManager.settings.turnConfirmation = false;
+    });
+
+    it('reports missing initiatives of alive, present characters only', () => {
+      const character = buildCharacter('test-char');
+      gameManager.game.figures = [character];
+      expect(roundManager.missingInitiative()).toBe(true);
+      character.absent = true;
+      expect(roundManager.missingInitiative()).toBe(false);
+      character.absent = false;
+      settingsManager.settings.initiativeRequired = false;
+      expect(roundManager.missingInitiative()).toBe(false);
+    });
+
+    it('ignores active absent characters and requires turn confirmation only with condition handling', () => {
+      const character = buildCharacter('test-char');
+      character.active = true;
+      character.absent = true;
+      gameManager.game.figures = [character];
+      expect(roundManager.hasActiveFigure()).toBe(false);
+      character.absent = false;
+      expect(roundManager.hasActiveFigure()).toBe(true);
+      settingsManager.settings.turnConfirmation = true;
+      settingsManager.settings.expireConditions = true;
+      expect(roundManager.turnConfirmationPending()).toBe(true);
+      expect(roundManager.nextBlocked()).toBe(true);
+    });
+
+    it('fails the scenario once no character is alive and nothing is active', () => {
+      const character = buildCharacter('test-char');
+      gameManager.game.figures = [character];
+      expect(roundManager.scenarioFailed()).toBe(false);
+      character.exhausted = true;
+      expect(roundManager.scenarioFailed()).toBe(true);
+      expect(roundManager.drawBlocked()).toBe(true);
+      gameManager.game.figures = [];
+      expect(roundManager.scenarioFailed()).toBe(false);
+      expect(roundManager.drawBlocked()).toBe(true);
+    });
+  });
+
+  describe('nextRound / endAllTurns', () => {
+    it('ends every turn without turn confirmation before advancing the game state', () => {
+      settingsManager.settings.turnConfirmation = false;
+      gameManager.game.state = GameState.next;
+      const toggleFigure = vi.spyOn(roundManager, 'toggleFigure').mockImplementation((figure) => {
+        figure.off = true;
+      });
+      const nextGameState = vi.spyOn(roundManager, 'nextGameState').mockImplementation(() => {});
+      const character = buildCharacter('test-char');
+      character.initiative = 10;
+      gameManager.game.figures = [character];
+      roundManager.nextRound();
+      expect(toggleFigure).toHaveBeenCalledWith(character, true);
+      expect(nextGameState).toHaveBeenCalled();
+    });
+
+    it('endAllTurns runs afterTurn for every figure', () => {
+      const afterTurn = vi.spyOn(roundManager, 'afterTurn').mockImplementation(() => {});
+      gameManager.game.figures = [buildCharacter('a'), buildCharacter('b')];
+      roundManager.endAllTurns();
+      expect(afterTurn).toHaveBeenCalledTimes(2);
     });
   });
 

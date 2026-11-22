@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, inject } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
 import { StatisticsDialogComponent } from 'src/app/ui/figures/party/statistics/statistics-dialog';

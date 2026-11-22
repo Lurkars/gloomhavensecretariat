@@ -1,13 +1,13 @@
 import { Component, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Condition } from 'src/app/game/model/data/Condition';
 import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import {
-  HiddenScenarioFigureRuleTypes,
   ScenarioFigureRule,
   ScenarioFigureRuleIdentifier,
   ScenarioRule,
@@ -110,93 +110,15 @@ export class ScenarioRuleComponent implements OnInit {
   }
 
   sections(): ScenarioData[] {
-    const scenario = gameManager.scenarioRulesManager.getScenarioForRule(this.identifier).scenario;
-    if (scenario && this.rule.sections) {
-      return gameManager
-        .sectionData(scenario.edition)
-        .filter(
-          (sectionData) =>
-            !gameManager.game.sections.find(
-              (active) => active.edition === sectionData.edition && active.group === scenario.group && active.index === sectionData.index
-            ) &&
-            sectionData.group === scenario.group &&
-            this.rule.sections.includes(sectionData.index)
-        );
-    }
-    return [];
+    return gameManager.scenarioRulesManager.ruleSections(this.rule, this.identifier);
   }
 
   rooms(): RoomData[] {
-    const rooms: RoomData[] = [];
-    if (this.rule.rooms) {
-      const scenario = gameManager.scenarioRulesManager.getScenarioForRule(this.identifier).scenario;
-      this.rule.rooms.forEach((roomNumber) => {
-        if (scenario) {
-          const roomData = scenario.rooms.find((roomData) => roomData.roomNumber === roomNumber);
-          if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
-            rooms.push(roomData);
-          }
-        }
-      });
-    }
-    return rooms;
+    return gameManager.scenarioRulesManager.ruleRooms(this.rule, this.identifier);
   }
 
   figureRules(): ScenarioFigureRule[] {
-    return (
-      (this.rule.figures &&
-        this.rule.figures.filter((figureRule) => {
-          if (HiddenScenarioFigureRuleTypes.includes(figureRule.type)) {
-            return false;
-          }
-
-          const figures = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, this.rule);
-          if (figures.length === 0) {
-            return false;
-          }
-
-          if (
-            figureRule.type === 'gainCondition' ||
-            figureRule.type === 'permanentCondition' ||
-            figureRule.type === 'loseCondition' ||
-            figureRule.type === 'losePermanentCondition'
-          ) {
-            return figures.some((figure) => {
-              if (figureRule.type === 'gainCondition') {
-                const entities: Entity[] = gameManager.entityManager.entities(figure);
-                const gainCondition = new Condition(figureRule.value);
-                if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
-                  return false;
-                }
-              } else if (figureRule.type === 'permanentCondition') {
-                const entities: Entity[] = gameManager.entityManager.entities(figure);
-                const gainCondition = new Condition(figureRule.value);
-                if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
-                  return false;
-                }
-              } else if (figureRule.type === 'loseCondition') {
-                const entities: Entity[] = gameManager.entityManager.entities(figure);
-                const loseCondition = new Condition(figureRule.value);
-                if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
-                  return false;
-                }
-              } else if (figureRule.type === 'losePermanentCondition') {
-                const entities: Entity[] = gameManager.entityManager.entities(figure);
-                const losePermanentCondition = new Condition(figureRule.value);
-                if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, losePermanentCondition, true))) {
-                  return false;
-                }
-              }
-              return true;
-            });
-          } else if (figureRule.type === 'toggleOn' || figureRule.type === 'toggleOff') {
-            return figures.some((figure) => figure.off === (figureRule.type === 'toggleOn'));
-          }
-
-          return true;
-        })) ||
-      []
-    );
+    return gameManager.scenarioRulesManager.pendingFigureRules(this.rule);
   }
 
   figureNames(figureRule: ScenarioFigureRule): string {

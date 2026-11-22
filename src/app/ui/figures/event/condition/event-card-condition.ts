@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, input, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterClass } from 'src/app/game/model/data/CharacterData';
 import { EventCardCondition, EventCardConditionType } from 'src/app/game/model/data/EventCard';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

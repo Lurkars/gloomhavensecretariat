@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ChallengeCard, ChallengeDeck } from 'src/app/game/model/data/Challenges';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -28,6 +27,41 @@ describe('ChallengesManager', () => {
     gameManager.roundManager.firstRound = false;
     gameManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
     settingsManager.settings.editions = ['fh'];
+  });
+
+  describe('moveCard', () => {
+    it('moves cards between upcoming, discarded and finished', () => {
+      const deck = buildDeck([1, 2, 3, 4, 5]);
+      deck.finished = 0;
+      deck.current = 2;
+      challengesManager.moveCard(deck, 'upcoming', 0, 'finished', 0);
+      expect(deck.cards.map((card) => card.cardId)).toEqual([1, 4, 2, 3, 5]);
+      expect(deck.finished).toBe(1);
+      expect(deck.current).toBe(3);
+      challengesManager.moveCard(deck, 'finished', 0, 'upcoming', 0);
+      expect(deck.cards.map((card) => card.cardId)).toEqual([1, 2, 3, 4, 5]);
+      expect(deck.finished).toBe(0);
+      expect(deck.current).toBe(2);
+    });
+  });
+
+  describe('restoreCard', () => {
+    it('inserts the card at a seeded position among the upcoming cards', () => {
+      const restore = (seed: number) => {
+        const deck = buildDeck([1, 2, 3, 4, 5]);
+        deck.current = 1;
+        gameManager.game.seed = seed;
+        challengesManager.restoreCard(deck, new ChallengeCard(9, 'fh', 'fully'));
+        return deck.cards.map((card) => card.cardId);
+      };
+      for (let seed = 0; seed < 20; seed++) {
+        const cards = restore(seed);
+        expect(cards.slice(0, 2)).toEqual([1, 2]);
+        expect(cards.indexOf(9)).toBeGreaterThanOrEqual(2);
+        expect(cards.length).toBe(6);
+        expect(restore(seed)).toEqual(cards);
+      }
+    });
   });
 
   describe('drawCard', () => {

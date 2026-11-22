@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { herbResourceLootTypes, LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';
 import { CharacterMoveResourcesDialog } from 'src/app/ui/figures/character/sheet/move-resources';

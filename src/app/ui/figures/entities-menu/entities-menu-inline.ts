@@ -13,7 +13,7 @@ import {
   untracked
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';

@@ -2,10 +2,10 @@ import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
+import { gameManager, settingsManager, soundboardManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -289,21 +289,7 @@ export class FooterComponent implements OnInit {
     gameManager.stateManager.before(
       ...(gameManager.game.state === GameState.next ? ['roundNext', gameManager.game.round] : ['roundDraw', gameManager.game.round + 1])
     );
-    if (gameManager.game.state === GameState.next) {
-      if (settingsManager.settings.turnConfirmation) {
-        const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
-        if (!this.activeHint() && activeFigure) {
-          gameManager.roundManager.afterTurn(activeFigure);
-        }
-      } else {
-        let lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
-        while (lastActive) {
-          gameManager.roundManager.toggleFigure(lastActive, true);
-          lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
-        }
-      }
-    }
-    gameManager.roundManager.nextGameState();
+    gameManager.roundManager.nextRound();
     gameManager.stateManager.after(1000);
   }
 
@@ -357,24 +343,13 @@ export class FooterComponent implements OnInit {
   }
 
   confirmTurns() {
-    gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+    gameManager.roundManager.endAllTurns();
     this.next(true);
   }
 
   finishScenario(success: boolean) {
     if (gameManager.game.scenario) {
-      const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
-        if (gameManager.game.scenario) {
-          return (
-            sectionData.edition === gameManager.game.scenario.edition &&
-            sectionData.parent === gameManager.game.scenario.index &&
-            sectionData.group === gameManager.game.scenario.group &&
-            sectionData.conclusion &&
-            gameManager.scenarioManager.getRequirements(sectionData).length === 0
-          );
-        }
-        return false;
-      });
+      const conclusions = gameManager.scenarioManager.scenarioConclusions(gameManager.game.scenario);
 
       if (conclusions.length === 0 || !success) {
         this.dialog.open(ScenarioSummaryComponent, {
@@ -438,51 +413,23 @@ export class FooterComponent implements OnInit {
   }
 
   missingInitiative(): boolean {
-    return gameManager.game.figures.some(
-      (figure) =>
-        settingsManager.settings.initiativeRequired &&
-        ((figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) ||
-          figure instanceof ObjectiveContainer) &&
-        figure.getInitiative() <= 0
-    );
+    return gameManager.roundManager.missingInitiative();
   }
 
   active(): boolean {
-    return (
-      gameManager.game.figures.find((figure) => figure.active && !figure.off && (!(figure instanceof Character) || !figure.absent)) !=
-      undefined
-    );
+    return gameManager.roundManager.hasActiveFigure();
   }
 
   battleGoals(): boolean {
-    return (
-      !this.missingInitiative() &&
-      settingsManager.settings.battleGoals &&
-      settingsManager.settings.battleGoalsReminder &&
-      gameManager.game.scenario !== undefined &&
-      gameManager.roundManager.firstRound &&
-      !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) &&
-      !gameManager.bbRules()
-    );
+    return gameManager.roundManager.battleGoalsPending();
   }
 
   eventDraw(): boolean {
-    return (
-      !this.missingInitiative() &&
-      !settingsManager.settings.eventsDraw &&
-      settingsManager.settings.eventsDrawReminder &&
-      gameManager.game.scenario !== undefined &&
-      gameManager.roundManager.firstRound &&
-      gameManager.game.eventDraw !== undefined
-    );
+    return gameManager.roundManager.eventDrawPending();
   }
 
   activeHint(): boolean {
-    return (
-      this.active() &&
-      settingsManager.settings.turnConfirmation &&
-      (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions)
-    );
+    return gameManager.roundManager.turnConfirmationPending();
   }
 
   finish(): boolean {
@@ -490,15 +437,7 @@ export class FooterComponent implements OnInit {
   }
 
   failed(): boolean {
-    return (
-      !this.active() &&
-      !this.empty() &&
-      gameManager.game.figures.some((figure) => figure instanceof Character) &&
-      gameManager.game.figures.every(
-        (figure) =>
-          !(figure instanceof Character) || (figure instanceof Character && (figure.exhausted || figure.health <= 0 || figure.absent))
-      )
-    );
+    return gameManager.roundManager.scenarioFailed();
   }
 
   disabled(): boolean {
@@ -509,11 +448,11 @@ export class FooterComponent implements OnInit {
   }
 
   drawDisabled(): boolean {
-    return this.empty() || this.missingInitiative() || this.battleGoals() || this.finish() || this.failed() || this.eventDraw();
+    return gameManager.roundManager.drawBlocked();
   }
 
   nextDisabled(): boolean {
-    return this.activeHint() || this.finish() || this.failed();
+    return gameManager.roundManager.nextBlocked();
   }
 
   toggleActiveCharacterAttackModifierDeck() {

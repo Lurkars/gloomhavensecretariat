@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterAbsentCommand } from 'src/app/game/commands/character/CharacterAbsent';
 import { CharacterExhaustedCommand } from 'src/app/game/commands/character/CharacterExhausted';
 import { CharacterLevelCommand } from 'src/app/game/commands/character/CharacterLevel';

@@ -1,4 +1,4 @@
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SoundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
 
 describe('SoundboardManager', () => {

@@ -1,5 +1,5 @@
-import { RandomManager, randomSeed } from 'src/app/game/businesslogic/RandomManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { RandomManager, randomSeed, randomUUID } from 'src/app/game/businesslogic/RandomManager';
 import { Game } from 'src/app/game/model/Game';
 
 describe('RandomManager', () => {
@@ -56,6 +56,71 @@ describe('RandomManager', () => {
     expect(manager(9).uuid()).toBe(uuid);
     const random = manager(9);
     expect(random.uuid()).not.toBe(random.uuid());
+  });
+
+  it('creates uuids without touching the game seed', () => {
+    const random = manager(9);
+    expect(randomUUID()).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+    expect(random.game.seed).toBe(9);
+  });
+
+  describe('preview outside of state changes', () => {
+    function previewManager(seed: number): RandomManager {
+      const random = manager(seed);
+      random.previewOutsideChanges = true;
+      return random;
+    }
+
+    const draw = (random: RandomManager) => random.shuffle([1, 2, 3, 4, 5, 6, 7, 8]);
+
+    it('draws without advancing the game seed and repeats the preview for the same seed', () => {
+      const random = previewManager(5);
+      const first = draw(random);
+      expect(random.game.seed).toBe(5);
+      expect(draw(previewManager(5))).toEqual(first);
+      expect(draw(previewManager(6))).not.toEqual(first);
+    });
+
+    it('continues the preview stream until a state change ends', () => {
+      const random = previewManager(5);
+      const first = draw(random);
+      expect(draw(random)).not.toEqual(first);
+      random.beginChange();
+      random.endChange();
+      const next = previewManager(random.game.seed);
+      expect(draw(random)).toEqual(draw(next));
+    });
+
+    it('advances the game seed once on the next state change after a preview', () => {
+      const random = previewManager(5);
+      random.beginChange();
+      random.endChange();
+      expect(random.game.seed).toBe(5);
+
+      draw(random);
+      draw(random);
+      random.beginChange();
+      const committed = random.game.seed;
+      expect(committed).not.toBe(5);
+      random.endChange();
+      random.beginChange();
+      expect(random.game.seed).toBe(committed);
+    });
+
+    it('draws from the game seed during a state change', () => {
+      const random = previewManager(5);
+      random.beginChange();
+      const value = random.next();
+      expect(random.game.seed).not.toBe(5);
+      expect(manager(5).next()).toBe(value);
+    });
+
+    it('restarts the preview when the game seed changes from outside', () => {
+      const random = previewManager(5);
+      draw(random);
+      random.game.seed = 6;
+      expect(draw(random)).toEqual(draw(previewManager(6)));
+    });
   });
 
   it('serializes the seed with the game model', () => {

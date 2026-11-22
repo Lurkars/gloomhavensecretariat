@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnInit, inject, input, output } from '@angular/core';
 import autocomplete, { AutocompleteEvent } from 'autocompleter';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 
 export class AutocompleteItem {
   label: string;

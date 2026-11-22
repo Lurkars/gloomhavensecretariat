@@ -1,7 +1,8 @@
 import { Component, OnInit, inject, input } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingModel } from 'src/app/game/model/Building';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
 import { Party } from 'src/app/game/model/Party';
@@ -42,28 +43,6 @@ export class PartyBuildingsComponent implements OnInit {
   updateBuildings() {
     this.buildings = [];
     const campaign = gameManager.campaignManager.campaignData();
-
-    campaign.buildings
-      .filter((buildingData) => gameManager.buildingsManager.initialBuilding(buildingData))
-      .forEach((buildingData) => {
-        if (!this.party.buildings.find((model) => buildingData.name === model.name)) {
-          this.party.buildings.push(new BuildingModel(buildingData.name, 1));
-          if (buildingData.rewards[0]) {
-            gameManager.buildingsManager.applyRewards(buildingData.rewards[0]);
-          }
-        }
-      });
-
-    campaign.buildings
-      .filter(
-        (buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.campaignManager.prosperityLevel()
-      )
-      .forEach((buildingData) => {
-        if (!this.party.buildings.find((model) => buildingData.name === model.name)) {
-          if (!buildingData.requires || this.party.buildings.find((model) => model.name === buildingData.requires && model.level))
-            this.party.buildings.push(new BuildingModel(buildingData.name, 0));
-        }
-      });
 
     this.party.buildings.forEach((model) => {
       const data = campaign.buildings.find((buildingData) => buildingData.name === model.name);

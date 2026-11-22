@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { RandomDungeonRule, ScenarioFigureRule, ScenarioRule } from 'src/app/game/model/data/ScenarioRule';

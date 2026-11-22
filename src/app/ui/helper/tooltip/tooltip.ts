@@ -2,7 +2,7 @@ import { Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overla
 import { ComponentPortal } from '@angular/cdk/portal';
 import { NgClass } from '@angular/common';
 import { Component, ComponentRef, DestroyRef, Directive, ElementRef, HostListener, inject, input, OnInit } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 
 @Component({

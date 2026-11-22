@@ -21,8 +21,8 @@
 
   @if (!defaultAttack) {
     <div class="manual-attack">
-      <input type="number" min="0" [(ngModel)]="manualAttackValue" (change)="applyBaracks()" />
-      <input type="number" min="0" [(ngModel)]="manualTargetNumber" (change)="applyBaracks()" />
+      <input type="number" min="0" [(ngModel)]="manualAttackValue" (change)="applyManual()" />
+      <input type="number" min="0" [(ngModel)]="manualTargetNumber" (change)="applyManual()" />
     </div>
   }
 
@@ -279,9 +279,9 @@
 
   @if (resources.length) {
     <div class="resources">
-      @for (resource of resources; track resource) {
+      @for (resource of resources; track $index; let i = $index) {
         <label class="resource" [ngClass]="{ disabled: !resource.enabled }">
-          <input type="checkbox" [(ngModel)]="resource.enabled" />
+          <input type="checkbox" [checked]="resource.enabled" (change)="toggleResource(i)" />
           <ghs-event-card-effect [effect]="resource.effect" [light]="true" [selected]="true"></ghs-event-card-effect>
         </label>
       }
@@ -289,7 +289,7 @@
   }
 
   <div class="menu">
-    <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
+    <a class="cancel" (click)="close()" [ghs-label]="'close'"></a>
     @if (+attack.targetNumber > 0 && attacks < buildings.length) {
       <a (click)="nextTarget()" [ghs-label]="'party.outpostAttack.next'"></a>
     }

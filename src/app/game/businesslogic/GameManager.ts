@@ -13,15 +13,17 @@ import { ImbuementManager } from 'src/app/game/businesslogic/ImbuementManager';
 import { ItemManager } from 'src/app/game/businesslogic/ItemManager';
 import { LevelManager } from 'src/app/game/businesslogic/LevelManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { MonsterManager } from 'src/app/game/businesslogic/MonsterManager';
 import { ObjectiveManager } from 'src/app/game/businesslogic/ObjectiveManager';
+import { OutpostAttackManager } from 'src/app/game/businesslogic/OutpostAttackManager';
 import { PersonalQuestManager } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { RandomManager } from 'src/app/game/businesslogic/RandomManager';
+import { RetirementManager } from 'src/app/game/businesslogic/RetirementManager';
 import { RoundManager } from 'src/app/game/businesslogic/RoundManager';
 import { ScenarioManager } from 'src/app/game/businesslogic/ScenarioManager';
 import { ScenarioRulesManager } from 'src/app/game/businesslogic/ScenarioRulesManager';
 import { ScenarioStatsManager } from 'src/app/game/businesslogic/ScenarioStatsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { SpecialActionsManager } from 'src/app/game/businesslogic/SpecialActionsManager';
 import { StateManager } from 'src/app/game/businesslogic/StateManager';
 import { TrialsManager } from 'src/app/game/businesslogic/TrialsManager';
@@ -68,6 +70,7 @@ export class GameManager {
   monsterManager: MonsterManager;
   objectiveManager: ObjectiveManager;
   personalQuestManager: PersonalQuestManager;
+  retirementManager: RetirementManager;
   attackModifierManager: AttackModifierManager;
   actionsManager: ActionsManager;
   levelManager: LevelManager;
@@ -80,6 +83,7 @@ export class GameManager {
   battleGoalManager: BattleGoalManager;
   eventCardManager: EventCardManager;
   buildingsManager: BuildingsManager;
+  outpostAttackManager: OutpostAttackManager;
   challengesManager: ChallengesManager;
   scenarioStatsManager: ScenarioStatsManager;
   trialsManager: TrialsManager;
@@ -104,6 +108,7 @@ export class GameManager {
     this.monsterManager = new MonsterManager(this.game);
     this.objectiveManager = new ObjectiveManager(this.game);
     this.personalQuestManager = new PersonalQuestManager(this.game);
+    this.retirementManager = new RetirementManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
     this.actionsManager = new ActionsManager();
     this.levelManager = new LevelManager(this.game);
@@ -116,6 +121,7 @@ export class GameManager {
     this.battleGoalManager = new BattleGoalManager(this.game);
     this.eventCardManager = new EventCardManager(this.game);
     this.buildingsManager = new BuildingsManager(this.game);
+    this.outpostAttackManager = new OutpostAttackManager(this.game);
     this.challengesManager = new ChallengesManager(this.game);
     this.scenarioStatsManager = new ScenarioStatsManager(this.game);
     this.trialsManager = new TrialsManager(this.game);
@@ -1234,6 +1240,3 @@ export class GameManager {
     return gameClock.sort((a, b) => b.clockIn - a.clockIn);
   }
 }
-
-export const gameManager: GameManager = new GameManager();
-window.gameManager = gameManager;

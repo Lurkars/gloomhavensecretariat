@@ -1,9 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager, soundboardManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Sound } from 'src/app/game/model/data/Sound';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TabClickDirective } from 'src/app/ui/helper/tabclick';

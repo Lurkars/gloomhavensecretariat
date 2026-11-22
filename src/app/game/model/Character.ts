@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterProgress, ScenarioStats } from 'src/app/game/model/CharacterProgress';
 import { Action } from 'src/app/game/model/data/Action';
 import { AttackModifierDeck, GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';

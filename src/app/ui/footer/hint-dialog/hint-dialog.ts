@@ -1,11 +1,9 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Component, HostListener, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { GameState } from 'src/app/game/model/Game';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -49,7 +47,7 @@ export class HintDialogComponent {
     const active = gameManager.game.figures.find((figure) => figure.active);
     if (active) {
       gameManager.stateManager.before('endAllTurns');
-      gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+      gameManager.roundManager.endAllTurns();
       gameManager.stateManager.after();
     }
     this.next();
@@ -61,18 +59,7 @@ export class HintDialogComponent {
 
   finishScenario(success: boolean) {
     if (gameManager.game.scenario) {
-      const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
-        if (gameManager.game.scenario) {
-          return (
-            sectionData.edition === gameManager.game.scenario.edition &&
-            sectionData.parent === gameManager.game.scenario.index &&
-            sectionData.group === gameManager.game.scenario.group &&
-            sectionData.conclusion &&
-            gameManager.scenarioManager.getRequirements(sectionData).length === 0
-          );
-        }
-        return false;
-      });
+      const conclusions = gameManager.scenarioManager.scenarioConclusions(gameManager.game.scenario);
 
       if (conclusions.length === 0 || !success) {
         this.dialog.open(ScenarioSummaryComponent, {
@@ -120,40 +107,19 @@ export class HintDialogComponent {
   }
 
   missingInitiative(): boolean {
-    return gameManager.game.figures.some(
-      (figure) =>
-        settingsManager.settings.initiativeRequired &&
-        ((figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) ||
-          figure instanceof ObjectiveContainer) &&
-        figure.getInitiative() <= 0
-    );
+    return gameManager.roundManager.missingInitiative();
   }
 
   active(): boolean {
-    return gameManager.game.figures.find((figure) => figure.active && !figure.off) !== undefined;
+    return gameManager.roundManager.hasActiveFigure();
   }
 
   battleGoals(): boolean {
-    return (
-      !this.missingInitiative() &&
-      settingsManager.settings.battleGoals &&
-      settingsManager.settings.battleGoalsReminder &&
-      gameManager.game.scenario !== undefined &&
-      gameManager.roundManager.firstRound &&
-      !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) &&
-      !gameManager.bbRules()
-    );
+    return gameManager.roundManager.battleGoalsPending();
   }
 
   eventDraw(): boolean {
-    return (
-      !this.missingInitiative() &&
-      !settingsManager.settings.eventsDraw &&
-      settingsManager.settings.eventsDrawReminder &&
-      gameManager.game.scenario !== undefined &&
-      gameManager.roundManager.firstRound &&
-      gameManager.game.eventDraw !== undefined
-    );
+    return gameManager.roundManager.eventDrawPending();
   }
 
   finish(): boolean {
@@ -161,15 +127,7 @@ export class HintDialogComponent {
   }
 
   failed(): boolean {
-    return (
-      !this.active() &&
-      !this.empty() &&
-      gameManager.game.figures.some((figure) => figure instanceof Character) &&
-      gameManager.game.figures.every(
-        (figure) =>
-          !(figure instanceof Character) || (figure instanceof Character && (!gameManager.entityManager.isAlive(figure) || figure.absent))
-      )
-    );
+    return gameManager.roundManager.scenarioFailed();
   }
 
   @HostListener('document:keydown', ['$event'])

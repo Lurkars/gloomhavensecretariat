@@ -124,7 +124,10 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "buildTarget": "gloomhavensecretariat:build:development"
+            "buildTarget": "gloomhavensecretariat:build:development",
+            "setupFiles": [
+              "src/test-setup.ts"
+            ]
           }
         }
       }

@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { ConditionType } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -11,7 +10,7 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 import { Summon } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
-import { ghsDialogClosingHelper, ghsValueSign } from 'src/app/ui/helper/Static';
+import { ghsDialogClosingHelper, ghsRemoveDeadEntities, ghsValueSign } from 'src/app/ui/helper/Static';
 
 export class HealthHelper {
   constructor(private component: EntitiesMenuDialogComponent) {}
@@ -134,34 +133,8 @@ export class HealthHelper {
 
       this.component.health = 0;
 
-      if (
-        this.component.entities.some(
-          (entity) => (entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead
-        )
-      ) {
-        gameManager.triggerUiChange(false);
-
-        setTimeout(
-          () => {
-            this.component.entities.forEach((entity) => {
-              if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead) {
-                const figure = this.component.figureForEntity(entity);
-                if (figure instanceof Monster && entity instanceof MonsterEntity) {
-                  gameManager.monsterManager.removeMonsterEntity(figure, entity);
-                } else if (figure instanceof Character && entity instanceof Summon) {
-                  gameManager.characterManager.removeSummon(figure, entity);
-                } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
-                  gameManager.objectiveManager.removeObjectiveEntity(figure, entity);
-                }
-              }
-            });
-            gameManager.stateManager.after();
-          },
-          settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-        );
-      } else {
-        gameManager.stateManager.after();
-      }
+      ghsRemoveDeadEntities(this.component.entities.map((entity) => ({ entity, figure: this.component.figureForEntity(entity) })));
+      gameManager.stateManager.after();
     }
 
     if (this.component.maxHealth !== 0 && applicableEntities.length) {

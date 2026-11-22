@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { createTestCharacter, createTestMonster, createTestMonsterEntity, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { EntityConditionCommand } from 'src/app/game/commands/entity/EntityCondition';
 import { EntityConditionApplyCommand } from 'src/app/game/commands/entity/EntityConditionApply';

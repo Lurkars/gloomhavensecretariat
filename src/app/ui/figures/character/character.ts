@@ -4,9 +4,10 @@ import { NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, inject, input, viewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { RpgAttribute } from 'src/app/game/model/CharacterProgress';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
@@ -249,34 +250,8 @@ export class CharacterComponent implements OnInit {
         !this.character.exhausted &&
         (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)
       ) {
-        const activeSummon = this.character.summons.find((summon) => summon.active);
-        const summonsAfterTurn = this.character.summons.filter((summon) => summon.afterTurn);
-        if (
-          settingsManager.settings.activeSummons &&
-          !activeSummon &&
-          this.character.active &&
-          summonsAfterTurn.length &&
-          !summonsAfterTurn.find((summon) => summon.active)
-        ) {
-          gameManager.stateManager.before(
-            'summonInactive',
-            gameManager.characterManager.characterName(this.character, true, true),
-            'data.summon.' + summonsAfterTurn[0].name
-          );
-          summonsAfterTurn.forEach((spirit) => (spirit.afterTurnActive = true));
-        } else if (settingsManager.settings.activeSummons && this.character.active && activeSummon) {
-          gameManager.stateManager.before(
-            'summonInactive',
-            gameManager.characterManager.characterName(this.character, true, true),
-            'data.summon.' + activeSummon.name
-          );
-        } else {
-          gameManager.stateManager.before(
-            this.character.active ? 'unsetActive' : 'setActive',
-            gameManager.characterManager.characterName(this.character, true, true)
-          );
-        }
-        gameManager.roundManager.toggleFigure(this.character);
+        gameManager.stateManager.before(...gameManager.characterManager.toggleActiveUndoInfos(this.character));
+        gameManager.characterManager.toggleActive(this.character);
         gameManager.stateManager.after();
       } else if (
         (settingsManager.settings.initiativeRequired && this.character.initiative <= 0) ||

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Meta } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 
 describe('AppComponent', () => {
   let component: AppComponent;

@@ -1,7 +1,6 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
 import { BuildingData, SelectResourceResult } from 'src/app/game/model/data/BuildingData';

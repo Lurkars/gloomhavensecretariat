@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';

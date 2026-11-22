@@ -1,5 +1,4 @@
-import { moveItemInArray } from '@angular/cdk/drag-drop';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { Character } from 'src/app/game/model/Character';
 import { ItemData } from 'src/app/game/model/data/ItemData';
@@ -107,48 +106,6 @@ export function deckFind<T>(cards: T[], current: number, list: BASE_TYPE | undef
 
 export function deckTargetValid(toList: BASE_TYPE | undefined, toIndex: BASE_TYPE | undefined): boolean {
   return DECK_LISTS.includes(toList as string) && typeof toIndex === 'number' && toIndex >= 0;
-}
-
-export function deckMoveCard(
-  current: number,
-  from: number,
-  toList: string,
-  toIndex: number,
-  ...arrays: unknown[][]
-): { current: number; from: number; to: number } {
-  const fromList = from <= current ? 'discarded' : 'upcoming';
-  return deckMove(current, fromList, fromList === 'discarded' ? current - from : from - current - 1, toList, toIndex, ...arrays);
-}
-
-export function deckMove(
-  current: number,
-  fromList: string,
-  fromIndex: number,
-  toList: string,
-  toIndex: number,
-  ...arrays: unknown[][]
-): { current: number; from: number; to: number } {
-  let from = 0;
-  let to = 0;
-  if (toList === 'upcoming') {
-    if (fromList === 'upcoming') {
-      from = fromIndex + current + 1;
-      to = toIndex + current + 1;
-    } else {
-      from = current - fromIndex;
-      to = toIndex + current;
-      current--;
-    }
-  } else if (fromList === 'discarded') {
-    from = current - fromIndex;
-    to = current - toIndex;
-  } else {
-    current++;
-    from = fromIndex + current;
-    to = current - toIndex;
-  }
-  arrays.forEach((array) => moveItemInArray(array, from, to));
-  return { current, from, to };
 }
 
 export function fillParameter(command: CommandImpl, index: number, defaults: BASE_TYPE[], value: BASE_TYPE) {

@@ -1,8 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterFullViewComponent } from 'src/app/ui/figures/character/fullview/fullview';
 import { CharacterSheetComponent } from 'src/app/ui/figures/character/sheet/character-sheet';

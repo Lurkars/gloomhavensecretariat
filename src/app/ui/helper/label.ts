@@ -1,7 +1,6 @@
 import { Directive, ElementRef, inject, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ActionHex, ActionHexFromString } from 'src/app/game/model/ActionHex';
 import { ActionType, ActionTypesIcons } from 'src/app/game/model/data/Action';
 import {

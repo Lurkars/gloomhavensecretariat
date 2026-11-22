@@ -1152,6 +1152,7 @@
       },
       "outpostAttack": {
         "": "Bedrohung",
+        "cancel": "Bedrohung abbrechen",
         "effects": "Folgendes wird auf die Bedrohung angewendet"
       },
       "requirements": {
@@ -3404,6 +3405,21 @@
       "brewPotion": "Trank \"%data.items.{2}-{1}%\" für {0} brauen",
       "brewPotionOther": "{0} braut Trank \"%data.items.{2}-{1}%\" für {3}",
       "buildBuilding": "'%data.buildings.{1}%' ({0}) gebaut",
+      "outpostAttack": {
+        "cancel": "Bedrohung abbrechen",
+        "finish": "Bedrohung beenden",
+        "manual": "Bedrohung auf Wert {0} mit {1} Zielen setzen",
+        "order": "Reihenfolge der Angriffsziele ändern",
+        "randomize": "Angriffsziele zufällig anordnen",
+        "resource": {
+          "disable": "Ressource der Stadtwache-Karte deaktivieren",
+          "enable": "Ressource der Stadtwache-Karte aktivieren"
+        },
+        "result": "Stadtwache-Karte für Ergebnis der Bedrohung wählen",
+        "soldiers": "{0} Soldaten gegen die Bedrohung einsetzen",
+        "start": "Bedrohung starten",
+        "target": "Ziele der Bedrohung ändern"
+      },
       "buildingAttacked": {
         "damaged": "Angriff beschädigt '%data.buildings.{1}%' ({0})",
         "normal": "Angriff auf '%data.buildings.{1}%' ({0}) erfolgreich verteidigt",
@@ -3882,6 +3898,7 @@
       },
       "dismissRetirement": "Ruhestand für {0} verwerfen",
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
+      "removeDeadEntities": "Besiegte Aufsteller entfernen",
       "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
       "eventDistribution": "Ereignis-Verteilung anwenden",
       "eventDraw": {

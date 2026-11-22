@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Editional } from 'src/app/game/model/data/Editional';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 

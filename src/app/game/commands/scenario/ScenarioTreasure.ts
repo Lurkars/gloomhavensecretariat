@@ -1,9 +1,7 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
-import { Identifier } from 'src/app/game/model/data/Identifier';
 
 function treasures(): ('G' | number)[] {
   return gameManager.game.scenario ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections) : [];
@@ -36,21 +34,7 @@ export class ScenarioTreasureLootCommand extends CommandImpl {
     const treasure = treasures()[index];
     const edition = gameManager.game.scenario ? gameManager.game.scenario.edition : gameManager.currentEdition();
     if (character && treasure !== undefined) {
-      let rewardResults: string[][] = [];
-      if (treasure !== 'G' && settingsManager.settings.treasuresLoot) {
-        rewardResults = gameManager.lootManager.lootTreasure(character, treasure - 1, edition);
-      }
-      character.treasures = character.treasures || [];
-      character.treasures.push(
-        treasure === 'G'
-          ? 'G-' + index
-          : rewardResults.some((rewardResult) => rewardResult.length > 0)
-            ? treasure + ':' + rewardResults.map((reward) => reward.join('+')).join('|')
-            : treasure
-      );
-      if (typeof treasure === 'number') {
-        gameManager.game.party.treasures.push(new Identifier(treasure, edition));
-      }
+      gameManager.lootManager.lootScenarioTreasure(character, treasure, index, edition);
     } else {
       this.executionError('character or treasure not found');
     }
@@ -70,13 +54,7 @@ export class ScenarioTreasureRemoveCommand extends CommandImpl {
     const character = findCharacter(number);
     const edition = gameManager.game.scenario ? gameManager.game.scenario.edition : gameManager.currentEdition();
     if (character) {
-      character.treasures.splice(character.treasures.indexOf(treasure), 1);
-      const treasureNumber = typeof treasure === 'number' ? treasure : +treasure.split(':')[0];
-      if (!isNaN(treasureNumber)) {
-        gameManager.game.party.treasures = gameManager.game.party.treasures.filter(
-          (value) => value.edition !== edition || value.name !== '' + treasureNumber
-        );
-      }
+      gameManager.lootManager.removeScenarioTreasure(character, treasure, edition);
     } else {
       this.executionError('character not found');
     }

@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, findEntity, findFigure } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';

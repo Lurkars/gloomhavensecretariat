@@ -1,8 +1,10 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
-import { BuildingData, BuildingRewards, BuildingTrade } from 'src/app/game/model/data/BuildingData';
+import { Character } from 'src/app/game/model/Character';
+import { BuildingCosts, BuildingData, BuildingRewards, BuildingTrade, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
+import { PetIdentifier } from 'src/app/game/model/data/PetCard';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 import { Game } from 'src/app/game/model/Game';
@@ -148,6 +150,260 @@ export class BuildingsManager {
     );
   }
 
+  partyResource(type: LootType): number {
+    return (
+      (this.game.party.loot[type] || 0) +
+      this.game.figures
+        .filter((figure) => figure instanceof Character)
+        .map((character) => character.progress.loot[type] || 0)
+        .reduce((a, b) => a + b, 0)
+    );
+  }
+
+  private resourcesAffordable(costs: BuildingCosts): boolean {
+    let discount =
+      this.game.party.buildings.find(
+        (buildingModel) => buildingModel.name === 'carpenter' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
+      ) !== undefined;
+    let inspiration = this.game.party.inspiration;
+    return materialResourceLootTypes.every((type) => {
+      const cost = costs[type as 'lumber' | 'metal' | 'hide'] || 0;
+      const available = this.partyResource(type);
+      if (cost <= available) {
+        return true;
+      }
+      if (inspiration && cost <= available + inspiration) {
+        inspiration -= cost - available;
+        return true;
+      }
+      if (discount && cost === available + 1) {
+        discount = false;
+        return true;
+      }
+      return false;
+    });
+  }
+
+  unlockBuildings(): boolean {
+    const campaign = gameManager.campaignManager.campaignData();
+    if (!campaign || !campaign.buildings) {
+      return false;
+    }
+    let changed = false;
+    campaign.buildings
+      .filter((buildingData) => this.initialBuilding(buildingData))
+      .forEach((buildingData) => {
+        if (!this.game.party.buildings.some((model) => model.name === buildingData.name)) {
+          this.game.party.buildings.push(new BuildingModel(buildingData.name, 1));
+          if (buildingData.rewards && buildingData.rewards[0]) {
+            this.applyRewards(buildingData.rewards[0]);
+          }
+          changed = true;
+        }
+      });
+
+    campaign.buildings
+      .filter(
+        (buildingData) => buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.campaignManager.prosperityLevel()
+      )
+      .forEach((buildingData) => {
+        if (
+          !this.game.party.buildings.some((model) => model.name === buildingData.name) &&
+          (!buildingData.requires || this.game.party.buildings.some((model) => model.name === buildingData.requires && model.level))
+        ) {
+          this.game.party.buildings.push(new BuildingModel(buildingData.name, 0));
+          changed = true;
+        }
+      });
+    return changed;
+  }
+
+  resetBuildings() {
+    const campaign = gameManager.campaignManager.campaignData();
+    if (campaign && campaign.buildings) {
+      campaign.buildings
+        .filter((buildingData) => this.initialBuilding(buildingData) && buildingData.rewards && buildingData.rewards[0])
+        .filter((buildingData) => this.game.party.buildings.some((model) => model.name === buildingData.name))
+        .forEach((buildingData) => {
+          const rewards = buildingData.rewards[0];
+          this.game.party.defense -= rewards.defense || 0;
+          this.game.party.soldiers = Math.max(0, this.game.party.soldiers - (rewards.soldiers || 0));
+          this.game.party.prosperity = Math.max(0, this.game.party.prosperity - (rewards.prosperity || 0));
+          if (rewards.loseMorale) {
+            gameManager.campaignManager.changeMorale(rewards.loseMorale);
+          }
+        });
+    }
+    this.game.party.buildings = [];
+  }
+
+  upgradeable(data: BuildingData, model: BuildingModel): boolean {
+    if (model.level && !data.repair) {
+      return false;
+    }
+
+    if (data.repair && model.state === 'damaged') {
+      return (
+        this.partyResource(LootType.lumber) +
+          this.partyResource(LootType.metal) +
+          this.partyResource(LootType.hide) +
+          this.game.party.inspiration >
+          data.repair[model.level - 1] || this.game.party.morale > 0
+      );
+    }
+
+    if (model.state === 'wrecked') {
+      return this.resourcesAffordable(data.rebuild[model.level - 1]);
+    }
+
+    if (model.level < data.upgrades.length + 1) {
+      const costs: BuildingCosts = model.level ? data.upgrades[model.level - 1] : data.costs;
+      if (costs.prosperity && costs.prosperity > gameManager.campaignManager.prosperityLevel()) {
+        return false;
+      }
+
+      if (!this.resourcesAffordable(costs)) {
+        return false;
+      }
+
+      const characterGold = this.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure.progress.gold);
+      return characterGold.length > 0 && (costs.gold || 0) <= characterGold.reduce((a, b) => a + b);
+    }
+
+    return false;
+  }
+
+  upgradeCosts(data: BuildingData, model: BuildingModel): BuildingCosts {
+    return model.level ? data.upgrades[model.level - 1] : data.costs;
+  }
+
+  pay(payment: SelectResourceResult | undefined) {
+    if (payment) {
+      if (payment.morale) {
+        gameManager.campaignManager.changeMorale(-payment.morale);
+      } else {
+        gameManager.lootManager.applySelectResources(payment);
+      }
+    }
+  }
+
+  upgradeBuilding(
+    data: BuildingData,
+    model: BuildingModel,
+    payment: SelectResourceResult | undefined = undefined
+  ): BuildingRewards | undefined {
+    this.pay(payment);
+    model.level++;
+    gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.buildings);
+    this.unlockBuildings();
+    if (this.game.party.campaignMode && settingsManager.settings.applyBuildingRewards && data.rewards && data.rewards[model.level - 1]) {
+      const rewards = data.rewards[model.level - 1];
+      this.applyRewards(rewards);
+      return rewards;
+    }
+    return undefined;
+  }
+
+  rebuildBuilding(model: BuildingModel, payment: SelectResourceResult | undefined = undefined) {
+    this.pay(payment);
+    model.state = 'normal';
+  }
+
+  repairBuilding(model: BuildingModel, payment: SelectResourceResult | undefined = undefined) {
+    this.pay(payment);
+    model.state = 'normal';
+  }
+
+  nextBuildingState(data: BuildingData, model: BuildingModel, force: boolean = false): 'normal' | 'damaged' | 'wrecked' | undefined {
+    if (!data.repair || model.level < 1) {
+      return undefined;
+    }
+    if (model.state === 'normal') {
+      return 'damaged';
+    } else if (model.state === 'damaged') {
+      return 'wrecked';
+    } else if (force && model.state === 'wrecked') {
+      return 'normal';
+    }
+    return undefined;
+  }
+
+  removableBuilding(data: BuildingData): boolean {
+    return !this.initialBuilding(data) && !this.availableBuilding(data);
+  }
+
+  downgradeable(data: BuildingData, model: BuildingModel): boolean {
+    return this.removableBuilding(data) || model.level > 1;
+  }
+
+  downgradeBuilding(data: BuildingData, model: BuildingModel, remove: boolean = false) {
+    const index = this.game.party.buildings.indexOf(model);
+    if (index === -1) {
+      return;
+    }
+    if (this.removableBuilding(data) && (model.level === 0 || remove)) {
+      model.state = 'normal';
+      this.game.party.buildings.splice(index, 1);
+      this.removeRewardConclusion(data, 0);
+    } else if (this.downgradeable(data, model)) {
+      model.level--;
+      if (model.level === 0) {
+        model.state = 'normal';
+      }
+      this.removeRewardConclusion(data, model.level);
+    }
+  }
+
+  private removeRewardConclusion(data: BuildingData, level: number) {
+    if (this.game.party.campaignMode && data.rewards && data.rewards[level] && data.rewards[level].section) {
+      const section = gameManager
+        .sectionData(gameManager.currentEdition())
+        .find((sectionData) => sectionData.index === data.rewards[level].section);
+      if (section) {
+        const conclusion = this.rewardSection(section);
+        if (conclusion) {
+          this.game.party.conclusions = this.game.party.conclusions.filter(
+            (model) => model.edition !== conclusion.edition || model.group !== conclusion.group || model.index !== conclusion.index
+          );
+        }
+      }
+    }
+  }
+
+  plantGardenHerb(herb: LootType, slot: number, source: Character | 'party' | undefined = undefined) {
+    const garden = Object.assign(new GardenModel(), this.game.party.garden || new GardenModel());
+    garden.plots = garden.plots || [];
+    garden.plots[slot] = herb;
+    if (source === 'party') {
+      this.game.party.loot[herb] = (this.game.party.loot[herb] || 1) - 1;
+    } else if (source) {
+      source.progress.loot[herb] = (source.progress.loot[herb] || 1) - 1;
+    }
+    this.game.party.garden = garden;
+  }
+
+  harvestGarden() {
+    if (this.game.party.garden) {
+      this.game.party.garden.plots.forEach((herb) => {
+        if (herb) {
+          this.game.party.loot[herb] = (this.game.party.loot[herb] || 0) + 1;
+        }
+      });
+    }
+  }
+
+  setPetActive(pet: PetIdentifier, active: boolean, force: boolean = false) {
+    pet.active = active;
+    const stables = this.game.party.buildings.find((building) => building.name === 'stables' && building.level);
+    while (!force && stables && this.game.party.pets.filter((value) => value.active).length > (stables.level < 3 ? 1 : 2)) {
+      const other = this.game.party.pets.find((value) => value.active && value !== pet);
+      if (!other) {
+        break;
+      }
+      other.active = false;
+    }
+  }
+
   nextWeek() {
     if (this.gardenEnabled) {
       const gardenBuilding = this.game.party.buildings.find((value) => value.name === 'garden' && value.level);
@@ -160,9 +416,7 @@ export class BuildingsManager {
         }
 
         if (this.game.party.garden.automated && (gardenBuilding.level > 2 || this.game.party.garden.flipped)) {
-          this.game.party.garden.plots.forEach((herb) => {
-            this.game.party.loot[herb] = (this.game.party.loot[herb] || 0) + 1;
-          });
+          this.harvestGarden();
         }
       }
     }

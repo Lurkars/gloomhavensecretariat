@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { RpgAttribute, RpgProgress } from 'src/app/game/model/CharacterProgress';
 import { Action, ActionType } from 'src/app/game/model/data/Action';

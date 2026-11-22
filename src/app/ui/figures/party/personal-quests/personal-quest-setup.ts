@@ -1,8 +1,9 @@
 import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { PersonalQuestCardComponent } from 'src/app/ui/figures/character/sheet/personal-quest-card/personal-quest-card';

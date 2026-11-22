@@ -1372,7 +1372,7 @@
                   />
                 </span>
               }
-              @if (gameManager.fhRules() && !eventHelper.eventAttack) {
+              @if (gameManager.fhRules() && !eventHelper.outpostAttack) {
                 <span
                   class="action"
                   tabclick
@@ -1543,12 +1543,7 @@
           </div>
         }
 
-        @if (
-          eventHelper.eventEffectsManual.length ||
-          eventHelper.eventConditionManual.length ||
-          !!eventHelper.eventAttack ||
-          eventHelper.eventOutpostAttackEffects.length
-        ) {
+        @if (eventHelper.eventEffectsManual.length || eventHelper.eventConditionManual.length || !!eventHelper.outpostAttack) {
           <div class="entity-container event-outcomes">
             @if (eventHelper.eventEffectsManual.length || eventHelper.eventConditionManual.length) {
               <span class="title" [ghs-label]="'game.events.applyManually'"></span>
@@ -1559,18 +1554,18 @@
             @for (effect of eventHelper.eventEffectsManual; track (typeof effect === 'object' ? effect.type : effect) + $index) {
               <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
             }
-            @if (!!eventHelper.eventAttack) {
+            @if (eventHelper.outpostAttack; as outpostAttack) {
               <span class="title outpost" [ghs-label]="'game.events.outpostAttack'"></span>
+              @if (outpostAttack.effects && outpostAttack.effects.length) {
+                <span class="title" [ghs-label]="'game.events.outpostAttack.effects'"></span>
+              }
+              @for (effect of outpostAttack.effects; track effect.type + $index) {
+                <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
+              }
             }
-            @if (eventHelper.eventOutpostAttackEffects.length) {
-              <span class="title" [ghs-label]="'game.events.outpostAttack.effects'"></span>
-            }
-            @for (effect of eventHelper.eventOutpostAttackEffects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
-              <ghs-event-card-effect [effect]="effect" [light]="true" [selected]="true"></ghs-event-card-effect>
-            }
-            @if (!!eventHelper.eventAttack) {
+            @if (eventHelper.outpostAttackCard; as attack) {
               <ghs-event-card-attack
-                [attack]="eventHelper.eventAttack"
+                [attack]="attack"
                 [light]="true"
                 [selected]="true"
                 [narrative]="false"
@@ -1578,6 +1573,9 @@
                 [disabled]="true"
                 (click)="eventHelper.openOutpostAttack()"
               ></ghs-event-card-attack>
+            }
+            @if (eventHelper.outpostAttack) {
+              <a class="action" (click)="eventHelper.cancelOutpostAttack()" [ghs-label]="'game.events.outpostAttack.cancel'"></a>
             }
             <a class="action" (click)="campaignHelper.openPartySheet()" [ghs-label]="'campaign.party'"></a>
           </div>

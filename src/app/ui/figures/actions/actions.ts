@@ -1,9 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject, input, model, OnInit } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';

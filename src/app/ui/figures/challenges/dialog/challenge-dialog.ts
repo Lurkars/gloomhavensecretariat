@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 import { ChallengeCardComponent } from 'src/app/ui/figures/challenges/challenge-card';
 

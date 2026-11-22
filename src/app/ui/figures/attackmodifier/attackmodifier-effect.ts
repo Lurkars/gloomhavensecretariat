@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { ActionHexComponent } from 'src/app/ui/figures/actions/area/action-hex';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

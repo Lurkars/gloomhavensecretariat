@@ -2,11 +2,11 @@ import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemSlot } from 'src/app/game/model/data/ItemData';
 import { LootType, resourceLootTypes } from 'src/app/game/model/data/Loot';
 import { GameState } from 'src/app/game/model/Game';
@@ -238,12 +238,7 @@ export class ItemsDialogComponent implements OnInit {
           }
         });
 
-        if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-          const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === 'alchemist');
-          if (alchemist && alchemist.level) {
-            this.brewing = alchemist.level < 3 ? 2 : 3;
-          }
-        }
+        this.brewing = gameManager.itemManager.brewingHerbs();
       }
 
       this.items.sort((a, b) => {
@@ -335,19 +330,14 @@ export class ItemsDialogComponent implements OnInit {
   }
 
   unlocked(item: ItemData): boolean {
-    return (
-      gameManager.game.party.unlockedItems &&
-      gameManager.game.party.unlockedItems.find((identifier) => identifier.name === '' + item.id && identifier.edition === item.edition) !=
-        undefined
-    );
+    return !!gameManager.itemManager.unlockedItem(item);
   }
 
   unlockItemReveal(item: ItemData, revealed: boolean) {
     if (this.unlocks.includes(item) && revealed) {
-      gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
       if (!this.unlocked(item)) {
         gameManager.stateManager.before('addUnlockedItem', item.edition, item.id, item.name);
-        gameManager.game.party.unlockedItems.push(new CountIdentifier(item.id, item.edition));
+        gameManager.itemManager.setItemUnlocked(item, true);
         gameManager.stateManager.after();
         this.updateEditionItems();
       }
@@ -357,25 +347,20 @@ export class ItemsDialogComponent implements OnInit {
   removeUnlocked(itemData: ItemData) {
     if (this.unlocked(itemData)) {
       gameManager.stateManager.before('removeUnlockedItem', itemData.edition, itemData.id, itemData.name);
-      gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
-      gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems.filter(
-        (identifier) => identifier.name !== '' + itemData.id || identifier.edition !== itemData.edition
-      );
+      gameManager.itemManager.setItemUnlocked(itemData, false);
       gameManager.stateManager.after();
       this.updateEditionItems();
     }
   }
 
   filtered(itemData: ItemData): boolean {
-    return gameManager.game.party.filteredItems.some(
-      (identitfier) => identitfier.edition === itemData.edition && identitfier.name === '' + itemData.id
-    );
+    return gameManager.itemManager.itemFiltered(itemData);
   }
 
   filterItem(itemData: ItemData) {
     if (!this.filtered(itemData)) {
       gameManager.stateManager.before('filterItem', itemData.edition, itemData.id, itemData.name);
-      gameManager.game.party.filteredItems.push(new Identifier(itemData.id, itemData.edition));
+      gameManager.itemManager.setItemFiltered(itemData, true);
       gameManager.stateManager.after();
       this.updateEditionItems();
     }
@@ -384,11 +369,7 @@ export class ItemsDialogComponent implements OnInit {
   removeFilterItem(itemData: ItemData) {
     if (this.filtered(itemData)) {
       gameManager.stateManager.before('removeFilterItem', itemData.edition, itemData.id, itemData.name);
-      gameManager.game.party.filteredItems = [
-        ...gameManager.game.party.filteredItems.filter(
-          (identifier) => identifier.edition !== itemData.edition || identifier.name !== '' + itemData.id
-        )
-      ];
+      gameManager.itemManager.setItemFiltered(itemData, false);
       gameManager.stateManager.after();
       this.updateEditionItems();
     }

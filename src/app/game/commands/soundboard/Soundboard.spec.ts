@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
+import { gameManager, soundboardManager } from 'src/app/game/businesslogic/Managers';
 import { CommandMissingParameterError } from 'src/app/game/commands/Command';
 import { CommandManager } from 'src/app/game/commands/CommandManager';
 import { resetTestGame } from 'src/app/game/commands/commandsTestHelpers';

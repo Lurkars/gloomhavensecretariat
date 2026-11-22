@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 

@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { TreasuresDialogComponent } from 'src/app/ui/figures/party/treasures/treasures-dialog';

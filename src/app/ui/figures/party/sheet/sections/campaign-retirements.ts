@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { openCharacterSheet } from 'src/app/ui/figures/party/sheet/sections/campaign-players';

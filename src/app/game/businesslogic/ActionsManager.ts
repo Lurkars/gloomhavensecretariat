@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionHint, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';

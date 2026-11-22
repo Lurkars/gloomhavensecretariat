@@ -1,8 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { LogEntry } from 'src/app/game/model/LogEntry';
 import { LogRow, UndoDialogComponent } from 'src/app/ui/header/menu/undo/dialog';
 

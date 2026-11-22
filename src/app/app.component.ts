@@ -4,7 +4,7 @@ import { Component, inject, isDevMode, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ghsDialogClosingHelper, ghsFilterInputFocus } from 'src/app/ui/helper/Static';
 @Component({
   imports: [NgClass, RouterOutlet],

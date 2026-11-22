@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
 import { CharacterClass, CharacterData, CharacterGender } from 'src/app/game/model/data/CharacterData';

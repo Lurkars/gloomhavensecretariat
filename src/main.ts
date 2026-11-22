@@ -4,6 +4,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, Routes, UrlMatcher, UrlSegment } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { AppComponent } from 'src/app/app.component';
+import { initManagers } from 'src/app/game/businesslogic/ManagersInit';
 import { MainComponent } from 'src/app/ui/main';
 import { GhsErrorHandler } from 'src/app/ui/tools/error-handler';
 import { environment } from 'src/environments/environment';
@@ -74,6 +75,8 @@ const routes: Routes = [
   },
   { path: '**', component: MainComponent }
 ];
+
+initManagers();
 
 bootstrapApplication(AppComponent, {
   providers: [

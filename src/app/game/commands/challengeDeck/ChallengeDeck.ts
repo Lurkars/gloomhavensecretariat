@@ -1,5 +1,4 @@
-import { moveItemInArray } from '@angular/cdk/drag-drop';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
@@ -120,9 +119,7 @@ export class ChallengeDeckRestoreCardCommand extends CommandImpl {
     gameManager.game.seed = seed;
     const card = this.card(cardId);
     if (card) {
-      const deck = gameManager.game.challengeDeck;
-      const index = gameManager.randomManager.int(deck.cards.length - deck.current) + deck.current + 1;
-      deck.cards.splice(index, 0, card);
+      gameManager.challengesManager.restoreCard(gameManager.game.challengeDeck, card);
     } else {
       this.executionError('challenge card not found');
     }
@@ -152,50 +149,7 @@ export class ChallengeDeckMoveCommand extends CommandImpl {
   }
 
   move(fromList: string, fromIndex: number, toList: string, toIndex: number) {
-    const deck = gameManager.game.challengeDeck;
-    let prev = 0;
-    let cur = 0;
-    if (toList === 'upcoming') {
-      if (fromList === 'upcoming') {
-        prev = fromIndex + deck.current + 1;
-        cur = toIndex + deck.current + 1;
-      } else if (fromList === 'finished') {
-        prev = deck.finished - fromIndex;
-        cur = toIndex + deck.current;
-        deck.finished--;
-        deck.current--;
-      } else {
-        prev = deck.current - fromIndex;
-        cur = toIndex + deck.current;
-        deck.current--;
-      }
-    } else if (toList === 'discarded') {
-      if (fromList === 'discarded') {
-        prev = deck.current - fromIndex;
-        cur = deck.current - toIndex;
-      } else if (fromList === 'finished') {
-        prev = deck.finished - fromIndex;
-        deck.finished--;
-        cur = deck.current - toIndex;
-      } else {
-        deck.current++;
-        prev = deck.current + fromIndex;
-        cur = deck.current - toIndex;
-      }
-    } else if (fromList === 'finished') {
-      prev = deck.finished - fromIndex;
-      cur = deck.finished - toIndex;
-    } else if (fromList === 'discarded') {
-      deck.finished++;
-      prev = deck.current - fromIndex;
-      cur = deck.finished - toIndex;
-    } else {
-      deck.finished++;
-      deck.current++;
-      prev = deck.current + fromIndex;
-      cur = deck.finished - toIndex;
-    }
-    moveItemInArray(deck.cards, prev, cur);
+    gameManager.challengesManager.moveCard(gameManager.game.challengeDeck, fromList, fromIndex, toList, toIndex);
   }
 }
 

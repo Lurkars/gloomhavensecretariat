@@ -1,6 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';

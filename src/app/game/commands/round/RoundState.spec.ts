@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { createTestCharacter, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { RoundStateCommand } from 'src/app/game/commands/round/RoundState';
 import { GameState } from 'src/app/game/model/Game';

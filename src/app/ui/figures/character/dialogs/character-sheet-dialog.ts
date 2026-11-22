@@ -1,7 +1,8 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterSheetComponent } from 'src/app/ui/figures/character/sheet/character-sheet';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';

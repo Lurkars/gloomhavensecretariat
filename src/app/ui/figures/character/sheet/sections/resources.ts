@@ -1,8 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { herbResourceLootTypes, LootType, materialResourceLootTypes } from 'src/app/game/model/data/Loot';
 import { CharacterMoveResourcesDialog } from 'src/app/ui/figures/character/sheet/move-resources';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';

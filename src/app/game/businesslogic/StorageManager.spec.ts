@@ -1,4 +1,4 @@
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { storageManager } from 'src/app/game/businesslogic/Managers';
 
 // StorageManager wraps IndexedDB with a localStorage fallback. This spec covers the localStorage
 // datadump (forced via migrate=true, which always reads localStorage).

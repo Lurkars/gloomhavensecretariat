@@ -1,12 +1,10 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
-import { applyPayment, paymentValid } from 'src/app/game/commands/party/payment';
+import { payment, paymentValid } from 'src/app/game/commands/party/payment';
 import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
 import { herbResourceLootTypes, LootType } from 'src/app/game/model/data/Loot';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { PetIdentifier } from 'src/app/game/model/data/PetCard';
 
 function buildingData(name: BASE_TYPE): BuildingData | undefined {
@@ -16,22 +14,6 @@ function buildingData(name: BASE_TYPE): BuildingData | undefined {
 
 function buildingModel(name: BASE_TYPE): BuildingModel | undefined {
   return gameManager.game.party.buildings.find((model) => model.name === name);
-}
-
-function removeRewardConclusion(data: BuildingData, level: number) {
-  if (gameManager.game.party.campaignMode && data.rewards && data.rewards[level] && data.rewards[level].section) {
-    const section = gameManager
-      .sectionData(gameManager.currentEdition())
-      .find((sectionData) => sectionData.index === data.rewards[level].section);
-    if (section) {
-      const conclusion = gameManager.buildingsManager.rewardSection(section);
-      if (conclusion) {
-        gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-          (model) => model.edition !== conclusion.edition || model.group !== conclusion.group || model.index !== conclusion.index
-        );
-      }
-    }
-  }
 }
 
 export class BuildingAddCommand extends CommandImpl {
@@ -80,17 +62,7 @@ export class BuildingUpgradeCommand extends CommandImpl {
     const data = buildingData(name);
     const model = buildingModel(name);
     if (data && model) {
-      applyPayment(this.parameters.slice(1));
-      model.level++;
-      gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.buildings);
-      if (
-        gameManager.game.party.campaignMode &&
-        settingsManager.settings.applyBuildingRewards &&
-        data.rewards &&
-        data.rewards[model.level - 1]
-      ) {
-        gameManager.buildingsManager.applyRewards(data.rewards[model.level - 1]);
-      }
+      gameManager.buildingsManager.upgradeBuilding(data, model, payment(this.parameters.slice(1)));
     } else {
       this.executionError('building not found');
     }
@@ -101,35 +73,17 @@ export class BuildingDowngradeCommand extends CommandImpl {
   id: string = 'building.downgrade';
   requiredParameters: number = 1;
 
-  removable(data: BuildingData): boolean {
-    return !gameManager.buildingsManager.initialBuilding(data) && !gameManager.buildingsManager.availableBuilding(data);
-  }
-
-  remove(data: BuildingData, model: BuildingModel, remove: BASE_TYPE): boolean {
-    return this.removable(data) && (model.level === 0 || !!remove);
-  }
-
   validParameters(name: string): boolean {
     const data = buildingData(name);
     const model = buildingModel(name);
-    return !!data && !!model && (this.removable(data) || model.level > 1);
+    return !!data && !!model && gameManager.buildingsManager.downgradeable(data, model);
   }
 
   executeWithParameters(name: string, remove: boolean = false) {
     const data = buildingData(name);
     const model = buildingModel(name);
     if (data && model) {
-      if (this.remove(data, model, remove)) {
-        model.state = 'normal';
-        gameManager.game.party.buildings.splice(gameManager.game.party.buildings.indexOf(model), 1);
-        removeRewardConclusion(data, 0);
-      } else {
-        model.level--;
-        if (model.level === 0) {
-          model.state = 'normal';
-        }
-        removeRewardConclusion(data, model.level);
-      }
+      gameManager.buildingsManager.downgradeBuilding(data, model, remove);
     } else {
       this.executionError('building not found');
     }
@@ -168,8 +122,7 @@ export class BuildingRepairCommand extends CommandImpl {
   executeWithParameters(name: string) {
     const model = buildingModel(name);
     if (model) {
-      applyPayment(this.parameters.slice(1));
-      model.state = 'normal';
+      gameManager.buildingsManager.repairBuilding(model, payment(this.parameters.slice(1)));
     } else {
       this.executionError('building not found');
     }
@@ -199,18 +152,7 @@ export class GardenPlantCommand extends CommandImpl {
   }
 
   executeWithParameters(herb: LootType, slot: number, source: number = -2) {
-    const model = garden();
-    model.plots = model.plots || [];
-    model.plots[slot] = herb;
-    if (source === -1) {
-      gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 1) - 1;
-    } else {
-      const character = findCharacter(source);
-      if (character) {
-        character.progress.loot[herb] = (character.progress.loot[herb] || 1) - 1;
-      }
-    }
-    gameManager.game.party.garden = model;
+    gameManager.buildingsManager.plantGardenHerb(herb, slot, source === -1 ? 'party' : findCharacter(source));
   }
 }
 
@@ -253,11 +195,7 @@ export class GardenHarvestCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    garden().plots.forEach((herb) => {
-      if (herb) {
-        gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) + 1;
-      }
-    });
+    gameManager.buildingsManager.harvestGarden();
   }
 }
 
@@ -325,16 +263,7 @@ export class PetActiveCommand extends CommandImpl {
   executeWithParameters(edition: string, name: string, active: boolean, force: boolean = false) {
     const model = pet(edition, name);
     if (model) {
-      model.active = active;
-      const stables = gameManager.game.party.buildings.find((building) => building.name === 'stables' && building.level);
-      while (!force && stables && gameManager.game.party.pets.filter((value) => value.active).length > (stables.level < 3 ? 1 : 2)) {
-        const other = gameManager.game.party.pets.find((value) => value.active && value !== model);
-        if (other) {
-          other.active = false;
-        } else {
-          break;
-        }
-      }
+      gameManager.buildingsManager.setPetActive(model, active, force);
     }
   }
 }
@@ -356,9 +285,7 @@ export class OutpostBuildingAttackedCommand extends CommandImpl {
   executeWithParameters(name: string, state: 'normal' | 'damaged' | 'wrecked', soldiers: number = 0) {
     const model = buildingModel(name);
     if (model) {
-      gameManager.game.party.soldiers -= soldiers;
-      model.attacked = true;
-      model.state = state;
+      gameManager.outpostAttackManager.attackBuilding(model, state, soldiers);
     } else {
       this.executionError('building not found');
     }

@@ -1,13 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-
-function recalculate() {
-  if (gameManager.game.levelCalculation) {
-    gameManager.levelManager.calculateScenarioLevel();
-  }
-}
 
 export class LevelSetCommand extends CommandImpl {
   id: string = 'level.set';
@@ -18,8 +10,7 @@ export class LevelSetCommand extends CommandImpl {
   }
 
   executeWithParameters(level: number) {
-    gameManager.levelManager.setLevel(level);
-    gameManager.game.levelCalculation = false;
+    gameManager.levelManager.setManualLevel(level);
   }
 }
 
@@ -32,8 +23,7 @@ export class LevelCalculationCommand extends CommandImpl {
   }
 
   executeWithParameters(enabled: boolean) {
-    gameManager.game.levelCalculation = enabled;
-    recalculate();
+    gameManager.levelManager.setLevelCalculation(enabled);
   }
 }
 
@@ -46,8 +36,7 @@ export class LevelAdjustmentCommand extends CommandImpl {
   }
 
   executeWithParameters(value: number) {
-    gameManager.game.levelAdjustment = value;
-    recalculate();
+    gameManager.levelManager.setLevelAdjustment(value);
   }
 }
 
@@ -60,8 +49,7 @@ export class LevelBonusCommand extends CommandImpl {
   }
 
   executeWithParameters(value: number) {
-    gameManager.game.bonusAdjustment = value;
-    recalculate();
+    gameManager.levelManager.setBonusAdjustment(value);
   }
 }
 
@@ -74,20 +62,7 @@ export class LevelBbDifficultyCommand extends CommandImpl {
   }
 
   executeWithParameters(level: number) {
-    gameManager.game.levelAdjustment = level - 2;
-    const editionData = gameManager.editionData.find(
-      (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
-    );
-    if (editionData) {
-      const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
-      gameManager.game.monsterAttackModifierDeck.attackModifiers = editionData.monsterAmTables[monsterDifficulty].map(
-        (value) => new AttackModifier(value as AttackModifierType)
-      );
-      gameManager.game.monsterAttackModifierDeck.cards = editionData.monsterAmTables[monsterDifficulty].map(
-        (value) => new AttackModifier(value as AttackModifierType)
-      );
-    }
-    gameManager.game.monsterAttackModifierDeck.bb = settingsManager.settings.bbAm;
+    gameManager.levelManager.setBbMonsterDifficulty(level);
   }
 }
 
@@ -100,8 +75,7 @@ export class LevelGe5PlayerCommand extends CommandImpl {
   }
 
   executeWithParameters(enabled: boolean) {
-    gameManager.game.ge5Player = enabled;
-    recalculate();
+    gameManager.levelManager.setGe5Player(enabled);
   }
 }
 
@@ -114,8 +88,7 @@ export class LevelGe5PlayerCappedCommand extends CommandImpl {
   }
 
   executeWithParameters(enabled: boolean) {
-    gameManager.game.ge5PlayerCapped = enabled;
-    gameManager.levelManager.setLevel(gameManager.game.level, true);
+    gameManager.levelManager.setGe5PlayerCapped(enabled);
   }
 }
 
@@ -128,13 +101,7 @@ export class LevelPlayerCountCommand extends CommandImpl {
   }
 
   executeWithParameters(playerCount: number) {
-    const enabling = gameManager.game.playerCount === -1 && playerCount !== -1;
-    gameManager.game.playerCount = playerCount;
-    if (enabling) {
-      gameManager.game.levelCalculation = false;
-    } else {
-      recalculate();
-    }
+    gameManager.levelManager.setPlayerCount(playerCount);
   }
 }
 

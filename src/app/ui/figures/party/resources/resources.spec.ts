@@ -1,6 +1,6 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { PartyResourcesDialogComponent } from 'src/app/ui/figures/party/resources/resources';
 

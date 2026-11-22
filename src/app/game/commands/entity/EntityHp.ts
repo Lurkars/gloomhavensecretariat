@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findEntities, findFigure, removeDeadEntity } from 'src/app/game/commands/CommandHelper';
 import { Monster } from 'src/app/game/model/Monster';

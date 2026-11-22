@@ -1,6 +1,6 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel } from 'src/app/game/model/Building';
+import { Character } from 'src/app/game/model/Character';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 import {
@@ -12,6 +12,8 @@ import {
   EventCardEffectType,
   EventCardIdentifier
 } from 'src/app/game/model/data/EventCard';
+import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { ItemData, ItemFlags } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { TreasureData, TreasureRewardType } from 'src/app/game/model/data/RoomData';
@@ -77,6 +79,18 @@ export const EventCardApplyEffects: EventCardEffectType[] = [
   EventCardEffectType.upgradeBuilding,
   EventCardEffectType.wreckBuilding
 ];
+
+export type EventDistributionValues = Partial<Record<string, number>>;
+
+export class EventDistribution {
+  receive: { character: Character; values: EventDistributionValues }[] = [];
+  receiveParty: EventDistributionValues = {};
+  spend: { character: Character; values: EventDistributionValues }[] = [];
+  spendParty: EventDistributionValues = {};
+  itemsReceive: { item: ItemData; character: Character }[] = [];
+  itemsConsume: { item: ItemData; character: Character }[] = [];
+  itemsLose: { item: ItemData; character: Character }[] = [];
+}
 
 export class EventCardManager {
   game: Game;
@@ -245,6 +259,80 @@ export class EventCardManager {
 
   buildEventDeck(type: string, cardIds: string[]) {
     cardIds.forEach((cardId) => this.addEvent(type, cardId));
+  }
+
+  applyDistribution(distribution: EventDistribution) {
+    distribution.receive.forEach((entry) => this.distributeCharacter(entry.character, entry.values, 1));
+    this.distributeParty(distribution.receiveParty, 1);
+    distribution.spend.forEach((entry) => this.distributeCharacter(entry.character, entry.values, -1));
+    this.distributeParty(distribution.spendParty, -1);
+
+    distribution.itemsReceive.forEach((entry) => gameManager.itemManager.addItem(entry.item, entry.character));
+
+    distribution.itemsConsume.forEach((entry) => {
+      const item = entry.item;
+      let equipped = entry.character.progress.equippedItems.find(
+        (identifier) => identifier.name === '' + item.id && identifier.edition === item.edition
+      );
+      if (!equipped) {
+        equipped = new AdditionalIdentifier(item.id, item.edition);
+        entry.character.progress.equippedItems.push(equipped);
+      }
+      equipped.tags = equipped.tags || [];
+      if (!equipped.tags.includes(ItemFlags.consumed)) {
+        equipped.tags.push(ItemFlags.consumed);
+      }
+    });
+
+    distribution.itemsLose.forEach((entry) => gameManager.itemManager.removeItem(entry.item, entry.character));
+  }
+
+  private distributeCharacter(character: Character, values: EventDistributionValues, sign: number) {
+    Object.keys(values).forEach((type) => {
+      const amount = (values[type] || 0) * sign;
+      if (!amount) {
+        return;
+      }
+      if (type === 'gold') {
+        character.progress.gold = Math.max(0, character.progress.gold + amount);
+      } else if (type === 'experience') {
+        character.progress.experience = Math.max(0, character.progress.experience + amount);
+      } else {
+        const lootType = type as LootType;
+        character.progress.loot[lootType] = Math.max(0, (character.progress.loot[lootType] || 0) + amount);
+      }
+    });
+  }
+
+  private distributeParty(values: EventDistributionValues, sign: number) {
+    Object.keys(values).forEach((type) => {
+      const amount = (values[type] || 0) * sign;
+      if (amount && type !== 'gold' && type !== 'experience') {
+        const lootType = type as LootType;
+        this.game.party.loot[lootType] = Math.max(0, (this.game.party.loot[lootType] || 0) + amount);
+      }
+    });
+  }
+
+  applyRandomItem(item: ItemData | undefined) {
+    if (item) {
+      gameManager.itemManager.setItemUnlocked(item, true);
+    } else if (gameManager.fhRules()) {
+      this.game.party.inspiration += 1;
+    }
+  }
+
+  applyRandomScenario(scenarioData: ScenarioData | undefined, section: boolean = false) {
+    if (scenarioData) {
+      const model = new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group);
+      if (section) {
+        this.game.party.conclusions.push(model);
+      } else {
+        this.game.party.manualScenarios.push(model);
+      }
+    } else if (gameManager.fhRules()) {
+      this.game.party.inspiration += 1;
+    }
   }
 
   shuffleEvents(type: string) {

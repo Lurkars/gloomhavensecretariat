@@ -1,4 +1,4 @@
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Sound } from 'src/app/game/model/data/Sound';
 
 export type { Sound } from 'src/app/game/model/data/Sound';
@@ -54,5 +54,3 @@ export class SoundboardManager {
     return audio;
   }
 }
-
-export const soundboardManager: SoundboardManager = new SoundboardManager();

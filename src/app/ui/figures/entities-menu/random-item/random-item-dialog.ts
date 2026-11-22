@@ -1,9 +1,9 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, HostListener, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
@@ -24,7 +24,7 @@ export function openEventRandomItemDialog(dialog: Dialog, item: ItemData | undef
         if (result === true) {
           if (gameManager.fhRules()) {
             gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
-            gameManager.game.party.inspiration += 1;
+            gameManager.eventCardManager.applyRandomItem(undefined);
             gameManager.stateManager.after();
           }
         } else if (result) {
@@ -35,7 +35,7 @@ export function openEventRandomItemDialog(dialog: Dialog, item: ItemData | undef
             itemData.edition,
             itemData.name
           );
-          gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
+          gameManager.eventCardManager.applyRandomItem(itemData);
           gameManager.stateManager.after();
         }
       }

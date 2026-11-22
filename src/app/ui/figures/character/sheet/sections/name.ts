@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';

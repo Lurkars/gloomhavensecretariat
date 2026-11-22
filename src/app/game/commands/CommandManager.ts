@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { AttackModifierDeckDrawCommand } from 'src/app/game/commands/attackModifierDeck/AttackModifierDeckDraw';
 import {
   AttackModifierDeckActiveCommand,
@@ -642,6 +642,3 @@ export class CommandManager {
     }
   }
 }
-
-export const commandManager: CommandManager = new CommandManager();
-window.commandManager = commandManager;

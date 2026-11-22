@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, input, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Element } from 'src/app/game/model/data/Element';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStandeeData } from 'src/app/game/model/data/RoomData';

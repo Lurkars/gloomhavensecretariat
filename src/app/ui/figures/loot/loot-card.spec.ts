@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Loot, LootType } from 'src/app/game/model/data/Loot';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { LootComponent } from 'src/app/ui/figures/loot/loot-card';

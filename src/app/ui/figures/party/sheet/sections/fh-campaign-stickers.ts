@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { AutocompleteDirective, AutocompleteItem } from 'src/app/ui/helper/autocomplete';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

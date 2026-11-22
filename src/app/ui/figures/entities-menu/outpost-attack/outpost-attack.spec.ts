@@ -1,59 +1,96 @@
-import {
-  AttackModifier,
-  AttackModifierDeck,
-  AttackModifierEffect,
-  AttackModifierEffectType,
-  AttackModifierType
-} from 'src/app/game/model/data/AttackModifier';
-import { EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { TestBed } from '@angular/core/testing';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { EventCardAttack, EventCardAttackTarget, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
+import { OutpostAttackModel, OutpostAttackResource } from 'src/app/game/model/data/OutpostAttack';
 import { OutpostAttackComponent } from 'src/app/ui/figures/entities-menu/outpost-attack/outpost-attack';
 
-// addResources() only uses instance fields, so the dialog dependencies are skipped.
-function component(): OutpostAttackComponent {
-  const instance = Object.create(OutpostAttackComponent.prototype) as OutpostAttackComponent;
-  instance.resources = [];
-  return instance;
+function createComponent(data: unknown, close: (result?: unknown) => void = () => {}): OutpostAttackComponent {
+  TestBed.configureTestingModule({
+    imports: [OutpostAttackComponent],
+    providers: [
+      { provide: DIALOG_DATA, useValue: data },
+      { provide: DialogRef, useValue: { close: close, overlayRef: {} } },
+      { provide: Dialog, useValue: {} }
+    ]
+  });
+  return TestBed.createComponent(OutpostAttackComponent).componentInstance;
 }
 
-function card(value: string, rolling: boolean = false): AttackModifier {
-  const am = new AttackModifier(AttackModifierType.townguard);
-  am.effects = [new AttackModifierEffect(AttackModifierEffectType.custom, value)];
-  am.rolling = rolling;
-  return am;
-}
-
-function draw(instance: OutpostAttackComponent, deck: AttackModifierDeck, count: number, state?: 'advantage' | 'disadvantage') {
-  instance['drawnBefore'] = deck.current;
-  deck.current += count;
-  deck.state = state;
-  instance.addResources(deck);
-}
-
-const effects = (instance: OutpostAttackComponent) => instance.resources.map((resource) => resource.effect);
-
-describe('OutpostAttackComponent resources', () => {
-  const hide = card('+1%game.resource.hide%', true);
-  const material = card('%game.custom.materialResource:2%');
-  const other = card('fh-soldier');
-
-  it('adds resources of every drawn card', () => {
-    const instance = component();
-    const deck = new AttackModifierDeck([hide, material, other, hide, other]);
-    draw(instance, deck, 1);
-    draw(instance, deck, 1);
-    draw(instance, deck, 2);
-    expect(effects(instance)).toEqual([
-      new EventCardEffect(EventCardEffectType.collectiveResource, [1, 'hide']),
-      new EventCardEffect(EventCardEffectType.collectiveResourceType, [2, 'material_resources']),
-      new EventCardEffect(EventCardEffectType.collectiveResource, [1, 'hide'])
-    ]);
-    expect(instance.resources.every((resource) => resource.enabled)).toBe(true);
+describe('OutpostAttackComponent', () => {
+  beforeEach(() => {
+    gameManager.game.party.outpostAttack = undefined;
+    vi.spyOn(gameManager.outpostAttackManager, 'townGuardDeck').mockReturnValue(
+      new AttackModifierDeck([new AttackModifier(AttackModifierType.success)])
+    );
+    vi.spyOn(gameManager.outpostAttackManager, 'buildings').mockReturnValue([]);
   });
 
-  it('ignores rolling cards on disadvantage', () => {
-    const instance = component();
-    const deck = new AttackModifierDeck([hide, material]);
-    draw(instance, deck, 2, 'disadvantage');
-    expect(effects(instance)).toEqual([new EventCardEffect(EventCardEffectType.collectiveResourceType, [2, 'material_resources'])]);
+  afterEach(() => {
+    vi.restoreAllMocks();
+    gameManager.game.party.outpostAttack = undefined;
+  });
+
+  it('closes without a running outpost attack', () => {
+    const close = vi.fn();
+    const component = createComponent(undefined, close);
+    component.update();
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
+  it('applies the event effects to the attack values', () => {
+    const model = new OutpostAttackModel();
+    model.attack = new EventCardAttack(30, 2, new EventCardAttackTarget(false), '', '', []);
+    model.effects = [new EventCardEffect(EventCardEffectType.outpostAttack, [5])];
+    gameManager.game.party.outpostAttack = model;
+    const component = createComponent(undefined);
+    component.update();
+    expect(component.attack.attackValue).toBe(35);
+    expect(model.attack.attackValue).toBe(30);
+  });
+
+  it('joins a running outpost attack', () => {
+    gameManager.game.party.outpostAttack = Object.assign(new OutpostAttackModel(), { attacks: 1, soldiers: 2 });
+    const start = vi.spyOn(gameManager.outpostAttackManager, 'start');
+    const component = createComponent(undefined);
+    component.update();
+    expect(start).not.toHaveBeenCalled();
+    expect(component.attacks).toBe(1);
+    expect(component.soldiers).toBe(2);
+  });
+
+  it('closes once the attack is finished elsewhere', () => {
+    gameManager.game.party.outpostAttack = new OutpostAttackModel();
+    const close = vi.fn();
+    const component = createComponent(undefined, close);
+    gameManager.game.party.outpostAttack = undefined;
+    component.update();
+    component.update();
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
+  it('finishes the attack with the enabled resources', () => {
+    const model = new OutpostAttackModel();
+    const resource = new OutpostAttackResource(new EventCardEffect(EventCardEffectType.collectiveResource, [1, 'hide']));
+    const disabled = Object.assign(new OutpostAttackResource(new EventCardEffect(EventCardEffectType.collectiveResource, [2, 'metal'])), {
+      enabled: false
+    });
+    model.resources = [resource, disabled];
+    gameManager.game.party.outpostAttack = model;
+    const close = vi.fn();
+    const component = createComponent(undefined, close);
+    component.close(true);
+    expect(gameManager.game.party.outpostAttack).toBeUndefined();
+    expect(close).toHaveBeenCalledWith([resource.effect]);
+  });
+
+  it('keeps the attack running on close', () => {
+    gameManager.game.party.outpostAttack = new OutpostAttackModel();
+    const close = vi.fn();
+    const component = createComponent(undefined, close);
+    component.close();
+    expect(gameManager.game.party.outpostAttack).toBeDefined();
+    expect(close).toHaveBeenCalledWith(undefined);
   });
 });

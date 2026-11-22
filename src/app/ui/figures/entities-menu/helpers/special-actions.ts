@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
 import { Summon } from 'src/app/game/model/Summon';

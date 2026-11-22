@@ -1,17 +1,13 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
-import { ItemFlags } from 'src/app/game/model/data/ItemData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
-import { PetIdentifier } from 'src/app/game/model/data/PetCard';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { SummonState } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
-import { ghsDefaultDialogPositions, ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
+import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsRemoveDeadEntities } from 'src/app/ui/helper/Static';
 
 export class MonsterHelper {
   constructor(private component: EntitiesMenuDialogComponent) {}
@@ -30,14 +26,7 @@ export class MonsterHelper {
       this.component.figure.pet
     ) {
       this.component.catching = true;
-      this.component.catchingDisabled =
-        gameManager.game.figures.find(
-          (figure) =>
-            figure instanceof Character &&
-            figure.progress.equippedItems.find(
-              (item) => item.edition === 'fh' && item.name === '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed))
-            )
-        ) === undefined;
+      this.component.catchingDisabled = !gameManager.monsterManager.petCaptureCharacter();
     }
 
     if (this.component.figure instanceof Monster && this.component.entity instanceof MonsterEntity) {
@@ -123,51 +112,10 @@ export class MonsterHelper {
         '%game.monsterType.' + this.component.entity.type + '.' + this.component.entity.number + '%'
       );
 
-      this.component.entity.dead = true;
-      gameManager.monsterManager.monsterEntityKilled(this.component.figure, this.component.entity);
+      gameManager.monsterManager.catchMonster(this.component.figure, this.component.entity, force);
 
-      if (this.component.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
-        if (this.component.figure.active) {
-          gameManager.roundManager.toggleFigure(this.component.figure);
-        }
-      }
-
-      if (
-        gameManager.game.party.pets.find(
-          (value) =>
-            this.component.figure instanceof Monster &&
-            value.edition === this.component.figure.edition &&
-            value.name === this.component.figure.pet
-        ) === undefined
-      ) {
-        gameManager.game.party.pets.push(new PetIdentifier(this.component.figure.pet, this.component.figure.edition));
-        const character = gameManager.game.figures.find(
-          (figure) =>
-            figure instanceof Character &&
-            figure.progress.equippedItems.find(
-              (item) => item.edition === 'fh' && item.name === '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed))
-            )
-        ) as Character;
-        if (character && !force) {
-          const item = character.progress.equippedItems.find(
-            (item) => item.edition === 'fh' && item.name === '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed))
-          );
-          if (item) {
-            item.tags = item.tags || [];
-            item.tags.push(ItemFlags.consumed);
-          }
-        }
-      }
-
-      setTimeout(
-        () => {
-          if (this.component.figure instanceof Monster && this.component.entity instanceof MonsterEntity) {
-            gameManager.monsterManager.removeMonsterEntity(this.component.figure, this.component.entity);
-            gameManager.stateManager.after();
-          }
-        },
-        settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-      );
+      ghsRemoveDeadEntities([{ entity: this.component.entity, figure: this.component.figure }]);
+      gameManager.stateManager.after();
       ghsDialogClosingHelper(this.component.dialogRef, true);
     }
   }

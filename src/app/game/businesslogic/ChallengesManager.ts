@@ -1,5 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { moveItemInArray } from '@angular/cdk/drag-drop';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -44,6 +44,11 @@ export class ChallengesManager {
     }
   }
 
+  restoreCard(deck: ChallengeDeck, card: ChallengeCard) {
+    const index = gameManager.randomManager.int(deck.cards.length - deck.current) + deck.current + 1;
+    deck.cards.splice(index, 0, card);
+  }
+
   getChallengeCard(identifier: Identifier): ChallengeCard | undefined {
     return gameManager.challengesData(identifier.edition).find((challengeCard) => challengeCard.cardId === +identifier.name);
   }
@@ -71,6 +76,52 @@ export class ChallengesManager {
       }
       deck.current = deck.finished + (keep ? deck.keep.length : 0);
     }
+  }
+
+  moveCard(deck: ChallengeDeck, fromList: string, fromIndex: number, toList: string, toIndex: number) {
+    let from = 0;
+    let to = 0;
+    if (toList === 'upcoming') {
+      if (fromList === 'upcoming') {
+        from = fromIndex + deck.current + 1;
+        to = toIndex + deck.current + 1;
+      } else if (fromList === 'finished') {
+        from = deck.finished - fromIndex;
+        to = toIndex + deck.current;
+        deck.finished--;
+        deck.current--;
+      } else {
+        from = deck.current - fromIndex;
+        to = toIndex + deck.current;
+        deck.current--;
+      }
+    } else if (toList === 'discarded') {
+      if (fromList === 'discarded') {
+        from = deck.current - fromIndex;
+        to = deck.current - toIndex;
+      } else if (fromList === 'finished') {
+        from = deck.finished - fromIndex;
+        deck.finished--;
+        to = deck.current - toIndex;
+      } else {
+        deck.current++;
+        from = deck.current + fromIndex;
+        to = deck.current - toIndex;
+      }
+    } else if (fromList === 'finished') {
+      from = deck.finished - fromIndex;
+      to = deck.finished - toIndex;
+    } else if (fromList === 'discarded') {
+      deck.finished++;
+      from = deck.current - fromIndex;
+      to = deck.finished - toIndex;
+    } else {
+      deck.finished++;
+      deck.current++;
+      from = deck.current + fromIndex;
+      to = deck.finished - toIndex;
+    }
+    moveItemInArray(deck.cards, from, to);
   }
 
   toggleKeep(deck: ChallengeDeck, index: number, keepAvailable: number) {

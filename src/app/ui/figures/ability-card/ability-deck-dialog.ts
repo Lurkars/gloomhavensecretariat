@@ -1,10 +1,11 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -128,20 +129,13 @@ export class AbilityDeckDialogComponent implements OnInit {
 
   dropUpcoming(event: CdkDragDrop<AbilityCard[]>) {
     gameManager.stateManager.before('reorderAbilities', 'data.monster.' + this.monster.name);
-    if (event.container === event.previousContainer) {
-      const offset = this.monster.ability + 1;
-      moveItemInArray(this.monster.abilities, event.previousIndex + offset, event.currentIndex + offset);
-      moveItemInArray(this.monster.revealedAbilities, event.previousIndex + offset, event.currentIndex + offset);
-    } else {
-      const offset = this.monster.ability;
-      moveItemInArray(this.monster.abilities, offset - event.previousIndex, event.currentIndex + offset);
-      moveItemInArray(this.monster.revealedAbilities, offset - event.previousIndex, event.currentIndex + offset);
-      this.monster.ability = this.monster.ability - 1;
-    }
-    const sameDeckMonster = gameManager.monsterManager.getSameDeckMonster(this.monster);
-    if (sameDeckMonster) {
-      gameManager.monsterManager.applySameDeck(sameDeckMonster);
-    }
+    gameManager.monsterManager.moveAbility(
+      this.monster,
+      event.container === event.previousContainer ? 'upcoming' : 'discarded',
+      event.previousIndex,
+      'upcoming',
+      event.currentIndex
+    );
     gameManager.stateManager.after();
     this.update();
     this.keepRevealed = [...this.monster.revealedAbilities];
@@ -149,24 +143,13 @@ export class AbilityDeckDialogComponent implements OnInit {
 
   dropDiscarded(event: CdkDragDrop<AbilityCard[]>) {
     gameManager.stateManager.before('reorderAbilities', 'data.monster.' + this.monster.name);
-    if (event.container === event.previousContainer) {
-      moveItemInArray(this.monster.abilities, this.monster.ability - event.previousIndex, this.monster.ability - event.currentIndex);
-      moveItemInArray(
-        this.monster.revealedAbilities,
-        this.monster.ability - event.previousIndex,
-        this.monster.ability - event.currentIndex
-      );
-    } else {
-      this.monster.ability = this.monster.ability + 1;
-      const offset = this.monster.ability;
-      moveItemInArray(this.monster.abilities, event.previousIndex + offset, offset - event.currentIndex);
-      moveItemInArray(this.monster.revealedAbilities, event.previousIndex + offset, offset - event.currentIndex);
-    }
-    const sameDeckMonster = gameManager.monsterManager.getSameDeckMonster(this.monster);
-    if (sameDeckMonster) {
-      gameManager.monsterManager.applySameDeck(sameDeckMonster);
-    }
-    gameManager.sortFigures();
+    gameManager.monsterManager.moveAbility(
+      this.monster,
+      event.container === event.previousContainer ? 'discarded' : 'upcoming',
+      event.previousIndex,
+      'discarded',
+      event.currentIndex
+    );
     gameManager.stateManager.after();
     this.update();
     this.keepRevealed = [...this.monster.revealedAbilities];

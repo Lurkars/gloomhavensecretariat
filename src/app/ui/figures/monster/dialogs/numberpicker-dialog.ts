@@ -1,9 +1,10 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, HostListener, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -136,11 +137,7 @@ export class MonsterNumberPickerDialog implements OnInit {
   }
 
   randomStandee() {
-    const count = gameManager.monsterManager.monsterStandeeMax(this.monster);
-    let number = gameManager.randomManager.int(count) + 1;
-    while (this.monster.entities.some((monsterEntity) => monsterEntity.number === number)) {
-      number = gameManager.randomManager.int(count) + 1;
-    }
+    const number = gameManager.monsterManager.monsterRandomStandee(this.monster);
     this.pickNumber(number, true, false);
   }
 

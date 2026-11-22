@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
 import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
@@ -7,6 +6,7 @@ import { ConditionName } from 'src/app/game/model/data/Condition';
 import { EventCardIdentifier } from 'src/app/game/model/data/EventCard';
 import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { Loot, LootType } from 'src/app/game/model/data/Loot';
+import { OutpostAttackModel } from 'src/app/game/model/data/OutpostAttack';
 import { PetIdentifier } from 'src/app/game/model/data/PetCard';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
@@ -63,6 +63,7 @@ export class Party {
   townGuardPerkSections: string[] = [];
   campaignStickers: string[] = [];
   townGuardDeck: GameAttackModifierDeckModel | undefined;
+  outpostAttack: OutpostAttackModel | undefined;
   buildings: BuildingModel[] = [];
   pets: PetIdentifier[] = [];
   specialItems: Identifier[] = [];

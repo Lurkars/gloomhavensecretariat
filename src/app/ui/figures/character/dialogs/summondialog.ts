@@ -1,11 +1,11 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { SummonData } from 'src/app/game/model/data/SummonData';
-import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { SummonColor } from 'src/app/game/model/Summon';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
@@ -75,21 +75,7 @@ export class CharacterSummonDialog {
   }
 
   available(summonData: SummonData, number: number): boolean {
-    return (
-      this.summonColor !== SummonColor.custom &&
-      number !== 0 &&
-      this.character.summons.every(
-        (summon) =>
-          summon.dead ||
-          summon.name !== summonData.name ||
-          (summonData.special ? summon.number !== 0 : summon.number !== number) ||
-          (summonData.special ? summon.color !== SummonColor.custom : summon.color !== this.summonColor)
-      ) &&
-      (summonData.count || 1) >
-        this.character.summons.filter(
-          (summon) => summon.name === summonData.name && summon.cardId === summonData.cardId && gameManager.entityManager.isAlive(summon)
-        ).length
-    );
+    return gameManager.characterManager.summonAvailable(this.character, summonData, number, this.summonColor);
   }
 
   customDisabled() {
@@ -168,16 +154,7 @@ export class CharacterSummonDialog {
         this.summonNumber,
         this.summonColor
       );
-      const summon: Summon = new Summon(
-        gameManager.randomManager.uuid(),
-        this.summonName,
-        '',
-        this.character.level,
-        this.summonNumber,
-        this.summonColor
-      );
-      summon.state = SummonState.new;
-      gameManager.characterManager.addSummon(this.character, summon);
+      gameManager.characterManager.addCustomSummon(this.character, this.summonName, this.summonNumber, this.summonColor);
       ghsDialogClosingHelper(this.dialogRef);
       gameManager.stateManager.after();
       this.updateSummonData();
@@ -192,22 +169,12 @@ export class CharacterSummonDialog {
         gameManager.characterManager.characterName(this.character, true, true),
         'data.summon.' + summonData.name
       );
-      const summon: Summon = new Summon(
-        gameManager.randomManager.uuid(),
-        summonData.name,
-        summonData.cardId,
-        this.character.level,
-        summonData.special ? 0 : this.summonNumber || this.summonNumbers[index],
-        summonData.special ? SummonColor.custom : this.summonColor,
-        summonData
+      const summon = gameManager.characterManager.addSummonFromData(
+        this.character,
+        summonData,
+        this.summonNumber || this.summonNumbers[index],
+        this.summonColor
       );
-      if (summonData.special) {
-        summon.state = SummonState.true;
-      } else {
-        summon.state = SummonState.new;
-      }
-      summon.init = false;
-      gameManager.characterManager.addSummon(this.character, summon);
 
       if (summon.trap) {
         ghsDialogClosingHelper(this.dialogRef);

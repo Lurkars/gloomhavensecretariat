@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnChanges, SimpleChanges, inject, input } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Figure } from 'src/app/game/model/Figure';
 
 @Directive({

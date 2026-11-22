@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, input, ViewEncapsulation } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { GameState } from 'src/app/game/model/Game';
 import { ElementIconComponent } from 'src/app/ui/header/element/element-icon';

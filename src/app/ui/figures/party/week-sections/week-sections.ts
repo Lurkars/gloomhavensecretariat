@@ -1,42 +1,11 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { PendingWeekSection } from 'src/app/game/businesslogic/ScenarioManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { WeekSectionsHintDialogComponent } from 'src/app/ui/figures/party/week-sections/week-sections-hint';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from 'src/app/ui/footer/scenario/summary/scenario-summary';
-
-function isSolved(sectionData: ScenarioData): boolean {
-  return (
-    !sectionData.repeatable &&
-    gameManager.game.party.conclusions.some(
-      (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
-    )
-  );
-}
-
-/**
- * sections continuing the given section (e.g. section with choice between sections): unsolved conclusions and
- * sections without conclusion which are continued by further sections themselves
- */
-export function continuingWeekSections(index: string, edition: string, depth: number = 0): ScenarioData[] {
-  if (depth > 5) {
-    return [];
-  }
-  return gameManager
-    .sectionData(edition)
-    .filter(
-      (sectionData) =>
-        !sectionData.parent &&
-        sectionData.parentSections &&
-        sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(index)) &&
-        gameManager.scenarioManager.getRequirements(sectionData).length === 0 &&
-        (sectionData.conclusion
-          ? !isSolved(sectionData)
-          : continuingWeekSections(sectionData.index, sectionData.edition, depth + 1).length > 0)
-    );
-}
 
 // open the corresponding dialogs for all pending calendar sections, one after another
 export function openPendingWeekSections(dialog: Dialog) {
@@ -76,8 +45,8 @@ function openConclusion(
     })
     .closed.subscribe({
       next: () => {
-        const solved = conclusion.repeatable || isSolved(conclusion);
-        if (solved && continuingWeekSections(conclusion.index, conclusion.edition).length) {
+        const solved = conclusion.repeatable || gameManager.scenarioManager.conclusionFinished(conclusion);
+        if (solved && gameManager.scenarioManager.continuingSections(conclusion.index, conclusion.edition).length) {
           openChoice(dialog, { ...pending, index: conclusion.index, edition: conclusion.edition, group: conclusion.group }, queue, done);
         } else {
           openNextWeekSection(dialog, queue, done);
@@ -91,7 +60,11 @@ function openChoice(dialog: Dialog, pending: PendingWeekSection, queue: PendingW
   dialog
     .open(ScenarioConclusionComponent, {
       panelClass: ['dialog'],
-      data: { conclusions: continuingWeekSections(pending.index, pending.edition), parent: sectionData(pending), continue: true }
+      data: {
+        conclusions: gameManager.scenarioManager.continuingSections(pending.index, pending.edition),
+        parent: sectionData(pending),
+        continue: true
+      }
     })
     .closed.subscribe({
       next: (selected) => {
@@ -113,10 +86,7 @@ function openChoice(dialog: Dialog, pending: PendingWeekSection, queue: PendingW
         // keep the selected section in the calendar for this week
         if (pending.week >= 0 && !selectedSection.repeatable) {
           gameManager.stateManager.before('addPartyWeekSection', gameManager.game.party.name, pending.week, selectedSection.index);
-          gameManager.game.party.weekSections[pending.week] = [
-            ...(gameManager.game.party.weekSections[pending.week] || []),
-            selectedSection.index
-          ];
+          gameManager.scenarioManager.addWeekSection(pending.week, selectedSection.index);
           gameManager.stateManager.after();
         }
         openConclusion(dialog, selectedSection, next, queue, done);
@@ -127,7 +97,7 @@ function openChoice(dialog: Dialog, pending: PendingWeekSection, queue: PendingW
 function hasDialog(pending: PendingWeekSection): boolean {
   return (
     !!gameManager.scenarioManager.weekSectionConclusion(pending.index, pending.edition, pending.group) ||
-    (!!sectionData(pending) && continuingWeekSections(pending.index, pending.edition).length > 0)
+    (!!sectionData(pending) && gameManager.scenarioManager.continuingSections(pending.index, pending.edition).length > 0)
   );
 }
 

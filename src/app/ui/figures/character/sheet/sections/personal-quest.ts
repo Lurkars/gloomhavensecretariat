@@ -1,12 +1,9 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, inject, input, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { PERSONAL_QUEST_SCENARIO_CONCLUDED } from 'src/app/game/businesslogic/PersonalQuestManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
-import { Identifier } from 'src/app/game/model/data/Identifier';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { PersonalQuestViewDialog } from 'src/app/ui/figures/character/sheet/personal-quest-card/personal-quest-view-dialog';
@@ -234,11 +231,7 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
           ghsDialogClosingHelper(dialogRef);
         }
         gameManager.stateManager.before(this.character.progress.retired ? 'setRetired' : 'unsetRetired', this.characterName);
-        this.character.progress.retired = true;
-        if (gameManager.game.party.campaignMode) {
-          gameManager.game.party.retirements.push(this.character.toModel());
-          gameManager.characterManager.removeCharacter(this.character);
-        }
+        gameManager.retirementManager.retireCharacter(this.character);
         gameManager.stateManager.after();
       }
     }
@@ -298,51 +291,19 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
       trial = gameManager.trialsManager.cardIdSecondPrinting(trial);
     }
     if (!this.character.progress.trial || this.character.progress.trial.name !== '' + trial) {
-      const editionData = gameManager.editionData.find(
-        (editionData) => editionData.edition === gameManager.currentEdition() && editionData.trials && editionData.trials.length
-      );
-      if (editionData) {
-        const trialCard = editionData.trials.find(
-          (trialCard) => trialCard.cardId === trial && trialCard.edition === gameManager.currentEdition()
-        );
-        if (trialCard) {
-          event.target.classList.remove('error');
-          event.target.classList.add('warning');
-          if (
-            !gameManager.game.figures.find(
-              (figure) =>
-                figure instanceof Character &&
-                figure.progress.trial &&
-                figure.progress.trial.edition === gameManager.currentEdition() &&
-                figure.progress.trial.name === '' + trial
-            )
-          ) {
-            gameManager.stateManager.before('setTrial', this.characterName, event.target.value);
-            this.character.progress.trial = new Identifier(trial, gameManager.currentEdition());
-            const currentTrialIndex = Math.max(
-              ...gameManager.game.figures
-                .filter((figure) => figure instanceof Character)
-                .map((character) =>
-                  editionData.trials.find(
-                    (trialCard) =>
-                      character.progress.trial &&
-                      trialCard.cardId === +character.progress.trial.name &&
-                      trialCard.edition === character.progress.trial.edition
-                  )
-                )
-                .map((trialCard) => (trialCard ? editionData.trials.indexOf(trialCard) : -1))
-            );
-            if (!gameManager.game.party.trials || gameManager.game.party.trials !== currentTrialIndex) {
-              gameManager.game.party.trials = currentTrialIndex;
-            }
-            event.target.classList.remove('warning');
-            gameManager.stateManager.after();
-          } else if (this.character.progress.trial) {
-            trial = settingsManager.settings.fhSecondEdition
-              ? gameManager.trialsManager.cardIdSecondPrinting(+this.character.progress.trial.name)
-              : +this.character.progress.trial.name;
-            event.target.value = trial;
-          }
+      if (gameManager.trialsManager.trialCardExists(trial)) {
+        event.target.classList.remove('error');
+        event.target.classList.add('warning');
+        if (!gameManager.trialsManager.trialAssigned(trial)) {
+          gameManager.stateManager.before('setTrial', this.characterName, event.target.value);
+          gameManager.trialsManager.setTrial(this.character, trial);
+          event.target.classList.remove('warning');
+          gameManager.stateManager.after();
+        } else if (this.character.progress.trial) {
+          trial = settingsManager.settings.fhSecondEdition
+            ? gameManager.trialsManager.cardIdSecondPrinting(+this.character.progress.trial.name)
+            : +this.character.progress.trial.name;
+          event.target.value = trial;
         }
       }
     }

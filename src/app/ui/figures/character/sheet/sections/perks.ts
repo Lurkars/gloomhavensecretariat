@@ -1,8 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { GameState } from 'src/app/game/model/Game';
 import { PerkLabelComponent } from 'src/app/ui/figures/attackmodifier/perk/label';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
@@ -65,35 +64,13 @@ export class CharacterSheetPerksComponent extends CharacterSheetSection implemen
 
     if (!disabled || (force && !settingsManager.settings.characterSheetLocked && this.editable())) {
       gameManager.stateManager.before('setPerk', this.characterName, index, value);
-      const lowerShacklesHP =
-        this.character.name === 'shackles' && this.character.edition === 'fh' && index === 11 && this.character.progress.perks[index] === 2;
-      if (this.character.progress.perks[index] && this.character.progress.perks[index] === value) {
-        this.character.progress.perks[index]--;
-      } else {
-        this.character.progress.perks[index] = value;
-      }
-
-      const perk = this.character.perks[index];
-      if (perk.monsterDeck) {
-        gameManager.game.monsterAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck();
-        gameManager.attackModifierManager.shuffleModifiers(gameManager.game.monsterAttackModifierDeck);
-      } else {
-        gameManager.attackModifierManager.mergeAttackModifierDeck(
-          this.character.attackModifierDeck,
-          gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character)
-        );
-        gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
-
-        if (this.character.name === 'shackles' && this.character.edition === 'fh' && index === 11) {
-          if (this.character.progress.perks[index] === 2) {
-            this.character.maxHealth += 5;
-          } else if (lowerShacklesHP) {
-            this.character.maxHealth -= 5;
-          }
-          this.character.health = this.character.maxHealth;
-        }
-      }
-
+      gameManager.characterManager.setPerk(
+        this.character,
+        index,
+        this.character.progress.perks[index] && this.character.progress.perks[index] === value
+          ? this.character.progress.perks[index] - 1
+          : value
+      );
       gameManager.stateManager.after();
     }
   }

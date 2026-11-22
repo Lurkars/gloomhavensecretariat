@@ -1,7 +1,7 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { EditionData } from 'src/app/game/model/data/EditionData';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Game } from 'src/app/game/model/Game';
 
@@ -122,6 +122,54 @@ export class TrialsManager {
 
   activeFavor(edition: string, name: string): number {
     return this.game.favors.filter((value) => value.edition === edition && value.name === name).length;
+  }
+
+  trialsEditionData(): EditionData | undefined {
+    return gameManager.editionData.find(
+      (editionData) => editionData.edition === gameManager.currentEdition() && editionData.trials && editionData.trials.length
+    );
+  }
+
+  trialCardExists(cardId: number): boolean {
+    const editionData = this.trialsEditionData();
+    return (
+      !!editionData &&
+      editionData.trials.some((trialCard) => trialCard.cardId === cardId && trialCard.edition === gameManager.currentEdition())
+    );
+  }
+
+  trialAssigned(cardId: number): boolean {
+    return this.game.figures.some(
+      (figure) =>
+        figure instanceof Character &&
+        figure.progress.trial &&
+        figure.progress.trial.edition === gameManager.currentEdition() &&
+        figure.progress.trial.name === '' + cardId
+    );
+  }
+
+  setTrial(character: Character, cardId: number) {
+    const editionData = this.trialsEditionData();
+    if (!editionData) {
+      return;
+    }
+    character.progress.trial = new Identifier(cardId, gameManager.currentEdition());
+    const currentTrialIndex = Math.max(
+      ...this.game.figures
+        .filter((figure) => figure instanceof Character)
+        .map((figure) =>
+          editionData.trials.find(
+            (trialCard) =>
+              figure.progress.trial &&
+              trialCard.cardId === +figure.progress.trial.name &&
+              trialCard.edition === figure.progress.trial.edition
+          )
+        )
+        .map((trialCard) => (trialCard ? editionData.trials.indexOf(trialCard) : -1))
+    );
+    if (!this.game.party.trials || this.game.party.trials !== currentTrialIndex) {
+      this.game.party.trials = currentTrialIndex;
+    }
   }
 
   cardIdSecondPrinting(cardId: number): number {

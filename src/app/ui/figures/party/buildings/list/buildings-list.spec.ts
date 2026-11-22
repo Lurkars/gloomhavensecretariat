@@ -1,29 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel } from 'src/app/game/model/Building';
-import { Character } from 'src/app/game/model/Character';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
-import { CharacterData } from 'src/app/game/model/data/CharacterData';
-import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
-import { LootType } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Building } from 'src/app/ui/figures/party/buildings/buildings';
 import { BuildingsListComponent } from 'src/app/ui/figures/party/buildings/list/buildings-list';
 
-// BuildingsListComponent's upgradeable()/partyResource()/toggleState()/downgrade()/hasConclusions()
-// are pure computations over party resources and building cost tables; the dialog-opening methods
+// Building rules are covered by BuildingsManager.spec.ts; this spec covers the component wiring of
+// toggleState()/downgrade()/hasConclusions(). The dialog-opening methods
 // (upgrade/rebuild/repair/openInteraction/openStables/openGarden) are out of scope. Following the
 // AppComponent.spec.ts pattern: create via TestBed, never call fixture.detectChanges(), set the
 // required `buildings` input via setInput(), and call methods directly.
-
-function buildCharacter(gold: number = 0): Character {
-  const data = Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] });
-  const character = new Character(data, 1);
-  character.progress.gold = gold;
-  return character;
-}
 
 function buildBuilding(overrides: Partial<BuildingData> = {}, modelOverrides: Partial<BuildingModel> = {}): Building {
   const data = Object.assign(
@@ -61,94 +49,6 @@ describe('BuildingsListComponent', () => {
     const fixture = TestBed.createComponent(BuildingsListComponent);
     fixture.componentRef.setInput('buildings', [buildBuilding()]);
     expect(() => fixture.detectChanges()).not.toThrow();
-  });
-
-  describe('partyResource', () => {
-    it('sums party loot and character progress loot for the given type', () => {
-      gameManager.game.party.loot = { [LootType.lumber]: 2 };
-      const character = buildCharacter();
-      character.progress.loot = { [LootType.lumber]: 3 };
-      gameManager.game.figures = [character];
-      const component = createComponent();
-      expect(component.partyResource(LootType.lumber)).toEqual(5);
-    });
-
-    it('is just the party loot when there are no characters', () => {
-      gameManager.game.party.loot = { [LootType.metal]: 4 };
-      const component = createComponent();
-      expect(component.partyResource(LootType.metal)).toEqual(4);
-    });
-  });
-
-  describe('upgradeable (build, level 0)', () => {
-    it('is true when the party can afford the build costs', () => {
-      gameManager.game.party.loot = { [LootType.lumber]: 2 };
-      const character = buildCharacter(5);
-      gameManager.game.figures = [character];
-      const building = buildBuilding();
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(true);
-    });
-
-    it('is false when lumber is short and there is no inspiration to cover it', () => {
-      gameManager.game.party.loot = { [LootType.lumber]: 0 };
-      const character = buildCharacter(5);
-      gameManager.game.figures = [character];
-      const building = buildBuilding();
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(false);
-    });
-
-    it('is true when inspiration covers the missing lumber', () => {
-      gameManager.game.party.loot = { [LootType.lumber]: 0 };
-      gameManager.game.party.inspiration = 2;
-      const character = buildCharacter(5);
-      gameManager.game.figures = [character];
-      const building = buildBuilding();
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(true);
-    });
-
-    it('is false when no character has enough combined gold', () => {
-      gameManager.game.party.loot = { [LootType.lumber]: 2 };
-      const character = buildCharacter(1);
-      gameManager.game.figures = [character];
-      const building = buildBuilding();
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(false);
-    });
-
-    it('is false once the required prosperity level exceeds the current one', () => {
-      gameManager.game.party.loot = { [LootType.lumber]: 2 };
-      const character = buildCharacter(5);
-      gameManager.game.figures = [character];
-      const building = buildBuilding({ costs: { prosperity: 5, lumber: 2, metal: 0, hide: 0, gold: 5, manual: 0 } });
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(false);
-    });
-  });
-
-  describe('upgradeable (repair, wrecked/damaged)', () => {
-    it('is true once party resources plus inspiration exceed the repair cost', () => {
-      const building = buildBuilding({ repair: [10] }, { level: 1, state: 'damaged' });
-      gameManager.game.party.loot = { [LootType.lumber]: 5, [LootType.metal]: 5, [LootType.hide]: 5 };
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(true);
-    });
-
-    it('is true regardless of resources once morale is above 0', () => {
-      const building = buildBuilding({ repair: [100] }, { level: 1, state: 'damaged' });
-      gameManager.game.party.morale = 1;
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(true);
-    });
-
-    it('is false when resources and morale are both insufficient', () => {
-      const building = buildBuilding({ repair: [100] }, { level: 1, state: 'damaged' });
-      gameManager.game.party.morale = 0;
-      const component = createComponent([building]);
-      expect(component.upgradeable(building)).toBe(false);
-    });
   });
 
   describe('toggleState', () => {

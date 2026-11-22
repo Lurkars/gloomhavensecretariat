@@ -1,6 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 

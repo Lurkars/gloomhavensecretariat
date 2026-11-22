@@ -1,6 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { openEventRandomItemDialog } from 'src/app/ui/figures/entities-menu/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from 'src/app/ui/figures/entities-menu/random-scenario/random-scenario-dialog';
@@ -93,7 +92,7 @@ export class CampaignHelper {
               if (result == true) {
                 if (gameManager.fhRules()) {
                   gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(1));
-                  gameManager.game.party.inspiration += 1;
+                  gameManager.eventCardManager.applyRandomScenario(undefined);
                   gameManager.stateManager.after();
                 }
               } else {
@@ -109,9 +108,7 @@ export class CampaignHelper {
                     scenarioData.name,
                     unlocks
                   );
-                  gameManager.game.party.conclusions.push(
-                    new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group)
-                  );
+                  gameManager.eventCardManager.applyRandomScenario(scenarioData, true);
                   gameManager.stateManager.after();
                 } else {
                   gameManager.stateManager.before(
@@ -120,9 +117,7 @@ export class CampaignHelper {
                     scenarioData.edition,
                     scenarioData.name
                   );
-                  gameManager.game.party.manualScenarios.push(
-                    new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group)
-                  );
+                  gameManager.eventCardManager.applyRandomScenario(scenarioData);
                   gameManager.stateManager.after();
                 }
               }

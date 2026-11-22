@@ -1,8 +1,8 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GardenModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
@@ -134,20 +134,11 @@ export class GardenComponent implements OnInit {
       this.garden.plots[slot] !== this.activeHerb
     ) {
       gameManager.stateManager.before('buildings.garden.plant', this.activeHerb, slot);
-      this.garden.plots = this.garden.plots || [];
-      this.garden.plots[slot] = this.activeHerb;
-
-      if (!force) {
-        if (this.currentSource === this.characters.length) {
-          gameManager.game.party.loot[this.activeHerb] = (gameManager.game.party.loot[this.activeHerb] || 1) - 1;
-        } else {
-          const char = this.characters[this.currentSource];
-          if (char) {
-            char.progress.loot[this.activeHerb] = (char.progress.loot[this.activeHerb] || 1) - 1;
-          }
-        }
-      }
-      gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+      gameManager.buildingsManager.plantGardenHerb(
+        this.activeHerb,
+        slot,
+        force ? undefined : this.currentSource === this.characters.length ? 'party' : this.characters[this.currentSource]
+      );
       gameManager.stateManager.after();
     }
   }
@@ -172,9 +163,7 @@ export class GardenComponent implements OnInit {
 
   harvest() {
     gameManager.stateManager.before('buildings.garden.harvest');
-    this.garden.plots.forEach((herb) => {
-      gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) + 1;
-    });
+    gameManager.buildingsManager.harvestGarden();
     this.harvested = true;
     this.update();
     gameManager.stateManager.after();

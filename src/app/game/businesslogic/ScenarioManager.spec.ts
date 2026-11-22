@@ -1,13 +1,15 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { ScenarioFinishApply } from 'src/app/game/businesslogic/ScenarioManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
+import { Identifier } from 'src/app/game/model/data/Identifier';
+import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
-import { ScenarioData, ScenarioRequirement, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
+import { ScenarioData, ScenarioFinish, ScenarioRequirement, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 import { ScenarioRule } from 'src/app/game/model/data/ScenarioRule';
 import { GameState } from 'src/app/game/model/Game';
 import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
@@ -38,6 +40,118 @@ describe('ScenarioManager', () => {
     gameManager.game.party.scenarios = [];
     gameManager.game.party.conclusions = [];
     gameManager.game.party.campaignMode = false;
+  });
+
+  describe('section conclusions', () => {
+    const parent = () => buildScenarioData({ index: 's1' });
+    const conclusion = (overrides: Partial<ScenarioData> = {}) =>
+      buildScenarioData(Object.assign({ index: 'c1', conclusion: true, parentSections: [['s1']] }, overrides));
+
+    beforeEach(() => {
+      gameManager.game.edition = 'gh';
+    });
+
+    afterEach(() => {
+      gameManager.game.edition = undefined;
+    });
+
+    it('lists conclusions directly following a section', () => {
+      const c1 = conclusion();
+      const c2 = conclusion({ index: 'c2', parentSections: [['s1', 's2']] });
+      const c3 = conclusion({ index: 'c3', parentSections: [['s1'], ['s2']] });
+      gameManager.editionData = [new EditionData('gh', [], [], [], [], [parent(), c1, c2, c3], [])];
+      expect(scenarioManager.sectionConclusions('s1')).toEqual([c1, c3]);
+      expect(scenarioManager.sectionConclusions('s1', 'gh', false, true)).toEqual([c1]);
+    });
+
+    it('filters conclusions with unmet requirements when only available ones are requested', () => {
+      const c1 = conclusion({ requirements: [Object.assign(new ScenarioRequirement(), { global: ['missing'] })] });
+      gameManager.editionData = [new EditionData('gh', [], [], [], [], [parent(), c1], [])];
+      expect(scenarioManager.sectionConclusions('s1')).toEqual([c1]);
+      expect(scenarioManager.sectionConclusions('s1', 'gh', true)).toEqual([]);
+    });
+
+    it('has open conclusions until one of them is finished', () => {
+      gameManager.editionData = [new EditionData('gh', [], [], [], [], [parent(), conclusion()], [])];
+      expect(scenarioManager.hasOpenConclusions('s1')).toBe(true);
+      expect(scenarioManager.hasOpenConclusions('unknown')).toBe(false);
+      gameManager.game.party.conclusions = [new GameScenarioModel('c1', 'gh')];
+      expect(scenarioManager.hasOpenConclusions('s1')).toBe(false);
+    });
+
+    it('continues with unfinished or repeatable conclusions and sections leading to them', () => {
+      const between = buildScenarioData({ index: 's2', parentSections: [['s1']] });
+      const c1 = conclusion({ parentSections: [['s2']] });
+      const c2 = conclusion({ index: 'c2' });
+      const c3 = conclusion({ index: 'c3', repeatable: true });
+      gameManager.editionData = [new EditionData('gh', [], [], [], [], [parent(), between, c1, c2, c3], [])];
+      gameManager.game.party.conclusions = [new GameScenarioModel('c2', 'gh'), new GameScenarioModel('c3', 'gh')];
+      expect(scenarioManager.continuingSections('s1', 'gh')).toEqual([between, c3]);
+      gameManager.game.party.conclusions = [new GameScenarioModel('c1', 'gh'), new GameScenarioModel('c2', 'gh')];
+      expect(scenarioManager.continuingSections('s1', 'gh')).toEqual([c3]);
+    });
+  });
+
+  describe('add / remove week sections', () => {
+    beforeEach(() => {
+      gameManager.game.edition = 'gh';
+      gameManager.game.party.weekSections = {};
+    });
+
+    afterEach(() => {
+      gameManager.game.edition = undefined;
+    });
+
+    it('adds a section only once', () => {
+      expect(scenarioManager.addWeekSection(3, '10.1')).toBe(true);
+      expect(scenarioManager.addWeekSection(3, '10.1')).toBe(false);
+      expect(gameManager.game.party.weekSections[3]).toEqual(['10.1']);
+    });
+
+    it('removes the given section (also the first one) and its finished conclusion', () => {
+      gameManager.game.party.weekSections = { 3: ['10.1', '20.2'] };
+      gameManager.game.party.conclusions = [new GameScenarioModel('10.1', 'gh'), new GameScenarioModel('20.2', 'gh')];
+      scenarioManager.removeWeekSection(3, '10.1');
+      expect(gameManager.game.party.weekSections[3]).toEqual(['20.2']);
+      expect(gameManager.game.party.conclusions.map((model) => model.index)).toEqual(['20.2']);
+      scenarioManager.removeWeekSection(3, '20.2');
+      expect(gameManager.game.party.weekSections[3]).toBeUndefined();
+    });
+  });
+
+  describe('random scenario', () => {
+    afterEach(() => vi.restoreAllMocks());
+
+    const randomSections = () =>
+      ['r1', 'r2', 'r3', 'r4'].map((index) => buildScenarioData({ index, group: 'randomMonsterCard', parent: undefined }));
+
+    it('sets a custom scenario with three shuffled random dungeon sections', () => {
+      const sections = randomSections();
+      gameManager.editionData = [new EditionData('gh', [], [], [], [], [...sections, buildScenarioData({ index: 'x' })], [])];
+      const setScenario = vi.spyOn(scenarioManager, 'setScenario').mockImplementation(() => {});
+      const addSection = vi.spyOn(scenarioManager, 'addSection').mockImplementation(() => {});
+
+      expect(scenarioManager.randomScenarioSections('gh')).toEqual(sections);
+      gameManager.game.seed = 3;
+      scenarioManager.setRandomScenario('gh');
+
+      expect(setScenario.mock.calls[0][0]).toBeUndefined();
+      const scenario = setScenario.mock.calls[1][0] as Scenario;
+      expect(scenario.name).toBe('%scenario.random%');
+      expect(scenario.additionalSections.length).toBe(3);
+      expect(addSection).toHaveBeenCalledWith(sections.find((section) => section.index === scenario.additionalSections[0]));
+
+      gameManager.game.seed = 3;
+      scenarioManager.setRandomScenario('gh');
+      expect((setScenario.mock.calls[3][0] as Scenario).additionalSections).toEqual(scenario.additionalSections);
+    });
+
+    it('does nothing with fewer than three random dungeon sections', () => {
+      gameManager.editionData = [new EditionData('gh', [], [], [], [], randomSections().slice(0, 2), [])];
+      const setScenario = vi.spyOn(scenarioManager, 'setScenario').mockImplementation(() => {});
+      scenarioManager.setRandomScenario('gh');
+      expect(setScenario).not.toHaveBeenCalled();
+    });
   });
 
   describe('getScenario / getSection', () => {
@@ -1008,5 +1122,156 @@ describe('ScenarioManager finishScenario personal quest tracking with a real sce
     finish();
 
     expect(absent.progress.personalQuestProgress[0] || 0).toEqual(0);
+  });
+});
+
+describe('ScenarioManager finish rewards', () => {
+  const scenarioManager = gameManager.scenarioManager;
+
+  function buildCharacter(name: string): Character {
+    return new Character(Object.assign(new CharacterData(), { name, edition: 'gh', stats: [new CharacterStat(1, 10)] }), 1);
+  }
+
+  function buildApply(rewards: Partial<ScenarioRewards> = {}, finish: Partial<ScenarioFinish> = {}): ScenarioFinishApply {
+    const scenario = new Scenario(Object.assign(new ScenarioData(), { index: '1', edition: 'gh', rewards }));
+    const characters = [buildCharacter('brute'), buildCharacter('tinkerer')];
+    gameManager.game.figures = [...characters];
+    return new ScenarioFinishApply(
+      scenario,
+      true,
+      undefined,
+      Object.assign(new ScenarioFinish(), finish),
+      characters,
+      scenarioManager.finishRewards(scenario, undefined, true),
+      [],
+      true,
+      true
+    );
+  }
+
+  beforeEach(() => {
+    gameManager.game.party.campaignMode = true;
+    gameManager.game.party.scenarios = [];
+    gameManager.game.party.loot = {};
+    gameManager.game.party.weeks = 3;
+    gameManager.game.party.weekSections = {};
+    gameManager.game.party.unlockedItems = [];
+    gameManager.game.party.manualScenarios = [];
+    gameManager.game.party.inspiration = 0;
+    gameManager.game.party.townGuardPerks = 0;
+    settingsManager.settings.scenarioRewards = true;
+    vi.spyOn(gameManager, 'fhRules').mockReturnValue(true);
+    vi.spyOn(gameManager, 'bbRules').mockReturnValue(false);
+    vi.spyOn(scenarioManager, 'finishScenario').mockImplementation(() => {});
+  });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('merges scenario and conclusion rewards once per campaign', () => {
+    const scenario = Object.assign(new ScenarioData(), { index: '1', edition: 'gh', rewards: { gold: 5 } });
+    const conclusion = Object.assign(new ScenarioData(), { index: '1.1', edition: 'gh', rewards: { experience: 3 } });
+    expect(scenarioManager.finishRewards(scenario, conclusion, true)).toEqual(
+      expect.objectContaining({ gold: 5, experience: 3 }) as unknown as ScenarioRewards
+    );
+    expect(scenarioManager.finishRewards(scenario, conclusion, false)).toBeUndefined();
+
+    gameManager.game.party.scenarios = [new GameScenarioModel('1', 'gh')];
+    expect(scenarioManager.finishRewards(scenario, conclusion, true)).toBeUndefined();
+    expect(scenarioManager.finishRewards(scenario, conclusion, true, false, true)).toBeDefined();
+
+    gameManager.game.party.campaignMode = false;
+    expect(scenarioManager.finishRewards(scenario, conclusion, true)).toBeUndefined();
+    expect(scenarioManager.finishRewards(scenario, conclusion, true, true, true)).toBeDefined();
+  });
+
+  it('applies collected summary choices', () => {
+    const apply = buildApply(
+      {
+        collectiveResources: [{ type: LootType.hide, value: 4 }],
+        calendarSectionManual: [{ section: '10.1' }, { section: '10.2' }] as any
+      },
+      {
+        battleGoals: [2, 0],
+        collectiveGold: [0, 5],
+        collectiveResources: [{ [LootType.hide]: 1 }, {}],
+        challenges: 1,
+        calendarSectionManual: [1, -1],
+        randomItemBlueprints: [12, -1],
+        randomSideScenario: new Identifier('80', 'gh'),
+        chooseLocation: '42'
+      }
+    );
+    const [brute, tinkerer] = apply.characters;
+    expect(scenarioManager.applyScenarioFinish(apply)).toBe(false);
+
+    expect(brute.progress.battleGoals).toBe(2);
+    expect(brute.progress.experience).toBe(2);
+    expect(brute.progress.loot[LootType.hide]).toBe(1);
+    expect(tinkerer.progress.gold).toBe(5);
+    expect(gameManager.game.party.loot[LootType.hide]).toBe(3);
+    expect(gameManager.game.party.townGuardPerks).toBe(1);
+    expect(gameManager.game.party.weekSections).toEqual({ 4: ['10.1'] });
+    expect(gameManager.game.party.unlockedItems.map((identifier) => identifier.name)).toEqual(['12']);
+    expect(gameManager.game.party.inspiration).toBe(1);
+    expect(gameManager.game.party.manualScenarios.map((model) => model.index)).toEqual(['42', '80']);
+  });
+
+  it('assigns unassigned reward items to each character', () => {
+    const apply = buildApply();
+    const item = Object.assign(new ItemData(), { id: 1, edition: 'gh', count: 2 });
+    apply.rewardItems = [item];
+    settingsManager.settings.characterItems = true;
+    const addItem = vi.spyOn(gameManager.itemManager, 'addItem').mockImplementation(() => {});
+    vi.spyOn(gameManager.itemManager, 'addItemCount').mockImplementation(() => {});
+    scenarioManager.applyScenarioFinish(apply);
+    expect(addItem).toHaveBeenCalledWith(item, apply.characters[0]);
+    expect(apply.finish.items).toEqual([[0]]);
+  });
+
+  it('gives drawn random items to the characters', () => {
+    const orb = Object.assign(new ItemData(), { id: 3, edition: 'cs' });
+    const stone = Object.assign(new ItemData(), { id: 95, edition: 'cs' });
+    vi.spyOn(gameManager.itemManager, 'getItem').mockImplementation((id) => ('' + id === '3' ? orb : stone));
+    const addItem = vi.spyOn(gameManager.itemManager, 'addItem').mockImplementation(() => {});
+    const addItemCount = vi.spyOn(gameManager.itemManager, 'addItemCount').mockImplementation(() => {});
+    settingsManager.settings.characterItems = true;
+    settingsManager.settings.drawRandomItem = true;
+    const apply = buildApply(
+      {},
+      { randomItems: [new Identifier('3', 'cs'), undefined], randomItem: new Identifier('95', 'cs'), randomItemIndex: 1 }
+    );
+    scenarioManager.applyScenarioFinish(apply);
+    expect(addItem.mock.calls).toEqual([
+      [orb, apply.characters[0]],
+      [stone, apply.characters[1]]
+    ]);
+    expect(addItemCount).toHaveBeenCalledTimes(2);
+
+    addItem.mockClear();
+    settingsManager.settings.drawRandomItem = false;
+    scenarioManager.applyScenarioFinish(buildApply({}, { randomItems: [new Identifier('3', 'cs')] }));
+    expect(addItem).not.toHaveBeenCalled();
+  });
+
+  it('reports a blocked linked scenario instead of setting it', () => {
+    const apply = buildApply();
+    apply.linked = Object.assign(new ScenarioData(), { index: '2', edition: 'gh' });
+    vi.spyOn(scenarioManager, 'isBlocked').mockReturnValue(true);
+    const setScenario = vi.spyOn(scenarioManager, 'setScenario').mockImplementation(() => {});
+    expect(scenarioManager.applyScenarioFinish(apply)).toBe(true);
+    expect(setScenario).not.toHaveBeenCalled();
+
+    apply.forcedLink = true;
+    expect(scenarioManager.applyScenarioFinish(apply)).toBe(false);
+    expect(setScenario).toHaveBeenCalled();
+  });
+
+  it('finishes conclusions internally with character rewards', () => {
+    const apply = buildApply({ gold: 5 });
+    apply.conclusionOnly = true;
+    const applyCharacterRewards = vi.spyOn(scenarioManager, 'applyCharacterRewards').mockImplementation(() => {});
+    scenarioManager.applyScenarioFinish(apply);
+    expect(applyCharacterRewards).toHaveBeenCalled();
+    expect(scenarioManager.finishScenario).toHaveBeenCalledWith(apply.scenario, true, undefined, false, false, true, true, true);
   });
 });

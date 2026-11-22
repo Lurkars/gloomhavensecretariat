@@ -1,8 +1,7 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { openScenarioFinish } from 'src/app/game/commands/scenario/ScenarioFinish';
-import { GameState } from 'src/app/game/model/Game';
 import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
 
 function sameRule(
@@ -57,74 +56,12 @@ export class ScenarioRuleApplyCommand extends CommandImpl {
     const model = ruleModel(this.ruleParameters());
     const scenario = model && gameManager.scenarioRulesManager.getScenarioForRule(model.identifier).scenario;
     if (model && scenario) {
-      const rule = model.rule;
-      const identifier = model.identifier;
-      if (!rule.alwaysApplyTurn) {
-        gameManager.scenarioRulesManager.applyRule(rule, identifier);
-
-        if (rule.rooms) {
-          rule.rooms.forEach((roomNumber) => {
-            const roomData = scenario.rooms.find((roomData) => roomData.roomNumber === roomNumber);
-            if (roomData && gameManager.game.scenario && !gameManager.game.scenario.revealedRooms.includes(roomNumber)) {
-              gameManager.scenarioManager.openRoom(roomData, scenario, identifier.section);
-            }
-          });
-        }
-
-        if (rule.sections) {
-          gameManager
-            .sectionData(scenario.edition)
-            .filter(
-              (sectionData) =>
-                !gameManager.game.sections.find(
-                  (active) =>
-                    active.edition === sectionData.edition && active.group === scenario.group && active.index === sectionData.index
-                ) &&
-                sectionData.group === scenario.group &&
-                rule.sections.includes(sectionData.index)
-            )
-            .forEach((sectionData) => {
-              if (sectionData.conclusion) {
-                openScenarioFinish(true, sectionData);
-              } else {
-                gameManager.scenarioManager.addSection(sectionData);
-              }
-            });
-        }
-
-        if (rule.finish && ['won', 'lost'].includes(rule.finish) && gameManager.game.scenario) {
-          const success = rule.finish === 'won';
-          const gameScenario = gameManager.game.scenario;
-          const conclusions = success
-            ? gameManager.scenarioManager
-                .availableSections(true)
-                .filter(
-                  (sectionData) =>
-                    sectionData.edition === gameScenario.edition &&
-                    sectionData.parent === gameScenario.index &&
-                    sectionData.group === gameScenario.group &&
-                    sectionData.conclusion &&
-                    gameManager.scenarioManager.getRequirements(sectionData).length === 0
-                )
-            : [];
-          openScenarioFinish(success, conclusions.length === 1 ? conclusions[0] : undefined);
-        }
+      const result = gameManager.scenarioRulesManager.applyScenarioRule(model);
+      result.conclusions.forEach((conclusion) => openScenarioFinish(true, conclusion));
+      if (result.finish) {
+        openScenarioFinish(result.finish.success, result.finish.conclusions.length === 1 ? result.finish.conclusions[0] : undefined);
       }
-
-      if (rule.once || rule.alwaysApply || rule.alwaysApplyTurn) {
-        gameManager.game.appliedScenarioRules.push(identifier);
-      }
-      if (rule.active) {
-        gameManager.game.activeScenarioRules.push(identifier);
-      }
-      gameManager.game.scenarioRules.splice(gameManager.game.scenarioRules.indexOf(model), 1);
-
-      if (rule.finish === 'round') {
-        gameManager.roundManager.nextGameState();
-        if (gameManager.game.state === GameState.next) {
-          gameManager.roundManager.nextGameState();
-        }
-      }
+      gameManager.scenarioRulesManager.resolveScenarioRule(model);
     } else {
       this.executionError('scenario rule not found');
     }
@@ -140,8 +77,10 @@ export class ScenarioRuleHideCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    const model = gameManager.game.scenarioRules.splice(ruleIndex(this.parameters), 1)[0];
-    gameManager.game.discardedScenarioRules.push(model.identifier);
+    const model = ruleModel(this.parameters);
+    if (model) {
+      gameManager.scenarioRulesManager.hideScenarioRule(model);
+    }
   }
 }
 
@@ -154,20 +93,10 @@ export class ScenarioRuleRemoveCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    const model = gameManager.game.scenarioRules.splice(ruleIndex(this.parameters), 1)[0];
-    if (model.rule.once || model.rule.alwaysApplyTurn || model.rule.alwaysApply) {
-      gameManager.game.discardedScenarioRules.push(model.identifier);
+    const model = ruleModel(this.parameters);
+    if (model) {
+      gameManager.scenarioRulesManager.removeScenarioRule(model);
     }
-    gameManager.game.activeScenarioRules = gameManager.game.activeScenarioRules.filter(
-      (active) =>
-        !(
-          active.edition === model.identifier.edition &&
-          active.scenario === model.identifier.scenario &&
-          active.group === model.identifier.group &&
-          active.index === model.identifier.index &&
-          active.section === model.identifier.section
-        )
-    );
   }
 }
 

@@ -1,7 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { PersonalQuestCardComponent } from 'src/app/ui/figures/character/sheet/personal-quest-card/personal-quest-card';
 

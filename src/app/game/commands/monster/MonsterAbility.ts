@@ -1,9 +1,10 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
-import { deckMoveCard, deckTargetValid, findMonster, validSeed } from 'src/app/game/commands/CommandHelper';
+import { deckTargetValid, findMonster, validSeed } from 'src/app/game/commands/CommandHelper';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
+import { deckCardList } from 'src/app/game/util/deck';
 
 abstract class MonsterAbilityCommandImpl extends CommandImpl {
   monster(): Monster | undefined {
@@ -101,20 +102,8 @@ export class MonsterAbilityMoveCommand extends MonsterAbilityCommandImpl {
   executeWithParameters(figureId: string, cardId: number, toList: string, toIndex: number) {
     const monster = this.monster();
     if (monster) {
-      const result = deckMoveCard(
-        monster.ability,
-        this.abilityIndex(cardId),
-        toList,
-        toIndex,
-        monster.abilities,
-        monster.revealedAbilities
-      );
-      monster.ability = result.current;
-      const sameDeckMonster = gameManager.monsterManager.getSameDeckMonster(monster);
-      if (sameDeckMonster) {
-        gameManager.monsterManager.applySameDeck(sameDeckMonster);
-      }
-      gameManager.sortFigures();
+      const position = deckCardList(monster.ability, this.abilityIndex(cardId));
+      gameManager.monsterManager.moveAbility(monster, position.list, position.index, toList, toIndex);
     } else {
       this.executionError('monster not found');
     }

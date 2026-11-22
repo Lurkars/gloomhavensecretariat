@@ -1,13 +1,13 @@
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject, input, OnInit, output } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
 import { Enhancement, EnhancementAction, EnhancementType } from 'src/app/game/model/data/Enhancement';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { ActionComponent } from 'src/app/ui/figures/actions/action';
 import { SettingMenuComponent } from 'src/app/ui/header/menu/settings/setting/setting';
@@ -79,28 +79,20 @@ export class EnhancementsComponent implements OnInit {
   constructor() {
     this.ghsManager.uiChangeEffect(() => {
       if (this.inputCharacter && this.inputCardId()) {
-        this.enhancements =
-          (this.inputCharacter.progress.enhancements &&
-            this.inputCharacter.progress.enhancements.filter((enhancement) => {
-              const inputActionIndex = this.inputActionIndex();
-              return (
-                enhancement.cardId === this.inputCardId() &&
-                inputActionIndex &&
-                enhancement.actionIndex.indexOf('bottom') === inputActionIndex.indexOf('bottom')
-              );
-            }).length) ||
-          0;
-        this.enhancedCards =
-          this.inputCharacter.progress.enhancements &&
-          this.inputCharacter.progress.enhancements
-            .filter((e) => !e.inherited)
-            .map((enhancement) => enhancement.cardId)
-            .filter((cardId, index, self) => {
-              const inputCardId = this.inputCardId();
-              return (!inputCardId || inputCardId !== cardId) && index === self.indexOf(cardId);
-            }).length;
+        this.updateEnhancements();
       }
     });
+  }
+
+  updateEnhancements() {
+    const character = this.inputCharacter;
+    const inputActionIndex = this.inputActionIndex();
+    const inputCardId = this.inputCardId();
+    if (character) {
+      this.enhancements =
+        inputCardId && inputActionIndex ? gameManager.enhancementsManager.cardEnhancements(character, inputCardId, inputActionIndex) : 0;
+      this.enhancedCards = gameManager.enhancementsManager.enhancedCards(character, inputCardId);
+    }
   }
 
   ngOnInit(): void {
@@ -172,27 +164,7 @@ export class EnhancementsComponent implements OnInit {
         }
       }
 
-      this.enhancements =
-        (this.inputCharacter.progress.enhancements &&
-          this.inputCharacter.progress.enhancements.filter((enhancement) => {
-            const inputActionIndexValue = this.inputActionIndex();
-            return (
-              enhancement.cardId === this.inputCardId() &&
-              inputActionIndexValue &&
-              enhancement.actionIndex.indexOf('bottom') === inputActionIndexValue.indexOf('bottom')
-            );
-          }).length) ||
-        0;
-
-      this.enhancedCards =
-        this.inputCharacter.progress.enhancements &&
-        this.inputCharacter.progress.enhancements
-          .filter((e) => !e.inherited)
-          .map((e) => e.cardId)
-          .filter((cardId, index, self) => {
-            const inputCardId = this.inputCardId();
-            return (!inputCardId || inputCardId !== cardId) && index === self.indexOf(cardId);
-          }).length;
+      this.updateEnhancements();
 
       if ([ActionType.custom, ActionType.specialTarget].includes(inputAction.type) && inputAction.enhancementTypes && !this.wipSpecial) {
         this.customSpecial = true;
@@ -368,9 +340,7 @@ export class EnhancementsComponent implements OnInit {
       inputCardId &&
       inputEnhancementIndex !== undefined &&
       this.inputCharacter &&
-      ((this.inputCharacter.progress.gold >= costs &&
-        (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.campaignManager.prosperityLevel())) ||
-        force)
+      (gameManager.enhancementsManager.canEnhance(this.inputCharacter, inputCardId, costs) || force)
     ) {
       gameManager.stateManager.before(
         'enhanceCard',
@@ -378,18 +348,14 @@ export class EnhancementsComponent implements OnInit {
         inputCardId
       );
 
-      if (!this.inputCharacter.progress.enhancements) {
-        this.inputCharacter.progress.enhancements = [];
-      }
-
-      this.inputCharacter.progress.enhancements.push(
-        new Enhancement(inputCardId, inputActionIndex, inputEnhancementIndex, this.enhancementAction)
+      gameManager.enhancementsManager.addEnhancement(
+        this.inputCharacter,
+        inputCardId,
+        inputActionIndex,
+        inputEnhancementIndex,
+        this.enhancementAction,
+        force ? 0 : costs
       );
-      gameManager.personalQuestManager.trackPersonalQuestProgress(this.inputCharacter, PersonalQuestAutotrackType.enhancements);
-
-      if (!force) {
-        this.inputCharacter.progress.gold -= costs;
-      }
 
       gameManager.stateManager.after();
       // TODO: The 'emit' function requires a mandatory void argument

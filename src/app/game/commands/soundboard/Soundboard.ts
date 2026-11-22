@@ -1,4 +1,4 @@
-import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
+import { soundboardManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 
 export class SoundboardCommand extends CommandImpl {

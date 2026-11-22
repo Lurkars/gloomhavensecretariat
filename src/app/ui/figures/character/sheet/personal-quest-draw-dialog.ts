@@ -1,7 +1,8 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { PersonalQuestCardComponent } from 'src/app/ui/figures/character/sheet/personal-quest-card/personal-quest-card';
@@ -32,17 +33,7 @@ export class PersonalQuestDrawDialog {
   }
 
   draw() {
-    const pool = gameManager.personalQuestManager.availablePersonalQuests(this.character.edition);
-    const drawn: PersonalQuest[] = [];
-    for (let i = 0; i < 2 && pool.length > 0; i++) {
-      const index = Math.floor(Math.random() * pool.length);
-      drawn.push(pool.splice(index, 1)[0]);
-    }
-    this.drawnCards = drawn.sort((a, b) =>
-      a.altId && b.altId
-        ? a.altId.localeCompare(b.altId, undefined, { numeric: true })
-        : a.cardId.localeCompare(b.cardId, undefined, { numeric: true })
-    );
+    this.drawnCards = gameManager.personalQuestManager.drawPersonalQuests(this.character.edition);
     this.selected = -1;
   }
 

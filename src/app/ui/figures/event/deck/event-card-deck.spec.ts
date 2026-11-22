@@ -1,7 +1,7 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 import { EventCardDeckComponent } from 'src/app/ui/figures/event/deck/event-card-deck';
 

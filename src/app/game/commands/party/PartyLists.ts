@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findItem, validSeed } from 'src/app/game/commands/CommandHelper';
 import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
@@ -115,9 +115,7 @@ abstract class PartyItemCommandImpl extends CommandImpl {
   }
 
   unlocked(item: ItemData): CountIdentifier | undefined {
-    return gameManager.game.party.unlockedItems.find(
-      (identifier) => identifier.name === '' + item.id && identifier.edition === item.edition
-    );
+    return gameManager.itemManager.unlockedItem(item);
   }
 
   validParameters(edition: string, id: string | number, value: BASE_TYPE): boolean {
@@ -131,12 +129,7 @@ export class PartyItemUnlockCommand extends PartyItemCommandImpl {
   executeWithParameters(edition: string, id: string | number, value: boolean) {
     const item = this.item();
     if (item) {
-      const unlocked = this.unlocked(item);
-      if (unlocked && !value) {
-        gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems.filter((identifier) => identifier !== unlocked);
-      } else if (!unlocked && value) {
-        gameManager.game.party.unlockedItems.push(new CountIdentifier(item.id, item.edition));
-      }
+      gameManager.itemManager.setItemUnlocked(item, value);
     } else {
       this.executionError('item not found');
     }
@@ -171,25 +164,10 @@ export class PartyItemCountCommand extends PartyItemCommandImpl {
 export class PartyItemFilterCommand extends PartyItemCommandImpl {
   id: string = 'party.item.filter';
 
-  filtered(item: ItemData): boolean {
-    return gameManager.game.party.filteredItems.some(
-      (identifier) => identifier.edition === item.edition && identifier.name === '' + item.id
-    );
-  }
-
   executeWithParameters(edition: string, id: string | number, value: boolean) {
     const item = this.item();
     if (item) {
-      if (this.filtered(item) === value) {
-        return;
-      }
-      if (!value) {
-        gameManager.game.party.filteredItems = gameManager.game.party.filteredItems.filter(
-          (identifier) => identifier.edition !== item.edition || identifier.name !== '' + item.id
-        );
-      } else {
-        gameManager.game.party.filteredItems.push(new Identifier(item.id, item.edition));
-      }
+      gameManager.itemManager.setItemFiltered(item, value);
     } else {
       this.executionError('item not found');
     }

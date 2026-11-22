@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findScenarioData, findSectionData } from 'src/app/game/commands/scenario/Scenario';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
@@ -127,11 +127,7 @@ export class PartyConclusionFinishCommand extends CommandImpl {
   executeWithParameters(edition: string, index: string, group: string = '', week: number = -1) {
     const sectionData = findSectionData(edition, index, group);
     if (sectionData) {
-      const scenario = new Scenario(sectionData);
-      gameManager.scenarioManager.finishScenario(scenario, true, scenario, false, false, false, gameManager.game.party.campaignMode, true);
-      if (week !== -1 && !scenario.repeatable) {
-        gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), scenario.index];
-      }
+      gameManager.scenarioManager.finishWeekConclusion(new Scenario(sectionData), week);
     } else {
       this.executionError('conclusion not found');
     }
@@ -157,30 +153,15 @@ export class PartyWeekSectionCommand extends CommandImpl {
   id: string = 'party.weekSection';
   requiredParameters: number = 3;
 
-  has(week: BASE_TYPE, section: BASE_TYPE): boolean {
-    return (gameManager.game.party.weekSections[week as number] || []).includes(section as string);
-  }
-
   validParameters(week: number, section: string, value: boolean): boolean {
     return typeof week === 'number' && week >= 0 && typeof section === 'string' && !!section && typeof value === 'boolean';
   }
 
   executeWithParameters(week: number, section: string, value: boolean) {
-    const party = gameManager.game.party;
-    if (this.has(week, section) === value) {
-      return;
-    }
-    if (!value) {
-      const sections = party.weekSections[week] || [];
-      sections.splice(sections.indexOf(section), 1);
-      if (sections.length === 0) {
-        delete party.weekSections[week];
-      }
-      party.conclusions = party.conclusions.filter(
-        (conclusion) => conclusion.edition !== gameManager.game.edition || conclusion.index !== section
-      );
+    if (value) {
+      gameManager.scenarioManager.addWeekSection(week, section);
     } else {
-      party.weekSections[week] = [...(party.weekSections[week] || []), section];
+      gameManager.scenarioManager.removeWeekSection(week, section);
     }
   }
 }

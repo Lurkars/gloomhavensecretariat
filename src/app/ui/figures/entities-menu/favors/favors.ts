@@ -1,8 +1,9 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, HostListener, OnInit, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Favor } from 'src/app/game/model/data/Trials';

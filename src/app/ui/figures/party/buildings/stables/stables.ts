@@ -1,8 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { PetCard, PetIdentifier } from 'src/app/game/model/data/PetCard';
 import { PetCardComponent } from 'src/app/ui/figures/party/buildings/stables/pet-card/pet-card';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -170,14 +170,7 @@ export class StablesComponent implements OnInit {
         model.name,
         model.petname
       );
-      model.active = !model.active;
-      const stables = gameManager.game.party.buildings.find((model) => model.name === 'stables' && model.level);
-      while (!force && stables && gameManager.game.party.pets.filter((value) => value.active).length > (stables.level < 3 ? 1 : 2)) {
-        const other = gameManager.game.party.pets.find((value) => value.active && value !== model);
-        if (other) {
-          other.active = false;
-        }
-      }
+      gameManager.buildingsManager.setPetActive(model, !model.active, force);
 
       gameManager.stateManager.after();
     }

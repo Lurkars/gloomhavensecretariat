@@ -1,10 +1,10 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
@@ -65,13 +65,7 @@ export class ItemsBrewDialog implements OnInit {
   character: Character | undefined = inject(DIALOG_DATA);
 
   constructor() {
-    this.brewing = 0;
-    if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-      const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === 'alchemist');
-      if (alchemist && alchemist.level) {
-        this.brewing = alchemist.level < 3 ? 2 : 3;
-      }
-    }
+    this.brewing = gameManager.itemManager.brewingHerbs();
   }
 
   ngOnInit(): void {
@@ -275,24 +269,13 @@ export class ItemsBrewDialog implements OnInit {
           this.brewed.edition,
           gameManager.characterManager.characterName(this.selectedCharacter, true, true)
         );
-        if (!force) {
-          this.herbs.forEach((herb) => {
-            if (this.fhSupportSpent[herb]) {
-              gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) - (this.fhSupportSpent[herb] || 0);
-            }
-            if (!!this.character && this.characterSpent[herb]) {
-              this.character.progress.loot[herb] = (this.character.progress.loot[herb] || 0) - (this.characterSpent[herb] || 0);
-            }
-          });
-        }
-        if (
-          !gameManager.game.party.unlockedItems.find(
-            (identitfier) => this.brewed && identitfier.name === '' + this.brewed.id && identitfier.edition === this.brewed.edition
-          )
-        ) {
-          gameManager.game.party.unlockedItems.push(new CountIdentifier(this.brewed.id, this.brewed.edition));
-        }
-        gameManager.itemManager.addItem(this.brewed, this.selectedCharacter);
+        gameManager.itemManager.brewPotion(
+          this.brewed,
+          this.selectedCharacter,
+          this.character,
+          force ? {} : this.characterSpent,
+          force ? {} : this.fhSupportSpent
+        );
         this.applied = true;
         this.computeGridState();
         gameManager.stateManager.after();
@@ -302,36 +285,9 @@ export class ItemsBrewDialog implements OnInit {
 
   getItem(): ItemData | undefined {
     if (this.receipe[0] && this.receipe[1]) {
-      if (
-        this.receipe.filter((herb, index, self) => herb && self.indexOf(herb) === index).length !=
-        this.receipe.filter((herb) => herb).length
-      ) {
-        return gameManager.itemManager
-          .getItems(gameManager.currentEdition(), true)
-          .find(
-            (itemData) =>
-              (!itemData.requiredItems || !itemData.requiredItems.length) &&
-              itemData.requiredBuilding === 'alchemist' &&
-              (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) &&
-              !itemData.resources
-          );
-      } else {
-        return gameManager.itemManager
-          .getItems(gameManager.currentEdition(), true)
-          .find(
-            (itemData) =>
-              (!itemData.requiredItems || !itemData.requiredItems.length) &&
-              itemData.requiredBuilding === 'alchemist' &&
-              (!this.receipe[2] ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) &&
-              itemData.resources &&
-              this.herbs.every(
-                (herb) => itemData.resources && this.receipe.filter((value) => value === herb).length === (itemData.resources[herb] || 0)
-              )
-          );
-      }
-    } else {
-      return undefined;
+      return gameManager.itemManager.brewedItem(this.receipe.filter((herb) => !!herb) as LootType[]);
     }
+    return undefined;
   }
 
   openItemDialog(item: ItemData | undefined = undefined) {
@@ -343,29 +299,8 @@ export class ItemsBrewDialog implements OnInit {
   }
 
   getGridCombinationItem(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined): ItemData | undefined {
-    const tempReceipe = herb3 ? [herb1, herb2, herb3] : [herb1, herb2];
-    const hasDuplicates = !herb3 && herb1 === herb2;
-    const item = gameManager.itemManager
-      .getItems(gameManager.currentEdition(), true)
-      .find(
-        (itemData) =>
-          (!itemData.requiredItems || !itemData.requiredItems.length) &&
-          itemData.requiredBuilding === 'alchemist' &&
-          (herb3 ? itemData.requiredBuildingLevel >= 3 : itemData.requiredBuildingLevel < 3) &&
-          (hasDuplicates
-            ? !itemData.resources
-            : !!itemData.resources &&
-              this.herbs.every(
-                (herb) => itemData.resources && tempReceipe.filter((value) => value === herb).length === (itemData.resources[herb] || 0)
-              ))
-      );
-    if (
-      item &&
-      gameManager.game.party.unlockedItems.find((identifier) => identifier.name === '' + item.id && identifier.edition === item.edition)
-    ) {
-      return item;
-    }
-    return undefined;
+    const item = gameManager.itemManager.brewedItem(herb3 ? [herb1, herb2, herb3] : [herb1, herb2]);
+    return item && gameManager.itemManager.unlockedItem(item) ? item : undefined;
   }
 
   isGridCombinationActive(herb1: LootType, herb2: LootType, herb3: LootType | undefined = undefined): boolean {

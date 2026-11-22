@@ -1,9 +1,11 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ActionHex, ActionHexFromString, ActionHexType } from 'src/app/game/model/ActionHex';
+import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { ConditionName } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
+import { Enhancement, EnhancementAction } from 'src/app/game/model/data/Enhancement';
+import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { Game } from 'src/app/game/model/Game';
 
 export class EnhancementsManager {
@@ -269,5 +271,35 @@ export class EnhancementsManager {
       enhancements = 0;
     }
     return enhancements * (!this.fh && this.temporary ? 20 : this.enhancerLevel > 3 ? 50 : 75);
+  }
+
+  cardEnhancements(character: Character, cardId: number, actionIndex: string): number {
+    return (character.progress.enhancements || []).filter(
+      (enhancement) => enhancement.cardId === cardId && enhancement.actionIndex.indexOf('bottom') === actionIndex.indexOf('bottom')
+    ).length;
+  }
+
+  enhancedCards(character: Character, excludeCardId: number | undefined = undefined): number {
+    return (character.progress.enhancements || [])
+      .filter((enhancement) => !enhancement.inherited)
+      .map((enhancement) => enhancement.cardId)
+      .filter((cardId, index, self) => (!excludeCardId || excludeCardId !== cardId) && index === self.indexOf(cardId)).length;
+  }
+
+  canEnhance(character: Character, cardId: number, costs: number): boolean {
+    return (
+      character.progress.gold >= costs && (this.fh || this.enhancedCards(character, cardId) < gameManager.campaignManager.prosperityLevel())
+    );
+  }
+
+  addEnhancement(character: Character, cardId: number, actionIndex: string, index: number, action: EnhancementAction, costs: number = 0) {
+    character.progress.enhancements = character.progress.enhancements || [];
+    character.progress.enhancements.push(new Enhancement(cardId, actionIndex, index, action));
+    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.enhancements);
+    character.progress.gold -= costs;
+  }
+
+  removeEnhancement(character: Character, enhancement: Enhancement) {
+    character.progress.enhancements = character.progress.enhancements.filter((other) => other !== enhancement);
   }
 }

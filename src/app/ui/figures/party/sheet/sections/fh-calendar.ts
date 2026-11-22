@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { PartySheetMapLinksComponent } from 'src/app/ui/figures/party/sheet/sections/map-links';
 import { PartyWeekDialogComponent } from 'src/app/ui/figures/party/week-dialog/week-dialog';

@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { valueCalc } from 'src/app/ui/helper/valueCalc';
 
 // valueCalc() is the pure formatting core behind the [value-calc] directive: given a raw

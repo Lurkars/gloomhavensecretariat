@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { ScenarioStats } from 'src/app/game/model/CharacterProgress';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -37,6 +36,97 @@ export class RoundManager {
               (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired))
         ))
     );
+  }
+
+  missingInitiative(): boolean {
+    return (
+      settingsManager.settings.initiativeRequired &&
+      this.game.figures.some(
+        (figure) =>
+          ((figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) ||
+            figure instanceof ObjectiveContainer) &&
+          figure.getInitiative() <= 0
+      )
+    );
+  }
+
+  hasActiveFigure(): boolean {
+    return this.game.figures.some((figure) => figure.active && !figure.off && (!(figure instanceof Character) || !figure.absent));
+  }
+
+  turnConfirmationPending(): boolean {
+    return (
+      this.hasActiveFigure() &&
+      settingsManager.settings.turnConfirmation &&
+      (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions)
+    );
+  }
+
+  battleGoalsPending(): boolean {
+    return (
+      !this.missingInitiative() &&
+      settingsManager.settings.battleGoals &&
+      settingsManager.settings.battleGoalsReminder &&
+      this.game.scenario !== undefined &&
+      this.firstRound &&
+      !this.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) &&
+      !gameManager.bbRules()
+    );
+  }
+
+  eventDrawPending(): boolean {
+    return (
+      !this.missingInitiative() &&
+      !settingsManager.settings.eventsDraw &&
+      settingsManager.settings.eventsDrawReminder &&
+      this.game.scenario !== undefined &&
+      this.firstRound &&
+      this.game.eventDraw !== undefined
+    );
+  }
+
+  scenarioFailed(): boolean {
+    return (
+      !this.hasActiveFigure() &&
+      this.game.figures.some((figure) => figure instanceof Character) &&
+      this.game.figures.every((figure) => !(figure instanceof Character) || !gameManager.entityManager.isAlive(figure) || figure.absent)
+    );
+  }
+
+  drawBlocked(): boolean {
+    return (
+      this.game.figures.length === 0 ||
+      this.missingInitiative() ||
+      this.battleGoalsPending() ||
+      this.scenarioFailed() ||
+      this.eventDrawPending()
+    );
+  }
+
+  nextBlocked(): boolean {
+    return this.turnConfirmationPending() || this.scenarioFailed();
+  }
+
+  endAllTurns() {
+    this.game.figures.forEach((figure) => this.afterTurn(figure));
+  }
+
+  nextRound() {
+    if (this.game.state === GameState.next) {
+      if (settingsManager.settings.turnConfirmation) {
+        const activeFigure = this.game.figures.find((figure) => figure.active && !figure.off);
+        if (!this.turnConfirmationPending() && activeFigure) {
+          this.afterTurn(activeFigure);
+        }
+      } else {
+        let lastActive = this.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
+        while (lastActive) {
+          this.toggleFigure(lastActive, true);
+          lastActive = this.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
+        }
+      }
+    }
+    this.nextGameState();
   }
 
   nextGameState(force: boolean = false) {

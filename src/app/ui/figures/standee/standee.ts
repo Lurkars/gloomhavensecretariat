@@ -2,9 +2,10 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, OnInit, inject, input, viewChild } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionHint, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -29,7 +30,7 @@ import { EntityAnimationDirective } from 'src/app/ui/helper/EntityAnimation';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsMinZeroPipe, GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
-import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
+import { ghsDefaultDialogPositions, ghsRemoveDeadEntities, ghsValueSign } from 'src/app/ui/helper/Static';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 import { ValueSignDirective } from 'src/app/ui/helper/ValueSign';
 
@@ -333,26 +334,8 @@ export class StandeeComponent implements OnInit {
         }
       }
 
-      if (this.entity.dead) {
-        gameManager.triggerUiChange(false);
-        setTimeout(
-          () => {
-            if (this.entity.dead) {
-              if (this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
-                gameManager.monsterManager.removeMonsterEntity(this.figure, this.entity);
-              } else if (this.figure instanceof Character && this.entity instanceof Summon) {
-                gameManager.characterManager.removeSummon(this.figure, this.entity);
-              } else if (this.figure instanceof ObjectiveContainer && this.entity instanceof ObjectiveEntity) {
-                gameManager.objectiveManager.removeObjectiveEntity(this.figure, this.entity);
-              }
-            }
-            gameManager.stateManager.after();
-          },
-          settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-        );
-      } else {
-        gameManager.stateManager.after();
-      }
+      ghsRemoveDeadEntities([{ entity: this.entity, figure: this.figure }]);
+      gameManager.stateManager.after();
     }
     this.health = 0;
   }

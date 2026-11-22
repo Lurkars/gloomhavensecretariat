@@ -1,7 +1,7 @@
 import { DestroyRef, Directive, ElementRef, HostListener, inject, input, OnInit, output } from '@angular/core';
 import { outputFromObservable } from '@angular/core/rxjs-interop';
 import { Subject } from 'rxjs';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { PointerInputService } from 'src/app/ui/helper/pointer-input-service';
 
 export const doubleClickTreshhold: number = 250;

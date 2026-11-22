@@ -1,15 +1,15 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
+import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { deckMove } from 'src/app/game/util/deck';
 
 export class LootManager {
   game: Game;
@@ -79,6 +79,28 @@ export class LootManager {
     return result;
   }
 
+  moveCard(deck: LootDeck, fromList: string, fromIndex: number, toList: string, toIndex: number) {
+    const result = deckMove(deck.current, fromList, fromIndex, toList, toIndex, deck.cards);
+    deck.current = result.current;
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character && figure.lootCards) {
+        figure.lootCards = figure.lootCards
+          .map((index) => {
+            if (result.from < result.to && index > result.from && index <= result.to) {
+              index--;
+            } else if (result.from > result.to && index >= result.to && index < result.from) {
+              index++;
+            } else if (index === result.from) {
+              index = result.to;
+            }
+            return index;
+          })
+          .filter((index) => index <= deck.current)
+          .sort((a, b) => a - b);
+      }
+    });
+  }
+
   shuffleDeck(deck: LootDeck, onlyUpcoming: boolean = false) {
     const current = deck.current;
     const restoreCards: Loot[] = onlyUpcoming && current > -1 ? deck.cards.splice(0, current + 1) : [];
@@ -144,6 +166,40 @@ export class LootManager {
 
     gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.treasures);
     return rewardResults;
+  }
+
+  lootScenarioTreasure(character: Character, treasure: 'G' | number, index: number, edition: string): string[][] {
+    let rewardResults: string[][] = [];
+    if (treasure !== 'G' && settingsManager.settings.treasuresLoot) {
+      rewardResults = this.lootTreasure(character, treasure - 1, edition);
+    }
+    character.treasures = character.treasures || [];
+    character.treasures.push(
+      treasure === 'G'
+        ? 'G-' + index
+        : rewardResults.some((rewardResult) => rewardResult.length > 0)
+          ? treasure + ':' + rewardResults.map((reward) => reward.join('+')).join('|')
+          : treasure
+    );
+    if (typeof treasure === 'number') {
+      this.game.party.treasures.push(new Identifier(treasure, edition));
+    }
+    return rewardResults;
+  }
+
+  removeScenarioTreasure(character: Character, treasure: string | number, edition: string) {
+    const index = character.treasures.indexOf(treasure);
+    if (index === -1) {
+      return;
+    }
+    character.treasures.splice(index, 1);
+    const goal = typeof treasure === 'string' && treasure.startsWith('G-');
+    const treasureNumber = typeof treasure === 'number' ? treasure : goal ? NaN : +treasure.split(':')[0];
+    if (!isNaN(treasureNumber)) {
+      this.game.party.treasures = this.game.party.treasures.filter(
+        (value) => value.edition !== edition || value.name !== '' + treasureNumber
+      );
+    }
   }
 
   hasTreasure(character: Character, treasure: string | number, index: number): boolean {

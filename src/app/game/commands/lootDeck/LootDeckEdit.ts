@@ -1,27 +1,9 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
-import { deckMoveCard, deckTargetValid, validSeed } from 'src/app/game/commands/CommandHelper';
+import { deckTargetValid, validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
 import { enhancableLootTypes, Loot, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
-
-function remapLootCards(from: number, to: number) {
-  gameManager.game.figures.forEach((figure) => {
-    if (figure instanceof Character && figure.lootCards) {
-      figure.lootCards = figure.lootCards
-        .map((index) => {
-          if (from < to && index > from && index <= to) {
-            index--;
-          } else if (from > to && index >= to && index < from) {
-            index++;
-          } else if (index === from) {
-            index = to;
-          }
-          return index;
-        })
-        .sort((a, b) => a - b);
-    }
-  });
-}
+import { deckCardList } from 'src/app/game/util/deck';
 
 export function lootCardIndex(cardId: BASE_TYPE | undefined): number {
   return typeof cardId === 'number' ? gameManager.game.lootDeck.cards.findIndex((loot) => loot.cardId === cardId) : -1;
@@ -60,10 +42,8 @@ export class LootDeckMoveCommand extends CommandImpl {
 
   executeWithParameters(cardId: number, toList: string, toIndex: number) {
     const deck = gameManager.game.lootDeck;
-    const result = deckMoveCard(deck.current, lootCardIndex(cardId), toList, toIndex, deck.cards);
-    deck.current = result.current;
-    remapLootCards(result.from, result.to);
-    dropUpcomingLootCards();
+    const position = deckCardList(deck.current, lootCardIndex(cardId));
+    gameManager.lootManager.moveCard(deck, position.list, position.index, toList, toIndex);
   }
 }
 

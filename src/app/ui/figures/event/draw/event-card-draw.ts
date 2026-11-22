@@ -1,9 +1,9 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 import { EventCardDialogComponent } from 'src/app/ui/figures/event/dialog/event-card-dialog';
 import { EventCardComponent } from 'src/app/ui/figures/event/event-card';

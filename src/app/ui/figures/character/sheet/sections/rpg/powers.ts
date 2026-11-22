@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { RPG_ACTIVE_TALENT_ROWS, RpgPower, RpgPowerState } from 'src/app/game/model/CharacterProgress';
 import { RpgSheetSection } from 'src/app/ui/figures/character/sheet/sections/rpg/rpg-section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

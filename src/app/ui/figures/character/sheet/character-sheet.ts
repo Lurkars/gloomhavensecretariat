@@ -1,8 +1,8 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterProgress } from 'src/app/game/model/CharacterProgress';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/ability-cards-dialog';

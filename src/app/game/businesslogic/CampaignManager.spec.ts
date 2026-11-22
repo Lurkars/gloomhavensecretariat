@@ -1,5 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 
 function buildEdition(edition: string, overrides: Partial<EditionData> = {}): EditionData {
@@ -63,6 +63,61 @@ describe('CampaignManager', () => {
       gameManager.game.edition = 'gh';
       gameManager.game.party.prosperity = 1;
       expect(gameManager.campaignManager.prosperityLevel()).toEqual(1);
+    });
+  });
+
+  describe('startCampaign / cancelCampaign', () => {
+    afterEach(() => vi.restoreAllMocks());
+
+    it('starts a campaign for the edition, resets event decks and updates the default attack modifier decks', () => {
+      vi.spyOn(settingsManager, 'automaticTheme').mockImplementation(() => {});
+      const updateDefaultDecks = vi.spyOn(gameManager.attackModifierManager, 'updateDefaultDecks').mockImplementation(() => {});
+      const buildPartyDeckMigration = vi.spyOn(gameManager.eventCardManager, 'buildPartyDeckMigration').mockImplementation(() => {});
+      gameManager.game.party.eventDecks = { city: [] } as any;
+      const unlockBuildings = vi.spyOn(gameManager.buildingsManager, 'unlockBuildings').mockReturnValue(false);
+      const setupTownGuardDeck = vi.spyOn(gameManager.outpostAttackManager, 'setupTownGuardDeck').mockReturnValue(false);
+
+      gameManager.campaignManager.startCampaign('fh');
+
+      expect(gameManager.game.edition).toEqual('fh');
+      expect(gameManager.game.party.edition).toEqual('fh');
+      expect(gameManager.game.party.campaignMode).toBe(true);
+      expect(gameManager.game.party.eventDecks).toEqual({});
+      expect(updateDefaultDecks).toHaveBeenCalled();
+      expect(buildPartyDeckMigration).toHaveBeenCalledWith('fh');
+      expect(unlockBuildings).toHaveBeenCalled();
+      expect(setupTownGuardDeck).toHaveBeenCalled();
+    });
+
+    it('sets up the campaign when enabling campaign mode', () => {
+      const unlockBuildings = vi.spyOn(gameManager.buildingsManager, 'unlockBuildings').mockReturnValue(false);
+      const setupTownGuardDeck = vi.spyOn(gameManager.outpostAttackManager, 'setupTownGuardDeck').mockReturnValue(false);
+      gameManager.campaignManager.setCampaignMode(false);
+      expect(gameManager.game.party.campaignMode).toBe(false);
+      expect(setupTownGuardDeck).not.toHaveBeenCalled();
+      gameManager.campaignManager.setCampaignMode(true);
+      expect(gameManager.game.party.campaignMode).toBe(true);
+      expect(unlockBuildings).toHaveBeenCalled();
+      expect(setupTownGuardDeck).toHaveBeenCalled();
+    });
+
+    it('unlocks buildings on prosperity changes', () => {
+      const unlockBuildings = vi.spyOn(gameManager.buildingsManager, 'unlockBuildings').mockReturnValue(false);
+      gameManager.campaignManager.changeProsperity(1);
+      expect(unlockBuildings).toHaveBeenCalled();
+    });
+
+    it('cancels a campaign', () => {
+      gameManager.game.edition = 'fh';
+      gameManager.game.party.campaignMode = true;
+      gameManager.game.party.townGuardDeck = new AttackModifierDeck([]).toModel();
+      const resetBuildings = vi.spyOn(gameManager.buildingsManager, 'resetBuildings').mockImplementation(() => {});
+      gameManager.campaignManager.cancelCampaign();
+      expect(resetBuildings).toHaveBeenCalled();
+      expect(gameManager.game.party.townGuardDeck).toBeUndefined();
+      expect(gameManager.game.edition).toBeUndefined();
+      expect(gameManager.game.party.campaignMode).toBe(false);
+      expect(gameManager.game.party.eventDecks).toEqual({});
     });
   });
 });

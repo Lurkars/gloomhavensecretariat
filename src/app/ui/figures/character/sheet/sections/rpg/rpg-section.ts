@@ -1,6 +1,6 @@
 import { Directive, inject, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import {
   RPG_ACTIVE_TALENT_ROWS,
   RPG_ANCESTRY_SKILL_ROWS,

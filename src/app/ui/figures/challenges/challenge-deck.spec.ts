@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ChallengeCard, ChallengeDeck } from 'src/app/game/model/data/Challenges';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { GameState } from 'src/app/game/model/Game';

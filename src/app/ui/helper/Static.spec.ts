@@ -1,5 +1,9 @@
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { SpoilableMock } from 'src/app/game/model/data/Spoilable';
+import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import {
   ghsDurationLabel,
   ghsFilterInputFocus,
@@ -7,7 +11,7 @@ import {
   ghsIsSpoiled,
   ghsModulo,
   ghsNotSpoiled,
-  ghsShuffleArray,
+  ghsRemoveDeadEntities,
   ghsTextSearch,
   ghsValueSign
 } from 'src/app/ui/helper/Static';
@@ -20,19 +24,6 @@ import {
 describe('Static helpers', () => {
   beforeEach(() => {
     settingsManager.settings.spoilers = [];
-  });
-
-  describe('ghsShuffleArray', () => {
-    it('returns an array with the same elements (possibly reordered)', () => {
-      const input = [1, 2, 3, 4, 5];
-      const result = ghsShuffleArray([...input]);
-      expect(result.sort()).toEqual(input.sort());
-    });
-
-    it('shuffles in place and returns the same array reference', () => {
-      const input = [1, 2, 3];
-      expect(ghsShuffleArray(input)).toBe(input);
-    });
   });
 
   describe('ghsHasSpoilers', () => {
@@ -149,5 +140,58 @@ describe('Static helpers', () => {
       expect(ghsFilterInputFocus()).toBe(false);
       input.remove();
     });
+  });
+});
+
+describe('ghsRemoveDeadEntities', () => {
+  function deadMonster(): { monster: Monster; entity: MonsterEntity } {
+    const monster = new Monster(Object.assign(new MonsterData(), { name: 'bandit-guard', edition: 'gh' }), 1);
+    const entity = new MonsterEntity(1, MonsterType.normal, monster);
+    entity.dead = true;
+    monster.entities = [entity];
+    return { monster, entity };
+  }
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.useRealTimers();
+    settingsManager.settings.animations = true;
+  });
+
+  it('removes dead entities immediately without animations', () => {
+    settingsManager.settings.animations = false;
+    const { monster, entity } = deadMonster();
+    const before = vi.spyOn(gameManager.stateManager, 'beforeAutomatic');
+    ghsRemoveDeadEntities([{ entity, figure: monster }]);
+    expect(monster.entities).toEqual([]);
+    expect(before).not.toHaveBeenCalled();
+  });
+
+  it('removes dead entities as automatic change after the animation', async () => {
+    vi.useFakeTimers();
+    settingsManager.settings.animations = true;
+    settingsManager.settings.animationSpeed = 1;
+    const { monster, entity } = deadMonster();
+    const before = vi.spyOn(gameManager.stateManager, 'beforeAutomatic').mockImplementation(() => {});
+    const after = vi.spyOn(gameManager.stateManager, 'afterAutomatic').mockImplementation(async () => {});
+    ghsRemoveDeadEntities([{ entity, figure: monster }]);
+    expect(monster.entities).toEqual([entity]);
+    await vi.advanceTimersByTimeAsync(1500);
+    expect(monster.entities).toEqual([]);
+    expect(before).toHaveBeenCalledWith('removeDeadEntities');
+    expect(after).toHaveBeenCalled();
+  });
+
+  it('skips entities revived in the meantime (e.g. undo)', async () => {
+    vi.useFakeTimers();
+    settingsManager.settings.animations = true;
+    settingsManager.settings.animationSpeed = 1;
+    const { monster, entity } = deadMonster();
+    const before = vi.spyOn(gameManager.stateManager, 'beforeAutomatic').mockImplementation(() => {});
+    ghsRemoveDeadEntities([{ entity, figure: monster }]);
+    entity.dead = false;
+    await vi.advanceTimersByTimeAsync(1500);
+    expect(monster.entities).toEqual([entity]);
+    expect(before).not.toHaveBeenCalled();
   });
 });

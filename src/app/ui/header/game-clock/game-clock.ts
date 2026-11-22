@@ -1,7 +1,8 @@
 import { DatePipe, NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameClockTimestamp } from 'src/app/game/model/Game';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsDurationLabelPipe } from 'src/app/ui/helper/Pipes';

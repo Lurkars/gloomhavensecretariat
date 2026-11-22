@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStatEffect } from 'src/app/game/model/data/MonsterStat';

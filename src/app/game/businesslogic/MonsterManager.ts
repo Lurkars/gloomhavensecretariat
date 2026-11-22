@@ -1,15 +1,16 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { ItemFlags } from 'src/app/game/model/data/ItemData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat, MonsterStatEffect } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
+import { PetIdentifier } from 'src/app/game/model/data/PetCard';
 import { RpgMonsterAction, rpgMonsterActions } from 'src/app/game/model/data/RpgMonsterAction';
 import { MonsterSpawnData } from 'src/app/game/model/data/ScenarioRule';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -17,6 +18,7 @@ import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
+import { deckMove } from 'src/app/game/util/deck';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
 
 export const RPG_DEFAULT_SPEED = 1;
@@ -742,6 +744,46 @@ export class MonsterManager {
     }
   }
 
+  moveAbility(monster: Monster, fromList: string, fromIndex: number, toList: string, toIndex: number) {
+    monster.ability = deckMove(monster.ability, fromList, fromIndex, toList, toIndex, monster.abilities, monster.revealedAbilities).current;
+    const sameDeckMonster = this.getSameDeckMonster(monster);
+    if (sameDeckMonster) {
+      this.applySameDeck(sameDeckMonster);
+    }
+    gameManager.sortFigures();
+  }
+
+  private petCaptureItem(item: AdditionalIdentifier): boolean {
+    return item.edition === 'fh' && item.name === '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed));
+  }
+
+  petCaptureCharacter(): Character | undefined {
+    return this.game.figures.find(
+      (figure) => figure instanceof Character && figure.progress.equippedItems.some((item) => this.petCaptureItem(item))
+    ) as Character | undefined;
+  }
+
+  catchMonster(monster: Monster, monsterEntity: MonsterEntity, force: boolean = false) {
+    monsterEntity.dead = true;
+    this.monsterEntityKilled(monster, monsterEntity);
+
+    if (monster.entities.every((entity) => entity.dead) && monster.active) {
+      gameManager.roundManager.toggleFigure(monster);
+    }
+
+    if (!this.game.party.pets.some((value) => value.edition === monster.edition && value.name === monster.pet)) {
+      this.game.party.pets.push(new PetIdentifier(monster.pet, monster.edition));
+      const character = this.petCaptureCharacter();
+      if (character && !force) {
+        const item = character.progress.equippedItems.find((equippedItem) => this.petCaptureItem(equippedItem));
+        if (item) {
+          item.tags = item.tags || [];
+          item.tags.push(ItemFlags.consumed);
+        }
+      }
+    }
+  }
+
   /**
    * Credit a kill to the figure acting at the moment of death (scenario stats and personal quests).
    * The killer is stored as tag, so a later removal does not count again and a revive can revert it.
@@ -818,6 +860,45 @@ export class MonsterManager {
       monsterEntity.maxHealth = maxHealth;
       if (monsterEntity.health > monsterEntity.maxHealth) {
         monsterEntity.health = monsterEntity.maxHealth;
+      }
+    });
+  }
+
+  private activeStandees(monster: Monster): MonsterEntity[] {
+    return monster.entities
+      .filter((entity) => gameManager.entityManager.isAlive(entity) && entity.summon !== SummonState.new)
+      .sort(this.sortEntities);
+  }
+
+  nextActiveStandee(monster: Monster, reverse: boolean = false): MonsterEntity | undefined {
+    const entities = this.activeStandees(monster);
+    const activeEntity = entities.find((entity) => entity.active);
+    if (!activeEntity && reverse && monster.active) {
+      return entities[entities.length - 1];
+    } else if (activeEntity && !reverse) {
+      return activeEntity;
+    }
+    return undefined;
+  }
+
+  stepActiveStandee(monster: Monster, entity: MonsterEntity, reverse: boolean = false) {
+    const entities = this.activeStandees(monster);
+    this.toggleActive(monster, entity);
+    if (reverse) {
+      entity.active = true;
+    } else {
+      const next = entities.slice(entities.indexOf(entity) + 1).find((other) => !other.off);
+      if (next) {
+        next.active = true;
+      }
+    }
+  }
+
+  activateStandees(monster: Monster) {
+    monster.entities.forEach((entity) => {
+      if (gameManager.entityManager.isAlive(entity)) {
+        entity.active = true;
+        entity.off = false;
       }
     });
   }

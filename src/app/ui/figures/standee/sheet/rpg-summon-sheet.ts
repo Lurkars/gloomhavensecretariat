@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Action } from 'src/app/game/model/data/Action';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { Summon } from 'src/app/game/model/Summon';

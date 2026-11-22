@@ -1,9 +1,10 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
 import { GameState } from 'src/app/game/model/Game';
@@ -220,83 +221,26 @@ export class LootDeckDialogComponent implements OnInit {
 
   dropUpcoming(event: CdkDragDrop<Loot[]>) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
-    let offset = 0;
-    let prev = 0;
-    let cur = 0;
-    if (event.container === event.previousContainer) {
-      offset = this.deck.current + 1;
-      prev = event.previousIndex + offset;
-      cur = event.currentIndex + offset;
-      moveItemInArray(this.deck.cards, prev, cur);
-    } else {
-      offset = this.deck.current;
-      prev = offset - event.previousIndex;
-      cur = event.currentIndex + offset;
-      moveItemInArray(this.deck.cards, prev, cur);
-      this.deck.current = this.deck.current - 1;
-    }
-
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character && figure.lootCards) {
-        figure.lootCards = figure.lootCards
-          .map((index) => {
-            if (prev < cur && index > prev && index <= cur) {
-              index--;
-            } else if (prev > cur && index >= cur && index < prev) {
-              index++;
-            } else if (index === prev) {
-              index = cur;
-            }
-            return index;
-          })
-          .sort((a, b) => a - b);
-      }
-    });
-
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
-        figure.lootCards = figure.lootCards.filter((value) => value <= this.deck.current);
-      }
-    });
-
+    gameManager.lootManager.moveCard(
+      this.deck,
+      event.container === event.previousContainer ? 'upcoming' : 'discarded',
+      event.previousIndex,
+      'upcoming',
+      event.currentIndex
+    );
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
     this.update();
   }
 
   dropDiscarded(event: CdkDragDrop<Loot[]>) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
-    let offset = 0;
-    let prev = 0;
-    let cur = 0;
-    if (event.container === event.previousContainer) {
-      offset = this.deck.current;
-      prev = offset - event.previousIndex;
-      cur = offset - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    } else {
-      this.deck.current = this.deck.current + 1;
-      offset = this.deck.current;
-      prev = offset + event.previousIndex;
-      cur = offset - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    }
-
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character && figure.lootCards) {
-        figure.lootCards = figure.lootCards
-          .map((index) => {
-            if (prev < cur && index > prev && index <= cur) {
-              index--;
-            } else if (prev > cur && index >= cur && index < prev) {
-              index++;
-            } else if (index === prev) {
-              index = cur;
-            }
-            return index;
-          })
-          .sort((a, b) => a - b);
-      }
-    });
+    gameManager.lootManager.moveCard(
+      this.deck,
+      event.container === event.previousContainer ? 'discarded' : 'upcoming',
+      event.previousIndex,
+      'discarded',
+      event.currentIndex
+    );
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
     this.update();
   }

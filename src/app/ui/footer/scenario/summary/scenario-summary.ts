@@ -1,16 +1,17 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { ScenarioFinishApply } from 'src/app/game/businesslogic/ScenarioManager';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { additionalTownGuardAttackModifier, AttackModifier } from 'src/app/game/model/data/AttackModifier';
 import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
-import { CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData, ScenarioFinish, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
@@ -280,6 +281,11 @@ export class ScenarioSummaryComponent {
   }
 
   updateFinish() {
+    gameManager.game.finish = this.finishModel();
+    this.updateState();
+  }
+
+  finishModel(): ScenarioFinish {
     const finish = new ScenarioFinish();
     finish.conclusion = this.conclusion
       ? new GameScenarioModel(this.conclusion.index, this.conclusion.edition, this.conclusion.group)
@@ -305,8 +311,7 @@ export class ScenarioSummaryComponent {
       : undefined;
     finish.trials = this.trials;
     finish.overlayCustomText = this.overlayCustomText;
-    gameManager.game.finish = finish;
-    this.updateState();
+    return finish;
   }
 
   loadFinish() {
@@ -356,21 +361,13 @@ export class ScenarioSummaryComponent {
     this.rewards = undefined;
     this.townGuardAMs = [];
     if ((gameManager.game.party.campaignMode || forceCampaign) && this.success) {
-      if (this.scenario.rewards) {
-        this.rewards = Object.assign(new ScenarioRewards(), this.scenario.rewards);
-      }
-      if (this.conclusion && this.conclusion.rewards) {
-        if (!this.rewards) {
-          this.rewards = Object.assign(new ScenarioRewards(), this.conclusion.rewards);
-        } else {
-          Object.assign(this.rewards, this.conclusion.rewards);
-        }
-      }
-
-      // the scenario rewards can only be gained once in FH/GH2E
-      if (!this.rewardsOnly && gameManager.fhRules(true) && this.rewards && gameManager.scenarioManager.isSuccess(this.scenario)) {
-        this.rewards = undefined;
-      }
+      this.rewards = gameManager.scenarioManager.finishRewards(
+        this.scenario,
+        this.conclusion,
+        this.success,
+        forceCampaign,
+        this.rewardsOnly
+      );
 
       if (settingsManager.settings.scenarioRewards && this.rewards) {
         if (this.rewards.collectiveGold) {
@@ -476,7 +473,7 @@ export class ScenarioSummaryComponent {
             true
           );
           for (let i = this.randomItemBlueprints.length; i < this.rewards.randomItemBlueprint; i++) {
-            const itemData = blueprints[i];
+            const itemData = blueprints.shift();
             const item: Identifier | undefined = itemData ? new Identifier(itemData.id, itemData.edition) : undefined;
             this.randomItemBlueprints[i] = item ? +item.name : -1;
           }
@@ -493,7 +490,7 @@ export class ScenarioSummaryComponent {
             false
           );
           for (let i = this.randomItemDesigns.length; i < this.rewards.randomItemDesign; i++) {
-            const itemData = designs[i];
+            const itemData = designs.shift();
             const item: Identifier | undefined = itemData ? new Identifier(itemData.id, itemData.edition) : undefined;
             this.randomItemDesigns[i] = item ? +item.name : -1;
           }
@@ -548,19 +545,6 @@ export class ScenarioSummaryComponent {
           this.townGuardAMs = this.rewards.townGuardAm.map(
             (id) => additionalTownGuardAttackModifier.find((am) => am.id === id) as AttackModifier
           );
-        }
-
-        if (this.rewards.valueMapping) {
-          Object.keys(this.rewards.valueMapping).forEach((key) => {
-            if (this.rewards && this.rewards.valueMapping && this.rewards.valueMapping[key]) {
-              const rule = this.rewards.valueMapping[key];
-              const value = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(rule, undefined).length;
-              const rewardKey = rule.value as keyof ScenarioRewards;
-              if (this.rewards && typeof this.rewards[rewardKey] === 'string') {
-                (this.rewards[rewardKey] as string) = this.rewards[rewardKey].replaceAll(key, '' + value);
-              }
-            }
-          });
         }
       }
 
@@ -747,23 +731,6 @@ export class ScenarioSummaryComponent {
         this.rewards.collectiveGold &&
         this.collectiveGold.length > 0 &&
         this.rewards.collectiveGold - this.collectiveGold.reduce((a, b) => a + b)) ||
-      0
-    );
-  }
-
-  availableCollectiveResource(type: LootType): number {
-    const resource: { type: LootType; value: number | string } = (this.rewards &&
-      this.rewards.collectiveResources &&
-      this.rewards.collectiveResources.find((value) => value.type === type)) || { type: type, value: 0 };
-
-    const value = EntityValueFunction(resource.value);
-
-    return (
-      (value > 0 &&
-        value -
-          (this.collectiveResources && this.collectiveResources.length > 0
-            ? this.collectiveResources.map((value) => value[type] || 0).reduce((a, b) => a + b)
-            : 0)) ||
       0
     );
   }
@@ -1063,199 +1030,24 @@ export class ScenarioSummaryComponent {
       );
     }
 
-    if (settingsManager.settings.scenarioRewards && this.success && !gameManager.bbRules()) {
-      this.characters.forEach((character, index) => {
-        if (!character.absent) {
-          if (this.battleGoals[index] > 0) {
-            character.progress.battleGoals += this.battleGoals[index];
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              character,
-              PersonalQuestAutotrackType.battleGoals,
-              undefined,
-              this.battleGoals[index]
-            );
-          }
-
-          if (this.trials[index]) {
-            character.progress.trial = undefined;
-          }
-
-          if (this.challenges) {
-            for (let i = 0; i < this.challenges; i++) {
-              character.progress.experience += 2;
-            }
-          }
-
-          // Favors
-          if (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply) {
-            // FH Wealth
-            character.progress.gold += character.loot * gameManager.trialsManager.activeFavor('fh', 'wealth');
-
-            // FH Knowledge
-            if (this.battleGoals[index]) {
-              character.progress.experience += 3 * gameManager.trialsManager.activeFavor('fh', 'knowledge');
-            }
-          }
-        }
-
-        if (this.collectiveGold[index] > 0) {
-          character.progress.gold += this.collectiveGold[index];
-        }
-
-        if (this.collectiveResources[index]) {
-          Object.keys(this.collectiveResources[index]).forEach((value) => {
-            const lootType: LootType = value as LootType;
-            character.progress.loot[lootType] = (character.progress.loot[lootType] || 0) + (this.collectiveResources[index][lootType] || 0);
-          });
-        }
-
-        this.rewardItems.forEach((item, itemIndex) => {
-          if (this.items.every((items) => !items.includes(itemIndex))) {
-            this.items[index] = this.items[index] || [];
-            this.items[index].push(itemIndex);
-          }
-        });
-
-        if (this.items[index] && this.items[index].length > 0) {
-          this.items[index].forEach((itemIndex) => {
-            const item = this.rewardItems[itemIndex];
-            if (settingsManager.settings.characterItems) {
-              gameManager.itemManager.addItem(item, character);
-            }
-            gameManager.itemManager.addItemCount(item);
-          });
-        }
-      });
-
-      if (this.rewards && this.rewards.collectiveResources) {
-        this.rewards.collectiveResources.forEach((value) => {
-          const available = this.availableCollectiveResource(value.type);
-          if (available) {
-            gameManager.game.party.loot[value.type] = (gameManager.game.party.loot[value.type] || 0) + available;
-          }
-        });
-      }
-
-      if (this.chooseLocation) {
-        gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
-      }
-
-      if (
-        settingsManager.settings.automaticUnlocking &&
-        this.chooseUnlockCharacter &&
-        !gameManager.game.unlockedCharacters.includes(this.scenario.edition + ':' + this.chooseUnlockCharacter)
-      ) {
-        gameManager.game.unlockedCharacters.push(this.scenario.edition + ':' + this.chooseUnlockCharacter);
-      }
-
-      if (this.challenges) {
-        for (let i = 0; i < this.challenges; i++) {
-          gameManager.game.party.townGuardPerks += 1;
-        }
-      }
-
-      if ((this.gainRewards || this.forceCampaign) && this.randomItemBlueprints.length > 0) {
-        this.randomItemBlueprints.forEach((itemId) => {
-          if (itemId === -1) {
-            if (gameManager.fhRules()) {
-              gameManager.game.party.inspiration += 1;
-            }
-          } else {
-            gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
-          }
-        });
-      }
-
-      if ((this.gainRewards || this.forceCampaign) && this.randomItemDesigns.length > 0) {
-        this.randomItemDesigns.forEach((itemId) => {
-          if (itemId === -1) {
-            if (gameManager.fhRules()) {
-              gameManager.game.party.inspiration += 1;
-            }
-          } else {
-            gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, this.scenario.edition));
-          }
-        });
-      }
-
-      if ((this.gainRewards || this.forceCampaign) && this.randomSideScenario) {
-        gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.randomSideScenario.index, this.randomSideScenario.edition));
-      }
-
-      if ((this.gainRewards || this.forceCampaign) && this.rewards && this.rewards.calendarSectionManual) {
-        this.rewards.calendarSectionManual.forEach((sectionManual, index) => {
-          if (this.calendarSectionManual[index] >= 0) {
-            const week = gameManager.game.party.weeks + this.calendarSectionManual[index];
-            gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), sectionManual.section];
-          }
-        });
-      }
-
-      if (gameManager.challengesManager.enabled && this.challenges) {
-        gameManager.game.challengeDeck.finished += this.challenges;
-      }
-
-      gameManager.trialsManager.applyTrialCards();
-    }
-    if (this.conclusionOnly) {
-      // conclusions are finished internally, so apply character rewards (gold, experience, ...) here
-      if (
-        settingsManager.settings.scenarioRewards &&
-        this.success &&
-        this.rewards &&
-        (this.gainRewards || this.forceCampaign) &&
-        !gameManager.bbRules()
-      ) {
-        gameManager.scenarioManager.applyCharacterRewards(this.rewards);
-      }
-      gameManager.scenarioManager.finishScenario(
-        this.scenario,
-        true,
-        this.conclusion,
-        false,
-        false,
-        settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign),
-        this.gainRewards || this.forceCampaign,
-        true
-      );
-    } else {
-      gameManager.scenarioManager.finishScenario(
-        gameManager.game.scenario,
-        this.success,
-        this.conclusion,
-        false,
-        linkedScenarioData !== undefined,
-        settingsManager.settings.scenarioRewards && !gameManager.bbRules() && (this.characterProgress || this.forceCampaign),
-        this.gainRewards || this.forceCampaign
-      );
-    }
-
-    if (this.overlayCustomText && this.conclusion && this.rewards && this.rewards.overlayCustomText) {
-      const conclusionModel = gameManager.game.party.conclusions.find(
-        (m) => m.index === this.conclusion!.index && m.edition === this.conclusion!.edition && m.group === this.conclusion!.group
-      );
-      if (conclusionModel) {
-        conclusionModel.custom = this.overlayCustomText;
-      }
-    }
-
-    if (linkedScenarioData) {
-      if (
-        !forcedLink &&
-        (gameManager.scenarioManager.isBlocked(linkedScenarioData) || gameManager.scenarioManager.isLocked(linkedScenarioData))
-      ) {
-        this.dialog.open(ScenarioRequirementsDialogComponent, {
-          panelClass: ['dialog'],
-          data: { scenarioData: linkedScenarioData, linked: true }
-        });
-      } else {
-        gameManager.scenarioManager.setScenario(new Scenario(linkedScenarioData), true);
-      }
-    } else {
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          figure.absent = false;
-        }
+    const apply = new ScenarioFinishApply(
+      this.scenario,
+      this.success,
+      this.conclusion,
+      this.finishModel(),
+      this.characters,
+      this.rewards,
+      this.rewardItems,
+      this.characterProgress || this.forceCampaign,
+      this.gainRewards || this.forceCampaign
+    );
+    apply.conclusionOnly = this.conclusionOnly;
+    apply.linked = linkedScenarioData;
+    apply.forcedLink = forcedLink;
+    if (gameManager.scenarioManager.applyScenarioFinish(apply) && linkedScenarioData) {
+      this.dialog.open(ScenarioRequirementsDialogComponent, {
+        panelClass: ['dialog'],
+        data: { scenarioData: linkedScenarioData, linked: true }
       });
     }
 

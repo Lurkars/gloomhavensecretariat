@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, forwardRef, input, model, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
 import { EventCardConditionComponent } from 'src/app/ui/figures/event/condition/event-card-condition';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

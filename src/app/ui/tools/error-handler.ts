@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ErrorHandler, Injectable, inject } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { FeedbackDialogComponent } from 'src/app/ui/tools/feedback/feedback-dialog';
 import { environment } from 'src/environments/environment';
 

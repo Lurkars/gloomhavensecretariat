@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, DoCheck, OnInit, inject, input } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Entity } from 'src/app/game/model/Entity';
 import { GhsFloorPipe } from 'src/app/ui/helper/Pipes';
 

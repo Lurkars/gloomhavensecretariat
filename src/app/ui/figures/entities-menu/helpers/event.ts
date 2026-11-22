@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import {
   EventCardAttack,
   EventCardCondition,
@@ -7,6 +6,7 @@ import {
   EventCardEffect,
   EventCardEffectType
 } from 'src/app/game/model/data/EventCard';
+import { OutpostAttackModel } from 'src/app/game/model/data/OutpostAttack';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors';
 import { OutpostAttackComponent } from 'src/app/ui/figures/entities-menu/outpost-attack/outpost-attack';
@@ -24,8 +24,26 @@ export class EventHelper {
   eventOutpostAttackEffects: EventCardEffect[] = [];
   eventConditionManual: EventCardCondition[] = [];
   eventAttack: EventCardAttack | undefined;
+  private outpostAttackStarted: boolean = false;
+  private manualAttack: { key: string; attack: EventCardAttack | undefined } = { key: '', attack: undefined };
 
   constructor(private component: EntitiesMenuDialogComponent) {}
+
+  get outpostAttack(): OutpostAttackModel | undefined {
+    return gameManager.game.party.outpostAttack;
+  }
+
+  get outpostAttackCard(): EventCardAttack | undefined {
+    const outpostAttack = this.outpostAttack;
+    if (!outpostAttack || outpostAttack.attack) {
+      return outpostAttack && outpostAttack.attack;
+    }
+    const key = [outpostAttack.manualAttackValue, outpostAttack.manualTargetNumber, outpostAttack.soldiers, outpostAttack.attacks].join();
+    if (this.manualAttack.key !== key || !this.manualAttack.attack) {
+      this.manualAttack = { key, attack: gameManager.outpostAttackManager.attack() };
+    }
+    return this.manualAttack.attack;
+  }
 
   update() {
     this.eventTypes = Object.keys(gameManager.game.party.eventDecks);
@@ -38,7 +56,33 @@ export class EventHelper {
     }
   }
 
-  close() {}
+  close() {
+    if (this.outpostAttackStarted) {
+      this.cancelOutpostAttack();
+    }
+  }
+
+  cancelOutpostAttack() {
+    if (this.outpostAttack) {
+      gameManager.stateManager.before('outpostAttack.cancel');
+      gameManager.outpostAttackManager.finish();
+      gameManager.stateManager.after();
+    }
+    this.outpostAttackStarted = false;
+  }
+
+  startOutpostAttack(attack: EventCardAttack | undefined, effects: EventCardEffect[] = [], replace: boolean = false) {
+    if (this.outpostAttack && !replace) {
+      return;
+    }
+    gameManager.stateManager.before('outpostAttack.start');
+    if (this.outpostAttack) {
+      gameManager.outpostAttackManager.finish();
+    }
+    gameManager.outpostAttackManager.start(attack, effects);
+    gameManager.stateManager.after();
+    this.outpostAttackStarted = true;
+  }
 
   toggleEventMenu(force: boolean = false) {
     this.component.eventMenu = !this.component.eventMenu || force;
@@ -99,6 +143,10 @@ export class EventHelper {
       }
     });
 
+    if (this.eventAttack) {
+      this.startOutpostAttack(this.eventAttack, this.eventOutpostAttackEffects, true);
+    }
+
     this.openDistribution(distributionEffects);
   }
 
@@ -112,19 +160,14 @@ export class EventHelper {
   }
 
   openOutpostAttack() {
+    this.startOutpostAttack(undefined);
     this.component.dialog
       .open(OutpostAttackComponent, {
-        panelClass: ['dialog'],
-        data: {
-          attack: this.eventAttack,
-          effects: this.eventOutpostAttackEffects
-        }
+        panelClass: ['dialog']
       })
       .closed.subscribe({
         next: (result) => {
           if (result) {
-            this.eventAttack = undefined;
-            this.eventOutpostAttackEffects = [];
             this.openDistribution(result as EventCardEffect[]);
           }
         }

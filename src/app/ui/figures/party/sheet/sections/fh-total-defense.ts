@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { moraleDefense } from 'src/app/ui/figures/party/sheet/sections/fh-morale';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

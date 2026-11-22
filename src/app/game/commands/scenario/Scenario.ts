@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { RoomData } from 'src/app/game/model/data/RoomData';
@@ -112,26 +112,16 @@ export class ScenarioRandomCommand extends CommandImpl {
   id: string = 'scenario.random';
   requiredParameters: number = 2;
 
-  sections(edition: BASE_TYPE): ScenarioData[] {
-    return gameManager.sectionData(edition as string).filter((sectionData) => sectionData.group === 'randomMonsterCard');
-  }
-
   validParameters(edition: string, seed: number): boolean {
     if (!validSeed(seed)) {
       return false;
     }
-    return typeof edition === 'string' && this.sections(edition).length >= 3;
+    return typeof edition === 'string' && gameManager.scenarioManager.randomScenarioSections(edition).length >= 3;
   }
 
   executeWithParameters(edition: string, seed: number) {
     gameManager.game.seed = seed;
-    const shuffledSections: ScenarioData[] = gameManager.randomManager.shuffle(this.sections(edition));
-    const scenario = gameManager.scenarioManager.createScenario();
-    scenario.name = '%scenario.random%';
-    scenario.additionalSections = shuffledSections.slice(0, 3).map((sectionData) => sectionData.index);
-    gameManager.scenarioManager.setScenario(undefined);
-    gameManager.scenarioManager.setScenario(scenario);
-    gameManager.scenarioManager.addSection(shuffledSections[0]);
+    gameManager.scenarioManager.setRandomScenario(edition);
   }
 }
 

@@ -1,7 +1,7 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { GameCharacterModel } from 'src/app/game/model/Character';
 import { EditionData, ReputationSection } from 'src/app/game/model/data/EditionData';
 import { Identifier } from 'src/app/game/model/data/Identifier';

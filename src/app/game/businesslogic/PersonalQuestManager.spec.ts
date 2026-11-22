@@ -1,6 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { PERSONAL_QUEST_SCENARIO_CONCLUDED } from 'src/app/game/businesslogic/PersonalQuestManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
@@ -126,6 +125,27 @@ describe('PersonalQuestManager', () => {
       gameManager.game.party.retirements = [retiredCharacter.toModel()];
 
       expect(personalQuestManager.availablePersonalQuests('gh2e')).toEqual([unlocker]);
+    });
+
+    it('drawPersonalQuests draws sorted available cards deterministically by seed', () => {
+      const cards = ['01', '02', '03', '04', '05', '06'].map((cardId) => pq(cardId));
+      gameManager.editionData = [
+        Object.assign(new EditionData('gh2e', [], [], [], [], [], []), {
+          personalQuests: cards
+        })
+      ];
+      gameManager.game.figures = [];
+      gameManager.game.party.retirements = [];
+
+      gameManager.game.seed = 11;
+      const drawn = personalQuestManager.drawPersonalQuests('gh2e');
+      expect(drawn.length).toBe(2);
+      expect(drawn[0].cardId.localeCompare(drawn[1].cardId)).toBeLessThan(0);
+      expect(drawn.every((card) => cards.includes(card))).toBe(true);
+
+      gameManager.game.seed = 11;
+      expect(personalQuestManager.drawPersonalQuests('gh2e')).toEqual(drawn);
+      expect(personalQuestManager.drawPersonalQuests('gh2e', 10).length).toBe(6);
     });
 
     it('treats a card with unlockBuilding (by building id) as locked until that building is built, level 0 included', () => {

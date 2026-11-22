@@ -1,12 +1,12 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
-import { ItemData, ItemFlags, ItemSlot } from 'src/app/game/model/data/ItemData';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
+import { ItemData, ItemFlags } from 'src/app/game/model/data/ItemData';
 import { GameState } from 'src/app/game/model/Game';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
@@ -77,14 +77,7 @@ export class CharacterItemComponent {
         this.item.id,
         this.item.edition
       );
-      gameManager.itemManager.toggleEquippedItem(this.item, this.character, force);
-      if (gameManager.bbRules()) {
-        if (!this.equipped() && owned) {
-          gameManager.itemManager.removeItem(this.item, this.character);
-        } else if (this.equipped() && !owned) {
-          gameManager.itemManager.addItem(this.item, this.character);
-        }
-      }
+      gameManager.itemManager.toggleEquippedItemWithOwnership(this.item, this.character, force);
       gameManager.stateManager.after();
 
       if (settingsManager.settings.animations) {
@@ -96,20 +89,11 @@ export class CharacterItemComponent {
   }
 
   countFlag(flag: string): number {
-    const equipped = this.equipped();
-    if (equipped) {
-      return (equipped.tags && equipped.tags.filter((tag) => tag === flag).length) || 0;
-    }
-    return 0;
+    return gameManager.itemManager.itemFlagCount(this.item, this.character, flag as ItemFlags);
   }
 
   toggleFlag(force: boolean, flag: string) {
-    if (
-      !force &&
-      gameManager.challengesManager.apply &&
-      gameManager.challengesManager.isActive(1502, 'fh') &&
-      this.item.slot === ItemSlot.small
-    ) {
+    if (gameManager.itemManager.itemFlagBlocked(this.item, force)) {
       return;
     }
 
@@ -124,39 +108,7 @@ export class CharacterItemComponent {
           this.item.edition,
           this.item.name
         );
-        if (!equipped.tags.includes(flag)) {
-          const wasConsumed = equipped.tags.includes(ItemFlags.consumed);
-          if (
-            !force &&
-            gameManager.challengesManager.apply &&
-            gameManager.challengesManager.isActive(1507, 'fh') &&
-            flag === ItemFlags.spent
-          ) {
-            equipped.tags.push(ItemFlags.consumed);
-          } else {
-            equipped.tags.push(flag);
-          }
-          if (!wasConsumed && equipped.tags.includes(ItemFlags.consumed) && this.item.slot) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              this.character,
-              PersonalQuestAutotrackType.itemConsumed,
-              this.item.slot as string
-            );
-          }
-        } else {
-          equipped.tags = equipped.tags.filter((tag) => tag !== flag);
-          if (flag === ItemFlags.spent) {
-            equipped.tags = equipped.tags.filter((tag) => tag !== ItemFlags.slot && tag !== ItemFlags.slotBack);
-          }
-        }
-
-        if (
-          (flag === ItemFlags.consumed || flag === ItemFlags.spent) &&
-          equipped.tags.includes(flag) &&
-          settingsManager.settings.characterItemsApply
-        ) {
-          gameManager.itemManager.applyItemEffects(this.character, this.item, true);
-        }
+        gameManager.itemManager.setItemFlag(this.item, this.character, flag as ItemFlags, !equipped.tags.includes(flag), force);
         gameManager.stateManager.after();
 
         if (settingsManager.settings.animations) {
@@ -172,7 +124,6 @@ export class CharacterItemComponent {
     if (!this.setup() && gameManager.game.state === GameState.next) {
       const equipped = this.equipped();
       if (equipped) {
-        equipped.tags = equipped.tags || [];
         const count = this.countFlag(flag);
         gameManager.stateManager.before(
           (count <= index ? 'characterItemApply.' : 'characterItemUnapply.') + flag,
@@ -181,22 +132,7 @@ export class CharacterItemComponent {
           this.item.edition,
           this.item.name
         );
-        if (count <= index) {
-          for (let i = count; i <= index; i++) {
-            equipped.tags.push(flag);
-          }
-          if (flag === ItemFlags.slot && this.countFlag(flag) === this.item.slots) {
-            if (this.item.spent && !this.countFlag(ItemFlags.spent)) {
-              equipped.tags.push(ItemFlags.spent);
-            } else if (this.item.consumed && !this.countFlag(ItemFlags.consumed)) {
-              equipped.tags.push(ItemFlags.consumed);
-            }
-          }
-        } else {
-          for (let i = index; i < count; i++) {
-            equipped.tags.splice(equipped.tags.indexOf(flag), 1);
-          }
-        }
+        gameManager.itemManager.setItemFlagCount(this.item, this.character, flag as ItemFlags, index);
         gameManager.stateManager.after();
 
         if (settingsManager.settings.animations) {

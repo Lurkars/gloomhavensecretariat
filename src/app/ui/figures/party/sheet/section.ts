@@ -1,8 +1,9 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Directive, effect, inject, input, OnInit, untracked } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Party } from 'src/app/game/model/Party';
 import { Scenario } from 'src/app/game/model/Scenario';
@@ -104,37 +105,11 @@ export abstract class PartySheetSection implements OnInit {
   }
 
   hasConclusions(section: string): boolean {
-    const conclusions = gameManager
-      .sectionData(gameManager.game.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section))
-      );
-    return (
-      conclusions.length > 0 &&
-      conclusions.every(
-        (conclusion) =>
-          !gameManager.game.party.conclusions.find(
-            (model) => model.edition === conclusion.edition && model.index === conclusion.index && model.group === conclusion.group
-          )
-      )
-    );
+    return gameManager.scenarioManager.hasOpenConclusions(section);
   }
 
   async openConclusions(section: string, week: number = -1) {
-    const conclusions: ScenarioData[] = gameManager
-      .sectionData(gameManager.game.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section)) &&
-          gameManager.scenarioManager.getRequirements(sectionData).length === 0
-      );
+    const conclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(section, gameManager.game.edition, true);
 
     if (conclusions.length > 0) {
       const { ScenarioConclusionComponent } = await import('src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion');
@@ -155,19 +130,7 @@ export abstract class PartySheetSection implements OnInit {
               const scenario = new Scenario(conclusion as ScenarioData);
               if (week !== -1) {
                 gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-                gameManager.scenarioManager.finishScenario(
-                  scenario,
-                  true,
-                  scenario,
-                  false,
-                  false,
-                  false,
-                  gameManager.game.party.campaignMode,
-                  true
-                );
-                if (!scenario.repeatable) {
-                  this.party.weekSections[week] = [...(this.party.weekSections[week] || []), scenario.index];
-                }
+                gameManager.scenarioManager.finishWeekConclusion(scenario, week);
                 gameManager.stateManager.after();
 
                 this.dialog.open(ScenarioSummaryComponent, {

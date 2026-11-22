@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { createTestCharacter, createTestMonster, createTestObjective, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { FigureActiveCommand } from 'src/app/game/commands/figure/FigureActive';
 import { FigureInitiativeCommand } from 'src/app/game/commands/figure/FigureInitiative';

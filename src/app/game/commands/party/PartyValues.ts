@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { applyPayment, paymentValid } from 'src/app/game/commands/party/payment';
 import { LootType } from 'src/app/game/model/data/Loot';

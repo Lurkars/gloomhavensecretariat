@@ -1,11 +1,10 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { TreasureLabelComponent } from 'src/app/ui/footer/scenario/treasures/label/label';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -132,12 +131,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
     }
     const treasureIndex = goal ? +(treasure as string).replace('G-', '') : this.treasures.indexOf(treasureNumber);
     this.looted = this.looted.filter((value) => value !== treasureIndex);
-    character.treasures.splice(index, 1);
-    if (!isNaN(treasureNumber)) {
-      gameManager.game.party.treasures = gameManager.game.party.treasures.filter(
-        (value) => value.edition !== this.edition || value.name !== '' + treasureNumber
-      );
-    }
+    gameManager.lootManager.removeScenarioTreasure(character, treasure, this.edition);
     gameManager.stateManager.after();
   }
 
@@ -154,21 +148,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
           gameManager.characterManager.characterName(this.character, true, true)
         );
         this.looted.push(this.treasureIndex);
-        if (treasure !== 'G' && settingsManager.settings.treasuresLoot) {
-          this.rewardResults = gameManager.lootManager.lootTreasure(this.character, treasure - 1, this.edition);
-        }
-        this.character.treasures = this.character.treasures || [];
-        this.character.treasures.push(
-          treasure === 'G'
-            ? 'G-' + this.treasureIndex
-            : this.rewardResults.some((rewardResult) => rewardResult.length > 0)
-              ? treasure + ':' + this.rewardResults.map((reward) => reward.join('+')).join('|')
-              : treasure
-        );
-
-        if (typeof treasure === 'number') {
-          gameManager.game.party.treasures.push(new Identifier(treasure, this.edition));
-        }
+        this.rewardResults = gameManager.lootManager.lootScenarioTreasure(this.character, treasure, this.treasureIndex, this.edition);
 
         gameManager.stateManager.after();
       }

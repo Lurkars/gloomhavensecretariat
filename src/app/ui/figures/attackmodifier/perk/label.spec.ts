@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import {
   AttackModifier,
   AttackModifierEffect,

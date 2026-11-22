@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -25,7 +26,7 @@ export class CharacterEnhancementRemoveCommand extends CommandImpl {
     const character = findCharacter(number);
     const enhancement = this.enhancement(character, cardId, actionIndex, index);
     if (character && enhancement) {
-      character.progress.enhancements = character.progress.enhancements.filter((other) => other !== enhancement);
+      gameManager.enhancementsManager.removeEnhancement(character, enhancement);
     } else {
       this.executionError('enhancement not found');
     }

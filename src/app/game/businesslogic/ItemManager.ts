@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { Element, ElementState } from 'src/app/game/model/data/Element';
@@ -364,6 +363,70 @@ export class ItemManager {
     );
   }
 
+  brewedItem(recipe: LootType[]): ItemData | undefined {
+    if (recipe.length < 2) {
+      return undefined;
+    }
+    const duplicates = recipe.filter((herb, index, self) => self.indexOf(herb) === index).length !== recipe.length;
+    return this.getItems(gameManager.currentEdition(), true).find(
+      (itemData) =>
+        (!itemData.requiredItems || !itemData.requiredItems.length) &&
+        itemData.requiredBuilding === 'alchemist' &&
+        (recipe.length < 3 ? itemData.requiredBuildingLevel < 3 : itemData.requiredBuildingLevel >= 3) &&
+        (duplicates
+          ? !itemData.resources
+          : !!itemData.resources &&
+            herbResourceLootTypes.every(
+              (herb) => itemData.resources && recipe.filter((value) => value === herb).length === (itemData.resources[herb] || 0)
+            ))
+    );
+  }
+
+  brewPayment(
+    brewer: Character | undefined,
+    recipe: LootType[]
+  ): { characterSpent: Partial<Record<LootType, number>>; partySpent: Partial<Record<LootType, number>> } {
+    const characterSpent: Partial<Record<LootType, number>> = {};
+    const partySpent: Partial<Record<LootType, number>> = {};
+    recipe.forEach((herb) => {
+      if (brewer && (brewer.progress.loot[herb] || 0) > (characterSpent[herb] || 0)) {
+        characterSpent[herb] = (characterSpent[herb] || 0) + 1;
+      } else {
+        partySpent[herb] = (partySpent[herb] || 0) + 1;
+      }
+    });
+    return { characterSpent, partySpent };
+  }
+
+  brewPotion(
+    item: ItemData,
+    target: Character,
+    brewer: Character | undefined = undefined,
+    characterSpent: Partial<Record<LootType, number>> = {},
+    partySpent: Partial<Record<LootType, number>> = {}
+  ) {
+    herbResourceLootTypes.forEach((herb) => {
+      if (partySpent[herb]) {
+        this.game.party.loot[herb] = (this.game.party.loot[herb] || 0) - (partySpent[herb] || 0);
+      }
+      if (brewer && characterSpent[herb]) {
+        brewer.progress.loot[herb] = (brewer.progress.loot[herb] || 0) - (characterSpent[herb] || 0);
+      }
+    });
+    this.setItemUnlocked(item, true);
+    this.addItem(item, target);
+  }
+
+  brewingHerbs(): number {
+    if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
+      const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name === 'alchemist');
+      if (alchemist && alchemist.level) {
+        return alchemist.level < 3 ? 2 : 3;
+      }
+    }
+    return 0;
+  }
+
   itemUsable(itemData: ItemData) {
     if (itemData.requiredBuilding === 'alchemist' && this.brewingDisabled()) {
       return false;
@@ -571,6 +634,132 @@ export class ItemManager {
     return item.count - assigned;
   }
 
+  unlockedItem(item: ItemData): CountIdentifier | undefined {
+    return (this.game.party.unlockedItems || []).find(
+      (identifier) => identifier.name === '' + item.id && identifier.edition === item.edition
+    );
+  }
+
+  setItemUnlocked(item: ItemData, unlocked: boolean) {
+    this.game.party.unlockedItems = this.game.party.unlockedItems || [];
+    const unlockedItem = this.unlockedItem(item);
+    if (unlockedItem && !unlocked) {
+      this.game.party.unlockedItems = this.game.party.unlockedItems.filter(
+        (identifier) => identifier.name !== '' + item.id || identifier.edition !== item.edition
+      );
+    } else if (!unlockedItem && unlocked) {
+      this.game.party.unlockedItems.push(new CountIdentifier(item.id, item.edition));
+    }
+  }
+
+  itemFiltered(item: ItemData): boolean {
+    return this.game.party.filteredItems.some((identifier) => identifier.edition === item.edition && identifier.name === '' + item.id);
+  }
+
+  setItemFiltered(item: ItemData, filtered: boolean) {
+    if (this.itemFiltered(item) === filtered) {
+      return;
+    }
+    if (filtered) {
+      this.game.party.filteredItems.push(new Identifier(item.id, item.edition));
+    } else {
+      this.game.party.filteredItems = this.game.party.filteredItems.filter(
+        (identifier) => identifier.edition !== item.edition || identifier.name !== '' + item.id
+      );
+    }
+  }
+
+  equippedItem(item: ItemData, character: Character): AdditionalIdentifier | undefined {
+    return character.progress.equippedItems.find((identifier) => identifier.name === '' + item.id && identifier.edition === item.edition);
+  }
+
+  toggleEquippedItemWithOwnership(item: ItemData, character: Character, force: boolean = false) {
+    const owned = this.owned(item, character);
+    this.toggleEquippedItem(item, character, force);
+    if (gameManager.bbRules()) {
+      if (!this.isEquipped(item, character) && owned) {
+        this.removeItem(item, character);
+      } else if (this.isEquipped(item, character) && !owned) {
+        this.addItem(item, character);
+      }
+    }
+  }
+
+  itemFlagCount(item: ItemData, character: Character, flag: ItemFlags): number {
+    const equipped = this.equippedItem(item, character);
+    return (equipped && equipped.tags && equipped.tags.filter((tag) => tag === flag).length) || 0;
+  }
+
+  itemFlagBlocked(item: ItemData, force: boolean = false): boolean {
+    return (
+      !force && gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1502, 'fh') && item.slot === ItemSlot.small
+    );
+  }
+
+  setItemFlag(item: ItemData, character: Character, flag: ItemFlags, value: boolean, force: boolean = false) {
+    const equipped = this.equippedItem(item, character);
+    if (!equipped || this.itemFlagBlocked(item, force)) {
+      return;
+    }
+    equipped.tags = equipped.tags || [];
+    if (equipped.tags.includes(flag) === value) {
+      return;
+    }
+    if (value) {
+      const wasConsumed = equipped.tags.includes(ItemFlags.consumed);
+      if (!force && gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1507, 'fh') && flag === ItemFlags.spent) {
+        equipped.tags.push(ItemFlags.consumed);
+      } else {
+        equipped.tags.push(flag);
+      }
+      if (!wasConsumed && equipped.tags.includes(ItemFlags.consumed) && item.slot) {
+        gameManager.personalQuestManager.trackPersonalQuestProgress(
+          character,
+          PersonalQuestAutotrackType.itemConsumed,
+          item.slot as string
+        );
+      }
+    } else {
+      equipped.tags = equipped.tags.filter((tag) => tag !== flag);
+      if (flag === ItemFlags.spent) {
+        equipped.tags = equipped.tags.filter((tag) => tag !== ItemFlags.slot && tag !== ItemFlags.slotBack);
+      }
+    }
+
+    if (
+      (flag === ItemFlags.consumed || flag === ItemFlags.spent) &&
+      equipped.tags.includes(flag) &&
+      settingsManager.settings.characterItemsApply
+    ) {
+      this.applyItemEffects(character, item, true);
+    }
+  }
+
+  setItemFlagCount(item: ItemData, character: Character, flag: ItemFlags, index: number) {
+    const equipped = this.equippedItem(item, character);
+    if (!equipped) {
+      return;
+    }
+    equipped.tags = equipped.tags || [];
+    const count = this.itemFlagCount(item, character, flag);
+    if (count <= index) {
+      for (let i = count; i <= index; i++) {
+        equipped.tags.push(flag);
+      }
+      if (flag === ItemFlags.slot && this.itemFlagCount(item, character, flag) === item.slots) {
+        if (item.spent && !this.itemFlagCount(item, character, ItemFlags.spent)) {
+          equipped.tags.push(ItemFlags.spent);
+        } else if (item.consumed && !this.itemFlagCount(item, character, ItemFlags.consumed)) {
+          equipped.tags.push(ItemFlags.consumed);
+        }
+      }
+    } else {
+      for (let i = index; i < count; i++) {
+        equipped.tags.splice(equipped.tags.indexOf(flag), 1);
+      }
+    }
+  }
+
   isEquipped(item: ItemData, character: Character): boolean {
     return (
       character.progress.equippedItems.find((identifier) => identifier.name === '' + item.id && identifier.edition === item.edition) !=
@@ -688,11 +877,12 @@ export class ItemManager {
   }
 
   drawRandomItemsBatch(edition: string, count: number, blueprint: boolean = false, from: number = -1, to: number = -1): ItemData[] {
+    const ranged = from !== -1 || to !== -1;
     return gameManager.randomManager
       .shuffle(
         this.getItems(undefined, true).filter(
           (itemData) =>
-            ((!blueprint && itemData.random) ||
+            ((!blueprint && (itemData.random || ranged)) ||
               (blueprint &&
                 itemData.blueprint &&
                 (!itemData.requiredBuilding ||

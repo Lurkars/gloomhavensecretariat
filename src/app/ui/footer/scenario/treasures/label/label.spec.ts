@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { TreasureData } from 'src/app/game/model/data/RoomData';
 import { TreasureLabelComponent } from 'src/app/ui/footer/scenario/treasures/label/label';

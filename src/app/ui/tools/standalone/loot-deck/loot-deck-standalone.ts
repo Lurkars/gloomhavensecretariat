@@ -1,9 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { GameState } from 'src/app/game/model/Game';
 import { LootDeckChange, LootDeckComponent } from 'src/app/ui/figures/loot/loot-deck';
 import { HeaderComponent } from 'src/app/ui/header/header';

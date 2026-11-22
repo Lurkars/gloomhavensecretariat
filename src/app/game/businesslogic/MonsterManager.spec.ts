@@ -1,6 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { KILLED_TAG } from 'src/app/game/businesslogic/MonsterManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
@@ -9,10 +8,12 @@ import { DeckData } from 'src/app/game/model/data/DeckData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { ItemFlags } from 'src/app/game/model/data/ItemData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
+import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
@@ -46,6 +47,83 @@ describe('MonsterManager', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+  });
+
+  describe('active standees', () => {
+    function setup(): { monster: Monster; entities: MonsterEntity[] } {
+      const monster = buildMonster({ name: 'm' });
+      const entities = [1, 2, 3].map((number) => {
+        const entity = new MonsterEntity(number, MonsterType.normal, monster);
+        entity.health = 5;
+        entity.maxHealth = 5;
+        return entity;
+      });
+      monster.entities = entities;
+      gameManager.game.figures = [monster];
+      gameManager.game.state = GameState.next;
+      return { monster, entities };
+    }
+
+    afterEach(() => {
+      gameManager.game.state = GameState.draw;
+    });
+
+    it('steps forward to the next standee which is not done yet', () => {
+      vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      const { monster, entities } = setup();
+      monster.active = true;
+      entities[0].active = true;
+      entities[1].off = true;
+      expect(monsterManager.nextActiveStandee(monster)).toBe(entities[0]);
+      monsterManager.stepActiveStandee(monster, entities[0]);
+      expect(entities[0].active).toBe(false);
+      expect(entities[2].active).toBe(true);
+    });
+
+    it('steps back to the last standee of an active monster without active standee', () => {
+      const { monster, entities } = setup();
+      monster.active = true;
+      expect(monsterManager.nextActiveStandee(monster)).toBeUndefined();
+      expect(monsterManager.nextActiveStandee(monster, true)).toBe(entities[2]);
+    });
+
+    it('activates all alive standees', () => {
+      const { monster, entities } = setup();
+      entities.forEach((entity) => (entity.off = true));
+      monsterManager.activateStandees(monster);
+      expect(entities.every((entity) => entity.active && !entity.off)).toBe(true);
+    });
+  });
+
+  describe('catchMonster', () => {
+    beforeEach(() => {
+      gameManager.game.party.pets = [];
+      vi.spyOn(gameManager.scenarioStatsManager, 'activeKiller').mockReturnValue(undefined);
+    });
+
+    it('kills the standee, adds the pet once and consumes the capture item unless forced', () => {
+      const monster = buildMonster({ name: 'm', edition: 'fh', pet: 'pet' } as Partial<MonsterData>);
+      const entity = new MonsterEntity(1, MonsterType.normal, monster);
+      monster.entities = [entity];
+      const character = buildCharacter('c');
+      const item = new AdditionalIdentifier('247', 'fh');
+      character.progress.equippedItems = [item];
+      gameManager.game.figures = [monster, character];
+      expect(monsterManager.petCaptureCharacter()).toBe(character);
+
+      monsterManager.catchMonster(monster, entity, true);
+      expect(entity.dead).toBe(true);
+      expect(gameManager.game.party.pets.map((pet) => pet.name)).toEqual(['pet']);
+      expect(item.tags).toBeFalsy();
+
+      gameManager.game.party.pets = [];
+      monsterManager.catchMonster(monster, entity);
+      expect(item.tags).toEqual([ItemFlags.consumed]);
+      expect(monsterManager.petCaptureCharacter()).toBeUndefined();
+
+      monsterManager.catchMonster(monster, entity);
+      expect(gameManager.game.party.pets.length).toBe(1);
+    });
   });
 
   describe('getStat', () => {

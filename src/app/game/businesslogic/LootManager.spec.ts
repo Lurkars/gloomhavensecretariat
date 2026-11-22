@@ -1,8 +1,9 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { BuildingCosts, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Loot, LootDeck, LootType } from 'src/app/game/model/data/Loot';
 
 // LootManager also covers drawCard()/applyLoot()/applyTreasureReward() (deep stateful flows
@@ -107,6 +108,45 @@ describe('LootManager', () => {
       character.progress.loot[LootType.hide] = 1;
       lootManager.addCharacterLoot(character, new Loot(LootType.hide, 1, -5, -5, -5));
       expect(character.progress.loot[LootType.hide]).toEqual(1);
+    });
+  });
+
+  describe('moveCard', () => {
+    it('moves a loot card and remaps drawn character loot cards, dropping upcoming ones', () => {
+      const deck = new LootDeck();
+      deck.cards = [0, 1, 2, 3].map((value) => new Loot(LootType.money, value, 1, 1, 1));
+      deck.current = 1;
+      const character = buildCharacter();
+      character.lootCards = [0, 1];
+      gameManager.game.figures = [character];
+
+      lootManager.moveCard(deck, 'discarded', 1, 'upcoming', 1);
+      expect(deck.current).toBe(0);
+      expect(deck.cards.map((loot) => loot.cardId)).toEqual([1, 2, 0, 3]);
+      expect(character.lootCards).toEqual([0]);
+    });
+  });
+
+  describe('lootScenarioTreasure / removeScenarioTreasure', () => {
+    afterEach(() => vi.restoreAllMocks());
+
+    it('records goal and numbered treasures for character and party, with reward results', () => {
+      settingsManager.settings.treasuresLoot = true;
+      vi.spyOn(lootManager, 'lootTreasure').mockReturnValue([['gold']]);
+      const character = buildCharacter();
+      gameManager.game.party.treasures = [];
+
+      expect(lootManager.lootScenarioTreasure(character, 'G', 2, 'gh')).toEqual([]);
+      expect(lootManager.lootScenarioTreasure(character, 7, 0, 'gh')).toEqual([['gold']]);
+      expect(lootManager.lootTreasure).toHaveBeenCalledWith(character, 6, 'gh');
+      expect(character.treasures).toEqual(['G-2', '7:gold']);
+      expect(gameManager.game.party.treasures).toEqual([new Identifier(7, 'gh')]);
+
+      lootManager.removeScenarioTreasure(character, '7:gold', 'gh');
+      lootManager.removeScenarioTreasure(character, 'G-2', 'gh');
+      expect(character.treasures).toEqual([]);
+      expect(gameManager.game.party.treasures).toEqual([]);
+      settingsManager.settings.treasuresLoot = false;
     });
   });
 

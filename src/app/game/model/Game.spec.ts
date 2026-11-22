@@ -1,4 +1,4 @@
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Game } from 'src/app/game/model/Game';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Identifier } from 'src/app/game/model/data/Identifier';

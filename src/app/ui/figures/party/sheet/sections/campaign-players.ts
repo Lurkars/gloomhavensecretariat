@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { BattleGoalSetupDialog } from 'src/app/ui/figures/battlegoal/setup/battlegoal-setup';
 import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/character-sheet-dialog';

@@ -1,9 +1,10 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, input, OnChanges, OnInit, output } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { ActionValueType } from 'src/app/game/model/data/Action';

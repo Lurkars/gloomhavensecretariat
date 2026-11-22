@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioCache } from 'src/app/game/model/Scenario';
 import { ghsDurationLabel, ghsValueSign } from 'src/app/ui/helper/Static';
 

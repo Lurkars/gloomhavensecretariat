@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterAbilityDeckCommand } from 'src/app/game/commands/character/CharacterAbilityDeck';
 import { CharacterAbilityDeckResetCommand } from 'src/app/game/commands/character/CharacterAbilityDeckReset';
 import { CharacterAbilityDeckUndoCommand } from 'src/app/game/commands/character/CharacterAbilityDeckUndo';
@@ -147,7 +147,7 @@ describe('Character progress commands', () => {
     it('retires a character into the party retirements in campaign mode', () => {
       createTestCharacter(1);
       gameManager.game.party.campaignMode = true;
-      new CharacterRetireCommand(1).execute();
+      new CharacterRetireCommand(1, 1).execute();
       expect(gameManager.game.figures.length).toBe(0);
       expect(gameManager.game.party.retirements.length).toBe(1);
       expect(gameManager.game.party.retirements[0].progress?.retired).toBe(true);

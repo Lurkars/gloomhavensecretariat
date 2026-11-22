@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Action } from 'src/app/game/model/data/Action';
 import { ConditionName, EntityCondition } from 'src/app/game/model/data/Condition';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';

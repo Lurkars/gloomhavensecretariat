@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { applyMathFunctionLabels, applyPlaceholder, applyValueCalc } from 'src/app/ui/helper/label';
 
 // applyPlaceholder() is the core %placeholder% -> HTML expander used across every game label in

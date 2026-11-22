@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, findItem } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -145,15 +145,7 @@ export class CharacterItemEquipCommand extends CharacterItemCommandImpl {
       if (!!this.equipped(character, item) === value) {
         return;
       }
-      const owned = this.owned(character, item);
-      gameManager.itemManager.toggleEquippedItem(item, character, force);
-      if (gameManager.bbRules()) {
-        if (!this.equipped(character, item) && owned) {
-          gameManager.itemManager.removeItem(item, character);
-        } else if (this.equipped(character, item) && !owned) {
-          gameManager.itemManager.addItem(item, character);
-        }
-      }
+      gameManager.itemManager.toggleEquippedItemWithOwnership(item, character, force);
     } else {
       this.executionError('character or item not found');
     }

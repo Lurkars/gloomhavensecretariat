@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import {
   AttackModifier,
@@ -83,6 +82,48 @@ describe('AttackModifierManager', () => {
       const deck = new AttackModifierDeck([new AttackModifier(AttackModifierType.plus1)]);
       attackModifierManager.addModifier(deck, new AttackModifier(AttackModifierType.bless), -1, false);
       expect(deck.cards.map((am) => am.type)).toEqual([AttackModifierType.plus1, AttackModifierType.bless]);
+    });
+  });
+
+  describe('insertModifier', () => {
+    const buildDeck = () => {
+      const deck = new AttackModifierDeck([
+        new AttackModifier(AttackModifierType.plus1),
+        new AttackModifier(AttackModifierType.plus0),
+        new AttackModifier(AttackModifierType.minus1)
+      ]);
+      deck.current = 0;
+      return deck;
+    };
+
+    it('puts a revealed card on top of the upcoming cards', () => {
+      const deck = buildDeck();
+      attackModifierManager.insertModifier(deck, new AttackModifier(AttackModifierType.bless), false);
+      expect(deck.cards[1].type).toBe(AttackModifierType.bless);
+      expect(deck.cards[1].revealed).toBe(true);
+    });
+
+    it('shuffles a card into the upcoming cards by seed', () => {
+      for (let seed = 0; seed < 20; seed++) {
+        const deck = buildDeck();
+        gameManager.game.seed = seed;
+        attackModifierManager.insertModifier(deck, new AttackModifier(AttackModifierType.bless), true);
+        const index = deck.cards.findIndex((am) => am.type === AttackModifierType.bless);
+        expect(index).toBeGreaterThanOrEqual(1);
+        expect(index).toBeLessThanOrEqual(3);
+        expect(deck.cards[0].type).toBe(AttackModifierType.plus1);
+        expect(deck.cards[index].revealed).toBeFalsy();
+      }
+    });
+
+    it('registers the card in the deck modifiers once when requested', () => {
+      const deck = buildDeck();
+      const attackModifier = Object.assign(new AttackModifier(AttackModifierType.plus1), { id: 'tg-test' });
+      attackModifierManager.insertModifier(deck, attackModifier, false);
+      expect(deck.attackModifiers.some((am) => am.id === 'tg-test')).toBe(false);
+      attackModifierManager.insertModifier(deck, attackModifier, false, true);
+      attackModifierManager.insertModifier(deck, attackModifier, true, true);
+      expect(deck.attackModifiers.filter((am) => am.id === 'tg-test').length).toBe(1);
     });
   });
 
@@ -491,6 +532,23 @@ describe('AttackModifierManager', () => {
 
       expect(attackModifierManager.getBless(4, deck).length).toBe(RPG_BLESS_CURSE_LIMIT - 4);
     });
+  });
+});
+
+describe('AttackModifierManager moveCard', () => {
+  it('reveals a card moved from upcoming to discarded and keeps additional arrays in sync', () => {
+    const deck = new AttackModifierDeck([
+      new AttackModifier(AttackModifierType.plus0),
+      new AttackModifier(AttackModifierType.plus1),
+      new AttackModifier(AttackModifierType.minus1)
+    ]);
+    deck.current = 0;
+    const revealed = [true, false, false];
+    gameManager.attackModifierManager.moveCard(deck, 'upcoming', 1, 'discarded', 0, revealed);
+    expect(deck.current).toBe(1);
+    expect(deck.cards[1].type).toBe(AttackModifierType.minus1);
+    expect(deck.cards[1].revealed).toBe(true);
+    expect(revealed).toEqual([true, false, false]);
   });
 });
 

@@ -1,8 +1,10 @@
 import { KeyValuePipe, NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { randomUUID } from 'src/app/game/businesslogic/RandomManager';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Monster } from 'src/app/game/model/Monster';
@@ -84,7 +86,7 @@ export class ServerMenuComponent implements OnInit {
   }
 
   createUUID() {
-    settingsManager.settings.serverCode = gameManager.randomManager.uuid();
+    settingsManager.settings.serverCode = randomUUID();
   }
 
   disconnect() {

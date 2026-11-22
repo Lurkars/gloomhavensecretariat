@@ -1,9 +1,10 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, OnInit, inject, output } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Spoilable, SpoilableMock } from 'src/app/game/model/data/Spoilable';
 import { GameState } from 'src/app/game/model/Game';
@@ -243,21 +244,11 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   randomScenario() {
-    const shuffledSections = gameManager.randomManager.shuffle(
-      gameManager.sectionData(this.edition).filter((sectionData) => sectionData.group === 'randomMonsterCard')
-    );
-
-    if (shuffledSections.length < 3) {
+    if (gameManager.scenarioManager.randomScenarioSections(this.edition).length < 3) {
       return;
     }
-
     gameManager.stateManager.before('setRandomScenario');
-    const scenario = gameManager.scenarioManager.createScenario();
-    scenario.name = '%scenario.random%';
-    scenario.additionalSections = shuffledSections.slice(0, 3).map((sectionData) => sectionData.index);
-    gameManager.scenarioManager.setScenario(undefined);
-    gameManager.scenarioManager.setScenario(scenario);
-    gameManager.scenarioManager.addSection(shuffledSections[0]);
+    gameManager.scenarioManager.setRandomScenario(this.edition);
     gameManager.stateManager.after();
   }
 
@@ -297,7 +288,7 @@ export class ScenarioMenuComponent implements OnInit {
 
   toggleCampaignMode() {
     gameManager.stateManager.before(gameManager.game.party.campaignMode ? 'disablePartyCampaignMode' : 'enablePartyCampaignMode');
-    gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
+    gameManager.campaignManager.setCampaignMode(!gameManager.game.party.campaignMode);
     this.clearCache();
     gameManager.stateManager.after();
   }

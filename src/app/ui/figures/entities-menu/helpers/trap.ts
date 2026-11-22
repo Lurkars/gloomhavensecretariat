@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Condition } from 'src/app/game/model/data/Condition';
 import { Entity } from 'src/app/game/model/Entity';
@@ -11,7 +10,7 @@ import {
   TrapApplyTarget,
   trapTargetLabel
 } from 'src/app/ui/figures/entities-menu/trap-apply-dialog/trap-apply-dialog';
-import { ghsDialogClosingHelper, ghsValueSign } from 'src/app/ui/helper/Static';
+import { ghsDialogClosingHelper, ghsRemoveDeadEntities, ghsValueSign } from 'src/app/ui/helper/Static';
 
 export class TrapHelper {
   constructor(private component: EntitiesMenuDialogComponent) {}
@@ -76,17 +75,8 @@ export class TrapHelper {
     });
 
     summon.dead = true;
-    gameManager.triggerUiChange(false);
-
-    setTimeout(
-      () => {
-        if (figure instanceof Character) {
-          gameManager.characterManager.removeSummon(figure, summon);
-        }
-        gameManager.stateManager.after();
-      },
-      settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0
-    );
+    ghsRemoveDeadEntities([{ entity: summon, figure }]);
+    gameManager.stateManager.after();
 
     ghsDialogClosingHelper(this.component.dialogRef, true);
   }

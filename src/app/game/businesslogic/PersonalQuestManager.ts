@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { herbResourceLootTypes, LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuest, PersonalQuestAutotrackType, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
@@ -75,6 +74,17 @@ export class PersonalQuestManager {
       (personalQuest) =>
         this.personalQuestUnlocked(personalQuest) && !this.personalQuestPicked(personalQuest) && !this.personalQuestFulfilled(personalQuest)
     );
+  }
+
+  drawPersonalQuests(edition: string, count: number = 2): PersonalQuest[] {
+    return gameManager.randomManager
+      .shuffle(this.availablePersonalQuests(edition))
+      .slice(0, count)
+      .sort((a, b) =>
+        a.altId && b.altId
+          ? a.altId.localeCompare(b.altId, undefined, { numeric: true })
+          : a.cardId.localeCompare(b.cardId, undefined, { numeric: true })
+      );
   }
 
   unlockPersonalQuest(edition: string, cardIdOrAltId: string) {

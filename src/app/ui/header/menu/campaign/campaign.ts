@@ -1,8 +1,9 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, OnInit, inject, output } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
 import { GameState } from 'src/app/game/model/Game';
@@ -94,7 +95,7 @@ export class CampaignMenuComponent implements OnInit {
 
   toggleCampaignMode() {
     gameManager.stateManager.before(gameManager.game.party.campaignMode ? 'disablePartyCampaignMode' : 'enablePartyCampaignMode');
-    gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
+    gameManager.campaignManager.setCampaignMode(!gameManager.game.party.campaignMode);
     gameManager.stateManager.after();
   }
 

@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, input, OnChanges, SimpleChanges } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { CardRevealDirective } from 'src/app/ui/helper/CardReveal';

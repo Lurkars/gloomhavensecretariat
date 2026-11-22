@@ -1,11 +1,10 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { BASE_TYPE } from 'src/app/game/commands/Command';
-import { deckFind, deckMoveCard, deckTargetValid, findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import {
   AttackModifierDeckCommandImpl,
   ResolvedAttackModifierDeck
 } from 'src/app/game/commands/attackModifierDeck/AttackModifierDeckCommand';
+import { BASE_TYPE } from 'src/app/game/commands/Command';
+import { deckFind, deckTargetValid, findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
 import {
   additionalTownGuardAttackModifier,
@@ -15,6 +14,7 @@ import {
   Gh2ESealedDeckAttackModifier
 } from 'src/app/game/model/data/AttackModifier';
 import { ConditionName } from 'src/app/game/model/data/Condition';
+import { deckCardList } from 'src/app/game/util/deck';
 
 export class AttackModifierDeckShuffleCommand extends AttackModifierDeckCommandImpl {
   id: string = 'attackModifierDeck.shuffle';
@@ -122,12 +122,8 @@ export class AttackModifierDeckMoveCommand extends AttackModifierDeckCommandImpl
   executeWithParameters(deckId: string | number, fromList: string, cardId: string, toList: string, toIndex: number) {
     const resolved = this.resolved();
     if (resolved) {
-      const result = deckMoveCard(resolved.deck.current, this.index(fromList, cardId), toList, toIndex, resolved.deck.cards);
-      resolved.deck.current = result.current;
-      if (toList === 'discarded' && fromList === 'upcoming') {
-        resolved.deck.cards[result.to].revealed = true;
-      }
-      gameManager.attackModifierManager.updateLastVisible(resolved.deck);
+      const position = deckCardList(resolved.deck.current, this.index(fromList, cardId));
+      gameManager.attackModifierManager.moveCard(resolved.deck, position.list, position.index, toList, toIndex);
     } else {
       this.executionError('deck not found');
     }
@@ -259,19 +255,7 @@ export class AttackModifierDeckAddCardCommand extends AttackModifierDeckCommandI
       const attackModifier = townGuardModifier
         ? Object.assign(new AttackModifier(townGuardModifier.type), townGuardModifier)
         : new AttackModifier(type as AttackModifierType);
-      if (townGuardModifier && !resolved.deck.attackModifiers.find((am) => am.id === attackModifier.id)) {
-        resolved.deck.attackModifiers.push(attackModifier);
-      }
-      if (shuffled) {
-        resolved.deck.cards.splice(
-          resolved.deck.current + 1 + gameManager.randomManager.next() * (resolved.deck.cards.length - resolved.deck.current),
-          0,
-          attackModifier
-        );
-      } else {
-        attackModifier.revealed = true;
-        resolved.deck.cards.splice(resolved.deck.current + 1, 0, attackModifier);
-      }
+      gameManager.attackModifierManager.insertModifier(resolved.deck, attackModifier, shuffled, !!townGuardModifier);
     } else {
       this.executionError('deck not found');
     }

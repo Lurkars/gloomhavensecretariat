@@ -1,7 +1,6 @@
 // Shared fixtures for command spec files. Not a spec file itself (no *.spec.ts suffix), so it is not
 // picked up as a test suite, but it may be imported by any Command spec under this directory.
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { ChallengeDeck } from 'src/app/game/model/data/Challenges';

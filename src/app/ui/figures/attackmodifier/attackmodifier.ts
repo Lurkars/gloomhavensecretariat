@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, input, output } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import {
   AttackModifier,
   AttackModifierEffect,

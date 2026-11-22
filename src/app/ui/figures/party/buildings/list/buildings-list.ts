@@ -1,12 +1,11 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, inject, input, output } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { BuildingCosts, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { LootType } from 'src/app/game/model/data/Loot';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { ItemsBrewDialog } from 'src/app/ui/figures/items/brew/brew';
@@ -47,130 +46,17 @@ export class BuildingsListComponent {
   settingsManager: SettingsManager = settingsManager;
 
   upgradeable(building: Building): boolean {
-    let costs: BuildingCosts = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
-    if (building.model.level && !building.data.repair) {
-      return false;
-    }
-
-    if (building.data.repair && building.model.state === 'damaged') {
-      const totalCosts = building.data.repair[building.model.level - 1];
-      return (
-        this.partyResource(LootType.lumber) +
-          this.partyResource(LootType.metal) +
-          this.partyResource(LootType.hide) +
-          gameManager.game.party.inspiration >
-          totalCosts || gameManager.game.party.morale > 0
-      );
-    }
-
-    let discount =
-      gameManager.game.party.buildings.find(
-        (buildingModel) => buildingModel.name === 'carpenter' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
-      ) !== undefined;
-
-    let inspiration = gameManager.game.party.inspiration;
-
-    if (building.model.state === 'wrecked') {
-      costs = building.data.rebuild[building.model.level - 1];
-      if (costs.lumber > this.partyResource(LootType.lumber)) {
-        if (inspiration && costs.lumber <= this.partyResource(LootType.lumber) + inspiration) {
-          inspiration -= costs.lumber - this.partyResource(LootType.lumber);
-        } else if (discount && costs.lumber === this.partyResource(LootType.lumber) + 1) {
-          discount = false;
-        } else {
-          return false;
-        }
-      }
-
-      if (costs.metal > this.partyResource(LootType.metal)) {
-        if (inspiration && costs.metal <= this.partyResource(LootType.metal) + inspiration) {
-          inspiration -= costs.metal - this.partyResource(LootType.metal);
-        } else if (discount && costs.metal === this.partyResource(LootType.metal) + 1) {
-          discount = false;
-        } else {
-          return false;
-        }
-      }
-      if (costs.hide > this.partyResource(LootType.hide)) {
-        if (inspiration && costs.hide <= this.partyResource(LootType.hide) + inspiration) {
-          inspiration -= costs.hide - this.partyResource(LootType.hide);
-        } else if (discount && costs.hide === this.partyResource(LootType.hide) + 1) {
-          discount = false;
-        } else {
-          return false;
-        }
-      }
-      return true;
-    } else if (building.model.level < building.data.upgrades.length + 1) {
-      if (costs.prosperity && costs.prosperity > gameManager.campaignManager.prosperityLevel()) {
-        return false;
-      }
-
-      if ((costs.lumber || 0) > this.partyResource(LootType.lumber)) {
-        if (inspiration && costs.lumber <= this.partyResource(LootType.lumber) + inspiration) {
-          inspiration -= costs.lumber - this.partyResource(LootType.lumber);
-        } else if (discount && costs.lumber === this.partyResource(LootType.lumber) + 1) {
-          discount = false;
-        } else {
-          return false;
-        }
-      }
-
-      if ((costs.metal || 0) > this.partyResource(LootType.metal)) {
-        if (inspiration && costs.metal <= this.partyResource(LootType.metal) + inspiration) {
-          inspiration -= costs.metal - this.partyResource(LootType.metal);
-        } else if (discount && costs.metal === this.partyResource(LootType.metal) + 1) {
-          discount = false;
-        } else {
-          return false;
-        }
-      }
-
-      if ((costs.hide || 0) > this.partyResource(LootType.hide)) {
-        if (inspiration && costs.hide <= this.partyResource(LootType.hide) + inspiration) {
-          inspiration -= costs.hide - this.partyResource(LootType.hide);
-        } else if (discount && costs.hide === this.partyResource(LootType.hide) + 1) {
-          discount = false;
-        } else {
-          return false;
-        }
-      }
-
-      const characterGold = gameManager.game.figures
-        .filter((figure) => figure instanceof Character)
-        .map((figure) => (figure as Character).progress.gold);
-
-      if (!characterGold.length || (costs.gold || 0) > characterGold.reduce((a, b) => a + b)) {
-        return false;
-      }
-
-      return true;
-    }
-
-    return false;
-  }
-
-  partyResource(type: LootType): number {
-    return (
-      (gameManager.game.party.loot[type] || 0) +
-      (gameManager.game.figures.filter((figure) => figure instanceof Character).length === 0
-        ? 0
-        : gameManager.game.figures
-            .filter((figure) => figure instanceof Character)
-            .map((character) => (character as Character).progress.loot[type] || 0)
-            .reduce((a, b) => a + b))
-    );
+    return gameManager.buildingsManager.upgradeable(building.data, building.model);
   }
 
   upgrade(building: Building, force: boolean = false) {
     if (building.model.level < building.data.upgrades.length + 1) {
       if (this.upgradeable(building) || force) {
-        const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
         this.dialog
           .open(BuildingUpgradeDialog, {
             panelClass: ['dialog'],
             data: {
-              costs: costs,
+              costs: gameManager.buildingsManager.upgradeCosts(building.data, building.model),
               building: building,
               action: building.model.level > 0 ? 'upgrade' : 'build',
               force: force
@@ -186,22 +72,13 @@ export class BuildingsListComponent {
                     building.model.name,
                     building.model.level + 1
                   );
-                  if (!force && result instanceof SelectResourceResult) {
-                    gameManager.lootManager.applySelectResources(result);
-                  }
-                  building.model.level++;
-                  gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.buildings);
-                  if (
-                    gameManager.game.party.campaignMode &&
-                    settingsManager.settings.applyBuildingRewards &&
-                    building.data.rewards &&
-                    building.data.rewards[building.model.level - 1]
-                  ) {
-                    const rewards = building.data.rewards[building.model.level - 1];
-                    gameManager.buildingsManager.applyRewards(rewards);
-                    if (rewards.section) {
-                      this.openConclusion(rewards.section);
-                    }
+                  const rewards = gameManager.buildingsManager.upgradeBuilding(
+                    building.data,
+                    building.model,
+                    !force && result instanceof SelectResourceResult ? result : undefined
+                  );
+                  if (rewards && rewards.section) {
+                    this.openConclusion(rewards.section);
                   }
                   gameManager.stateManager.after();
                   this.cdr.markForCheck();
@@ -232,40 +109,11 @@ export class BuildingsListComponent {
   }
 
   hasConclusions(section: string): boolean {
-    const conclusions = gameManager
-      .sectionData(gameManager.game.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section))
-      );
-    return (
-      conclusions.length > 0 &&
-      conclusions.every(
-        (conclusion) =>
-          !gameManager.game.party.conclusions.find(
-            (model) => model.edition === conclusion.edition && model.index === conclusion.index && model.group === conclusion.group
-          )
-      )
-    );
+    return gameManager.scenarioManager.hasOpenConclusions(section);
   }
 
   openConclusions(section: string) {
-    const conclusions: ScenarioData[] = gameManager
-      .sectionData(gameManager.game.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section)) &&
-          gameManager.scenarioManager.getRequirements(sectionData).length === 0
-      )
-      .map((conclusion) => {
-        return conclusion;
-      });
+    const conclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(section, gameManager.game.edition, true);
 
     if (conclusions.length > 0) {
       this.dialog
@@ -306,10 +154,10 @@ export class BuildingsListComponent {
             next: (result) => {
               if ((force && result === true) || result instanceof SelectResourceResult) {
                 gameManager.stateManager.before('rebuildBuilding', building.data.id, building.model.name);
-                if (!force && result instanceof SelectResourceResult) {
-                  gameManager.lootManager.applySelectResources(result);
-                }
-                building.model.state = 'normal';
+                gameManager.buildingsManager.rebuildBuilding(
+                  building.model,
+                  !force && result instanceof SelectResourceResult ? result : undefined
+                );
                 gameManager.stateManager.after();
                 this.cdr.markForCheck();
               }
@@ -323,7 +171,7 @@ export class BuildingsListComponent {
     if (building.model.state === 'damaged') {
       if (force) {
         gameManager.stateManager.before('repairBuilding', building.data.id, building.data.name);
-        building.model.state = 'normal';
+        gameManager.buildingsManager.repairBuilding(building.model);
         gameManager.stateManager.after();
       } else if (this.upgradeable(building)) {
         this.dialog
@@ -340,14 +188,7 @@ export class BuildingsListComponent {
             next: (result) => {
               if (result instanceof SelectResourceResult) {
                 gameManager.stateManager.before('repairBuilding', building.data.id, building.data.name);
-                if (!force && result instanceof SelectResourceResult) {
-                  if (result.morale) {
-                    gameManager.campaignManager.changeMorale(-result.morale);
-                  } else {
-                    gameManager.lootManager.applySelectResources(result);
-                  }
-                }
-                building.model.state = 'normal';
+                gameManager.buildingsManager.repairBuilding(building.model, result);
                 gameManager.stateManager.after();
                 this.cdr.markForCheck();
               }
@@ -381,77 +222,24 @@ export class BuildingsListComponent {
   }
 
   toggleState(building: Building, force: boolean = false) {
-    if (building.data.repair) {
-      if (building.model.level > 0) {
-        if (building.model.state === 'normal') {
-          gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, 'damaged');
-          building.model.state = 'damaged';
-          gameManager.stateManager.after();
-        } else if (building.model.state === 'damaged') {
-          gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, 'wrecked');
-          building.model.state = 'wrecked';
-          gameManager.stateManager.after();
-        } else if (force && building.model.state === 'wrecked') {
-          gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, 'normal');
-          building.model.state = 'normal';
-          gameManager.stateManager.after();
-        }
-      }
+    const state = gameManager.buildingsManager.nextBuildingState(building.data, building.model, force);
+    if (state) {
+      gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, state);
+      building.model.state = state;
+      gameManager.stateManager.after();
     }
   }
 
   downgrade(building: Building, force: boolean = false) {
-    const index = gameManager.game.party.buildings.indexOf(building.model);
-    if (index !== -1) {
-      if (
-        !gameManager.buildingsManager.initialBuilding(building.data) &&
-        !gameManager.buildingsManager.availableBuilding(building.data) &&
-        (building.model.level === 0 || force)
-      ) {
-        gameManager.stateManager.before('removeBuilding', building.data.id, building.model.name);
-        building.model.state = 'normal';
-        gameManager.game.party.buildings.splice(index, 1);
-        if (gameManager.game.party.campaignMode && building.data.rewards && building.data.rewards[0] && building.data.rewards[0].section) {
-          const section = gameManager
-            .sectionData(gameManager.currentEdition())
-            .find((sectionData) => sectionData.index === building.data.rewards[0].section);
-          if (section) {
-            const conclusion = gameManager.buildingsManager.rewardSection(section);
-            if (conclusion) {
-              gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-                (model) => model.edition !== conclusion.edition || model.group !== conclusion.group || model.index !== conclusion.index
-              );
-            }
-          }
+    if (gameManager.game.party.buildings.includes(building.model)) {
+      const remove = gameManager.buildingsManager.removableBuilding(building.data) && (building.model.level === 0 || force);
+      if (remove || gameManager.buildingsManager.downgradeable(building.data, building.model)) {
+        if (remove) {
+          gameManager.stateManager.before('removeBuilding', building.data.id, building.model.name);
+        } else {
+          gameManager.stateManager.before('downgradeBuilding', building.data.id, building.model.name, building.model.level - 1);
         }
-        gameManager.stateManager.after();
-      } else if (
-        (!gameManager.buildingsManager.initialBuilding(building.data) && !gameManager.buildingsManager.availableBuilding(building.data)) ||
-        building.model.level > 1
-      ) {
-        gameManager.stateManager.before('downgradeBuilding', building.data.id, building.model.name, building.model.level - 1);
-        building.model.level--;
-        if (building.model.level === 0) {
-          building.model.state = 'normal';
-        }
-        if (
-          gameManager.game.party.campaignMode &&
-          building.data.rewards &&
-          building.data.rewards[building.model.level] &&
-          building.data.rewards[building.model.level].section
-        ) {
-          const section = gameManager
-            .sectionData(gameManager.currentEdition())
-            .find((sectionData) => sectionData.index === building.data.rewards[building.model.level].section);
-          if (section) {
-            const conclusion = gameManager.buildingsManager.rewardSection(section);
-            if (conclusion) {
-              gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-                (model) => model.edition !== conclusion.edition || model.group !== conclusion.group || model.index !== conclusion.index
-              );
-            }
-          }
-        }
+        gameManager.buildingsManager.downgradeBuilding(building.data, building.model, force);
         gameManager.stateManager.after();
       }
       // TODO: The 'emit' function requires a mandatory void argument

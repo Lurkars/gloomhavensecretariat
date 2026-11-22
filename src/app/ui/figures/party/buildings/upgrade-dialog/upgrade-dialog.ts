@@ -2,8 +2,9 @@ import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import {
   BuildingCosts,
@@ -281,16 +282,7 @@ export class BuildingUpgradeDialog implements OnInit {
     const section = gameManager.sectionData(edition || gameManager.currentEdition()).find((sectionData) => sectionData.index === index);
     if (this.rewardsOnly && section) {
       const conclusion = gameManager.buildingsManager.rewardSection(section);
-      const conclusions = gameManager
-        .sectionData(section.edition)
-        .filter(
-          (sectionData) =>
-            sectionData.conclusion &&
-            !sectionData.parent &&
-            sectionData.parentSections &&
-            sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section.index)) &&
-            gameManager.scenarioManager.getRequirements(sectionData).length === 0
-        );
+      const conclusions = gameManager.scenarioManager.sectionConclusions(section.index, section.edition, true);
 
       if (conclusion || conclusions.length === 0) {
         const scenario = new Scenario(conclusion || section);

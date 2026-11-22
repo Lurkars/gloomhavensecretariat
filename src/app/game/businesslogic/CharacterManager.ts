@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from 'src/app/game/model/data/AttackModifier';
@@ -298,6 +297,63 @@ export class CharacterManager {
     );
   }
 
+  private activateSummonsAfterTurn(character: Character): boolean {
+    const summonsAfterTurn = character.summons.filter((summon) => summon.afterTurn);
+    return (
+      settingsManager.settings.activeSummons &&
+      character.active &&
+      !character.summons.some((summon) => summon.active) &&
+      summonsAfterTurn.length > 0 &&
+      !summonsAfterTurn.some((summon) => summon.active)
+    );
+  }
+
+  toggleActiveUndoInfos(character: Character): string[] {
+    const name = this.characterName(character, true, true);
+    const activeSummon = character.summons.find((summon) => summon.active);
+    if (this.activateSummonsAfterTurn(character)) {
+      const summonAfterTurn = character.summons.find((summon) => summon.afterTurn);
+      return ['summonInactive', name, 'data.summon.' + (summonAfterTurn ? summonAfterTurn.name : '')];
+    } else if (settingsManager.settings.activeSummons && character.active && activeSummon) {
+      return ['summonInactive', name, 'data.summon.' + activeSummon.name];
+    }
+    return [character.active ? 'unsetActive' : 'setActive', name];
+  }
+
+  toggleActive(character: Character) {
+    if (this.activateSummonsAfterTurn(character)) {
+      character.summons.filter((summon) => summon.afterTurn).forEach((summon) => (summon.afterTurnActive = true));
+    }
+    gameManager.roundManager.toggleFigure(character);
+  }
+
+  setPerk(character: Character, index: number, value: number) {
+    const shackles = character.name === 'shackles' && character.edition === 'fh' && index === 11;
+    const lowerShacklesHP = shackles && character.progress.perks[index] === 2;
+    character.progress.perks[index] = value;
+
+    const perk = character.perks[index];
+    if (perk.monsterDeck) {
+      this.game.monsterAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck();
+      gameManager.attackModifierManager.shuffleModifiers(this.game.monsterAttackModifierDeck);
+    } else {
+      gameManager.attackModifierManager.mergeAttackModifierDeck(
+        character.attackModifierDeck,
+        gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character)
+      );
+      gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
+
+      if (shackles) {
+        if (character.progress.perks[index] === 2 && !lowerShacklesHP) {
+          character.maxHealth += 5;
+        } else if (lowerShacklesHP && character.progress.perks[index] !== 2) {
+          character.maxHealth -= 5;
+        }
+        character.health = character.maxHealth;
+      }
+    }
+  }
+
   setLevel(character: Character, level: number) {
     const stat = character.stats.find((characterStat) => characterStat.level === level);
     if (!stat) {
@@ -352,6 +408,62 @@ export class CharacterManager {
     if (character.editionRules === 'bb') {
       character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
     }
+  }
+
+  summonAvailable(character: Character, summonData: SummonData, number: number, color: SummonColor): boolean {
+    return (
+      color !== SummonColor.custom &&
+      number !== 0 &&
+      character.summons.every(
+        (summon) =>
+          summon.dead ||
+          summon.name !== summonData.name ||
+          (summonData.special ? summon.number !== 0 : summon.number !== number) ||
+          (summonData.special ? summon.color !== SummonColor.custom : summon.color !== color)
+      ) &&
+      (summonData.count || 1) >
+        character.summons.filter(
+          (summon) => summon.name === summonData.name && summon.cardId === summonData.cardId && gameManager.entityManager.isAlive(summon)
+        ).length
+    );
+  }
+
+  nextSummonNumber(character: Character, summonData: SummonData, color: SummonColor): number {
+    if (summonData.special) {
+      return 0;
+    }
+    const maxNumber = Math.max(8, summonData.count || 1);
+    for (let i = 1; i <= maxNumber; i++) {
+      if (
+        character.summons.every((summon) => summon.dead || summon.name !== summonData.name || summon.number !== i || summon.color !== color)
+      ) {
+        return i;
+      }
+    }
+    return 1;
+  }
+
+  addSummonFromData(character: Character, summonData: SummonData, number: number, color: SummonColor): Summon {
+    const summon: Summon = new Summon(
+      gameManager.randomManager.uuid(),
+      summonData.name,
+      summonData.cardId,
+      character.level,
+      summonData.special ? 0 : number,
+      summonData.special ? SummonColor.custom : color,
+      summonData
+    );
+    summon.state = summonData.special ? SummonState.true : SummonState.new;
+    summon.init = false;
+    this.addSummon(character, summon);
+    return summon;
+  }
+
+  addCustomSummon(character: Character, name: string, number: number, color: SummonColor): Summon {
+    const summon: Summon = new Summon(gameManager.randomManager.uuid(), name, '', character.level, number, color);
+    summon.state = SummonState.new;
+    this.addSummon(character, summon);
+    return summon;
   }
 
   createSpecialSummon(character: Character, summonData: SummonData) {

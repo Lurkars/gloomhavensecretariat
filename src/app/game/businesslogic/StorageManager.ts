@@ -1,4 +1,4 @@
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { GameModel } from 'src/app/game/model/Game';
 import { Settings } from 'src/app/game/model/Settings';
 import { downloadJson } from 'src/app/ui/helper/Static';
@@ -548,5 +548,3 @@ export class StorageManager {
     }
   }
 }
-
-export const storageManager: StorageManager = new StorageManager();

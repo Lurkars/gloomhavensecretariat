@@ -1,5 +1,5 @@
 import { Directive, HostListener, input } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 
 @Directive({
   selector: '[tabclick]',

@@ -1,7 +1,11 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
+import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { ConditionName } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
+import { Enhancement } from 'src/app/game/model/data/Enhancement';
 
 // EnhancementsManager also covers update() (which derives fh/temporary/enhancerLevel from
 // settingsManager/game state) and calculateCosts() (the full composite pipeline). This spec
@@ -127,6 +131,51 @@ describe('EnhancementsManager', () => {
       const rootAction = Object.assign(new Action(ActionType.attack, 1), { multiTarget: true });
       const action = new Action(ActionType.attack, 1);
       expect(enhancementsManager.isMultiTarget(action, rootAction)).toBe(true);
+    });
+  });
+
+  describe('character enhancements', () => {
+    function buildCharacter(): Character {
+      return new Character(Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }), 1);
+    }
+
+    afterEach(() => vi.restoreAllMocks());
+
+    it('counts enhancements per card half and enhanced cards without inherited ones', () => {
+      const character = buildCharacter();
+      character.progress.enhancements = [
+        new Enhancement(1, '0', 0, 'plus1'),
+        new Enhancement(1, 'bottom-0', 0, 'plus1'),
+        new Enhancement(1, '1', 0, 'plus1'),
+        new Enhancement(2, '0', 0, 'plus1'),
+        new Enhancement(3, '0', 0, 'plus1', true)
+      ];
+      expect(enhancementsManager.cardEnhancements(character, 1, '0')).toBe(2);
+      expect(enhancementsManager.cardEnhancements(character, 1, 'bottom-1')).toBe(1);
+      expect(enhancementsManager.enhancedCards(character)).toBe(2);
+      expect(enhancementsManager.enhancedCards(character, 1)).toBe(1);
+    });
+
+    it('limits enhanced cards by prosperity outside of fh', () => {
+      vi.spyOn(gameManager.campaignManager, 'prosperityLevel').mockReturnValue(1);
+      const character = buildCharacter();
+      character.progress.gold = 50;
+      character.progress.enhancements = [new Enhancement(1, '0', 0, 'plus1')];
+      expect(enhancementsManager.canEnhance(character, 1, 50)).toBe(true);
+      expect(enhancementsManager.canEnhance(character, 1, 60)).toBe(false);
+      expect(enhancementsManager.canEnhance(character, 2, 50)).toBe(false);
+      enhancementsManager.fh = true;
+      expect(enhancementsManager.canEnhance(character, 2, 50)).toBe(true);
+    });
+
+    it('adds an enhancement paying its costs and removes it again', () => {
+      const character = buildCharacter();
+      character.progress.gold = 100;
+      enhancementsManager.addEnhancement(character, 1, '0', 0, 'plus1', 75);
+      expect(character.progress.gold).toBe(25);
+      expect(character.progress.enhancements).toEqual([new Enhancement(1, '0', 0, 'plus1')]);
+      enhancementsManager.removeEnhancement(character, character.progress.enhancements[0]);
+      expect(character.progress.enhancements).toEqual([]);
     });
   });
 });

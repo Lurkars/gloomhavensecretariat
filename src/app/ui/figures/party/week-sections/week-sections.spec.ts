@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Subject } from 'rxjs';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { openPendingWeekSections, openSection } from 'src/app/ui/figures/party/week-sections/week-sections';

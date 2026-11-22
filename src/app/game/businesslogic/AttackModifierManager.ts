@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import {
   additionalTownGuardAttackModifier,
@@ -30,6 +29,7 @@ import { Game } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { Party } from 'src/app/game/model/Party';
+import { deckMove } from 'src/app/game/util/deck';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
 
 export class AttackModifierManager {
@@ -304,6 +304,20 @@ export class AttackModifierManager {
     attackModifierDeck.cards = [...attackModifierDeck.cards.slice(0, index), attackModifier, ...attackModifierDeck.cards.slice(index)];
   }
 
+  insertModifier(attackModifierDeck: AttackModifierDeck, attackModifier: AttackModifier, shuffled: boolean, register: boolean = false) {
+    if (shuffled) {
+      const index =
+        attackModifierDeck.current + 1 + gameManager.randomManager.int(attackModifierDeck.cards.length - attackModifierDeck.current);
+      attackModifierDeck.cards.splice(index, 0, attackModifier);
+    } else {
+      attackModifier.revealed = true;
+      attackModifierDeck.cards.splice(attackModifierDeck.current + 1, 0, attackModifier);
+    }
+    if (register && !attackModifierDeck.attackModifiers.some((am) => am.id === attackModifier.id)) {
+      attackModifierDeck.attackModifiers.push(attackModifier);
+    }
+  }
+
   addModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType, respectSupplyLimit: boolean = true) {
     let modifiers: AttackModifier[] = [];
     if (respectSupplyLimit) {
@@ -373,6 +387,15 @@ export class AttackModifierManager {
       }
     }
     this.updateLastVisible(attackModifierDeck);
+  }
+
+  moveCard(deck: AttackModifierDeck, fromList: string, fromIndex: number, toList: string, toIndex: number, ...arrays: unknown[][]) {
+    const result = deckMove(deck.current, fromList, fromIndex, toList, toIndex, deck.cards, ...arrays);
+    deck.current = result.current;
+    if (toList === 'discarded' && fromList === 'upcoming') {
+      deck.cards[result.to].revealed = true;
+    }
+    this.updateLastVisible(deck);
   }
 
   updateLastVisible(attackModifierDeck: AttackModifierDeck) {

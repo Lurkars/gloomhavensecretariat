@@ -1,13 +1,15 @@
-import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierDeck, AttackResult } from 'src/app/game/model/data/AttackModifier';
-import { EventCardAttack, EventCardAttackTarget, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
+import { EventCardAttack, EventCardAttackTarget } from 'src/app/game/model/data/EventCard';
+import { OutpostAttackResource } from 'src/app/game/model/data/OutpostAttack';
 import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { AttackModifierComponent } from 'src/app/ui/figures/attackmodifier/attackmodifier';
@@ -21,7 +23,7 @@ import { WorldMapComponent } from 'src/app/ui/figures/party/world-map/world-map'
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsFloorPipe, GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
-import { ghsDialogClosingHelper, ghsShuffleArray, ghsValueSign } from 'src/app/ui/helper/Static';
+import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
@@ -57,7 +59,7 @@ export class OutpostAttackComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
   EntityValueFunction = EntityValueFunction;
-  attack: EventCardAttack;
+  attack: EventCardAttack = new EventCardAttack(50, 4, new EventCardAttackTarget(), '', '', []);
   defaultAttack: EventCardAttack | undefined;
   manualAttackValue: number = 50;
   manualTargetNumber: number = 4;
@@ -77,58 +79,16 @@ export class OutpostAttackComponent implements OnInit {
 
   barracks: boolean = false;
   soldiers: number = 0;
-  baracksBonus: number = 0;
   moraleDefense: number = 0;
   attacks: number = 0;
   attackResult: AttackResult | undefined;
+  resources: OutpostAttackResource[] = [];
 
   deckActive: boolean = false;
-  // resource effects of drawn town guard cards, each can be disabled
-  resources: { effect: EventCardEffect; enabled: boolean }[] = [];
-  private drawnBefore: number = -1;
-
-  data: { attack: EventCardAttack; effects: EventCardEffect[] } = inject(DIALOG_DATA);
+  private closing: boolean = false;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
-    if (this.data.attack) {
-      this.defaultAttack = new EventCardAttack(
-        this.data.attack.attackValue,
-        this.data.attack.targetNumber,
-        this.data.attack.target,
-        this.data.attack.targetDescription,
-        this.data.attack.narrative,
-        this.data.attack.effects
-      );
-    }
-
-    if (this.defaultAttack && !!this.data.effects) {
-      let attackValueChange = 0;
-      let targetNumberValueChange = 0;
-      this.data.effects.forEach((effect) => {
-        if (effect.type === EventCardEffectType.outpostAttack && effect.values.length && typeof effect.values[0] !== 'object') {
-          attackValueChange = EntityValueFunction(effect.values[0]);
-        } else if (effect.type === EventCardEffectType.outpostTarget && effect.values.length && typeof effect.values[0] !== 'object') {
-          targetNumberValueChange = EntityValueFunction(effect.values[0]);
-        }
-      });
-
-      if (attackValueChange) {
-        this.defaultAttack.attackValue =
-          typeof this.defaultAttack.attackValue === 'number'
-            ? this.defaultAttack.attackValue + attackValueChange
-            : this.defaultAttack.attackValue + ' ' + ghsValueSign(attackValueChange);
-      }
-
-      if (targetNumberValueChange) {
-        this.defaultAttack.targetNumber =
-          typeof this.defaultAttack.targetNumber === 'number'
-            ? this.defaultAttack.targetNumber + targetNumberValueChange
-            : this.defaultAttack.targetNumber + ' ' + ghsValueSign(targetNumberValueChange);
-      }
-    }
-    this.attack =
-      this.defaultAttack || new EventCardAttack(this.manualAttackValue, this.manualTargetNumber, new EventCardAttackTarget(), '', '', []);
 
     this.deckActive = !!gameManager.game.party.townGuardDeck && gameManager.game.party.townGuardDeck.active;
 
@@ -140,346 +100,158 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.update(true);
+    this.update();
   }
 
-  update(init: boolean = false) {
-    this.allBuildings = [];
-    const campaign = gameManager.campaignManager.campaignData();
-    if (campaign) {
-      gameManager.game.party.buildings.forEach((model) => {
-        const data = campaign.buildings.find((buildingData) => buildingData.name === model.name);
-        if (data && model.level && data.id && !isNaN(+data.id)) {
-          if (init) {
-            model.attacked = undefined;
-          }
-          this.allBuildings.push({ model: model, data: data });
-        }
-      });
-      if (campaign.townGuardPerks) {
-        this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, campaign);
-        if (gameManager.game.party.townGuardDeck) {
-          gameManager.attackModifierManager.fromModel(this.townGuardDeck, gameManager.game.party.townGuardDeck);
-        } else {
-          gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
-          gameManager.game.party.townGuardDeck = this.townGuardDeck.toModel();
-        }
-        this.townGuardDeck.active = true;
-      } else {
-        console.warn('Invalid state, no Town Guard Deck found!');
-        this.dialogRef.close();
+  update() {
+    const model = gameManager.game.party.outpostAttack;
+    if (!model) {
+      if (!this.closing) {
+        this.closing = true;
+        ghsDialogClosingHelper(this.dialogRef);
       }
+      return;
     }
 
-    if (gameManager.game.party.morale < 3) {
-      this.moraleDefense = -10;
-    } else if (gameManager.game.party.morale < 5) {
-      this.moraleDefense = -5;
-    } else if (gameManager.game.party.morale < 8) {
-      this.moraleDefense = 0;
-    } else if (gameManager.game.party.morale < 11) {
-      this.moraleDefense = 5;
-    } else if (gameManager.game.party.morale < 14) {
-      this.moraleDefense = 10;
-    } else {
-      this.moraleDefense = 15;
+    const townGuardDeck = gameManager.outpostAttackManager.townGuardDeck();
+    if (!townGuardDeck) {
+      console.warn('Invalid state, no Town Guard Deck found!');
+      this.dialogRef.close();
+      return;
     }
+    this.townGuardDeck = townGuardDeck;
 
-    this.applyBaracks();
-    if (init) {
-      if (this.attack.target) {
-        this.lowerBoundary = this.attack.target.lowerBoundary || 0;
-        this.upperBoundary = this.attack.target.upperBoundary || 0;
-        this.parity = this.attack.target.parity || 0;
-        this.level = this.attack.target.level || 0;
-        this.distance = this.attack.target.distance || undefined;
-        this.applyFilter();
-        if (this.attack.target.randomize) {
-          this.randomize();
-        }
-      } else {
-        this.applyFilter();
-      }
-    }
+    this.allBuildings = gameManager.outpostAttackManager.buildings();
+    const byName = (name: string) => this.allBuildings.find((building) => building.model.name === name);
+    this.buildings = model.buildings.map(byName).filter((building) => !!building) as Building[];
+    this.disabledBuildings = model.others.map(byName).filter((building) => !!building) as Building[];
+
+    this.defaultAttack = model.attack;
+    this.attack = gameManager.outpostAttackManager.attack() || this.attack;
+    this.manualAttackValue = model.manualAttackValue;
+    this.manualTargetNumber = model.manualTargetNumber;
+    this.lowerBoundary = model.target.lowerBoundary || 0;
+    this.upperBoundary = model.target.upperBoundary || 0;
+    this.parity = model.target.parity || 0;
+    this.level = model.target.level || 0;
+    this.distance = model.target.distance || undefined;
+    this.desc = model.target.desc;
+
+    const barracks = gameManager.outpostAttackManager.barracksBonus();
+    this.barracks = !!barracks && barracks.available;
+    this.factor = gameManager.outpostAttackManager.factor();
+    this.soldiers = model.soldiers;
+    this.moraleDefense = gameManager.outpostAttackManager.moraleDefense();
+    this.attacks = model.attacks;
+    this.attackResult = gameManager.outpostAttackManager.result(this.townGuardDeck);
+    this.resources = model.resources;
+  }
+
+  private change(apply: () => void, ...info: (string | number)[]) {
+    gameManager.stateManager.before(...info);
+    apply();
+    gameManager.stateManager.after();
   }
 
   beforeTownGuardDeck(change: AttackModiferDeckChange) {
-    this.drawnBefore = change.deck.current;
-    this.attackResult = undefined;
     gameManager.stateManager.before('updateAttackModifierDeck.' + change.type, 'party.campaign.townGuard', ...change.values);
+    gameManager.outpostAttackManager.beforeDraw(change.deck);
   }
 
   afterTownGuardDeck(change: AttackModiferDeckChange) {
     this.townGuardDeck = change.deck;
-    gameManager.game.party.townGuardDeck = this.townGuardDeck.toModel();
+    gameManager.outpostAttackManager.afterDraw(change.deck, change.type.startsWith('draw'));
     gameManager.stateManager.after();
-    this.attackResult = gameManager.attackModifierManager.calculateAttackResult(
-      this.townGuardDeck,
-      (gameManager.game.party.defense || 0) + this.moraleDefense
-    );
-    if (change.type.startsWith('draw')) {
-      this.addResources(change.deck);
-    }
   }
 
   toggleAttackResult() {
-    if (this.attackResult && this.attackResult.chooseOffset) {
-      this.attackResult = gameManager.attackModifierManager.calculateAttackResult(
-        this.townGuardDeck,
-        (gameManager.game.party.defense || 0) + this.moraleDefense,
-        this.attackResult.index + this.attackResult.chooseOffset
-      );
-    }
+    this.change(() => gameManager.outpostAttackManager.toggleResult(this.townGuardDeck), 'outpostAttack.result');
   }
 
   nextTarget() {
-    if (this.attacks < this.buildings.length && this.attack.targetNumber) {
-      const building = this.buildings[this.attacks];
-      let state = building.model.state;
-      if (this.attackResult) {
-        if (this.townGuardDeck.cards[this.attackResult.index].type === 'wreck') {
-          state = 'wrecked';
-        } else if (
-          this.townGuardDeck.cards[this.attackResult.index].type !== 'success' &&
-          this.attackResult.result < EntityValueFunction(this.attack.attackValue)
-        ) {
-          state = 'damaged';
-        }
-      }
-      gameManager.stateManager.before('buildingAttacked.' + state, building.data.id, building.data.name);
-      gameManager.game.party.soldiers -= this.soldiers;
-      this.soldiers = 0;
-      building.model.attacked = true;
-      this.attacks++;
-      building.model.state = state;
-      this.attackResult = undefined;
-      this.applyBaracks();
-
-      if (!!this.attack.target && this.attack.target.distance === 'previousTarget') {
-        this.buildings.sort((a, b) => {
-          const distanceA = this.targetDistance(a);
-          const distanceB = this.targetDistance(b);
-          if (distanceA > 0 && distanceB > 0) {
-            return distanceA - distanceB;
-          }
-          return 0;
-        });
-      }
-
-      gameManager.stateManager.after();
-    }
-  }
-
-  addResources(deck: AttackModifierDeck) {
-    deck.cards
-      .slice(this.drawnBefore + 1, deck.current + 1)
-      .filter((card) => !card.rolling || deck.state !== 'disadvantage')
-      .forEach((card) =>
-        card.effects.forEach((effect) => {
-          // '+1%game.resource.hide%' or '%game.custom.materialResource:2%'
-          const match =
-            effect.value.match(/^\+(\d+)%game\.resource\.(\w+)%$/) || effect.value.match(/^%game\.custom\.materialResource:(\d+)%$/);
-          if (match) {
-            const type = match[2] ? EventCardEffectType.collectiveResource : EventCardEffectType.collectiveResourceType;
-            this.resources.push({ effect: new EventCardEffect(type, [+match[1], match[2] || 'material_resources']), enabled: true });
-          }
-        })
+    const target = gameManager.outpostAttackManager.target();
+    const state = gameManager.outpostAttackManager.targetState(this.townGuardDeck);
+    if (target && state) {
+      this.change(
+        () => gameManager.outpostAttackManager.attackTarget(this.townGuardDeck),
+        'buildingAttacked.' + state,
+        target.data.id,
+        target.data.name
       );
+    }
   }
 
   toggleSoldier(soldier: number) {
-    if (this.soldiers === soldier) {
-      this.soldiers--;
-    } else {
-      this.soldiers = soldier;
-    }
-    this.applyBaracks();
+    this.change(
+      () => gameManager.outpostAttackManager.toggleSoldier(soldier),
+      'outpostAttack.soldiers',
+      this.soldiers === soldier ? soldier - 1 : soldier
+    );
   }
 
-  applyBaracks() {
-    const barracks = this.allBuildings.find((building) => building.model.name === 'barracks');
-    if (!barracks) {
-      console.warn('No Barrack found!');
-      return;
-    }
+  toggleResource(index: number) {
+    this.change(
+      () => gameManager.outpostAttackManager.toggleResource(index),
+      this.resources[index] && this.resources[index].enabled ? 'outpostAttack.resource.disable' : 'outpostAttack.resource.enable'
+    );
+  }
 
-    if (barracks.model.state === 'wrecked') {
-      this.barracks = false;
-      this.baracksBonus = 0;
-      this.soldiers = 0;
-      this.factor = 'disadvantage';
-    } else {
-      this.barracks = true;
-      this.factor = false;
-      switch (barracks.model.level) {
-        case 1:
-          this.baracksBonus = -5;
-          break;
-        case 2:
-          this.baracksBonus = -15;
-          break;
-        case 3:
-          this.baracksBonus = -25;
-          break;
-        case 4:
-          this.baracksBonus = -35;
-          break;
-      }
-
-      if (this.soldiers) {
-        this.factor = 'advantage';
-      }
-    }
-
-    const target = new EventCardAttackTarget();
-    target.lowerBoundary = this.lowerBoundary || 0;
-    target.upperBoundary = this.upperBoundary || 0;
-    target.parity = this.parity || 0;
-    target.level = this.level || 0;
-    target.distance = this.distance || undefined;
-
-    this.attack = new EventCardAttack(
-      EntityValueFunction(this.defaultAttack ? this.defaultAttack.attackValue : this.manualAttackValue) + this.soldiers * this.baracksBonus,
-      EntityValueFunction(this.defaultAttack ? this.defaultAttack.targetNumber : this.manualTargetNumber) - this.attacks,
-      this.defaultAttack ? this.defaultAttack.target : target,
-      this.defaultAttack ? this.defaultAttack.targetDescription : '',
-      this.defaultAttack ? this.defaultAttack.narrative : '',
-      this.defaultAttack ? this.defaultAttack.effects : []
+  applyManual() {
+    this.change(
+      () => gameManager.outpostAttackManager.setManual(+this.manualAttackValue, +this.manualTargetNumber),
+      'outpostAttack.manual',
+      +this.manualAttackValue,
+      +this.manualTargetNumber
     );
   }
 
   applyFilter() {
-    if (!this.attack.target) {
-      this.attack.target = new EventCardAttackTarget(true);
-    }
-    this.attack.target.lowerBoundary = this.lowerBoundary || 0;
-    this.attack.target.upperBoundary = this.upperBoundary || 0;
-    this.attack.target.parity = this.parity || 0;
-    this.attack.target.level = this.level || 0;
-    this.attack.target.distance = this.distance || undefined;
-
-    this.buildings = this.allBuildings.filter((building) => this.filterBuilding(building));
-
-    this.buildings.sort((a, b) => this.sortBuildings(a, b));
-
-    if (this.attack.target && this.attack.target.desc) {
-      this.buildings.reverse();
-    }
-
-    this.disabledBuildings = [...this.allBuildings.filter((building) => !this.buildings.includes(building))];
-    this.disabledBuildings.sort((a, b) => this.sortBuildings(a, b));
-
-    if (this.attack.target && this.attack.target.desc) {
-      this.disabledBuildings.reverse();
-    }
-  }
-
-  filterBuilding(building: Building): boolean {
-    if (!building.data.id || isNaN(+building.data.id)) {
-      return false;
-    }
-
-    if (building.model.state === 'wrecked') {
-      return false;
-    }
-
-    const number = +building.data.id;
-
-    if (
-      this.attack.target.parity &&
-      ((this.attack.target.parity === 'even' && number % 2 === 1) || (this.attack.target.parity === 'odd' && number % 2 === 0))
-    ) {
-      return false;
-    }
-
-    if (this.attack.target.lowerBoundary && number < this.attack.target.lowerBoundary) {
-      return false;
-    }
-
-    if (this.attack.target.upperBoundary && number > this.attack.target.upperBoundary) {
-      return false;
-    }
-
-    return true;
-  }
-
-  sortBuildings(a: Building, b: Building): number {
-    const filterA = this.filterBuilding(a);
-    const filterB = this.filterBuilding(b);
-
-    if (filterA && !filterB) {
-      return -1;
-    } else if (!filterA && filterB) {
-      return 1;
-    }
-
-    if (!!this.attack.target) {
-      if (this.attack.target.level && a.model.level !== b.model.level) {
-        if (this.attack.target.level === 'low') {
-          return a.model.level - b.model.level;
-        } else if (this.attack.target.level === 'high') {
-          return b.model.level - a.model.level;
-        }
-      }
-
-      if (this.attack.target.distance) {
-        const distanceA = this.targetDistance(a);
-        const distanceB = this.targetDistance(b);
-        if (distanceA !== -1 && distanceB !== -1) {
-          return distanceA - distanceB;
-        }
-      }
-    }
-
-    return +a.data.id - +b.data.id;
+    this.change(
+      () =>
+        gameManager.outpostAttackManager.setTarget({
+          lowerBoundary: +this.lowerBoundary || 0,
+          upperBoundary: +this.upperBoundary || 0,
+          parity: this.parity || 0,
+          level: this.level || 0,
+          distance: this.distance || undefined,
+          desc: this.desc
+        }),
+      'outpostAttack.target'
+    );
   }
 
   targetDistance(building: Building): number {
-    let distance: number | undefined;
-    if (this.attack.target.distance === 'previousTarget') {
-      const index = this.buildings.indexOf(building);
-      if (index > this.attacks) {
-        distance = gameManager.buildingsManager.distanceBetween(building.model, this.buildings[this.attacks].model);
-      } else {
-        return 0;
-      }
-    } else if (typeof this.attack.target.distance === 'string') {
-      const targetBuilding = this.allBuildings.find((building) => building.model.name === this.attack.target.distance);
-      if (targetBuilding) {
-        distance = gameManager.buildingsManager.distanceBetween(building.model, targetBuilding.model);
-      }
-    } else if (this.attack.target.distance) {
-      const coordinates = this.attack.target.distance as WorldMapCoordinates;
-      distance = gameManager.buildingsManager.distanceFrom(building.model, coordinates);
-    }
-
-    return distance !== undefined ? distance : -1;
+    return gameManager.outpostAttackManager.distance(building);
   }
 
   randomize() {
-    ghsShuffleArray(this.buildings);
+    this.change(() => gameManager.outpostAttackManager.randomize(), 'outpostAttack.randomize');
   }
 
   dropBuildings(event: CdkDragDrop<Building[]>) {
-    if (event.container === event.previousContainer) {
-      moveItemInArray(this.buildings, event.previousIndex, event.currentIndex);
-    } else {
-      const building = this.disabledBuildings.splice(event.previousIndex, 1)[0];
-      this.buildings.splice(event.currentIndex, 0, building);
-    }
-    this.buildings = [...this.buildings];
-    this.disabledBuildings = [...this.disabledBuildings];
+    this.change(
+      () =>
+        gameManager.outpostAttackManager.moveBuilding(
+          event.container === event.previousContainer ? 'buildings' : 'others',
+          event.previousIndex,
+          'buildings',
+          event.currentIndex
+        ),
+      'outpostAttack.order'
+    );
   }
 
   dropDisabledBuildings(event: CdkDragDrop<Building[]>) {
-    if (event.container === event.previousContainer) {
-      moveItemInArray(this.disabledBuildings, event.previousIndex, event.currentIndex);
-    } else {
-      const building = this.buildings.splice(event.previousIndex, 1)[0];
-      this.disabledBuildings.splice(event.currentIndex, 0, building);
-    }
-    this.buildings = [...this.buildings];
-    this.disabledBuildings = [...this.disabledBuildings];
+    this.change(
+      () =>
+        gameManager.outpostAttackManager.moveBuilding(
+          event.container === event.previousContainer ? 'others' : 'buildings',
+          event.previousIndex,
+          'others',
+          event.currentIndex
+        ),
+      'outpostAttack.order'
+    );
   }
 
   partySheet() {
@@ -499,12 +271,7 @@ export class OutpostAttackComponent implements OnInit {
       .closed.subscribe({
         next: (result) => {
           if (pick) {
-            if (result) {
-              this.distance = result as WorldMapCoordinates;
-            } else {
-              this.distance = undefined;
-            }
-
+            this.distance = result ? (result as WorldMapCoordinates) : undefined;
             this.applyFilter();
             this.cdr.markForCheck();
           }
@@ -519,9 +286,14 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   close(finish: boolean = false) {
-    ghsDialogClosingHelper(
-      this.dialogRef,
-      finish ? this.resources.filter((resource) => resource.enabled).map((resource) => resource.effect) : undefined
-    );
+    this.closing = true;
+    if (!finish) {
+      ghsDialogClosingHelper(this.dialogRef);
+      return;
+    }
+    gameManager.stateManager.before('outpostAttack.finish');
+    const resources = gameManager.outpostAttackManager.finish();
+    gameManager.stateManager.after();
+    ghsDialogClosingHelper(this.dialogRef, resources);
   }
 }

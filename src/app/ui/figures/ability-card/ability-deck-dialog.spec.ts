@@ -1,7 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { EditionData } from 'src/app/game/model/data/EditionData';

@@ -1,6 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
+import { gameManager, settingsManager, soundboardManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';

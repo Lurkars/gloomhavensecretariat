@@ -1,10 +1,9 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
 import { SummonData } from 'src/app/game/model/data/SummonData';
-import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { SummonColor } from 'src/app/game/model/Summon';
 
 export class SummonAddCommand extends CommandImpl {
   id: string = 'summon.add';
@@ -35,21 +34,10 @@ export class SummonAddCommand extends CommandImpl {
   }
 
   number(character: Character, summonData: SummonData, color: SummonColor, number: BASE_TYPE): number {
-    if (summonData.special) {
-      return 0;
-    }
-    if (typeof number === 'number' && number > 0) {
+    if (!summonData.special && typeof number === 'number' && number > 0) {
       return number;
     }
-    const maxNumber = Math.max(8, summonData.count || 1);
-    for (let i = 1; i <= maxNumber; i++) {
-      if (
-        character.summons.every((summon) => summon.dead || summon.name !== summonData.name || summon.number !== i || summon.color !== color)
-      ) {
-        return i;
-      }
-    }
-    return 1;
+    return gameManager.characterManager.nextSummonNumber(character, summonData, color);
   }
 
   validParameters(number: number, name: string, seed: number, cardId: string = ''): boolean {
@@ -81,18 +69,7 @@ export class SummonAddCommand extends CommandImpl {
     const summonData = character && this.summonData(character, name, cardId);
     if (character && summonData) {
       const color = this.color(character, summonColor);
-      const summon: Summon = new Summon(
-        gameManager.randomManager.uuid(),
-        summonData.name,
-        summonData.cardId,
-        character.level,
-        this.number(character, summonData, color, summonNumber),
-        summonData.special ? SummonColor.custom : color,
-        summonData
-      );
-      summon.state = summonData.special ? SummonState.true : SummonState.new;
-      summon.init = false;
-      gameManager.characterManager.addSummon(character, summon);
+      gameManager.characterManager.addSummonFromData(character, summonData, this.number(character, summonData, color, summonNumber), color);
     } else {
       this.executionError('character or summon not found');
     }

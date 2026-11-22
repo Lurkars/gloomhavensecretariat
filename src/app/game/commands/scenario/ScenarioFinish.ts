@@ -1,14 +1,11 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { ScenarioFinishApply } from 'src/app/game/businesslogic/ScenarioManager';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData, ScenarioFinish, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
 
 export function summaryCharacters(): Character[] {
@@ -305,22 +302,6 @@ export class ScenarioFinishApplyCommand extends CommandImpl {
       .find((scenarioData) => scenarioData.group === scenario.group && scenarioData.index === linkedIndex);
   }
 
-  rewards(scenario: Scenario, conclusion: ScenarioData | undefined, success: boolean): ScenarioRewards | undefined {
-    let rewards: ScenarioRewards | undefined;
-    if (gameManager.game.party.campaignMode && success) {
-      if (scenario.rewards) {
-        rewards = Object.assign(new ScenarioRewards(), scenario.rewards);
-      }
-      if (conclusion && conclusion.rewards) {
-        rewards = rewards ? Object.assign(rewards, conclusion.rewards) : Object.assign(new ScenarioRewards(), conclusion.rewards);
-      }
-      if (gameManager.fhRules(true) && rewards && gameManager.scenarioManager.isSuccess(scenario)) {
-        rewards = undefined;
-      }
-    }
-    return rewards;
-  }
-
   rewardItems(scenario: Scenario, rewards: ScenarioRewards | undefined): ItemData[] {
     const rewardItems: ItemData[] = [];
     if (rewards && settingsManager.settings.scenarioRewards) {
@@ -368,168 +349,26 @@ export class ScenarioFinishApplyCommand extends CommandImpl {
       this.executionError('no scenario');
       return;
     }
-    const finish: ScenarioFinish = gameManager.game.finish || new ScenarioFinish();
+    const finish: ScenarioFinish = Object.assign(new ScenarioFinish(), gameManager.game.finish || {});
     const success = gameManager.game.finish ? finish.success : true;
     const conclusion = finishConclusion(gameManager.game.finish);
-    const linkedScenarioData = this.linkedScenarioData(linkedIndex);
-    const characters = summaryCharacters();
-    const rewards = this.rewards(scenario, conclusion, success);
-    const rewardItems = this.rewardItems(scenario, rewards);
-    const gainRewards = gameManager.game.party.campaignMode;
-    const characterProgress = gameManager.game.party.campaignMode || !gameManager.fhRules(true);
-    const battleGoals = finish.battleGoals || [];
-    const trials = finish.trials || [];
-    const challenges = finish.challenges || 0;
-    const collectiveGold = finish.collectiveGold || [];
-    const collectiveResources = finish.collectiveResources || [];
-    const items: number[][] = finish.items || [];
+    const rewards = gameManager.scenarioManager.finishRewards(scenario, conclusion, success);
     const calendarSectionManual = finish.calendarSectionManual || finish.calenderSectionManual || [];
-
-    if (settingsManager.settings.scenarioRewards && success && !gameManager.bbRules()) {
-      characters.forEach((character, index) => {
-        if (!character.absent) {
-          if (battleGoals[index] > 0) {
-            character.progress.battleGoals += battleGoals[index];
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              character,
-              PersonalQuestAutotrackType.battleGoals,
-              undefined,
-              battleGoals[index]
-            );
-          }
-          if (trials[index]) {
-            character.progress.trial = undefined;
-          }
-          character.progress.experience += 2 * challenges;
-          if (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply) {
-            character.progress.gold += character.loot * gameManager.trialsManager.activeFavor('fh', 'wealth');
-            if (battleGoals[index]) {
-              character.progress.experience += 3 * gameManager.trialsManager.activeFavor('fh', 'knowledge');
-            }
-          }
-        }
-
-        if (collectiveGold[index] > 0) {
-          character.progress.gold += collectiveGold[index];
-        }
-
-        if (collectiveResources[index]) {
-          Object.keys(collectiveResources[index]).forEach((value) => {
-            const lootType = value as LootType;
-            character.progress.loot[lootType] = (character.progress.loot[lootType] || 0) + (collectiveResources[index][lootType] || 0);
-          });
-        }
-
-        rewardItems.forEach((item, itemIndex) => {
-          if (items.every((characterItems) => !characterItems || !characterItems.includes(itemIndex))) {
-            items[index] = items[index] || [];
-            items[index].push(itemIndex);
-          }
-        });
-
-        (items[index] || []).forEach((itemIndex) => {
-          const item = rewardItems[itemIndex];
-          if (item) {
-            if (settingsManager.settings.characterItems) {
-              gameManager.itemManager.addItem(item, character);
-            }
-            gameManager.itemManager.addItemCount(item);
-          }
-        });
-      });
-
-      if (rewards && rewards.collectiveResources) {
-        rewards.collectiveResources.forEach((value) => {
-          const assigned = collectiveResources.length
-            ? collectiveResources.map((resources) => (resources && resources[value.type]) || 0).reduce((a, b) => a + b)
-            : 0;
-          const available = Math.max(EntityValueFunction(value.value) - assigned, 0);
-          if (available) {
-            gameManager.game.party.loot[value.type] = (gameManager.game.party.loot[value.type] || 0) + available;
-          }
-        });
-      }
-
-      if (finish.chooseLocation) {
-        gameManager.game.party.manualScenarios.push(new GameScenarioModel(finish.chooseLocation, scenario.edition, scenario.group));
-      }
-
-      if (
-        settingsManager.settings.automaticUnlocking &&
-        finish.chooseUnlockCharacter &&
-        !gameManager.game.unlockedCharacters.includes(scenario.edition + ':' + finish.chooseUnlockCharacter)
-      ) {
-        gameManager.game.unlockedCharacters.push(scenario.edition + ':' + finish.chooseUnlockCharacter);
-      }
-
-      gameManager.game.party.townGuardPerks += challenges;
-
-      if (gainRewards) {
-        [...(finish.randomItemBlueprints || []), ...(finish.randomItemDesigns || [])].forEach((itemId) => {
-          if (itemId === -1) {
-            if (gameManager.fhRules()) {
-              gameManager.game.party.inspiration += 1;
-            }
-          } else {
-            gameManager.game.party.unlockedItems.push(new CountIdentifier(itemId, scenario.edition));
-          }
-        });
-
-        if (finish.randomSideScenario) {
-          gameManager.game.party.manualScenarios.push(
-            new GameScenarioModel(finish.randomSideScenario.name, finish.randomSideScenario.edition)
-          );
-        }
-
-        if (rewards && rewards.calendarSectionManual) {
-          rewards.calendarSectionManual.forEach((sectionManual, index) => {
-            if ((calendarSectionManual[index] || 0) >= 0) {
-              const week = gameManager.game.party.weeks + (calendarSectionManual[index] || 0);
-              gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), sectionManual.section];
-            }
-          });
-        }
-      }
-
-      if (gameManager.challengesManager.enabled && challenges) {
-        gameManager.game.challengeDeck.finished += challenges;
-      }
-
-      gameManager.trialsManager.applyTrialCards();
-    }
-
-    gameManager.scenarioManager.finishScenario(
+    finish.calendarSectionManual = ((rewards && rewards.calendarSectionManual) || []).map((_, index) => calendarSectionManual[index] || 0);
+    const apply = new ScenarioFinishApply(
       scenario,
       success,
       conclusion,
-      false,
-      linkedScenarioData !== undefined,
-      settingsManager.settings.scenarioRewards && !gameManager.bbRules() && characterProgress,
-      gainRewards
+      finish,
+      summaryCharacters(),
+      rewards,
+      this.rewardItems(scenario, rewards),
+      gameManager.game.party.campaignMode || !gameManager.fhRules(true),
+      gameManager.game.party.campaignMode
     );
-
-    if (finish.overlayCustomText && conclusion && rewards && rewards.overlayCustomText) {
-      const conclusionModel = gameManager.game.party.conclusions.find(
-        (model) => model.index === conclusion.index && model.edition === conclusion.edition && model.group === conclusion.group
-      );
-      if (conclusionModel) {
-        conclusionModel.custom = finish.overlayCustomText;
-      }
-    }
-
-    if (
-      linkedScenarioData &&
-      (forcedLink ||
-        (!gameManager.scenarioManager.isBlocked(linkedScenarioData) && !gameManager.scenarioManager.isLocked(linkedScenarioData)))
-    ) {
-      gameManager.scenarioManager.setScenario(new Scenario(linkedScenarioData), true);
-    } else if (!linkedScenarioData) {
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          figure.absent = false;
-        }
-      });
-    }
+    apply.linked = this.linkedScenarioData(linkedIndex);
+    apply.forcedLink = forcedLink;
+    gameManager.scenarioManager.applyScenarioFinish(apply);
     gameManager.stateManager.scenarioSummary = false;
   }
 }

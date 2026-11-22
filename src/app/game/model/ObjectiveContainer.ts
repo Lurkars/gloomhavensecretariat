@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Action } from 'src/app/game/model/data/Action';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { ScenarioObjectiveIdentifier } from 'src/app/game/model/data/ObjectiveData';

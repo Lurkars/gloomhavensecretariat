@@ -1,7 +1,8 @@
 import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Scenario } from 'src/app/game/model/Scenario';
 import { ScenarioConclusionComponent } from 'src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion';
@@ -49,25 +50,7 @@ export class PartyWeekDialogComponent {
   }
 
   hasConclusions(section: string): boolean {
-    const conclusions = gameManager
-      .sectionData(gameManager.game.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.length === 1 &&
-          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section))
-      );
-    return (
-      conclusions.length > 0 &&
-      conclusions.every(
-        (conclusion) =>
-          !gameManager.game.party.conclusions.find(
-            (model) => model.edition === conclusion.edition && model.index === conclusion.index && model.group === conclusion.group
-          )
-      )
-    );
+    return gameManager.scenarioManager.hasOpenConclusions(section, gameManager.game.edition, false, true);
   }
 
   finishConclusion(index: string) {
@@ -90,17 +73,8 @@ export class PartyWeekDialogComponent {
   }
 
   openConclusions(section: string) {
-    const conclusions: ScenarioData[] = gameManager
-      .sectionData(gameManager.game.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.length === 1 &&
-          sectionData.parentSections.find((parentSections) => parentSections.length === 1 && parentSections.includes(section)) &&
-          gameManager.scenarioManager.getRequirements(sectionData).length === 0
-      )
+    const conclusions: ScenarioData[] = gameManager.scenarioManager
+      .sectionConclusions(section, gameManager.game.edition, true, true)
       .map((conclusion) => {
         conclusion.name = '';
         return conclusion;
@@ -122,22 +96,7 @@ export class PartyWeekDialogComponent {
             if (conclusion) {
               const scenario = new Scenario(conclusion as ScenarioData);
               gameManager.stateManager.before('finishConclusion', ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-              gameManager.scenarioManager.finishScenario(
-                scenario,
-                true,
-                undefined,
-                false,
-                false,
-                false,
-                gameManager.game.party.campaignMode,
-                true
-              );
-              if (!scenario.repeatable) {
-                gameManager.game.party.weekSections[this.week] = [
-                  ...(gameManager.game.party.weekSections[this.week] || []),
-                  scenario.index
-                ];
-              }
+              gameManager.scenarioManager.finishWeekConclusion(scenario, this.week);
               gameManager.stateManager.after();
 
               this.dialog.open(ScenarioSummaryComponent, {
@@ -155,12 +114,9 @@ export class PartyWeekDialogComponent {
 
   addSection(sectionElement: HTMLInputElement) {
     sectionElement.classList.add('error');
-    if (
-      !gameManager.game.party.weekSections[this.week] ||
-      !gameManager.game.party.weekSections[this.week]?.includes(sectionElement.value)
-    ) {
+    if (!(gameManager.game.party.weekSections[this.week] || []).includes(sectionElement.value)) {
       gameManager.stateManager.before('addPartyWeekSection', gameManager.game.party.name, this.week, sectionElement.value);
-      gameManager.game.party.weekSections[this.week] = [...(gameManager.game.party.weekSections[this.week] || []), sectionElement.value];
+      gameManager.scenarioManager.addWeekSection(this.week, sectionElement.value);
       sectionElement.classList.remove('error');
       sectionElement.value = '';
       gameManager.stateManager.after();
@@ -168,17 +124,9 @@ export class PartyWeekDialogComponent {
   }
 
   removeSection(section: string) {
-    if (gameManager.game.party.weekSections[this.week] && gameManager.game.party.weekSections[this.week]?.includes(section)) {
+    if ((gameManager.game.party.weekSections[this.week] || []).includes(section)) {
       gameManager.stateManager.before('removePartyWeekSection', gameManager.game.party.name, this.week, section);
-      gameManager.game.party.weekSections[this.week]?.splice(gameManager.game.party.weekSections[this.week]?.indexOf(section) || -1, 1);
-      if (gameManager.game.party.weekSections[this.week]?.length === 0) {
-        delete gameManager.game.party.weekSections[this.week];
-      }
-      if (this.isSolved(section)) {
-        gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter(
-          (conclusion) => conclusion.edition !== gameManager.game.edition || conclusion.index !== section
-        );
-      }
+      gameManager.scenarioManager.removeWeekSection(this.week, section);
       gameManager.stateManager.after();
     }
   }

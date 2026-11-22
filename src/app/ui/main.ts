@@ -6,10 +6,10 @@ import { SwUpdate } from '@angular/service-worker';
 import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
 import { Subscription } from 'rxjs';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Figure } from 'src/app/game/model/Figure';
@@ -340,28 +340,20 @@ export class MainComponent implements OnInit {
 
   startCampaign(edition: string) {
     gameManager.stateManager.before('startCampaign', 'data.edition.' + edition);
-    settingsManager.automaticTheme(edition, gameManager.game.edition);
-    gameManager.game.edition = edition;
-    gameManager.game.party.campaignMode = true;
-    gameManager.game.party.edition = edition;
-    gameManager.attackModifierManager.updateDefaultDecks();
+    gameManager.campaignManager.startCampaign(edition);
     this.welcomeEditionHint = (edition && settingsManager.getLabel('data.edition.' + edition + '.hint') !== 'hint') || false;
-    gameManager.game.party.eventDecks = {};
-    gameManager.eventCardManager.buildPartyDeckMigration(edition);
     gameManager.stateManager.after();
   }
 
   cancelCampaign(edition: string) {
     gameManager.stateManager.before('cancelCampaign', 'data.edition.' + edition);
-    gameManager.game.edition = undefined;
-    gameManager.game.party.campaignMode = false;
-    gameManager.game.party.eventDecks = {};
+    gameManager.campaignManager.cancelCampaign();
     gameManager.stateManager.after();
   }
 
   toggleCampaignMode() {
     gameManager.stateManager.before(gameManager.game.party.campaignMode ? 'disablePartyCampaignMode' : 'enablePartyCampaignMode');
-    gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
+    gameManager.campaignManager.setCampaignMode(!gameManager.game.party.campaignMode);
     gameManager.stateManager.after();
   }
 

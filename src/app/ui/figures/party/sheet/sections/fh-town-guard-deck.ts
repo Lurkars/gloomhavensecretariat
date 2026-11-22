@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
@@ -25,12 +25,11 @@ export class PartySheetFhTownGuardDeckComponent extends PartySheetSection {
       return;
     }
     this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
-    if (this.party.townGuardDeck) {
+    if (this.party.townGuardDeck && gameManager.outpostAttackManager.hasTownGuardDeck()) {
       gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
     } else {
       gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
       this.townGuardDeck.active = false;
-      this.party.townGuardDeck = this.townGuardDeck.toModel();
     }
     this.deckModel = this.modelKey();
   }

@@ -1,4 +1,4 @@
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { settingsManager } from 'src/app/game/businesslogic/Managers';
 import { createTestCharacter, createTestMonster, createTestMonsterEntity, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { EntityRetaliateCommand } from 'src/app/game/commands/entity/EntityRetaliate';
 import { EntityShieldCommand } from 'src/app/game/commands/entity/EntityShield';

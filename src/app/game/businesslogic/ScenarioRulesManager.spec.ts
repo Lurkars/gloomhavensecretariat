@@ -1,4 +1,5 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
+import { ScenarioRuleModel } from 'src/app/game/businesslogic/ScenarioRulesManager';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
@@ -30,6 +31,101 @@ describe('ScenarioRulesManager', () => {
     gameManager.game.scenarioRules = [];
     gameManager.game.party.scenarios = [];
     gameManager.game.elementBoard = [new ElementModel(Element.fire), new ElementModel(Element.ice)];
+  });
+
+  describe('apply, resolve, hide and remove scenario rules', () => {
+    function setupRule(overrides: Partial<ScenarioRule> = {}): ScenarioRuleModel {
+      const rule = Object.assign(new ScenarioRule('true'), overrides);
+      gameManager.game.scenario = buildScenario({ rules: [rule] });
+      const identifier = Object.assign(new ScenarioRuleIdentifier(), { edition: 'gh', scenario: '1', index: 0, section: false });
+      const model = { identifier, rule };
+      gameManager.game.scenarioRules = [model];
+      return model;
+    }
+
+    afterEach(() => vi.restoreAllMocks());
+
+    it('returns conclusions of rule sections and adds other sections', () => {
+      const conclusion = Object.assign(new ScenarioData(), { edition: 'gh', index: '10.1', conclusion: true });
+      const section = Object.assign(new ScenarioData(), { edition: 'gh', index: '10.2' });
+      vi.spyOn(gameManager, 'sectionData').mockReturnValue([conclusion, section]);
+      const addSection = vi.spyOn(gameManager.scenarioManager, 'addSection').mockImplementation(() => {});
+      vi.spyOn(scenarioRulesManager, 'applyRule').mockImplementation(() => {});
+      const model = setupRule({ sections: ['10.1', '10.2'] });
+
+      expect(scenarioRulesManager.ruleSections(model.rule, model.identifier)).toEqual([conclusion, section]);
+      const result = scenarioRulesManager.applyScenarioRule(model);
+      expect(result.conclusions).toEqual([conclusion]);
+      expect(result.finish).toBeUndefined();
+      expect(addSection).toHaveBeenCalledWith(section);
+    });
+
+    it('returns the finish state of a rule', () => {
+      vi.spyOn(scenarioRulesManager, 'applyRule').mockImplementation(() => {});
+      vi.spyOn(gameManager.scenarioManager, 'availableSections').mockReturnValue([]);
+      const model = setupRule({ finish: 'lost' });
+      expect(scenarioRulesManager.applyScenarioRule(model).finish).toEqual({ success: false, conclusions: [] });
+    });
+
+    it('does not apply always-apply-turn rules', () => {
+      const applyRule = vi.spyOn(scenarioRulesManager, 'applyRule').mockImplementation(() => {});
+      const model = setupRule({ alwaysApplyTurn: 'turn' });
+      scenarioRulesManager.applyScenarioRule(model);
+      expect(applyRule).not.toHaveBeenCalled();
+    });
+
+    it('resolves a rule into applied and active rules', () => {
+      const model = setupRule({ once: true, active: true });
+      scenarioRulesManager.resolveScenarioRule(model);
+      expect(gameManager.game.scenarioRules).toEqual([]);
+      expect(gameManager.game.appliedScenarioRules).toEqual([model.identifier]);
+      expect(gameManager.game.activeScenarioRules).toEqual([model.identifier]);
+    });
+
+    it('hides a rule as discarded and removes an active once rule', () => {
+      const model = setupRule({ once: true });
+      scenarioRulesManager.hideScenarioRule(model);
+      expect(gameManager.game.scenarioRules).toEqual([]);
+      expect(gameManager.game.discardedScenarioRules).toEqual([model.identifier]);
+
+      gameManager.game.discardedScenarioRules = [];
+      gameManager.game.scenarioRules = [model];
+      gameManager.game.activeScenarioRules = [model.identifier];
+      scenarioRulesManager.removeScenarioRule(model);
+      expect(gameManager.game.scenarioRules).toEqual([]);
+      expect(gameManager.game.activeScenarioRules).toEqual([]);
+      expect(gameManager.game.discardedScenarioRules).toEqual([model.identifier]);
+    });
+
+    it('removes a rule replaced by an equal model (e.g. after sync)', () => {
+      const model = setupRule({ once: true });
+      gameManager.game.scenarioRules = [JSON.parse(JSON.stringify(model))];
+      scenarioRulesManager.resolveScenarioRule(model);
+      expect(gameManager.game.scenarioRules).toEqual([]);
+
+      gameManager.game.scenarioRules = [JSON.parse(JSON.stringify(model))];
+      scenarioRulesManager.hideScenarioRule(model);
+      expect(gameManager.game.scenarioRules).toEqual([]);
+    });
+
+    it('keeps other rules when the rule is gone', () => {
+      const model = setupRule({ once: true });
+      const other = { identifier: { ...model.identifier, index: model.identifier.index + 1 }, rule: model.rule };
+      gameManager.game.scenarioRules = [other];
+      scenarioRulesManager.removeScenarioRule(model);
+      expect(gameManager.game.scenarioRules).toEqual([other]);
+    });
+
+    it('is applicable and visible for rules with something to do', () => {
+      const model = setupRule({ note: 'note' });
+      expect(scenarioRulesManager.ruleVisible(0)).toBe(true);
+      expect(scenarioRulesManager.ruleApplicable(model.rule)).toBe(false);
+      model.rule.finish = 'won';
+      expect(scenarioRulesManager.ruleApplicable(model.rule)).toBe(true);
+      model.rule.note = '';
+      model.rule.finish = undefined as any;
+      expect(scenarioRulesManager.ruleVisible(0)).toBe(false);
+    });
   });
 
   describe('createErrataRule', () => {

@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 export class DebugManager {
@@ -309,5 +308,3 @@ export class DebugManager {
     return EntityValueFunction(value);
   }
 }
-
-export const debugManager: DebugManager = new DebugManager();

@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { AttackModifierDeckDrawCommand } from 'src/app/game/commands/attackModifierDeck/AttackModifierDeckDraw';
 import { CommandExecutionError, CommandMissingParameterError } from 'src/app/game/commands/Command';
 import { createTestCharacter, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';

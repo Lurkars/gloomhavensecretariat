@@ -1212,6 +1212,7 @@
       },
       "outpostAttack": {
         "": "Outpost Attack",
+        "cancel": "Cancel Outpost Attack",
         "effects": "Following will be applied to the Outpost Attack"
       },
       "requirements": {
@@ -3505,6 +3506,21 @@
       "brewPotion": "Brew Item \"%data.items.{2}-{1}%\" for {0}",
       "brewPotionOther": "{0} brew Item \"%data.items.{2}-{1}%\" for {3}",
       "buildBuilding": "Build '%data.buildings.{1}%' ({0})",
+      "outpostAttack": {
+        "cancel": "Cancel outpost attack",
+        "finish": "Finish outpost attack",
+        "manual": "Set outpost attack value to {0} with {1} targets",
+        "order": "Reorder outpost attack targets",
+        "randomize": "Randomize outpost attack targets",
+        "resource": {
+          "disable": "Disable resource of Town Guard card",
+          "enable": "Enable resource of Town Guard card"
+        },
+        "result": "Choose Town Guard card for outpost attack result",
+        "soldiers": "Use {0} soldiers for outpost attack",
+        "start": "Start outpost attack",
+        "target": "Change outpost attack targets"
+      },
       "buildingAttacked": {
         "normal": "Successfully defended attack on '%data.buildings.{1}%' ({0})",
         "damaged": "Attack damaged '%data.buildings.{1}%' ({0})",
@@ -4000,6 +4016,7 @@
       },
       "dismissRetirement": "Dismiss retirement for {0}",
       "entityDead": "Kill {1} standee {2} of {0}",
+      "removeDeadEntities": "Remove defeated standees",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
       "eventDistribution": "Apply event distribution",
       "eventDraw": {

@@ -1,10 +1,11 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import {
   additionalTownGuardAttackModifier,
@@ -256,34 +257,28 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   dropUpcoming(event: CdkDragDrop<AttackModifier[]>) {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    if (event.container === event.previousContainer) {
-      const offset = this.deck.current + 1;
-      moveItemInArray(this.deck.cards, event.previousIndex + offset, event.currentIndex + offset);
-      moveItemInArray(this.keepRevealed, event.previousIndex + offset, event.currentIndex + offset);
-    } else {
-      const offset = this.deck.current;
-      moveItemInArray(this.deck.cards, offset - event.previousIndex, event.currentIndex + offset);
-      moveItemInArray(this.keepRevealed, offset - event.previousIndex, event.currentIndex + offset);
-      this.deck.current = this.deck.current - 1;
-    }
-    gameManager.attackModifierManager.updateLastVisible(this.deck);
+    gameManager.attackModifierManager.moveCard(
+      this.deck,
+      event.container === event.previousContainer ? 'upcoming' : 'discarded',
+      event.previousIndex,
+      'upcoming',
+      event.currentIndex,
+      this.keepRevealed
+    );
     this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
     this.update();
   }
 
   dropDiscarded(event: CdkDragDrop<AttackModifier[]>) {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    if (event.container === event.previousContainer) {
-      moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
-      moveItemInArray(this.keepRevealed, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
-    } else {
-      this.deck.current++;
-      const offset = this.deck.current;
-      moveItemInArray(this.deck.cards, event.previousIndex + offset, offset - event.currentIndex);
-      moveItemInArray(this.keepRevealed, event.previousIndex + offset, offset - event.currentIndex);
-      this.deck.cards[offset - event.currentIndex].revealed = true;
-      gameManager.attackModifierManager.updateLastVisible(this.deck);
-    }
+    gameManager.attackModifierManager.moveCard(
+      this.deck,
+      event.container === event.previousContainer ? 'discarded' : 'upcoming',
+      event.previousIndex,
+      'discarded',
+      event.currentIndex,
+      this.keepRevealed
+    );
     this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
     this.update();
   }
@@ -318,20 +313,14 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   newFirst(type: AttackModifierType) {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + type));
-    const attackModifier = new AttackModifier(type);
-    attackModifier.revealed = true;
-    this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
+    gameManager.attackModifierManager.insertModifier(this.deck, new AttackModifier(type), false);
     this.after.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + type));
     this.update();
   }
 
   newShuffle(type: AttackModifierType) {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCardShuffled', 'game.attackModifiers.types.' + type));
-    this.deck.cards.splice(
-      this.deck.current + 1 + gameManager.randomManager.next() * (this.deck.cards.length - this.deck.current),
-      0,
-      new AttackModifier(type)
-    );
+    gameManager.attackModifierManager.insertModifier(this.deck, new AttackModifier(type), true);
     this.after.emit(new AttackModiferDeckChange(this.deck, 'addCardShuffled', 'game.attackModifiers.types.' + type));
     this.update();
   }
@@ -339,11 +328,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   addModifier() {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
     const attackModifier = Object.assign(new AttackModifier(this.tgAM.type), this.tgAM);
-    attackModifier.revealed = true;
-    if (!this.deck.attackModifiers.find((am) => am.id === attackModifier.id)) {
-      this.deck.attackModifiers.push(attackModifier);
-    }
-    this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
+    gameManager.attackModifierManager.insertModifier(this.deck, attackModifier, false, true);
     this.after.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
     this.update();
   }
@@ -351,14 +336,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   addModifierShuffle() {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
     const attackModifier = Object.assign(new AttackModifier(this.tgAM.type), this.tgAM);
-    this.deck.cards.splice(
-      this.deck.current + 1 + gameManager.randomManager.next() * (this.deck.cards.length - this.deck.current),
-      0,
-      attackModifier
-    );
-    if (!this.deck.attackModifiers.find((am) => am.id === attackModifier.id)) {
-      this.deck.attackModifiers.push(attackModifier);
-    }
+    gameManager.attackModifierManager.insertModifier(this.deck, attackModifier, true, true);
     this.after.emit(new AttackModiferDeckChange(this.deck, 'addCard', 'game.attackModifiers.types.' + this.tgAM.type));
     this.update();
   }

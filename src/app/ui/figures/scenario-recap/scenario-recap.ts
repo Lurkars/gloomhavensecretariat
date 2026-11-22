@@ -1,7 +1,7 @@
 import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { Component, forwardRef, inject, input, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData, ScenarioRecap } from 'src/app/game/model/data/ScenarioData';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';

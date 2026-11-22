@@ -1,7 +1,5 @@
 import {
   deckFind,
-  deckMove,
-  deckMoveCard,
   deckTargetValid,
   figureIdentifier,
   findCharacter,
@@ -22,6 +20,7 @@ import {
   resetTestGame
 } from 'src/app/game/commands/commandsTestHelpers';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { deckCardList, deckMove, deckMoveCard } from 'src/app/game/util/deck';
 
 describe('CommandHelper', () => {
   beforeEach(() => {
@@ -108,6 +107,13 @@ describe('CommandHelper', () => {
       expect(deckTargetValid('unknown', 0)).toBe(false);
       expect(deckTargetValid('upcoming', -1)).toBe(false);
       expect(deckTargetValid('upcoming', '0')).toBe(false);
+    });
+
+    it('resolves the list and list index of a raw deck index', () => {
+      expect(deckCardList(2, 0)).toEqual({ list: 'discarded', index: 2 });
+      expect(deckCardList(2, 2)).toEqual({ list: 'discarded', index: 0 });
+      expect(deckCardList(2, 3)).toEqual({ list: 'upcoming', index: 0 });
+      expect(deckCardList(-1, 1)).toEqual({ list: 'upcoming', index: 1 });
     });
 
     it('moves a card by raw index', () => {

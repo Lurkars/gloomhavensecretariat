@@ -1,6 +1,5 @@
 import { Component, input, OnInit, ViewEncapsulation } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import {
   AttackModifier,
   AttackModifierEffect,

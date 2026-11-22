@@ -1,3 +1,4 @@
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Entity, EntityValueFunction } from 'src/app/game/model/Entity';
 
 import { Character } from 'src/app/game/model/Character';
@@ -5,8 +6,6 @@ import { Game, GameState } from 'src/app/game/model/Game';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';

@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';

@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, output } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Party } from 'src/app/game/model/Party';
 import { Scenario, ScenarioCache } from 'src/app/game/model/Scenario';

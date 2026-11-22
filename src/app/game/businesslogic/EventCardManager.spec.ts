@@ -1,6 +1,9 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { EventDistribution } from 'src/app/game/businesslogic/EventCardManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel } from 'src/app/game/model/Building';
+import { Character } from 'src/app/game/model/Character';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import {
   EventCard,
@@ -14,6 +17,9 @@ import {
   EventCardOption,
   EventCardOutcome
 } from 'src/app/game/model/data/EventCard';
+import { ItemData, ItemFlags } from 'src/app/game/model/data/ItemData';
+import { LootType } from 'src/app/game/model/data/Loot';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 
 // EventCardManager also covers applyEffects()/applyEvent() (a huge switch over every event
 // effect type, pulling in characters/buildings/attack modifiers/scenario progression). This
@@ -356,5 +362,74 @@ describe('EventCardManager applyEvent checked boxes', () => {
     gameManager.eventCardManager.applyEvent(cardWithItemBoxes(), 0, [0], [], false, false, true);
 
     expect(gameManager.eventCardManager.lastEventCardResult('fh', 'summer-road', 'SR-26')?.checks).toEqual([1]);
+  });
+});
+
+describe('EventCardManager distribution and random effects', () => {
+  const eventCardManager = gameManager.eventCardManager;
+
+  function buildCharacter(name: string): Character {
+    return new Character(Object.assign(new CharacterData(), { name, edition: 'gh', stats: [new CharacterStat(1, 10)] }), 1);
+  }
+
+  beforeEach(() => {
+    gameManager.game.party.loot = {};
+    gameManager.game.party.inspiration = 0;
+    gameManager.game.party.unlockedItems = [];
+    gameManager.game.party.conclusions = [];
+    gameManager.game.party.manualScenarios = [];
+  });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('distributes received and spent values to characters and party', () => {
+    const brute = buildCharacter('brute');
+    brute.progress.gold = 3;
+    brute.progress.loot = { [LootType.hide]: 1 };
+    gameManager.game.party.loot = { [LootType.lumber]: 1 };
+    const distribution = new EventDistribution();
+    distribution.receive = [{ character: brute, values: { gold: 5, experience: 2, [LootType.metal]: 1 } }];
+    distribution.receiveParty = { [LootType.hide]: 2, gold: 10 };
+    distribution.spend = [{ character: brute, values: { gold: 10, [LootType.hide]: 1 } }];
+    distribution.spendParty = { [LootType.lumber]: 3 };
+    eventCardManager.applyDistribution(distribution);
+
+    expect(brute.progress.gold).toBe(0);
+    expect(brute.progress.experience).toBe(2);
+    expect(brute.progress.loot).toEqual({ [LootType.hide]: 0, [LootType.metal]: 1 });
+    expect(gameManager.game.party.loot).toEqual({ [LootType.lumber]: 0, [LootType.hide]: 2 });
+  });
+
+  it('distributes received, consumed and lost items', () => {
+    const brute = buildCharacter('brute');
+    const item = Object.assign(new ItemData(), { id: 5, edition: 'gh' });
+    const addItem = vi.spyOn(gameManager.itemManager, 'addItem').mockImplementation(() => {});
+    const removeItem = vi.spyOn(gameManager.itemManager, 'removeItem').mockImplementation(() => {});
+    const distribution = new EventDistribution();
+    distribution.itemsReceive = [{ item, character: brute }];
+    distribution.itemsConsume = [{ item, character: brute }];
+    distribution.itemsLose = [{ item, character: brute }];
+    eventCardManager.applyDistribution(distribution);
+
+    expect(addItem).toHaveBeenCalledWith(item, brute);
+    expect(removeItem).toHaveBeenCalledWith(item, brute);
+    expect(brute.progress.equippedItems[0].tags).toEqual([ItemFlags.consumed]);
+  });
+
+  it('applies random items and scenarios or grants inspiration in FH', () => {
+    vi.spyOn(gameManager, 'fhRules').mockReturnValue(true);
+    const item = Object.assign(new ItemData(), { id: 5, edition: 'fh' });
+    eventCardManager.applyRandomItem(item);
+    eventCardManager.applyRandomItem(undefined);
+    expect(gameManager.game.party.unlockedItems.map((identifier) => identifier.name)).toEqual(['5']);
+    expect(gameManager.game.party.inspiration).toBe(1);
+
+    const scenario = Object.assign(new ScenarioData(), { index: '7', edition: 'fh' });
+    eventCardManager.applyRandomScenario(scenario);
+    eventCardManager.applyRandomScenario(scenario, true);
+    eventCardManager.applyRandomScenario(undefined, true);
+    expect(gameManager.game.party.manualScenarios.map((model) => model.index)).toEqual(['7']);
+    expect(gameManager.game.party.conclusions.map((model) => model.index)).toEqual(['7']);
+    expect(gameManager.game.party.inspiration).toBe(2);
   });
 });

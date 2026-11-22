@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 
@@ -16,12 +15,7 @@ export class CampaignStartCommand extends CommandImpl {
 
   executeWithParameters(edition: string, seed: number) {
     gameManager.game.seed = seed;
-    settingsManager.automaticTheme(edition, gameManager.game.edition);
-    gameManager.game.edition = edition;
-    gameManager.game.party.campaignMode = true;
-    gameManager.game.party.edition = edition;
-    gameManager.game.party.eventDecks = {};
-    gameManager.eventCardManager.buildPartyDeckMigration(edition);
+    gameManager.campaignManager.startCampaign(edition);
   }
 }
 
@@ -34,9 +28,7 @@ export class CampaignCancelCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    gameManager.game.edition = undefined;
-    gameManager.game.party.campaignMode = false;
-    gameManager.game.party.eventDecks = {};
+    gameManager.campaignManager.cancelCampaign();
   }
 }
 
@@ -49,7 +41,7 @@ export class CampaignModeCommand extends CommandImpl {
   }
 
   executeWithParameters(campaignMode: boolean) {
-    gameManager.game.party.campaignMode = campaignMode;
+    gameManager.campaignManager.setCampaignMode(campaignMode);
   }
 }
 

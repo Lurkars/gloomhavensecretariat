@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CampaignCancelCommand, CampaignModeCommand, CampaignStartCommand } from 'src/app/game/commands/campaign/Campaign';
 import { createTestCharacter, createTestEdition, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { ElementStateCommand } from 'src/app/game/commands/element/ElementState';

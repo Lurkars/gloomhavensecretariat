@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Party } from 'src/app/game/model/Party';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { PartySheetSelectComponent } from 'src/app/ui/figures/party/sheet/sections/party-select';

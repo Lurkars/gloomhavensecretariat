@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterAddCommand } from 'src/app/game/commands/character/CharacterAdd';
 import { CommandInvalidParametersError, CommandMissingParameterError } from 'src/app/game/commands/Command';
 import { resetTestGame } from 'src/app/game/commands/commandsTestHelpers';

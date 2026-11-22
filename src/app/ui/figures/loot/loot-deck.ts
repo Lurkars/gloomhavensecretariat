@@ -12,11 +12,11 @@ import {
   output,
   SimpleChanges
 } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { soundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
+import { gameManager, settingsManager, soundboardManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { appliableLootTypes, Loot, LootDeck, LootType } from 'src/app/game/model/data/Loot';
 import { GameState } from 'src/app/game/model/Game';

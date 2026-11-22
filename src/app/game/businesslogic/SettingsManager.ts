@@ -3,9 +3,8 @@ import localeDe from '@angular/common/locales/de';
 import localeFr from '@angular/common/locales/fr';
 import localeKo from '@angular/common/locales/ko';
 import { Capacitor } from '@capacitor/core';
-import { DebugManager, debugManager } from 'src/app/game/businesslogic/DebugManager';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
+import { DebugManager } from 'src/app/game/businesslogic/DebugManager';
+import { debugManager, gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { BuildingData } from 'src/app/game/model/data/BuildingData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
@@ -972,6 +971,3 @@ export class SettingsManager {
     }
   }
 }
-
-export const settingsManager: SettingsManager = new SettingsManager();
-window.settingsManager = settingsManager;

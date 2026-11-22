@@ -1,7 +1,8 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit, inject } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
 import { ScenarioRuleComponent } from 'src/app/ui/footer/scenario-rules/scenario-rule';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';

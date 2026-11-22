@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -763,6 +762,27 @@ export class EntityManager {
         modifiers = gameManager.attackModifierManager.getAdditional(deckSource, AttackModifierType[condition.name], condition.value);
     }
     gameManager.attackModifierManager.addModifierBatch(gameManager.attackModifierManager.byFigure(figure), modifiers);
+  }
+
+  deadEntities(entities: { entity: Entity; figure: Figure }[]): { entity: Entity; figure: Figure }[] {
+    return entities.filter(
+      ({ entity, figure }) =>
+        (figure instanceof Monster && entity instanceof MonsterEntity && entity.dead && figure.entities.includes(entity)) ||
+        (figure instanceof Character && entity instanceof Summon && entity.dead && figure.summons.includes(entity)) ||
+        (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity && entity.dead && figure.entities.includes(entity))
+    );
+  }
+
+  removeDeadEntities(entities: { entity: Entity; figure: Figure }[]) {
+    this.deadEntities(entities).forEach(({ entity, figure }) => {
+      if (figure instanceof Monster && entity instanceof MonsterEntity) {
+        gameManager.monsterManager.removeMonsterEntity(figure, entity);
+      } else if (figure instanceof Character && entity instanceof Summon) {
+        gameManager.characterManager.removeSummon(figure, entity);
+      } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+        gameManager.objectiveManager.removeObjectiveEntity(figure, entity);
+      }
+    });
   }
 
   removeCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {

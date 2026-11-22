@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
@@ -1054,5 +1053,48 @@ describe('EntityManager disadvantage highlight', () => {
   it('unknown condition names are marked invalid', () => {
     expect(new Condition('not-a-condition').name).toEqual(ConditionName.invalid);
     expect(new Condition('poison').name).toEqual(ConditionName.poison);
+  });
+});
+
+describe('EntityManager dead entities', () => {
+  const entityManager = gameManager.entityManager;
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('removes only dead entities still part of their figure', () => {
+    const monster = buildMonster();
+    const dead = buildMonsterEntity(monster);
+    const alive = buildMonsterEntity(monster);
+    alive.number = 2;
+    monster.entities = [dead, alive];
+    dead.dead = true;
+    const character = buildCharacter();
+    const summon = buildSummon();
+    summon.dead = true;
+    character.summons = [summon];
+    const container = buildObjectiveContainer();
+    const objective = buildObjectiveEntity(container);
+    objective.dead = true;
+    container.entities = [objective];
+    const removedSummon = buildSummon();
+    removedSummon.dead = true;
+
+    const entities = [
+      { entity: dead, figure: monster },
+      { entity: alive, figure: monster },
+      { entity: summon, figure: character },
+      { entity: objective, figure: container },
+      { entity: removedSummon, figure: character }
+    ];
+    expect(entityManager.deadEntities(entities).map((entry) => entry.entity)).toEqual([dead, summon, objective]);
+
+    const removeMonsterEntity = vi.spyOn(gameManager.monsterManager, 'removeMonsterEntity').mockImplementation(() => {});
+    const removeSummon = vi.spyOn(gameManager.characterManager, 'removeSummon').mockImplementation(() => {});
+    const removeObjectiveEntity = vi.spyOn(gameManager.objectiveManager, 'removeObjectiveEntity').mockImplementation(() => {});
+    entityManager.removeDeadEntities(entities);
+    expect(removeMonsterEntity).toHaveBeenCalledTimes(1);
+    expect(removeMonsterEntity).toHaveBeenCalledWith(monster, dead);
+    expect(removeSummon).toHaveBeenCalledTimes(1);
+    expect(removeObjectiveEntity).toHaveBeenCalledWith(container, objective);
   });
 });

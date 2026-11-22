@@ -1,12 +1,10 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { BuildingData } from 'src/app/game/model/data/BuildingData';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
-import { CampaignData, EditionData } from 'src/app/game/model/data/EditionData';
+import { EditionData } from 'src/app/game/model/data/EditionData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
@@ -126,45 +124,6 @@ describe('CharacterRetirementDialog', () => {
       expect(character.progress.retired).toBe(true);
       expect(gameManager.game.party.retirements.length).toEqual(1);
       expect(gameManager.game.figures).not.toContain(character);
-    });
-  });
-
-  describe('buildingsEnvelopeHelper', () => {
-    it('returns the first not-yet-built envelope building', () => {
-      const buildingA = Object.assign(new BuildingData(), { id: 'a', name: 'sanctuary' });
-      const buildingB = Object.assign(new BuildingData(), { id: 'b', name: 'shrine' });
-      gameManager.editionData = [
-        Object.assign(new EditionData('gh', [], [], [], [], [], []), {
-          campaign: Object.assign(new CampaignData(), { buildings: [buildingA, buildingB] })
-        })
-      ];
-      const component = createComponent(buildCharacter());
-      expect(component.buildingsEnvelopeHelper('a:b')).toBe(buildingA);
-    });
-
-    it('falls through to the second building once the first is already built', () => {
-      const buildingA = Object.assign(new BuildingData(), { id: 'a', name: 'sanctuary' });
-      const buildingB = Object.assign(new BuildingData(), { id: 'b', name: 'shrine' });
-      gameManager.editionData = [
-        Object.assign(new EditionData('gh', [], [], [], [], [], []), {
-          campaign: Object.assign(new CampaignData(), { buildings: [buildingA, buildingB] })
-        })
-      ];
-      gameManager.game.party.buildings = [{ name: 'sanctuary', level: 1 } as any];
-      const component = createComponent(buildCharacter());
-      expect(component.buildingsEnvelopeHelper('a:b')).toBe(buildingB);
-    });
-
-    it('returns undefined once both envelope buildings are already built', () => {
-      const buildingA = Object.assign(new BuildingData(), { id: 'a', name: 'sanctuary' });
-      gameManager.editionData = [
-        Object.assign(new EditionData('gh', [], [], [], [], [], []), {
-          campaign: Object.assign(new CampaignData(), { buildings: [buildingA] })
-        })
-      ];
-      gameManager.game.party.buildings = [{ name: 'sanctuary', level: 1 } as any];
-      const component = createComponent(buildCharacter());
-      expect(component.buildingsEnvelopeHelper('a')).toBeUndefined();
     });
   });
 

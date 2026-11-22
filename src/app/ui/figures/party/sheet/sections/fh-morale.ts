@@ -1,6 +1,6 @@
 import { NgClass, SlicePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';

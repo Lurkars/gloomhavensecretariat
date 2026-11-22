@@ -1,7 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { storageManager } from 'src/app/game/businesslogic/StorageManager';
-import { commandManager } from 'src/app/game/commands/CommandManager';
+import { commandManager, gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Game, GameModel } from 'src/app/game/model/Game';
 import { effectiveRevision, LogEntry, LogEntryType } from 'src/app/game/model/LogEntry';
@@ -82,6 +79,7 @@ export class StateManager {
     }
 
     this.updateBlocked = false;
+    gameManager.randomManager.previewOutsideChanges = !tool;
 
     if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
       if (settingsManager.settings.serverAutoconnect) {
@@ -656,6 +654,7 @@ export class StateManager {
   before(...info: (string | number | boolean)[]) {
     window.document.body.classList.add('working');
     this.addToUndo((info && info.map((value) => '' + value)) || []);
+    gameManager.randomManager.beginChange();
   }
 
   /**
@@ -665,6 +664,7 @@ export class StateManager {
   beforeAutomatic(...info: (string | number | boolean)[]) {
     window.document.body.classList.add('working');
     this.addLog(this.createLog('automatic', (info && info.map((value) => '' + value)) || []));
+    gameManager.randomManager.beginChange();
   }
 
   /** finish an automatic change: persist and sync it, without changing the effective revision (undo/redo position) */
@@ -681,6 +681,7 @@ export class StateManager {
     revision: number = 0,
     undolength: number = 1
   ) {
+    gameManager.randomManager.endChange();
     // set synchronously, a server error for this message must be able to revert it in the right direction
     this.lastAction = type === 'game-undo' ? 'undo' : type === 'game-redo' ? 'redo' : 'update';
     this.game.revision += revisionChange;
@@ -1015,6 +1016,7 @@ export class StateManager {
   }
 
   revertLastUndo() {
+    gameManager.randomManager.endChange();
     const snapshot = this.undos.splice(this.undos.length - 1, 1)[0];
     if (snapshot) {
       const revision = this.game.revision;

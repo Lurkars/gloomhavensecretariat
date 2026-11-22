@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CampaignData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from 'src/app/game/model/data/EditionData';
 import { Game } from 'src/app/game/model/Game';
 import { ghsClamp } from 'src/app/ui/helper/Static';
@@ -29,6 +28,38 @@ export class CampaignManager {
     }
 
     return new CampaignData();
+  }
+
+  startCampaign(edition: string) {
+    settingsManager.automaticTheme(edition, this.game.edition);
+    this.game.edition = edition;
+    this.game.party.campaignMode = true;
+    this.game.party.edition = edition;
+    gameManager.attackModifierManager.updateDefaultDecks();
+    this.game.party.eventDecks = {};
+    gameManager.eventCardManager.buildPartyDeckMigration(edition);
+    this.setupCampaign();
+  }
+
+  setCampaignMode(enabled: boolean) {
+    this.game.party.campaignMode = enabled;
+    if (enabled) {
+      this.setupCampaign();
+    }
+  }
+
+  private setupCampaign() {
+    gameManager.buildingsManager.unlockBuildings();
+    gameManager.outpostAttackManager.setupTownGuardDeck();
+  }
+
+  cancelCampaign() {
+    gameManager.buildingsManager.resetBuildings();
+    this.game.party.townGuardDeck = undefined;
+    this.game.party.outpostAttack = undefined;
+    this.game.edition = undefined;
+    this.game.party.campaignMode = false;
+    this.game.party.eventDecks = {};
   }
 
   resetCampaign() {
@@ -120,6 +151,7 @@ export class CampaignManager {
   changeProsperity(value: number) {
     const steps = this.prosperitySteps();
     this.game.party.prosperity = ghsClamp(this.game.party.prosperity + value, 0, steps[steps.length - 1] + 1);
+    gameManager.buildingsManager.unlockBuildings();
   }
 
   changeFactionReputation(faction: string, value: number, force: boolean = false) {

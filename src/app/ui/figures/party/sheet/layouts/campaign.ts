@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, output } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetLayout } from 'src/app/ui/figures/party/sheet/layouts/layout';
 import { PartySheetAchievementsComponent } from 'src/app/ui/figures/party/sheet/sections/achievements';
 import { PartyCampaignConclusionsComponent } from 'src/app/ui/figures/party/sheet/sections/campaign-conclusions';
@@ -44,7 +44,7 @@ export class PartySheetCampaignComponent extends PartySheetLayout {
 
   toggleCampaignMode() {
     gameManager.stateManager.before(this.party.campaignMode ? 'disablePartyCampaignMode' : 'enablePartyCampaignMode');
-    this.party.campaignMode = !this.party.campaignMode;
+    gameManager.campaignManager.setCampaignMode(!this.party.campaignMode);
     gameManager.stateManager.after();
   }
 

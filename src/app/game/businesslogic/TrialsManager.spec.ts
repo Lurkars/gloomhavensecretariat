@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
@@ -61,6 +60,24 @@ describe('TrialsManager', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+  });
+
+  describe('setTrial', () => {
+    it('validates, assigns trials and tracks the furthest trial of the party', () => {
+      gameManager.editionData = [buildEditionData('fh', [buildTrialCard(10), buildTrialCard(11), buildTrialCard(12)])];
+      const a = buildCharacter('a');
+      const b = buildCharacter('b');
+      gameManager.game.figures = [a, b];
+      expect(trialsManager.trialCardExists(11)).toBe(true);
+      expect(trialsManager.trialCardExists(13)).toBe(false);
+
+      trialsManager.setTrial(a, 12);
+      expect(a.progress.trial).toEqual(new Identifier(12, 'fh'));
+      expect(trialsManager.trialAssigned(12)).toBe(true);
+      expect(gameManager.game.party.trials).toBe(2);
+      trialsManager.setTrial(b, 10);
+      expect(gameManager.game.party.trials).toBe(2);
+    });
   });
 
   describe('update', () => {

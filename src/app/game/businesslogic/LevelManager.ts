@@ -1,6 +1,6 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -145,6 +145,69 @@ export class LevelManager {
         }
       });
     }
+  }
+
+  setManualLevel(level: number) {
+    this.setLevel(level);
+    this.game.levelCalculation = false;
+  }
+
+  private recalculate() {
+    if (this.game.levelCalculation) {
+      this.calculateScenarioLevel();
+    }
+  }
+
+  setLevelCalculation(enabled: boolean) {
+    this.game.levelCalculation = enabled;
+    this.recalculate();
+  }
+
+  setLevelAdjustment(value: number) {
+    this.game.levelAdjustment = value;
+    this.recalculate();
+  }
+
+  setBonusAdjustment(value: number) {
+    this.game.bonusAdjustment = value;
+    this.recalculate();
+  }
+
+  setGe5Player(enabled: boolean) {
+    this.game.ge5Player = enabled;
+    this.recalculate();
+  }
+
+  setGe5PlayerCapped(enabled: boolean) {
+    this.game.ge5PlayerCapped = enabled;
+    this.setLevel(this.game.level, true);
+  }
+
+  setPlayerCount(playerCount: number) {
+    const enabling = this.game.playerCount === -1 && playerCount !== -1;
+    this.game.playerCount = playerCount;
+    if (enabling) {
+      this.game.levelCalculation = false;
+    } else {
+      this.recalculate();
+    }
+  }
+
+  setBbMonsterDifficulty(level: number) {
+    this.game.levelAdjustment = level - 2;
+    const editionData = gameManager.editionData.find(
+      (editionData) => editionData.edition === 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length
+    );
+    if (editionData) {
+      const monsterDifficulty = this.bbMonsterDifficutly();
+      this.game.monsterAttackModifierDeck.attackModifiers = editionData.monsterAmTables[monsterDifficulty].map(
+        (value) => new AttackModifier(value as AttackModifierType)
+      );
+      this.game.monsterAttackModifierDeck.cards = editionData.monsterAmTables[monsterDifficulty].map(
+        (value) => new AttackModifier(value as AttackModifierType)
+      );
+    }
+    this.game.monsterAttackModifierDeck.bb = settingsManager.settings.bbAm;
   }
 
   characterCountVariable(): number {

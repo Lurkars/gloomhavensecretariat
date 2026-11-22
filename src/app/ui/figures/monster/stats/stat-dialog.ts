@@ -1,8 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject, OnInit } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStatsComponent } from 'src/app/ui/figures/monster/stats/stats';

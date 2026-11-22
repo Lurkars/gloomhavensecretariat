@@ -1,14 +1,13 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { EventDistribution, EventDistributionValues } from 'src/app/game/businesslogic/EventCardManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { fillParameter, findCharacter, findItem } from 'src/app/game/commands/CommandHelper';
 import { findScenarioData, findSectionData } from 'src/app/game/commands/scenario/Scenario';
 import { Character } from 'src/app/game/model/Character';
-import { AdditionalIdentifier, CountIdentifier } from 'src/app/game/model/data/Identifier';
-import { ItemData, ItemFlags } from 'src/app/game/model/data/ItemData';
+import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 const CAMPAIGN_EFFECTS = ['prosperity', 'reputation', 'morale', 'inspiration', 'factionReputation'];
 
@@ -120,11 +119,7 @@ export class EventEffectRandomItemCommand extends CommandImpl {
         this.parameters[2] = item.id;
       }
     }
-    if (item) {
-      gameManager.game.party.unlockedItems.push(new CountIdentifier(item.id, item.edition));
-    } else if (gameManager.fhRules()) {
-      gameManager.game.party.inspiration += 1;
-    }
+    gameManager.eventCardManager.applyRandomItem(item);
   }
 }
 
@@ -154,26 +149,17 @@ export class EventEffectRandomScenarioCommand extends CommandImpl {
         this.parameters[3] = scenarioData.group || '';
       }
     }
-    if (scenarioData) {
-      const model = new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group);
-      if (section) {
-        gameManager.game.party.conclusions.push(model);
-      } else {
-        gameManager.game.party.manualScenarios.push(model);
-      }
-    } else if (gameManager.fhRules()) {
-      gameManager.game.party.inspiration += 1;
-    }
+    gameManager.eventCardManager.applyRandomScenario(scenarioData, section);
   }
 }
 
-type DistributionValues = Partial<Record<string, number>>;
 type DistributionItem = [string, string | number, number];
 
 type Distribution = {
-  receive?: Partial<Record<string, DistributionValues>>;
-  spend?: Partial<Record<string, DistributionValues>>;
-  spendParty?: DistributionValues;
+  receive?: Partial<Record<string, EventDistributionValues>>;
+  receiveParty?: EventDistributionValues;
+  spend?: Partial<Record<string, EventDistributionValues>>;
+  spendParty?: EventDistributionValues;
   itemsReceive?: DistributionItem[];
   itemsConsume?: DistributionItem[];
   itemsLose?: DistributionItem[];
@@ -205,86 +191,30 @@ export class EventDistributionCommand extends CommandImpl {
     );
   }
 
-  apply(character: Character, values: DistributionValues, sign: number) {
-    Object.keys(values).forEach((type) => {
-      const amount = (values[type] || 0) * sign;
-      if (!amount) {
-        return;
-      }
-      if (type === 'gold') {
-        character.progress.gold = Math.max(0, character.progress.gold + amount);
-      } else if (type === 'experience') {
-        character.progress.experience = Math.max(0, character.progress.experience + amount);
-      } else {
-        const lootType = type as LootType;
-        character.progress.loot[lootType] = Math.max(0, (character.progress.loot[lootType] || 0) + amount);
-      }
-    });
-  }
-
   executeWithParameters(json: string) {
-    const distribution = this.distribution(json);
-    if (!distribution) {
+    const jsonDistribution = this.distribution(json);
+    if (!jsonDistribution) {
       this.executionError('invalid distribution');
       return;
     }
-
-    Object.keys(distribution.receive || {}).forEach((key) => {
-      const character = findCharacter(+key);
-      const values = (distribution.receive || {})[key];
-      if (character && values) {
-        this.apply(character, values, 1);
-      }
-    });
-
-    Object.keys(distribution.spend || {}).forEach((key) => {
-      const character = findCharacter(+key);
-      const values = (distribution.spend || {})[key];
-      if (character && values) {
-        this.apply(character, values, -1);
-      }
-    });
-
-    Object.keys(distribution.spendParty || {}).forEach((type) => {
-      const amount = (distribution.spendParty || {})[type] || 0;
-      if (amount && type !== 'gold' && type !== 'experience') {
-        const lootType = type as LootType;
-        gameManager.game.party.loot[lootType] = Math.max(0, (gameManager.game.party.loot[lootType] || 0) - amount);
-      }
-    });
-
-    (distribution.itemsReceive || []).forEach(([edition, id, number]) => {
-      const item = findItem(edition, id);
-      const character = findCharacter(number);
-      if (item && character) {
-        gameManager.itemManager.addItem(item, character);
-      }
-    });
-
-    (distribution.itemsConsume || []).forEach(([edition, id, number]) => {
-      const item = findItem(edition, id);
-      const character = findCharacter(number);
-      if (item && character) {
-        let equipped = character.progress.equippedItems.find(
-          (identifier) => identifier.name === '' + item.id && identifier.edition === item.edition
-        );
-        if (!equipped) {
-          equipped = new AdditionalIdentifier(item.id, item.edition);
-          character.progress.equippedItems.push(equipped);
-        }
-        equipped.tags = equipped.tags || [];
-        if (!equipped.tags.includes(ItemFlags.consumed)) {
-          equipped.tags.push(ItemFlags.consumed);
-        }
-      }
-    });
-
-    (distribution.itemsLose || []).forEach(([edition, id, number]) => {
-      const item = findItem(edition, id);
-      const character = findCharacter(number);
-      if (item && character) {
-        gameManager.itemManager.removeItem(item, character);
-      }
-    });
+    const distribution = new EventDistribution();
+    const values = (entries: Partial<Record<string, EventDistributionValues>> | undefined) =>
+      Object.keys(entries || {})
+        .map((key) => ({ character: findCharacter(+key), values: (entries || {})[key] }))
+        .filter((entry) => !!entry.character && !!entry.values)
+        .map((entry) => ({ character: entry.character as Character, values: entry.values as EventDistributionValues }));
+    const items = (entries: DistributionItem[] | undefined) =>
+      (entries || [])
+        .map(([edition, id, number]) => ({ item: findItem(edition, id), character: findCharacter(number) }))
+        .filter((entry) => !!entry.item && !!entry.character)
+        .map((entry) => ({ item: entry.item as ItemData, character: entry.character as Character }));
+    distribution.receive = values(jsonDistribution.receive);
+    distribution.receiveParty = jsonDistribution.receiveParty || {};
+    distribution.spend = values(jsonDistribution.spend);
+    distribution.spendParty = jsonDistribution.spendParty || {};
+    distribution.itemsReceive = items(jsonDistribution.itemsReceive);
+    distribution.itemsConsume = items(jsonDistribution.itemsConsume);
+    distribution.itemsLose = items(jsonDistribution.itemsLose);
+    gameManager.eventCardManager.applyDistribution(distribution);
   }
 }

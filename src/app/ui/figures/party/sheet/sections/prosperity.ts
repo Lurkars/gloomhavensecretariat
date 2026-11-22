@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from 'src/app/game/model/data/EditionData';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { AutoscrollDirective } from 'src/app/ui/helper/autoscroll';

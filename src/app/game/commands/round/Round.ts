@@ -1,8 +1,6 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
-import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 
 export class RoundNextCommand extends CommandImpl {
@@ -16,31 +14,9 @@ export class RoundNextCommand extends CommandImpl {
     return gameManager.game.state === GameState.next || gameManager.roundManager.drawAvailable();
   }
 
-  activeHint(): boolean {
-    return (
-      gameManager.game.figures.some((figure) => figure.active && !figure.off && (!(figure instanceof Character) || !figure.absent)) &&
-      settingsManager.settings.turnConfirmation &&
-      (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions)
-    );
-  }
-
   executeWithParameters(seed: number) {
     gameManager.game.seed = seed;
-    if (gameManager.game.state === GameState.next) {
-      if (settingsManager.settings.turnConfirmation) {
-        const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
-        if (!this.activeHint() && activeFigure) {
-          gameManager.roundManager.afterTurn(activeFigure);
-        }
-      } else {
-        let lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
-        while (lastActive) {
-          gameManager.roundManager.toggleFigure(lastActive, true);
-          lastActive = gameManager.game.figures.find((figure) => gameManager.gameplayFigure(figure) && !figure.off);
-        }
-      }
-    }
-    gameManager.roundManager.nextGameState();
+    gameManager.roundManager.nextRound();
   }
 }
 
@@ -57,7 +33,7 @@ export class RoundEndAllTurnsCommand extends CommandImpl {
 
   executeWithParameters(seed: number) {
     gameManager.game.seed = seed;
-    gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+    gameManager.roundManager.endAllTurns();
   }
 }
 

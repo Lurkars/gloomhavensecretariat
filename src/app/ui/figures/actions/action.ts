@@ -1,9 +1,9 @@
 import { NgClass, SlicePipe } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, forwardRef, inject, input, model, OnInit, viewChild } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionSpecialTarget, ActionType, ActionTypesIcons, ActionValueType } from 'src/app/game/model/data/Action';
 import { Condition, ConditionType } from 'src/app/game/model/data/Condition';

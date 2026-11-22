@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Action, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';

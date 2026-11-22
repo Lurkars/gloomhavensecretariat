@@ -1,8 +1,8 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 import { EventCardComponent } from 'src/app/ui/figures/event/event-card';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';

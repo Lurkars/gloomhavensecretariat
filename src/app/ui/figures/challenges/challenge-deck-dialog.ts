@@ -1,10 +1,11 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, inject, OnInit } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ChallengeCard, ChallengeDeck } from 'src/app/game/model/data/Challenges';
 import { GameState } from 'src/app/game/model/Game';
 import { ChallengeCardComponent } from 'src/app/ui/figures/challenges/challenge-card';
@@ -123,90 +124,34 @@ export class ChallengeDeckDialogComponent implements OnInit {
     }
   }
 
-  dropUpcoming(event: CdkDragDrop<ChallengeCard[]>) {
-    this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
-    let offset = 0;
-    let prev = 0;
-    let cur = 0;
+  private dropList(event: CdkDragDrop<ChallengeCard[]>, list: string): string {
     if (event.container === event.previousContainer) {
-      offset = this.deck.current + 1;
-      prev = event.previousIndex + offset;
-      cur = event.currentIndex + offset;
-      moveItemInArray(this.deck.cards, prev, cur);
+      return list;
     } else if (event.previousContainer.id === 'listFinished') {
-      offset = this.deck.finished;
-      prev = offset - event.previousIndex;
-      cur = event.currentIndex + this.deck.current;
-      this.deck.finished = this.deck.finished - 1;
-      this.deck.current = this.deck.current - 1;
-      moveItemInArray(this.deck.cards, prev, cur);
-    } else {
-      offset = this.deck.current;
-      prev = offset - event.previousIndex;
-      cur = event.currentIndex + offset;
-      this.deck.current = this.deck.current - 1;
-      moveItemInArray(this.deck.cards, prev, cur);
+      return 'finished';
+    } else if (event.previousContainer.id === 'listDiscarded') {
+      return 'discarded';
     }
+    return 'upcoming';
+  }
 
+  private drop(event: CdkDragDrop<ChallengeCard[]>, list: string) {
+    this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
+    gameManager.challengesManager.moveCard(this.deck, this.dropList(event, list), event.previousIndex, list, event.currentIndex);
     this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
     this.update();
+  }
+
+  dropUpcoming(event: CdkDragDrop<ChallengeCard[]>) {
+    this.drop(event, 'upcoming');
   }
 
   dropDiscarded(event: CdkDragDrop<ChallengeCard[]>) {
-    this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
-    let offset = 0;
-    let prev = 0;
-    let cur = 0;
-    if (event.container === event.previousContainer) {
-      offset = this.deck.current;
-      prev = offset - event.previousIndex;
-      cur = offset - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    } else if (event.previousContainer.id === 'listFinished') {
-      offset = this.deck.finished;
-      prev = offset - event.previousIndex;
-      this.deck.finished = this.deck.finished - 1;
-      cur = this.deck.current - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    } else {
-      this.deck.current = this.deck.current + 1;
-      offset = this.deck.current;
-      prev = offset + event.previousIndex;
-      cur = offset - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    }
-
-    this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
-    this.update();
+    this.drop(event, 'discarded');
   }
 
   dropFinished(event: CdkDragDrop<ChallengeCard[]>) {
-    this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
-    let offset = 0;
-    let prev = 0;
-    let cur = 0;
-    if (event.container === event.previousContainer) {
-      offset = this.deck.finished;
-      prev = offset - event.previousIndex;
-      cur = offset - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    } else if (event.previousContainer.id === 'listDiscarded') {
-      this.deck.finished = this.deck.finished + 1;
-      offset = this.deck.finished;
-      prev = this.deck.current - event.previousIndex;
-      cur = offset - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    } else {
-      this.deck.finished = this.deck.finished + 1;
-      this.deck.current = this.deck.current + 1;
-      offset = this.deck.finished;
-      prev = this.deck.current + event.previousIndex;
-      cur = offset - event.currentIndex;
-      moveItemInArray(this.deck.cards, prev, cur);
-    }
-
-    this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
-    this.update();
+    this.drop(event, 'finished');
   }
 
   toggleKeep(index: number, force: boolean = false) {
@@ -236,8 +181,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
     const card = this.removedCards[index];
     if (card) {
       this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.restoreCard', card.cardId));
-      index = gameManager.randomManager.int(this.deck.cards.length - this.deck.current) + this.deck.current + 1;
-      this.deck.cards.splice(index, 0, card);
+      gameManager.challengesManager.restoreCard(this.deck, card);
       this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.restoreCard'));
       this.update();
     }

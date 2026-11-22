@@ -1,5 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
@@ -10,6 +9,7 @@ import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Perk } from 'src/app/game/model/data/Perks';
+import { SummonData } from 'src/app/game/model/data/SummonData';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
@@ -391,6 +391,120 @@ describe('CharacterManager', () => {
       characterManager.addCharacter(data, 1);
 
       expect(gameManager.trialsManager.applyTrialCards).toHaveBeenCalled();
+    });
+  });
+
+  describe('summons', () => {
+    function summonData(overrides: Partial<SummonData> = {}): SummonData {
+      return Object.assign(new SummonData(), { name: 'wolf', cardId: '1', count: 2 }, overrides);
+    }
+
+    it('adds a summon from summon data, special summons as custom with number 0', () => {
+      const character = buildCharacter('test-char');
+      const summon = characterManager.addSummonFromData(character, summonData(), 2, SummonColor.blue);
+      expect(summon.number).toBe(2);
+      expect(summon.color).toBe(SummonColor.blue);
+      expect(summon.state).toBe(SummonState.new);
+      const special = characterManager.addSummonFromData(character, summonData({ name: 'spirit', special: true }), 3, SummonColor.blue);
+      expect(special.number).toBe(0);
+      expect(special.color).toBe(SummonColor.custom);
+      expect(special.state).toBe(SummonState.true);
+      expect(character.summons.length).toBe(2);
+    });
+
+    it('finds the next free summon number and respects the summon count', () => {
+      const character = buildCharacter('test-char');
+      const data = summonData();
+      expect(characterManager.nextSummonNumber(character, data, SummonColor.blue)).toBe(1);
+      expect(characterManager.summonAvailable(character, data, 1, SummonColor.blue)).toBe(true);
+      characterManager.addSummonFromData(character, data, 1, SummonColor.blue);
+      expect(characterManager.nextSummonNumber(character, data, SummonColor.blue)).toBe(2);
+      expect(characterManager.nextSummonNumber(character, data, SummonColor.green)).toBe(1);
+      expect(characterManager.summonAvailable(character, data, 1, SummonColor.blue)).toBe(false);
+      characterManager.addSummonFromData(character, data, 2, SummonColor.blue);
+      expect(characterManager.summonAvailable(character, data, 3, SummonColor.blue)).toBe(false);
+    });
+
+    it('adds a custom summon', () => {
+      const character = buildCharacter('test-char');
+      const summon = characterManager.addCustomSummon(character, 'custom', 4, SummonColor.yellow);
+      expect(summon.name).toBe('custom');
+      expect(summon.number).toBe(4);
+      expect(character.summons).toEqual([summon]);
+    });
+  });
+
+  describe('toggleActive', () => {
+    afterEach(() => {
+      settingsManager.settings.activeSummons = false;
+    });
+
+    it('activates summons acting after the turn before ending the turn', () => {
+      settingsManager.settings.activeSummons = true;
+      const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      const character = buildCharacter('test-char');
+      character.active = true;
+      const summon = new Summon('uuid', 'spirit', '1', 1, 1, SummonColor.blue);
+      summon.afterTurn = true;
+      character.summons = [summon];
+
+      expect(characterManager.toggleActiveUndoInfos(character)[0]).toBe('summonInactive');
+      expect(characterManager.toggleActiveUndoInfos(character)[2]).toBe('data.summon.spirit');
+      characterManager.toggleActive(character);
+      expect(summon.afterTurnActive).toBe(true);
+      expect(toggleFigure).toHaveBeenCalledWith(character);
+    });
+
+    it('toggles the character without summon handling', () => {
+      const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      const character = buildCharacter('test-char');
+      expect(characterManager.toggleActiveUndoInfos(character)[0]).toBe('setActive');
+      character.active = true;
+      expect(characterManager.toggleActiveUndoInfos(character)[0]).toBe('unsetActive');
+      characterManager.toggleActive(character);
+      expect(toggleFigure).toHaveBeenCalledWith(character);
+    });
+  });
+
+  describe('setPerk', () => {
+    function shackles(): Character {
+      const character = buildCharacter('shackles', 'fh');
+      character.perks = Array.from({ length: 12 }, () => Object.assign(new Perk(), { count: 2 }));
+      character.maxHealth = 10;
+      return character;
+    }
+
+    beforeEach(() => {
+      vi.spyOn(gameManager.attackModifierManager, 'mergeAttackModifierDeck').mockReturnValue(true);
+      vi.spyOn(gameManager.attackModifierManager, 'shuffleModifiers').mockImplementation(() => {});
+    });
+
+    it('sets the perk value and rebuilds the character deck', () => {
+      const character = buildCharacter('test-char');
+      character.perks = [Object.assign(new Perk(), { count: 2 })];
+      characterManager.setPerk(character, 0, 2);
+      expect(character.progress.perks[0]).toBe(2);
+      expect(gameManager.attackModifierManager.mergeAttackModifierDeck).toHaveBeenCalled();
+    });
+
+    it('rebuilds the monster deck for monster deck perks', () => {
+      const character = buildCharacter('test-char');
+      character.perks = [Object.assign(new Perk(), { count: 1, monsterDeck: true })];
+      const build = vi.spyOn(gameManager.attackModifierManager, 'buildMonsterAttackModifierDeck');
+      characterManager.setPerk(character, 0, 1);
+      expect(build).toHaveBeenCalled();
+      expect(gameManager.attackModifierManager.mergeAttackModifierDeck).not.toHaveBeenCalled();
+    });
+
+    it('raises and lowers the Shackles max health exactly once for the full perk', () => {
+      const character = shackles();
+      characterManager.setPerk(character, 11, 2);
+      expect(character.maxHealth).toBe(15);
+      characterManager.setPerk(character, 11, 2);
+      expect(character.maxHealth).toBe(15);
+      characterManager.setPerk(character, 11, 1);
+      expect(character.maxHealth).toBe(10);
+      expect(character.health).toBe(10);
     });
   });
 
