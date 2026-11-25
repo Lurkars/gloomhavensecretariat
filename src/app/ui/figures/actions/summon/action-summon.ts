@@ -2,7 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject, input, model, OnChanges } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Action } from 'src/app/game/model/data/Action';
@@ -152,18 +152,18 @@ export class ActionSummonComponent implements OnChanges {
       monsterSpawnData.monster.player3 === monsterSpawnData.monster.player4
     ) {
       return (
-        settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]) +
-        (health ? '(' + health + ' ' + settingsManager.getLabel('game.hp') + ')' : '')
+        labelManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]) +
+        (health ? '(' + health + ' ' + labelManager.getLabel('game.hp') + ')' : '')
       );
     } else if (monsterSpawnData.monster.player2 === monsterSpawnData.monster.player3) {
       return (
-        settingsManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) +
-        (health ? '(' + health + ' ' + settingsManager.getLabel('game.hp') + ')' : '')
+        labelManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) +
+        (health ? '(' + health + ' ' + labelManager.getLabel('game.hp') + ')' : '')
       );
     } else if (monsterSpawnData.monster.player3 === monsterSpawnData.monster.player4) {
       return (
-        settingsManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) +
-        (health ? '(' + health + ' ' + settingsManager.getLabel('game.hp') + ')' : '')
+        labelManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) +
+        (health ? '(' + health + ' ' + labelManager.getLabel('game.hp') + ')' : '')
       );
     } else {
       console.warn('Incorrect summon data', monsterSpawnData);

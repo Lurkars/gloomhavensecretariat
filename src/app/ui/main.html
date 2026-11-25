@@ -19,14 +19,14 @@
             <span [ghs-label]="'server.force'"></span>
             <span class="force-hint"><span [ghs-label]="'server.forceHint'"></span></span>
           </a>
-          <a class="connect" (click)="gameManager.stateManager.connect()">
+          <a class="connect" (click)="gameManager.serverSyncManager.connect()">
             <span [ghs-label]="'server.connect'"></span>
-            @if (gameManager.stateManager.connectionTries > 0) {
+            @if (gameManager.serverSyncManager.connectionTries > 0) {
               <span class="tries">
-                <span [ghs-label]="'server.connectionTries'" [ghs-label-args]="[gameManager.stateManager.connectionTries]"></span>
+                <span [ghs-label]="'server.connectionTries'" [ghs-label-args]="[gameManager.serverSyncManager.connectionTries]"></span>
               </span>
             }
-            @if (gameManager.stateManager.connectionTries > 4) {
+            @if (gameManager.serverSyncManager.connectionTries > 4) {
               <span class="tries-hint">
                 <span [ghs-label]="'server.connectionTries.hint'"></span>
               </span>
@@ -36,7 +36,24 @@
       </div>
     </div>
   }
-  @if (welcome) {
+  @if (gameManager.stateManager.missingEditions.length) {
+    <div class="dialog-backdrop"></div>
+    <div class="dialog blocked">
+      <div class="dialog-container">
+        <span [ghs-label]="'missingData'" [ghs-label-args]="[gameManager.stateManager.missingEditions.join(', ')]"></span>
+        <div class="buttons">
+          <a class="force" (click)="gameManager.stateManager.loadWithMissingEditions()">
+            <span [ghs-label]="'missingData.force'"></span>
+            <span class="force-hint"><span [ghs-label]="'missingData.forceHint'"></span></span>
+          </a>
+          <a class="connect" (click)="reload()">
+            <span [ghs-label]="'missingData.reload'"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  }
+  @if (welcome && !gameManager.stateManager.missingEditions.length) {
     <div class="welcome" [ngClass]="{ fh: settingsManager.settings.theme === 'fh', modern: settingsManager.settings.theme === 'modern' }">
       <img class="ghs-logo" src="./assets/images/logo-transparent.svg" />
       @if (gameManager.stateManager.installPrompt) {
@@ -49,7 +66,7 @@
         <div class="container-row bordered">
           <p [ghs-label]="'welcome.chooseEdition'"></p>
           <div class="editions">
-            @for (editionData of gameManager.editionsData() | trackUUID; track editionData._trackUUID) {
+            @for (editionData of gameManager.editionManager.editionsData() | trackUUID; track editionData._trackUUID) {
               <a tabclick class="edition" (click)="startCampaign(editionData.edition)">
                 @if (editionData.logoUrl) {
                   <img [src]="editionData.logoUrl" [ghs-tooltip]="'data.edition.' + editionData.edition" />
@@ -71,10 +88,13 @@
         <div class="container-row bordered">
           <div class="editions">
             <a tabclick class="edition selected" (click)="cancelCampaign(gameManager.game.edition)">
-              @if (gameManager.editionLogo(gameManager.game.edition)) {
-                <img [src]="gameManager.editionLogo(gameManager.game.edition)" [ghs-tooltip]="'data.edition.' + gameManager.game.edition" />
+              @if (gameManager.editionManager.editionLogo(gameManager.game.edition)) {
+                <img
+                  [src]="gameManager.editionManager.editionLogo(gameManager.game.edition)"
+                  [ghs-tooltip]="'data.edition.' + gameManager.game.edition"
+                />
               }
-              <span class="text" [ngClass]="{ small: gameManager.editionLogo(gameManager.game.edition) }">
+              <span class="text" [ngClass]="{ small: gameManager.editionManager.editionLogo(gameManager.game.edition) }">
                 <span [ghs-label]="'data.edition.' + gameManager.game.edition"></span>
               </span>
             </a>

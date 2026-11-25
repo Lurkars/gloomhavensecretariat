@@ -1,6 +1,6 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ActionHex, ActionHexFromString, ActionHexType } from 'src/app/game/model/ActionHex';
-import { Character } from 'src/app/game/model/Character';
+import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { ConditionName } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
@@ -292,14 +292,122 @@ export class EnhancementsManager {
     );
   }
 
-  addEnhancement(character: Character, cardId: number, actionIndex: string, index: number, action: EnhancementAction, costs: number = 0) {
+  canAddEnhancement(
+    character: Character,
+    cardId: number,
+    actionIndex: string,
+    index: number,
+    costs: number = 0,
+    force: boolean = false
+  ): boolean {
+    return (
+      Number.isInteger(costs) &&
+      costs >= 0 &&
+      !(character.progress.enhancements || []).some(
+        (enhancement) => enhancement.cardId === cardId && enhancement.actionIndex === actionIndex && enhancement.index === index
+      ) &&
+      (force || this.canEnhance(character, cardId, costs))
+    );
+  }
+
+  addEnhancement(
+    character: Character,
+    cardId: number,
+    actionIndex: string,
+    index: number,
+    action: EnhancementAction,
+    costs: number = 0,
+    force: boolean = false
+  ): boolean {
+    if (!this.canAddEnhancement(character, cardId, actionIndex, index, costs, force)) {
+      return false;
+    }
     character.progress.enhancements = character.progress.enhancements || [];
     character.progress.enhancements.push(new Enhancement(cardId, actionIndex, index, action));
     gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.enhancements);
     character.progress.gold -= costs;
+    return true;
   }
 
   removeEnhancement(character: Character, enhancement: Enhancement) {
     character.progress.enhancements = character.progress.enhancements.filter((other) => other !== enhancement);
+  }
+
+  // change enhancements of a retired character, an active character of the same class inherits them again
+  setRetiredEnhancements(characterModel: GameCharacterModel, enhancements: Enhancement[]): boolean {
+    if (!characterModel.progress || !Array.isArray(enhancements)) {
+      return false;
+    }
+    characterModel.progress.enhancements = enhancements;
+    const current = this.game.figures.find(
+      (figure) => figure instanceof Character && figure.edition === characterModel.edition && figure.name === characterModel.name
+    ) as Character | undefined;
+    if (current) {
+      this.previousEnhancements(current, this.temporary);
+    }
+    return true;
+  }
+
+  previousEnhancements(character: Character, temporary: boolean) {
+    if (character.progress.enhancements) {
+      character.progress.enhancements = character.progress.enhancements.filter((e) => !e.inherited);
+    } else {
+      character.progress.enhancements = [];
+    }
+    if (!temporary) {
+      const previousCharacters = this.game.party.retirements.filter(
+        (model) => model.edition === character.edition && model.name === character.name
+      );
+      previousCharacters.forEach((previousCharacter) => {
+        if (previousCharacter && previousCharacter.progress && previousCharacter.progress.enhancements) {
+          character.progress.enhancements.push(
+            ...previousCharacter.progress.enhancements
+              .filter((e) => !e.inherited)
+              .map((e) => new Enhancement(e.cardId, e.actionIndex, e.index, e.action, true))
+          );
+        }
+      });
+
+      character.progress.enhancements = character.progress.enhancements.filter((e, index, self) => {
+        const first = self.find((o) => o.cardId === e.cardId && o.actionIndex === e.actionIndex && o.index === e.index);
+        return !first || index === self.indexOf(first);
+      });
+    }
+
+    // wipSpecial
+    character.progress.enhancements
+      .filter((e) => e.actionIndex.includes('custom'))
+      .forEach((e) => {
+        const card = gameManager.editionManager.deckData(character).abilities.find((a) => a.cardId === e.cardId);
+        if (card) {
+          const mapping = this.enhancementMapping(
+            !e.actionIndex.includes('bottom') ? card.actions : card.bottomActions || [],
+            !e.actionIndex.includes('bottom') ? '' : 'bottom'
+          );
+          if (mapping.length && mapping[e.index]) {
+            e.actionIndex = mapping[e.index];
+            e.index = e.index - mapping.indexOf(e.actionIndex);
+          }
+        }
+      });
+  }
+
+  enhancementMapping(actions: Action[], parentIndex: string): string[] {
+    const mapping: string[] = [];
+    actions.forEach((action, index) => {
+      if (action.type !== ActionType.custom || action.value !== '%character.abilities.wip%') {
+        const actionId = (parentIndex ? parentIndex + '-' : '') + index;
+        if (action.enhancementTypes) {
+          action.enhancementTypes.forEach(() => {
+            mapping.push(actionId);
+          });
+        }
+        if (action.subActions) {
+          mapping.push(...this.enhancementMapping(action.subActions, actionId));
+        }
+      }
+    });
+
+    return mapping;
   }
 }

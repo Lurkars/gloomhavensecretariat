@@ -28,7 +28,7 @@ export class SummonInitCommand extends CommandImpl {
     const character = findCharacter(number);
     const summon = this.summon(character, uuid);
     if (character && summon) {
-      gameManager.characterManager.initSummon(character, summon, { health, maxHp, attack, movement, range });
+      gameManager.summonManager.initSummon(character, summon, { health, maxHp, attack, movement, range });
     } else {
       this.executionError('summon not found');
     }

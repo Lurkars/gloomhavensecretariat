@@ -128,7 +128,7 @@
             <span class="item">
               <a
                 class="button"
-                [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) === 0 }"
+                [ngClass]="{ disabled: countUpcomingAdditional(AttackModifierType.empower, empowerChar) === 0 }"
                 (click)="changeEmpower(i, -1)"
               >
                 <img class="ghs-svg" src="./assets/images/minus.svg" />
@@ -136,7 +136,7 @@
             </span>
             <span class="item" [ghs-label]="'game.attackmodifiers.types.empower'" [ghs-label-attribute]="'title'">
               <img src="./assets/images/attackmodifier/icons/empower.png" />
-              <span class="badge">{{ countUpcomingAttackModifier(AttackModifierType.empower, 'additional-' + empowerChar.name) }}</span>
+              <span class="badge">{{ countUpcomingAdditional(AttackModifierType.empower, empowerChar) }}</span>
               <span class="badge badge-character-icon">
                 <img [src]="empowerChar.iconUrl" />
               </span>
@@ -152,14 +152,14 @@
               <a
                 class="button"
                 (click)="changeEnfeeble(i, -1)"
-                [ngClass]="{ disabled: countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) === 0 }"
+                [ngClass]="{ disabled: countUpcomingAdditional(AttackModifierType.enfeeble, enfeebleChar) === 0 }"
               >
                 <img class="ghs-svg" src="./assets/images/minus.svg" />
               </a>
             </span>
             <span class="item" [ghs-label]="'game.attackmodifiers.types.enfeeble'" [ghs-label-attribute]="'title'">
               <img src="./assets/images/attackmodifier/icons/enfeeble.png" />
-              <span class="badge">{{ countUpcomingAttackModifier(AttackModifierType.enfeeble, 'additional-' + enfeebleChar.name) }}</span>
+              <span class="badge">{{ countUpcomingAdditional(AttackModifierType.enfeeble, enfeebleChar) }}</span>
               <span class="badge badge-character-icon">
                 <img [src]="enfeebleChar.iconUrl" />
               </span>

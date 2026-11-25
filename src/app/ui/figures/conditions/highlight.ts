@@ -101,7 +101,7 @@ export class HighlightConditionsComponent implements OnInit {
   }
 
   update() {
-    this.highlightedConditions = [...gameManager.entityManager.highlightedConditions(this.entity)];
+    this.highlightedConditions = [...gameManager.conditionManager.highlightedConditions(this.entity)];
     this.highlightedActions = [...this.entity.extraActions.filter((action) => action.type === ActionType.extra)];
     this.highlightedActionsPersistent = [...this.entity.extraActionsPersistent.filter((action) => action.type === ActionType.extra)];
   }
@@ -112,9 +112,9 @@ export class HighlightConditionsComponent implements OnInit {
       ...gameManager.entityManager.undoInfos(this.entity, this.figure, 'applyCondition'),
       entityCondition.name
     );
-    gameManager.entityManager.applyCondition(this.entity, this.figure, entityCondition);
+    gameManager.conditionManager.applyCondition(this.entity, this.figure, entityCondition);
     if (double) {
-      gameManager.entityManager.applyCondition(this.entity, this.figure, entityCondition);
+      gameManager.conditionManager.applyCondition(this.entity, this.figure, entityCondition);
     }
 
     console.log('applied');
@@ -127,12 +127,15 @@ export class HighlightConditionsComponent implements OnInit {
       ...gameManager.entityManager.undoInfos(this.entity, this.figure, 'declineApplyCondition'),
       entityCondition.name
     );
-    gameManager.entityManager.declineApplyCondition(this.entity, this.figure, entityCondition);
+    gameManager.conditionManager.declineApplyCondition(this.entity, this.figure, entityCondition);
     this.after();
   }
 
   changeAction(action: Action, accept: boolean, persistent: boolean) {
-    if (action.type === ActionType.extra) {
+    const index = gameManager.actionsManager
+      .extraActions(this.entity, persistent)
+      .findIndex((other) => JSON.stringify(other) === JSON.stringify(action));
+    if (gameManager.actionsManager.canResolveExtraAction(this.entity, index, persistent)) {
       gameManager.entityManager.before(
         this.entity,
         this.figure,
@@ -140,19 +143,7 @@ export class HighlightConditionsComponent implements OnInit {
         gameManager.actionsManager.extraActionLabel(action)
       );
 
-      if (persistent) {
-        this.entity.extraActionsPersistent = this.entity.extraActionsPersistent.filter(
-          (other) => JSON.stringify(other) !== JSON.stringify(action)
-        );
-        if (accept && !!action.subActions) {
-          this.entity.extraActionsPersistent.push(...action.subActions);
-        }
-      } else {
-        this.entity.extraActions = this.entity.extraActions.filter((other) => JSON.stringify(other) !== JSON.stringify(action));
-        if (accept && !!action.subActions) {
-          this.entity.extraActions.push(...action.subActions);
-        }
-      }
+      gameManager.actionsManager.resolveExtraAction(this.entity, index, accept, persistent);
 
       gameManager.stateManager.after();
     }
@@ -172,7 +163,7 @@ export class HighlightConditionsComponent implements OnInit {
         ))
     ) {
       if (this.figure.entities.every((monsterEntity) => !gameManager.entityManager.isAlive(monsterEntity)) && this.figure.active) {
-        gameManager.roundManager.toggleFigure(this.figure);
+        gameManager.turnManager.toggleFigure(this.figure);
       }
       ghsRemoveDeadEntities([{ entity: this.entity, figure: this.figure }]);
     }

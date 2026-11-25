@@ -35,6 +35,7 @@
   }
 
   .event-card-container {
+    position: relative;
     overflow: visible;
     width: 100vw;
     max-width: 600px;
@@ -43,6 +44,27 @@
     ghs-event-card {
       height: 150vw;
       max-height: 900px;
+    }
+
+    .button {
+      z-index: 1;
+      position: absolute;
+      display: flex;
+      cursor: pointer;
+      top: 1em;
+      right: 1em;
+      justify-content: center;
+      align-items: center;
+      width: 2.5em;
+      height: 2.5em;
+      color: var(--ghs-filter-white) var(--ghs-filter-shadow);
+
+      &.flip {
+        top: initial;
+        bottom: 2em;
+        right: 50%;
+        transform: translateX(50%);
+      }
     }
   }
 }

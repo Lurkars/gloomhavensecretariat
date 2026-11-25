@@ -100,7 +100,7 @@ export class ItemComponent implements OnInit {
         this.edition = this.item.edition;
       }
 
-      if (gameManager.newItemStyle(this.item.edition)) {
+      if (gameManager.editionManager.newItemStyle(this.item.edition)) {
         this.fhStyle = true;
       }
 

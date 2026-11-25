@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
@@ -24,7 +24,7 @@ export class CharacterSheetNameComponent extends CharacterSheetSection implement
   }
 
   get defaultTitle(): string {
-    return settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
+    return labelManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
   }
 
   get title(): string {
@@ -47,7 +47,7 @@ export class CharacterSheetNameComponent extends CharacterSheetSection implement
 
     if (this.character.title !== title) {
       gameManager.entityManager.before(this.character, this.character, title ? 'setTitle' : 'unsetTitle', title || this.character.title);
-      this.character.title = title;
+      gameManager.entityManager.setTitle(this.character, title);
       gameManager.stateManager.after();
     }
   }

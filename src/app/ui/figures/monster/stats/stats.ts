@@ -75,7 +75,7 @@ export class MonsterStatsComponent implements OnInit {
     } else {
       this.highlightActions = [ActionType.shield, ActionType.retaliate, ActionType.custom];
     }
-    this.edition = gameManager.getEdition(this.monster);
+    this.edition = gameManager.editionManager.getEdition(this.monster);
     this.catching = this.monster.pet !== undefined && gameManager.buildingsManager.petsAvailable;
     this.catched =
       this.catching &&

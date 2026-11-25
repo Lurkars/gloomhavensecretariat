@@ -291,12 +291,16 @@ describe('CharacterComponent', () => {
   });
 
   describe('toggleAttackModifierDeckVisible', () => {
-    it('toggles the deck active/visible directly when no special settings are on', () => {
+    it('toggles the deck active/visible as undoable state change when no special settings are on', () => {
       const character = buildCharacter();
       const component = createComponent(character);
+      const before = vi.spyOn(gameManager.stateManager, 'before');
+      const after = vi.spyOn(gameManager.stateManager, 'after');
       component.toggleAttackModifierDeckVisible();
       expect(character.attackModifierDeck.active).toBe(true);
       expect(character.attackModifierDeckVisible).toBe(true);
+      expect(before).toHaveBeenCalledWith('updateAttackModifierDeck.amDeckShow', expect.any(String));
+      expect(after).toHaveBeenCalled();
     });
 
     it('hides other characters decks when characterAttackModifierDeckActiveBottom is set', () => {
@@ -317,8 +321,10 @@ describe('CharacterComponent', () => {
       const character = buildCharacter();
       character.lootCardsVisible = true;
       const component = createComponent(character);
+      const before = vi.spyOn(gameManager.stateManager, 'before');
       component.toggleLootCardsVisible();
       expect(character.lootCardsVisible).toBe(false);
+      expect(before).toHaveBeenCalledWith('characterLootCardsHide', expect.any(String));
     });
 
     it('shows loot cards and hides the attack modifier deck otherwise', () => {

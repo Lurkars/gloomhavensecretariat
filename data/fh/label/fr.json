@@ -671,9 +671,6 @@
         "8": "Quand vous ouvrez une porte avec une capacité de déplacement, ajouter %game.action.move.valueSign:3%",
         "9": "Une fois par scénario, pendant votre tour, gagner %game.action.shield:2% pour le round"
       },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
       "blinkblade": {
         "1": "Lors de votre prochaine attaque, défaussez cette carte pour ajouter %game.action.attack.valueSign:2%.<br>%game.card.persistent%",
         "2": "Placez cette carte dans votre zone active. À votre prochaine attaque, défaussez-vous de cette carte pour ajouter %game.action.attack.valueSign:2%",
@@ -807,8 +804,7 @@
         "1": "Concentrez-vous sur l'ennemi<br>le plus éloigné à %game.action.range:6%"
       },
       "night-demon": {
-        "1": "Tous les alliés et adversaires<br>adjacents subissent %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
+        "1": "Tous les alliés et adversaires<br>adjacents subissent %game.damage:1%."
       },
       "ooze": {
         "1": "dont le nombre de PV est égal au nombre<br>de PV actuel de l'invocateur (dans la<br>limite de la valeur maximale de PV<br>d'un Mucus normal)."

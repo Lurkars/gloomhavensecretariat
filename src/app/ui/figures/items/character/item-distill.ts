@@ -4,7 +4,7 @@ import { Component, inject } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { ItemData } from 'src/app/game/model/data/ItemData';
-import { herbResourceLootTypes, LootType } from 'src/app/game/model/data/Loot';
+import { LootType } from 'src/app/game/model/data/Loot';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
@@ -31,10 +31,8 @@ export class ItemDistillDialogComponent {
     this.item = this.data.item;
     if (!gameManager.itemManager.canDistill(this.item)) {
       this.dialogRef.close();
-    } else if (this.item.resourcesAny && this.item.resourcesAny.length) {
-      this.availableResources = herbResourceLootTypes;
     } else {
-      this.availableResources = Object.keys(this.item.resources).map((resource) => resource as LootType);
+      this.availableResources = gameManager.itemManager.distillResources(this.item);
     }
   }
 
@@ -51,15 +49,14 @@ export class ItemDistillDialogComponent {
   }
 
   distill() {
-    if (this.selectedResource) {
+    if (this.selectedResource && gameManager.itemManager.canDistillItem(this.item, this.character, this.selectedResource)) {
       gameManager.stateManager.before(
         'distillItem',
         gameManager.characterManager.characterName(this.character, true, true),
         this.item.id,
         this.item.edition
       );
-      gameManager.itemManager.removeItem(this.item, this.character);
-      this.character.progress.loot[this.selectedResource] = (this.character.progress.loot[this.selectedResource] || 0) + 1;
+      gameManager.itemManager.distillItem(this.item, this.character, this.selectedResource);
       gameManager.stateManager.after();
       ghsDialogClosingHelper(this.dialogRef);
     }

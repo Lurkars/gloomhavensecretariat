@@ -4,21 +4,7 @@ import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
-
-export function moraleDefense(morale: number): number {
-  if (morale < 3) {
-    return -10;
-  } else if (morale < 5) {
-    return -5;
-  } else if (morale < 8) {
-    return 0;
-  } else if (morale < 11) {
-    return 5;
-  } else if (morale < 14) {
-    return 10;
-  }
-  return 15;
-}
+import { ghsClamp } from 'src/app/ui/helper/Static';
 
 @Component({
   imports: [NgClass, SlicePipe, GhsLabelDirective, GhsRangePipe],
@@ -32,53 +18,27 @@ export class PartySheetFhMoraleComponent extends PartySheetSection {
   highMoraleSolved: number = 0;
 
   override update(): void {
-    this.moraleDefense = moraleDefense(this.party.morale);
+    this.moraleDefense = gameManager.outpostAttackManager.moraleDefense();
     const campaign = gameManager.campaignManager.campaignData();
-    if (campaign) {
-      if (campaign.lowMorale && campaign.lowMorale.length) {
-        this.lowMoraleSolved = 0;
-        while (this.isConclusion(campaign.lowMorale[this.lowMoraleSolved]) && this.lowMoraleSolved < campaign.lowMorale.length) {
-          this.lowMoraleSolved++;
-        }
-      }
-
-      if (campaign.highMorale && campaign.highMorale.length) {
-        this.highMoraleSolved = 0;
-        while (this.isConclusion(campaign.highMorale[this.highMoraleSolved]) && this.highMoraleSolved < campaign.highMorale.length) {
-          this.highMoraleSolved++;
-        }
-      }
-    }
+    this.lowMoraleSolved = gameManager.campaignManager.moraleConclusionsSolved(campaign?.lowMorale);
+    this.highMoraleSolved = gameManager.campaignManager.moraleConclusionsSolved(campaign?.highMorale);
   }
 
   setMorale(value: number) {
     if (this.party.morale === value) {
       value--;
     }
-    if (value < 0) {
-      value = 0;
+    value = ghsClamp(value, 0, 20);
+    if (!gameManager.campaignManager.canSetMorale(value)) {
+      return;
     }
-    if (value > 20) {
-      value = 20;
-    }
-
     gameManager.stateManager.before('setPartyMorale', value);
-
-    gameManager.campaignManager.changeMorale(value - this.party.morale);
-    const campaignData = gameManager.campaignManager.campaignData();
-    if (value === 0 && campaignData && campaignData.lowMorale && this.lowMoraleSolved <= campaignData.lowMorale.length) {
-      if (this.lowMoraleSolved < campaignData.lowMorale.length) {
-        this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved]);
-      } else {
-        gameManager.scenarioManager.removeConclusion(gameManager.game.edition, campaignData.lowMorale[this.lowMoraleSolved - 1]);
-        this.finishConclusion(campaignData.lowMorale[this.lowMoraleSolved - 1]);
-      }
-    } else if (value === 20 && campaignData && campaignData.highMorale && this.highMoraleSolved < campaignData.highMorale.length) {
-      this.finishConclusion(campaignData.highMorale[this.highMoraleSolved]);
+    gameManager.campaignManager.setMorale(value);
+    const conclusion = gameManager.campaignManager.prepareMoraleConclusion(value);
+    if (conclusion) {
+      this.finishConclusion(conclusion);
     }
-
     gameManager.stateManager.after();
-
     this.update();
   }
 }

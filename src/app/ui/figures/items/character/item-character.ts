@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { LOOT_RANDOM_ITEM_MARKER } from 'src/app/game/businesslogic/LootManager';
@@ -34,6 +34,8 @@ export class CharacterItemComponent {
   readonly flipped = input<boolean>(true);
   readonly setup = input<boolean>(false);
   readonly dialog = input<boolean>(false);
+  readonly selected = input<boolean | undefined>(undefined);
+  readonly clicked = output<boolean>();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -47,16 +49,7 @@ export class CharacterItemComponent {
   }
 
   bbBlocked(): boolean {
-    return (
-      gameManager.bbRules() &&
-      !this.equipped() &&
-      this.character.progress.equippedItems.find(
-        (identifier) =>
-          typeof this.item.id === 'number' &&
-          +identifier.name === (this.item.id % 2 === 0 ? this.item.id - 1 : this.item.id + 1) &&
-          identifier.edition === this.item.edition
-      ) !== undefined
-    );
+    return gameManager.itemManager.equipBlocked(this.item, this.character);
   }
 
   isLootRandomItem() {
@@ -67,11 +60,7 @@ export class CharacterItemComponent {
   }
 
   toggleEquippedItem(force: boolean = false) {
-    const owned =
-      this.character.progress.items.find(
-        (identifier) => identifier.name === '' + this.item.id && identifier.edition === this.item.edition
-      ) !== undefined;
-    if ((this.setup() || force) && (owned || !this.bbBlocked() || force)) {
+    if ((this.setup() || force) && gameManager.itemManager.canToggleEquippedItem(this.item, this.character, force)) {
       gameManager.stateManager.before(
         this.equipped() ? 'unequipItem' : 'equipItem',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -86,6 +75,12 @@ export class CharacterItemComponent {
           this.ghsManager.triggerUiChange();
         }, 500 * settingsManager.settings.animationSpeed);
       }
+    }
+  }
+
+  bodyClicked(event: Event, force: boolean) {
+    if (!(event.target instanceof Element) || !event.target.closest('.interactive')) {
+      this.clicked.emit(force);
     }
   }
 

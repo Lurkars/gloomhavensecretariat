@@ -535,9 +535,6 @@
         "1": "Alle Verbündete und Gegner angrenzend<br>zum Ziel erleiden %game.damage:2%",
         "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
       },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
       "blinkblade": {
         "1": "Lege diese Karte bei deinem nächsten Angriff ab, um %game.action.attack.valueSign:2% hinzuzufügen.<br>%game.card.persistent%",
         "2": "Lege diese Karte in deinen aktiven Bereich. Wirf diese Karte bei deinem nächsten Angriff ab, um %game.action.attack.valueSign:2% hinzuzufügen",
@@ -698,8 +695,7 @@
         "3": "ganz links auf ein leeres Feld in einer ungraden Runde,<br>ansonsten ganz rechts in einer graden Runde"
       },
       "night-demon": {
-        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
+        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%."
       },
       "ooze": {
         "1": "Beschwöre 1 normalen Schleim mit einem TP-Wert,<br>der dem aktuellen TP-Wert des beschwörenden Schleims entspricht<br>(maximal mit dem TP-Wert der Normalvariante)."

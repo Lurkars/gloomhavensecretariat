@@ -52,31 +52,70 @@ export class OutpostAttackManager {
     if (!campaign || !campaign.townGuardPerks || this.hasTownGuardDeck()) {
       return false;
     }
-    const deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaign);
+    const deck = gameManager.attackModifierBuildManager.buildTownGuardAttackModifierDeck(this.game.party, campaign);
     gameManager.attackModifierManager.shuffleModifiers(deck);
     deck.active = false;
     this.game.party.townGuardDeck = deck.toModel();
     return true;
   }
 
-  townGuardPerkSectionAvailable(section: string): boolean {
-    const sections = this.game.party.townGuardPerkSections || [];
-    return sections.includes(section) || sections.length < Math.floor(this.game.party.townGuardPerks / 3);
+  townGuardPerkSectionLimit(): number {
+    return Math.floor(this.game.party.townGuardPerks / 3);
   }
 
-  setTownGuardPerkSection(section: string, value: boolean) {
+  townGuardPerkSectionsExceeded(): boolean {
+    return (this.game.party.townGuardPerkSections || []).length > this.townGuardPerkSectionLimit();
+  }
+
+  townGuardPerkSectionAvailable(section: string): boolean {
+    const sections = this.game.party.townGuardPerkSections || [];
+    return sections.includes(section) || sections.length < this.townGuardPerkSectionLimit();
+  }
+
+  canSetTownGuardPerkSection(section: string, value: boolean, force: boolean = false): boolean {
+    return (
+      typeof section === 'string' &&
+      !!section &&
+      (this.game.party.townGuardPerkSections || []).includes(section) !== value &&
+      (!value || force || this.townGuardPerkSectionAvailable(section))
+    );
+  }
+
+  setTownGuardPerkSection(section: string, value: boolean, force: boolean = false): boolean {
+    if (!this.canSetTownGuardPerkSection(section, value, force)) {
+      return false;
+    }
     const party = this.game.party;
     party.townGuardPerkSections = party.townGuardPerkSections || [];
-    if (party.townGuardPerkSections.includes(section) === value) {
-      return;
-    }
     if (value) {
       party.townGuardPerkSections.push(section);
     } else {
       party.townGuardPerkSections.splice(party.townGuardPerkSections.indexOf(section), 1);
     }
+    this.rebuildTownGuardDeck();
+    return true;
+  }
+
+  canSetTownGuardPerks(value: number): boolean {
+    return Number.isInteger(value) && value >= 0;
+  }
+
+  setTownGuardPerks(value: number): boolean {
+    if (!this.canSetTownGuardPerks(value)) {
+      return false;
+    }
+    this.game.party.townGuardPerks = value;
+    return true;
+  }
+
+  private rebuildTownGuardDeck() {
+    const party = this.game.party;
+    const campaign = gameManager.campaignManager.campaignData();
+    if (!campaign || !campaign.townGuardPerks) {
+      return;
+    }
     const active = !!party.townGuardDeck && party.townGuardDeck.active;
-    const deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(party, gameManager.campaignManager.campaignData());
+    const deck = gameManager.attackModifierBuildManager.buildTownGuardAttackModifierDeck(party, campaign);
     deck.active = active;
     gameManager.attackModifierManager.shuffleModifiers(deck);
     party.townGuardDeck = deck.toModel();
@@ -87,10 +126,10 @@ export class OutpostAttackManager {
     if (!campaign || !campaign.townGuardPerks) {
       return undefined;
     }
-    const deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaign);
+    const deck = gameManager.attackModifierBuildManager.buildTownGuardAttackModifierDeck(this.game.party, campaign);
     const model = this.game.party.townGuardDeck;
     if (model && this.hasTownGuardDeck()) {
-      gameManager.attackModifierManager.fromModel(deck, model);
+      gameManager.attackModifierBuildManager.fromModel(deck, model);
     } else {
       gameManager.attackModifierManager.shuffleModifiers(deck);
     }
@@ -207,7 +246,18 @@ export class OutpostAttackManager {
     return result;
   }
 
-  start(attack: EventCardAttack | undefined, effects: EventCardEffect[] = []) {
+  canStart(replace: boolean = false): boolean {
+    const campaign = gameManager.campaignManager.campaignData();
+    return !!campaign && !!campaign.townGuardPerks && campaign.townGuardPerks.length > 0 && (!this.game.party.outpostAttack || replace);
+  }
+
+  start(attack: EventCardAttack | undefined, effects: EventCardEffect[] = [], replace: boolean = false): boolean {
+    if (!this.canStart(replace)) {
+      return false;
+    }
+    if (this.game.party.outpostAttack) {
+      this.finish();
+    }
     const model = new OutpostAttackModel();
     model.attack = attack
       ? new EventCardAttack(
@@ -228,13 +278,30 @@ export class OutpostAttackManager {
     if (model.target.randomize) {
       gameManager.randomManager.shuffle(model.buildings);
     }
+    return true;
+  }
+
+  canStartFromEvent(type: string, cardId: string, replace: boolean = false): boolean {
+    return this.canStart(replace) && !!gameManager.eventCardManager.eventOutpostAttack(type, cardId);
+  }
+
+  startFromEvent(type: string, cardId: string, replace: boolean = false): boolean {
+    const eventAttack = this.canStartFromEvent(type, cardId, replace) && gameManager.eventCardManager.eventOutpostAttack(type, cardId);
+    return !!eventAttack && this.start(eventAttack.attack, eventAttack.effects, replace);
+  }
+
+  canFinish(): boolean {
+    return !!this.game.party.outpostAttack;
   }
 
   finish(): EventCardEffect[] {
     const model = this.game.party.outpostAttack;
+    if (!model) {
+      return [];
+    }
     this.game.party.outpostAttack = undefined;
     this.game.party.buildings.forEach((building) => (building.attacked = undefined));
-    return model ? model.resources.filter((resource) => resource.enabled).map((resource) => resource.effect) : [];
+    return model.resources.filter((resource) => resource.enabled).map((resource) => resource.effect);
   }
 
   attack(): EventCardAttack | undefined {
@@ -263,52 +330,117 @@ export class OutpostAttackManager {
     return this.game.party.outpostAttack && this.game.party.outpostAttack.soldiers ? 'advantage' : false;
   }
 
-  setManual(attackValue: number, targetNumber: number) {
+  canSetManual(attackValue: number, targetNumber: number): boolean {
     const model = this.game.party.outpostAttack;
-    if (model) {
-      model.manualAttackValue = attackValue;
-      model.manualTargetNumber = targetNumber;
-    }
+    return (
+      !!model && !model.attack && Number.isInteger(attackValue) && attackValue >= 0 && Number.isInteger(targetNumber) && targetNumber >= 0
+    );
   }
 
-  setTarget(target: Partial<EventCardAttackTarget>) {
+  setManual(attackValue: number, targetNumber: number): boolean {
     const model = this.game.party.outpostAttack;
-    if (model) {
-      Object.assign(model.target, target);
-      this.sort();
+    if (!model || !this.canSetManual(attackValue, targetNumber)) {
+      return false;
     }
+    model.manualAttackValue = attackValue;
+    model.manualTargetNumber = targetNumber;
+    return true;
   }
 
-  toggleSoldier(soldier: number) {
+  canSetTarget(target: Partial<EventCardAttackTarget>): boolean {
     const model = this.game.party.outpostAttack;
+    const boundary = (value: number | undefined) => value === undefined || (Number.isInteger(value) && value >= 0);
+    return (
+      !!model &&
+      model.target.manual &&
+      boundary(target.lowerBoundary) &&
+      boundary(target.upperBoundary) &&
+      (target.parity === undefined || [0, 'even', 'odd'].includes(target.parity)) &&
+      (target.level === undefined || [0, 'low', 'high'].includes(target.level)) &&
+      (target.desc === undefined || typeof target.desc === 'boolean') &&
+      (typeof target.distance !== 'string' ||
+        target.distance === 'previousTarget' ||
+        this.game.party.buildings.some((building) => building.name === target.distance))
+    );
+  }
+
+  setTarget(target: Partial<EventCardAttackTarget>): boolean {
+    const model = this.game.party.outpostAttack;
+    if (!model || !this.canSetTarget(target)) {
+      return false;
+    }
+    Object.assign(model.target, target);
+    this.sort();
+    return true;
+  }
+
+  canToggleSoldier(soldier: number): boolean {
     const barracks = this.barracksBonus();
-    if (model && barracks && barracks.available) {
-      model.soldiers = model.soldiers === soldier ? soldier - 1 : Math.min(soldier, this.game.party.soldiers);
-    }
+    return (
+      !!this.game.party.outpostAttack &&
+      !!barracks &&
+      barracks.available &&
+      Number.isInteger(soldier) &&
+      soldier >= 1 &&
+      soldier <= this.game.party.soldiers
+    );
   }
 
-  moveBuilding(fromList: 'buildings' | 'others', fromIndex: number, toList: 'buildings' | 'others', toIndex: number) {
+  toggleSoldier(soldier: number): boolean {
     const model = this.game.party.outpostAttack;
-    if (model) {
-      const name = model[fromList].splice(fromIndex, 1)[0];
-      if (name) {
-        model[toList].splice(toIndex, 0, name);
-      }
+    if (!model || !this.canToggleSoldier(soldier)) {
+      return false;
     }
+    model.soldiers = model.soldiers === soldier ? soldier - 1 : soldier;
+    return true;
   }
 
-  randomize() {
+  canMoveBuilding(fromList: 'buildings' | 'others', fromIndex: number, toList: 'buildings' | 'others', toIndex: number): boolean {
     const model = this.game.party.outpostAttack;
-    if (model) {
-      gameManager.randomManager.shuffle(model.buildings);
+    const lists = ['buildings', 'others'];
+    if (!model || !lists.includes(fromList) || !lists.includes(toList) || !Number.isInteger(fromIndex) || !Number.isInteger(toIndex)) {
+      return false;
     }
+    const toLength = model[toList].length - (fromList === toList ? 1 : 0);
+    return fromIndex >= 0 && fromIndex < model[fromList].length && toIndex >= 0 && toIndex <= toLength;
   }
 
-  toggleResource(index: number) {
+  moveBuilding(fromList: 'buildings' | 'others', fromIndex: number, toList: 'buildings' | 'others', toIndex: number): boolean {
     const model = this.game.party.outpostAttack;
-    if (model && model.resources[index]) {
-      model.resources[index].enabled = !model.resources[index].enabled;
+    if (!model || !this.canMoveBuilding(fromList, fromIndex, toList, toIndex)) {
+      return false;
     }
+    const name = model[fromList].splice(fromIndex, 1)[0];
+    model[toList].splice(toIndex, 0, name);
+    return true;
+  }
+
+  canRandomize(): boolean {
+    const model = this.game.party.outpostAttack;
+    return !!model && model.target.manual;
+  }
+
+  randomize(): boolean {
+    const model = this.game.party.outpostAttack;
+    if (!model || !this.canRandomize()) {
+      return false;
+    }
+    gameManager.randomManager.shuffle(model.buildings);
+    return true;
+  }
+
+  canToggleResource(index: number): boolean {
+    const model = this.game.party.outpostAttack;
+    return !!model && Number.isInteger(index) && !!model.resources[index];
+  }
+
+  toggleResource(index: number): boolean {
+    const model = this.game.party.outpostAttack;
+    if (!model || !this.canToggleResource(index)) {
+      return false;
+    }
+    model.resources[index].enabled = !model.resources[index].enabled;
+    return true;
   }
 
   defense(): number {
@@ -324,7 +456,9 @@ export class OutpostAttackManager {
   }
 
   afterDraw(deck: AttackModifierDeck, draw: boolean) {
+    const active = !!this.game.party.townGuardDeck && this.game.party.townGuardDeck.active;
     this.game.party.townGuardDeck = deck.toModel();
+    this.game.party.townGuardDeck.active = active;
     const model = this.game.party.outpostAttack;
     if (model) {
       const result = deck.current >= 0 ? gameManager.attackModifierManager.calculateAttackResult(deck, this.defense()) : undefined;
@@ -343,12 +477,34 @@ export class OutpostAttackManager {
     return gameManager.attackModifierManager.calculateAttackResult(deck, this.defense(), model.attackResult);
   }
 
-  toggleResult(deck: AttackModifierDeck) {
+  canToggleResult(deck: AttackModifierDeck): boolean {
+    const result = this.result(deck);
+    return !!result && !!result.chooseOffset;
+  }
+
+  toggleResult(deck: AttackModifierDeck): boolean {
     const model = this.game.party.outpostAttack;
     const result = this.result(deck);
-    if (model && result && result.chooseOffset) {
-      model.attackResult = result.index + result.chooseOffset;
+    if (!model || !result || !this.canToggleResult(deck)) {
+      return false;
     }
+    model.attackResult = result.index + result.chooseOffset;
+    return true;
+  }
+
+  canDrawTownGuard(): boolean {
+    return !!this.game.party.outpostAttack && !!this.townGuardDeck();
+  }
+
+  drawTownGuard(state: 'advantage' | 'disadvantage' | undefined = undefined): boolean {
+    const deck = this.townGuardDeck();
+    if (!deck || !this.canDrawTownGuard()) {
+      return false;
+    }
+    this.beforeDraw(deck);
+    gameManager.attackModifierManager.drawModifier(deck, state);
+    this.afterDraw(deck, true);
+    return true;
   }
 
   target(): { model: BuildingModel; data: BuildingData } | undefined {
@@ -369,12 +525,16 @@ export class OutpostAttackManager {
       : undefined;
   }
 
-  attackTarget(deck: AttackModifierDeck) {
+  canAttackTarget(deck: AttackModifierDeck): boolean {
+    return !!this.game.party.outpostAttack && !!this.target() && !!this.targetState(deck);
+  }
+
+  attackTarget(deck: AttackModifierDeck): boolean {
     const model = this.game.party.outpostAttack;
     const target = this.target();
     const state = this.targetState(deck);
     if (!model || !target || !state) {
-      return;
+      return false;
     }
     this.attackBuilding(target.model, state, model.soldiers);
     model.soldiers = 0;
@@ -396,6 +556,7 @@ export class OutpostAttackManager {
       });
       model.buildings = [...attacked, ...remaining.map((building) => building.model.name)];
     }
+    return true;
   }
 
   distance(building: { model: BuildingModel; data: BuildingData }): number {
@@ -407,8 +568,8 @@ export class OutpostAttackManager {
     const target = model.target;
     if (target.distance === 'previousTarget') {
       const index = model.buildings.indexOf(building.model.name);
-      const previous = this.game.party.buildings.find((other) => other.name === model.buildings[model.attacks]);
-      if (index <= model.attacks || !previous) {
+      const previous = model.attacks > 0 && this.game.party.buildings.find((other) => other.name === model.buildings[model.attacks - 1]);
+      if (index < model.attacks || !previous) {
         return 0;
       }
       distance = gameManager.buildingsManager.distanceBetween(building.model, previous);

@@ -86,24 +86,35 @@ export class EventCardComponent implements OnInit, OnChanges {
         }
       });
       this.noLabel = this.event.options.every((o) => !o.label);
-      // latest result of this card, so checked boxes carry over between draws of a card returned to the deck
-      const model =
-        this.identifier || gameManager.eventCardManager.lastEventCardResult(this.event.edition, this.event.type, this.event.cardId);
-      if (model && model.checks) {
-        this.checks = [...model.checks];
-      }
+
+      this.checks = this.resolveChecks();
     }
     this.spoilerFree = this.spoiler();
     this.selected = this.select();
-    this.subSelections = this.subSelect();
+    this.subSelections = [...this.subSelect()];
+  }
+
+  private resolveChecks(): number[] {
+    if (this.identifier) {
+      return [...(this.identifier.checks || [])];
+    }
+    if (this.inputChecks().length || !this.event) {
+      return [...this.inputChecks()];
+    }
+    const lastResult = gameManager.eventCardManager.lastEventCardResult(this.event.edition, this.event.type, this.event.cardId);
+    return lastResult && lastResult.checks ? [...lastResult.checks] : [];
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.event = this.inputEventCard();
-    this.checks = this.inputChecks();
     this.flipped = this.inputFlipped();
+    if (changes['inputIdentifier'] && !changes['inputIdentifier'].firstChange) {
+      this.checks = this.resolveChecks();
+    } else if (changes['inputChecks']) {
+      this.checks = [...this.inputChecks()];
+    }
     const select = this.select();
-    if (changes['identifier'] && changes['identifier'].previousValue !== changes['identifier'].currentValue) {
+    if (changes['inputIdentifier'] && changes['inputIdentifier'].previousValue !== changes['inputIdentifier'].currentValue) {
       if (!this.event && this.identifier) {
         this.event = gameManager.eventCardManager.getEventCardForEdition(
           this.identifier.edition,
@@ -112,15 +123,20 @@ export class EventCardComponent implements OnInit, OnChanges {
         );
         if (this.event) {
           this.selected = this.identifier.selected;
-          this.subSelections = this.identifier.subSelections;
+          this.subSelections = [...this.identifier.subSelections];
         }
         if (this.identifier.checks) {
           this.checks = [...this.identifier.checks];
         }
       }
-    } else if (changes['select'] && changes['select'].previousValue !== changes['select'].currentValue && this.selected !== select) {
+    }
+    if (changes['select'] && changes['select'].previousValue !== changes['select'].currentValue && this.selected !== select) {
       this.selectOption(select, true);
-    } else if (changes['spoiler'] && changes['spoiler'].previousValue !== changes['spoiler'].currentValue) {
+      if (this.subSelect().length) {
+        this.subSelections = [...this.subSelect()];
+      }
+    }
+    if (changes['spoiler'] && changes['spoiler'].previousValue !== changes['spoiler'].currentValue) {
       this.spoilerFree = this.spoiler();
     }
     this.light = (this.event && ['city'].includes(this.event.type)) || false;

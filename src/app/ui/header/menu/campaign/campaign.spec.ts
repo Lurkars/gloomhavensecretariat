@@ -35,7 +35,7 @@ describe('CampaignMenuComponent', () => {
     gameManager.game.conditions = [];
     gameManager.game.parties = [Object.assign(new Party(), { id: 0 })];
     gameManager.game.party = gameManager.game.parties[0];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
   });
 
@@ -55,7 +55,9 @@ describe('CampaignMenuComponent', () => {
     });
 
     it('flags worldMap when the edition declares one', () => {
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { worldMap: { width: 1, height: 1 } })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), { worldMap: { width: 1, height: 1 } })
+      ];
       const component = createComponent();
       component.update();
       expect(component.worldMap).toBe(true);

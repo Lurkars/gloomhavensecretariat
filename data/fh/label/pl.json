@@ -1342,9 +1342,6 @@
         "1": "Wszyscy sojusznicy i wrogowie sąsiadujący<br>z celem otrzymują %game.damage:2%",
         "2": "Wszyscy wrogowie w %game.action.range:4% otrzymują %game.damage:2%."
       },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
       "blinkblade": {
         "1": "Przy następnym ataku odrzuć tę kartę, aby dodać %game.action.attack.valueSign:2%.<br>%game.card.persistent%",
         "2": "Umieść tę kartę w obszarze aktywnym. Przy następnym ataku odrzuć ją, aby dodać %game.action.attack.valueSign:2%",
@@ -1628,8 +1625,7 @@
         "3": "na skrajnie lewe puste pole, jeśli to nieparzysta runda, lub skrajnie prawe, jeśli jest parzysta"
       },
       "night-demon": {
-        "1": "Wszyscy sąsiadujący sojusznicy<br>oraz wrogowie otrzymują %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
+        "1": "Wszyscy sąsiadujący sojusznicy<br>oraz wrogowie otrzymują %game.damage:1%."
       },
       "ooze": {
         "1": "o wartości H równej aktualnej wartości punktów życia przywołującego Szlam<br>(ograniczone maksymalną wartością punktów życia zwykłego Szlamu)."

@@ -65,8 +65,7 @@ export class HintDialogComponent {
 
   resetScenario() {
     gameManager.stateManager.before('resetScenario', ...gameManager.scenarioManager.scenarioUndoArgs());
-    gameManager.roundManager.resetScenario();
-    gameManager.scenarioManager.setScenario(gameManager.game.scenario);
+    gameManager.scenarioManager.resetScenario();
     gameManager.stateManager.after();
     ghsDialogClosingHelper(this.dialogRef);
   }

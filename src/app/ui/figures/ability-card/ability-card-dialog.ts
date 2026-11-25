@@ -46,10 +46,10 @@ export class AbilityCardDialogComponent implements OnInit {
     this.interactiveAbilities = this.data.interactive;
 
     if (!!this.monster && !this.abilityCard) {
-      this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster);
-      if (gameManager.monsterManager.hasBottomActions(this.monster)) {
+      this.abilityCard = gameManager.monsterAbilityManager.getAbilityCard(this.monster);
+      if (gameManager.monsterAbilityManager.hasBottomActions(this.monster)) {
         this.secondAbilityCard = this.abilityCard;
-        this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster, true);
+        this.abilityCard = gameManager.monsterAbilityManager.getAbilityCard(this.monster, true);
       }
     }
 

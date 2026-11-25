@@ -71,9 +71,9 @@ export class CampaignMenuComponent implements OnInit {
     this.amConditions = Object.values(ConditionName)
       .map((name) => new Condition(name))
       .filter((condition) => condition.types.includes(ConditionType.amDeck));
-    this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
+    this.editionConditions = gameManager.conditionManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
     this.worldMap = false;
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition === gameManager.game.edition);
+    const editionData = gameManager.editionManager.editionData.find((editionData) => editionData.edition === gameManager.game.edition);
     if (editionData) {
       if (editionData.worldMap || editionData.extendWorldMap) {
         this.worldMap = true;
@@ -98,7 +98,7 @@ export class CampaignMenuComponent implements OnInit {
     if (!this.editionConditions.includes(condition)) {
       const add = !gameManager.game.conditions.includes(condition);
       gameManager.stateManager.before(add ? 'addGameCondition' : 'removeGameCondition', condition);
-      gameManager.setGameCondition(condition, add);
+      gameManager.conditionManager.setGameCondition(condition, add);
       gameManager.stateManager.after();
     }
   }
@@ -188,15 +188,15 @@ export class CampaignMenuComponent implements OnInit {
   }
 
   addParty() {
-    gameManager.stateManager.before('addParty', '%party% ' + gameManager.nextPartyId());
-    gameManager.addParty();
+    gameManager.stateManager.before('addParty', '%party% ' + gameManager.campaignManager.nextPartyId());
+    gameManager.campaignManager.addParty();
     this.update();
     gameManager.stateManager.after();
   }
 
   changeParty(party: Party) {
     gameManager.stateManager.before('changeParty', party.name || '%party% ' + party.id);
-    gameManager.changeParty(party);
+    gameManager.campaignManager.changeParty(party);
     this.update();
     gameManager.stateManager.after();
   }
@@ -207,7 +207,7 @@ export class CampaignMenuComponent implements OnInit {
         this.confirmPartyDelete = party.id;
       } else {
         gameManager.stateManager.before('removeParty', party.name || '%party% ' + party.id);
-        gameManager.removeParty(party);
+        gameManager.campaignManager.removeParty(party);
         this.update();
         gameManager.stateManager.after();
         this.cancelRemoveParty();
@@ -220,9 +220,9 @@ export class CampaignMenuComponent implements OnInit {
   }
 
   setName(event: any) {
-    if (gameManager.game.party.name !== event.target.value) {
+    if (gameManager.game.party.name !== event.target.value && gameManager.campaignManager.canSetPartyValue('name', event.target.value)) {
       gameManager.stateManager.before('setPartyName', event.target.value);
-      gameManager.game.party.name = event.target.value;
+      gameManager.campaignManager.setPartyValue('name', event.target.value);
       gameManager.stateManager.after();
     }
   }

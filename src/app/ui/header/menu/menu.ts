@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -105,7 +105,7 @@ export class MainMenuComponent implements OnInit {
     const undos = gameManager.stateManager.undos;
     const redos = gameManager.stateManager.redos;
     if (undos.length > 0) {
-      this.undoInfo = gameManager.stateManager.undoInfo(undos.length - 1, gameManager.game.state === GameState.draw);
+      this.undoInfo = gameManager.historyManager.undoInfo(undos.length - 1, gameManager.game.state === GameState.draw);
       this.undoOffset =
         gameManager.game.revision -
         (gameManager.game.revisionOffset || 0) -
@@ -115,7 +115,7 @@ export class MainMenuComponent implements OnInit {
       this.undoInfo = [];
       this.undoOffset = 0;
     }
-    this.redoInfo = redos.length > 0 ? gameManager.stateManager.redoInfo(0) : [];
+    this.redoInfo = redos.length > 0 ? gameManager.historyManager.redoInfo(0) : [];
 
     this.isUpdateAvailable = gameManager.stateManager.hasUpdate;
   }
@@ -164,10 +164,10 @@ export class MainMenuComponent implements OnInit {
       })
       .sort((a, b) => {
         const aName = (
-          a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : a.escort ? 'escort' : 'objective')
+          a.title ? a.title : labelManager.getLabel(a.name ? 'data.objective.' + a.name : a.escort ? 'escort' : 'objective')
         ).toLowerCase();
         const bName = (
-          b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : b.escort ? 'escort' : 'objective')
+          b.title ? b.title : labelManager.getLabel(b.name ? 'data.objective.' + b.name : b.escort ? 'escort' : 'objective')
         ).toLowerCase();
         if (aName > bName) {
           return 1;
@@ -189,8 +189,8 @@ export class MainMenuComponent implements OnInit {
         return figure as Monster;
       })
       .sort((a, b) => {
-        const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-        const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+        const aName = labelManager.getLabel('data.monster.' + a.name).toLowerCase();
+        const bName = labelManager.getLabel('data.monster.' + b.name).toLowerCase();
         if (aName > bName) {
           return 1;
         }
@@ -212,7 +212,7 @@ export class MainMenuComponent implements OnInit {
 
   removeAllCharacters() {
     gameManager.stateManager.before('removeAllChars');
-    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character));
+    gameManager.characterManager.removeAllCharacters();
     this.close();
     gameManager.stateManager.after();
   }
@@ -236,7 +236,7 @@ export class MainMenuComponent implements OnInit {
 
   removeAllObjectives() {
     gameManager.stateManager.before('removeAllObjectives');
-    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof ObjectiveContainer));
+    gameManager.objectiveManager.removeAllObjectives();
     this.close();
     gameManager.stateManager.after();
   }
@@ -252,18 +252,13 @@ export class MainMenuComponent implements OnInit {
 
   removeAllMonsters(unused: boolean = false) {
     gameManager.stateManager.before('removeAllMonster');
-    gameManager.game.figures = gameManager.game.figures.filter((figure) => {
-      return (
-        !(figure instanceof Monster) ||
-        (unused && figure.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity)))
-      );
-    });
+    gameManager.monsterManager.removeAllMonsters(unused);
     this.close();
     gameManager.stateManager.after();
   }
 
   hasAllMonster() {
-    return gameManager
+    return gameManager.editionManager
       .monstersData()
       .every((monsterData) =>
         gameManager.game.figures.some(

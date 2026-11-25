@@ -21,7 +21,7 @@ export class CharacterHelper {
 
   setIdentity(index: number) {
     if (this.component.entity instanceof Character && index !== this.component.entity.identity) {
-      if (gameManager.specialActionsManager.isIdentityLocked(this.component.entity)) {
+      if (!gameManager.characterManager.canSetIdentity(this.component.entity, index)) {
         return;
       }
       this.component.before(
@@ -31,18 +31,16 @@ export class CharacterHelper {
         index,
         this.component.entity.identities[index]
       );
-      this.component.entity.identity = index;
+      gameManager.characterManager.setIdentity(this.component.entity, index);
       gameManager.stateManager.after();
     }
   }
 
   toggleAbsent() {
-    if (this.component.entity instanceof Character && (this.component.entity.absent || gameManager.characterManager.characterCount() > 1)) {
-      this.component.before(this.component.entity.absent ? 'unsetAbsent' : 'setAbsent');
-      this.component.entity.absent = !this.component.entity.absent;
-      if (this.component.entity.absent && this.component.entity.active) {
-        gameManager.roundManager.toggleFigure(this.component.entity);
-      }
+    const entity = this.component.entity;
+    if (entity instanceof Character && gameManager.characterManager.canSetAbsent(entity, !entity.absent)) {
+      this.component.before(entity.absent ? 'unsetAbsent' : 'setAbsent');
+      gameManager.characterManager.setAbsent(entity, !entity.absent);
       gameManager.stateManager.after();
     }
   }
@@ -92,10 +90,7 @@ export class CharacterHelper {
       const character = this.component.entity;
       if (this.component.experience !== 0) {
         this.component.before('changeXP', ghsValueSign(this.component.experience));
-        character.experience += this.component.experience;
-        if (character.experience < 0) {
-          character.experience = 0;
-        }
+        gameManager.characterManager.changeExperience(character, this.component.experience);
         gameManager.stateManager.after();
       }
 
@@ -105,25 +100,27 @@ export class CharacterHelper {
         gameManager.stateManager.after();
       }
 
-      if (this.component.characterToken !== 0) {
-        let token = character.token + this.component.characterToken;
-        if (token < 0) {
-          token = 0;
-        }
-        this.component.before('characterToken', character.name, token);
-        character.token = token;
+      if (gameManager.characterManager.canChangeToken(this.component.characterToken)) {
+        this.component.before(
+          'characterToken',
+          character.name,
+          gameManager.characterManager.tokenAfter(character, this.component.characterToken)
+        );
+        gameManager.characterManager.changeToken(character, this.component.characterToken);
         this.component.characterToken = 0;
         gameManager.stateManager.after();
       }
 
       for (let index = 0; index < character.tokens.length; index++) {
-        if (this.component.characterTokenValues[index] !== 0) {
-          let tokenValue = character.tokenValues[index] + this.component.characterTokenValues[index];
-          if (tokenValue < 0) {
-            tokenValue = 0;
-          }
-          this.component.before('characterTokenValue', character.name, character.tokens[index], tokenValue);
-          character.tokenValues[index] = tokenValue;
+        const value = this.component.characterTokenValues[index];
+        if (gameManager.characterManager.canChangeTokenValue(character, index, value)) {
+          this.component.before(
+            'characterTokenValue',
+            character.name,
+            character.tokens[index],
+            gameManager.characterManager.tokenValueAfter(character, index, value)
+          );
+          gameManager.characterManager.changeTokenValue(character, index, value);
           this.component.characterTokenValues[index] = 0;
           gameManager.stateManager.after();
         }

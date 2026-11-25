@@ -1,6 +1,7 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
-import { EditionData } from 'src/app/game/model/data/EditionData';
+import { CampaignData, EditionData } from 'src/app/game/model/data/EditionData';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 function buildEdition(edition: string, overrides: Partial<EditionData> = {}): EditionData {
   const data = new EditionData(edition, [], [], [], [], [], []);
@@ -9,7 +10,7 @@ function buildEdition(edition: string, overrides: Partial<EditionData> = {}): Ed
 
 describe('CampaignManager', () => {
   beforeEach(() => {
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = [];
     gameManager.game.edition = undefined;
     gameManager.game.party.prosperity = 0;
@@ -20,7 +21,7 @@ describe('CampaignManager', () => {
 
   describe('prosperityLevel / prosperityTicks', () => {
     beforeEach(() => {
-      gameManager.editionData = [buildEdition('gh'), buildEdition('cs'), buildEdition('gh2e')];
+      gameManager.editionManager.editionData = [buildEdition('gh'), buildEdition('cs'), buildEdition('gh2e')];
     });
 
     it('prosperityTicks equals raw prosperity outside of gh/cs/gh2e envelope rules', () => {
@@ -107,9 +108,41 @@ describe('CampaignManager', () => {
       expect(unlockBuildings).toHaveBeenCalled();
     });
 
+    it('keeps buildings and town guard deck when cancelling a campaign with progress', () => {
+      gameManager.game.edition = 'fh';
+      gameManager.game.party.campaignMode = true;
+      gameManager.game.party.scenarios = [new GameScenarioModel('1', 'fh')];
+      gameManager.game.party.townGuardDeck = new AttackModifierDeck([]).toModel();
+      const resetBuildings = vi.spyOn(gameManager.buildingsManager, 'resetBuildings').mockImplementation(() => {});
+      try {
+        gameManager.campaignManager.cancelCampaign();
+        expect(resetBuildings).not.toHaveBeenCalled();
+        expect(gameManager.game.party.townGuardDeck).toBeDefined();
+        expect(gameManager.game.party.campaignMode).toBe(false);
+      } finally {
+        gameManager.game.party.scenarios = [];
+      }
+    });
+
+    it('detects a missing campaign setup', () => {
+      gameManager.game.party.campaignMode = true;
+      vi.spyOn(gameManager.campaignManager, 'campaignData').mockReturnValue(undefined as any);
+      const unlocks = vi.spyOn(gameManager.buildingsManager, 'buildingsToUnlock').mockReturnValue([]);
+      expect(gameManager.campaignManager.campaignSetupMissing()).toBe(false);
+      unlocks.mockReturnValue([{ data: {} as any, level: 1 }]);
+      expect(gameManager.campaignManager.campaignSetupMissing()).toBe(true);
+      gameManager.game.party.campaignMode = false;
+      expect(gameManager.campaignManager.campaignSetupMissing()).toBe(false);
+    });
+
     it('cancels a campaign', () => {
       gameManager.game.edition = 'fh';
       gameManager.game.party.campaignMode = true;
+      gameManager.game.party.scenarios = [];
+      gameManager.game.party.conclusions = [];
+      gameManager.game.party.retirements = [];
+      gameManager.game.party.weeks = 0;
+      gameManager.game.party.buildings = [];
       gameManager.game.party.townGuardDeck = new AttackModifierDeck([]).toModel();
       const resetBuildings = vi.spyOn(gameManager.buildingsManager, 'resetBuildings').mockImplementation(() => {});
       gameManager.campaignManager.cancelCampaign();
@@ -119,5 +152,38 @@ describe('CampaignManager', () => {
       expect(gameManager.game.party.campaignMode).toBe(false);
       expect(gameManager.game.party.eventDecks).toEqual({});
     });
+  });
+
+  describe('morale conclusions', () => {
+    beforeEach(() => {
+      gameManager.game.edition = 'fh';
+      gameManager.game.party.conclusions = [];
+      vi.spyOn(gameManager.campaignManager, 'campaignData').mockReturnValue(
+        Object.assign(new CampaignData(), { lowMorale: ['l1', 'l2'], highMorale: ['h1'] })
+      );
+    });
+
+    afterEach(() => vi.restoreAllMocks());
+
+    it('picks the next unsolved conclusion and repeats the last low morale one', () => {
+      const campaignManager = gameManager.campaignManager;
+      expect(campaignManager.prepareMoraleConclusion(5)).toBeUndefined();
+      expect(campaignManager.prepareMoraleConclusion(0)).toBe('l1');
+      gameManager.game.party.conclusions = [new GameScenarioModel('l1', 'fh'), new GameScenarioModel('l2', 'fh')];
+      expect(campaignManager.moraleConclusionsSolved(['l1', 'l2'])).toBe(2);
+      expect(campaignManager.prepareMoraleConclusion(0)).toBe('l2');
+      expect(gameManager.game.party.conclusions.map((model) => model.index)).toEqual(['l1']);
+      expect(campaignManager.prepareMoraleConclusion(20)).toBe('h1');
+      gameManager.game.party.conclusions.push(new GameScenarioModel('h1', 'fh'));
+      expect(campaignManager.prepareMoraleConclusion(20)).toBeUndefined();
+    });
+  });
+
+  it('keeps inspiration from dropping below zero', () => {
+    gameManager.game.party.inspiration = 2;
+    gameManager.campaignManager.changeInspiration(-5);
+    expect(gameManager.game.party.inspiration).toBe(0);
+    gameManager.campaignManager.changeInspiration(3);
+    expect(gameManager.game.party.inspiration).toBe(3);
   });
 });

@@ -12,28 +12,24 @@ export class SpecialActionsHelper {
 
     if (this.component.figure instanceof Character && this.component.figure.specialActions) {
       const character = this.component.figure as Character;
-      this.component.specialActions = character.specialActions.filter(
-        (specialAction) =>
-          (!specialAction.level || specialAction.level <= character.level) &&
-          ((this.component.entity instanceof Character && !specialAction.summon) ||
-            (this.component.entity instanceof Summon && specialAction.summon))
-      );
 
       character.specialActions.forEach((specialAction) => {
+        const entity = this.component.entity;
         if (
-          this.component.entity instanceof Character &&
-          !specialAction.summon &&
-          this.component.entity.tags.includes(specialAction.name)
-        ) {
-          this.component.specialTags.push(specialAction.name);
-        } else if (
-          this.component.entity instanceof Summon &&
-          specialAction.summon &&
-          this.component.entity.tags.includes(specialAction.name)
+          ((entity instanceof Character && !specialAction.summon) || (entity instanceof Summon && specialAction.summon)) &&
+          entity.tags.includes(specialAction.name) &&
+          !this.component.specialTags.includes(specialAction.name)
         ) {
           this.component.specialTags.push(specialAction.name);
         }
       });
+
+      this.component.specialActions = character.specialActions.filter(
+        (specialAction) =>
+          (!!this.component.entity &&
+            gameManager.specialActionsManager.specialActionAvailable(character, this.component.entity, specialAction)) ||
+          this.component.specialTags.includes(specialAction.name)
+      );
     }
   }
 
@@ -71,7 +67,7 @@ export class SpecialActionsHelper {
         );
 
         specialTagsToRemove.forEach((specialTagToRemove) => {
-          gameManager.specialActionsManager.removeSpecialAction(entity, character, specialTagToRemove);
+          gameManager.specialActionsManager.setSpecialAction(character, entity, specialTagToRemove, false);
         });
 
         if (entity instanceof Character) {
@@ -92,7 +88,7 @@ export class SpecialActionsHelper {
         );
 
         specialTagsToAdd.forEach((specialTagToAdd) => {
-          gameManager.specialActionsManager.addSpecialAction(entity, character, specialTagToAdd);
+          gameManager.specialActionsManager.setSpecialAction(character, entity, specialTagToAdd, true);
         });
 
         if (entity instanceof Character) {

@@ -1245,6 +1245,7 @@
         "": "Suchen…",
         "affordable": "Nur erschwingliche Gegenstände",
         "all": "Alle Gegenstände anzeigen",
+        "available": "Verfügbare Gegenstände anzeigen",
         "filtered": "Entfernt",
         "filtert": "Entfernte",
         "owned": "Nur eigene Gegenstände",
@@ -1491,6 +1492,12 @@
   "menu": {
     "backToMain": "Zurück zum %menu.main%",
     "main": "Hauptmenu"
+  },
+  "missingData": {
+    "": "Die Spieldaten für <b>{0}</b> konnten nicht geladen werden, werden aber von deinem Spiel verwendet. Damit dein Spiel nicht unvollständig gespeichert wird (z.B. ohne das aktuelle Szenario oder die Herausforderungskarten), wurde es nicht geladen. Bitte prüfe deine Verbindung und lade neu.",
+    "force": "Trotzdem fortfahren",
+    "forceHint": "Achtung: Alles in deinem Spiel, das die fehlenden Daten verwendet, geht verloren!",
+    "reload": "Neu laden"
   },
   "monster": {
     "": "Monster",
@@ -3514,8 +3521,12 @@
         "slotBack": "{0} markiert Slot von Gegenstand {1} \"{3}\"",
         "spent": "{0} erneuert Gegenstand {1} \"{3}\""
       },
+      "characterItemsHide": "Gegenstände von {0} ausblenden",
+      "characterItemsShow": "Gegenstände von {0} einblenden",
       "characterLongRest": "Lange Rast für {0} setzen",
       "characterLongRestOff": "Lange Rast für {0} deaktivieren",
+      "characterLootCardsHide": "Beutekarten von {0} ausblenden",
+      "characterLootCardsShow": "Beutekarten von {0} einblenden",
       "characterReplay": "{0} wieder spielen für Spieler {1}",
       "characterSetAside": "Lege {0} beiseite für Spieler {1}",
       "clearDiscardedScenarioRules": "Verworfene Szenario Regeln wiederherstellen",
@@ -3969,6 +3980,7 @@
         "trial": "Prüfung für {0} umschalten"
       },
       "gameClock": {
+        "automaticGameClockIn": "Spieltimer automatisch starten",
         "automaticGameClockOut": "Spieltimer automatisch pausieren",
         "clockIn": "Spieltimer starten",
         "clockOut": "Spieltimer pausieren",
@@ -4219,6 +4231,7 @@
       "setSummonState": "Beschwörung {1} {2} für {0}",
       "setTitle": "Titel '{1}' für {0}",
       "setTrial": "Prüfung {1} für {0}",
+      "setupCampaign": "Kampagne eingerichtet",
       "setXP": "EP {1} für {0}",
       "shareItem": "{0} teilt \"%data.items.{3}-{2}%\" (Gegenstand {2}) mit {1}",
       "shuffleAbilityDeck": "Fertigkeitskarten mischen für {0}",

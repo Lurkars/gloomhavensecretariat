@@ -47,7 +47,7 @@ describe('ChallengeDeckDialogComponent', () => {
     gameManager.game.state = GameState.draw;
     gameManager.game.scenario = new Scenario(Object.assign(new ScenarioData(), { edition: 'gh', index: '1' }));
     gameManager.roundManager.firstRound = true;
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
   });
 
@@ -92,6 +92,12 @@ describe('ChallengeDeckDialogComponent', () => {
   });
 
   describe('toggleKeep', () => {
+    beforeEach(() => {
+      vi.spyOn(gameManager.challengesManager, 'keepAvailable').mockReturnValue(2);
+    });
+
+    afterEach(() => vi.restoreAllMocks());
+
     it('toggles keep during the first round in draw state', () => {
       const deck = buildDeck(3);
       deck.current = 1;
@@ -149,9 +155,11 @@ describe('ChallengeDeckDialogComponent', () => {
       const component = createComponent(deck);
       component.update();
       const removedCard = new ChallengeCard(99, 'gh', undefined);
+      vi.spyOn(gameManager.editionManager, 'challengesData').mockReturnValue([removedCard]);
       component.removedCards = [removedCard];
       component.restoreCard(0);
       expect(deck.cards).toContain(removedCard);
+      vi.restoreAllMocks();
     });
 
     it('is a no-op for an out-of-range index', () => {

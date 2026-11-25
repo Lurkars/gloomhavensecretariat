@@ -3,7 +3,8 @@ import { NgClass } from '@angular/common';
 import { Component, inject, output, viewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { LabelManager } from 'src/app/game/businesslogic/LabelManager';
+import { gameManager, labelManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { StorageManager } from 'src/app/game/businesslogic/StorageManager';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
@@ -45,6 +46,7 @@ export class SettingsMenuComponent {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  labelManager: LabelManager = labelManager;
   storageManager: StorageManager = storageManager;
   GameState = GameState;
   SubMenu = SubMenu;
@@ -73,7 +75,7 @@ export class SettingsMenuComponent {
       const condition = new Condition(conditionName);
       if (
         !gameManager.game.edition ||
-        gameManager
+        gameManager.conditionManager
           .conditions(gameManager.game.edition)
           .map((condition) => condition.name)
           .includes(condition.name) ||
@@ -108,8 +110,8 @@ export class SettingsMenuComponent {
         const setting = item.setting();
         const labelMatch =
           ghsTextSearch(setting, this.filter) ||
-          ghsTextSearch(settingsManager.getLabel('settings.' + setting), this.filter) ||
-          ghsTextSearch(settingsManager.getLabel('settings.' + setting + '.hint'), this.filter);
+          ghsTextSearch(labelManager.getLabel('settings.' + setting), this.filter) ||
+          ghsTextSearch(labelManager.getLabel('settings.' + setting + '.hint'), this.filter);
 
         if (item.values().length > 0) {
           // Radio-type: filter individual value rows
@@ -121,7 +123,7 @@ export class SettingsMenuComponent {
               labelMatch ||
               (value !== undefined &&
                 (ghsTextSearch(value, this.filter) ||
-                  ghsTextSearch(settingsManager.getLabel('settings.' + item.setting() + '.' + value), this.filter)));
+                  ghsTextSearch(labelManager.getLabel('settings.' + item.setting() + '.' + value), this.filter)));
             el.classList.toggle('filter-hidden', !valueMatch);
             if (valueMatch) {
               anyVisible = true;

@@ -33,11 +33,11 @@ export function resolveAttackModifierDeck(id: BASE_TYPE | undefined): ResolvedAt
     if (!gameManager.game.party.townGuardDeck) {
       return undefined;
     }
-    const deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
+    const deck = gameManager.attackModifierBuildManager.buildTownGuardAttackModifierDeck(
       gameManager.game.party,
       gameManager.campaignManager.campaignData()
     );
-    gameManager.attackModifierManager.fromModel(deck, gameManager.game.party.townGuardDeck);
+    gameManager.attackModifierBuildManager.fromModel(deck, gameManager.game.party.townGuardDeck);
     const resolved: ResolvedAttackModifierDeck = {
       deck: deck,
       character: undefined,

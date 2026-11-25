@@ -50,7 +50,7 @@ describe('ScenarioSummaryComponent', () => {
     gameManager.game.party.conclusions = [];
     gameManager.game.lootDeck.cards = [];
     gameManager.game.unlockedCharacters = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
     scenario = new Scenario(Object.assign(new ScenarioData(), { edition: 'gh', index: '1' }));
   });
@@ -132,7 +132,9 @@ describe('ScenarioSummaryComponent', () => {
   describe('retirementCharacter', () => {
     it('names the character holding the personal quest, matched by card id or alt id', () => {
       const personalQuest = Object.assign(new PersonalQuest(), { cardId: '509', altId: '12', edition: 'gh' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [personalQuest] })
+      ];
       const component = createComponent(scenario);
       const character = buildCharacter('brute');
       character.progress.personalQuest = '509';
@@ -158,7 +160,7 @@ describe('ScenarioSummaryComponent', () => {
 
     it('describes a completed personal quest as retirement for GH2E', () => {
       const component = createComponent(scenario);
-      vi.spyOn(gameManager, 'isEditionRelevant').mockReturnValue(true);
+      vi.spyOn(gameManager.editionManager, 'isEditionRelevant').mockReturnValue(true);
       expect(component.characterRetirementLabel()).toBe('scenario.rewards.characterRetirement');
       vi.restoreAllMocks();
     });
@@ -183,7 +185,7 @@ describe('ScenarioSummaryComponent', () => {
       const component = createComponent(scenario);
       gameManager.game.edition = 'fh';
       settingsManager.settings.editions = ['fh'];
-      gameManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
+      gameManager.editionManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
       gameManager.game.party.campaignMode = true;
       component.conclusionOnly = false;
       component.scenario.solo = undefined;
@@ -298,8 +300,8 @@ describe('ScenarioSummaryComponent', () => {
       gameManager.game.figures = [brute, tinkerer];
       vi.spyOn(gameManager.stateManager, 'before').mockImplementation(() => {});
       vi.spyOn(gameManager.stateManager, 'after').mockImplementation(async () => {});
-      vi.spyOn(gameManager.scenarioManager, 'finishScenario').mockImplementation(() => {});
-      const addItem = vi.spyOn(gameManager.itemManager, 'addItem').mockImplementation(() => {});
+      vi.spyOn(gameManager.scenarioFinishManager, 'finishScenario').mockImplementation(() => {});
+      const addItem = vi.spyOn(gameManager.itemManager, 'grantItem').mockImplementation(() => {});
       vi.spyOn(gameManager.itemManager, 'addItemCount').mockImplementation(() => {});
 
       const component = createComponent(buildConclusion({ gold: 50 }));

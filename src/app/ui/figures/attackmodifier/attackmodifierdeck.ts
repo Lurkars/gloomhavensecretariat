@@ -148,7 +148,7 @@ export class AttackModifierDeckComponent extends DeckDrawDirective implements On
     this.initQueue(this.initTimeout());
 
     if (this.edition && !this.newStyle) {
-      this.newStyle = gameManager.newAmStyle(this.edition);
+      this.newStyle = gameManager.editionManager.newAmStyle(this.edition);
     }
 
     if (settingsManager.settings.fhStyle) {
@@ -289,14 +289,13 @@ export class AttackModifierDeckComponent extends DeckDrawDirective implements On
 
   clickCard(index: number, event: any, force: boolean = false) {
     if (!this.drawing || index > this.current) {
-      const am: AttackModifier = this.deck.cards[index];
-      if (am.active && !this.deck.discarded.includes(index)) {
+      if (gameManager.attackModifierManager.canSetDiscarded(this.deck, index, true)) {
         this.before.emit(new AttackModiferDeckChange(this.deck, 'discardFromActive', index));
         gameManager.attackModifierManager.setDiscarded(this.deck, index, true);
         this.after.emit(new AttackModiferDeckChange(this.deck, 'discardFromActive', index));
-      } else if (am.active && this.deck.discarded.includes(index) && force) {
+      } else if (gameManager.attackModifierManager.canSetDiscarded(this.deck, index, false, force)) {
         this.before.emit(new AttackModiferDeckChange(this.deck, 'restoreToActive', index));
-        gameManager.attackModifierManager.setDiscarded(this.deck, index, false);
+        gameManager.attackModifierManager.setDiscarded(this.deck, index, false, force);
         this.after.emit(new AttackModiferDeckChange(this.deck, 'restoreToActive', index));
       } else {
         this.open(event);

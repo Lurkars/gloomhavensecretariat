@@ -3,7 +3,6 @@ import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { Scenario } from 'src/app/game/model/Scenario';
 
 export function findScenarioData(edition: BASE_TYPE | undefined, index: BASE_TYPE | undefined, group: BASE_TYPE | undefined) {
   if (typeof edition !== 'string' || typeof index !== 'string') {
@@ -23,19 +22,26 @@ export class ScenarioSetCommand extends CommandImpl {
   id: string = 'scenario.set';
   requiredParameters: number = 3;
 
-  validParameters(edition: string, index: string, seed: number, group: string = ''): boolean {
-    if (!validSeed(seed)) {
+  validParameters(
+    edition: string,
+    index: string,
+    seed: number,
+    group: string = '',
+    linked: boolean = false,
+    force: boolean = false
+  ): boolean {
+    if (!validSeed(seed) || typeof linked !== 'boolean' || typeof force !== 'boolean') {
       return false;
     }
     const scenarioData = findScenarioData(edition, index, group);
-    return !!scenarioData && !gameManager.scenarioManager.isCurrent(scenarioData);
+    return !!scenarioData && gameManager.scenarioManager.canSelectScenario(scenarioData, force);
   }
 
-  executeWithParameters(edition: string, index: string, seed: number, group: string = '', linked: boolean = false) {
+  executeWithParameters(edition: string, index: string, seed: number, group: string = '', linked: boolean = false, force: boolean = false) {
     gameManager.game.seed = seed;
     const scenarioData = findScenarioData(edition, index, group);
     if (scenarioData) {
-      gameManager.scenarioManager.setScenario(new Scenario(scenarioData), linked);
+      gameManager.scenarioManager.selectScenario(scenarioData, linked, force);
     } else {
       this.executionError('scenario not found');
     }
@@ -55,10 +61,7 @@ export class ScenarioResetCommand extends CommandImpl {
 
   executeWithParameters(seed: number) {
     gameManager.game.seed = seed;
-    gameManager.roundManager.resetScenario();
-    if (gameManager.game.scenario) {
-      gameManager.scenarioManager.setScenario(gameManager.game.scenario);
-    }
+    gameManager.scenarioManager.resetScenario();
   }
 }
 
@@ -80,16 +83,11 @@ export class ScenarioCustomCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(custom: boolean): boolean {
-    return typeof custom === 'boolean';
+    return gameManager.scenarioManager.canSetCustomScenario(custom);
   }
 
   executeWithParameters(custom: boolean) {
-    const isCustom = !!gameManager.game.scenario && gameManager.game.scenario.custom;
-    if (custom && !isCustom) {
-      gameManager.scenarioManager.setScenario(gameManager.scenarioManager.createScenario());
-    } else if (!custom && isCustom) {
-      gameManager.scenarioManager.setScenario(undefined);
-    }
+    gameManager.scenarioManager.setCustomScenario(custom);
   }
 }
 
@@ -98,13 +96,11 @@ export class ScenarioCustomNameCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(name: string): boolean {
-    return typeof name === 'string' && !!gameManager.game.scenario && gameManager.game.scenario.custom;
+    return gameManager.scenarioManager.canSetCustomScenarioName(name);
   }
 
   executeWithParameters(name: string) {
-    if (gameManager.game.scenario) {
-      gameManager.game.scenario.name = name;
-    }
+    gameManager.scenarioManager.setCustomScenarioName(name);
   }
 }
 
@@ -145,20 +141,15 @@ export class ScenarioRoomCommand extends CommandImpl {
     if (!validSeed(seed)) {
       return false;
     }
-    const scenario = gameManager.game.scenario;
-    return (
-      typeof roomNumber === 'number' &&
-      !!scenario &&
-      !!this.room(roomNumber, sectionIndex) &&
-      !(scenario.revealedRooms || []).includes(roomNumber)
-    );
+    const room = typeof roomNumber === 'number' ? this.room(roomNumber, sectionIndex) : undefined;
+    return !!room && gameManager.scenarioManager.canRevealRoom(room.roomData);
   }
 
   executeWithParameters(roomNumber: number, seed: number, sectionIndex: string = '') {
     gameManager.game.seed = seed;
     const room = this.room(roomNumber, sectionIndex);
     if (room) {
-      gameManager.scenarioManager.openRoom(room.roomData, room.scenario, false);
+      gameManager.scenarioManager.revealRoom(room.roomData, room.scenario, false);
     } else {
       this.executionError('room not found');
     }

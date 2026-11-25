@@ -18,8 +18,10 @@ export class CharacterSheetLevelComponent extends CharacterSheetSection {
       level--;
     }
     level = Math.min(9, Math.max(1, level));
-    gameManager.entityManager.before(this.character, this.character, 'setLevel', level);
-    gameManager.characterManager.setLevel(this.character, level);
-    gameManager.stateManager.after();
+    if (gameManager.characterManager.canSetLevel(this.character, level)) {
+      gameManager.entityManager.before(this.character, this.character, 'setLevel', level);
+      gameManager.characterManager.setLevel(this.character, level);
+      gameManager.stateManager.after();
+    }
   }
 }

@@ -1,6 +1,5 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { ConditionType, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
@@ -17,8 +16,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { SummonState } from 'src/app/game/model/Summon';
-import { deckMove } from 'src/app/game/util/deck';
+import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { evaluateExpression } from 'src/app/game/util/ExpressionEvaluator';
 
 export const RPG_DEFAULT_SPEED = 1;
@@ -39,7 +37,7 @@ export class MonsterManager {
     }
 
     if (!monsterData.thumbnail && monsterData.standeeShare) {
-      const share = gameManager
+      const share = gameManager.editionManager
         .monstersData(monsterData.standeeShareEdition || monsterData.edition)
         .find((value) => value.name === monsterData.standeeShare);
       if (share) {
@@ -205,7 +203,7 @@ export class MonsterManager {
 
   getMonsterSpawns(monster: MonsterData): MonsterData[] {
     const monsters: MonsterData[] = [];
-    const deck = gameManager.deckData(new Monster(monster));
+    const deck = gameManager.editionManager.deckData(new Monster(monster));
     if (deck && deck.abilities) {
       deck.abilities.forEach((abilityCard) => {
         abilityCard.actions.forEach((action) => {
@@ -254,14 +252,16 @@ export class MonsterManager {
   getActionSpawns(action: Action, edition: string): MonsterData[] {
     if (action.type === ActionType.summon || action.type === ActionType.spawn) {
       if (action.value !== 'summonData' && action.value !== 'monsterStandee') {
-        const summon = gameManager.monstersData(edition).find((monsterData) => monsterData.name === ('' + action.value).split(':')[0]);
+        const summon = gameManager.editionManager
+          .monstersData(edition)
+          .find((monsterData) => monsterData.name === ('' + action.value).split(':')[0]);
         if (summon) {
           return [summon];
         }
       } else if (action.value === 'monsterStandee' && action.valueObject) {
         const spawns: MonsterData[] = [];
         (action.valueObject as MonsterSpawnData[]).forEach((spawnData) => {
-          const spawn = gameManager.monstersData(edition).find((monsterData) => monsterData.name === spawnData.monster.name);
+          const spawn = gameManager.editionManager.monstersData(edition).find((monsterData) => monsterData.name === spawnData.monster.name);
           if (spawn) {
             spawns.push(spawn);
           }
@@ -274,9 +274,9 @@ export class MonsterManager {
   }
 
   addMonsterByName(name: string, edition: string): Monster | undefined {
-    let level = gameManager.game.level;
+    let level = this.game.level;
     if (name.split(':').length > 1) {
-      level = evaluateExpression(gameManager.game.level + name.split(':')[1]);
+      level = evaluateExpression(this.game.level + name.split(':')[1]);
       if (level < 0) {
         level = 0;
       } else if (level > 7) {
@@ -288,13 +288,13 @@ export class MonsterManager {
       name = name.split(':')[0];
     }
 
-    let monsterData = gameManager
+    let monsterData = gameManager.editionManager
       .monstersData()
-      .find((monsterData) => monsterData.name === name && gameManager.isEditionRelevant(monsterData.edition, edition));
+      .find((monsterData) => monsterData.name === name && gameManager.editionManager.isEditionRelevant(monsterData.edition, edition));
 
     if (!monsterData) {
       console.warn("Monster not found: '" + name + "' for edition :" + edition);
-      monsterData = gameManager.monstersData().find((monsterData) => monsterData.name === name);
+      monsterData = gameManager.editionManager.monstersData().find((monsterData) => monsterData.name === name);
       if (monsterData) {
         monsterData.errors = monsterData.errors || [];
         if (!monsterData.errors.find((error) => error.type === FigureErrorType.monsterEdition)) {
@@ -324,37 +324,23 @@ export class MonsterManager {
     ) as Monster;
     if (!monster) {
       monster = new Monster(monsterData);
-      this.applySameDeck(monster);
+      gameManager.monsterAbilityManager.applySameDeck(monster);
       this.setLevel(monster, level);
       monster.off = true;
-      this.resetMonsterAbilities(monster);
+      gameManager.monsterAbilityManager.resetMonsterAbilities(monster);
       this.game.figures.push(monster);
       if (gameManager.rpgRules()) {
-        this.setRpgSpeed(monster, RPG_DEFAULT_SPEED);
+        this.applyRpgSpeed(monster, RPG_DEFAULT_SPEED);
       }
-    } else if (level !== gameManager.game.level && monster.level !== level) {
+    } else if (level !== this.game.level && monster.level !== level) {
       this.setLevel(monster, level);
     }
 
-    if (gameManager.game.state === GameState.next) {
-      gameManager.sortFigures(monster);
+    if (this.game.state === GameState.next) {
+      gameManager.roundManager.sortFigures(monster);
     }
 
     return monster;
-  }
-
-  resetMonsterAbilities(monster: Monster) {
-    if (!this.applySameDeck(monster)) {
-      if (!monster.abilities || monster.abilities.length === 0) {
-        const abilityCards = gameManager.abilityCards(monster);
-        monster.abilities = abilityCards
-          .map((abilityCard) => abilityCards.indexOf(abilityCard))
-          .filter(
-            (i) => !abilityCards[i].level || isNaN(+abilityCards[i].level) || EntityValueFunction(abilityCards[i].level) <= monster.level
-          );
-      }
-      this.shuffleAbilities(monster);
-    }
   }
 
   removeMonster(monster: Monster) {
@@ -367,15 +353,21 @@ export class MonsterManager {
           figure instanceof Monster &&
           figure.drawExtra &&
           (figure.name !== monster.name || figure.edition !== monster.edition) &&
-          gameManager.deckData(figure).name === gameManager.deckData(monster).name &&
-          gameManager.deckData(figure).edition === gameManager.deckData(monster).edition
+          gameManager.editionManager.deckData(figure).name === gameManager.editionManager.deckData(monster).name &&
+          gameManager.editionManager.deckData(figure).edition === gameManager.editionManager.deckData(monster).edition
         ) {
-          if (!this.getSameDeckMonster(figure)) {
+          if (!gameManager.monsterAbilityManager.getSameDeckMonster(figure)) {
             figure.drawExtra = false;
           }
         }
       });
     }
+  }
+
+  removeAllMonsters(unused: boolean = false) {
+    (this.game.figures.filter((figure) => figure instanceof Monster) as Monster[])
+      .filter((monster) => !unused || !monster.entities.some((entity) => gameManager.entityManager.isAlive(entity)))
+      .forEach((monster) => this.removeMonster(monster));
   }
 
   changeType(entity: MonsterEntity, monster: Monster) {
@@ -510,7 +502,7 @@ export class MonsterManager {
 
     let max = EntityValueFunction(monster.standeeCount || monster.count || 0, monster.level);
     if ((!max || !monster.standeeCount) && monster.standeeShare) {
-      const share = gameManager
+      const share = gameManager.editionManager
         .monstersData(monster.standeeShareEdition || monster.edition)
         .find((value) => value.name === monster.standeeShare);
       if (share) {
@@ -570,7 +562,7 @@ export class MonsterManager {
     if (entity && this.game.state === GameState.next) {
       monster.active = !this.game.figures.some((figure) => figure.active);
       if (monster.active) {
-        gameManager.sortFigures(monster);
+        gameManager.roundManager.sortFigures(monster);
         entity.active = true;
       }
     }
@@ -578,6 +570,13 @@ export class MonsterManager {
   }
 
   renumberStandee(monster: Monster, entity: MonsterEntity, number: number) {
+    // a dead standee with this number is taken from the board
+    const dead = monster.entities.find(
+      (other) => other !== entity && other.number === number && !gameManager.entityManager.isAlive(other) && !other.dormant
+    );
+    if (dead) {
+      this.removeMonsterEntity(monster, dead);
+    }
     const existing = this.monsterStandeeUsed(monster, number);
     if (existing && existing !== entity) {
       let otherNumber = -1;
@@ -620,7 +619,7 @@ export class MonsterManager {
 
     monster.entities = monster.entities.filter((other) => other.number !== number);
     monster.entities.push(monsterEntity);
-    gameManager.addEntityCount(monster, monsterEntity);
+    gameManager.entityCounterManager.addEntityCount(monster, monsterEntity);
 
     if (monster.tags.includes('addedManually')) {
       monster.tags = monster.tags.filter((tag) => tag !== 'addedManually');
@@ -632,19 +631,23 @@ export class MonsterManager {
     if (!summon || gameManager.fhRules(true)) {
       if (this.game.state === GameState.next && gameManager.rpgRules()) {
         if (monster.ability === -1) {
-          this.setRpgSpeed(monster, RPG_DEFAULT_SPEED);
+          this.applyRpgSpeed(monster, RPG_DEFAULT_SPEED);
           monster.lastDraw = this.game.round;
         }
       } else if (this.game.state === GameState.next) {
         if (monster.ability === -1) {
-          if (!this.applySameDeck(monster)) {
+          if (!gameManager.monsterAbilityManager.applySameDeck(monster)) {
             monster.ability = 0;
             monster.lastDraw = this.game.round;
           } else if (monster.ability === -1) {
             monster.ability = 0;
             monster.lastDraw = this.game.round;
           }
-        } else if (monster.entities.length === 1 && !this.applySameDeck(monster) && monster.lastDraw < this.game.round) {
+        } else if (
+          monster.entities.length === 1 &&
+          !gameManager.monsterAbilityManager.applySameDeck(monster) &&
+          monster.lastDraw < this.game.round
+        ) {
           monster.ability =
             monster.ability +
             1 +
@@ -652,29 +655,29 @@ export class MonsterManager {
               (f) =>
                 f instanceof Monster &&
                 (f.name !== monster.name || f.edition !== monster.edition) &&
-                gameManager.deckData(f).name === gameManager.deckData(monster).name &&
-                gameManager.deckData(f).edition === gameManager.deckData(monster).edition &&
+                gameManager.editionManager.deckData(f).name === gameManager.editionManager.deckData(monster).name &&
+                gameManager.editionManager.deckData(f).edition === gameManager.editionManager.deckData(monster).edition &&
                 f.drawExtra &&
                 f.ability > -1
             ).length;
           monster.lastDraw = this.game.round;
 
           if (monster.ability >= monster.abilities.length) {
-            this.shuffleAbilities(monster);
+            gameManager.monsterAbilityManager.shuffleAbilities(monster);
           }
         }
       }
 
       if (this.game.state === GameState.next && this.monsterEntityCount(monster) === 1) {
-        let monsterIndex = gameManager.game.figures.indexOf(monster);
-        const sameDeckMonster = this.getSameDeckMonster(monster);
+        let monsterIndex = this.game.figures.indexOf(monster);
+        const sameDeckMonster = gameManager.monsterAbilityManager.getSameDeckMonster(monster);
 
-        if (sameDeckMonster && gameManager.gameplayFigure(sameDeckMonster)) {
-          this.applySameDeck(monster);
+        if (sameDeckMonster && gameManager.entityManager.gameplayFigure(sameDeckMonster)) {
+          gameManager.monsterAbilityManager.applySameDeck(monster);
         }
 
         while (
-          gameManager.game.figures.some(
+          this.game.figures.some(
             (figure, index) =>
               !figure.off &&
               index < monsterIndex &&
@@ -684,9 +687,9 @@ export class MonsterManager {
                   figure.name.toLowerCase() > monster.name.toLowerCase()))
           )
         ) {
-          gameManager.game.figures.splice(monsterIndex, 1);
+          this.game.figures.splice(monsterIndex, 1);
           monsterIndex--;
-          gameManager.game.figures.splice(monsterIndex, 0, monster);
+          this.game.figures.splice(monsterIndex, 0, monster);
         }
       }
 
@@ -701,7 +704,7 @@ export class MonsterManager {
 
       if (this.game.state === GameState.next && monsterEntity.summon !== SummonState.new) {
         monsterEntity.active =
-          monster.active || gameManager.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(monster));
+          monster.active || this.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(monster));
       }
     }
 
@@ -767,9 +770,9 @@ export class MonsterManager {
       monster.entities.length === 0 ||
       monster.entities.every((entity) => !gameManager.entityManager.isAlive(entity) && !entity.dormant)
     ) {
-      if (!monster.off && gameManager.game.state === GameState.next) {
+      if (!monster.off && this.game.state === GameState.next) {
         if (monster.active) {
-          gameManager.roundManager.toggleFigure(monster);
+          gameManager.turnManager.toggleFigure(monster);
         } else {
           monster.off = true;
         }
@@ -788,15 +791,6 @@ export class MonsterManager {
     }
   }
 
-  moveAbility(monster: Monster, fromList: string, fromIndex: number, toList: string, toIndex: number) {
-    monster.ability = deckMove(monster.ability, fromList, fromIndex, toList, toIndex, monster.abilities, monster.revealedAbilities).current;
-    const sameDeckMonster = this.getSameDeckMonster(monster);
-    if (sameDeckMonster) {
-      this.applySameDeck(sameDeckMonster);
-    }
-    gameManager.sortFigures();
-  }
-
   private petCaptureItem(item: AdditionalIdentifier): boolean {
     return item.edition === 'fh' && item.name === '247' && (!item.tags || !item.tags.includes(ItemFlags.consumed));
   }
@@ -812,7 +806,7 @@ export class MonsterManager {
     this.monsterEntityKilled(monster, monsterEntity);
 
     if (monster.entities.every((entity) => entity.dead) && monster.active) {
-      gameManager.roundManager.toggleFigure(monster);
+      gameManager.turnManager.toggleFigure(monster);
     }
 
     if (!this.game.party.pets.some((value) => value.edition === monster.edition && value.name === monster.pet)) {
@@ -878,11 +872,44 @@ export class MonsterManager {
     }
   }
 
-  setLevel(monster: Monster, level: number) {
+  canSetLevel(monster: Monster, level: number): boolean {
+    return Number.isInteger(level) && level >= 0 && level <= 7;
+  }
+
+  setDormant(monster: Monster, dormant: boolean): boolean {
+    if (typeof dormant !== 'boolean') {
+      return false;
+    }
+    monster.entities.forEach((entity) => (entity.dormant = dormant));
+    return true;
+  }
+
+  canSetSummonState(entity: MonsterEntity | Summon, state: SummonState): boolean {
+    return entity instanceof MonsterEntity
+      ? Object.values(SummonState).includes(state)
+      : state === SummonState.new || state === SummonState.true;
+  }
+
+  setSummonState(entity: MonsterEntity | Summon, state: SummonState): boolean {
+    if (!this.canSetSummonState(entity, state)) {
+      return false;
+    }
+    if (entity instanceof MonsterEntity) {
+      entity.summon = state;
+    } else {
+      entity.state = state;
+    }
+    return true;
+  }
+
+  setLevel(monster: Monster, level: number): boolean {
+    if (!this.canSetLevel(monster, level)) {
+      return false;
+    }
     monster.level = level;
 
     if (!this.game.scenario || (gameManager.roundManager.firstRound && this.game.state === GameState.draw)) {
-      this.resetMonsterAbilities(monster);
+      gameManager.monsterAbilityManager.resetMonsterAbilities(monster);
     }
 
     monster.entities.forEach((monsterEntity) => {
@@ -906,6 +933,7 @@ export class MonsterManager {
         monsterEntity.health = monsterEntity.maxHealth;
       }
     });
+    return true;
   }
 
   private activeStandees(monster: Monster): MonsterEntity[] {
@@ -952,7 +980,7 @@ export class MonsterManager {
       if (monster.active) {
         entity.active = !entity.active;
         if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
-          gameManager.roundManager.toggleFigure(monster);
+          gameManager.turnManager.toggleFigure(monster);
         }
       } else if (entity.active) {
         entity.active = false;
@@ -980,80 +1008,20 @@ export class MonsterManager {
     }
   }
 
-  getSameDeckMonster(monster: Monster): Monster | undefined {
-    return this.game.figures.find(
-      (figure) =>
-        figure instanceof Monster &&
-        (figure.name !== monster.name || figure.edition !== monster.edition) &&
-        gameManager.deckData(figure).name === gameManager.deckData(monster).name &&
-        gameManager.deckData(figure).edition === gameManager.deckData(monster).edition &&
-        !figure.drawExtra
-    ) as Monster | undefined;
-  }
-
-  applySameDeck(monster: Monster): boolean {
-    const sameDeckMonster = this.getSameDeckMonster(monster);
-
-    if (sameDeckMonster) {
-      monster.abilities = JSON.parse(JSON.stringify(sameDeckMonster.abilities));
-      monster.ability = sameDeckMonster.ability;
-      monster.lastDraw = this.game.round;
-
-      if (monster.drawExtra) {
-        this.drawExtra(monster);
-      }
-
-      return true;
-    }
-    return false;
-  }
-
-  drawExtra(monster: Monster) {
-    if (monster.drawExtra) {
-      monster.ability = -1;
-      const sameDeckMonster = this.getSameDeckMonster(monster);
-      if (!sameDeckMonster) {
-        console.error("Draw extra for '" + monster.name + "' (" + monster.deck + ' not possible, not same deck monster found!');
-        monster.drawExtra = false;
-        return;
-      }
-
-      monster.ability =
-        sameDeckMonster.ability +
-        1 +
-        this.game.figures.filter(
-          (figure) =>
-            figure instanceof Monster &&
-            (figure.name !== monster.name || figure.edition !== monster.edition) &&
-            gameManager.deckData(figure).name === gameManager.deckData(monster).name &&
-            gameManager.deckData(figure).edition === gameManager.deckData(monster).edition &&
-            figure.drawExtra &&
-            figure.ability > sameDeckMonster.ability
-        ).length;
-
-      if (monster.ability >= monster.abilities.length) {
-        this.shuffleAbilities(monster);
-      }
-      monster.lastDraw = this.game.round;
-    } else {
-      this.applySameDeck(monster);
-    }
-  }
-
   next() {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Monster) {
-        let abilityCard = gameManager.rpgRules() ? undefined : this.getAbilityCard(figure);
+        let abilityCard = gameManager.rpgRules() ? undefined : gameManager.monsterAbilityManager.getAbilityCard(figure);
         if (abilityCard) {
-          if (this.hasBottomActions(figure)) {
+          if (gameManager.monsterAbilityManager.hasBottomActions(figure)) {
             const secondAbilityCard = abilityCard;
-            abilityCard = this.getAbilityCard(figure, true);
+            abilityCard = gameManager.monsterAbilityManager.getAbilityCard(figure, true);
             if (
               abilityCard &&
               ((figure.firstActiveAction === 'bottom' && abilityCard.bottomLost) ||
                 (figure.firstActiveAction === 'top' && abilityCard.lost))
             ) {
-              const index = gameManager.abilityCards(figure).indexOf(abilityCard);
+              const index = gameManager.editionManager.abilityCards(figure).indexOf(abilityCard);
               figure.abilities = figure.abilities.filter((number) => number !== index);
               figure.ability -= 1;
             }
@@ -1062,21 +1030,21 @@ export class MonsterManager {
               ((figure.firstActiveAction === 'bottom' && secondAbilityCard.lost) ||
                 (figure.firstActiveAction === 'top' && secondAbilityCard.bottomLost))
             ) {
-              const index = gameManager.abilityCards(figure).indexOf(secondAbilityCard);
+              const index = gameManager.editionManager.abilityCards(figure).indexOf(secondAbilityCard);
               figure.abilities = figure.abilities.filter((number) => number !== index);
               figure.ability -= 1;
             }
           }
 
           if (
-            this.hasBottomActions(figure) &&
+            gameManager.monsterAbilityManager.hasBottomActions(figure) &&
             figure.firstActiveAction &&
             figure.ability >= figure.abilities.length + (figure.abilities.length % 2 === 0 ? -1 : -2)
           ) {
             figure.abilities.splice(0, 1);
-            this.shuffleAbilities(figure);
+            gameManager.monsterAbilityManager.shuffleAbilities(figure);
           } else if ((abilityCard && abilityCard.shuffle) || figure.ability >= figure.abilities.length) {
-            this.shuffleAbilities(figure);
+            gameManager.monsterAbilityManager.shuffleAbilities(figure);
           }
         }
 
@@ -1108,7 +1076,7 @@ export class MonsterManager {
 
         if (gameManager.rpgRules()) {
           figure.entities.forEach((entity) => (entity.rpgAction = -1));
-          this.setRpgSpeed(figure, RPG_DEFAULT_SPEED);
+          this.applyRpgSpeed(figure, RPG_DEFAULT_SPEED);
         }
       }
     });
@@ -1119,12 +1087,12 @@ export class MonsterManager {
       .filter((figure) => figure instanceof Monster && !figure.drawExtra)
       .forEach((figure) => {
         if (figure instanceof Monster) {
-          if (gameManager.gameplayFigure(figure) && gameManager.rpgRules()) {
+          if (gameManager.entityManager.gameplayFigure(figure) && gameManager.rpgRules()) {
             if (figure.ability < 0) {
-              this.setRpgSpeed(figure, RPG_DEFAULT_SPEED);
+              this.applyRpgSpeed(figure, RPG_DEFAULT_SPEED);
             }
             figure.lastDraw = this.game.round;
-          } else if (gameManager.gameplayFigure(figure)) {
+          } else if (gameManager.entityManager.gameplayFigure(figure)) {
             figure.ability =
               figure.ability +
               1 +
@@ -1132,19 +1100,19 @@ export class MonsterManager {
                 (f) =>
                   f instanceof Monster &&
                   (f.name !== figure.name || f.edition !== figure.edition) &&
-                  gameManager.deckData(f).name === gameManager.deckData(figure).name &&
-                  gameManager.deckData(f).edition === gameManager.deckData(figure).edition &&
+                  gameManager.editionManager.deckData(f).name === gameManager.editionManager.deckData(figure).name &&
+                  gameManager.editionManager.deckData(f).edition === gameManager.editionManager.deckData(figure).edition &&
                   f.drawExtra &&
                   f.ability > -1
               ).length;
             figure.lastDraw = this.game.round;
 
-            if (this.hasBottomActions(figure)) {
+            if (gameManager.monsterAbilityManager.hasBottomActions(figure)) {
               figure.ability += 1;
             }
 
             if (figure.ability >= figure.abilities.length) {
-              this.shuffleAbilities(figure);
+              gameManager.monsterAbilityManager.shuffleAbilities(figure);
             }
 
             if (figure.editionRules === 'bb' && figure.tags.includes('bb-elite')) {
@@ -1152,7 +1120,7 @@ export class MonsterManager {
               if (nextAbility >= figure.abilities.length) {
                 nextAbility = 0;
               }
-              const abilityCards = gameManager.deckData(figure).abilities;
+              const abilityCards = gameManager.editionManager.deckData(figure).abilities;
               if (abilityCards[figure.abilities[nextAbility]].initiative < abilityCards[figure.abilities[figure.ability]].initiative) {
                 const swap = figure.abilities[figure.ability];
                 figure.abilities[figure.ability] = figure.abilities[nextAbility];
@@ -1167,182 +1135,37 @@ export class MonsterManager {
       .filter((figure) => figure instanceof Monster && figure.drawExtra)
       .forEach((figure) => {
         if (figure instanceof Monster) {
-          this.drawExtra(figure);
+          gameManager.monsterAbilityManager.drawExtra(figure);
 
           if (figure.ability >= figure.abilities.length) {
-            this.shuffleAbilities(figure);
+            gameManager.monsterAbilityManager.shuffleAbilities(figure);
           }
         }
       });
   }
 
-  removeAbility(monster: Monster, index: number) {
-    const deckData = gameManager.deckData(monster);
-    this.game.figures
-      .filter((figure) => {
-        if (figure instanceof Monster) {
-          const otherDeckData = gameManager.deckData(figure);
-          return deckData.name === otherDeckData.name && deckData.edition === otherDeckData.edition;
-        }
-        return false;
-      })
-      .map((figure) => figure as Monster)
-      .forEach((sameDeckMonster) => {
-        sameDeckMonster.abilities.splice(index, 1);
-      });
+  canSetRpgSpeed(monster: Monster, speed: number): boolean {
+    return (
+      gameManager.rpgRules() &&
+      this.game.state === GameState.draw &&
+      Number.isInteger(speed) &&
+      speed >= 0 &&
+      speed < gameManager.editionManager.abilityCards(monster).length
+    );
   }
 
-  restoreAbility(monster: Monster, abilityCard: AbilityCard) {
-    const deckData = gameManager.deckData(monster);
-    this.game.figures
-      .filter((figure) => {
-        if (figure instanceof Monster) {
-          const otherDeckData = gameManager.deckData(figure);
-          return deckData.name === otherDeckData.name && deckData.edition === otherDeckData.edition;
-        }
-        return false;
-      })
-      .map((figure) => figure as Monster)
-      .forEach((sameDeckMonster) => {
-        sameDeckMonster.abilities.unshift(deckData.abilities.indexOf(abilityCard));
-      });
-  }
-
-  restoreDefaultAbilities(monster: Monster) {
-    const deckData = gameManager.deckData(monster);
-    this.game.figures
-      .filter((figure) => {
-        if (figure instanceof Monster) {
-          const otherDeckData = gameManager.deckData(figure);
-          return deckData.name === otherDeckData.name && deckData.edition === otherDeckData.edition;
-        }
-        return false;
-      })
-      .map((figure) => figure as Monster)
-      .forEach((sameDeckMonster) => {
-        sameDeckMonster.abilities = deckData.abilities
-          .map((a, index) => index)
-          .filter(
-            (i) =>
-              !deckData.abilities[i].level ||
-              isNaN(+deckData.abilities[i].level) ||
-              EntityValueFunction(deckData.abilities[i].level) <= monster.level
-          );
-        sameDeckMonster.ability = -1;
-      });
-  }
-
-  shuffleAbilities(monster: Monster, onlyUpcoming: boolean = false) {
-    if (!onlyUpcoming) {
-      if (gameManager.game.state === GameState.draw || monster.entities.length === 0) {
-        monster.ability = -1;
-      } else {
-        monster.ability = 0;
-      }
-    }
-
-    if (monster.drawExtra) {
-      const sameDeckMonster = this.getSameDeckMonster(monster);
-      if (!sameDeckMonster) {
-        console.error("Shuffle for '" + monster.name + "' (" + monster.deck + ' not possible, not same deck monster found!');
-        monster.drawExtra = false;
-        this.shuffleAbilities(monster, onlyUpcoming);
-        return;
-      }
-      this.shuffleAbilities(sameDeckMonster, onlyUpcoming);
-      return;
-    }
-
-    const deckData = gameManager.deckData(monster);
-    const sameDeckMonsters = this.game.figures
-      .filter((figure) => {
-        if (figure instanceof Monster) {
-          const otherDeckData = gameManager.deckData(figure);
-          return deckData.name === otherDeckData.name && deckData.edition === otherDeckData.edition;
-        }
-        return false;
-      })
-      .map((figure) => figure as Monster);
-
-    const restoreCards: number[] =
-      onlyUpcoming && monster.ability > -1
-        ? monster.abilities.splice(0, monster.ability + 1 + sameDeckMonsters.filter((monster) => monster.drawExtra).length)
-        : [];
-
-    gameManager.randomManager.shuffle(monster.abilities);
-
-    if (onlyUpcoming) {
-      monster.abilities.unshift(...restoreCards);
-    }
-
-    monster.revealedAbilities = [];
-    deckData.abilities.forEach((a) => (a.revealed = false));
-
-    sameDeckMonsters.forEach((sameDeckMonster) => {
-      sameDeckMonster.abilities = JSON.parse(JSON.stringify(monster.abilities));
-      sameDeckMonster.revealedAbilities = [];
-      if (gameManager.game.state === GameState.draw) {
-        sameDeckMonster.ability = -1;
-      } else {
-        sameDeckMonster.ability = monster.ability;
-
-        if (sameDeckMonster.drawExtra) {
-          this.drawExtra(sameDeckMonster);
-        }
-      }
-    });
-  }
-
-  drawAbility(monster: Monster) {
-    if (monster.drawExtra) {
-      const sameDeckMonster = this.getSameDeckMonster(monster);
-      if (!sameDeckMonster) {
-        console.error("Draw for '" + monster.name + "' (" + monster.deck + ' not possible, not same deck monster found!');
-        monster.drawExtra = false;
-        this.drawAbility(monster);
-        return;
-      }
-      this.drawAbility(sameDeckMonster);
-      return;
-    }
-
-    monster.ability += 1;
-
-    if (this.hasBottomActions(monster)) {
-      monster.ability += 1;
-    }
-
-    const deckData = gameManager.deckData(monster);
-    this.game.figures.forEach((figure) => {
-      if (
-        figure instanceof Monster &&
-        figure !== monster &&
-        gameManager.deckData(figure).name === deckData.name &&
-        gameManager.deckData(figure).edition === deckData.edition
-      ) {
-        figure.ability = monster.ability;
-
-        if (figure.drawExtra) {
-          this.drawExtra(figure);
-        }
-      }
-    });
-  }
-
-  rpgSameDeck(monster: Monster): Monster[] {
-    const deckData = gameManager.deckData(monster);
-    return this.game.figures.filter((figure) => {
-      if (figure instanceof Monster) {
-        const otherDeckData = gameManager.deckData(figure);
-        return deckData.name === otherDeckData.name && deckData.edition === otherDeckData.edition;
-      }
+  setRpgSpeed(monster: Monster, speed: number): boolean {
+    if (!this.canSetRpgSpeed(monster, speed)) {
       return false;
-    }) as Monster[];
+    }
+    this.applyRpgSpeed(monster, speed);
+    gameManager.roundManager.sortFigures();
+    return true;
   }
 
-  setRpgSpeed(monster: Monster, speed: number) {
-    this.rpgSameDeck(monster).forEach((figure) => {
-      figure.abilities = gameManager.abilityCards(figure).map((abilityCard, index) => index);
+  private applyRpgSpeed(monster: Monster, speed: number) {
+    gameManager.monsterAbilityManager.rpgSameDeck(monster).forEach((figure) => {
+      figure.abilities = gameManager.editionManager.abilityCards(figure).map((abilityCard, index) => index);
       if (figure.ability !== speed) {
         figure.entities.forEach((entity) => (entity.rpgAction = -1));
       }
@@ -1352,7 +1175,9 @@ export class MonsterManager {
   }
 
   rpgActions(monster: Monster): RpgMonsterAction[] {
-    return monster.ability > -1 ? rpgMonsterActions(gameManager.abilityCards(monster)[monster.abilities[monster.ability]]) : [];
+    return monster.ability > -1
+      ? rpgMonsterActions(gameManager.editionManager.abilityCards(monster)[monster.abilities[monster.ability]])
+      : [];
   }
 
   rpgActionEntities(monster: Monster, action: number, entities: MonsterEntity[] = monster.entities): MonsterEntity[] {
@@ -1362,60 +1187,24 @@ export class MonsterManager {
       : [];
   }
 
-  setRpgAction(monster: Monster, action: number, entities: MonsterEntity[] = monster.entities) {
+  canSetRpgAction(monster: Monster, action: number, entities: MonsterEntity[] = monster.entities): boolean {
+    return (
+      gameManager.rpgRules() &&
+      this.game.state === GameState.draw &&
+      Number.isInteger(action) &&
+      this.rpgActionEntities(monster, action, entities).length > 0
+    );
+  }
+
+  setRpgAction(monster: Monster, action: number, entities: MonsterEntity[] = monster.entities): boolean {
+    if (!this.canSetRpgAction(monster, action, entities)) {
+      return false;
+    }
     const eligible = this.rpgActionEntities(monster, action, entities);
-    const value = eligible.length && eligible.every((entity) => entity.rpgAction === action) ? -1 : action;
+    const value = eligible.every((entity) => entity.rpgAction === action) ? -1 : action;
     eligible.forEach((entity) => (entity.rpgAction = value));
     monster.abilityVisible = true;
-  }
-
-  drawnAbilities(monster: Monster): number {
-    let drawn = 0;
-    if (monster.ability >= 0) {
-      drawn = monster.ability + 1;
-    }
-    let other = gameManager.game.figures.find(
-      (figure) =>
-        figure instanceof Monster &&
-        (figure.name !== monster.name || figure.edition !== monster.edition) &&
-        gameManager.deckData(figure).name === gameManager.deckData(monster).name &&
-        gameManager.deckData(figure).edition === gameManager.deckData(monster).edition &&
-        figure.ability >= drawn
-    );
-    while (other instanceof Monster) {
-      drawn = other.ability + 1;
-      other = gameManager.game.figures.find(
-        (figure) =>
-          figure instanceof Monster &&
-          (figure.name !== monster.name || figure.edition !== monster.edition) &&
-          gameManager.deckData(figure).name === gameManager.deckData(monster).name &&
-          gameManager.deckData(figure).edition === gameManager.deckData(monster).edition &&
-          figure.ability >= drawn
-      );
-    }
-
-    return drawn;
-  }
-
-  getAbilityCard(monster: Monster, bottom: boolean = false): AbilityCard | undefined {
-    if (monster.ability < 0 || monster.ability >= monster.abilities.length || !settingsManager.settings.abilities) {
-      return undefined;
-    }
-
-    const abilityCards = gameManager.abilityCards(monster);
-
-    if (!abilityCards) {
-      return undefined;
-    }
-
-    return abilityCards[monster.abilities[monster.ability + (bottom ? (monster.ability > 0 ? -1 : 1) : 0)]];
-  }
-
-  hasBottomActions(monster: Monster): boolean {
-    return (
-      gameManager.abilityCards(monster).length > 0 &&
-      gameManager.abilityCards(monster).every((abilityCard) => gameManager.hasBottomAbility(abilityCard))
-    );
+    return true;
   }
 
   sortEntities(a: MonsterEntity, b: MonsterEntity): number {

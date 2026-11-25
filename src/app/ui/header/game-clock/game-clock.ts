@@ -60,10 +60,9 @@ export class GameClockDialogComponent implements OnInit {
   }
 
   merge(index: number) {
-    if (index > 0) {
+    if (gameManager.gameClockManager.canMergeGameClock(index)) {
       gameManager.stateManager.before('gameClock.merge');
-      gameManager.game.gameClock[index - 1].clockIn = gameManager.game.gameClock[index].clockIn;
-      gameManager.game.gameClock.splice(index, 1);
+      gameManager.gameClockManager.mergeGameClock(index);
       this.gameClock = gameManager.game.gameClock.slice(0, this.gameClock.length - 1);
       this.update();
       gameManager.stateManager.after();
@@ -72,7 +71,7 @@ export class GameClockDialogComponent implements OnInit {
 
   toggleGameClock() {
     gameManager.stateManager.before('gameClock.' + (this.current ? 'clockOut' : 'clockIn'));
-    gameManager.toggleGameClock();
+    gameManager.gameClockManager.toggleGameClock();
     this.gameClock = gameManager.game.gameClock.slice(0, this.gameClock.length + (this.current ? 1 : 0));
     this.update();
     gameManager.stateManager.after();

@@ -173,6 +173,13 @@
             transform: translateX(50%);
           }
 
+          &.flip {
+            top: initial;
+            bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+            right: 50%;
+            transform: translateX(50%);
+          }
+
           &.reset {
             right: initial;
             left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));

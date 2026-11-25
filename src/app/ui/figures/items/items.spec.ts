@@ -44,7 +44,7 @@ describe('CharacterItemsComponent', () => {
     gameManager.game.party.reputation = 0;
     gameManager.game.party.specialItems = [];
     gameManager.game.party.campaignMode = false;
-    gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []))];
+    gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []))];
     settingsManager.settings.editions = ['gh'];
   });
 

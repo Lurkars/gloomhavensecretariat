@@ -15,7 +15,7 @@ export class CharacterSheetRpgAttributesComponent extends RpgSheetSection {
   setAttribute(attribute: RpgAttribute, event: any) {
     const value = +event.target.value;
     if (!isNaN(value) && this.rpg.attributes[attribute] !== value) {
-      this.change('attributes.' + attribute, value, (rpg) => (rpg.attributes[attribute] = value));
+      this.change('attributes.' + attribute, 'attributes.' + attribute, value);
     }
   }
 }

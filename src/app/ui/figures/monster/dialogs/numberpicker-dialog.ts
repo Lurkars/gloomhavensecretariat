@@ -158,10 +158,6 @@ export class MonsterNumberPickerDialog implements OnInit {
       }
       gameManager.stateManager.before(undoType, 'data.monster.' + this.monster.name, 'monster.' + this.type, number);
       if (this.entity) {
-        const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number === number);
-        if (dead) {
-          gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
-        }
         gameManager.monsterManager.renumberStandee(this.monster, this.entity, number);
         this.entity =
           (this.entities &&

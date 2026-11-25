@@ -13,7 +13,10 @@ import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 export function openCharacterSheet(dialog: any, characterModel: GameCharacterModel, viewOnly: boolean = true) {
-  const character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
+  const character = new Character(
+    gameManager.editionManager.getCharacterData(characterModel.name, characterModel.edition),
+    characterModel.level
+  );
   character.fromModel(characterModel);
   dialog
     .open(CharacterSheetDialog, {
@@ -30,13 +33,7 @@ export function openCharacterSheet(dialog: any, characterModel: GameCharacterMod
             'changeRetiredCharacterEnhancements',
             gameManager.characterManager.characterName(character, true, true)
           );
-          characterModel.progress.enhancements = character.progress.enhancements;
-          const current = gameManager.game.figures.find(
-            (figure) => figure instanceof Character && figure.edition === character.edition && figure.name === character.name
-          ) as Character;
-          if (current) {
-            gameManager.characterManager.previousEnhancements(current, gameManager.enhancementsManager.temporary);
-          }
+          gameManager.enhancementsManager.setRetiredEnhancements(characterModel, character.progress.enhancements);
           gameManager.stateManager.after();
         }
       }
@@ -75,7 +72,10 @@ export class PartyCampaignPlayersComponent extends PartySheetSection {
     gameManager.stateManager.after();
   }
   replayCharacter(characterModel: GameCharacterModel) {
-    const character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
+    const character = new Character(
+      gameManager.editionManager.getCharacterData(characterModel.name, characterModel.edition),
+      characterModel.level
+    );
     character.fromModel(characterModel);
     gameManager.stateManager.before(
       'characterReplay',
@@ -91,7 +91,7 @@ export class PartyCampaignPlayersComponent extends PartySheetSection {
       panelClass: ['dialog'],
       data: {
         type: type,
-        edition: gameManager.game.edition || gameManager.currentEdition(),
+        edition: gameManager.game.edition || gameManager.editionManager.currentEdition(),
         setup: true
       }
     });

@@ -9,22 +9,29 @@ export class CharacterAbilityDeckCommand extends CommandImpl {
 
   abilityIndex(character: Character, cardId: BASE_TYPE): number {
     return typeof cardId === 'number'
-      ? gameManager.deckData(character).abilities.findIndex((abilityCard) => abilityCard.cardId === cardId)
+      ? gameManager.editionManager.deckData(character).abilities.findIndex((abilityCard) => abilityCard.cardId === cardId)
       : -1;
   }
 
-  validParameters(number: number, cardId: number, value: boolean): boolean {
+  validParameters(number: number, cardId: number, value: boolean, force: boolean = false): boolean {
     const character = findCharacter(number);
-    return !!character && this.abilityIndex(character, cardId) !== -1 && typeof value === 'boolean';
+    if (!character || typeof value !== 'boolean' || typeof force !== 'boolean') {
+      return false;
+    }
+    const index = this.abilityIndex(character, cardId);
+    return (
+      index !== -1 &&
+      (character.progress.deck.includes(index) === value ||
+        gameManager.characterAbilityManager.canToggleAbilityDeck(character, index, force))
+    );
   }
 
-  executeWithParameters(number: number, cardId: number, value: boolean) {
+  executeWithParameters(number: number, cardId: number, value: boolean, force: boolean = false) {
     const character = findCharacter(number);
     if (character) {
       const index = this.abilityIndex(character, cardId);
-      character.progress.deck = character.progress.deck.filter((ability) => ability !== index);
-      if (value) {
-        character.progress.deck.push(index);
+      if (character.progress.deck.includes(index) !== value) {
+        gameManager.characterAbilityManager.toggleAbilityDeck(character, index, force);
       }
     } else {
       this.executionError('character not found');

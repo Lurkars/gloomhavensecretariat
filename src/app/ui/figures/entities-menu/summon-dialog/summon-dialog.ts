@@ -116,7 +116,7 @@ export class SummonDialogComponent implements AfterViewInit {
 
   private closeInit() {
     gameManager.stateManager.before('addSummon', gameManager.characterManager.characterName(this.character, true, true), this.summon.name);
-    gameManager.characterManager.initSummon(this.character, this.summon, {
+    gameManager.summonManager.initSummon(this.character, this.summon, {
       health: this.health,
       maxHp: this.maxHp,
       attack: this.attack,
@@ -132,12 +132,12 @@ export class SummonDialogComponent implements AfterViewInit {
       if (summonTitleInput.nativeElement.value && summonTitleInput.nativeElement.value !== this.summon.title) {
         if (this.summon.title !== summonTitleInput.nativeElement.value) {
           gameManager.entityManager.before(this.summon, this.character, 'setTitle', summonTitleInput.nativeElement.value);
-          this.summon.title = summonTitleInput.nativeElement.value;
+          gameManager.entityManager.setTitle(this.summon, summonTitleInput.nativeElement.value);
           gameManager.stateManager.after();
         }
       } else if (this.summon.title !== '') {
         gameManager.entityManager.before(this.summon, this.character, 'unsetTitle', this.summon.title);
-        this.summon.title = '';
+        gameManager.entityManager.setTitle(this.summon, '');
         gameManager.stateManager.after();
       }
     }
@@ -149,7 +149,7 @@ export class SummonDialogComponent implements AfterViewInit {
         this.summon.title ? this.summon.title : 'data.summon.' + this.summon.name,
         ghsValueSign(this.maxHp)
       );
-      gameManager.characterManager.changeSummonStat(this.summon, 'maxHp', this.maxHp);
+      gameManager.summonManager.changeSummonStat(this.summon, 'maxHp', this.maxHp);
       gameManager.stateManager.after();
     }
     if (this.attack !== 0 && typeof this.summon.attack === 'number') {
@@ -159,7 +159,7 @@ export class SummonDialogComponent implements AfterViewInit {
         this.summon.title ? this.summon.title : 'data.summon.' + this.summon.name,
         ghsValueSign(this.attack)
       );
-      gameManager.characterManager.changeSummonStat(this.summon, 'attack', this.attack);
+      gameManager.summonManager.changeSummonStat(this.summon, 'attack', this.attack);
       gameManager.stateManager.after();
     }
     if (this.movement !== 0) {
@@ -169,7 +169,7 @@ export class SummonDialogComponent implements AfterViewInit {
         this.summon.title ? this.summon.title : 'data.summon.' + this.summon.name,
         ghsValueSign(this.movement)
       );
-      gameManager.characterManager.changeSummonStat(this.summon, 'movement', this.movement);
+      gameManager.summonManager.changeSummonStat(this.summon, 'movement', this.movement);
       gameManager.stateManager.after();
     }
     if (this.range !== 0) {
@@ -179,7 +179,7 @@ export class SummonDialogComponent implements AfterViewInit {
         this.summon.title ? this.summon.title : 'data.summon.' + this.summon.name,
         ghsValueSign(this.range)
       );
-      gameManager.characterManager.changeSummonStat(this.summon, 'range', this.range);
+      gameManager.summonManager.changeSummonStat(this.summon, 'range', this.range);
       gameManager.stateManager.after();
     }
   }

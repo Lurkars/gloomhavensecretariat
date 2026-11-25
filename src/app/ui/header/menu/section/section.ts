@@ -48,16 +48,16 @@ export class SectionMenuComponent implements OnInit {
         gameManager.game.party.scenarios.length > 0 &&
         gameManager.game.party.scenarios[gameManager.game.party.scenarios.length - 1].edition) ||
       // set edition or first
-      gameManager.currentEdition();
+      gameManager.editionManager.currentEdition();
 
     this.setEditions();
   }
 
   setEditions() {
     if (gameManager.game.edition) {
-      this.editions = gameManager.relevantEditions(gameManager.game.edition, true);
+      this.editions = gameManager.editionManager.relevantEditions(gameManager.game.edition, true);
     } else {
-      this.editions = gameManager.editionData
+      this.editions = gameManager.editionManager.editionData
         .filter(
           (editionData) =>
             editionData.sections &&
@@ -77,7 +77,7 @@ export class SectionMenuComponent implements OnInit {
       return [];
     }
 
-    return gameManager
+    return gameManager.editionManager
       .sectionData()
       .filter((sectionData) => sectionData.edition === this.edition)
       .map((sectionData) => sectionData.group)
@@ -100,7 +100,7 @@ export class SectionMenuComponent implements OnInit {
     const available = gameManager.game.scenario ? new Set(gameManager.scenarioManager.availableSections(false, true)) : null;
     const activeSectionKeys = new Set(gameManager.game.sections.map((s) => `${s.edition}:${s.group ?? ''}:${s.index}`));
 
-    model.sections = gameManager
+    model.sections = gameManager.editionManager
       .sectionData()
       .filter(
         (sectionData) =>

@@ -47,28 +47,28 @@ export class MonsterAbilityCardComponent implements OnInit {
   }
 
   get minInitiative(): number {
-    let abilityCards = gameManager
+    let abilityCards = gameManager.editionManager
       .abilityCards(this.monster)
       .filter((abilityCard, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
     if (!abilityCards.length) {
-      abilityCards = gameManager.abilityCards(this.monster);
+      abilityCards = gameManager.editionManager.abilityCards(this.monster);
     }
     return abilityCards.length ? Math.min(...abilityCards.map((abilityCard) => abilityCard.initiative)) : 0;
   }
 
   get maxInitiative(): number {
-    let abilityCards = gameManager
+    let abilityCards = gameManager.editionManager
       .abilityCards(this.monster)
       .filter((abilityCard, i) => this.monster.abilities.indexOf(i) > this.monster.ability);
     if (!abilityCards.length) {
-      abilityCards = gameManager.abilityCards(this.monster);
+      abilityCards = gameManager.editionManager.abilityCards(this.monster);
     }
     return abilityCards.length ? Math.max(...abilityCards.map((abilityCard) => abilityCard.initiative)) : 0;
   }
 
   update() {
-    this.hasBottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
-    this.drawnAbilities = gameManager.monsterManager.drawnAbilities(this.monster);
+    this.hasBottomActions = gameManager.monsterAbilityManager.hasBottomActions(this.monster);
+    this.drawnAbilities = gameManager.monsterAbilityManager.drawnAbilities(this.monster);
     this.flipped = this.calcFlipped();
   }
 
@@ -79,23 +79,25 @@ export class MonsterAbilityCardComponent implements OnInit {
 
     const indexValue = this.index();
     if (indexValue === -1) {
-      this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster);
+      this.abilityCard = gameManager.monsterAbilityManager.getAbilityCard(this.monster);
     } else {
-      this.abilityCard = gameManager.abilityCards(this.monster)[indexValue];
+      this.abilityCard = gameManager.editionManager.abilityCards(this.monster)[indexValue];
     }
 
     if (!this.abilityCard) {
       return false;
     }
 
-    if (gameManager.hasBottomAbility(this.abilityCard)) {
+    if (gameManager.editionManager.hasBottomAbility(this.abilityCard)) {
       // Manifestation of Corruption mechanic?!
-      this.abilityCard = gameManager.monsterManager.getAbilityCard(this.monster, true);
-      this.secondAbilityCard = gameManager.monsterManager.getAbilityCard(this.monster);
+      this.abilityCard = gameManager.monsterAbilityManager.getAbilityCard(this.monster, true);
+      this.secondAbilityCard = gameManager.monsterAbilityManager.getAbilityCard(this.monster);
     }
 
     let flipped =
-      !gameManager.roundManager.working && gameManager.game.state === GameState.next && gameManager.gameplayFigure(this.monster);
+      !gameManager.roundManager.working &&
+      gameManager.game.state === GameState.next &&
+      gameManager.entityManager.gameplayFigure(this.monster);
 
     const reveal =
       settingsManager.settings.abilityReveal ||

@@ -8,7 +8,7 @@ import { Capacitor } from '@capacitor/core';
 import { Subscription } from 'rxjs';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
@@ -100,10 +100,9 @@ export class MainComponent implements OnInit {
       if (this.initialized) {
         if (gameManager.game.figures.length === 0) {
           this.welcome = true;
-          this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
+          this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionManager.editionData.length;
           this.welcomeEditionHint =
-            (gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') !== 'hint') ||
-            false;
+            (gameManager.game.edition && labelManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') !== 'hint') || false;
         } else {
           this.welcome = false;
           this.calcColumns();
@@ -147,7 +146,7 @@ export class MainComponent implements OnInit {
         this.serverPing = serverPing;
         if (this.serverPing > 0) {
           this.serverPingInterval = setInterval(() => {
-            gameManager.stateManager.sendPing();
+            gameManager.serverSyncManager.sendPing();
           }, 1000 * this.serverPing);
         }
       }
@@ -240,7 +239,11 @@ export class MainComponent implements OnInit {
     this.initialized = true;
     await gameManager.stateManager.init();
 
-    if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
+    if (
+      settingsManager.settings.gameClock &&
+      settingsManager.settings.automaticGameClock &&
+      !gameManager.stateManager.missingEditions.length
+    ) {
       this.automaticClockIn();
     }
 
@@ -277,8 +280,8 @@ export class MainComponent implements OnInit {
     });
 
     window.addEventListener('focus', () => {
-      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
-        gameManager.stateManager.connect();
+      if (settingsManager.settings.serverAutoconnect && gameManager.serverSyncManager.wsState() !== WebSocket.OPEN) {
+        gameManager.serverSyncManager.connect();
       }
 
       if (
@@ -292,8 +295,8 @@ export class MainComponent implements OnInit {
 
     if (Capacitor.isNativePlatform()) {
       App.addListener('appStateChange', ({ isActive }) => {
-        if (isActive && settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
-          gameManager.stateManager.connect();
+        if (isActive && settingsManager.settings.serverAutoconnect && gameManager.serverSyncManager.wsState() !== WebSocket.OPEN) {
+          gameManager.serverSyncManager.connect();
         }
       });
     }
@@ -317,23 +320,22 @@ export class MainComponent implements OnInit {
     this.debugTesting();
   }
 
-  automaticClockIn() {
-    const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
-    if (!lastGameClockTimestamp || lastGameClockTimestamp.clockOut) {
-      // 7 seconds refresh timeout
-      if (lastGameClockTimestamp && lastGameClockTimestamp.clockOut && new Date().getTime() - lastGameClockTimestamp.clockOut < 7000) {
-        lastGameClockTimestamp.clockOut = undefined;
-      } else {
-        gameManager.toggleGameClock();
-      }
+  reload() {
+    window.location.reload();
+  }
+
+  async automaticClockIn() {
+    if (!gameManager.gameClockManager.clockedIn()) {
+      gameManager.stateManager.beforeAutomatic('gameClock.automaticGameClockIn');
+      gameManager.gameClockManager.automaticClockIn();
+      await gameManager.stateManager.afterAutomatic();
     }
   }
 
   async automaticClockOut() {
-    const lastGameClockTimestamp = gameManager.game.gameClock.length ? gameManager.game.gameClock[0] : undefined;
-    if (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut) {
+    if (gameManager.gameClockManager.clockedIn()) {
       gameManager.stateManager.beforeAutomatic('gameClock.automaticGameClockOut');
-      gameManager.toggleGameClock();
+      gameManager.gameClockManager.toggleGameClock();
       await gameManager.stateManager.afterAutomatic();
     }
   }
@@ -341,7 +343,7 @@ export class MainComponent implements OnInit {
   startCampaign(edition: string) {
     gameManager.stateManager.before('startCampaign', 'data.edition.' + edition);
     gameManager.campaignManager.startCampaign(edition);
-    this.welcomeEditionHint = (edition && settingsManager.getLabel('data.edition.' + edition + '.hint') !== 'hint') || false;
+    this.welcomeEditionHint = (edition && labelManager.getLabel('data.edition.' + edition + '.hint') !== 'hint') || false;
     gameManager.stateManager.after();
   }
 
@@ -474,7 +476,7 @@ export class MainComponent implements OnInit {
   lastActive(): number {
     let lastActive = 0;
     this.figures.forEach((figure, index) => {
-      if (index > lastActive && gameManager.gameplayFigure(figure)) {
+      if (index > lastActive && gameManager.entityManager.gameplayFigure(figure)) {
         lastActive = index;
       }
     });

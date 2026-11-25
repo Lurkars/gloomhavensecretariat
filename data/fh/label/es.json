@@ -953,9 +953,6 @@
         "1": "Todos los aliados y enemigos<br>adyacentes al objetivo sufren %game.damage:2%",
         "2": "Todos los enemigos a %game.action.range:4% sufren %game.damage:2%."
       },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
       "blinkblade": {
         "1": "En tu próximo ataque, descarta esta carta para obtener %game.action.attack:+2% .<br>%game.card.persistent%",
         "2": "Pon esta carta en tu zona activa. En tu próximo ataque, descarta esta carta para añadir %game.action.attack:+2%",
@@ -1238,8 +1235,7 @@
         "3": "al hexágono vacío situado más a la izquierda si es impar o más a la derecha si es par"
       },
       "night-demon": {
-        "1": "Todos los aliados y<br>enemigos adyacentes sufren %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
+        "1": "Todos los aliados y<br>enemigos adyacentes sufren %game.damage:1%."
       },
       "ooze": {
         "1": "H es el valor de puntos<br>de vida igual al valor actual de<br>puntos de vida del Cieno que lo invoca<br>(limitado por el valor<br>máximo de puntos de vida de un Cieno normal)."

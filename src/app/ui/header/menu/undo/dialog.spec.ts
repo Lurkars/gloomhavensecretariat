@@ -1,6 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { LogEntry } from 'src/app/game/model/LogEntry';
 import { LogRow, UndoDialogComponent } from 'src/app/ui/header/menu/undo/dialog';
 
@@ -42,20 +42,20 @@ describe('UndoDialogComponent', () => {
     vi.spyOn(storageManager, 'writeGameModel').mockResolvedValue(undefined);
     vi.spyOn(storageManager, 'writeArray').mockResolvedValue(undefined);
     vi.spyOn(gameManager, 'triggerUiChange').mockImplementation(() => undefined);
-    settingsManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+    labelManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
     gameManager.game.figures = [];
     gameManager.game.revision = 0;
     gameManager.game.revisionOffset = 0;
     stateManager.undos = [];
     stateManager.redos = [];
-    stateManager.log = [];
-    stateManager.ws = undefined;
+    gameManager.historyManager.log = [];
+    gameManager.serverSyncManager.ws = undefined;
     stateManager.permissions = undefined;
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
-    settingsManager.label = {};
+    labelManager.label = {};
   });
 
   it('shows only the current state without history', () => {
@@ -105,7 +105,10 @@ describe('UndoDialogComponent', () => {
   });
 
   it('hides older changes without info and of other campaigns unless requested', () => {
-    stateManager.log = [new LogEntry('update', 0, []), new LogEntry('update', 1, ['other'], 1, gameManager.game.party.id + 1)];
+    gameManager.historyManager.log = [
+      new LogEntry('update', 0, []),
+      new LogEntry('update', 1, ['other'], 1, gameManager.game.party.id + 1)
+    ];
     stateManager.updatePermissions();
     const component = createComponent();
     component.update();
@@ -135,7 +138,7 @@ describe('UndoDialogComponent', () => {
   });
 
   it('shows time, campaign and server sync as tooltip metadata', () => {
-    vi.spyOn(settingsManager, 'getLabel').mockImplementation((key: string, args: string[] = []) => key + ':' + args.join(','));
+    vi.spyOn(labelManager, 'getLabel').mockImplementation((key: string, args: string[] = []) => key + ':' + args.join(','));
     const component = createComponent();
     component.multipleParties = true;
     const entry = new LogEntry('update', 1, ['a'], Date.UTC(2026, 10, 13, 12, 8), 7, 'gh', true);
@@ -148,7 +151,7 @@ describe('UndoDialogComponent', () => {
   });
 
   it('does not select changes without snapshot', () => {
-    stateManager.log = [new LogEntry('update', 5, ['old'])];
+    gameManager.historyManager.log = [new LogEntry('update', 5, ['old'])];
     const component = createComponent();
     component.update();
     const row = component.rows.find((row) => !row.current)!;

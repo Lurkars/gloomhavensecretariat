@@ -2,7 +2,7 @@
   <label class="headline"><span [ghs-label]="'party.campaign.scenarios'"></span></label>
   <select (change)="changeEdition($event)">
     <option [value]="undefined" [selected]="!edition()"><span [ghs-label]="'edition.all'"></span></option>
-    @for (ed of gameManager.editions(); track ed) {
+    @for (ed of gameManager.editionManager.editions(); track ed) {
       <option [selected]="ed === edition()" [value]="ed">
         <span [ghs-label]="'data.edition.' + ed"></span>
       </option>

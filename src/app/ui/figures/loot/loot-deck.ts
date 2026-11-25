@@ -91,7 +91,7 @@ export class LootDeckComponent extends DeckDrawDirective implements OnInit, OnCh
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['deck']) {
+    if (changes['inputLootDeck']) {
       this.update();
     }
   }
@@ -101,36 +101,38 @@ export class LootDeckComponent extends DeckDrawDirective implements OnInit, OnCh
 
     this.updateQueue(this.deck.active || this.standalone(), fromServer);
 
-    this.compact = ghsCompactPortrait();
+    this.compact = this.deck.cards.length > 0 && ghsCompactPortrait();
   }
 
-  protected override drawn(index: number, fromServer: boolean): number {
+  protected override async drawn(index: number, fromServer: boolean): Promise<number> {
     const loot = this.deck.cards[index];
-    let delay = 0;
+    let duration = 0;
+    let sound: HTMLAudioElement | undefined;
 
     if (settingsManager.settings.animations && gameManager.lootManager.easter && loot) {
-      if (loot.type === LootType.metal) {
-        soundboardManager.play('metal');
-      } else if (loot.type === LootType.lumber) {
-        soundboardManager.play('lumber');
-        delay = 2600;
-      } else if (loot.type === LootType.money || loot.type === LootType.special1 || loot.type === LootType.special2) {
-        soundboardManager.play('gold');
-        delay = 2200;
-      } else {
-        soundboardManager.play('loot');
-        delay = 4000;
+      if (soundboardManager.sounds.some((sound) => sound.id === loot.type)) {
+        sound = soundboardManager.play(loot.type);
+      } else if (
+        [LootType.money, LootType.special1, LootType.special2].includes(loot.type) &&
+        soundboardManager.sounds.some((sound) => sound.id === 'gold')
+      ) {
+        sound = soundboardManager.play('gold');
+      } else if (soundboardManager.sounds.some((sound) => sound.id === 'loot')) {
+        sound = soundboardManager.play('loot');
+      }
+      if (!!sound) {
+        duration = await soundboardManager.duration(sound);
       }
     }
 
     if (
       !fromServer &&
       loot &&
-      appliableLootTypes.indexOf(loot.type) !== null &&
+      appliableLootTypes.includes(loot.type) &&
       settingsManager.settings.applyLoot &&
       !this.standalone() &&
       this.fullscreen() &&
-      gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) &&
+      gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.entityManager.gameplayFigure(figure)) &&
       gameManager.game.figures.every((figure) => !(figure instanceof Character) || !figure.lootCards.includes(index))
     ) {
       const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
@@ -154,7 +156,7 @@ export class LootDeckComponent extends DeckDrawDirective implements OnInit, OnCh
         this.applyLoot(activeCharacter, loot, index);
       }
     }
-    return delay;
+    return duration * 1000;
   }
 
   applyLoot(character: Character, loot: Loot, index: number) {

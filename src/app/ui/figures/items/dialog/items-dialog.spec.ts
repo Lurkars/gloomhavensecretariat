@@ -5,8 +5,9 @@ import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
+import { AdditionalIdentifier, CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemSlot } from 'src/app/game/model/data/ItemData';
+import { GameState } from 'src/app/game/model/Game';
 import { ItemsDialogComponent } from 'src/app/ui/figures/items/dialog/items-dialog';
 
 // ItemsDialogComponent's constructor/ngOnInit pulls item data via ItemManager (already covered by
@@ -30,7 +31,7 @@ function createComponent(overrides: Record<string, any> = {}): ItemsDialogCompon
     providers: [
       {
         provide: DIALOG_DATA,
-        useValue: { edition: 'gh', select: undefined, affordable: false, craftOnly: false, buyOnly: false, ...overrides }
+        useValue: { edition: 'gh', select: undefined, affordable: false, craftOnly: false, buyOnly: false, owned: undefined, ...overrides }
       },
       { provide: DialogRef, useValue: { close: () => {} } },
       { provide: Dialog, useValue: {} }
@@ -44,10 +45,12 @@ describe('ItemsDialogComponent', () => {
   beforeEach(() => {
     gameManager.game.figures = [];
     gameManager.game.party.campaignMode = false;
+    gameManager.game.state = GameState.draw;
+    gameManager.game.round = 0;
     gameManager.game.party.unlockedItems = [];
     gameManager.game.party.filteredItems = [];
     gameManager.game.party.buildings = [];
-    gameManager.editionData = [
+    gameManager.editionManager.editionData = [
       Object.assign(
         new EditionData(
           'gh',
@@ -175,6 +178,54 @@ describe('ItemsDialogComponent', () => {
     });
   });
 
+  describe('select during a running scenario', () => {
+    function ownedCharacter(): Character {
+      const character = buildCharacter();
+      character.progress.items = [new AdditionalIdentifier(1, 'gh')];
+      return character;
+    }
+
+    afterEach(() => {
+      gameManager.game.state = GameState.draw;
+      gameManager.game.round = 0;
+    });
+
+    it('selects an owned item with a single click between scenarios', () => {
+      const component = createComponent({ select: ownedCharacter() });
+      const item = buildItem({ id: 1 });
+      component.select(item);
+      expect(component.selected).toBe(item);
+    });
+
+    it('ignores single clicks while a scenario is running', () => {
+      gameManager.game.state = GameState.next;
+      gameManager.game.round = 1;
+      const component = createComponent({ select: ownedCharacter() });
+      const item = buildItem({ id: 1 });
+      component.select(item);
+      expect(component.selected).toBeUndefined();
+    });
+
+    it('deselects with a single click while a scenario is running', () => {
+      gameManager.game.state = GameState.next;
+      gameManager.game.round = 1;
+      const component = createComponent({ select: ownedCharacter() });
+      const item = buildItem({ id: 2 });
+      component.select(item, true);
+      component.select(buildItem({ id: 3 }));
+      expect(component.selected).toBeUndefined();
+    });
+
+    it('selects with a forced double click while a scenario is running', () => {
+      gameManager.game.state = GameState.next;
+      gameManager.game.round = 1;
+      const component = createComponent({ select: ownedCharacter() });
+      const item = buildItem({ id: 2 });
+      component.select(item, true);
+      expect(component.selected).toBe(item);
+    });
+  });
+
   describe('unlocked / unlockItemReveal / removeUnlocked', () => {
     it('unlocked reflects membership in party.unlockedItems', () => {
       const component = createComponent();
@@ -273,6 +324,87 @@ describe('ItemsDialogComponent', () => {
       component.updateEditionItems();
       component.toggleCharacter(character);
       expect(component.character).toBeUndefined();
+    });
+  });
+
+  describe('owned mode', () => {
+    function ownedCharacter(): Character {
+      const character = buildCharacter();
+      character.progress.items = [new AdditionalIdentifier(2, 'gh'), new AdditionalIdentifier(1, 'gh')];
+      gameManager.game.figures = [character];
+      return character;
+    }
+
+    it('lists all items without a character', () => {
+      const component = createComponent();
+      expect(component.owned).toBe(false);
+    });
+
+    it('lists all items for a character without items', () => {
+      expect(createComponent({ select: buildCharacter() }).owned).toBe(false);
+    });
+
+    it('starts with owned items for a character owning items', () => {
+      const component = createComponent({ select: ownedCharacter(), affordable: true });
+      expect(component.owned).toBe(true);
+      expect(component.affordable).toBe(false);
+    });
+
+    it('respects an explicit owned=false', () => {
+      expect(createComponent({ select: ownedCharacter(), owned: false }).owned).toBe(false);
+    });
+
+    it('starts with all items for building interactions', () => {
+      expect(createComponent({ select: ownedCharacter(), craftOnly: true }).owned).toBe(false);
+    });
+
+    it('lists only the owned items, sorted by slot, all marked owned', () => {
+      const component = createComponent({ select: ownedCharacter() });
+      component.onlyEquipped = false;
+      component.updateEditionItems();
+      expect(component.items.map((i) => i.id)).toEqual([2, 1]);
+      expect(component.itemsMeta.every((meta) => meta.owned)).toBe(true);
+    });
+
+    it('applies the text filter to owned items', () => {
+      const component = createComponent({ select: ownedCharacter() });
+      component.onlyEquipped = false;
+      component.filter = 'boots';
+      component.updateEditionItems();
+      expect(component.items.map((i) => i.id)).toEqual([1]);
+    });
+
+    it('filters to equipped items when onlyEquipped is set', () => {
+      const character = ownedCharacter();
+      character.progress.equippedItems = [new AdditionalIdentifier(1, 'gh')];
+      const component = createComponent({ select: character });
+      component.onlyEquipped = true;
+      component.updateEditionItems();
+      expect(component.items.map((i) => i.id)).toEqual([1]);
+    });
+
+    it('showAvailable switches back to the full list', () => {
+      const component = createComponent({ select: ownedCharacter() });
+      component.updateEditionItems();
+      component.showAvailable();
+      expect(component.owned).toBe(false);
+      expect(component.items.map((i) => i.id).sort()).toEqual([1, 2, 3]);
+    });
+
+    it('renders owned items as character items without throwing', () => {
+      const character = ownedCharacter();
+      TestBed.configureTestingModule({
+        imports: [ItemsDialogComponent],
+        providers: [
+          { provide: DIALOG_DATA, useValue: { edition: 'gh', select: character, affordable: false, craftOnly: false, buyOnly: false } },
+          { provide: DialogRef, useValue: { close: () => {} } },
+          { provide: Dialog, useValue: {} }
+        ]
+      });
+      const fixture = TestBed.createComponent(ItemsDialogComponent);
+      fixture.componentInstance.onlyEquipped = false;
+      expect(() => fixture.detectChanges()).not.toThrow();
+      expect(fixture.nativeElement.querySelectorAll('ghs-character-item').length).toEqual(2);
     });
   });
 });

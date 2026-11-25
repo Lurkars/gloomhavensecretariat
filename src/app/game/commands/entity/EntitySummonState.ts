@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findEntity, findFigure } from 'src/app/game/commands/CommandHelper';
 import { Entity } from 'src/app/game/model/Entity';
@@ -9,12 +10,10 @@ export class EntitySummonStateCommand extends CommandImpl {
   requiredParameters: number = 3;
 
   validState(entity: Entity | undefined, state: BASE_TYPE): boolean {
-    if (entity instanceof MonsterEntity) {
-      return Object.values(SummonState).includes(state as SummonState);
-    } else if (entity instanceof Summon) {
-      return state === SummonState.new || state === SummonState.true;
-    }
-    return false;
+    return (
+      (entity instanceof MonsterEntity || entity instanceof Summon) &&
+      gameManager.monsterManager.canSetSummonState(entity, state as SummonState)
+    );
   }
 
   validParameters(figureId: string | number, entityId: string | number, state: string): boolean {
@@ -23,10 +22,8 @@ export class EntitySummonStateCommand extends CommandImpl {
 
   executeWithParameters(figureId: string | number, entityId: string | number, state: SummonState) {
     const entity = findEntity(findFigure(figureId), entityId);
-    if (entity instanceof MonsterEntity) {
-      entity.summon = state;
-    } else if (entity instanceof Summon) {
-      entity.state = state;
+    if (entity instanceof MonsterEntity || entity instanceof Summon) {
+      gameManager.monsterManager.setSummonState(entity, state);
     } else {
       this.executionError('entity not found');
     }

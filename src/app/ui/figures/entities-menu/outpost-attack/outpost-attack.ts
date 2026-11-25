@@ -1,14 +1,14 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierDeck, AttackResult } from 'src/app/game/model/data/AttackModifier';
-import { EventCardAttack, EventCardAttackTarget } from 'src/app/game/model/data/EventCard';
+import { EventCardAttack, EventCardAttackTarget, EventCardEffect } from 'src/app/game/model/data/EventCard';
 import { OutpostAttackResource } from 'src/app/game/model/data/OutpostAttack';
 import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -54,7 +54,6 @@ export class OutpostAttackComponent implements OnInit {
   private ghsManager = inject(GhsManager);
 
   private cdr = inject(ChangeDetectorRef);
-  private destroyRef = inject(DestroyRef);
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
@@ -84,19 +83,10 @@ export class OutpostAttackComponent implements OnInit {
   attackResult: AttackResult | undefined;
   resources: OutpostAttackResource[] = [];
 
-  deckActive: boolean = false;
   private closing: boolean = false;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
-
-    this.deckActive = !!gameManager.game.party.townGuardDeck && gameManager.game.party.townGuardDeck.active;
-
-    this.destroyRef.onDestroy(() => {
-      if (gameManager.game.party.townGuardDeck) {
-        gameManager.game.party.townGuardDeck.active = this.deckActive;
-      }
-    });
   }
 
   ngOnInit(): void {
@@ -147,7 +137,10 @@ export class OutpostAttackComponent implements OnInit {
     this.resources = model.resources;
   }
 
-  private change(apply: () => void, ...info: (string | number)[]) {
+  private change(valid: boolean, apply: () => void, ...info: (string | number)[]) {
+    if (!valid) {
+      return;
+    }
     gameManager.stateManager.before(...info);
     apply();
     gameManager.stateManager.after();
@@ -165,7 +158,11 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   toggleAttackResult() {
-    this.change(() => gameManager.outpostAttackManager.toggleResult(this.townGuardDeck), 'outpostAttack.result');
+    this.change(
+      gameManager.outpostAttackManager.canToggleResult(this.townGuardDeck),
+      () => gameManager.outpostAttackManager.toggleResult(this.townGuardDeck),
+      'outpostAttack.result'
+    );
   }
 
   nextTarget() {
@@ -173,6 +170,7 @@ export class OutpostAttackComponent implements OnInit {
     const state = gameManager.outpostAttackManager.targetState(this.townGuardDeck);
     if (target && state) {
       this.change(
+        gameManager.outpostAttackManager.canAttackTarget(this.townGuardDeck),
         () => gameManager.outpostAttackManager.attackTarget(this.townGuardDeck),
         'buildingAttacked.' + state,
         target.data.id,
@@ -183,6 +181,7 @@ export class OutpostAttackComponent implements OnInit {
 
   toggleSoldier(soldier: number) {
     this.change(
+      gameManager.outpostAttackManager.canToggleSoldier(soldier),
       () => gameManager.outpostAttackManager.toggleSoldier(soldier),
       'outpostAttack.soldiers',
       this.soldiers === soldier ? soldier - 1 : soldier
@@ -191,6 +190,7 @@ export class OutpostAttackComponent implements OnInit {
 
   toggleResource(index: number) {
     this.change(
+      gameManager.outpostAttackManager.canToggleResource(index),
       () => gameManager.outpostAttackManager.toggleResource(index),
       this.resources[index] && this.resources[index].enabled ? 'outpostAttack.resource.disable' : 'outpostAttack.resource.enable'
     );
@@ -198,6 +198,7 @@ export class OutpostAttackComponent implements OnInit {
 
   applyManual() {
     this.change(
+      gameManager.outpostAttackManager.canSetManual(+this.manualAttackValue, +this.manualTargetNumber),
       () => gameManager.outpostAttackManager.setManual(+this.manualAttackValue, +this.manualTargetNumber),
       'outpostAttack.manual',
       +this.manualAttackValue,
@@ -206,16 +207,17 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   applyFilter() {
+    const target: Partial<EventCardAttackTarget> = {
+      lowerBoundary: +this.lowerBoundary || 0,
+      upperBoundary: +this.upperBoundary || 0,
+      parity: this.parity || 0,
+      level: this.level || 0,
+      distance: this.distance || undefined,
+      desc: this.desc
+    };
     this.change(
-      () =>
-        gameManager.outpostAttackManager.setTarget({
-          lowerBoundary: +this.lowerBoundary || 0,
-          upperBoundary: +this.upperBoundary || 0,
-          parity: this.parity || 0,
-          level: this.level || 0,
-          distance: this.distance || undefined,
-          desc: this.desc
-        }),
+      gameManager.outpostAttackManager.canSetTarget(target),
+      () => gameManager.outpostAttackManager.setTarget(target),
       'outpostAttack.target'
     );
   }
@@ -225,31 +227,35 @@ export class OutpostAttackComponent implements OnInit {
   }
 
   randomize() {
-    this.change(() => gameManager.outpostAttackManager.randomize(), 'outpostAttack.randomize');
+    this.change(
+      gameManager.outpostAttackManager.canRandomize(),
+      () => gameManager.outpostAttackManager.randomize(),
+      'outpostAttack.randomize'
+    );
   }
 
   dropBuildings(event: CdkDragDrop<Building[]>) {
-    this.change(
-      () =>
-        gameManager.outpostAttackManager.moveBuilding(
-          event.container === event.previousContainer ? 'buildings' : 'others',
-          event.previousIndex,
-          'buildings',
-          event.currentIndex
-        ),
-      'outpostAttack.order'
+    this.moveBuilding(
+      event.container === event.previousContainer ? 'buildings' : 'others',
+      event.previousIndex,
+      'buildings',
+      event.currentIndex
     );
   }
 
   dropDisabledBuildings(event: CdkDragDrop<Building[]>) {
+    this.moveBuilding(
+      event.container === event.previousContainer ? 'others' : 'buildings',
+      event.previousIndex,
+      'others',
+      event.currentIndex
+    );
+  }
+
+  private moveBuilding(fromList: 'buildings' | 'others', fromIndex: number, toList: 'buildings' | 'others', toIndex: number) {
     this.change(
-      () =>
-        gameManager.outpostAttackManager.moveBuilding(
-          event.container === event.previousContainer ? 'others' : 'buildings',
-          event.previousIndex,
-          'others',
-          event.currentIndex
-        ),
+      gameManager.outpostAttackManager.canMoveBuilding(fromList, fromIndex, toList, toIndex),
+      () => gameManager.outpostAttackManager.moveBuilding(fromList, fromIndex, toList, toIndex),
       'outpostAttack.order'
     );
   }
@@ -257,7 +263,7 @@ export class OutpostAttackComponent implements OnInit {
   partySheet() {
     this.dialog.open(PartySheetDialogComponent, {
       panelClass: ['dialog-invert'],
-      data: gameManager.currentEdition()
+      data: gameManager.editionManager.currentEdition()
     });
   }
 
@@ -266,7 +272,7 @@ export class OutpostAttackComponent implements OnInit {
       .open(WorldMapComponent, {
         panelClass: ['fullscreen-panel'],
         backdropClass: ['fullscreen-backdrop'],
-        data: { edition: gameManager.currentEdition(), pick: pick }
+        data: { edition: gameManager.editionManager.currentEdition(), pick: pick }
       })
       .closed.subscribe({
         next: (result) => {
@@ -291,9 +297,12 @@ export class OutpostAttackComponent implements OnInit {
       ghsDialogClosingHelper(this.dialogRef);
       return;
     }
-    gameManager.stateManager.before('outpostAttack.finish');
-    const resources = gameManager.outpostAttackManager.finish();
-    gameManager.stateManager.after();
+    let resources: EventCardEffect[] = [];
+    if (gameManager.outpostAttackManager.canFinish()) {
+      gameManager.stateManager.before('outpostAttack.finish');
+      resources = gameManager.outpostAttackManager.finish();
+      gameManager.stateManager.after();
+    }
     ghsDialogClosingHelper(this.dialogRef, resources);
   }
 }

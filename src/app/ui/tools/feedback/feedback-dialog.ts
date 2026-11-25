@@ -4,7 +4,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { version as ghsVersion } from 'src/../package.json';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Monster } from 'src/app/game/model/Monster';
@@ -39,7 +39,7 @@ export class FeedbackDialogComponent {
 
   constructor() {
     if (!!this.error) {
-      this.automaticText = settingsManager.getLabel('tools.feedback.reportIssue.errorText', [this.error.message, this.error.stack || '']);
+      this.automaticText = labelManager.getLabel('tools.feedback.reportIssue.errorText', [this.error.message, this.error.stack || '']);
       this.issueTypes.push('automatic');
       this.issueType = 'automatic';
     }
@@ -77,7 +77,7 @@ export class FeedbackDialogComponent {
     scenario.rooms = gameManager.game.scenario?.rooms || [];
     scenario.marker = gameManager.game.scenario?.marker || '';
     scenario.rules = gameManager.game.scenario?.rules || [];
-    scenario.edition = gameManager.game.scenario?.edition || gameManager.currentEdition();
+    scenario.edition = gameManager.game.scenario?.edition || gameManager.editionManager.currentEdition();
 
     mailto +=
       '?subject=Submit Scenario #' +
@@ -85,7 +85,7 @@ export class FeedbackDialogComponent {
       ' ' +
       scenario.name +
       ' (' +
-      settingsManager.getLabel('data.edition.' + scenario.edition) +
+      labelManager.getLabel('data.edition.' + scenario.edition) +
       ')';
 
     mailto += '&body=' + notes + '%0D%0A%0D%0AJSON:%0D%0A' + JSON.stringify(scenario, undefined, 2);
@@ -100,23 +100,25 @@ export class FeedbackDialogComponent {
       mailto = 'mailto:feedback@gloomhaven-secretariat.de';
     }
 
-    mailto += '?subject=[GHS v' + ghsVersion + '] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
+    mailto += '?subject=[GHS v' + ghsVersion + '] ' + labelManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
 
     if (this.automaticText) {
       text += (text ? '\n\n' : '') + this.automaticText;
     }
 
-    let enviroment = 'edition: ' + gameManager.currentEdition();
+    let enviroment = 'edition: ' + gameManager.editionManager.currentEdition();
     if (gameManager.game.scenario) {
       enviroment +=
         ' #' +
         gameManager.game.scenario.index +
-        (gameManager.game.scenario.edition !== gameManager.currentEdition() ? ' (' + gameManager.game.scenario.edition + ')' : '');
+        (gameManager.game.scenario.edition !== gameManager.editionManager.currentEdition()
+          ? ' (' + gameManager.game.scenario.edition + ')'
+          : '');
     }
 
     mailto +=
       '&body=' +
-      settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.hint') +
+      labelManager.getLabel('tools.feedback.reportIssue.type.' + type + '.hint') +
       '%0D%0A%0D%0A' +
       text.replaceAll('\n', '%0D%0A') +
       '%0D%0A%0D%0A' +

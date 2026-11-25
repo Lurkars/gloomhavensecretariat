@@ -32,7 +32,7 @@ export function scenarioKey(scenarioData: { edition: string; group?: string; ind
 
 export function campaignScenarioData(party: Party, partyEdition: string): CampaignScenarioData {
   const result = new CampaignScenarioData();
-  const editions = (partyEdition && [partyEdition]) || gameManager.editions();
+  const editions = (partyEdition && [partyEdition]) || gameManager.editionManager.editions();
 
   party.scenarios.forEach((m) => {
     const key = scenarioKey(m);
@@ -47,7 +47,7 @@ export function campaignScenarioData(party: Party, partyEdition: string): Campai
 
   const blockedKeys = new Set<string>();
   const scenariosByKey = new Map<string, ScenarioData>();
-  gameManager.editionData.forEach((ed) => ed.scenarios.forEach((s) => scenariosByKey.set(scenarioKey(s), s)));
+  gameManager.editionManager.editionData.forEach((ed) => ed.scenarios.forEach((s) => scenariosByKey.set(scenarioKey(s), s)));
   party.scenarios.forEach((m) => {
     const s = scenariosByKey.get(scenarioKey(m));
     if (s && s.blocks && result.finishedCountMap.has(scenarioKey(m))) {
@@ -77,7 +77,7 @@ export function campaignScenarioData(party: Party, partyEdition: string): Campai
             scenarioData,
             (result.finishedCountMap.get(scenarioKey(scenarioData)) ?? 0) > 0,
             blockedKeys.has(scenarioKey(scenarioData)),
-            gameManager.scenarioManager.isLocked(scenarioData)
+            gameManager.scenarioRequirementsManager.isLocked(scenarioData)
           )
       );
     if (scenarioData.length > 0) {
@@ -103,7 +103,7 @@ export function campaignScenarioData(party: Party, partyEdition: string): Campai
       .filter((value) => value.edition === edition)
       .map(
         (value) =>
-          gameManager
+          gameManager.editionManager
             .sectionData(edition)
             .find(
               (sectionData) =>
@@ -176,73 +176,48 @@ export class PartyCampaignScenariosComponent extends PartySheetSection {
   }
 
   addSuccess(scenarioData: ScenarioData, force: boolean = false) {
-    if ((!gameManager.scenarioManager.isBlocked(scenarioData) && !gameManager.scenarioManager.isLocked(scenarioData)) || force) {
-      const conclusions = gameManager
-        .sectionData(scenarioData.edition)
-        .filter(
-          (sectionData) =>
-            sectionData.edition === scenarioData.edition &&
-            sectionData.parent === scenarioData.index &&
-            sectionData.group === scenarioData.group &&
-            sectionData.conclusion &&
-            gameManager.scenarioManager.getRequirements(sectionData).length === 0
-        );
-      if (conclusions.length === 0) {
-        this.addSuccessIntern(scenarioData);
-      } else {
-        this.dialog
-          .open(ScenarioConclusionComponent, {
-            panelClass: ['dialog'],
-            data: { conclusions: conclusions, parent: scenarioData }
-          })
-          .closed.subscribe({
-            next: (conclusion) => {
-              if (conclusion) {
-                this.addSuccessIntern(scenarioData, conclusion as ScenarioData);
-              }
+    if (!gameManager.scenarioFinishManager.canAddScenarioSuccess(scenarioData, force)) {
+      return;
+    }
+    const conclusions = gameManager.scenarioFinishManager.successConclusions(scenarioData);
+    if (conclusions.length === 0) {
+      this.addSuccessIntern(scenarioData, undefined, force);
+    } else {
+      this.dialog
+        .open(ScenarioConclusionComponent, {
+          panelClass: ['dialog'],
+          data: { conclusions: conclusions, parent: scenarioData }
+        })
+        .closed.subscribe({
+          next: (conclusion) => {
+            if (conclusion) {
+              this.addSuccessIntern(scenarioData, conclusion as ScenarioData, force);
             }
-          });
-      }
+          }
+        });
     }
   }
-  addSuccessIntern(scenarioData: ScenarioData, conclusionSection: ScenarioData | undefined = undefined) {
+  addSuccessIntern(scenarioData: ScenarioData, conclusionSection: ScenarioData | undefined = undefined, force: boolean = false) {
     gameManager.stateManager.before('finishScenario.success', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-    gameManager.scenarioManager.finishScenario(
-      new Scenario(scenarioData),
-      true,
-      conclusionSection,
-      false,
-      false,
-      false,
-      gameManager.game.party.campaignMode && this.countFinished(scenarioData) === 0,
-      true
-    );
+    gameManager.scenarioFinishManager.addScenarioSuccess(scenarioData, conclusionSection, force);
     gameManager.stateManager.after();
-
     this.update();
   }
   removeSuccess(scenarioData: ScenarioData, casual: boolean = false) {
-    const scenarios = casual ? this.party.casualScenarios : this.party.scenarios;
-    const value = scenarios.find(
-      (value) => value.index === scenarioData.index && value.edition === scenarioData.edition && value.group === scenarioData.group
-    );
-    if (value) {
+    if (gameManager.scenarioFinishManager.canRemoveScenarioSuccess(scenarioData, casual)) {
       gameManager.stateManager.before(
         'finishScenario.remove' + (casual ? 'Casual' : ''),
         ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData))
       );
-      scenarios.splice(scenarios.indexOf(value), 1);
+      gameManager.scenarioFinishManager.removeScenarioSuccess(scenarioData, casual);
       gameManager.stateManager.after();
     }
     this.update();
   }
   removeManual(scenarioData: ScenarioData) {
-    const value = this.party.manualScenarios.find(
-      (value) => value.index === scenarioData.index && value.edition === scenarioData.edition && value.group === scenarioData.group
-    );
-    if (value) {
+    if (gameManager.campaignManager.manualScenario(scenarioData)) {
       gameManager.stateManager.before('removeManualScenario', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-      this.party.manualScenarios.splice(this.party.manualScenarios.indexOf(value), 1);
+      gameManager.campaignManager.setManualScenario(scenarioData, false);
       gameManager.stateManager.after();
     }
     this.update();
@@ -252,7 +227,7 @@ export class PartyCampaignScenariosComponent extends PartySheetSection {
       .filter((value) => value.edition === scenarioData.edition)
       .map(
         (value) =>
-          gameManager
+          gameManager.editionManager
             .sectionData(scenarioData.edition)
             .find(
               (sectionData) =>
@@ -279,7 +254,7 @@ export class PartyCampaignScenariosComponent extends PartySheetSection {
     });
   }
   scenarioRequirements(scenarioData: ScenarioData) {
-    if (gameManager.scenarioManager.isLocked(scenarioData)) {
+    if (gameManager.scenarioRequirementsManager.isLocked(scenarioData)) {
       this.dialog.open(ScenarioRequirementsDialogComponent, {
         panelClass: ['dialog'],
         data: { scenarioData: scenarioData, hideMenu: true }

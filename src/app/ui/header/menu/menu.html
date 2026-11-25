@@ -142,7 +142,7 @@
         <div class="separator"></div>
         <div class="line">
           <a tabclick (click)="setActive(SubMenu.server)">
-            @switch (gameManager.stateManager.wsState()) {
+            @switch (gameManager.serverSyncManager.wsState()) {
               @case (WebSocket.OPEN) {
                 <span><span [ghs-label]="'server.menu.connected'"></span></span>
               }
@@ -290,8 +290,10 @@
               @if (gameManager.entityManager.entities(monster).length > 0) {
                 <span class="count">&nbsp;({{ gameManager.entityManager.entities(monster).length }})</span>
               }
-              @if (gameManager.getEdition(monster)) {
-                <span class="edition">&nbsp;[<span [ghs-label]="'data.edition.' + gameManager.getEdition(monster)"></span>]</span>
+              @if (gameManager.editionManager.getEdition(monster)) {
+                <span class="edition"
+                  >&nbsp;[<span [ghs-label]="'data.edition.' + gameManager.editionManager.getEdition(monster)"></span>]</span
+                >
               }
             </a>
           </div>

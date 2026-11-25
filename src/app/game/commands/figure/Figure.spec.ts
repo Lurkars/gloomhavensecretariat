@@ -29,7 +29,7 @@ describe('Figure commands', () => {
     it('toggles the figure through the round manager', () => {
       const monster = createTestMonster();
       gameManager.game.state = GameState.next;
-      const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
       new FigureActiveCommand('test-testmonster', 1).execute();
       expect(toggleFigure).toHaveBeenCalledWith(monster);
     });

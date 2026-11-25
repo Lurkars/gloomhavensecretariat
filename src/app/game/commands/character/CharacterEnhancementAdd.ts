@@ -13,7 +13,8 @@ export class CharacterEnhancementAddCommand extends CommandImpl {
     actionIndex: string,
     enhancementIndex: number,
     action: string,
-    costs: number = 0
+    costs: number = 0,
+    force: boolean = false
   ): boolean {
     const character = findCharacter(number);
     return (
@@ -25,18 +26,31 @@ export class CharacterEnhancementAddCommand extends CommandImpl {
       typeof action === 'string' &&
       !!action &&
       typeof costs === 'number' &&
-      costs >= 0 &&
-      character.progress.gold >= costs &&
-      !(character.progress.enhancements || []).some(
-        (enhancement) => enhancement.cardId === cardId && enhancement.actionIndex === actionIndex && enhancement.index === enhancementIndex
-      )
+      typeof force === 'boolean' &&
+      gameManager.enhancementsManager.canAddEnhancement(character, cardId, actionIndex, enhancementIndex, costs, force)
     );
   }
 
-  executeWithParameters(number: number, cardId: number, actionIndex: string, enhancementIndex: number, action: string, costs: number = 0) {
+  executeWithParameters(
+    number: number,
+    cardId: number,
+    actionIndex: string,
+    enhancementIndex: number,
+    action: string,
+    costs: number = 0,
+    force: boolean = false
+  ) {
     const character = findCharacter(number);
     if (character) {
-      gameManager.enhancementsManager.addEnhancement(character, cardId, actionIndex, enhancementIndex, action as EnhancementAction, costs);
+      gameManager.enhancementsManager.addEnhancement(
+        character,
+        cardId,
+        actionIndex,
+        enhancementIndex,
+        action as EnhancementAction,
+        costs,
+        force
+      );
     } else {
       this.executionError('character not found');
     }

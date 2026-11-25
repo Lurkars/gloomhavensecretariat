@@ -57,6 +57,19 @@ export class RetirementManager {
     }
   }
 
+  canSetModelPlayerNumber(characterModel: GameCharacterModel, number: number): boolean {
+    return Number.isInteger(number) && number > 0 && number !== characterModel.number;
+  }
+
+  // player number of a retired or stored character
+  setModelPlayerNumber(characterModel: GameCharacterModel, number: number): boolean {
+    if (!this.canSetModelPlayerNumber(characterModel, number)) {
+      return false;
+    }
+    characterModel.number = number;
+    return true;
+  }
+
   reactivatable(model: GameCharacterModel): boolean {
     return (
       this.game.party.retirements.includes(model) &&
@@ -66,7 +79,7 @@ export class RetirementManager {
   }
 
   reactivateCharacter(model: GameCharacterModel) {
-    const character = new Character(gameManager.getCharacterData(model.name, model.edition), model.level);
+    const character = new Character(gameManager.editionManager.getCharacterData(model.name, model.edition), model.level);
     character.fromModel(model);
     character.progress.retired = false;
     character.progress.personalQuestProgress = [];
@@ -78,12 +91,12 @@ export class RetirementManager {
     const retirement = new Retirement(character);
     let skipCharacterConclusion = false;
     const personalQuest = character.progress.personalQuest
-      ? gameManager.personalQuestManager.personalQuestByCard(gameManager.currentEdition(), character.progress.personalQuest)
+      ? gameManager.personalQuestManager.personalQuestByCard(gameManager.editionManager.currentEdition(), character.progress.personalQuest)
       : undefined;
 
     if (personalQuest) {
       const pqRef = 'PQ-' + personalQuest.cardId;
-      retirement.personalQuestConclusion = gameManager
+      retirement.personalQuestConclusion = gameManager.editionManager
         .sectionData(personalQuest.edition)
         .find((sectionData) => sectionData.retirement === pqRef && sectionData.conclusion);
       if (retirement.personalQuestConclusion) {
@@ -92,7 +105,7 @@ export class RetirementManager {
     }
 
     if (!skipCharacterConclusion) {
-      retirement.conclusion = gameManager
+      retirement.conclusion = gameManager.editionManager
         .sectionData(character.edition)
         .find((sectionData) => sectionData.retirement === character.name && sectionData.conclusion);
     }
@@ -123,7 +136,7 @@ export class RetirementManager {
   }
 
   setAdditionalQuest(retirement: Retirement, cardId: string) {
-    const personalQuest = gameManager.personalQuestManager.personalQuestByCard(gameManager.currentEdition(), cardId);
+    const personalQuest = gameManager.personalQuestManager.personalQuestByCard(gameManager.editionManager.currentEdition(), cardId);
     retirement.additional = personalQuest
       ? this.retirementQuest(
           personalQuest,
@@ -178,7 +191,7 @@ export class RetirementManager {
         quest.characterScenario = settingsManager.settings.drawRandomScenario ? characterScenario : !!characterScenario;
         quest.characterItemDesign = settingsManager.settings.drawRandomItem ? characterItemDesign : !!characterItemDesign;
       } else {
-        const unlockCharacter = gameManager
+        const unlockCharacter = gameManager.editionManager
           .charactersData(personalQuest.edition)
           .find((characterData) => characterData.edition === personalQuest.edition && characterData.name === personalQuest.unlockCharacter);
         quest.unlockEvent = (unlockCharacter && unlockCharacter.unlockEvent) || '';
@@ -223,7 +236,7 @@ export class RetirementManager {
     return [retirement.conclusion, retirement.personalQuestConclusion]
       .filter((conclusion) => !!conclusion)
       .map((conclusion) => conclusion as ScenarioData)
-      .filter((conclusion) => !gameManager.scenarioManager.conclusionFinished(conclusion));
+      .filter((conclusion) => !gameManager.campaignManager.conclusionFinished(conclusion));
   }
 
   private applyQuest(quest: RetirementQuest) {

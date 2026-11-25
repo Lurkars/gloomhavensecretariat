@@ -31,7 +31,7 @@ export class PersonalQuestSetupDialog implements OnInit {
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
-    this.editions = gameManager.editions();
+    this.editions = gameManager.editionManager.editions();
     this.edition = this.data.edition || this.editions[0] || '';
   }
 

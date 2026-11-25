@@ -1,21 +1,24 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
-import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { CharacterSpecialAction, CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { FigureErrorType } from 'src/app/game/model/data/FigureError';
-import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
+import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
+import { LootType } from 'src/app/game/model/data/Loot';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
+import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Perk } from 'src/app/game/model/data/Perks';
+import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 
 // This spec covers the small, clearly-scoped helpers (icon/color/thumbnail lookups, xp -> level
-// mapping, the "ignore negative X" perk checks, itemEffect() and enhancementMapping()), plus the
+// mapping, the "ignore negative X" perk checks and itemEffect()), plus the
 // stateful flows addCharacter/setLevel/next()/draw() below. Those flows carry hardcoded per-
 // character-name effects (gated behind `character.name === '<specific character>'`) that stay out
 // of scope — fixtures use a generic name ('test-char') so none of those branches fire.
@@ -41,7 +44,7 @@ describe('CharacterManager', () => {
     gameManager.game.party.scenarios = [];
     gameManager.game.party.conclusions = [];
     gameManager.game.party.treasures = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = [];
     settingsManager.settings.characterAttackModifierDeckPermanent = false;
     gameManager.trialsManager.apply = false;
@@ -70,7 +73,7 @@ describe('CharacterManager', () => {
     });
 
     it('resolves a character by name/edition when given a string', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         new EditionData('gh', [buildCharacterData({ name: 'brute', edition: 'gh', icon: 'gh-brute-icon' })], [], [], [], [], [])
       ];
       settingsManager.settings.editions = ['gh'];
@@ -80,7 +83,7 @@ describe('CharacterManager', () => {
 
   describe('characterIdentityIcon', () => {
     it('falls back to characterIcon when the character has no identities', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         new EditionData('gh', [buildCharacterData({ name: 'brute', edition: 'gh', icon: 'gh-brute' })], [], [], [], [], [])
       ];
       settingsManager.settings.editions = ['gh'];
@@ -88,7 +91,7 @@ describe('CharacterManager', () => {
     });
 
     it('builds an identity-specific icon path when identities exist', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         new EditionData('gh', [buildCharacterData({ name: 'giver', edition: 'gh', identities: ['id-a', 'id-b'] })], [], [], [], [], [])
       ];
       settingsManager.settings.editions = ['gh'];
@@ -103,7 +106,7 @@ describe('CharacterManager', () => {
     });
 
     it('resolves the color by name via getCharacterData when given a string', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         new EditionData('gh', [buildCharacterData({ name: 'brute', edition: 'gh', color: '#abcdef' })], [], [], [], [], [])
       ];
       settingsManager.settings.editions = ['gh'];
@@ -223,32 +226,6 @@ describe('CharacterManager', () => {
 
     it('is false for an edition without special item effects', () => {
       expect(characterManager.itemEffect(Object.assign(new ItemData(), { edition: 'jotl', id: 3 }))).toBe(false);
-    });
-  });
-
-  describe('enhancementMapping', () => {
-    it('collects an actionId per enhancementType-carrying action, recursing into subActions', () => {
-      const nested = Object.assign(new Action(ActionType.attack, 1), { enhancementTypes: ['attack'] });
-      const withEnhancement = Object.assign(new Action(ActionType.attack, 2), { enhancementTypes: ['attack'] });
-      const withSubActions = Object.assign(new Action(ActionType.move, 2), { subActions: [nested] });
-
-      const mapping = characterManager.enhancementMapping([withEnhancement, withSubActions], '');
-
-      expect(mapping).toEqual(['0', '1-0']);
-    });
-
-    it('skips the wip placeholder action entirely', () => {
-      const wip = new Action(ActionType.custom, '%character.abilities.wip%');
-      const real = Object.assign(new Action(ActionType.attack, 1), { enhancementTypes: ['attack'] });
-
-      const mapping = characterManager.enhancementMapping([wip, real], '');
-
-      expect(mapping).toEqual(['1']);
-    });
-
-    it('prefixes actionIds with the parentIndex (e.g. for bottom actions)', () => {
-      const action = Object.assign(new Action(ActionType.attack, 1), { enhancementTypes: ['attack'] });
-      expect(characterManager.enhancementMapping([action], 'bottom')).toEqual(['bottom-0']);
     });
   });
 
@@ -401,11 +378,16 @@ describe('CharacterManager', () => {
 
     it('adds a summon from summon data, special summons as custom with number 0', () => {
       const character = buildCharacter('test-char');
-      const summon = characterManager.addSummonFromData(character, summonData(), 2, SummonColor.blue);
+      const summon = gameManager.summonManager.addSummonFromData(character, summonData(), 2, SummonColor.blue)!;
       expect(summon.number).toBe(2);
       expect(summon.color).toBe(SummonColor.blue);
       expect(summon.state).toBe(SummonState.new);
-      const special = characterManager.addSummonFromData(character, summonData({ name: 'spirit', special: true }), 3, SummonColor.blue);
+      const special = gameManager.summonManager.addSummonFromData(
+        character,
+        summonData({ name: 'spirit', special: true }),
+        3,
+        SummonColor.blue
+      )!;
       expect(special.number).toBe(0);
       expect(special.color).toBe(SummonColor.custom);
       expect(special.state).toBe(SummonState.true);
@@ -415,34 +397,284 @@ describe('CharacterManager', () => {
     it('finds the next free summon number and respects the summon count', () => {
       const character = buildCharacter('test-char');
       const data = summonData();
-      expect(characterManager.nextSummonNumber(character, data, SummonColor.blue)).toBe(1);
-      expect(characterManager.summonAvailable(character, data, 1, SummonColor.blue)).toBe(true);
-      characterManager.addSummonFromData(character, data, 1, SummonColor.blue);
-      expect(characterManager.nextSummonNumber(character, data, SummonColor.blue)).toBe(2);
-      expect(characterManager.nextSummonNumber(character, data, SummonColor.green)).toBe(1);
-      expect(characterManager.summonAvailable(character, data, 1, SummonColor.blue)).toBe(false);
-      characterManager.addSummonFromData(character, data, 2, SummonColor.blue);
-      expect(characterManager.summonAvailable(character, data, 3, SummonColor.blue)).toBe(false);
+      expect(gameManager.summonManager.nextSummonNumber(character, data, SummonColor.blue)).toBe(1);
+      expect(gameManager.summonManager.summonAvailable(character, data, 1, SummonColor.blue)).toBe(true);
+      gameManager.summonManager.addSummonFromData(character, data, 1, SummonColor.blue);
+      expect(gameManager.summonManager.nextSummonNumber(character, data, SummonColor.blue)).toBe(2);
+      expect(gameManager.summonManager.nextSummonNumber(character, data, SummonColor.green)).toBe(1);
+      expect(gameManager.summonManager.summonAvailable(character, data, 1, SummonColor.blue)).toBe(false);
+      gameManager.summonManager.addSummonFromData(character, data, 2, SummonColor.blue);
+      expect(gameManager.summonManager.summonAvailable(character, data, 3, SummonColor.blue)).toBe(false);
     });
 
     it('adds a custom summon', () => {
       const character = buildCharacter('test-char');
-      const summon = characterManager.addCustomSummon(character, 'custom', 4, SummonColor.yellow);
+      const summon = gameManager.summonManager.addCustomSummon(character, 'custom', 4, SummonColor.yellow)!;
       expect(summon.name).toBe('custom');
       expect(summon.number).toBe(4);
       expect(character.summons).toEqual([summon]);
+      expect(gameManager.summonManager.canAddCustomSummon(character, 'custom', 4, SummonColor.yellow)).toBe(false);
+      expect(gameManager.summonManager.addCustomSummon(character, 'custom', 4, SummonColor.yellow)).toBeUndefined();
+      expect(gameManager.summonManager.canAddCustomSummon(character, 'custom', 0, SummonColor.yellow)).toBe(false);
+      expect(character.summons.length).toBe(1);
+    });
+
+    it('refuses summons above the count limit, dead summons do not count', () => {
+      const character = buildCharacter('test-char');
+      const data = summonData({ count: 1 });
+      const summon = gameManager.summonManager.addSummonFromData(character, data, 1, SummonColor.blue)!;
+      expect(gameManager.summonManager.canAddSummon(character, data)).toBe(false);
+      expect(gameManager.summonManager.addSummonFromData(character, data, 2, SummonColor.blue)).toBeUndefined();
+      summon.dead = true;
+      expect(gameManager.summonManager.canAddSummon(character, data)).toBe(true);
+    });
+
+    it('lists level summons and item summons without changing the item data', () => {
+      const character = buildCharacter('test-char');
+      character.level = 2;
+      character.availableSummons = [summonData({ level: 1 }), summonData({ name: 'bear', level: 3 })];
+      const item = Object.assign(new ItemData(), { id: 1, name: 'item-summon', edition: 'test' });
+      item.summon = Object.assign(new SummonData(), { cardId: '' });
+      vi.spyOn(gameManager.editionManager, 'relevantEditions').mockReturnValue(['test']);
+      vi.spyOn(gameManager.itemManager, 'getItems').mockReturnValue([item]);
+      settingsManager.settings.characterItems = false;
+      const summons = gameManager.summonManager.availableSummons(character);
+      expect(summons.map((value) => value.name)).toEqual(['wolf', 'item-summon']);
+      expect(summons[1].count).toBe(1);
+      expect(item.summon.name).toBe('');
+      settingsManager.settings.characterItems = true;
+      expect(gameManager.summonManager.availableSummons(character).map((value) => value.name)).toEqual(['wolf']);
+    });
+  });
+
+  describe('absent', () => {
+    it('keeps at least one character present', () => {
+      const first = buildCharacter('test-char');
+      const second = buildCharacter('other-char');
+      gameManager.game.figures = [first, second];
+      expect(characterManager.setAbsent(first, true)).toBe(true);
+      expect(characterManager.canSetAbsent(second, true)).toBe(false);
+      expect(characterManager.setAbsent(second, true)).toBe(false);
+      expect(second.absent).toBe(false);
+      expect(characterManager.setAbsent(first, false)).toBe(true);
+      expect(first.absent).toBe(false);
+    });
+  });
+
+  describe('resources', () => {
+    it('sets valid resource values only', () => {
+      const character = buildCharacter('test-char');
+      expect(characterManager.setResource(character, LootType.hide, 3)).toBe(true);
+      expect(character.progress.loot[LootType.hide]).toBe(3);
+      expect(characterManager.setResource(character, LootType.hide, -1)).toBe(false);
+      expect(characterManager.setResource(character, LootType.hide, 1.5)).toBe(false);
+      expect(character.progress.loot[LootType.hide]).toBe(3);
+    });
+  });
+
+  describe('tokens, identity and player number', () => {
+    it('keeps tokens and token values in range', () => {
+      const character = buildCharacter('test-char');
+      character.tokens = ['time'];
+      character.tokenValues = [1];
+      expect(characterManager.changeToken(character, -3)).toBe(true);
+      expect(character.token).toBe(0);
+      expect(characterManager.changeToken(character, 0)).toBe(false);
+      expect(characterManager.changeTokenValue(character, 0, -5)).toBe(true);
+      expect(character.tokenValues[0]).toBe(0);
+      vi.spyOn(gameManager.specialActionsManager, 'maxTokenValue').mockReturnValue(5);
+      expect(characterManager.tokenValueAfter(character, 0, 9)).toBe(5);
+      expect(characterManager.changeTokenValue(character, 1, 1)).toBe(false);
+    });
+
+    it('switches identities unless locked', () => {
+      const character = buildCharacter('test-char');
+      character.identities = ['a', 'b'];
+      expect(characterManager.nextIdentity(character)).toBe(1);
+      expect(characterManager.setIdentity(character, 1)).toBe(true);
+      expect(characterManager.nextIdentity(character)).toBe(0);
+      expect(characterManager.setIdentity(character, 2)).toBe(false);
+      vi.spyOn(gameManager.specialActionsManager, 'isIdentityLocked').mockReturnValue(true);
+      expect(characterManager.setIdentity(character, 0)).toBe(false);
+      expect(character.identity).toBe(1);
+    });
+
+    it('swaps player numbers with the character using it', () => {
+      const first = buildCharacter('test-char');
+      const second = buildCharacter('other-char');
+      first.number = 1;
+      second.number = 2;
+      gameManager.game.figures = [first, second];
+      expect(characterManager.setPlayerNumber(first, 1)).toBe(false);
+      expect(characterManager.setPlayerNumber(first, 2)).toBe(true);
+      expect([first.number, second.number]).toEqual([2, 1]);
+      expect(characterManager.setPlayerNumber(first, 0)).toBe(false);
+    });
+  });
+
+  describe('removeAllCharacters', () => {
+    it('removes characters including their markers on other figures', () => {
+      const first = buildCharacter('test-char');
+      first.marker = true;
+      const second = buildCharacter('other-char');
+      const marker = first.edition + '-' + first.name;
+      const monster = new Monster(new MonsterData());
+      const entity = new MonsterEntity(1, MonsterType.normal, monster);
+      entity.markers = [marker];
+      monster.entities = [entity];
+      gameManager.game.figures = [first, monster, second];
+      characterManager.removeAllCharacters();
+      expect(gameManager.game.figures).toEqual([monster]);
+      expect(entity.markers).toEqual([]);
+    });
+  });
+
+  describe('visibility toggles', () => {
+    beforeEach(() => {
+      settingsManager.settings.characterAttackModifierDeckActiveBottom = false;
+      settingsManager.settings.characterAttackModifierDeckPermanentActive = false;
+    });
+
+    it('shows the attack modifier deck hiding loot cards and hides it again', () => {
+      const character = buildCharacter('test-char');
+      character.lootCardsVisible = true;
+      expect(characterManager.attackModifierDeckToggleHides(character)).toBe(false);
+      characterManager.toggleAttackModifierDeckVisible(character);
+      expect(character.attackModifierDeckVisible).toBe(true);
+      expect(character.attackModifierDeck.active).toBe(true);
+      expect(character.lootCardsVisible).toBe(false);
+      expect(characterManager.attackModifierDeckToggleHides(character)).toBe(true);
+      characterManager.toggleAttackModifierDeckVisible(character);
+      expect(character.attackModifierDeckVisible).toBe(false);
+      expect(character.attackModifierDeck.active).toBe(false);
+    });
+
+    it('keeps the deck of the active character open with permanent active decks', () => {
+      settingsManager.settings.characterAttackModifierDeckPermanent = true;
+      settingsManager.settings.characterAttackModifierDeckPermanentActive = true;
+      const character = buildCharacter('test-char');
+      character.active = true;
+      character.attackModifierDeckVisible = true;
+      expect(characterManager.attackModifierDeckToggleHides(character)).toBe(false);
+      characterManager.toggleAttackModifierDeckVisible(character);
+      expect(character.attackModifierDeckVisible).toBe(true);
+    });
+
+    it('docks only one deck at the bottom and falls back to the active character', () => {
+      settingsManager.settings.characterAttackModifierDeckActiveBottom = true;
+      settingsManager.settings.characterAttackModifierDeckPermanentActive = true;
+      const character = buildCharacter('test-char');
+      const active = buildCharacter('other-char');
+      active.active = true;
+      active.attackModifierDeckVisible = true;
+      gameManager.game.figures = [character, active];
+      characterManager.toggleAttackModifierDeckVisible(character);
+      expect(character.attackModifierDeckVisible).toBe(true);
+      expect(active.attackModifierDeckVisible).toBe(false);
+      expect(characterManager.attackModifierDeckToggleHides(character)).toBe(true);
+      characterManager.toggleAttackModifierDeckVisible(character);
+      expect(character.attackModifierDeckVisible).toBe(false);
+      expect(active.attackModifierDeckVisible).toBe(true);
+    });
+
+    it('shows loot cards hiding the attack modifier deck and toggles items', () => {
+      const character = buildCharacter('test-char');
+      character.attackModifierDeck.active = true;
+      character.attackModifierDeckVisible = true;
+      characterManager.toggleLootCardsVisible(character);
+      expect(character.lootCardsVisible).toBe(true);
+      expect(character.attackModifierDeckVisible).toBe(false);
+      expect(character.attackModifierDeck.active).toBe(false);
+      characterManager.toggleLootCardsVisible(character);
+      expect(character.lootCardsVisible).toBe(false);
+      characterManager.toggleItemsVisible(character);
+      expect(character.itemsVisible).toBe(true);
+    });
+
+    it('syncs hidden flags through the model', () => {
+      const character = buildCharacter('test-char');
+      character.attackModifierDeckVisible = true;
+      character.lootCardsVisible = true;
+      character.itemsVisible = true;
+      const model = character.toModel();
+      model.attackModifierDeckVisible = false;
+      model.lootCardsVisible = false;
+      model.itemsVisible = false;
+      character.fromModel(model);
+      expect(character.attackModifierDeckVisible).toBe(false);
+      expect(character.lootCardsVisible).toBe(false);
+      expect(character.itemsVisible).toBe(false);
     });
   });
 
   describe('toggleActive', () => {
+    beforeEach(() => {
+      gameManager.game.state = GameState.next;
+    });
+
+    const initiativeRequired = settingsManager.settings.initiativeRequired;
+
     afterEach(() => {
       settingsManager.settings.activeSummons = false;
+      settingsManager.settings.initiativeRequired = initiativeRequired;
+      gameManager.game.state = GameState.draw;
+    });
+
+    it('refuses to start or end turns outside of the next phase', () => {
+      const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
+      const character = buildCharacter('test-char');
+      character.initiative = 10;
+      gameManager.game.state = GameState.draw;
+      expect(characterManager.toggleActive(character)).toBe(false);
+      character.active = true;
+      expect(characterManager.toggleActive(character)).toBe(false);
+      expect(toggleFigure).not.toHaveBeenCalled();
+    });
+
+    it('only starts turns of present characters, but always ends the active turn', () => {
+      const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
+      const character = buildCharacter('test-char');
+      character.initiative = 10;
+      character.exhausted = true;
+      expect(characterManager.canActivate(character)).toBe(false);
+      expect(characterManager.activate(character)).toBe(false);
+      character.active = true;
+      expect(characterManager.canActivate(character)).toBe(false);
+      expect(characterManager.canDeactivate(character)).toBe(true);
+      expect(characterManager.toggleActive(character)).toBe(true);
+      expect(toggleFigure).toHaveBeenCalledTimes(1);
+      character.active = false;
+      expect(characterManager.deactivate(character)).toBe(false);
+      character.exhausted = false;
+      character.initiative = 0;
+      settingsManager.settings.initiativeRequired = true;
+      expect(characterManager.canActivate(character)).toBe(false);
+    });
+
+    it('skips characters which can not start their turn for the next figure', () => {
+      const first = buildCharacter('test-char');
+      const second = buildCharacter('other-char');
+      first.initiative = 10;
+      second.initiative = 20;
+      first.exhausted = true;
+      gameManager.game.figures = [first, second];
+      expect(gameManager.turnManager.nextFigure()).toBe(second);
+      first.exhausted = false;
+      first.absent = true;
+      expect(gameManager.turnManager.nextFigure()).toBe(second);
+      first.absent = false;
+      first.initiative = 0;
+      settingsManager.settings.initiativeRequired = true;
+      expect(gameManager.turnManager.nextFigure()).toBe(second);
+      first.active = true;
+      expect(gameManager.turnManager.nextFigure()).toBe(first);
     });
 
     it('activates summons acting after the turn before ending the turn', () => {
       settingsManager.settings.activeSummons = true;
-      const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
       const character = buildCharacter('test-char');
+      character.initiative = 10;
       character.active = true;
       const summon = new Summon('uuid', 'spirit', '1', 1, 1, SummonColor.blue);
       summon.afterTurn = true;
@@ -456,8 +688,9 @@ describe('CharacterManager', () => {
     });
 
     it('toggles the character without summon handling', () => {
-      const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
       const character = buildCharacter('test-char');
+      character.initiative = 10;
       expect(characterManager.toggleActiveUndoInfos(character)[0]).toBe('setActive');
       character.active = true;
       expect(characterManager.toggleActiveUndoInfos(character)[0]).toBe('unsetActive');
@@ -475,8 +708,25 @@ describe('CharacterManager', () => {
     }
 
     beforeEach(() => {
-      vi.spyOn(gameManager.attackModifierManager, 'mergeAttackModifierDeck').mockReturnValue(true);
+      vi.spyOn(gameManager.attackModifierBuildManager, 'mergeAttackModifierDeck').mockReturnValue(true);
       vi.spyOn(gameManager.attackModifierManager, 'shuffleModifiers').mockImplementation(() => {});
+      vi.spyOn(gameManager.characterManager, 'availablePerks').mockReturnValue(99);
+      gameManager.game.state = GameState.draw;
+      gameManager.game.round = 0;
+    });
+
+    it('limits perks to available perk points and the setup phase unless forced', () => {
+      const character = shackles();
+      vi.mocked(gameManager.characterManager.availablePerks).mockReturnValue(1);
+      expect(characterManager.canSetPerk(character, 0, 2)).toBe(false);
+      expect(characterManager.canSetPerk(character, 0, 1)).toBe(true);
+      expect(characterManager.canSetPerk(character, 0, 3, true)).toBe(false);
+      expect(characterManager.canSetPerk(character, 20, 1, true)).toBe(false);
+      gameManager.game.round = 1;
+      expect(characterManager.setPerk(character, 0, 1)).toBe(false);
+      expect(characterManager.canSetPerk(character, 0, 1, false, true)).toBe(true);
+      expect(characterManager.setPerk(character, 0, 2, true)).toBe(true);
+      gameManager.game.round = 0;
     });
 
     it('sets the perk value and rebuilds the character deck', () => {
@@ -484,16 +734,26 @@ describe('CharacterManager', () => {
       character.perks = [Object.assign(new Perk(), { count: 2 })];
       characterManager.setPerk(character, 0, 2);
       expect(character.progress.perks[0]).toBe(2);
-      expect(gameManager.attackModifierManager.mergeAttackModifierDeck).toHaveBeenCalled();
+      expect(gameManager.attackModifierBuildManager.mergeAttackModifierDeck).toHaveBeenCalled();
     });
 
     it('rebuilds the monster deck for monster deck perks', () => {
       const character = buildCharacter('test-char');
       character.perks = [Object.assign(new Perk(), { count: 1, monsterDeck: true })];
-      const build = vi.spyOn(gameManager.attackModifierManager, 'buildMonsterAttackModifierDeck');
+      const build = vi.spyOn(gameManager.attackModifierBuildManager, 'buildMonsterAttackModifierDeck');
       characterManager.setPerk(character, 0, 1);
       expect(build).toHaveBeenCalled();
-      expect(gameManager.attackModifierManager.mergeAttackModifierDeck).not.toHaveBeenCalled();
+      expect(gameManager.attackModifierBuildManager.mergeAttackModifierDeck).not.toHaveBeenCalled();
+    });
+
+    it('removes the special action of a perk once the perk is no longer complete', () => {
+      const character = buildCharacter('test-char');
+      character.perks = [Object.assign(new Perk(), { count: 2 })];
+      character.specialActions = [{ name: 'perk-action', perk: 1 } as CharacterSpecialAction];
+      characterManager.setPerk(character, 0, 2);
+      character.tags = ['perk-action'];
+      characterManager.setPerk(character, 0, 1);
+      expect(character.tags).toEqual([]);
     });
 
     it('raises and lowers the Shackles max health exactly once for the full perk', () => {
@@ -596,7 +856,7 @@ describe('CharacterManager', () => {
       ]);
       character.editionRules = 'bb';
       const buildSpy = vi
-        .spyOn(gameManager.attackModifierManager, 'buildCharacterAttackModifierDeck')
+        .spyOn(gameManager.attackModifierBuildManager, 'buildCharacterAttackModifierDeck')
         .mockReturnValue('rebuilt-deck' as any);
 
       characterManager.setLevel(character, 2);
@@ -831,7 +1091,7 @@ describe('CharacterManager unlockCharacter', () => {
   beforeEach(() => {
     gameManager.game.unlockedCharacters = [];
     settingsManager.settings.events = true;
-    vi.spyOn(gameManager, 'charactersData').mockReturnValue([
+    vi.spyOn(gameManager.editionManager, 'charactersData').mockReturnValue([
       Object.assign(new CharacterData(), { name: 'squidface', edition: 'gh', unlockEvent: 'city:81' })
     ]);
   });
@@ -861,9 +1121,7 @@ describe('CharacterManager unlockCharacter', () => {
   });
 });
 
-describe('CharacterManager summon setup', () => {
-  const characterManager = gameManager.characterManager;
-
+describe('SummonManager summon setup', () => {
   function summon(): Summon {
     const result = new Summon('uuid', 'spirit', '1', 1, 1, SummonColor.blue);
     result.maxHealth = 4;
@@ -884,7 +1142,7 @@ describe('CharacterManager summon setup', () => {
     );
     const value = summon();
     character.summons = [value];
-    characterManager.initSummon(character, value, { maxHp: 2, attack: 1, movement: 2, range: 1 });
+    gameManager.summonManager.initSummon(character, value, { maxHp: 2, attack: 1, movement: 2, range: 1 });
     expect(value.init).toBe(false);
     expect([value.maxHealth, value.health, value.attack, value.movement, value.range]).toEqual([6, 6, 3, 3, 1]);
     expect(character.summons).toEqual([value]);
@@ -892,12 +1150,12 @@ describe('CharacterManager summon setup', () => {
 
   it('changes summon stats and ignores non numeric attacks', () => {
     const value = summon();
-    characterManager.changeSummonStat(value, 'attack', 2);
-    characterManager.changeSummonStat(value, 'trapDamage', 1);
-    characterManager.changeSummonStat(value, 'maxHp', -1);
+    gameManager.summonManager.changeSummonStat(value, 'attack', 2);
+    gameManager.summonManager.changeSummonStat(value, 'trapDamage', 1);
+    gameManager.summonManager.changeSummonStat(value, 'maxHp', -1);
     expect([value.attack, value.movement, value.maxHealth]).toEqual([4, 2, 3]);
     value.attack = 'X';
-    characterManager.changeSummonStat(value, 'attack', 1);
+    gameManager.summonManager.changeSummonStat(value, 'attack', 1);
     expect(value.attack).toBe('X');
   });
 });
@@ -943,14 +1201,88 @@ describe('CharacterManager party characters and donations', () => {
     brute.progress.gold = 15;
     expect(characterManager.donationCosts()).toBe(10);
     expect(characterManager.canDonate(brute)).toBe(true);
-    characterManager.donate(brute);
+    expect(characterManager.donate(brute)).toBe(true);
     expect(brute.progress.gold).toBe(5);
     expect(brute.progress.donations).toBe(1);
     expect(gameManager.game.party.donations).toBe(1);
     expect(track).toHaveBeenCalledTimes(2);
     expect(characterManager.canDonate(brute)).toBe(false);
+    expect(characterManager.donate(brute)).toBe(false);
+    expect(brute.progress.gold).toBe(5);
     gameManager.game.round = 1;
     brute.progress.gold = 50;
     expect(characterManager.canDonate(brute)).toBe(false);
+  });
+});
+
+describe('CharacterManager progress checks', () => {
+  const characterManager = gameManager.characterManager;
+
+  function character(): Character {
+    return new Character(Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }), 1);
+  }
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it('limits levels, masteries and progress values', () => {
+    const brute = character();
+    expect(characterManager.canSetLevel(brute, 0)).toBe(false);
+    expect(characterManager.canSetLevel(brute, 10)).toBe(false);
+    expect(characterManager.canSetLevel(brute, 9)).toBe(true);
+    expect(characterManager.setLevel(brute, 1.5)).toBe(false);
+
+    brute.masteries = ['a', 'b'];
+    expect(characterManager.setMastery(brute, 2, true)).toBe(false);
+    expect(characterManager.setMastery(brute, 1, true)).toBe(true);
+    expect(characterManager.setMastery(brute, 1, true)).toBe(false);
+    expect(brute.progress.masteries).toEqual([1]);
+
+    expect(characterManager.setProgressValue(brute, 'battleGoals', 19)).toBe(false);
+    expect(characterManager.setProgressValue(brute, 'battleGoals', 18)).toBe(true);
+    expect(characterManager.setProgressValue(brute, 'gold', -1)).toBe(false);
+    expect(characterManager.setProgressValue(brute, 'notes', 5)).toBe(false);
+    expect(characterManager.setProgressValue(brute, 'notes', 'text')).toBe(true);
+    expect(brute.progress.battleGoals).toBe(18);
+    expect(brute.progress.notes).toBe('text');
+    expect(characterManager.canChangeExperience(brute, 0)).toBe(false);
+    expect(characterManager.canAddXP(brute, 0.5)).toBe(false);
+  });
+
+  it('selects, deselects and keeps battle goals by index', () => {
+    const brute = character();
+    brute.battleGoals = [new Identifier('1', 'gh'), new Identifier('2', 'gh')];
+    expect(gameManager.battleGoalManager.selectBattleGoal(brute, 2)).toBe(false);
+    expect(gameManager.battleGoalManager.selectBattleGoal(brute, 1)).toBe(true);
+    expect(brute.battleGoal).toBe(true);
+    expect(brute.battleGoals.map((identifier) => identifier.name)).toEqual(['2', '1']);
+    expect(gameManager.battleGoalManager.selectBattleGoal(brute, -1)).toBe(true);
+    expect(brute.battleGoal).toBe(false);
+    vi.spyOn(gameManager.trialsManager, 'characterTrial').mockReturnValue(true);
+    expect(gameManager.battleGoalManager.selectBattleGoal(brute, -1)).toBe(true);
+    expect(brute.battleGoal).toBe(true);
+  });
+
+  it('limits personal quest progress to the requirements of the quest', () => {
+    const brute = character();
+    expect(gameManager.personalQuestManager.canSetProgress(brute, 3, 1)).toBe(true);
+    brute.progress.personalQuest = '1';
+    vi.spyOn(gameManager.personalQuestManager, 'personalQuestByCard').mockReturnValue(
+      Object.assign(new PersonalQuest(), { requirements: [new PersonalQuestRequirement()] })
+    );
+    expect(gameManager.personalQuestManager.setProgress(brute, 1, 1)).toBe(false);
+    expect(gameManager.personalQuestManager.setProgress(brute, 0, -1)).toBe(false);
+    expect(gameManager.personalQuestManager.setProgress(brute, 0, 2)).toBe(true);
+    expect(brute.progress.personalQuestProgress).toEqual([2]);
+  });
+
+  it('assigns only existing, unassigned trials', () => {
+    const brute = character();
+    vi.spyOn(gameManager.trialsManager, 'trialsEditionData').mockReturnValue({ trials: [] } as never);
+    vi.spyOn(gameManager.trialsManager, 'trialCardExists').mockImplementation((cardId) => cardId === 351);
+    vi.spyOn(gameManager.trialsManager, 'trialAssigned').mockReturnValue(false);
+    expect(gameManager.trialsManager.canSetTrial(brute, 352)).toBe(false);
+    expect(gameManager.trialsManager.canSetTrial(brute, 351)).toBe(true);
+    vi.mocked(gameManager.trialsManager.trialAssigned).mockReturnValue(true);
+    expect(gameManager.trialsManager.setTrial(brute, 351)).toBe(false);
   });
 });

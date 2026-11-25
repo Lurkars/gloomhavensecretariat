@@ -8,7 +8,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { OBJECTIVE_MARKERS, ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
 
 export class ObjectiveManager {
@@ -27,7 +27,7 @@ export class ObjectiveManager {
     name: string | undefined = undefined,
     objectiveId: AdditionalIdentifier | ScenarioObjectiveIdentifier | undefined = undefined
   ): ObjectiveContainer {
-    let objectiveContainer = gameManager.game.figures.find(
+    let objectiveContainer = this.game.figures.find(
       (figure) =>
         figure instanceof ObjectiveContainer &&
         ((!objectiveId &&
@@ -68,10 +68,64 @@ export class ObjectiveManager {
       objectiveContainer.edition = objectiveContainer.escort ? 'escort' : 'objective';
       this.game.figures.push(objectiveContainer);
     }
-    gameManager.addEntityCount(objectiveContainer);
+    gameManager.entityCounterManager.addEntityCount(objectiveContainer);
     this.setInitiativeShare(objectiveContainer);
-    gameManager.sortFigures(objectiveContainer);
+    gameManager.roundManager.sortFigures(objectiveContainer);
     return objectiveContainer;
+  }
+
+  removeAllObjectives() {
+    this.game.figures = this.game.figures.filter((figure) => !(figure instanceof ObjectiveContainer));
+  }
+
+  canSetAmDeck(objectiveContainer: ObjectiveContainer, deck: string): boolean {
+    return (
+      typeof deck === 'string' &&
+      (deck === '' || objectiveContainer.amDeck === deck || gameManager.attackModifierManager.objectiveAmDecks().includes(deck))
+    );
+  }
+
+  setAmDeck(objectiveContainer: ObjectiveContainer, deck: string): boolean {
+    if (!this.canSetAmDeck(objectiveContainer, deck)) {
+      return false;
+    }
+    objectiveContainer.amDeck = deck || undefined;
+    return true;
+  }
+
+  canSetObjectiveNumber(objectiveContainer: ObjectiveContainer, objectiveEntity: ObjectiveEntity, number: number): boolean {
+    return (
+      objectiveContainer.entities.includes(objectiveEntity) &&
+      Number.isInteger(number) &&
+      number > 0 &&
+      number <= 12 &&
+      !objectiveContainer.entities.some((other) => other !== objectiveEntity && other.number === number)
+    );
+  }
+
+  setObjectiveNumber(objectiveContainer: ObjectiveContainer, objectiveEntity: ObjectiveEntity, number: number): boolean {
+    if (!this.canSetObjectiveNumber(objectiveContainer, objectiveEntity, number)) {
+      return false;
+    }
+    objectiveEntity.number = number;
+    return true;
+  }
+
+  canSetObjectiveMarker(objectiveContainer: ObjectiveContainer, objectiveEntity: ObjectiveEntity | undefined, marker: string): boolean {
+    return OBJECTIVE_MARKERS.includes(marker) && (!objectiveEntity || objectiveContainer.entities.includes(objectiveEntity));
+  }
+
+  setObjectiveMarker(objectiveContainer: ObjectiveContainer, objectiveEntity: ObjectiveEntity | undefined, marker: string): boolean {
+    if (!this.canSetObjectiveMarker(objectiveContainer, objectiveEntity, marker)) {
+      return false;
+    }
+    if (objectiveEntity) {
+      objectiveEntity.marker = marker;
+    } else {
+      objectiveContainer.marker = marker;
+      objectiveContainer.entities.forEach((entity) => (entity.marker = marker));
+    }
+    return true;
   }
 
   removeObjective(objectiveContainer: ObjectiveContainer) {
@@ -81,6 +135,18 @@ export class ObjectiveManager {
     }
   }
 
+  // zero based, the entity gets this number + 1
+  nextObjectiveNumber(objectiveContainer: ObjectiveContainer): number {
+    const objectiveCount = objectiveContainer.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
+    let number = objectiveCount % 12;
+    if (objectiveCount < 12) {
+      while (objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number - 1 === number)) {
+        number++;
+      }
+    }
+    return number;
+  }
+
   addObjectiveEntity(
     objectiveContainer: ObjectiveContainer,
     number: number | undefined = undefined,
@@ -88,13 +154,7 @@ export class ObjectiveManager {
     marker: string = ''
   ): ObjectiveEntity {
     if (!number || objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number === number)) {
-      const objectiveCount = objectiveContainer.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
-      number = objectiveCount % 12;
-      if (objectiveCount < 12) {
-        while (objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number - 1 === number)) {
-          number++;
-        }
-      }
+      number = this.nextObjectiveNumber(objectiveContainer);
     }
 
     const entity: ObjectiveEntity = new ObjectiveEntity(
@@ -127,9 +187,9 @@ export class ObjectiveManager {
       objectiveCOntainer.entities.length === 0 ||
       objectiveCOntainer.entities.every((entity) => !gameManager.entityManager.isAlive(entity))
     ) {
-      if (!objectiveCOntainer.off && gameManager.game.state === GameState.next) {
+      if (!objectiveCOntainer.off && this.game.state === GameState.next) {
         if (objectiveCOntainer.active) {
-          gameManager.roundManager.toggleFigure(objectiveCOntainer);
+          gameManager.turnManager.toggleFigure(objectiveCOntainer);
         } else {
           this.removeObjective(objectiveCOntainer);
         }
@@ -176,7 +236,7 @@ export class ObjectiveManager {
   objectiveDataByObjectiveIdentifier(objectiveIdentifier: AdditionalIdentifier | ScenarioObjectiveIdentifier): ObjectiveData | undefined {
     if (!('scenario' in objectiveIdentifier)) {
       // TODO: generalize code, now specialized for Elder Drake
-      const figures = gameManager.figuresByIdentifier(objectiveIdentifier);
+      const figures = gameManager.entityManager.figuresByIdentifier(objectiveIdentifier);
       if (figures.length === 1) {
         let result: ObjectiveData | undefined = undefined;
         const figure: Figure = figures[0];
@@ -194,17 +254,17 @@ export class ObjectiveManager {
       }
     } else {
       const scenarioData = objectiveIdentifier.section
-        ? gameManager
+        ? gameManager.editionManager
             .sectionData(objectiveIdentifier.edition)
             .find((sectionData) => sectionData.index === objectiveIdentifier.scenario && sectionData.group === objectiveIdentifier.group)
-        : gameManager
+        : gameManager.editionManager
             .scenarioData(objectiveIdentifier.edition)
             .find(
               (scenarioData) => scenarioData.index === objectiveIdentifier.scenario && scenarioData.group === objectiveIdentifier.group
             );
       if (scenarioData) {
         if (objectiveIdentifier.section && !scenarioData.objectives) {
-          const parent = gameManager
+          const parent = gameManager.editionManager
             .scenarioData(objectiveIdentifier.edition)
             .find((scenario) => scenario.index === scenarioData.parent && scenario.group === scenarioData.group);
           if (parent && parent.objectives && parent.objectives.length > objectiveIdentifier.index) {
@@ -242,10 +302,10 @@ export class ObjectiveManager {
           offset = +objectiveData.initiativeShare.split(':')[1];
         }
 
-        const monster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name === name);
+        const monster = this.game.figures.find((figure) => figure instanceof Monster && figure.name === name);
         if (monster) {
           figure.initiative =
-            gameManager.game.state === GameState.next && monster.getInitiative() && monster.getInitiative() < 100
+            this.game.state === GameState.next && monster.getInitiative() && monster.getInitiative() < 100
               ? offset < 0
                 ? Math.ceil(monster.getInitiative() + offset)
                 : Math.floor(monster.getInitiative() + offset)

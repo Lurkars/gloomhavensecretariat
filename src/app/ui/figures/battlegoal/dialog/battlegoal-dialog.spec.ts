@@ -42,7 +42,7 @@ describe('CharacterBattleGoalsDialog', () => {
     gameManager.roundManager.firstRound = true;
     settingsManager.settings.editions = ['gh'];
     settingsManager.settings.animations = false;
-    gameManager.editionData = [
+    gameManager.editionManager.editionData = [
       Object.assign(
         new EditionData('gh', [], [], [], [], [], [], undefined, [Object.assign(new BattleGoal(), { name: 'bg1', edition: 'gh' })])
       )

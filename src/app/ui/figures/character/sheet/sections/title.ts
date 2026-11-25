@@ -11,12 +11,9 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 })
 export class CharacterSheetTitleComponent extends CharacterSheetSection {
   toggleCharacterAbsent() {
-    if (this.character.absent || gameManager.characterManager.characterCount() > 1) {
+    if (gameManager.characterManager.canSetAbsent(this.character, !this.character.absent)) {
       gameManager.entityManager.before(this.character, this.character, this.character.absent ? 'unsetAbsent' : 'setAbsent');
-      this.character.absent = !this.character.absent;
-      if (this.character.absent && this.character.active) {
-        gameManager.roundManager.toggleFigure(this.character);
-      }
+      gameManager.characterManager.setAbsent(this.character, !this.character.absent);
       gameManager.stateManager.after();
     }
   }

@@ -2,7 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Monster } from 'src/app/game/model/Monster';
@@ -35,33 +35,33 @@ export class MonsterMenuComponent {
   }
 
   editions(): string[] {
-    return this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions();
+    return this.allEditions ? gameManager.editionManager.editions(true, true) : gameManager.editionManager.relevantEditions();
   }
 
   hasBossMonster(): boolean {
-    return this.editions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.boss));
+    return this.editions().some((edition) => gameManager.editionManager.monstersData(edition).some((monsterData) => monsterData.boss));
   }
 
   hasHiddenMonster(): boolean {
-    return this.editions().some((edition) => gameManager.monstersData(edition).some((monsterData) => monsterData.hidden));
+    return this.editions().some((edition) => gameManager.editionManager.monstersData(edition).some((monsterData) => monsterData.hidden));
   }
 
   monsterData(edition: string | undefined = undefined, filter: string = ''): MonsterData[] {
-    return gameManager
+    return gameManager.editionManager
       .monstersData(edition)
       .filter(
         (monsterData) =>
-          (!edition || gameManager.isEditionRelevant(monsterData.edition, edition)) &&
+          (!edition || gameManager.editionManager.isEditionRelevant(monsterData.edition, edition)) &&
           gameManager.matchesEditionRules(monsterData) &&
           (!monsterData.boss || monsterData.boss === settingsManager.settings.showBossMonster) &&
           (!monsterData.hidden || monsterData.hidden === settingsManager.settings.showHiddenMonster) &&
           (!filter ||
             ghsTextSearch(monsterData.name, filter) ||
-            ghsTextSearch(settingsManager.getLabel('data.monster.' + monsterData.name), filter))
+            ghsTextSearch(labelManager.getLabel('data.monster.' + monsterData.name), filter))
       )
       .sort((a, b) => {
-        const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-        const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+        const aName = labelManager.getLabel('data.monster.' + a.name).toLowerCase();
+        const bName = labelManager.getLabel('data.monster.' + b.name).toLowerCase();
 
         if (a.spoiler && !b.spoiler) {
           return 1;

@@ -1,28 +1,6 @@
-import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
+import { CommandImpl } from 'src/app/game/commands/Command';
 import { findEntity, findFigure } from 'src/app/game/commands/CommandHelper';
-import { Action } from 'src/app/game/model/data/Action';
-import { Entity } from 'src/app/game/model/Entity';
-
-export function extraActions(entity: Entity, persistent: BASE_TYPE | undefined): Action[] {
-  return persistent ? entity.extraActionsPersistent : entity.extraActions;
-}
-
-export function extraActionIndex(
-  entity: Entity,
-  type: BASE_TYPE | undefined,
-  value: BASE_TYPE | undefined,
-  persistent: BASE_TYPE | undefined
-) {
-  return extraActions(entity, persistent).findIndex((action) => action.type === type && '' + action.value === '' + value);
-}
-
-export function setExtraActions(entity: Entity, actions: Action[], persistent: BASE_TYPE | undefined) {
-  if (persistent) {
-    entity.extraActionsPersistent = actions;
-  } else {
-    entity.extraActions = actions;
-  }
-}
 
 export class EntityExtraActionRemoveCommand extends CommandImpl {
   id: string = 'entity.extraAction.remove';
@@ -36,7 +14,14 @@ export class EntityExtraActionRemoveCommand extends CommandImpl {
     persistent: boolean = false
   ): boolean {
     const entity = findEntity(findFigure(figureId), entityId);
-    return !!entity && extraActionIndex(entity, type, value, persistent) !== -1;
+    return (
+      !!entity &&
+      gameManager.actionsManager.canRemoveExtraAction(
+        entity,
+        gameManager.actionsManager.extraActionIndex(entity, type, value, !!persistent),
+        !!persistent
+      )
+    );
   }
 
   executeWithParameters(
@@ -48,11 +33,10 @@ export class EntityExtraActionRemoveCommand extends CommandImpl {
   ) {
     const entity = findEntity(findFigure(figureId), entityId);
     if (entity) {
-      const index = extraActionIndex(entity, type, value, persistent);
-      setExtraActions(
+      gameManager.actionsManager.removeExtraAction(
         entity,
-        extraActions(entity, persistent).filter((action, i) => i !== index),
-        persistent
+        gameManager.actionsManager.extraActionIndex(entity, type, value, !!persistent),
+        !!persistent
       );
     } else {
       this.executionError('entity not found');

@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, inject } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { Character } from 'src/app/game/model/Character';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
 import { StatisticsDialogComponent } from 'src/app/ui/figures/party/statistics/statistics-dialog';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -21,13 +20,10 @@ export class CharacterSheetPlayerComponent extends CharacterSheetSection {
   }
 
   setPlayerNumber(event: any) {
-    if (!isNaN(+event.target.value) && this.character.number !== +event.target.value && +event.target.value > 0) {
-      gameManager.stateManager.before('setPlayerNumber', this.characterName, event.target.value);
-      const existing = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === +event.target.value);
-      if (existing) {
-        (existing as Character).number = this.character.number;
-      }
-      this.character.number = +event.target.value;
+    const number = +event.target.value;
+    if (gameManager.characterManager.canSetPlayerNumber(this.character, number)) {
+      gameManager.stateManager.before('setPlayerNumber', this.characterName, number);
+      gameManager.characterManager.setPlayerNumber(this.character, number);
       gameManager.stateManager.after();
     }
   }

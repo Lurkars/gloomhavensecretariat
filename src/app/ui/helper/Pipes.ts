@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { labelManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioCache } from 'src/app/game/model/Scenario';
 import { ghsDurationLabel, ghsValueSign } from 'src/app/ui/helper/Static';
 
@@ -92,7 +92,7 @@ export class GhsScenarioSearch implements PipeTransform {
           return true;
         }
 
-        return settingsManager.getLabel(scenarioData.name).toLowerCase().includes(search);
+        return labelManager.getLabel(scenarioData.name).toLowerCase().includes(search);
       });
     }
     return [];

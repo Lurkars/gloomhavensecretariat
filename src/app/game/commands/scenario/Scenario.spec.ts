@@ -58,7 +58,7 @@ describe('Scenario commands', () => {
       const setScenario = vi.spyOn(gameManager.scenarioManager, 'setScenario').mockImplementation(() => {});
       new ScenarioResetCommand(1).execute();
       expect(resetScenario).toHaveBeenCalled();
-      expect(setScenario).toHaveBeenCalledWith(gameManager.game.scenario);
+      expect(setScenario).toHaveBeenCalledWith(gameManager.game.scenario, true);
     });
 
     it('cancels the current scenario', () => {
@@ -146,8 +146,8 @@ describe('Scenario commands', () => {
     it('loots a treasure of the scenario and removes it again', () => {
       const character = createTestCharacter(1);
       gameManager.game.scenario = new Scenario(scenarioData('1'));
-      vi.spyOn(gameManager.scenarioManager, 'getTreasures').mockReturnValue([5, 'G']);
-      vi.spyOn(gameManager.lootManager, 'lootTreasure').mockReturnValue([]);
+      vi.spyOn(gameManager.treasureManager, 'getTreasures').mockReturnValue([5, 'G']);
+      vi.spyOn(gameManager.treasureManager, 'lootTreasure').mockReturnValue([]);
 
       new ScenarioTreasureLootCommand(1, 0, 1).execute();
       new ScenarioTreasureLootCommand(1, 1, 1).execute();

@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnChanges, OnInit, inject, input } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { applyMathFunctionLabels, ghsLabelRegex } from 'src/app/ui/helper/label';
 
@@ -46,7 +46,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
       }
     }
     const expr = applyMathFunctionLabels(match[1]);
-    return funcLabel ? expr + ' ' + settingsManager.getLabel('game.custom.' + func, funcArgs) : expr;
+    return funcLabel ? expr + ' ' + labelManager.getLabel('game.custom.' + func, funcArgs) : expr;
   }
 
   // apply Math.floor() etc. label substitution for bare expressions
@@ -54,7 +54,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
 
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
-      return settingsManager.getLabel(args[0]);
+      return labelManager.getLabel(args[0]);
     });
   }
 

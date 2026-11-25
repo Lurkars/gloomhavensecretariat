@@ -12,17 +12,35 @@ export class CharacterConditionCommand extends CommandImpl {
   constructor(...parameters: BASE_TYPE[]) {
     super(...parameters);
 
-    this.conditions.push(...gameManager.conditionsForTypes('standard', 'negative', 'character').map((condition) => condition.name));
-    this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', 'character').map((condition) => condition.name));
-    this.conditions.push(...gameManager.conditionsForTypes('stack', 'negative', 'character').map((condition) => condition.name));
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('standard', 'negative', 'character').map((condition) => condition.name)
+    );
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('upgrade', 'negative', 'character').map((condition) => condition.name)
+    );
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('stack', 'negative', 'character').map((condition) => condition.name)
+    );
 
-    this.conditions.push(...gameManager.conditionsForTypes('standard', 'positive', 'character').map((condition) => condition.name));
-    this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', 'character').map((condition) => condition.name));
-    this.conditions.push(...gameManager.conditionsForTypes('stack', 'positive', 'character').map((condition) => condition.name));
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('standard', 'positive', 'character').map((condition) => condition.name)
+    );
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('upgrade', 'positive', 'character').map((condition) => condition.name)
+    );
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('stack', 'positive', 'character').map((condition) => condition.name)
+    );
 
-    this.conditions.push(...gameManager.conditionsForTypes('standard', 'neutral', 'character').map((condition) => condition.name));
-    this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'neutral', 'character').map((condition) => condition.name));
-    this.conditions.push(...gameManager.conditionsForTypes('stack', 'neutral', 'character').map((condition) => condition.name));
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('standard', 'neutral', 'character').map((condition) => condition.name)
+    );
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('upgrade', 'neutral', 'character').map((condition) => condition.name)
+    );
+    this.conditions.push(
+      ...gameManager.conditionManager.conditionsForTypes('stack', 'neutral', 'character').map((condition) => condition.name)
+    );
   }
 
   validParameters(number: number, conditionIndex: number): boolean {
@@ -39,10 +57,10 @@ export class CharacterConditionCommand extends CommandImpl {
     if (character) {
       const condition = this.conditions[conditionIndex];
       if (condition) {
-        if (gameManager.entityManager.hasCondition(character, new Condition(condition))) {
-          gameManager.entityManager.removeCondition(character, character, new Condition(condition));
+        if (gameManager.conditionManager.hasCondition(character, new Condition(condition))) {
+          gameManager.conditionManager.removeCondition(character, character, new Condition(condition));
         } else {
-          gameManager.entityManager.addCondition(character, character, new Condition(condition));
+          gameManager.conditionManager.addCondition(character, character, new Condition(condition));
         }
       } else {
         this.executionError('condition not found');

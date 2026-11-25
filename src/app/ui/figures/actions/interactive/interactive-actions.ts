@@ -3,12 +3,10 @@ import { Component, OnInit, inject, input, model } from '@angular/core';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
-import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
-import { Element, ElementState } from 'src/app/game/model/data/Element';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { Element } from 'src/app/game/model/data/Element';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -57,84 +55,15 @@ export class InteractiveActionsComponent implements OnInit {
   }
 
   update() {
-    if (settingsManager.settings.interactiveAbilities && this.figure.active) {
-      this.chooseElementAction = undefined;
-      this.chooseElementValues = [];
-
-      this.interactiveActionEntities = this.figure.entities.filter(
-        (entity) => gameManager.actionsManager.getInteractiveActions(entity, this.figure, this.actions, this.preIndex()).length
-      );
-
-      if (this.figure instanceof Monster) {
-        this.interactiveActionEntities = this.interactiveActionEntities
-          .map((entity) => entity as MonsterEntity)
-          .sort(gameManager.monsterManager.sortEntities);
-      }
-
-      this.interactiveActionEntities = this.interactiveActionEntities.filter(
-        (entity, index) => settingsManager.settings.combineInteractiveAbilities || index === 0
-      );
-
-      const interactiveActions: InteractiveAction[] = [];
-      this.interactiveActionEntities.forEach((entity) => {
-        gameManager.actionsManager
-          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
-          .forEach((interactiveAction) => {
-            if (!interactiveActions.find((other) => other.index === interactiveAction.index)) {
-              interactiveActions.push(interactiveAction);
-            }
-          });
-      });
-      this.interactiveActions.set(interactiveActions);
-
-      this.toggledOffActions = [];
-      if (this.checkWarning()) {
-        const damageIndex = this.interactiveActions().findIndex(
-          (interactiveAction) => interactiveAction.action.type === ActionType.sufferDamage
-        );
-        if (damageIndex !== -1) {
-          this.toggledOffActions = this.interactiveActions().slice(damageIndex + 1);
-          if (this.toggledOffActions.length) {
-            this.interactiveActions.set(this.interactiveActions().slice(0, damageIndex + 1));
-          }
-        }
-      }
-    } else {
-      this.interactiveActionEntities = [];
-      this.interactiveActions.set([]);
-      this.toggledOffActions = [];
-    }
-  }
-
-  checkWarning(): boolean {
-    // Ward or brittle could change whether monsters survive damage.
-    // Warn if that's the case.
-    const wardEnabled =
-      settingsManager.settings.applyConditions &&
-      settingsManager.settings.activeApplyConditions &&
-      settingsManager.settings.activeApplyConditionsAuto.includes(ConditionName.ward) &&
-      !settingsManager.settings.activeApplyConditionsExcludes.includes(ConditionName.ward);
-    const brittleEnabled =
-      settingsManager.settings.applyConditions &&
-      settingsManager.settings.activeApplyConditions &&
-      settingsManager.settings.activeApplyConditionsAuto.includes(ConditionName.brittle) &&
-      !settingsManager.settings.activeApplyConditionsExcludes.includes(ConditionName.brittle);
-    return (
-      !(wardEnabled && brittleEnabled) &&
-      this.interactiveActions()
-        .filter((action) => action.action.type === ActionType.sufferDamage)
-        .some((action) => {
-          const damage = EntityValueFunction(action.action.value);
-          const result = (ward: boolean, brittle: boolean) => Math.floor((damage * (brittle ? 2 : 1)) / (ward ? 2 : 1));
-          return this.interactiveActionEntities.some((entity) => {
-            const ward = gameManager.entityManager.hasCondition(entity, new Condition(ConditionName.ward));
-            const brittle = gameManager.entityManager.hasCondition(entity, new Condition(ConditionName.brittle));
-            const shouldDie = entity.health - result(ward, brittle) <= 0;
-            const wouldDie = entity.health - result(ward && wardEnabled, brittle && brittleEnabled) <= 0;
-            return shouldDie != wouldDie;
-          });
-        })
+    this.chooseElementAction = undefined;
+    this.chooseElementValues = [];
+    this.interactiveActionEntities = gameManager.actionsManager.interactiveEntities(this.figure, this.actions, this.preIndex());
+    const defaults = gameManager.actionsManager.defaultInteractiveActions(
+      this.interactiveActionEntities,
+      gameManager.actionsManager.interactiveActionsOf(this.interactiveActionEntities, this.figure, this.actions, this.preIndex())
     );
+    this.interactiveActions.set(defaults.selected);
+    this.toggledOffActions = defaults.toggledOff;
   }
 
   applyInteractiveActions(event: PointerEvent, selectElement: boolean = false) {
@@ -213,7 +142,7 @@ export class InteractiveActionsComponent implements OnInit {
               });
             }
           }
-          return settingsManager.getLabel('state.info.applyHighlightAction.' + type, [values.join(', ')]);
+          return labelManager.getLabel('state.info.applyHighlightAction.' + type, [values.join(', ')]);
         })
         .join(', ');
 
@@ -227,39 +156,15 @@ export class InteractiveActionsComponent implements OnInit {
         entitiesLabel,
         this.figure instanceof Monster ? 'data.monster.' + this.figure.name : gameManager.objectiveManager.objectiveName(this.figure)
       );
-      this.interactiveActionEntities.forEach((entity) => {
-        let interactiveActions = gameManager.actionsManager
-          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
-          .filter((interactiveAction) => this.interactiveActions().find((other) => other.index === interactiveAction.index));
-        let interactiveAction = interactiveActions[0] || undefined;
-        while (interactiveAction) {
-          gameManager.actionsManager.applyInteractiveAction(entity, this.figure, interactiveAction, this.chooseElementValues);
-          if (interactiveAction.action.type === ActionType.element) {
-            this.chooseElementValues = [];
-          }
-          interactiveActions = gameManager.actionsManager
-            .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
-            .filter((interactiveAction) => this.interactiveActions().find((other) => other.index === interactiveAction.index));
-
-          if (interactiveActions.some((newInteractiveAction) => newInteractiveAction.index === interactiveAction.index)) {
-            console.warn('Interactive Action already processed, should not happen', interactiveAction);
-            break;
-          }
-
-          interactiveAction = interactiveActions[0] || undefined;
-        }
-
-        const disabledInteractiveActions = gameManager.actionsManager
-          .getInteractiveActions(entity, this.figure, this.actions, this.preIndex())
-          .filter((interactiveAction) => !this.interactiveActions().find((other) => other.index === interactiveAction.index))
-          .filter((interactiveAction) => !this.toggledOffActions.find((other) => other.index === interactiveAction.index));
-        disabledInteractiveActions.forEach((interactiveAction) => {
-          const tag = gameManager.actionsManager.roundTag(interactiveAction.action, interactiveAction.index);
-          if (!entity.tags.includes(tag)) {
-            entity.tags.push(tag);
-          }
-        });
-      });
+      gameManager.actionsManager.applyInteractiveActions(
+        this.figure,
+        this.interactiveActionEntities,
+        this.actions,
+        this.preIndex(),
+        this.chooseElementValues,
+        this.interactiveActions(),
+        this.toggledOffActions
+      );
 
       this.update();
       gameManager.stateManager.after();
@@ -269,35 +174,11 @@ export class InteractiveActionsComponent implements OnInit {
   }
 
   wildToConsume(): Element[] {
-    return gameManager.game.elementBoard
-      .filter(
-        (element) =>
-          element.state !== ElementState.inert &&
-          element.state !== ElementState.new &&
-          element.state !== ElementState.consumed &&
-          !this.chooseElementValues.includes(element.type) &&
-          (!this.chooseElementAction || !gameManager.actionsManager.getValues(this.chooseElementAction.action).includes(element.type)) &&
-          !this.interactiveActions().find(
-            (interactiveAction) =>
-              interactiveAction.action.type === ActionType.element &&
-              interactiveAction.action.valueType === ActionValueType.minus &&
-              interactiveAction.action.value === element.type
-          )
-      )
-      .map((element) => element.type);
+    return gameManager.actionsManager.wildElementsToConsume(this.chooseElementValues, this.chooseElementAction, this.interactiveActions());
   }
 
   wildToCreate(): Element[] {
-    return gameManager.game.elementBoard
-      .filter(
-        (element) =>
-          element.state !== ElementState.new &&
-          element.state !== ElementState.strong &&
-          element.state !== ElementState.always &&
-          !this.chooseElementValues.includes(element.type) &&
-          (!this.chooseElementAction || !gameManager.actionsManager.getValues(this.chooseElementAction.action).includes(element.type))
-      )
-      .map((element) => element.type);
+    return gameManager.actionsManager.wildElementsToCreate(this.chooseElementValues, this.chooseElementAction);
   }
 
   selectWildElement(event: PointerEvent, element: Element) {

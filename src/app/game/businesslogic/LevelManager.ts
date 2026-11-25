@@ -72,7 +72,7 @@ export class LevelManager {
   }
 
   bbMonsterDifficutly(): number {
-    let monsterDifficulty = 2 + gameManager.game.levelAdjustment;
+    let monsterDifficulty = 2 + this.game.levelAdjustment;
     if (monsterDifficulty < 0) {
       monsterDifficulty = 0;
     } else if (monsterDifficulty > 4) {
@@ -146,9 +146,33 @@ export class LevelManager {
     }
   }
 
-  setManualLevel(level: number) {
+  canSetManualLevel(level: number): boolean {
+    return Number.isInteger(level) && level >= 0 && level <= 7;
+  }
+
+  setManualLevel(level: number): boolean {
+    if (!this.canSetManualLevel(level)) {
+      return false;
+    }
     this.setLevel(level);
     this.game.levelCalculation = false;
+    return true;
+  }
+
+  setSolo(solo: boolean): boolean {
+    if (typeof solo !== 'boolean') {
+      return false;
+    }
+    this.game.solo = solo;
+    return true;
+  }
+
+  canSetPlayerCount(playerCount: number): boolean {
+    return Number.isInteger(playerCount) && (playerCount === -1 || playerCount > 0);
+  }
+
+  canSetBbMonsterDifficulty(level: number): boolean {
+    return Number.isInteger(level) && level >= 0 && level <= 4;
   }
 
   private recalculate() {
@@ -182,7 +206,10 @@ export class LevelManager {
     this.setLevel(this.game.level, true);
   }
 
-  setPlayerCount(playerCount: number) {
+  setPlayerCount(playerCount: number): boolean {
+    if (!this.canSetPlayerCount(playerCount)) {
+      return false;
+    }
     const enabling = this.game.playerCount === -1 && playerCount !== -1;
     this.game.playerCount = playerCount;
     if (enabling) {
@@ -190,16 +217,21 @@ export class LevelManager {
     } else {
       this.recalculate();
     }
+    return true;
   }
 
-  setBbMonsterDifficulty(level: number) {
+  setBbMonsterDifficulty(level: number): boolean {
+    if (!this.canSetBbMonsterDifficulty(level)) {
+      return false;
+    }
     this.game.levelAdjustment = level - 2;
-    const attackModifiers = gameManager.attackModifierManager.bbMonsterAttackModifiers();
+    const attackModifiers = gameManager.attackModifierBuildManager.bbMonsterAttackModifiers();
     if (attackModifiers) {
       this.game.monsterAttackModifierDeck.attackModifiers = attackModifiers;
-      this.game.monsterAttackModifierDeck.cards = gameManager.attackModifierManager.bbMonsterAttackModifiers() || [];
+      this.game.monsterAttackModifierDeck.cards = gameManager.attackModifierBuildManager.bbMonsterAttackModifiers() || [];
     }
     this.game.monsterAttackModifierDeck.bb = settingsManager.settings.bbAm;
+    return true;
   }
 
   characterCountVariable(): number {

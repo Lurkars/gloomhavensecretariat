@@ -58,8 +58,8 @@ describe('RoundManager', () => {
     settingsManager.settings.removeUnusedMonster = false;
     settingsManager.settings.automaticEndRound = false;
     settingsManager.settings.automaticFirstFigure = true;
-    roundManager.firstRound = false;
-    roundManager.working = false;
+    gameManager.roundManager.firstRound = false;
+    gameManager.roundManager.working = false;
   });
 
   afterEach(() => {
@@ -69,13 +69,13 @@ describe('RoundManager', () => {
   describe('drawAvailable', () => {
     it('is false when there are no figures', () => {
       gameManager.game.figures = [];
-      expect(roundManager.drawAvailable()).toBe(false);
+      expect(gameManager.roundManager.drawAvailable()).toBe(false);
     });
 
     it('is true whenever the state is already "next", regardless of initiative', () => {
       gameManager.game.state = GameState.next;
       gameManager.game.figures = [buildCharacter('brute')];
-      expect(roundManager.drawAvailable()).toBe(true);
+      expect(gameManager.roundManager.drawAvailable()).toBe(true);
     });
 
     it('is true in draw state once every figure has set initiative (monsters always count)', () => {
@@ -84,7 +84,7 @@ describe('RoundManager', () => {
       const character = buildCharacter('brute');
       character.initiative = 30;
       gameManager.game.figures = [monster, character];
-      expect(roundManager.drawAvailable()).toBe(true);
+      expect(gameManager.roundManager.drawAvailable()).toBe(true);
     });
 
     it('is false in draw state when a character has not set initiative yet', () => {
@@ -92,7 +92,7 @@ describe('RoundManager', () => {
       const character = buildCharacter('brute');
       character.initiative = 0; // getInitiative() -> 0 - 0.9 = -0.9, not > 0
       gameManager.game.figures = [character];
-      expect(roundManager.drawAvailable()).toBe(false);
+      expect(gameManager.roundManager.drawAvailable()).toBe(false);
     });
 
     it('treats an exhausted or absent character as having initiative for draw purposes', () => {
@@ -101,13 +101,13 @@ describe('RoundManager', () => {
       exhausted.initiative = 0;
       exhausted.exhausted = true;
       gameManager.game.figures = [exhausted];
-      expect(roundManager.drawAvailable()).toBe(true);
+      expect(gameManager.roundManager.drawAvailable()).toBe(true);
 
       const absent = buildCharacter('spellweaver');
       absent.initiative = 0;
       absent.absent = true;
       gameManager.game.figures = [absent];
-      expect(roundManager.drawAvailable()).toBe(true);
+      expect(gameManager.roundManager.drawAvailable()).toBe(true);
     });
 
     it('ignores missing initiative when initiativeRequired is disabled', () => {
@@ -116,7 +116,7 @@ describe('RoundManager', () => {
       const character = buildCharacter('brute');
       character.initiative = 0;
       gameManager.game.figures = [character];
-      expect(roundManager.drawAvailable()).toBe(true);
+      expect(gameManager.roundManager.drawAvailable()).toBe(true);
     });
 
     it('requires objective containers to have initiative too, unless initiativeRequired is disabled', () => {
@@ -125,10 +125,10 @@ describe('RoundManager', () => {
       const objective = new ObjectiveContainer('uuid-1');
       objective.initiative = -100; // getInitiative() = -100 + 0.9, not > 0
       gameManager.game.figures = [objective];
-      expect(roundManager.drawAvailable()).toBe(false);
+      expect(gameManager.roundManager.drawAvailable()).toBe(false);
 
       settingsManager.settings.initiativeRequired = false;
-      expect(roundManager.drawAvailable()).toBe(true);
+      expect(gameManager.roundManager.drawAvailable()).toBe(true);
     });
   });
 
@@ -140,12 +140,12 @@ describe('RoundManager', () => {
     it('reports missing initiatives of alive, present characters only', () => {
       const character = buildCharacter('test-char');
       gameManager.game.figures = [character];
-      expect(roundManager.missingInitiative()).toBe(true);
+      expect(gameManager.roundManager.missingInitiative()).toBe(true);
       character.absent = true;
-      expect(roundManager.missingInitiative()).toBe(false);
+      expect(gameManager.roundManager.missingInitiative()).toBe(false);
       character.absent = false;
       settingsManager.settings.initiativeRequired = false;
-      expect(roundManager.missingInitiative()).toBe(false);
+      expect(gameManager.roundManager.missingInitiative()).toBe(false);
     });
 
     it('ignores active absent characters and requires turn confirmation only with condition handling', () => {
@@ -153,25 +153,25 @@ describe('RoundManager', () => {
       character.active = true;
       character.absent = true;
       gameManager.game.figures = [character];
-      expect(roundManager.hasActiveFigure()).toBe(false);
+      expect(gameManager.roundManager.hasActiveFigure()).toBe(false);
       character.absent = false;
-      expect(roundManager.hasActiveFigure()).toBe(true);
+      expect(gameManager.roundManager.hasActiveFigure()).toBe(true);
       settingsManager.settings.turnConfirmation = true;
       settingsManager.settings.expireConditions = true;
-      expect(roundManager.turnConfirmationPending()).toBe(true);
-      expect(roundManager.nextBlocked()).toBe(true);
+      expect(gameManager.roundManager.turnConfirmationPending()).toBe(true);
+      expect(gameManager.roundManager.nextBlocked()).toBe(true);
     });
 
     it('fails the scenario once no character is alive and nothing is active', () => {
       const character = buildCharacter('test-char');
       gameManager.game.figures = [character];
-      expect(roundManager.scenarioFailed()).toBe(false);
+      expect(gameManager.roundManager.scenarioFailed()).toBe(false);
       character.exhausted = true;
-      expect(roundManager.scenarioFailed()).toBe(true);
-      expect(roundManager.drawBlocked()).toBe(true);
+      expect(gameManager.roundManager.scenarioFailed()).toBe(true);
+      expect(gameManager.roundManager.drawBlocked()).toBe(true);
       gameManager.game.figures = [];
-      expect(roundManager.scenarioFailed()).toBe(false);
-      expect(roundManager.drawBlocked()).toBe(true);
+      expect(gameManager.roundManager.scenarioFailed()).toBe(false);
+      expect(gameManager.roundManager.drawBlocked()).toBe(true);
     });
   });
 
@@ -179,22 +179,22 @@ describe('RoundManager', () => {
     it('ends every turn without turn confirmation before advancing the game state', () => {
       settingsManager.settings.turnConfirmation = false;
       gameManager.game.state = GameState.next;
-      const toggleFigure = vi.spyOn(roundManager, 'toggleFigure').mockImplementation((figure) => {
+      const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation((figure) => {
         figure.off = true;
       });
       const nextGameState = vi.spyOn(roundManager, 'nextGameState').mockImplementation(() => {});
       const character = buildCharacter('test-char');
       character.initiative = 10;
       gameManager.game.figures = [character];
-      roundManager.nextRound();
+      gameManager.roundManager.nextRound();
       expect(toggleFigure).toHaveBeenCalledWith(character, true);
       expect(nextGameState).toHaveBeenCalled();
     });
 
     it('endAllTurns runs afterTurn for every figure', () => {
-      const afterTurn = vi.spyOn(roundManager, 'afterTurn').mockImplementation(() => {});
+      const afterTurn = vi.spyOn(gameManager.turnManager, 'afterTurn').mockImplementation(() => {});
       gameManager.game.figures = [buildCharacter('a'), buildCharacter('b')];
-      roundManager.endAllTurns();
+      gameManager.roundManager.endAllTurns();
       expect(afterTurn).toHaveBeenCalledTimes(2);
     });
   });
@@ -216,7 +216,7 @@ describe('RoundManager', () => {
       vi.spyOn(gameManager.attackModifierManager, 'firstRound').mockImplementation(() => {});
       vi.spyOn(gameManager.lootManager, 'firstRound').mockImplementation(() => {});
       vi.spyOn(gameManager.scenarioRulesManager, 'cleanActiveScenarioRules').mockImplementation(() => {});
-      vi.spyOn(gameManager, 'sortFigures').mockImplementation(() => {});
+      vi.spyOn(gameManager.roundManager, 'sortFigures').mockImplementation(() => {});
     });
 
     it('flips state from next to draw, delegates to the per-manager next() hooks, and clears figure.active', () => {
@@ -225,7 +225,7 @@ describe('RoundManager', () => {
       character.active = true;
       gameManager.game.figures = [character];
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(gameManager.game.state).toBe(GameState.draw);
       expect(character.active).toBe(false);
@@ -242,7 +242,7 @@ describe('RoundManager', () => {
       character.initiative = 0;
       gameManager.game.figures = [character];
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(gameManager.game.state).toBe(GameState.draw);
       expect(gameManager.game.round).toBe(0);
@@ -255,7 +255,7 @@ describe('RoundManager', () => {
       character.initiative = 5;
       gameManager.game.figures = [character];
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(gameManager.game.state).toBe(GameState.next);
       expect(gameManager.game.round).toBe(1);
@@ -270,20 +270,20 @@ describe('RoundManager', () => {
       character.initiative = 0;
       gameManager.game.figures = [character];
 
-      roundManager.nextGameState(true);
+      gameManager.roundManager.nextGameState(true);
 
       expect(gameManager.game.state).toBe(GameState.next);
       expect(gameManager.game.round).toBe(1);
     });
 
     it('runs firstRound setup (attack modifier/loot firstRound, scenario auto-creation, closing the challenge deck) only when firstRound is true', () => {
-      roundManager.firstRound = true;
+      gameManager.roundManager.firstRound = true;
       gameManager.game.state = GameState.draw;
       gameManager.game.scenario = undefined;
       gameManager.game.challengeDeck.active = true;
       gameManager.game.figures = [];
 
-      roundManager.nextGameState(true);
+      gameManager.roundManager.nextGameState(true);
 
       expect(gameManager.attackModifierManager.firstRound).toHaveBeenCalled();
       expect(gameManager.lootManager.firstRound).toHaveBeenCalled();
@@ -292,11 +292,11 @@ describe('RoundManager', () => {
     });
 
     it('does not run firstRound setup when the firstRound flag is false', () => {
-      roundManager.firstRound = false;
+      gameManager.roundManager.firstRound = false;
       gameManager.game.state = GameState.draw;
       gameManager.game.figures = [];
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(gameManager.attackModifierManager.firstRound).not.toHaveBeenCalled();
       expect(gameManager.lootManager.firstRound).not.toHaveBeenCalled();
@@ -311,7 +311,7 @@ describe('RoundManager', () => {
       gameManager.game.figures = [monster];
       const removeSpy = vi.spyOn(gameManager.monsterManager, 'removeMonster').mockImplementation(() => {});
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(removeSpy).toHaveBeenCalledWith(monster);
     });
@@ -326,7 +326,7 @@ describe('RoundManager', () => {
       gameManager.game.figures = [monster];
       const removeSpy = vi.spyOn(gameManager.monsterManager, 'removeMonster').mockImplementation(() => {});
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(removeSpy).not.toHaveBeenCalled();
     });
@@ -336,9 +336,9 @@ describe('RoundManager', () => {
       const character = buildCharacter('test-char');
       character.initiative = 5;
       gameManager.game.figures = [character];
-      const toggleSpy = vi.spyOn(roundManager, 'toggleFigure').mockImplementation(() => {});
+      const toggleSpy = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(toggleSpy).toHaveBeenCalledWith(character, true);
     });
@@ -350,9 +350,9 @@ describe('RoundManager', () => {
       const character = buildCharacter('test-char');
       character.initiative = 5;
       gameManager.game.figures = [character];
-      const toggleSpy = vi.spyOn(roundManager, 'toggleFigure').mockImplementation(() => {});
+      const toggleSpy = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
       expect(toggleSpy).not.toHaveBeenCalled();
     });
@@ -361,11 +361,11 @@ describe('RoundManager', () => {
       gameManager.game.state = GameState.draw;
       gameManager.game.figures = [];
 
-      roundManager.nextGameState();
+      gameManager.roundManager.nextGameState();
 
-      expect(roundManager.working).toBe(true);
+      expect(gameManager.roundManager.working).toBe(true);
       await new Promise((resolve) => setTimeout(resolve, 5));
-      expect(roundManager.working).toBe(false);
+      expect(gameManager.roundManager.working).toBe(false);
     });
   });
 
@@ -378,7 +378,7 @@ describe('RoundManager', () => {
       monster.off = true;
       monster.active = false;
 
-      roundManager.beforeTurn(monster);
+      gameManager.turnManager.beforeTurn(monster);
 
       expect(monster.off).toBe(false);
       expect(entity.active).toBe(false);
@@ -392,7 +392,7 @@ describe('RoundManager', () => {
       summon.active = true;
       character.summons = [summon];
 
-      roundManager.beforeTurn(character);
+      gameManager.turnManager.beforeTurn(character);
 
       expect(summon.active).toBe(false);
     });
@@ -402,7 +402,7 @@ describe('RoundManager', () => {
       character.active = true;
       character.off = false;
 
-      roundManager.beforeTurn(character);
+      gameManager.turnManager.beforeTurn(character);
 
       expect(character.active).toBe(false);
     });
@@ -413,7 +413,7 @@ describe('RoundManager', () => {
       const character = buildCharacter('test-char');
       character.active = false;
 
-      roundManager.turn(character);
+      gameManager.turnManager.turn(character);
 
       expect(character.active).toBe(true);
     });
@@ -424,7 +424,7 @@ describe('RoundManager', () => {
       const e2 = buildMonsterEntity(monster, 2);
       monster.entities = [e1, e2];
 
-      roundManager.turn(monster);
+      gameManager.turnManager.turn(monster);
 
       expect(e1.active).toBe(true);
       expect(e2.active).toBe(true);
@@ -438,7 +438,7 @@ describe('RoundManager', () => {
       e2.active = false;
       monster.entities = [e1, e2];
 
-      roundManager.turn(monster);
+      gameManager.turnManager.turn(monster);
 
       expect(e1.active).toBe(true);
       expect(e2.active).toBe(false);
@@ -447,9 +447,9 @@ describe('RoundManager', () => {
     it('ends the turn immediately (delegates to toggleFigure) for a character with no alive entities', () => {
       const character = buildCharacter('test-char');
       character.health = 0;
-      const toggleSpy = vi.spyOn(roundManager, 'toggleFigure').mockImplementation(() => {});
+      const toggleSpy = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
 
-      roundManager.turn(character);
+      gameManager.turnManager.turn(character);
 
       expect(toggleSpy).toHaveBeenCalledWith(character);
     });
@@ -461,7 +461,7 @@ describe('RoundManager', () => {
       character.off = false;
       character.active = true;
 
-      roundManager.afterTurn(character);
+      gameManager.turnManager.afterTurn(character);
 
       expect(character.off).toBe(true);
       expect(character.active).toBe(false);
@@ -476,7 +476,7 @@ describe('RoundManager', () => {
       monster.entities = [e1, e2];
       monster.off = false;
 
-      roundManager.afterTurn(monster);
+      gameManager.turnManager.afterTurn(monster);
 
       expect(e1.active).toBe(false);
       expect(e1.off).toBe(true);
@@ -492,7 +492,7 @@ describe('RoundManager', () => {
       monster.entities = [e1];
       monster.off = true;
 
-      roundManager.afterTurn(monster);
+      gameManager.turnManager.afterTurn(monster);
 
       // guarded body skipped: entity untouched, figure stays off/inactive
       expect(e1.active).toBe(true);
@@ -508,7 +508,7 @@ describe('RoundManager', () => {
       monster.ability = 0;
       monster.off = false;
 
-      roundManager.afterTurn(monster);
+      gameManager.turnManager.afterTurn(monster);
 
       expect(monster.tags).toContain('roundAction-bb-elite');
       expect(monster.ability).toBe(1);
@@ -523,7 +523,7 @@ describe('RoundManager', () => {
       monster.ability = 1;
       monster.off = false;
 
-      roundManager.afterTurn(monster);
+      gameManager.turnManager.afterTurn(monster);
 
       expect(monster.ability).toBe(0);
     });
@@ -535,7 +535,7 @@ describe('RoundManager', () => {
       const figure2 = buildCharacter('test-char2');
       gameManager.game.figures = [figure1, figure2];
 
-      roundManager.toggleFigure(figure1);
+      gameManager.turnManager.toggleFigure(figure1);
 
       expect(figure1.active).toBe(true);
       expect(figure1.off).toBe(false);
@@ -547,7 +547,7 @@ describe('RoundManager', () => {
       const foreign = buildCharacter('other-char');
       const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-      roundManager.toggleFigure(foreign);
+      gameManager.turnManager.toggleFigure(foreign);
 
       expect(errorSpy).toHaveBeenCalledWith('Invalid figure');
       expect(foreign.active).toBe(false);
@@ -559,7 +559,7 @@ describe('RoundManager', () => {
       figure1.active = true;
       gameManager.game.figures = [figure1, figure2];
 
-      roundManager.toggleFigure(figure1);
+      gameManager.turnManager.toggleFigure(figure1);
 
       expect(figure1.active).toBe(false);
       expect(figure1.off).toBe(true);
@@ -574,7 +574,7 @@ describe('RoundManager', () => {
       figure1.active = true;
       gameManager.game.figures = [figure1, objective, figure2];
 
-      roundManager.toggleFigure(figure1);
+      gameManager.turnManager.toggleFigure(figure1);
 
       expect(figure2.active).toBe(true);
       expect(objective.off).toBe(true);
@@ -591,7 +591,7 @@ describe('RoundManager', () => {
       figure1.summons = [summon];
       gameManager.game.figures = [figure1, figure2];
 
-      roundManager.toggleFigure(figure1);
+      gameManager.turnManager.toggleFigure(figure1);
 
       expect(figure1.active).toBe(true);
       expect(figure2.active).toBe(false);
@@ -605,7 +605,7 @@ describe('RoundManager', () => {
       gameManager.game.figures = [figure1];
       const nextGameStateSpy = vi.spyOn(roundManager, 'nextGameState').mockImplementation(() => {});
 
-      roundManager.toggleFigure(figure1);
+      gameManager.turnManager.toggleFigure(figure1);
 
       expect(nextGameStateSpy).toHaveBeenCalled();
     });
@@ -618,7 +618,7 @@ describe('RoundManager', () => {
       gameManager.game.figures = [figure1];
       const nextGameStateSpy = vi.spyOn(roundManager, 'nextGameState').mockImplementation(() => {});
 
-      roundManager.toggleFigure(figure1);
+      gameManager.turnManager.toggleFigure(figure1);
 
       expect(nextGameStateSpy).not.toHaveBeenCalled();
     });
@@ -637,7 +637,7 @@ describe('RoundManager', () => {
       gameManager.game.figures = [character];
       const removeSpecialActionSpy = vi.spyOn(gameManager.specialActionsManager, 'removeSpecialAction');
 
-      roundManager.resetScenario();
+      gameManager.roundManager.resetScenario();
 
       expect(removeSpecialActionSpy).toHaveBeenCalledTimes(1);
       expect(removeSpecialActionSpy).toHaveBeenCalledWith(character, character, 'mech');
@@ -659,30 +659,30 @@ describe('RoundManager initiative', () => {
   afterEach(() => vi.restoreAllMocks());
 
   it('validates and clamps initiatives', () => {
-    expect(roundManager.validInitiative(0)).toBe(true);
-    expect(roundManager.validInitiative(100)).toBe(false);
-    expect(roundManager.clampInitiative(120)).toBe(99);
+    expect(gameManager.roundManager.validInitiative(0)).toBe(true);
+    expect(gameManager.roundManager.validInitiative(100)).toBe(false);
+    expect(gameManager.roundManager.clampInitiative(120)).toBe(99);
     gameManager.game.state = GameState.next;
-    expect(roundManager.validInitiative(0)).toBe(false);
-    expect(roundManager.clampInitiative(-5)).toBe(1);
+    expect(gameManager.roundManager.validInitiative(0)).toBe(false);
+    expect(gameManager.roundManager.clampInitiative(-5)).toBe(1);
     settingsManager.settings.initiativeRequired = false;
-    expect(roundManager.validInitiative(0)).toBe(true);
-    expect(roundManager.clampInitiative(-5)).toBe(0);
+    expect(gameManager.roundManager.validInitiative(0)).toBe(true);
+    expect(gameManager.roundManager.clampInitiative(-5)).toBe(0);
   });
 
   it('sets initiative and long rest of characters', () => {
     const character = buildCharacter('brute');
     vi.spyOn(gameManager.specialActionsManager, 'keepInitiativeOnLongRest').mockReturnValue(false);
-    roundManager.setInitiative(character, 99);
+    gameManager.roundManager.setInitiative(character, 99);
     expect(character.longRest).toBe(true);
     expect(character.initiativeVisible).toBe(true);
-    roundManager.setInitiative(character, 30);
+    gameManager.roundManager.setInitiative(character, 30);
     expect(character.longRest).toBe(false);
 
-    roundManager.setLongRest(character, true);
+    gameManager.roundManager.setLongRest(character, true);
     expect(character.initiative).toBe(99);
     expect(character.longRest).toBe(true);
-    roundManager.setLongRest(character, false);
+    gameManager.roundManager.setLongRest(character, false);
     expect(character.longRest).toBe(false);
     expect(character.initiative).toBe(99);
   });
@@ -690,24 +690,53 @@ describe('RoundManager initiative', () => {
   it('keeps the initiative on long rest when allowed', () => {
     const character = buildCharacter('brute');
     vi.spyOn(gameManager.specialActionsManager, 'keepInitiativeOnLongRest').mockReturnValue(true);
-    roundManager.setInitiative(character, 30);
-    roundManager.setLongRest(character, true);
+    gameManager.roundManager.setInitiative(character, 30);
+    gameManager.roundManager.setLongRest(character, true);
     expect(character.initiative).toBe(30);
     expect(character.longRest).toBe(true);
-    roundManager.setInitiative(character, 40);
+    gameManager.roundManager.setInitiative(character, 40);
     expect(character.longRest).toBe(true);
-    roundManager.setInitiative(character, 0);
+    gameManager.roundManager.setInitiative(character, 0);
     expect(character.longRest).toBe(false);
   });
 
   it('sorts figures when changing initiative during the round', () => {
     const objective = new ObjectiveContainer('uuid', undefined);
-    const sortFigures = vi.spyOn(gameManager, 'sortFigures').mockImplementation(() => {});
-    roundManager.setInitiative(objective, 20);
+    const sortFigures = vi.spyOn(gameManager.roundManager, 'sortFigures').mockImplementation(() => {});
+    gameManager.roundManager.setInitiative(objective, 20);
     expect(sortFigures).not.toHaveBeenCalled();
     gameManager.game.state = GameState.next;
-    roundManager.setInitiative(objective, 25);
+    gameManager.roundManager.setInitiative(objective, 25);
     expect(objective.initiative).toBe(25);
     expect(sortFigures).toHaveBeenCalledWith(objective);
+  });
+
+  it('blocks the next round like the footer unless forced', () => {
+    gameManager.game.state = GameState.draw;
+    const drawBlocked = vi.spyOn(roundManager, 'drawBlocked').mockReturnValue(true);
+    const nextGameState = vi.spyOn(roundManager, 'nextGameState').mockImplementation(() => {});
+    expect(gameManager.roundManager.nextRound()).toBe(false);
+    expect(nextGameState).not.toHaveBeenCalled();
+    expect(gameManager.roundManager.nextRound(true)).toBe(true);
+    drawBlocked.mockReturnValue(false);
+    expect(gameManager.roundManager.canNextRound()).toBe(true);
+    gameManager.game.state = GameState.next;
+    vi.spyOn(roundManager, 'nextBlocked').mockReturnValue(true);
+    expect(gameManager.roundManager.canNextRound()).toBe(false);
+    vi.restoreAllMocks();
+  });
+
+  it('rejects initiatives out of range and 0 during the round when initiative is required', () => {
+    const objective = new ObjectiveContainer('uuid', undefined);
+    objective.initiative = 10;
+    expect(gameManager.roundManager.setInitiative(objective, 100)).toBe(false);
+    gameManager.game.state = GameState.next;
+    const initiativeRequired = settingsManager.settings.initiativeRequired;
+    settingsManager.settings.initiativeRequired = true;
+    expect(gameManager.roundManager.setInitiative(objective, 0)).toBe(false);
+    expect(objective.initiative).toBe(10);
+    settingsManager.settings.initiativeRequired = false;
+    expect(gameManager.roundManager.setInitiative(objective, 0)).toBe(true);
+    settingsManager.settings.initiativeRequired = initiativeRequired;
   });
 });

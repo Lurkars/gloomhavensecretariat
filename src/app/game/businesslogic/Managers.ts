@@ -1,5 +1,6 @@
 import type { DebugManager } from 'src/app/game/businesslogic/DebugManager';
 import type { GameManager } from 'src/app/game/businesslogic/GameManager';
+import type { LabelManager } from 'src/app/game/businesslogic/LabelManager';
 import type { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import type { SoundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
 import type { StorageManager } from 'src/app/game/businesslogic/StorageManager';
@@ -10,6 +11,7 @@ import type { CommandManager } from 'src/app/game/commands/CommandManager';
 
 export let debugManager: DebugManager;
 export let settingsManager: SettingsManager;
+export let labelManager: LabelManager;
 export let storageManager: StorageManager;
 export let soundboardManager: SoundboardManager;
 export let gameManager: GameManager;
@@ -18,6 +20,7 @@ export let commandManager: CommandManager;
 export type Managers = {
   debugManager: DebugManager;
   settingsManager: SettingsManager;
+  labelManager: LabelManager;
   storageManager: StorageManager;
   soundboardManager: SoundboardManager;
   gameManager: GameManager;
@@ -27,6 +30,7 @@ export type Managers = {
 export function registerManagers(managers: Partial<Managers>) {
   debugManager = managers.debugManager || debugManager;
   settingsManager = managers.settingsManager || settingsManager;
+  labelManager = managers.labelManager || labelManager;
   storageManager = managers.storageManager || storageManager;
   soundboardManager = managers.soundboardManager || soundboardManager;
   gameManager = managers.gameManager || gameManager;

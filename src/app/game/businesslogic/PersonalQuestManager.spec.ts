@@ -22,14 +22,14 @@ describe('PersonalQuestManager', () => {
   beforeEach(() => {
     gameManager.game.figures = [];
     gameManager.game.party.retirements = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = [];
   });
 
   describe('personalQuestByCard', () => {
     it('finds a personal quest by cardId within the resolved edition', () => {
       const pq = Object.assign(new PersonalQuest(), { cardId: '101', edition: 'gh' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [pq] })];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [pq] })];
       settingsManager.settings.editions = ['gh'];
 
       expect(personalQuestManager.personalQuestByCard('gh', '101')).toBe(pq);
@@ -37,14 +37,14 @@ describe('PersonalQuestManager', () => {
 
     it('also matches by altId', () => {
       const pq = Object.assign(new PersonalQuest(), { cardId: '101', altId: '201', edition: 'gh' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [pq] })];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [pq] })];
       settingsManager.settings.editions = ['gh'];
 
       expect(personalQuestManager.personalQuestByCard('gh', '201')).toBe(pq);
     });
 
     it('returns undefined when no personal quest matches', () => {
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [] })];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [] })];
       settingsManager.settings.editions = ['gh'];
 
       expect(personalQuestManager.personalQuestByCard('gh', '999')).toBeUndefined();
@@ -64,7 +64,9 @@ describe('PersonalQuestManager', () => {
     it('treats a card as unlocked unless it is the unlockPQ target of another card', () => {
       const source = pq('01', { unlockPQ: '02' });
       const target = pq('02');
-      gameManager.editionData = [Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [source, target] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [source, target] })
+      ];
 
       expect(personalQuestManager.personalQuestUnlocked(source)).toBe(true);
       expect(personalQuestManager.personalQuestUnlocked(target)).toBe(false);
@@ -73,7 +75,9 @@ describe('PersonalQuestManager', () => {
     it('unlockPersonalQuest unlocks the chain target, resolving by cardId or altId', () => {
       const source = pq('01', { unlockPQ: '02' });
       const target = pq('02');
-      gameManager.editionData = [Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [source, target] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [source, target] })
+      ];
 
       expect(personalQuestManager.personalQuestUnlocked(target)).toBe(false);
 
@@ -110,7 +114,7 @@ describe('PersonalQuestManager', () => {
       const unlocker = pq('01', { unlockPQ: '02' });
       const picked = pq('03');
       const fulfilled = pq('04');
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh2e', [], [], [], [], [], []), {
           personalQuests: [locked, unlocker, picked, fulfilled]
         })
@@ -129,7 +133,7 @@ describe('PersonalQuestManager', () => {
 
     it('drawPersonalQuests draws sorted available cards deterministically by seed', () => {
       const cards = ['01', '02', '03', '04', '05', '06'].map((cardId) => pq(cardId));
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh2e', [], [], [], [], [], []), {
           personalQuests: cards
         })
@@ -153,7 +157,7 @@ describe('PersonalQuestManager', () => {
       const campaign = Object.assign(new CampaignData(), {
         buildings: [Object.assign(new BuildingData(), { id: '81', name: 'hall-of-revelry' })]
       });
-      gameManager.editionData = [Object.assign(new EditionData('fh', [], [], [], [], [], []), { campaign })];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('fh', [], [], [], [], [], []), { campaign })];
       settingsManager.settings.editions = ['fh'];
       gameManager.game.party.buildings = [];
 
@@ -169,7 +173,9 @@ describe('PersonalQuestManager', () => {
       const campaign = Object.assign(new CampaignData(), {
         buildings: [Object.assign(new BuildingData(), { id: '81', name: 'hall-of-revelry' })]
       });
-      gameManager.editionData = [Object.assign(new EditionData('fh', [], [], [], [], [], []), { campaign, personalQuests: [locked] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('fh', [], [], [], [], [], []), { campaign, personalQuests: [locked] })
+      ];
       settingsManager.settings.editions = ['fh'];
       gameManager.game.party.buildings = [];
 
@@ -226,7 +232,7 @@ describe('PersonalQuestManager', () => {
     function withQuest(character: Character, personalQuest: PersonalQuest) {
       character.progress.personalQuest = personalQuest.cardId;
       character.progress.personalQuestAutotrack = true;
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData(character.edition, [], [], [], [], [], []), {
           personalQuests: [personalQuest]
         })
@@ -455,7 +461,7 @@ describe('PersonalQuestManager', () => {
         edition: 'fh',
         requirements: requirements.map((requirement) => Object.assign(new PersonalQuestRequirement(), requirement))
       });
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('fh', [], [], [], [initial, chainStart, gatedStart], [], []), { personalQuests: [personalQuest] })
       ];
       const character = buildCharacter('blinkblade', 'fh');
@@ -528,7 +534,9 @@ describe('PersonalQuestManager', () => {
         edition: 'gh2e',
         requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 60, autotrack: 'looted:money' })]
       });
-      gameManager.editionData = [Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [personalQuest] })
+      ];
       settingsManager.settings.editions = ['gh2e'];
       const character = buildCharacter('brute', 'gh2e');
       character.progress.personalQuest = '02';
@@ -570,7 +578,9 @@ describe('PersonalQuestManager', () => {
           Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:69|70', requires: [1] })
         ]
       });
-      gameManager.editionData = [Object.assign(new EditionData('fh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('fh', [], [], [], [], [], []), { personalQuests: [personalQuest] })
+      ];
       settingsManager.settings.editions = ['fh'];
       const character = buildCharacter('blinkblade', 'fh');
       expect(personalQuestManager.personalQuestCompleted(character)).toBe(false);
@@ -595,7 +605,9 @@ describe('PersonalQuestManager', () => {
           Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:80' })
         ]
       });
-      gameManager.editionData = [Object.assign(new EditionData('fh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('fh', [], [], [], [], [], []), { personalQuests: [personalQuest] })
+      ];
       settingsManager.settings.editions = ['fh'];
 
       const tracked = buildCharacter('blinkblade', 'fh');
@@ -626,7 +638,9 @@ describe('PersonalQuestManager', () => {
           Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'scenario:52|54', requires: [1] })
         ]
       });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [personalQuest] })
+      ];
       settingsManager.settings.editions = ['gh'];
       const character = buildCharacter('brute', 'gh');
       character.progress.personalQuest = '510';
@@ -673,7 +687,9 @@ describe('PersonalQuestManager', () => {
         character.progress.personalQuestAutotrack = true;
       });
       gameManager.game.figures = [a, b];
-      gameManager.editionData = [Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [personalQuest] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh2e', [], [], [], [], [], []), { personalQuests: [personalQuest] })
+      ];
       settingsManager.settings.editions = ['gh2e'];
 
       personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenariosCompleted);
@@ -698,5 +714,26 @@ describe('PersonalQuestManager setPersonalQuest', () => {
     expect(character.progress.personalQuestProgress).toEqual([]);
     expect(character.progress.personalQuestAutotrack).toBe(false);
     expect(character.tags).toEqual([]);
+  });
+});
+
+describe('PersonalQuestManager dismissRetirement', () => {
+  it('marks the retirement dialog as dismissed once for active characters', () => {
+    const character = new Character(
+      Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+      1
+    );
+    expect(gameManager.personalQuestManager.retirementDismissed(character)).toBe(false);
+    expect(gameManager.personalQuestManager.dismissRetirement(character)).toBe(true);
+    expect(gameManager.personalQuestManager.retirementDismissed(character)).toBe(true);
+    expect(gameManager.personalQuestManager.dismissRetirement(character)).toBe(false);
+    expect(character.tags).toEqual([RETIREMENT_DIALOG_DISMISSED_TAG]);
+
+    const retired = new Character(
+      Object.assign(new CharacterData(), { name: 'spellweaver', edition: 'gh', stats: [new CharacterStat(1, 6)] }),
+      1
+    );
+    retired.progress.retired = true;
+    expect(gameManager.personalQuestManager.canDismissRetirement(retired)).toBe(false);
   });
 });

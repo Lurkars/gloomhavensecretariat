@@ -39,7 +39,7 @@ describe('ScenarioChartDialogComponent', () => {
     gameManager.game.party.achievementsList = [];
     gameManager.game.party.globalAchievementsList = [];
     gameManager.game.unlockedCharacters = [];
-    gameManager.editionData = [
+    gameManager.editionManager.editionData = [
       Object.assign(
         new EditionData('gh', [], [], [], [scenario('1', { unlocks: ['2'], blocks: ['3'] }), scenario('2'), scenario('3')], [], [])
       )
@@ -54,7 +54,7 @@ describe('ScenarioChartDialogComponent', () => {
   });
 
   it('flags worldMap when the edition declares one', () => {
-    gameManager.editionData[0].worldMap = { width: 100, height: 100 };
+    gameManager.editionManager.editionData[0].worldMap = { width: 100, height: 100 };
     const component = createComponent();
     component.update();
     expect(component.worldMap).toBe(true);
@@ -82,7 +82,7 @@ describe('ScenarioChartDialogComponent', () => {
     });
 
     it('renders a locked node for a scenario whose requirements are unmet', () => {
-      gameManager.editionData[0].scenarios.push(
+      gameManager.editionManager.editionData[0].scenarios.push(
         scenario('4', { requirements: [Object.assign(new ScenarioRequirement(), { party: ['secret'] })] })
       );
       const component = createComponent();
@@ -91,7 +91,7 @@ describe('ScenarioChartDialogComponent', () => {
     });
 
     it('unlocks a previously-locked scenario once its requirement is met', () => {
-      gameManager.editionData[0].scenarios.push(
+      gameManager.editionManager.editionData[0].scenarios.push(
         scenario('4', { requirements: [Object.assign(new ScenarioRequirement(), { party: ['secret'] })] })
       );
       gameManager.game.party.achievementsList = ['secret'];
@@ -118,7 +118,10 @@ describe('ScenarioChartDialogComponent', () => {
 
     it('packs a flowChartGroup without any links as grid, together with other self-contained containers', () => {
       gameManager.game.party.campaignMode = false;
-      gameManager.editionData[0].scenarios.push(scenario('4', { flowChartGroup: 'events' }), scenario('5', { flowChartGroup: 'events' }));
+      gameManager.editionManager.editionData[0].scenarios.push(
+        scenario('4', { flowChartGroup: 'events' }),
+        scenario('5', { flowChartGroup: 'events' })
+      );
       const component = createComponent();
       component.update();
       expect(component.flow).toContain('fcg__events@{ algorithm: elk.rectpacking }');
@@ -130,7 +133,7 @@ describe('ScenarioChartDialogComponent', () => {
 
     it('wraps multiple unlinked scenarios into an invisible grid, but keeps linked scenarios in the flow', () => {
       gameManager.game.party.campaignMode = false;
-      gameManager.editionData[0].scenarios.push(scenario('4'));
+      gameManager.editionManager.editionData[0].scenarios.push(scenario('4'));
       const component = createComponent();
       component.update();
       const wrapper = component.flow.indexOf('subgraph root__unlinked [" "]');
@@ -143,7 +146,7 @@ describe('ScenarioChartDialogComponent', () => {
 
     it('routes labeled edges into another container over a shared label badge inside the target container', () => {
       gameManager.game.party.campaignMode = false;
-      gameManager.editionData[0].scenarios = [
+      gameManager.editionManager.editionData[0].scenarios = [
         scenario('1', { flowChartGroup: 'a', unlocks: ['3'], links: ['3'] }),
         scenario('2', { flowChartGroup: 'a', unlocks: ['3'], links: ['3'] }),
         scenario('3', { flowChartGroup: 'b', unlocks: ['4'] }),
@@ -162,7 +165,10 @@ describe('ScenarioChartDialogComponent', () => {
 
     it('declares the main campaign before named groups', () => {
       gameManager.game.party.campaignMode = false;
-      gameManager.editionData[0].scenarios.push(scenario('1', { group: 'other', unlocks: ['2'] }), scenario('2', { group: 'other' }));
+      gameManager.editionManager.editionData[0].scenarios.push(
+        scenario('1', { group: 'other', unlocks: ['2'] }),
+        scenario('2', { group: 'other' })
+      );
       const component = createComponent();
       component.update();
       expect(component.flow.findIndex((line) => line.includes('\t1((001))'))).toBeLessThan(

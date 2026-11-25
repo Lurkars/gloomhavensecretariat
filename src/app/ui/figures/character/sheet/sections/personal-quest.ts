@@ -3,7 +3,7 @@ import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
-import { PERSONAL_QUEST_SCENARIO_CONCLUDED, RETIREMENT_DIALOG_DISMISSED_TAG } from 'src/app/game/businesslogic/PersonalQuestManager';
+import { PERSONAL_QUEST_SCENARIO_CONCLUDED } from 'src/app/game/businesslogic/PersonalQuestManager';
 import { PersonalQuest } from 'src/app/game/model/data/PersonalQuest';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { PersonalQuestViewDialog } from 'src/app/ui/figures/character/sheet/personal-quest-card/personal-quest-view-dialog';
@@ -50,7 +50,7 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
   ngOnInit(): void {
     if (this.character.progress.personalQuest) {
       this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
-        gameManager.currentEdition(),
+        gameManager.editionManager.currentEdition(),
         this.character.progress.personalQuest
       );
       if (!this.character.progress.personalQuestProgress) {
@@ -60,7 +60,7 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
 
     if (!gameManager.game.scenario) {
       if (this.personalQuest) {
-        this.refreshPersonalQuestRetireState(!this.character.tags.includes(RETIREMENT_DIALOG_DISMISSED_TAG));
+        this.refreshPersonalQuestRetireState(!gameManager.personalQuestManager.retirementDismissed(this.character));
       } else {
         this.retireEnabled = true;
       }
@@ -72,7 +72,7 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
       gameManager.stateManager.before('setPQ', this.characterName, event.target.value);
       gameManager.personalQuestManager.setPersonalQuest(this.character, event.target.value);
       this.personalQuest = gameManager.personalQuestManager.personalQuestByCard(
-        gameManager.currentEdition(),
+        gameManager.editionManager.currentEdition(),
         this.character.progress.personalQuest
       );
       if (this.personalQuest) {
@@ -98,23 +98,11 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
   }
 
   private applyPersonalQuestProgress(index: number, value: number) {
-    for (let i = 0; i <= index; i++) {
-      if (!this.character.progress.personalQuestProgress[i]) {
-        this.character.progress.personalQuestProgress[i] = 0;
-      }
+    if (!gameManager.personalQuestManager.canSetProgress(this.character, index, value)) {
+      return;
     }
-
     gameManager.stateManager.before('setPQProgress', this.characterName, index + 1, value);
-    this.character.progress.personalQuestProgress[index] = value;
-
-    if (!!this.personalQuest) {
-      this.personalQuest.requirements.forEach((requirement, i) => {
-        if (!!requirement.requires && requirement.requires.some((j) => !this.personalQuestRequirementFulfilled(j - 1))) {
-          this.character.progress.personalQuestProgress[i] = 0;
-        }
-      });
-      gameManager.personalQuestManager.unlockPersonalQuestScenarios(this.character);
-    }
+    gameManager.personalQuestManager.setProgress(this.character, index, value);
     gameManager.stateManager.after();
 
     if (!gameManager.game.scenario) {
@@ -154,12 +142,12 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
     );
   }
   togglePersonalQuestAutotrack() {
-    gameManager.stateManager.before(
-      this.character.progress.personalQuestAutotrack ? 'unsetPQAutotrack' : 'setPQAutotrack',
-      this.characterName
-    );
-    this.character.progress.personalQuestAutotrack = !this.character.progress.personalQuestAutotrack;
-    gameManager.stateManager.after();
+    const autotrack = !this.character.progress.personalQuestAutotrack;
+    if (gameManager.personalQuestManager.canSetAutotrack(this.character, autotrack)) {
+      gameManager.stateManager.before(autotrack ? 'setPQAutotrack' : 'unsetPQAutotrack', this.characterName);
+      gameManager.personalQuestManager.setAutotrack(this.character, autotrack);
+      gameManager.stateManager.after();
+    }
   }
   drawPersonalQuest() {
     this.dialog
@@ -211,9 +199,9 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
                 if (dialogRef) {
                   ghsDialogClosingHelper(dialogRef);
                 }
-              } else if (!this.character.tags.includes(RETIREMENT_DIALOG_DISMISSED_TAG)) {
+              } else if (gameManager.personalQuestManager.canDismissRetirement(this.character)) {
                 gameManager.stateManager.before('dismissRetirement', this.characterName);
-                this.character.tags.push(RETIREMENT_DIALOG_DISMISSED_TAG);
+                gameManager.personalQuestManager.dismissRetirement(this.character);
                 gameManager.stateManager.after();
               }
             }
@@ -287,7 +275,7 @@ export class CharacterSheetPersonalQuestComponent extends CharacterSheetSection 
       if (gameManager.trialsManager.trialCardExists(trial)) {
         event.target.classList.remove('error');
         event.target.classList.add('warning');
-        if (!gameManager.trialsManager.trialAssigned(trial)) {
+        if (gameManager.trialsManager.canSetTrial(this.character, trial)) {
           gameManager.stateManager.before('setTrial', this.characterName, event.target.value);
           gameManager.trialsManager.setTrial(this.character, trial);
           event.target.classList.remove('warning');

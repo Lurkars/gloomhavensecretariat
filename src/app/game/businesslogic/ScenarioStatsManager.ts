@@ -148,14 +148,6 @@ export class ScenarioStatsManager {
     character.scenarioStats.treasures = character.treasures.length;
     character.scenarioStats.rounds = this.game.round;
 
-    character.scenarioStats.loot = {};
-    if (character.lootCards) {
-      character.lootCards.forEach((index) => {
-        const loot = this.game.lootDeck.cards[index];
-        if (loot) {
-          character.scenarioStats.loot[loot.type] = (character.scenarioStats.loot[loot.type] || 0) + gameManager.lootManager.getValue(loot);
-        }
-      });
-    }
+    character.scenarioStats.loot = gameManager.lootManager.characterLoot(character);
   }
 }

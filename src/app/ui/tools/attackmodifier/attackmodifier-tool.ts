@@ -3,7 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, defaultAttackModifier } from 'src/app/game/model/data/AttackModifier';
@@ -36,7 +36,7 @@ export class AttackModifierToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     gameManager.stateManager.init(true);
-    this.edition = gameManager.editions(true)[0];
+    this.edition = gameManager.editionManager.editions(true)[0];
     this.update();
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
@@ -44,7 +44,7 @@ export class AttackModifierToolComponent implements OnInit {
         let update = false;
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
+          if (this.edition && gameManager.editionManager.editions(!true).includes(this.edition)) {
             this.edition = undefined;
           }
           update = true;
@@ -62,7 +62,7 @@ export class AttackModifierToolComponent implements OnInit {
 
   update() {
     this.characters = [];
-    gameManager.charactersData(this.edition).forEach((characterData) => {
+    gameManager.editionManager.charactersData(this.edition).forEach((characterData) => {
       const character = new Character(characterData, 0);
 
       character.attackModifierDeck.cards = [];
@@ -103,8 +103,8 @@ export class AttackModifierToolComponent implements OnInit {
       if (a.edition !== b.edition) {
         return a.edition < b.edition ? -1 : 1;
       } else {
-        const aName = settingsManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
-        const bName = settingsManager.getLabel('data.character.' + b.edition + '.' + b.name).toLowerCase();
+        const aName = labelManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
+        const bName = labelManager.getLabel('data.character.' + b.edition + '.' + b.name).toLowerCase();
         return aName < bName ? -1 : 1;
       }
     });

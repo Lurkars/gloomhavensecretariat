@@ -50,7 +50,9 @@ export abstract class PartySheetSection implements OnInit {
   }
 
   hasWorldMap(): boolean {
-    const editionData = gameManager.editionData.find((editionData) => this.edition() && editionData.edition === this.edition());
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => this.edition() && editionData.edition === this.edition()
+    );
     return !!editionData && (!!editionData.worldMap || !!editionData.extendWorldMap);
   }
 
@@ -84,12 +86,11 @@ export abstract class PartySheetSection implements OnInit {
       value = 0;
     }
 
-    gameManager.stateManager.before('setPartyDonations', value);
-    this.party.donations = value;
-    if (value < 10) {
-      this.party.envelopeB = false;
+    if (gameManager.campaignManager.canSetPartyValue('donations', value)) {
+      gameManager.stateManager.before('setPartyDonations', value);
+      gameManager.campaignManager.setPartyValue('donations', value);
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 
   isConclusion(section: string, edition: string | undefined = undefined): boolean {
@@ -105,11 +106,11 @@ export abstract class PartySheetSection implements OnInit {
   }
 
   hasConclusions(section: string): boolean {
-    return gameManager.scenarioManager.hasOpenConclusions(section);
+    return gameManager.campaignManager.hasOpenConclusions(section);
   }
 
   async openConclusions(section: string, week: number = -1) {
-    const conclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(section, gameManager.game.edition, true);
+    const conclusions: ScenarioData[] = gameManager.campaignManager.sectionConclusions(section, gameManager.game.edition, true);
     const { openConclusionChoice, finishWeekConclusion } = await import('src/app/ui/figures/party/week-sections/week-sections');
     openConclusionChoice(this.dialog, section, conclusions, (conclusion) => {
       if (week !== -1) {
@@ -121,8 +122,8 @@ export abstract class PartySheetSection implements OnInit {
   }
 
   async finishConclusion(index: string, force: boolean = false) {
-    const conclusion = gameManager
-      .sectionData(this.edition() || gameManager.currentEdition())
+    const conclusion = gameManager.editionManager
+      .sectionData(this.edition() || gameManager.editionManager.currentEdition())
       .find((sectionData) => sectionData.index === index);
     if (
       conclusion &&
@@ -152,15 +153,15 @@ export abstract class PartySheetSection implements OnInit {
   removeConclusion(section: string, edition: string) {
     if (this.isConclusion(section, edition)) {
       gameManager.stateManager.before('removeConclusion', gameManager.game.party.name, section);
-      gameManager.scenarioManager.removeConclusion(edition, section);
+      gameManager.campaignManager.removeConclusion(edition, section);
       gameManager.stateManager.after();
       this.update();
     }
   }
 
   async conclusionRewards(index: string) {
-    const conclusion = gameManager
-      .sectionData(this.edition() || gameManager.currentEdition())
+    const conclusion = gameManager.editionManager
+      .sectionData(this.edition() || gameManager.editionManager.currentEdition())
       .find((sectionData) => sectionData.index === index);
     if (conclusion) {
       const { ScenarioSummaryComponent } = await import('src/app/ui/footer/scenario/summary/scenario-summary');

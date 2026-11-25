@@ -1,6 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { Condition } from 'src/app/game/model/data/Condition';
 import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { Summon } from 'src/app/game/model/Summon';
@@ -53,28 +52,25 @@ export class TrapHelper {
   }
 
   private applyTrapEffect(summon: Summon, figure: Figure, targetEntity: Entity, targetFigure: Figure) {
+    if (!(figure instanceof Character) || !gameManager.summonManager.canApplyTrap(figure, summon, targetEntity, targetFigure)) {
+      return;
+    }
     const targetName = trapTargetLabel(targetEntity, targetFigure);
 
     this.component.before('applyTrap', targetName);
 
-    const damage = summon.movement + this.component.trapDamage;
-    const heal = summon.attack === 'X' ? 0 : +summon.attack + this.component.trapHeal;
+    gameManager.summonManager.applyTrap(
+      figure,
+      summon,
+      targetEntity,
+      targetFigure,
+      this.component.entityConditions,
+      this.component.trapDamage,
+      this.component.trapHeal
+    );
     this.component.trapDamage = 0;
     this.component.trapHeal = 0;
 
-    if (damage) {
-      gameManager.entityManager.changeHealth(targetEntity, targetFigure, -damage);
-    }
-
-    if (heal) {
-      gameManager.entityManager.changeHealth(targetEntity, targetFigure, heal);
-    }
-
-    this.component.entityConditions.forEach((entityCondition) => {
-      gameManager.entityManager.addCondition(targetEntity, targetFigure, new Condition(entityCondition.name, entityCondition.value));
-    });
-
-    summon.dead = true;
     ghsRemoveDeadEntities([{ entity: summon, figure }]);
     gameManager.stateManager.after();
 

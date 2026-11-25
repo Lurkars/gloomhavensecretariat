@@ -3,7 +3,7 @@ import { Component, inject, input, OnChanges, OnInit, output } from '@angular/co
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
@@ -88,13 +88,13 @@ export class AbilityCardComponent implements OnInit, OnChanges {
             ? this.monster.deck
             : this.monster.name;
       this.deckLabel = 'data.deck.' + deck;
-      if (deck === settingsManager.getLabel(this.deckLabel)) {
+      if (deck === labelManager.getLabel(this.deckLabel)) {
         this.deckLabel = 'data.monster.' + deck;
       }
     } else if (this.character) {
       const deck = this.character.deck ? this.character.deck : this.character.name;
       this.deckLabel = 'data.deck.' + deck;
-      if (deck === settingsManager.getLabel(this.deckLabel)) {
+      if (deck === labelManager.getLabel(this.deckLabel)) {
         this.deckLabel = 'data.character.' + this.character.edition + '.' + deck;
       }
     }
@@ -124,7 +124,7 @@ export class AbilityCardComponent implements OnInit, OnChanges {
         }
       }
     }
-    this.fh = (this.character && gameManager.isEditionRelevant(this.character.edition, 'fh')) || false;
+    this.fh = (this.character && gameManager.editionManager.isEditionRelevant(this.character.edition, 'fh')) || false;
     this.shieldStats = settingsManager.settings.calculateShieldStats;
   }
 
@@ -132,7 +132,7 @@ export class AbilityCardComponent implements OnInit, OnChanges {
     if (this.abilityCards && this.abilityCards.length > 0) {
       return this.abilityCards.indexOf(abilityCard);
     } else if (this.monster) {
-      return gameManager.abilityCards(this.monster).indexOf(abilityCard);
+      return gameManager.editionManager.abilityCards(this.monster).indexOf(abilityCard);
     }
     return -1;
   }
@@ -146,7 +146,7 @@ export class AbilityCardComponent implements OnInit, OnChanges {
       label = this.deckLabel;
     }
 
-    return applyPlaceholder(settingsManager.getLabel(label));
+    return applyPlaceholder(labelManager.getLabel(label));
   }
 
   onChange(revealed: boolean) {

@@ -25,6 +25,7 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { Perk, PerkType } from 'src/app/game/model/data/Perks';
+import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 
 describe('Character progress commands', () => {
   beforeEach(() => {
@@ -59,7 +60,9 @@ describe('Character progress commands', () => {
       const character = createTestCharacter(1);
       new CharacterProgressExperienceCommand(1, 10).execute();
       expect(character.progress.experience).toBe(10);
-      expect(new CharacterProgressExperienceCommand(1, -11).validParameters(1, -11)).toBe(false);
+      expect(new CharacterProgressExperienceCommand(1, 1.5).validParameters(1, 1.5)).toBe(false);
+      new CharacterProgressExperienceCommand(1, -11).execute();
+      expect(character.progress.experience).toBe(0);
     });
   });
 
@@ -113,6 +116,12 @@ describe('Character progress commands', () => {
 
     it('sets autotracking', () => {
       const character = createTestCharacter(1);
+      expect(new CharacterPersonalQuestAutotrackCommand(1, true).validParameters(1, true)).toBe(false);
+      character.progress.personalQuest = '1';
+      vi.spyOn(gameManager.personalQuestManager, 'personalQuestByCard').mockReturnValue(
+        Object.assign(new PersonalQuest(), { requirements: [new PersonalQuestRequirement()] })
+      );
+      vi.spyOn(gameManager.personalQuestManager, 'personalQuestAutotrackSupported').mockReturnValue(true);
       new CharacterPersonalQuestAutotrackCommand(1, true).execute();
       expect(character.progress.personalQuestAutotrack).toBe(true);
       new CharacterPersonalQuestAutotrackCommand(1, false).execute();
@@ -125,7 +134,7 @@ describe('Character progress commands', () => {
       const character = createTestCharacter(1);
       character.masteries = ['a', 'b'];
       new CharacterMasteryCommand(1, 1, true).execute();
-      new CharacterMasteryCommand(1, 1, true).execute();
+      expect(new CharacterMasteryCommand(1, 1, true).validParameters(1, 1, true)).toBe(false);
       expect(character.progress.masteries).toEqual([1]);
       new CharacterMasteryCommand(1, 1, false).execute();
       expect(character.progress.masteries).toEqual([]);
@@ -135,8 +144,10 @@ describe('Character progress commands', () => {
     it('sets perk checks and rebuilds the attack modifier deck', () => {
       const character = createTestCharacter(1);
       character.perks = [Object.assign(new Perk(), { type: PerkType.remove, count: 2 })];
-      const merge = vi.spyOn(gameManager.attackModifierManager, 'mergeAttackModifierDeck').mockReturnValue(true);
+      const merge = vi.spyOn(gameManager.attackModifierBuildManager, 'mergeAttackModifierDeck').mockReturnValue(true);
       expect(new CharacterPerkCommand(1, 0, 3).validParameters(1, 0, 3)).toBe(false);
+      expect(new CharacterPerkCommand(1, 0, 2).validParameters(1, 0, 2)).toBe(false);
+      character.progress.extraPerks = 2;
       new CharacterPerkCommand(1, 0, 2).execute();
       expect(character.progress.perks[0]).toBe(2);
       expect(merge).toHaveBeenCalled();
@@ -190,10 +201,21 @@ describe('Character progress commands', () => {
   describe('ability deck commands', () => {
     it('picks, undoes and resets picked ability cards', () => {
       const character = createTestCharacter(1);
-      vi.spyOn(gameManager, 'deckData').mockReturnValue({ abilities: [{ cardId: 1 }, { cardId: 2 }] } as never);
+      character.level = 3;
+      character.progress.deck = [];
+      vi.spyOn(gameManager.editionManager, 'deckData').mockReturnValue({
+        abilities: [
+          { cardId: 1, level: 2 },
+          { cardId: 2, level: 3 },
+          { cardId: 4, level: 4 }
+        ]
+      } as never);
+      expect(new CharacterAbilityDeckCommand(1, 2, true).validParameters(1, 2, true)).toBe(false);
       new CharacterAbilityDeckCommand(1, 1, true).execute();
       new CharacterAbilityDeckCommand(1, 2, true).execute();
       expect(character.progress.deck).toEqual([0, 1]);
+      expect(new CharacterAbilityDeckCommand(1, 4, true).validParameters(1, 4, true)).toBe(false);
+      expect(new CharacterAbilityDeckCommand(1, 4, true, true).validParameters(1, 4, true, true)).toBe(true);
       new CharacterAbilityDeckCommand(1, 1, false).execute();
       expect(character.progress.deck).toEqual([1]);
       expect(new CharacterAbilityDeckCommand(1, 3, true).validParameters(1, 3, true)).toBe(false);

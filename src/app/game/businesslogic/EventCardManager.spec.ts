@@ -15,7 +15,8 @@ import {
   EventCardEffectType,
   EventCardIdentifier,
   EventCardOption,
-  EventCardOutcome
+  EventCardOutcome,
+  EventCardResult
 } from 'src/app/game/model/data/EventCard';
 import { ItemData, ItemFlags } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
@@ -39,7 +40,7 @@ describe('EventCardManager', () => {
     gameManager.game.party.weeks = 0;
     gameManager.game.party.buildings = [];
     gameManager.game.party.campaignStickers = [];
-    gameManager.editionData = [
+    gameManager.editionManager.editionData = [
       new EditionData(
         'gh',
         [],
@@ -97,14 +98,50 @@ describe('EventCardManager', () => {
 
   describe('event deck editing', () => {
     it('inserts and moves cards in the deck', () => {
-      eventCardManager.insertEvent('city', '1', 0);
-      eventCardManager.insertEvent('city', '2', -1);
-      eventCardManager.insertEvent('city', '3', 5);
+      gameManager.editionManager.editionData[0].events.push(new EventCard('3', 'gh', 'city', '', '', []));
+      expect(eventCardManager.insertEvent('city', '1', 0)).toBe(true);
+      expect(eventCardManager.insertEvent('city', '1', 0)).toBe(false);
+      expect(eventCardManager.insertEvent('city', '2', -1)).toBe(false);
+      expect(eventCardManager.insertEvent('city', '2', 0)).toBe(true);
+      expect(eventCardManager.insertEvent('city', '3', 5)).toBe(false);
+      expect(eventCardManager.insertEvent('city', '3', 2)).toBe(true);
+      expect(eventCardManager.insertEvent('city', '9', 0)).toBe(false);
       expect(gameManager.game.party.eventDecks['city']).toEqual(['2', '1', '3']);
-      eventCardManager.moveEvent('city', 0, 2);
+      expect(eventCardManager.moveEvent('city', 0, 2)).toBe(true);
       expect(gameManager.game.party.eventDecks['city']).toEqual(['1', '3', '2']);
-      eventCardManager.moveEvent('city', 5, 0);
+      expect(eventCardManager.moveEvent('city', 5, 0)).toBe(false);
+      expect(eventCardManager.moveEvent('city', 0, 3)).toBe(false);
       expect(gameManager.game.party.eventDecks['city']).toEqual(['1', '3', '2']);
+    });
+
+    it('removes drawn cards and edits their result only for stored results', () => {
+      const identifier = new EventCardIdentifier('1', 'gh', 'city', 0, [], [1], false, false);
+      const result = new EventCardResult(1, [0], [1, 1], true);
+      expect(eventCardManager.setDrawnEventResult(identifier, result)).toBe(false);
+      gameManager.game.party.eventCards = [identifier];
+      expect(eventCardManager.canSetDrawnEventResult(identifier, new EventCardResult(-2, [], [], false))).toBe(false);
+      expect(eventCardManager.setDrawnEventResult(identifier, result)).toBe(true);
+      expect(identifier.selected).toBe(1);
+      expect(identifier.checks).toEqual([1, 1]);
+      expect(identifier.attack).toBe(true);
+      expect(eventCardManager.removeDrawnEvent(identifier)).toBe(true);
+      expect(eventCardManager.removeDrawnEvent(identifier)).toBe(false);
+    });
+
+    it('accepts, cancels and redraws event draws', () => {
+      const card = new EventCard('1', 'gh', 'city', '', '', [new EventCardOption('A', '', [])]);
+      expect(eventCardManager.canAcceptEvent(card, -1)).toBe(false);
+      expect(eventCardManager.canAcceptEvent(card, -1, false)).toBe(true);
+      expect(eventCardManager.canAcceptEvent(card, 1)).toBe(false);
+      expect(eventCardManager.cancelEventDraw()).toBe(false);
+      gameManager.game.eventDraw = 'city';
+      expect(eventCardManager.cancelEventDraw()).toBe(true);
+      expect(gameManager.game.eventDraw).toBeUndefined();
+      gameManager.game.party.eventDecks['city'] = ['1'];
+      expect(eventCardManager.drawNewEvent('city', '1')).toBeUndefined();
+      gameManager.game.party.eventDecks['city'] = ['1', '2'];
+      expect(eventCardManager.drawNewEvent('city', '1')).toBe(gameManager.game.party.eventDecks['city'][0]);
+      expect([...gameManager.game.party.eventDecks['city']].sort()).toEqual(['1', '2']);
     });
 
     it('marks a card as drawn with the checks of its last result', () => {
@@ -132,7 +169,7 @@ describe('EventCardManager', () => {
 
   describe('event rewards', () => {
     beforeEach(() => {
-      gameManager.editionData[0].events.push(
+      gameManager.editionManager.editionData[0].events.push(
         new EventCard('3', 'gh', 'city', '', '', []),
         new EventCard('4', 'gh', 'city', '', '', []),
         new EventCard('1', 'gh', 'road', '', '', [])
@@ -336,6 +373,48 @@ describe('EventCardManager resolveAttack', () => {
   });
 });
 
+describe('EventCardManager eventOutpostAttack', () => {
+  function card(): EventCard {
+    const outcome = (effects: (string | EventCardEffect)[], condition?: EventCardCondition) =>
+      Object.assign(new EventCardOutcome(), { effects, condition });
+    const attackOutcome = Object.assign(new EventCardOutcome(), {
+      attack: new EventCardAttack(10, 4, new EventCardAttackTarget(false), '', '', []),
+      effects: [new EventCardEffect(EventCardEffectType.outpostTarget, [1])]
+    });
+    return new EventCard('SO-07', 'fh', 'summer-outpost', '', '', [
+      new EventCardOption('A', '', [
+        outcome([new EventCardEffect(EventCardEffectType.morale, [1]), new EventCardEffect(EventCardEffectType.outpostAttack, [5])])
+      ]),
+      new EventCardOption('B', '', [outcome([new EventCardEffect(EventCardEffectType.skipThreat, [])])]),
+      new EventCardOption('', '', [attackOutcome])
+    ]);
+  }
+
+  beforeEach(() => {
+    vi.spyOn(gameManager.eventCardManager, 'getEventCardForEdition').mockReturnValue(card());
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    gameManager.game.party.eventCards = [];
+  });
+
+  it('rebuilds the attack and outpost effects from the latest result of the card', () => {
+    gameManager.game.party.eventCards = [new EventCardIdentifier('SO-07', 'fh', 'summer-outpost', 0, [], [], true, true)];
+    const result = gameManager.eventCardManager.eventOutpostAttack('summer-outpost', 'SO-07');
+    expect(result?.attack.attackValue).toBe(10);
+    expect(result?.effects.map((effect) => effect.type)).toEqual([EventCardEffectType.outpostAttack, EventCardEffectType.outpostTarget]);
+  });
+
+  it('returns nothing without attack, for skipped threats or unknown cards', () => {
+    gameManager.game.party.eventCards = [new EventCardIdentifier('SO-07', 'fh', 'summer-outpost', 0, [], [], false, true)];
+    expect(gameManager.eventCardManager.eventOutpostAttack('summer-outpost', 'SO-07')).toBeUndefined();
+    gameManager.game.party.eventCards = [new EventCardIdentifier('SO-07', 'fh', 'summer-outpost', 1, [], [], true, true)];
+    expect(gameManager.eventCardManager.eventOutpostAttack('summer-outpost', 'SO-07')).toBeUndefined();
+    expect(gameManager.eventCardManager.eventOutpostAttack('summer-outpost', 'SO-08')).toBeUndefined();
+  });
+});
+
 describe('EventCardManager applyEvent return to deck', () => {
   afterEach(() => vi.restoreAllMocks());
 
@@ -438,8 +517,8 @@ describe('EventCardManager distribution and random effects', () => {
   it('distributes received, consumed and lost items', () => {
     const brute = buildCharacter('brute');
     const item = Object.assign(new ItemData(), { id: 5, edition: 'gh' });
-    const addItem = vi.spyOn(gameManager.itemManager, 'addItem').mockImplementation(() => {});
-    const removeItem = vi.spyOn(gameManager.itemManager, 'removeItem').mockImplementation(() => {});
+    const addItem = vi.spyOn(gameManager.itemManager, 'grantItem').mockImplementation(() => {});
+    const removeItem = vi.spyOn(gameManager.itemManager, 'removeItem').mockImplementation(() => true);
     const distribution = new EventDistribution();
     distribution.itemsReceive = [{ item, character: brute }];
     distribution.itemsConsume = [{ item, character: brute }];

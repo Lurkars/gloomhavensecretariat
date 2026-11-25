@@ -1,4 +1,4 @@
-<div class="settings-layout" [ngClass]="{ connected: gameManager.stateManager.wsState() === WebSocket.OPEN, filtering: !!filter }">
+<div class="settings-layout" [ngClass]="{ connected: gameManager.serverSyncManager.wsState() === WebSocket.OPEN, filtering: !!filter }">
   <div class="line filter-line">
     <input
       [(ngModel)]="filter"
@@ -445,7 +445,7 @@
           class="custom-css-input"
           [value]="settingsManager.settings.customCss"
           (change)="settingsManager.set('customCss', $any($event.target).value)"
-          [placeholder]="settingsManager.getLabel('settings.customCss.placeholder')"
+          [placeholder]="labelManager.getLabel('settings.customCss.placeholder')"
           rows="6"
         ></textarea>
       </div>

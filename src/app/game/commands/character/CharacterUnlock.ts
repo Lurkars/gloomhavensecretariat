@@ -8,7 +8,9 @@ export class CharacterUnlockCommand extends CommandImpl {
 
   characterData(edition: BASE_TYPE, name: BASE_TYPE): CharacterData | undefined {
     return typeof edition === 'string'
-      ? gameManager.charactersData(edition).find((characterData) => characterData.name === name && characterData.edition === edition)
+      ? gameManager.editionManager
+          .charactersData(edition)
+          .find((characterData) => characterData.name === name && characterData.edition === edition)
       : undefined;
   }
 
@@ -36,7 +38,7 @@ export class CharacterUnlockAllCommand extends CommandImpl {
 
   locked(edition: BASE_TYPE): CharacterData[] {
     return typeof edition === 'string'
-      ? gameManager
+      ? gameManager.editionManager
           .charactersData(edition)
           .filter(
             (characterData) =>
@@ -65,6 +67,6 @@ export class CharacterUnlockResetCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    gameManager.game.unlockedCharacters = [];
+    gameManager.characterManager.lockAllCharacters();
   }
 }

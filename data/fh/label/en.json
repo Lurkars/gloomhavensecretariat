@@ -1412,9 +1412,6 @@
         "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
         "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
       },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
       "blinkblade": {
         "1": "On your next attack, discard this card to add %game.action.attack.valueSign:2%.<br>%game.card.persistent%",
         "2": "Place this card in your active area. On your next attack, discard this card to add %game.action.attack.valueSign:2%",
@@ -2121,8 +2118,7 @@
         "3": "to the leftmost empty hex if it is an odd round or rightmost if it is even"
       },
       "night-demon": {
-        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
+        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%."
       },
       "ooze": {
         "1": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."

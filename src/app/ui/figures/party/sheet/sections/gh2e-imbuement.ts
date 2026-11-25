@@ -31,8 +31,11 @@ export class PartySheetGh2eImbuementComponent extends PartySheetSection {
       value = 0;
     }
 
+    if (!gameManager.campaignManager.canSetPartyValue('imbuement', value)) {
+      return;
+    }
     gameManager.stateManager.before('setPartyImbuement', value);
-    this.party.imbuement = value;
+    gameManager.campaignManager.setPartyValue('imbuement', value);
     gameManager.stateManager.after();
 
     Object.keys(this.imbuementSections)

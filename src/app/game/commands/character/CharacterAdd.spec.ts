@@ -22,7 +22,7 @@ describe('CharacterAddCommand', () => {
     characterData.name = name;
     characterData.edition = edition;
     characterData.stats = [new CharacterStat(1, 10)];
-    gameManager.editionData = [new EditionData(edition, [characterData], [], [], [], [], [])];
+    gameManager.editionManager.editionData = [new EditionData(edition, [characterData], [], [], [], [], [])];
     settingsManager.settings.editions = [edition];
     return characterData;
   }
@@ -76,9 +76,9 @@ describe('CharacterAddCommand', () => {
       const command = new CharacterAddCommand('test', 'brute', 3, 1);
       command.execute();
 
-      // gameManager.charactersData() wraps every match in a fresh `new CharacterData(...)`, so compare
+      // gameManager.editionManager.charactersData() wraps every match in a fresh `new CharacterData(...)`, so compare
       // against what that lookup itself produces rather than the raw fixture object.
-      const expectedCharacterData = gameManager.charactersData('test').find((char) => char.name === 'brute');
+      const expectedCharacterData = gameManager.editionManager.charactersData('test').find((char) => char.name === 'brute');
       expect(addCharacterSpy).toHaveBeenCalledTimes(1);
       expect(addCharacterSpy).toHaveBeenCalledWith(expectedCharacterData, 3);
     });

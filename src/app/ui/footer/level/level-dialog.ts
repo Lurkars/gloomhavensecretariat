@@ -51,6 +51,9 @@ export class LevelDialogComponent implements OnInit {
   }
 
   setBbMonsterDifficutly(level: number) {
+    if (!gameManager.levelManager.canSetBbMonsterDifficulty(level)) {
+      return;
+    }
     gameManager.stateManager.before('updateLevelAdjustmentBb', level);
     gameManager.levelManager.setBbMonsterDifficulty(level);
     gameManager.stateManager.after();
@@ -85,12 +88,18 @@ export class LevelDialogComponent implements OnInit {
   }
 
   setPlayerCount(playerCount: number) {
+    if (!gameManager.levelManager.canSetPlayerCount(playerCount)) {
+      return;
+    }
     gameManager.stateManager.before('updateManualPlayerCount', playerCount);
     gameManager.levelManager.setPlayerCount(playerCount);
     gameManager.stateManager.after();
   }
 
   setLevel(level: number) {
+    if (!gameManager.levelManager.canSetManualLevel(level)) {
+      return;
+    }
     gameManager.stateManager.before('setScenarioLevel', level);
     gameManager.levelManager.setManualLevel(level);
     gameManager.stateManager.after();
@@ -98,7 +107,7 @@ export class LevelDialogComponent implements OnInit {
 
   setSolo(solo: boolean) {
     gameManager.stateManager.before(solo ? 'enableSolo' : 'disableSolo');
-    gameManager.game.solo = solo;
+    gameManager.levelManager.setSolo(solo);
     gameManager.stateManager.after();
   }
 

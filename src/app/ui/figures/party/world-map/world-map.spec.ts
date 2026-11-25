@@ -38,7 +38,7 @@ describe('WorldMapComponent', () => {
     gameManager.game.party.scenarios = [];
     gameManager.game.party.conclusions = [];
     gameManager.game.party.buildings = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
   });
 
   it('constructs and captures the requested edition from DIALOG_DATA', () => {
@@ -49,14 +49,14 @@ describe('WorldMapComponent', () => {
 
   describe('update', () => {
     it('leaves worldMap unset when the edition has no world map data', () => {
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []))];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []))];
       const component = createComponent('gh');
       component.update();
       expect(component.worldMap).toBeUndefined();
     });
 
     it('populates worldMap and coordinate-bearing scenarios for a matching edition', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(
           new EditionData('gh', [], [], [], [scenario('1', { coordinates: new WorldMapCoordinates() }), scenario('2')], [], []),
           {
@@ -71,7 +71,7 @@ describe('WorldMapComponent', () => {
     });
 
     it('falls back to the extended edition when the current edition has no world map of its own', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [], []), { extendWorldMap: 'jotl' }),
         Object.assign(
           new EditionData('jotl', [], [], [], [scenario('1', { edition: 'jotl', coordinates: new WorldMapCoordinates() })], [], []),
@@ -87,7 +87,7 @@ describe('WorldMapComponent', () => {
     });
 
     it('only includes extended-edition scenarios once showExtended is set', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [], []), { extendWorldMap: 'jotl' }),
         Object.assign(
           new EditionData('jotl', [], [], [], [scenario('1', { edition: 'jotl', coordinates: new WorldMapCoordinates() })], [], []),
@@ -108,7 +108,7 @@ describe('WorldMapComponent', () => {
     it('collects coordinate-bearing buildings from the edition campaign data', () => {
       const building = Object.assign(new BuildingData(), { name: 'sanctuary', edition: 'gh', coordinates: [new WorldMapCoordinates()] });
       const buildingNoCoords = Object.assign(new BuildingData(), { name: 'shrine', edition: 'gh', coordinates: [] });
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [], []), {
           worldMap: { width: 100, height: 100 },
           campaign: Object.assign(new CampaignData(), { buildings: [building, buildingNoCoords] })
@@ -127,7 +127,7 @@ describe('WorldMapComponent', () => {
         rewards: { overlaySticker: { name: 'x', coordinates: new WorldMapCoordinates() } }
       });
       const nonOverlaySection = Object.assign(new ScenarioData(), { edition: 'gh', index: 'c2', conclusion: true });
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [conclusionSection, nonOverlaySection], []), {
           worldMap: { width: 100, height: 100 }
         })

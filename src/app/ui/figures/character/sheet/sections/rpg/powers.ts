@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { labelManager } from 'src/app/game/businesslogic/Managers';
 import { RPG_ACTIVE_TALENT_ROWS, RpgPower, RpgPowerState } from 'src/app/game/model/CharacterProgress';
 import { RpgSheetSection } from 'src/app/ui/figures/character/sheet/sections/rpg/rpg-section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -21,12 +21,12 @@ export class CharacterSheetRpgPowersComponent extends RpgSheetSection {
   }
 
   talentType(index: number): string {
-    return settingsManager.getLabel('character.progress.rpg.' + (index < RPG_ACTIVE_TALENT_ROWS ? 'activeTalent' : 'passiveTalent'));
+    return labelManager.getLabel('character.progress.rpg.' + (index < RPG_ACTIVE_TALENT_ROWS ? 'activeTalent' : 'passiveTalent'));
   }
 
   setPower<K extends keyof RpgPower>(index: number, field: K, value: RpgPower[K]) {
     const list = this.list();
-    this.change(list, '' + value, (rpg) => (rpg[list][index][field] = value));
+    this.change(list, list + '.' + index + '.' + field, value, '' + value);
   }
 
   toggleState(index: number, state: RpgPowerState) {

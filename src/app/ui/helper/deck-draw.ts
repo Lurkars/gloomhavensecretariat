@@ -16,6 +16,7 @@ export abstract class DeckDrawDirective {
 
   protected abstract drawingClass: string;
   protected serverAware: boolean = true;
+  private queueRun: number = 0;
 
   protected abstract deckCurrent(): number;
 
@@ -33,7 +34,7 @@ export abstract class DeckDrawDirective {
     this.drawing = drawing;
   }
 
-  protected drawn?(index: number, fromServer: boolean): number;
+  protected drawn?(index: number, fromServer: boolean): number | Promise<number>;
 
   protected queueFinished() {}
 
@@ -73,13 +74,13 @@ export abstract class DeckDrawDirective {
 
   protected updateQueue(active: boolean, fromServer: boolean) {
     const deckCurrent = this.deckCurrent();
-    if (this.serverAware && this.initServer && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
+    if (this.serverAware && this.initServer && gameManager.serverSyncManager.wsState() !== WebSocket.OPEN) {
       this.initServer = false;
     }
 
     if (!active) {
       this.resetQueue();
-      this.initServer = gameManager.stateManager.wsState() === WebSocket.OPEN;
+      this.initServer = gameManager.serverSyncManager.wsState() === WebSocket.OPEN;
     } else if (this.init && (!fromServer || this.initServer || !this.serverAware)) {
       if (this.current < deckCurrent) {
         const delta = deckCurrent - this.current;
@@ -111,6 +112,7 @@ export abstract class DeckDrawDirective {
   }
 
   protected resetQueue() {
+    this.queueRun++;
     if (this.queueTimeout) {
       clearTimeout(this.queueTimeout);
       this.queueTimeout = null;
@@ -132,12 +134,21 @@ export abstract class DeckDrawDirective {
   private nextDraw(fromServer: boolean) {
     this.setDrawing(true);
     this.drawingElement()?.classList.add('drawing');
+    const run = this.queueRun;
     this.queueTimeout = setTimeout(
-      () => {
+      async () => {
         this.setDrawing(false);
+        let delay = 0;
+        try {
+          delay = this.drawn ? await this.drawn(this.current, fromServer) : 0;
+        } catch {
+          delay = 0;
+        }
+        if (run !== this.queueRun) {
+          return;
+        }
         this.queueTimeout = null;
-        const delay = this.drawn ? this.drawn(this.current, fromServer) : 0;
-        if (delay > 0) {
+        if (delay > 0 && isFinite(delay)) {
           this.queueTimeout = setTimeout(() => this.continueQueue(fromServer), delay);
         } else {
           this.continueQueue(fromServer);

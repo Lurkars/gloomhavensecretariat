@@ -995,8 +995,7 @@
         "augment": "%game.customAction:gh2e-augment% Augment"
       },
       "night-demon": {
-        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
+        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%."
       },
       "ooze": {
         "1": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."

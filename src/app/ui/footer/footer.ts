@@ -8,8 +8,6 @@ import { gameManager, settingsManager, soundboardManager } from 'src/app/game/bu
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
-import { Monster } from 'src/app/game/model/Monster';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { ChallengeDeckChange, ChallengeDeckComponent } from 'src/app/ui/figures/challenges/challenge-deck';
@@ -89,19 +87,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.hasAllyAttackModifierDeck =
-      (settingsManager.settings.allyAttackModifierDeck &&
-        (settingsManager.settings.alwaysAllyAttackModifierDeck ||
-          (gameManager.fhRules(true) &&
-            gameManager.game.figures.some(
-              (figure) =>
-                (figure instanceof Monster && (figure.isAlly || figure.isAllied)) ||
-                (figure instanceof ObjectiveContainer &&
-                  ((figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) ||
-                    figure.amDeck === 'A'))
-            )) ||
-          (gameManager.game.scenario && gameManager.game.scenario.allyDeck))) ||
-      false;
+    this.hasAllyAttackModifierDeck = gameManager.attackModifierManager.allyDeckVisible();
 
     this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
@@ -160,19 +146,7 @@ export class FooterComponent implements OnInit {
   }
 
   update() {
-    this.hasAllyAttackModifierDeck =
-      (settingsManager.settings.allyAttackModifierDeck &&
-        (settingsManager.settings.alwaysAllyAttackModifierDeck ||
-          (gameManager.fhRules(true) &&
-            gameManager.game.figures.some(
-              (figure) =>
-                (figure instanceof Monster && (figure.isAlly || figure.isAllied)) ||
-                (figure instanceof ObjectiveContainer &&
-                  ((figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) ||
-                    figure.amDeck === 'A'))
-            )) ||
-          (gameManager.game.scenario && gameManager.game.scenario.allyDeck))) ||
-      false;
+    this.hasAllyAttackModifierDeck = gameManager.attackModifierManager.allyDeckVisible();
     this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
     const activeCharacter = settingsManager.settings.characterAttackModifierDeckActiveBottom
       ? (gameManager.game.figures.find(
@@ -259,7 +233,7 @@ export class FooterComponent implements OnInit {
   }
 
   next(force: boolean = false): void {
-    if (!force && this.disabled()) {
+    if (!force && !gameManager.roundManager.canNextRound()) {
       this.nextHint = true;
       const dialogRef = this.dialog.open(HintDialogComponent, {
         panelClass: ['dialog'],
@@ -276,20 +250,23 @@ export class FooterComponent implements OnInit {
           this.nextHint = false;
           this.initiativeSetDialog = 'discard';
           if (result) {
-            this.nextState();
+            this.nextState(true);
           }
         }
       });
     } else {
-      this.nextState();
+      this.nextState(force);
     }
   }
 
-  async nextState() {
+  async nextState(force: boolean = false) {
+    if (!gameManager.roundManager.canNextRound(force)) {
+      return;
+    }
     gameManager.stateManager.before(
       ...(gameManager.game.state === GameState.next ? ['roundNext', gameManager.game.round] : ['roundDraw', gameManager.game.round + 1])
     );
-    gameManager.roundManager.nextRound();
+    gameManager.roundManager.nextRound(force);
     gameManager.stateManager.after(1000);
   }
 
@@ -353,12 +330,6 @@ export class FooterComponent implements OnInit {
     }
   }
 
-  resetScenario() {
-    gameManager.stateManager.before('resetScenario', ...gameManager.scenarioManager.scenarioUndoArgs());
-    gameManager.roundManager.resetScenario();
-    gameManager.stateManager.after(1000);
-  }
-
   empty(): boolean {
     return gameManager.game.figures.length === 0;
   }
@@ -411,10 +382,7 @@ export class FooterComponent implements OnInit {
   }
 
   disabled(): boolean {
-    return (
-      (gameManager.game.state === GameState.draw && this.drawDisabled()) ||
-      (gameManager.game.state === GameState.next && this.nextDisabled())
-    );
+    return !gameManager.roundManager.canNextRound();
   }
 
   drawDisabled(): boolean {

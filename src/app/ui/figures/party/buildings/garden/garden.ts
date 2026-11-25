@@ -121,38 +121,30 @@ export class GardenComponent implements OnInit {
   }
 
   plantHerb(slot: number, force: boolean = false) {
-    if (
-      this.activeHerb &&
-      ((!this.disabled &&
-        (this.level > 2 || !this.garden.flipped) &&
-        this.currentSource !== -1 &&
-        this.currentResources[this.currentSource]) ||
-        force) &&
-      slot >= 0 &&
-      slot < this.slots &&
-      this.herbs.includes(this.activeHerb) &&
-      this.garden.plots[slot] !== this.activeHerb
-    ) {
+    const source = force
+      ? undefined
+      : this.currentSource === this.characters.length
+        ? 'party'
+        : this.currentSource !== -1
+          ? this.characters[this.currentSource]
+          : undefined;
+    if (this.activeHerb && gameManager.buildingsManager.canPlantGardenHerb(this.activeHerb, slot, source, force)) {
       gameManager.stateManager.before('buildings.garden.plant', this.activeHerb, slot);
-      gameManager.buildingsManager.plantGardenHerb(
-        this.activeHerb,
-        slot,
-        force ? undefined : this.currentSource === this.characters.length ? 'party' : this.characters[this.currentSource]
-      );
+      gameManager.buildingsManager.plantGardenHerb(this.activeHerb, slot, source, force);
       gameManager.stateManager.after();
     }
   }
 
   flipGarden(force: boolean = false) {
-    if ((!this.disabled || force) && this.level && this.level < 3) {
+    if (gameManager.buildingsManager.canFlipGarden(force)) {
       gameManager.stateManager.before('buildings.garden.' + (this.garden.flipped ? 'flipPlant' : 'flipHarvest'));
-      gameManager.buildingsManager.setGardenFlipped(!this.garden.flipped);
+      gameManager.buildingsManager.setGardenFlipped(!this.garden.flipped, force);
       gameManager.stateManager.after();
     }
   }
 
   toggleAutomation() {
-    if (settingsManager.settings.automaticPassTime) {
+    if (gameManager.buildingsManager.canSetGardenAutomated()) {
       gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
       gameManager.buildingsManager.setGardenAutomated(!this.garden.automated);
       gameManager.stateManager.after();
@@ -160,10 +152,12 @@ export class GardenComponent implements OnInit {
   }
 
   harvest() {
-    gameManager.stateManager.before('buildings.garden.harvest');
-    gameManager.buildingsManager.harvestGarden();
-    this.harvested = true;
-    this.update();
-    gameManager.stateManager.after();
+    if (gameManager.buildingsManager.canHarvestGarden()) {
+      gameManager.stateManager.before('buildings.garden.harvest');
+      gameManager.buildingsManager.harvestGarden();
+      this.harvested = true;
+      this.update();
+      gameManager.stateManager.after();
+    }
   }
 }

@@ -10,7 +10,12 @@
     ></span>
 
     <div class="item" [ngClass]="{ autosell: autoSell }">
-      <ghs-item [item]="item" [flipped]="true" [editionLabel]="gameManager.currentEdition()" (click)="openDialog()"></ghs-item>
+      <ghs-item
+        [item]="item"
+        [flipped]="true"
+        [editionLabel]="gameManager.editionManager.currentEdition()"
+        (click)="openDialog()"
+      ></ghs-item>
     </div>
 
     <div class="menu">

@@ -104,7 +104,7 @@ export class ObjectiveContainerComponent implements OnInit {
     if (this.nonDead === 1) {
       this.entity = this.objective.entities.find((entity) => gameManager.entityManager.isAlive(entity));
       if (this.entity) {
-        this.activeConditions = gameManager.entityManager.activeConditions(this.entity);
+        this.activeConditions = gameManager.conditionManager.activeConditions(this.entity);
         this.entity.immunities.forEach((immunity) => {
           if (!this.activeConditions.find((entityCondition) => entityCondition.name === immunity)) {
             this.activeConditions.push(new EntityCondition(immunity));
@@ -131,7 +131,7 @@ export class ObjectiveContainerComponent implements OnInit {
         this.objective.active ? 'unsetActive' : 'setActive',
         gameManager.objectiveManager.objectiveName(this.objective)
       );
-      gameManager.roundManager.toggleFigure(this.objective);
+      gameManager.turnManager.toggleFigure(this.objective);
       gameManager.stateManager.after();
     }
   }
@@ -221,16 +221,7 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   addEntity() {
-    const objectiveCount = this.objective.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
-    let number = objectiveCount % 12;
-    if (this.objective.entities.find((objectiveEntity) => objectiveEntity.number === number)) {
-      number = objectiveCount % 12;
-      if (objectiveCount < 12) {
-        while (this.objective.entities.find((objectiveEntity) => objectiveEntity.number - 1 === number)) {
-          number++;
-        }
-      }
-    }
+    const number = gameManager.objectiveManager.nextObjectiveNumber(this.objective);
 
     let name = this.objective.name;
     if (!name) {
@@ -241,21 +232,19 @@ export class ObjectiveContainerComponent implements OnInit {
     }
 
     gameManager.stateManager.before('addObjective.entity', number + 1, name);
-    gameManager.objectiveManager.addObjectiveEntity(this.objective, number);
+    gameManager.objectiveManager.addObjectiveEntity(this.objective);
     gameManager.stateManager.after();
   }
 
   removeCondition(entityCondition: EntityCondition) {
     if (this.entity) {
-      if (gameManager.entityManager.removeImmunityPlaceholder(this.entity, this.objective, entityCondition)) {
-        return;
-      }
-      gameManager.entityManager.before(this.entity, this.objective, 'removeCondition', entityCondition.name);
-      if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
-        entityCondition.value--;
-      } else {
-        gameManager.entityManager.removeCondition(this.entity, this.objective, entityCondition, entityCondition.permanent);
-      }
+      gameManager.entityManager.before(
+        this.entity,
+        this.objective,
+        gameManager.conditionManager.isImmunityPlaceholder(this.entity, entityCondition) ? 'removeImmunity' : 'removeCondition',
+        entityCondition.name
+      );
+      gameManager.conditionManager.reduceCondition(this.entity, this.objective, entityCondition);
       gameManager.stateManager.after();
     }
   }
@@ -265,7 +254,7 @@ export class ObjectiveContainerComponent implements OnInit {
       const edition = marker.split('-')[0];
       const name = marker.split('-').slice(1).join('-');
       gameManager.entityManager.before(this.entity, this.objective, 'removeCharacterMarker', marker, edition + '.' + name);
-      this.entity.markers = this.entity.markers.filter((value) => value !== marker);
+      gameManager.entityManager.setMarker([this.entity], marker, false);
       gameManager.stateManager.after();
     }
   }
@@ -290,9 +279,9 @@ export class ObjectiveContainerComponent implements OnInit {
   }
 
   removeExtraAction(index: number, persistent: boolean = false) {
-    if (this.entity) {
-      const actions = JSON.parse(JSON.stringify(persistent ? this.entity.extraActionsPersistent : this.entity.extraActions)) as Action[];
-      const removed = actions.splice(index, 1)[0];
+    if (this.entity && gameManager.actionsManager.canRemoveExtraAction(this.entity, index, persistent)) {
+      const removed = gameManager.actionsManager.extraActions(this.entity, persistent)[index];
+      const actions = gameManager.actionsManager.extraActionsWithout(this.entity, index, persistent);
 
       gameManager.stateManager.before(
         ...gameManager.entityManager.undoInfos(
@@ -303,12 +292,7 @@ export class ObjectiveContainerComponent implements OnInit {
         actions.length ? actions.map((action) => this.actionLabel(action)).join(', ') : this.actionLabel(removed)
       );
 
-      if (persistent) {
-        this.entity.extraActionsPersistent = actions;
-      } else {
-        this.entity.extraActions = actions;
-      }
-
+      gameManager.actionsManager.removeExtraAction(this.entity, index, persistent);
       gameManager.stateManager.after();
     }
   }

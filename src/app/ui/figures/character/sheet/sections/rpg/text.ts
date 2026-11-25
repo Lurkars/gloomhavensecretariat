@@ -19,7 +19,7 @@ export class CharacterSheetRpgTextComponent extends RpgSheetSection {
     const field = this.field();
     const value = event.target.value;
     if (this.rpg[field] !== value) {
-      this.change(field, value, (rpg) => (rpg[field] = value));
+      this.change(field, field, value);
     }
   }
 }

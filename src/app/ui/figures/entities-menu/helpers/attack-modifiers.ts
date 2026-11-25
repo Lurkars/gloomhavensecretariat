@@ -2,7 +2,6 @@ import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
-import { Entity } from 'src/app/game/model/Entity';
 import { AdditionalAMSelectDialogComponent } from 'src/app/ui/figures/entities-menu/additional-am-select/additional-am-select';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
@@ -66,23 +65,21 @@ export class AttackModifierHelper {
 
     if (this.component.figure) {
       const amDeck = gameManager.attackModifierManager.byFigure(this.component.figure);
-      const empowerPrefix = 'additional-' + (this.component.empowerChar?.name ?? '');
-      this.component.empowerMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.empower, empowerPrefix);
+      this.component.empowerMin = gameManager.attackModifierManager.countUpcomingAdditionalModifiers(
+        amDeck,
+        AttackModifierType.empower,
+        this.component.empowerChar
+      );
       this.component.empowerMax = this.component.empowerChar
-        ? this.component.empowerChar.additionalModifier
-            .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
-            .map((perk) => perk.count)
-            .reduce((a, b) => a + b) -
-          gameManager.attackModifierManager.countUpcomingAdditional(this.component.empowerChar, AttackModifierType.empower)
+        ? gameManager.attackModifierManager.additionalAvailable(this.component.empowerChar, AttackModifierType.empower)
         : -1;
-      const enfeeblePrefix = 'additional-' + (this.component.enfeebleChar?.name ?? '');
-      this.component.enfeebleMin = this.countUpcomingAttackModifier(amDeck, AttackModifierType.enfeeble, enfeeblePrefix);
+      this.component.enfeebleMin = gameManager.attackModifierManager.countUpcomingAdditionalModifiers(
+        amDeck,
+        AttackModifierType.enfeeble,
+        this.component.enfeebleChar
+      );
       this.component.enfeebleMax = this.component.enfeebleChar
-        ? this.component.enfeebleChar.additionalModifier
-            .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
-            .map((perk) => perk.count)
-            .reduce((a, b) => a + b) -
-          gameManager.attackModifierManager.countUpcomingAdditional(this.component.enfeebleChar, AttackModifierType.enfeeble)
+        ? gameManager.attackModifierManager.additionalAvailable(this.component.enfeebleChar, AttackModifierType.enfeeble)
         : -1;
     } else {
       this.component.empowerMin = -1;
@@ -100,26 +97,22 @@ export class AttackModifierHelper {
     return amDeck.cards.filter((attackModifier) => attackModifier.type === type).length;
   }
 
-  countUpcomingAttackModifier(amDeck: AttackModifierDeck, type: AttackModifierType, idPrefix: string | undefined = undefined): number {
-    return amDeck.cards.filter(
-      (attackModifier, index) =>
-        attackModifier.type === type &&
-        index > amDeck.current &&
-        (!idPrefix || (attackModifier.id && attackModifier.id.startsWith(idPrefix)))
-    ).length;
+  countUpcomingAttackModifier(amDeck: AttackModifierDeck, type: AttackModifierType): number {
+    return amDeck.cards.filter((attackModifier, index) => attackModifier.type === type && index > amDeck.current).length;
   }
 
   countDrawnAttackModifier(amDeck: AttackModifierDeck, type: AttackModifierType): number {
     return amDeck.cards.filter((attackModifier, index) => attackModifier.type === type && index <= amDeck.current).length;
   }
 
-  changeAttackModifier(entity: Entity, type: AttackModifierType, value: number) {
-    const figure = this.component.figureForEntity(entity);
-    const amDeck = gameManager.attackModifierManager.byFigure(figure);
+  changeAttackModifiers(type: AttackModifierType, value: number) {
     if (value > 0) {
-      gameManager.entityManager.addCondition(entity, figure, new Condition(type, value));
+      gameManager.conditionManager.addDeckConditions(this.component.deckConditionTargets(), new Condition(type, value));
     } else if (value < 0) {
-      gameManager.attackModifierManager.changeModifierCount(amDeck, type, value, false);
+      this.component.applicableEntities.forEach((entity) => {
+        const amDeck = gameManager.attackModifierManager.byFigure(this.component.figureForEntity(entity));
+        gameManager.attackModifierManager.changeModifierCount(amDeck, type, value, false);
+      });
     }
   }
 
@@ -159,9 +152,7 @@ export class AttackModifierHelper {
         AttackModifierType.bless,
         this.component.bless > 0 ? this.component.bless : this.component.bless * -1
       );
-      applicableEntities.forEach((entity) => {
-        this.changeAttackModifier(entity, AttackModifierType.bless, this.component.bless);
-      });
+      this.changeAttackModifiers(AttackModifierType.bless, this.component.bless);
       gameManager.stateManager.after();
       this.component.bless = 0;
     }
@@ -174,9 +165,7 @@ export class AttackModifierHelper {
         AttackModifierType.curse,
         this.component.curse > 0 ? this.component.curse : this.component.curse * -1
       );
-      applicableEntities.forEach((entity) => {
-        this.changeAttackModifier(entity, AttackModifierType.curse, this.component.curse);
-      });
+      this.changeAttackModifiers(AttackModifierType.curse, this.component.curse);
       gameManager.stateManager.after();
       this.component.curse = 0;
     }
@@ -190,27 +179,22 @@ export class AttackModifierHelper {
           AttackModifierType.empower,
           this.component.empower > 0 ? this.component.empower : this.component.empower * -1
         );
-        applicableEntities.forEach((entity) => {
-          const figure = this.component.figureForEntity(entity);
-          const amDeck = gameManager.attackModifierManager.byFigure(figure);
-          if (this.component.empowerChar && this.component.empower > 0) {
-            gameManager.entityManager.addCondition(
-              entity,
-              figure,
-              new Condition(ConditionName.empower, this.component.empower),
-              false,
-              false,
-              this.component.empowerChar
-            );
-          } else {
+        if (this.component.empowerChar && this.component.empower > 0) {
+          gameManager.conditionManager.addDeckConditions(
+            this.component.deckConditionTargets(),
+            new Condition(ConditionName.empower, this.component.empower),
+            this.component.empowerChar
+          );
+        } else {
+          applicableEntities.forEach((entity) => {
             gameManager.attackModifierManager.changeAdditionalCount(
-              amDeck,
+              gameManager.attackModifierManager.byFigure(this.component.figureForEntity(entity)),
               this.component.empowerChar,
               AttackModifierType.empower,
               this.component.empower
             );
-          }
-        });
+          });
+        }
         gameManager.stateManager.after();
         this.component.empower = 0;
       }
@@ -225,27 +209,22 @@ export class AttackModifierHelper {
           AttackModifierType.enfeeble,
           this.component.enfeeble > 0 ? this.component.enfeeble : this.component.enfeeble * -1
         );
-        applicableEntities.forEach((entity) => {
-          const figure = this.component.figureForEntity(entity);
-          const amDeck = gameManager.attackModifierManager.byFigure(figure);
-          if (this.component.enfeebleChar && this.component.enfeeble > 0) {
-            gameManager.entityManager.addCondition(
-              entity,
-              figure,
-              new Condition(ConditionName.enfeeble, this.component.enfeeble),
-              false,
-              false,
-              this.component.enfeebleChar
-            );
-          } else {
+        if (this.component.enfeebleChar && this.component.enfeeble > 0) {
+          gameManager.conditionManager.addDeckConditions(
+            this.component.deckConditionTargets(),
+            new Condition(ConditionName.enfeeble, this.component.enfeeble),
+            this.component.enfeebleChar
+          );
+        } else {
+          applicableEntities.forEach((entity) => {
             gameManager.attackModifierManager.changeAdditionalCount(
-              amDeck,
+              gameManager.attackModifierManager.byFigure(this.component.figureForEntity(entity)),
               this.component.enfeebleChar,
               AttackModifierType.enfeeble,
               this.component.enfeeble
             );
-          }
-        });
+          });
+        }
         gameManager.stateManager.after();
         this.component.enfeeble = 0;
       }

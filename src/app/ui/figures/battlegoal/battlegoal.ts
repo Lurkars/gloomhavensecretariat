@@ -37,7 +37,7 @@ export class BattleGoalComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.battleGoal = this.inputBattleGoal();
-    if (changes['identifier'] && changes['identifier'].previousValue !== changes['identifier'].currentValue) {
+    if (changes['inputIdentifier'] && changes['inputIdentifier'].previousValue !== changes['inputIdentifier'].currentValue) {
       if (!this.battleGoal && this.identifier) {
         this.battleGoal = gameManager.battleGoalManager.getBattleGoal(this.identifier);
       }

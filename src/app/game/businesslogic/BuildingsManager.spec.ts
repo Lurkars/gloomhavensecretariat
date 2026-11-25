@@ -4,10 +4,12 @@ import { Character } from 'src/app/game/model/Character';
 import { BuildingCosts, BuildingData, BuildingRewards, BuildingTrade, SelectResourceResult } from 'src/app/game/model/data/BuildingData';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
-import { CampaignData } from 'src/app/game/model/data/EditionData';
+import { CampaignData, EditionData } from 'src/app/game/model/data/EditionData';
 import { LootType } from 'src/app/game/model/data/Loot';
-import { PetIdentifier } from 'src/app/game/model/data/PetCard';
+import { PetCard, PetIdentifier } from 'src/app/game/model/data/PetCard';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { WorldMapCoordinates } from 'src/app/game/model/data/WorldMap';
+import { Scenario } from 'src/app/game/model/Scenario';
 
 function buildRewards(overrides: Partial<BuildingRewards> = {}): BuildingRewards {
   return Object.assign(new BuildingRewards(), overrides);
@@ -54,6 +56,8 @@ describe('BuildingsManager', () => {
     gameManager.game.party.pets = [];
     gameManager.game.party.garden = undefined;
     gameManager.game.figures = [];
+    gameManager.game.scenario = undefined;
+    gameManager.roundManager.firstRound = false;
   });
 
   describe('distance', () => {
@@ -275,9 +279,11 @@ describe('BuildingsManager', () => {
       gameManager.game.party.campaignMode = true;
       settingsManager.settings.applyBuildingRewards = true;
       const character = buildCharacter(10);
+      gameManager.game.figures = [character];
       const rewards = buildRewards({ defense: 2, section: '1.1' });
-      const data = buildBuildingData({ rewards: [rewards] });
+      const data = buildBuildingData({ costs: costs({ gold: 4 }), rewards: [rewards] });
       const model = new BuildingModel('x', 0);
+      gameManager.game.party.buildings = [model];
       const result = buildingsManager.upgradeBuilding(data, model, new SelectResourceResult([character], [costs({ gold: 4 })], costs()));
       expect(model.level).toEqual(1);
       expect(character.progress.gold).toEqual(6);
@@ -286,29 +292,194 @@ describe('BuildingsManager', () => {
     });
 
     it('does not apply rewards outside campaign mode', () => {
+      gameManager.game.figures = [buildCharacter()];
       const data = buildBuildingData({ rewards: [buildRewards({ defense: 2 })] });
       const model = new BuildingModel('x', 0);
+      gameManager.game.party.buildings = [model];
       expect(buildingsManager.upgradeBuilding(data, model)).toBeUndefined();
       expect(model.level).toEqual(1);
       expect(gameManager.game.party.defense).toEqual(0);
     });
 
+    it('rejects upgrades without sufficient payment unless forced', () => {
+      const character = buildCharacter(10);
+      gameManager.game.figures = [character];
+      gameManager.game.party.loot = { [LootType.lumber]: 3 };
+      const data = buildBuildingData({ costs: costs({ lumber: 2, gold: 4 }), upgrades: [costs()] });
+      const model = new BuildingModel('x', 0);
+      gameManager.game.party.buildings = [model];
+      expect(buildingsManager.canUpgrade(data, model)).toBe(false);
+      expect(
+        buildingsManager.canUpgrade(data, model, new SelectResourceResult([character], [costs({ gold: 4 })], costs({ lumber: 1 })))
+      ).toBe(false);
+      expect(
+        buildingsManager.canUpgrade(data, model, new SelectResourceResult([character], [costs({ gold: 3 })], costs({ lumber: 2 })))
+      ).toBe(false);
+      expect(
+        buildingsManager.upgradeBuilding(data, model, new SelectResourceResult([character], [costs({ gold: 4 })], costs({ lumber: 4 })))
+      ).toBe(false);
+      expect(model.level).toEqual(0);
+
+      const valid = new SelectResourceResult([character], [costs({ gold: 4 })], costs({ lumber: 2 }));
+      expect(buildingsManager.upgradeBuilding(data, model, valid)).toBeUndefined();
+      expect(model.level).toEqual(1);
+      expect(gameManager.game.party.loot[LootType.lumber]).toEqual(1);
+
+      model.level = 2;
+      expect(buildingsManager.canUpgrade(data, model, undefined, true)).toBe(false);
+      model.level = 1;
+      model.state = 'damaged';
+      expect(buildingsManager.canUpgrade(data, model, undefined, true)).toBe(false);
+      model.state = 'normal';
+      expect(buildingsManager.upgradeBuilding(data, model, undefined, true)).toBeUndefined();
+      expect(model.level).toEqual(2);
+    });
+
+    it('applies the carpenter discount and rejects payments a payer cannot afford', () => {
+      const character = buildCharacter(2);
+      gameManager.game.figures = [character];
+      gameManager.game.party.loot = { [LootType.metal]: 1 };
+      const data = buildBuildingData({ costs: costs({ metal: 2, gold: 4 }) });
+      expect(
+        buildingsManager.paymentCovers(data.costs, new SelectResourceResult([character], [costs({ gold: 4 })], costs({ metal: 1 })))
+      ).toBe(false);
+      character.progress.gold = 4;
+      expect(
+        buildingsManager.paymentCovers(data.costs, new SelectResourceResult([character], [costs({ gold: 4 })], costs({ metal: 1 })))
+      ).toBe(false);
+      gameManager.game.party.buildings = [new BuildingModel('carpenter', 1)];
+      expect(
+        buildingsManager.paymentCovers(data.costs, new SelectResourceResult([character], [costs({ gold: 4 })], costs({ metal: 1 })))
+      ).toBe(true);
+      expect(
+        buildingsManager.paymentCovers(data.costs, new SelectResourceResult([buildCharacter(4)], [costs({ gold: 4 })], costs({ metal: 1 })))
+      ).toBe(false);
+    });
+
     it('repairs with morale instead of resources', () => {
       gameManager.game.party.morale = 3;
       const character = buildCharacter(10);
+      gameManager.game.figures = [character];
+      const data = buildBuildingData({ repair: [2] });
       const model = new BuildingModel('x', 1, 'damaged');
-      buildingsManager.repairBuilding(model, new SelectResourceResult([character], [costs({ gold: 4 })], costs(), 1));
+      gameManager.game.party.buildings = [model];
+      expect(buildingsManager.repairBuilding(data, model, new SelectResourceResult([character], [costs({ gold: 4 })], costs(), 1))).toBe(
+        true
+      );
       expect(model.state).toEqual('normal');
       expect(gameManager.game.party.morale).toEqual(2);
       expect(character.progress.gold).toEqual(10);
+      expect(buildingsManager.repairBuilding(data, model, undefined, true)).toBe(false);
+    });
+
+    it('repairs with any resources and inspiration', () => {
+      gameManager.game.figures = [buildCharacter()];
+      gameManager.game.party.loot = { [LootType.lumber]: 1, [LootType.hide]: 1 };
+      gameManager.game.party.inspiration = 1;
+      const data = buildBuildingData({ repair: [3] });
+      const model = new BuildingModel('x', 1, 'damaged');
+      gameManager.game.party.buildings = [model];
+      expect(buildingsManager.canRepair(data, model, new SelectResourceResult([], [], costs({ lumber: 1, hide: 1 })))).toBe(false);
+      expect(buildingsManager.repairBuilding(data, model, new SelectResourceResult([], [], costs({ lumber: 1, hide: 1, manual: 1 })))).toBe(
+        true
+      );
+      expect(gameManager.game.party.inspiration).toEqual(0);
     });
 
     it('rebuilds a wrecked building', () => {
+      gameManager.game.figures = [buildCharacter()];
       gameManager.game.party.loot = { [LootType.metal]: 3 };
+      const data = buildBuildingData({ repair: [1], rebuild: [costs({ metal: 2 })] });
       const model = new BuildingModel('x', 1, 'wrecked');
-      buildingsManager.rebuildBuilding(model, new SelectResourceResult([], [], costs({ metal: 2 })));
+      gameManager.game.party.buildings = [model];
+      expect(buildingsManager.canRepair(data, model, new SelectResourceResult([], [], costs({ metal: 1 })))).toBe(false);
+      expect(buildingsManager.repairBuilding(data, model, new SelectResourceResult([], [], costs({ metal: 2 })))).toBe(true);
       expect(model.state).toEqual('normal');
       expect(gameManager.game.party.loot[LootType.metal]).toEqual(1);
+      expect(buildingsManager.canRepair(data, model, undefined, true)).toBe(false);
+    });
+  });
+
+  describe('applyTrade', () => {
+    it('trades whole amounts of the pay resource for the received resources', () => {
+      const character = buildCharacter(10);
+      gameManager.game.figures = [character];
+      const model = new BuildingModel('mining-camp', 2);
+      gameManager.game.party.buildings = [model];
+      const trade = (gold: number, metal: number) =>
+        new SelectResourceResult([character], [costs({ gold })], costs(), 0, [costs()], costs({ metal }));
+      expect(buildingsManager.canApplyTrade(model, trade(3, 1))).toBe(false);
+      expect(buildingsManager.canApplyTrade(model, trade(4, 1))).toBe(false);
+      expect(buildingsManager.canApplyTrade(model, trade(6, 3))).toBe(false);
+      expect(buildingsManager.canApplyTrade(model, trade(12, 6))).toBe(false);
+      expect(buildingsManager.applyTrade(model, trade(4, 2))).toBe(true);
+      expect(character.progress.gold).toEqual(6);
+      expect(gameManager.game.party.loot[LootType.metal]).toEqual(2);
+      expect(
+        buildingsManager.canApplyTrade(
+          model,
+          new SelectResourceResult([character], [costs({ gold: 2 })], costs(), 0, [costs()], costs({ gold: 1 }))
+        )
+      ).toBe(false);
+      model.state = 'damaged';
+      expect(buildingsManager.canApplyTrade(model, trade(2, 1))).toBe(false);
+    });
+
+    it('limits distinct trades to one of each received resource', () => {
+      const character = buildCharacter(10);
+      gameManager.game.figures = [character];
+      const model = new BuildingModel('inn', 2);
+      gameManager.game.party.buildings = [model];
+      expect(
+        buildingsManager.canApplyTrade(
+          model,
+          new SelectResourceResult([character], [costs({ gold: 4 })], costs(), 0, [costs()], costs({ hide: 2 }))
+        )
+      ).toBe(false);
+      expect(
+        buildingsManager.canApplyTrade(
+          model,
+          new SelectResourceResult([character], [costs({ gold: 4 })], costs(), 0, [costs()], costs({ hide: 1, lumber: 1 }))
+        )
+      ).toBe(true);
+    });
+  });
+
+  describe('soldiers', () => {
+    it('trains soldiers up to the barracks capacity with 3 gold and 1 material resource', () => {
+      gameManager.game.party.campaignMode = true;
+      const character = buildCharacter(3);
+      gameManager.game.figures = [character];
+      gameManager.game.party.loot = { [LootType.hide]: 1 };
+      gameManager.game.party.buildings = [new BuildingModel('barracks', 1)];
+      gameManager.game.party.soldiers = 3;
+      expect(buildingsManager.soldierCapacity()).toEqual(4);
+      expect(buildingsManager.soldierTrainable()).toBe(true);
+      expect(buildingsManager.canTrainSoldier(new SelectResourceResult([character], [costs({ gold: 3 })], costs()))).toBe(false);
+      expect(buildingsManager.canTrainSoldier(new SelectResourceResult([], [], costs({ hide: 1 }), 1))).toBe(false);
+      expect(buildingsManager.trainSoldier(new SelectResourceResult([character], [costs({ gold: 3 })], costs({ hide: 1 })))).toBe(true);
+      expect(gameManager.game.party.soldiers).toEqual(4);
+      expect(character.progress.gold).toEqual(0);
+      expect(buildingsManager.soldierTrainable()).toBe(false);
+      expect(buildingsManager.canTrainSoldier(undefined)).toBe(false);
+      expect(buildingsManager.trainSoldier(undefined, true)).toBe(true);
+      expect(buildingsManager.setSoldiers(6)).toBe(false);
+      expect(buildingsManager.setSoldiers(2)).toBe(true);
+      expect(gameManager.game.party.soldiers).toEqual(2);
+    });
+  });
+
+  describe('setBuildingState', () => {
+    it('follows the state cycle, wrecked to normal only with force', () => {
+      const data = buildBuildingData({ repair: [1] });
+      const model = new BuildingModel('x', 1);
+      gameManager.game.party.buildings = [model];
+      expect(buildingsManager.setBuildingState(data, model, 'wrecked')).toBe(false);
+      expect(buildingsManager.setBuildingState(data, model, 'damaged')).toBe(true);
+      expect(buildingsManager.setBuildingState(data, model, 'wrecked')).toBe(true);
+      expect(buildingsManager.canSetBuildingState(data, model, 'normal')).toBe(false);
+      expect(buildingsManager.setBuildingState(data, model, 'normal', true)).toBe(true);
+      expect(model.state).toEqual('normal');
     });
   });
 
@@ -362,33 +533,79 @@ describe('BuildingsManager', () => {
     it('plants a herb paid by the party or a character and harvests all plots', () => {
       const character = buildCharacter();
       character.progress.loot = { [LootType.axenut]: 1 };
+      gameManager.game.figures = [character];
+      gameManager.game.party.buildings = [new BuildingModel('garden', 4)];
       gameManager.game.party.loot = { [LootType.rockroot]: 2 };
-      buildingsManager.plantGardenHerb(LootType.rockroot, 0, 'party');
-      buildingsManager.plantGardenHerb(LootType.axenut, 1, character);
-      buildingsManager.plantGardenHerb(LootType.flamefruit, 2);
+      expect(buildingsManager.plantGardenHerb(LootType.rockroot, 0, 'party')).toBe(true);
+      expect(buildingsManager.plantGardenHerb(LootType.axenut, 1, character)).toBe(true);
+      expect(buildingsManager.plantGardenHerb(LootType.flamefruit, 2)).toBe(false);
+      expect(buildingsManager.plantGardenHerb(LootType.flamefruit, 2, undefined, true)).toBe(true);
       expect(gameManager.game.party.garden?.plots).toEqual([LootType.rockroot, LootType.axenut, LootType.flamefruit]);
       expect(gameManager.game.party.loot[LootType.rockroot]).toEqual(1);
       expect(character.progress.loot[LootType.axenut]).toEqual(0);
 
-      buildingsManager.harvestGarden();
+      expect(buildingsManager.harvestGarden()).toBe(true);
       expect(gameManager.game.party.loot[LootType.rockroot]).toEqual(2);
       expect(gameManager.game.party.loot[LootType.axenut]).toEqual(1);
       expect(gameManager.game.party.loot[LootType.flamefruit]).toEqual(1);
     });
+
+    it('limits slots by garden level and blocks planting while flipped below level 3', () => {
+      gameManager.game.party.buildings = [new BuildingModel('garden', 2)];
+      gameManager.game.party.loot = { [LootType.rockroot]: 2 };
+      expect(buildingsManager.gardenSlots()).toEqual(2);
+      expect(buildingsManager.canPlantGardenHerb(LootType.rockroot, 2, 'party', true)).toBe(false);
+      expect(buildingsManager.canPlantGardenHerb(LootType.rockroot, 1, 'party')).toBe(true);
+      expect(buildingsManager.canPlantGardenHerb(LootType.lumber, 1, 'party', true)).toBe(false);
+      expect(buildingsManager.setGardenFlipped(true)).toBe(true);
+      expect(buildingsManager.canPlantGardenHerb(LootType.rockroot, 1, 'party')).toBe(false);
+      expect(buildingsManager.canPlantGardenHerb(LootType.rockroot, 1, 'party', true)).toBe(true);
+      expect(buildingsManager.canHarvestGarden()).toBe(false);
+      gameManager.game.party.buildings = [new BuildingModel('garden', 3)];
+      expect(buildingsManager.canFlipGarden(true)).toBe(false);
+      gameManager.game.party.buildings = [];
+      expect(buildingsManager.canPlantGardenHerb(LootType.rockroot, 0, 'party', true)).toBe(false);
+    });
   });
 
-  describe('setPetActive', () => {
+  describe('pets', () => {
+    afterEach(() => {
+      gameManager.game.scenario = undefined;
+      gameManager.editionManager.editionData = [];
+    });
+
     it('limits active pets to the stables level unless forced', () => {
       gameManager.game.party.buildings = [new BuildingModel('stables', 1)];
       const a = new PetIdentifier('a', 'fh', '', true);
       const b = new PetIdentifier('b', 'fh');
       gameManager.game.party.pets = [a, b];
-      buildingsManager.setPetActive(b, true);
+      expect(buildingsManager.setPetActive(b, true)).toBe(false);
+      gameManager.roundManager.firstRound = true;
+      gameManager.game.scenario = new Scenario(new ScenarioData());
+      expect(buildingsManager.setPetActive(b, true)).toBe(true);
       expect(a.active).toBe(false);
       expect(b.active).toBe(true);
       buildingsManager.setPetActive(a, true, true);
       expect(a.active).toBe(true);
       expect(b.active).toBe(true);
+      gameManager.roundManager.firstRound = false;
+    });
+
+    it('adds only known pets once, renames, loses and restores only with force', () => {
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('fh', [], [], [], [], [], []), { pets: [Object.assign(new PetCard(), { id: 'a', edition: 'fh' })] })
+      ];
+      expect(buildingsManager.addPet('fh', 'unknown')).toBeUndefined();
+      const pet = buildingsManager.addPet('fh', 'a') as PetIdentifier;
+      expect(pet).toBeDefined();
+      expect(buildingsManager.canAddPet('fh', 'a')).toBe(false);
+      expect(buildingsManager.setPetName(pet, 'Rex')).toBe(true);
+      expect(pet.petname).toEqual('Rex');
+      expect(buildingsManager.setPetLost(pet, true)).toBe(true);
+      expect(buildingsManager.setPetLost(pet, false)).toBe(false);
+      expect(buildingsManager.setPetLost(pet, false, true)).toBe(true);
+      expect(buildingsManager.removePet('fh', 'a')).toBe(true);
+      expect(buildingsManager.removePet('fh', 'a')).toBe(false);
     });
   });
 });
@@ -422,6 +639,19 @@ describe('BuildingsManager unlockBuildings', () => {
       ['craftsman', 1],
       ['alchemist', 0]
     ]);
+  });
+
+  it('only lists prosperity unlocks whose required building is built', () => {
+    vi.spyOn(gameManager.campaignManager, 'prosperityLevel').mockReturnValue(2);
+    prosperity.requires = 'craftsman';
+    try {
+      gameManager.game.party.buildings = [new BuildingModel('craftsman', 0)];
+      expect(buildingsManager.buildingsToUnlock()).toEqual([]);
+      gameManager.game.party.buildings = [];
+      expect(buildingsManager.buildingsToUnlock().map((unlock) => unlock.data.name)).toEqual(['craftsman', 'alchemist']);
+    } finally {
+      prosperity.requires = '';
+    }
   });
 
   it('removes buildings and their initial rewards', () => {

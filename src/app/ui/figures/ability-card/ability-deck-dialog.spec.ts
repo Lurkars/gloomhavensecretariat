@@ -1,6 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
@@ -22,7 +22,9 @@ import { AbilityDeckDialogComponent } from 'src/app/ui/figures/ability-card/abil
 function buildMonster(abilityCards: AbilityCard[]): Monster {
   const stat = new MonsterStat(MonsterType.normal, 1, 10, 2, 3, 0);
   const monster = new Monster(Object.assign(new MonsterData(), { name: 'bandit-guard', edition: 'gh', stats: [stat] }), 1);
-  gameManager.editionData = [new EditionData('gh', [], [], [new DeckData('gh', 'bandit-guard', false, abilityCards)], [], [], [])];
+  gameManager.editionManager.editionData = [
+    new EditionData('gh', [], [], [new DeckData('gh', 'bandit-guard', false, abilityCards)], [], [], [])
+  ];
   return monster;
 }
 
@@ -42,10 +44,10 @@ describe('AbilityDeckDialogComponent', () => {
   beforeEach(() => {
     gameManager.game.figures = [];
     settingsManager.settings.editions = ['gh'];
-    // Guard against settingsManager.label leaking in from another spec file that ran earlier in
+    // Guard against labelManager.label leaking in from another spec file that ran earlier in
     // this worker (e.g. StateManager.spec.ts/datamanagement.spec.ts populate it for Party.migrate())
     // — abilityLabel()'s assertions depend on a clean/empty label object.
-    settingsManager.label = {};
+    labelManager.label = {};
   });
 
   describe('toggleEdit', () => {

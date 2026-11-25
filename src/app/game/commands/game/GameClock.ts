@@ -1,32 +1,16 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
-import { GameClockTimestamp } from 'src/app/game/model/Game';
-
-function running(): boolean {
-  const gameClock = gameManager.game.gameClock || [];
-  return gameClock.length > 0 && !gameClock[0].clockOut;
-}
 
 export class GameClockCommand extends CommandImpl {
   id: string = 'gameClock.clock';
   requiredParameters: number = 2;
 
   validParameters(clockIn: boolean, timestamp: number): boolean {
-    return (
-      typeof clockIn === 'boolean' &&
-      typeof timestamp === 'number' &&
-      running() !== clockIn &&
-      (clockIn || timestamp >= gameManager.game.gameClock[0].clockIn)
-    );
+    return gameManager.gameClockManager.canSetGameClock(clockIn, timestamp);
   }
 
   executeWithParameters(clockIn: boolean, timestamp: number) {
-    gameManager.game.gameClock = gameManager.game.gameClock || [];
-    if (clockIn) {
-      gameManager.game.gameClock.unshift(new GameClockTimestamp(timestamp));
-    } else {
-      gameManager.game.gameClock[0].clockOut = timestamp;
-    }
+    gameManager.gameClockManager.setGameClock(clockIn, timestamp);
   }
 }
 
@@ -39,12 +23,10 @@ export class GameClockMergeCommand extends CommandImpl {
   }
 
   validParameters(clockIn: number): boolean {
-    return typeof clockIn === 'number' && this.index(clockIn) > 0;
+    return typeof clockIn === 'number' && gameManager.gameClockManager.canMergeGameClock(this.index(clockIn));
   }
 
   executeWithParameters(clockIn: number) {
-    const index = this.index(clockIn);
-    gameManager.game.gameClock[index - 1].clockIn = gameManager.game.gameClock[index].clockIn;
-    gameManager.game.gameClock.splice(index, 1);
+    gameManager.gameClockManager.mergeGameClock(this.index(clockIn));
   }
 }

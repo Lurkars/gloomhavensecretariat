@@ -7,7 +7,8 @@ export class CharacterLevelCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(number: number, level: number): boolean {
-    return !!findCharacter(number) && typeof level === 'number' && level >= 1 && level <= 9;
+    const character = findCharacter(number);
+    return !!character && typeof level === 'number' && gameManager.characterManager.canSetLevel(character, level);
   }
 
   executeWithParameters(number: number, level: number) {

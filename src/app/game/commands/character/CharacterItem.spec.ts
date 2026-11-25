@@ -1,4 +1,4 @@
-import { gameManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import {
   CharacterItemAddCommand,
   CharacterItemBuyCommand,
@@ -36,6 +36,11 @@ describe('Character item commands', () => {
 
   it('adds and removes an item', () => {
     const character = createTestCharacter(1);
+    vi.spyOn(gameManager.itemManager, 'countAvailable').mockImplementation((itemData) => (itemData.id === 1 ? 1 : 0));
+    expect(new CharacterItemAddCommand(1, 'test', 2).validParameters()).toBe(false);
+    new CharacterItemAddCommand(1, 'test', 2, true).execute();
+    expect(character.progress.items).toEqual([new Identifier(2, 'test')]);
+    character.progress.items = [];
     new CharacterItemAddCommand(1, 'test', 1).execute();
     expect(character.progress.items).toEqual([new Identifier(1, 'test')]);
     expect(new CharacterItemAddCommand(1, 'test', 1).validParameters()).toBe(false);
@@ -65,15 +70,17 @@ describe('Character item commands', () => {
     expect(character.progress.items).toEqual([]);
   });
 
-  it('equips an item', () => {
+  it('equips an item during setup', () => {
     const character = createTestCharacter(1);
     character.progress.items.push(new Identifier(1, 'test'));
-    const toggle = vi.spyOn(gameManager.itemManager, 'toggleEquippedItem').mockImplementation(() => {});
-    new CharacterItemEquipCommand(1, 'test', 1, false).execute();
-    expect(toggle).not.toHaveBeenCalled();
+    const toggle = vi.spyOn(gameManager.itemManager, 'toggleEquippedItem').mockImplementation(() => true);
+    expect(new CharacterItemEquipCommand(1, 'test', 1, false).validParameters()).toBe(false);
     new CharacterItemEquipCommand(1, 'test', 1, true).execute();
     expect(toggle).toHaveBeenCalledWith(items[0], character, false);
-    expect(new CharacterItemEquipCommand(1, 'test', 2, true).validParameters(1, 'test', 2, true)).toBe(false);
+    expect(new CharacterItemEquipCommand(1, 'test', 2, true).validParameters()).toBe(false);
+    gameManager.game.round = 1;
+    expect(new CharacterItemEquipCommand(1, 'test', 1, true).validParameters()).toBe(false);
+    expect(new CharacterItemEquipCommand(1, 'test', 1, true, true).validParameters()).toBe(true);
   });
 
   it('sets and clears a flag of an equipped item', () => {
@@ -104,7 +111,7 @@ describe('Character item commands', () => {
     const character = createTestCharacter(1);
     character.progress.items.push(new Identifier(3, 'test'));
     vi.spyOn(gameManager.itemManager, 'canDistill').mockReturnValue(true);
-    expect(new CharacterItemDistillCommand(1, 'test', 3, LootType.metal).validParameters(1, 'test', 3, LootType.metal)).toBe(false);
+    expect(new CharacterItemDistillCommand(1, 'test', 3, LootType.metal).validParameters()).toBe(false);
     new CharacterItemDistillCommand(1, 'test', 3, LootType.lumber).execute();
     expect(character.progress.items).toEqual([]);
     expect(character.progress.loot[LootType.lumber]).toBe(1);
@@ -114,10 +121,13 @@ describe('Character item commands', () => {
     const character = createTestCharacter(1);
     const other = createTestCharacter(2);
     character.progress.items.push(new Identifier(1, 'test'));
+    expect(new CharacterItemShareCommand(1, 'test', 1, 2).validParameters()).toBe(false);
+    settingsManager.settings.characterItemsShareHouseRule = true;
     new CharacterItemShareCommand(1, 'test', 1, 2).execute();
+    settingsManager.settings.characterItemsShareHouseRule = false;
     expect(character.progress.items).toEqual([]);
     expect(other.progress.items).toEqual([new Identifier(1, 'test')]);
-    expect(new CharacterItemShareCommand(2, 'test', 1, 2).validParameters(2, 'test', 1, 2)).toBe(false);
+    expect(new CharacterItemShareCommand(2, 'test', 1, 2).validParameters()).toBe(false);
   });
 
   describe('CharacterItemBrewCommand', () => {
@@ -145,14 +155,7 @@ describe('Character item commands', () => {
       createTestCharacter(1);
       const potion = item(10, { requiredBuilding: 'alchemist', requiredBuildingLevel: 1, resources: { [LootType.arrowvine]: 2 } });
       vi.spyOn(gameManager.itemManager, 'getItems').mockReturnValue([potion]);
-      expect(
-        new CharacterItemBrewCommand(1, 1, LootType.arrowvine, LootType.arrowvine).validParameters(
-          1,
-          1,
-          LootType.arrowvine,
-          LootType.arrowvine
-        )
-      ).toBe(false);
+      expect(new CharacterItemBrewCommand(1, 1, LootType.arrowvine, LootType.arrowvine).validParameters(1, 1)).toBe(false);
     });
   });
 });

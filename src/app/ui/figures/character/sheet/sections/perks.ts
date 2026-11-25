@@ -2,7 +2,6 @@ import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
-import { GameState } from 'src/app/game/model/Game';
 import { PerkLabelComponent } from 'src/app/ui/figures/attackmodifier/perk/label';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -19,7 +18,6 @@ import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 export class CharacterSheetPerksComponent extends CharacterSheetSection implements OnInit {
   private ghsManager = inject(GhsManager);
 
-  GameState = GameState;
   availablePerks: number = 0;
 
   constructor() {
@@ -46,9 +44,7 @@ export class CharacterSheetPerksComponent extends CharacterSheetSection implemen
     }
 
     const disabled: boolean =
-      gameManager.game.state !== GameState.draw ||
-      gameManager.game.round > 0 ||
-      (this.availablePerks === 0 && !this.character.progress.perks[index]);
+      !gameManager.characterManager.progressEditable() || (this.availablePerks === 0 && !this.character.progress.perks[index]);
 
     if (!force && disabled && value > 1) {
       value = 0;
@@ -58,19 +54,16 @@ export class CharacterSheetPerksComponent extends CharacterSheetSection implemen
   }
 
   addPerk(index: number, value: number, force: boolean = false) {
-    const disabled: boolean =
-      (!this.forceEdit() && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
-      (this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index]);
+    const forced = force && !settingsManager.settings.characterSheetLocked && this.editable();
+    const allowed = gameManager.characterManager.canSetPerk(this.character, index, value, forced, this.forceEdit());
+    const perkValue =
+      this.character.progress.perks[index] && this.character.progress.perks[index] === value
+        ? this.character.progress.perks[index] - 1
+        : value;
 
-    if (!disabled || (force && !settingsManager.settings.characterSheetLocked && this.editable())) {
+    if (allowed && gameManager.characterManager.canSetPerk(this.character, index, perkValue, forced, this.forceEdit())) {
       gameManager.stateManager.before('setPerk', this.characterName, index, value);
-      gameManager.characterManager.setPerk(
-        this.character,
-        index,
-        this.character.progress.perks[index] && this.character.progress.perks[index] === value
-          ? this.character.progress.perks[index] - 1
-          : value
-      );
+      gameManager.characterManager.setPerk(this.character, index, perkValue, forced, this.forceEdit());
       gameManager.stateManager.after();
     }
   }

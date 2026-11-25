@@ -78,17 +78,10 @@ export class ChallengeDeckDialogComponent implements OnInit {
     this.discardedCards = this.deck.cards.filter((card, index) => index <= this.deck.current && index > this.deck.finished).reverse();
     this.finishedCards = this.deck.cards.filter((card, index) => index <= this.deck.finished).reverse();
 
-    this.removedCards = gameManager
-      .challengesData(gameManager.game.edition)
-      .filter((challengeCard) => this.deck.cards.find((other) => other.cardId === challengeCard.cardId) === undefined);
+    this.removedCards = gameManager.challengesManager.removedCards(this.deck);
 
-    const building = gameManager.game.party.buildings.find(
-      (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
-    );
-    if (building) {
-      this.drawAvailable = building.level;
-      this.keepAvailable = Math.ceil(building.level / 2);
-    }
+    this.drawAvailable = gameManager.challengesManager.drawAvailable();
+    this.keepAvailable = gameManager.challengesManager.keepAvailable();
 
     this.disabled =
       !gameManager.roundManager.firstRound ||
@@ -117,7 +110,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
   }
 
   drawCard() {
-    if (!this.disabled && this.deck.cards.length > 0) {
+    if (gameManager.challengesManager.canDrawCard(this.deck)) {
       this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
       gameManager.challengesManager.drawCard(this.deck);
       this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
@@ -136,10 +129,13 @@ export class ChallengeDeckDialogComponent implements OnInit {
   }
 
   private drop(event: CdkDragDrop<ChallengeCard[]>, list: string) {
-    this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
-    gameManager.challengesManager.moveCard(this.deck, this.dropList(event, list), event.previousIndex, list, event.currentIndex);
-    this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
-    this.update();
+    const fromList = this.dropList(event, list);
+    if (gameManager.challengesManager.canMoveCard(this.deck, fromList, event.previousIndex, list, event.currentIndex)) {
+      this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
+      gameManager.challengesManager.moveCard(this.deck, fromList, event.previousIndex, list, event.currentIndex);
+      this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.reorder'));
+      this.update();
+    }
   }
 
   dropUpcoming(event: CdkDragDrop<ChallengeCard[]>) {
@@ -155,31 +151,27 @@ export class ChallengeDeckDialogComponent implements OnInit {
   }
 
   toggleKeep(index: number, force: boolean = false) {
-    if (
-      index <= this.deck.current &&
-      (force ||
-        (!this.edit && gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state === GameState.draw))
-    ) {
+    if ((!this.edit || force) && gameManager.challengesManager.canToggleKeep(this.deck, index, force)) {
       this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.toggle', index));
-      gameManager.challengesManager.toggleKeep(this.deck, index, this.keepAvailable);
+      gameManager.challengesManager.toggleKeep(this.deck, index, force);
       this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.toggle', index));
     }
   }
 
   remove(index: number) {
-    this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.removeCard', index));
-    if (index <= this.deck.current) {
-      this.deck.current--;
-      this.current = this.deck.current;
+    if (!gameManager.challengesManager.canRemoveCard(this.deck, index)) {
+      return;
     }
-    this.deck.cards.splice(index, 1);
+    this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.removeCard', index));
+    gameManager.challengesManager.removeCard(this.deck, index);
+    this.current = this.deck.current;
     this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.removeCard', index));
     this.update();
   }
 
   restoreCard(index: number) {
     const card = this.removedCards[index];
-    if (card) {
+    if (card && gameManager.challengesManager.canRestoreCard(this.deck, card)) {
       this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.restoreCard', card.cardId));
       gameManager.challengesManager.restoreCard(this.deck, card);
       this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.restoreCard'));

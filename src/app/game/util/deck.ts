@@ -45,3 +45,21 @@ export function deckMove(
   arrays.forEach((array) => moveItemInArray(array, from, to));
   return { current, from, to };
 }
+
+export function deckMoveValid(
+  current: number,
+  length: number,
+  fromList: string,
+  fromIndex: number,
+  toList: string,
+  toIndex: number
+): boolean {
+  const lists = ['upcoming', 'discarded'];
+  if (!lists.includes(fromList) || !lists.includes(toList) || !Number.isInteger(fromIndex) || !Number.isInteger(toIndex)) {
+    return false;
+  }
+  const listLength = (list: string) => (list === 'upcoming' ? length - current - 1 : current + 1);
+  return (
+    fromIndex >= 0 && fromIndex < listLength(fromList) && toIndex >= 0 && toIndex <= listLength(toList) - (fromList === toList ? 1 : 0)
+  );
+}

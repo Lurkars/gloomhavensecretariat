@@ -89,7 +89,7 @@ export class MonsterComponent implements OnInit {
   }
 
   getEdition(): string {
-    return gameManager.getEdition(this.monster);
+    return gameManager.editionManager.getEdition(this.monster);
   }
 
   hasEntities(type: MonsterType): boolean {

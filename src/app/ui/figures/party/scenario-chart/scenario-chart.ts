@@ -4,7 +4,7 @@ import { AfterViewInit, Component, HostListener, inject, OnInit, ViewEncapsulati
 import type { LatLngBoundsLiteral, Map as LeafletMap } from 'leaflet';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';
 import { ScenarioChartPopupDialog } from 'src/app/ui/figures/party/scenario-chart/popup/scenario-chart-popup';
@@ -127,7 +127,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     const pad = '000';
 
     this.worldMap = false;
-    const editionData = gameManager.editionData.find((editionData) => this.edition && editionData.edition === this.edition);
+    const editionData = gameManager.editionManager.editionData.find((editionData) => this.edition && editionData.edition === this.edition);
     if (editionData && (editionData.worldMap || editionData.extendWorldMap)) {
       this.worldMap = true;
     }
@@ -141,7 +141,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         return false;
       }
       if (this.campaignMode && scenarioData.solo) {
-        const characterData = gameManager.getCharacterData(scenarioData.solo, scenarioData.edition);
+        const characterData = gameManager.editionManager.getCharacterData(scenarioData.solo, scenarioData.edition);
         return (
           !!characterData &&
           (!characterData.spoiler || gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name))
@@ -187,7 +187,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
     const lockedSet = new Set<string>();
     allScenarios.forEach((s) => {
-      if (gameManager.scenarioManager.isLocked(s)) lockedSet.add(compositeKey(s));
+      if (gameManager.scenarioRequirementsManager.isLocked(s)) lockedSet.add(compositeKey(s));
     });
 
     // Get distinct groups, main campaign ('') first. Array.sort always moves undefined to the end, so map it to ''
@@ -209,7 +209,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
       // Group container (only for named groups)
       const groupContainer: ChartContainer = group
-        ? { id: containerId('group', group), label: settingsManager.getLabel('data.scenario.group.' + group), nodes: [], children: [] }
+        ? { id: containerId('group', group), label: labelManager.getLabel('data.scenario.group.' + group), nodes: [], children: [] }
         : root;
       if (group) {
         root.children.push(groupContainer);
@@ -238,7 +238,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
           if (!flowChartGroup) {
             flowChartGroup = {
               id: containerId('fcg', group + '_' + scenarioData.flowChartGroup),
-              label: settingsManager.getLabel('data.custom.' + scenarioData.edition + '.flowChartGroup.' + scenarioData.flowChartGroup),
+              label: labelManager.getLabel('data.custom.' + scenarioData.edition + '.flowChartGroup.' + scenarioData.flowChartGroup),
               nodes: [],
               children: []
             };
@@ -581,7 +581,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 }
               });
             } else {
-              gameManager
+              gameManager.editionManager
                 .sectionData(sectionData.edition)
                 .filter(
                   (other) =>
@@ -615,7 +615,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 }
               });
             } else {
-              gameManager
+              gameManager.editionManager
                 .sectionData(sectionData.edition)
                 .filter(
                   (other) =>

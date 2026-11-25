@@ -11,7 +11,7 @@ export class GameEditionCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(edition: string): boolean {
-    return edition === '' || gameManager.editions().includes(edition);
+    return edition === '' || gameManager.editionManager.editions().includes(edition);
   }
 
   executeWithParameters(edition: string) {
@@ -33,7 +33,7 @@ export class GameConditionCommand extends CommandImpl {
   }
 
   executeWithParameters(name: ConditionName, value: boolean) {
-    gameManager.setGameCondition(name, value);
+    gameManager.conditionManager.setGameCondition(name, value);
   }
 }
 
@@ -46,7 +46,7 @@ export class GameFavorsKeepCommand extends CommandImpl {
   }
 
   executeWithParameters(keep: boolean) {
-    gameManager.game.keepFavors = keep;
+    gameManager.trialsManager.setKeepFavors(keep);
   }
 }
 
@@ -55,8 +55,8 @@ export class GameFavorsCommand extends CommandImpl {
   requiredParameters: number = 0;
 
   availableFavors(): Favor[] {
-    const editionData = gameManager.editionData.find(
-      (editionData) => editionData.edition === gameManager.currentEdition() && editionData.favors
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => editionData.edition === gameManager.editionManager.currentEdition() && editionData.favors
     );
     return (editionData && editionData.favors) || [];
   }
@@ -71,30 +71,29 @@ export class GameFavorsCommand extends CommandImpl {
     );
   }
 
-  validParameters(...values: (string | number)[]): boolean {
-    const points = this.points();
+  identifiers(): Identifier[] | undefined {
     const favors = this.favors();
-    const totalPoints = points.length ? points.reduce((a, b) => a + b) : 0;
-    const spentPoints = favors.length ? favors.map((favor) => (favor ? favor.points : 0)).reduce((a, b) => a + b) : 0;
+    return favors.every((favor) => !!favor) ? favors.map((favor) => new Identifier(favor.name, favor.edition)) : undefined;
+  }
+
+  force(): boolean {
+    return this.parameters.includes(true);
+  }
+
+  validParameters(...values: (string | number | boolean)[]): boolean {
+    const identifiers = this.identifiers();
     return (
-      values.every((value) => typeof value === 'string' || value === 1 || value === 2) &&
-      favors.every((favor) => !!favor) &&
-      totalPoints <= 7 &&
-      spentPoints <= totalPoints
+      values.every((value) => typeof value === 'string' || typeof value === 'number' || value === true) &&
+      !!identifiers &&
+      gameManager.trialsManager.canApplyFavors(identifiers, this.points(), this.force())
     );
   }
 
   executeWithParameters() {
-    const gameFavorPoints = this.points();
-    const favors = this.favors();
-    const spentPoints = favors.length ? favors.map((favor) => favor.points).reduce((a, b) => a + b) : 0;
-    const availablePoints = Math.min(Math.max((gameFavorPoints.length ? gameFavorPoints.reduce((a, b) => a + b) : 0) - spentPoints, 0), 7);
-
-    gameManager.trialsManager.applyFavors(
-      favors.map((favor) => new Identifier(favor.name, favor.edition)),
-      gameFavorPoints,
-      availablePoints
-    );
+    const identifiers = this.identifiers();
+    if (identifiers) {
+      gameManager.trialsManager.applyFavors(identifiers, this.points(), this.force());
+    }
   }
 }
 

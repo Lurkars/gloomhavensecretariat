@@ -1,4 +1,4 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findFigure, validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -10,36 +10,19 @@ export class FigureActiveCommand extends CommandImpl {
 
   validParameters(figureId: string | number, seed: number): boolean {
     const figure = findFigure(figureId);
-    if (!figure || gameManager.game.state !== GameState.next) {
-      if (!validSeed(seed)) {
-        return false;
-      }
+    if (!validSeed(seed) || !figure || gameManager.game.state !== GameState.next) {
       return false;
     }
-    if (figure instanceof Character) {
-      return !figure.absent && !figure.exhausted && (!settingsManager.settings.initiativeRequired || figure.initiative > 0);
-    }
-    return true;
+    return !(figure instanceof Character) || gameManager.characterManager.canToggleActive(figure);
   }
 
   executeWithParameters(figureId: string | number, seed: number) {
     gameManager.game.seed = seed;
     const figure = findFigure(figureId);
     if (figure instanceof Character) {
-      const activeSummon = figure.summons.find((summon) => summon.active);
-      const summonsAfterTurn = figure.summons.filter((summon) => summon.afterTurn);
-      if (
-        settingsManager.settings.activeSummons &&
-        !activeSummon &&
-        figure.active &&
-        summonsAfterTurn.length &&
-        !summonsAfterTurn.find((summon) => summon.active)
-      ) {
-        summonsAfterTurn.forEach((spirit) => (spirit.afterTurnActive = true));
-      }
-      gameManager.roundManager.toggleFigure(figure);
+      gameManager.characterManager.toggleActive(figure);
     } else if (figure) {
-      gameManager.roundManager.toggleFigure(figure);
+      gameManager.turnManager.toggleFigure(figure);
     } else {
       this.executionError('figure not found');
     }

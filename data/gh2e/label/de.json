@@ -89,8 +89,7 @@
         "2": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
       },
       "night-demon": {
-        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
+        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%."
       },
       "ooze": {
         "1": "Beschwöre 1 normalen Schleim mit einem TP-Wert,<br>der dem aktuellen TP-Wert des beschwörenden Schleims entspricht<br>(maximal mit dem TP-Wert der Normalvariante)."

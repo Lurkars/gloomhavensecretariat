@@ -3,7 +3,7 @@ import { formatDate, NgClass, SlicePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { effectiveRevision, LogEntry } from 'src/app/game/model/LogEntry';
 import { AutoscrollDirective } from 'src/app/ui/helper/autoscroll';
@@ -62,13 +62,14 @@ export class UndoDialogComponent implements OnInit {
 
   update() {
     const stateManager = gameManager.stateManager;
-    const history = stateManager.history();
+    const history = gameManager.historyManager.history();
     const currentRevision = effectiveRevision(gameManager.game);
     this.undoOffset =
       stateManager.undos.length > 0 ? currentRevision - effectiveRevision(stateManager.undos[stateManager.undos.length - 1]) - 1 : 0;
     const party = gameManager.game.party ? gameManager.game.party.id : undefined;
     this.multipleParties =
-      gameManager.game.parties.length > 1 || stateManager.log.some((entry) => entry.party !== undefined && entry.party !== party);
+      gameManager.game.parties.length > 1 ||
+      gameManager.historyManager.log.some((entry) => entry.party !== undefined && entry.party !== party);
 
     const rows: LogRow[] = [];
 
@@ -82,18 +83,18 @@ export class UndoDialogComponent implements OnInit {
     rows.push({ current: true, revision: currentRevision, entry: undefined, link: undefined, info: [], tooltip: '' });
 
     // undo stack below the current state
-    let oldestLinked = stateManager.log.length;
+    let oldestLinked = gameManager.historyManager.log.length;
     for (let i = stateManager.undos.length - 1; i >= 0; i--) {
       const entry = history.undo[i];
       if (entry) {
-        oldestLinked = Math.min(oldestLinked, stateManager.log.indexOf(entry));
+        oldestLinked = Math.min(oldestLinked, gameManager.historyManager.log.indexOf(entry));
       }
       rows.push(this.row(entry, { type: 'undo', index: i }, effectiveRevision(stateManager.undos[i])));
     }
 
     // older changes from the log, without undo snapshot (anymore)
     for (let index = oldestLinked - 1; index >= 0; index--) {
-      const entry = stateManager.log[index];
+      const entry = gameManager.historyManager.log[index];
       if (
         entry.type !== 'update' ||
         entry.info.length === 0 ||
@@ -117,7 +118,7 @@ export class UndoDialogComponent implements OnInit {
       revision,
       entry,
       link,
-      info: gameManager.stateManager.displayInfo(entry),
+      info: gameManager.historyManager.displayInfo(entry),
       tooltip: entry ? this.tooltip(entry) : ''
     };
   }
@@ -125,17 +126,15 @@ export class UndoDialogComponent implements OnInit {
   tooltip(entry: LogEntry): string {
     const lines: string[] = [];
     if (entry.timestamp) {
-      lines.push(settingsManager.getLabel('state.log.time', [this.formatTime(entry.timestamp)]));
+      lines.push(labelManager.getLabel('state.log.time', [this.formatTime(entry.timestamp)]));
     }
     if (this.multipleParties && entry.party !== undefined) {
       lines.push(
-        settingsManager.getLabel('state.log.party', [
-          this.partyName(entry) + (entry.edition ? ' (%data.edition.' + entry.edition + '%)' : '')
-        ])
+        labelManager.getLabel('state.log.party', [this.partyName(entry) + (entry.edition ? ' (%data.edition.' + entry.edition + '%)' : '')])
       );
     }
     if (entry.server) {
-      lines.push(settingsManager.getLabel('state.log.server'));
+      lines.push(labelManager.getLabel('state.log.server'));
     }
     return lines.join('<br>');
   }
@@ -213,7 +212,7 @@ export class UndoDialogComponent implements OnInit {
     } else if (type === 'clearRedos') {
       gameManager.stateManager.clearRedos();
     } else {
-      gameManager.stateManager.clearLog();
+      gameManager.historyManager.clearLog();
     }
     this.update();
   }

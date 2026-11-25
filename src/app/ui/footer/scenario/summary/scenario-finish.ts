@@ -15,7 +15,7 @@ export function openScenarioFinish(
   dialog: Dialog,
   scenario: ScenarioData,
   success: boolean,
-  conclusions: ScenarioData[] = gameManager.scenarioManager.scenarioConclusions(scenario)
+  conclusions: ScenarioData[] = gameManager.campaignManager.scenarioConclusions(scenario)
 ) {
   if (!success || conclusions.length < 2) {
     openScenarioSummary(dialog, scenario, success, success && conclusions.length === 1 ? conclusions[0] : undefined);

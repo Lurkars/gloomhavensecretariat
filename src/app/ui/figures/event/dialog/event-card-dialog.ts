@@ -6,9 +6,10 @@ import { gameManager, settingsManager } from 'src/app/game/businesslogic/Manager
 import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 import { EventCardComponent } from 'src/app/ui/figures/event/event-card';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
+import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
 
 @Component({
-  imports: [NgClass, PointerInputDirective, EventCardComponent],
+  imports: [NgClass, PointerInputDirective, EventCardComponent, GhsTooltipDirective],
   selector: 'ghs-event-card-dialog',
   templateUrl: './event-card-dialog.html',
   styleUrls: ['./event-card-dialog.scss']
@@ -21,7 +22,9 @@ export class EventCardDialogComponent implements OnInit {
   spoiler: boolean;
   id: EventCardIdentifier | undefined;
 
-  result: EventCardResult = new EventCardResult();
+  result: EventCardResult | undefined;
+
+  flipped: boolean = false;
 
   opened: boolean = false;
 
@@ -34,6 +37,9 @@ export class EventCardDialogComponent implements OnInit {
     this.interactive = this.data.interactive;
     this.spoiler = this.data.spoiler;
     this.id = this.data.id;
+    if (!!this.id) {
+      this.flipped = true;
+    }
   }
 
   ngOnInit(): void {
@@ -41,7 +47,16 @@ export class EventCardDialogComponent implements OnInit {
   }
 
   select(change: EventCardIdentifier) {
+    if (this.id && !this.flipped) {
+      return;
+    }
     this.result = new EventCardResult(change.selected, change.subSelections, change.checks, change.attack);
+  }
+
+  toggleFlip(event: PointerEvent) {
+    this.flipped = !this.flipped;
+    event.stopPropagation();
+    event.preventDefault();
   }
 
   close() {

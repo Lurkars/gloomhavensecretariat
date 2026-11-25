@@ -7,7 +7,8 @@ export class MonsterLevelCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(figureId: string, level: number): boolean {
-    return !!findMonster(figureId) && typeof level === 'number' && level >= 0 && level <= 7;
+    const monster = findMonster(figureId);
+    return !!monster && typeof level === 'number' && gameManager.monsterManager.canSetLevel(monster, level);
   }
 
   executeWithParameters(figureId: string, level: number) {

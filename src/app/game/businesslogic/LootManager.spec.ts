@@ -136,18 +136,23 @@ describe('LootManager', () => {
 
     it('records goal and numbered treasures for character and party, with reward results', () => {
       settingsManager.settings.treasuresLoot = true;
-      vi.spyOn(lootManager, 'lootTreasure').mockReturnValue([['gold']]);
+      vi.spyOn(gameManager.treasureManager, 'lootTreasure').mockReturnValue([['gold']]);
       const character = buildCharacter();
+      const other = buildCharacter();
+      gameManager.game.figures = [character, other];
       gameManager.game.party.treasures = [];
 
-      expect(lootManager.lootScenarioTreasure(character, 'G', 2, 'gh')).toEqual([]);
-      expect(lootManager.lootScenarioTreasure(character, 7, 0, 'gh')).toEqual([['gold']]);
-      expect(lootManager.lootTreasure).toHaveBeenCalledWith(character, 6, 'gh');
+      expect(gameManager.treasureManager.lootScenarioTreasure(character, 'G', 2, 'gh')).toEqual([]);
+      expect(gameManager.treasureManager.canLootScenarioTreasure(other, 'G', 2)).toBe(false);
+      expect(gameManager.treasureManager.lootScenarioTreasure(character, 7, 0, 'gh')).toEqual([['gold']]);
+      expect(gameManager.treasureManager.lootTreasure).toHaveBeenCalledWith(character, 6, 'gh');
       expect(character.treasures).toEqual(['G-2', '7:gold']);
       expect(gameManager.game.party.treasures).toEqual([new Identifier(7, 'gh')]);
 
-      lootManager.removeScenarioTreasure(character, '7:gold', 'gh');
-      lootManager.removeScenarioTreasure(character, 'G-2', 'gh');
+      expect(gameManager.treasureManager.canLootScenarioTreasure(character, 7, 0)).toBe(false);
+      expect(gameManager.treasureManager.removeScenarioTreasure(character, '8:gold', 'gh')).toBe(false);
+      gameManager.treasureManager.removeScenarioTreasure(character, '7:gold', 'gh');
+      gameManager.treasureManager.removeScenarioTreasure(character, 'G-2', 'gh');
       expect(character.treasures).toEqual([]);
       expect(gameManager.game.party.treasures).toEqual([]);
       settingsManager.settings.treasuresLoot = false;
@@ -158,22 +163,22 @@ describe('LootManager', () => {
     it('matches an exact string/number entry', () => {
       const character = buildCharacter();
       character.treasures = ['A1', 5];
-      expect(lootManager.hasTreasure(character, 'A1', 0)).toBe(true);
-      expect(lootManager.hasTreasure(character, 5, 0)).toBe(true);
-      expect(lootManager.hasTreasure(character, 'A2', 0)).toBe(false);
+      expect(gameManager.treasureManager.hasTreasure(character, 'A1', 0)).toBe(true);
+      expect(gameManager.treasureManager.hasTreasure(character, 5, 0)).toBe(true);
+      expect(gameManager.treasureManager.hasTreasure(character, 'A2', 0)).toBe(false);
     });
 
     it('matches a prefixed "value:" entry', () => {
       const character = buildCharacter();
       character.treasures = ['A1:used'];
-      expect(lootManager.hasTreasure(character, 'A1', 0)).toBe(true);
+      expect(gameManager.treasureManager.hasTreasure(character, 'A1', 0)).toBe(true);
     });
 
     it('matches gold treasures via the "G-<index>" convention', () => {
       const character = buildCharacter();
       character.treasures = ['G-3'];
-      expect(lootManager.hasTreasure(character, 'G', 3)).toBe(true);
-      expect(lootManager.hasTreasure(character, 'G', 4)).toBe(false);
+      expect(gameManager.treasureManager.hasTreasure(character, 'G', 3)).toBe(true);
+      expect(gameManager.treasureManager.hasTreasure(character, 'G', 4)).toBe(false);
     });
   });
 
@@ -231,6 +236,18 @@ describe('LootManager', () => {
       gameManager.game.party.loot = { [LootType.metal]: 1 };
       lootManager.applySelectResources(new SelectResourceResult([], [], costs(), 0, [], costs({ metal: 2 })));
       expect(gameManager.game.party.loot[LootType.metal]).toEqual(3);
+    });
+  });
+
+  describe('characterLoot', () => {
+    it('sums the drawn loot cards per type', () => {
+      const character = createTestCharacter(1);
+      gameManager.game.lootDeck.cards = [new Loot(LootType.money, 1, 2), new Loot(LootType.hide, 2, 1), new Loot(LootType.money, 3, 2)];
+      character.lootCards = [0, 1, 2];
+      vi.spyOn(lootManager, 'getValue').mockReturnValue(2);
+      expect(lootManager.characterLoot(character)).toEqual({ [LootType.money]: 4, [LootType.hide]: 2 });
+      expect(lootManager.characterLootValue(character, LootType.money)).toBe(4);
+      expect(lootManager.characterLootValue(character, LootType.metal)).toBe(0);
     });
   });
 });
@@ -293,6 +310,33 @@ describe('LootManager loot card assignment', () => {
     expect(second.progress.equippedItems[0].marker).toBe(LOOT_RANDOM_ITEM_MARKER);
   });
 
+  it('assigns only drawn cards to a new holder and unassigns only held cards', () => {
+    expect(lootManager.canAssignLootCard(0, undefined)).toBe(false);
+    expect(lootManager.canAssignLootCard(0, first)).toBe(true);
+    gameManager.game.lootDeck.current = -1;
+    expect(lootManager.assignLootCard(0, first)).toBeUndefined();
+    expect(first.lootCards).toEqual([]);
+    gameManager.game.lootDeck.current = 1;
+    lootManager.assignLootCard(0, first);
+    expect(lootManager.canAssignLootCard(0, first)).toBe(false);
+    expect(lootManager.canAssignLootCard(0, undefined)).toBe(true);
+    expect(lootManager.canAssignLootCard(5, second)).toBe(false);
+  });
+
+  it('applies random items only from random item cards', () => {
+    expect(lootManager.applyRandomItem(first, 0, item)).toBe(false);
+    expect(first.progress.items).toEqual([]);
+    expect(lootManager.canApplyRandomItem(first, 1)).toBe(true);
+  });
+
+  it('moves and removes cards only at valid positions', () => {
+    const deck = gameManager.game.lootDeck;
+    expect(lootManager.moveCard(deck, 'upcoming', 0, 'discarded', 0)).toBe(false);
+    expect(lootManager.moveCard(deck, 'discarded', 0, 'upcoming', 0)).toBe(true);
+    expect(deck.current).toBe(0);
+    expect(lootManager.removeCard(deck, 2)).toBe(false);
+  });
+
   it('applies the random item directly when requested', () => {
     lootManager.applyRandomItem(first, 1, item);
     lootManager.assignLootCard(1, second, true);
@@ -316,14 +360,14 @@ describe('LootManager loot card assignment', () => {
   });
 
   it('applies loot deck section rewards', () => {
-    vi.spyOn(gameManager, 'currentEdition').mockReturnValue('test');
+    vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('test');
     const conclusion = Object.assign(new ScenarioData(), {
       index: '1.1',
       edition: 'test',
       conclusion: true,
       rewards: Object.assign(new ScenarioRewards(), { lootingGold: 5, items: ['3'], removeLootDeckCards: [1418] })
     });
-    vi.spyOn(gameManager, 'sectionData').mockReturnValue([conclusion]);
+    vi.spyOn(gameManager.editionManager, 'sectionData').mockReturnValue([conclusion]);
     gameManager.game.lootDeckFixed = [LootType.special1];
 
     lootManager.addLootDeckSection('1.1', first);
@@ -335,5 +379,35 @@ describe('LootManager loot card assignment', () => {
 
     lootManager.removeLootDeckSection('1.1');
     expect(lootManager.lootDeckSectionApplied('1.1')).toBe(false);
+  });
+});
+
+describe('LootManager setResources', () => {
+  const lootManager = gameManager.lootManager;
+
+  beforeEach(() => {
+    resetTestGame();
+  });
+
+  it('sets party and character resources, gold and experience only with valid values', () => {
+    const character = createTestCharacter(1);
+    character.progress.notes = 'keep';
+    expect(lootManager.setResources({ [LootType.lumber]: -1 }, [])).toBe(false);
+    expect(lootManager.setResources({}, [{ character, gold: 1.5, experience: 0, loot: {} }])).toBe(false);
+    expect(lootManager.setResources({}, [{ character, gold: 1, experience: -1, loot: {} }])).toBe(false);
+    expect(lootManager.setResources({}, [{ character, gold: 1, experience: 0, loot: { [LootType.hide]: -2 } }])).toBe(false);
+    expect(lootManager.setResources({ [LootType.lumber]: 2 }, [{ character, gold: 7, experience: 12, loot: { [LootType.hide]: 3 } }])).toBe(
+      true
+    );
+    expect(gameManager.game.party.loot[LootType.lumber]).toBe(2);
+    expect(character.progress.gold).toBe(7);
+    expect(character.progress.experience).toBe(12);
+    expect(character.progress.loot[LootType.hide]).toBe(3);
+    expect(character.progress.notes).toBe('keep');
+    const other = new Character(
+      Object.assign(new CharacterData(), { name: 'other', edition: 'test', stats: [new CharacterStat(1, 8)] }),
+      1
+    );
+    expect(lootManager.canSetResources({}, [{ character: other, gold: 1, experience: 0, loot: {} }])).toBe(false);
   });
 });

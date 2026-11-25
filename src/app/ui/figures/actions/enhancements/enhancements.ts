@@ -12,6 +12,7 @@ import { Element } from 'src/app/game/model/data/Element';
 import { EnhancementAction, EnhancementType } from 'src/app/game/model/data/Enhancement';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { EnhancementDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog';
+import { abilityCardsEditing } from 'src/app/ui/helper/ability-edit';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
 import { GhsTooltipDirective } from 'src/app/ui/helper/tooltip/tooltip';
@@ -96,7 +97,7 @@ export class ActionEnhancementsComponent implements OnInit {
         this.slots[this.enhancements.length] = EnhancementType.any;
       }
     }
-    this.edit = (this.character && this.character.tags.includes('edit-abilities')) || false;
+    this.edit = abilityCardsEditing(this.character);
   }
 
   enhance(index: number, event: any) {

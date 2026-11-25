@@ -1,6 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
-import { Character } from 'src/app/game/model/Character';
+import { findCharacter } from 'src/app/game/commands/CommandHelper';
 
 export class CharacterIdentityCommand extends CommandImpl {
   id: string = 'character.identity';
@@ -11,27 +11,19 @@ export class CharacterIdentityCommand extends CommandImpl {
   }
 
   validParameters(number: number, identity: number): boolean {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
-    return (character !== undefined && character.identities.length && identity >= 0 && identity < character.identities.length) || false;
+    const character = findCharacter(number);
+    return !!character && gameManager.characterManager.canSetIdentity(character, identity);
   }
 
   executeWithParameters(number: number, identity: number) {
-    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
-    if (character && character.identities.length) {
-      if (identity >= 0 && identity < character.identities.length) {
-        character.identity = identity;
-      } else {
-        this.executionError('invalid identity');
-      }
-    } else {
-      this.executionError('character not found or invalid');
+    const character = findCharacter(number);
+    if (!character || !gameManager.characterManager.setIdentity(character, identity)) {
+      this.executionError('character not found or invalid identity');
     }
   }
 
   override before(): BASE_TYPE[] {
-    const character = gameManager.game.figures.find(
-      (figure) => figure instanceof Character && figure.number === this.parameters[0]
-    ) as Character;
+    const character = findCharacter(this.parameters[0] as number);
     const identity = this.parameters[1] as number;
     if (character) {
       return [

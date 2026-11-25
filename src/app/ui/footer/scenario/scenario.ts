@@ -52,7 +52,7 @@ export class ScenarioComponent {
     this.characterCount = gameManager.characterManager.characterCount(true);
     if (gameManager.game.scenario && gameManager.game.finish && !gameManager.stateManager.scenarioSummary) {
       const conclusion = gameManager.game.finish.conclusion
-        ? gameManager
+        ? gameManager.editionManager
             .sectionData(gameManager.game.finish.conclusion.edition)
             .find(
               (sectionData) =>
@@ -84,7 +84,7 @@ export class ScenarioComponent {
           panelClass: ['dialog'],
           disableClose: true,
           data: {
-            edition: gameManager.game.edition || gameManager.currentEdition(),
+            edition: gameManager.game.edition || gameManager.editionManager.currentEdition(),
             type: gameManager.game.eventDraw
           }
         })
@@ -102,10 +102,10 @@ export class ScenarioComponent {
 
     this.sections = [...gameManager.game.sections];
     this.treasures = !!gameManager.game.scenario
-      ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections)
+      ? gameManager.treasureManager.getTreasures(gameManager.game.scenario, gameManager.game.sections)
       : [];
     this.unlootedTreasures = !!gameManager.game.scenario
-      ? gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true)
+      ? gameManager.treasureManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true)
       : [];
     this.openRooms = gameManager.scenarioManager.openRooms();
     this.closedRooms = gameManager.scenarioManager.closedRooms();
@@ -173,12 +173,15 @@ export class ScenarioComponent {
       if (gameManager.roundManager.firstRound) {
         this.open();
       } else {
-        const editionData: EditionData | undefined = gameManager.editionData.find(
+        const editionData: EditionData | undefined = gameManager.editionManager.editionData.find(
           (value) => gameManager.game.scenario && value.edition === gameManager.game.scenario.edition
         );
 
         if (!editionData) {
           console.error('Could not find edition data!');
+          return;
+        }
+        if (!gameManager.scenarioManager.canRevealRoom(roomData)) {
           return;
         }
         gameManager.stateManager.before(
@@ -188,7 +191,7 @@ export class ScenarioComponent {
           roomData.ref,
           roomData.marker || ''
         );
-        gameManager.scenarioManager.openRoom(roomData, scenario, false);
+        gameManager.scenarioManager.revealRoom(roomData, scenario, false);
         gameManager.stateManager.after();
       }
     }

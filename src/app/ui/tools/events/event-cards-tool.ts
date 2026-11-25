@@ -39,7 +39,7 @@ export class EventCardsToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     gameManager.stateManager.init(true);
-    this.editions = gameManager.editions(true);
+    this.editions = gameManager.editionManager.editions(true);
     this.edition = this.editions[0];
     this.update();
 

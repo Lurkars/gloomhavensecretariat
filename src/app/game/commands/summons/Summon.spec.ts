@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import {
   createTestCharacter,
   createTestMonster,
@@ -10,7 +11,7 @@ import { SummonAddCustomCommand } from 'src/app/game/commands/summons/SummonAddC
 import { SummonInitCommand } from 'src/app/game/commands/summons/SummonInit';
 import { SummonStatCommand } from 'src/app/game/commands/summons/SummonStat';
 import { SummonTrapCommand } from 'src/app/game/commands/summons/SummonTrap';
-import { ConditionName, EntityCondition } from 'src/app/game/model/data/Condition';
+import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { SummonData } from 'src/app/game/model/data/SummonData';
 import { SummonColor, SummonState } from 'src/app/game/model/Summon';
 
@@ -118,6 +119,26 @@ describe('Summon commands', () => {
       expect(entity.health).toBe(2);
       expect(entity.entityConditions.some((condition) => condition.name === ConditionName.poison)).toBe(true);
       expect(character.summons).not.toContain(trap);
+    });
+
+    it('applies menu changes and skips removed conditions through the character manager', () => {
+      const character = createTestCharacter(1);
+      const trap = createTestSummon(character, 'trap');
+      trap.trap = true;
+      trap.movement = 1;
+      trap.attack = 'X';
+      const monster = createTestMonster();
+      const entity = createTestMonsterEntity(monster, 1);
+      const removed = new EntityCondition(ConditionName.wound);
+      removed.state = EntityConditionState.removed;
+      expect(
+        gameManager.summonManager.applyTrap(character, trap, entity, monster, [removed, new EntityCondition(ConditionName.poison)], 2)
+      ).toBe(true);
+      expect(entity.health).toBe(2);
+      expect(entity.entityConditions.map((condition) => condition.name)).toContain(ConditionName.poison);
+      expect(entity.entityConditions.map((condition) => condition.name)).not.toContain(ConditionName.wound);
+      expect(trap.dead).toBe(true);
+      expect(gameManager.summonManager.canApplyTrap(character, trap, entity, monster)).toBe(false);
     });
 
     it('requires a trap summon', () => {

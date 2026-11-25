@@ -322,7 +322,7 @@ export class EntitiesMenuDialogComponent {
 
     this.figures = gameManager.game.figures.filter(
       (figure) =>
-        gameManager.gameplayFigure(figure) &&
+        gameManager.entityManager.gameplayFigure(figure) &&
         ((figure instanceof Character && !figure.absent && (!this.filter || this.filter === 'character' || this.filter === 'allies')) ||
           (figure instanceof Monster &&
             (!this.filter ||
@@ -395,6 +395,17 @@ export class EntitiesMenuDialogComponent {
     this.updateFigures();
   }
 
+  deckConditionTargets(): { entity: Entity; figure: Figure }[] {
+    return this.applicableEntities.map((entity) => ({ entity, figure: this.figureForEntity(entity) }));
+  }
+
+  canIncreaseDeckCondition(name: ConditionName, value: number, deckSource?: Character): boolean {
+    return (
+      value + 1 <= 0 ||
+      gameManager.conditionManager.canAddDeckConditions(this.deckConditionTargets(), new Condition(name, value + 1), deckSource)
+    );
+  }
+
   countBlocking(condition: ConditionName, count: number = 1): number {
     const safeeguardEnabled =
       new Condition(condition).types.includes(ConditionType.negative) &&
@@ -402,10 +413,10 @@ export class EntitiesMenuDialogComponent {
       !settingsManager.settings.applyConditionsExcludes.includes(ConditionName.safeguard);
     const safeguard = new Condition(ConditionName.safeguard);
     return this.applicableEntities.reduce((sum, entity) => {
-      if (gameManager.entityManager.isImmune(entity, this.figureForEntity(entity), condition)) {
+      if (gameManager.conditionManager.isImmune(entity, this.figureForEntity(entity), condition)) {
         return sum + count;
       }
-      if (safeeguardEnabled && gameManager.entityManager.hasCondition(entity, safeguard)) {
+      if (safeeguardEnabled && gameManager.conditionManager.hasCondition(entity, safeguard)) {
         return sum + 1;
       }
       return sum;
@@ -543,7 +554,7 @@ export class EntitiesMenuDialogComponent {
           event.stopPropagation();
         } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
           if (
-            (!event.shiftKey && (!!this.figure ? gameManager.attackModifierManager.countUpcomingBlesses() : 0) + this.bless < 10) ||
+            (!event.shiftKey && this.canIncreaseDeckCondition(ConditionName.bless, this.bless)) ||
             (event.shiftKey && (this.blessMin < 0 || this.blessMin + this.bless > 0))
           ) {
             this.bless += event.shiftKey ? -1 : 1;
@@ -552,7 +563,7 @@ export class EntitiesMenuDialogComponent {
           event.stopPropagation();
         } else if (!event.ctrlKey && event.key.toLowerCase() === 'c') {
           if (
-            (!event.shiftKey && gameManager.attackModifierManager.countUpcomingCurses(this.isMonster) + this.curse < 10) ||
+            (!event.shiftKey && this.canIncreaseDeckCondition(ConditionName.curse, this.curse)) ||
             (event.shiftKey && (this.curseMin < 0 || this.curseMin + this.curse > 0))
           ) {
             this.curse += event.shiftKey ? -1 : 1;

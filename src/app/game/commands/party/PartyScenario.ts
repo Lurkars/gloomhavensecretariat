@@ -1,49 +1,29 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
+import { CommandImpl } from 'src/app/game/commands/Command';
 import { findScenarioData, findSectionData } from 'src/app/game/commands/scenario/Scenario';
-import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
-
-function sameScenario(model: GameScenarioModel, scenarioData: ScenarioData): boolean {
-  return model.index === scenarioData.index && model.edition === scenarioData.edition && model.group === scenarioData.group;
-}
+import { Scenario } from 'src/app/game/model/Scenario';
 
 export class PartyScenarioSuccessCommand extends CommandImpl {
   id: string = 'party.scenario.success';
   requiredParameters: number = 2;
 
-  conclusion(scenarioData: ScenarioData, index: BASE_TYPE): ScenarioData | undefined {
-    return index
-      ? gameManager
-          .sectionData(scenarioData.edition)
-          .find(
-            (sectionData) =>
-              sectionData.index === index &&
-              sectionData.group === scenarioData.group &&
-              sectionData.parent === scenarioData.index &&
-              sectionData.conclusion
-          )
-      : undefined;
-  }
-
-  validParameters(edition: string, index: string, group: string = '', conclusionIndex: string = ''): boolean {
+  validParameters(edition: string, index: string, group: string = '', conclusionIndex: string = '', force: boolean = false): boolean {
     const scenarioData = findScenarioData(edition, index, group);
-    return !!scenarioData && (!conclusionIndex || !!this.conclusion(scenarioData, conclusionIndex));
+    return (
+      !!scenarioData &&
+      typeof force === 'boolean' &&
+      (!conclusionIndex || !!gameManager.scenarioFinishManager.scenarioConclusion(scenarioData, conclusionIndex)) &&
+      gameManager.scenarioFinishManager.canAddScenarioSuccess(scenarioData, force)
+    );
   }
 
-  executeWithParameters(edition: string, index: string, group: string = '', conclusionIndex: string = '') {
+  executeWithParameters(edition: string, index: string, group: string = '', conclusionIndex: string = '', force: boolean = false) {
     const scenarioData = findScenarioData(edition, index, group);
     if (scenarioData) {
-      const finished = gameManager.game.party.scenarios.filter((model) => sameScenario(model, scenarioData)).length;
-      gameManager.scenarioManager.finishScenario(
-        new Scenario(scenarioData),
-        true,
-        this.conclusion(scenarioData, conclusionIndex),
-        false,
-        false,
-        false,
-        gameManager.game.party.campaignMode && finished === 0,
-        true
+      gameManager.scenarioFinishManager.addScenarioSuccess(
+        scenarioData,
+        conclusionIndex ? gameManager.scenarioFinishManager.scenarioConclusion(scenarioData, conclusionIndex) : undefined,
+        force
       );
     } else {
       this.executionError('scenario not found');
@@ -55,22 +35,14 @@ export class PartyScenarioRemoveCommand extends CommandImpl {
   id: string = 'party.scenario.remove';
   requiredParameters: number = 2;
 
-  scenarios(casual: BASE_TYPE): GameScenarioModel[] {
-    return casual ? gameManager.game.party.casualScenarios : gameManager.game.party.scenarios;
-  }
-
   validParameters(edition: string, index: string, group: string = '', casual: boolean = false): boolean {
     const scenarioData = findScenarioData(edition, index, group);
-    return !!scenarioData && this.scenarios(casual).some((model) => sameScenario(model, scenarioData));
+    return !!scenarioData && gameManager.scenarioFinishManager.canRemoveScenarioSuccess(scenarioData, !!casual);
   }
 
   executeWithParameters(edition: string, index: string, group: string = '', casual: boolean = false) {
     const scenarioData = findScenarioData(edition, index, group);
-    const scenarios = this.scenarios(casual);
-    const value = scenarioData && scenarios.find((model) => sameScenario(model, scenarioData));
-    if (value) {
-      scenarios.splice(scenarios.indexOf(value), 1);
-    } else {
+    if (!scenarioData || !gameManager.scenarioFinishManager.removeScenarioSuccess(scenarioData, !!casual)) {
       this.executionError('finished scenario not found');
     }
   }
@@ -80,35 +52,15 @@ export class PartyScenarioManualCommand extends CommandImpl {
   id: string = 'party.scenario.manual';
   requiredParameters: number = 3;
 
-  manual(scenarioData: ScenarioData): GameScenarioModel | undefined {
-    return gameManager.game.party.manualScenarios.find((model) => sameScenario(model, scenarioData));
-  }
-
   validParameters(edition: string, index: string, value: boolean, group: string = ''): boolean {
     const scenarioData = findScenarioData(edition, index, group);
-    return (
-      !!scenarioData &&
-      typeof value === 'boolean' &&
-      (!value ||
-        !!this.manual(scenarioData) ||
-        !gameManager.scenarioManager
-          .scenarioData(scenarioData.edition, false)
-          .some(
-            (available) =>
-              available.edition === scenarioData.edition && available.group === scenarioData.group && available.index === scenarioData.index
-          ))
-    );
+    return !!scenarioData && typeof value === 'boolean' && gameManager.campaignManager.canSetManualScenario(scenarioData, value);
   }
 
   executeWithParameters(edition: string, index: string, value: boolean, group: string = '') {
     const scenarioData = findScenarioData(edition, index, group);
     if (scenarioData) {
-      const manual = this.manual(scenarioData);
-      if (manual && !value) {
-        gameManager.game.party.manualScenarios.splice(gameManager.game.party.manualScenarios.indexOf(manual), 1);
-      } else if (!manual && value) {
-        gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
-      }
+      gameManager.campaignManager.setManualScenario(scenarioData, value);
     } else {
       this.executionError('scenario not found');
     }
@@ -127,7 +79,7 @@ export class PartyConclusionFinishCommand extends CommandImpl {
   executeWithParameters(edition: string, index: string, group: string = '', week: number = -1) {
     const sectionData = findSectionData(edition, index, group);
     if (sectionData) {
-      gameManager.scenarioManager.finishWeekConclusion(new Scenario(sectionData), week);
+      gameManager.campaignManager.finishWeekConclusion(new Scenario(sectionData), week);
     } else {
       this.executionError('conclusion not found');
     }
@@ -143,7 +95,7 @@ export class PartyConclusionRemoveCommand extends CommandImpl {
   }
 
   executeWithParameters(edition: string, index: string) {
-    gameManager.scenarioManager.removeConclusion(edition, index);
+    gameManager.campaignManager.removeConclusion(edition, index);
   }
 }
 
@@ -157,9 +109,9 @@ export class PartyWeekSectionCommand extends CommandImpl {
 
   executeWithParameters(week: number, section: string, value: boolean) {
     if (value) {
-      gameManager.scenarioManager.addWeekSection(week, section);
+      gameManager.campaignManager.addWeekSection(week, section);
     } else {
-      gameManager.scenarioManager.removeWeekSection(week, section);
+      gameManager.campaignManager.removeWeekSection(week, section);
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { Capacitor } from '@capacitor/core';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Spoilable } from 'src/app/game/model/data/Spoilable';
 import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
@@ -59,14 +59,14 @@ export function ghsDurationLabel(value: number, totalHours: boolean = false): st
   const minutes = Math.floor(seconds / 60);
   seconds -= minutes * 60;
 
-  let label = settingsManager.getLabel(
+  let label = labelManager.getLabel(
     'duration.' + ((days && 'days') || (hours && 'hours') || (minutes && 'minutes') || 'seconds'),
     [seconds, minutes, hours, days].map((value) => '' + value),
     false
   );
 
   if (totalHours) {
-    label = settingsManager.getLabel('duration.totalHours', [label, (value / 3600).toFixed(1)]);
+    label = labelManager.getLabel('duration.totalHours', [label, (value / 3600).toFixed(1)]);
   }
 
   return label;

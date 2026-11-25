@@ -83,7 +83,7 @@ describe('Character state commands', () => {
   describe('CharacterLevelCommand', () => {
     it('sets the level through the character manager', () => {
       createTestCharacter(1);
-      const setLevel = vi.spyOn(gameManager.characterManager, 'setLevel').mockImplementation(() => {});
+      const setLevel = vi.spyOn(gameManager.characterManager, 'setLevel').mockImplementation(() => true);
       expect(new CharacterLevelCommand(1, 10).validParameters(1, 10)).toBe(false);
       new CharacterLevelCommand(1, 3).execute();
       expect(setLevel).toHaveBeenCalledWith(gameManager.game.figures[0], 3);

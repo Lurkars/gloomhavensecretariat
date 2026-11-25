@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { AutocompleteDirective, AutocompleteItem } from 'src/app/ui/helper/autocomplete';
@@ -27,12 +27,14 @@ export class PartySheetAchievementsComponent extends PartySheetSection {
 
   override update(): void {
     this.autocompleteItems = [];
-    const editionData = gameManager.editionData.find((editionData) => this.edition() && editionData.edition === this.edition());
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => this.edition() && editionData.edition === this.edition()
+    );
     if (editionData) {
       this.updateAutocomplete(editionData);
       if (editionData.extends?.length) {
         editionData.extends.forEach((extension) => {
-          const extensionData = gameManager.editionData.find((editionData) => editionData.edition === extension);
+          const extensionData = gameManager.editionManager.editionData.find((editionData) => editionData.edition === extension);
           if (extensionData) {
             this.updateAutocomplete(extensionData);
           }
@@ -76,8 +78,8 @@ export class PartySheetAchievementsComponent extends PartySheetSection {
   addAchievement(input: HTMLInputElement) {
     if (input.value) {
       let achievement = input.value;
-      Object.keys(settingsManager.label.data[this.type]).forEach((key) => {
-        if (settingsManager.label.data[this.type][key].toLowerCase() === achievement.toLowerCase()) {
+      Object.keys(labelManager.label.data[this.type]).forEach((key) => {
+        if (labelManager.label.data[this.type][key].toLowerCase() === achievement.toLowerCase()) {
           achievement = key;
         }
       });

@@ -90,8 +90,8 @@ export class LootComponent implements OnInit, OnChanges {
         gameManager.stateManager.after();
       }
     } else {
-      const conclusion = gameManager
-        .sectionData(gameManager.currentEdition())
+      const conclusion = gameManager.editionManager
+        .sectionData(gameManager.editionManager.currentEdition())
         .find((sectionData) => sectionData.index === section && sectionData.conclusion);
       if (conclusion && !force) {
         this.dialog
@@ -147,7 +147,7 @@ export class LootComponent implements OnInit, OnChanges {
           const index = this.index();
           const holder = gameManager.lootManager.lootCardHolder(index);
           const character = this.characterFigure(name);
-          if (holder === character) {
+          if (!gameManager.lootManager.canAssignLootCard(index, character)) {
             return;
           }
           const value = gameManager.lootManager.getValue(this.loot);

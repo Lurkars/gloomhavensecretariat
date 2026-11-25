@@ -4,20 +4,29 @@
       [item]="item"
       [flipped]="flipped()"
       ghs-pointer-input
+      (singleClick)="clicked.emit(false)"
+      (doubleClick)="clicked.emit(true)"
       [count]="gameManager.itemManager.assigned(item)"
-      [editionLabel]="gameManager.currentEdition()"
-      [ngClass]="{ selected: (!dialog() && equipped() && true) || false, unavailable: !dialog() && bbBlocked() }"
+      [editionLabel]="gameManager.editionManager.currentEdition()"
+      [ngClass]="
+        selected() === undefined
+          ? { selected: (!dialog() && equipped() && true) || false, unavailable: !dialog() && bbBlocked() }
+          : { selectable: true, selected: selected(), owned: !selected(), unavailable: bbBlocked() }
+      "
     ></ghs-item>
   }
 
   @if (!setup()) {
     <ghs-item
+      ghs-pointer-input
+      (singleClick)="bodyClicked($event, false)"
+      (doubleClick)="bodyClicked($event, true)"
       [item]="item"
       [count]="gameManager.itemManager.assigned(item)"
       [flipped]="flipped() && !countFlag(ItemFlags.flipped)"
       [slotsMarked]="slotsMarked(ItemFlags.slot)"
       [slotsBackMarked]="slotsMarked(ItemFlags.slotBack)"
-      [editionLabel]="gameManager.currentEdition()"
+      [editionLabel]="gameManager.editionManager.currentEdition()"
       [interactive]="true"
       (clickedConsumed)="toggleFlag($event, ItemFlags.consumed)"
       (clickedFlip)="toggleFlag($event, ItemFlags.flipped)"
@@ -28,7 +37,8 @@
       [ngClass]="{
         filtered: !equipped(),
         unavailable: countFlag(ItemFlags.consumed) > 0 || bbBlocked(),
-        owned: countFlag(ItemFlags.persistent) > 0
+        owned: countFlag(ItemFlags.persistent) > 0,
+        selected: !!selected()
       }"
     ></ghs-item>
   }

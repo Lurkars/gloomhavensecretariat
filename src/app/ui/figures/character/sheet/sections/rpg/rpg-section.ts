@@ -1,49 +1,9 @@
 import { Directive, inject, OnInit } from '@angular/core';
+import { RpgValue } from 'src/app/game/businesslogic/CharacterRpgManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import {
-  RPG_ACTIVE_TALENT_ROWS,
-  RPG_ANCESTRY_SKILL_ROWS,
-  RPG_CLASS_SKILL_ROWS,
-  RPG_FACTIONS,
-  RPG_ITEM_ROWS,
-  RPG_TALENT_ROWS,
-  RpgFaction,
-  RpgItem,
-  RpgPower,
-  RpgProgress
-} from 'src/app/game/model/CharacterProgress';
+import { RpgProgress } from 'src/app/game/model/CharacterProgress';
 import { CharacterSheetSection } from 'src/app/ui/figures/character/sheet/sections/section';
-
-function rows<T>(values: T[] | undefined, count: number, create: () => T): T[] {
-  const list = values || [];
-  return Array.from({ length: Math.max(count, list.length) }, (v, index) => Object.assign(create() as object, list[index] || {}) as T);
-}
-
-// talents were stored as 2 active + 2 passive rows before
-const LEGACY_ACTIVE_TALENT_ROWS = 2;
-
-function migrateTalents(talents: RpgPower[] | undefined): RpgPower[] | undefined {
-  if (talents && talents.length > LEGACY_ACTIVE_TALENT_ROWS && talents.length < RPG_TALENT_ROWS) {
-    talents.splice(
-      LEGACY_ACTIVE_TALENT_ROWS,
-      0,
-      ...Array.from({ length: RPG_ACTIVE_TALENT_ROWS - LEGACY_ACTIVE_TALENT_ROWS }, () => new RpgPower())
-    );
-  }
-  return talents;
-}
-
-export function rpgProgress(source: RpgProgress | undefined): RpgProgress {
-  const rpg: RpgProgress = Object.assign(new RpgProgress(), JSON.parse(JSON.stringify(source || {})));
-  rpg.attributes = rpg.attributes || {};
-  rpg.items = rows(rpg.items, RPG_ITEM_ROWS, () => new RpgItem());
-  rpg.factions = rows(rpg.factions, RPG_FACTIONS, () => new RpgFaction());
-  rpg.talents = rows(migrateTalents(rpg.talents), RPG_TALENT_ROWS, () => new RpgPower());
-  rpg.ancestrySkills = rows(rpg.ancestrySkills, RPG_ANCESTRY_SKILL_ROWS, () => new RpgPower());
-  rpg.classSkills = rows(rpg.classSkills, RPG_CLASS_SKILL_ROWS, () => new RpgPower());
-  return rpg;
-}
 
 @Directive()
 export abstract class RpgSheetSection extends CharacterSheetSection implements OnInit {
@@ -61,17 +21,15 @@ export abstract class RpgSheetSection extends CharacterSheetSection implements O
   }
 
   update() {
-    this.rpg = rpgProgress(this.character.progress.rpg);
+    this.rpg = gameManager.characterRpgManager.rpgProgress(this.character.progress.rpg);
   }
 
-  change(label: string, value: string | number | boolean, apply: (rpg: RpgProgress) => void) {
-    if (this.locked) {
+  change(label: string, path: string, value: RpgValue, labelValue: RpgValue = value) {
+    if (this.locked || !gameManager.characterRpgManager.canSetRpgValue(this.character, path, value)) {
       return;
     }
-    gameManager.stateManager.before('setRpgSheet', this.characterName, 'character.progress.rpg.' + label, '' + value);
-    const rpg = rpgProgress(this.character.progress.rpg);
-    apply(rpg);
-    this.character.progress.rpg = rpg;
+    gameManager.stateManager.before('setRpgSheet', this.characterName, 'character.progress.rpg.' + label, '' + labelValue);
+    gameManager.characterRpgManager.setRpgValue(this.character, path, value);
     gameManager.stateManager.after();
   }
 }

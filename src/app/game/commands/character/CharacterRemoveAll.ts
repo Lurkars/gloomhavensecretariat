@@ -1,6 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
-import { Character } from 'src/app/game/model/Character';
 
 export class CharacterRemoveAllCommand extends CommandImpl {
   id: string = 'character.removeAll';
@@ -11,6 +10,6 @@ export class CharacterRemoveAllCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character));
+    gameManager.characterManager.removeAllCharacters();
   }
 }

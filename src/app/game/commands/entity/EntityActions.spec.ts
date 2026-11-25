@@ -11,8 +11,9 @@ import { EntityExtraActionRemoveCommand } from 'src/app/game/commands/entity/Ent
 import { EntityExtraActionResolveCommand } from 'src/app/game/commands/entity/EntityExtraActionResolve';
 import { EntitySpecialActionCommand } from 'src/app/game/commands/entity/EntitySpecialAction';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
-import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
+import { PerkCard } from 'src/app/game/model/data/Perks';
 
 describe('Entity action commands', () => {
   beforeEach(() => {
@@ -63,7 +64,7 @@ describe('Entity action commands', () => {
       const character = createTestCharacter(1);
       character.specialActions = [new CharacterSpecialAction('test-action', 0, false, false, false, false, undefined, 'manual')];
       new EntitySpecialActionCommand(1, '', 'test-action', true).execute();
-      new EntitySpecialActionCommand(1, '', 'test-action', true).execute();
+      expect(new EntitySpecialActionCommand(1, '', 'test-action', true).validParameters(1, '', 'test-action', true)).toBe(false);
       expect(character.tags).toEqual(['test-action']);
       new EntitySpecialActionCommand(1, '', 'test-action', false).execute();
       expect(character.tags).toEqual([]);
@@ -105,6 +106,48 @@ describe('Entity action commands', () => {
       ).toBe(false);
       expect(
         new EntityAttackModifierCommand(1, '', AttackModifierType.empower, -1, 1).validParameters(1, '', AttackModifierType.empower, -1, 1)
+      ).toBe(false);
+    });
+
+    it('limits added empower to the perk count of the providing character', () => {
+      const character = createTestCharacter(1);
+      const source = createTestCharacter(2);
+      source.additionalModifier = [
+        Object.assign(new PerkCard(), { count: 2, attackModifier: new AttackModifier(AttackModifierType.empower) })
+      ];
+      expect(
+        new EntityAttackModifierCommand(1, '', AttackModifierType.empower, 3, 1, 2).validParameters(
+          1,
+          '',
+          AttackModifierType.empower,
+          3,
+          1,
+          2
+        )
+      ).toBe(false);
+      new EntityAttackModifierCommand(1, '', AttackModifierType.empower, 2, 1, 2).execute();
+      expect(character.attackModifierDeck.cards.filter((am) => am.type === AttackModifierType.empower).length).toBe(2);
+      expect(
+        new EntityAttackModifierCommand(1, '', AttackModifierType.empower, 1, 1, 2).validParameters(
+          1,
+          '',
+          AttackModifierType.empower,
+          1,
+          1,
+          2
+        )
+      ).toBe(false);
+      new EntityAttackModifierCommand(1, '', AttackModifierType.empower, -1, 1, 2).execute();
+      expect(character.attackModifierDeck.cards.filter((am) => am.type === AttackModifierType.empower).length).toBe(1);
+    });
+
+    it('limits added blesses to the supply', () => {
+      createTestCharacter(1);
+      expect(
+        new EntityAttackModifierCommand(1, '', AttackModifierType.bless, 11, 1).validParameters(1, '', AttackModifierType.bless, 11, 1)
+      ).toBe(false);
+      expect(
+        new EntityAttackModifierCommand(1, '', AttackModifierType.bless, 10, 1).validParameters(1, '', AttackModifierType.bless, 10, 1)
       ).toBe(true);
     });
   });

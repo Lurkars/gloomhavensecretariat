@@ -1,19 +1,29 @@
 import { signal, WritableSignal } from '@angular/core';
 import { ActionsManager } from 'src/app/game/businesslogic/ActionsManager';
+import { AttackModifierBuildManager } from 'src/app/game/businesslogic/AttackModifierBuildManager';
 import { AttackModifierManager } from 'src/app/game/businesslogic/AttackModifierManager';
 import { BattleGoalManager } from 'src/app/game/businesslogic/BattleGoalManager';
 import { BuildingsManager } from 'src/app/game/businesslogic/BuildingsManager';
 import { CampaignManager } from 'src/app/game/businesslogic/CampaignManager';
 import { ChallengesManager } from 'src/app/game/businesslogic/ChallengesManager';
+import { CharacterAbilityManager } from 'src/app/game/businesslogic/CharacterAbilityManager';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
+import { CharacterRpgManager } from 'src/app/game/businesslogic/CharacterRpgManager';
+import { ConditionManager } from 'src/app/game/businesslogic/ConditionManager';
+import { EditionManager } from 'src/app/game/businesslogic/EditionManager';
+import { ElementManager } from 'src/app/game/businesslogic/ElementManager';
 import { EnhancementsManager } from 'src/app/game/businesslogic/EnhancementsManager';
+import { EntityCounterManager } from 'src/app/game/businesslogic/EntityCounterManager';
 import { EntityManager } from 'src/app/game/businesslogic/EntityManager';
 import { EventCardManager } from 'src/app/game/businesslogic/EventCardManager';
+import { GameClockManager } from 'src/app/game/businesslogic/GameClockManager';
+import { HistoryManager } from 'src/app/game/businesslogic/HistoryManager';
 import { ImbuementManager } from 'src/app/game/businesslogic/ImbuementManager';
 import { ItemManager } from 'src/app/game/businesslogic/ItemManager';
 import { LevelManager } from 'src/app/game/businesslogic/LevelManager';
 import { LootManager } from 'src/app/game/businesslogic/LootManager';
-import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { MonsterAbilityManager } from 'src/app/game/businesslogic/MonsterAbilityManager';
 import { MonsterManager } from 'src/app/game/businesslogic/MonsterManager';
 import { ObjectiveManager } from 'src/app/game/businesslogic/ObjectiveManager';
 import { OutpostAttackManager } from 'src/app/game/businesslogic/OutpostAttackManager';
@@ -21,39 +31,29 @@ import { PersonalQuestManager } from 'src/app/game/businesslogic/PersonalQuestMa
 import { RandomManager } from 'src/app/game/businesslogic/RandomManager';
 import { RetirementManager } from 'src/app/game/businesslogic/RetirementManager';
 import { RoundManager } from 'src/app/game/businesslogic/RoundManager';
+import { ScenarioFinishManager } from 'src/app/game/businesslogic/ScenarioFinishManager';
 import { ScenarioManager } from 'src/app/game/businesslogic/ScenarioManager';
+import { ScenarioRequirementsManager } from 'src/app/game/businesslogic/ScenarioRequirementsManager';
+import { ScenarioRuleEffectsManager } from 'src/app/game/businesslogic/ScenarioRuleEffectsManager';
 import { ScenarioRulesManager } from 'src/app/game/businesslogic/ScenarioRulesManager';
 import { ScenarioStatsManager } from 'src/app/game/businesslogic/ScenarioStatsManager';
+import { ServerSyncManager } from 'src/app/game/businesslogic/ServerSyncManager';
 import { ShieldRetaliateManager } from 'src/app/game/businesslogic/ShieldRetaliateManager';
 import { SpecialActionsManager } from 'src/app/game/businesslogic/SpecialActionsManager';
 import { StateManager } from 'src/app/game/businesslogic/StateManager';
+import { SummonManager } from 'src/app/game/businesslogic/SummonManager';
+import { TreasureManager } from 'src/app/game/businesslogic/TreasureManager';
 import { TrialsManager } from 'src/app/game/businesslogic/TrialsManager';
+import { TurnManager } from 'src/app/game/businesslogic/TurnManager';
 import { Character } from 'src/app/game/model/Character';
-import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
-import { Action, ActionType } from 'src/app/game/model/data/Action';
-import { ChallengeCard } from 'src/app/game/model/data/Challenges';
-import { CharacterData } from 'src/app/game/model/data/CharacterData';
-import { Condition, ConditionName, Conditions, ConditionType } from 'src/app/game/model/data/Condition';
-import { DeckData } from 'src/app/game/model/data/DeckData';
-import { EditionData } from 'src/app/game/model/data/EditionData';
 import { EditionRules } from 'src/app/game/model/data/EditionRules';
-import { ElementModel, ElementState } from 'src/app/game/model/data/Element';
-import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
-import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
-import { ItemData } from 'src/app/game/model/data/ItemData';
-import { MonsterData } from 'src/app/game/model/data/MonsterData';
-import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
-import { MonsterType } from 'src/app/game/model/data/MonsterType';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
-import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { Entity, EntityCounter } from 'src/app/game/model/Entity';
+import { Entity } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
-import { Game, GameClockTimestamp, GameModel, GameState } from 'src/app/game/model/Game';
+import { Game, GameModel } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { ObjectiveEntity } from 'src/app/game/model/ObjectiveEntity';
-import { Party } from 'src/app/game/model/Party';
 import { Summon } from 'src/app/game/model/Summon';
 
 declare global {
@@ -64,23 +64,38 @@ declare global {
 
 export class GameManager {
   game: Game = new Game();
-  editionData: EditionData[] = [];
+  editionManager: EditionManager;
+  gameClockManager: GameClockManager;
+  elementManager: ElementManager;
   stateManager: StateManager;
+  serverSyncManager: ServerSyncManager;
+  historyManager: HistoryManager;
   entityManager: EntityManager;
+  conditionManager: ConditionManager;
   characterManager: CharacterManager;
+  characterAbilityManager: CharacterAbilityManager;
+  characterRpgManager: CharacterRpgManager;
+  summonManager: SummonManager;
   monsterManager: MonsterManager;
+  monsterAbilityManager: MonsterAbilityManager;
   objectiveManager: ObjectiveManager;
   personalQuestManager: PersonalQuestManager;
   retirementManager: RetirementManager;
   shieldRetaliateManager: ShieldRetaliateManager;
   attackModifierManager: AttackModifierManager;
+  attackModifierBuildManager: AttackModifierBuildManager;
   actionsManager: ActionsManager;
   levelManager: LevelManager;
   scenarioManager: ScenarioManager;
+  scenarioFinishManager: ScenarioFinishManager;
+  scenarioRequirementsManager: ScenarioRequirementsManager;
   scenarioRulesManager: ScenarioRulesManager;
+  scenarioRuleEffectsManager: ScenarioRuleEffectsManager;
   campaignManager: CampaignManager;
   roundManager: RoundManager;
+  turnManager: TurnManager;
   lootManager: LootManager;
+  treasureManager: TreasureManager;
   itemManager: ItemManager;
   battleGoalManager: BattleGoalManager;
   eventCardManager: EventCardManager;
@@ -88,6 +103,7 @@ export class GameManager {
   outpostAttackManager: OutpostAttackManager;
   challengesManager: ChallengesManager;
   scenarioStatsManager: ScenarioStatsManager;
+  entityCounterManager: EntityCounterManager;
   trialsManager: TrialsManager;
   enhancementsManager: EnhancementsManager;
   imbuementManager: ImbuementManager;
@@ -103,30 +119,47 @@ export class GameManager {
   }
 
   constructor() {
+    this.editionManager = new EditionManager(this.game);
+    this.gameClockManager = new GameClockManager(this.game);
+    this.elementManager = new ElementManager(this.game);
     this.randomManager = new RandomManager(this.game);
     this.stateManager = new StateManager(this.game);
+    this.serverSyncManager = new ServerSyncManager(this.game);
+    this.historyManager = new HistoryManager(this.game);
     this.entityManager = new EntityManager(this.game);
+    this.conditionManager = new ConditionManager(this.game);
     this.characterManager = new CharacterManager(this.game);
+    this.characterAbilityManager = new CharacterAbilityManager(this.game);
+    this.characterRpgManager = new CharacterRpgManager(this.game);
+    this.summonManager = new SummonManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
+    this.monsterAbilityManager = new MonsterAbilityManager(this.game);
     this.objectiveManager = new ObjectiveManager(this.game);
     this.personalQuestManager = new PersonalQuestManager(this.game);
     this.retirementManager = new RetirementManager(this.game);
     this.shieldRetaliateManager = new ShieldRetaliateManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
+    this.attackModifierBuildManager = new AttackModifierBuildManager(this.game);
     this.actionsManager = new ActionsManager();
     this.levelManager = new LevelManager(this.game);
     this.scenarioManager = new ScenarioManager(this.game);
+    this.scenarioFinishManager = new ScenarioFinishManager(this.game);
+    this.scenarioRequirementsManager = new ScenarioRequirementsManager(this.game);
     this.scenarioRulesManager = new ScenarioRulesManager(this.game);
+    this.scenarioRuleEffectsManager = new ScenarioRuleEffectsManager(this.game);
     this.campaignManager = new CampaignManager(this.game);
     this.roundManager = new RoundManager(this.game);
+    this.turnManager = new TurnManager(this.game);
     this.itemManager = new ItemManager(this.game);
     this.lootManager = new LootManager(this.game);
+    this.treasureManager = new TreasureManager(this.game);
     this.battleGoalManager = new BattleGoalManager(this.game);
     this.eventCardManager = new EventCardManager(this.game);
     this.buildingsManager = new BuildingsManager(this.game);
     this.outpostAttackManager = new OutpostAttackManager(this.game);
     this.challengesManager = new ChallengesManager(this.game);
     this.scenarioStatsManager = new ScenarioStatsManager(this.game);
+    this.entityCounterManager = new EntityCounterManager(this.game);
     this.trialsManager = new TrialsManager(this.game);
     this.enhancementsManager = new EnhancementsManager(this.game);
     this.imbuementManager = new ImbuementManager(this.game);
@@ -140,6 +173,9 @@ export class GameManager {
     this.game.edition = edition || undefined;
     this.game.party.edition = edition || undefined;
     this.attackModifierManager.updateDefaultDecks();
+    if (edition && this.game.party.campaignMode) {
+      this.campaignManager.setupCampaign();
+    }
   }
 
   importGame(gameModel: GameModel) {
@@ -152,611 +188,6 @@ export class GameManager {
       settingsManager.automaticTheme(gameModel.edition, this.game.edition);
     }
     this.game.fromModel(gameModel, false, true);
-  }
-
-  editions(all: boolean = false, extraContent: boolean = false): string[] {
-    return this.editionData
-      .filter(
-        (editionData) =>
-          (all || settingsManager.settings.editions.includes(editionData.edition)) && (extraContent || editionData.type !== 'content')
-      )
-      .map((editionData) => editionData.edition);
-  }
-
-  editionsData(all: boolean = false, extraContent: boolean = false): EditionData[] {
-    const editions: string[] = this.editions(all, extraContent);
-    return this.editionData.filter((editionData) => editions.includes(editionData.edition));
-  }
-
-  editionLogo(edition: string): string {
-    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-    if (editionData && editionData.logoUrl) {
-      return editionData.logoUrl;
-    }
-    return '';
-  }
-
-  currentEdition(fallback: string | undefined = undefined): string {
-    if (this.game.edition) {
-      return this.game.edition;
-    }
-
-    if (this.game.scenario && this.game.scenario.edition) {
-      return this.game.scenario.edition;
-    }
-
-    const charEditions = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure.edition);
-
-    if (charEditions.length > 0 && charEditions.every((edition, index, self) => index === 0 || self[index - 1] === edition)) {
-      return charEditions[0];
-    }
-
-    return fallback !== undefined ? fallback : this.editions()[0];
-  }
-
-  relevantEditions(edition: string | undefined = undefined, extensionOnly: boolean = false, extraContent: boolean = true): string[] {
-    if (!edition) {
-      if (!this.game.edition) {
-        return this.editions(false, extraContent);
-      }
-      edition = this.game.edition;
-    }
-    const editions: string[] = [];
-    const editionData = this.editionData.find((e) => e.edition === edition);
-    if (editionData) {
-      editions.push(editionData.edition);
-      if ((!extensionOnly || editionData.type !== 'extension') && !!editionData.extends) {
-        editionData.extends.forEach((e) => {
-          if (!editions.includes(e) && settingsManager.settings.editions.includes(e)) {
-            editions.push(e);
-            this.relevantEditions(e, extensionOnly, false).forEach((p) => {
-              if (!editions.includes(p) && settingsManager.settings.editions.includes(p)) {
-                editions.push(p);
-              }
-            });
-          }
-        });
-      }
-
-      if (extraContent) {
-        this.editionData
-          .filter(
-            (e) =>
-              settingsManager.settings.editions.includes(e.edition) &&
-              e.type === 'content' &&
-              (!e.extends || !e.extends.length || e.extends.includes(edition))
-          )
-          .sort((a, b) => {
-            if (!!a.extends && a.extends.includes(edition) && (!b.extends || !b.extends.length)) {
-              return -1;
-            } else if (!!b.extends && b.extends.includes(edition) && (!a.extends || !a.extends.length)) {
-              return 1;
-            }
-            return 0;
-          })
-          .map((e) => e.edition)
-          .forEach((p) => {
-            if (!editions.includes(p)) {
-              editions.push(p);
-            }
-          });
-      }
-    }
-
-    return editions;
-  }
-
-  isEditionRelevant(other: string, edition: string | undefined, extensionOnly: boolean = false): boolean {
-    if (!settingsManager.settings.editions.includes(other)) {
-      return false;
-    }
-
-    const editionData = this.editionData.find((e) => e.edition === other);
-    if (!editionData) {
-      return false;
-    }
-    return (
-      !edition ||
-      this.relevantEditions(edition, extensionOnly).includes(editionData.edition) ||
-      (editionData.type === 'content' && (!editionData.extends || !editionData.extends.length || editionData.extends.includes(edition)))
-    );
-  }
-
-  newItemStyle(edition: string): boolean {
-    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-    if (!editionData) return false;
-    if (editionData.newItemStyle) return true;
-    if (editionData.type === 'extension' || editionData.type === 'addon') {
-      return (editionData.extends || []).some((ext) => this.newItemStyle(ext));
-    }
-    return false;
-  }
-
-  newAmStyle(edition: string): boolean {
-    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
-    if (!editionData) return false;
-    if (editionData.newAmStyle) return true;
-    if (editionData.type === 'extension' || editionData.type === 'addon') {
-      return (editionData.extends || []).some((ext) => this.newAmStyle(ext));
-    }
-    return false;
-  }
-
-  charactersData(edition: string | undefined = undefined): CharacterData[] {
-    const characters = this.editionData
-      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
-      .flatMap((editionData) => editionData.characters);
-
-    const merges = characters.filter((characterData) => characterData.merge);
-
-    return characters
-      .filter(
-        (characterData) =>
-          (!edition || characterData.edition === edition) &&
-          !characterData.merge &&
-          (characterData.replace ||
-            (!characterData.replace &&
-              !characters.find(
-                (characterDataReplacement) =>
-                  characterDataReplacement.replace &&
-                  characterDataReplacement.name === characterData.name &&
-                  characterDataReplacement.edition === characterData.edition
-              )))
-      )
-      .map((characterData) => {
-        const merge = merges.find(
-          (characterDataMerge) => characterDataMerge.name === characterData.name && characterDataMerge.edition === characterData.edition
-        );
-        if (merge) {
-          return Object.assign(new CharacterData(characterData), merge);
-        }
-
-        return new CharacterData(characterData);
-      });
-  }
-
-  monstersData(edition: string | undefined = undefined): MonsterData[] {
-    return this.editionData
-      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
-      .flatMap((editionData) => editionData.monsters)
-      .filter(
-        (monsterData, index, monsters) =>
-          (!edition || monsterData.edition === edition) &&
-          (monsterData.replace ||
-            (!monsterData.replace &&
-              !monsters.find(
-                (monsterDataReplacement) =>
-                  monsterDataReplacement.replace &&
-                  monsterDataReplacement.name === monsterData.name &&
-                  monsterDataReplacement.edition === monsterData.edition
-              )))
-      );
-  }
-
-  decksData(edition: string | undefined = undefined): DeckData[] {
-    const decks = this.editionData
-      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
-      .flatMap((editionData) => editionData.decks);
-
-    const replaces = decks.filter((deckData) => deckData.abilities.some((abilityCard) => abilityCard.replace));
-
-    return decks
-      .filter((deckData) => !replaces.includes(deckData))
-      .map((deckData) => {
-        const replace = replaces.find((other) => other.edition === deckData.edition && other.name === deckData.name);
-        if (!replace) {
-          return deckData;
-        }
-        const newDeckData = new DeckData(deckData.edition, deckData.name, deckData.character);
-
-        newDeckData.abilities = deckData.abilities.map((abilityCard) =>
-          Object.assign(
-            new AbilityCard(),
-            replace.abilities.find((other) => other.cardId === abilityCard.cardId && other.replace) || abilityCard
-          )
-        );
-
-        return newDeckData;
-      });
-  }
-
-  scenarioData(edition: string | undefined = undefined): ScenarioData[] {
-    const edData = edition ? this.editionData.find((ed) => ed.edition === edition) : undefined;
-    return this.editionData
-      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
-      .flatMap((editionData) => editionData.scenarios)
-      .filter(
-        (scenarioData) =>
-          !edition ||
-          scenarioData.edition === edition ||
-          (edData?.type === 'addon' && (edData.extends || []).includes(scenarioData.edition))
-      );
-  }
-
-  sectionData(edition: string | undefined = undefined, extension: boolean = false): ScenarioData[] {
-    return this.editionData
-      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition))
-      .flatMap((editionData) => editionData.sections)
-      .filter((sectionData) => this.isEditionRelevant(sectionData.edition, edition, extension))
-      .map((sectionData) => {
-        if (!settingsManager.settings.fhSecondEdition || sectionData.edition !== 'fh') {
-          return sectionData;
-        } else if (sectionData.index === '6.2') {
-          const section = new ScenarioData(sectionData);
-          section.index = '60.2';
-          return section;
-        } else if (sectionData.index === '60.2') {
-          const section = new ScenarioData(sectionData);
-          section.index = '6.2';
-          return section;
-        }
-        return sectionData;
-      });
-  }
-
-  itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
-    return this.editionData
-      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition, all))
-      .flatMap((editionData) => editionData.items)
-      .filter(
-        (itemData, index, items) =>
-          itemData.replace ||
-          (!itemData.replace &&
-            !items.find(
-              (itemDataReplacement) =>
-                itemDataReplacement.replace && itemDataReplacement.id === itemData.id && itemDataReplacement.edition === itemData.edition
-            ))
-      );
-  }
-
-  challengesData(edition: string | undefined = undefined, all: boolean = false): ChallengeCard[] {
-    return this.editionData
-      .filter((editionData) => this.isEditionRelevant(editionData.edition, edition, all))
-      .flatMap((editionData) => editionData.challenges);
-  }
-
-  conditions(edition: string | undefined = undefined, forceEdition: boolean = false): Condition[] {
-    let conditions: Condition[] = [];
-    let conditionNames: (ConditionName | string)[] = [];
-
-    if (edition) {
-      conditionNames = this.editionData
-        .filter(
-          (editionData) =>
-            this.isEditionRelevant(editionData.edition, edition) && editionData.conditions && editionData.conditions.length > 0
-        )
-        .flatMap((other) => other.conditions);
-
-      if (!forceEdition && this.game.conditions) {
-        conditionNames.push(...this.game.conditions);
-      }
-
-      conditions.push(
-        ...conditionNames.map((value) => {
-          if (value.split(':').length > 1) {
-            return new Condition(value.split(':')[0], +value.split(':')[1]);
-          } else {
-            return new Condition(value);
-          }
-        })
-      );
-    } else {
-      conditions = Conditions.map((c) => new Condition(c.name, c.value));
-    }
-
-    conditions = conditions.filter((condition) => !condition.types.includes(ConditionType.special));
-
-    if (!forceEdition) {
-      this.game.figures
-        .filter(
-          (figure) =>
-            figure instanceof Character &&
-            figure.specialConditions &&
-            figure.specialConditions.length &&
-            !figure.absent &&
-            gameManager.gameplayFigure(figure)
-        )
-        .forEach((figure) => (figure as Character).specialConditions.forEach((name) => conditions.push(new Condition(name))));
-    }
-
-    return conditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
-  }
-
-  figureConditions(figure: Figure, entity: Entity | undefined = undefined): ConditionName[] {
-    const conditions: ConditionName[] = [];
-
-    if (figure instanceof Character) {
-      if (figure.summons) {
-        figure.summons.forEach((summon) => {
-          if (summon.action) {
-            this.actionConditions(summon.action).forEach((condition) => {
-              if (!conditions.find((name) => name === condition)) {
-                conditions.push(condition);
-              }
-            });
-          }
-
-          if (summon.additionalAction) {
-            this.actionConditions(summon.additionalAction).forEach((condition) => {
-              if (!conditions.find((name) => name === condition)) {
-                conditions.push(condition);
-              }
-            });
-          }
-        });
-      }
-    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
-      const stat: MonsterStat = gameManager.monsterManager.getStat(figure, entity.type);
-      const abilityCard: AbilityCard | undefined = gameManager.monsterManager.getAbilityCard(figure);
-      if (abilityCard) {
-        abilityCard.actions.forEach((action) => {
-          this.actionConditions(action, stat).forEach((condition) => {
-            if (!conditions.find((name) => name === condition)) {
-              conditions.push(condition);
-            }
-          });
-        });
-      }
-    }
-
-    return conditions;
-  }
-
-  actionConditions(action: Action, stat: MonsterStat | undefined = undefined): ConditionName[] {
-    const conditions: ConditionName[] = [];
-    if (action.type === ActionType.condition) {
-      conditions.push(action.value as ConditionName);
-    } else if (stat && action.type === ActionType.attack && stat.actions) {
-      stat.actions.forEach((statAction) => {
-        if (statAction.type === ActionType.condition) {
-          conditions.push(statAction.value as ConditionName);
-        }
-      });
-    }
-
-    if (action.subActions) {
-      action.subActions.forEach((subAction) => {
-        conditions.push(...this.actionConditions(subAction, stat));
-      });
-    }
-
-    return conditions;
-  }
-
-  conditionsForTypes(...types: string[]): Condition[] {
-    return this.conditions(this.game.edition).filter((condition) =>
-      types.every((type) => !type || condition.types.includes(type as ConditionType))
-    );
-  }
-
-  allConditionsForTypes(...types: string[]): Condition[] {
-    return this.conditions().filter((condition) => types.every((type) => !type || condition.types.includes(type as ConditionType)));
-  }
-
-  markers(): string[] {
-    return this.game.figures
-      .filter(
-        (figure) =>
-          figure instanceof Character && !figure.absent && (figure.marker || (this.game.state === GameState.next && figure.active))
-      )
-      .map((figure) => figure as Character)
-      .sort((a, b) => {
-        if (a.marker && !b.marker) {
-          return -1;
-        } else if (!a.marker && b.marker) {
-          return 1;
-        }
-
-        return 0;
-      })
-      .map((figure) => (figure as Character).edition + '-' + figure.name);
-  }
-
-  sortFigures(figure: Figure | undefined = undefined) {
-    this.game.figures.sort((a, b) => {
-      if (!settingsManager.settings.sortFigures) {
-        return 0;
-      }
-
-      if (this.game.state === GameState.draw) {
-        return this.sortFiguresByTypeAndName(a, b);
-      } else if (figure && figure !== a && figure !== b) {
-        return 0;
-      } else if (settingsManager.settings.initiativeRequired || a.getInitiative() > 0 || b.getInitiative() > 0) {
-        if (a.getInitiative() <= 0 && b.getInitiative() <= 0) {
-          return 0;
-        }
-
-        const reverse =
-          this.game.activeScenarioRules.some((identifier) => {
-            const rule = this.scenarioRulesManager.getScenarioRule(identifier);
-            return rule?.reverseInitiative;
-          }) ||
-          (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1491, 'fh')); // apply Challenge #1491
-
-        if (a.getInitiative() === b.getInitiative()) {
-          return this.sortFiguresByTypeAndName(a, b, reverse);
-        }
-        if (reverse) {
-          return b.getInitiative() - a.getInitiative();
-        }
-
-        return a.getInitiative() - b.getInitiative();
-      }
-
-      return 0;
-    });
-  }
-
-  sortFiguresByTypeAndName(a: Figure, b: Figure, reverse: boolean = false): number {
-    if (a instanceof Monster && b instanceof Monster && (a.standeeShare === b.name || a.name === b.standeeShare)) {
-      const aE = a.entities.filter((e) => gameManager.entityManager.isAlive(e))[0];
-      const bE = b.entities.filter((e) => gameManager.entityManager.isAlive(e))[0];
-      if (aE && bE) {
-        if (aE.type === bE.type) {
-          return reverse ? bE.number - aE.number : aE.number - bE.number;
-        }
-        return aE.type === MonsterType.elite ? (reverse ? 1 : -1) : reverse ? -1 : 1;
-      }
-    } else if (a.off && !b.off) {
-      return reverse ? -1 : 1;
-    } else if (!a.off && b.off) {
-      return reverse ? 1 : -1;
-    }
-
-    let aName = a.name.toLowerCase();
-    if (a instanceof Character) {
-      aName = gameManager.characterManager.characterName(a).toLowerCase();
-    } else if (a instanceof Monster) {
-      aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-    } else if (a instanceof ObjectiveContainer) {
-      aName = a.title
-        ? a.title
-        : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : a.escort ? 'escort' : 'objective').toLowerCase();
-    }
-
-    let bName = b.name.toLowerCase();
-    if (b instanceof Character) {
-      bName = gameManager.characterManager.characterName(b).toLowerCase();
-    } else if (b instanceof Monster) {
-      bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
-    } else if (b instanceof ObjectiveContainer) {
-      bName = b.title
-        ? b.title
-        : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : b.escort ? 'escort' : 'objective').toLowerCase();
-    }
-    if (a instanceof Character && b instanceof Monster) {
-      return reverse ? 1 : -1;
-    } else if (a instanceof Monster && b instanceof Character) {
-      return reverse ? -1 : 1;
-    } else if (a instanceof Character && b instanceof ObjectiveContainer) {
-      return reverse ? 1 : -1;
-    } else if (a instanceof ObjectiveContainer && b instanceof Character) {
-      return reverse ? -1 : 1;
-    } else if (a instanceof Monster && b instanceof ObjectiveContainer) {
-      return reverse ? 1 : -1;
-    } else if (a instanceof ObjectiveContainer && b instanceof Monster) {
-      return reverse ? -1 : 1;
-    } else if (a instanceof ObjectiveContainer && b instanceof ObjectiveContainer && aName === bName) {
-      if (a.marker && b.marker) {
-        return a.marker < b.marker ? (reverse ? 1 : -1) : reverse ? -1 : 1;
-      } else if (a.marker) {
-        return reverse ? -1 : 1;
-      } else if (b.marker) {
-        return reverse ? 1 : -1;
-      }
-    }
-
-    if (a instanceof Character && b instanceof Character && settingsManager.settings.characterSortIndex) {
-      return reverse ? b.number - a.number : a.number - b.number;
-    }
-
-    return aName < bName ? (reverse ? 1 : -1) : reverse ? -1 : 1;
-  }
-
-  deckData(figure: Monster | Character, ignoreError: boolean = false): DeckData {
-    let deckData: DeckData | undefined;
-
-    // find stat effect deck
-    if (figure instanceof Monster && figure.statEffect && figure.statEffect.deck) {
-      deckData = this.decksData().find(
-        (deck) =>
-          figure instanceof Monster &&
-          figure.statEffect &&
-          figure.statEffect.deck &&
-          figure.statEffect.deck === deck.name &&
-          (deck.edition === figure.edition || this.isEditionRelevant(deck.edition, gameManager.currentEdition()))
-      );
-      if (deckData && figure.abilities.length !== deckData.abilities.length) {
-        figure.abilities = deckData.abilities
-          .filter((abilityCard) => isNaN(+abilityCard.level) || +abilityCard.level <= ((figure && figure.level) || 0))
-          .map((abilityCard) => (deckData ? deckData.abilities.indexOf(abilityCard) : -1));
-        this.randomManager.shuffle(figure.abilities);
-        if (this.game.state === GameState.next) {
-          figure.ability = 0;
-        }
-      }
-    }
-
-    if (!deckData) {
-      deckData = this.decksData(figure.edition).find((deck) => deck.name === figure.deck || deck.name === figure.name);
-    }
-
-    // find extensions decks
-    if (!deckData) {
-      deckData = this.decksData().find(
-        (deck) => (deck.name === figure.deck || deck.name === figure.name) && this.isEditionRelevant(deck.edition, figure.edition)
-      );
-    }
-
-    // find other
-    if (!deckData) {
-      deckData = this.decksData().find(
-        (deck) => (deck.name === figure.deck || deck.name === figure.name) && deck.edition === figure.edition
-      );
-    }
-
-    if (!deckData) {
-      figure.errors = figure.errors || [];
-      if (
-        !ignoreError &&
-        !figure.errors.find((figureError) => figureError.type === FigureErrorType.unknown) &&
-        !figure.errors.find((figureError) => figureError.type === FigureErrorType.deck)
-      ) {
-        console.error('Unknwon deck: ' + figure.name + (figure.deck ? '[' + figure.deck + ']' : '') + ' for ' + figure.edition);
-        figure.errors.push(
-          new FigureError(
-            FigureErrorType.deck,
-            figure instanceof Character ? 'character' : 'monster',
-            figure.name,
-            figure.edition,
-            figure.deck
-          )
-        );
-      }
-      return new DeckData();
-    }
-
-    return deckData;
-  }
-
-  abilityCards(figure: Monster | Character): AbilityCard[] {
-    return this.deckData(figure).abilities || [];
-  }
-
-  hasBottomAbility(abilityCard: AbilityCard | undefined): boolean {
-    return (abilityCard && abilityCard.bottomActions && abilityCard.bottomActions.length > 0) || false;
-  }
-
-  getCharacterData(name: string, edition: string = ''): CharacterData {
-    let characterData = this.charactersData().find((value) => value.name === name && (!edition || value.edition === edition));
-    if (!characterData) {
-      characterData = this.charactersData().find((value) => value.name === name);
-
-      if (!characterData && !edition) {
-        edition = name.split('-')[0];
-        name = name.split('-').slice(1).join('-');
-        characterData = this.charactersData().find((value) => value.name === name && value.edition === edition);
-        while (name && !characterData) {
-          edition = edition + '-' + name.split('-')[0];
-          name = name.split('-').slice(1).join('-');
-          characterData = this.charactersData().find((value) => value.name === name && value.edition === edition);
-        }
-      }
-
-      if (!characterData) {
-        characterData = new CharacterData();
-        characterData.name = name;
-        characterData.edition = edition;
-        characterData.errors = characterData.errors || [];
-        if (!characterData.errors.find((figureError) => figureError.type === FigureErrorType.unknown)) {
-          console.error("unknown character '" + name + "' for edition '" + edition + "'");
-          characterData.errors.push(new FigureError(FigureErrorType.unknown, 'character', name, edition));
-        }
-      }
-      return characterData;
-    }
-    return characterData;
   }
 
   isCharacter(figure: Figure | Entity): boolean {
@@ -807,494 +238,30 @@ export class GameManager {
     return entity as ObjectiveEntity;
   }
 
-  getEdition(figure: Figure, fallback: string = ''): string {
-    const edition = this.currentEdition(fallback);
-    if (figure.edition !== edition && !this.isEditionRelevant(figure.edition, edition)) {
-      return figure.edition;
-    }
-    return '';
-  }
-
-  gameplayFigure(figure: Figure) {
-    return (
-      ((figure instanceof Monster || figure instanceof ObjectiveContainer) && this.entityManager.entitiesAll(figure, true).length > 0) ||
-      (figure instanceof Character && gameManager.entityManager.isAlive(figure))
-    );
-  }
-
-  figuresByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean = false, figures: Figure[] = []): Figure[] {
-    let result: Figure[] = figures;
-
-    if (result.length === 0) {
-      result = this.game.figures;
-    }
-
-    result = result.filter(
-      (figure) =>
-        !(figure instanceof Character) ||
-        (!figure.absent && (!scenarioEffect || !this.characterManager.ignoreNegativeScenarioffects(figure)))
-    );
-
-    if (identifier && identifier.type) {
-      const type = identifier.type;
-      switch (type) {
-        case 'monster':
-          result = result.filter((figure) => figure instanceof Monster);
-          break;
-        case 'character':
-        case 'characterWithSummon':
-          result = result.filter((figure) => figure instanceof Character);
-          break;
-        case 'objective':
-          result = result.filter((figure) => figure instanceof ObjectiveContainer);
-          break;
-        case 'allies':
-          result = result.filter(
-            (figure) =>
-              figure instanceof Character ||
-              (figure instanceof Monster && figure.isAlly) ||
-              (figure instanceof ObjectiveContainer && figure.escort)
-          );
-          break;
-        case 'enemies':
-          result = result.filter(
-            (figure) => (figure instanceof Monster && !figure.isAlly) || (figure instanceof ObjectiveContainer && !figure.escort)
-          );
-          break;
-      }
-
-      if (identifier.edition) {
-        result = result.filter((figure) => figure.edition === identifier.edition);
-      }
-
-      if (identifier.marker) {
-        result = result.filter(
-          (figure) =>
-            (figure instanceof Monster || figure instanceof ObjectiveContainer) &&
-            figure.entities.some((entity) => entity.marker === identifier.marker)
-        );
-      }
-
-      if (identifier.tags && identifier.tags.length > 0) {
-        result = result.filter(
-          (figure) =>
-            ((figure instanceof Monster || figure instanceof ObjectiveContainer) &&
-              figure.entities.some(
-                (entity) => !!identifier.tags && identifier.tags.every((tag) => entity.tags && entity.tags.includes(tag))
-              )) ||
-            (figure instanceof Character && !!identifier.tags && identifier.tags.every((tag) => figure.tags && figure.tags.includes(tag)))
-        );
-      }
-
-      if (identifier.name) {
-        const name = new RegExp('^' + identifier.name + '$');
-        result = result.filter((figure) => figure.name.match(name));
-      }
-    }
-
-    return result;
-  }
-
-  entitiesByIdentifier(identifier: AdditionalIdentifier | undefined, scenarioEffect: boolean): Entity[] {
-    const figures = this.figuresByIdentifier(identifier, scenarioEffect);
-    return figures
-      .map((figure) => {
-        if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
-          return figure.entities;
-        } else if (figure instanceof Character) {
-          if (identifier && (identifier.type === 'characterWithSummon' || identifier.type === 'all' || identifier.type === 'allies')) {
-            return [figure as Entity, ...figure.summons];
-          }
-          return figure as Entity;
-        } else {
-          return undefined;
-        }
-      })
-      .flat()
-      .filter((value) => value !== undefined)
-      .map((value) => value as Entity)
-      .filter(
-        (entity) =>
-          !identifier ||
-          ((!identifier.marker ||
-            (!(entity instanceof MonsterEntity) && !(entity instanceof ObjectiveEntity)) ||
-            entity.marker === identifier.marker) &&
-            (!identifier.tags || identifier.tags.length === 0 || identifier.tags.every((tag) => entity.tags.includes(tag))))
-      );
-  }
-
-  getMonsterData(name: string, edition: string): MonsterData {
-    let monsterData = this.monstersData().find((value) => value.name === name && value.edition === edition);
-    if (!monsterData) {
-      monsterData = this.monstersData().find((value) => value.name === name);
-      if (!monsterData) {
-        monsterData = new MonsterData();
-        monsterData.errors = monsterData.errors || [];
-        monsterData.name = name;
-        monsterData.edition = edition;
-        if (!monsterData.errors.find((figureError) => figureError.type === FigureErrorType.unknown)) {
-          console.error("unknown monster '" + name + "' for edition '" + edition + "'");
-          monsterData.errors.push(new FigureError(FigureErrorType.unknown, 'monster', name, edition));
-        }
-      }
-      return monsterData;
-    }
-
-    return monsterData;
-  }
-
   fhRules(gh2e: boolean = false): boolean {
     return this.editionRules('fh') || (gh2e && this.gh2eRules());
   }
-
   gh2eRules(): boolean {
     return this.editionRules('gh2e');
   }
-
   bbRules(): boolean {
     return this.editionRules('bb');
   }
-
   rpgRules(): boolean {
     return this.editionRules('rpg');
   }
-
   hasCampaignSheet(): boolean {
     return !this.bbRules() && !this.rpgRules();
   }
-
   hasPartySheet(): boolean {
     return this.hasCampaignSheet() && (this.game.party.edition || this.game.edition) !== 'jotl';
   }
-
   matchesEditionRules(data: { editionRules: EditionRules }): boolean {
     const rules: EditionRules = this.bbRules() ? 'bb' : this.rpgRules() ? 'rpg' : undefined;
     return !rules || data.editionRules === rules;
   }
-
   editionRules(edition: string, current: boolean = true): boolean {
-    const currentEdition = current ? this.currentEdition() : this.game.edition;
-    return this.isEditionRelevant(edition, currentEdition);
-  }
-
-  additionalIdentifier(figure: Figure, entity: Entity | undefined = undefined): AdditionalIdentifier {
-    if (figure instanceof Character) {
-      return new AdditionalIdentifier(figure.name, figure.edition, 'character', undefined, figure.tags);
-    } else if (figure instanceof Monster) {
-      if (entity instanceof MonsterEntity) {
-        return new AdditionalIdentifier(figure.name, figure.edition, 'monster', entity.marker, entity.tags);
-      }
-      return new AdditionalIdentifier(figure.name, figure.edition, 'monster', undefined, figure.tags);
-    } else if (figure instanceof ObjectiveContainer) {
-      if (entity instanceof ObjectiveEntity) {
-        return new AdditionalIdentifier(figure.name, figure.escort ? 'escort' : 'objective', 'objective', entity.marker, entity.tags);
-      }
-      return new AdditionalIdentifier(figure.name, figure.escort ? 'escort' : 'objective', 'objective', undefined, []);
-    }
-
-    return new AdditionalIdentifier(figure.name, figure.edition, undefined, undefined, (entity && entity.tags) || []);
-  }
-
-  entityCounter(identifier: AdditionalIdentifier): EntityCounter | undefined {
-    return this.entityCounters(identifier)[0] || undefined;
-  }
-
-  entityCounters(identifier: AdditionalIdentifier): EntityCounter[] {
-    const name = new RegExp('^' + identifier.name + '$');
-    return this.game.entitiesCounter.filter(
-      (entityCounter) =>
-        // match type
-        (!identifier.type || identifier.type === entityCounter.identifier.type) &&
-        // match name
-        entityCounter.identifier.name.match(name) &&
-        // match edition
-        (!identifier.edition || identifier.edition === entityCounter.identifier.edition) &&
-        // match marker
-        (!identifier.marker || identifier.marker === entityCounter.identifier.marker) &&
-        // match tags
-        (!identifier.tags ||
-          identifier.tags.length === 0 ||
-          identifier.tags.every((tag) => entityCounter.identifier.tags && entityCounter.identifier.tags.includes(tag)))
-    );
-  }
-
-  addEntityCount(figure: Figure, entity: Entity | undefined = undefined) {
-    const identifier = this.additionalIdentifier(figure, entity);
-    let counter = this.entityCounter(identifier);
-
-    if (!counter) {
-      counter = { identifier: identifier, total: 0, killed: 0 };
-      this.game.entitiesCounter.push(counter);
-    }
-
-    counter.total++;
-  }
-
-  checkEntitiesKilled() {
-    this.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
-        if (!this.entityCounter(this.additionalIdentifier(figure))) {
-          this.addEntityCount(figure);
-        }
-      } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
-        const uncounted = figure.entities.filter(
-          (entity) => this.entityManager.isAlive(entity) && !this.entityCounter(this.additionalIdentifier(figure, entity))
-        );
-        uncounted.forEach((entity) => this.addEntityCount(figure, entity));
-      }
-    });
-
-    this.game.entitiesCounter.forEach((entityCounter) => {
-      let figures = this.figuresByIdentifier(entityCounter.identifier);
-      if (figures.length === 0 && entityCounter.total > entityCounter.killed) {
-        entityCounter.killed = entityCounter.total;
-      } else {
-        if (figures.every((figure) => figure instanceof Character)) {
-          figures = figures.filter((figure) => figure instanceof Character && this.entityManager.isAlive(figure));
-          if (figures.length + entityCounter.killed < entityCounter.total) {
-            entityCounter.killed = entityCounter.total - figures.length;
-          } else if (figures.length + entityCounter.killed > entityCounter.total) {
-            console.warn(
-              'More killed then figures counted',
-              entityCounter.identifier,
-              'total: ' + entityCounter.total,
-              'killed: ' + entityCounter.killed,
-              'current: ' + figures.length
-            );
-            entityCounter.total = figures.length + entityCounter.killed;
-          }
-        } else if (figures.every((figure) => figure instanceof Monster)) {
-          const count = figures
-            .map((figure) => this.monsterManager.monsterEntityCountIdentifier(figure as Monster, entityCounter.identifier))
-            .reduce((a, b) => a + b);
-          if (count + entityCounter.killed < entityCounter.total) {
-            entityCounter.killed = entityCounter.total - count;
-          } else if (count + entityCounter.killed > entityCounter.total) {
-            console.warn(
-              'More killed then figures counted',
-              entityCounter.identifier,
-              'total: ' + entityCounter.total,
-              'killed: ' + entityCounter.killed,
-              'current: ' + count
-            );
-            entityCounter.total = count + entityCounter.killed;
-          }
-        } else if (figures.every((figure) => figure instanceof ObjectiveContainer)) {
-          const count = figures
-            .map((figure) => this.objectiveManager.objectiveEntityCountIdentifier(figure as ObjectiveContainer, entityCounter.identifier))
-            .reduce((a, b) => a + b);
-          if (count + entityCounter.killed < entityCounter.total) {
-            entityCounter.killed = entityCounter.total - count;
-          } else if (count + entityCounter.killed > entityCounter.total) {
-            console.warn(
-              'More killed then figures counted',
-              entityCounter.identifier,
-              'total: ' + entityCounter.total,
-              'killed: ' + entityCounter.killed,
-              'current: ' + count
-            );
-            entityCounter.total = count + entityCounter.killed;
-          }
-        }
-      }
-    });
-  }
-
-  nextElementState(element: ElementModel, double: boolean = false, draw: boolean = false): ElementState {
-    if (gameManager.bbRules()) {
-      if (element.state !== ElementState.strong) {
-        return ElementState.strong;
-      } else {
-        return ElementState.inert;
-      }
-    }
-
-    if (gameManager.game.state === GameState.draw || draw) {
-      if (element.state === ElementState.new) {
-        if (!double) {
-          return ElementState.strong;
-        }
-      }
-      if (element.state === ElementState.new || element.state === ElementState.strong) {
-        if (!double) {
-          return ElementState.waning;
-        }
-      } else if (element.state === ElementState.waning) {
-        return ElementState.inert;
-      } else {
-        if (double) {
-          return ElementState.waning;
-        } else {
-          return ElementState.new;
-        }
-      }
-    } else {
-      if (element.state === ElementState.new) {
-        if (!double) {
-          return ElementState.strong;
-        }
-      }
-      if (element.state === ElementState.strong) {
-        if (double) {
-          return ElementState.waning;
-        }
-      } else if (element.state === ElementState.waning) {
-        if (double) {
-          return ElementState.new;
-        }
-      } else {
-        if (double) {
-          return ElementState.waning;
-        } else {
-          return ElementState.new;
-        }
-      }
-    }
-
-    return ElementState.inert;
-  }
-
-  applyElementState(element: ElementModel, elementState: ElementState) {
-    element.state = elementState;
-    if (elementState === ElementState.new) {
-      const activeFigure = this.game.figures.find((figure) => figure.active);
-      if (activeFigure instanceof Character) {
-        this.personalQuestManager.trackPersonalQuestProgress(activeFigure, PersonalQuestAutotrackType.element, element.type);
-      }
-    }
-  }
-
-  nextPartyId(): number {
-    let id = 0;
-    while (this.game.parties.some((party) => party.id === id)) {
-      id++;
-    }
-    return id;
-  }
-
-  addParty(name: string = ''): Party {
-    const party = new Party();
-    party.id = this.nextPartyId();
-    party.name = name;
-    this.game.parties.push(party);
-    this.changeParty(party);
-    return party;
-  }
-
-  removeParty(party: Party) {
-    if (this.game.parties.length < 2 || !this.game.parties.includes(party)) {
-      return;
-    }
-    this.game.parties.splice(this.game.parties.indexOf(party), 1);
-    if (this.game.party.id === party.id) {
-      this.changeParty(this.game.parties[0]);
-    }
-  }
-
-  setGameCondition(condition: ConditionName, value: boolean) {
-    this.game.conditions = this.game.conditions.filter((other) => other !== condition);
-    if (value) {
-      this.game.conditions.push(condition);
-    }
-  }
-
-  changeParty(party: Party) {
-    if (!!party.edition) {
-      settingsManager.automaticTheme(party.edition, this.game.edition);
-    }
-
-    this.game.party.characters = this.game.figures
-      .filter((figure) => figure instanceof Character)
-      .map((figure) => (figure as Character).toModel());
-    this.game.party.edition = this.game.edition;
-    this.game.party.conditions = this.game.conditions;
-    this.game.party.battleGoalEditions = this.game.battleGoalEditions;
-    this.game.party.filteredBattleGoals = this.game.filteredBattleGoals;
-    this.game.party.unlockedCharacters = this.game.unlockedCharacters;
-    this.game.party.level = this.game.level;
-    this.game.party.levelCalculation = this.game.levelCalculation;
-    this.game.party.levelAdjustment = this.game.levelAdjustment;
-    this.game.party.bonusAdjustment = this.game.bonusAdjustment;
-    this.game.party.ge5Player = this.game.ge5Player;
-    this.game.party.playerCount = this.game.playerCount;
-    this.game.party.solo = this.game.solo;
-    this.game.party.lootDeckEnhancements = this.game.lootDeckEnhancements;
-    this.game.party.lootDeckFixed = this.game.lootDeckFixed;
-    this.game.party.lootDeckSections = this.game.lootDeckSections;
-
-    this.game.party = party;
-    this.game.edition = this.game.party.edition;
-    this.game.conditions = this.game.party.conditions || [];
-    this.game.battleGoalEditions = this.game.party.battleGoalEditions || [];
-    this.game.filteredBattleGoals = this.game.party.filteredBattleGoals || [];
-    this.game.unlockedCharacters = this.game.party.unlockedCharacters || [];
-    this.game.level = this.game.party.level === 0 ? 0 : this.game.party.level || this.game.level;
-    this.game.levelCalculation =
-      this.game.party.levelCalculation === false ? false : this.game.party.levelCalculation || this.game.levelCalculation;
-    this.game.levelAdjustment = this.game.party.levelAdjustment === 0 ? 0 : this.game.party.levelAdjustment || this.game.levelAdjustment;
-    this.game.bonusAdjustment = this.game.party.bonusAdjustment === 0 ? 0 : this.game.party.bonusAdjustment || this.game.bonusAdjustment;
-    this.game.ge5Player = this.game.party.ge5Player === false ? false : this.game.party.ge5Player || this.game.ge5Player;
-    this.game.playerCount = this.game.party.playerCount || this.game.playerCount;
-    this.game.solo = this.game.party.solo === false ? false : this.game.party.solo || this.game.solo;
-    this.game.lootDeckEnhancements = this.game.party.lootDeckEnhancements || [];
-    this.game.lootDeckFixed = this.game.party.lootDeckFixed || [];
-    this.game.lootDeckSections = this.game.party.lootDeckSections || [];
-
-    this.game.figures = this.game.figures.filter((figure) => !(figure instanceof Character));
-    this.scenarioManager.setScenario(undefined);
-    party.characters.forEach((value) => {
-      const character = new Character(this.getCharacterData(value.name, value.edition), value.level);
-      character.fromModel(value);
-      this.game.figures.push(character);
-    });
-  }
-
-  toggleGameClock() {
-    this.game.gameClock = this.game.gameClock || [];
-    let last: GameClockTimestamp | undefined = this.game.gameClock.length ? this.game.gameClock[0] : undefined;
-    if (last) {
-      if (!last.clockIn) {
-        console.warn('Timestamp with invalid clock:', last);
-        last.clockIn = new Date().getTime();
-      } else if (!last.clockOut) {
-        last.clockOut = new Date().getTime();
-      } else {
-        last = undefined;
-      }
-    }
-
-    if (!last) {
-      this.game.gameClock.unshift(new GameClockTimestamp(new Date().getTime()));
-    }
-    this.stateManager.saveLocal();
-  }
-
-  mergeGameClocks(gameClockA: GameClockTimestamp[], gameClockB: GameClockTimestamp[]): GameClockTimestamp[] {
-    const gameClock: GameClockTimestamp[] = [];
-
-    gameClockA.forEach((value) => {
-      const matchingValue = gameClockB.find(
-        (other) =>
-          other.clockIn <= value.clockIn && ((other.clockOut && value.clockOut && other.clockOut >= value.clockOut) || !other.clockOut)
-      );
-      if (matchingValue) {
-        gameClock.push(matchingValue);
-      } else {
-        gameClock.push(value);
-      }
-    });
-
-    gameClockB.forEach((value) => {
-      if (
-        !gameClock.find(
-          (other) =>
-            other.clockIn <= value.clockIn && ((other.clockOut && value.clockOut && other.clockOut >= value.clockOut) || !other.clockOut)
-        )
-      ) {
-        gameClock.push(value);
-      }
-    });
-
-    return gameClock.sort((a, b) => b.clockIn - a.clockIn);
+    const currentEdition = current ? this.editionManager.currentEdition() : this.game.edition;
+    return this.editionManager.isEditionRelevant(edition, currentEdition);
   }
 }

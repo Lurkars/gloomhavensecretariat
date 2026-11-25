@@ -1,10 +1,10 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager } from 'src/app/game/businesslogic/Managers';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 
 export class DebugManager {
   checkDuplicates() {
     // check for duplicates
-    gameManager.charactersData().forEach((characterData, index, self) => {
+    gameManager.editionManager.charactersData().forEach((characterData, index, self) => {
       if (
         self.find(
           (other) =>
@@ -19,7 +19,7 @@ export class DebugManager {
       }
     });
 
-    gameManager.decksData().forEach((deckData, index, self) => {
+    gameManager.editionManager.decksData().forEach((deckData, index, self) => {
       if (
         self.find(
           (other) => self.indexOf(other) !== self.indexOf(deckData) && deckData.name === other.name && deckData.edition === other.edition
@@ -29,7 +29,7 @@ export class DebugManager {
       }
     });
 
-    gameManager.scenarioData().forEach((scenarioData, index, self) => {
+    gameManager.editionManager.scenarioData().forEach((scenarioData, index, self) => {
       if (
         self.find(
           (other) =>
@@ -43,7 +43,7 @@ export class DebugManager {
       }
     });
 
-    gameManager.sectionData().forEach((sectionData, index, self) => {
+    gameManager.editionManager.sectionData().forEach((sectionData, index, self) => {
       if (
         self.find(
           (other) =>
@@ -57,7 +57,7 @@ export class DebugManager {
       }
     });
 
-    gameManager.itemData().forEach((itemData, index, self) => {
+    gameManager.editionManager.itemData().forEach((itemData, index, self) => {
       if (
         self.find(
           (other) => self.indexOf(other) !== self.indexOf(itemData) && itemData.id === other.id && itemData.edition === other.edition
@@ -67,7 +67,7 @@ export class DebugManager {
       }
     });
 
-    gameManager.monstersData().forEach((monsterData, index, self) => {
+    gameManager.editionManager.monstersData().forEach((monsterData, index, self) => {
       if (
         self.find(
           (other) =>
@@ -88,8 +88,7 @@ export class DebugManager {
           (other, otherIndex) =>
             otherIndex !== index &&
             (other.name === battleGoal.name ||
-              settingsManager.getLabel('data.battleGoals.' + other.cardId) ==
-                settingsManager.getLabel('data.battleGoals.' + battleGoal.cardId))
+              labelManager.getLabel('data.battleGoals.' + other.cardId) == labelManager.getLabel('data.battleGoals.' + battleGoal.cardId))
         );
         if (others.length > 0 && others.find((other) => !other.alias)) {
           console.warn(
@@ -103,15 +102,16 @@ export class DebugManager {
   }
 
   checkScenarioMonster() {
-    gameManager.scenarioData().forEach((scenarioData) => {
+    gameManager.editionManager.scenarioData().forEach((scenarioData) => {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
           if (
-            !gameManager
+            !gameManager.editionManager
               .monstersData()
               .find(
                 (monsterData) =>
-                  gameManager.isEditionRelevant(monsterData.edition, scenarioData.edition) && monsterData.name === name.split(':')[0]
+                  gameManager.editionManager.isEditionRelevant(monsterData.edition, scenarioData.edition) &&
+                  monsterData.name === name.split(':')[0]
               )
           ) {
             console.warn('Invalid monster: ' + name + ' | scenario', scenarioData.edition, scenarioData.group || '', scenarioData.index);
@@ -124,11 +124,11 @@ export class DebugManager {
           if (roomData.monster) {
             roomData.monster.forEach((monsterStandeeData) => {
               if (
-                !gameManager
+                !gameManager.editionManager
                   .monstersData()
                   .find(
                     (monsterData) =>
-                      gameManager.isEditionRelevant(monsterData.edition, scenarioData.edition) &&
+                      gameManager.editionManager.isEditionRelevant(monsterData.edition, scenarioData.edition) &&
                       monsterData.name === monsterStandeeData.name.split(':')[0]
                   )
               ) {
@@ -147,15 +147,16 @@ export class DebugManager {
   }
 
   checkSectionMonster() {
-    gameManager.sectionData().forEach((sectionData) => {
+    gameManager.editionManager.sectionData().forEach((sectionData) => {
       if (sectionData.monsters) {
         sectionData.monsters.forEach((name) => {
           if (
-            !gameManager
+            !gameManager.editionManager
               .monstersData()
               .find(
                 (monsterData) =>
-                  gameManager.isEditionRelevant(monsterData.edition, sectionData.edition) && monsterData.name === name.split(':')[0]
+                  gameManager.editionManager.isEditionRelevant(monsterData.edition, sectionData.edition) &&
+                  monsterData.name === name.split(':')[0]
               )
           ) {
             console.warn('Invalid monster: ' + name + ' | section', sectionData.edition, sectionData.group || '', sectionData.index);
@@ -168,11 +169,11 @@ export class DebugManager {
           if (roomData.monster) {
             roomData.monster.forEach((monsterStandeeData) => {
               if (
-                !gameManager
+                !gameManager.editionManager
                   .monstersData()
                   .find(
                     (monsterData) =>
-                      gameManager.isEditionRelevant(monsterData.edition, sectionData.edition) &&
+                      gameManager.editionManager.isEditionRelevant(monsterData.edition, sectionData.edition) &&
                       monsterData.name === monsterStandeeData.name.split(':')[0]
                   )
               ) {
@@ -191,7 +192,7 @@ export class DebugManager {
   }
 
   checkMissingScenarioMonster() {
-    gameManager.scenarioData().forEach((scenarioData) => {
+    gameManager.editionManager.scenarioData().forEach((scenarioData) => {
       if (scenarioData.rooms) {
         scenarioData.rooms.forEach((roomData) => {
           if (roomData.monster) {
@@ -215,7 +216,7 @@ export class DebugManager {
   }
 
   checkMissingSectionMonster() {
-    gameManager.sectionData().forEach((sectionData) => {
+    gameManager.editionManager.sectionData().forEach((sectionData) => {
       if (sectionData.rooms) {
         sectionData.rooms.forEach((roomData) => {
           if (roomData.monster) {
@@ -239,10 +240,10 @@ export class DebugManager {
   }
 
   checkMonsterUsage() {
-    gameManager.monstersData().forEach((monsterData) => {
+    gameManager.editionManager.monstersData().forEach((monsterData) => {
       let found: boolean = false;
 
-      gameManager.scenarioData().forEach((scenarioData) => {
+      gameManager.editionManager.scenarioData().forEach((scenarioData) => {
         if (scenarioData.monsters && scenarioData.monsters.some((name) => name.split(':')[0] === monsterData.name)) {
           found = true;
         }
@@ -257,7 +258,7 @@ export class DebugManager {
       });
 
       if (!found) {
-        gameManager.sectionData().forEach((sectionData) => {
+        gameManager.editionManager.sectionData().forEach((sectionData) => {
           if (sectionData.monsters && sectionData.monsters.find((name) => name.split(':')[0] === monsterData.name)) {
             found = true;
           }
@@ -279,7 +280,7 @@ export class DebugManager {
   }
 
   checkMonsterBossCount() {
-    gameManager.monstersData().forEach((monsterData) => {
+    gameManager.editionManager.monstersData().forEach((monsterData) => {
       // boss hints
       if (monsterData.boss && EntityValueFunction(monsterData.count) > 1) {
         console.warn('Boss count check: ' + monsterData.name + ' (Edition: ' + monsterData.edition + ')');
@@ -288,7 +289,7 @@ export class DebugManager {
   }
 
   checkCharacterCardIds() {
-    gameManager.decksData().filter((deckData) => {
+    gameManager.editionManager.decksData().filter((deckData) => {
       if (deckData.character) {
         for (let i = 0; i < deckData.abilities.length - 1; i++) {
           const a = deckData.abilities[i];

@@ -19,7 +19,7 @@
     /></a>
     <select [(ngModel)]="itemEdition" (change)="update()">
       <option value="" [selected]="!itemEdition"><span [ghs-label]="'edition.all'"></span></option>
-      @for (edition of gameManager.editions(); track edition) {
+      @for (edition of gameManager.editionManager.editions(); track edition) {
         <option [value]="edition" [selected]="edition === itemEdition">
           <span [ghs-label]="'data.edition.' + edition"></span>
         </option>
@@ -39,7 +39,7 @@
             ><img class="check" src="./assets/images/check.svg" /><img class="close" src="./assets/images/close.svg"
           /></span>
           <span class="text open-item" (click)="openItem(item)" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
-          <span class="count" (click)="incItemCount(item, itemIdentifier[i])">
+          <span class="count" (click)="incItemCount(item)">
             {{ itemIdentifier[i].count > 0 ? itemIdentifier[i].count : '-' }}
           </span>
           @if (!edition() || !itemEdition) {

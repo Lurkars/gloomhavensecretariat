@@ -14,7 +14,7 @@
         <span class="id item-dialog" ghs-pointer-input (singleClick)="openItem(item)">{{ item.id }}.</span>
         <span
           class="name"
-          [ngClass]="{ disabled: gameManager.game.state !== GameState.draw || gameManager.game.round > 0 }"
+          [ngClass]="{ disabled: gameManager.scenarioManager.scenarioRunning() }"
           ghs-pointer-input
           (singleClick)="toggleEquippedItem(item)"
           (doubleClick)="toggleEquippedItem(item, true)"
@@ -81,7 +81,7 @@
         ghs-pointer-input
         (singleClick)="brewDialog()"
         (doubleClick)="brewDialog(true)"
-        [ngClass]="{ disabled: gameManager.itemManager.brewingDisabled() }"
+        [ngClass]="{ disabled: gameManager.itemManager.brewingBlocked() }"
         ><img src="./assets/images/fh/brewing.svg" /><span [ghs-label]="'game.items.brewing'"></span
       ></a>
     }

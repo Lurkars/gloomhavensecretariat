@@ -14,9 +14,12 @@ export class CharacterSheetNotesComponent extends CharacterSheetSection {
   readonly traits = input<boolean>(false);
 
   setNotes(event: any) {
-    if (this.character.progress.notes !== event.target.value) {
+    if (
+      this.character.progress.notes !== event.target.value &&
+      gameManager.characterManager.canSetProgressValue(this.character, 'notes', event.target.value)
+    ) {
       gameManager.stateManager.before('setNotes', this.characterName, event.target.value);
-      this.character.progress.notes = event.target.value;
+      gameManager.characterManager.setProgressValue(this.character, 'notes', event.target.value);
       gameManager.stateManager.after();
     }
   }

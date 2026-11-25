@@ -25,7 +25,7 @@ describe('PartySheetDialogComponent', () => {
     gameManager.game.party.conclusions = [];
     gameManager.game.party.scenarios = [];
     gameManager.game.party.retirements = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
   });
 
   afterEach(() => {

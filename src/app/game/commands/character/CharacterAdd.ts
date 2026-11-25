@@ -11,14 +11,18 @@ export class CharacterAddCommand extends CommandImpl {
       return false;
     }
     return (
-      (edition && name && level && level < 10 && gameManager.charactersData(edition).find((char) => char.name === name) !== undefined) ||
+      (edition &&
+        name &&
+        level &&
+        level < 10 &&
+        gameManager.editionManager.charactersData(edition).find((char) => char.name === name) !== undefined) ||
       false
     );
   }
 
   executeWithParameters(edition: string, name: string, level: number, seed: number) {
     gameManager.game.seed = seed;
-    const characterData = gameManager.charactersData(edition).find((char) => char.name === name);
+    const characterData = gameManager.editionManager.charactersData(edition).find((char) => char.name === name);
     if (characterData) {
       gameManager.characterManager.addCharacter(characterData, level);
     } else {

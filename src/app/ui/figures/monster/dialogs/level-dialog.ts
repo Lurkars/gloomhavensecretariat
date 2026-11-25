@@ -27,7 +27,7 @@ export class MonsterLevelDialogComponent {
   }
 
   getEdition(): string {
-    return gameManager.getEdition(this.monster);
+    return gameManager.editionManager.getEdition(this.monster);
   }
 
   toggleAlly() {

@@ -458,7 +458,7 @@ describe('SpecialActionsManager', () => {
       character.immunities = [ConditionName.poison];
       character.tags = [];
       const specialAction = new CharacterSpecialAction('delayed_malady', 0, false, false, false, false, ['start'] as any, 'roundStart');
-      const addSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
+      const addSpy = vi.spyOn(gameManager.conditionManager, 'addCondition').mockImplementation(() => {});
 
       specialActionsManager.triggerSlotAfter(character, specialAction, false);
 
@@ -626,8 +626,8 @@ describe('SpecialActionsManager', () => {
       character.maxHealth = 10;
       character.health = 10;
       character.specialActions = [];
-      const addSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
-      const applySpy = vi.spyOn(gameManager.entityManager, 'applyCondition').mockImplementation(() => {});
+      const addSpy = vi.spyOn(gameManager.conditionManager, 'addCondition').mockImplementation(() => {});
+      const applySpy = vi.spyOn(gameManager.conditionManager, 'applyCondition').mockImplementation(() => {});
 
       specialActionsManager.addSpecialAction(character, character, 'mech');
 
@@ -675,8 +675,8 @@ describe('SpecialActionsManager', () => {
       summon.entityConditions = [new EntityCondition(ConditionName.poison)];
       character.summons = [summon];
       const changeHealthSpy = vi.spyOn(gameManager.entityManager, 'changeHealth').mockImplementation(() => {});
-      vi.spyOn(gameManager.entityManager, 'isImmune').mockReturnValue(false);
-      const addConditionSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
+      vi.spyOn(gameManager.conditionManager, 'isImmune').mockReturnValue(false);
+      const addConditionSpy = vi.spyOn(gameManager.conditionManager, 'addCondition').mockImplementation(() => {});
 
       specialActionsManager.addSpecialAction(summon, character, 'prism_mode');
 
@@ -716,7 +716,7 @@ describe('SpecialActionsManager', () => {
       specialActionsManager.addSpecialAction(character, character, 'careless-charge');
 
       expect(character.immunities).toContain(ConditionName.curse);
-      gameManager
+      gameManager.conditionManager
         .conditionsForTypes('character', 'negative')
         .forEach((condition) => expect(character.immunities).toContain(condition.name));
     });
@@ -883,8 +883,8 @@ describe('SpecialActionsManager', () => {
     it('turn applies prism repair_mode and spider_mode once per round', () => {
       const character = buildCharacter('prism', 'fh');
       character.tags = ['repair_mode', 'spider_mode'];
-      const addConditionSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
-      vi.spyOn(gameManager.entityManager, 'applyCondition').mockImplementation(() => {});
+      const addConditionSpy = vi.spyOn(gameManager.conditionManager, 'addCondition').mockImplementation(() => {});
+      vi.spyOn(gameManager.conditionManager, 'applyCondition').mockImplementation(() => {});
       character.health = 5;
 
       specialActionsManager.turn(character, character);
@@ -973,7 +973,7 @@ describe('SpecialActionsManager', () => {
       const character = buildCharacter('fist', 'fh');
       character.tags = ['gift-of-the-mountain'];
       character.health = 5;
-      vi.spyOn(gameManager.entityManager, 'applyCondition').mockImplementation(() => {});
+      vi.spyOn(gameManager.conditionManager, 'applyCondition').mockImplementation(() => {});
       specialActionsManager.afterTurn(character);
       expect(character.health).toBe(7);
       expect(character.entityConditions.find((condition) => condition.name === ConditionName.heal)?.value).toBe(2);
@@ -989,7 +989,7 @@ describe('SpecialActionsManager', () => {
       const shards = buildCharacter('shards', 'fh');
       shards.tags = ['resonance_tokens', 'extra_resonance_tokens'];
       shards.tokenValues = [];
-      const addConditionSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
+      const addConditionSpy = vi.spyOn(gameManager.conditionManager, 'addCondition').mockImplementation(() => {});
       specialActionsManager.startScenario(shards);
       expect(shards.tokenValues[0]).toBe(3);
       expect(addConditionSpy).toHaveBeenCalledWith(shards, shards, new Condition(ConditionName.brittle));
@@ -1002,8 +1002,8 @@ describe('SpecialActionsManager', () => {
       const revealed = new MonsterEntity(1, MonsterType.normal, monster);
       const hidden = new MonsterEntity(2, MonsterType.normal, monster);
       monster.entities = [revealed, hidden];
-      vi.spyOn(gameManager.entityManager, 'isImmune').mockReturnValue(false);
-      const addConditionSpy = vi.spyOn(gameManager.entityManager, 'addCondition').mockImplementation(() => {});
+      vi.spyOn(gameManager.conditionManager, 'isImmune').mockReturnValue(false);
+      const addConditionSpy = vi.spyOn(gameManager.conditionManager, 'addCondition').mockImplementation(() => {});
       const originalFigures = gameManager.game.figures;
       try {
         gameManager.game.figures = [character, monster];

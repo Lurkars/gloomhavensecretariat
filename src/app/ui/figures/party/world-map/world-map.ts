@@ -72,9 +72,11 @@ export class WorldMapComponent implements AfterViewInit {
   }
 
   update() {
-    let editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
+    let editionData = gameManager.editionManager.editionData.find((editionData) => editionData.edition === this.edition);
     if (editionData && !editionData.worldMap && editionData.extendWorldMap) {
-      editionData = gameManager.editionData.find((other) => editionData && other.edition === editionData.extendWorldMap && other.worldMap);
+      editionData = gameManager.editionManager.editionData.find(
+        (other) => editionData && other.edition === editionData.extendWorldMap && other.worldMap
+      );
     }
     if (editionData && editionData.worldMap) {
       this.worldMap = editionData.worldMap;
@@ -88,7 +90,7 @@ export class WorldMapComponent implements AfterViewInit {
           );
         }
 
-        gameManager
+        gameManager.editionManager
           .sectionData(this.edition)
           .filter((sectionData) => sectionData.conclusion && sectionData.coordinates && sectionData.unlocks && sectionData.unlocks.length)
           .forEach((sectionData) => {
@@ -99,7 +101,7 @@ export class WorldMapComponent implements AfterViewInit {
               );
             if (visible) {
               sectionData.unlocks.forEach((index) => {
-                const scenarioData = gameManager
+                const scenarioData = gameManager.editionManager
                   .scenarioData(sectionData.edition)
                   .find(
                     (scenarioData) =>
@@ -117,7 +119,7 @@ export class WorldMapComponent implements AfterViewInit {
             }
           });
 
-        this.conclusions = gameManager
+        this.conclusions = gameManager.editionManager
           .sectionData(this.edition)
           .filter(
             (sectionData) =>
@@ -128,7 +130,7 @@ export class WorldMapComponent implements AfterViewInit {
 
         if (this.mapEdition !== this.edition && this.showExtended) {
           this.conclusions.push(
-            ...gameManager
+            ...gameManager.editionManager
               .sectionData(this.mapEdition)
               .filter(
                 (sectionData) =>
@@ -311,7 +313,7 @@ export class WorldMapComponent implements AfterViewInit {
             }
             if (blockedIndices.has(`${scenarioData.edition}:${scenarioData.group ?? ''}:${scenarioData.index}`)) {
               classes.push('blocked');
-            } else if (gameManager.scenarioManager.isLocked(scenarioData)) {
+            } else if (gameManager.scenarioRequirementsManager.isLocked(scenarioData)) {
               classes.push('locked');
             }
             classes.forEach((c) => element.classList.add(c));
@@ -350,7 +352,7 @@ export class WorldMapComponent implements AfterViewInit {
                 const textBeforeOpen = conclusionModel ? conclusionModel.custom || '' : '';
                 let scenarioData: ScenarioData | undefined;
                 if (conclusion.parent) {
-                  scenarioData = gameManager
+                  scenarioData = gameManager.editionManager
                     .scenarioData(conclusion.edition)
                     .find(
                       (scenarioData) =>

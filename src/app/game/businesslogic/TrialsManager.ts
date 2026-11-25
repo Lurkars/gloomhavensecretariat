@@ -3,6 +3,7 @@ import { Character } from 'src/app/game/model/Character';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { Identifier } from 'src/app/game/model/data/Identifier';
+import { Favor } from 'src/app/game/model/data/Trials';
 import { Game } from 'src/app/game/model/Game';
 
 export class TrialsManager {
@@ -43,8 +44,9 @@ export class TrialsManager {
 
   applyTrialCards() {
     if (this.trialsEnabled) {
-      const editionData = gameManager.editionData.find(
-        (editionData) => editionData.edition === gameManager.currentEdition() && editionData.trials && editionData.trials.length
+      const editionData = gameManager.editionManager.editionData.find(
+        (editionData) =>
+          editionData.edition === gameManager.editionManager.currentEdition() && editionData.trials && editionData.trials.length
       );
       this.game.party.trials = this.game.party.trials ?? -1;
       if (editionData) {
@@ -103,9 +105,86 @@ export class TrialsManager {
     });
   }
 
-  applyFavors(favors: Identifier[], favorPoints: number[], availablePoints: number) {
+  favorData(identifier: Identifier): Favor | undefined {
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => editionData.edition === identifier.edition && editionData.favors
+    );
+    return editionData ? editionData.favors.find((favor) => favor.name === identifier.name) : undefined;
+  }
+
+  favorPointsTotal(favorPoints: number[]): number {
+    return favorPoints.reduce((sum, points) => sum + points, 0);
+  }
+
+  favorPointsSpent(favors: Identifier[]): number {
+    return favors.reduce((sum, identifier) => sum + ((this.favorData(identifier) || { points: 0 }).points || 0), 0);
+  }
+
+  favorPointsAvailable(favors: Identifier[], favorPoints: number[]): number {
+    return Math.min(Math.max(this.favorPointsTotal(favorPoints) - this.favorPointsSpent(favors), 0), 7);
+  }
+
+  // favors are chosen before the first round
+  favorsEditable(): boolean {
+    return gameManager.roundManager.firstRound;
+  }
+
+  // -1/-2 monster modifiers not yet turned into favor points
+  favorPointsLeft(favorPoints: number[]): number[] {
+    const left: number[] = this.game.monsterAttackModifierDeck.cards
+      .filter((am) => am.type === AttackModifierType.minus1 || am.type === AttackModifierType.minus2)
+      .map((am) => (am.type === AttackModifierType.minus1 ? 1 : 2));
+    favorPoints.forEach((point) => {
+      const index = left.indexOf(point);
+      if (index !== -1) {
+        left.splice(index, 1);
+      }
+    });
+    return left;
+  }
+
+  canAddFavorPoint(favorPoints: number[], points: number, force: boolean = false): boolean {
+    return (
+      force ||
+      (this.favorsEditable() && this.favorPointsLeft(favorPoints).includes(points) && this.favorPointsTotal(favorPoints) + points <= 7)
+    );
+  }
+
+  canRemoveFavorPoint(favors: Identifier[], favorPoints: number[], index: number, force: boolean = false): boolean {
+    return (
+      index >= 0 &&
+      index < favorPoints.length &&
+      (force || (this.favorsEditable() && this.favorPointsTotal(favorPoints) - favorPoints[index] >= this.favorPointsSpent(favors)))
+    );
+  }
+
+  canSelectFavor(favors: Identifier[], favorPoints: number[], favor: Favor, force: boolean = false): boolean {
+    return force || (this.favorsEditable() && this.favorPointsAvailable(favors, favorPoints) >= favor.points);
+  }
+
+  setKeepFavors(keep: boolean): boolean {
+    if (typeof keep !== 'boolean') {
+      return false;
+    }
+    this.game.keepFavors = keep;
+    return true;
+  }
+
+  canApplyFavors(favors: Identifier[], favorPoints: number[], force: boolean = false): boolean {
+    if (!favors.every((identifier) => !!this.favorData(identifier)) || !favorPoints.every((points) => points === 1 || points === 2)) {
+      return false;
+    }
+    const total = this.favorPointsTotal(favorPoints);
+    return force || (total <= 7 && this.favorPointsSpent(favors) <= total);
+  }
+
+  applyFavors(favors: Identifier[], favorPoints: number[], force: boolean = false): boolean {
+    if (!this.canApplyFavors(favors, favorPoints, force)) {
+      return false;
+    }
     this.game.favors = favors;
-    this.game.favorPoints = this.refundFavorPoints(favorPoints, availablePoints);
+    this.game.favorPoints = this.refundFavorPoints(favorPoints, this.favorPointsAvailable(favors, favorPoints));
+    return true;
   }
 
   refundFavorPoints(favorPoints: number[], availablePoints: number): number[] {
@@ -130,8 +209,9 @@ export class TrialsManager {
   }
 
   trialsEditionData(): EditionData | undefined {
-    return gameManager.editionData.find(
-      (editionData) => editionData.edition === gameManager.currentEdition() && editionData.trials && editionData.trials.length
+    return gameManager.editionManager.editionData.find(
+      (editionData) =>
+        editionData.edition === gameManager.editionManager.currentEdition() && editionData.trials && editionData.trials.length
     );
   }
 
@@ -139,7 +219,9 @@ export class TrialsManager {
     const editionData = this.trialsEditionData();
     return (
       !!editionData &&
-      editionData.trials.some((trialCard) => trialCard.cardId === cardId && trialCard.edition === gameManager.currentEdition())
+      editionData.trials.some(
+        (trialCard) => trialCard.cardId === cardId && trialCard.edition === gameManager.editionManager.currentEdition()
+      )
     );
   }
 
@@ -148,17 +230,26 @@ export class TrialsManager {
       (figure) =>
         figure instanceof Character &&
         figure.progress.trial &&
-        figure.progress.trial.edition === gameManager.currentEdition() &&
+        figure.progress.trial.edition === gameManager.editionManager.currentEdition() &&
         figure.progress.trial.name === '' + cardId
     );
   }
 
-  setTrial(character: Character, cardId: number) {
+  canSetTrial(character: Character, cardId: number): boolean {
+    return (
+      !!this.trialsEditionData() &&
+      this.trialCardExists(cardId) &&
+      !this.trialAssigned(cardId) &&
+      (!character.progress.trial || character.progress.trial.name !== '' + cardId)
+    );
+  }
+
+  setTrial(character: Character, cardId: number): boolean {
     const editionData = this.trialsEditionData();
-    if (!editionData) {
-      return;
+    if (!editionData || !this.canSetTrial(character, cardId)) {
+      return false;
     }
-    character.progress.trial = new Identifier(cardId, gameManager.currentEdition());
+    character.progress.trial = new Identifier(cardId, gameManager.editionManager.currentEdition());
     const currentTrialIndex = Math.max(
       ...this.game.figures
         .filter((figure) => figure instanceof Character)
@@ -175,6 +266,7 @@ export class TrialsManager {
     if (!this.game.party.trials || this.game.party.trials !== currentTrialIndex) {
       this.game.party.trials = currentTrialIndex;
     }
+    return true;
   }
 
   characterTrial(character: Character, cardId: string, edition: string = 'fh'): boolean {

@@ -180,10 +180,10 @@ export class ActionsManager {
         (gameManager.game.state === GameState.next &&
           (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster)))
       ) {
-        let abilityCard = gameManager.monsterManager.getAbilityCard(monster);
-        if (gameManager.monsterManager.hasBottomActions(monster) && monster.firstActiveAction) {
+        let abilityCard = gameManager.monsterAbilityManager.getAbilityCard(monster);
+        if (gameManager.monsterAbilityManager.hasBottomActions(monster) && monster.firstActiveAction) {
           const secondAbilityCard = abilityCard;
-          abilityCard = gameManager.monsterManager.getAbilityCard(monster, true);
+          abilityCard = gameManager.monsterAbilityManager.getAbilityCard(monster, true);
           if (abilityCard) {
             this.calcMonsterActionHint(
               monster,
@@ -362,7 +362,7 @@ export class ActionsManager {
           ) !== undefined
         );
       case ActionType.condition:
-        return !gameManager.entityManager.hasCondition(entity, new Condition('' + action.value));
+        return !gameManager.conditionManager.hasCondition(entity, new Condition('' + action.value));
       case ActionType.switchType:
         return entity instanceof MonsterEntity && (entity.type === MonsterType.elite || entity.type === MonsterType.normal);
       case ActionType.element:
@@ -518,6 +518,152 @@ export class ActionsManager {
     );
   }
 
+  // entities of an active figure with interactive actions, only the first one unless they get combined
+  interactiveEntities(figure: Monster | ObjectiveContainer, actions: Action[], preIndex: string): (MonsterEntity | ObjectiveEntity)[] {
+    if (!settingsManager.settings.interactiveAbilities || !figure.active) {
+      return [];
+    }
+    let entities: (MonsterEntity | ObjectiveEntity)[] = figure.entities.filter(
+      (entity) => this.getInteractiveActions(entity, figure, actions, preIndex).length
+    );
+    if (figure instanceof Monster) {
+      entities = (entities as MonsterEntity[]).sort(gameManager.monsterManager.sortEntities);
+    }
+    return entities.filter((_, index) => settingsManager.settings.combineInteractiveAbilities || index === 0);
+  }
+
+  interactiveActionsOf(entities: Entity[], figure: Figure, actions: Action[], preIndex: string): InteractiveAction[] {
+    const interactiveActions: InteractiveAction[] = [];
+    entities.forEach((entity) => {
+      this.getInteractiveActions(entity, figure, actions, preIndex).forEach((interactiveAction) => {
+        if (!interactiveActions.find((other) => other.index === interactiveAction.index)) {
+          interactiveActions.push(interactiveAction);
+        }
+      });
+    });
+    return interactiveActions;
+  }
+
+  // ward or brittle could change whether entities survive damage when only one of them gets applied automatically
+  interactiveDamageWarning(entities: Entity[], interactiveActions: InteractiveAction[]): boolean {
+    const autoApplied = (name: ConditionName) =>
+      settingsManager.settings.applyConditions &&
+      settingsManager.settings.activeApplyConditions &&
+      settingsManager.settings.activeApplyConditionsAuto.includes(name) &&
+      !settingsManager.settings.activeApplyConditionsExcludes.includes(name);
+    const wardEnabled = autoApplied(ConditionName.ward);
+    const brittleEnabled = autoApplied(ConditionName.brittle);
+    return (
+      !(wardEnabled && brittleEnabled) &&
+      interactiveActions
+        .filter((interactiveAction) => interactiveAction.action.type === ActionType.sufferDamage)
+        .some((interactiveAction) => {
+          const damage = EntityValueFunction(interactiveAction.action.value);
+          const result = (ward: boolean, brittle: boolean) => Math.floor((damage * (brittle ? 2 : 1)) / (ward ? 2 : 1));
+          return entities.some((entity) => {
+            const ward = gameManager.conditionManager.hasCondition(entity, new Condition(ConditionName.ward));
+            const brittle = gameManager.conditionManager.hasCondition(entity, new Condition(ConditionName.brittle));
+            const shouldDie = entity.health - result(ward, brittle) <= 0;
+            const wouldDie = entity.health - result(ward && wardEnabled, brittle && brittleEnabled) <= 0;
+            return shouldDie != wouldDie;
+          });
+        })
+    );
+  }
+
+  // actions selected by default: with a damage warning, actions after the damage are toggled off
+  defaultInteractiveActions(
+    entities: Entity[],
+    interactiveActions: InteractiveAction[]
+  ): { selected: InteractiveAction[]; toggledOff: InteractiveAction[] } {
+    if (this.interactiveDamageWarning(entities, interactiveActions)) {
+      const damageIndex = interactiveActions.findIndex((interactiveAction) => interactiveAction.action.type === ActionType.sufferDamage);
+      if (damageIndex !== -1) {
+        return { selected: interactiveActions.slice(0, damageIndex + 1), toggledOff: interactiveActions.slice(damageIndex + 1) };
+      }
+    }
+    return { selected: interactiveActions, toggledOff: [] };
+  }
+
+  wildElementsToConsume(chosen: string[], chooseAction: InteractiveAction | undefined, interactiveActions: InteractiveAction[]): Element[] {
+    return gameManager.game.elementBoard
+      .filter(
+        (element) =>
+          element.state !== ElementState.inert &&
+          element.state !== ElementState.new &&
+          element.state !== ElementState.consumed &&
+          !chosen.includes(element.type) &&
+          (!chooseAction || !this.getValues(chooseAction.action).includes(element.type)) &&
+          !interactiveActions.find(
+            (interactiveAction) =>
+              interactiveAction.action.type === ActionType.element &&
+              interactiveAction.action.valueType === ActionValueType.minus &&
+              interactiveAction.action.value === element.type
+          )
+      )
+      .map((element) => element.type);
+  }
+
+  wildElementsToCreate(chosen: string[], chooseAction: InteractiveAction | undefined): Element[] {
+    return gameManager.game.elementBoard
+      .filter(
+        (element) =>
+          element.state !== ElementState.new &&
+          element.state !== ElementState.strong &&
+          element.state !== ElementState.always &&
+          !chosen.includes(element.type) &&
+          (!chooseAction || !this.getValues(chooseAction.action).includes(element.type))
+      )
+      .map((element) => element.type);
+  }
+
+  /**
+   * apply interactive actions of the entities one after another, `selected` limits the applied actions (all if undefined).
+   * Actions neither selected nor `toggledOff` get marked as handled for this round.
+   */
+  applyInteractiveActions(
+    figure: Monster | ObjectiveContainer,
+    entities: (MonsterEntity | ObjectiveEntity)[],
+    actions: Action[],
+    preIndex: string,
+    elements: string[] = [],
+    selected: InteractiveAction[] | undefined = undefined,
+    toggledOff: InteractiveAction[] = []
+  ) {
+    let chooseElementValues = [...elements];
+    const isSelected = (interactiveAction: InteractiveAction) =>
+      !selected || selected.some((other) => other.index === interactiveAction.index);
+    entities.forEach((entity) => {
+      const next = () => this.getInteractiveActions(entity, figure, actions, preIndex).filter(isSelected);
+      let interactiveAction: InteractiveAction | undefined = next()[0];
+      while (interactiveAction) {
+        this.applyInteractiveAction(entity, figure, interactiveAction, chooseElementValues);
+        if (interactiveAction.action.type === ActionType.element) {
+          chooseElementValues = [];
+        }
+        const processed: InteractiveAction = interactiveAction;
+        const remaining = next();
+        if (remaining.some((other) => other.index === processed.index)) {
+          console.warn('Interactive Action already processed, should not happen', processed);
+          break;
+        }
+        interactiveAction = remaining[0];
+      }
+
+      if (selected) {
+        this.getInteractiveActions(entity, figure, actions, preIndex)
+          .filter((interactiveAction) => !isSelected(interactiveAction))
+          .filter((interactiveAction) => !toggledOff.some((other) => other.index === interactiveAction.index))
+          .forEach((interactiveAction) => {
+            const tag = this.roundTag(interactiveAction.action, interactiveAction.index);
+            if (!entity.tags.includes(tag)) {
+              entity.tags.push(tag);
+            }
+          });
+      }
+    });
+  }
+
   applyInteractiveAction(
     entity: Entity,
     figure: Figure,
@@ -544,18 +690,18 @@ export class ActionsManager {
         }
         entity.health += heal;
         const healCondition = new EntityCondition(ConditionName.heal, heal);
-        gameManager.entityManager.addCondition(entity, figure, healCondition);
+        gameManager.conditionManager.addCondition(entity, figure, healCondition);
         if (action.subActions) {
           action.subActions
             .filter((subAction) => subAction.type === ActionType.condition)
             .forEach((subAction) => {
-              gameManager.entityManager.addCondition(entity, figure, new Condition('' + subAction.value));
+              gameManager.conditionManager.addCondition(entity, figure, new Condition('' + subAction.value));
             });
         }
-        gameManager.entityManager.applyCondition(entity, figure, healCondition, true);
+        gameManager.conditionManager.applyCondition(entity, figure, healCondition, true);
         break;
       case ActionType.condition:
-        gameManager.entityManager.addCondition(entity, figure, new Condition('' + action.value));
+        gameManager.conditionManager.addCondition(entity, figure, new Condition('' + action.value));
         break;
       case ActionType.damage:
       case ActionType.sufferDamage:
@@ -649,7 +795,7 @@ export class ActionsManager {
                 ? figure.edition
                 : gameManager.game.scenario
                   ? gameManager.game.scenario.edition
-                  : gameManager.currentEdition();
+                  : gameManager.editionManager.currentEdition();
             const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, edition);
             if (monster) {
               const spawnCount: number =
@@ -689,7 +835,7 @@ export class ActionsManager {
                     }
                   }
                   if (spawnEntity.marker || spawnEntity.tags.length > 0) {
-                    gameManager.addEntityCount(monster, spawnEntity);
+                    gameManager.entityCounterManager.addEntityCount(monster, spawnEntity);
                   }
                 }
               }
@@ -703,9 +849,14 @@ export class ActionsManager {
             const objectiveContainer =
               (gameManager.game.figures.find(
                 (f) =>
-                  f instanceof ObjectiveContainer && gameManager.additionalIdentifier(figure).equals(f.objectiveId as AdditionalIdentifier)
+                  f instanceof ObjectiveContainer &&
+                  gameManager.entityManager.additionalIdentifier(figure).equals(f.objectiveId as AdditionalIdentifier)
               ) as ObjectiveContainer) ||
-              gameManager.objectiveManager.addObjective(spawn.objective, spawn.objective.name, gameManager.additionalIdentifier(figure));
+              gameManager.objectiveManager.addObjective(
+                spawn.objective,
+                spawn.objective.name,
+                gameManager.entityManager.additionalIdentifier(figure)
+              );
             if (count > 1) {
               for (let i = 0; i < count; i++) {
                 const spawnEntity = gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
@@ -726,7 +877,7 @@ export class ActionsManager {
                     }
                   }
                   if (spawnEntity.marker || spawnEntity.tags.length > 0) {
-                    gameManager.addEntityCount(objectiveContainer, spawnEntity);
+                    gameManager.entityCounterManager.addEntityCount(objectiveContainer, spawnEntity);
                   }
                 }
               }
@@ -821,6 +972,98 @@ export class ActionsManager {
       action.small,
       action.hidden
     );
+  }
+
+  extraActions(entity: Entity, persistent: boolean = false): Action[] {
+    return persistent ? entity.extraActionsPersistent : entity.extraActions;
+  }
+
+  extraActionIndex(entity: Entity, type: string, value: string | number, persistent: boolean = false): number {
+    return this.extraActions(entity, persistent).findIndex((action) => action.type === type && '' + action.value === '' + value);
+  }
+
+  private setExtraActions(entity: Entity, actions: Action[], persistent: boolean) {
+    if (persistent) {
+      entity.extraActionsPersistent = actions;
+    } else {
+      entity.extraActions = actions;
+    }
+  }
+
+  // extra actions left after removing the one at index
+  extraActionsWithout(entity: Entity, index: number, persistent: boolean = false): Action[] {
+    return this.extraActions(entity, persistent).filter((_, i) => i !== index);
+  }
+
+  canRemoveExtraAction(entity: Entity, index: number, persistent: boolean = false): boolean {
+    return Number.isInteger(index) && index >= 0 && index < this.extraActions(entity, persistent).length;
+  }
+
+  removeExtraAction(entity: Entity, index: number, persistent: boolean = false): boolean {
+    if (!this.canRemoveExtraAction(entity, index, persistent)) {
+      return false;
+    }
+    this.setExtraActions(entity, this.extraActionsWithout(entity, index, persistent), persistent);
+    return true;
+  }
+
+  canResolveExtraAction(entity: Entity, index: number, persistent: boolean = false): boolean {
+    return this.canRemoveExtraAction(entity, index, persistent) && this.extraActions(entity, persistent)[index].type === ActionType.extra;
+  }
+
+  // an accepted extra action is replaced by its sub actions, a declined one is only removed
+  resolveExtraAction(entity: Entity, index: number, accept: boolean, persistent: boolean = false): boolean {
+    if (!this.canResolveExtraAction(entity, index, persistent)) {
+      return false;
+    }
+    const action = this.extraActions(entity, persistent)[index];
+    const actions = this.extraActionsWithout(entity, index, persistent);
+    if (accept && action.subActions) {
+      actions.push(...action.subActions);
+    }
+    this.setExtraActions(entity, actions, persistent);
+    return true;
+  }
+
+  // damage and heal of a trap, shown like extra actions
+  trapActions(summon: Summon): Action[] {
+    const actions: Action[] = [];
+    if (summon.trap) {
+      if (summon.movement) {
+        actions.push(new Action(ActionType.damage, summon.movement));
+      }
+      if (summon.attack) {
+        actions.push(new Action(ActionType.heal, summon.attack));
+      }
+    }
+    return actions;
+  }
+
+  private retaliateRange(action: Action): number {
+    const rangeSubAction = (action.subActions || []).find((subAction) => subAction.type === ActionType.range);
+    const range = rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 1;
+    return range <= 1 ? 1 : range;
+  }
+
+  // extra actions an action hint is built from, retaliates also need the same range
+  private matchesActionHint(action: Action, actionHint: ActionHint): boolean {
+    if (action.type !== actionHint.type) {
+      return false;
+    }
+    return actionHint.type !== ActionType.retaliate || this.retaliateRange(action) === (actionHint.range > 1 ? actionHint.range : 1);
+  }
+
+  canRemoveActionHint(entity: Entity, actionHint: ActionHint): boolean {
+    return [...entity.extraActions, ...entity.extraActionsPersistent].some((action) => this.matchesActionHint(action, actionHint));
+  }
+
+  removeActionHint(entity: Entity, actionHint: ActionHint): boolean {
+    if (!this.canRemoveActionHint(entity, actionHint)) {
+      return false;
+    }
+    entity.extraActions = entity.extraActions.filter((action) => !this.matchesActionHint(action, actionHint));
+    entity.extraActionsPersistent = entity.extraActionsPersistent.filter((action) => !this.matchesActionHint(action, actionHint));
+    return true;
   }
 
   extraActionLabel(action: Action): string {

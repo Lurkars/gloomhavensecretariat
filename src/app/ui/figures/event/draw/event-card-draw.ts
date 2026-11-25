@@ -65,51 +65,43 @@ export class EventCardDrawComponent {
   }
 
   cancel() {
-    if (this.event && gameManager.game.eventDraw) {
+    if (this.event && gameManager.eventCardManager.canCancelEventDraw()) {
       gameManager.stateManager.before('eventDraw.cancel', this.event.edition, this.event.type, this.event.cardId);
-      gameManager.game.eventDraw = undefined;
+      gameManager.eventCardManager.cancelEventDraw();
       gameManager.stateManager.after();
     }
     ghsDialogClosingHelper(this.dialogRef);
   }
 
   accept(apply: boolean = true) {
-    if (this.event && (this.result.selected !== -1 || !apply)) {
+    if (this.event && gameManager.eventCardManager.canAcceptEvent(this.event, this.result.selected, apply)) {
       gameManager.stateManager.before('eventDraw.accept', this.event.edition, this.event.type, this.event.cardId);
-      gameManager.game.eventDraw = undefined;
-      const result = gameManager.eventCardManager.applyEvent(
-        this.event,
-        this.result.selected,
-        this.result.subSelections,
-        this.result.checks,
-        gameManager.game.scenario !== undefined && gameManager.roundManager.firstRound,
-        this.result.attack,
-        apply
-      );
+      const result =
+        gameManager.eventCardManager.acceptEvent(
+          this.event,
+          this.result.selected,
+          this.result.subSelections,
+          this.result.checks,
+          this.result.attack,
+          apply
+        ) || [];
       gameManager.stateManager.after(settingsManager.settings.animations ? 1000 : 250);
       ghsDialogClosingHelper(this.dialogRef, result.length ? result : undefined);
     }
   }
 
   drawNew() {
-    if (this.event) {
+    if (this.event && gameManager.eventCardManager.canDrawNewEvent(this.event.type, this.event.cardId)) {
       const edition = this.event.edition;
       const type = this.event.type;
-      const cardId = this.event.cardId;
       gameManager.stateManager.before('eventDraw.new', this.event.edition, this.event.type, this.event.cardId);
-      gameManager.eventCardManager.removeEvent(type, cardId);
-      const deck = gameManager.game.party.eventDecks[type];
-      if (deck) {
-        this.event = gameManager.eventCardManager.getEventCardForEdition(edition, type, deck[0]);
-        this.resetResult();
-        if (this.event) {
-          this.requirementWarning = false;
-          if (this.event.requirement && this.event.requirement.partyAchievement) {
-            this.requirementWarning = !gameManager.game.party.achievementsList.includes(this.event.requirement.partyAchievement);
-          }
-        }
+      const next = gameManager.eventCardManager.drawNewEvent(type, this.event.cardId);
+      this.event = next ? gameManager.eventCardManager.getEventCardForEdition(edition, type, next) : undefined;
+      this.resetResult();
+      this.requirementWarning = false;
+      if (this.event && this.event.requirement && this.event.requirement.partyAchievement) {
+        this.requirementWarning = !gameManager.game.party.achievementsList.includes(this.event.requirement.partyAchievement);
       }
-      gameManager.eventCardManager.addEvent(type, cardId);
       gameManager.stateManager.after();
     }
   }

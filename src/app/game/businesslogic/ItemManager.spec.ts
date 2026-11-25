@@ -1,6 +1,7 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
+import { GameState } from 'src/app/game/model/Game';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
@@ -34,7 +35,7 @@ describe('ItemManager', () => {
     gameManager.game.party.buildings = [];
     gameManager.game.party.campaignMode = false;
     gameManager.game.edition = undefined;
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = [];
   });
 
@@ -93,14 +94,14 @@ describe('ItemManager', () => {
     it('adds a normal item to the character progress', () => {
       const character = buildCharacter();
       const item = buildItem({ id: 5 });
-      itemManager.addItem(item, character);
+      itemManager.grantItem(item, character);
       expect(character.progress.items).toEqual([{ name: '5', edition: 'gh' } as any]);
     });
 
     it('adds a specialFh item to party.specialItems instead of the character', () => {
       const character = buildCharacter();
       const item = buildItem({ id: 9, specialFh: ['x'] });
-      itemManager.addItem(item, character);
+      itemManager.grantItem(item, character);
       expect(character.progress.items).toEqual([]);
       expect(gameManager.game.party.specialItems.length).toEqual(1);
     });
@@ -108,7 +109,7 @@ describe('ItemManager', () => {
     it('removeItem drops the item and any equipped-item reference', () => {
       const character = buildCharacter();
       const item = buildItem({ id: 5 });
-      itemManager.addItem(item, character);
+      itemManager.grantItem(item, character);
       itemManager.toggleEquippedItem(item, character, true);
       expect(itemManager.isEquipped(item, character)).toBe(true);
 
@@ -121,7 +122,7 @@ describe('ItemManager', () => {
       const character = buildCharacter();
       character.progress.gold = 0;
       const item = buildItem({ id: 5, cost: 10 });
-      itemManager.addItem(item, character);
+      itemManager.grantItem(item, character);
       itemManager.sellItem(item, character);
       expect(character.progress.gold).toEqual(5);
       expect(itemManager.owned(item, character)).toBe(false);
@@ -136,12 +137,103 @@ describe('ItemManager', () => {
     });
   });
 
+  describe('item action checks', () => {
+    beforeEach(() => {
+      gameManager.game.state = GameState.draw;
+      gameManager.game.round = 0;
+    });
+
+    it('adds items only within the available count unless forced, never twice', () => {
+      const character = buildCharacter();
+      gameManager.game.figures = [character];
+      const item = buildItem({ id: 5, count: 0 });
+      expect(itemManager.addItem(item, character)).toBe(false);
+      expect(itemManager.addItem(item, character, true)).toBe(true);
+      expect(itemManager.addItem(item, character, true)).toBe(false);
+      expect(itemManager.addItem(buildItem({ id: 6 }), buildCharacter('spellweaver'), true)).toBe(false);
+    });
+
+    it('buys and crafts only when allowed', () => {
+      const character = buildCharacter();
+      gameManager.game.figures = [character];
+      character.progress.gold = 0;
+      expect(itemManager.buyItem(buildItem({ id: 5, cost: 10, count: 1 }), character)).toBe(false);
+      expect(itemManager.craftItem(buildItem({ id: 6, resources: { [LootType.lumber]: 1 }, count: 1 }), character)).toBe(false);
+      expect(character.progress.items).toEqual([]);
+    });
+
+    it('distills only owned items into one of their resources', () => {
+      const character = buildCharacter();
+      const item = buildItem({ id: 5, resources: { [LootType.axenut]: 1 } });
+      itemManager.grantItem(item, character);
+      gameManager.buildingsManager.distillAvailable = true;
+      expect(itemManager.distillItem(item, character, LootType.lumber)).toBe(false);
+      expect(itemManager.distillItem(item, character, LootType.axenut)).toBe(true);
+      expect(character.progress.loot[LootType.axenut]).toBe(1);
+      expect(itemManager.owned(item, character)).toBe(false);
+      expect(itemManager.distillItem(item, character, LootType.axenut)).toBe(false);
+      gameManager.buildingsManager.distillAvailable = false;
+    });
+
+    it('shares items only with the house rule and to characters without the item', () => {
+      const character = buildCharacter('brute');
+      const target = buildCharacter('spellweaver');
+      gameManager.game.figures = [character, target];
+      const item = buildItem({ id: 5 });
+      itemManager.grantItem(item, character);
+      settingsManager.settings.characterItemsShareHouseRule = false;
+      expect(itemManager.shareItem(item, character, target)).toBe(false);
+      settingsManager.settings.characterItemsShareHouseRule = true;
+      expect(itemManager.canShareItem(item, character, character)).toBe(false);
+      expect(itemManager.shareItem(item, character, target)).toBe(true);
+      expect(itemManager.owned(item, target)).toBe(true);
+      expect(itemManager.shareItem(item, character, target)).toBe(false);
+      settingsManager.settings.characterItemsShareHouseRule = false;
+    });
+
+    it('sells and removes only owned items', () => {
+      const character = buildCharacter();
+      const item = buildItem({ id: 5 });
+      expect(itemManager.removeItem(item, character)).toBe(false);
+      itemManager.grantItem(item, character);
+      expect(itemManager.canSellItem(item, character)).toBe(false);
+      expect(itemManager.removeItem(item, character)).toBe(true);
+    });
+
+    it('equips only during setup unless forced', () => {
+      const character = buildCharacter();
+      const item = buildItem({ id: 5 });
+      expect(itemManager.canToggleEquippedItem(item, character)).toBe(false);
+      itemManager.grantItem(item, character);
+      gameManager.game.state = GameState.next;
+      expect(itemManager.toggleEquippedItem(item, character)).toBe(false);
+      expect(itemManager.toggleEquippedItem(item, character, true)).toBe(true);
+      gameManager.game.state = GameState.draw;
+      expect(itemManager.toggleEquippedItem(item, character)).toBe(true);
+    });
+  });
+
+  describe('brewingBlocked', () => {
+    afterEach(() => {
+      gameManager.game.state = GameState.draw;
+      gameManager.game.round = 0;
+    });
+
+    it('follows brewingDisabled outside a scenario and blocks while a scenario is running', () => {
+      gameManager.game.state = GameState.draw;
+      gameManager.game.round = 0;
+      expect(itemManager.brewingBlocked()).toBe(itemManager.brewingDisabled());
+      gameManager.game.state = GameState.next;
+      expect(itemManager.brewingBlocked()).toBe(true);
+    });
+  });
+
   describe('owned / isEquipped', () => {
     it('owned is true once addItem has been called for that item', () => {
       const character = buildCharacter();
       const item = buildItem({ id: 7 });
       expect(itemManager.owned(item, character)).toBe(false);
-      itemManager.addItem(item, character);
+      itemManager.grantItem(item, character);
       expect(itemManager.owned(item, character)).toBe(true);
     });
   });
@@ -151,8 +243,8 @@ describe('ItemManager', () => {
       const item = buildItem({ id: 5 });
       const characterA = buildCharacter('brute');
       const characterB = buildCharacter('spellweaver');
-      itemManager.addItem(item, characterA);
-      itemManager.addItem(item, characterB);
+      itemManager.grantItem(item, characterA);
+      itemManager.grantItem(item, characterB);
       gameManager.game.figures = [characterA, characterB];
       gameManager.game.party.specialItems = [{ name: '5', edition: 'gh' } as any];
 
@@ -168,7 +260,7 @@ describe('ItemManager', () => {
 
   describe('buying/crafting/brewing gates', () => {
     function enableFh() {
-      gameManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
+      gameManager.editionManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
       settingsManager.settings.editions = ['fh'];
       gameManager.game.edition = 'fh';
       gameManager.game.party.campaignMode = true;
@@ -224,7 +316,7 @@ describe('ItemManager', () => {
     beforeEach(() => {
       gameManager.game.party.unlockedItems = [];
       vi.spyOn(itemManager, 'getItems').mockReturnValue([shopItem, randomItem]);
-      vi.spyOn(gameManager, 'isEditionRelevant').mockReturnValue(true);
+      vi.spyOn(gameManager.editionManager, 'isEditionRelevant').mockReturnValue(true);
     });
 
     afterEach(() => vi.restoreAllMocks());
@@ -275,18 +367,33 @@ describe('ItemManager', () => {
       const payment = itemManager.brewPayment(brewer, [LootType.axenut, LootType.axenut]);
       expect(payment).toEqual({ characterSpent: { [LootType.axenut]: 1 }, partySpent: { [LootType.axenut]: 1 } });
 
-      const addItem = vi.spyOn(itemManager, 'addItem').mockImplementation(() => {});
-      itemManager.brewPotion(mixed, target, brewer, payment.characterSpent, payment.partySpent);
+      gameManager.game.figures = [brewer, target];
+      const recipe = [LootType.axenut, LootType.axenut];
+      expect(itemManager.canBrewPotion(recipe, target, brewer, { [LootType.axenut]: 2 }, {})).toBe(false);
+      expect(itemManager.canBrewPotion(recipe, target, brewer, payment.characterSpent, {})).toBe(false);
+      const grantItem = vi.spyOn(itemManager, 'grantItem').mockImplementation(() => {});
+      expect(itemManager.brewPotion(recipe, target, brewer, payment.characterSpent, payment.partySpent)).toBe(mixed);
       expect(brewer.progress.loot[LootType.axenut]).toBe(0);
       expect(gameManager.game.party.loot[LootType.axenut]).toBe(1);
       expect(itemManager.unlockedItem(mixed)).toBeDefined();
-      expect(addItem).toHaveBeenCalledWith(mixed, target);
+      expect(grantItem).toHaveBeenCalledWith(mixed, target);
+    });
+
+    it('brews without payment only with force and never for an owner of the potion', () => {
+      const target = buildCharacter('tinkerer');
+      gameManager.game.figures = [target];
+      gameManager.game.party.loot = {};
+      const recipe = [LootType.axenut, LootType.arrowvine];
+      expect(itemManager.brewPotion(recipe, target)).toBeUndefined();
+      expect(itemManager.brewPotion(recipe, target, undefined, {}, {}, true)).toBe(healing);
+      expect(itemManager.canBrewPotion(recipe, target, undefined, {}, {}, true)).toBe(false);
+      expect(itemManager.canBrewPotion([LootType.arrowvine], target, undefined, {}, {}, true)).toBe(false);
     });
   });
 
   describe('brewingHerbs', () => {
     function enableFh() {
-      gameManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
+      gameManager.editionManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
       settingsManager.settings.editions = ['fh'];
       gameManager.game.edition = 'fh';
       gameManager.game.party.campaignMode = true;
@@ -356,6 +463,25 @@ describe('ItemManager', () => {
     });
   });
 
+  describe('crafting with a required item to buy', () => {
+    afterEach(() => vi.restoreAllMocks());
+
+    it('allows buying a missing required item and pays its cost', () => {
+      const character = buildCharacter();
+      gameManager.game.figures = [character];
+      character.progress.gold = 10;
+      const required = buildItem({ id: 10, cost: 8, count: 1 });
+      const item = buildItem({ id: 15, requiredItems: [10], count: 1 });
+      vi.spyOn(itemManager, 'getItem').mockImplementation((id) => (+id === 10 ? required : undefined));
+      vi.spyOn(itemManager, 'pricerModifier').mockReturnValue(0);
+      vi.spyOn(itemManager, 'countAvailable').mockReturnValue(1);
+      expect(itemManager.canCraft(item, character)).toBe(true);
+      expect(itemManager.craftItem(item, character)).toBe(true);
+      expect(character.progress.gold).toBe(2);
+      expect(itemManager.owned(item, character)).toBe(true);
+    });
+  });
+
   describe('craftItem / craftItemResources', () => {
     afterEach(() => {
       settingsManager.settings.fhShareResources = false;
@@ -394,7 +520,7 @@ describe('ItemManager', () => {
     function assignPersonalQuest(character: Character, autotrack: string) {
       character.progress.personalQuest = 'PQ1';
       character.progress.personalQuestAutotrack = true;
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [], []), {
           personalQuests: [
             Object.assign(new PersonalQuest(), {
@@ -423,7 +549,7 @@ describe('ItemManager', () => {
       const character = buildCharacter();
       assignPersonalQuest(character, PersonalQuestAutotrackType.gold);
       const item = buildItem({ id: 5, cost: 10 });
-      itemManager.addItem(item, character);
+      itemManager.grantItem(item, character);
 
       itemManager.sellItem(item, character);
 
@@ -439,7 +565,7 @@ describe('ItemManager toggleEquippedItem', () => {
     const potion = Object.assign(new ItemData(), { id: 9001, edition: 'gh', slot: ItemSlot.small, consumed: true });
     const lootItem = Object.assign(new ItemData(), { id: 9002, edition: 'gh', slot: ItemSlot.legs });
     const helmet = Object.assign(new ItemData(), { id: 9003, edition: 'gh', slot: ItemSlot.head });
-    vi.spyOn(gameManager, 'itemData').mockReturnValue([potion, lootItem, helmet]);
+    vi.spyOn(gameManager.editionManager, 'itemData').mockReturnValue([potion, lootItem, helmet]);
     const character = new Character(
       Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
       1
@@ -449,6 +575,9 @@ describe('ItemManager toggleEquippedItem', () => {
       new AdditionalIdentifier(9002, 'gh', undefined, 'loot-random-item')
     ];
 
+    character.progress.items = [new Identifier(9003, 'gh')];
+    gameManager.game.state = GameState.draw;
+    gameManager.game.round = 0;
     gameManager.itemManager.toggleEquippedItem(helmet, character);
 
     const equipped = character.progress.equippedItems;
@@ -528,7 +657,7 @@ describe('ItemManager item flags', () => {
   it('adds and removes ownership when (un)equipping under bb rules', () => {
     vi.spyOn(gameManager, 'bbRules').mockReturnValue(true);
     const item = buildItem({ id: 1, slot: ItemSlot.body });
-    vi.spyOn(gameManager, 'itemData').mockReturnValue([item]);
+    vi.spyOn(gameManager.editionManager, 'itemData').mockReturnValue([item]);
     const character = buildCharacter();
     itemManager.toggleEquippedItemWithOwnership(item, character, true);
     expect(itemManager.owned(item, character)).toBe(true);

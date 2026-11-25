@@ -28,7 +28,13 @@ export class LootDeckMoveCommand extends CommandImpl {
   requiredParameters: number = 3;
 
   validParameters(cardId: number, toList: string, toIndex: number): boolean {
-    return lootCardIndex(cardId) !== -1 && deckTargetValid(toList, toIndex);
+    const deck = gameManager.game.lootDeck;
+    const index = lootCardIndex(cardId);
+    if (index === -1 || !deckTargetValid(toList, toIndex)) {
+      return false;
+    }
+    const position = deckCardList(deck.current, index);
+    return gameManager.lootManager.canMoveCard(deck, position.list, position.index, toList, toIndex);
   }
 
   executeWithParameters(cardId: number, toList: string, toIndex: number) {
@@ -43,7 +49,7 @@ export class LootDeckRemoveCardCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(cardId: number): boolean {
-    return lootCardIndex(cardId) !== -1;
+    return gameManager.lootManager.canRemoveCard(gameManager.game.lootDeck, lootCardIndex(cardId));
   }
 
   executeWithParameters(cardId: number) {

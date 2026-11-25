@@ -3,7 +3,8 @@ import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { LabelManager } from 'src/app/game/businesslogic/LabelManager';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
@@ -37,6 +38,7 @@ export class ScenarioSetupComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  labelManager: LabelManager = labelManager;
 
   monsters: Monster[] = [];
   lootConfig: { type: LootType; value: number }[] = [];
@@ -97,7 +99,7 @@ export class ScenarioSetupComponent implements OnInit {
           this.monsters.push(monster);
         }
       } else {
-        const standee = gameManager
+        const standee = gameManager.editionManager
           .monstersData()
           .find(
             (monsterData) =>
@@ -130,7 +132,7 @@ export class ScenarioSetupComponent implements OnInit {
         ? this.scenario.rules.filter((rule) => rule.statEffects).flatMap((rule) => rule.statEffects)
         : [];
       let statEffectRule: StatEffectRule | undefined = statEffectRules.find(
-        (statEffectRule) => gameManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length
+        (statEffectRule) => gameManager.entityManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length
       );
 
       if (!statEffectRule) {
@@ -138,7 +140,7 @@ export class ScenarioSetupComponent implements OnInit {
           if (!statEffectRule && sectionData.rules) {
             statEffectRules = sectionData.rules.filter((rule) => rule.statEffects).flatMap((rule) => rule.statEffects);
             statEffectRule = statEffectRules.find(
-              (statEffectRule) => gameManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length
+              (statEffectRule) => gameManager.entityManager.figuresByIdentifier(statEffectRule.identifier, false, [monster]).length
             );
           }
         });
@@ -153,16 +155,11 @@ export class ScenarioSetupComponent implements OnInit {
       }
     });
 
-    this.monsters = this.monsters
-      .filter(
-        (monsterData, index, self) =>
-          !self.find((m) => monsterData.standeeShare === m.edition && monsterData.standeeShareEdition === m.name)
-      )
-      .sort((a, b) => {
-        const textA = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-        const textB = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
-        return textA < textB ? -1 : 1;
-      });
+    this.monsters = this.monsters.sort((a, b) => {
+      const textA = labelManager.getLabel('data.monster.' + a.name).toLowerCase();
+      const textB = labelManager.getLabel('data.monster.' + b.name).toLowerCase();
+      return textA < textB ? -1 : 1;
+    });
   }
 
   openStats(monster: Monster) {

@@ -16,9 +16,9 @@ export class PartySheetInspirationComponent extends PartySheetSection {
     }
     const value = Math.max(0, +event.target.value);
     event.target.value = value;
-    if (this.party.inspiration !== value) {
+    if (this.party.inspiration !== value && gameManager.campaignManager.canSetPartyValue('inspiration', value)) {
       gameManager.stateManager.before('setPartyInspiration', this.party.name, value);
-      this.party.inspiration = value;
+      gameManager.campaignManager.setPartyValue('inspiration', value);
       gameManager.stateManager.after();
     }
   }

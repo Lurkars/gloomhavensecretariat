@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findEntity, findFigure } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -26,7 +27,7 @@ export class EntityTitleCommand extends CommandImpl {
   executeWithParameters(figureId: string | number, entityId: string | number, title: string) {
     const titled = this.titled(findFigure(figureId), entityId);
     if (titled) {
-      titled.title = title;
+      gameManager.entityManager.setTitle(titled, title);
     } else {
       this.executionError('entity not found');
     }

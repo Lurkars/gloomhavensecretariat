@@ -1,10 +1,13 @@
-import { commandManager, gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
-import { StateManager } from 'src/app/game/businesslogic/StateManager';
+import { HistoryManager } from 'src/app/game/businesslogic/HistoryManager';
+import { commandManager, gameManager, labelManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
+import { EditionData } from 'src/app/game/model/data/EditionData';
+import { Game, GameModel } from 'src/app/game/model/Game';
 import { effectiveRevision, LogEntry } from 'src/app/game/model/LogEntry';
 import { Permissions } from 'src/app/game/model/Permissions';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
 
 // StateManager backs the game's undo/redo stack, local persistence and websocket sync.
 // These tests focus on the pure bookkeeping logic (before/after pairing, undo/redo stack
@@ -35,8 +38,8 @@ describe('StateManager', () => {
 
     stateManager.undos = [];
     stateManager.redos = [];
-    stateManager.log = [];
-    stateManager.ws = undefined;
+    gameManager.historyManager.log = [];
+    gameManager.serverSyncManager.ws = undefined;
     stateManager.permissions = undefined;
     stateManager.updateBlocked = false;
     stateManager.lastAction = 'update';
@@ -45,34 +48,34 @@ describe('StateManager', () => {
     // Game.fromModel() triggers Party.migrate(), which reads label data that is only
     // populated once game data is loaded in the running app; provide a minimal stub so
     // undo/redo (which round-trip through fromModel) don't throw in this unit test.
-    settingsManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+    labelManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
     document.body.className = '';
-    settingsManager.label = {};
+    labelManager.label = {};
     settingsManager.settings.serverCode = undefined;
     settingsManager.settings.serverSettings = false;
   });
 
   describe('buildWsUrl', () => {
     it('builds a simple url without a path', () => {
-      expect(stateManager.buildWsUrl('ws://', 'example.com', 8080)).toEqual('ws://example.com:8080');
+      expect(gameManager.serverSyncManager.buildWsUrl('ws://', 'example.com', 8080)).toEqual('ws://example.com:8080');
     });
 
     it('builds a url preserving a sub-path', () => {
-      expect(stateManager.buildWsUrl('wss://', 'example.com/ghs', 443)).toEqual('wss://example.com:443/ghs');
+      expect(gameManager.serverSyncManager.buildWsUrl('wss://', 'example.com/ghs', 443)).toEqual('wss://example.com:443/ghs');
     });
 
     it('joins multiple path segments', () => {
-      expect(stateManager.buildWsUrl('ws://', 'example.com/a/b', 80)).toEqual('ws://example.com:80/a/b');
+      expect(gameManager.serverSyncManager.buildWsUrl('ws://', 'example.com/a/b', 80)).toEqual('ws://example.com:80/a/b');
     });
   });
 
   describe('wsState', () => {
     it('returns -99 when server is not configured', () => {
-      expect(stateManager.wsState()).toEqual(-99);
+      expect(gameManager.serverSyncManager.wsState()).toEqual(-99);
     });
   });
 
@@ -94,8 +97,8 @@ describe('StateManager', () => {
     it('pushes a new undo snapshot with the given label', () => {
       stateManager.before('undoLabel', 'arg1', 2);
       expect(stateManager.undos.length).toEqual(1);
-      expect(stateManager.log[stateManager.log.length - 1].info).toEqual(['undoLabel', 'arg1', '2']);
-      expect(stateManager.undoInfo(0)).toEqual(['undoLabel', 'arg1', '2']);
+      expect(gameManager.historyManager.log[gameManager.historyManager.log.length - 1].info).toEqual(['undoLabel', 'arg1', '2']);
+      expect(gameManager.historyManager.undoInfo(0)).toEqual(['undoLabel', 'arg1', '2']);
     });
 
     it('advances a previewed seed inside the new undo step', async () => {
@@ -142,7 +145,7 @@ describe('StateManager', () => {
       stateManager.before('second');
       stateManager.before('third');
       expect(stateManager.undos.length).toEqual(3);
-      expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['first', 'second', 'third']);
+      expect(gameManager.historyManager.log.map((entry) => entry.info[0])).toEqual(['first', 'second', 'third']);
     });
 
     it('caps undo stack length at maxUndo (capped at 50 without a real db)', () => {
@@ -169,8 +172,29 @@ describe('StateManager', () => {
       stateManager.revertLastUndo();
 
       expect(stateManager.undos.length).toEqual(1);
-      expect(stateManager.log.length).toEqual(1);
-      expect(stateManager.log[0].info[0]).toEqual('first');
+      expect(gameManager.historyManager.log.length).toEqual(1);
+      expect(gameManager.historyManager.log[0].info[0]).toEqual('first');
+    });
+
+    it('restores the redo stack and trimmed undos of the reverted step', () => {
+      const originalMaxUndo = settingsManager.settings.maxUndo;
+      settingsManager.settings.maxUndo = 2;
+      try {
+        stateManager.before('a');
+        stateManager.before('b');
+        const undos = [...stateManager.undos];
+        const redo = new Game().toModel();
+        stateManager.redos = [redo];
+
+        stateManager.before('failing');
+        expect(stateManager.redos).toEqual([]);
+        stateManager.revertLastUndo();
+
+        expect(stateManager.undos).toEqual(undos);
+        expect(stateManager.redos).toEqual([redo]);
+      } finally {
+        settingsManager.settings.maxUndo = originalMaxUndo;
+      }
     });
 
     it('removes the working/server-sync classes and triggers a ui change', () => {
@@ -192,8 +216,8 @@ describe('StateManager', () => {
       stateManager.before('b');
       stateManager.clearUndos();
       expect(stateManager.undos.length).toEqual(0);
-      expect(stateManager.log.length).toEqual(2);
-      expect(stateManager.undoInfo(0)).toEqual([]);
+      expect(gameManager.historyManager.log.length).toEqual(2);
+      expect(gameManager.historyManager.undoInfo(0)).toEqual([]);
     });
 
     it('clearRedos empties the redo stack', () => {
@@ -273,34 +297,42 @@ describe('StateManager', () => {
       gameManager.game.revision = 10;
       gameManager.game.revisionOffset = 4;
       await change('a');
-      expect(stateManager.log.length).toBe(1);
-      expect(stateManager.log[0].type).toBe('update');
-      expect(stateManager.log[0].revision).toBe(6);
-      expect(stateManager.log[0].revision).toBe(stateManager.undos[0].revision - stateManager.undos[0].revisionOffset);
-      expect(stateManager.log[0].party).toBe(gameManager.game.party.id);
-      expect(stateManager.log[0].timestamp).toBeGreaterThan(0);
+      expect(gameManager.historyManager.log.length).toBe(1);
+      expect(gameManager.historyManager.log[0].type).toBe('update');
+      expect(gameManager.historyManager.log[0].revision).toBe(6);
+      expect(gameManager.historyManager.log[0].revision).toBe(stateManager.undos[0].revision - stateManager.undos[0].revisionOffset);
+      expect(gameManager.historyManager.log[0].party).toBe(gameManager.game.party.id);
+      expect(gameManager.historyManager.log[0].timestamp).toBeGreaterThan(0);
     });
 
     it('labels undo and redo snapshots from the log while undoing and redoing', async () => {
       await change('a');
       await change('b');
       await change('c');
-      expect([0, 1, 2].map((i) => stateManager.undoInfo(i)[0])).toEqual(['a', 'b', 'c']);
+      expect([0, 1, 2].map((i) => gameManager.historyManager.undoInfo(i)[0])).toEqual(['a', 'b', 'c']);
 
       stateManager.undo();
-      expect(stateManager.undoInfo(1)[0]).toBe('b');
-      expect(stateManager.redoInfo(0)[0]).toBe('c');
-      expect(stateManager.log[stateManager.log.length - 1]).toMatchObject({ type: 'undo', info: ['c'], length: 1 });
+      expect(gameManager.historyManager.undoInfo(1)[0]).toBe('b');
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('c');
+      expect(gameManager.historyManager.log[gameManager.historyManager.log.length - 1]).toMatchObject({
+        type: 'undo',
+        info: ['c'],
+        length: 1
+      });
 
       stateManager.undo();
-      expect(stateManager.undoInfo(0)[0]).toBe('a');
-      expect(stateManager.redoInfo(0)[0]).toBe('b');
-      expect(stateManager.redoInfo(1)[0]).toBe('c');
+      expect(gameManager.historyManager.undoInfo(0)[0]).toBe('a');
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('b');
+      expect(gameManager.historyManager.redoInfo(1)[0]).toBe('c');
 
       stateManager.redo();
-      expect(stateManager.undoInfo(1)[0]).toBe('b');
-      expect(stateManager.redoInfo(0)[0]).toBe('c');
-      expect(stateManager.log[stateManager.log.length - 1]).toMatchObject({ type: 'redo', info: ['b'], length: 1 });
+      expect(gameManager.historyManager.undoInfo(1)[0]).toBe('b');
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('c');
+      expect(gameManager.historyManager.log[gameManager.historyManager.log.length - 1]).toMatchObject({
+        type: 'redo',
+        info: ['b'],
+        length: 1
+      });
       expect(gameManager.game.party.location).toBe('b');
     });
 
@@ -309,8 +341,8 @@ describe('StateManager', () => {
       await change('b');
       stateManager.undo();
       await change('x');
-      expect(stateManager.undoInfo(0)[0]).toBe('a');
-      expect(stateManager.undoInfo(1)[0]).toBe('x');
+      expect(gameManager.historyManager.undoInfo(0)[0]).toBe('a');
+      expect(gameManager.historyManager.undoInfo(1)[0]).toBe('x');
       expect(stateManager.hasRedo()).toBe(false);
     });
 
@@ -319,10 +351,10 @@ describe('StateManager', () => {
       await change('b');
       await change('c');
       stateManager.fixedUndo(3);
-      const entry = stateManager.log[stateManager.log.length - 1];
+      const entry = gameManager.historyManager.log[gameManager.historyManager.log.length - 1];
       expect(entry).toMatchObject({ type: 'undo', info: ['c'], length: 3, revision: 3, target: 0 });
-      expect(stateManager.redoInfo(0)[0]).toBe('a');
-      expect(stateManager.redoInfo(2)[0]).toBe('c');
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('a');
+      expect(gameManager.historyManager.redoInfo(2)[0]).toBe('c');
     });
 
     it('does not link entries of an older game with overlapping revisions to newer snapshots', async () => {
@@ -330,18 +362,18 @@ describe('StateManager', () => {
       // an older revision gets loaded (e.g. another server game)
       gameManager.game.revision = 0;
       await change('new');
-      expect(stateManager.undoInfo(1)[0]).toBe('new');
-      expect(stateManager.undoInfo(0)[0]).toBe('old');
+      expect(gameManager.historyManager.undoInfo(1)[0]).toBe('new');
+      expect(gameManager.historyManager.undoInfo(0)[0]).toBe('old');
     });
 
     it('exposes links from log entries to the snapshots', async () => {
       await change('a');
       await change('b');
       stateManager.undo();
-      const links = stateManager.history().links;
-      expect(links.get(stateManager.log[0])).toEqual({ type: 'undo', index: 0 });
-      expect(links.get(stateManager.log[1])).toEqual({ type: 'redo', index: 0 });
-      expect(links.get(stateManager.log[2])).toBeUndefined();
+      const links = gameManager.historyManager.history().links;
+      expect(links.get(gameManager.historyManager.log[0])).toEqual({ type: 'undo', index: 0 });
+      expect(links.get(gameManager.historyManager.log[1])).toEqual({ type: 'redo', index: 0 });
+      expect(links.get(gameManager.historyManager.log[2])).toBeUndefined();
     });
 
     it('keeps the log when undo snapshots are trimmed and trims the log to maxLog', async () => {
@@ -354,8 +386,8 @@ describe('StateManager', () => {
           await change(label);
         }
         expect(stateManager.undos.length).toBe(2);
-        expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['b', 'c', 'd', 'e']);
-        expect(stateManager.undoInfo(0)[0]).toBe('d');
+        expect(gameManager.historyManager.log.map((entry) => entry.info[0])).toEqual(['b', 'c', 'd', 'e']);
+        expect(gameManager.historyManager.undoInfo(0)[0]).toBe('d');
       } finally {
         settingsManager.settings.maxUndo = maxUndo;
         settingsManager.settings.maxLog = maxLog;
@@ -372,7 +404,7 @@ describe('StateManager', () => {
           await change(label);
         }
         expect(stateManager.undos.length).toBe(1);
-        expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['a', 'b', 'c', 'd']);
+        expect(gameManager.historyManager.log.map((entry) => entry.info[0])).toEqual(['a', 'b', 'c', 'd']);
       } finally {
         settingsManager.settings.maxUndo = maxUndo;
         settingsManager.settings.maxLog = maxLog;
@@ -384,9 +416,9 @@ describe('StateManager', () => {
       settingsManager.settings.maxLog = 0;
       try {
         await change('a');
-        expect(stateManager.log.length).toBe(0);
+        expect(gameManager.historyManager.log.length).toBe(0);
         expect(stateManager.undos.length).toBe(1);
-        expect(stateManager.undoInfo(0)).toEqual([]);
+        expect(gameManager.historyManager.undoInfo(0)).toEqual([]);
       } finally {
         settingsManager.settings.maxLog = maxLog;
       }
@@ -394,7 +426,7 @@ describe('StateManager', () => {
 
     it('sends the info of the matching log entry to the server', async () => {
       const send = vi.fn();
-      stateManager.ws = { readyState: WebSocket.OPEN, send } as any;
+      gameManager.serverSyncManager.ws = { readyState: WebSocket.OPEN, send } as any;
       settingsManager.settings.serverCode = 'code';
       await change('a');
       await change('b');
@@ -409,24 +441,25 @@ describe('StateManager', () => {
       await change('a');
       await change('b');
       const model = stateManager.undos[1];
-      stateManager.onMessage({ data: JSON.stringify({ type: 'game-undo', payload: model, revision: 1, undoinfo: ['b'], undolength: 1 }) });
-      const entry = stateManager.log[stateManager.log.length - 1];
+      gameManager.serverSyncManager.onMessage({
+        data: JSON.stringify({ type: 'game-undo', payload: model, revision: 1, undoinfo: ['b'], undolength: 1 })
+      });
+      const entry = gameManager.historyManager.log[gameManager.historyManager.log.length - 1];
       expect(entry).toMatchObject({ type: 'undo', server: true, info: ['serverSync', 'b'], revision: 2, target: 1 });
-      expect(stateManager.redoInfo(0)[0]).toBe('b');
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('b');
     });
 
     it('displays server infos as a single resolved argument', () => {
-      vi.spyOn(settingsManager, 'getLabel').mockImplementation((key: string, args: string[] = []) => key + ':' + args.join(','));
-      expect(stateManager.displayInfo(new LogEntry('update', 0, ['serverSync', 'setInitiative', 'brute', '50']))).toEqual([
+      vi.spyOn(labelManager, 'getLabel').mockImplementation((key: string, args: string[] = []) => key + ':' + args.join(','));
+      expect(gameManager.historyManager.displayInfo(new LogEntry('update', 0, ['serverSync', 'setInitiative', 'brute', '50']))).toEqual([
         'serverSync',
         'state.info.setInitiative:brute,'
       ]);
-      expect(stateManager.displayInfo(new LogEntry('update', 0, ['serverSync', 'setInitiative', 'brute', '50']), false)).toEqual([
-        'serverSync',
-        'state.info.setInitiative:brute,50'
-      ]);
-      expect(stateManager.displayInfo(new LogEntry('update', 0, ['serverSync']))).toEqual(['serverSync', '']);
-      expect(stateManager.displayInfo(undefined)).toEqual([]);
+      expect(
+        gameManager.historyManager.displayInfo(new LogEntry('update', 0, ['serverSync', 'setInitiative', 'brute', '50']), false)
+      ).toEqual(['serverSync', 'state.info.setInitiative:brute,50']);
+      expect(gameManager.historyManager.displayInfo(new LogEntry('update', 0, ['serverSync']))).toEqual(['serverSync', '']);
+      expect(gameManager.historyManager.displayInfo(undefined)).toEqual([]);
     });
 
     it('clearLog keeps only entries linked to undo/redo snapshots', async () => {
@@ -434,9 +467,9 @@ describe('StateManager', () => {
       await change('b');
       stateManager.undo();
       stateManager.clearUndos();
-      stateManager.clearLog();
-      expect(stateManager.log.map((entry) => entry.info[0])).toEqual(['b']);
-      expect(stateManager.redoInfo(0)[0]).toBe('b');
+      gameManager.historyManager.clearLog();
+      expect(gameManager.historyManager.log.map((entry) => entry.info[0])).toEqual(['b']);
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('b');
     });
 
     it('never trims entries linked to undo/redo snapshots', async () => {
@@ -451,11 +484,11 @@ describe('StateManager', () => {
         // undo/redo entries take log slots as well
         stateManager.undo();
         stateManager.redo();
-        expect(stateManager.log.length).toBe(5);
-        expect([0, 1, 2].map((i) => stateManager.undoInfo(i)[0])).toEqual(['a', 'b', 'c']);
+        expect(gameManager.historyManager.log.length).toBe(5);
+        expect([0, 1, 2].map((i) => gameManager.historyManager.undoInfo(i)[0])).toEqual(['a', 'b', 'c']);
         await change('d');
-        expect(stateManager.undoInfo(0)[0]).toBe('b');
-        expect(stateManager.log[0].info[0]).toBe('b');
+        expect(gameManager.historyManager.undoInfo(0)[0]).toBe('b');
+        expect(gameManager.historyManager.log[0].info[0]).toBe('b');
       } finally {
         settingsManager.settings.maxUndo = maxUndo;
         settingsManager.settings.maxLog = maxLog;
@@ -482,23 +515,24 @@ describe('StateManager', () => {
 
       expect(stateManager.redos.length).toBe(1);
       expect(stateManager.undos.length).toBe(1);
+      expect(stateManager.lastAction).toBe('automatic');
       expect(gameManager.game.revision).toBe(revision + 1);
       expect(gameManager.game.revision - gameManager.game.revisionOffset).toBe(effective);
-      expect(stateManager.log[stateManager.log.length - 1]).toMatchObject({
+      expect(gameManager.historyManager.log[gameManager.historyManager.log.length - 1]).toMatchObject({
         type: 'automatic',
         info: ['gameClock.automaticGameClockOut']
       });
-      expect(stateManager.undoInfo(0)[0]).toBe('a');
-      expect(stateManager.redoInfo(0)[0]).toBe('b');
+      expect(gameManager.historyManager.undoInfo(0)[0]).toBe('a');
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('b');
 
       stateManager.redo();
       expect(gameManager.game.party.location).toBe('b');
-      expect(stateManager.undoInfo(1)[0]).toBe('b');
+      expect(gameManager.historyManager.undoInfo(1)[0]).toBe('b');
     });
 
     it('syncs the change with a higher revision but without undo info', async () => {
       const send = vi.fn();
-      stateManager.ws = { readyState: WebSocket.OPEN, send } as any;
+      gameManager.serverSyncManager.ws = { readyState: WebSocket.OPEN, send } as any;
       settingsManager.settings.serverCode = 'code';
       await change('a');
       stateManager.beforeAutomatic('gameClock.automaticGameClockOut');
@@ -516,7 +550,7 @@ describe('StateManager', () => {
     it('binds undo infos to the revisions of the undo/redo snapshots', () => {
       const undos = [snapshot(1), snapshot(4, 2)];
       const redos = [snapshot(5), snapshot(4)];
-      const log = StateManager.undoInfosToLog([['a'], ['b'], ['c'], ['d']], undos, redos, { revision: 3, revisionOffset: 0 });
+      const log = HistoryManager.undoInfosToLog([['a'], ['b'], ['c'], ['d']], undos, redos, { revision: 3, revisionOffset: 0 });
       expect(log.map((entry) => [entry.revision, entry.info[0]])).toEqual([
         [1, 'a'],
         [2, 'b'],
@@ -528,20 +562,22 @@ describe('StateManager', () => {
       gameManager.game.revision = 3;
       stateManager.undos = undos;
       stateManager.redos = redos;
-      stateManager.log = log;
-      expect(stateManager.undoInfo(0)[0]).toBe('a');
-      expect(stateManager.undoInfo(1)[0]).toBe('b');
-      expect(stateManager.redoInfo(0)[0]).toBe('c');
-      expect(stateManager.redoInfo(1)[0]).toBe('d');
+      gameManager.historyManager.log = log;
+      expect(gameManager.historyManager.undoInfo(0)[0]).toBe('a');
+      expect(gameManager.historyManager.undoInfo(1)[0]).toBe('b');
+      expect(gameManager.historyManager.redoInfo(0)[0]).toBe('c');
+      expect(gameManager.historyManager.redoInfo(1)[0]).toBe('d');
     });
 
     it('handles padded (missing) and surplus infos and marks server infos', () => {
       const undos = [snapshot(1), snapshot(2)];
-      expect(StateManager.undoInfosToLog([['b']], undos, [], { revision: 3, revisionOffset: 0 }).map((e) => [e.revision, e.info])).toEqual([
+      expect(
+        HistoryManager.undoInfosToLog([['b']], undos, [], { revision: 3, revisionOffset: 0 }).map((e) => [e.revision, e.info])
+      ).toEqual([
         [1, []],
         [2, ['b']]
       ]);
-      const log = StateManager.undoInfosToLog([['x'], [], ['serverSync', 'c']], undos, [], { revision: 3, revisionOffset: 0 });
+      const log = HistoryManager.undoInfosToLog([['x'], [], ['serverSync', 'c']], undos, [], { revision: 3, revisionOffset: 0 });
       expect(log.length).toBe(2);
       expect(log[0]).toMatchObject({ revision: 1, info: [] });
       expect(log[1]).toMatchObject({ revision: 2, server: true, info: ['serverSync', 'c'] });
@@ -552,21 +588,21 @@ describe('StateManager', () => {
       vi.spyOn(storageManager, 'readAll').mockImplementation(async (store: string) => (store === 'undo-infos' ? [['a']] : []) as any);
       const clear = vi.spyOn(storageManager, 'clear').mockResolvedValue(undefined);
 
-      await stateManager.migrateUndoInfos();
+      await gameManager.historyManager.migrateUndoInfos();
 
-      expect(stateManager.log.map((entry) => entry.info)).toEqual([['a']]);
-      expect(storageManager.writeArray).toHaveBeenCalledWith('log', stateManager.log);
+      expect(gameManager.historyManager.log.map((entry) => entry.info)).toEqual([['a']]);
+      expect(storageManager.writeArray).toHaveBeenCalledWith('log', gameManager.historyManager.log);
       expect(clear).toHaveBeenCalledWith('undo-infos');
     });
 
     it('keeps an existing log and only drops the undo infos', async () => {
-      stateManager.log = [new LogEntry('update', 0, ['existing'])];
+      gameManager.historyManager.log = [new LogEntry('update', 0, ['existing'])];
       vi.spyOn(storageManager, 'readAll').mockResolvedValue([['a']] as any);
       const clear = vi.spyOn(storageManager, 'clear').mockResolvedValue(undefined);
 
-      await stateManager.migrateUndoInfos();
+      await gameManager.historyManager.migrateUndoInfos();
 
-      expect(stateManager.log.map((entry) => entry.info)).toEqual([['existing']]);
+      expect(gameManager.historyManager.log.map((entry) => entry.info)).toEqual([['existing']]);
       expect(clear).toHaveBeenCalledWith('undo-infos');
     });
   });
@@ -646,45 +682,45 @@ describe('StateManager', () => {
 
   describe('onMessage', () => {
     it('applies an incoming "game" payload, saves locally and clears any prior server error', () => {
-      stateManager.automaticTheme = false; // skip the edition-driven theme-detection branch
-      stateManager.serverError = 'previous error';
+      gameManager.serverSyncManager.automaticTheme = false; // skip the edition-driven theme-detection branch
+      gameManager.serverSyncManager.serverError = 'previous error';
       const model = gameManager.game.toModel();
       model.revision = 5;
 
-      stateManager.onMessage({ data: JSON.stringify({ type: 'game', payload: model }) });
+      gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'game', payload: model }) });
 
       expect(gameManager.game.revision).toBe(5);
-      expect(stateManager.serverError).toBe('');
+      expect(gameManager.serverSyncManager.serverError).toBe('');
       expect(storageManager.writeGameModel).toHaveBeenCalled();
     });
 
     it('catches malformed JSON, logs it and records the raw payload as the server error', () => {
       const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-      stateManager.onMessage({ data: 'not-json' });
+      gameManager.serverSyncManager.onMessage({ data: 'not-json' });
 
       expect(stateManager.errorLog).toContain('not-json');
-      expect(stateManager.serverError).toBe('not-json');
+      expect(gameManager.serverSyncManager.serverError).toBe('not-json');
       expect(errorSpy).toHaveBeenCalled();
     });
 
     it('applies a "permissions" payload and refreshes derived permission state', () => {
       const permissions = new Permissions();
       permissions.characters = true;
-      stateManager.serverError = 'previous error';
+      gameManager.serverSyncManager.serverError = 'previous error';
       const updateSpy = vi.spyOn(stateManager, 'updatePermissions');
 
-      stateManager.onMessage({ data: JSON.stringify({ type: 'permissions', payload: permissions }) });
+      gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'permissions', payload: permissions }) });
 
       expect(stateManager.permissions?.characters).toBe(true);
       expect(updateSpy).toHaveBeenCalled();
-      expect(stateManager.serverError).toBe('');
+      expect(gameManager.serverSyncManager.serverError).toBe('');
     });
 
     it('clears permissions when the "permissions" payload is empty', () => {
       stateManager.permissions = new Permissions();
 
-      stateManager.onMessage({ data: JSON.stringify({ type: 'permissions', payload: undefined }) });
+      gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'permissions', payload: undefined }) });
 
       expect(stateManager.permissions).toBeUndefined();
     });
@@ -694,10 +730,10 @@ describe('StateManager', () => {
       const undoSpy = vi.spyOn(stateManager, 'undo').mockImplementation(() => {});
       vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-      stateManager.onMessage({ data: JSON.stringify({ type: 'error', message: 'Permission(s) missing for X' }) });
+      gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'error', message: 'Permission(s) missing for X' }) });
 
       expect(undoSpy).toHaveBeenCalledWith(false);
-      expect(stateManager.serverError).toContain('Permission(s) missing');
+      expect(gameManager.serverSyncManager.serverError).toContain('Permission(s) missing');
     });
 
     it('redoes instead when a permission error arrives while lastAction is "undo"', () => {
@@ -705,37 +741,37 @@ describe('StateManager', () => {
       const redoSpy = vi.spyOn(stateManager, 'redo').mockImplementation(() => {});
       vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-      stateManager.onMessage({ data: JSON.stringify({ type: 'error', message: 'invalid revision for Y' }) });
+      gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'error', message: 'invalid revision for Y' }) });
 
       expect(redoSpy).toHaveBeenCalledWith(false);
     });
 
     it('requests a game-update via after() on "requestUpdate"', () => {
       const afterSpy = vi.spyOn(stateManager, 'after').mockImplementation(async () => {});
-      stateManager.serverError = 'previous error';
+      gameManager.serverSyncManager.serverError = 'previous error';
 
-      stateManager.onMessage({ data: JSON.stringify({ type: 'requestUpdate' }) });
+      gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'requestUpdate' }) });
 
       expect(afterSpy).toHaveBeenCalledWith(1, false, 0, 'game-update');
-      expect(stateManager.serverError).toBe('');
+      expect(gameManager.serverSyncManager.serverError).toBe('');
     });
 
     it('triggers a ui change for an unrecognized message type', () => {
-      stateManager.onMessage({ data: JSON.stringify({ type: 'something-unknown' }) });
+      gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'something-unknown' }) });
 
       expect(gameManager.triggerUiChange).toHaveBeenCalledWith(false);
     });
 
     it('does not throw for a "ping" message', () => {
       vi.spyOn(console, 'debug').mockImplementation(() => {});
-      expect(() => stateManager.onMessage({ data: JSON.stringify({ type: 'ping' }) })).not.toThrow();
+      expect(() => gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'ping' }) })).not.toThrow();
     });
 
     it('executes a remote command when the game is server-authoritative', () => {
       gameManager.game.server = true;
       const executeSpy = vi.spyOn(commandManager, 'execute').mockImplementation(() => {});
 
-      stateManager.onMessage({
+      gameManager.serverSyncManager.onMessage({
         data: JSON.stringify({ type: 'remoteCommand', payload: { id: 'round.state', parameters: [] } })
       });
 
@@ -746,7 +782,7 @@ describe('StateManager', () => {
       gameManager.game.server = false;
       const executeSpy = vi.spyOn(commandManager, 'execute').mockImplementation(() => {});
 
-      stateManager.onMessage({
+      gameManager.serverSyncManager.onMessage({
         data: JSON.stringify({ type: 'remoteCommand', payload: { id: 'round.state', parameters: [], force: false } })
       });
 
@@ -757,11 +793,11 @@ describe('StateManager', () => {
   describe('disconnect', () => {
     it('closes an open websocket and clears permissions', () => {
       const close = vi.fn();
-      stateManager.ws = { readyState: WebSocket.OPEN, close } as any;
+      gameManager.serverSyncManager.ws = { readyState: WebSocket.OPEN, close } as any;
       stateManager.permissions = new Permissions();
       const updateSpy = vi.spyOn(stateManager, 'updatePermissions');
 
-      stateManager.disconnect();
+      gameManager.serverSyncManager.disconnect();
 
       expect(close).toHaveBeenCalled();
       expect(stateManager.permissions).toBeUndefined();
@@ -770,16 +806,16 @@ describe('StateManager', () => {
 
     it('does not attempt to close an already-closed websocket', () => {
       const close = vi.fn();
-      stateManager.ws = { readyState: WebSocket.CLOSED, close } as any;
+      gameManager.serverSyncManager.ws = { readyState: WebSocket.CLOSED, close } as any;
 
-      stateManager.disconnect();
+      gameManager.serverSyncManager.disconnect();
 
       expect(close).not.toHaveBeenCalled();
     });
 
     it('is a no-op (no throw) when there is no websocket at all', () => {
-      stateManager.ws = undefined;
-      expect(() => stateManager.disconnect()).not.toThrow();
+      gameManager.serverSyncManager.ws = undefined;
+      expect(() => gameManager.serverSyncManager.disconnect()).not.toThrow();
     });
   });
 
@@ -787,18 +823,18 @@ describe('StateManager', () => {
     it('resets connection bookkeeping, restores the backed-up permissions and requests the game state', () => {
       settingsManager.settings.serverCode = 'code1';
       settingsManager.settings.serverSettings = false;
-      stateManager.connectionTries = 3;
+      gameManager.serverSyncManager.connectionTries = 3;
       stateManager.updateBlocked = true;
-      stateManager.permissionBackup = new Permissions();
+      gameManager.serverSyncManager.permissionBackup = new Permissions();
       const send = vi.fn();
       const ws = { readyState: WebSocket.OPEN, send } as any;
       const updateSpy = vi.spyOn(stateManager, 'updatePermissions');
 
-      stateManager.onOpen({ target: ws } as any);
+      gameManager.serverSyncManager.onOpen({ target: ws } as any);
 
-      expect(stateManager.connectionTries).toBe(0);
+      expect(gameManager.serverSyncManager.connectionTries).toBe(0);
       expect(stateManager.updateBlocked).toBe(false);
-      expect(stateManager.permissions).toBe(stateManager.permissionBackup);
+      expect(stateManager.permissions).toBe(gameManager.serverSyncManager.permissionBackup);
       expect(send).toHaveBeenCalledTimes(1);
       const sentMessage = JSON.parse(send.mock.calls[0][0]);
       expect(sentMessage.type).toBe('request-game');
@@ -812,7 +848,7 @@ describe('StateManager', () => {
       const send = vi.fn();
       const ws = { readyState: WebSocket.OPEN, send } as any;
 
-      stateManager.onOpen({ target: ws } as any);
+      gameManager.serverSyncManager.onOpen({ target: ws } as any);
 
       expect(send).toHaveBeenCalledTimes(2);
       const secondMessage = JSON.parse(send.mock.calls[1][0]);
@@ -824,7 +860,7 @@ describe('StateManager', () => {
       const send = vi.fn();
       const ws = { readyState: WebSocket.CONNECTING, send } as any;
 
-      stateManager.onOpen({ target: ws } as any);
+      gameManager.serverSyncManager.onOpen({ target: ws } as any);
 
       expect(send).not.toHaveBeenCalled();
     });
@@ -834,14 +870,14 @@ describe('StateManager', () => {
     it('onClose marks the game as disconnected and resets permissions', () => {
       gameManager.game.server = true;
       stateManager.updateBlocked = false;
-      stateManager.serverVersion = '1.2.3';
+      gameManager.serverSyncManager.serverVersion = '1.2.3';
       const updateSpy = vi.spyOn(stateManager, 'updatePermissions');
 
-      stateManager.onClose({} as any);
+      gameManager.serverSyncManager.onClose({} as any);
 
       expect(gameManager.game.server).toBe(false);
       expect(stateManager.updateBlocked).toBe(true);
-      expect(stateManager.serverVersion).toBe('');
+      expect(gameManager.serverSyncManager.serverVersion).toBe('');
       expect(stateManager.permissions).toEqual(new Permissions());
       expect(updateSpy).toHaveBeenCalled();
       expect(gameManager.triggerUiChange).toHaveBeenCalledWith(false);
@@ -851,7 +887,7 @@ describe('StateManager', () => {
       gameManager.game.server = true;
       stateManager.updateBlocked = false;
 
-      stateManager.onError({} as any);
+      gameManager.serverSyncManager.onError({} as any);
 
       expect(gameManager.game.server).toBe(false);
       expect(stateManager.updateBlocked).toBe(true);
@@ -871,13 +907,13 @@ describe('StateManager revertLastUndo', () => {
     gameManager.game.figures = [];
     stateManager.undos = [];
     stateManager.redos = [];
-    stateManager.log = [];
-    settingsManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+    gameManager.historyManager.log = [];
+    labelManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
-    settingsManager.label = {};
+    labelManager.label = {};
   });
 
   it('restores the game from the discarded snapshot', () => {
@@ -914,11 +950,11 @@ describe('StateManager server error regressions', () => {
     animationSpeed = settingsManager.settings.animationSpeed;
     autoBackup = settingsManager.settings.autoBackup;
     settingsManager.settings.autoBackup = 0;
-    settingsManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+    labelManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
     stateManager.undos = [];
     stateManager.redos = [];
-    stateManager.log = [];
-    stateManager.ws = undefined;
+    gameManager.historyManager.log = [];
+    gameManager.serverSyncManager.ws = undefined;
     stateManager.permissions = undefined;
     stateManager.lastAction = 'update';
     gameManager.game.revision = 0;
@@ -933,7 +969,7 @@ describe('StateManager server error regressions', () => {
     settingsManager.settings.animations = animations;
     settingsManager.settings.animationSpeed = animationSpeed;
     settingsManager.settings.autoBackup = autoBackup;
-    settingsManager.label = {};
+    labelManager.label = {};
     document.body.className = '';
     gameManager.game.figures = [];
   });
@@ -948,7 +984,7 @@ describe('StateManager server error regressions', () => {
   }
 
   function permissionError() {
-    stateManager.onMessage({ data: JSON.stringify({ type: 'error', message: 'Permission(s) missing' }) });
+    gameManager.serverSyncManager.onMessage({ data: JSON.stringify({ type: 'error', message: 'Permission(s) missing' }) });
   }
 
   it('reverts a rejected redo by undoing it', async () => {
@@ -1042,6 +1078,26 @@ describe('StateManager saveStorage regressions', () => {
     expect(stateManager.storageBlocked).toBe(false);
   });
 
+  it('stops a running save once storage gets blocked and keeps the block', async () => {
+    let release: () => void = () => {};
+    const stores: string[] = [];
+    vi.spyOn(storageManager, 'writeArray').mockImplementation(async (store: string) => {
+      stores.push(store);
+      if (stores.length === 1) {
+        await new Promise<void>((resolve) => (release = resolve));
+      }
+    });
+
+    const running = stateManager.saveStorage();
+    await stateManager.saveStorage();
+    stateManager.storageBlocked = true;
+    release();
+    await running;
+
+    expect(stores).toEqual(['undo']);
+    expect(stateManager.storageBlocked).toBe(true);
+  });
+
   it('does not save while storage is blocked on purpose', async () => {
     const write = vi.spyOn(storageManager, 'writeArray').mockResolvedValue(undefined);
     stateManager.storageBlocked = true;
@@ -1049,5 +1105,134 @@ describe('StateManager saveStorage regressions', () => {
     await stateManager.saveStorage();
 
     expect(write).not.toHaveBeenCalled();
+  });
+});
+
+describe('StateManager missing edition data', () => {
+  const stateManager = gameManager.stateManager;
+  let editionData: EditionData[];
+
+  function storedModel(): GameModel {
+    const model = new Game().toModel();
+    model.edition = 'gh';
+    model.scenario = new GameScenarioModel('20', 'fh', undefined, false, '', [1]);
+    return model;
+  }
+
+  beforeEach(() => {
+    editionData = gameManager.editionManager.editionData;
+    gameManager.editionManager.editionData = [
+      Object.assign(new EditionData('gh', [], [], [], [], [], []), { url: './assets/data/gh.json' })
+    ];
+    gameManager.editionManager.failedEditionDataUrls = ['./assets/data/fh.json'];
+    vi.spyOn(storageManager, 'readAll').mockResolvedValue([]);
+    vi.spyOn(gameManager, 'triggerUiChange').mockImplementation(() => undefined);
+    labelManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+    gameManager.game.scenario = undefined;
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    gameManager.editionManager.editionData = editionData;
+    gameManager.editionManager.failedEditionDataUrls = [];
+    labelManager.label = {};
+    settingsManager.settings.serverUrl = undefined;
+    settingsManager.settings.serverPort = undefined;
+    settingsManager.settings.serverCode = undefined;
+    stateManager.missingEditions = [];
+    gameManager.game.scenario = undefined;
+    gameManager.randomManager.previewOutsideChanges = false;
+  });
+
+  it('only reports editions of the game whose data failed to load', () => {
+    const model = storedModel();
+    model.sections = [new GameScenarioModel('20.1', 'fh', undefined, false, '', [])];
+    expect(stateManager.missingEditionData(model)).toEqual(['fh']);
+    gameManager.editionManager.failedEditionDataUrls = [];
+    expect(stateManager.missingEditionData(model)).toEqual([]);
+  });
+
+  it('holds back the stored game without saving or connecting until loading anyway', async () => {
+    vi.spyOn(storageManager, 'readGameModel').mockResolvedValue(storedModel());
+    const writeGame = vi.spyOn(storageManager, 'writeGameModel').mockResolvedValue(undefined);
+    const writeArray = vi.spyOn(storageManager, 'writeArray').mockResolvedValue(undefined);
+    const connect = vi.spyOn(gameManager.serverSyncManager, 'connect').mockImplementation(() => undefined);
+    settingsManager.settings.serverUrl = 'localhost';
+    settingsManager.settings.serverPort = 8080;
+    settingsManager.settings.serverCode = 'code';
+    settingsManager.settings.serverAutoconnect = true;
+
+    await stateManager.init();
+    expect(stateManager.missingEditions).toEqual(['fh']);
+    expect(gameManager.game.scenario).toBeUndefined();
+    expect(connect).not.toHaveBeenCalled();
+
+    stateManager.saveLocal();
+    await stateManager.saveStorage();
+    expect(writeGame).not.toHaveBeenCalled();
+    expect(writeArray).not.toHaveBeenCalled();
+
+    stateManager.loadWithMissingEditions();
+    expect(stateManager.missingEditions).toEqual([]);
+    expect(gameManager.game.scenario?.index).toBe('20');
+    expect(connect).toHaveBeenCalled();
+  });
+
+  it('loads the stored game when no edition data failed to load', async () => {
+    gameManager.editionManager.failedEditionDataUrls = [];
+    vi.spyOn(storageManager, 'readGameModel').mockResolvedValue(storedModel());
+
+    await stateManager.init();
+    expect(stateManager.missingEditions).toEqual([]);
+    expect(gameManager.game.scenario?.index).toBe('20');
+  });
+});
+
+describe('StateManager reset and server handlers', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+    settingsManager.settings.serverUrl = undefined;
+    settingsManager.settings.serverPort = undefined;
+    settingsManager.settings.serverCode = undefined;
+    gameManager.serverSyncManager.ws = undefined;
+  });
+
+  it('resets the shared game in place', () => {
+    vi.spyOn(storageManager, 'addBackup').mockImplementation(() => undefined as any);
+    vi.spyOn(storageManager, 'clear').mockResolvedValue(undefined as any);
+    const game = gameManager.game;
+    game.revision = 7;
+    game.round = 3;
+    game.playSeconds = 100;
+    gameManager.stateManager.reset();
+    expect(gameManager.stateManager.game).toBe(game);
+    expect(gameManager.scenarioManager.game).toBe(game);
+    expect(game.revision).toBe(7);
+    expect(game.round).toBe(0);
+    expect(game.playSeconds).toBe(0);
+  });
+
+  it('calls the websocket handlers on the manager', () => {
+    const sockets: any[] = [];
+    vi.stubGlobal(
+      'WebSocket',
+      Object.assign(
+        function (this: any) {
+          sockets.push(this);
+        },
+        { OPEN: 1, CLOSED: 3 }
+      )
+    );
+    settingsManager.settings.serverUrl = 'localhost';
+    settingsManager.settings.serverPort = 8080;
+    settingsManager.settings.serverCode = 'code';
+    const manager = gameManager.serverSyncManager;
+    manager.connect();
+    const onMessage = vi.spyOn(manager, 'onMessage').mockImplementation(function (this: any) {
+      expect(this).toBe(manager);
+    });
+    sockets[0].onmessage({ data: '{}' });
+    expect(onMessage).toHaveBeenCalled();
   });
 });

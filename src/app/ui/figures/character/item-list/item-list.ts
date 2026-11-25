@@ -8,7 +8,6 @@ import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemFlags, ItemSlot } from 'src/app/game/model/data/ItemData';
-import { GameState } from 'src/app/game/model/Game';
 import { CharacterItemComponent } from 'src/app/ui/figures/items/character/item-character';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
 import { ItemsDialogComponent } from 'src/app/ui/figures/items/dialog/items-dialog';
@@ -37,7 +36,6 @@ export class CharacterItemListComponent implements OnInit {
   setup: boolean = false;
   items: ItemData[] = [];
   ItemFlags = ItemFlags;
-  GameState = GameState;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.update());
@@ -48,7 +46,7 @@ export class CharacterItemListComponent implements OnInit {
   }
 
   update() {
-    this.setup = gameManager.game.state === GameState.draw && gameManager.roundManager.firstRound;
+    this.setup = !gameManager.scenarioManager.scenarioRunning();
     this.items = (
       gameManager.bbRules()
         ? gameManager.itemManager.getItems('bb')
@@ -147,7 +145,7 @@ export class CharacterItemListComponent implements OnInit {
   openShop() {
     this.dialog.open(ItemsDialogComponent, {
       panelClass: ['dialog'],
-      data: { edition: gameManager.game.edition, select: this.character, affordable: true }
+      data: { edition: gameManager.game.edition, select: this.character, affordable: true, owned: false }
     });
   }
 

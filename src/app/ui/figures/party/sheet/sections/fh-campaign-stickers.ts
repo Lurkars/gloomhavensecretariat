@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager } from 'src/app/game/businesslogic/Managers';
 import { PartySheetSection } from 'src/app/ui/figures/party/sheet/section';
 import { AutocompleteDirective, AutocompleteItem } from 'src/app/ui/helper/autocomplete';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -17,8 +17,15 @@ export class PartySheetFhCampaignStickersComponent extends PartySheetSection {
 
   override update(): void {
     this.campaignStickers = [];
-    const editionData = gameManager.editionData.find((editionData) => this.edition() && editionData.edition === this.edition());
-    [editionData, ...(editionData?.extends || []).map((extension) => gameManager.editionData.find((other) => other.edition === extension))]
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => this.edition() && editionData.edition === this.edition()
+    );
+    [
+      editionData,
+      ...(editionData?.extends || []).map((extension) =>
+        gameManager.editionManager.editionData.find((other) => other.edition === extension)
+      )
+    ]
       .filter((data) => !!data)
       .forEach((data) => {
         if (data.campaign && data.campaign.campaignStickers) {
@@ -26,7 +33,7 @@ export class PartySheetFhCampaignStickersComponent extends PartySheetSection {
             ...data.campaign.campaignStickers.map((sticker) => {
               sticker = sticker.split(':')[0];
               return new AutocompleteItem(
-                settingsManager.getLabel('data.campaignSticker.' + sticker),
+                labelManager.getLabel('data.campaignSticker.' + sticker),
                 sticker,
                 this.party.campaignStickers.includes(sticker)
               );

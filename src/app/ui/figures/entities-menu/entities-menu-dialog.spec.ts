@@ -56,7 +56,7 @@ describe('EntitiesMenuDialogComponent', () => {
   beforeEach(() => {
     gameManager.game.figures = [];
     gameManager.game.edition = 'gh';
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
   });
 
@@ -232,11 +232,11 @@ describe('EntitiesMenuDialogComponent', () => {
       vi.spyOn(gameManager, 'rpgRules').mockReturnValue(true);
       const { monster, entity } = buildMonster();
       gameManager.game.figures = [monster];
-      const logLength = gameManager.stateManager.log.length;
+      const logLength = gameManager.historyManager.log.length;
 
       createComponent({ figure: monster, entity }).close();
       expect(hasTaunt(entity)).toBe(false);
-      expect(gameManager.stateManager.log.length).toBe(logLength);
+      expect(gameManager.historyManager.log.length).toBe(logLength);
     });
   });
 
@@ -269,11 +269,11 @@ describe('EntitiesMenuDialogComponent', () => {
 
     it('does not create undo entries for an unchanged selection', () => {
       const { monster, first, second } = buildSelection();
-      const logLength = gameManager.stateManager.log.length;
+      const logLength = gameManager.historyManager.log.length;
 
       createComponent({ figure: monster }).close();
 
-      expect(gameManager.stateManager.log.length).toBe(logLength);
+      expect(gameManager.historyManager.log.length).toBe(logLength);
       expect(value(first, ActionType.shield)).toBe(2);
       expect(value(first, ActionType.retaliate)).toBe(1);
       expect(value(first, ActionType.shield, true)).toBe(1);
@@ -295,11 +295,11 @@ describe('EntitiesMenuDialogComponent', () => {
 
     it('does not create undo entries for an unchanged single entity', () => {
       const { monster, first } = buildSelection();
-      const logLength = gameManager.stateManager.log.length;
+      const logLength = gameManager.historyManager.log.length;
 
       createComponent({ figure: monster, entity: first }).close();
 
-      expect(gameManager.stateManager.log.length).toBe(logLength);
+      expect(gameManager.historyManager.log.length).toBe(logLength);
       expect(value(first, ActionType.shield)).toBe(2);
       expect(value(first, ActionType.retaliate)).toBe(1);
     });
@@ -355,9 +355,9 @@ describe('EntitiesMenuDialogComponent', () => {
   describe('before', () => {
     it('records an undo entry without throwing', () => {
       const component = createComponent({});
-      const before = gameManager.stateManager.log.length;
+      const before = gameManager.historyManager.log.length;
       component.before('testAction');
-      expect(gameManager.stateManager.log.length).toEqual(before + 1);
+      expect(gameManager.historyManager.log.length).toEqual(before + 1);
       gameManager.stateManager.after();
     });
   });

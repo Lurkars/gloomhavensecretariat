@@ -48,7 +48,7 @@ describe('CharacterRetirementDialog', () => {
     gameManager.game.party.inspiration = 0;
     gameManager.game.party.prosperity = 0;
     gameManager.game.unlockedCharacters = [];
-    gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []))];
+    gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []))];
     settingsManager.settings.editions = ['gh'];
     settingsManager.settings.automaticUnlocking = false;
     settingsManager.settings.unlockEnvelopeBuildings = false;
@@ -108,7 +108,7 @@ describe('CharacterRetirementDialog', () => {
         conclusion: true,
         retirement: 'brute'
       });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [conclusionSection], []))];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [conclusionSection], []))];
       const character = buildCharacter();
       const component = createComponent(character);
       expect(component.conclusion).toBe(conclusionSection);
@@ -130,7 +130,7 @@ describe('CharacterRetirementDialog', () => {
   describe('changeAdditionalPQ', () => {
     it('resolves the personal quest by card id from edition data', () => {
       const pq = Object.assign(new PersonalQuest(), { cardId: '42', edition: 'gh' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], [], undefined, [], [], [pq]))];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], [], undefined, [], [], [pq]))];
       const component = createComponent(buildCharacter());
       component.changeAdditionalPQ({ target: { value: '42' } });
       expect(component.additionalPQ).toBe(pq);

@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findItem, validSeed } from 'src/app/game/commands/CommandHelper';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { Party } from 'src/app/game/model/Party';
 
@@ -48,21 +47,18 @@ export class PartyTownGuardPerkSectionCommand extends CommandImpl {
   id: string = 'party.townGuardPerkSection';
   requiredParameters: number = 3;
 
-  validParameters(section: string, value: boolean, seed: number): boolean {
-    if (!validSeed(seed)) {
-      return false;
-    }
+  validParameters(section: string, value: boolean, seed: number, force: boolean = false): boolean {
     return (
-      typeof section === 'string' &&
-      !!section &&
+      validSeed(seed) &&
       typeof value === 'boolean' &&
-      gameManager.game.party.townGuardPerkSections.includes(section) !== value
+      typeof force === 'boolean' &&
+      gameManager.outpostAttackManager.canSetTownGuardPerkSection(section, value, force)
     );
   }
 
-  executeWithParameters(section: string, value: boolean, seed: number) {
+  executeWithParameters(section: string, value: boolean, seed: number, force: boolean = false) {
     gameManager.game.seed = seed;
-    gameManager.outpostAttackManager.setTownGuardPerkSection(section, value);
+    gameManager.outpostAttackManager.setTownGuardPerkSection(section, value, force);
   }
 }
 
@@ -75,7 +71,7 @@ export class PartyTreasureCommand extends CommandImpl {
   }
 
   executeWithParameters(edition: string, treasure: number, value: boolean) {
-    gameManager.lootManager.setPartyTreasure(edition, treasure, value);
+    gameManager.treasureManager.setPartyTreasure(edition, treasure, value);
   }
 }
 
@@ -84,10 +80,6 @@ abstract class PartyItemCommandImpl extends CommandImpl {
 
   item(): ItemData | undefined {
     return findItem(this.parameters[0], this.parameters[1]);
-  }
-
-  unlocked(item: ItemData): CountIdentifier | undefined {
-    return gameManager.itemManager.unlockedItem(item);
   }
 
   validParameters(edition: string, id: string | number, value: BASE_TYPE): boolean {
@@ -113,21 +105,12 @@ export class PartyItemCountCommand extends PartyItemCommandImpl {
 
   override validParameters(edition: string, id: string | number, count: number): boolean {
     const item = this.item();
-    return (
-      !!item &&
-      !!this.unlocked(item) &&
-      typeof count === 'number' &&
-      Number.isInteger(count) &&
-      (count === -1 || (count > 0 && count < item.count))
-    );
+    return !!item && gameManager.itemManager.canSetUnlockedItemCount(item, count);
   }
 
   executeWithParameters(edition: string, id: string | number, count: number) {
     const item = this.item();
-    const unlocked = item && this.unlocked(item);
-    if (item && unlocked) {
-      unlocked.count = count;
-    } else {
+    if (!item || !gameManager.itemManager.setUnlockedItemCount(item, count)) {
       this.executionError('unlocked item not found');
     }
   }

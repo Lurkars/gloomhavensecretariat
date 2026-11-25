@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 
@@ -12,7 +13,7 @@ export class CharacterMarkerCommand extends CommandImpl {
   executeWithParameters(number: number, marker: boolean) {
     const character = findCharacter(number);
     if (character) {
-      character.marker = marker;
+      gameManager.characterManager.setCharacterMarker(character, marker);
     } else {
       this.executionError('character not found');
     }

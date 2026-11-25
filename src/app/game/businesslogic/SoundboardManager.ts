@@ -53,4 +53,30 @@ export class SoundboardManager {
     }
     return audio;
   }
+
+  duration(sound: HTMLAudioElement): Promise<number> {
+    return new Promise((resolve) => {
+      if (sound.readyState >= 1) {
+        resolve(sound.duration || 0);
+        return;
+      }
+      const timeout = setTimeout(() => resolve(0), 5000);
+      sound.addEventListener(
+        'loadedmetadata',
+        () => {
+          clearTimeout(timeout);
+          resolve(sound.duration || 0);
+        },
+        { once: true }
+      );
+      sound.addEventListener(
+        'error',
+        () => {
+          clearTimeout(timeout);
+          resolve(0);
+        },
+        { once: true }
+      );
+    });
+  }
 }

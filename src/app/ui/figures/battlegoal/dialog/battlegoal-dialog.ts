@@ -1,5 +1,4 @@
 import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
@@ -148,19 +147,15 @@ export class CharacterBattleGoalsDialog {
   }
 
   accept() {
-    if (((this.selected !== -1 || this.trial349) && !this.character.battleGoal) || (this.selected !== 0 && this.character.battleGoal)) {
+    if (
+      (((this.selected !== -1 || this.trial349) && !this.character.battleGoal) || (this.selected !== 0 && this.character.battleGoal)) &&
+      gameManager.battleGoalManager.canSelectBattleGoal(this.character, this.selected)
+    ) {
       gameManager.stateManager.before(
         'battleGoals.' + (this.selected !== -1 || this.trial349 ? 'select' : 'deselect'),
         gameManager.characterManager.characterName(this.character, true, true)
       );
-      if (this.trial349) {
-        this.character.battleGoal = true;
-      } else if (this.selected !== -1) {
-        this.character.battleGoal = true;
-        moveItemInArray(this.character.battleGoals, this.selected, 0);
-      } else {
-        this.character.battleGoal = false;
-      }
+      gameManager.battleGoalManager.selectBattleGoal(this.character, this.selected);
       gameManager.stateManager.after();
     }
     this.close();

@@ -21,7 +21,7 @@ export class GhsManager {
   }
 
   private onUiChangeUpdate(): void {
-    gameManager.checkEntitiesKilled();
+    gameManager.entityCounterManager.checkEntitiesKilled();
     if (gameManager.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
     }

@@ -55,8 +55,11 @@ export class PartySheetProsperityComponent extends PartySheetSection {
       value--;
     }
 
+    if (!gameManager.campaignManager.canSetProsperity(value)) {
+      return;
+    }
     gameManager.stateManager.before('setPartyProsperity', value);
-    gameManager.campaignManager.changeProsperity(value - this.party.prosperity);
+    gameManager.campaignManager.setProsperity(value);
     gameManager.stateManager.after();
 
     Object.keys(this.prosperitySections)

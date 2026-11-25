@@ -113,7 +113,8 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.health = this.maxHealth;
     this.progress = new CharacterProgress();
-    this.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
+    gameManager.characterManager.normalizeProgress(this);
+    this.attackModifierDeck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(this);
     this.tokens.forEach((token, index) => {
       this.tokenValues[index] = this.tokenValues[index] || 0;
     });
@@ -157,7 +158,7 @@ export class Character extends CharacterData implements Entity, Figure {
       this.attackModifierDeck.toModel(),
       this.donations,
       this.token,
-      this.tokenValues,
+      Array.from(this.tokenValues, (value) => value || 0),
       this.absent,
       this.longRest,
       this.battleGoals,
@@ -176,7 +177,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.edition = model.edition;
 
     if (!this.edition) {
-      const characterData = gameManager.charactersData().find((characterData) => characterData.name === model.name);
+      const characterData = gameManager.editionManager.charactersData().find((characterData) => characterData.name === model.name);
       if (characterData) {
         this.edition = characterData.edition;
       } else {
@@ -261,7 +262,7 @@ export class Character extends CharacterData implements Entity, Figure {
       this.progress.rpg = model.progress.rpg ? JSON.parse(JSON.stringify(model.progress.rpg)) : undefined;
 
       if (
-        gameManager.currentEdition() === 'fh' &&
+        gameManager.editionManager.currentEdition() === 'fh' &&
         this.progress.personalQuest === '581' &&
         !this.tags.includes('fh-pq-581-migration') &&
         this.progress.personalQuestProgress[0]
@@ -271,8 +272,9 @@ export class Character extends CharacterData implements Entity, Figure {
       }
 
       gameManager.personalQuestManager.migrateScenarioChainProgress(this);
+      gameManager.characterManager.normalizeProgress(this);
 
-      gameManager.characterManager.previousEnhancements(this, gameManager.enhancementsManager.temporary);
+      gameManager.enhancementsManager.previousEnhancements(this, gameManager.enhancementsManager.temporary);
     }
 
     this.scenarioStats = new ScenarioStats();
@@ -281,22 +283,15 @@ export class Character extends CharacterData implements Entity, Figure {
       this.scenarioStats = Object.assign(new ScenarioStats(), model.scenarioStats);
     }
 
-    const attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
+    const attackModifierDeck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(this);
     if (model.attackModifierDeck) {
-      gameManager.attackModifierManager.fromModel(attackModifierDeck, model.attackModifierDeck);
+      gameManager.attackModifierBuildManager.fromModel(attackModifierDeck, model.attackModifierDeck);
       this.attackModifierDeck.active = model.attackModifierDeck.active;
     }
-    gameManager.attackModifierManager.mergeAttackModifierDeck(this.attackModifierDeck, attackModifierDeck);
-    if (model.attackModifierDeckVisible) {
-      this.attackModifierDeckVisible = true;
-    }
-
-    if (model.lootCardsVisible) {
-      this.lootCardsVisible = true;
-    }
-    if (model.itemsVisible) {
-      this.itemsVisible = true;
-    }
+    gameManager.attackModifierBuildManager.mergeAttackModifierDeck(this.attackModifierDeck, attackModifierDeck);
+    this.attackModifierDeckVisible = !!model.attackModifierDeckVisible;
+    this.lootCardsVisible = !!model.lootCardsVisible;
+    this.itemsVisible = !!model.itemsVisible;
 
     this.donations = model.donations || 0;
     this.token = model.token || 0;

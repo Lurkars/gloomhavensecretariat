@@ -37,7 +37,7 @@ describe('ScenarioRuleComponent', () => {
 
     gameManager.game.figures = [];
     gameManager.game.scenario = undefined;
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
   });
 
@@ -89,7 +89,7 @@ describe('ScenarioRuleComponent', () => {
 
     it('resolves a labeled title when a matching randomDungeonCard section exists', () => {
       const section = Object.assign(new ScenarioData(), { edition: 'gh', index: 'd1', group: 'randomDungeonCard' });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [section], []))];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [section], []))];
       gameManager.game.scenario = new Scenario(Object.assign(new ScenarioData(), { edition: 'gh', index: '1' }));
       const rule = Object.assign(new ScenarioRule(''), {
         randomDungeon: Object.assign(new RandomDungeonRule(), { dungeonCards: ['d1'] })

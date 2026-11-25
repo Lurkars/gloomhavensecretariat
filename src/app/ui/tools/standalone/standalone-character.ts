@@ -83,8 +83,8 @@ export abstract class StandaloneCharacterBase implements OnInit {
     this.ghsManager.triggerUiChange();
 
     const onFocus = () => {
-      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() !== WebSocket.OPEN) {
-        gameManager.stateManager.connect();
+      if (settingsManager.settings.serverAutoconnect && gameManager.serverSyncManager.wsState() !== WebSocket.OPEN) {
+        gameManager.serverSyncManager.connect();
       }
     };
     window.addEventListener('focus', onFocus);

@@ -33,7 +33,8 @@ export class PartyCampaignConclusionsComponent extends PartySheetSection {
     this.data = campaignScenarioData(this.party, this.edition());
     this.manualConclusions =
       (this.edition() &&
-        gameManager.sectionData(this.edition()).find((sectionData) => sectionData.conclusion && !sectionData.parent) !== undefined) ||
+        gameManager.editionManager.sectionData(this.edition()).find((sectionData) => sectionData.conclusion && !sectionData.parent) !==
+          undefined) ||
       false;
   }
 
@@ -42,7 +43,7 @@ export class PartyCampaignConclusionsComponent extends PartySheetSection {
       .filter((value) => value.edition === scenarioData.edition)
       .map(
         (value) =>
-          gameManager
+          gameManager.editionManager
             .sectionData(scenarioData.edition)
             .find(
               (sectionData) =>
@@ -65,8 +66,8 @@ export class PartyCampaignConclusionsComponent extends PartySheetSection {
   selectFinishConclusion(indexElement: HTMLInputElement, force: boolean = false) {
     const index: string = indexElement.value;
     indexElement.classList.add('error');
-    const conclusion = gameManager
-      .sectionData(this.edition() || gameManager.currentEdition())
+    const conclusion = gameManager.editionManager
+      .sectionData(this.edition() || gameManager.editionManager.currentEdition())
       .find((sectionData) => sectionData.index === index);
     if (conclusion) {
       indexElement.classList.remove('error');

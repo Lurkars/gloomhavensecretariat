@@ -36,7 +36,7 @@ export class RandomMonsterCardComponent implements OnInit {
   }
 
   update() {
-    this.fh = gameManager.isEditionRelevant(this.section.edition, 'fh');
+    this.fh = gameManager.editionManager.isEditionRelevant(this.section.edition, 'fh');
     this.element =
       (this.section.rules && (this.section.rules.find((rule) => rule.elements && rule.elements.length)?.elements[0].type as Element)) ||
       undefined;
@@ -45,10 +45,11 @@ export class RandomMonsterCardComponent implements OnInit {
       this.section.rooms[0].monster.forEach((standee) => {
         if (!isNaN(+standee.marker)) {
           this.standees[+standee.marker - 1] = standee;
-          const monster = gameManager
+          const monster = gameManager.editionManager
             .monstersData()
             .find(
-              (monsterData) => monsterData.name === standee.name && gameManager.isEditionRelevant(this.section.edition, monsterData.edition)
+              (monsterData) =>
+                monsterData.name === standee.name && gameManager.editionManager.isEditionRelevant(this.section.edition, monsterData.edition)
             );
           if (monster) {
             this.monster[+standee.marker - 1] = monster;

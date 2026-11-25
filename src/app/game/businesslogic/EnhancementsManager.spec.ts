@@ -168,14 +168,53 @@ describe('EnhancementsManager', () => {
       expect(enhancementsManager.canEnhance(character, 2, 50)).toBe(true);
     });
 
+    it('refuses an occupied enhancement slot, force skips gold and prosperity only', () => {
+      vi.spyOn(gameManager.campaignManager, 'prosperityLevel').mockReturnValue(1);
+      const character = buildCharacter();
+      character.progress.gold = 0;
+      character.progress.enhancements = [new Enhancement(1, '0', 0, 'plus1')];
+      expect(enhancementsManager.canAddEnhancement(character, 1, '0', 0, 0, true)).toBe(false);
+      expect(enhancementsManager.addEnhancement(character, 1, '0', 0, 'plus1', 0, true)).toBe(false);
+      expect(enhancementsManager.canAddEnhancement(character, 2, '0', 0, 50)).toBe(false);
+      expect(enhancementsManager.canAddEnhancement(character, 2, '0', 0, 0, true)).toBe(true);
+      expect(enhancementsManager.addEnhancement(character, 2, '0', 0, 'plus1', 0, true)).toBe(true);
+      expect(character.progress.enhancements.length).toBe(2);
+    });
+
     it('adds an enhancement paying its costs and removes it again', () => {
       const character = buildCharacter();
       character.progress.gold = 100;
-      enhancementsManager.addEnhancement(character, 1, '0', 0, 'plus1', 75);
+      expect(enhancementsManager.addEnhancement(character, 1, '0', 0, 'plus1', 75)).toBe(true);
       expect(character.progress.gold).toBe(25);
       expect(character.progress.enhancements).toEqual([new Enhancement(1, '0', 0, 'plus1')]);
       enhancementsManager.removeEnhancement(character, character.progress.enhancements[0]);
       expect(character.progress.enhancements).toEqual([]);
+    });
+  });
+
+  describe('enhancementMapping', () => {
+    it('collects an actionId per enhancementType-carrying action, recursing into subActions', () => {
+      const nested = Object.assign(new Action(ActionType.attack, 1), { enhancementTypes: ['attack'] });
+      const withEnhancement = Object.assign(new Action(ActionType.attack, 2), { enhancementTypes: ['attack'] });
+      const withSubActions = Object.assign(new Action(ActionType.move, 2), { subActions: [nested] });
+
+      const mapping = enhancementsManager.enhancementMapping([withEnhancement, withSubActions], '');
+
+      expect(mapping).toEqual(['0', '1-0']);
+    });
+
+    it('skips the wip placeholder action entirely', () => {
+      const wip = new Action(ActionType.custom, '%character.abilities.wip%');
+      const real = Object.assign(new Action(ActionType.attack, 1), { enhancementTypes: ['attack'] });
+
+      const mapping = enhancementsManager.enhancementMapping([wip, real], '');
+
+      expect(mapping).toEqual(['1']);
+    });
+
+    it('prefixes actionIds with the parentIndex (e.g. for bottom actions)', () => {
+      const action = Object.assign(new Action(ActionType.attack, 1), { enhancementTypes: ['attack'] });
+      expect(enhancementsManager.enhancementMapping([action], 'bottom')).toEqual(['bottom-0']);
     });
   });
 });

@@ -82,19 +82,19 @@ export class MonsterEditorComponent implements OnInit {
       this.monsterDataFromJson();
     });
 
-    this.editions = gameManager.editions(true);
-    this.monstersData = gameManager.monstersData(this.edition);
+    this.editions = gameManager.editionManager.editions(true);
+    this.monstersData = gameManager.editionManager.monstersData(this.edition);
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (queryParams) => {
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
+          if (this.edition && gameManager.editionManager.editions(!true).includes(this.edition)) {
             this.edition = undefined;
           }
         }
 
-        this.monstersData = gameManager.monstersData(this.edition);
+        this.monstersData = gameManager.editionManager.monstersData(this.edition);
 
         if (queryParams['monster']) {
           const monsterData = this.monstersData.find((monsterData) => monsterData.name === queryParams['monster']);

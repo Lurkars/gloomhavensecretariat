@@ -217,6 +217,7 @@ describe('BuildingUpgradeDialog', () => {
 
     function createTrade(name: string, level: number, dialogRef: any = { close: () => {} }): BuildingUpgradeDialog {
       const model = new BuildingModel(name, level, 'normal');
+      gameManager.game.party.buildings = [model];
       const building: Building = { model, data: Object.assign(new BuildingData(), { name }) };
       TestBed.configureTestingModule({
         imports: [BuildingUpgradeDialog],

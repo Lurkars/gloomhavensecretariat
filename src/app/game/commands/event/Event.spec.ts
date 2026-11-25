@@ -24,9 +24,9 @@ import { LootType } from 'src/app/game/model/data/Loot';
 describe('Event commands', () => {
   beforeEach(() => {
     resetTestGame();
-    vi.spyOn(gameManager, 'currentEdition').mockReturnValue('test');
+    vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('test');
     vi.spyOn(gameManager.eventCardManager, 'getEventCardForEdition').mockImplementation(
-      (edition: string, type: string, cardId: string) => ({ edition: edition, type: type, cardId: cardId }) as EventCard
+      (edition: string, type: string, cardId: string) => ({ edition: edition, type: type, cardId: cardId, options: [{}] }) as EventCard
     );
   });
 
@@ -60,10 +60,18 @@ describe('Event commands', () => {
     it('marks cards drawn, changes their selection and removes them', () => {
       new EventDeckMarkDrawnCommand('city', '05').execute();
       expect(gameManager.game.party.eventCards.map((card) => card.cardId)).toEqual(['05']);
-      expect(new EventDeckSelectionCommand('road', '05', 1).validParameters('road', '05', 1)).toBe(false);
+      expect(new EventDeckSelectionCommand('road', '05', 1).validParameters('road', '05')).toBe(false);
+      expect(new EventDeckSelectionCommand('city', '05', 1, 'a').validParameters('city', '05')).toBe(false);
       new EventDeckSelectionCommand('city', '05', 1, '0,2').execute();
       expect(gameManager.game.party.eventCards[0].selected).toBe(1);
       expect(gameManager.game.party.eventCards[0].subSelections).toEqual([0, 2]);
+      expect(gameManager.game.party.eventCards[0].attack).toBe(false);
+      new EventDeckSelectionCommand('city', '05', 0, '', '1,0', true).execute();
+      expect(gameManager.game.party.eventCards[0].checks).toEqual([1, 0]);
+      expect(gameManager.game.party.eventCards[0].attack).toBe(true);
+      new EventDeckSelectionCommand('city', '05', 1).execute();
+      expect(gameManager.game.party.eventCards[0].checks).toEqual([1, 0]);
+      expect(gameManager.game.party.eventCards[0].attack).toBe(true);
       new EventDeckRemoveDrawnCommand('city', '05').execute();
       expect(gameManager.game.party.eventCards).toEqual([]);
     });

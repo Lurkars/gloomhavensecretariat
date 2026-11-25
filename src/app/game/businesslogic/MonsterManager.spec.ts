@@ -69,7 +69,7 @@ describe('MonsterManager', () => {
     });
 
     it('steps forward to the next standee which is not done yet', () => {
-      vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
       const { monster, entities } = setup();
       monster.active = true;
       entities[0].active = true;
@@ -239,7 +239,7 @@ describe('MonsterManager', () => {
       character.active = true;
       character.progress.personalQuest = '513';
       character.progress.personalQuestAutotrack = true;
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [], []), {
           personalQuests: [
             Object.assign(new PersonalQuest(), {
@@ -289,7 +289,7 @@ describe('MonsterManager', () => {
     function assignKillQuest(character: Character) {
       character.progress.personalQuest = '513';
       character.progress.personalQuestAutotrack = true;
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [], []), {
           personalQuests: [
             Object.assign(new PersonalQuest(), {
@@ -551,14 +551,14 @@ describe('MonsterManager', () => {
       const monster = buildMonster();
       monster.abilities = [0, 1, 2];
       monster.ability = -1;
-      expect(monsterManager.getAbilityCard(monster)).toBeUndefined();
+      expect(gameManager.monsterAbilityManager.getAbilityCard(monster)).toBeUndefined();
     });
 
     it('is undefined once monster.ability runs past the end of the abilities list', () => {
       const monster = buildMonster();
       monster.abilities = [0, 1];
       monster.ability = 2;
-      expect(monsterManager.getAbilityCard(monster)).toBeUndefined();
+      expect(gameManager.monsterAbilityManager.getAbilityCard(monster)).toBeUndefined();
     });
 
     it('is undefined when the abilities setting is disabled', () => {
@@ -566,63 +566,65 @@ describe('MonsterManager', () => {
       const monster = buildMonster();
       monster.abilities = [0];
       monster.ability = 0;
-      expect(monsterManager.getAbilityCard(monster)).toBeUndefined();
+      expect(gameManager.monsterAbilityManager.getAbilityCard(monster)).toBeUndefined();
     });
 
     it('resolves the current ability by indexing through monster.abilities into the deck', () => {
       const a0 = new AbilityCard(1, 'a0');
       const a1 = new AbilityCard(2, 'a1');
       const a2 = new AbilityCard(3, 'a2');
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([a0, a1, a2]);
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([a0, a1, a2]);
       const monster = buildMonster();
       monster.abilities = [2, 0, 1];
       monster.ability = 1; // -> abilities[monster.abilities[1]] = abilities[0] = a0
 
-      expect(monsterManager.getAbilityCard(monster)).toBe(a0);
+      expect(gameManager.monsterAbilityManager.getAbilityCard(monster)).toBe(a0);
     });
 
     it('bottom=true offsets by -1 once ability > 0, otherwise by +1', () => {
       const a0 = new AbilityCard(1, 'a0');
       const a1 = new AbilityCard(2, 'a1');
       const a2 = new AbilityCard(3, 'a2');
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([a0, a1, a2]);
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([a0, a1, a2]);
       const monster = buildMonster();
       monster.abilities = [2, 0, 1];
 
       monster.ability = 1; // offset -1 -> abilities[monster.abilities[0]] = abilities[2] = a2
-      expect(monsterManager.getAbilityCard(monster, true)).toBe(a2);
+      expect(gameManager.monsterAbilityManager.getAbilityCard(monster, true)).toBe(a2);
 
       monster.ability = 0; // ability not > 0 -> offset +1 -> abilities[monster.abilities[1]] = abilities[0] = a0
-      expect(monsterManager.getAbilityCard(monster, true)).toBe(a0);
+      expect(gameManager.monsterAbilityManager.getAbilityCard(monster, true)).toBe(a0);
     });
   });
 
   describe('hasBottomActions', () => {
     it('is true when every ability in the deck defines bottom actions', () => {
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([
         new AbilityCard(1, 'a0', 0, [], false, [{} as any]),
         new AbilityCard(2, 'a1', 0, [], false, [{} as any])
       ]);
-      expect(monsterManager.hasBottomActions(buildMonster())).toBe(true);
+      expect(gameManager.monsterAbilityManager.hasBottomActions(buildMonster())).toBe(true);
     });
 
     it('is false once any ability in the deck lacks bottom actions', () => {
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([
         new AbilityCard(1, 'a0', 0, [], false, [{} as any]),
         new AbilityCard(2, 'a1', 0, [], false, [])
       ]);
-      expect(monsterManager.hasBottomActions(buildMonster())).toBe(false);
+      expect(gameManager.monsterAbilityManager.hasBottomActions(buildMonster())).toBe(false);
     });
 
     it('is false for an empty ability deck', () => {
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([]);
-      expect(monsterManager.hasBottomActions(buildMonster())).toBe(false);
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([]);
+      expect(gameManager.monsterAbilityManager.hasBottomActions(buildMonster())).toBe(false);
     });
   });
 
   describe('getSameDeckMonster', () => {
     function mockDeckDataByName() {
-      vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
+      vi.spyOn(gameManager.editionManager, 'deckData').mockImplementation(
+        (figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck)
+      );
     }
 
     it('finds another monster figure sharing the same deck', () => {
@@ -631,7 +633,7 @@ describe('MonsterManager', () => {
       const ally = buildMonster({ name: 'bandit-ally', edition: 'gh', deck: 'bandit' });
       gameManager.game.figures = [bandit, ally];
 
-      expect(monsterManager.getSameDeckMonster(bandit)).toBe(ally);
+      expect(gameManager.monsterAbilityManager.getSameDeckMonster(bandit)).toBe(ally);
     });
 
     it('does not match itself (same name+edition)', () => {
@@ -639,7 +641,7 @@ describe('MonsterManager', () => {
       const bandit = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'bandit' });
       gameManager.game.figures = [bandit];
 
-      expect(monsterManager.getSameDeckMonster(bandit)).toBeUndefined();
+      expect(gameManager.monsterAbilityManager.getSameDeckMonster(bandit)).toBeUndefined();
     });
 
     it('does not match a figure from a different deck', () => {
@@ -648,7 +650,7 @@ describe('MonsterManager', () => {
       const other = buildMonster({ name: 'other-monster', edition: 'gh', deck: 'other' });
       gameManager.game.figures = [bandit, other];
 
-      expect(monsterManager.getSameDeckMonster(bandit)).toBeUndefined();
+      expect(gameManager.monsterAbilityManager.getSameDeckMonster(bandit)).toBeUndefined();
     });
 
     it('excludes a same-deck figure that is itself mid drawExtra', () => {
@@ -658,28 +660,30 @@ describe('MonsterManager', () => {
       ally.drawExtra = true;
       gameManager.game.figures = [bandit, ally];
 
-      expect(monsterManager.getSameDeckMonster(bandit)).toBeUndefined();
+      expect(gameManager.monsterAbilityManager.getSameDeckMonster(bandit)).toBeUndefined();
     });
   });
 
   describe('drawAbility', () => {
     beforeEach(() => {
-      vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
+      vi.spyOn(gameManager.editionManager, 'deckData').mockImplementation(
+        (figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck)
+      );
     });
 
     it('advances ability by 1 for a single-sided deck', () => {
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([new AbilityCard(1, 'a0'), new AbilityCard(2, 'a1')]);
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([new AbilityCard(1, 'a0'), new AbilityCard(2, 'a1')]);
       const monster = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'bandit' });
       monster.ability = 0;
       gameManager.game.figures = [monster];
 
-      monsterManager.drawAbility(monster);
+      gameManager.monsterAbilityManager.drawAbility(monster);
 
       expect(monster.ability).toBe(1);
     });
 
     it('advances ability by 2 for a two-sided (every ability has bottom actions) deck', () => {
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([
         new AbilityCard(1, 'a0', 0, [], false, [{} as any]),
         new AbilityCard(2, 'a1', 0, [], false, [{} as any])
       ]);
@@ -687,20 +691,20 @@ describe('MonsterManager', () => {
       monster.ability = 0;
       gameManager.game.figures = [monster];
 
-      monsterManager.drawAbility(monster);
+      gameManager.monsterAbilityManager.drawAbility(monster);
 
       expect(monster.ability).toBe(2);
     });
 
     it('propagates the drawn ability index to other monsters sharing the same deck', () => {
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([new AbilityCard(1, 'a0'), new AbilityCard(2, 'a1')]);
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([new AbilityCard(1, 'a0'), new AbilityCard(2, 'a1')]);
       const bandit = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'bandit' });
       const ally = buildMonster({ name: 'bandit-ally', edition: 'gh', deck: 'bandit' });
       bandit.ability = 0;
       ally.ability = 0;
       gameManager.game.figures = [bandit, ally];
 
-      monsterManager.drawAbility(bandit);
+      gameManager.monsterAbilityManager.drawAbility(bandit);
 
       expect(ally.ability).toBe(bandit.ability);
     });
@@ -708,7 +712,9 @@ describe('MonsterManager', () => {
 
   describe('drawnAbilities', () => {
     beforeEach(() => {
-      vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
+      vi.spyOn(gameManager.editionManager, 'deckData').mockImplementation(
+        (figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck)
+      );
     });
 
     it('is ability+1 for the monster itself when nothing else has drawn further', () => {
@@ -716,7 +722,7 @@ describe('MonsterManager', () => {
       monster.ability = 2;
       gameManager.game.figures = [monster];
 
-      expect(monsterManager.drawnAbilities(monster)).toBe(3);
+      expect(gameManager.monsterAbilityManager.drawnAbilities(monster)).toBe(3);
     });
 
     it('is 0 when ability is still -1 (nothing drawn yet)', () => {
@@ -724,7 +730,7 @@ describe('MonsterManager', () => {
       monster.ability = -1;
       gameManager.game.figures = [monster];
 
-      expect(monsterManager.drawnAbilities(monster)).toBe(0);
+      expect(gameManager.monsterAbilityManager.drawnAbilities(monster)).toBe(0);
     });
 
     it('follows through to a same-deck figure that has drawn further ahead', () => {
@@ -734,7 +740,7 @@ describe('MonsterManager', () => {
       ally.ability = 3;
       gameManager.game.figures = [bandit, ally];
 
-      expect(monsterManager.drawnAbilities(bandit)).toBe(4);
+      expect(gameManager.monsterAbilityManager.drawnAbilities(bandit)).toBe(4);
     });
   });
 
@@ -759,8 +765,12 @@ describe('MonsterManager', () => {
             { type: 'monsterType', value: 'elite', subActions: [{ type: 'box', value: 'Close In', subActions: [] }] }
           ]
         });
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([card('rpg-fast', 21), card('rpg-normal', 45), card('rpg-slow', 80)]);
-      vi.spyOn(gameManager, 'deckData').mockReturnValue(Object.assign(new DeckData(), { name: 'archer', edition: 'rpg' }));
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([
+        card('rpg-fast', 21),
+        card('rpg-normal', 45),
+        card('rpg-slow', 80)
+      ]);
+      vi.spyOn(gameManager.editionManager, 'deckData').mockReturnValue(Object.assign(new DeckData(), { name: 'archer', edition: 'rpg' }));
       return monster;
     }
 
@@ -795,7 +805,7 @@ describe('MonsterManager', () => {
     it('new standees take over the action of their type when active standees are off', () => {
       const monster = rpgMonster();
       settingsManager.settings.activeStandees = false;
-      vi.spyOn(gameManager, 'addEntityCount').mockImplementation(() => {});
+      vi.spyOn(gameManager.entityCounterManager, 'addEntityCount').mockImplementation(() => {});
       monster.stats = [new MonsterStat(MonsterType.normal, 1), new MonsterStat(MonsterType.elite, 1)];
       monsterManager.setRpgSpeed(monster, 1);
       monsterManager.setRpgAction(monster, 0, [monster.entities[1], monster.entities[2]]);
@@ -806,7 +816,7 @@ describe('MonsterManager', () => {
 
     it('draw keeps the chosen speed and defaults to normal speed', () => {
       const monster = rpgMonster();
-      vi.spyOn(gameManager, 'gameplayFigure').mockReturnValue(true);
+      vi.spyOn(gameManager.entityManager, 'gameplayFigure').mockReturnValue(true);
       monsterManager.draw();
       expect(monster.ability).toBe(1);
       expect(monster.abilities).toEqual([0, 1, 2]);
@@ -814,6 +824,24 @@ describe('MonsterManager', () => {
       monsterManager.setRpgSpeed(monster, 0);
       monsterManager.draw();
       expect(monster.ability).toBe(0);
+    });
+
+    it('allows speed and action only in draw state with valid values', () => {
+      const monster = rpgMonster();
+      gameManager.game.state = GameState.draw;
+      expect(monsterManager.canSetRpgSpeed(monster, 3)).toBe(false);
+      expect(monsterManager.canSetRpgSpeed(monster, -1)).toBe(false);
+      expect(monsterManager.setRpgSpeed(monster, 0)).toBe(true);
+      expect(monsterManager.canSetRpgAction(monster, 5)).toBe(false);
+      expect(monsterManager.canSetRpgAction(monster, 1, [monster.entities[1]])).toBe(false);
+      expect(monsterManager.canSetRpgAction(monster, 0)).toBe(true);
+
+      gameManager.game.state = GameState.next;
+      expect(monsterManager.setRpgSpeed(monster, 2)).toBe(false);
+      expect(monster.ability).toBe(0);
+      expect(monsterManager.setRpgAction(monster, 0)).toBe(false);
+      expect(monster.entities.every((entity) => entity.rpgAction === -1)).toBe(true);
+      gameManager.game.state = GameState.draw;
     });
 
     it('next resets actions and the speed to normal for the following round', () => {
@@ -836,8 +864,10 @@ describe('MonsterManager regressions', () => {
   });
 
   it('drawAbility only propagates the ability to monsters sharing the drawn deck', () => {
-    vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
-    vi.spyOn(gameManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
+    vi.spyOn(gameManager.editionManager, 'deckData').mockImplementation(
+      (figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck)
+    );
+    vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
     const banditGuard = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'guard' });
     const cityGuard = buildMonster({ name: 'city-guard', edition: 'gh', deck: 'guard' });
     const banditArcher = buildMonster({ name: 'bandit-archer', edition: 'gh', deck: 'archer' });
@@ -848,7 +878,7 @@ describe('MonsterManager regressions', () => {
     cityArcher.ability = 4;
     gameManager.game.figures = [banditGuard, cityGuard, banditArcher, cityArcher];
 
-    gameManager.monsterManager.drawAbility(banditGuard);
+    gameManager.monsterAbilityManager.drawAbility(banditGuard);
 
     expect(banditGuard.ability).toBe(1);
     expect(cityGuard.ability).toBe(1);
@@ -857,8 +887,10 @@ describe('MonsterManager regressions', () => {
   });
 
   it('drawAbility still applies drawExtra for monsters sharing the drawn deck', () => {
-    vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
-    vi.spyOn(gameManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
+    vi.spyOn(gameManager.editionManager, 'deckData').mockImplementation(
+      (figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck)
+    );
+    vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
     const banditGuard = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'guard' });
     const cityGuard = buildMonster({ name: 'city-guard', edition: 'gh', deck: 'guard' });
     const banditArcher = buildMonster({ name: 'bandit-archer', edition: 'gh', deck: 'archer' });
@@ -869,7 +901,7 @@ describe('MonsterManager regressions', () => {
     banditArcher.ability = 4;
     gameManager.game.figures = [banditGuard, cityGuard, banditArcher];
 
-    gameManager.monsterManager.drawAbility(banditGuard);
+    gameManager.monsterAbilityManager.drawAbility(banditGuard);
 
     expect(banditGuard.ability).toBe(1);
     // drawExtra draws the card after the shared deck's current one
@@ -878,8 +910,10 @@ describe('MonsterManager regressions', () => {
   });
 
   it('drawAbility on a drawExtra monster draws for the monster it shares the deck with', () => {
-    vi.spyOn(gameManager, 'deckData').mockImplementation((figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck));
-    vi.spyOn(gameManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
+    vi.spyOn(gameManager.editionManager, 'deckData').mockImplementation(
+      (figure) => new DeckData((figure as Monster).edition, (figure as Monster).deck)
+    );
+    vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([...Array(8).keys()].map((i) => new AbilityCard(i + 1, 'a' + i)));
     const banditGuard = buildMonster({ name: 'bandit-guard', edition: 'gh', deck: 'guard' });
     const cityGuard = buildMonster({ name: 'city-guard', edition: 'gh', deck: 'guard' });
     [banditGuard, cityGuard].forEach((monster) => (monster.abilities = [...Array(8).keys()]));
@@ -888,7 +922,7 @@ describe('MonsterManager regressions', () => {
     cityGuard.ability = 1;
     gameManager.game.figures = [banditGuard, cityGuard];
 
-    gameManager.monsterManager.drawAbility(cityGuard);
+    gameManager.monsterAbilityManager.drawAbility(cityGuard);
 
     expect(banditGuard.ability).toBe(1);
     expect(cityGuard.ability).toBe(2);
@@ -901,7 +935,7 @@ describe('MonsterManager standees', () => {
   beforeEach(() => {
     gameManager.game.figures = [];
     gameManager.game.state = GameState.draw;
-    vi.spyOn(gameManager, 'addEntityCount').mockImplementation(() => {});
+    vi.spyOn(gameManager.entityCounterManager, 'addEntityCount').mockImplementation(() => {});
   });
 
   function standeeMonster(): Monster {
@@ -921,7 +955,7 @@ describe('MonsterManager standees', () => {
     expect(monsterManager.nextStandeeNumber(monster)).toBe(1);
 
     gameManager.game.state = GameState.next;
-    vi.spyOn(gameManager, 'sortFigures').mockImplementation(() => {});
+    vi.spyOn(gameManager.roundManager, 'sortFigures').mockImplementation(() => {});
     const second = monsterManager.placeStandee(monster, 1, MonsterType.elite) as MonsterEntity;
     expect(monster.entities).toEqual([second]);
     expect(second.type).toBe(MonsterType.elite);
@@ -936,5 +970,26 @@ describe('MonsterManager standees', () => {
     monsterManager.renumberStandee(monster, one, 2);
     expect(one.number).toBe(2);
     expect(two.number).toBe(-1);
+  });
+
+  it('removes a dead standee holding the new number', () => {
+    const monster = standeeMonster();
+    const one = monsterManager.placeStandee(monster, 1, MonsterType.normal) as MonsterEntity;
+    const two = monsterManager.placeStandee(monster, 2, MonsterType.normal) as MonsterEntity;
+    two.dead = true;
+    monsterManager.renumberStandee(monster, one, 2);
+    expect(monster.entities).toEqual([one]);
+    expect(one.number).toBe(2);
+  });
+
+  it('removes all monsters or only unused ones', () => {
+    const used = standeeMonster();
+    const unused = buildMonster({ name: 'unused' });
+    gameManager.game.figures = [used, unused];
+    monsterManager.placeStandee(used, 1, MonsterType.normal);
+    monsterManager.removeAllMonsters(true);
+    expect(gameManager.game.figures).toEqual([used]);
+    monsterManager.removeAllMonsters();
+    expect(gameManager.game.figures).toEqual([]);
   });
 });

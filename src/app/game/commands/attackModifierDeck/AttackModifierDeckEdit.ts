@@ -9,11 +9,9 @@ import { Character } from 'src/app/game/model/Character';
 import {
   additionalTownGuardAttackModifier,
   AttackModifier,
-  AttackModifierDeck,
   AttackModifierType,
   Gh2ESealedDeckAttackModifier
 } from 'src/app/game/model/data/AttackModifier';
-import { ConditionName } from 'src/app/game/model/data/Condition';
 import { deckCardList } from 'src/app/game/util/deck';
 
 export class AttackModifierDeckShuffleCommand extends AttackModifierDeckCommandImpl {
@@ -68,17 +66,17 @@ export class AttackModifierDeckRestoreDefaultCommand extends AttackModifierDeckC
     gameManager.game.seed = seed;
     const resolved = this.resolved();
     if (resolved && resolved.character) {
-      gameManager.attackModifierManager.mergeAttackModifierDeck(
+      gameManager.attackModifierBuildManager.mergeAttackModifierDeck(
         resolved.character.attackModifierDeck,
-        gameManager.attackModifierManager.buildCharacterAttackModifierDeck(resolved.character)
+        gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(resolved.character)
       );
     } else if (resolved && resolved.townGuard) {
-      resolved.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
+      resolved.deck = gameManager.attackModifierBuildManager.buildTownGuardAttackModifierDeck(
         gameManager.game.party,
         gameManager.campaignManager.campaignData()
       );
     } else if (resolved) {
-      const deck = gameManager.attackModifierManager.defaultMonsterAttackModifierDeck(resolved.ally);
+      const deck = gameManager.attackModifierBuildManager.defaultMonsterAttackModifierDeck(resolved.ally);
       if (deckId === 'a') {
         gameManager.game.allyAttackModifierDeck = deck;
       } else {
@@ -100,7 +98,13 @@ export class AttackModifierDeckMoveCommand extends AttackModifierDeckCommandImpl
   }
 
   validParameters(deckId: string | number, fromList: string, cardId: string, toList: string, toIndex: number): boolean {
-    return this.index(fromList, cardId) !== -1 && deckTargetValid(toList, toIndex);
+    const resolved = this.resolved();
+    const index = this.index(fromList, cardId);
+    if (!resolved || index === -1 || !deckTargetValid(toList, toIndex)) {
+      return false;
+    }
+    const position = deckCardList(resolved.deck.current, index);
+    return gameManager.attackModifierManager.canMoveCard(resolved.deck, position.list, position.index, toList, toIndex);
   }
 
   executeWithParameters(deckId: string | number, fromList: string, cardId: string, toList: string, toIndex: number) {
@@ -149,7 +153,8 @@ export class AttackModifierDeckRemoveCardCommand extends AttackModifierDeckComma
   }
 
   validParameters(deckId: string | number, list: string, cardId: string): boolean {
-    return this.index(list, cardId) !== -1;
+    const resolved = this.resolved();
+    return !!resolved && gameManager.attackModifierManager.canRemoveCard(resolved.deck, this.index(list, cardId));
   }
 
   executeWithParameters(deckId: string | number, list: string, cardId: string) {
@@ -166,29 +171,10 @@ export class AttackModifierDeckRestoreCardCommand extends AttackModifierDeckComm
   id: string = 'attackModifierDeck.restoreCard';
   requiredParameters: number = 2;
 
-  deletedCards(resolved: ResolvedAttackModifierDeck): AttackModifier[] {
-    let originalDeck: AttackModifierDeck;
-    if (resolved.character) {
-      originalDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(resolved.character);
-    } else if (resolved.townGuard) {
-      originalDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
-        gameManager.game.party,
-        gameManager.campaignManager.campaignData()
-      );
-    } else {
-      originalDeck = gameManager.attackModifierManager.defaultDeck();
-    }
-    resolved.deck.cards.forEach((modifier) => {
-      const card = originalDeck.cards.find((orginalCard) => orginalCard.id === modifier.id);
-      if (card) {
-        originalDeck.cards.splice(originalDeck.cards.indexOf(card), 1);
-      }
-    });
-    return originalDeck.cards;
-  }
-
   deletedCard(resolved: ResolvedAttackModifierDeck, cardId: BASE_TYPE): AttackModifier | undefined {
-    return this.deletedCards(resolved).find((am) => am.id === cardId);
+    return gameManager.attackModifierManager
+      .deletedModifiers(resolved.deck, resolved.character, resolved.townGuard)
+      .find((am) => am.id === cardId);
   }
 
   validParameters(deckId: string | number, cardId: string): boolean {
@@ -200,7 +186,7 @@ export class AttackModifierDeckRestoreCardCommand extends AttackModifierDeckComm
     const resolved = this.resolved();
     const card = resolved && this.deletedCard(resolved, cardId);
     if (resolved && card) {
-      gameManager.attackModifierManager.restoreCard(resolved.deck, card);
+      gameManager.attackModifierManager.restoreCard(resolved.deck, card, resolved.character, resolved.townGuard);
     } else {
       this.executionError('deck not found');
     }
@@ -241,8 +227,6 @@ export class AttackModifierDeckAddCardCommand extends AttackModifierDeckCommandI
   }
 }
 
-const CHANGE_TYPES: string[] = [AttackModifierType.bless, AttackModifierType.curse, AttackModifierType.minus1extra];
-
 export class AttackModifierDeckChangeCommand extends AttackModifierDeckCommandImpl {
   id: string = 'attackModifierDeck.change';
   requiredParameters: number = 4;
@@ -251,7 +235,17 @@ export class AttackModifierDeckChangeCommand extends AttackModifierDeckCommandIm
     if (!validSeed(seed)) {
       return false;
     }
-    return !!this.resolved() && CHANGE_TYPES.includes(type) && typeof value === 'number' && value !== 0;
+    const resolved = this.resolved();
+    return (
+      !!resolved &&
+      typeof value === 'number' &&
+      gameManager.attackModifierManager.canChangeModifierCount(
+        resolved.deck,
+        type as AttackModifierType,
+        value,
+        !resolved.character && !resolved.ally
+      )
+    );
   }
 
   executeWithParameters(deckId: string | number, type: AttackModifierType, value: number, seed: number) {
@@ -277,14 +271,15 @@ export class AttackModifierDeckAdditionalCommand extends AttackModifierDeckComma
     const source: Character | undefined = findCharacter(number);
     return (
       !!resolved &&
-      (type === AttackModifierType.empower || type === AttackModifierType.enfeeble) &&
       !!source &&
-      !!source.additionalModifier &&
-      source.additionalModifier.some((perk) => perk.attackModifier && perk.attackModifier.type === type) &&
-      (!resolved.character ||
-        !gameManager.entityManager.isImmune(resolved.character, resolved.character, type as string as ConditionName)) &&
       typeof value === 'number' &&
-      value !== 0
+      gameManager.attackModifierManager.canChangeAdditionalCount(
+        resolved.deck,
+        source,
+        type as AttackModifierType,
+        value,
+        resolved.character
+      )
     );
   }
 
@@ -293,7 +288,7 @@ export class AttackModifierDeckAdditionalCommand extends AttackModifierDeckComma
     const resolved = this.resolved();
     const source = findCharacter(number);
     if (resolved && source) {
-      gameManager.attackModifierManager.changeAdditionalCount(resolved.deck, source, type, value);
+      gameManager.attackModifierManager.changeAdditionalCount(resolved.deck, source, type, value, resolved.character);
     } else {
       this.executionError('deck or character not found');
     }
@@ -308,31 +303,24 @@ export class AttackModifierDeckFactionCommand extends AttackModifierDeckCommandI
     return Gh2ESealedDeckAttackModifier.find((am) => am.id === id);
   }
 
-  has(resolved: ResolvedAttackModifierDeck, id: BASE_TYPE): boolean {
-    return resolved.deck.cards.some((am) => am.id === id);
-  }
-
-  anyHas(resolved: ResolvedAttackModifierDeck, id: BASE_TYPE): boolean {
-    return !!resolved.character && gameManager.attackModifierManager.factionModifierInUse(resolved.character, id as string);
-  }
-
   validParameters(deckId: string | number, id: string, value: boolean, force: boolean = false): boolean {
     const resolved = this.resolved();
+    const attackModifier = this.factionModifier(id);
     return (
       !!resolved &&
       !!resolved.character &&
-      !!this.factionModifier(id) &&
+      !!attackModifier &&
       typeof value === 'boolean' &&
-      this.has(resolved, id) !== value &&
-      (!value || !this.anyHas(resolved, id) || force)
+      typeof force === 'boolean' &&
+      gameManager.attackModifierManager.canSetFactionModifier(resolved.deck, resolved.character, attackModifier, value, force)
     );
   }
 
   executeWithParameters(deckId: string | number, id: string, value: boolean, force: boolean = false) {
     const resolved = this.resolved();
     const attackModifier = this.factionModifier(id);
-    if (resolved && attackModifier) {
-      gameManager.attackModifierManager.setFactionModifier(resolved.deck, attackModifier, value, force);
+    if (resolved && resolved.character && attackModifier) {
+      gameManager.attackModifierManager.setFactionModifier(resolved.deck, resolved.character, attackModifier, value, force);
     } else {
       this.executionError('deck or faction modifier not found');
     }
@@ -350,14 +338,20 @@ export class AttackModifierDeckDiscardCommand extends AttackModifierDeckCommandI
       : -1;
   }
 
-  validParameters(deckId: string | number, cardId: string, discarded: boolean): boolean {
-    return typeof discarded === 'boolean' && this.index(cardId, discarded) !== -1;
+  validParameters(deckId: string | number, cardId: string, discarded: boolean, force: boolean = false): boolean {
+    const resolved = this.resolved();
+    return (
+      !!resolved &&
+      typeof discarded === 'boolean' &&
+      typeof force === 'boolean' &&
+      gameManager.attackModifierManager.canSetDiscarded(resolved.deck, this.index(cardId, discarded), discarded, force)
+    );
   }
 
-  executeWithParameters(deckId: string | number, cardId: string, discarded: boolean) {
+  executeWithParameters(deckId: string | number, cardId: string, discarded: boolean, force: boolean = false) {
     const resolved = this.resolved();
     if (resolved) {
-      gameManager.attackModifierManager.setDiscarded(resolved.deck, this.index(cardId, discarded), discarded);
+      gameManager.attackModifierManager.setDiscarded(resolved.deck, this.index(cardId, discarded), discarded, force);
     } else {
       this.executionError('deck not found');
     }

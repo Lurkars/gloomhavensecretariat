@@ -83,6 +83,20 @@ describe('EventCardComponent', () => {
       expect(component.checks).toEqual([2, 3]);
     });
 
+    it('switches between the draw checks and the latest checks when the identifier changes', () => {
+      const card = buildCard([new EventCardOption('label', 'narrative', [buildOutcome()])]);
+      gameManager.game.party.eventCards = [{ cardId: '1', type: 'city', edition: 'gh', checks: [1, 2] } as any];
+      const identifier = new EventCardIdentifier('1', 'gh', 'city', -1, [], [1], false, false);
+      const fixture = TestBed.createComponent(EventCardComponent);
+      fixture.componentRef.setInput('event', card);
+      fixture.componentRef.setInput('identifier', identifier);
+      fixture.detectChanges();
+      expect(fixture.componentInstance.checks).toEqual([1]);
+      fixture.componentRef.setInput('identifier', undefined);
+      fixture.detectChanges();
+      expect(fixture.componentInstance.checks).toEqual([1, 2]);
+    });
+
     it('prefers checks from an explicit identifier input over party.eventCards', () => {
       const card = buildCard([new EventCardOption('label', 'narrative', [buildOutcome()])]);
       gameManager.game.party.eventCards = [{ cardId: '1', type: 'city', edition: 'gh', checks: [1] } as any];

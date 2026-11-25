@@ -63,7 +63,7 @@ export class EventHelper {
   }
 
   cancelOutpostAttack() {
-    if (this.outpostAttack) {
+    if (gameManager.outpostAttackManager.canFinish()) {
       gameManager.stateManager.before('outpostAttack.cancel');
       gameManager.outpostAttackManager.finish();
       gameManager.stateManager.after();
@@ -72,14 +72,11 @@ export class EventHelper {
   }
 
   startOutpostAttack(attack: EventCardAttack | undefined, effects: EventCardEffect[] = [], replace: boolean = false) {
-    if (this.outpostAttack && !replace) {
+    if (!gameManager.outpostAttackManager.canStart(replace)) {
       return;
     }
     gameManager.stateManager.before('outpostAttack.start');
-    if (this.outpostAttack) {
-      gameManager.outpostAttackManager.finish();
-    }
-    gameManager.outpostAttackManager.start(attack, effects);
+    gameManager.outpostAttackManager.start(attack, effects, replace);
     gameManager.stateManager.after();
     this.outpostAttackStarted = true;
   }
@@ -96,7 +93,7 @@ export class EventHelper {
       panelClass: ['dialog'],
       data: {
         type: type,
-        edition: gameManager.game.edition || gameManager.currentEdition()
+        edition: gameManager.game.edition || gameManager.editionManager.currentEdition()
       }
     });
   }
@@ -106,7 +103,7 @@ export class EventHelper {
       .open(EventCardDrawComponent, {
         panelClass: ['dialog'],
         data: {
-          edition: gameManager.game.party.edition || gameManager.currentEdition(),
+          edition: gameManager.game.party.edition || gameManager.editionManager.currentEdition(),
           type: type
         }
       })

@@ -48,9 +48,9 @@ describe('ScenarioRulesManager', () => {
     it('returns conclusions of rule sections and adds other sections', () => {
       const conclusion = Object.assign(new ScenarioData(), { edition: 'gh', index: '10.1', conclusion: true });
       const section = Object.assign(new ScenarioData(), { edition: 'gh', index: '10.2' });
-      vi.spyOn(gameManager, 'sectionData').mockReturnValue([conclusion, section]);
+      vi.spyOn(gameManager.editionManager, 'sectionData').mockReturnValue([conclusion, section]);
       const addSection = vi.spyOn(gameManager.scenarioManager, 'addSection').mockImplementation(() => {});
-      vi.spyOn(scenarioRulesManager, 'applyRule').mockImplementation(() => {});
+      vi.spyOn(gameManager.scenarioRuleEffectsManager, 'applyRule').mockImplementation(() => {});
       const model = setupRule({ sections: ['10.1', '10.2'] });
 
       expect(scenarioRulesManager.ruleSections(model.rule, model.identifier)).toEqual([conclusion, section]);
@@ -61,14 +61,14 @@ describe('ScenarioRulesManager', () => {
     });
 
     it('returns the finish state of a rule', () => {
-      vi.spyOn(scenarioRulesManager, 'applyRule').mockImplementation(() => {});
+      vi.spyOn(gameManager.scenarioRuleEffectsManager, 'applyRule').mockImplementation(() => {});
       vi.spyOn(gameManager.scenarioManager, 'availableSections').mockReturnValue([]);
       const model = setupRule({ finish: 'lost' });
       expect(scenarioRulesManager.applyScenarioRule(model).finish).toEqual({ success: false, conclusions: [] });
     });
 
     it('does not apply always-apply-turn rules', () => {
-      const applyRule = vi.spyOn(scenarioRulesManager, 'applyRule').mockImplementation(() => {});
+      const applyRule = vi.spyOn(gameManager.scenarioRuleEffectsManager, 'applyRule').mockImplementation(() => {});
       const model = setupRule({ alwaysApplyTurn: 'turn' });
       scenarioRulesManager.applyScenarioRule(model);
       expect(applyRule).not.toHaveBeenCalled();

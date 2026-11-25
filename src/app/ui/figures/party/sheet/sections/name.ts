@@ -12,9 +12,9 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 })
 export class PartySheetNameComponent extends PartySheetSection {
   setName(event: any) {
-    if (this.party.name !== event.target.value) {
+    if (this.party.name !== event.target.value && gameManager.campaignManager.canSetPartyValue('name', event.target.value)) {
       gameManager.stateManager.before('setPartyName', event.target.value);
-      this.party.name = event.target.value;
+      gameManager.campaignManager.setPartyValue('name', event.target.value);
       gameManager.stateManager.after();
     }
   }
@@ -22,14 +22,14 @@ export class PartySheetNameComponent extends PartySheetSection {
   removeParty() {
     if (gameManager.game.parties.length > 1) {
       gameManager.stateManager.before('removeParty', this.party.name || '%party% ' + this.party.id);
-      gameManager.removeParty(this.party);
+      gameManager.campaignManager.removeParty(this.party);
       gameManager.stateManager.after();
     }
   }
 
   newParty() {
-    gameManager.stateManager.before('addParty', '%party% ' + gameManager.nextPartyId());
-    gameManager.addParty();
+    gameManager.stateManager.before('addParty', '%party% ' + gameManager.campaignManager.nextPartyId());
+    gameManager.campaignManager.addParty();
     gameManager.stateManager.after();
   }
 }

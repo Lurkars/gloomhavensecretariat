@@ -1,12 +1,23 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { createTestCharacter, createTestObjective, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
+import { BuildingModel } from 'src/app/game/model/Building';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import {
+  AttackModifier,
+  AttackModifierDeck,
+  AttackModifierType,
+  Gh2ESealedDeckAttackModifier
+} from 'src/app/game/model/data/AttackModifier';
 import { ConditionName } from 'src/app/game/model/data/Condition';
+import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Loot, LootType } from 'src/app/game/model/data/Loot';
+import { PerkCard } from 'src/app/game/model/data/Perks';
+import { PetCard } from 'src/app/game/model/data/PetCard';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
+import { GameClockTimestamp } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { deckMoveValid } from 'src/app/game/util/deck';
 
 describe('AttackModifierManager deck editing', () => {
   const attackModifierManager = gameManager.attackModifierManager;
@@ -29,8 +40,13 @@ describe('AttackModifierManager deck editing', () => {
     attackModifierManager.removeCard(amDeck, 0);
     expect(amDeck.current).toBe(0);
     expect(amDeck.cards.map((am) => am.type)).toEqual([AttackModifierType.minus1, AttackModifierType.plus0]);
-    attackModifierManager.restoreCard(amDeck, new AttackModifier(AttackModifierType.double));
-    expect(amDeck.cards[1].type).toBe(AttackModifierType.double);
+    expect(attackModifierManager.removeCard(amDeck, 5)).toBe(false);
+    const deleted = attackModifierManager.deletedModifiers(amDeck, undefined)[0];
+    expect(attackModifierManager.restoreCard(amDeck, deleted, undefined)).toBe(true);
+    expect(amDeck.cards[1]).toBe(deleted);
+    expect(
+      attackModifierManager.restoreCard(amDeck, Object.assign(new AttackModifier(AttackModifierType.double), { id: 'unknown' }), undefined)
+    ).toBe(false);
   });
 
   it('removes only upcoming cards of a type', () => {
@@ -39,30 +55,46 @@ describe('AttackModifierManager deck editing', () => {
     attackModifierManager.changeModifierCount(amDeck, AttackModifierType.bless, -1, true);
     expect(amDeck.cards.filter((am) => am.type === AttackModifierType.bless).length).toBe(2);
     expect(amDeck.cards[0].type).toBe(AttackModifierType.bless);
-    attackModifierManager.changeModifierCount(amDeck, AttackModifierType.bless, -5, true);
+    expect(attackModifierManager.changeModifierCount(amDeck, AttackModifierType.bless, -5, true)).toBe(false);
+    expect(attackModifierManager.changeModifierCount(amDeck, AttackModifierType.bless, -1, true)).toBe(true);
     expect(amDeck.cards.map((am) => am.type)).toEqual([AttackModifierType.bless, AttackModifierType.plus0]);
   });
 
   it('removes additional modifiers of a character only', () => {
     const character = createTestCharacter(1);
     const amDeck = deck(AttackModifierType.plus0);
-    amDeck.cards.push(Object.assign(new AttackModifier(AttackModifierType.empower), { id: 'additional-' + character.name + '-1' }));
-    amDeck.cards.push(Object.assign(new AttackModifier(AttackModifierType.empower), { id: 'additional-other-1' }));
-    attackModifierManager.changeAdditionalCount(amDeck, character, AttackModifierType.empower, -2);
-    expect(amDeck.cards.filter((am) => am.type === AttackModifierType.empower).map((am) => am.id)).toEqual(['additional-other-1']);
+    amDeck.cards.push(Object.assign(new AttackModifier(AttackModifierType.empower), { id: 'additional-' + character.name + '1' }));
+    amDeck.cards.push(Object.assign(new AttackModifier(AttackModifierType.empower), { id: 'additional-other1' }));
+    expect(attackModifierManager.changeAdditionalCount(amDeck, character, AttackModifierType.empower, -2)).toBe(false);
+    expect(attackModifierManager.changeAdditionalCount(amDeck, character, AttackModifierType.empower, -1)).toBe(true);
+    expect(amDeck.cards.filter((am) => am.type === AttackModifierType.empower).map((am) => am.id)).toEqual(['additional-other1']);
     attackModifierManager.changeAdditionalCount(amDeck, undefined, AttackModifierType.empower, -1);
     expect(amDeck.cards.length).toBe(1);
   });
 
   it('adds and removes faction modifiers', () => {
+    const character = createTestCharacter(1);
+    const other = createTestCharacter(2);
     const amDeck = deck(AttackModifierType.plus0);
-    const factionModifier = Object.assign(new AttackModifier(AttackModifierType.plus1), { id: 'gh2e-test-1' });
+    const factionModifier = Gh2ESealedDeckAttackModifier[0];
     vi.spyOn(gameManager.campaignManager, 'gh2eFactionUnlocks').mockReturnValue([]);
-    attackModifierManager.setFactionModifier(amDeck, factionModifier, true);
-    expect(amDeck.cards.map((am) => am.id)).toContain('gh2e-test-1');
-    expect(amDeck.cards.find((am) => am.id === 'gh2e-test-1')).not.toBe(factionModifier);
-    attackModifierManager.setFactionModifier(amDeck, factionModifier, false);
-    expect(amDeck.cards.map((am) => am.id)).not.toContain('gh2e-test-1');
+    expect(attackModifierManager.setFactionModifier(amDeck, character, factionModifier, true)).toBe(true);
+    expect(amDeck.cards.map((am) => am.id)).toContain(factionModifier.id);
+    expect(amDeck.cards.find((am) => am.id === factionModifier.id)).not.toBe(factionModifier);
+    expect(attackModifierManager.setFactionModifier(amDeck, character, factionModifier, true)).toBe(false);
+    character.attackModifierDeck = amDeck;
+    expect(attackModifierManager.canSetFactionModifier(other.attackModifierDeck, other, factionModifier, true)).toBe(false);
+    expect(attackModifierManager.canSetFactionModifier(other.attackModifierDeck, other, factionModifier, true, true)).toBe(true);
+    attackModifierManager.setFactionModifier(amDeck, character, factionModifier, false);
+    expect(amDeck.cards.map((am) => am.id)).not.toContain(factionModifier.id);
+    expect(
+      attackModifierManager.canSetFactionModifier(
+        amDeck,
+        character,
+        Object.assign(new AttackModifier(AttackModifierType.plus1), { id: 'gh2e-test-1' }),
+        true
+      )
+    ).toBe(false);
   });
 
   it('lists objective decks and falls back to the monster deck for a missing character', () => {
@@ -144,10 +176,14 @@ describe('manager helpers shared with commands', () => {
 
   it('applies favors and refunds unspent points', () => {
     const refund = vi.spyOn(gameManager.trialsManager, 'refundFavorPoints').mockReturnValue([1]);
-    gameManager.trialsManager.applyFavors([], [2], 1);
+    expect(gameManager.trialsManager.applyFavors([], [2])).toBe(true);
     expect(gameManager.game.favors).toEqual([]);
     expect(gameManager.game.favorPoints).toEqual([1]);
-    expect(refund).toHaveBeenCalledWith([2], 1);
+    expect(refund).toHaveBeenCalledWith([2], 2);
+    expect(gameManager.trialsManager.canApplyFavors([], [3])).toBe(false);
+    expect(gameManager.trialsManager.canApplyFavors([], [2, 2, 2, 2])).toBe(false);
+    expect(gameManager.trialsManager.canApplyFavors([], [2, 2, 2, 2], true)).toBe(true);
+    expect(gameManager.trialsManager.canApplyFavors([new Identifier('unknown', 'fh')], [2])).toBe(false);
     refund.mockRestore();
   });
 });
@@ -174,10 +210,13 @@ describe('manager helpers for UI state edits', () => {
 
   it('toggles discarded attack modifiers', () => {
     const deck = new AttackModifierDeck([new AttackModifier(AttackModifierType.plus1)]);
-    gameManager.attackModifierManager.setDiscarded(deck, 0, true);
-    gameManager.attackModifierManager.setDiscarded(deck, 0, true);
+    expect(gameManager.attackModifierManager.setDiscarded(deck, 0, true)).toBe(false);
+    deck.cards[0].active = true;
+    expect(gameManager.attackModifierManager.setDiscarded(deck, 0, true)).toBe(true);
+    expect(gameManager.attackModifierManager.setDiscarded(deck, 0, true)).toBe(false);
     expect(deck.discarded).toEqual([0]);
-    gameManager.attackModifierManager.setDiscarded(deck, 0, false);
+    expect(gameManager.attackModifierManager.setDiscarded(deck, 0, false)).toBe(false);
+    expect(gameManager.attackModifierManager.setDiscarded(deck, 0, false, true)).toBe(true);
     expect(deck.discarded).toEqual([]);
   });
 
@@ -210,11 +249,11 @@ describe('manager helpers for UI state edits', () => {
     expect(gameManager.game.lootDeckEnhancements).toEqual([loot]);
 
     gameManager.game.party.treasures = [];
-    gameManager.lootManager.setPartyTreasure('gh', 5, true);
-    gameManager.lootManager.setPartyTreasure('gh', 5, true);
-    expect(gameManager.lootManager.hasPartyTreasure('gh', '5')).toBe(true);
+    gameManager.treasureManager.setPartyTreasure('gh', 5, true);
+    gameManager.treasureManager.setPartyTreasure('gh', 5, true);
+    expect(gameManager.treasureManager.hasPartyTreasure('gh', '5')).toBe(true);
     expect(gameManager.game.party.treasures.length).toBe(1);
-    gameManager.lootManager.setPartyTreasure('gh', 5, false);
+    gameManager.treasureManager.setPartyTreasure('gh', 5, false);
     expect(gameManager.game.party.treasures).toEqual([]);
   });
 
@@ -231,38 +270,44 @@ describe('manager helpers for UI state edits', () => {
   });
 
   it('adds and removes parties and game conditions', () => {
-    const change = vi.spyOn(gameManager, 'changeParty').mockImplementation(() => {});
+    const change = vi.spyOn(gameManager.campaignManager, 'changeParty').mockImplementation(() => {});
     gameManager.game.parties = [gameManager.game.party];
     gameManager.game.party.id = 0;
-    expect(gameManager.nextPartyId()).toBe(1);
-    const party = gameManager.addParty('second');
+    expect(gameManager.campaignManager.nextPartyId()).toBe(1);
+    const party = gameManager.campaignManager.addParty('second');
     expect(party.id).toBe(1);
     expect(change).toHaveBeenCalledWith(party);
-    gameManager.removeParty(party);
+    gameManager.campaignManager.removeParty(party);
     expect(gameManager.game.parties.length).toBe(1);
-    gameManager.removeParty(gameManager.game.parties[0]);
+    gameManager.campaignManager.removeParty(gameManager.game.parties[0]);
     expect(gameManager.game.parties.length).toBe(1);
 
     gameManager.game.conditions = [];
-    gameManager.setGameCondition(ConditionName.bless, true);
-    gameManager.setGameCondition(ConditionName.bless, true);
+    gameManager.conditionManager.setGameCondition(ConditionName.bless, true);
+    gameManager.conditionManager.setGameCondition(ConditionName.bless, true);
     expect(gameManager.game.conditions).toEqual([ConditionName.bless]);
-    gameManager.setGameCondition(ConditionName.bless, false);
+    gameManager.conditionManager.setGameCondition(ConditionName.bless, false);
     expect(gameManager.game.conditions).toEqual([]);
   });
 
   it('adds and removes pets and toggles the garden', () => {
     gameManager.game.party.pets = [];
+    vi.spyOn(gameManager.buildingsManager, 'petCard').mockReturnValue(new PetCard());
     const pet = gameManager.buildingsManager.addPet('fh', '1');
-    expect(gameManager.buildingsManager.addPet('fh', '1')).toBe(pet);
+    expect(pet).toBeDefined();
+    expect(gameManager.buildingsManager.addPet('fh', '1')).toBeUndefined();
     gameManager.buildingsManager.removePet('fh', '1');
     expect(gameManager.game.party.pets).toEqual([]);
 
     delete gameManager.game.party.garden;
+    gameManager.game.party.buildings = [new BuildingModel('garden', 1)];
+    settingsManager.settings.automaticPassTime = true;
     gameManager.buildingsManager.setGardenFlipped(true);
     gameManager.buildingsManager.setGardenAutomated(true);
     expect(gameManager.game.party.garden!.flipped).toBe(true);
     expect(gameManager.game.party.garden!.automated).toBe(true);
+    settingsManager.settings.automaticPassTime = true;
+    vi.restoreAllMocks();
   });
 
   it('changes character values and moves resources to the supply', () => {
@@ -299,7 +344,103 @@ describe('manager helpers for UI state edits', () => {
     expect(gameManager.game.discardedScenarioRules).toEqual([]);
 
     gameManager.game.party.conclusions = [new GameScenarioModel('1', 'gh'), new GameScenarioModel('2', 'gh')];
-    gameManager.scenarioManager.removeConclusion('gh', '1');
+    gameManager.campaignManager.removeConclusion('gh', '1');
     expect(gameManager.game.party.conclusions.map((model) => model.index)).toEqual(['2']);
+  });
+});
+
+describe('manager helpers for character progress and game clock', () => {
+  beforeEach(() => {
+    resetTestGame();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('changes scenario experience without going below zero', () => {
+    const character = createTestCharacter(1);
+    character.experience = 1;
+    gameManager.characterManager.changeExperience(character, -3);
+    expect(character.experience).toBe(0);
+    gameManager.characterManager.changeExperience(character, 2);
+    expect(character.experience).toBe(2);
+  });
+
+  it('normalizes perks and the minimum experience of the level', () => {
+    const character = createTestCharacter(1, 3);
+    character.progress.perks = [1];
+    character.progress.experience = 0;
+    gameManager.characterManager.normalizeProgress(character);
+    expect(character.progress.perks.length).toBe(15);
+    expect(character.progress.perks[0]).toBe(1);
+    expect(character.progress.experience).toBe(gameManager.characterManager.xpMap[2]);
+  });
+
+  it('resumes a clock out from a refresh and merges clock entries', () => {
+    const now = new Date().getTime();
+    gameManager.game.gameClock = [new GameClockTimestamp(now - 10000, now - 1000)];
+    expect(gameManager.gameClockManager.clockedIn()).toBe(false);
+    gameManager.gameClockManager.automaticClockIn();
+    expect(gameManager.game.gameClock.length).toBe(1);
+    expect(gameManager.gameClockManager.clockedIn()).toBe(true);
+
+    gameManager.game.gameClock = [new GameClockTimestamp(now - 1000, now), new GameClockTimestamp(now - 5000, now - 2000)];
+    gameManager.gameClockManager.mergeGameClock(1);
+    expect(gameManager.game.gameClock.length).toBe(1);
+    expect(gameManager.game.gameClock[0].clockIn).toBe(now - 5000);
+    expect(gameManager.game.gameClock[0].clockOut).toBe(now);
+  });
+});
+
+describe('AttackModifierManager change limits', () => {
+  const attackModifierManager = gameManager.attackModifierManager;
+
+  beforeEach(() => {
+    resetTestGame();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('limits blesses, curses and extra -1 cards to the supply', () => {
+    const deck = new AttackModifierDeck([]);
+    expect(attackModifierManager.canChangeModifierCount(deck, AttackModifierType.bless, 10, false)).toBe(true);
+    expect(attackModifierManager.canChangeModifierCount(deck, AttackModifierType.bless, 11, false)).toBe(false);
+    expect(attackModifierManager.canChangeModifierCount(deck, AttackModifierType.curse, 10, true)).toBe(true);
+    expect(attackModifierManager.canChangeModifierCount(deck, AttackModifierType.minus1extra, 16, true)).toBe(false);
+    expect(attackModifierManager.canChangeModifierCount(deck, AttackModifierType.plus1, 1, true)).toBe(false);
+    expect(attackModifierManager.canChangeModifierCount(deck, AttackModifierType.bless, 0, true)).toBe(false);
+    expect(attackModifierManager.changeModifierCount(gameManager.game.monsterAttackModifierDeck, AttackModifierType.bless, 9, true)).toBe(
+      true
+    );
+    expect(attackModifierManager.canChangeModifierCount(deck, AttackModifierType.bless, 2, false)).toBe(false);
+  });
+
+  it('limits empower to the perk count and rejects immune deck owners', () => {
+    const character = createTestCharacter(1);
+    const owner = createTestCharacter(2);
+    character.additionalModifier = [
+      Object.assign(new PerkCard(), { count: 2, attackModifier: new AttackModifier(AttackModifierType.empower) })
+    ];
+    const deck = new AttackModifierDeck([]);
+    expect(attackModifierManager.additionalAvailable(character, AttackModifierType.empower)).toBe(2);
+    expect(attackModifierManager.canChangeAdditionalCount(deck, character, AttackModifierType.empower, 3)).toBe(false);
+    expect(attackModifierManager.canChangeAdditionalCount(deck, character, AttackModifierType.enfeeble, 1)).toBe(false);
+    expect(attackModifierManager.canChangeAdditionalCount(deck, undefined, AttackModifierType.empower, 1)).toBe(false);
+    vi.spyOn(gameManager.conditionManager, 'isImmune').mockReturnValue(true);
+    expect(attackModifierManager.canChangeAdditionalCount(deck, character, AttackModifierType.empower, 1, owner)).toBe(false);
+    expect(attackModifierManager.canChangeAdditionalCount(deck, character, AttackModifierType.empower, 1)).toBe(true);
+  });
+
+  it('validates move positions of upcoming and discarded cards', () => {
+    expect(deckMoveValid(0, 3, 'upcoming', 1, 'upcoming', 1)).toBe(true);
+    expect(deckMoveValid(0, 3, 'upcoming', 2, 'upcoming', 0)).toBe(false);
+    expect(deckMoveValid(0, 3, 'upcoming', 0, 'upcoming', 2)).toBe(false);
+    expect(deckMoveValid(0, 3, 'upcoming', 0, 'discarded', 1)).toBe(true);
+    expect(deckMoveValid(0, 3, 'discarded', 0, 'upcoming', 2)).toBe(true);
+    expect(deckMoveValid(0, 3, 'discarded', 1, 'upcoming', 0)).toBe(false);
+    expect(deckMoveValid(0, 3, 'other', 0, 'upcoming', 0)).toBe(false);
   });
 });

@@ -995,8 +995,7 @@
         "augment": "%game.customAction:gh2e-augment%赋能"
       },
       "night-demon": {
-        "1": "所有相邻的盟友和敌人承受%game.damage:1%。",
-        "2": "%game.custom.disadvantage%"
+        "1": "所有相邻的盟友和敌人承受%game.damage:1%。"
       },
       "ooze": {
         "1": "H等于执行召唤能力的软泥怪当前血量(上限为普通软泥怪的最大血量)。"

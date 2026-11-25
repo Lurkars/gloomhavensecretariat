@@ -12,6 +12,6 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 })
 export class CharacterSheetRpgItemsComponent extends RpgSheetSection {
   setItem<K extends keyof RpgItem>(index: number, field: K, value: RpgItem[K]) {
-    this.change('items', value as string | boolean, (rpg) => (rpg.items[index][field] = value));
+    this.change('items', 'items.' + index + '.' + field, value);
   }
 }

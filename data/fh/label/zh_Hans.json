@@ -1360,9 +1360,6 @@
         "1": "与<br>目标相邻的所有盟友和敌人承受 %game.damage:2%",
         "2": "在 %game.action.range:4% 内的所有敌人承受 %game.damage:2%."
       },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
       "blinkblade": {
         "1": "你下次攻击时,弃掉本卡牌来%game.action.attack.valueSign:2%.<br>%game.card.persistent%",
         "2": "将本卡牌放入你的激活区域.你下次攻击时,弃掉本卡牌来%game.action.attack.valueSign:2%",
@@ -1647,8 +1644,7 @@
         "3": "奇数轮中至最左侧空格，偶数轮中至最右侧空格"
       },
       "night-demon": {
-        "1": "所有相邻的盟友和<br>敌人各承受%game.damage:1%。",
-        "2": "%game.custom.disadvantage%"
+        "1": "所有相邻的盟友和<br>敌人各承受%game.damage:1%。"
       },
       "ooze": {
         "1": "，其生命值等于进行召唤的软泥怪的当前生命值(最高不超过普通软泥怪的生命值上限)。"

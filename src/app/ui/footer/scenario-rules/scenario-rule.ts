@@ -1,7 +1,7 @@
 import { Component, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Condition } from 'src/app/game/model/data/Condition';
@@ -27,7 +27,9 @@ function randomDungeonCardLabels(cardIds: string[] | undefined, group: string): 
     .filter((cardId) => !scenario || !scenario.additionalSections || !scenario.additionalSections.includes(cardId))
     .map((cardId) => {
       const section = scenario
-        ? gameManager.sectionData(scenario.edition, true).find((sectionData) => sectionData.index === cardId && sectionData.group === group)
+        ? gameManager.editionManager
+            .sectionData(scenario.edition, true)
+            .find((sectionData) => sectionData.index === cardId && sectionData.group === group)
         : undefined;
       return section
         ? '&nbsp%' + gameManager.scenarioManager.scenarioTitle(section, true) + '% (#' + section.index + ')'
@@ -95,33 +97,33 @@ export class ScenarioRuleComponent implements OnInit {
     let names = '';
     if (figureRule.identifier) {
       if (figureRule.identifier.type === 'all') {
-        names = settingsManager.getLabel('scenario.rules.figures.all');
+        names = labelManager.getLabel('scenario.rules.figures.all');
       } else {
         names = gameManager.scenarioRulesManager
           .figuresByFigureRule(figureRule, this.rule)
           .filter((figure) => {
             if (figureRule.type === 'gainCondition') {
               const entities: Entity[] = gameManager.entityManager.entities(figure);
-              const gainCondition = new Condition(figureRule.value);
-              if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
+              const gainCondition = new Condition(('' + figureRule.value).split(':')[0]);
+              if (entities.every((entity) => gameManager.conditionManager.hasCondition(entity, gainCondition))) {
                 return false;
               }
             } else if (figureRule.type === 'permanentCondition') {
               const entities: Entity[] = gameManager.entityManager.entities(figure);
-              const gainCondition = new Condition(figureRule.value);
-              if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition, true))) {
+              const gainCondition = new Condition(('' + figureRule.value).split(':')[0]);
+              if (entities.every((entity) => gameManager.conditionManager.hasCondition(entity, gainCondition, true))) {
                 return false;
               }
             } else if (figureRule.type === 'loseCondition') {
               const entities: Entity[] = gameManager.entityManager.entities(figure);
-              const loseCondition = new Condition(figureRule.value);
-              if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, loseCondition))) {
+              const loseCondition = new Condition(('' + figureRule.value).split(':')[0]);
+              if (entities.every((entity) => !gameManager.conditionManager.hasCondition(entity, loseCondition))) {
                 return false;
               }
             } else if (figureRule.type === 'losePermanentCondition') {
               const entities: Entity[] = gameManager.entityManager.entities(figure);
-              const losePermanentCondition = new Condition(figureRule.value);
-              if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, losePermanentCondition, true))) {
+              const losePermanentCondition = new Condition(('' + figureRule.value).split(':')[0]);
+              if (entities.every((entity) => !gameManager.conditionManager.hasCondition(entity, losePermanentCondition, true))) {
                 return false;
               }
             } else if (figureRule.type === 'toggleOn' || figureRule.type === 'toggleOff') {
@@ -133,13 +135,13 @@ export class ScenarioRuleComponent implements OnInit {
           .map((figure) => {
             if (figure instanceof Character) {
               return (
-                settingsManager.getLabel('%game.characterIconColored.' + figure.name + '%') +
+                labelManager.getLabel('%game.characterIconColored.' + figure.name + '%') +
                 gameManager.characterManager.characterName(figure)
               );
             }
             if (figure instanceof ObjectiveContainer) {
               return (
-                (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) +
+                (figure.title || labelManager.getLabel('data.objective.' + figure.name)) +
                 (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '') +
                 (figureRule.identifier && figureRule.identifier.marker ? ' %game.mapMarker.' + figureRule.identifier.marker + '%' : '')
               );
@@ -148,7 +150,7 @@ export class ScenarioRuleComponent implements OnInit {
               const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;
               if (figureRule.type === 'removeEntity') {
                 return (
-                  settingsManager.getLabel('data.monster.' + name) +
+                  labelManager.getLabel('data.monster.' + name) +
                   ' [' +
                   gameManager.scenarioRulesManager
                     .entitiesByFigureRule(figureRule, this.rule)
@@ -158,7 +160,7 @@ export class ScenarioRuleComponent implements OnInit {
                   ']'
                 );
               }
-              return settingsManager.getLabel('data.monster.' + name);
+              return labelManager.getLabel('data.monster.' + name);
             }
 
             return figure.name;
@@ -171,24 +173,24 @@ export class ScenarioRuleComponent implements OnInit {
   }
 
   figureNamesByIdenfifier(identifier: ScenarioFigureRuleIdentifier): string {
-    return gameManager
+    return gameManager.entityManager
       .figuresByIdentifier(identifier)
       .map((figure) => {
         if (figure instanceof Character) {
           return (
-            settingsManager.getLabel('%game.characterIconColored.' + figure.name + '%') + gameManager.characterManager.characterName(figure)
+            labelManager.getLabel('%game.characterIconColored.' + figure.name + '%') + gameManager.characterManager.characterName(figure)
           );
         }
         if (figure instanceof ObjectiveContainer) {
           return (
-            (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) +
+            (figure.title || labelManager.getLabel('data.objective.' + figure.name)) +
             (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '') +
             (identifier.marker ? ' %game.mapMarker.' + identifier.marker + '%' : '')
           );
         }
         if (figure instanceof Monster) {
           const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;
-          return settingsManager.getLabel('data.monster.' + name);
+          return labelManager.getLabel('data.monster.' + name);
         }
 
         return figure.name;

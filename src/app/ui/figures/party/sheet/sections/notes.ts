@@ -11,9 +11,9 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 })
 export class PartySheetNotesComponent extends PartySheetSection {
   setNotes(event: any) {
-    if (this.party.notes !== event.target.value) {
+    if (this.party.notes !== event.target.value && gameManager.campaignManager.canSetPartyValue('notes', event.target.value)) {
       gameManager.stateManager.before('setPartyNotes', event.target.value);
-      this.party.notes = event.target.value;
+      gameManager.campaignManager.setPartyValue('notes', event.target.value);
       gameManager.stateManager.after();
     }
   }

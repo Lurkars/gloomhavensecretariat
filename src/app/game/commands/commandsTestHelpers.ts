@@ -64,7 +64,7 @@ export function resetTestGame(): void {
   const party = new (gameManager.game.party.constructor as new () => typeof gameManager.game.party)();
   gameManager.game.party = party;
   gameManager.game.parties = [party];
-  gameManager.editionData = [];
+  gameManager.editionManager.editionData = [];
 }
 
 /**
@@ -123,7 +123,7 @@ export function createTestSummon(character: Character, name: string = 'testsummo
 
 export function createTestEdition(data: Partial<EditionData> = {}): EditionData {
   const editionData = Object.assign(new EditionData('test', [], [], [], [], [], []), data);
-  gameManager.editionData = [editionData];
+  gameManager.editionManager.editionData = [editionData];
   if (!settingsManager.settings.editions.includes('test')) {
     settingsManager.settings.editions.push('test');
   }

@@ -3,7 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { ItemComponent } from 'src/app/ui/figures/items/item/item';
@@ -36,7 +36,7 @@ export class ItemsCardsToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     gameManager.stateManager.init(true);
-    this.edition = gameManager.editions(true)[0];
+    this.edition = gameManager.editionManager.editions(true)[0];
     this.update();
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
@@ -44,14 +44,14 @@ export class ItemsCardsToolComponent implements OnInit {
         let update = false;
         if (queryParams['e']) {
           this.edition = queryParams['e'];
-          if (this.edition && !gameManager.editions(true).includes(this.edition)) {
+          if (this.edition && !gameManager.editionManager.editions(true).includes(this.edition)) {
             this.edition = undefined;
           }
           update = true;
         }
         if (queryParams['c']) {
           this.comparisonEdition = queryParams['c'];
-          if (this.comparisonEdition && !gameManager.editions(true).includes(this.comparisonEdition)) {
+          if (this.comparisonEdition && !gameManager.editionManager.editions(true).includes(this.comparisonEdition)) {
             this.comparisonEdition = undefined;
           }
           update = true;
@@ -97,7 +97,7 @@ export class ItemsCardsToolComponent implements OnInit {
       !this.filter ||
       ('' + itemData.id).includes(this.filter) ||
       itemData.name.toLowerCase().includes(this.filter.toLowerCase()) ||
-      settingsManager
+      labelManager
         .getLabel('data.items.' + itemData.edition + '-' + itemData.id)
         .toLowerCase()
         .includes(this.filter.toLowerCase())

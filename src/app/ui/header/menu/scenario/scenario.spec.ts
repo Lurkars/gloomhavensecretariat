@@ -31,7 +31,7 @@ describe('ScenarioMenuComponent', () => {
     gameManager.game.party.conclusions = [];
     gameManager.game.party.campaignMode = false;
     gameManager.game.unlockedCharacters = [];
-    gameManager.editionData = [
+    gameManager.editionManager.editionData = [
       Object.assign(
         new EditionData(
           'gh',
@@ -172,7 +172,7 @@ describe('ScenarioMenuComponent', () => {
     // present for hasSpoilers()/notSpoiled() to find, regardless of unlock state — verified here as
     // the actual, current behavior of the public API.
     it('is false/empty for a group with an unrevealed spoiler scenario, whether or not it is unlocked', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [scenario('4', { group: 'c', spoiler: true, name: 'secret' })], [], []))
       ];
       const component = createComponent();

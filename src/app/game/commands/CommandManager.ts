@@ -20,6 +20,7 @@ import {
   BuildingDowngradeCommand,
   BuildingRepairCommand,
   BuildingStateCommand,
+  BuildingTradeCommand,
   BuildingUpgradeCommand,
   GardenAutomationCommand,
   GardenFlipCommand,
@@ -31,6 +32,20 @@ import {
   PetLostCommand,
   PetNameCommand
 } from 'src/app/game/commands/building/Building';
+import {
+  OutpostAttackCommand,
+  OutpostCancelCommand,
+  OutpostDrawCommand,
+  OutpostFinishCommand,
+  OutpostManualCommand,
+  OutpostOrderCommand,
+  OutpostRandomizeCommand,
+  OutpostResourceCommand,
+  OutpostResultCommand,
+  OutpostSoldiersCommand,
+  OutpostStartCommand,
+  OutpostTargetCommand
+} from 'src/app/game/commands/building/OutpostAttack';
 import {
   CampaignCancelCommand,
   CampaignModeCommand,
@@ -95,6 +110,8 @@ import { CharacterRemoveCommand } from 'src/app/game/commands/character/Characte
 import { CharacterRemoveAllCommand } from 'src/app/game/commands/character/CharacterRemoveAll';
 import { CharacterReplayCommand } from 'src/app/game/commands/character/CharacterReplay';
 import { CharacterRetireCommand } from 'src/app/game/commands/character/CharacterRetire';
+import { CharacterRetirementDismissCommand } from 'src/app/game/commands/character/CharacterRetirementDismiss';
+import { CharacterRpgCommand } from 'src/app/game/commands/character/CharacterRpg';
 import { CharacterSetAsideCommand } from 'src/app/game/commands/character/CharacterSetAside';
 import { CharacterSpecialActionSlotCommand } from 'src/app/game/commands/character/CharacterSpecialActionSlot';
 import { CharacterTokenCommand } from 'src/app/game/commands/character/CharacterToken';
@@ -207,6 +224,7 @@ import { MonsterCatchCommand } from 'src/app/game/commands/monster/MonsterCatch'
 import { MonsterEntityAddCommand } from 'src/app/game/commands/monster/MonsterEntityAdd';
 import { MonsterLevelCommand } from 'src/app/game/commands/monster/MonsterLevel';
 import { MonsterRemoveAllCommand, MonsterRemoveCommand } from 'src/app/game/commands/monster/MonsterRemove';
+import { MonsterRpgActionCommand, MonsterRpgSpeedCommand } from 'src/app/game/commands/monster/MonsterRpg';
 import { MonsterAlliedCommand, MonsterAllyCommand, MonsterDormantCommand } from 'src/app/game/commands/monster/MonsterToggle';
 import { ObjectiveActionsCommand, ObjectiveActionsRestoreCommand } from 'src/app/game/commands/objectives/ObjectiveActions';
 import { ObjectiveAddCommand } from 'src/app/game/commands/objectives/ObjectiveAdd';
@@ -326,6 +344,7 @@ export class CommandManager {
     BuildingDowngradeCommand,
     BuildingRepairCommand,
     BuildingStateCommand,
+    BuildingTradeCommand,
     BuildingUpgradeCommand,
     CampaignCancelCommand,
     CampaignModeCommand,
@@ -386,6 +405,8 @@ export class CommandManager {
     CharacterRemoveAllCommand,
     CharacterReplayCommand,
     CharacterRetireCommand,
+    CharacterRetirementDismissCommand,
+    CharacterRpgCommand,
     CharacterSetAsideCommand,
     CharacterSpecialActionSlotCommand,
     CharacterTokenCommand,
@@ -487,6 +508,8 @@ export class CommandManager {
     MonsterLevelCommand,
     MonsterRemoveCommand,
     MonsterRemoveAllCommand,
+    MonsterRpgActionCommand,
+    MonsterRpgSpeedCommand,
     ObjectiveActionsCommand,
     ObjectiveActionsRestoreCommand,
     ObjectiveAddCommand,
@@ -494,7 +517,19 @@ export class CommandManager {
     ObjectiveEntityAddCommand,
     ObjectiveRemoveCommand,
     ObjectiveRemoveAllCommand,
+    OutpostAttackCommand,
     OutpostBuildingAttackedCommand,
+    OutpostCancelCommand,
+    OutpostDrawCommand,
+    OutpostFinishCommand,
+    OutpostManualCommand,
+    OutpostOrderCommand,
+    OutpostRandomizeCommand,
+    OutpostResourceCommand,
+    OutpostResultCommand,
+    OutpostSoldiersCommand,
+    OutpostStartCommand,
+    OutpostTargetCommand,
     PartyAchievementCommand,
     PartyAddCommand,
     PartyBattleGoalEditionCommand,

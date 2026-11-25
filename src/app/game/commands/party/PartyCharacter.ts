@@ -1,6 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
-import { Character, GameCharacterModel } from 'src/app/game/model/Character';
+import { GameCharacterModel } from 'src/app/game/model/Character';
 
 function retired(edition: BASE_TYPE, name: BASE_TYPE): GameCharacterModel | undefined {
   return gameManager.game.party.retirements.find((model) => model.edition === edition && model.name === name);
@@ -36,13 +36,14 @@ export class PartyCharacterPlayerNumberCommand extends CommandImpl {
   }
 
   validParameters(edition: string, name: string, number: number, newNumber: number): boolean {
-    return !!this.model(edition, name, number) && typeof newNumber === 'number' && newNumber > 0 && newNumber !== number;
+    const model = this.model(edition, name, number);
+    return !!model && gameManager.retirementManager.canSetModelPlayerNumber(model, newNumber);
   }
 
   executeWithParameters(edition: string, name: string, number: number, newNumber: number) {
     const model = this.model(edition, name, number);
     if (model) {
-      model.number = newNumber;
+      gameManager.retirementManager.setModelPlayerNumber(model, newNumber);
     } else {
       this.executionError('character not found');
     }
@@ -70,15 +71,7 @@ export class PartyCharacterEnhancementsCommand extends CommandImpl {
   executeWithParameters(edition: string, name: string, json: string) {
     const characterModel = retired(edition, name);
     const enhancements = this.enhancements(json);
-    if (characterModel && characterModel.progress && enhancements) {
-      characterModel.progress.enhancements = enhancements;
-      const current = gameManager.game.figures.find(
-        (figure) => figure instanceof Character && figure.edition === edition && figure.name === name
-      ) as Character | undefined;
-      if (current) {
-        gameManager.characterManager.previousEnhancements(current, gameManager.enhancementsManager.temporary);
-      }
-    } else {
+    if (!characterModel || !enhancements || !gameManager.enhancementsManager.setRetiredEnhancements(characterModel, enhancements)) {
       this.executionError('retired character not found');
     }
   }

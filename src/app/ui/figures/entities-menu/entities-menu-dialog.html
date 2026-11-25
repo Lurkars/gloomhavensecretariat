@@ -608,7 +608,7 @@
                   disabled:
                     (blessMin >= 0 && blessMin + bless * applicableEntities.length === 0) ||
                     entityImmunities.includes(ConditionName.bless) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.bless))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.bless))
                 }"
                 tabclick
                 (singleClick)="bless -= 1"
@@ -631,7 +631,7 @@
                 [ngClass]="{
                   'immunity disabled':
                     entityImmunities.includes(ConditionName.bless) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.bless))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.bless))
                 }"
               >
                 <img src="./assets/images/status/bless.svg" />
@@ -648,12 +648,9 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    gameManager.attackModifierManager.countUpcomingBlesses() +
-                      bless * applicableEntities.length -
-                      countBlocking(ConditionName.bless, bless) >=
-                      10 ||
+                    !canIncreaseDeckCondition(ConditionName.bless, bless) ||
                     entityImmunities.includes(ConditionName.bless) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.bless))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.bless))
                 }"
                 tabclick
                 (singleClick)="bless += 1"
@@ -671,7 +668,7 @@
                   disabled:
                     (curseMin >= 0 && curseMin + curse * applicableEntities.length === 0) ||
                     entityImmunities.includes(ConditionName.curse) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.curse))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.curse))
                 }"
                 tabclick
                 (singleClick)="curse -= 1"
@@ -694,7 +691,7 @@
                 [ngClass]="{
                   'immunity disabled':
                     entityImmunities.includes(ConditionName.curse) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.curse))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.curse))
                 }"
               >
                 <img src="./assets/images/status/curse.svg" />
@@ -711,12 +708,9 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (!!figure ? gameManager.attackModifierManager.countUpcomingCurses(isMonster) : 0) +
-                      curse * applicableEntities.length -
-                      countBlocking(ConditionName.curse, curse) >=
-                      10 ||
+                    !canIncreaseDeckCondition(ConditionName.curse, curse) ||
                     entityImmunities.includes(ConditionName.curse) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.curse))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.curse))
                 }"
                 tabclick
                 (singleClick)="curse += 1"
@@ -736,7 +730,7 @@
                   disabled:
                     (empowerMin >= 0 && empowerMin + empower === 0) ||
                     entityImmunities.includes(ConditionName.empower) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.empower))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.empower))
                 }"
                 tabclick
                 (singleClick)="empower -= 1"
@@ -759,7 +753,7 @@
                 [ngClass]="{
                   'immunity disabled':
                     entityImmunities.includes(ConditionName.empower) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.empower))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.empower))
                 }"
               >
                 <img src="./assets/images/status/empower.svg" />
@@ -784,9 +778,9 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (empowerChar && empower - countBlocking(ConditionName.empower, empower) >= empowerMax) ||
+                    (empowerChar && !canIncreaseDeckCondition(ConditionName.empower, empower, empowerChar)) ||
                     entityImmunities.includes(ConditionName.empower) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.empower))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.empower))
                 }"
                 tabclick
                 (singleClick)="!empowerChar ? amHelper.selectAdditionalAM(AttackModifierType.empower) : (empower += 1)"
@@ -806,7 +800,7 @@
                   disabled:
                     (enfeebleMin >= 0 && enfeebleMin + enfeeble === 0) ||
                     entityImmunities.includes(ConditionName.enfeeble) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.enfeeble))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.enfeeble))
                 }"
                 tabclick
                 (singleClick)="enfeeble -= 1"
@@ -829,7 +823,7 @@
                 [ngClass]="{
                   'immunity disabled':
                     entityImmunities.includes(ConditionName.enfeeble) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.enfeeble))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.enfeeble))
                 }"
               >
                 <img src="./assets/images/status/enfeeble.svg" />
@@ -854,9 +848,9 @@
                 class="button"
                 [ngClass]="{
                   disabled:
-                    (enfeebleChar && enfeeble - countBlocking(ConditionName.enfeeble, enfeeble) >= enfeebleMax) ||
+                    (enfeebleChar && !canIncreaseDeckCondition(ConditionName.enfeeble, enfeeble, enfeebleChar)) ||
                     entityImmunities.includes(ConditionName.enfeeble) ||
-                    (!!figure && !!entity && gameManager.entityManager.isImmune(entity, figure, ConditionName.enfeeble))
+                    (!!figure && !!entity && gameManager.conditionManager.isImmune(entity, figure, ConditionName.enfeeble))
                 }"
                 tabclick
                 (singleClick)="!enfeebleChar ? amHelper.selectAdditionalAM(AttackModifierType.enfeeble) : (enfeeble += 1)"
@@ -1606,31 +1600,25 @@
       @if (specialActions.length > 0) {
         <div class="special-actions">
           @for (specialAction of specialActions | trackUUID; track specialAction._trackUUID) {
-            @if (
-              (!specialAction.level || specialAction.level <= character.level) &&
-              (!specialAction.perk || character.progress.perks[specialAction.perk - 1] === character.perks[specialAction.perk - 1].count) &&
-              (!specialAction.summon || (specialAction.summon && gameManager.isSummon(entity)))
-            ) {
-              <div class="hint-container">
-                <img
-                  src="./assets/images/hint.svg"
-                  class="hint-trigger ghs-svg"
-                  [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint'"
-                  [originX]="'center'"
-                  [overlayX]="'center'"
-                  [originY]="'top'"
-                  [overlayY]="'bottom'"
-                />
-                <span
-                  class="special-action text-white"
-                  [ngClass]="{ 'active-tag': specialTags.includes(specialAction.name) }"
-                  tabclick
-                  (click)="specialActionsHelper.applySpecialAction(specialAction)"
-                >
-                  <span [ghs-label]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name"></span>
-                </span>
-              </div>
-            }
+            <div class="hint-container">
+              <img
+                src="./assets/images/hint.svg"
+                class="hint-trigger ghs-svg"
+                [ghs-tooltip]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name + '.hint'"
+                [originX]="'center'"
+                [overlayX]="'center'"
+                [originY]="'top'"
+                [overlayY]="'bottom'"
+              />
+              <span
+                class="special-action text-white"
+                [ngClass]="{ 'active-tag': specialTags.includes(specialAction.name) }"
+                tabclick
+                (click)="specialActionsHelper.applySpecialAction(specialAction)"
+              >
+                <span [ghs-label]="'data.character.' + character.edition + '.' + character.name + '.' + specialAction.name"></span>
+              </span>
+            </div>
           }
         </div>
       }

@@ -106,18 +106,18 @@ export class CharacterRetirementDialog {
       return;
     }
     const conclusionSection = conclusions[conclusions.length - 1];
-    const childConclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(
+    const childConclusions: ScenarioData[] = gameManager.campaignManager.sectionConclusions(
       conclusionSection.index,
       conclusionSection.edition,
       true
     );
-    if (gameManager.scenarioManager.hasOpenConclusions(conclusionSection.index, conclusionSection.edition, true)) {
+    if (gameManager.campaignManager.hasOpenConclusions(conclusionSection.index, conclusionSection.edition, true)) {
       this.dialog
         .open(ScenarioConclusionComponent, {
           panelClass: ['dialog'],
           data: {
             conclusions: childConclusions,
-            parent: gameManager
+            parent: gameManager.editionManager
               .sectionData(conclusionSection.edition)
               .find((sectionData) => sectionData.index === conclusionSection.index && !sectionData.group)
           }
@@ -136,7 +136,7 @@ export class CharacterRetirementDialog {
           data: {
             scenario: conclusion,
             conclusionOnly: true,
-            rewardsOnly: !!conclusion && gameManager.scenarioManager.conclusionFinished(conclusion)
+            rewardsOnly: !!conclusion && gameManager.campaignManager.conclusionFinished(conclusion)
           }
         })
         .closed.subscribe({ next: () => this.openConclusions(conclusions) });

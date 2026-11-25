@@ -152,7 +152,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
     if (flipped && !this.disableFlip() && flipped.currentValue && flipped.currentValue !== flipped.previousValue) {
       this.animate = true;
     }
-    const amChange = changes['attackModifier'];
+    const amChange = changes['inputAttackModifier'];
     if (amChange && amChange.currentValue && amChange.currentValue !== amChange.previousValue) {
       this.init();
     }

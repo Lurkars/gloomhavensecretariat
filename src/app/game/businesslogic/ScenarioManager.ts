@@ -1,69 +1,19 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { CountIdentifier } from 'src/app/game/model/data/Identifier';
-import { ItemData } from 'src/app/game/model/data/ItemData';
-import { fullLootDeck, LootDeckConfig, LootType } from 'src/app/game/model/data/Loot';
+import { LootDeckConfig } from 'src/app/game/model/data/Loot';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { ScenarioObjectiveIdentifier } from 'src/app/game/model/data/ObjectiveData';
-import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
-import { PetIdentifier } from 'src/app/game/model/data/PetCard';
 import { MonsterStandeeData, RoomData } from 'src/app/game/model/data/RoomData';
-import { ScenarioData, ScenarioFinish, ScenarioRewards } from 'src/app/game/model/data/ScenarioData';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from 'src/app/game/model/Scenario';
-
-export interface PendingWeekSection {
-  week: number;
-  index: string;
-  edition: string;
-  group: string | undefined;
-}
-
-export class ScenarioFinishApply {
-  scenario: Scenario;
-  success: boolean;
-  conclusion: ScenarioData | undefined;
-  finish: ScenarioFinish;
-  characters: Character[];
-  rewards: ScenarioRewards | undefined;
-  rewardItems: ItemData[];
-  characterProgress: boolean;
-  gainRewards: boolean;
-  conclusionOnly: boolean = false;
-  linked: ScenarioData | undefined;
-  forcedLink: boolean = false;
-
-  constructor(
-    scenario: Scenario,
-    success: boolean,
-    conclusion: ScenarioData | undefined,
-    finish: ScenarioFinish,
-    characters: Character[],
-    rewards: ScenarioRewards | undefined,
-    rewardItems: ItemData[],
-    characterProgress: boolean,
-    gainRewards: boolean
-  ) {
-    this.scenario = scenario;
-    this.success = success;
-    this.conclusion = conclusion;
-    this.finish = finish;
-    this.characters = characters;
-    this.rewards = rewards;
-    this.rewardItems = rewardItems;
-    this.characterProgress = characterProgress;
-    this.gainRewards = gainRewards;
-  }
-}
+import { GameScenarioModel, Scenario } from 'src/app/game/model/Scenario';
 
 export class ScenarioManager {
   game: Game;
-  // calendar sections of passed weeks waiting to be resolved by the UI (not persisted)
-  pendingWeekSections: PendingWeekSection[] = [];
 
   constructor(game: Game) {
     this.game = game;
@@ -74,7 +24,7 @@ export class ScenarioManager {
   }
 
   randomScenarioSections(edition: string): ScenarioData[] {
-    return gameManager.sectionData(edition).filter((sectionData) => sectionData.group === 'randomMonsterCard');
+    return gameManager.editionManager.sectionData(edition).filter((sectionData) => sectionData.group === 'randomMonsterCard');
   }
 
   setRandomScenario(edition: string) {
@@ -91,13 +41,13 @@ export class ScenarioManager {
   }
 
   getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
-    return gameManager
+    return gameManager.editionManager
       .scenarioData(edition)
       .find((scenarioData) => scenarioData.index === index && scenarioData.edition === edition && scenarioData.group === group);
   }
 
   getSection(index: string, edition: string, group: string | undefined, conlusionOnly: boolean = false): ScenarioData | undefined {
-    return gameManager
+    return gameManager.editionManager
       .sectionData(edition)
       .find(
         (sectionData) =>
@@ -108,12 +58,70 @@ export class ScenarioManager {
       );
   }
 
+  canSelectScenario(scenarioData: ScenarioData, force: boolean = false): boolean {
+    return (
+      !gameManager.scenarioRequirementsManager.isCurrent(scenarioData) &&
+      (force || !gameManager.scenarioRequirementsManager.isLocked(scenarioData))
+    );
+  }
+
+  selectScenario(scenarioData: ScenarioData, linked: boolean = false, force: boolean = false): boolean {
+    if (!this.canSelectScenario(scenarioData, force)) {
+      return false;
+    }
+    this.setScenario(new Scenario(scenarioData), linked);
+    return true;
+  }
+
+  canSetCustomScenario(custom: boolean): boolean {
+    return typeof custom === 'boolean' && custom !== (!!this.game.scenario && this.game.scenario.custom);
+  }
+
+  setCustomScenario(custom: boolean): boolean {
+    if (!this.canSetCustomScenario(custom)) {
+      return false;
+    }
+    this.setScenario(custom ? this.createScenario() : undefined);
+    return true;
+  }
+
+  canSetCustomScenarioName(name: string): boolean {
+    return typeof name === 'string' && !!this.game.scenario && this.game.scenario.custom;
+  }
+
+  setCustomScenarioName(name: string): boolean {
+    if (!this.game.scenario || !this.canSetCustomScenarioName(name)) {
+      return false;
+    }
+    this.game.scenario.name = name;
+    return true;
+  }
+
+  canRevealRoom(roomData: RoomData): boolean {
+    return !!this.game.scenario && !(this.game.scenario.revealedRooms || []).includes(roomData.roomNumber);
+  }
+
+  revealRoom(roomData: RoomData, scenarioData: ScenarioData, section: boolean = false): boolean {
+    if (!this.canRevealRoom(roomData)) {
+      return false;
+    }
+    this.openRoom(roomData, scenarioData, section);
+    return true;
+  }
+
+  resetScenario() {
+    gameManager.roundManager.resetScenario();
+    if (this.game.scenario) {
+      this.setScenario(this.game.scenario, true);
+    }
+  }
+
   setScenario(scenario: Scenario | undefined, linked: boolean = false) {
     this.game.scenario = scenario
       ? new Scenario(scenario, scenario.revealedRooms, scenario.additionalSections, scenario.custom)
       : undefined;
     if (scenario && !scenario.custom) {
-      const scenarioData = gameManager
+      const scenarioData = gameManager.editionManager
         .scenarioData()
         .find(
           (scenarioData) =>
@@ -134,927 +142,6 @@ export class ScenarioManager {
     }
 
     gameManager.stateManager.standeeDialogCanceled = false;
-  }
-
-  // apply the rewards gained by each present character (gold, experience, perks, battle goals, resources)
-  applyCharacterRewards(rewards: ScenarioRewards, restart: boolean = false, linked: boolean = false) {
-    if (!settingsManager.settings.characterSheet || !settingsManager.settings.scenarioRewards) {
-      return;
-    }
-    this.game.figures.forEach((figure) => {
-      if (figure instanceof Character && !figure.absent) {
-        if (rewards.experience) {
-          gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linked);
-        }
-
-        if (rewards.gold) {
-          figure.progress.gold += rewards.gold;
-          if (rewards.gold > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.gold, undefined, rewards.gold);
-          }
-        }
-
-        if (rewards.perks) {
-          figure.progress.extraPerks += rewards.perks;
-          if (figure.progress.extraPerks < 0) {
-            figure.progress.extraPerks = 0;
-          }
-        }
-
-        if (rewards.battleGoals) {
-          figure.progress.battleGoals += rewards.battleGoals;
-          if (figure.progress.battleGoals > 18) {
-            figure.progress.battleGoals = 18;
-          } else if (figure.progress.battleGoals < 0) {
-            figure.progress.battleGoals = 0;
-          }
-          if (rewards.battleGoals > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              figure,
-              PersonalQuestAutotrackType.battleGoals,
-              undefined,
-              rewards.battleGoals
-            );
-          }
-        }
-
-        if (rewards.resources) {
-          rewards.resources.forEach((item) => {
-            figure.progress.loot[item.type] = (figure.progress.loot[item.type] || 0) + EntityValueFunction(item.value);
-
-            if ((figure.progress.loot[item.type] || 0) < 0) {
-              figure.progress.loot[item.type] = 0;
-            }
-          });
-        }
-      }
-    });
-  }
-
-  // all sections of the calendar for the given week (fixed campaign sections and sections added to the party calendar)
-  weekSections(week: number, edition: string): string[] {
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition === edition);
-    const sections: string[] = [];
-    if (editionData && editionData.campaign && editionData.campaign.weeks) {
-      sections.push(...(editionData.campaign.weeks[week] || []));
-    }
-    sections.push(...(this.game.party.weekSections[week] || []));
-    return sections;
-  }
-
-  // conclusion data of a calendar section, if available
-  weekSectionConclusion(section: string, edition: string, group: string | undefined = undefined): ScenarioData | undefined {
-    return gameManager
-      .sectionData(edition)
-      .find(
-        (sectionData) =>
-          sectionData.index === section && (sectionData.group || undefined) === (group || undefined) && sectionData.conclusion
-      );
-  }
-
-  scenarioConclusions(scenario: ScenarioData): ScenarioData[] {
-    return gameManager
-      .sectionData(scenario.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.edition === scenario.edition &&
-          sectionData.parent === scenario.index &&
-          sectionData.group === scenario.group &&
-          sectionData.conclusion &&
-          this.getRequirements(sectionData).length === 0
-      );
-  }
-
-  conclusionFinished(sectionData: ScenarioData): boolean {
-    return this.game.party.conclusions.some(
-      (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
-    );
-  }
-
-  sectionConclusions(
-    section: string,
-    edition: string | undefined = this.game.edition,
-    available: boolean = false,
-    singleParentSet: boolean = false
-  ): ScenarioData[] {
-    return gameManager
-      .sectionData(edition)
-      .filter(
-        (sectionData) =>
-          sectionData.conclusion &&
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          (!singleParentSet || sectionData.parentSections.length === 1) &&
-          sectionData.parentSections.some((parentSections) => parentSections.length === 1 && parentSections.includes(section)) &&
-          (!available || this.getRequirements(sectionData).length === 0)
-      );
-  }
-
-  hasOpenConclusions(
-    section: string,
-    edition: string | undefined = this.game.edition,
-    available: boolean = false,
-    singleParentSet: boolean = false
-  ): boolean {
-    const conclusions = this.sectionConclusions(section, edition, available, singleParentSet);
-    return conclusions.length > 0 && conclusions.every((conclusion) => !this.conclusionFinished(conclusion));
-  }
-
-  continuingSections(index: string, edition: string, depth: number = 0): ScenarioData[] {
-    if (depth > 5) {
-      return [];
-    }
-    return gameManager
-      .sectionData(edition)
-      .filter(
-        (sectionData) =>
-          !sectionData.parent &&
-          sectionData.parentSections &&
-          sectionData.parentSections.some((parentSections) => parentSections.length === 1 && parentSections.includes(index)) &&
-          this.getRequirements(sectionData).length === 0 &&
-          (sectionData.conclusion
-            ? sectionData.repeatable || !this.conclusionFinished(sectionData)
-            : this.continuingSections(sectionData.index, sectionData.edition, depth + 1).length > 0)
-      );
-  }
-
-  addWeekSection(week: number, section: string): boolean {
-    if ((this.game.party.weekSections[week] || []).includes(section)) {
-      return false;
-    }
-    this.game.party.weekSections[week] = [...(this.game.party.weekSections[week] || []), section];
-    return true;
-  }
-
-  removeWeekSection(week: number, section: string, edition: string | undefined = this.game.edition) {
-    const sections = this.game.party.weekSections[week];
-    if (sections && sections.includes(section)) {
-      sections.splice(sections.indexOf(section), 1);
-      if (sections.length === 0) {
-        delete this.game.party.weekSections[week];
-      }
-      this.removeConclusion(edition, section);
-    }
-  }
-
-  removeConclusion(edition: string | undefined, index: string) {
-    this.game.party.conclusions = this.game.party.conclusions.filter(
-      (conclusion) => conclusion.edition !== edition || conclusion.index !== index
-    );
-  }
-
-  finishWeekConclusion(conclusion: Scenario, week: number = -1) {
-    this.finishScenario(conclusion, true, conclusion, false, false, false, this.game.party.campaignMode, true);
-    if (week !== -1 && !conclusion.repeatable) {
-      this.game.party.weekSections[week] = [...(this.game.party.weekSections[week] || []), conclusion.index];
-    }
-  }
-
-  /**
-   * resolve all calendar sections of the given week: either apply conclusions automatically or
-   * add the sections to pendingWeekSections for the UI to open the corresponding dialogs
-   */
-  passWeekSections(week: number, edition: string, group: string | undefined = undefined, gainRewards: boolean = true) {
-    this.weekSections(week, edition).forEach((section) => {
-      const sectionData = this.weekSectionConclusion(section, edition, group);
-      if (
-        sectionData &&
-        !sectionData.repeatable &&
-        this.game.party.conclusions.some(
-          (model) => model.edition === sectionData.edition && model.index === sectionData.index && model.group === sectionData.group
-        )
-      ) {
-        return;
-      }
-
-      if (settingsManager.settings.automaticWeekSections) {
-        if (sectionData) {
-          const conclusion = new Scenario(sectionData);
-          // collective resources of automatically resolved week sections cannot be distributed, add them to the Frosthaven supply
-          if (gainRewards && sectionData.rewards && sectionData.rewards.collectiveResources) {
-            sectionData.rewards.collectiveResources.forEach((resource) => {
-              const value = EntityValueFunction(resource.value);
-              this.game.party.loot[resource.type] = Math.max(0, (this.game.party.loot[resource.type] || 0) + value);
-            });
-          }
-          this.finishScenario(conclusion, true, conclusion, false, undefined, false, gainRewards, true);
-        }
-      } else if (
-        !this.pendingWeekSections.some((pending) => pending.index === section && pending.edition === edition && pending.group === group)
-      ) {
-        this.pendingWeekSections.push({ week, index: section, edition, group });
-      }
-    });
-  }
-
-  finishRewards(
-    scenario: ScenarioData,
-    conclusion: ScenarioData | undefined,
-    success: boolean,
-    force: boolean = false,
-    repeat: boolean = false
-  ): ScenarioRewards | undefined {
-    if ((!this.game.party.campaignMode && !force) || !success) {
-      return undefined;
-    }
-    let rewards: ScenarioRewards | undefined = scenario.rewards ? Object.assign(new ScenarioRewards(), scenario.rewards) : undefined;
-    if (conclusion && conclusion.rewards) {
-      rewards = rewards ? Object.assign(rewards, conclusion.rewards) : Object.assign(new ScenarioRewards(), conclusion.rewards);
-    }
-    // the scenario rewards can only be gained once in FH/GH2E
-    if (!repeat && gameManager.fhRules(true) && rewards && this.isSuccess(scenario)) {
-      return undefined;
-    }
-    if (settingsManager.settings.scenarioRewards && rewards && rewards.valueMapping) {
-      const valueMapping = rewards.valueMapping;
-      Object.keys(valueMapping).forEach((key) => {
-        const rule = valueMapping[key];
-        if (rewards && rule) {
-          const value = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(rule, undefined).length;
-          const rewardKey = rule.value as keyof ScenarioRewards;
-          if (typeof rewards[rewardKey] === 'string') {
-            (rewards[rewardKey] as string) = rewards[rewardKey].replaceAll(key, '' + value);
-          }
-        }
-      });
-    }
-    return rewards;
-  }
-
-  private gainFinishItem(item: ItemData | undefined, character: Character) {
-    if (item) {
-      if (settingsManager.settings.characterItems) {
-        gameManager.itemManager.addItem(item, character);
-      }
-      gameManager.itemManager.addItemCount(item);
-    }
-  }
-
-  // returns true if the linked scenario is blocked or locked and was not set
-  applyScenarioFinish(apply: ScenarioFinishApply): boolean {
-    const finish = apply.finish;
-    const rewards = apply.rewards;
-    const scenario = apply.scenario;
-    const challenges = finish.challenges || 0;
-    const collectiveResources = finish.collectiveResources || [];
-    const items = finish.items || [];
-
-    if (settingsManager.settings.scenarioRewards && apply.success && !gameManager.bbRules()) {
-      apply.characters.forEach((character, index) => {
-        if (!character.absent) {
-          const battleGoals = (finish.battleGoals || [])[index] || 0;
-          if (battleGoals > 0) {
-            character.progress.battleGoals += battleGoals;
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              character,
-              PersonalQuestAutotrackType.battleGoals,
-              undefined,
-              battleGoals
-            );
-          }
-          if ((finish.trials || [])[index]) {
-            character.progress.trial = undefined;
-          }
-          character.progress.experience += 2 * challenges;
-          if (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply) {
-            character.progress.gold += character.loot * gameManager.trialsManager.activeFavor('fh', 'wealth');
-            if (battleGoals) {
-              character.progress.experience += 3 * gameManager.trialsManager.activeFavor('fh', 'knowledge');
-            }
-          }
-        }
-
-        const collectiveGold = (finish.collectiveGold || [])[index] || 0;
-        if (collectiveGold > 0) {
-          character.progress.gold += collectiveGold;
-        }
-
-        const resources = collectiveResources[index];
-        if (resources) {
-          Object.keys(resources).forEach((value) => {
-            const lootType = value as LootType;
-            character.progress.loot[lootType] = (character.progress.loot[lootType] || 0) + (resources[lootType] || 0);
-          });
-        }
-
-        apply.rewardItems.forEach((item, itemIndex) => {
-          if (items.every((characterItems) => !characterItems || !characterItems.includes(itemIndex))) {
-            items[index] = items[index] || [];
-            items[index].push(itemIndex);
-          }
-        });
-
-        (items[index] || []).forEach((itemIndex) => {
-          const item = apply.rewardItems[itemIndex];
-          if (item) {
-            this.gainFinishItem(item, character);
-          }
-        });
-
-        if (settingsManager.settings.drawRandomItem) {
-          const randomItem = (finish.randomItems || [])[index];
-          if (randomItem) {
-            this.gainFinishItem(gameManager.itemManager.getItem(randomItem.name, randomItem.edition, true), character);
-          }
-          if (finish.randomItem && finish.randomItemIndex === index) {
-            this.gainFinishItem(gameManager.itemManager.getItem(finish.randomItem.name, finish.randomItem.edition, true), character);
-          }
-        }
-      });
-
-      if (rewards && rewards.collectiveResources) {
-        rewards.collectiveResources.forEach((value) => {
-          const assigned = collectiveResources.map((resources) => (resources && resources[value.type]) || 0).reduce((a, b) => a + b, 0);
-          const available = Math.max(EntityValueFunction(value.value) - assigned, 0);
-          if (available) {
-            this.game.party.loot[value.type] = (this.game.party.loot[value.type] || 0) + available;
-          }
-        });
-      }
-
-      if (finish.chooseLocation) {
-        this.game.party.manualScenarios.push(new GameScenarioModel(finish.chooseLocation, scenario.edition, scenario.group));
-      }
-
-      if (settingsManager.settings.automaticUnlocking && finish.chooseUnlockCharacter) {
-        gameManager.characterManager.unlockCharacter(scenario.edition, finish.chooseUnlockCharacter);
-      }
-
-      this.game.party.townGuardPerks += challenges;
-
-      if (apply.gainRewards) {
-        [...(finish.randomItemBlueprints || []), ...(finish.randomItemDesigns || [])].forEach((itemId) => {
-          if (itemId === -1) {
-            if (gameManager.fhRules()) {
-              this.game.party.inspiration += 1;
-            }
-          } else {
-            this.game.party.unlockedItems.push(new CountIdentifier(itemId, scenario.edition));
-          }
-        });
-
-        if (finish.randomSideScenario) {
-          this.game.party.manualScenarios.push(new GameScenarioModel(finish.randomSideScenario.name, finish.randomSideScenario.edition));
-        }
-
-        if (rewards && rewards.calendarSectionManual) {
-          const calendarSectionManual = finish.calendarSectionManual || [];
-          rewards.calendarSectionManual.forEach((sectionManual, index) => {
-            if (calendarSectionManual[index] >= 0) {
-              const week = this.game.party.weeks + calendarSectionManual[index];
-              this.game.party.weekSections[week] = [...(this.game.party.weekSections[week] || []), sectionManual.section];
-            }
-          });
-        }
-      }
-
-      if (gameManager.challengesManager.enabled && challenges) {
-        this.game.challengeDeck.finished += challenges;
-      }
-
-      gameManager.trialsManager.applyTrialCards();
-    }
-
-    const characterProgress = settingsManager.settings.scenarioRewards && apply.characterProgress;
-    if (apply.conclusionOnly) {
-      // conclusions are finished internally, so apply character rewards (gold, experience, ...) here
-      if (settingsManager.settings.scenarioRewards && apply.success && rewards && apply.gainRewards && !gameManager.bbRules()) {
-        this.applyCharacterRewards(rewards);
-      }
-      this.finishScenario(scenario, true, apply.conclusion, false, false, characterProgress, apply.gainRewards, true);
-    } else {
-      this.finishScenario(
-        this.game.scenario,
-        apply.success,
-        apply.conclusion,
-        false,
-        apply.linked !== undefined,
-        characterProgress && !gameManager.bbRules(),
-        apply.gainRewards
-      );
-    }
-
-    const conclusion = apply.conclusion;
-    if (finish.overlayCustomText && conclusion && rewards && rewards.overlayCustomText) {
-      const conclusionModel = this.game.party.conclusions.find(
-        (model) => model.index === conclusion.index && model.edition === conclusion.edition && model.group === conclusion.group
-      );
-      if (conclusionModel) {
-        conclusionModel.custom = finish.overlayCustomText;
-      }
-    }
-
-    if (apply.linked) {
-      if (!apply.forcedLink && (this.isBlocked(apply.linked) || this.isLocked(apply.linked))) {
-        return true;
-      }
-      this.setScenario(new Scenario(apply.linked), true);
-    } else {
-      this.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          figure.absent = false;
-        }
-      });
-    }
-    return false;
-  }
-
-  finishScenario(
-    scenario: Scenario | undefined,
-    success: boolean = true,
-    conclusionSection: ScenarioData | undefined,
-    restart: boolean = false,
-    linked: boolean = false,
-    characterProgress: boolean = true,
-    gainRewards: boolean = true,
-    internal: boolean = false
-  ) {
-    gameManager.game.finish = undefined;
-    if (scenario) {
-      let rewards: ScenarioRewards | undefined = scenario.rewards ? Object.assign(new ScenarioRewards(), scenario.rewards) : undefined;
-      if (conclusionSection && conclusionSection.rewards) {
-        if (!rewards) {
-          rewards = Object.assign(new ScenarioRewards(), conclusionSection.rewards);
-        } else {
-          Object.assign(rewards, conclusionSection.rewards);
-        }
-      }
-
-      if (!internal && characterProgress && settingsManager.settings.scenarioStats) {
-        const timestamp = Date.now();
-        this.game.figures.forEach((figure) => {
-          if (figure instanceof Character && !figure.absent) {
-            figure.progress.scenarioStats = figure.progress.scenarioStats || [];
-            gameManager.scenarioStatsManager.applyScenarioStats(figure, scenario, success);
-            figure.scenarioStats.timestamp = timestamp;
-            figure.progress.scenarioStats.push(figure.scenarioStats);
-          }
-        });
-      }
-
-      if (!internal && characterProgress && settingsManager.settings.characterSheet) {
-        const scenarioXP: number =
-          success && (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('experience'))
-            ? gameManager.levelManager.experience()
-            : 0;
-        const coinValue: number = gameManager.levelManager.loot();
-        this.game.figures.forEach((figure) => {
-          if (figure instanceof Character && !figure.absent) {
-            const gainedXP = scenarioXP + figure.experience;
-            gameManager.characterManager.addXP(figure, gainedXP, !restart && !linked);
-            if (figure.experience > 0) {
-              gameManager.personalQuestManager.trackPersonalQuestProgress(
-                figure,
-                PersonalQuestAutotrackType.abilityXP,
-                undefined,
-                figure.experience
-              );
-            }
-            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.scenarioXP, '' + gainedXP);
-
-            if (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('gold')) {
-              const goldGained = figure.loot * coinValue;
-              figure.progress.gold += goldGained;
-              if (goldGained > 0) {
-                gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.gold, undefined, goldGained);
-              }
-              if (!restart && figure.lootCards) {
-                figure.lootCards.forEach((index) => {
-                  gameManager.lootManager.addCharacterLoot(figure, this.game.lootDeck.cards[index]);
-                });
-              }
-            }
-          }
-        });
-      }
-
-      if (success) {
-        if (rewards && gainRewards) {
-          if (rewards.valueMapping) {
-            Object.keys(rewards.valueMapping).forEach((key) => {
-              if (rewards && rewards.valueMapping && rewards.valueMapping[key]) {
-                const rule = rewards.valueMapping[key];
-                const value = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(rule, undefined).length;
-                const rewardKey = rule.value as keyof ScenarioRewards;
-                if (rewards && typeof rewards[rewardKey] === 'string') {
-                  (rewards[rewardKey] as string) = rewards[rewardKey].replaceAll(key, '' + value);
-                }
-              }
-            });
-          }
-
-          if (!internal) {
-            this.applyCharacterRewards(rewards, restart, linked);
-          }
-
-          // always add achievements/stickers for scenario unlock
-          if (rewards.globalAchievements) {
-            this.game.party.globalAchievementsList.push(...rewards.globalAchievements);
-          }
-
-          if (rewards.partyAchievements) {
-            this.game.party.achievementsList.push(...rewards.partyAchievements);
-          }
-
-          if (rewards.lostPartyAchievements) {
-            this.game.party.achievementsList = this.game.party.achievementsList.filter(
-              (achievement) => rewards && !rewards.lostPartyAchievements.includes(achievement)
-            );
-          }
-
-          if (rewards.campaignSticker) {
-            this.game.party.campaignStickers.push(...rewards.campaignSticker.map((sticker) => sticker.toLowerCase().replaceAll(' ', '-')));
-          }
-
-          if (rewards.eventDecks) {
-            rewards.eventDecks.forEach((eventDeck) => {
-              const type = eventDeck.split(':')[0];
-              const events = gameManager.eventCardManager.getEventCardsForEdition(scenario.edition, type);
-              const startEvent = events.find((e) => e.cardId === eventDeck.split(':')[1].split('|')[0]);
-              const endEvent = events.find((e) => e.cardId === eventDeck.split(':')[1].split('|')[1]);
-              if (startEvent && endEvent) {
-                gameManager.eventCardManager.buildEventDeck(
-                  type,
-                  events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId)
-                );
-              } else {
-                console.warn('Could not find start and end for: ' + eventDeck);
-              }
-            });
-          }
-
-          if (settingsManager.settings.partySheet) {
-            if (rewards.reputation) {
-              gameManager.campaignManager.changeReputation(rewards.reputation);
-            }
-
-            if (rewards.reputationFactions) {
-              rewards.reputationFactions.forEach((reputationFaction) => {
-                const faction = reputationFaction.split(':')[0];
-                const value = +reputationFaction.split(':')[1];
-                gameManager.campaignManager.changeFactionReputation(faction, value, rewards.factionUnlock === faction);
-              });
-            }
-
-            if (rewards.prosperity) {
-              gameManager.campaignManager.changeProsperity(rewards.prosperity);
-            }
-
-            if (rewards.morale) {
-              // TODO: replace Town Guards Placeholder
-              gameManager.campaignManager.changeMorale(EntityValueFunction(rewards.morale));
-            }
-
-            if (rewards.inspiration) {
-              this.game.party.inspiration += EntityValueFunction(rewards.inspiration);
-              if (this.game.party.inspiration < 0) {
-                this.game.party.inspiration = 0;
-              }
-            }
-
-            if (rewards.itemDesigns) {
-              rewards.itemDesigns.forEach((item) => {
-                if (item.includes('-')) {
-                  const from = +item.split('-')[0];
-                  const to = +item.split('-')[1];
-                  for (let i = from; i <= to; i++) {
-                    const itemData = gameManager.itemManager.getItem(i, scenario.edition, true);
-                    if (
-                      itemData &&
-                      (!itemData.unlockScenario ||
-                        itemData.unlockScenario.edition !== scenario.edition ||
-                        itemData.unlockScenario.name !== scenario.index)
-                    ) {
-                      this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, scenario.edition));
-                      gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
-                        PersonalQuestAutotrackType.itemBlueprint,
-                        '' + itemData.id
-                      );
-                    }
-                  }
-                } else {
-                  let itemEdition = scenario.edition;
-                  if (item.includes(':')) {
-                    itemEdition = item.split(':')[1];
-                  }
-                  const itemData = gameManager.itemManager.getItem(item.split(':')[0], itemEdition, true);
-                  if (
-                    itemData &&
-                    (!itemData.unlockScenario ||
-                      itemData.unlockScenario.edition !== scenario.edition ||
-                      itemData.unlockScenario.name !== scenario.index)
-                  ) {
-                    this.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
-                    gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
-                      PersonalQuestAutotrackType.itemBlueprint,
-                      '' + itemData.id
-                    );
-                  }
-                }
-              });
-            }
-
-            if (rewards.itemBlueprints) {
-              rewards.itemBlueprints.forEach((item) => {
-                if (item.includes('-')) {
-                  const from = +item.split('-')[0];
-                  const to = +item.split('-')[1];
-                  for (let i = from; i <= to; i++) {
-                    this.game.party.unlockedItems.push(new CountIdentifier(i, scenario.edition));
-                    gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.itemBlueprint, '' + i);
-                  }
-                } else {
-                  let itemEdition = scenario.edition;
-                  if (item.includes(':')) {
-                    itemEdition = item.split(':')[1];
-                  }
-                  this.game.party.unlockedItems.push(new CountIdentifier(item, itemEdition));
-                  gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
-                    PersonalQuestAutotrackType.itemBlueprint,
-                    item.includes(':') ? item.split(':')[0] : item
-                  );
-                }
-              });
-            }
-
-            if (rewards.removeItem) {
-              rewards.removeItem.forEach((item) => {
-                let itemEdition = scenario.edition;
-                let itemId = item;
-                if (item.includes(':')) {
-                  itemId = item.split(':')[0];
-                  itemEdition = item.split(':')[1];
-                }
-                const index = this.game.party.unlockedItems.findIndex(
-                  (identifier) => identifier.name === itemId && identifier.edition === itemEdition
-                );
-                if (index !== -1) {
-                  this.game.party.unlockedItems.splice(index, 1);
-                }
-              });
-            }
-
-            if (rewards.calendarSection) {
-              rewards.calendarSection.forEach((calendarSection) => {
-                if (calendarSection.split('-').length > 1) {
-                  const section = calendarSection.split('-')[0];
-                  let week = -1;
-                  if (!isNaN(+calendarSection.split('-')[1])) {
-                    week = gameManager.game.party.weeks + +calendarSection.split('-')[1];
-                  } else if (calendarSection.split('-')[1].length > 1) {
-                    const season = calendarSection.split('-')[1].split(':')[0];
-                    const seasonWeek = +calendarSection.split('-')[1].split(':')[1];
-                    week =
-                      Math.max(gameManager.game.party.weeks, 0) -
-                      (Math.max(gameManager.game.party.weeks, 0) % 20) +
-                      (season === 'summer' ? 20 : 10) +
-                      seasonWeek;
-                  }
-
-                  if (week !== -1) {
-                    gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
-                  }
-                }
-              });
-            }
-
-            if (rewards.pet) {
-              if (
-                gameManager.game.party.pets.find((value) => value.edition === scenario.edition && value.name === rewards.pet) === undefined
-              ) {
-                gameManager.game.party.pets.push(new PetIdentifier(rewards.pet, scenario.edition));
-              }
-            }
-
-            if (rewards.events && settingsManager.settings.events) {
-              rewards.events.forEach((event) => {
-                gameManager.eventCardManager.addEventReward(event, scenario.edition, true);
-              });
-            }
-
-            if (rewards.returnEvents && settingsManager.settings.events) {
-              rewards.returnEvents.forEach((event) => {
-                gameManager.eventCardManager.returnEventReward(event, scenario.edition);
-              });
-            }
-
-            if (rewards.soldiers) {
-              gameManager.buildingsManager.addSoldiers(rewards.soldiers);
-            }
-
-            if (rewards.removeEvents && settingsManager.settings.events) {
-              rewards.removeEvents.forEach((event) => {
-                const eventId = event.split(':');
-                if (eventId.length > 1) {
-                  gameManager.eventCardManager.removeEvent(eventId[0], eventId[1]);
-                  gameManager.eventCardManager.shuffleEvents(eventId[0]);
-                }
-              });
-            }
-          }
-
-          if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter) {
-            gameManager.characterManager.unlockCharacter(scenario.edition, rewards.unlockCharacter);
-          }
-
-          // a retirement reward completes the personal quest, so conclude its scenario chain
-          [rewards.characterRetirement, rewards.characterRetirementSkipEvents]
-            .filter((cardId) => !!cardId)
-            .forEach((cardId) => gameManager.personalQuestManager.completePersonalQuestScenarios(cardId, scenario.index));
-
-          if (rewards.lootDeckCards) {
-            rewards.lootDeckCards.forEach((lootDeckCard) => {
-              const loot = fullLootDeck.find((loot) => loot.cardId === lootDeckCard);
-              if (
-                loot &&
-                ((loot.type !== LootType.special1 && loot.type !== LootType.special2) ||
-                  !gameManager.game.lootDeckFixed.includes(loot.type))
-              ) {
-                gameManager.game.lootDeckFixed.push(loot.type);
-              }
-            });
-          }
-        }
-
-        if (
-          gameManager.characterManager.characterCount() < 4 &&
-          !internal &&
-          (!scenario.solo || scenario.spotlight) &&
-          gainRewards &&
-          (!rewards || !rewards.ignoredBonus || !rewards.ignoredBonus.includes('inspiration'))
-        ) {
-          this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
-        }
-
-        if (
-          conclusionSection &&
-          !conclusionSection.repeatable &&
-          !this.game.party.conclusions.find(
-            (conclusion) =>
-              conclusion.index === conclusionSection.index &&
-              conclusion.edition === conclusionSection.edition &&
-              conclusion.group === conclusionSection.group
-          )
-        ) {
-          this.game.party.conclusions.push(
-            new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group)
-          );
-        }
-
-        if (gameManager.game.party.campaignMode && gainRewards) {
-          if (scenario.conclusion) {
-            if (
-              !scenario.repeatable &&
-              !this.game.party.conclusions.find(
-                (conclusion) =>
-                  conclusion.index === scenario.index && conclusion.edition === scenario.edition && conclusion.group === scenario.group
-              )
-            ) {
-              this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group));
-            }
-          } else if (!scenario.hideIndex && (!rewards || !rewards.repeatScenario)) {
-            this.game.party.scenarios.push(
-              new GameScenarioModel(
-                scenario.index,
-                scenario.edition,
-                scenario.group,
-                scenario.custom,
-                scenario.custom ? scenario.name : '',
-                scenario.revealedRooms
-              )
-            );
-          }
-
-          if (
-            gameManager.imbuementManager.imbuement &&
-            !internal &&
-            !scenario.conclusion &&
-            (!scenario.solo || scenario.spotlight) &&
-            gainRewards
-          ) {
-            if (gameManager.imbuementManager.imbuement === 'advanced') {
-              this.game.party.imbuement += 2;
-            } else {
-              this.game.party.imbuement += 1;
-            }
-          }
-
-          const campaignData = gameManager.campaignManager.campaignData();
-          if (
-            rewards &&
-            settingsManager.settings.partySheet &&
-            rewards.townGuardAm &&
-            rewards.townGuardAm.length > 0 &&
-            campaignData.townGuardPerks
-          ) {
-            const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaignData);
-            gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
-            townGuardDeck.active = false;
-            this.game.party.townGuardDeck = townGuardDeck.toModel();
-          }
-        }
-      }
-
-      if (success) {
-        const presentCharacters = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent) as Character[];
-        presentCharacters.forEach((figure) => {
-          if (figure.health === figure.maxHealth) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedHighHP);
-          }
-          if (!figure.exhausted && figure.health > 0 && figure.health <= 2) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(figure, PersonalQuestAutotrackType.completedLowHP);
-          }
-
-          const exhaustedAllies = presentCharacters.filter((other) => other !== figure && other.exhausted).length;
-          if (exhaustedAllies > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              figure,
-              PersonalQuestAutotrackType.exhaustedCharsFinish,
-              undefined,
-              exhaustedAllies
-            );
-          }
-        });
-      }
-
-      if (restart) {
-        gameManager.scenarioManager.setScenario(scenario, true);
-      } else {
-        if (
-          scenario &&
-          !scenario.conclusion &&
-          (!rewards || !rewards.calendarIgnore) &&
-          gameManager.fhRules() &&
-          !linked &&
-          settingsManager.settings.automaticPassTime &&
-          !scenario.solo &&
-          settingsManager.settings.partySheet &&
-          !internal &&
-          gainRewards
-        ) {
-          this.game.party.weeks++;
-
-          gameManager.buildingsManager.nextWeek();
-
-          this.passWeekSections(this.game.party.weeks, scenario.edition, scenario.group, gainRewards);
-        }
-
-        if (success && !scenario.hideIndex && (!gameManager.game.party.campaignMode || (!gainRewards && !conclusionSection))) {
-          this.game.party.casualScenarios.push(
-            new GameScenarioModel(
-              scenario.index,
-              scenario.edition,
-              scenario.group,
-              scenario.custom,
-              scenario.custom ? scenario.name : '',
-              scenario.revealedRooms
-            )
-          );
-        }
-
-        if (!internal) {
-          this.game.scenario = undefined;
-          this.game.sections = [];
-          gameManager.roundManager.resetScenario();
-        }
-      }
-
-      if (success) {
-        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.scenario, scenario.index, 1, true);
-        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
-          PersonalQuestAutotrackType.scenariosCompleted,
-          undefined,
-          1,
-          true
-        );
-        gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
-          PersonalQuestAutotrackType.sideScenarios,
-          scenario.index,
-          1,
-          true
-        );
-
-        if (!!scenario.requirements) {
-          const requiredBuildings = new Set<string>();
-          scenario.requirements.forEach((requirement) => {
-            (requirement.buildings || []).forEach((building) => requiredBuildings.add(building));
-          });
-          requiredBuildings.forEach((building) => {
-            gameManager.personalQuestManager.trackPersonalQuestProgressForParty(
-              PersonalQuestAutotrackType.scenarioRequirements,
-              building,
-              1,
-              true
-            );
-          });
-        }
-
-        const hasBossMonster = this.getScenarioMonster(scenario).some((monsterData) => monsterData.boss);
-        if (hasBossMonster) {
-          gameManager.personalQuestManager.trackPersonalQuestProgressForParty(PersonalQuestAutotrackType.bossScenarios, undefined, 1, true);
-        }
-      }
-    }
   }
 
   addSection(section: ScenarioData) {
@@ -1082,6 +169,77 @@ export class ScenarioManager {
 
   applyScenarioData(scenarioData: ScenarioData, section: boolean = false, linked: boolean = false) {
     gameManager.stateManager.standeeDialogCanceled = true;
+    this.applyScenarioRooms(scenarioData, section);
+
+    if (settingsManager.settings.addAllMonsters) {
+      this.getMonsters(new Scenario(scenarioData), true).forEach((monster) => {
+        if (
+          !this.game.figures.find(
+            (figure) => figure instanceof MonsterData && figure.name === monster.name && figure.edition === monster.edition
+          )
+        ) {
+          gameManager.monsterManager.addMonster(monster, this.game.level);
+        }
+      });
+    }
+
+    this.applyScenarioSolo(scenarioData);
+
+    if (scenarioData.lootDeckConfig) {
+      const lootDeckConfig: LootDeckConfig = JSON.parse(JSON.stringify(scenarioData.lootDeckConfig));
+      this.game.lootDeckFixed.forEach((lootType) => {
+        lootDeckConfig[lootType] = 1;
+      });
+      gameManager.lootManager.apply(this.game.lootDeck, lootDeckConfig);
+    }
+
+    if (scenarioData.resetRound) {
+      const offset =
+        scenarioData.resetRound.endsWith('Keep') &&
+        ((this.game.state === GameState.next && this.game.round % 2 === 0) ||
+          (this.game.state === GameState.draw && this.game.round % 2 === 1))
+          ? 1
+          : 0;
+      if (scenarioData.resetRound === 'visible' || scenarioData.resetRound === 'visibleKeep') {
+        this.game.roundResets.push(this.game.round + (this.game.state === GameState.draw ? 0 : -1) - offset);
+      } else {
+        this.game.roundResetsHidden.push(this.game.round + (this.game.state === GameState.draw ? 0 : -1) - offset);
+      }
+      this.game.round = (this.game.state === GameState.draw ? 0 : 1) + offset;
+    }
+
+    if (gameManager.bbRules() && scenarioData.level) {
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character && scenarioData.level) {
+          gameManager.characterManager.setLevel(figure, scenarioData.level);
+        }
+      });
+    }
+
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && scenarioData.eventType && !linked) {
+      let type = scenarioData.eventType;
+
+      if (scenarioData.edition === 'fh' && (type === 'road' || type === 'outpost')) {
+        type = (Math.max(this.game.party.weeks, 0) % 20 < 10 ? 'summer-' : 'winter-') + type;
+      }
+
+      this.game.eventDraw = type;
+    }
+
+    this.applyScenarioEvents();
+
+    if (settingsManager.settings.removeUnusedMonster) {
+      this.game.figures
+        .filter(
+          (figure) => figure instanceof Monster && figure.off && figure.entities.length === 0 && !figure.tags.includes('addedManually')
+        )
+        .forEach((figure) => {
+          gameManager.monsterManager.removeMonster(figure as Monster);
+        });
+    }
+  }
+
+  private applyScenarioRooms(scenarioData: ScenarioData, section: boolean) {
     if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length === 0) {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
@@ -1090,24 +248,15 @@ export class ScenarioManager {
           if (monster) {
             monster.isAlly =
               (scenarioData.allies && scenarioData.allies.includes(monsterName)) ||
-              (section &&
-                gameManager.game.scenario &&
-                gameManager.game.scenario.allies &&
-                gameManager.game.scenario.allies.includes(monsterName)) ||
+              (section && this.game.scenario && this.game.scenario.allies && this.game.scenario.allies.includes(monsterName)) ||
               false;
             monster.isAllied =
               (scenarioData.allied && scenarioData.allied.includes(monsterName)) ||
-              (section &&
-                gameManager.game.scenario &&
-                gameManager.game.scenario.allied &&
-                gameManager.game.scenario.allied.includes(monsterName)) ||
+              (section && this.game.scenario && this.game.scenario.allied && this.game.scenario.allied.includes(monsterName)) ||
               false;
             monster.drawExtra =
               (scenarioData.drawExtra && scenarioData.drawExtra.includes(monsterName)) ||
-              (section &&
-                gameManager.game.scenario &&
-                gameManager.game.scenario.drawExtra &&
-                gameManager.game.scenario.drawExtra.includes(monsterName)) ||
+              (section && this.game.scenario && this.game.scenario.drawExtra && this.game.scenario.drawExtra.includes(monsterName)) ||
               false;
           }
         });
@@ -1134,10 +283,12 @@ export class ScenarioManager {
         });
 
       if (scenarioData.monsters) {
-        const monsters = gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => figure as Monster);
+        const monsters = this.game.figures.filter((figure) => figure instanceof Monster).map((figure) => figure as Monster);
         scenarioData.monsters.forEach((name) => {
           const monsterName = name.split(':')[0];
-          const monsterData = gameManager.monstersData(scenarioData.edition).find((monsterData) => monsterData.name === monsterName);
+          const monsterData = gameManager.editionManager
+            .monstersData(scenarioData.edition)
+            .find((monsterData) => monsterData.name === monsterName);
           if (monsterData && !monsters.find((existing) => existing.name === monsterData.name)) {
             monsters.push(new Monster(monsterData));
           }
@@ -1165,46 +316,27 @@ export class ScenarioManager {
             if (monster) {
               monster.isAlly =
                 (scenarioData.allies && scenarioData.allies.includes(monsterName)) ||
-                (section &&
-                  gameManager.game.scenario &&
-                  gameManager.game.scenario.allies &&
-                  gameManager.game.scenario.allies.includes(monsterName)) ||
+                (section && this.game.scenario && this.game.scenario.allies && this.game.scenario.allies.includes(monsterName)) ||
                 false;
               monster.isAllied =
                 (scenarioData.allied && scenarioData.allied.includes(monsterName)) ||
-                (section &&
-                  gameManager.game.scenario &&
-                  gameManager.game.scenario.allied &&
-                  gameManager.game.scenario.allied.includes(monsterName)) ||
+                (section && this.game.scenario && this.game.scenario.allied && this.game.scenario.allied.includes(monsterName)) ||
                 false;
               monster.drawExtra =
                 (scenarioData.drawExtra && scenarioData.drawExtra.includes(monsterName)) ||
-                (section &&
-                  gameManager.game.scenario &&
-                  gameManager.game.scenario.drawExtra &&
-                  gameManager.game.scenario.drawExtra.includes(monsterName)) ||
+                (section && this.game.scenario && this.game.scenario.drawExtra && this.game.scenario.drawExtra.includes(monsterName)) ||
                 false;
             }
           }
         });
       }
     }
+  }
 
-    if (settingsManager.settings.addAllMonsters) {
-      this.getMonsters(new Scenario(scenarioData), true).forEach((monster) => {
-        if (
-          !this.game.figures.find(
-            (figure) => figure instanceof MonsterData && figure.name === monster.name && figure.edition === monster.edition
-          )
-        ) {
-          gameManager.monsterManager.addMonster(monster, this.game.level);
-        }
-      });
-    }
-
+  private applyScenarioSolo(scenarioData: ScenarioData) {
     if (scenarioData.solo) {
       if (!scenarioData.spotlight) {
-        gameManager.game.figures.forEach((figure) => {
+        this.game.figures.forEach((figure) => {
           if (figure instanceof Character) {
             if (figure.name !== scenarioData.solo || figure.edition !== scenarioData.edition) {
               figure.absent = true;
@@ -1216,11 +348,11 @@ export class ScenarioManager {
       }
 
       if (
-        !gameManager.game.figures.some(
+        !this.game.figures.some(
           (figure) => figure instanceof Character && figure.name === scenarioData.solo && figure.edition === scenarioData.edition
         )
       ) {
-        const characterData = gameManager
+        const characterData = gameManager.editionManager
           .charactersData()
           .find((characterData) => characterData.name === scenarioData.solo && characterData.edition === scenarioData.edition);
         if (characterData) {
@@ -1230,55 +362,16 @@ export class ScenarioManager {
         }
       }
     }
+  }
 
-    if (scenarioData.lootDeckConfig) {
-      const lootDeckConfig: LootDeckConfig = JSON.parse(JSON.stringify(scenarioData.lootDeckConfig));
-      this.game.lootDeckFixed.forEach((lootType) => {
-        lootDeckConfig[lootType] = 1;
-      });
-      gameManager.lootManager.apply(this.game.lootDeck, lootDeckConfig);
-    }
-
-    if (scenarioData.resetRound) {
-      const offset =
-        scenarioData.resetRound.endsWith('Keep') &&
-        ((this.game.state === GameState.next && this.game.round % 2 === 0) ||
-          (this.game.state === GameState.draw && this.game.round % 2 === 1))
-          ? 1
-          : 0;
-      if (scenarioData.resetRound === 'visible' || scenarioData.resetRound === 'visibleKeep') {
-        this.game.roundResets.push(this.game.round + (this.game.state === GameState.draw ? 0 : -1) - offset);
-      } else {
-        this.game.roundResetsHidden.push(this.game.round + (this.game.state === GameState.draw ? 0 : -1) - offset);
-      }
-      this.game.round = (this.game.state === GameState.draw ? 0 : 1) + offset;
-    }
-
-    if (gameManager.bbRules() && scenarioData.level) {
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character && scenarioData.level) {
-          gameManager.characterManager.setLevel(figure, scenarioData.level);
-        }
-      });
-    }
-
-    if (settingsManager.settings.partySheet && settingsManager.settings.events && scenarioData.eventType && !linked) {
-      let type = scenarioData.eventType;
-
-      if (scenarioData.edition === 'fh' && (type === 'road' || type === 'outpost')) {
-        type = (Math.max(gameManager.game.party.weeks, 0) % 20 < 10 ? 'summer-' : 'winter-') + type;
-      }
-
-      gameManager.game.eventDraw = type;
-    }
-
+  private applyScenarioEvents() {
     if (
       settingsManager.settings.partySheet &&
       settingsManager.settings.events &&
       settingsManager.settings.eventsApply &&
-      gameManager.game.party.eventCards
+      this.game.party.eventCards
     ) {
-      gameManager.game.party.eventCards
+      this.game.party.eventCards
         .filter((e) => e.scenarioApply)
         .forEach((e) => {
           const eventCard = gameManager.eventCardManager.getEventCardForEdition(e.edition, e.type, e.cardId);
@@ -1317,16 +410,6 @@ export class ScenarioManager {
           e.scenarioApply = false;
         });
     }
-
-    if (settingsManager.settings.removeUnusedMonster) {
-      this.game.figures
-        .filter(
-          (figure) => figure instanceof Monster && figure.off && figure.entities.length === 0 && !figure.tags.includes('addedManually')
-        )
-        .forEach((figure) => {
-          gameManager.monsterManager.removeMonster(figure as Monster);
-        });
-    }
   }
 
   openRoom(roomData: RoomData, scenarioData: ScenarioData, section: boolean) {
@@ -1336,6 +419,12 @@ export class ScenarioManager {
       this.game.scenario.revealedRooms.push(roomData.roomNumber);
     }
 
+    this.openRoomMonsters(roomData, scenarioData, section);
+
+    this.openRoomObjectives(roomData, scenarioData, section);
+  }
+
+  private openRoomMonsters(roomData: RoomData, scenarioData: ScenarioData, section: boolean) {
     if (roomData.monster) {
       const entities: MonsterEntity[] = [];
       // boss / elite first
@@ -1390,14 +479,14 @@ export class ScenarioManager {
         this.game.figures.forEach((figure) => {
           if (
             figure instanceof Monster &&
-            gameManager.isEditionRelevant(scenarioData.edition, figure.edition) &&
+            gameManager.editionManager.isEditionRelevant(scenarioData.edition, figure.edition) &&
             figure.entities.some((entity) => entities.includes(entity))
           ) {
             figure.active = figure.active || !this.game.figures.some((other) => other.active);
             figure.entities.forEach((entity) => {
               if (entities.includes(entity)) {
                 entity.active =
-                  figure.active || gameManager.game.figures.some((other, index, self) => other.active && index > self.indexOf(figure));
+                  figure.active || this.game.figures.some((other, index, self) => other.active && index > self.indexOf(figure));
                 entity.revealed = true;
               }
             });
@@ -1407,7 +496,9 @@ export class ScenarioManager {
 
       gameManager.specialActionsManager.revealMonsterEntities(entities);
     }
+  }
 
+  private openRoomObjectives(roomData: RoomData, scenarioData: ScenarioData, section: boolean) {
     if (roomData.objectives) {
       roomData.objectives.forEach((index) => {
         if (typeof index === 'number' && index > 0) {
@@ -1471,24 +562,15 @@ export class ScenarioManager {
     const monsterName = monsterStandeeData.name.split(':')[0];
     const isAlly =
       (scenarioData.allies && scenarioData.allies.includes(monsterName)) ||
-      (section &&
-        gameManager.game.scenario &&
-        gameManager.game.scenario.allies &&
-        gameManager.game.scenario.allies.includes(monsterName)) ||
+      (section && this.game.scenario && this.game.scenario.allies && this.game.scenario.allies.includes(monsterName)) ||
       false;
     const isAllied =
       (scenarioData.allied && scenarioData.allied.includes(monsterName)) ||
-      (section &&
-        gameManager.game.scenario &&
-        gameManager.game.scenario.allied &&
-        gameManager.game.scenario.allied.includes(monsterName)) ||
+      (section && this.game.scenario && this.game.scenario.allied && this.game.scenario.allied.includes(monsterName)) ||
       false;
     const drawExtra =
       (scenarioData.drawExtra && scenarioData.drawExtra.includes(monsterName)) ||
-      (section &&
-        gameManager.game.scenario &&
-        gameManager.game.scenario.drawExtra &&
-        gameManager.game.scenario.drawExtra.includes(monsterName)) ||
+      (section && this.game.scenario && this.game.scenario.drawExtra && this.game.scenario.drawExtra.includes(monsterName)) ||
       false;
     const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
     if (monster) {
@@ -1509,7 +591,7 @@ export class ScenarioManager {
           }
           entities.push(entity);
           if (entity.marker || entity.tags.length > 0) {
-            gameManager.addEntityCount(monster, entity);
+            gameManager.entityCounterManager.addEntityCount(monster, entity);
           }
         }
       }
@@ -1525,16 +607,22 @@ export class ScenarioManager {
     return entities;
   }
 
+  scenarioRunning(): boolean {
+    return this.game.state !== GameState.draw || this.game.round > 0;
+  }
+
   hasScenarios(): boolean {
     const editions = this.game.edition
-      ? gameManager.relevantEditions(this.game.edition, true, false)
-      : gameManager.editionData.map((editionData) => editionData.edition);
+      ? gameManager.editionManager.relevantEditions(this.game.edition, true, false)
+      : gameManager.editionManager.editionData.map((editionData) => editionData.edition);
     return editions.some((edition) => this.scenarioData(edition, true).length > 0);
   }
 
   hasSections(conclusions: boolean = false): boolean {
-    const editions = this.game.edition ? gameManager.relevantEditions(this.game.edition, true, false) : settingsManager.settings.editions;
-    return gameManager.editionData.some(
+    const editions = this.game.edition
+      ? gameManager.editionManager.relevantEditions(this.game.edition, true, false)
+      : settingsManager.settings.editions;
+    return gameManager.editionManager.editionData.some(
       (editionData) =>
         editions.includes(editionData.edition) &&
         settingsManager.settings.editions.includes(editionData.edition) &&
@@ -1544,7 +632,7 @@ export class ScenarioManager {
   }
 
   scenarioData(edition: string | undefined, all: boolean = false): ScenarioData[] {
-    const scenarios = gameManager.editionData
+    const scenarios = gameManager.editionManager.editionData
       .filter((editionData) => settingsManager.settings.editions.includes(editionData.edition))
       .map((editionData) => editionData.scenarios)
       .flat();
@@ -1575,7 +663,7 @@ export class ScenarioManager {
     const sectionDataByEdition = new Map<string, ScenarioData[]>();
     this.game.party.conclusions.forEach((identifier) => {
       if (!sectionDataByEdition.has(identifier.edition)) {
-        sectionDataByEdition.set(identifier.edition, gameManager.sectionData(identifier.edition));
+        sectionDataByEdition.set(identifier.edition, gameManager.editionManager.sectionData(identifier.edition));
       }
       const conclusionSection = sectionDataByEdition
         .get(identifier.edition)!
@@ -1608,7 +696,7 @@ export class ScenarioManager {
         requires = scenarioData.requires.some((requires) =>
           requires.every((index) => {
             const finishedScenarios = this.game.party.scenarios.filter(
-              (model) => model.index === index && gameManager.isEditionRelevant(scenarioData.edition, model.edition)
+              (model) => model.index === index && gameManager.editionManager.isEditionRelevant(scenarioData.edition, model.edition)
             );
 
             if (finishedScenarios.length > 1) {
@@ -1628,432 +716,8 @@ export class ScenarioManager {
     });
   }
 
-  isCurrent(scenarioData: ScenarioData): boolean {
-    return (
-      gameManager.game.scenario !== undefined &&
-      gameManager.game.scenario.edition === scenarioData.edition &&
-      gameManager.game.scenario.index === scenarioData.index &&
-      gameManager.game.scenario.group === scenarioData.group &&
-      gameManager.game.scenario.solo === scenarioData.solo
-    );
-  }
-
-  isSuccess(scenarioData: ScenarioData): boolean {
-    return (
-      gameManager.game.party.scenarios &&
-      gameManager.game.party.scenarios.find(
-        (scenarioModel) =>
-          scenarioModel.edition === scenarioData.edition &&
-          scenarioModel.group === scenarioData.group &&
-          scenarioModel.index === scenarioData.index
-      ) !== undefined
-    );
-  }
-
-  isBlocked(scenarioData: ScenarioData): boolean {
-    const finishedScenarios = this.game.party.scenarios
-      .filter((model) => model.edition === scenarioData.edition && model.group === scenarioData.group)
-      .map((model) => this.getScenario(model.index, model.edition, model.group));
-
-    const finishedConclusions = this.game.party.conclusions
-      .filter((model) => model.edition === scenarioData.edition && model.group === scenarioData.group)
-      .map((model) => this.getSection(model.index, model.edition, model.group, true));
-
-    return (
-      finishedScenarios.some((other) => other && other.blocks && other.blocks.includes(scenarioData.index) && this.isSuccess(other)) ||
-      finishedConclusions.some((other) => other && other.blocks && other.blocks.includes(scenarioData.index))
-    );
-  }
-
-  // whether any present character has the given trait (or class, e.g. 'human')
-  hasTrait(trait: string): boolean {
-    trait = trait.toLowerCase();
-    return this.game.figures.some(
-      (figure) =>
-        figure instanceof Character &&
-        !figure.absent &&
-        (figure.traits.some((value) => value.toLowerCase() === trait) || ('' + figure.characterClass).toLowerCase() === trait)
-    );
-  }
-
-  // scenario requirement: scenario is completed, or not completed if prefixed with '!'
-  scenarioRequirementMet(index: string, scenarioData: ScenarioData): boolean {
-    const negate = index.startsWith('!');
-    if (negate) {
-      index = index.substring(1, index.length);
-    }
-    const completed = this.game.party.scenarios.some(
-      (model) => model.index === index && model.edition === scenarioData.edition && model.group === scenarioData.group
-    );
-    return negate ? !completed : completed;
-  }
-
-  isLocked(scenarioData: ScenarioData): boolean {
-    return (
-      (this.game.party.campaignMode &&
-        scenarioData.requirements &&
-        scenarioData.requirements.length > 0 &&
-        scenarioData.requirements.every(
-          (requirement) =>
-            (requirement.global &&
-              requirement.global.some((achievement) => {
-                if (achievement.startsWith('!')) {
-                  return this.game.party.globalAchievementsList.find(
-                    (globalAchievement) =>
-                      globalAchievement.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim()
-                  );
-                } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
-                  let count = +achievement.split(':')[1];
-                  this.game.party.globalAchievementsList.forEach((globalAchievement) => {
-                    if (globalAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
-                      count--;
-                    }
-                  });
-                  return count > 0;
-                } else {
-                  return !this.game.party.globalAchievementsList.find(
-                    (globalAchievement) => globalAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
-                  );
-                }
-              })) ||
-            (requirement.party &&
-              requirement.party.some((achievement) => {
-                if (achievement.startsWith('!')) {
-                  return this.game.party.achievementsList.find(
-                    (partyAchievement) =>
-                      partyAchievement.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim()
-                  );
-                } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
-                  let count = +achievement.split(':')[1];
-                  this.game.party.achievementsList.forEach((partyAchievement) => {
-                    if (partyAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
-                      count--;
-                    }
-                  });
-                  return count > 0;
-                } else {
-                  return !this.game.party.achievementsList.find(
-                    (partyAchievement) => partyAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
-                  );
-                }
-              })) ||
-            (requirement.campaignSticker &&
-              requirement.campaignSticker.some((achievement) => {
-                if (achievement.startsWith('!')) {
-                  return this.game.party.campaignStickers.find(
-                    (campaignSticker) =>
-                      campaignSticker.toLowerCase().replaceAll(' ', '-').trim() ==
-                      achievement.substring(1, achievement.length).toLowerCase().trim()
-                  );
-                } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
-                  let count = +achievement.split(':')[1];
-                  this.game.party.campaignStickers.forEach((campaignSticker) => {
-                    if (campaignSticker.toLowerCase().replaceAll(' ', '-').trim() === achievement.split(':')[0].toLowerCase().trim()) {
-                      count--;
-                    }
-                  });
-                  return count > 0;
-                } else {
-                  return !this.game.party.campaignStickers.find(
-                    (campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-').trim() === achievement.toLowerCase().trim()
-                  );
-                }
-              })) ||
-            (requirement.buildings &&
-              requirement.buildings.some((achievement) => {
-                if (achievement.startsWith('!')) {
-                  return this.game.party.buildings.find(
-                    (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim() &&
-                      buildingModel.level > 0
-                  );
-                } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
-                  const level = +achievement.split(':')[1];
-                  return !this.game.party.buildings.find(
-                    (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() === achievement.substring(1, achievement.length).toLowerCase().trim() &&
-                      buildingModel.level >= level
-                  );
-                } else {
-                  return !this.game.party.buildings.find(
-                    (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() === achievement.toLowerCase().trim() && buildingModel.level > 0
-                  );
-                }
-              })) ||
-            (requirement.characters &&
-              requirement.characters.some((character) => {
-                if (character.startsWith('!')) {
-                  return gameManager.game.figures.find(
-                    (figure) =>
-                      figure instanceof Character &&
-                      figure.name.toLowerCase().trim() === character.substring(1, character.length).toLowerCase().trim()
-                  );
-                } else {
-                  return !gameManager.game.figures.find(
-                    (figure) => figure instanceof Character && figure.name.toLowerCase().trim() === character.toLowerCase().trim()
-                  );
-                }
-              })) ||
-            (requirement.traits &&
-              requirement.traits.some((trait) =>
-                trait.startsWith('!') ? this.hasTrait(trait.substring(1, trait.length)) : !this.hasTrait(trait)
-              )) ||
-            (requirement.scenarios &&
-              requirement.scenarios.every((scenarios) => scenarios.some((index) => !this.scenarioRequirementMet(index, scenarioData))))
-        )) ||
-      (scenarioData.solo &&
-        !this.game.figures.find(
-          (figure) => figure instanceof Character && figure.name === scenarioData.solo && (gameManager.bbRules() || figure.level >= 5)
-        )) ||
-      false
-    );
-  }
-
-  getRequirements(scenarioData: ScenarioData, all: boolean = false): ScenarioMissingRequirements[] {
-    const missingRequirements: ScenarioMissingRequirements[] = [];
-    if (scenarioData.requirements) {
-      scenarioData.requirements.forEach((requirement) => {
-        let add: boolean = false;
-        const missingRequirement = new ScenarioMissingRequirements();
-        if (requirement.global) {
-          requirement.global.forEach((achievement) => {
-            if (achievement.startsWith('!')) {
-              achievement = achievement.substring(1, achievement.length);
-              if (
-                all ||
-                gameManager.game.party.globalAchievementsList.find(
-                  (globalAchievement) => globalAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
-                )
-              ) {
-                missingRequirement.globalAchievementsMissing.push(achievement);
-                add = true;
-              }
-            } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
-              let count = +achievement.split(':')[1];
-              gameManager.game.party.globalAchievementsList.forEach((partyAchievement) => {
-                if (partyAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
-                  count--;
-                }
-              });
-              if (all || count > 0) {
-                missingRequirement.globalAchievementsCount.push({
-                  name: achievement.split(':')[0],
-                  count: count,
-                  required: +achievement.split(':')[1]
-                });
-                add = true;
-              }
-            } else if (
-              all ||
-              !gameManager.game.party.globalAchievementsList.find(
-                (globalAchievement) => globalAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
-              )
-            ) {
-              missingRequirement.globalAchievements.push(achievement);
-              add = true;
-            }
-          });
-        }
-
-        if (requirement.party) {
-          requirement.party.forEach((achievement) => {
-            if (achievement.startsWith('!')) {
-              achievement = achievement.substring(1, achievement.length);
-              if (
-                all ||
-                gameManager.game.party.achievementsList.find(
-                  (partyAchievement) => partyAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
-                )
-              ) {
-                missingRequirement.partyAchievementsMissing.push(achievement);
-                add = true;
-              }
-            } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
-              let count = +achievement.split(':')[1];
-              gameManager.game.party.achievementsList.forEach((partyAchievement) => {
-                if (partyAchievement.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
-                  count--;
-                }
-              });
-              if (count > 0) {
-                missingRequirement.partyAchievementsCount.push({
-                  name: achievement.split(':')[0],
-                  count: count,
-                  required: +achievement.split(':')[1]
-                });
-                add = true;
-              }
-            } else if (
-              all ||
-              !gameManager.game.party.achievementsList.find(
-                (partyAchievement) => partyAchievement.toLowerCase().trim() === achievement.toLowerCase().trim()
-              )
-            ) {
-              missingRequirement.partyAchievements.push(achievement);
-              add = true;
-            }
-          });
-        }
-
-        if (requirement.campaignSticker) {
-          requirement.campaignSticker.forEach((achievement) => {
-            if (achievement.startsWith('!')) {
-              achievement = achievement.substring(1, achievement.length);
-              if (
-                all ||
-                gameManager.game.party.campaignStickers.find(
-                  (campaignSticker) => campaignSticker.toLowerCase().trim() === achievement.toLowerCase().trim()
-                )
-              ) {
-                missingRequirement.campaignStickersMissing.push(achievement);
-                add = true;
-              }
-            } else if (achievement.includes(':') && !isNaN(+achievement.split(':')[1])) {
-              let count = +achievement.split(':')[1];
-              gameManager.game.party.campaignStickers.forEach((campaignSticker) => {
-                if (campaignSticker.toLowerCase().trim() === achievement.split(':')[0].toLowerCase().trim()) {
-                  count--;
-                }
-              });
-              if (count > 0) {
-                missingRequirement.campaignStickersCount.push({
-                  name: achievement.split(':')[0],
-                  count: count,
-                  required: +achievement.split(':')[1]
-                });
-                add = true;
-              }
-            } else if (
-              all ||
-              !gameManager.game.party.campaignStickers.find(
-                (campaignSticker) => campaignSticker.toLowerCase().trim() === achievement.toLowerCase().trim()
-              )
-            ) {
-              missingRequirement.campaignStickers.push(achievement);
-              add = true;
-            }
-          });
-        }
-
-        if (requirement.buildings) {
-          requirement.buildings.forEach((building) => {
-            if (building.startsWith('!')) {
-              building = building.substring(1, building.length);
-              if (building.includes(':')) {
-                const level = +building.split(':')[1];
-                if (
-                  all ||
-                  gameManager.game.party.buildings.find(
-                    (buildingModel) =>
-                      buildingModel.name.toLowerCase().trim() === building.split(':')[0].toLowerCase().trim() &&
-                      buildingModel.level >= level
-                  )
-                ) {
-                  missingRequirement.buildingsLevel.push({ name: building.split(':')[0], level: level });
-                  add = true;
-                }
-              } else if (
-                all ||
-                gameManager.game.party.buildings.find(
-                  (buildingModel) => buildingModel.name.toLowerCase().trim() === building.toLowerCase().trim() && buildingModel.level > 0
-                )
-              ) {
-                missingRequirement.buildingsMissing.push(building);
-                add = true;
-              }
-            } else if (building.includes(':')) {
-              const level = +building.split(':')[1];
-              if (
-                all ||
-                !gameManager.game.party.buildings.find(
-                  (buildingModel) =>
-                    buildingModel.name.toLowerCase().trim() === building.split(':')[0].toLowerCase().trim() && buildingModel.level >= level
-                )
-              ) {
-                missingRequirement.buildingsLevel.push({ name: building.split(':')[0], level: level });
-                add = true;
-              }
-            } else if (
-              all ||
-              !gameManager.game.party.buildings.find(
-                (buildingModel) => buildingModel.name.toLowerCase().trim() === building.toLowerCase().trim() && buildingModel.level > 0
-              )
-            ) {
-              missingRequirement.buildings.push(building);
-              add = true;
-            }
-          });
-        }
-
-        if (requirement.characters) {
-          requirement.characters.forEach((character) => {
-            if (character.startsWith('!')) {
-              character = character.substring(1, character.length);
-              if (
-                all ||
-                gameManager.game.figures.find(
-                  (figure) => figure instanceof Character && figure.name.toLowerCase().trim() === character.toLowerCase().trim()
-                )
-              ) {
-                missingRequirement.charactersMissing.push(character);
-                add = true;
-              }
-            } else if (
-              all ||
-              !gameManager.game.figures.find(
-                (figure) => figure instanceof Character && figure.name.toLowerCase().trim() === character.toLowerCase().trim()
-              )
-            ) {
-              missingRequirement.characters.push(character);
-              add = true;
-            }
-          });
-        }
-
-        if (requirement.traits) {
-          requirement.traits.forEach((trait) => {
-            if (trait.startsWith('!')) {
-              trait = trait.substring(1, trait.length);
-              if (all || this.hasTrait(trait)) {
-                missingRequirement.traitsMissing.push(trait);
-                add = true;
-              }
-            } else if (all || !this.hasTrait(trait)) {
-              missingRequirement.traits.push(trait);
-              add = true;
-            }
-          });
-        }
-
-        if (requirement.scenarios && requirement.scenarios.length) {
-          const missingScenarios: string[][] = [];
-          requirement.scenarios.forEach((scenarios, i) => {
-            missingScenarios[i] = [];
-            scenarios.forEach((index) => {
-              if (all || !this.scenarioRequirementMet(index, scenarioData)) {
-                missingScenarios[i].push(index);
-              }
-            });
-          });
-
-          if (all || missingScenarios.every((value) => value.length)) {
-            missingRequirement.scenarios = missingScenarios;
-            add = true;
-          }
-        }
-
-        if (add) {
-          missingRequirements.push(missingRequirement);
-        }
-      });
-    }
-
-    return missingRequirements;
-  }
-
   getSections(scenario: ScenarioData): ScenarioData[] {
-    return gameManager
+    return gameManager.editionManager
       .sectionData()
       .filter(
         (sectionData) =>
@@ -2094,7 +758,7 @@ export class ScenarioManager {
       .map(
         (index) =>
           this.game.scenario &&
-          gameManager
+          gameManager.editionManager
             .sectionData(this.game.scenario.edition, true)
             .find((sectionData) => sectionData.group === 'randomMonsterCard' && sectionData.index === index)
       )
@@ -2107,106 +771,10 @@ export class ScenarioManager {
     return [...additionalSections, ...sections];
   }
 
-  getTreasures(scenario: Scenario, sections: Scenario[], unlooted: boolean = false, all: boolean = false): ('G' | number)[] {
-    let treasures: ('G' | number)[] = [];
-    if (scenario.rooms) {
-      if (all) {
-        scenario.rooms.forEach((room) => {
-          if (room.treasures) {
-            treasures.push(...room.treasures);
-          }
-        });
-      } else if (scenario.revealedRooms) {
-        scenario.revealedRooms.forEach((roomNumber) => {
-          const room = scenario.rooms.find((room) => room.roomNumber === roomNumber);
-          if (room && room.treasures) {
-            treasures.push(...room.treasures);
-          }
-        });
-      }
-    }
-
-    sections.forEach((section) => {
-      if (section.rooms) {
-        if (all) {
-          section.rooms.forEach((room) => {
-            if (room.treasures) {
-              treasures.push(...room.treasures);
-            }
-          });
-        } else if (section.revealedRooms) {
-          section.revealedRooms.forEach((roomNumber) => {
-            const room = section.rooms.find((room) => room.roomNumber === roomNumber);
-            if (room && room.treasures) {
-              treasures.push(...room.treasures);
-            }
-          });
-        }
-      }
-    });
-
-    treasures = treasures.filter(
-      (treasure, index) =>
-        !unlooted ||
-        !gameManager.game.figures.some(
-          (figure) => figure instanceof Character && gameManager.lootManager.hasTreasure(figure, treasure, index)
-        )
-    );
-
-    if (unlooted) {
-      treasures = treasures.filter(
-        (treasure) =>
-          !gameManager.game.party.treasures.find(
-            (identifier) => identifier.name === '' + treasure && identifier.edition === scenario.edition
-          )
-      );
-    }
-
-    return treasures;
-  }
-
-  getAllTreasures(scenario: ScenarioData): ('G' | number)[] {
-    const treasures: ('G' | number)[] = [];
-    if (scenario.rooms) {
-      scenario.rooms.forEach((room) => {
-        if (room.treasures) {
-          treasures.push(...room.treasures);
-        }
-      });
-    }
-
-    this.getSections(scenario).forEach((section) => {
-      if (section.rooms) {
-        section.rooms.forEach((room) => {
-          if (room.treasures) {
-            treasures.push(...room.treasures);
-          }
-        });
-      }
-    });
-
-    return treasures;
-  }
-
-  treasureRewardsFromString(treasure: string): string[][] {
-    if (treasure.split(':').length < 2) {
-      return [];
-    } else {
-      return treasure
-        .split(':')
-        .slice(1)
-        .join(':')
-        .split('|')
-        .map((value) => value.split('+'));
-    }
-  }
-
   getMonsters(scenario: Scenario, sections: boolean = false, custom: boolean = false): MonsterData[] {
     const monsters: MonsterData[] = [];
     if (custom) {
-      monsters.push(
-        ...gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => new MonsterData(figure as Monster))
-      );
+      monsters.push(...this.game.figures.filter((figure) => figure instanceof Monster).map((figure) => new MonsterData(figure as Monster)));
     } else {
       monsters.push(...this.getScenarioMonster(scenario, sections));
       monsters.push(...this.getRuleMonster(scenario, sections));
@@ -2220,7 +788,7 @@ export class ScenarioManager {
 
     data.push(scenario);
     data.push(
-      ...gameManager
+      ...gameManager.editionManager
         .sectionData(scenario.edition)
         .filter(
           (sectionData) =>
@@ -2236,7 +804,7 @@ export class ScenarioManager {
 
     if (scenario.additionalSections) {
       data.push(
-        ...gameManager
+        ...gameManager.editionManager
           .sectionData(scenario.edition, true)
           .filter(
             (sectionData) =>
@@ -2254,11 +822,12 @@ export class ScenarioManager {
     data.forEach((scenario) => {
       if (scenario.monsters) {
         scenario.monsters.forEach((name) => {
-          const monster = gameManager
+          const monster = gameManager.editionManager
             .monstersData()
             .find(
               (monsterData) =>
-                monsterData.name === name.split(':')[0] && gameManager.isEditionRelevant(scenario.edition, monsterData.edition)
+                monsterData.name === name.split(':')[0] &&
+                gameManager.editionManager.isEditionRelevant(scenario.edition, monsterData.edition)
             );
           if (monster && !monsters.includes(monster)) {
             monsters.push(monster);
@@ -2276,14 +845,14 @@ export class ScenarioManager {
     data.push(scenario);
     if (sections) {
       data.push(
-        ...gameManager
+        ...gameManager.editionManager
           .sectionData(scenario.edition)
           .filter((sectionData) => sectionData.group === scenario.group && sectionData.parent === scenario.index)
       );
 
       if (scenario.additionalSections) {
         data.push(
-          ...gameManager
+          ...gameManager.editionManager
             .sectionData(scenario.edition, true)
             .filter((sectionData) => scenario.additionalSections.includes(sectionData.index))
         );
@@ -2296,12 +865,12 @@ export class ScenarioManager {
         scenario.rules.forEach((rule) => {
           if (rule.spawns) {
             rule.spawns.forEach((spawn) => {
-              const monster = gameManager
+              const monster = gameManager.editionManager
                 .monstersData()
                 .find(
                   (monsterData) =>
                     monsterData.name === spawn.monster.name.split(':')[0] &&
-                    gameManager.isEditionRelevant(scenario.edition, monsterData.edition)
+                    gameManager.editionManager.isEditionRelevant(scenario.edition, monsterData.edition)
                 );
               if (monster && !monsters.includes(monster)) {
                 monsters.push(monster);
@@ -2357,133 +926,6 @@ export class ScenarioManager {
     );
   }
 
-  getPredecessors(scenario: ScenarioData, all: boolean = false): ScenarioData[] {
-    const predecessors: ScenarioData[] = [];
-    const campaignMode = gameManager.game.party.campaignMode && !all;
-    let predecessor = this.getPredecessor(scenario, campaignMode);
-
-    while (predecessor) {
-      predecessors.unshift(predecessor);
-      const newPredecessor = this.getPredecessor(predecessor, campaignMode);
-      predecessor = newPredecessor;
-      if (predecessor && predecessors.includes(predecessor)) {
-        predecessor = undefined;
-      }
-    }
-
-    return predecessors;
-  }
-
-  getPredecessor(scenarioData: ScenarioData, all: boolean): ScenarioData | undefined {
-    let predecessor: ScenarioData | undefined = this.scenarioData(scenarioData.edition, all).find(
-      (other) =>
-        other.group === scenarioData.group && other.unlocks && other.unlocks.includes(scenarioData.index) && (!all || this.isSuccess(other))
-    );
-
-    if (!predecessor) {
-      const conclusion = gameManager
-        .sectionData(scenarioData.edition)
-        .find(
-          (sectionData) =>
-            sectionData.conclusion &&
-            sectionData.group === scenarioData.group &&
-            sectionData.unlocks &&
-            sectionData.unlocks.includes(scenarioData.index) &&
-            (!all ||
-              gameManager.game.party.conclusions.find(
-                (conclusion) =>
-                  conclusion.edition === sectionData.edition &&
-                  conclusion.group === sectionData.group &&
-                  conclusion.index === sectionData.index
-              ))
-        );
-      if (conclusion) {
-        predecessor = this.findScenarioPredecessorForSection(conclusion, scenarioData.edition, all);
-      }
-    }
-
-    if (!predecessor && scenarioData.requires && scenarioData.requires.length > 0) {
-      for (const requireGroup of scenarioData.requires) {
-        if (requireGroup.length === 1) {
-          const requiredScenario = this.scenarioData(scenarioData.edition, all).find(
-            (other) => other.index === requireGroup[0] && (!all || this.isSuccess(other))
-          );
-          if (requiredScenario) {
-            predecessor = requiredScenario;
-            break;
-          }
-        }
-      }
-    }
-
-    return predecessor;
-  }
-
-  findScenarioPredecessorForSection(
-    section: ScenarioData,
-    edition: string,
-    all: boolean,
-    visited: Set<string> = new Set()
-  ): ScenarioData | undefined {
-    const key = section.index;
-    if (visited.has(key)) {
-      return undefined;
-    }
-    visited.add(key);
-
-    if (section.parent) {
-      const parentScenario = this.scenarioData(edition, all).find(
-        (other) => other.index === section.parent && other.group === section.group && (!all || this.isSuccess(other))
-      );
-      if (parentScenario) {
-        return parentScenario;
-      }
-    }
-
-    const predecessorViaScenario = this.scenarioData(edition, all).find(
-      (other) =>
-        other.rewards &&
-        ((other.rewards.calendarSection && other.rewards.calendarSection.some((value) => section.index === value.split('-')[0])) ||
-          (other.rewards.calendarSectionManual && other.rewards.calendarSectionManual.some((value) => section.index === value.section))) &&
-        (!all || this.isSuccess(other))
-    );
-
-    if (predecessorViaScenario) {
-      return predecessorViaScenario;
-    }
-
-    const predecessorSection = gameManager
-      .sectionData(edition)
-      .find(
-        (sectionData) =>
-          sectionData.rewards &&
-          ((sectionData.rewards.calendarSection &&
-            sectionData.rewards.calendarSection.some((value) => section.index === value.split('-')[0])) ||
-            (sectionData.rewards.calendarSectionManual &&
-              sectionData.rewards.calendarSectionManual.some((value) => section.index === value.section)))
-      );
-
-    if (predecessorSection) {
-      return this.findScenarioPredecessorForSection(predecessorSection, edition, all, visited);
-    }
-
-    if (section.parentSections && section.parentSections.length > 0) {
-      for (const parentSectionGroup of section.parentSections) {
-        for (const parentSectionIndex of parentSectionGroup) {
-          const parentSection = gameManager.sectionData(edition).find((s) => s.index === parentSectionIndex);
-          if (parentSection) {
-            const result = this.findScenarioPredecessorForSection(parentSection, edition, all, visited);
-            if (result) {
-              return result;
-            }
-          }
-        }
-      }
-    }
-
-    return undefined;
-  }
-
   drawRandomScenario(edition: string): ScenarioData | undefined {
     return this.drawRandomScenariosBatch(edition, 1)[0];
   }
@@ -2491,19 +933,19 @@ export class ScenarioManager {
   drawRandomScenariosBatch(edition: string, count: number): ScenarioData[] {
     return gameManager.randomManager
       .shuffle(
-        gameManager
+        gameManager.editionManager
           .scenarioData(edition)
           .filter(
             (scenarioData) =>
               scenarioData.random &&
-              !gameManager.game.party.manualScenarios.find(
+              !this.game.party.manualScenarios.find(
                 (scenarioModel) =>
                   scenarioModel.index === scenarioData.index &&
                   scenarioModel.edition === scenarioData.edition &&
                   scenarioModel.group === scenarioData.group &&
                   !scenarioModel.custom
               ) &&
-              !this.isSuccess(scenarioData)
+              !gameManager.scenarioRequirementsManager.isSuccess(scenarioData)
           )
       )
       .slice(0, count);
@@ -2516,20 +958,20 @@ export class ScenarioManager {
   drawRandomScenarioSectionsBatch(edition: string, count: number): ScenarioData[] {
     return gameManager.randomManager
       .shuffle(
-        gameManager
+        gameManager.editionManager
           .sectionData(edition)
           .filter(
             (scenarioData) =>
               scenarioData.conclusion &&
               scenarioData.random &&
-              !gameManager.game.party.conclusions.find(
+              !this.game.party.conclusions.find(
                 (scenarioModel) =>
                   scenarioModel.index === scenarioData.index &&
                   scenarioModel.edition === scenarioData.edition &&
                   scenarioModel.group === scenarioData.group &&
                   !scenarioModel.custom
               ) &&
-              !gameManager.game.party.scenarios.find(
+              !this.game.party.scenarios.find(
                 (scenarioModel) =>
                   scenarioModel.index === scenarioData.index &&
                   scenarioModel.edition === scenarioData.edition &&
@@ -2542,7 +984,7 @@ export class ScenarioManager {
   }
 
   scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {
-    scenario = scenario || gameManager.game.scenario;
+    scenario = scenario || this.game.scenario;
     if (!scenario) {
       return ['', '', ''];
     }
@@ -2610,7 +1052,7 @@ export class ScenarioManager {
       (scenarioData.group ? scenarioData.group + '-' : '') +
       scenarioData.index.replaceAll('.', '-');
 
-    if (settingsManager.labelExists(label)) {
+    if (labelManager.labelExists(label)) {
       return label;
     }
 
@@ -2624,7 +1066,7 @@ export class ScenarioManager {
       return scenarioData;
     }
 
-    const scenarioData = gameManager
+    const scenarioData = gameManager.editionManager
       .scenarioData()
       .find(
         (scenarioData) => scenarioData.index === model.index && scenarioData.edition === model.edition && scenarioData.group === model.group
@@ -2637,8 +1079,12 @@ export class ScenarioManager {
     return JSON.parse(JSON.stringify(scenarioData));
   }
 
+  unresolvedScenarioData(model: GameScenarioModel): ScenarioData {
+    return Object.assign(new ScenarioData(), { index: model.index, edition: model.edition, group: model.group });
+  }
+
   sectionDataForModel(model: GameScenarioModel): ScenarioData | undefined {
-    const sectionData = gameManager
+    const sectionData = gameManager.editionManager
       .sectionData()
       .find(
         (sectionData) => sectionData.index === model.index && sectionData.edition === model.edition && sectionData.group === model.group

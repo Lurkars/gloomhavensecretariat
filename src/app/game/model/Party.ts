@@ -1,4 +1,4 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { BuildingModel, GardenModel } from 'src/app/game/model/Building';
 import { Character, GameCharacterModel } from 'src/app/game/model/Character';
 import { GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
@@ -83,10 +83,10 @@ export class Party {
   migrate() {
     // migration
     if (this.achievementsList) {
-      const partyAchievementsLabel = settingsManager.label.data.partyAchievements;
-      let partyAchievementsLabelEn = settingsManager.label.data.partyAchievements;
+      const partyAchievementsLabel = labelManager.label.data.partyAchievements;
+      let partyAchievementsLabelEn = labelManager.label.data.partyAchievements;
       if (settingsManager.settings.locale !== settingsManager.defaultLocale) {
-        partyAchievementsLabelEn = gameManager.editionData
+        partyAchievementsLabelEn = gameManager.editionManager.editionData
           .map(
             (editionData) =>
               (editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].partyAchievements) || {}
@@ -114,10 +114,10 @@ export class Party {
     }
 
     if (this.globalAchievementsList) {
-      const globalAchievementsLabel = settingsManager.label.data.globalAchievements;
-      let globalAchievementsLabelEn = settingsManager.label.data.globalAchievements;
+      const globalAchievementsLabel = labelManager.label.data.globalAchievements;
+      let globalAchievementsLabelEn = labelManager.label.data.globalAchievements;
       if (settingsManager.settings.locale !== settingsManager.defaultLocale) {
-        globalAchievementsLabelEn = gameManager.editionData
+        globalAchievementsLabelEn = gameManager.editionManager.editionData
           .map(
             (editionData) =>
               (editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements) ||
@@ -150,8 +150,8 @@ export class Party {
         .filter((item) => item)
         .map((value) => {
           let sticker = value;
-          Object.keys(settingsManager.label.data.campaignSticker).forEach((key) => {
-            if (settingsManager.label.data.campaignSticker[key] === sticker) {
+          Object.keys(labelManager.label.data.campaignSticker).forEach((key) => {
+            if (labelManager.label.data.campaignSticker[key] === sticker) {
               sticker = key;
               return;
             }
@@ -165,7 +165,7 @@ export class Party {
       const removeManual: GameScenarioModel[] = [];
       this.manualScenarios.forEach((model) => {
         if (model.edition === 'fh' && !model.group && !model.custom) {
-          const conclusion = gameManager
+          const conclusion = gameManager.editionManager
             .sectionData('fh')
             .find((sectionData) => sectionData.random && sectionData.unlocks && sectionData.unlocks.includes(model.index));
           if (conclusion) {
@@ -194,7 +194,7 @@ export class Party {
     this.eventCards = this.eventCards || [];
 
     if (this.campaignMode && settingsManager.settings.events) {
-      gameManager.eventCardManager.buildPartyDeckMigration(this.edition || gameManager.currentEdition());
+      gameManager.eventCardManager.buildPartyDeckMigration(this.edition || gameManager.editionManager.currentEdition());
     }
 
     this.eventCards.forEach((value) => {
@@ -210,7 +210,7 @@ export class Party {
 
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
-        if (gameManager.currentEdition() === 'fh' && !figure.tags.includes('fh-special-items-migration')) {
+        if (gameManager.editionManager.currentEdition() === 'fh' && !figure.tags.includes('fh-special-items-migration')) {
           figure.tags.push('fh-special-items-migration');
           const specialItems = figure.progress.items.filter((value) => {
             const itemData = gameManager.itemManager.getItem(value.name, value.edition, true);

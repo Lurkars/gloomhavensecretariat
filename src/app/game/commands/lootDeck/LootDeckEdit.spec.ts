@@ -129,7 +129,7 @@ describe('Loot deck commands', () => {
   });
 
   it('sets a loot card section as conclusion', () => {
-    vi.spyOn(gameManager, 'currentEdition').mockReturnValue('test');
+    vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('test');
     new LootDeckSectionCommand('1.1', true).execute();
     expect(gameManager.game.lootDeckSections).toEqual(['1.1']);
     expect(gameManager.game.party.conclusions.map((model) => model.index)).toEqual(['1.1']);

@@ -9,7 +9,7 @@ export class MonsterAddCommand extends CommandImpl {
 
   monsterData(edition: BASE_TYPE, name: BASE_TYPE): MonsterData | undefined {
     return typeof edition === 'string'
-      ? gameManager.monstersData(edition).find((monsterData) => monsterData.name === name && monsterData.edition === edition)
+      ? gameManager.editionManager.monstersData(edition).find((monsterData) => monsterData.name === name && monsterData.edition === edition)
       : undefined;
   }
 

@@ -66,7 +66,7 @@ export class ScenarioDialogComponent {
           sectionData.parent === this.scenario.index &&
           sectionData.group === this.scenario.group &&
           sectionData.conclusion &&
-          gameManager.scenarioManager.getRequirements(sectionData).length === 0
+          gameManager.scenarioRequirementsManager.getRequirements(sectionData).length === 0
       );
     openScenarioFinish(this.dialog, this.scenario, success, conclusions);
   }
@@ -74,8 +74,7 @@ export class ScenarioDialogComponent {
   resetScenario() {
     this.close();
     gameManager.stateManager.before('resetScenario', ...gameManager.scenarioManager.scenarioUndoArgs());
-    gameManager.roundManager.resetScenario();
-    gameManager.scenarioManager.setScenario(this.scenario, true);
+    gameManager.scenarioManager.resetScenario();
     gameManager.stateManager.after();
   }
 
@@ -106,10 +105,15 @@ export class ScenarioDialogComponent {
   }
 
   openRoom(roomData: RoomData) {
-    const editionData: EditionData | undefined = gameManager.editionData.find((value) => value.edition === this.scenario.edition);
+    const editionData: EditionData | undefined = gameManager.editionManager.editionData.find(
+      (value) => value.edition === this.scenario.edition
+    );
 
     if (!editionData) {
       console.error('Could not find edition data!');
+      return;
+    }
+    if (!gameManager.scenarioManager.canRevealRoom(roomData)) {
       return;
     }
     gameManager.stateManager.before(
@@ -119,7 +123,7 @@ export class ScenarioDialogComponent {
       roomData.ref,
       roomData.marker || ''
     );
-    gameManager.scenarioManager.openRoom(roomData, this.scenario, false);
+    gameManager.scenarioManager.revealRoom(roomData, this.scenario, false);
     gameManager.stateManager.after();
     const setupComponent = this.setupComponent();
     if (!!setupComponent) {

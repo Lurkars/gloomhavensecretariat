@@ -39,18 +39,19 @@ export class ScenarioRequirementsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['all']) {
+    if (changes['inputAll']) {
       this.update();
     }
   }
 
   update() {
-    this.requirements = gameManager.scenarioManager.getRequirements(this.scenarioData, this.all);
-    this.missingRequirements = gameManager.scenarioManager.getRequirements(this.scenarioData);
+    this.requirements = gameManager.scenarioRequirementsManager.getRequirements(this.scenarioData, this.all);
+    this.missingRequirements = gameManager.scenarioRequirementsManager.getRequirements(this.scenarioData);
     this.solo = '';
     this.hideAll =
       !this.all &&
-      JSON.stringify(gameManager.scenarioManager.getRequirements(this.scenarioData, true)) === JSON.stringify(this.requirements);
+      JSON.stringify(gameManager.scenarioRequirementsManager.getRequirements(this.scenarioData, true)) ===
+        JSON.stringify(this.requirements);
     if (
       this.scenarioData.solo &&
       (this.all ||
@@ -77,9 +78,11 @@ export class ScenarioRequirementsDialogComponent {
   data: { scenarioData: ScenarioData; linked: boolean; hideMenu: boolean } = inject(DIALOG_DATA);
 
   startScenario() {
-    gameManager.stateManager.before('setScenario', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.data.scenarioData)));
-    gameManager.scenarioManager.setScenario(new Scenario(this.data.scenarioData), this.data.linked || false);
-    gameManager.stateManager.after();
+    if (gameManager.scenarioManager.canSelectScenario(this.data.scenarioData, true)) {
+      gameManager.stateManager.before('setScenario', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.data.scenarioData)));
+      gameManager.scenarioManager.selectScenario(this.data.scenarioData, this.data.linked || false, true);
+      gameManager.stateManager.after();
+    }
     ghsDialogClosingHelper(this.dialogRef, true);
   }
 

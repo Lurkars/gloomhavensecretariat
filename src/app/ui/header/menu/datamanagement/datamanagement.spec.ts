@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { GameModel } from 'src/app/game/model/Game';
@@ -24,16 +24,16 @@ describe('DatamanagementMenuComponent', () => {
 
     gameManager.game.edition = 'gh';
     gameManager.game.unlockedCharacters = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = [];
     settingsManager.settings.editionDataUrls = [];
     settingsManager.settings.spoilers = [];
     settingsManager.settings.events = false;
-    settingsManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
+    labelManager.label = { data: { partyAchievements: {}, globalAchievements: {} } };
   });
 
   afterEach(() => {
-    settingsManager.label = {};
+    labelManager.label = {};
   });
 
   it('renders the template (running ngOnInit) without throwing', async () => {
@@ -85,7 +85,7 @@ describe('DatamanagementMenuComponent', () => {
 
     it('is true once every default url is present', () => {
       const component = createComponent();
-      settingsManager.settings.editionDataUrls = [...settingsManager.defaultEditionDataUrls];
+      settingsManager.settings.editionDataUrls = [...gameManager.editionManager.defaultEditionDataUrls];
       expect(component.hasDefaultEditionData()).toBe(true);
     });
   });
@@ -94,14 +94,14 @@ describe('DatamanagementMenuComponent', () => {
     it('reorders both editionDataUrls and editionData in lockstep', () => {
       const component = createComponent();
       settingsManager.settings.editionDataUrls = ['a', 'b', 'c'];
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('a', [], [], [], [], [], [])),
         Object.assign(new EditionData('b', [], [], [], [], [], [])),
         Object.assign(new EditionData('c', [], [], [], [], [], []))
       ];
       component.drop({ previousIndex: 0, currentIndex: 2 } as any);
       expect(settingsManager.settings.editionDataUrls).toEqual(['b', 'c', 'a']);
-      expect(gameManager.editionData.map((e) => e.edition)).toEqual(['b', 'c', 'a']);
+      expect(gameManager.editionManager.editionData.map((e) => e.edition)).toEqual(['b', 'c', 'a']);
     });
   });
 
@@ -140,7 +140,7 @@ describe('DatamanagementMenuComponent', () => {
 
   describe('addUnlock / removeUnlock / removeAllUnlocks', () => {
     it('unlocks a character resolved from the current edition', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [Object.assign(new CharacterData(), { name: 'brute', edition: 'gh' })], [], [], [], [], []))
       ];
       const component = createComponent();
@@ -151,7 +151,7 @@ describe('DatamanagementMenuComponent', () => {
     });
 
     it('removeUnlock removes an unlocked character by edition:name', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [Object.assign(new CharacterData(), { name: 'brute', edition: 'gh' })], [], [], [], [], []))
       ];
       gameManager.game.unlockedCharacters = ['gh:brute'];

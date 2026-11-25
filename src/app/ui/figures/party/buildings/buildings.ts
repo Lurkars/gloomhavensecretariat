@@ -76,7 +76,7 @@ export class PartyBuildingsComponent implements OnInit {
 
   unlockBuilding(buildingElement: HTMLInputElement) {
     const buildingData = gameManager.buildingsManager.findBuilding(buildingElement.value);
-    if (buildingData && !this.party.buildings.some((buildingModel) => buildingModel.name === buildingData.name)) {
+    if (buildingData && gameManager.buildingsManager.canAddBuilding(buildingData)) {
       gameManager.stateManager.before('addBuilding', buildingData.id, buildingData.name);
       gameManager.buildingsManager.addBuilding(buildingData);
       this.updateBuildings();

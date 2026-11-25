@@ -2,9 +2,9 @@
   @if (rule.noteTop) {
     <p class="text-white" [ghs-label]="rule.noteTop"></p>
   }
-  @if (gameManager.scenarioRulesManager.spawns(rule).length > 0) {
+  @if (gameManager.scenarioRuleEffectsManager.spawns(rule).length > 0) {
     <div class="spawns">
-      @for (spawn of gameManager.scenarioRulesManager.spawns(rule) | trackUUID; track spawn._trackUUID; let i = $index) {
+      @for (spawn of gameManager.scenarioRuleEffectsManager.spawns(rule) | trackUUID; track spawn._trackUUID; let i = $index) {
         @if (i > 0) {
           <span class="and" [ghs-label]="'and'"></span>
         }
@@ -13,8 +13,8 @@
           [ghs-label]="'scenario.rules.spawn' + (spawn.marker ? 'Marker' : '')"
           [ghs-label-args]="[
             spawn.monster.name,
-            gameManager.scenarioRulesManager.spawnType(spawn.monster) || '',
-            spawn.count ? gameManager.scenarioRulesManager.spawnCount(rule, spawn) + ' ' : '',
+            gameManager.scenarioRuleEffectsManager.spawnType(spawn.monster) || '',
+            spawn.count ? gameManager.scenarioRuleEffectsManager.spawnCount(rule, spawn) + ' ' : '',
             spawn.marker
           ]"
         ></span>

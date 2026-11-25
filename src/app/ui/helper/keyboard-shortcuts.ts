@@ -3,7 +3,6 @@ import { DestroyRef, Directive, inject, input, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { Entity } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -112,7 +111,7 @@ export class KeyboardShortcuts implements OnInit {
 
     this.keydown = (event: KeyboardEvent) => {
       const ctrlOrMeta = event.ctrlKey || event.metaKey;
-      if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus()) {
+      if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus() && !gameManager.stateManager.missingEditions.length) {
         const lootDeck = this.footer ? this.footer.lootDeck() : undefined;
         const ghsLevel = this.footer ? this.footer.ghsLevel() : undefined;
         const ghsScenario = this.footer ? this.footer.ghsScenario() : undefined;
@@ -228,96 +227,22 @@ export class KeyboardShortcuts implements OnInit {
             (settingsManager.settings.amAdvantage && (event.key.toLowerCase() === 'a' || event.key.toLowerCase() === 'd')))
         ) {
           const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-          let deck: AttackModifierDeck | undefined = undefined;
           const state: 'advantage' | 'disadvantage' | undefined =
             settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'a'
               ? 'advantage'
               : settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'd'
                 ? 'disadvantage'
                 : undefined;
-
-          if (
-            !activeFigure ||
-            (activeFigure instanceof Monster &&
-              ((!activeFigure.isAlly && !activeFigure.isAllied) ||
-                (!gameManager.fhRules(true) && !settingsManager.settings.alwaysAllyAttackModifierDeck) ||
-                !settingsManager.settings.allyAttackModifierDeck))
-          ) {
-            gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'monster');
-            deck = gameManager.game.monsterAttackModifierDeck;
-          } else if (activeFigure instanceof Monster) {
-            gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'ally');
-            deck = gameManager.game.allyAttackModifierDeck;
-          } else if (activeFigure instanceof Character) {
-            if (settingsManager.settings.characterAttackModifierDeck) {
-              if (
-                settingsManager.settings.characterAttackModifierDeckActiveBottom &&
-                gameManager.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeckVisible) !== undefined
-              ) {
-                const character = gameManager.game.figures.find(
-                  (figure) => figure instanceof Character && figure.attackModifierDeckVisible
-                ) as Character;
-                gameManager.stateManager.before(
-                  'updateAttackModifierDeck.draw' + (state ? state : ''),
-                  gameManager.characterManager.characterName(character, true, true)
-                );
-                deck = character.attackModifierDeck;
-              } else if (activeFigure.attackModifierDeckVisible) {
-                gameManager.stateManager.before(
-                  'updateAttackModifierDeck.draw' + (state ? state : ''),
-                  gameManager.characterManager.characterName(activeFigure, true, true)
-                );
-                deck = activeFigure.attackModifierDeck;
-              } else {
-                activeFigure.attackModifierDeckVisible = true;
-              }
-            } else {
-              gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'monster');
-              deck = gameManager.game.monsterAttackModifierDeck;
-            }
-          } else if (activeFigure instanceof ObjectiveContainer) {
-            if (
-              activeFigure.amDeck === 'M' ||
-              (activeFigure.amDeck === 'A' &&
-                ((!gameManager.fhRules(true) && !settingsManager.settings.alwaysAllyAttackModifierDeck) ||
-                  !settingsManager.settings.allyAttackModifierDeck))
-            ) {
-              gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'monster');
-              deck = gameManager.game.monsterAttackModifierDeck;
-            } else if (
-              activeFigure.amDeck === 'A' &&
-              settingsManager.settings.allyAttackModifierDeck &&
-              (gameManager.fhRules(true) || settingsManager.settings.alwaysAllyAttackModifierDeck)
-            ) {
-              gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'ally');
-              deck = gameManager.game.allyAttackModifierDeck;
-            } else if (activeFigure.amDeck) {
-              const character = gameManager.game.figures.find(
-                (figure) => figure instanceof Character && figure.name === activeFigure.amDeck
-              ) as Character;
-              if (character && settingsManager.settings.characterAttackModifierDeck) {
-                if (character.attackModifierDeckVisible) {
-                  gameManager.stateManager.before(
-                    'updateAttackModifierDeck.draw' + (state ? state : ''),
-                    gameManager.characterManager.characterName(character, true, true)
-                  );
-                  deck = character.attackModifierDeck;
-                } else {
-                  character.attackModifierDeckVisible = true;
-                }
-              } else {
-                gameManager.stateManager.before('updateAttackModifierDeck.draw' + (state ? state : ''), 'monster');
-                deck = gameManager.game.monsterAttackModifierDeck;
-              }
-            }
-          }
-
-          if (deck) {
-            deck.active = true;
-            const deckCharacter = gameManager.game.figures.find(
-              (figure) => figure instanceof Character && figure.attackModifierDeck === deck
-            ) as Character | undefined;
-            gameManager.attackModifierManager.drawModifier(deck, state, deckCharacter);
+          const target = gameManager.attackModifierManager.drawDeckFor(activeFigure);
+          if (target) {
+            const name = target.character
+              ? gameManager.characterManager.characterName(target.character, true, true)
+              : target.deck === gameManager.game.allyAttackModifierDeck
+                ? 'ally'
+                : 'monster';
+            const reveal = !!target.character && !target.character.attackModifierDeckVisible;
+            gameManager.stateManager.before('updateAttackModifierDeck.' + (reveal ? 'amDeckShow' : 'draw' + (state ? state : '')), name);
+            gameManager.attackModifierManager.drawForFigure(activeFigure, state);
             gameManager.stateManager.after();
           }
           event.preventDefault();
@@ -429,7 +354,9 @@ export class KeyboardShortcuts implements OnInit {
           event.key.toLowerCase() === 'g' &&
           gameManager.game.edition
         ) {
-          const editionData = gameManager.editionData.find((editionData) => editionData.edition === gameManager.game.edition);
+          const editionData = gameManager.editionManager.editionData.find(
+            (editionData) => editionData.edition === gameManager.game.edition
+          );
           if (editionData) {
             if (editionData.worldMap || editionData.extendWorldMap) {
               if (this.dialogOpen) {
@@ -484,9 +411,9 @@ export class KeyboardShortcuts implements OnInit {
         ) {
           const index: number = +event.key - 1;
           const element = gameManager.game.elementBoard[index];
-          const elementState = gameManager.nextElementState(element, false, true);
+          const elementState = gameManager.elementManager.nextElementState(element, false, true);
           gameManager.stateManager.before('updateElement', 'game.element.' + element.type, 'game.element.state.' + elementState);
-          gameManager.applyElementState(element, elementState);
+          gameManager.elementManager.applyElementState(element, elementState);
           gameManager.stateManager.after();
           event.preventDefault();
         } else if (
@@ -576,14 +503,11 @@ export class KeyboardShortcuts implements OnInit {
           if (character) {
             if (event.altKey) {
               gameManager.entityManager.before(character, character, 'changeXP', ghsValueSign(1));
-              character.experience += 1;
+              gameManager.characterManager.changeExperience(character, 1);
               gameManager.stateManager.after();
             } else if (event.shiftKey) {
               gameManager.entityManager.before(character, character, 'changeXP', ghsValueSign(-1));
-              character.experience -= 1;
-              if (character.experience < 0) {
-                character.experience = 0;
-              }
+              gameManager.characterManager.changeExperience(character, -1);
               gameManager.stateManager.after();
             }
           }
@@ -636,15 +560,15 @@ export class KeyboardShortcuts implements OnInit {
   }
 
   toggleEntity(reverse: boolean) {
-    const figure = gameManager.roundManager.nextFigure(reverse);
+    const figure = gameManager.turnManager.nextFigure(reverse);
     if (figure) {
-      gameManager.stateManager.before(...gameManager.roundManager.nextFigureUndoInfos(figure, reverse));
-      gameManager.roundManager.toggleNextFigure(figure, reverse);
+      gameManager.stateManager.before(...gameManager.turnManager.nextFigureUndoInfos(figure, reverse));
+      gameManager.turnManager.toggleNextFigure(figure, reverse);
       gameManager.stateManager.after();
 
       const roundButton = document.querySelector('.round-container');
       if (roundButton) {
-        if (!gameManager.game.figures.some((other) => gameManager.gameplayFigure(other) && other.active)) {
+        if (!gameManager.game.figures.some((other) => gameManager.entityManager.gameplayFigure(other) && other.active)) {
           (roundButton as HTMLElement).focus();
         } else {
           (roundButton as HTMLElement).blur();

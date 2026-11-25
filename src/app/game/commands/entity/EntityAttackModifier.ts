@@ -27,19 +27,23 @@ export class EntityAttackModifierCommand extends CommandImpl {
     if (!validSeed(seed)) {
       return false;
     }
-    const additional = type === AttackModifierType.empower || type === AttackModifierType.enfeeble;
+    const figure = findFigure(figureId);
+    const entities = findEntities(figure, entityId);
+    if (!figure || !entities.length || !ATTACK_MODIFIER_CONDITIONS.includes(type) || typeof value !== 'number' || value === 0) {
+      return false;
+    }
     const sourceCharacter = findCharacter(source);
-    return (
-      ATTACK_MODIFIER_CONDITIONS.includes(type) &&
-      typeof value === 'number' &&
-      value !== 0 &&
-      (!additional ||
-        value < 0 ||
-        (!!sourceCharacter &&
-          sourceCharacter.additionalModifier &&
-          sourceCharacter.additionalModifier.some((perk) => perk.attackModifier && perk.attackModifier.type === type))) &&
-      findEntities(findFigure(figureId), entityId).length > 0
-    );
+    if (value > 0) {
+      return gameManager.conditionManager.canAddDeckConditions(
+        entities.map((entity) => ({ entity, figure })),
+        new Condition(type, value),
+        sourceCharacter
+      );
+    }
+    const amDeck = gameManager.attackModifierManager.byFigure(figure);
+    return type === AttackModifierType.empower || type === AttackModifierType.enfeeble
+      ? gameManager.attackModifierManager.canChangeAdditionalCount(amDeck, sourceCharacter, type, value)
+      : gameManager.attackModifierManager.canChangeModifierCount(amDeck, type as AttackModifierType, value, false);
   }
 
   executeWithParameters(
@@ -56,25 +60,19 @@ export class EntityAttackModifierCommand extends CommandImpl {
     const sourceCharacter: Character | undefined = findCharacter(source);
     if (figure && entities.length) {
       const amDeck = gameManager.attackModifierManager.byFigure(figure);
-      entities.forEach((entity) => {
-        if (value > 0) {
-          gameManager.entityManager.addCondition(entity, figure, new Condition(type as string, value), false, false, sourceCharacter);
+      if (value > 0) {
+        gameManager.conditionManager.addDeckConditions(
+          entities.map((entity) => ({ entity, figure })),
+          new Condition(type as string, value),
+          sourceCharacter
+        );
+        return;
+      }
+      entities.forEach(() => {
+        if (type === AttackModifierType.empower || type === AttackModifierType.enfeeble) {
+          gameManager.attackModifierManager.changeAdditionalCount(amDeck, sourceCharacter, type, value);
         } else {
-          const idPrefix =
-            type === AttackModifierType.empower || type === AttackModifierType.enfeeble
-              ? 'additional-' + (sourceCharacter ? sourceCharacter.name : '')
-              : undefined;
-          for (let i = 0; i < -value; i++) {
-            const card = amDeck.cards.find(
-              (attackModifier, index) =>
-                index > amDeck.current &&
-                attackModifier.type === type &&
-                (!idPrefix || (attackModifier.id && attackModifier.id.startsWith(idPrefix)))
-            );
-            if (card) {
-              amDeck.cards.splice(amDeck.cards.indexOf(card), 1);
-            }
-          }
+          gameManager.attackModifierManager.changeModifierCount(amDeck, type, value, false);
         }
       });
     } else {

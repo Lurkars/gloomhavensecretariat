@@ -4,11 +4,17 @@
       [event]="eventCard"
       [spoiler]="spoiler"
       [disabled]="!interactive"
-      [select]="id ? id.selected : -1"
-      [subSelect]="id ? id.subSelections : []"
-      [checks]="id ? id.checks : []"
+      [identifier]="flipped ? id : undefined"
+      [select]="flipped && !!id ? id.selected : -1"
+      [subSelect]="flipped && !!id ? id.subSelections : []"
+      [checks]="flipped && !!id ? id.checks : []"
       (selectCard)="select($event)"
     ></ghs-event-card>
+    @if (id && interactive) {
+      <a class="button flip" (click)="toggleFlip($event)" [ghs-tooltip]="'game.events.deck.flipCard'">
+        <img class="ghs-svg" src="./assets/images/sync.svg" />
+      </a>
+    }
   </div>
 </div>
 <div class="close-container" (click)="close()"></div>

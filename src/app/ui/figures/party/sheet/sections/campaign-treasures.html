@@ -21,7 +21,7 @@
     /></a>
     <select [(ngModel)]="treasureEdition" (change)="update()">
       <option value="" [selected]="!treasureEdition"><span [ghs-label]="'edition.all'"></span></option>
-      @for (edition of gameManager.editions(); track edition) {
+      @for (edition of gameManager.editionManager.editions(); track edition) {
         <option [value]="edition" [selected]="edition === treasureEdition">
           <span [ghs-label]="'data.edition.' + edition"></span>
         </option>

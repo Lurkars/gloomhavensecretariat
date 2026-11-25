@@ -38,7 +38,9 @@ export class TrialCardComponent implements OnInit, OnChanges {
   settingsManager: SettingsManager = settingsManager;
 
   ngOnInit(): void {
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition && editionData.trials);
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => editionData.edition === this.edition && editionData.trials
+    );
     if (editionData) {
       this.trialCard = editionData.trials.find((trialCard) => trialCard.edition === this.edition && trialCard.cardId === this.trial);
     }

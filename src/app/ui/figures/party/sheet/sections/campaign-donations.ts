@@ -13,11 +13,10 @@ import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
 })
 export class PartyCampaignDonationsComponent extends PartySheetSection {
   toggleEnvelopeB() {
-    gameManager.stateManager.before(this.party.envelopeB ? 'disableEnvelopeB' : 'enableEnvelopeB');
-    this.party.envelopeB = !this.party.envelopeB;
-    if (this.party.donations > 10) {
-      this.party.donations = 10;
+    if (gameManager.campaignManager.canSetEnvelopeB(!this.party.envelopeB)) {
+      gameManager.stateManager.before(this.party.envelopeB ? 'disableEnvelopeB' : 'enableEnvelopeB');
+      gameManager.campaignManager.setEnvelopeB(!this.party.envelopeB);
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 }

@@ -61,14 +61,14 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
       .map((figure) => figure as Character);
     if (this.scenario && (!this.data || !this.data.treasures)) {
       this.edition = this.scenario.edition;
-      this.treasures = gameManager.scenarioManager.getTreasures(this.scenario, gameManager.game.sections);
+      this.treasures = gameManager.treasureManager.getTreasures(this.scenario, gameManager.game.sections);
     }
     this.looted = [];
     let activeIndex = -1;
     this.treasures.forEach((treasure, index) => {
       if (
         !this.looted.includes(index) &&
-        (this.characters.find((character) => gameManager.lootManager.hasTreasure(character, treasure, index)) ||
+        (this.characters.find((character) => gameManager.treasureManager.hasTreasure(character, treasure, index)) ||
           gameManager.game.party.treasures.find((identifier) => identifier.name === '' + treasure && identifier.edition === this.edition))
       ) {
         this.looted.push(index);
@@ -111,27 +111,23 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
   }
 
   removeTreasure(character: Character, treasure: string | number) {
-    const index = character.treasures.indexOf(treasure);
-    if (index === -1) {
+    if (!gameManager.treasureManager.canRemoveScenarioTreasure(character, treasure)) {
       return;
     }
-    // goal treasures are stored as 'G-<index>' of the scenario treasure list
-    const goal = typeof treasure === 'string' && treasure.startsWith('G-');
-    // looted treasures with applied rewards are stored as '<number>:<rewards>'
-    const treasureNumber = typeof treasure === 'number' ? treasure : goal ? NaN : +treasure.split(':')[0];
-    if (goal) {
+    const parsed = gameManager.treasureManager.parseScenarioTreasure(treasure);
+    if (parsed.goal) {
       gameManager.stateManager.before('removeCharTreasure', 'G', this.edition);
     } else {
       gameManager.stateManager.before(
         'removeCharTreasure',
-        treasureNumber >= 0 ? '' + treasureNumber : '???',
+        parsed.number >= 0 ? '' + parsed.number : '???',
         this.edition,
         gameManager.characterManager.characterName(character, true, true)
       );
     }
-    const treasureIndex = goal ? +(treasure as string).replace('G-', '') : this.treasures.indexOf(treasureNumber);
+    const treasureIndex = parsed.goal ? parsed.goalIndex : this.treasures.indexOf(parsed.number);
     this.looted = this.looted.filter((value) => value !== treasureIndex);
-    gameManager.lootManager.removeScenarioTreasure(character, treasure, this.edition);
+    gameManager.treasureManager.removeScenarioTreasure(character, treasure, this.edition);
     gameManager.stateManager.after();
   }
 
@@ -140,7 +136,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
       this.init = false;
       this.rewardResults = [];
       const treasure = this.treasures[this.treasureIndex];
-      if (this.character && treasure && !this.character.treasures.includes(treasure === 'G' ? 'G-' + this.treasureIndex : treasure)) {
+      if (this.character && treasure && gameManager.treasureManager.canLootScenarioTreasure(this.character, treasure, this.treasureIndex)) {
         gameManager.stateManager.before(
           'lootCharTreasure',
           ('' + treasure).startsWith('G') || +treasure >= 0 ? treasure : '???',
@@ -148,7 +144,7 @@ export class ScenarioTreasuresDialogComponent implements OnInit {
           gameManager.characterManager.characterName(this.character, true, true)
         );
         this.looted.push(this.treasureIndex);
-        this.rewardResults = gameManager.lootManager.lootScenarioTreasure(this.character, treasure, this.treasureIndex, this.edition);
+        this.rewardResults = gameManager.treasureManager.lootScenarioTreasure(this.character, treasure, this.treasureIndex, this.edition);
 
         gameManager.stateManager.after();
       }

@@ -63,7 +63,7 @@ describe('CharacterConditionCommand', () => {
     it('adds the condition when the character does not have it yet', () => {
       const character = createTestCharacter(1);
       const index = woundIndex();
-      expect(gameManager.entityManager.hasCondition(character, new Condition(ConditionName.wound))).toBe(false);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.wound))).toBe(false);
 
       const command = new CharacterConditionCommand(character.number, index);
       command.execute();

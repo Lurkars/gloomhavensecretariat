@@ -17,7 +17,7 @@ function buildCharacter(personalQuest: string = ''): Character {
 }
 
 function setupEdition(personalQuests: PersonalQuest[], extra: Partial<EditionData> = {}) {
-  gameManager.editionData = [
+  gameManager.editionManager.editionData = [
     Object.assign(new EditionData('gh', [], [], [], [], [], [], undefined, [], [], personalQuests), {
       campaign: new CampaignData(),
       ...extra

@@ -2,7 +2,8 @@ import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, forwardRef, inject } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { LabelManager } from 'src/app/game/businesslogic/LabelManager';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { Monster } from 'src/app/game/model/Monster';
@@ -33,6 +34,7 @@ export class StatsListComponent {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  labelManager: LabelManager = labelManager;
   monster: Monster;
   abilityCards: AbilityCard[] = [];
   hideStats: boolean;
@@ -44,7 +46,7 @@ export class StatsListComponent {
     this.monster = this.data.monster;
     this.hideStats = this.data.hideStats;
     this.statEffectNote = this.data.statEffectNote || '';
-    this.abilityCards = gameManager.deckData(this.monster).abilities;
+    this.abilityCards = gameManager.editionManager.deckData(this.monster).abilities;
   }
 
   openAbility(abilityCard: AbilityCard): void {

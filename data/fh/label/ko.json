@@ -1153,9 +1153,6 @@
         "1": "인접한 모든 아군과 적이%game.damage:2%점을 입는다",
         "2": "%game.action.range:4%내의 모든 적이%game.damage:2%점을 입음."
       },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
       "blinkblade": {
         "1": "자신의 다음 공격에, 이 카드를 버려 %game.action.attack.valueSign:2% 추가.<br>%game.card.persistent%",
         "2": "이 카드를 자신의 활성화 영역에 놓는다. 자신의 다음 공격에, 이 카드를 버려 %game.action.attack.valueSign:2%추가",
@@ -1347,8 +1344,7 @@
         "3": "홀수 라운드인 경우 가장 왼쪽의 빈 칸<br>짝수 라운드인 경우 가장 오른쪽의 빈 칸"
       },
       "night-demon": {
-        "1": "인접한 모든 아군과 적이<br>%game.damage:1%점을 입는다.",
-        "2": "%game.custom.disadvantage%"
+        "1": "인접한 모든 아군과 적이<br>%game.damage:1%점을 입는다."
       },
       "ooze": {
         "1": "점액의 현재 체력과 동일한 체력의 일반 점액 하나를 소환한다.<br>(단, 일반 점액의 최대 체력은 초과 불가)"

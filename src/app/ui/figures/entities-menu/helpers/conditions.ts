@@ -1,6 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { Character } from 'src/app/game/model/Character';
-import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 
 export class ConditionHelper {
@@ -56,9 +55,7 @@ export class ConditionHelper {
       .filter((immunity) => !this.component.entityImmunities.includes(immunity))
       .forEach((immunity) => {
         this.component.before('removeImmunity', immunity);
-        applicableEntities.forEach((entity) => {
-          entity.immunities = entity.immunities.filter((existing) => existing !== immunity);
-        });
+        gameManager.conditionManager.setImmunity(applicableEntities, immunity, false);
         gameManager.stateManager.after();
       });
 
@@ -66,9 +63,7 @@ export class ConditionHelper {
       .filter((immunity) => !this.component.initialImmunities.includes(immunity))
       .forEach((immunity) => {
         this.component.before('addImmunity', immunity);
-        applicableEntities.forEach((entity) => {
-          entity.immunities.push(immunity);
-        });
+        gameManager.conditionManager.setImmunity(applicableEntities, immunity, true);
         gameManager.stateManager.after();
       });
 
@@ -90,14 +85,12 @@ export class ConditionHelper {
             (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
           );
           if (condition.types.includes(ConditionType.stack) && entityCondition) {
-            if (condition.value < 0) {
-              entityCondition.value += condition.value;
-            } else if (condition.value > 0) {
-              gameManager.entityManager.addCondition(entity, figure, condition);
-            }
-            if (entityCondition.value <= 0) {
-              gameManager.entityManager.removeCondition(entity, figure, entityCondition);
-            }
+            gameManager.conditionManager.setConditionValue(
+              entity,
+              figure,
+              condition.name,
+              Math.max(0, entityCondition.value + condition.value)
+            );
           }
         });
         gameManager.stateManager.after();
@@ -132,10 +125,10 @@ export class ConditionHelper {
           const entityCondition = entity.entityConditions.find(
             (entityCondition) => entityCondition.name === condition.name && !entityCondition.expired
           );
-          if (entityCondition && condition.value < entityCondition.value) {
-            entityCondition.value = condition.value;
+          if (entityCondition) {
+            gameManager.conditionManager.setConditionValue(entity, figure, condition.name, condition.value);
           } else {
-            gameManager.entityManager.addCondition(entity, figure, condition);
+            gameManager.conditionManager.addCondition(entity, figure, condition);
           }
         });
         gameManager.stateManager.after();
@@ -146,7 +139,7 @@ export class ConditionHelper {
         (entityCondition) =>
           (entityCondition.state === EntityConditionState.new &&
             applicableEntities.some(
-              (entity) => !gameManager.entityManager.isImmune(entity, this.component.figureForEntity(entity), entityCondition.name)
+              (entity) => !gameManager.conditionManager.isImmune(entity, this.component.figureForEntity(entity), entityCondition.name)
             ) &&
             entityCondition.value >= 0) ||
           (((entityCondition.state === EntityConditionState.roundExpire && !entityCondition.expired) ||
@@ -158,7 +151,9 @@ export class ConditionHelper {
                 )
             )) ||
           (entityCondition.state === EntityConditionState.removed &&
-            applicableEntities.some((entity) => gameManager.entityManager.hasCondition(entity, entityCondition, entityCondition.permanent)))
+            applicableEntities.some((entity) =>
+              gameManager.conditionManager.hasCondition(entity, entityCondition, entityCondition.permanent)
+            ))
       )
       .forEach((entityCondition) => {
         this.component.before(
@@ -171,28 +166,23 @@ export class ConditionHelper {
             entityCondition.state === EntityConditionState.new ||
             entityCondition.state === EntityConditionState.roundExpire ||
             entityCondition.state === EntityConditionState.expire ||
-            gameManager.entityManager.hasCondition(entity, entityCondition, entityCondition.permanent)
+            gameManager.conditionManager.hasCondition(entity, entityCondition, entityCondition.permanent)
           ) {
-            if (
-              entity instanceof Character &&
-              entityCondition.name === ConditionName.muddle &&
-              entityCondition.state === EntityConditionState.new &&
-              entity.progress.equippedItems.find((identifier) => identifier.edition === 'gh' && identifier.name === '108')
-            ) {
-              entityCondition.name = ConditionName.strengthen;
+            if (entityCondition.state === EntityConditionState.new) {
+              gameManager.conditionManager.manualCondition(entity, entityCondition);
             }
 
             entityCondition.expired = entityCondition.state === EntityConditionState.new;
 
             if (entityCondition.state === EntityConditionState.removed) {
-              gameManager.entityManager.removeCondition(entity, figure, entityCondition, entityCondition.permanent);
+              gameManager.conditionManager.removeCondition(entity, figure, entityCondition, entityCondition.permanent);
             } else {
               const suspended = gameManager.specialActionsManager.isConditionSuspended(entity, entityCondition);
               if (
                 entityCondition.state === EntityConditionState.new ||
-                !gameManager.entityManager.hasCondition(entity, entityCondition, entityCondition.permanent)
+                !gameManager.conditionManager.hasCondition(entity, entityCondition, entityCondition.permanent)
               ) {
-                gameManager.entityManager.addCondition(entity, figure, entityCondition, entityCondition.permanent, suspended);
+                gameManager.conditionManager.addCondition(entity, figure, entityCondition, entityCondition.permanent, suspended);
               }
 
               if (entityCondition.state === EntityConditionState.roundExpire || entityCondition.state === EntityConditionState.expire) {
@@ -205,7 +195,7 @@ export class ConditionHelper {
               }
 
               if (suspended && !entity.immunities.includes(entityCondition.name)) {
-                entity.immunities.push(entityCondition.name);
+                gameManager.conditionManager.setImmunity([entity], entityCondition.name, true);
                 this.component.entityImmunities.push(entityCondition.name);
               }
             }

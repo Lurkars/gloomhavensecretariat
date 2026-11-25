@@ -66,7 +66,7 @@ describe('Monster commands', () => {
   describe('MonsterLevelCommand', () => {
     it('sets the monster level', () => {
       const monster = createTestMonster();
-      const setLevel = vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => {});
+      const setLevel = vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => true);
       new MonsterLevelCommand('test-testmonster', 3).execute();
       expect(setLevel).toHaveBeenCalledWith(monster, 3);
       expect(new MonsterLevelCommand('test-testmonster', 8).validParameters('test-testmonster', 8)).toBe(false);
@@ -112,12 +112,16 @@ describe('Monster commands', () => {
   describe('monster ability commands', () => {
     it('shuffles and toggles drawing an extra ability', () => {
       const monster = createTestMonster();
-      const shuffle = vi.spyOn(gameManager.monsterManager, 'shuffleAbilities').mockImplementation(() => {});
+      const shuffle = vi.spyOn(gameManager.monsterAbilityManager, 'shuffleAbilities').mockImplementation(() => {});
       new MonsterAbilityShuffleCommand('test-testmonster', 1, true).execute();
       expect(shuffle).toHaveBeenCalledWith(monster, true);
 
+      expect(new MonsterAbilityDrawExtraCommand('test-testmonster', true).validParameters('test-testmonster', true)).toBe(false);
+      vi.spyOn(gameManager.monsterAbilityManager, 'getSameDeckMonster').mockReturnValue(createTestMonster('othermonster'));
+      vi.spyOn(gameManager.monsterAbilityManager, 'applySameDeck').mockReturnValue(true);
       new MonsterAbilityDrawExtraCommand('test-testmonster', true).execute();
       expect(monster.drawExtra).toBe(true);
+      expect(new MonsterAbilityDrawExtraCommand('test-testmonster', true).validParameters('test-testmonster', true)).toBe(false);
       new MonsterAbilityDrawExtraCommand('test-testmonster', false).execute();
       expect(monster.drawExtra).toBe(false);
     });
@@ -126,7 +130,12 @@ describe('Monster commands', () => {
       const monster = createTestMonster();
       monster.abilities = [0, 1, 2, 3];
       monster.ability = 1;
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([{ cardId: 10 }, { cardId: 11 }, { cardId: 12 }, { cardId: 13 }] as never);
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([
+        { cardId: 10 },
+        { cardId: 11 },
+        { cardId: 12 },
+        { cardId: 13 }
+      ] as never);
       new MonsterAbilityMoveCommand('test-testmonster', 11, 'upcoming', 0).execute();
       expect(monster.abilities).toEqual([0, 1, 2, 3]);
       expect(monster.ability).toBe(0);
@@ -140,8 +149,8 @@ describe('Monster commands', () => {
     it('removes ability cards and keeps ability cards revealed', () => {
       const monster = createTestMonster();
       monster.abilities = [0, 1, 2];
-      const removeAbility = vi.spyOn(gameManager.monsterManager, 'removeAbility').mockImplementation(() => {});
-      vi.spyOn(gameManager, 'abilityCards').mockReturnValue([{ cardId: 10 }, { cardId: 11 }, { cardId: 12 }] as never);
+      const removeAbility = vi.spyOn(gameManager.monsterAbilityManager, 'removeAbility').mockImplementation(() => {});
+      vi.spyOn(gameManager.editionManager, 'abilityCards').mockReturnValue([{ cardId: 10 }, { cardId: 11 }, { cardId: 12 }] as never);
       new MonsterAbilityRemoveCommand('test-testmonster', 11).execute();
       expect(removeAbility).toHaveBeenCalledWith(monster, 1);
 

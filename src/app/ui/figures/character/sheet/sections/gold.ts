@@ -31,14 +31,14 @@ export class CharacterSheetGoldComponent extends CharacterSheetSection implement
     }
     const value = Math.max(0, +event.target.value);
     event.target.value = value;
-    if (this.character.progress.gold !== value) {
+    if (this.character.progress.gold !== value && gameManager.characterManager.canSetProgressValue(this.character, 'gold', value)) {
       if (this.goldTimeout) {
         clearTimeout(this.goldTimeout);
         this.goldTimeout = null;
       }
       this.goldTimeout = setTimeout(() => {
         gameManager.stateManager.before('setGold', this.characterName, value);
-        this.character.progress.gold = value;
+        gameManager.characterManager.setProgressValue(this.character, 'gold', value);
         gameManager.stateManager.after();
         this.goldTimeout = null;
       }, 500);

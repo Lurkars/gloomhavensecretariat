@@ -1,8 +1,7 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { SelectResourceResult } from 'src/app/game/model/data/BuildingData';
-import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
-import { AdditionalIdentifier, CountIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import {
   appliableLootTypes,
@@ -11,16 +10,18 @@ import {
   Loot,
   LootDeck,
   LootDeckConfig,
-  LootType
+  LootType,
+  resourceLootTypes
 } from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
-import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Game } from 'src/app/game/model/Game';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
-import { deckMove } from 'src/app/game/util/deck';
+import { deckMove, deckMoveValid } from 'src/app/game/util/deck';
 
 export const LOOT_RANDOM_ITEM_MARKER = 'loot-random-item';
+
+export type CharacterResources = { character: Character; gold: number; experience: number; loot: Partial<Record<LootType, number>> };
 
 export class LootManager {
   game: Game;
@@ -98,7 +99,15 @@ export class LootManager {
     return settingsManager.settings.characterItems && settingsManager.settings.applyLootRandomItem;
   }
 
-  applyRandomItem(character: Character, index: number, item: ItemData) {
+  canApplyRandomItem(character: Character, index: number): boolean {
+    const loot = this.game.lootDeck.cards[index];
+    return !!loot && loot.type === LootType.random_item && this.game.figures.includes(character);
+  }
+
+  applyRandomItem(character: Character, index: number, item: ItemData): boolean {
+    if (!this.canApplyRandomItem(character, index)) {
+      return false;
+    }
     gameManager.itemManager.addItemCount(item);
     if (!character.lootCards.includes(index)) {
       character.lootCards.push(index);
@@ -113,6 +122,7 @@ export class LootManager {
         new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, LOOT_RANDOM_ITEM_MARKER)
       );
     }
+    return true;
   }
 
   lootRandomItem(character: Character): ItemData | undefined {
@@ -138,10 +148,21 @@ export class LootManager {
     return undefined;
   }
 
+  canAssignLootCard(index: number, character: Character | undefined): boolean {
+    const holder = this.lootCardHolder(index);
+    return (
+      Number.isInteger(index) &&
+      !!this.game.lootDeck.cards[index] &&
+      index <= this.game.lootDeck.current &&
+      holder !== character &&
+      (character ? this.game.figures.includes(character) : !!holder)
+    );
+  }
+
   assignLootCard(index: number, character: Character | undefined, applyRandomItem: boolean = false): ItemData | undefined {
     const loot = this.game.lootDeck.cards[index];
     const holder = this.lootCardHolder(index);
-    if (!loot || holder === character) {
+    if (!loot || !this.canAssignLootCard(index, character)) {
       return undefined;
     }
     const randomItem = holder ? this.removeLootCard(holder, index) : undefined;
@@ -180,7 +201,14 @@ export class LootManager {
     }
   }
 
-  removeCard(deck: LootDeck, index: number) {
+  canRemoveCard(deck: LootDeck, index: number): boolean {
+    return Number.isInteger(index) && index >= 0 && index < deck.cards.length;
+  }
+
+  removeCard(deck: LootDeck, index: number): boolean {
+    if (!this.canRemoveCard(deck, index)) {
+      return false;
+    }
     if (index <= deck.current) {
       deck.current--;
     }
@@ -190,6 +218,7 @@ export class LootManager {
         figure.lootCards = figure.lootCards.filter((other) => other !== index).map((other) => (other < index ? other : other - 1));
       }
     });
+    return true;
   }
 
   dropUpcomingLootCards(deck: LootDeck) {
@@ -200,35 +229,23 @@ export class LootManager {
     });
   }
 
-  hasPartyTreasure(edition: string, treasure: string | number): boolean {
-    return (this.game.party.treasures || []).some((identifier) => identifier.edition === edition && identifier.name === '' + treasure);
-  }
-
-  setPartyTreasure(edition: string, treasure: string | number, value: boolean) {
-    if (!value) {
-      this.game.party.treasures = this.game.party.treasures.filter(
-        (identifier) => identifier.edition !== edition || identifier.name !== '' + treasure
-      );
-    } else if (!this.hasPartyTreasure(edition, treasure)) {
-      this.game.party.treasures.push(new Identifier('' + treasure, edition));
-    }
-  }
-
   lootDeckSectionApplied(section: string): boolean {
-    return this.game.party.conclusions.some((model) => model.edition === gameManager.currentEdition() && model.index === section);
+    return this.game.party.conclusions.some(
+      (model) => model.edition === gameManager.editionManager.currentEdition() && model.index === section
+    );
   }
 
   removeLootDeckSection(section: string) {
-    gameManager.scenarioManager.removeConclusion(gameManager.currentEdition(), section);
+    gameManager.campaignManager.removeConclusion(gameManager.editionManager.currentEdition(), section);
   }
 
   addLootDeckSection(section: string, character: Character | undefined = undefined) {
-    const edition = gameManager.currentEdition();
+    const edition = gameManager.editionManager.currentEdition();
     this.game.lootDeckSections.push(section);
     if (!this.lootDeckSectionApplied(section)) {
       this.game.party.conclusions.push(new GameScenarioModel(section, edition));
     }
-    const rewards = gameManager
+    const rewards = gameManager.editionManager
       .sectionData(edition)
       .find((sectionData) => sectionData.index === section && sectionData.conclusion)?.rewards;
     if (!rewards) {
@@ -252,7 +269,14 @@ export class LootManager {
     });
   }
 
-  moveCard(deck: LootDeck, fromList: string, fromIndex: number, toList: string, toIndex: number) {
+  canMoveCard(deck: LootDeck, fromList: string, fromIndex: number, toList: string, toIndex: number): boolean {
+    return deckMoveValid(deck.current, deck.cards.length, fromList, fromIndex, toList, toIndex);
+  }
+
+  moveCard(deck: LootDeck, fromList: string, fromIndex: number, toList: string, toIndex: number): boolean {
+    if (!this.canMoveCard(deck, fromList, fromIndex, toList, toIndex)) {
+      return false;
+    }
     const result = deckMove(deck.current, fromList, fromIndex, toList, toIndex, deck.cards);
     deck.current = result.current;
     this.game.figures.forEach((figure) => {
@@ -272,6 +296,7 @@ export class LootManager {
           .sort((a, b) => a - b);
       }
     });
+    return true;
   }
 
   shuffleDeck(deck: LootDeck, onlyUpcoming: boolean = false) {
@@ -283,6 +308,22 @@ export class LootManager {
       deck.current = current;
       deck.cards.unshift(...restoreCards);
     }
+  }
+
+  // value of the drawn loot cards of a character per loot type
+  characterLoot(character: Character): Partial<Record<LootType, number>> {
+    const loot: Partial<Record<LootType, number>> = {};
+    (character.lootCards || []).forEach((index) => {
+      const card = this.game.lootDeck.cards[index];
+      if (card) {
+        loot[card.type] = (loot[card.type] || 0) + this.getValue(card);
+      }
+    });
+    return loot;
+  }
+
+  characterLootValue(character: Character, lootType: LootType): number {
+    return this.characterLoot(character)[lootType] || 0;
   }
 
   getTotal(deck: LootDeck, type: LootType): number {
@@ -309,301 +350,6 @@ export class LootManager {
         gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.differentHerbs, loot.type);
       }
     }
-  }
-
-  lootTreasure(character: Character, index: number, edition: string): string[][] {
-    const rewardResults: string[][] = [];
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition === edition);
-    if (editionData && editionData.treasures) {
-      index = index < 0 ? index : index - (editionData.treasureOffset || 0);
-      if (index >= 0 && index < editionData.treasures.length) {
-        const tresureString = editionData.treasures[index];
-        const treasure = new TreasureData(tresureString, index);
-        if (treasure.rewards) {
-          treasure.rewards.forEach((reward) => {
-            rewardResults.push(this.applyTreasureReward(character, reward, edition));
-          });
-        }
-      } else if (index < 0 && editionData.treasures.length + index + 1 > 0) {
-        const tresureString = editionData.treasures[editionData.treasures.length + index + 1];
-        const treasure = new TreasureData(tresureString, index);
-        if (treasure.rewards) {
-          treasure.rewards.forEach((reward) => {
-            rewardResults.push(this.applyTreasureReward(character, reward, edition));
-          });
-        }
-      } else {
-        console.warn("Invalid treasure index: '" + index + "' for Edition " + edition);
-      }
-    }
-
-    gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.treasures);
-    return rewardResults;
-  }
-
-  lootScenarioTreasure(character: Character, treasure: 'G' | number, index: number, edition: string): string[][] {
-    let rewardResults: string[][] = [];
-    if (treasure !== 'G' && settingsManager.settings.treasuresLoot) {
-      rewardResults = this.lootTreasure(character, treasure - 1, edition);
-    }
-    character.treasures = character.treasures || [];
-    character.treasures.push(
-      treasure === 'G'
-        ? 'G-' + index
-        : rewardResults.some((rewardResult) => rewardResult.length > 0)
-          ? treasure + ':' + rewardResults.map((reward) => reward.join('+')).join('|')
-          : treasure
-    );
-    if (typeof treasure === 'number') {
-      this.game.party.treasures.push(new Identifier(treasure, edition));
-    }
-    return rewardResults;
-  }
-
-  removeScenarioTreasure(character: Character, treasure: string | number, edition: string) {
-    const index = character.treasures.indexOf(treasure);
-    if (index === -1) {
-      return;
-    }
-    character.treasures.splice(index, 1);
-    const goal = typeof treasure === 'string' && treasure.startsWith('G-');
-    const treasureNumber = typeof treasure === 'number' ? treasure : goal ? NaN : +treasure.split(':')[0];
-    if (!isNaN(treasureNumber)) {
-      this.game.party.treasures = this.game.party.treasures.filter(
-        (value) => value.edition !== edition || value.name !== '' + treasureNumber
-      );
-    }
-  }
-
-  hasTreasure(character: Character, treasure: string | number, index: number): boolean {
-    return character.treasures.some(
-      (value) =>
-        value === treasure ||
-        (typeof value === 'string' && (value.startsWith(treasure + ':') || (treasure === 'G' && value === 'G-' + index)))
-    );
-  }
-
-  applyTreasureReward(character: Character, reward: TreasureReward, edition: string): string[] {
-    const result: string[] = [];
-    switch (reward.type) {
-      case TreasureRewardType.gold:
-      case TreasureRewardType.goldFh:
-        if (typeof reward.value === 'number') {
-          character.progress.gold += reward.value;
-          if (reward.value > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              character,
-              PersonalQuestAutotrackType.gold,
-              undefined,
-              reward.value
-            );
-          }
-        }
-        break;
-      case TreasureRewardType.experience:
-      case TreasureRewardType.experienceFh:
-        if (typeof reward.value === 'number') {
-          character.progress.experience += reward.value;
-        }
-        break;
-      case TreasureRewardType.battleGoal:
-        if (typeof reward.value === 'number') {
-          character.progress.battleGoals += reward.value;
-          if (reward.value > 0) {
-            gameManager.personalQuestManager.trackPersonalQuestProgress(
-              character,
-              PersonalQuestAutotrackType.battleGoals,
-              undefined,
-              reward.value
-            );
-          }
-        }
-        break;
-      case TreasureRewardType.damage:
-        if (typeof reward.value === 'number') {
-          gameManager.entityManager.changeHealth(character, character, -reward.value, true);
-        } else if (reward.value === 'terrain') {
-          gameManager.entityManager.changeHealth(character, character, -gameManager.levelManager.terrain(), true);
-        }
-        break;
-      case TreasureRewardType.heal:
-        if (typeof reward.value === 'number') {
-          gameManager.entityManager.changeHealth(character, character, reward.value);
-        }
-        break;
-      case TreasureRewardType.loot:
-        if (typeof reward.value === 'number') {
-          character.loot += reward.value;
-        }
-        break;
-      case TreasureRewardType.resource:
-        if (typeof reward.value === 'string') {
-          reward.value.split('+').forEach((resourceValue) => {
-            const resource = resourceValue.split('-')[0] as LootType;
-            const value = +resourceValue.split('-')[1];
-            character.progress.loot[resource] = (character.progress.loot[resource] || 0) + value;
-          });
-        }
-        break;
-      case TreasureRewardType.condition:
-        if (typeof reward.value === 'string') {
-          reward.value.split('+').forEach((condition) => {
-            gameManager.entityManager.addCondition(character, character, new Condition(condition as ConditionName));
-          });
-        }
-        break;
-      case TreasureRewardType.item:
-      case TreasureRewardType.itemDesign:
-      case TreasureRewardType.itemBlueprint:
-      case TreasureRewardType.itemFh:
-        if (reward.value) {
-          ('' + reward.value).split('+').forEach((itemValue) => {
-            let itemEdition = edition;
-            let itemId = -1;
-            if (isNaN(+itemValue)) {
-              itemId = +itemValue.split('-')[0];
-              itemEdition = itemValue.split('-')[1];
-            } else {
-              itemId = +itemValue;
-            }
-            const item = gameManager.itemManager.getItem(itemId, itemEdition, true);
-            if (item) {
-              const identifier = new CountIdentifier(item.id, item.edition);
-              if (reward.type === TreasureRewardType.item || reward.type === TreasureRewardType.itemFh) {
-                if (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) {
-                  if (
-                    character.progress.items.find(
-                      (existing) => existing.name === identifier.name && existing.edition === identifier.edition
-                    )
-                  ) {
-                    const sellValue = gameManager.itemManager.itemSellValue(item);
-                    character.progress.gold += sellValue;
-                    gameManager.personalQuestManager.trackPersonalQuestProgress(
-                      character,
-                      PersonalQuestAutotrackType.gold,
-                      undefined,
-                      sellValue
-                    );
-                  } else {
-                    gameManager.itemManager.addItem(item, character);
-                  }
-                }
-                gameManager.itemManager.addItemCount(item);
-              } else {
-                gameManager.game.party.unlockedItems.push(identifier);
-              }
-            }
-          });
-        }
-        break;
-      case TreasureRewardType.calendarSection:
-        if (reward.value && typeof reward.value === 'string' && reward.value.split('-').length > 1) {
-          const section = reward.value.split('-')[0];
-          const week = gameManager.game.party.weeks + +reward.value.split('-')[1];
-          gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
-        }
-        break;
-      case TreasureRewardType.campaignSticker:
-        if (reward.value && typeof reward.value === 'string') {
-          gameManager.game.party.campaignStickers.push(reward.value);
-        }
-        break;
-      case TreasureRewardType.partyAchievement:
-        if (reward.value && typeof reward.value === 'string') {
-          gameManager.game.party.achievementsList.push(reward.value);
-        }
-        break;
-      case TreasureRewardType.lootCards:
-        if (typeof reward.value === 'number') {
-          gameManager.game.lootDeck.active = true;
-          for (let i = 0; i < reward.value; i++) {
-            this.drawCard(gameManager.game.lootDeck, character);
-            gameManager.triggerUiChange(false);
-          }
-        }
-        break;
-      case TreasureRewardType.scenario:
-        if (reward.value) {
-          const scenario = new GameScenarioModel('' + reward.value, edition);
-          if (
-            !gameManager.game.party.manualScenarios.find(
-              (scenarioModel) =>
-                scenarioModel.index === scenario.index &&
-                scenarioModel.edition === scenario.edition &&
-                scenarioModel.group === scenario.group &&
-                !scenarioModel.custom
-            ) &&
-            !gameManager.game.party.scenarios.find(
-              (scenarioModel) =>
-                scenarioModel.index === scenario.index &&
-                scenarioModel.edition === scenario.edition &&
-                scenarioModel.group === scenario.group &&
-                !scenarioModel.custom
-            )
-          ) {
-            gameManager.game.party.manualScenarios.push(scenario);
-          }
-        }
-        break;
-      case TreasureRewardType.randomScenario:
-        if (settingsManager.settings.drawRandomScenario) {
-          const scenarioData = gameManager.scenarioManager.drawRandomScenario(edition);
-          if (scenarioData) {
-            gameManager.game.party.manualScenarios.push(
-              new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group)
-            );
-            result.push(scenarioData.index, gameManager.scenarioManager.scenarioTitle(scenarioData));
-          }
-        }
-        break;
-      case TreasureRewardType.randomScenarioFh:
-        if (settingsManager.settings.drawRandomScenario) {
-          const sectionData = gameManager.scenarioManager.drawRandomScenarioSection(edition);
-          if (sectionData) {
-            gameManager.game.party.conclusions.push(new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group));
-            result.push(
-              sectionData.index,
-              gameManager.scenarioManager.scenarioTitle(sectionData, true),
-              sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : ''
-            );
-          } else if (gameManager.fhRules()) {
-            gameManager.game.party.inspiration += 1;
-          }
-        }
-        break;
-      case TreasureRewardType.randomItem:
-      case TreasureRewardType.randomItemDesign:
-      case TreasureRewardType.randomItemBlueprint:
-        if (settingsManager.settings.drawRandomItem) {
-          let from = -1;
-          let to = -1;
-          if (typeof reward.value === 'string' && reward.value.includes('-')) {
-            from = +reward.value.split('-')[0];
-            to = +reward.value.split('-')[1];
-          }
-
-          const itemData: ItemData | undefined = gameManager.itemManager.drawRandomItem(
-            edition,
-            reward.type === TreasureRewardType.randomItemBlueprint,
-            from,
-            to
-          );
-
-          if (itemData) {
-            if (reward.type === TreasureRewardType.randomItem) {
-              gameManager.itemManager.addItem(itemData, character);
-            } else {
-              gameManager.game.party.unlockedItems.push(new CountIdentifier(itemData.id, itemData.edition));
-            }
-            result.push('' + itemData.id, 'data.items.' + itemData.name, itemData.edition);
-          } else if (gameManager.fhRules()) {
-            gameManager.game.party.inspiration += 1;
-          }
-        }
-        break;
-    }
-
-    return result;
   }
 
   getValue(loot: Loot, enhancements: boolean = true): number {
@@ -639,7 +385,7 @@ export class LootManager {
       });
     }
 
-    if (gameManager.game.party.name !== 'Paws of the Lion') {
+    if (this.game.party.name !== 'Paws of the Lion') {
       this.easterParty = false;
       this.easter = false;
     } else if (!this.easterParty) {
@@ -707,7 +453,7 @@ export class LootManager {
 
   randomItemLooted(): boolean {
     return (
-      gameManager.game.party.randomItemLooted.find(
+      this.game.party.randomItemLooted.find(
         (model) =>
           this.game.scenario &&
           model.index === this.game.scenario.index &&
@@ -727,6 +473,41 @@ export class LootManager {
     } else {
       return '%game.loot.player.4% +' + loot.value4P + '/%game.loot.player.3% +' + loot.value3P + '/%game.loot.player.2% +' + loot.value2P;
     }
+  }
+
+  private resourcesValid(loot: Partial<Record<LootType, number>>): boolean {
+    return resourceLootTypes.every((type) => {
+      const value = loot[type];
+      return value === undefined || value === null || (Number.isInteger(value) && value >= 0);
+    });
+  }
+
+  canSetResources(partyLoot: Partial<Record<LootType, number>>, characters: CharacterResources[]): boolean {
+    return (
+      this.resourcesValid(partyLoot) &&
+      characters.every(
+        (value) =>
+          this.game.figures.includes(value.character) &&
+          Number.isInteger(value.gold) &&
+          value.gold >= 0 &&
+          Number.isInteger(value.experience) &&
+          value.experience >= 0 &&
+          this.resourcesValid(value.loot)
+      )
+    );
+  }
+
+  setResources(partyLoot: Partial<Record<LootType, number>>, characters: CharacterResources[]): boolean {
+    if (!this.canSetResources(partyLoot, characters)) {
+      return false;
+    }
+    resourceLootTypes.forEach((type) => (this.game.party.loot[type] = partyLoot[type] || undefined));
+    characters.forEach((value) => {
+      value.character.progress.gold = value.gold;
+      value.character.progress.experience = value.experience;
+      resourceLootTypes.forEach((type) => (value.character.progress.loot[type] = value.loot[type] || undefined));
+    });
+    return true;
   }
 
   applySelectResources(result: SelectResourceResult) {
@@ -760,22 +541,22 @@ export class LootManager {
       }
     });
     if (result.fhSupportSpent.hide) {
-      gameManager.game.party.loot[LootType.hide] = (gameManager.game.party.loot[LootType.hide] || 0) - result.fhSupportSpent.hide;
+      this.game.party.loot[LootType.hide] = (this.game.party.loot[LootType.hide] || 0) - result.fhSupportSpent.hide;
     }
     if (result.fhSupportSpent.lumber) {
-      gameManager.game.party.loot[LootType.lumber] = (gameManager.game.party.loot[LootType.lumber] || 0) - result.fhSupportSpent.lumber;
+      this.game.party.loot[LootType.lumber] = (this.game.party.loot[LootType.lumber] || 0) - result.fhSupportSpent.lumber;
     }
     if (result.fhSupportSpent.metal) {
-      gameManager.game.party.loot[LootType.metal] = (gameManager.game.party.loot[LootType.metal] || 0) - result.fhSupportSpent.metal;
+      this.game.party.loot[LootType.metal] = (this.game.party.loot[LootType.metal] || 0) - result.fhSupportSpent.metal;
     }
     if (result.fhSupportSpent.manual) {
-      gameManager.game.party.inspiration -= result.fhSupportSpent.manual;
+      this.game.party.inspiration -= result.fhSupportSpent.manual;
     }
     const fhSupportReceived = result.fhSupportReceived;
     if (fhSupportReceived) {
       ([LootType.hide, LootType.lumber, LootType.metal] as const).forEach((type) => {
         if (fhSupportReceived[type]) {
-          gameManager.game.party.loot[type] = (gameManager.game.party.loot[type] || 0) + fhSupportReceived[type];
+          this.game.party.loot[type] = (this.game.party.loot[type] || 0) + fhSupportReceived[type];
         }
       });
     }

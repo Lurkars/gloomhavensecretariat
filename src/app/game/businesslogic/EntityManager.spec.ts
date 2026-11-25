@@ -1,6 +1,7 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
@@ -9,6 +10,7 @@ import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identi
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
+import { PerkCard } from 'src/app/game/model/data/Perks';
 import { PersonalQuest, PersonalQuestRequirement } from 'src/app/game/model/data/PersonalQuest';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -56,7 +58,7 @@ function buildSummon(): Summon {
 function assignPersonalQuest(character: Character, autotrack: string, counter: number = 20) {
   character.progress.personalQuest = 'PQ1';
   character.progress.personalQuestAutotrack = true;
-  gameManager.editionData = [
+  gameManager.editionManager.editionData = [
     Object.assign(new EditionData(character.edition, [], [], [], [], [], []), {
       personalQuests: [
         Object.assign(new PersonalQuest(), {
@@ -71,8 +73,6 @@ function assignPersonalQuest(character: Character, autotrack: string, counter: n
 }
 
 describe('EntityManager', () => {
-  const entityManager = gameManager.entityManager;
-
   beforeEach(() => {
     gameManager.game.figures = [];
   });
@@ -80,63 +80,63 @@ describe('EntityManager', () => {
   describe('isAlive', () => {
     it('a healthy, non-exhausted, non-absent character is alive', () => {
       const character = buildCharacter();
-      expect(entityManager.isAlive(character)).toBe(true);
+      expect(gameManager.entityManager.isAlive(character)).toBe(true);
     });
 
     it('a character at 0 health is not alive', () => {
       const character = buildCharacter();
       character.health = 0;
-      expect(entityManager.isAlive(character)).toBe(false);
+      expect(gameManager.entityManager.isAlive(character)).toBe(false);
     });
 
     it('an exhausted or absent character is not alive', () => {
       const exhausted = buildCharacter();
       exhausted.exhausted = true;
-      expect(entityManager.isAlive(exhausted)).toBe(false);
+      expect(gameManager.entityManager.isAlive(exhausted)).toBe(false);
 
       const absent = buildCharacter();
       absent.absent = true;
-      expect(entityManager.isAlive(absent)).toBe(false);
+      expect(gameManager.entityManager.isAlive(absent)).toBe(false);
     });
 
     it('a dead or dormant monster entity is not alive', () => {
       const monster = buildMonster();
       const dead = buildMonsterEntity(monster);
       dead.dead = true;
-      expect(entityManager.isAlive(dead)).toBe(false);
+      expect(gameManager.entityManager.isAlive(dead)).toBe(false);
 
       const dormant = buildMonsterEntity(monster);
       dormant.dormant = true;
-      expect(entityManager.isAlive(dormant)).toBe(false);
+      expect(gameManager.entityManager.isAlive(dormant)).toBe(false);
     });
 
     it('a freshly-summoned monster entity is not alive while acting', () => {
       const monster = buildMonster();
       const entity = buildMonsterEntity(monster);
       entity.summon = SummonState.new;
-      expect(entityManager.isAlive(entity, false)).toBe(true);
-      expect(entityManager.isAlive(entity, true)).toBe(false);
+      expect(gameManager.entityManager.isAlive(entity, false)).toBe(true);
+      expect(gameManager.entityManager.isAlive(entity, true)).toBe(false);
     });
 
     it('a dead or dormant summon is not alive', () => {
       const dead = buildSummon();
       dead.dead = true;
-      expect(entityManager.isAlive(dead)).toBe(false);
+      expect(gameManager.entityManager.isAlive(dead)).toBe(false);
 
       const dormant = buildSummon();
       dormant.dormant = true;
-      expect(entityManager.isAlive(dormant)).toBe(false);
+      expect(gameManager.entityManager.isAlive(dormant)).toBe(false);
     });
 
     it('a dead or dormant objective entity is not alive', () => {
       const container = buildObjectiveContainer();
       const dead = buildObjectiveEntity(container);
       dead.dead = true;
-      expect(entityManager.isAlive(dead)).toBe(false);
+      expect(gameManager.entityManager.isAlive(dead)).toBe(false);
 
       const dormant = buildObjectiveEntity(container);
       dormant.dormant = true;
-      expect(entityManager.isAlive(dormant)).toBe(false);
+      expect(gameManager.entityManager.isAlive(dormant)).toBe(false);
     });
   });
 
@@ -144,27 +144,27 @@ describe('EntityManager', () => {
     it('is true for an active, non-removed, non-expired matching condition', () => {
       const character = buildCharacter();
       character.entityConditions = [new EntityCondition(ConditionName.poison, 1)];
-      expect(entityManager.hasCondition(character, new Condition(ConditionName.poison))).toBe(true);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.poison))).toBe(true);
     });
 
     it('is false once the condition is removed or expired', () => {
       const character = buildCharacter();
       const removed = Object.assign(new EntityCondition(ConditionName.poison, 1), { state: EntityConditionState.removed });
       character.entityConditions = [removed];
-      expect(entityManager.hasCondition(character, new Condition(ConditionName.poison))).toBe(false);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.poison))).toBe(false);
 
       const expired = Object.assign(new EntityCondition(ConditionName.poison, 1), { expired: true });
       character.entityConditions = [expired];
-      expect(entityManager.hasCondition(character, new Condition(ConditionName.poison))).toBe(false);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.poison))).toBe(false);
     });
 
     it('permanent=true requires the entityCondition to be permanent', () => {
       const character = buildCharacter();
       character.entityConditions = [new EntityCondition(ConditionName.poison, 1)];
-      expect(entityManager.hasCondition(character, new Condition(ConditionName.poison), true)).toBe(false);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.poison), true)).toBe(false);
 
       character.entityConditions = [Object.assign(new EntityCondition(ConditionName.poison, 1), { permanent: true })];
-      expect(entityManager.hasCondition(character, new Condition(ConditionName.poison), true)).toBe(true);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.poison), true)).toBe(true);
     });
   });
 
@@ -174,7 +174,7 @@ describe('EntityManager', () => {
       const active = new EntityCondition(ConditionName.poison, 1);
       const expired = Object.assign(new EntityCondition(ConditionName.wound, 1), { expired: true });
       character.entityConditions = [active, expired];
-      expect(entityManager.activeConditions(character)).toEqual([active]);
+      expect(gameManager.conditionManager.activeConditions(character)).toEqual([active]);
     });
 
     it('includes expired conditions carrying expiredIndicator when expiredIndicator=true', () => {
@@ -184,40 +184,50 @@ describe('EntityManager', () => {
         types: [ConditionType.expiredIndicator]
       });
       character.entityConditions = [expired];
-      expect(entityManager.activeConditions(character)).toEqual([]);
-      expect(entityManager.activeConditions(character, true)).toEqual([expired]);
+      expect(gameManager.conditionManager.activeConditions(character)).toEqual([]);
+      expect(gameManager.conditionManager.activeConditions(character, true)).toEqual([expired]);
     });
 
     it('excludes hidden conditions unless hidden=true', () => {
       const character = buildCharacter();
       const hidden = Object.assign(new EntityCondition(ConditionName.poison, 1), { types: [ConditionType.hidden] });
       character.entityConditions = [hidden];
-      expect(entityManager.activeConditions(character)).toEqual([]);
-      expect(entityManager.activeConditions(character, false, true)).toEqual([hidden]);
+      expect(gameManager.conditionManager.activeConditions(character)).toEqual([]);
+      expect(gameManager.conditionManager.activeConditions(character, false, true)).toEqual([hidden]);
     });
   });
 
-  describe('removeImmunityPlaceholder', () => {
+  describe('reduceCondition', () => {
     it('removes the immunity for an immunity placeholder icon (e.g. push)', () => {
       const monster = buildMonster();
       const entity = buildMonsterEntity(monster);
       entity.immunities = [ConditionName.push, ConditionName.stun];
-      expect(entityManager.removeImmunityPlaceholder(entity, monster, new EntityCondition(ConditionName.push))).toBe(true);
+      const push = new EntityCondition(ConditionName.push);
+      expect(gameManager.conditionManager.isImmunityPlaceholder(entity, push)).toBe(true);
+      gameManager.conditionManager.reduceCondition(entity, monster, push);
       expect(entity.immunities).toEqual([ConditionName.stun]);
     });
 
-    it('keeps immunities and returns false for an active condition', () => {
+    it('removes an active condition but keeps the immunities', () => {
       const character = buildCharacter();
       const poison = new EntityCondition(ConditionName.poison);
       character.entityConditions = [poison];
       character.immunities = [ConditionName.poison];
-      expect(entityManager.removeImmunityPlaceholder(character, character, poison)).toBe(false);
+      expect(gameManager.conditionManager.isImmunityPlaceholder(character, poison)).toBe(false);
+      gameManager.conditionManager.reduceCondition(character, character, poison);
+      expect(character.entityConditions).toEqual([]);
       expect(character.immunities).toEqual([ConditionName.poison]);
     });
 
-    it('returns false without a matching immunity', () => {
+    it('counts down stackable conditions only', () => {
       const character = buildCharacter();
-      expect(entityManager.removeImmunityPlaceholder(character, character, new EntityCondition(ConditionName.pull))).toBe(false);
+      const bless = new EntityCondition(ConditionName.bless, 2);
+      const poison = new EntityCondition(ConditionName.poison, 2);
+      character.entityConditions = [bless, poison];
+      gameManager.conditionManager.reduceCondition(character, character, bless);
+      expect(bless.value).toBe(1);
+      gameManager.conditionManager.reduceCondition(character, character, poison);
+      expect(character.entityConditions).toEqual([bless]);
     });
   });
 
@@ -225,46 +235,46 @@ describe('EntityManager', () => {
     it('a non-escort objective entity is immune to non-objective conditions', () => {
       const container = buildObjectiveContainer(false);
       const entity = buildObjectiveEntity(container);
-      expect(entityManager.isImmune(entity, container, ConditionName.poison)).toBe(true);
+      expect(gameManager.conditionManager.isImmune(entity, container, ConditionName.poison)).toBe(true);
     });
 
     it('a non-escort objective entity is not immune to objective conditions (plague)', () => {
       const container = buildObjectiveContainer(false);
       const entity = buildObjectiveEntity(container);
-      expect(entityManager.isImmune(entity, container, ConditionName.plague)).toBe(false);
+      expect(gameManager.conditionManager.isImmune(entity, container, ConditionName.plague)).toBe(false);
     });
 
     it('respects manual entity.immunities unless ignoreManual is set', () => {
       const character = buildCharacter();
       character.immunities = [ConditionName.poison];
-      expect(entityManager.isImmune(character, character, ConditionName.poison)).toBe(true);
-      expect(entityManager.isImmune(character, character, ConditionName.poison, true)).toBe(false);
+      expect(gameManager.conditionManager.isImmune(character, character, ConditionName.poison)).toBe(true);
+      expect(gameManager.conditionManager.isImmune(character, character, ConditionName.poison, true)).toBe(false);
     });
 
     it('grants stun/muddle immunity from the gh item 38 (Eagle Eye Goggles)', () => {
       const character = buildCharacter();
       character.progress.items = [new Identifier(38, 'gh')];
       character.progress.equippedItems = [new AdditionalIdentifier(38, 'gh')];
-      expect(entityManager.isImmune(character, character, ConditionName.stun)).toBe(true);
-      expect(entityManager.isImmune(character, character, ConditionName.muddle)).toBe(true);
-      expect(entityManager.isImmune(character, character, ConditionName.poison)).toBe(false);
+      expect(gameManager.conditionManager.isImmune(character, character, ConditionName.stun)).toBe(true);
+      expect(gameManager.conditionManager.isImmune(character, character, ConditionName.muddle)).toBe(true);
+      expect(gameManager.conditionManager.isImmune(character, character, ConditionName.poison)).toBe(false);
     });
 
     it('a monster entity is immune to a character-only condition (type mismatch, e.g. impair)', () => {
       const monster = buildMonster();
       const entity = buildMonsterEntity(monster);
-      expect(entityManager.isImmune(entity, monster, ConditionName.impair)).toBe(true);
+      expect(gameManager.conditionManager.isImmune(entity, monster, ConditionName.impair)).toBe(true);
     });
 
     it('a character is not immune to a condition applicable to characters (e.g. poison)', () => {
       const character = buildCharacter();
-      expect(entityManager.isImmune(character, character, ConditionName.poison)).toBe(false);
+      expect(gameManager.conditionManager.isImmune(character, character, ConditionName.poison)).toBe(false);
     });
 
     it('wound_x/poison_x immunity aliases to the base wound/poison immunity', () => {
       const character = buildCharacter();
       character.immunities = [ConditionName.wound];
-      expect(entityManager.isImmune(character, character, ConditionName.wound_x)).toBe(true);
+      expect(gameManager.conditionManager.isImmune(character, character, ConditionName.wound_x)).toBe(true);
     });
   });
 
@@ -272,16 +282,16 @@ describe('EntityManager', () => {
     it('hasMarker reflects membership in entity.markers', () => {
       const character = buildCharacter();
       character.markers = ['frozen'];
-      expect(entityManager.hasMarker(character, 'frozen')).toBe(true);
-      expect(entityManager.hasMarker(character, 'burning')).toBeFalsy();
+      expect(gameManager.entityManager.hasMarker(character, 'frozen')).toBe(true);
+      expect(gameManager.entityManager.hasMarker(character, 'burning')).toBeFalsy();
     });
 
     it('toggleMarker adds when absent and removes when present', () => {
       const character = buildCharacter();
       character.markers = [];
-      entityManager.toggleMarker(character, 'frozen');
+      gameManager.entityManager.toggleMarker(character, 'frozen');
       expect(character.markers).toEqual(['frozen']);
-      entityManager.toggleMarker(character, 'frozen');
+      gameManager.entityManager.toggleMarker(character, 'frozen');
       expect(character.markers).toEqual([]);
     });
   });
@@ -292,7 +302,7 @@ describe('EntityManager', () => {
       const highlighted = Object.assign(new EntityCondition(ConditionName.poison, 1), { highlight: true });
       const notHighlighted = new EntityCondition(ConditionName.wound, 1);
       character.entityConditions = [highlighted, notHighlighted];
-      expect(entityManager.highlightedConditions(character)).toEqual([highlighted]);
+      expect(gameManager.conditionManager.highlightedConditions(character)).toEqual([highlighted]);
     });
 
     it('sorts double-type conditions first', () => {
@@ -300,14 +310,14 @@ describe('EntityManager', () => {
       const single = Object.assign(new EntityCondition(ConditionName.poison, 1), { highlight: true, types: [] });
       const double = Object.assign(new EntityCondition(ConditionName.wound, 1), { highlight: true, types: [ConditionType.double] });
       character.entityConditions = [single, double];
-      expect(entityManager.highlightedConditions(character)).toEqual([double, single]);
+      expect(gameManager.conditionManager.highlightedConditions(character)).toEqual([double, single]);
     });
   });
 
   describe('figureForEntity', () => {
     it('a character entity resolves to itself', () => {
       const character = buildCharacter();
-      expect(entityManager.figureForEntity(character)).toBe(character);
+      expect(gameManager.entityManager.figureForEntity(character)).toBe(character);
     });
 
     it('a monster entity resolves to its owning monster figure', () => {
@@ -315,7 +325,7 @@ describe('EntityManager', () => {
       const entity = buildMonsterEntity(monster);
       monster.entities = [entity];
       gameManager.game.figures = [monster];
-      expect(entityManager.figureForEntity(entity)).toBe(monster);
+      expect(gameManager.entityManager.figureForEntity(entity)).toBe(monster);
     });
 
     it('an objective entity resolves to its owning objective container', () => {
@@ -323,7 +333,7 @@ describe('EntityManager', () => {
       const entity = buildObjectiveEntity(container);
       container.entities = [entity];
       gameManager.game.figures = [container];
-      expect(entityManager.figureForEntity(entity)).toBe(container);
+      expect(gameManager.entityManager.figureForEntity(entity)).toBe(container);
     });
 
     it('a summon resolves to the character it belongs to', () => {
@@ -331,13 +341,13 @@ describe('EntityManager', () => {
       const summon = buildSummon();
       character.summons = [summon];
       gameManager.game.figures = [character];
-      expect(entityManager.figureForEntity(summon)).toBe(character);
+      expect(gameManager.entityManager.figureForEntity(summon)).toBe(character);
     });
 
     it('falls back to a placeholder monster when no owning figure is found', () => {
       const summon = buildSummon();
       gameManager.game.figures = [];
-      expect(entityManager.figureForEntity(summon)).toBeInstanceOf(Monster);
+      expect(gameManager.entityManager.figureForEntity(summon)).toBeInstanceOf(Monster);
     });
   });
 
@@ -348,7 +358,7 @@ describe('EntityManager', () => {
       const dead = buildMonsterEntity(monster);
       dead.dead = true;
       monster.entities = [alive, dead];
-      expect(entityManager.entities(monster)).toEqual([alive]);
+      expect(gameManager.entityManager.entities(monster)).toEqual([alive]);
     });
 
     it('entitiesAll() includes a character plus its alive summons', () => {
@@ -357,7 +367,7 @@ describe('EntityManager', () => {
       const deadSummon = buildSummon();
       deadSummon.dead = true;
       character.summons = [aliveSummon, deadSummon];
-      expect(entityManager.entitiesAll(character)).toEqual([character, aliveSummon]);
+      expect(gameManager.entityManager.entitiesAll(character)).toEqual([character, aliveSummon]);
     });
 
     it('entitiesAll(alive=false) includes dead entities too', () => {
@@ -365,7 +375,7 @@ describe('EntityManager', () => {
       const dead = buildMonsterEntity(monster);
       dead.dead = true;
       monster.entities = [dead];
-      expect(entityManager.entitiesAll(monster, false)).toEqual([dead]);
+      expect(gameManager.entityManager.entitiesAll(monster, false)).toEqual([dead]);
     });
   });
 
@@ -377,7 +387,7 @@ describe('EntityManager', () => {
       monster.entities = [monsterEntity];
       gameManager.game.figures = [characterA, monster];
 
-      const indexed = entityManager.getIndexedEntities();
+      const indexed = gameManager.entityManager.getIndexedEntities();
       expect(indexed.map((value) => value.entity)).toEqual([characterA, monsterEntity]);
       expect(indexed.map((value) => value.figure)).toEqual([characterA, monster]);
     });
@@ -386,13 +396,13 @@ describe('EntityManager', () => {
       const characterA = buildCharacter('brute');
       const characterB = buildCharacter('spellweaver');
       gameManager.game.figures = [characterA, characterB];
-      expect(entityManager.getIndexForEntity(characterB)).toEqual(1);
+      expect(gameManager.entityManager.getIndexForEntity(characterB)).toEqual(1);
     });
 
     it('getIndexForEntity is -1 for an entity not present in the game', () => {
       const character = buildCharacter();
       gameManager.game.figures = [];
-      expect(entityManager.getIndexForEntity(character)).toEqual(-1);
+      expect(gameManager.entityManager.getIndexForEntity(character)).toEqual(-1);
     });
   });
 
@@ -401,7 +411,7 @@ describe('EntityManager', () => {
       const character = buildCharacter();
       character.maxHealth = 10;
       character.health = 15;
-      entityManager.checkHealth(character, character);
+      gameManager.entityManager.checkHealth(character, character);
       expect(character.health).toBe(10);
     });
 
@@ -410,7 +420,7 @@ describe('EntityManager', () => {
       character.maxHealth = 10;
       character.health = 0;
       character.exhausted = false;
-      entityManager.checkHealth(character, character);
+      gameManager.entityManager.checkHealth(character, character);
       expect(character.exhausted).toBe(true);
       expect(character.off).toBe(true);
     });
@@ -425,7 +435,9 @@ describe('EntityManager', () => {
           Object.assign(new PersonalQuestRequirement(), { counter: 20, autotrack: 'exhaustedCharsTurn' })
         ]
       });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [sharedQuest] })];
+      gameManager.editionManager.editionData = [
+        Object.assign(new EditionData('gh', [], [], [], [], [], []), { personalQuests: [sharedQuest] })
+      ];
       settingsManager.settings.editions = ['gh'];
 
       const character = buildCharacter('brute');
@@ -442,7 +454,7 @@ describe('EntityManager', () => {
 
       gameManager.game.figures = [character, ally];
 
-      entityManager.checkHealth(character, character);
+      gameManager.entityManager.checkHealth(character, character);
 
       expect(character.progress.personalQuestProgress[0]).toEqual(1); // exhaustedSelf
       expect(ally.progress.personalQuestProgress[1]).toEqual(1); // exhaustedChars
@@ -450,7 +462,7 @@ describe('EntityManager', () => {
       expect(character.progress.personalQuestProgress[1] || 0).toEqual(0); // not counted against self
 
       // does not double-count on a repeated checkHealth call while already exhausted
-      entityManager.checkHealth(character, character);
+      gameManager.entityManager.checkHealth(character, character);
       expect(character.progress.personalQuestProgress[0]).toEqual(1);
     });
 
@@ -460,7 +472,7 @@ describe('EntityManager', () => {
       character.health = 5;
       character.exhausted = true;
       character.off = true;
-      entityManager.checkHealth(character, character);
+      gameManager.entityManager.checkHealth(character, character);
       expect(character.exhausted).toBe(false);
       expect(character.off).toBe(false);
     });
@@ -471,7 +483,7 @@ describe('EntityManager', () => {
       entity.maxHealth = 8;
       entity.health = 0;
       entity.dead = false;
-      entityManager.checkHealth(entity, monster);
+      gameManager.entityManager.checkHealth(entity, monster);
       expect(entity.dead).toBe(true);
     });
 
@@ -481,7 +493,7 @@ describe('EntityManager', () => {
       entity.maxHealth = 8;
       entity.health = 3;
       entity.dead = true;
-      entityManager.checkHealth(entity, monster);
+      gameManager.entityManager.checkHealth(entity, monster);
       expect(entity.dead).toBe(false);
     });
 
@@ -489,11 +501,11 @@ describe('EntityManager', () => {
       const summon = buildSummon();
       summon.maxHealth = 4;
       summon.health = 0;
-      entityManager.checkHealth(summon, buildCharacter());
+      gameManager.entityManager.checkHealth(summon, buildCharacter());
       expect(summon.dead).toBe(true);
 
       summon.health = 2;
-      entityManager.checkHealth(summon, buildCharacter());
+      gameManager.entityManager.checkHealth(summon, buildCharacter());
       expect(summon.dead).toBe(false);
     });
 
@@ -502,7 +514,7 @@ describe('EntityManager', () => {
       character.maxHealth = 0;
       character.health = 0;
       character.exhausted = false;
-      entityManager.checkHealth(character, character);
+      gameManager.entityManager.checkHealth(character, character);
       expect(character.exhausted).toBe(false);
     });
   });
@@ -517,7 +529,7 @@ describe('EntityManager', () => {
       const entity = buildMonsterEntity(monster);
       entity.entityConditions = [];
 
-      entityManager.addCondition(entity, character, new Condition(ConditionName.poison));
+      gameManager.conditionManager.addCondition(entity, character, new Condition(ConditionName.poison));
 
       expect(character.progress.personalQuestProgress[0]).toEqual(1);
     });
@@ -528,7 +540,7 @@ describe('EntityManager', () => {
       const ally = buildCharacter('spellweaver');
       gameManager.game.figures = [character, ally];
 
-      entityManager.addCondition(ally, character, new Condition(ConditionName.poison));
+      gameManager.conditionManager.addCondition(ally, character, new Condition(ConditionName.poison));
 
       expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
     });
@@ -544,8 +556,8 @@ describe('EntityManager', () => {
       const monster = buildMonster();
       const entity = buildMonsterEntity(monster);
       entity.entityConditions = [];
-      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
-      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      gameManager.conditionManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      gameManager.conditionManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
       expect(entity.entityConditions.find((condition) => condition.name === ConditionName.plague)?.value).toBe(3);
     });
 
@@ -554,9 +566,26 @@ describe('EntityManager', () => {
       const monster = buildMonster();
       const entity = buildMonsterEntity(monster);
       entity.entityConditions = [];
-      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
-      entityManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      gameManager.conditionManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
+      gameManager.conditionManager.addCondition(entity, monster, new Condition(ConditionName.plague, 2));
       expect(entity.entityConditions.find((condition) => condition.name === ConditionName.plague)?.value).toBe(4);
+    });
+  });
+
+  describe('addCondition - temporary highlight conditions', () => {
+    it('replaces a temporary condition with a real one', () => {
+      const monster = buildMonster();
+      const entity = buildMonsterEntity(monster);
+      const temporary = new EntityCondition(ConditionName.muddle);
+      temporary.temporary = true;
+      temporary.types.push(ConditionType.hidden);
+      entity.entityConditions = [temporary];
+      gameManager.conditionManager.addCondition(entity, monster, new Condition(ConditionName.muddle));
+      const muddle = entity.entityConditions.find((condition) => condition.name === ConditionName.muddle);
+      expect(entity.entityConditions.length).toBe(1);
+      expect(muddle).not.toBe(temporary);
+      expect(muddle?.temporary).toBe(false);
+      expect(muddle?.types).not.toContain(ConditionType.hidden);
     });
   });
 
@@ -583,7 +612,7 @@ describe('EntityManager', () => {
       const poison = new EntityCondition(ConditionName.poison, 3);
       character.entityConditions = [poison];
 
-      entityManager.applyCondition(character, character, poison);
+      gameManager.conditionManager.applyCondition(character, character, poison);
 
       expect(character.health).toBe(2);
     });
@@ -596,7 +625,7 @@ describe('EntityManager', () => {
       const ward = new EntityCondition(ConditionName.ward, 1);
       character.entityConditions = [poison, ward];
 
-      entityManager.applyCondition(character, character, poison);
+      gameManager.conditionManager.applyCondition(character, character, poison);
 
       expect(ward.value).toBe(4);
     });
@@ -609,7 +638,7 @@ describe('EntityManager', () => {
       const poison = new EntityCondition(ConditionName.poison, 3);
       character.entityConditions = [poison];
 
-      entityManager.applyCondition(character, character, poison);
+      gameManager.conditionManager.applyCondition(character, character, poison);
 
       expect(character.health).toBe(5);
       expect(poison.expired).toBe(false);
@@ -622,7 +651,7 @@ describe('EntityManager', () => {
       const ward = new EntityCondition(ConditionName.ward, 5);
       character.entityConditions = [ward];
 
-      entityManager.applyCondition(character, character, ward, false, true);
+      gameManager.conditionManager.applyCondition(character, character, ward, false, true);
 
       // value=5 -> floor(5/2)=2 -> heals by 5-2=3
       expect(character.health).toBe(8);
@@ -637,7 +666,7 @@ describe('EntityManager', () => {
       const ward = new EntityCondition(ConditionName.ward, 5);
       character.entityConditions = [ward];
 
-      entityManager.applyCondition(character, character, ward, false, false);
+      gameManager.conditionManager.applyCondition(character, character, ward, false, false);
 
       // += 5 -> 10, then -= floor(5/2)=2 -> 8
       expect(character.health).toBe(8);
@@ -652,7 +681,7 @@ describe('EntityManager', () => {
       const brittle = new EntityCondition(ConditionName.brittle, 4);
       character.entityConditions = [brittle];
 
-      entityManager.applyCondition(character, character, brittle, false, true);
+      gameManager.conditionManager.applyCondition(character, character, brittle, false, true);
 
       expect(character.health).toBe(6);
       expect(brittle.value).toBe(1);
@@ -666,7 +695,7 @@ describe('EntityManager', () => {
       const brittle = new EntityCondition(ConditionName.brittle, 4);
       character.entityConditions = [brittle];
 
-      entityManager.applyCondition(character, character, brittle, false, false);
+      gameManager.conditionManager.applyCondition(character, character, brittle, false, false);
 
       // += 4 -> 14, then -= 4*2=8 -> 6
       expect(character.health).toBe(6);
@@ -679,7 +708,7 @@ describe('EntityManager', () => {
       const shield = new EntityCondition(ConditionName.shield, 3);
       character.entityConditions = [shield];
 
-      entityManager.applyCondition(character, character, shield);
+      gameManager.conditionManager.applyCondition(character, character, shield);
 
       expect(character.health).toBe(13);
       expect(shield.expired).toBe(true);
@@ -691,7 +720,7 @@ describe('EntityManager', () => {
       const retaliate = new EntityCondition(ConditionName.retaliate, 2);
       character.entityConditions = [retaliate];
 
-      entityManager.applyCondition(character, character, retaliate);
+      gameManager.conditionManager.applyCondition(character, character, retaliate);
 
       expect(character.health).toBe(10);
       expect(retaliate.expired).toBe(true);
@@ -706,7 +735,7 @@ describe('EntityManager', () => {
       heal.lastState = EntityConditionState.new;
       character.entityConditions = [heal];
 
-      entityManager.applyCondition(character, character, heal);
+      gameManager.conditionManager.applyCondition(character, character, heal);
 
       expect(character.health).toBe(14);
       expect(heal.expired).toBe(true);
@@ -719,7 +748,7 @@ describe('EntityManager', () => {
       const heal = new EntityCondition(ConditionName.heal, 4); // default state=normal, lastState=new
       character.entityConditions = [heal];
 
-      entityManager.applyCondition(character, character, heal);
+      gameManager.conditionManager.applyCondition(character, character, heal);
 
       expect(character.health).toBe(10);
       expect(heal.expired).toBe(true);
@@ -732,7 +761,7 @@ describe('EntityManager', () => {
       const shield = new EntityCondition(ConditionName.shield, 1);
       character.entityConditions = [shield];
 
-      entityManager.applyCondition(character, character, shield, true);
+      gameManager.conditionManager.applyCondition(character, character, shield, true);
 
       expect(shield.highlight).toBe(true);
     });
@@ -744,7 +773,7 @@ describe('EntityManager', () => {
       shield.permanent = true;
       character.entityConditions = [shield];
 
-      entityManager.applyCondition(character, character, shield);
+      gameManager.conditionManager.applyCondition(character, character, shield);
 
       expect(shield.expired).toBe(false);
     });
@@ -757,7 +786,7 @@ describe('EntityManager', () => {
       character.entityConditions = [stored];
       const detachedProbe = new EntityCondition(ConditionName.shield, 3);
 
-      entityManager.applyCondition(character, character, detachedProbe);
+      gameManager.conditionManager.applyCondition(character, character, detachedProbe);
 
       expect(character.health).toBe(13);
       expect(stored.expired).toBe(true);
@@ -786,10 +815,10 @@ describe('EntityManager', () => {
       character.maxHealth = 10;
       character.health = 5;
 
-      entityManager.changeHealth(character, character, 3);
+      gameManager.entityManager.changeHealth(character, character, 3);
       expect(character.health).toBe(8);
 
-      entityManager.changeHealth(character, character, -4);
+      gameManager.entityManager.changeHealth(character, character, -4);
       expect(character.health).toBe(4);
     });
 
@@ -798,7 +827,7 @@ describe('EntityManager', () => {
       character.maxHealth = 10;
       character.health = 3;
 
-      entityManager.changeHealth(character, character, -5);
+      gameManager.entityManager.changeHealth(character, character, -5);
 
       expect(character.health).toBe(0);
       expect(character.exhausted).toBe(true);
@@ -813,7 +842,7 @@ describe('EntityManager', () => {
       gameManager.game.figures = [character];
       const damageSpy = vi.spyOn(gameManager.scenarioStatsManager, 'applyDamage').mockImplementation(() => {});
 
-      entityManager.changeHealth(character, character, -3);
+      gameManager.entityManager.changeHealth(character, character, -3);
 
       expect(damageSpy).toHaveBeenCalledWith(character, character, 3);
     });
@@ -824,7 +853,7 @@ describe('EntityManager', () => {
       character.health = 10;
       const damageSpy = vi.spyOn(gameManager.scenarioStatsManager, 'applyDamage').mockImplementation(() => {});
 
-      entityManager.changeHealth(character, character, -3);
+      gameManager.entityManager.changeHealth(character, character, -3);
 
       expect(damageSpy).not.toHaveBeenCalled();
     });
@@ -841,11 +870,11 @@ describe('EntityManager', () => {
       character.health = 3;
       gameManager.game.figures = [character];
 
-      entityManager.changeHealth(character, character, -5);
+      gameManager.entityManager.changeHealth(character, character, -5);
       expect(character.exhausted).toBe(true);
       expect(character.scenarioStats.exhausts).toEqual(1);
 
-      entityManager.changeHealth(character, character, -4);
+      gameManager.entityManager.changeHealth(character, character, -4);
       expect(character.scenarioStats.exhausts).toEqual(1);
     });
 
@@ -856,14 +885,14 @@ describe('EntityManager', () => {
       character.health = 3;
       gameManager.game.figures = [character];
 
-      entityManager.changeHealth(character, character, -3);
+      gameManager.entityManager.changeHealth(character, character, -3);
       expect(character.scenarioStats.exhausts).toEqual(1);
 
-      entityManager.changeHealth(character, character, 2);
+      gameManager.entityManager.changeHealth(character, character, 2);
       expect(character.exhausted).toBe(false);
       expect(character.scenarioStats.exhausts).toEqual(0);
 
-      entityManager.changeHealth(character, character, -2);
+      gameManager.entityManager.changeHealth(character, character, -2);
       expect(character.scenarioStats.exhausts).toEqual(1);
     });
 
@@ -882,7 +911,7 @@ describe('EntityManager', () => {
       character.entityConditions = [pending];
       gameManager.game.figures = [character];
 
-      entityManager.checkHealth(character, character);
+      gameManager.entityManager.checkHealth(character, character);
 
       expect(character.exhausted).toBe(false);
       expect(character.scenarioStats.exhausts).toEqual(0);
@@ -899,8 +928,8 @@ describe('EntityManager', () => {
       owner.summons = [summon];
       gameManager.game.figures = [owner];
 
-      entityManager.changeHealth(summon, owner, -3);
-      entityManager.changeHealth(summon, owner, -1);
+      gameManager.entityManager.changeHealth(summon, owner, -3);
+      gameManager.entityManager.changeHealth(summon, owner, -1);
 
       expect(summon.dead).toBe(true);
       expect(owner.scenarioStats.summons.exhausts).toEqual(1);
@@ -918,8 +947,8 @@ describe('EntityManager', () => {
       const healSpy = vi.spyOn(gameManager.scenarioStatsManager, 'applyHeal');
       const damageSpy = vi.spyOn(gameManager.scenarioStatsManager, 'applyDamage');
 
-      entityManager.changeHealth(summon, owner, 2, false, false);
-      entityManager.changeHealth(summon, owner, -1, false, false);
+      gameManager.entityManager.changeHealth(summon, owner, 2, false, false);
+      gameManager.entityManager.changeHealth(summon, owner, -1, false, false);
 
       expect(summon.health).toBe(4);
       expect(healSpy).not.toHaveBeenCalled();
@@ -948,7 +977,7 @@ describe('EntityManager', () => {
       const wound = new EntityCondition(ConditionName.wound, 2);
       character.entityConditions = [wound];
 
-      entityManager.applyConditionsTurn(character, character);
+      gameManager.conditionManager.applyConditionsTurn(character, character);
 
       expect(character.health).toBe(8);
       expect(wound.state).toBe(EntityConditionState.turn);
@@ -961,7 +990,7 @@ describe('EntityManager', () => {
       const wound = Object.assign(new EntityCondition(ConditionName.wound, 2), { expired: true });
       character.entityConditions = [wound];
 
-      entityManager.applyConditionsTurn(character, character);
+      gameManager.conditionManager.applyConditionsTurn(character, character);
 
       expect(character.health).toBe(10);
     });
@@ -974,7 +1003,7 @@ describe('EntityManager', () => {
       const wound = new EntityCondition(ConditionName.wound, 2);
       character.entityConditions = [wound];
 
-      entityManager.applyConditionsTurn(character, character);
+      gameManager.conditionManager.applyConditionsTurn(character, character);
 
       expect(character.health).toBe(10);
       expect(wound.state).toBe(EntityConditionState.normal);
@@ -987,7 +1016,7 @@ describe('EntityManager', () => {
       const regenerate = new EntityCondition(ConditionName.regenerate, 3);
       character.entityConditions = [regenerate];
 
-      entityManager.applyConditionsTurn(character, character);
+      gameManager.conditionManager.applyConditionsTurn(character, character);
 
       expect(character.health).toBe(8);
       expect(regenerate.state).toBe(EntityConditionState.expire);
@@ -1000,7 +1029,7 @@ describe('EntityManager', () => {
       const regenerate = new EntityCondition(ConditionName.regenerate, 3);
       character.entityConditions = [regenerate];
 
-      entityManager.applyConditionsTurn(character, character);
+      gameManager.conditionManager.applyConditionsTurn(character, character);
 
       expect(character.health).toBe(10);
     });
@@ -1058,8 +1087,6 @@ describe('EntityManager disadvantage highlight', () => {
 });
 
 describe('EntityManager dead entities', () => {
-  const entityManager = gameManager.entityManager;
-
   afterEach(() => vi.restoreAllMocks());
 
   it('removes only dead entities still part of their figure', () => {
@@ -1087,12 +1114,12 @@ describe('EntityManager dead entities', () => {
       { entity: objective, figure: container },
       { entity: removedSummon, figure: character }
     ];
-    expect(entityManager.deadEntities(entities).map((entry) => entry.entity)).toEqual([dead, summon, objective]);
+    expect(gameManager.entityManager.deadEntities(entities).map((entry) => entry.entity)).toEqual([dead, summon, objective]);
 
     const removeMonsterEntity = vi.spyOn(gameManager.monsterManager, 'removeMonsterEntity').mockImplementation(() => {});
-    const removeSummon = vi.spyOn(gameManager.characterManager, 'removeSummon').mockImplementation(() => {});
+    const removeSummon = vi.spyOn(gameManager.summonManager, 'removeSummon').mockImplementation(() => {});
     const removeObjectiveEntity = vi.spyOn(gameManager.objectiveManager, 'removeObjectiveEntity').mockImplementation(() => {});
-    entityManager.removeDeadEntities(entities);
+    gameManager.entityManager.removeDeadEntities(entities);
     expect(removeMonsterEntity).toHaveBeenCalledTimes(1);
     expect(removeMonsterEntity).toHaveBeenCalledWith(monster, dead);
     expect(removeSummon).toHaveBeenCalledTimes(1);
@@ -1101,8 +1128,6 @@ describe('EntityManager dead entities', () => {
 });
 
 describe('EntityManager kill and exhaust', () => {
-  const entityManager = gameManager.entityManager;
-
   beforeEach(() => {
     gameManager.game.state = GameState.next;
     settingsManager.settings.scenarioStats = true;
@@ -1117,15 +1142,15 @@ describe('EntityManager kill and exhaust', () => {
     const character = buildCharacter();
     const summon = buildSummon();
     const changeExhausts = vi.spyOn(gameManager.scenarioStatsManager, 'changeExhausts').mockImplementation(() => {});
-    entityManager.killEntity(summon, character);
-    entityManager.killEntity(summon, character);
+    gameManager.entityManager.killEntity(summon, character);
+    gameManager.entityManager.killEntity(summon, character);
     expect(summon.dead).toBe(true);
     expect(changeExhausts).toHaveBeenCalledTimes(1);
 
     const monster = buildMonster();
     const entity = buildMonsterEntity(monster);
     const killed = vi.spyOn(gameManager.monsterManager, 'monsterEntityKilled').mockImplementation(() => {});
-    entityManager.killEntity(entity, monster);
+    gameManager.entityManager.killEntity(entity, monster);
     expect(entity.dead).toBe(true);
     expect(killed).toHaveBeenCalledWith(monster, entity);
   });
@@ -1133,8 +1158,8 @@ describe('EntityManager kill and exhaust', () => {
   it('sets exhausted with scenario stats', () => {
     const character = buildCharacter();
     const changeExhausts = vi.spyOn(gameManager.scenarioStatsManager, 'changeExhausts').mockImplementation(() => {});
-    entityManager.setExhausted(character, true);
-    entityManager.setExhausted(character, true);
+    gameManager.entityManager.setExhausted(character, true);
+    gameManager.entityManager.setExhausted(character, true);
     expect(character.exhausted).toBe(true);
     expect(changeExhausts).toHaveBeenCalledTimes(1);
   });
@@ -1144,17 +1169,70 @@ describe('EntityManager kill and exhaust', () => {
     const entity = buildMonsterEntity(monster);
     monster.entities = [entity];
     entity.dead = true;
-    expect(entityManager.deadRemovable(entity)).toBe(true);
+    expect(gameManager.entityManager.deadRemovable(entity)).toBe(true);
     const condition = new EntityCondition(ConditionName.wound);
     condition.types = [ConditionType.turn];
     entity.entityConditions = [condition];
-    expect(entityManager.deadRemovable(entity)).toBe(false);
+    expect(gameManager.entityManager.deadRemovable(entity)).toBe(false);
     gameManager.game.state = GameState.draw;
-    expect(entityManager.deadRemovable(entity)).toBe(true);
+    expect(gameManager.entityManager.deadRemovable(entity)).toBe(true);
 
     monster.active = true;
-    const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
-    entityManager.deactivateDeadFigure(monster);
+    const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
+    gameManager.entityManager.deactivateDeadFigure(monster);
     expect(toggleFigure).toHaveBeenCalledWith(monster);
+  });
+});
+
+describe('EntityManager deck condition limits', () => {
+  let applyConditions: boolean;
+
+  beforeEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.monsterAttackModifierDeck = new AttackModifierDeck();
+    applyConditions = settingsManager.settings.applyConditions;
+    settingsManager.settings.applyConditions = true;
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    settingsManager.settings.applyConditions = applyConditions;
+  });
+
+  it('counts the cards of all targets against the curse supply', () => {
+    const monster = buildMonster();
+    const entities = [buildMonsterEntity(monster), buildMonsterEntity(monster)];
+    const targets = entities.map((entity) => ({ entity, figure: monster as Monster }));
+    expect(gameManager.conditionManager.canAddDeckConditions(targets, new Condition(ConditionName.curse, 5))).toBe(true);
+    expect(gameManager.conditionManager.canAddDeckConditions(targets, new Condition(ConditionName.curse, 6))).toBe(false);
+    expect(gameManager.conditionManager.canAddDeckConditions([], new Condition(ConditionName.curse, 1))).toBe(false);
+    expect(gameManager.conditionManager.canAddDeckConditions(targets, new Condition(ConditionName.wound, 1))).toBe(false);
+  });
+
+  it('ignores immune targets and reduces the cards blocked by safeguard', () => {
+    const monster = buildMonster();
+    const immune = buildMonsterEntity(monster);
+    const safeguarded = buildMonsterEntity(monster);
+    vi.spyOn(gameManager.conditionManager, 'isImmune').mockImplementation((entity) => entity === immune);
+    vi.spyOn(gameManager.conditionManager, 'hasCondition').mockImplementation(
+      (entity, condition) => entity === safeguarded && condition.name === ConditionName.safeguard
+    );
+    const curse = new Condition(ConditionName.curse, 3);
+    expect(gameManager.conditionManager.deckConditionCards(immune, monster, curse)).toBe(0);
+    expect(gameManager.conditionManager.deckConditionCards(safeguarded, monster, curse)).toBe(2);
+    expect(gameManager.conditionManager.deckConditionCards(safeguarded, monster, new Condition(ConditionName.curse, 1))).toBe(0);
+  });
+
+  it('requires a deck source with enough perks for empower', () => {
+    const character = buildCharacter();
+    const source = buildCharacter('tinkerer');
+    source.additionalModifier = [
+      Object.assign(new PerkCard(), { count: 1, attackModifier: new AttackModifier(AttackModifierType.empower) })
+    ];
+    const targets = [{ entity: character, figure: character }];
+    expect(gameManager.conditionManager.canAddDeckConditions(targets, new Condition(ConditionName.empower, 1))).toBe(false);
+    expect(gameManager.conditionManager.canAddDeckConditions(targets, new Condition(ConditionName.empower, 2), source)).toBe(false);
+    expect(gameManager.conditionManager.addDeckConditions(targets, new Condition(ConditionName.empower, 1), source)).toBe(true);
+    expect(character.attackModifierDeck.cards.filter((am) => am.type === AttackModifierType.empower).length).toBe(1);
   });
 });

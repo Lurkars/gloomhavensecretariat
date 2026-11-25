@@ -5,6 +5,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Action } from 'src/app/game/model/data/Action';
 import { ConditionName } from 'src/app/game/model/data/Condition';
 import { ActionEnhancementsComponent } from 'src/app/ui/figures/actions/enhancements/enhancements';
+import { abilityCardsEditing } from 'src/app/ui/helper/ability-edit';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
 
 @Component({
@@ -79,7 +80,7 @@ export class ActionHexComponent implements OnChanges {
       }
     });
 
-    this.edit = (this.character && this.character.tags.includes('edit-abilities')) || false;
+    this.edit = abilityCardsEditing(this.character);
   }
 
   click(hex: ActionHex) {

@@ -1,19 +1,54 @@
-import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Game } from 'src/app/game/model/Game';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 
 describe('Game model', () => {
   beforeEach(() => {
-    // Party.migrate() (invoked from Game.fromModel()) reads settingsManager.label.data.* and,
-    // for non-default locales, gameManager.editionData; keep locale at the default and stub the
+    // Party.migrate() (invoked from Game.fromModel()) reads labelManager.label.data.* and,
+    // for non-default locales, gameManager.editionManager.editionData; keep locale at the default and stub the
     // label data so migrate() doesn't throw on the unrelated label-lookup machinery.
     settingsManager.settings.locale = settingsManager.defaultLocale;
-    settingsManager.label.data = { partyAchievements: {}, globalAchievements: {} };
+    labelManager.label.data = { partyAchievements: {}, globalAchievements: {} };
     settingsManager.settings.gameClockMerge = false;
   });
 
   describe('toModel/fromModel round-trip', () => {
+    it('keeps a scenario and its sections whose data is not available', () => {
+      const game = new Game();
+      const model = game.toModel();
+      model.scenario = new GameScenarioModel('20', 'unknown-edition', undefined, false, '', [1, 2], ['20.1']);
+      model.sections = [new GameScenarioModel('20.2', 'unknown-edition', undefined, false, '', [3])];
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      const restored = new Game();
+      restored.fromModel(model);
+      expect(restored.scenario?.index).toBe('20');
+      expect(restored.scenario?.revealedRooms).toEqual([1, 2]);
+      expect(restored.sections.map((section) => section.index)).toEqual(['20.2']);
+
+      const saved = restored.toModel();
+      expect(saved.scenario).toEqual(expect.objectContaining({ index: '20', edition: 'unknown-edition', revealedRooms: [1, 2] }));
+      expect(saved.sections[0]).toEqual(expect.objectContaining({ index: '20.2', edition: 'unknown-edition', revealedRooms: [3] }));
+      vi.restoreAllMocks();
+    });
+
+    it('keeps challenge cards and deck progress whose data is not available', () => {
+      const game = new Game();
+      const model = game.toModel();
+      model.challengeDeck.cards = [new Identifier('1483', 'unknown-edition'), new Identifier('1525', 'unknown-edition')];
+      model.challengeDeck.current = 1;
+      model.challengeDeck.finished = 0;
+
+      const restored = new Game();
+      restored.fromModel(model);
+      const saved = restored.toModel();
+      expect(saved.challengeDeck.cards).toEqual(model.challengeDeck.cards);
+      expect(saved.challengeDeck.current).toBe(1);
+      expect(saved.challengeDeck.finished).toBe(0);
+    });
+
     it('reproduces basic scalar fields', () => {
       const game = new Game();
       game.revision = 5;
@@ -176,7 +211,7 @@ describe('Game model', () => {
 describe('Game model regressions', () => {
   beforeEach(() => {
     settingsManager.settings.locale = settingsManager.defaultLocale;
-    settingsManager.label.data = { partyAchievements: {}, globalAchievements: {} };
+    labelManager.label.data = { partyAchievements: {}, globalAchievements: {} };
     settingsManager.settings.gameClockMerge = false;
   });
 

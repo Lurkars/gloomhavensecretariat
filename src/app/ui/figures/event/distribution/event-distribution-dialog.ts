@@ -144,7 +144,7 @@ export class EventDistributionDialogComponent {
     let loseTypeCategory: string | undefined;
     let loseExperienceTotal = 0;
 
-    const edition = gameManager.game.edition || gameManager.currentEdition();
+    const edition = gameManager.game.edition || gameManager.editionManager.currentEdition();
 
     for (const effect of this.effects) {
       switch (effect.type) {

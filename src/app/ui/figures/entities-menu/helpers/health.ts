@@ -88,17 +88,9 @@ export class HealthHelper {
       gameManager.stateManager.after();
     }
 
-    if (this.component.maxHealth !== 0 && applicableEntities.length) {
+    if (this.component.maxHealth !== 0 && gameManager.entityManager.canChangeMaxHealth(applicableEntities, this.component.maxHealth)) {
       this.component.before('changeMaxHP', ghsValueSign(this.component.maxHealth));
-      applicableEntities.forEach((entity) => {
-        if (entity.health === EntityValueFunction(entity.maxHealth)) {
-          entity.health += this.component.maxHealth;
-        }
-        entity.maxHealth = EntityValueFunction(entity.maxHealth) + this.component.maxHealth;
-        if (entity.health > entity.maxHealth) {
-          entity.health = entity.maxHealth;
-        }
-      });
+      gameManager.entityManager.changeMaxHealth(applicableEntities, this.component.maxHealth);
       gameManager.stateManager.after();
     }
   }

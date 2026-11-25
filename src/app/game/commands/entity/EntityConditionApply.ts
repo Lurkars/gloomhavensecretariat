@@ -28,11 +28,11 @@ export class EntityConditionApplyCommand extends CommandImpl {
     const entityCondition = this.entityCondition(entity, name);
     if (figure && entity && entityCondition) {
       if (decline) {
-        gameManager.entityManager.declineApplyCondition(entity, figure, entityCondition);
+        gameManager.conditionManager.declineApplyCondition(entity, figure, entityCondition);
       } else {
-        gameManager.entityManager.applyCondition(entity, figure, entityCondition);
+        gameManager.conditionManager.applyCondition(entity, figure, entityCondition);
         if (double) {
-          gameManager.entityManager.applyCondition(entity, figure, entityCondition);
+          gameManager.conditionManager.applyCondition(entity, figure, entityCondition);
         }
       }
     } else {

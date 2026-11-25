@@ -8,16 +8,13 @@ export class ObjectiveAmDeckCommand extends CommandImpl {
 
   validParameters(figureId: string, deck: string): boolean {
     const objectiveContainer = findObjectiveContainer(figureId);
-    return (
-      !!objectiveContainer &&
-      (deck === '' || objectiveContainer.amDeck === deck || gameManager.attackModifierManager.objectiveAmDecks().includes(deck))
-    );
+    return !!objectiveContainer && gameManager.objectiveManager.canSetAmDeck(objectiveContainer, deck);
   }
 
   executeWithParameters(figureId: string, deck: string) {
     const objectiveContainer = findObjectiveContainer(figureId);
     if (objectiveContainer) {
-      objectiveContainer.amDeck = deck || undefined;
+      gameManager.objectiveManager.setAmDeck(objectiveContainer, deck);
     } else {
       this.executionError('objective not found');
     }

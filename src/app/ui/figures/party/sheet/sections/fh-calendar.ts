@@ -71,11 +71,11 @@ export class PartySheetFhCalendarComponent extends PartySheetSection {
       });
     }
 
-    gameManager.stateManager.before('setPartyWeeks', value);
-    for (let week = this.party.weeks; week < value; week++) {
-      gameManager.scenarioManager.passWeekSections(week + 1, gameManager.currentEdition(), undefined, gameManager.game.party.campaignMode);
+    if (!gameManager.campaignManager.canSetWeeks(value)) {
+      return;
     }
-    this.party.weeks = value;
+    gameManager.stateManager.before('setPartyWeeks', value);
+    gameManager.campaignManager.setWeeks(value);
     gameManager.stateManager.after();
     this.update();
   }

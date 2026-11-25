@@ -128,7 +128,7 @@ export class StandeeComponent implements OnInit {
   }
 
   update(): void {
-    this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true, this.isTrapSummon);
+    this.activeConditions = gameManager.conditionManager.activeConditions(this.entity, true, this.isTrapSummon);
     this.entity.immunities.forEach((immunity) => {
       if (!this.activeConditions.find((entityCondition) => entityCondition.name === immunity)) {
         this.activeConditions.push(new EntityCondition(immunity));
@@ -258,15 +258,6 @@ export class StandeeComponent implements OnInit {
         center: summon.entityConditions.length % 2 === 0,
         fh: summon.color === SummonColor.fh
       };
-      if (summon.trap) {
-        this.entity.extraActions = [];
-        if (summon.movement) {
-          this.entity.extraActions.push(new Action(ActionType.damage, summon.movement));
-        }
-        if (summon.attack) {
-          this.entity.extraActions.push(new Action(ActionType.heal, summon.attack));
-        }
-      }
     }
 
     this.healthClasses = {
@@ -284,11 +275,14 @@ export class StandeeComponent implements OnInit {
       };
     }
 
-    this.extraActions = [
-      ...this.entity.extraActions.filter(
-        (action) => action.type !== ActionType.extra && action.type !== ActionType.shield && action.type !== ActionType.retaliate
-      )
-    ];
+    const trapActions = isSummon ? gameManager.actionsManager.trapActions(gameManager.toSummon(this.entity)) : [];
+    this.extraActions = trapActions.length
+      ? trapActions
+      : [
+          ...this.entity.extraActions.filter(
+            (action) => action.type !== ActionType.extra && action.type !== ActionType.shield && action.type !== ActionType.retaliate
+          )
+        ];
     this.extraActionsPersistent = [
       ...this.entity.extraActionsPersistent.filter(
         (action) => action.type !== ActionType.extra && action.type !== ActionType.shield && action.type !== ActionType.retaliate
@@ -340,12 +334,6 @@ export class StandeeComponent implements OnInit {
     this.health = 0;
   }
 
-  normalizedRetaliateRange(action: Action): number {
-    const rangeSubAction = action.subActions.find((subAction) => subAction.type === ActionType.range);
-    const range = rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 1;
-    return range <= 1 ? 1 : range;
-  }
-
   actionHintLabel(actionHint: ActionHint): string {
     return (
       '%game.action.' + actionHint.type + '% ' + actionHint.value + (actionHint.range > 1 ? ' %game.action.range% ' + actionHint.range : '')
@@ -353,43 +341,23 @@ export class StandeeComponent implements OnInit {
   }
 
   removeActionHint(actionHint: ActionHint) {
-    const actions = this.entity.extraActions.filter((action) => {
-      if (action.type !== actionHint.type) {
-        return true;
-      }
-
-      if (actionHint.type === ActionType.retaliate) {
-        return this.normalizedRetaliateRange(action) !== (actionHint.range > 1 ? actionHint.range : 1);
-      }
-
-      return false;
-    });
-
-    const persistentActions = this.entity.extraActionsPersistent.filter((action) => {
-      if (action.type !== actionHint.type) {
-        return true;
-      }
-
-      if (actionHint.type === ActionType.retaliate) {
-        return this.normalizedRetaliateRange(action) !== (actionHint.range > 1 ? actionHint.range : 1);
-      }
-
-      return false;
-    });
-
+    if (!gameManager.actionsManager.canRemoveActionHint(this.entity, actionHint)) {
+      return;
+    }
     gameManager.stateManager.before(
       ...gameManager.entityManager.undoInfos(this.entity, this.figure, 'changeEntityExtraActions'),
       this.actionHintLabel(actionHint)
     );
-    this.entity.extraActions = actions;
-    this.entity.extraActionsPersistent = persistentActions;
+    gameManager.actionsManager.removeActionHint(this.entity, actionHint);
     gameManager.stateManager.after();
   }
 
   removeExtraAction(action: Action, persistent: boolean = false) {
-    const actions = persistent
-      ? this.entity.extraActionsPersistent.filter((other) => other != action)
-      : this.entity.extraActions.filter((other) => other != action);
+    const index = gameManager.actionsManager.extraActions(this.entity, persistent).indexOf(action);
+    if (!gameManager.actionsManager.canRemoveExtraAction(this.entity, index, persistent)) {
+      return;
+    }
+    const actions = gameManager.actionsManager.extraActionsWithout(this.entity, index, persistent);
 
     gameManager.entityManager.before(
       this.entity,
@@ -400,25 +368,18 @@ export class StandeeComponent implements OnInit {
         : gameManager.actionsManager.extraActionLabel(action)
     );
 
-    if (persistent) {
-      this.entity.extraActionsPersistent = actions;
-    } else {
-      this.entity.extraActions = actions;
-    }
-
+    gameManager.actionsManager.removeExtraAction(this.entity, index, persistent);
     gameManager.stateManager.after();
   }
 
   removeCondition(entityCondition: EntityCondition) {
-    if (gameManager.entityManager.removeImmunityPlaceholder(this.entity, this.figure, entityCondition)) {
-      return;
-    }
-    gameManager.entityManager.before(this.entity, this.figure, 'removeCondition', entityCondition.name);
-    if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
-      entityCondition.value--;
-    } else {
-      gameManager.entityManager.removeCondition(this.entity, this.figure, entityCondition, entityCondition.permanent);
-    }
+    gameManager.entityManager.before(
+      this.entity,
+      this.figure,
+      gameManager.conditionManager.isImmunityPlaceholder(this.entity, entityCondition) ? 'removeImmunity' : 'removeCondition',
+      entityCondition.name
+    );
+    gameManager.conditionManager.reduceCondition(this.entity, this.figure, entityCondition);
     gameManager.stateManager.after();
   }
 
@@ -434,7 +395,7 @@ export class StandeeComponent implements OnInit {
     const edition = marker.split('-')[0];
     const name = marker.split('-').slice(1).join('-');
     gameManager.entityManager.before(this.entity, this.figure, 'removeCharacterMarker', marker, edition + '.' + name);
-    this.entity.markers = this.entity.markers.filter((value) => value !== marker);
+    gameManager.entityManager.setMarker([this.entity], marker, false);
     gameManager.stateManager.after();
   }
 
@@ -442,27 +403,33 @@ export class StandeeComponent implements OnInit {
     if (this.entity.revealed) {
       this.entity.revealed = false;
     } else if (settingsManager.settings.activeStandees && this.entity instanceof MonsterEntity) {
-      gameManager.stateManager.before(
-        this.figure.type + (this.entity.active ? 'UnsetEntityActive' : 'SetEntityActive'),
-        this.figure.name,
-        this.entity.number,
-        this.additionalType()
-      );
-      gameManager.entityManager.toggleActive(this.figure, this.entity);
-      gameManager.stateManager.after();
+      if (gameManager.entityManager.canSetEntityActive(this.figure, this.entity, !this.entity.active)) {
+        gameManager.stateManager.before(
+          this.figure.type + (this.entity.active ? 'UnsetEntityActive' : 'SetEntityActive'),
+          this.figure.name,
+          this.entity.number,
+          this.additionalType()
+        );
+        gameManager.entityManager.setEntityActive(this.figure, this.entity, !this.entity.active);
+        gameManager.stateManager.after();
+      }
     } else if (settingsManager.settings.activeSummons && this.entity instanceof Summon) {
       this.toggleActive();
     }
   }
 
   toggleActive() {
-    if (this.entity instanceof Summon && this.figure instanceof Character) {
+    if (
+      this.entity instanceof Summon &&
+      this.figure instanceof Character &&
+      gameManager.entityManager.canSetEntityActive(this.figure, this.entity, !this.entity.active)
+    ) {
       gameManager.stateManager.before(
         this.entity.active ? 'summonInactive' : 'summonActive',
         gameManager.characterManager.characterName(this.figure, true, true),
         'data.summon.' + this.entity.name
       );
-      gameManager.characterManager.toggleSummonActive(this.figure, this.entity);
+      gameManager.entityManager.setEntityActive(this.figure, this.entity, !this.entity.active);
       gameManager.stateManager.after();
     }
   }
@@ -472,7 +439,7 @@ export class StandeeComponent implements OnInit {
       if (settingsManager.settings.randomStandees) {
         const number = gameManager.monsterManager.monsterRandomStandee(this.figure);
         gameManager.stateManager.before('addRandomStandee', 'data.monster.' + this.figure.name, 'monster.' + this.entity.type, number);
-        this.entity.number = number;
+        gameManager.monsterManager.renumberStandee(this.figure, this.entity, number);
         gameManager.stateManager.after();
       } else {
         this.dialog.open(MonsterNumberPickerDialog, {

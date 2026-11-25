@@ -69,7 +69,7 @@ export class ScenarioMenuComponent implements OnInit {
         gameManager.game.party.scenarios.length > 0 &&
         gameManager.game.party.scenarios[gameManager.game.party.scenarios.length - 1].edition) ||
       // set edition or first
-      gameManager.currentEdition();
+      gameManager.editionManager.currentEdition();
 
     this.updateGroups();
     this.setEditions();
@@ -77,16 +77,17 @@ export class ScenarioMenuComponent implements OnInit {
 
   setEditions() {
     if (gameManager.game.edition) {
-      this.editions = gameManager.relevantEditions(gameManager.game.edition, true);
+      this.editions = gameManager.editionManager.relevantEditions(gameManager.game.edition, true);
     } else {
-      this.editions = gameManager.editionData.map((editionData) => editionData.edition);
+      this.editions = gameManager.editionManager.editionData.map((editionData) => editionData.edition);
     }
 
     this.editions = this.editions.filter((edition) => gameManager.scenarioManager.scenarioData(edition).length > 0);
 
     this.hasRandom =
       (this.edition &&
-        gameManager.sectionData(this.edition).find((sectionData) => sectionData.group === 'randomMonsterCard') !== undefined) ||
+        gameManager.editionManager.sectionData(this.edition).find((sectionData) => sectionData.group === 'randomMonsterCard') !==
+          undefined) ||
       false;
   }
 
@@ -180,7 +181,7 @@ export class ScenarioMenuComponent implements OnInit {
             scenarioData,
             successSet.has(`${scenarioData.group ?? ''}:${scenarioData.index}`),
             blockedIndices.has(`${scenarioData.group ?? ''}:${scenarioData.index}`),
-            gameManager.scenarioManager.isLocked(scenarioData)
+            gameManager.scenarioRequirementsManager.isLocked(scenarioData)
           )
       );
 
@@ -197,15 +198,15 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   setScenario(scenarioData: ScenarioData) {
-    if (!gameManager.scenarioManager.isCurrent(scenarioData)) {
-      if (gameManager.scenarioManager.isLocked(scenarioData)) {
+    if (!gameManager.scenarioRequirementsManager.isCurrent(scenarioData)) {
+      if (gameManager.scenarioRequirementsManager.isLocked(scenarioData)) {
         this.dialog.open(ScenarioRequirementsDialogComponent, {
           panelClass: ['dialog'],
           data: { scenarioData: scenarioData }
         });
       } else {
         gameManager.stateManager.before('setScenario', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-        gameManager.scenarioManager.setScenario(scenarioData as Scenario);
+        gameManager.scenarioManager.selectScenario(scenarioData);
         gameManager.stateManager.after();
       }
       this.closed.emit();
@@ -215,30 +216,28 @@ export class ScenarioMenuComponent implements OnInit {
   resetScenario() {
     if (gameManager.game.scenario) {
       gameManager.stateManager.before('resetScenario', ...gameManager.scenarioManager.scenarioUndoArgs());
-      gameManager.roundManager.resetScenario();
-      gameManager.scenarioManager.setScenario(gameManager.game.scenario);
+      gameManager.scenarioManager.resetScenario();
       this.closed.emit();
       gameManager.stateManager.after();
     }
   }
 
   customScenario() {
-    if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
-      gameManager.stateManager.before('setCustomScenario');
-      gameManager.scenarioManager.setScenario(gameManager.scenarioManager.createScenario());
-      gameManager.stateManager.after();
-    } else {
-      gameManager.stateManager.before('unsetCustomScenario');
-      gameManager.scenarioManager.setScenario(undefined);
-      this.edition = gameManager.game.edition || gameManager.editions()[0];
+    const custom = !gameManager.game.scenario || !gameManager.game.scenario.custom;
+    if (gameManager.scenarioManager.canSetCustomScenario(custom)) {
+      gameManager.stateManager.before(custom ? 'setCustomScenario' : 'unsetCustomScenario');
+      gameManager.scenarioManager.setCustomScenario(custom);
+      if (!custom) {
+        this.edition = gameManager.game.edition || gameManager.editionManager.editions()[0];
+      }
       gameManager.stateManager.after();
     }
   }
 
   customScenarioName(event: any) {
-    if (gameManager.game.scenario && gameManager.game.scenario.custom) {
+    if (gameManager.scenarioManager.canSetCustomScenarioName(event.target.value)) {
       gameManager.stateManager.before('changeCustomScenario', event.target.value);
-      gameManager.game.scenario.name = event.target.value;
+      gameManager.scenarioManager.setCustomScenarioName(event.target.value);
       gameManager.stateManager.after();
     }
   }

@@ -32,7 +32,7 @@
       @if (edit) {
         <a (click)="defaultSort()"><span [ghs-label]="'game.cards.defaultSort'"></span></a>
       }
-      @if (gameManager.monsterManager.getSameDeckMonster(monster)) {
+      @if (gameManager.monsterAbilityManager.getSameDeckMonster(monster)) {
         <label
           ><input type="checkbox" (click)="toggleDrawExtra()" [checked]="monster.drawExtra" />
           <span [ghs-label]="'game.cards.drawExtra'"></span>
@@ -60,15 +60,17 @@
             cdkDrag
             [ngClass]="{
               'expanded-ability': settingsManager.settings.showExpandedAbilityCard && (reveal === 2 || abilityCard.revealed),
-              'bottom-actions': gameManager.hasBottomAbility(abilityCard),
-              drawn: index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1
+              'bottom-actions': gameManager.editionManager.hasBottomAbility(abilityCard),
+              drawn: index < gameManager.monsterAbilityManager.drawnAbilities(monster) - monster.ability - 1
             }"
           >
             <ghs-ability-card
               [abilityCard]="abilityCard"
               [monster]="monster"
               [flipped]="
-                reveal === 2 || index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1 || abilityCard.revealed
+                reveal === 2 ||
+                index < gameManager.monsterAbilityManager.drawnAbilities(monster) - monster.ability - 1 ||
+                abilityCard.revealed
               "
               [reveal]="true"
               (revealedChanged)="onRevealedChange(index + monster.ability + 1, $event)"
@@ -115,7 +117,7 @@
             cdkDrag
             [ngClass]="{
               'expanded-ability': settingsManager.settings.showExpandedAbilityCard,
-              'bottom-actions': gameManager.hasBottomAbility(abilityCard)
+              'bottom-actions': gameManager.editionManager.hasBottomAbility(abilityCard)
             }"
           >
             <ghs-ability-card [abilityCard]="abilityCard" [monster]="monster" [flipped]="true"> </ghs-ability-card>
@@ -138,7 +140,7 @@
               class="container"
               [ngClass]="{
                 'expanded-ability': settingsManager.settings.showExpandedAbilityCard,
-                'bottom-actions': gameManager.hasBottomAbility(abilityCard)
+                'bottom-actions': gameManager.editionManager.hasBottomAbility(abilityCard)
               }"
             >
               <ghs-ability-card [abilityCard]="abilityCard" [monster]="monster" [flipped]="true"> </ghs-ability-card>

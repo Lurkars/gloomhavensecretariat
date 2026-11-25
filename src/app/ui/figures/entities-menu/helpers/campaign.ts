@@ -51,7 +51,7 @@ export class CampaignHelper {
 
     if (this.inspiration !== 0) {
       gameManager.stateManager.before('eventEffect.inspiration', ghsValueSign(this.inspiration));
-      gameManager.game.party.inspiration += this.inspiration;
+      gameManager.campaignManager.changeInspiration(this.inspiration);
       gameManager.stateManager.after();
     }
 
@@ -69,7 +69,7 @@ export class CampaignHelper {
   }
 
   drawRandomItem(blueprint: boolean = false) {
-    const itemData = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), blueprint);
+    const itemData = gameManager.itemManager.drawRandomItem(gameManager.editionManager.currentEdition(), blueprint);
     if (itemData || blueprint) {
       openEventRandomItemDialog(this.component.dialog, itemData, blueprint);
     }
@@ -77,8 +77,8 @@ export class CampaignHelper {
 
   drawRandomScenario(section: boolean = false) {
     const scenarioData = section
-      ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition())
-      : gameManager.scenarioManager.drawRandomScenario(gameManager.currentEdition());
+      ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.editionManager.currentEdition())
+      : gameManager.scenarioManager.drawRandomScenario(gameManager.editionManager.currentEdition());
 
     if (scenarioData || section) {
       this.component.dialog

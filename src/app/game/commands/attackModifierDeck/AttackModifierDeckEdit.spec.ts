@@ -124,7 +124,8 @@ describe('Attack modifier deck commands', () => {
     new AttackModifierDeckDiscardCommand('m', 'plus1', true).execute();
     expect(deck.discarded).toEqual([1]);
     expect(new AttackModifierDeckDiscardCommand('m', 'plus1', true).validParameters('m', 'plus1', true)).toBe(false);
-    new AttackModifierDeckDiscardCommand('m', 'plus1', false).execute();
+    expect(new AttackModifierDeckDiscardCommand('m', 'plus1', false).validParameters('m', 'plus1', false)).toBe(false);
+    new AttackModifierDeckDiscardCommand('m', 'plus1', false, true).execute();
     expect(deck.discarded).toEqual([]);
   });
 

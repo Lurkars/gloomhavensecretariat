@@ -4,7 +4,6 @@ import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Favor } from 'src/app/game/model/data/Trials';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
@@ -30,14 +29,15 @@ export class FavorsComponent implements OnInit {
   gameFavors: Identifier[] = [];
   gameFavorPoints: number[] = [];
   change: boolean = false;
+  forced: boolean = false;
   disabled: boolean = false;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
   ngOnInit(): void {
-    const editionData = gameManager.editionData.find(
-      (editionData) => editionData.edition === gameManager.currentEdition() && editionData.favors
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => editionData.edition === gameManager.editionManager.currentEdition() && editionData.favors
     );
     if (editionData) {
       this.favors = editionData.favors;
@@ -49,60 +49,41 @@ export class FavorsComponent implements OnInit {
 
   update(change: boolean = true) {
     this.change = change;
-    this.disabled = !gameManager.roundManager.firstRound;
+    this.disabled = !gameManager.trialsManager.favorsEditable();
     this.activeFavors = [];
     this.favors.forEach((favor, index) => {
       this.activeFavors[index] = this.gameFavors.filter((value) => value.edition === favor.edition && value.name === favor.name).length;
     });
-
-    this.spentPoints = this.activeFavors.length
-      ? this.activeFavors.map((count, index) => count * this.favors[index].points).reduce((a, b) => a + b)
-      : 0;
-
-    this.availablePoints = Math.min(
-      Math.max((this.gameFavorPoints.length ? this.gameFavorPoints.reduce((a, b) => a + b) : 0) - this.spentPoints, 0),
-      7
-    );
-
-    this.leftPoints = gameManager.game.monsterAttackModifierDeck.cards
-      .filter((am) => am.type === AttackModifierType.minus1 || am.type === AttackModifierType.minus2)
-      .map((am) => (am.type === AttackModifierType.minus1 ? 1 : 2));
-
-    this.gameFavorPoints.forEach((point) => {
-      const index = this.leftPoints.indexOf(point);
-      if (index !== -1) {
-        this.leftPoints.splice(index, 1);
-      }
-    });
+    this.spentPoints = gameManager.trialsManager.favorPointsSpent(this.gameFavors);
+    this.availablePoints = gameManager.trialsManager.favorPointsAvailable(this.gameFavors, this.gameFavorPoints);
+    this.leftPoints = gameManager.trialsManager.favorPointsLeft(this.gameFavorPoints);
   }
 
   toggleKeep() {
     gameManager.stateManager.before(gameManager.game.keepFavors ? 'favorKeepOff' : 'favorKeepOn');
-    gameManager.game.keepFavors = !gameManager.game.keepFavors;
+    gameManager.trialsManager.setKeepFavors(!gameManager.game.keepFavors);
     gameManager.stateManager.after();
   }
 
   addSpentPoints(points: number, force: boolean = false) {
-    if (
-      (!this.disabled &&
-        this.leftPoints.includes(points) &&
-        (!this.gameFavorPoints.length || this.gameFavorPoints.reduce((a, b) => a + b) + points <= 7)) ||
-      force
-    ) {
+    if (gameManager.trialsManager.canAddFavorPoint(this.gameFavorPoints, points, force)) {
+      this.forced = this.forced || force;
       this.gameFavorPoints.push(points);
       this.update();
     }
   }
 
   unspentPoints(index: number, force: boolean = false) {
-    if ((!this.disabled && this.gameFavorPoints.reduce((a, b) => a + b) - this.gameFavorPoints[index] >= this.spentPoints) || force) {
+    if (gameManager.trialsManager.canRemoveFavorPoint(this.gameFavors, this.gameFavorPoints, index, force)) {
+      this.forced = this.forced || force;
       this.gameFavorPoints.splice(index, 1);
       this.update();
     }
   }
 
   selectFavor(favor: Favor, force: boolean = false) {
-    if ((!this.disabled && this.availablePoints >= favor.points) || force) {
+    if (gameManager.trialsManager.canSelectFavor(this.gameFavors, this.gameFavorPoints, favor, force)) {
+      this.forced = this.forced || force;
       this.gameFavors.push(new Identifier(favor.name, favor.edition));
       this.update();
     }
@@ -111,6 +92,7 @@ export class FavorsComponent implements OnInit {
   unselectFavor(favor: Favor, force: boolean = false) {
     const identifier = this.gameFavors.find((value) => value.edition === favor.edition && value.name === favor.name);
     if (identifier && (!this.disabled || force)) {
+      this.forced = this.forced || force;
       this.gameFavors.splice(this.gameFavors.indexOf(identifier), 1);
       this.update();
     }
@@ -121,10 +103,10 @@ export class FavorsComponent implements OnInit {
   }
 
   apply(): void {
-    if (this.change) {
+    if (this.change && gameManager.trialsManager.canApplyFavors(this.gameFavors, this.gameFavorPoints, this.forced)) {
       gameManager.stateManager.before('applyFavorSelection');
 
-      gameManager.trialsManager.applyFavors(this.gameFavors, this.gameFavorPoints, this.availablePoints);
+      gameManager.trialsManager.applyFavors(this.gameFavors, this.gameFavorPoints, this.forced);
       this.availablePoints = 0;
       gameManager.stateManager.after();
       this.dialogRef.close();

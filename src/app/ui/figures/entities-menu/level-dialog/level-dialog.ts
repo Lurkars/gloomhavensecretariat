@@ -3,7 +3,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -55,7 +55,7 @@ export class CharacterLevelDialogComponent implements OnInit {
       }
       for (let i = 0; i < this.titles.length; i++) {
         if (!this.titles[i]) {
-          this.titles[i] = settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
+          this.titles[i] = labelManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
         }
       }
     }
@@ -73,8 +73,7 @@ export class CharacterLevelDialogComponent implements OnInit {
     const characterTitleInput = this.characterTitleInput();
     if (characterTitleInput) {
       characterTitleInput.nativeElement.value =
-        this.character.title ||
-        settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
+        this.character.title || labelManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
     }
   }
 
@@ -107,21 +106,18 @@ export class CharacterLevelDialogComponent implements OnInit {
   }
 
   close() {
-    if (this.level !== this.character.level) {
+    if (this.level !== this.character.level && gameManager.characterManager.canSetLevel(this.character, this.level)) {
       gameManager.entityManager.before(this.character, this.character, 'setLevel', this.level);
       gameManager.characterManager.setLevel(this.character, this.level);
       gameManager.stateManager.after();
     }
 
-    if (this.maxHp) {
+    if (this.maxHp && gameManager.entityManager.canChangeMaxHealth([this.character], this.maxHp)) {
       gameManager.entityManager.before(this.character, this.character, 'changeMaxHP', ghsValueSign(this.maxHp));
-      if (this.character.maxHealth + this.maxHp < this.character.maxHealth || this.character.health === this.character.maxHealth) {
-        this.character.health = this.character.maxHealth + this.maxHp;
-      }
-      this.character.maxHealth += this.maxHp;
+      gameManager.entityManager.changeMaxHealth([this.character], this.maxHp);
       gameManager.stateManager.after();
-      this.maxHp = 0;
     }
+    this.maxHp = 0;
 
     let title = this.character.title;
 
@@ -133,7 +129,7 @@ export class CharacterLevelDialogComponent implements OnInit {
     if (this.titles.length > 0) {
       for (let i = 0; i < this.titles.length; i++) {
         if (
-          this.titles[i] === settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
+          this.titles[i] === labelManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())
         ) {
           this.titles[i] = '';
         }
@@ -145,7 +141,7 @@ export class CharacterLevelDialogComponent implements OnInit {
       }
     }
 
-    if (title !== settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
+    if (title !== labelManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
       if (this.character.title !== title) {
         gameManager.entityManager.before(this.character, this.character, 'setTitle', title);
         this.character.title = title;

@@ -12,17 +12,11 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 })
 export class CharacterSheetMasteriesComponent extends CharacterSheetSection {
   toggleMastery(index: number) {
-    if (!this.character.progress.masteries) {
-      this.character.progress.masteries = [];
+    const value = !(this.character.progress.masteries || []).includes(index);
+    if (gameManager.characterManager.canSetMastery(this.character, index, value)) {
+      gameManager.stateManager.before(value ? 'addMastery' : 'removeMastery', this.characterName, index);
+      gameManager.characterManager.setMastery(this.character, index, value);
+      gameManager.stateManager.after();
     }
-
-    if (!this.character.progress.masteries.includes(index)) {
-      gameManager.stateManager.before('addMastery', this.characterName, index);
-      this.character.progress.masteries.push(index);
-    } else {
-      gameManager.stateManager.before('removeMastery', this.characterName, index);
-      this.character.progress.masteries.splice(this.character.progress.masteries.indexOf(index), 1);
-    }
-    gameManager.stateManager.after();
   }
 }

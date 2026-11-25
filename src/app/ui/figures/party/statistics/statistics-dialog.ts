@@ -74,7 +74,7 @@ export class StatisticsDialogComponent implements OnInit {
         this.characters.push(
           ...gameManager.game.party.retirements.map((characterModel) => {
             const character = new Character(
-              gameManager.getCharacterData(characterModel.name, characterModel.edition),
+              gameManager.editionManager.getCharacterData(characterModel.name, characterModel.edition),
               characterModel.level
             );
             character.fromModel(characterModel);
@@ -87,7 +87,7 @@ export class StatisticsDialogComponent implements OnInit {
         this.characters.push(
           ...gameManager.game.party.availableCharacters.map((characterModel) => {
             const character = new Character(
-              gameManager.getCharacterData(characterModel.name, characterModel.edition),
+              gameManager.editionManager.getCharacterData(characterModel.name, characterModel.edition),
               characterModel.level
             );
             character.fromModel(characterModel);

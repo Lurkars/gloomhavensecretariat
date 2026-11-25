@@ -18,7 +18,7 @@ describe('Round commands', () => {
       settingsManager.settings.turnConfirmation = false;
       const character = createTestCharacter(1);
       gameManager.game.state = GameState.next;
-      const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation((figure) => {
+      const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation((figure) => {
         figure.off = true;
       });
       const nextGameState = vi.spyOn(gameManager.roundManager, 'nextGameState').mockImplementation(() => {});
@@ -41,7 +41,7 @@ describe('Round commands', () => {
       const character = createTestCharacter(1);
       expect(new RoundEndAllTurnsCommand(1).validParameters(1)).toBe(false);
       gameManager.game.state = GameState.next;
-      const afterTurn = vi.spyOn(gameManager.roundManager, 'afterTurn').mockImplementation(() => {});
+      const afterTurn = vi.spyOn(gameManager.turnManager, 'afterTurn').mockImplementation(() => {});
       new RoundEndAllTurnsCommand(1).execute();
       expect(afterTurn).toHaveBeenCalledWith(character);
     });

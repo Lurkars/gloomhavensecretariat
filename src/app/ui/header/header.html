@@ -5,10 +5,10 @@
     </a>
   </div>
   @if (!standalone() || connection()) {
-    @if (gameManager.stateManager.serverError) {
+    @if (gameManager.serverSyncManager.serverError) {
       <img
         src="./assets/images/warning.svg"
-        [ghs-tooltip]="gameManager.stateManager.serverError"
+        [ghs-tooltip]="gameManager.serverSyncManager.serverError"
         class="ghs-svg server-connection closed"
         [ghs-label]="'server.error'"
         [ghs-label-attribute]="'title'"
@@ -48,7 +48,7 @@
       }
       @case (WebSocket.CLOSED) {
         <a
-          (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu(SubMenu.server)"
+          (click)="settingsManager.settings.serverAutoconnect ? gameManager.serverSyncManager.connect() : openMenu(SubMenu.server)"
           [ghs-label]="'server.reconnected'"
           [ghs-label-attribute]="'title'"
           class="server-connection-status"
@@ -69,7 +69,7 @@
       }
       @case (-1) {
         <a
-          (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu(SubMenu.server)"
+          (click)="settingsManager.settings.serverAutoconnect ? gameManager.serverSyncManager.connect() : openMenu(SubMenu.server)"
           [ghs-label]="'server.reconnected'"
           [ghs-label-attribute]="'title'"
           class="server-connection-status"
@@ -89,7 +89,7 @@
     @if (syncing) {
       <img src="./assets/images/shuffle.svg" class="server-connection syncing" />
     }
-    @if (!syncing && gameManager.stateManager.wsState() !== -99 && gameManager.game.server) {
+    @if (!syncing && gameManager.serverSyncManager.wsState() !== -99 && gameManager.game.server) {
       <span class="game-server">°</span>
     }
     @if (projectContent()) {
@@ -156,12 +156,7 @@
         [originY]="'bottom'"
         [overlayY]="'top'"
       >
-        <img
-          class="ghs-svg"
-          [src]="
-            './assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state === GameState.next ? '-effects' : '') + '.svg'
-          "
-        />
+        <img class="ghs-svg" [src]="'./assets/images/event' + (gameManager.scenarioManager.scenarioRunning() ? '-effects' : '') + '.svg'" />
       </div>
     }
     @if (gameManager.hasCampaignSheet() && settingsManager.settings.partySheet) {

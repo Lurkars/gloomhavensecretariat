@@ -7,16 +7,13 @@ export class RoundNextCommand extends CommandImpl {
   id: string = 'round.next';
   requiredParameters: number = 1;
 
-  validParameters(seed: number): boolean {
-    if (!validSeed(seed)) {
-      return false;
-    }
-    return gameManager.game.state === GameState.next || gameManager.roundManager.drawAvailable();
+  validParameters(seed: number, force: boolean = false): boolean {
+    return validSeed(seed) && typeof force === 'boolean' && gameManager.roundManager.canNextRound(force);
   }
 
-  executeWithParameters(seed: number) {
+  executeWithParameters(seed: number, force: boolean = false) {
     gameManager.game.seed = seed;
-    gameManager.roundManager.nextRound();
+    gameManager.roundManager.nextRound(force);
   }
 }
 

@@ -13,7 +13,7 @@ export class CharacterReplayCommand extends CommandImpl {
   }
 
   character(model: GameCharacterModel): Character {
-    const character = new Character(gameManager.getCharacterData(model.name, model.edition), model.level);
+    const character = new Character(gameManager.editionManager.getCharacterData(model.name, model.edition), model.level);
     character.fromModel(model);
     return character;
   }

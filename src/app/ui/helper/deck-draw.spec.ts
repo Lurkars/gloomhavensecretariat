@@ -23,9 +23,11 @@ class TestDeckComponent extends DeckDrawDirective {
     return this.all;
   }
 
-  protected override drawn(index: number): number {
+  pending: Promise<number> | undefined;
+
+  protected override drawn(index: number): number | Promise<number> {
     this.drawnIndices.push(index);
-    return this.delay;
+    return this.pending || this.delay;
   }
 
   protected override queueFinished() {
@@ -60,7 +62,7 @@ describe('DeckDrawDirective', () => {
     settingsManager.settings.animationSpeed = animationSpeed;
   });
 
-  it('animates queued draws one card after another', () => {
+  it('animates queued draws one card after another', async () => {
     component.deck.current = 0;
     component.sync();
     expect(component.current).toBe(0);
@@ -71,25 +73,25 @@ describe('DeckDrawDirective', () => {
     expect(component.current).toBe(0);
     expect(component.queue).toBe(2);
 
-    vi.advanceTimersByTime(1050);
+    await vi.advanceTimersByTimeAsync(1050);
     expect(component.current).toBe(1);
-    vi.advanceTimersByTime(1050);
+    await vi.advanceTimersByTimeAsync(1050);
     expect(component.current).toBe(2);
-    vi.advanceTimersByTime(1050);
+    await vi.advanceTimersByTimeAsync(1050);
     expect(component.drawing).toBe(false);
     expect(component.queue).toBe(0);
     expect(component.drawnIndices).toEqual([0, 1, 2]);
     expect(component.finished).toBe(1);
   });
 
-  it('jumps to the deck on a bulk change from the initial state', () => {
+  it('jumps to the deck on a bulk change from the initial state', async () => {
     component.deck.current = 3;
     component.sync();
     expect(component.current).toBe(3);
     expect(component.drawing).toBe(false);
   });
 
-  it('draws all cards at once when requested', () => {
+  it('draws all cards at once when requested', async () => {
     component.current = 0;
     component.all = true;
     component.deck.current = 3;
@@ -99,19 +101,38 @@ describe('DeckDrawDirective', () => {
     expect(component.drawing).toBe(true);
   });
 
-  it('holds the queue for the extra delay of a drawn card', () => {
+  it('holds the queue for the extra delay of a drawn card', async () => {
     component.delay = 500;
     component.deck.current = 0;
     component.sync();
     component.deck.current = 1;
     component.sync();
-    vi.advanceTimersByTime(1050);
+    await vi.advanceTimersByTimeAsync(1050);
     expect(component.current).toBe(0);
-    vi.advanceTimersByTime(500);
+    await vi.advanceTimersByTimeAsync(500);
     expect(component.current).toBe(1);
   });
 
-  it('resets the queue for an inactive deck and when the deck goes back', () => {
+  it('does not continue a queue that was reset while the drawn hook was pending', async () => {
+    component.delay = 0;
+    let resolveDrawn: (value: number) => void = () => {};
+    component.pending = new Promise<number>((resolve) => (resolveDrawn = resolve));
+    component.deck.current = 0;
+    component.sync();
+    component.deck.current = 1;
+    component.sync();
+    await vi.advanceTimersByTimeAsync(1050);
+    expect(component.queueTimeout).not.toBeNull();
+    component.deck.active = false;
+    component.sync();
+    resolveDrawn(0);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(component.drawing).toBe(false);
+    expect(component.queueTimeout).toBeNull();
+    expect(component.current).toBe(1);
+  });
+
+  it('resets the queue for an inactive deck and when the deck goes back', async () => {
     component.deck.current = 0;
     component.sync();
     component.deck.active = false;
@@ -122,8 +143,8 @@ describe('DeckDrawDirective', () => {
     expect(component.queueTimeout).toBeNull();
   });
 
-  it('ignores server updates until the server state is initialized', () => {
-    vi.spyOn(gameManager.stateManager, 'wsState').mockReturnValue(WebSocket.OPEN);
+  it('ignores server updates until the server state is initialized', async () => {
+    vi.spyOn(gameManager.serverSyncManager, 'wsState').mockReturnValue(WebSocket.OPEN);
     component.deck.current = 0;
     component.sync(true);
     expect(component.current).toBe(0);
@@ -136,11 +157,11 @@ describe('DeckDrawDirective', () => {
     vi.restoreAllMocks();
   });
 
-  it('delays the actual draw', () => {
+  it('delays the actual draw', async () => {
     const draw = vi.fn();
     component['delayedDraw'](draw);
     expect(component.drawTimeout).not.toBeNull();
-    vi.advanceTimersByTime(150);
+    await vi.advanceTimersByTimeAsync(150);
     expect(draw).toHaveBeenCalled();
     expect(component.drawTimeout).toBeNull();
   });

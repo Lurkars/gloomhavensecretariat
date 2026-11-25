@@ -15,7 +15,7 @@ export class CharacterRetireCommand extends CommandImpl {
       !!character &&
       !character.progress.retired &&
       typeof additionalPQ === 'string' &&
-      (!additionalPQ || !!gameManager.personalQuestManager.personalQuestByCard(gameManager.currentEdition(), additionalPQ))
+      (!additionalPQ || !!gameManager.personalQuestManager.personalQuestByCard(gameManager.editionManager.currentEdition(), additionalPQ))
     );
   }
 

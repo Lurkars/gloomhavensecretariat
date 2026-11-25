@@ -24,11 +24,11 @@ export class CharacterSheetResourcesComponent extends CharacterSheetSection {
   ];
 
   setResource(type: LootType, event: any) {
-    if (!settingsManager.settings.fhShareResources && !isNaN(+event.target.value)) {
-      const value = Math.max(0, +event.target.value);
+    const value = Math.max(0, Math.floor(+event.target.value));
+    if (!settingsManager.settings.fhShareResources && gameManager.characterManager.canSetResource(type, value)) {
       event.target.value = value;
       gameManager.stateManager.before('setResource', this.characterName, 'game.loot.' + type, value);
-      this.character.progress.loot[type] = value;
+      gameManager.characterManager.setResource(this.character, type, value);
       gameManager.stateManager.after();
     }
   }

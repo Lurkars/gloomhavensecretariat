@@ -83,7 +83,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
             (figure) => figure instanceof Character && figure.edition === queryParams['e'] && figure.name === queryParams['c']
           ) as Character;
           if (!character) {
-            const characterData = gameManager
+            const characterData = gameManager.editionManager
               .charactersData(queryParams['e'])
               .find((characterData) => characterData.edition === queryParams['e'] && characterData.name === queryParams['c']);
             if (characterData) {

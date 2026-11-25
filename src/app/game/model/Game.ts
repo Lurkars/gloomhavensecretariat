@@ -164,7 +164,7 @@ export class Game {
         (figure) => figure instanceof Character && figure.name === value.name && figure.edition === value.edition
       ) as Character;
       if (!character) {
-        character = new Character(gameManager.getCharacterData(value.name, value.edition), value.level);
+        character = new Character(gameManager.editionManager.getCharacterData(value.name, value.edition), value.level);
         this.figures.push(character);
       }
       character.fromModel(value);
@@ -175,7 +175,7 @@ export class Game {
         (figure) => figure instanceof Monster && figure.name === value.name && figure.edition === value.edition
       ) as Monster;
       if (!monster) {
-        monster = new Monster(gameManager.getMonsterData(value.name, value.edition));
+        monster = new Monster(gameManager.editionManager.getMonsterData(value.name, value.edition));
         this.figures.push(monster);
       }
       monster.fromModel(value);
@@ -208,27 +208,24 @@ export class Game {
     this.state = model.state;
 
     if (model.scenario) {
-      const scenarioData = gameManager.scenarioManager.scenarioDataForModel(model.scenario);
-      if (scenarioData) {
-        this.scenario = new Scenario(
-          scenarioData,
-          model.scenario.revealedRooms || [],
-          model.scenario.additionalSections || [],
-          model.scenario.isCustom
-        );
-      } else {
-        this.scenario = undefined;
-      }
+      const scenarioData =
+        gameManager.scenarioManager.scenarioDataForModel(model.scenario) ||
+        gameManager.scenarioManager.unresolvedScenarioData(model.scenario);
+      this.scenario = new Scenario(
+        scenarioData,
+        model.scenario.revealedRooms || [],
+        model.scenario.additionalSections || [],
+        model.scenario.isCustom
+      );
     } else {
       this.scenario = undefined;
     }
 
     this.sections = [];
     model.sections.forEach((value) => {
-      const sectionModelData = gameManager.scenarioManager.sectionDataForModel(value);
-      if (sectionModelData) {
-        this.sections.push(new Scenario(sectionModelData, value.revealedRooms || []));
-      }
+      const sectionModelData =
+        gameManager.scenarioManager.sectionDataForModel(value) || gameManager.scenarioManager.unresolvedScenarioData(value);
+      this.sections.push(new Scenario(sectionModelData, value.revealedRooms || []));
     });
     this.level = model.level;
 
@@ -266,16 +263,16 @@ export class Game {
     this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
     this.figures.forEach((figure) => {
       if (figure instanceof Character && figure.perks && figure.perks.find((perk) => perk.monsterDeck)) {
-        gameManager.attackModifierManager.applyCharacterPerks(figure, this.monsterAttackModifierDeck, true);
+        gameManager.attackModifierBuildManager.applyCharacterPerks(figure, this.monsterAttackModifierDeck, true);
       }
     });
     if (model.monsterAttackModifierDeck && model.monsterAttackModifierDeck.cards && model.monsterAttackModifierDeck.cards.length > 0) {
-      gameManager.attackModifierManager.fromModel(this.monsterAttackModifierDeck, model.monsterAttackModifierDeck);
+      gameManager.attackModifierBuildManager.fromModel(this.monsterAttackModifierDeck, model.monsterAttackModifierDeck);
     }
 
     this.allyAttackModifierDeck = this.allyAttackModifierDeck || new AttackModifierDeck();
     if (model.allyAttackModifierDeck && model.allyAttackModifierDeck.cards && model.allyAttackModifierDeck.cards.length > 0) {
-      gameManager.attackModifierManager.fromModel(this.allyAttackModifierDeck, model.allyAttackModifierDeck);
+      gameManager.attackModifierBuildManager.fromModel(this.allyAttackModifierDeck, model.allyAttackModifierDeck);
     }
 
     this.elementBoard = this.elementBoard || defaultElementBoard;
@@ -373,10 +370,10 @@ export class Game {
     // migration
     this.unlockedCharacters = this.unlockedCharacters.map((c) => {
       if (!c.includes(':')) {
-        const edition = this.edition || gameManager.currentEdition();
-        let characterData = gameManager.getCharacterData(c, edition);
+        const edition = this.edition || gameManager.editionManager.currentEdition();
+        let characterData = gameManager.editionManager.getCharacterData(c, edition);
         if (!characterData) {
-          characterData = gameManager.getCharacterData(c);
+          characterData = gameManager.editionManager.getCharacterData(c);
         }
         if (characterData) {
           return characterData.edition + ':' + characterData.name;
@@ -398,7 +395,7 @@ export class Game {
     this.serverPing = model.serverPing;
     this.finish = model.finish;
     if (settingsManager.settings.gameClockMerge) {
-      this.gameClock = gameManager.mergeGameClocks(this.gameClock, model.gameClock);
+      this.gameClock = gameManager.gameClockManager.mergeGameClocks(this.gameClock, model.gameClock);
     } else if (!server) {
       this.gameClock = model.gameClock;
     }

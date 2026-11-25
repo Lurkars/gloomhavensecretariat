@@ -51,7 +51,7 @@ export class DatamanagementMenuComponent implements OnInit {
     if (target.value) {
       target.classList.remove('error');
       target.disabled = true;
-      const success = await settingsManager.addEditionDataUrl(target.value);
+      const success = await gameManager.editionManager.addEditionDataUrl(target.value);
 
       if (success) {
         target.value = '';
@@ -68,7 +68,7 @@ export class DatamanagementMenuComponent implements OnInit {
 
   removeEditionDataUrl(editionDataUrl: string): void {
     if (editionDataUrl) {
-      settingsManager.removeEditionDataUrl(editionDataUrl);
+      gameManager.editionManager.removeEditionDataUrl(editionDataUrl);
     }
   }
 
@@ -77,19 +77,19 @@ export class DatamanagementMenuComponent implements OnInit {
       this.settingsManager.removeEdition(editionData.edition);
     } else {
       this.settingsManager.addEdition(editionData.edition);
-      await this.settingsManager.loadEditionData(editionData.url, true);
+      await gameManager.editionManager.loadEditionData(editionData.url, true);
       this.ghsManager.triggerUiChange();
     }
   }
 
   drop(event: CdkDragDrop<number>) {
     moveItemInArray(settingsManager.settings.editionDataUrls, event.previousIndex, event.currentIndex);
-    moveItemInArray(gameManager.editionData, event.previousIndex, event.currentIndex);
+    moveItemInArray(gameManager.editionManager.editionData, event.previousIndex, event.currentIndex);
     settingsManager.storeSettings();
   }
 
   hasDefaultEditionData(): boolean {
-    return this.settingsManager.defaultEditionDataUrls.every((editionDataUrl) =>
+    return gameManager.editionManager.defaultEditionDataUrls.every((editionDataUrl) =>
       settingsManager.settings.editionDataUrls.includes(editionDataUrl)
     );
   }
@@ -117,9 +117,12 @@ export class DatamanagementMenuComponent implements OnInit {
       }
       target.classList.remove('error');
       target.disabled = true;
-      let characterData = gameManager.getCharacterData(characterName, edition || gameManager.currentEdition());
+      let characterData = gameManager.editionManager.getCharacterData(
+        characterName,
+        edition || gameManager.editionManager.currentEdition()
+      );
       if (!characterData) {
-        characterData = gameManager.getCharacterData(characterName);
+        characterData = gameManager.editionManager.getCharacterData(characterName);
       }
       if (characterData && !gameManager.game.unlockedCharacters.includes(characterData.edition + ':' + characterData.name)) {
         gameManager.stateManager.before('unlockChar', 'data.character.' + characterData.edition + '.' + characterData.name);
@@ -138,10 +141,10 @@ export class DatamanagementMenuComponent implements OnInit {
 
   removeUnlock(characterName: string): void {
     if (characterName.split(':').length > 1) {
-      const characterData = gameManager.getCharacterData(characterName.split(':')[1], characterName.split(':')[0]);
+      const characterData = gameManager.editionManager.getCharacterData(characterName.split(':')[1], characterName.split(':')[0]);
       if (characterName && gameManager.game.unlockedCharacters.includes(characterName) && characterData) {
         gameManager.stateManager.before('unlockChar', 'data.character.' + characterData.edition + '.' + characterData.name);
-        gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(characterName), 1);
+        gameManager.characterManager.lockCharacter(characterName.split(':')[0], characterName.split(':')[1]);
         gameManager.stateManager.after();
       }
     }
@@ -149,7 +152,7 @@ export class DatamanagementMenuComponent implements OnInit {
 
   removeAllUnlocks() {
     gameManager.stateManager.before('removeAllUnlocks');
-    gameManager.game.unlockedCharacters = [];
+    gameManager.characterManager.lockAllCharacters();
     gameManager.stateManager.after();
   }
 
@@ -333,11 +336,12 @@ export class DatamanagementMenuComponent implements OnInit {
     } else {
       try {
         console.warn('clear storage');
-        await storageManager.clear();
         gameManager.stateManager.storageBlocked = true;
+        await storageManager.clear();
         console.info('Reload...');
         window.location.reload();
       } catch {
+        gameManager.stateManager.storageBlocked = false;
         console.error('Could clear storage');
       }
     }

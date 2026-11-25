@@ -42,7 +42,7 @@ export class EventCardDeckComponent {
   types: string[] = [];
   upcomingCards: EventCard[] = [];
   newCards: EventCard[] = [];
-  drawnCards: { identifier: EventCardIdentifier; card: EventCard | undefined }[] = [];
+  drawnCards: { identifier: EventCardIdentifier; card: EventCard | undefined; flipped: boolean }[] = [];
 
   filter: string = '';
   allTypes: boolean = false;
@@ -80,7 +80,8 @@ export class EventCardDeckComponent {
     this.drawnCards = gameManager.game.party.eventCards
       .filter((id) => deck.find((e) => e.edition === id.edition && e.type === id.type && e.cardId === id.cardId))
       .map((id) => {
-        return { identifier: id, card: deck.find((card) => card.cardId === id.cardId) };
+        const previous = this.drawnCards.find((model) => model.identifier === id);
+        return { identifier: id, card: deck.find((card) => card.cardId === id.cardId), flipped: previous ? previous.flipped : true };
       })
       .reverse();
   }
@@ -104,23 +105,33 @@ export class EventCardDeckComponent {
   }
 
   dropUpcoming(event: CdkDragDrop<EventCard[]>) {
-    gameManager.stateManager.before('events.deck.reorder', this.type);
     if (event.container === event.previousContainer) {
-      gameManager.eventCardManager.moveEvent(this.type, event.previousIndex, event.currentIndex);
+      if (gameManager.eventCardManager.canMoveEvent(this.type, event.previousIndex, event.currentIndex)) {
+        gameManager.stateManager.before('events.deck.reorder', this.type);
+        gameManager.eventCardManager.moveEvent(this.type, event.previousIndex, event.currentIndex);
+        gameManager.stateManager.after();
+      }
     } else {
-      gameManager.eventCardManager.insertEvent(this.type, this.newCards[event.previousIndex].cardId, event.currentIndex);
+      const card = this.newCards[event.previousIndex];
+      if (card && gameManager.eventCardManager.canInsertEvent(this.type, card.cardId, event.currentIndex)) {
+        gameManager.stateManager.before('events.deck.reorder', this.type);
+        gameManager.eventCardManager.insertEvent(this.type, card.cardId, event.currentIndex);
+        gameManager.stateManager.after();
+      }
     }
-    gameManager.stateManager.after();
   }
 
   dropNew(event: CdkDragDrop<EventCard[]>) {
-    gameManager.stateManager.before('events.deck.reorder', this.type);
     if (event.container === event.previousContainer) {
       moveItemInArray(this.newCards, event.previousIndex, event.currentIndex);
     } else {
-      gameManager.eventCardManager.removeEvent(this.type, this.upcomingCards[event.previousIndex].cardId);
+      const card = this.upcomingCards[event.previousIndex];
+      if (card && gameManager.eventCardManager.canRemoveEvent(this.type, card.cardId)) {
+        gameManager.stateManager.before('events.deck.reorder', this.type);
+        gameManager.eventCardManager.removeEvent(this.type, card.cardId);
+        gameManager.stateManager.after();
+      }
     }
-    gameManager.stateManager.after();
   }
 
   dropDrawn(event: CdkDragDrop<EventCard[]>) {
@@ -131,7 +142,7 @@ export class EventCardDeckComponent {
       eventCard = this.upcomingCards[event.previousIndex];
     }
 
-    if (eventCard) {
+    if (eventCard && gameManager.eventCardManager.canMarkEventDrawn(event.currentIndex)) {
       gameManager.stateManager.before('events.deck.markDrawn', eventCard.type, eventCard.cardId);
       gameManager.eventCardManager.markEventDrawn(eventCard, event.currentIndex);
       gameManager.stateManager.after();
@@ -139,22 +150,25 @@ export class EventCardDeckComponent {
   }
 
   removeCard(eventCard: EventCard) {
-    gameManager.stateManager.before('events.deck.removeEvent', this.type, eventCard.cardId);
-    gameManager.eventCardManager.removeEvent(eventCard.type, eventCard.cardId);
-    gameManager.stateManager.after();
+    if (gameManager.eventCardManager.canRemoveEvent(eventCard.type, eventCard.cardId)) {
+      gameManager.stateManager.before('events.deck.removeEvent', this.type, eventCard.cardId);
+      gameManager.eventCardManager.removeEvent(eventCard.type, eventCard.cardId);
+      gameManager.stateManager.after();
+    }
   }
 
   addCard(eventCard: EventCard) {
-    gameManager.stateManager.before('events.deck.addEvent', this.type, eventCard.cardId);
-    gameManager.eventCardManager.addEvent(eventCard.type, eventCard.cardId);
-    gameManager.stateManager.after();
+    if (gameManager.eventCardManager.canAddEvent(eventCard.type, eventCard.cardId)) {
+      gameManager.stateManager.before('events.deck.addEvent', this.type, eventCard.cardId);
+      gameManager.eventCardManager.addEvent(eventCard.type, eventCard.cardId);
+      gameManager.stateManager.after();
+    }
   }
 
   removeDrawn(id: EventCardIdentifier) {
-    const index = gameManager.game.party.eventCards.indexOf(id);
-    if (index !== -1) {
+    if (gameManager.eventCardManager.canRemoveDrawnEvent(id)) {
       gameManager.stateManager.before('events.deck.removeDrawn', this.type, id.cardId);
-      gameManager.game.party.eventCards.splice(index, 1);
+      gameManager.eventCardManager.removeDrawnEvent(id);
       gameManager.stateManager.after();
     }
   }
@@ -173,12 +187,12 @@ export class EventCardDeckComponent {
       checks.some((value, index) => (value || 0) !== (newChecks[index] || 0)) ||
       id.attack !== newAttack
     ) {
-      gameManager.stateManager.before('events.deck.changeSelection', this.type, id.cardId);
-      id.selected = newSelected;
-      id.subSelections = [...newSubSelections];
-      id.checks = [...newChecks];
-      id.attack = newAttack;
-      gameManager.stateManager.after(!change ? 750 : 0);
+      const result = new EventCardResult(newSelected, newSubSelections, newChecks, newAttack);
+      if (gameManager.eventCardManager.canSetDrawnEventResult(id, result)) {
+        gameManager.stateManager.before('events.deck.changeSelection', this.type, id.cardId);
+        gameManager.eventCardManager.setDrawnEventResult(id, result);
+        gameManager.stateManager.after(!change ? 750 : 0);
+      }
     }
   }
 

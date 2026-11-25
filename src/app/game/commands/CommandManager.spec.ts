@@ -76,8 +76,11 @@ describe('CommandManager', () => {
 
   describe('known command, CommandExecutionError', () => {
     it('is caught, logged, and reverts the last undo instead of throwing', () => {
-      gameManager.game.state = GameState.draw;
-      expect(() => commandManager.execute('figure.next', false, 1)).not.toThrow();
+      vi.spyOn(RoundStateCommand.prototype, 'checkParameters').mockImplementation(() => {});
+      vi.spyOn(RoundStateCommand.prototype, 'executeWithParameters').mockImplementation(function (this: RoundStateCommand) {
+        this.executionError('boom');
+      });
+      expect(() => commandManager.execute('round.state', false)).not.toThrow();
       expect(console.error).toHaveBeenCalled();
       const errorCall = (console.error as unknown as ReturnType<typeof vi.fn>).mock.calls[0];
       expect(errorCall[0]).toBeInstanceOf(Error);

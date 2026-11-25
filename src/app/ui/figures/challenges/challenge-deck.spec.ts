@@ -115,11 +115,13 @@ describe('ChallengeDeckComponent', () => {
       const component = createComponent(deck);
       component.disabled = false;
       component.current = 1;
-      component.keepAvailable = 2;
+      vi.spyOn(gameManager.challengesManager, 'keepAvailable').mockReturnValue(2);
+      vi.spyOn(gameManager.challengesManager, 'drawPhase').mockReturnValue(true);
       component.clickCard(0, {});
       expect(deck.keep).toEqual([0]);
       component.clickCard(0, {});
       expect(deck.keep).toEqual([]);
+      vi.restoreAllMocks();
     });
 
     it('opens instead of toggling when disabled', () => {

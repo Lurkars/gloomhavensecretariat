@@ -6,7 +6,7 @@ export class LevelSetCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(level: number): boolean {
-    return typeof level === 'number' && level >= 0 && level <= 7;
+    return typeof level === 'number' && gameManager.levelManager.canSetManualLevel(level);
   }
 
   executeWithParameters(level: number) {
@@ -58,7 +58,7 @@ export class LevelBbDifficultyCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(level: number): boolean {
-    return typeof level === 'number' && level >= 0 && level <= 4;
+    return typeof level === 'number' && gameManager.levelManager.canSetBbMonsterDifficulty(level);
   }
 
   executeWithParameters(level: number) {
@@ -97,7 +97,7 @@ export class LevelPlayerCountCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(playerCount: number): boolean {
-    return typeof playerCount === 'number' && (playerCount === -1 || playerCount > 0);
+    return typeof playerCount === 'number' && gameManager.levelManager.canSetPlayerCount(playerCount);
   }
 
   executeWithParameters(playerCount: number) {
@@ -114,6 +114,6 @@ export class LevelSoloCommand extends CommandImpl {
   }
 
   executeWithParameters(solo: boolean) {
-    gameManager.game.solo = solo;
+    gameManager.levelManager.setSolo(solo);
   }
 }

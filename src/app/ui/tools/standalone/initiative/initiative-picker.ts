@@ -88,7 +88,7 @@ export class InitiativePickerComponent {
     const character = this.character();
     if (initiative >= 0 && initiative < 100 && (initiative !== character.initiative || this.longRest !== character.longRest)) {
       this.statusCode = 200;
-      if (gameManager.stateManager.wsState() === WebSocket.OPEN && settingsManager.settings.serverUrl) {
+      if (gameManager.serverSyncManager.wsState() === WebSocket.OPEN && settingsManager.settings.serverUrl) {
         let url = settingsManager.settings.serverWss ? 'https://' : 'http://';
         const parts = settingsManager.settings.serverUrl.split('/');
         url += parts[0];

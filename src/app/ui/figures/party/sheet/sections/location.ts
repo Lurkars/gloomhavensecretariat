@@ -11,9 +11,9 @@ import { GhsLabelDirective } from 'src/app/ui/helper/label';
 })
 export class PartySheetLocationComponent extends PartySheetSection {
   setLocation(event: any) {
-    if (this.party.location !== event.target.value) {
+    if (this.party.location !== event.target.value && gameManager.campaignManager.canSetPartyValue('location', event.target.value)) {
       gameManager.stateManager.before('setPartyLocation', event.target.value);
-      this.party.location = event.target.value;
+      gameManager.campaignManager.setPartyValue('location', event.target.value);
       gameManager.stateManager.after();
     }
   }

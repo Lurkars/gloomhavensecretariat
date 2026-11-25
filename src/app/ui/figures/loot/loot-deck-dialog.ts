@@ -204,32 +204,36 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   dropUpcoming(event: CdkDragDrop<Loot[]>) {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
-    gameManager.lootManager.moveCard(
-      this.deck,
+    this.moveCard(
       event.container === event.previousContainer ? 'upcoming' : 'discarded',
       event.previousIndex,
       'upcoming',
       event.currentIndex
     );
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
-    this.update();
   }
 
   dropDiscarded(event: CdkDragDrop<Loot[]>) {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
-    gameManager.lootManager.moveCard(
-      this.deck,
+    this.moveCard(
       event.container === event.previousContainer ? 'discarded' : 'upcoming',
       event.previousIndex,
       'discarded',
       event.currentIndex
     );
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
-    this.update();
+  }
+
+  private moveCard(fromList: string, fromIndex: number, toList: string, toIndex: number) {
+    if (gameManager.lootManager.canMoveCard(this.deck, fromList, fromIndex, toList, toIndex)) {
+      this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
+      gameManager.lootManager.moveCard(this.deck, fromList, fromIndex, toList, toIndex);
+      this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
+      this.update();
+    }
   }
 
   remove(index: number) {
+    if (!gameManager.lootManager.canRemoveCard(this.deck, index)) {
+      return;
+    }
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
     gameManager.lootManager.removeCard(this.deck, index);
     this.current = this.deck.current;

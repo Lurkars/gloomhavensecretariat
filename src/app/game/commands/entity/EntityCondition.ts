@@ -1,8 +1,7 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findEntities, findFigure } from 'src/app/game/commands/CommandHelper';
-import { Character } from 'src/app/game/model/Character';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data/Condition';
+import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
 
 export class EntityConditionCommand extends CommandImpl {
   id: string = 'entity.condition';
@@ -12,9 +11,7 @@ export class EntityConditionCommand extends CommandImpl {
     return (
       typeof value === 'boolean' &&
       Object.values(ConditionName).includes(name as ConditionName) &&
-      name !== ConditionName.invalid &&
-      !new Condition(name).types.includes(ConditionType.amDeck) &&
-      !new Condition(name).types.includes(ConditionType.immunityOnly) &&
+      gameManager.conditionManager.canAddManualCondition(new Condition(name)) &&
       findEntities(findFigure(figureId), entityId).length > 0
     );
   }
@@ -31,26 +28,12 @@ export class EntityConditionCommand extends CommandImpl {
     if (figure && entities.length) {
       if (!value) {
         entities
-          .filter((entity) => gameManager.entityManager.hasCondition(entity, new Condition(name), permanent))
-          .forEach((entity) => gameManager.entityManager.removeCondition(entity, figure, new Condition(name), permanent));
+          .filter((entity) => gameManager.conditionManager.hasCondition(entity, new Condition(name), permanent))
+          .forEach((entity) => gameManager.conditionManager.removeCondition(entity, figure, new Condition(name), permanent));
       } else {
         entities
-          .filter((entity) => !gameManager.entityManager.hasCondition(entity, new Condition(name), permanent))
-          .forEach((entity) => {
-            let condition = new Condition(name);
-            if (
-              entity instanceof Character &&
-              condition.name === ConditionName.muddle &&
-              entity.progress.equippedItems.find((identifier) => identifier.edition === 'gh' && identifier.name === '108')
-            ) {
-              condition = new Condition(ConditionName.strengthen);
-            }
-            const suspended = gameManager.specialActionsManager.isConditionSuspended(entity, condition);
-            gameManager.entityManager.addCondition(entity, figure, condition, permanent, suspended);
-            if (suspended && !entity.immunities.includes(condition.name)) {
-              entity.immunities.push(condition.name);
-            }
-          });
+          .filter((entity) => !gameManager.conditionManager.hasCondition(entity, new Condition(name), permanent))
+          .forEach((entity) => gameManager.conditionManager.addManualCondition(entity, figure, new Condition(name), permanent));
       }
     } else {
       this.executionError('entity not found');

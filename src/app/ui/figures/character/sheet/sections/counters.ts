@@ -18,9 +18,12 @@ export class CharacterSheetCountersComponent extends CharacterSheetSection {
     }
     const value = Math.max(0, +event.target.value);
     event.target.value = value;
-    if (this.character.progress.extraPerks !== value) {
+    if (
+      this.character.progress.extraPerks !== value &&
+      gameManager.characterManager.canSetProgressValue(this.character, 'extraPerks', value)
+    ) {
       gameManager.stateManager.before('setExtraPerks', this.characterName, value);
-      this.character.progress.extraPerks = value;
+      gameManager.characterManager.setProgressValue(this.character, 'extraPerks', value);
       gameManager.stateManager.after();
     }
   }
@@ -31,9 +34,12 @@ export class CharacterSheetCountersComponent extends CharacterSheetSection {
     }
     const value = Math.max(0, +event.target.value);
     event.target.value = value;
-    if (this.character.progress.retirements !== value) {
+    if (
+      this.character.progress.retirements !== value &&
+      gameManager.characterManager.canSetProgressValue(this.character, 'retirements', value)
+    ) {
       gameManager.stateManager.before('setRetirements', this.characterName, value);
-      this.character.progress.retirements = value;
+      gameManager.characterManager.setProgressValue(this.character, 'retirements', value);
       gameManager.stateManager.after();
     }
   }

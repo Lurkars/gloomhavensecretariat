@@ -79,13 +79,17 @@ describe('CharacterSheet sections', () => {
   describe('toggleMastery', () => {
     it('adds a mastery index when not already present', () => {
       const character = buildCharacter();
+      character.masteries = ['a', 'b', 'c'];
       const component = createComponent(CharacterSheetMasteriesComponent, character);
       component.toggleMastery(2);
+      expect(character.progress.masteries).toEqual([2]);
+      component.toggleMastery(3);
       expect(character.progress.masteries).toEqual([2]);
     });
 
     it('removes a mastery index when already present', () => {
       const character = buildCharacter();
+      character.masteries = ['a', 'b', 'c'];
       character.progress.masteries = [2];
       const component = createComponent(CharacterSheetMasteriesComponent, character);
       component.toggleMastery(2);

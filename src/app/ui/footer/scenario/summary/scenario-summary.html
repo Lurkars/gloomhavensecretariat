@@ -275,7 +275,7 @@
             </span>
           }
         }
-        @if (gameManager.scenarioManager.getTreasures(scenario, gameManager.game.sections).length > 0) {
+        @if (gameManager.treasureManager.getTreasures(scenario, gameManager.game.sections).length > 0) {
           <span class="head-col"><span [ghs-label]="'scenario.summary.treasures'"></span></span>
           @for (character of characters | trackUUID; track character._trackUUID; let index = $index) {
             <span class="treasures">
@@ -300,7 +300,7 @@
                         class="text placeholder text-white"
                         [edition]="scenario.edition"
                         [index]="+('' + treasure).split(':')[0] - 1"
-                        [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"
+                        [rewardResults]="gameManager.treasureManager.treasureRewardsFromString('' + treasure)"
                       ></ghs-treasure-label>
                     }
                   </span>

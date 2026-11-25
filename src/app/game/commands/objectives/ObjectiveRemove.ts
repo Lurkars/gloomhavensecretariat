@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findObjectiveContainer } from 'src/app/game/commands/CommandHelper';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 export class ObjectiveRemoveCommand extends CommandImpl {
   id: string = 'objective.remove';
@@ -30,6 +29,6 @@ export class ObjectiveRemoveAllCommand extends CommandImpl {
   }
 
   executeWithParameters() {
-    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof ObjectiveContainer));
+    gameManager.objectiveManager.removeAllObjectives();
   }
 }

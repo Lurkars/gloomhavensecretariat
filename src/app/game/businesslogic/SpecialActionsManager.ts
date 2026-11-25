@@ -136,7 +136,7 @@ export class SpecialActionsManager {
 
     if (character.name === 'shards' && character.tags.includes('extra_resonance_tokens')) {
       character.tokenValues[0] = (character.tokenValues[0] || 0) + 2;
-      gameManager.entityManager.addCondition(character, character, new Condition(ConditionName.brittle));
+      gameManager.conditionManager.addCondition(character, character, new Condition(ConditionName.brittle));
     }
 
     if (character.name === 'three-spears' && character.tags.includes('supply_tokens_scenario')) {
@@ -157,8 +157,8 @@ export class SpecialActionsManager {
       this.game.figures.forEach((figure) => {
         if (figure instanceof Monster && !figure.isAlly) {
           figure.entities.forEach((entity) => {
-            if (entities.includes(entity) && !gameManager.entityManager.isImmune(entity, figure, ConditionName.muddle)) {
-              gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.muddle));
+            if (entities.includes(entity) && !gameManager.conditionManager.isImmune(entity, figure, ConditionName.muddle)) {
+              gameManager.conditionManager.addCondition(entity, figure, new Condition(ConditionName.muddle));
             }
           });
         }
@@ -235,12 +235,12 @@ export class SpecialActionsManager {
         if (entity.tags.includes('repair_mode') && !entity.tags.includes('roundAction-repair_mode')) {
           entity.health += 2;
           const heal = new EntityCondition(ConditionName.heal, 2);
-          gameManager.entityManager.addCondition(entity, entity, heal);
-          gameManager.entityManager.applyCondition(entity, entity, heal, true);
+          gameManager.conditionManager.addCondition(entity, entity, heal);
+          gameManager.conditionManager.applyCondition(entity, entity, heal, true);
           entity.tags.push('roundAction-repair_mode');
         }
         if (entity.tags.includes('spider_mode') && !entity.tags.includes('roundAction-spider_mode')) {
-          gameManager.entityManager.addCondition(entity, entity, new Condition(ConditionName.ward));
+          gameManager.conditionManager.addCondition(entity, entity, new Condition(ConditionName.ward));
           entity.tags.push('roundAction-spider_mode');
         }
       }
@@ -326,7 +326,7 @@ export class SpecialActionsManager {
           heal.expired = false;
           heal.state = EntityConditionState.normal;
           entity.health += 2;
-          gameManager.entityManager.applyCondition(entity, entity, heal, true);
+          gameManager.conditionManager.applyCondition(entity, entity, heal, true);
         }
 
         if (entity.name === 'shards' && entity.tags.includes('resonance_tokens') && entity.tokenValues[0] < 5) {
@@ -571,7 +571,7 @@ export class SpecialActionsManager {
           character.immunities.forEach((immunity) => {
             const condition = new Condition(immunity);
             if (!condition.types.includes(ConditionType.amDeck) && !condition.types.includes(ConditionType.immunityOnly)) {
-              gameManager.entityManager.addCondition(character, character, new Condition(immunity), false, true);
+              gameManager.conditionManager.addCondition(character, character, new Condition(immunity), false, true);
             }
           });
 
@@ -593,6 +593,47 @@ export class SpecialActionsManager {
     if (character.name === 'blinkblade' && specialAction.name === 'breaknet_speed') {
       gameManager.entityManager.changeHealth(character, character, revert ? 2 : -2, true);
     }
+  }
+
+  private specialActionTarget(character: Character, entity: Entity, specialAction: CharacterSpecialAction): boolean {
+    return (
+      (entity === character && !specialAction.summon) ||
+      (entity instanceof Summon && character.summons.includes(entity) && !!specialAction.summon)
+    );
+  }
+
+  specialActionAvailable(character: Character, entity: Entity, specialAction: CharacterSpecialAction): boolean {
+    const perk = specialAction.perk ? character.perks[specialAction.perk - 1] : undefined;
+    return (
+      this.specialActionTarget(character, entity, specialAction) &&
+      (!specialAction.level || specialAction.level <= character.level) &&
+      (!specialAction.perk || (!!perk && character.progress.perks[specialAction.perk - 1] === perk.count))
+    );
+  }
+
+  // tags already set stay removable, even if no longer available
+  canSetSpecialAction(character: Character, entity: Entity, name: string, value: boolean): boolean {
+    const specialAction = (character.specialActions || []).find((specialAction) => specialAction.name === name);
+    return (
+      !!specialAction &&
+      !specialAction.noTag &&
+      typeof value === 'boolean' &&
+      entity.tags.includes(name) !== value &&
+      this.specialActionTarget(character, entity, specialAction) &&
+      (!value || this.specialActionAvailable(character, entity, specialAction))
+    );
+  }
+
+  setSpecialAction(character: Character, entity: Entity, name: string, value: boolean): boolean {
+    if (!this.canSetSpecialAction(character, entity, name, value)) {
+      return false;
+    }
+    if (value) {
+      this.addSpecialAction(entity, character, name);
+    } else {
+      this.removeSpecialAction(entity, character, name);
+    }
+    return true;
   }
 
   removeSpecialAction(entity: Entity, figure: Figure, tag: string) {
@@ -678,7 +719,7 @@ export class SpecialActionsManager {
 
     if (entity instanceof Character) {
       if (entity.name === 'lightning' && tag === 'careless-charge') {
-        entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
+        entity.immunities = gameManager.conditionManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
         entity.immunities.push(ConditionName.curse);
       }
 
@@ -711,8 +752,8 @@ export class SpecialActionsManager {
         entity.maxHealth += 5;
         entity.health += 10;
         const heal = new EntityCondition(ConditionName.heal, 10);
-        gameManager.entityManager.addCondition(entity, character, heal);
-        gameManager.entityManager.applyCondition(entity, character, heal, true);
+        gameManager.conditionManager.addCondition(entity, character, heal);
+        gameManager.conditionManager.applyCondition(entity, character, heal, true);
       }
 
       if (entity.name === 'boneshaper') {
@@ -754,9 +795,9 @@ export class SpecialActionsManager {
           if (
             !summonCondition.expired &&
             summonCondition.state !== EntityConditionState.removed &&
-            !gameManager.entityManager.isImmune(character, character, summonCondition.name)
+            !gameManager.conditionManager.isImmune(character, character, summonCondition.name)
           ) {
-            gameManager.entityManager.addCondition(character, character, new Condition(summonCondition.name));
+            gameManager.conditionManager.addCondition(character, character, new Condition(summonCondition.name));
           }
         });
         entity.entityConditions = [];

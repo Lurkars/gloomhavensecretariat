@@ -27,13 +27,10 @@ export class PartyCampaignRetirementsComponent extends PartySheetSection {
     return 0;
   }
   setPlayerNumber(characterModel: GameCharacterModel, event: any) {
-    if (!isNaN(+event.target.value) && characterModel.number !== +event.target.value && +event.target.value > 0) {
-      gameManager.stateManager.before(
-        'setPlayerNumber',
-        'data.character.' + characterModel.edition + '.' + characterModel.name,
-        event.target.value
-      );
-      characterModel.number = +event.target.value;
+    const number = +event.target.value;
+    if (gameManager.retirementManager.canSetModelPlayerNumber(characterModel, number)) {
+      gameManager.stateManager.before('setPlayerNumber', 'data.character.' + characterModel.edition + '.' + characterModel.name, number);
+      gameManager.retirementManager.setModelPlayerNumber(characterModel, number);
       gameManager.stateManager.after();
     }
   }

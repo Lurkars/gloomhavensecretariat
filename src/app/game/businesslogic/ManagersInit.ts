@@ -1,5 +1,6 @@
 import { DebugManager } from 'src/app/game/businesslogic/DebugManager';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
+import { LabelManager } from 'src/app/game/businesslogic/LabelManager';
 import { commandManager, gameManager, registerManagers, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { SoundboardManager } from 'src/app/game/businesslogic/SoundboardManager';
@@ -13,6 +14,7 @@ export function initManagers() {
   // order matters: field initializers read already registered managers (e.g. SettingsManager.debugManager)
   registerManagers({ debugManager: new DebugManager() });
   registerManagers({ settingsManager: new SettingsManager() });
+  registerManagers({ labelManager: new LabelManager() });
   registerManagers({ storageManager: new StorageManager() });
   registerManagers({ soundboardManager: new SoundboardManager() });
   registerManagers({ gameManager: new GameManager() });

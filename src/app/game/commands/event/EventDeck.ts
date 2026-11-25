@@ -1,10 +1,10 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
-import { EventCard } from 'src/app/game/model/data/EventCard';
+import { EventCard, EventCardIdentifier, EventCardResult } from 'src/app/game/model/data/EventCard';
 
 function eventEdition(): string {
-  return gameManager.game.party.edition || gameManager.game.edition || gameManager.currentEdition();
+  return gameManager.game.party.edition || gameManager.game.edition || gameManager.editionManager.currentEdition();
 }
 
 function eventCard(type: BASE_TYPE, cardId: BASE_TYPE): EventCard | undefined {
@@ -17,14 +17,14 @@ function deck(type: BASE_TYPE): string[] {
   return gameManager.game.party.eventDecks[type as string] || [];
 }
 
-function drawnIndex(type: BASE_TYPE | undefined, cardId: BASE_TYPE | undefined): number {
+function drawnIdentifier(type: BASE_TYPE | undefined, cardId: BASE_TYPE | undefined): EventCardIdentifier | undefined {
   const eventCards = gameManager.game.party.eventCards;
   for (let i = eventCards.length - 1; i >= 0; i--) {
     if (eventCards[i].type === type && eventCards[i].cardId === cardId) {
-      return i;
+      return eventCards[i];
     }
   }
-  return -1;
+  return undefined;
 }
 
 function parseList(value: BASE_TYPE | undefined): number[] {
@@ -50,7 +50,7 @@ export class EventDeckMoveCommand extends CommandImpl {
   requiredParameters: number = 3;
 
   validParameters(type: string, cardId: string, to: number): boolean {
-    return deck(type).includes(cardId) && typeof to === 'number' && to >= 0;
+    return typeof to === 'number' && gameManager.eventCardManager.canMoveEvent(type, deck(type).indexOf(cardId), to);
   }
 
   executeWithParameters(type: string, cardId: string, to: number) {
@@ -66,7 +66,12 @@ export class EventDeckAddCommand extends CommandImpl {
     if (!validSeed(seed)) {
       return false;
     }
-    return !!eventCard(type, cardId) && !deck(type).includes(cardId) && typeof index === 'number';
+    return (
+      typeof index === 'number' &&
+      (index < 0
+        ? gameManager.eventCardManager.canAddEvent(type, cardId)
+        : gameManager.eventCardManager.canInsertEvent(type, cardId, index))
+    );
   }
 
   executeWithParameters(type: string, cardId: string, seed: number, index: number = -1) {
@@ -84,7 +89,7 @@ export class EventDeckRemoveCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(type: string, cardId: string): boolean {
-    return deck(type).includes(cardId);
+    return gameManager.eventCardManager.canRemoveEvent(type, cardId);
   }
 
   executeWithParameters(type: string, cardId: string) {
@@ -97,7 +102,7 @@ export class EventDeckMarkDrawnCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(type: string, cardId: string, index: number = -1): boolean {
-    return !!eventCard(type, cardId) && typeof index === 'number';
+    return !!eventCard(type, cardId) && typeof index === 'number' && gameManager.eventCardManager.canMarkEventDrawn(index);
   }
 
   executeWithParameters(type: string, cardId: string, index: number = -1) {
@@ -115,11 +120,15 @@ export class EventDeckRemoveDrawnCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(type: string, cardId: string): boolean {
-    return drawnIndex(type, cardId) !== -1;
+    const identifier = drawnIdentifier(type, cardId);
+    return !!identifier && gameManager.eventCardManager.canRemoveDrawnEvent(identifier);
   }
 
   executeWithParameters(type: string, cardId: string) {
-    gameManager.game.party.eventCards.splice(drawnIndex(type, cardId), 1);
+    const identifier = drawnIdentifier(type, cardId);
+    if (identifier) {
+      gameManager.eventCardManager.removeDrawnEvent(identifier);
+    }
   }
 }
 
@@ -127,19 +136,38 @@ export class EventDeckSelectionCommand extends CommandImpl {
   id: string = 'event.deck.selection';
   requiredParameters: number = 3;
 
-  validParameters(type: string, cardId: string, selected: number, subSelections: string = ''): boolean {
-    return (
-      drawnIndex(type, cardId) !== -1 &&
-      typeof selected === 'number' &&
-      selected >= -1 &&
-      parseList(subSelections).every((value) => !isNaN(value))
+  result(): EventCardResult | undefined {
+    const [type, cardId, selected, subSelections = '', checks, attack] = this.parameters;
+    const identifier = drawnIdentifier(type, cardId);
+    if (
+      !identifier ||
+      typeof selected !== 'number' ||
+      typeof subSelections !== 'string' ||
+      (checks !== undefined && typeof checks !== 'string') ||
+      (attack !== undefined && typeof attack !== 'boolean')
+    ) {
+      return undefined;
+    }
+    return new EventCardResult(
+      selected,
+      parseList(subSelections),
+      checks !== undefined ? parseList(checks) : identifier.checks || [],
+      attack !== undefined ? attack : identifier.attack
     );
   }
 
-  executeWithParameters(type: string, cardId: string, selected: number, subSelections: string = '') {
-    const identifier = gameManager.game.party.eventCards[drawnIndex(type, cardId)];
-    identifier.selected = selected;
-    identifier.subSelections = parseList(subSelections);
+  validParameters(type: string, cardId: string): boolean {
+    const identifier = drawnIdentifier(type, cardId);
+    const result = this.result();
+    return !!identifier && !!result && gameManager.eventCardManager.canSetDrawnEventResult(identifier, result);
+  }
+
+  executeWithParameters(type: string, cardId: string) {
+    const identifier = drawnIdentifier(type, cardId);
+    const result = this.result();
+    if (identifier && result) {
+      gameManager.eventCardManager.setDrawnEventResult(identifier, result);
+    }
   }
 }
 
@@ -173,7 +201,13 @@ export class EventDrawAcceptCommand extends CommandImpl {
     if (!validSeed(seed)) {
       return false;
     }
-    return !!this.card(type) && typeof selected === 'number' && (selected !== -1 || !apply);
+    const card = this.card(type);
+    return (
+      !!card &&
+      typeof selected === 'number' &&
+      typeof apply === 'boolean' &&
+      gameManager.eventCardManager.canAcceptEvent(card, selected, apply)
+    );
   }
 
   executeWithParameters(
@@ -188,16 +222,7 @@ export class EventDrawAcceptCommand extends CommandImpl {
     gameManager.game.seed = seed;
     const card = this.card(type);
     if (card) {
-      gameManager.game.eventDraw = undefined;
-      gameManager.eventCardManager.applyEvent(
-        card,
-        selected,
-        parseList(subSelections),
-        parseList(checks),
-        gameManager.game.scenario !== undefined && gameManager.roundManager.firstRound,
-        attack,
-        apply
-      );
+      gameManager.eventCardManager.acceptEvent(card, selected, parseList(subSelections), parseList(checks), attack, apply);
     } else {
       this.executionError('event card not found');
     }
@@ -209,11 +234,11 @@ export class EventDrawCancelCommand extends CommandImpl {
   requiredParameters: number = 0;
 
   validParameters(): boolean {
-    return !!gameManager.game.eventDraw;
+    return gameManager.eventCardManager.canCancelEventDraw();
   }
 
   executeWithParameters() {
-    gameManager.game.eventDraw = undefined;
+    gameManager.eventCardManager.cancelEventDraw();
   }
 }
 
@@ -225,13 +250,11 @@ export class EventDrawNewCommand extends CommandImpl {
     if (!validSeed(seed)) {
       return false;
     }
-    return deck(type).length > 1;
+    return gameManager.eventCardManager.canDrawNewEvent(type, deck(type)[0]);
   }
 
   executeWithParameters(type: string, seed: number) {
     gameManager.game.seed = seed;
-    const cardId = deck(type)[0];
-    gameManager.eventCardManager.removeEvent(type, cardId);
-    gameManager.eventCardManager.addEvent(type, cardId);
+    gameManager.eventCardManager.drawNewEvent(type, deck(type)[0]);
   }
 }

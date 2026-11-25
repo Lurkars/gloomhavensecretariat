@@ -1,22 +1,22 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from 'src/app/game/model/data/AttackModifier';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { Condition, ConditionName } from 'src/app/game/model/data/Condition';
-import { Enhancement } from 'src/app/game/model/data/Enhancement';
 import { FigureError, FigureErrorType } from 'src/app/game/model/data/FigureError';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
 import { PersonalQuestAutotrackType } from 'src/app/game/model/data/PersonalQuest';
-import { SummonData } from 'src/app/game/model/data/SummonData';
 import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
-import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
+import { SummonState } from 'src/app/game/model/Summon';
 
-export type SummonStatType = 'maxHp' | 'attack' | 'trapHeal' | 'movement' | 'trapDamage' | 'range';
+export type CharacterProgressField = 'gold' | 'extraPerks' | 'retirements' | 'battleGoals' | 'notes' | 'itemNotes';
+
+const CHARACTER_PROGRESS_NUMBERS: string[] = ['gold', 'extraPerks', 'retirements', 'battleGoals'];
+export const CHARACTER_MAX_BATTLE_GOALS = 18;
 
 export class CharacterManager {
   game: Game;
@@ -31,7 +31,7 @@ export class CharacterManager {
     if (character instanceof CharacterData) {
       characterData = character;
     } else {
-      characterData = gameManager.getCharacterData(character, edition);
+      characterData = gameManager.editionManager.getCharacterData(character, edition);
     }
 
     if (characterData.iconUrl) {
@@ -46,7 +46,7 @@ export class CharacterManager {
   }
 
   characterIdentityIcon(character: string, index: number): string {
-    const characterData = gameManager.getCharacterData(character);
+    const characterData = gameManager.editionManager.getCharacterData(character);
     if (!characterData.identities || characterData.identities.length === 0) {
       return this.characterIcon(character);
     }
@@ -57,12 +57,12 @@ export class CharacterManager {
   }
 
   characterIdentityColor(character: string, index: number): string {
-    const characterData = gameManager.getCharacterData(character);
+    const characterData = gameManager.editionManager.getCharacterData(character);
     return characterData.identityColors[index] || characterData.color;
   }
 
   characterName(character: Character, full: boolean = false, icon: boolean = false, identity: boolean = true): string {
-    let name = settingsManager.getLabel('data.character.' + character.edition + '.' + character.name);
+    let name = labelManager.getLabel('data.character.' + character.edition + '.' + character.name);
     let hasTitle = false;
     if (identity && character.identities.length > 0 && settingsManager.settings.characterIdentities) {
       if (character.title && character.title.split('|')[character.identity] && character.title.split('|')[character.identity]) {
@@ -71,7 +71,7 @@ export class CharacterManager {
       } else if (settingsManager.settings.characterIdentityHint && !full) {
         name +=
           ' (' +
-          settingsManager.getLabel(
+          labelManager.getLabel(
             'data.character.' + character.edition + '.' + character.name + '.' + character.identities[character.identity]
           ) +
           ')';
@@ -81,7 +81,7 @@ export class CharacterManager {
       hasTitle = true;
     }
     if (full && hasTitle) {
-      name += ' (' + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name) + ')';
+      name += ' (' + labelManager.getLabel('data.character.' + character.edition + '.' + character.name) + ')';
     }
 
     if (icon) {
@@ -93,7 +93,7 @@ export class CharacterManager {
         (figure) => figure instanceof Character && figure.name === character.name && figure.edition !== character.edition
       )
     ) {
-      name += ' [' + settingsManager.getLabel('data.edition.' + character.edition) + ']';
+      name += ' [' + labelManager.getLabel('data.edition.' + character.edition) + ']';
     }
 
     return name;
@@ -104,7 +104,7 @@ export class CharacterManager {
     if (character instanceof CharacterData) {
       characterData = character;
     } else {
-      characterData = gameManager.getCharacterData(character);
+      characterData = gameManager.editionManager.getCharacterData(character);
     }
 
     return characterData.color;
@@ -139,10 +139,10 @@ export class CharacterManager {
       const character: Character = new Character(characterData, level);
       character.availableSummons
         .filter((summonData) => summonData.special)
-        .forEach((summonData) => this.createSpecialSummon(character, summonData));
+        .forEach((summonData) => gameManager.summonManager.createSpecialSummon(character, summonData));
 
       character.number = 1;
-      while (gameManager.game.figures.some((figure) => figure instanceof Character && figure.number === character.number)) {
+      while (this.game.figures.some((figure) => figure instanceof Character && figure.number === character.number)) {
         character.number++;
       }
 
@@ -167,14 +167,14 @@ export class CharacterManager {
       character.tags.push('new-character');
 
       this.game.figures.push(character);
-      gameManager.addEntityCount(character);
+      gameManager.entityCounterManager.addEntityCount(character);
 
-      this.previousEnhancements(character, gameManager.enhancementsManager.temporary);
+      gameManager.enhancementsManager.previousEnhancements(character, gameManager.enhancementsManager.temporary);
 
       if (this.game.state === GameState.next) {
         gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
       }
-      gameManager.sortFigures(character);
+      gameManager.roundManager.sortFigures(character);
     }
     if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
@@ -202,7 +202,7 @@ export class CharacterManager {
   }
 
   donationsAvailable(character: Character | undefined = undefined): boolean {
-    if (character && gameManager.attackModifierManager.isRpgCharacter(character)) {
+    if (character && gameManager.characterRpgManager.isRpgCharacter(character)) {
       return false;
     }
     if (gameManager.fhRules(false)) {
@@ -221,7 +221,10 @@ export class CharacterManager {
     return this.game.round < 1 && this.donationsAvailable(character) && character.progress.gold >= this.donationCosts();
   }
 
-  donate(character: Character) {
+  donate(character: Character): boolean {
+    if (!this.canDonate(character)) {
+      return false;
+    }
     const costs = this.donationCosts();
     character.progress.donations += 1;
     character.donations += 1;
@@ -229,6 +232,7 @@ export class CharacterManager {
     character.progress.gold -= costs;
     gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.donations);
     gameManager.personalQuestManager.trackPersonalQuestProgress(character, PersonalQuestAutotrackType.donatedGold);
+    return true;
   }
 
   characterUnlocked(edition: string, name: string): boolean {
@@ -241,7 +245,9 @@ export class CharacterManager {
     }
     this.game.unlockedCharacters.push(edition + ':' + name);
     if (settingsManager.settings.events) {
-      const characterData = gameManager.charactersData(edition).find((data) => data.name === name && data.edition === edition);
+      const characterData = gameManager.editionManager
+        .charactersData(edition)
+        .find((data) => data.name === name && data.edition === edition);
       gameManager.eventCardManager.addEvents(characterData && characterData.unlockEvent);
     }
     return true;
@@ -249,6 +255,10 @@ export class CharacterManager {
 
   lockCharacter(edition: string, name: string) {
     this.game.unlockedCharacters = this.game.unlockedCharacters.filter((unlock) => unlock !== edition + ':' + name);
+  }
+
+  lockAllCharacters() {
+    this.game.unlockedCharacters = [];
   }
 
   removeCharacter(character: Character, retirement: boolean = false) {
@@ -293,45 +303,69 @@ export class CharacterManager {
     }
   }
 
-  addSummon(character: Character, summon: Summon) {
-    character.summons = character.summons.filter(
-      (value) => value.name !== summon.name || value.number !== summon.number || value.color !== summon.color
+  removeAllCharacters() {
+    (this.game.figures.filter((figure) => figure instanceof Character) as Character[]).forEach((character) =>
+      this.removeCharacter(character)
     );
-
-    if (
-      character.edition === 'cs' &&
-      character.name === 'skull' &&
-      summon.cardId &&
-      character.availableSummons.find((s) => s.cardId === summon.cardId)
-    ) {
-      summon.tags.push('cs-skull-spirit');
-      summon.afterTurn = true;
-      summon.state = SummonState.true;
-    }
-
-    if (summon.trap) {
-      summon.state = SummonState.true;
-    }
-
-    character.summons.push(summon);
-
-    gameManager.specialActionsManager.addSummon(character, summon);
   }
 
-  removeSummon(character: Character, summon: Summon) {
-    const index = character.summons.indexOf(summon);
-    if (index === -1) {
-      return;
+  setCharacterMarker(character: Character, marker: boolean): boolean {
+    if (typeof marker !== 'boolean') {
+      return false;
     }
-    character.summons.splice(index, 1);
-    gameManager.specialActionsManager.removeSummon(character, summon);
+    character.marker = marker;
+    return true;
   }
 
-  addXP(character: Character, value: number, levelUp: boolean = true) {
+  // the last present character can not be set absent
+  canSetAbsent(character: Character, absent: boolean): boolean {
+    return typeof absent === 'boolean' && (!absent || character.absent || this.characterCount() > 1);
+  }
+
+  setAbsent(character: Character, absent: boolean): boolean {
+    if (!this.canSetAbsent(character, absent)) {
+      return false;
+    }
+    character.absent = absent;
+    if (character.absent && character.active) {
+      gameManager.turnManager.toggleFigure(character);
+    }
+    return true;
+  }
+
+  // starting the turn needs a present, not exhausted character (with initiative if required)
+  canActivate(character: Character): boolean {
+    return (
+      this.game.state === GameState.next &&
+      !character.active &&
+      !character.absent &&
+      !character.exhausted &&
+      (!settingsManager.settings.initiativeRequired || character.initiative > 0)
+    );
+  }
+
+  // the turn of the active character can always be ended, even if exhausted or set absent meanwhile
+  canDeactivate(character: Character): boolean {
+    return this.game.state === GameState.next && character.active;
+  }
+
+  canToggleActive(character: Character): boolean {
+    return character.active ? this.canDeactivate(character) : this.canActivate(character);
+  }
+
+  canAddXP(character: Character, value: number): boolean {
+    return Number.isInteger(value);
+  }
+
+  addXP(character: Character, value: number, levelUp: boolean = true): boolean {
+    if (!this.canAddXP(character, value)) {
+      return false;
+    }
     character.progress.experience = Math.max(0, character.progress.experience + value);
     if (levelUp) {
       this.setLevel(character, this.levelForXp(character.progress.experience));
     }
+    return true;
   }
 
   levelForXp(xp: number) {
@@ -346,7 +380,7 @@ export class CharacterManager {
 
   availablePerks(character: Character): number {
     const gained = (character.progress.perks || []).reduce((a, b) => a + (b || 0), 0);
-    if (gameManager.attackModifierManager.isRpgCharacter(character)) {
+    if (gameManager.characterRpgManager.isRpgCharacter(character)) {
       return character.level - 1 + character.progress.extraPerks - gained;
     }
     return (
@@ -392,57 +426,272 @@ export class CharacterManager {
     return moved;
   }
 
+  canChangeExperience(character: Character, value: number): boolean {
+    return Number.isInteger(value) && value !== 0;
+  }
+
+  changeExperience(character: Character, value: number): boolean {
+    if (!this.canChangeExperience(character, value)) {
+      return false;
+    }
+    character.experience = Math.max(0, character.experience + value);
+    return true;
+  }
+
+  progressEditable(): boolean {
+    return !gameManager.scenarioManager.scenarioRunning();
+  }
+
+  canSetPerk(character: Character, index: number, value: number, force: boolean = false, anyPhase: boolean = false): boolean {
+    const perk = Number.isInteger(index) ? character.perks[index] : undefined;
+    if (!perk || !Number.isInteger(value) || value < 0 || value > perk.count) {
+      return false;
+    }
+    if (force) {
+      return true;
+    }
+    const current = character.progress.perks[index] || 0;
+    return (anyPhase || this.progressEditable()) && (value <= current || value - current <= this.availablePerks(character));
+  }
+
+  canSetMastery(character: Character, index: number, value: boolean): boolean {
+    return (
+      Number.isInteger(index) &&
+      index >= 0 &&
+      index < character.masteries.length &&
+      typeof value === 'boolean' &&
+      (character.progress.masteries || []).includes(index) !== value
+    );
+  }
+
+  setMastery(character: Character, index: number, value: boolean): boolean {
+    if (!this.canSetMastery(character, index, value)) {
+      return false;
+    }
+    character.progress.masteries = (character.progress.masteries || []).filter((mastery) => mastery !== index);
+    if (value) {
+      character.progress.masteries.push(index);
+    }
+    return true;
+  }
+
+  canSetProgressValue(character: Character, field: CharacterProgressField, value: string | number): boolean {
+    if (field === 'notes' || field === 'itemNotes') {
+      return typeof value === 'string';
+    }
+    return (
+      CHARACTER_PROGRESS_NUMBERS.includes(field) &&
+      Number.isInteger(value) &&
+      (value as number) >= 0 &&
+      (field !== 'battleGoals' || (value as number) <= CHARACTER_MAX_BATTLE_GOALS)
+    );
+  }
+
+  setProgressValue(character: Character, field: CharacterProgressField, value: string | number): boolean {
+    if (!this.canSetProgressValue(character, field, value)) {
+      return false;
+    }
+    (character.progress as unknown as Record<string, string | number>)[field] = value;
+    return true;
+  }
+
+  nextIdentity(character: Character): number {
+    return character.identity + 1 < character.identities.length ? character.identity + 1 : 0;
+  }
+
+  canSetIdentity(character: Character, identity: number): boolean {
+    return (
+      Number.isInteger(identity) &&
+      identity >= 0 &&
+      identity < character.identities.length &&
+      !gameManager.specialActionsManager.isIdentityLocked(character)
+    );
+  }
+
+  setIdentity(character: Character, identity: number): boolean {
+    if (!this.canSetIdentity(character, identity)) {
+      return false;
+    }
+    character.identity = identity;
+    return true;
+  }
+
+  canSetPlayerNumber(character: Character, number: number): boolean {
+    return Number.isInteger(number) && number > 0 && number !== character.number;
+  }
+
+  // a character already using the number gets the old number of this character
+  setPlayerNumber(character: Character, number: number): boolean {
+    if (!this.canSetPlayerNumber(character, number)) {
+      return false;
+    }
+    const existing = this.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character | undefined;
+    if (existing) {
+      existing.number = character.number;
+    }
+    character.number = number;
+    return true;
+  }
+
+  tokenAfter(character: Character, value: number): number {
+    return Math.max(0, character.token + value);
+  }
+
+  canChangeToken(value: number): boolean {
+    return Number.isInteger(value) && value !== 0;
+  }
+
+  changeToken(character: Character, value: number): boolean {
+    if (!this.canChangeToken(value)) {
+      return false;
+    }
+    character.token = this.tokenAfter(character, value);
+    return true;
+  }
+
+  // token values can not drop below 0 and are limited for some characters
+  tokenValueAfter(character: Character, index: number, value: number): number {
+    const tokenValue = Math.max(0, (character.tokenValues[index] || 0) + value);
+    const maxTokenValue = gameManager.specialActionsManager.maxTokenValue(character, index);
+    return maxTokenValue !== undefined ? Math.min(tokenValue, maxTokenValue) : tokenValue;
+  }
+
+  canChangeTokenValue(character: Character, index: number, value: number): boolean {
+    return Number.isInteger(index) && index >= 0 && index < character.tokens.length && Number.isInteger(value) && value !== 0;
+  }
+
+  changeTokenValue(character: Character, index: number, value: number): boolean {
+    if (!this.canChangeTokenValue(character, index, value)) {
+      return false;
+    }
+    character.tokenValues[index] = this.tokenValueAfter(character, index, value);
+    return true;
+  }
+
+  canSetResource(type: LootType, value: number): boolean {
+    return Object.values(LootType).includes(type) && Number.isInteger(value) && value >= 0;
+  }
+
+  setResource(character: Character, type: LootType, value: number): boolean {
+    if (!this.canSetResource(type, value)) {
+      return false;
+    }
+    character.progress.loot[type] = value;
+    return true;
+  }
+
+  normalizeProgress(character: Character) {
+    for (let i = 0; i < 15; i++) {
+      character.progress.perks[i] = character.progress.perks[i] || 0;
+    }
+    const minExperience = this.xpMap[character.level - 1];
+    if (minExperience !== undefined && character.progress.experience < minExperience) {
+      character.progress.experience = minExperience;
+    }
+  }
+
   changeLoot(character: Character, value: number) {
     const lootBefore = character.loot;
     character.loot = Math.max(0, character.loot + value);
     gameManager.personalQuestManager.trackMoneyTokens(character, character.loot - lootBefore);
   }
 
-  toggleSummonActive(character: Character, summon: Summon) {
-    if (summon.active) {
-      if (settingsManager.settings.activeSummons && character.active) {
-        gameManager.roundManager.toggleFigure(character);
+  attackModifierDeckToggleHides(character: Character): boolean {
+    const settings = settingsManager.settings;
+    return (
+      character.attackModifierDeckVisible &&
+      (settings.characterAttackModifierDeckActiveBottom ||
+        !settings.characterAttackModifierDeckPermanent ||
+        !settings.characterAttackModifierDeckPermanentActive ||
+        !character.active)
+    );
+  }
+
+  toggleAttackModifierDeckVisible(character: Character) {
+    const settings = settingsManager.settings;
+    const characters = this.game.figures.filter((figure) => figure instanceof Character);
+    if (settings.characterAttackModifierDeckActiveBottom) {
+      if (!character.attackModifierDeckVisible) {
+        characters.forEach((other) => (other.attackModifierDeckVisible = false));
+        character.attackModifierDeckVisible = true;
       } else {
-        summon.active = false;
+        character.attackModifierDeckVisible = false;
+        if (settings.characterAttackModifierDeckPermanentActive && !character.active) {
+          characters.filter((other) => other.active).forEach((other) => (other.attackModifierDeckVisible = true));
+        }
       }
-      return;
-    }
-    const activeSummon = character.summons.find((other) => other.active);
-    if (
-      settingsManager.settings.activeSummons &&
-      character.active &&
-      gameManager.entityManager.isAlive(summon, true) &&
-      (!activeSummon || character.summons.indexOf(activeSummon) < character.summons.indexOf(summon))
-    ) {
-      while (!summon.active && character.active) {
-        gameManager.roundManager.toggleFigure(character);
-      }
+    } else if (this.attackModifierDeckToggleHides(character)) {
+      character.attackModifierDeck.active = false;
+      character.attackModifierDeckVisible = false;
     } else {
-      character.summons.forEach((other) => (other.active = false));
-      summon.active = true;
+      character.attackModifierDeck.active = true;
+      character.attackModifierDeckVisible = true;
+      character.lootCardsVisible = false;
     }
   }
 
-  toggleActive(character: Character) {
+  toggleLootCardsVisible(character: Character) {
+    if (character.lootCardsVisible) {
+      character.lootCardsVisible = false;
+    } else {
+      character.lootCardsVisible = true;
+      character.attackModifierDeck.active = false;
+      character.attackModifierDeckVisible = false;
+    }
+  }
+
+  toggleItemsVisible(character: Character) {
+    character.itemsVisible = !character.itemsVisible;
+  }
+
+  activate(character: Character): boolean {
+    if (!this.canActivate(character)) {
+      return false;
+    }
+    gameManager.turnManager.toggleFigure(character);
+    return true;
+  }
+
+  deactivate(character: Character): boolean {
+    if (!this.canDeactivate(character)) {
+      return false;
+    }
     if (this.activateSummonsAfterTurn(character)) {
       character.summons.filter((summon) => summon.afterTurn).forEach((summon) => (summon.afterTurnActive = true));
     }
-    gameManager.roundManager.toggleFigure(character);
+    gameManager.turnManager.toggleFigure(character);
+    return true;
   }
 
-  setPerk(character: Character, index: number, value: number) {
+  toggleActive(character: Character): boolean {
+    return character.active ? this.deactivate(character) : this.activate(character);
+  }
+
+  setPerk(character: Character, index: number, value: number, force: boolean = false, anyPhase: boolean = false): boolean {
+    if (!this.canSetPerk(character, index, value, force, anyPhase)) {
+      return false;
+    }
     const shackles = character.name === 'shackles' && character.edition === 'fh' && index === 11;
     const lowerShacklesHP = shackles && character.progress.perks[index] === 2;
     character.progress.perks[index] = value;
 
     const perk = character.perks[index];
+    if (value !== perk.count) {
+      (character.specialActions || [])
+        .filter((specialAction) => specialAction.perk === index + 1)
+        .forEach((specialAction) =>
+          [character, ...character.summons]
+            .filter((entity) => entity.tags.includes(specialAction.name))
+            .forEach((entity) => gameManager.specialActionsManager.removeSpecialAction(entity, character, specialAction.name))
+        );
+    }
     if (perk.monsterDeck) {
-      this.game.monsterAttackModifierDeck = gameManager.attackModifierManager.buildMonsterAttackModifierDeck();
+      this.game.monsterAttackModifierDeck = gameManager.attackModifierBuildManager.buildMonsterAttackModifierDeck();
       gameManager.attackModifierManager.shuffleModifiers(this.game.monsterAttackModifierDeck);
     } else {
-      gameManager.attackModifierManager.mergeAttackModifierDeck(
+      gameManager.attackModifierBuildManager.mergeAttackModifierDeck(
         character.attackModifierDeck,
-        gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character)
+        gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(character)
       );
       gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
 
@@ -455,9 +704,17 @@ export class CharacterManager {
         character.health = character.maxHealth;
       }
     }
+    return true;
   }
 
-  setLevel(character: Character, level: number) {
+  canSetLevel(character: Character, level: number): boolean {
+    return Number.isInteger(level) && level >= 1 && level <= 9;
+  }
+
+  setLevel(character: Character, level: number): boolean {
+    if (!this.canSetLevel(character, level)) {
+      return false;
+    }
     const stat = character.stats.find((characterStat) => characterStat.level === level);
     if (!stat) {
       character.errors = character.errors || [];
@@ -495,7 +752,7 @@ export class CharacterManager {
 
     character.availableSummons
       .filter((summonData) => summonData.special)
-      .forEach((summonData) => this.createSpecialSummon(character, summonData));
+      .forEach((summonData) => gameManager.summonManager.createSpecialSummon(character, summonData));
 
     if (
       character.progress.experience < gameManager.characterManager.xpMap[level - 1] ||
@@ -509,133 +766,9 @@ export class CharacterManager {
     }
 
     if (character.editionRules === 'bb') {
-      character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
+      character.attackModifierDeck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(character);
     }
-  }
-
-  initSummon(
-    character: Character,
-    summon: Summon,
-    changes: { health?: number; maxHp?: number; attack?: number; movement?: number; range?: number } = {}
-  ) {
-    this.removeSummon(character, summon);
-    summon.init = false;
-    if (changes.health) {
-      gameManager.entityManager.changeHealth(summon, character, changes.health, false, false);
-    }
-    if (changes.attack && typeof summon.attack === 'number') {
-      summon.attack += changes.attack;
-    }
-    if (changes.movement) {
-      summon.movement += changes.movement;
-    }
-    if (changes.range) {
-      summon.range += changes.range;
-    }
-    if (changes.maxHp) {
-      if (summon.maxHealth + changes.maxHp < summon.maxHealth || summon.health === summon.maxHealth) {
-        summon.health = summon.maxHealth + changes.maxHp;
-      }
-      summon.maxHealth += changes.maxHp;
-    }
-    this.addSummon(character, summon);
-  }
-
-  changeSummonStat(summon: Summon, stat: SummonStatType, value: number) {
-    switch (stat) {
-      case 'maxHp':
-        summon.maxHealth += value;
-        break;
-      case 'attack':
-      case 'trapHeal':
-        if (!isNaN(+summon.attack)) {
-          summon.attack = +summon.attack + value;
-        }
-        break;
-      case 'movement':
-      case 'trapDamage':
-        summon.movement += value;
-        break;
-      case 'range':
-        summon.range += value;
-        break;
-    }
-  }
-
-  summonAvailable(character: Character, summonData: SummonData, number: number, color: SummonColor): boolean {
-    return (
-      color !== SummonColor.custom &&
-      number !== 0 &&
-      character.summons.every(
-        (summon) =>
-          summon.dead ||
-          summon.name !== summonData.name ||
-          (summonData.special ? summon.number !== 0 : summon.number !== number) ||
-          (summonData.special ? summon.color !== SummonColor.custom : summon.color !== color)
-      ) &&
-      (summonData.count || 1) >
-        character.summons.filter(
-          (summon) => summon.name === summonData.name && summon.cardId === summonData.cardId && gameManager.entityManager.isAlive(summon)
-        ).length
-    );
-  }
-
-  nextSummonNumber(character: Character, summonData: SummonData, color: SummonColor): number {
-    if (summonData.special) {
-      return 0;
-    }
-    const maxNumber = Math.max(8, summonData.count || 1);
-    for (let i = 1; i <= maxNumber; i++) {
-      if (
-        character.summons.every((summon) => summon.dead || summon.name !== summonData.name || summon.number !== i || summon.color !== color)
-      ) {
-        return i;
-      }
-    }
-    return 1;
-  }
-
-  addSummonFromData(character: Character, summonData: SummonData, number: number, color: SummonColor): Summon {
-    const summon: Summon = new Summon(
-      gameManager.randomManager.uuid(),
-      summonData.name,
-      summonData.cardId,
-      character.level,
-      summonData.special ? 0 : number,
-      summonData.special ? SummonColor.custom : color,
-      summonData
-    );
-    summon.state = summonData.special ? SummonState.true : SummonState.new;
-    summon.init = false;
-    this.addSummon(character, summon);
-    return summon;
-  }
-
-  addCustomSummon(character: Character, name: string, number: number, color: SummonColor): Summon {
-    const summon: Summon = new Summon(gameManager.randomManager.uuid(), name, '', character.level, number, color);
-    summon.state = SummonState.new;
-    this.addSummon(character, summon);
-    return summon;
-  }
-
-  createSpecialSummon(character: Character, summonData: SummonData) {
-    character.summons = character.summons.filter(
-      (summon) => summon.name !== summonData.name || summon.number !== 0 || summon.color !== SummonColor.custom
-    );
-    if (!summonData.level || summonData.level <= character.level) {
-      const summon: Summon = new Summon(
-        gameManager.randomManager.uuid(),
-        summonData.name,
-        summonData.cardId,
-        character.level,
-        0,
-        SummonColor.custom,
-        summonData
-      );
-      summon.state = SummonState.true;
-      summon.init = false;
-      this.addSummon(character, summon);
-    }
+    return true;
   }
 
   ignoreNegativeItemEffects(character: Character): boolean {
@@ -735,7 +868,7 @@ export class CharacterManager {
         figure.longRest = false;
 
         const summonsToRemove = figure.summons.filter((summon) => !gameManager.entityManager.isAlive(summon));
-        summonsToRemove.forEach((summon) => this.removeSummon(figure, summon));
+        summonsToRemove.forEach((summon) => gameManager.summonManager.removeSummon(figure, summon));
 
         figure.summons.forEach((summon) => {
           summon.off = false;
@@ -751,10 +884,10 @@ export class CharacterManager {
 
         if (
           figure.progress.equippedItems.find((identifier) => identifier.edition === 'cs' && identifier.name === '57') &&
-          gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) &&
-          !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))
+          gameManager.conditionManager.hasCondition(figure, new Condition(ConditionName.wound)) &&
+          !gameManager.conditionManager.hasCondition(figure, new Condition(ConditionName.regenerate))
         ) {
-          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.regenerate));
+          gameManager.conditionManager.addCondition(figure, figure, new Condition(ConditionName.regenerate));
         }
 
         if (figure.tags) {
@@ -784,72 +917,9 @@ export class CharacterManager {
     });
   }
 
-  previousEnhancements(character: Character, temporary: boolean) {
-    if (character.progress.enhancements) {
-      character.progress.enhancements = character.progress.enhancements.filter((e) => !e.inherited);
-    } else {
-      character.progress.enhancements = [];
-    }
-    if (!temporary) {
-      const previousCharacters = gameManager.game.party.retirements.filter(
-        (model) => model.edition === character.edition && model.name === character.name
-      );
-      previousCharacters.forEach((previousCharacter) => {
-        if (previousCharacter && previousCharacter.progress && previousCharacter.progress.enhancements) {
-          character.progress.enhancements.push(
-            ...previousCharacter.progress.enhancements
-              .filter((e) => !e.inherited)
-              .map((e) => new Enhancement(e.cardId, e.actionIndex, e.index, e.action, true))
-          );
-        }
-      });
-
-      character.progress.enhancements = character.progress.enhancements.filter((e, index, self) => {
-        const first = self.find((o) => o.cardId === e.cardId && o.actionIndex === e.actionIndex && o.index === e.index);
-        return !first || index === self.indexOf(first);
-      });
-    }
-
-    // wipSpecial
-    character.progress.enhancements
-      .filter((e) => e.actionIndex.includes('custom'))
-      .forEach((e) => {
-        const card = gameManager.deckData(character).abilities.find((a) => a.cardId === e.cardId);
-        if (card) {
-          const mapping = this.enhancementMapping(
-            !e.actionIndex.includes('bottom') ? card.actions : card.bottomActions || [],
-            !e.actionIndex.includes('bottom') ? '' : 'bottom'
-          );
-          if (mapping.length && mapping[e.index]) {
-            e.actionIndex = mapping[e.index];
-            e.index = e.index - mapping.indexOf(e.actionIndex);
-          }
-        }
-      });
-  }
-
-  enhancementMapping(actions: Action[], parentIndex: string): string[] {
-    const mapping: string[] = [];
-    actions.forEach((action, index) => {
-      if (action.type !== ActionType.custom || action.value !== '%character.abilities.wip%') {
-        const actionId = (parentIndex ? parentIndex + '-' : '') + index;
-        if (action.enhancementTypes) {
-          action.enhancementTypes.forEach(() => {
-            mapping.push(actionId);
-          });
-        }
-        if (action.subActions) {
-          mapping.push(...this.enhancementMapping(action.subActions, actionId));
-        }
-      }
-    });
-
-    return mapping;
-  }
-
   getActiveCharacters(): Character[] {
     return this.game.figures
-      .filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent)
+      .filter((figure) => figure instanceof Character && gameManager.entityManager.gameplayFigure(figure) && !figure.absent)
       .map((figure) => figure as Character);
   }
 }

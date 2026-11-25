@@ -17,19 +17,16 @@ export class CharacterSheetRpgFactionsComponent extends RpgSheetSection {
 
   setName(index: number, event: any) {
     const value = event.target.value;
-    this.change('factions', value, (rpg) => (rpg.factions[index].name = value));
+    this.change('factions', 'factions.' + index + '.name', value);
   }
 
   setTier(index: number, tier: number) {
     const value = this.rpg.factions[index].tier === tier ? -1 : tier;
-    this.change('factions', value, (rpg) => (rpg.factions[index].tier = value));
+    this.change('factions', 'factions.' + index + '.tier', value);
   }
 
   setBenefit(index: number, benefit: number, event: any) {
     const value = event.target.value;
-    this.change('factions', value, (rpg) => {
-      rpg.factions[index].benefits = rpg.factions[index].benefits || [];
-      rpg.factions[index].benefits[benefit] = value;
-    });
+    this.change('factions', 'factions.' + index + '.benefits.' + benefit, value);
   }
 }

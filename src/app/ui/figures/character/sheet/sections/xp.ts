@@ -21,7 +21,10 @@ export class CharacterSheetXpComponent extends CharacterSheetSection {
     }
     const value = Math.max(0, +event.target.value);
     event.target.value = value;
-    if (this.character.progress.experience !== value) {
+    if (
+      this.character.progress.experience !== value &&
+      gameManager.characterManager.canAddXP(this.character, value - this.character.progress.experience)
+    ) {
       if (this.xpTimeout) {
         clearTimeout(this.xpTimeout);
         this.xpTimeout = null;

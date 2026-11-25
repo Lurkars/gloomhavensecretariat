@@ -49,6 +49,15 @@ describe('Character model', () => {
   });
 
   describe('toModel/fromModel round-trip', () => {
+    it('serializes token values without holes or NaN', () => {
+      const character = new Character(buildCharacterData(), 1);
+      character.tokenValues = [];
+      character.tokenValues[2] = 1;
+      character.tokenValues[0] = NaN;
+      const model = character.toModel();
+      expect(JSON.parse(JSON.stringify(model.tokenValues))).toEqual([0, 0, 1]);
+    });
+
     it('reproduces basic scalar fields', () => {
       const character = new Character(buildCharacterData(), 1);
       character.title = 'The Brute';

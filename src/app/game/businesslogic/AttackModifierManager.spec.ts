@@ -12,7 +12,10 @@ import {
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { AdditionalIdentifier, Identifier } from 'src/app/game/model/data/Identifier';
+import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { Perk, PerkCard, PerkType } from 'src/app/game/model/data/Perks';
+import { Monster } from 'src/app/game/model/Monster';
+import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 // This spec covers the small, clearly-scoped pure/near-pure helpers, plus calculateAttackResult/
 // buildCharacterAttackModifierDeck/applyCharacterPerks below (including the fh trial-348 branch,
@@ -226,12 +229,12 @@ describe('AttackModifierManager', () => {
   describe('replaceCount', () => {
     it('is 0 for a non-replace perk', () => {
       const perk = Object.assign(new Perk(), { type: PerkType.add, cards: [] });
-      expect(attackModifierManager.replaceCount(perk)).toEqual(0);
+      expect(gameManager.attackModifierBuildManager.replaceCount(perk)).toEqual(0);
     });
 
     it('uses the explicit replaceCount when set', () => {
       const perk = Object.assign(new Perk(), { type: PerkType.replace, replaceCount: 2, cards: [] });
-      expect(attackModifierManager.replaceCount(perk)).toEqual(2);
+      expect(gameManager.attackModifierBuildManager.replaceCount(perk)).toEqual(2);
     });
   });
 
@@ -349,7 +352,7 @@ describe('AttackModifierManager', () => {
       character.level = 1;
       character.amTables = [[AttackModifierType.plus1, AttackModifierType.minus1]];
 
-      const deck = attackModifierManager.buildCharacterAttackModifierDeck(character);
+      const deck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(character);
 
       expect(deck.cards.every((am) => am.character)).toBe(true);
       expect(deck.cards.map((am) => am.type)).toEqual([AttackModifierType.plus1, AttackModifierType.minus1]);
@@ -363,7 +366,7 @@ describe('AttackModifierManager', () => {
       });
       character.perks = [perk];
 
-      const deck = attackModifierManager.buildCharacterAttackModifierDeck(character);
+      const deck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(character);
 
       expect(deck.attackModifiers.some((am) => am.type === AttackModifierType.curse)).toBe(true);
     });
@@ -387,7 +390,7 @@ describe('AttackModifierManager', () => {
       character.perks = [perk];
       const deck = new AttackModifierDeck();
 
-      attackModifierManager.applyCharacterPerks(character, deck);
+      gameManager.attackModifierBuildManager.applyCharacterPerks(character, deck);
 
       const added = deck.attackModifiers.find((am) => am.type === AttackModifierType.empower);
       expect(added).toBeDefined();
@@ -406,7 +409,7 @@ describe('AttackModifierManager', () => {
       const deck = new AttackModifierDeck();
       const before = deck.cards.filter((am) => am.type === AttackModifierType.curse).length;
 
-      attackModifierManager.applyCharacterPerks(character, deck);
+      gameManager.attackModifierBuildManager.applyCharacterPerks(character, deck);
 
       const after = deck.cards.filter((am) => am.type === AttackModifierType.curse).length;
       expect(after - before).toBe(2);
@@ -424,11 +427,11 @@ describe('AttackModifierManager', () => {
       character.progress.perks = [2]; // not yet at count=3
       const deck = new AttackModifierDeck();
 
-      attackModifierManager.applyCharacterPerks(character, deck);
+      gameManager.attackModifierBuildManager.applyCharacterPerks(character, deck);
       expect(deck.cards.filter((am) => am.type === AttackModifierType.curse).length).toBe(0);
 
       character.progress.perks = [3];
-      attackModifierManager.applyCharacterPerks(character, deck);
+      gameManager.attackModifierBuildManager.applyCharacterPerks(character, deck);
       expect(deck.cards.filter((am) => am.type === AttackModifierType.curse).length).toBe(1);
     });
 
@@ -448,7 +451,7 @@ describe('AttackModifierManager', () => {
       const deck = new AttackModifierDeck();
       const minus1Before = deck.cards.filter((am) => am.type === AttackModifierType.minus1).length;
 
-      attackModifierManager.applyCharacterPerks(character, deck);
+      gameManager.attackModifierBuildManager.applyCharacterPerks(character, deck);
 
       expect(deck.cards.filter((am) => am.type === AttackModifierType.minus1).length).toBe(minus1Before - 1);
       expect(deck.cards.some((am) => am.type === AttackModifierType.curse)).toBe(true);
@@ -461,7 +464,7 @@ describe('AttackModifierManager', () => {
       const minus1Before = deck.cards.filter((am) => am.id === AttackModifierType.minus1).length;
       expect(minus1Before).toBeGreaterThanOrEqual(2);
 
-      attackModifierManager.applyCharacterPerks(character, deck);
+      gameManager.attackModifierBuildManager.applyCharacterPerks(character, deck);
 
       expect(deck.cards.filter((am) => am.id === AttackModifierType.minus1).length).toBe(minus1Before - 2);
     });
@@ -472,7 +475,7 @@ describe('AttackModifierManager', () => {
       const deck = new AttackModifierDeck();
       const minus1Before = deck.cards.filter((am) => am.id === AttackModifierType.minus1).length;
 
-      attackModifierManager.applyCharacterPerks(character, deck, true);
+      gameManager.attackModifierBuildManager.applyCharacterPerks(character, deck, true);
 
       expect(deck.cards.filter((am) => am.id === AttackModifierType.minus1).length).toBe(minus1Before);
     });
@@ -484,8 +487,8 @@ describe('AttackModifierManager', () => {
     });
 
     it('uses the 20 card base deck with attribute modifiers for RPG characters', () => {
-      vi.spyOn(attackModifierManager, 'isRpgCharacter').mockReturnValue(true);
-      const deck = attackModifierManager.buildCharacterAttackModifierDeck(buildCharacter());
+      vi.spyOn(gameManager.characterRpgManager, 'isRpgCharacter').mockReturnValue(true);
+      const deck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(buildCharacter());
 
       expect(deck.cards.length).toBe(20);
       expect(deck.cards.filter((am) => am.attribute === undefined).map((am) => am.type)).toEqual([
@@ -498,7 +501,7 @@ describe('AttackModifierManager', () => {
     });
 
     it('replaces cards by attack and attribute modifier when applying perks', () => {
-      vi.spyOn(attackModifierManager, 'isRpgCharacter').mockReturnValue(true);
+      vi.spyOn(gameManager.characterRpgManager, 'isRpgCharacter').mockReturnValue(true);
       const replacePerk = Object.assign(new Perk(), {
         type: PerkType.replace,
         count: 1,
@@ -510,7 +513,7 @@ describe('AttackModifierManager', () => {
       const character = buildCharacter('rpg-char', { perks: [replacePerk] });
       character.progress.perks = [1];
 
-      const deck = attackModifierManager.buildCharacterAttackModifierDeck(character);
+      const deck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(character);
 
       expect(deck.cards.length).toBe(20);
       expect(deck.cards.filter((am) => am.type === AttackModifierType.minus1).map((am) => am.attribute)).toEqual([1, 2, 2, 3]);
@@ -520,7 +523,7 @@ describe('AttackModifierManager', () => {
     it('restores RPG cards by id from a serialized deck', () => {
       const deck = new AttackModifierDeck(RpgAttackModifierCards);
       const restored = new AttackModifierDeck();
-      attackModifierManager.fromModel(restored, deck.toModel());
+      gameManager.attackModifierBuildManager.fromModel(restored, deck.toModel());
 
       expect(restored.cards.map((am) => am.attribute)).toEqual(deck.cards.map((am) => am.attribute));
     });
@@ -614,7 +617,7 @@ describe('AttackModifierManager regressions', () => {
     character.progress.trial = new Identifier('348', 'fh');
     character.progress.equippedItems = [new AdditionalIdentifier('11', 'fh')];
 
-    const deck = attackModifierManager.buildCharacterAttackModifierDeck(character);
+    const deck = gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(character);
 
     expect(deck.cards.some((am) => [AttackModifierType.plus1, AttackModifierType.plus2, AttackModifierType.double].includes(am.type))).toBe(
       false
@@ -693,5 +696,91 @@ describe('AttackModifierManager end of deck and additional regressions', () => {
     expect(attackModifierManager.isAdditionalId('additional-brute10', character)).toBe(true);
     expect(attackModifierManager.isAdditionalId('additional-brute-two0', character)).toBe(false);
     expect(attackModifierManager.isAdditionalId(undefined, character)).toBe(false);
+  });
+});
+
+describe('AttackModifierManager deck resolution', () => {
+  const attackModifierManager = gameManager.attackModifierManager;
+  const settings = settingsManager.settings;
+  const backup = {
+    allyAttackModifierDeck: settings.allyAttackModifierDeck,
+    alwaysAllyAttackModifierDeck: settings.alwaysAllyAttackModifierDeck,
+    characterAttackModifierDeck: settings.characterAttackModifierDeck,
+    characterAttackModifierDeckActiveBottom: settings.characterAttackModifierDeckActiveBottom
+  };
+
+  function allyMonster(): Monster {
+    const monster = new Monster(new MonsterData());
+    monster.isAlly = true;
+    return monster;
+  }
+
+  beforeEach(() => {
+    gameManager.game.figures = [];
+    gameManager.game.scenario = undefined;
+    settings.allyAttackModifierDeck = true;
+    settings.alwaysAllyAttackModifierDeck = false;
+    settings.characterAttackModifierDeck = true;
+    settings.characterAttackModifierDeckActiveBottom = false;
+  });
+
+  afterEach(() => {
+    Object.assign(settings, backup);
+    vi.restoreAllMocks();
+  });
+
+  it('uses the ally deck for allies only when it is enabled', () => {
+    vi.spyOn(gameManager, 'fhRules').mockReturnValue(true);
+    const monster = allyMonster();
+    expect(attackModifierManager.byFigure(monster)).toBe(gameManager.game.allyAttackModifierDeck);
+    expect(attackModifierManager.isMonsterDeck(monster)).toBe(false);
+    settings.allyAttackModifierDeck = false;
+    expect(attackModifierManager.byFigure(monster)).toBe(gameManager.game.monsterAttackModifierDeck);
+    expect(attackModifierManager.isMonsterDeck(monster)).toBe(true);
+  });
+
+  it('resolves objective decks, falling back to the monster deck', () => {
+    vi.spyOn(gameManager, 'fhRules').mockReturnValue(false);
+    const character = buildCharacter();
+    const objective = new ObjectiveContainer('o1');
+    gameManager.game.figures = [character, objective];
+    objective.amDeck = 'A';
+    expect(attackModifierManager.byFigure(objective)).toBe(gameManager.game.monsterAttackModifierDeck);
+    settings.alwaysAllyAttackModifierDeck = true;
+    expect(attackModifierManager.byFigure(objective)).toBe(gameManager.game.allyAttackModifierDeck);
+    objective.amDeck = character.name;
+    expect(attackModifierManager.byFigure(objective)).toBe(character.attackModifierDeck);
+    settings.characterAttackModifierDeck = false;
+    expect(attackModifierManager.byFigure(objective)).toBe(gameManager.game.monsterAttackModifierDeck);
+  });
+
+  it('reveals a hidden character deck before drawing from it', () => {
+    const character = buildCharacter();
+    gameManager.game.figures = [character];
+    const draw = vi.spyOn(attackModifierManager, 'drawModifier').mockImplementation(() => {});
+    expect(attackModifierManager.drawDeckFor(character)).toEqual({ deck: character.attackModifierDeck, character: character });
+    expect(attackModifierManager.drawForFigure(character)).toBe(false);
+    expect(character.attackModifierDeckVisible).toBe(true);
+    expect(draw).not.toHaveBeenCalled();
+    expect(attackModifierManager.drawForFigure(character, 'advantage')).toBe(true);
+    expect(draw).toHaveBeenCalledWith(character.attackModifierDeck, 'advantage', character);
+    settings.characterAttackModifierDeck = false;
+    expect(attackModifierManager.drawDeckFor(character)).toEqual({
+      deck: gameManager.game.monsterAttackModifierDeck,
+      character: undefined
+    });
+    expect(attackModifierManager.drawDeckFor(undefined)).toEqual({
+      deck: gameManager.game.monsterAttackModifierDeck,
+      character: undefined
+    });
+  });
+
+  it('shows the ally deck only when enabled and used', () => {
+    vi.spyOn(gameManager, 'fhRules').mockReturnValue(true);
+    expect(attackModifierManager.allyDeckVisible()).toBe(false);
+    gameManager.game.figures = [allyMonster()];
+    expect(attackModifierManager.allyDeckVisible()).toBe(true);
+    settings.allyAttackModifierDeck = false;
+    expect(attackModifierManager.allyDeckVisible()).toBe(false);
   });
 });

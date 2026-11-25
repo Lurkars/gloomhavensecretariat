@@ -2,7 +2,6 @@ import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { deckTargetValid, findMonster, validSeed } from 'src/app/game/commands/CommandHelper';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
-import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { deckCardList } from 'src/app/game/util/deck';
 
@@ -16,7 +15,7 @@ abstract class MonsterAbilityCommandImpl extends CommandImpl {
     if (!monster || typeof cardId !== 'number') {
       return -1;
     }
-    const abilityCards = gameManager.abilityCards(monster);
+    const abilityCards = gameManager.editionManager.abilityCards(monster);
     return monster.abilities.findIndex((ability) => abilityCards[ability] && abilityCards[ability].cardId === cardId);
   }
 }
@@ -33,8 +32,8 @@ export class MonsterAbilityShuffleCommand extends MonsterAbilityCommandImpl {
     const monster = this.monster();
     if (monster) {
       gameManager.game.seed = seed;
-      gameManager.monsterManager.shuffleAbilities(monster, upcoming);
-      gameManager.sortFigures();
+      gameManager.monsterAbilityManager.shuffleAbilities(monster, upcoming);
+      gameManager.roundManager.sortFigures();
     } else {
       this.executionError('monster not found');
     }
@@ -56,8 +55,8 @@ export class MonsterAbilityDrawCommand extends MonsterAbilityCommandImpl {
     gameManager.game.seed = seed;
     const monster = this.monster();
     if (monster) {
-      gameManager.monsterManager.drawAbility(monster);
-      gameManager.sortFigures();
+      gameManager.monsterAbilityManager.drawAbility(monster);
+      gameManager.roundManager.sortFigures();
     } else {
       this.executionError('monster not found');
     }
@@ -69,22 +68,14 @@ export class MonsterAbilityDrawExtraCommand extends MonsterAbilityCommandImpl {
   requiredParameters: number = 2;
 
   validParameters(figureId: string, drawExtra: boolean): boolean {
-    return !!this.monster() && typeof drawExtra === 'boolean';
+    const monster = this.monster();
+    return !!monster && gameManager.monsterAbilityManager.canSetDrawExtra(monster, drawExtra);
   }
 
   executeWithParameters(figureId: string, drawExtra: boolean) {
     const monster = this.monster();
     if (monster) {
-      if (!drawExtra) {
-        monster.drawExtra = false;
-        gameManager.monsterManager.applySameDeck(monster);
-      } else {
-        monster.drawExtra = true;
-        if (gameManager.game.state === GameState.next) {
-          gameManager.monsterManager.drawExtra(monster);
-        }
-        gameManager.sortFigures();
-      }
+      gameManager.monsterAbilityManager.setDrawExtra(monster, drawExtra);
     } else {
       this.executionError('monster not found');
     }
@@ -103,7 +94,7 @@ export class MonsterAbilityMoveCommand extends MonsterAbilityCommandImpl {
     const monster = this.monster();
     if (monster) {
       const position = deckCardList(monster.ability, this.abilityIndex(cardId));
-      gameManager.monsterManager.moveAbility(monster, position.list, position.index, toList, toIndex);
+      gameManager.monsterAbilityManager.moveAbility(monster, position.list, position.index, toList, toIndex);
     } else {
       this.executionError('monster not found');
     }
@@ -125,7 +116,7 @@ export class MonsterAbilityRestoreDefaultCommand extends MonsterAbilityCommandIm
     gameManager.game.seed = seed;
     const monster = this.monster();
     if (monster) {
-      gameManager.monsterManager.restoreDefaultAbilities(monster);
+      gameManager.monsterAbilityManager.restoreDefaultAbilities(monster);
     } else {
       this.executionError('monster not found');
     }
@@ -143,7 +134,7 @@ export class MonsterAbilityRemoveCommand extends MonsterAbilityCommandImpl {
   executeWithParameters(figureId: string, cardId: number) {
     const monster = this.monster();
     if (monster) {
-      gameManager.monsterManager.removeAbility(monster, this.abilityIndex(cardId));
+      gameManager.monsterAbilityManager.removeAbility(monster, this.abilityIndex(cardId));
     } else {
       this.executionError('monster not found');
     }
@@ -155,7 +146,7 @@ export class MonsterAbilityRestoreCommand extends MonsterAbilityCommandImpl {
   requiredParameters: number = 2;
 
   abilityCard(monster: Monster, cardId: BASE_TYPE): AbilityCard | undefined {
-    const deckData = gameManager.deckData(monster);
+    const deckData = gameManager.editionManager.deckData(monster);
     return deckData.abilities.find((abilityCard, index) => abilityCard.cardId === cardId && !monster.abilities.includes(index));
   }
 
@@ -168,7 +159,7 @@ export class MonsterAbilityRestoreCommand extends MonsterAbilityCommandImpl {
     const monster = this.monster();
     const abilityCard = monster && this.abilityCard(monster, cardId);
     if (monster && abilityCard) {
-      gameManager.monsterManager.restoreAbility(monster, abilityCard);
+      gameManager.monsterAbilityManager.restoreAbility(monster, abilityCard);
     } else {
       this.executionError('monster or ability card not found');
     }
@@ -191,7 +182,7 @@ export class MonsterAbilityRevealedCommand extends MonsterAbilityCommandImpl {
       const index = this.abilityIndex(cardId);
       const values = [...monster.revealedAbilities];
       values[index] = revealed;
-      const abilityCard = gameManager.abilityCards(monster)[monster.abilities[index]];
+      const abilityCard = gameManager.editionManager.abilityCards(monster)[monster.abilities[index]];
       if (revealed && abilityCard) {
         abilityCard.revealed = true;
       }

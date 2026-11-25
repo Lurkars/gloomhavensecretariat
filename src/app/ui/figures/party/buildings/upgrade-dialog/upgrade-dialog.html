@@ -233,11 +233,7 @@
       <a
         class="apply"
         [ngClass]="{
-          disabled:
-            !force &&
-            (trade
-              ? !tradeComplete
-              : requiredResources - (discount ? 1 : 0) > paidResources || (costs.gold && costs.gold > spent.gold) || false)
+          disabled: !force && (trade ? !tradeComplete : !paymentComplete())
         }"
         (click)="confirm()"
         ><span [ghs-label]="'party.campaign.sheet.buildings.selectResources.confirm'"></span

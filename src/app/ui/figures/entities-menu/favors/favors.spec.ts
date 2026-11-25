@@ -1,6 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { TestBed } from '@angular/core/testing';
-import { gameManager, settingsManager, storageManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, storageManager } from 'src/app/game/businesslogic/Managers';
 import { createTestEdition, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { Favor } from 'src/app/game/model/data/Trials';
 import { FavorsComponent } from 'src/app/ui/figures/entities-menu/favors/favors';
@@ -19,7 +19,7 @@ describe('FavorsComponent', () => {
     vi.spyOn(gameManager, 'triggerUiChange').mockImplementation(() => undefined);
     vi.spyOn(gameManager.stateManager, 'autoBackup').mockResolvedValue(undefined);
     createTestEdition({ favors: [knowledge] });
-    vi.spyOn(gameManager, 'currentEdition').mockReturnValue('test');
+    vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('test');
     await TestBed.configureTestingModule({
       imports: [FavorsComponent],
       providers: [{ provide: DialogRef, useValue: { close: vi.fn() } }]
@@ -28,7 +28,7 @@ describe('FavorsComponent', () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
-    settingsManager.label = {};
+    labelManager.label = {};
     document.body.className = '';
   });
 

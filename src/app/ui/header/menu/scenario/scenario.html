@@ -79,7 +79,11 @@
           tabclick
           (click)="setScenario(scenario)"
           class="scenario"
-          [ngClass]="{ current: gameManager.scenarioManager.isCurrent(scenario), blocked: scenario.isBlocked, locked: scenario.isLocked }"
+          [ngClass]="{
+            current: gameManager.scenarioRequirementsManager.isCurrent(scenario),
+            blocked: scenario.isBlocked,
+            locked: scenario.isLocked
+          }"
           [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : scenario.isLocked ? '.locked' : '')"
           [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(scenario)]"
         >

@@ -42,7 +42,7 @@ describe('BattleGoalManager', () => {
     gameManager.game.edition = undefined;
     gameManager.game.battleGoalEditions = [];
     gameManager.game.filteredBattleGoals = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = [];
     gameManager.trialsManager.apply = false;
     battleGoalManager = gameManager.battleGoalManager;
@@ -54,7 +54,7 @@ describe('BattleGoalManager', () => {
 
   describe('getBattleGoalEditions', () => {
     it('returns only editions enabled in settings that define battle goals', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')]),
         buildEditionData('fh', [buildBattleGoal('fh', 'b', '1')]),
         buildEditionData('empty', [])
@@ -65,7 +65,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('returns an empty array when no matching edition has battle goals', () => {
-      gameManager.editionData = [buildEditionData('gh', [])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [])];
       settingsManager.settings.editions = ['gh'];
 
       expect(battleGoalManager.getBattleGoalEditions()).toEqual([]);
@@ -74,7 +74,7 @@ describe('BattleGoalManager', () => {
 
   describe('getBattleGoals', () => {
     it('includes battle goals from editions considered relevant to the current edition', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -84,7 +84,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('excludes editions not enabled in settings even if otherwise relevant', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
       settingsManager.settings.editions = [];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -93,7 +93,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('falls back to game.battleGoalEditions when there is no current game.edition', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = undefined;
       gameManager.game.battleGoalEditions = ['gh'];
@@ -104,7 +104,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('excludes battle goals listed in game.filteredBattleGoals when filtered=true (default)', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1'), buildBattleGoal('gh', 'b', '2')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1'), buildBattleGoal('gh', 'b', '2')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       gameManager.game.filteredBattleGoals = [new Identifier('a', 'gh')];
@@ -115,7 +115,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('ignores game.filteredBattleGoals when filtered=false', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1'), buildBattleGoal('gh', 'b', '2')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1'), buildBattleGoal('gh', 'b', '2')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       gameManager.game.filteredBattleGoals = [new Identifier('a', 'gh')];
@@ -128,7 +128,7 @@ describe('BattleGoalManager', () => {
     it('sorts battle goals of the same edition by ascending (string-compared) cardId', () => {
       // sortAction's comparator does `a.cardId < b.cardId ? -1 : 1`, a plain string comparison
       // (not numeric), so cardIds are picked here to sort the same way under both.
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'b', '9'), buildBattleGoal('gh', 'a', '3')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'b', '9'), buildBattleGoal('gh', 'a', '3')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -138,7 +138,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('sorts the current edition before other editions', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         buildEditionData('fh', [buildBattleGoal('fh', 'f', '1')]),
         buildEditionData('gh', [buildBattleGoal('gh', 'g', '1')])
       ];
@@ -153,7 +153,7 @@ describe('BattleGoalManager', () => {
 
   describe('getUnrevealedBattleGoals', () => {
     it('excludes battle goals already assigned to any character', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1'), buildBattleGoal('gh', 'b', '2')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1'), buildBattleGoal('gh', 'b', '2')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -167,7 +167,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('does not exclude goals assigned only to the characterFilter figure', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -183,9 +183,9 @@ describe('BattleGoalManager', () => {
 
   describe('getBattleGoalsForEdition', () => {
     it('returns battle goals from editions gameManager considers relevant', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')]), buildEditionData('fh', [])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')]), buildEditionData('fh', [])];
       settingsManager.settings.editions = ['gh', 'fh'];
-      vi.spyOn(gameManager, 'isEditionRelevant').mockImplementation((edition) => edition === 'gh');
+      vi.spyOn(gameManager.editionManager, 'isEditionRelevant').mockImplementation((edition) => edition === 'gh');
 
       const result = battleGoalManager.getBattleGoalsForEdition('gh');
       expect(result.map((b) => b.name)).toEqual(['a']);
@@ -194,7 +194,7 @@ describe('BattleGoalManager', () => {
 
   describe('getBattleGoal', () => {
     it('finds a battle goal by its identifier', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -204,7 +204,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('returns undefined when no battle goal matches', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -216,7 +216,7 @@ describe('BattleGoalManager', () => {
 
   describe('drawBattleGoal', () => {
     it('assigns a random unrevealed battle goal to the character', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'a', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -233,7 +233,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('does nothing when there are no unrevealed battle goals left', () => {
-      gameManager.editionData = [];
+      gameManager.editionManager.editionData = [];
       settingsManager.settings.editions = [];
 
       const character = buildCharacter();
@@ -245,7 +245,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('splices the new goal before the last two when splice=true and there are more than 2 already', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'new', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'new', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -262,7 +262,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('appends (rather than splices) when splice=true but 2 or fewer goals exist', () => {
-      gameManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'new', '1')])];
+      gameManager.editionManager.editionData = [buildEditionData('gh', [buildBattleGoal('gh', 'new', '1')])];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       vi.spyOn(gameManager, 'editionRules').mockReturnValue(true);
@@ -279,7 +279,7 @@ describe('BattleGoalManager', () => {
     });
 
     it('filters to 2-check battle goals only when the fh trial #360 is active and applied', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         buildEditionData('gh', [buildBattleGoal('gh', 'one-check', '1', 1), buildBattleGoal('gh', 'two-check', '2', 2)])
       ];
       settingsManager.settings.editions = ['gh'];

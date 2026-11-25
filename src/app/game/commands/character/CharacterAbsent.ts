@@ -8,16 +8,13 @@ export class CharacterAbsentCommand extends CommandImpl {
 
   validParameters(number: number, absent: boolean): boolean {
     const character = findCharacter(number);
-    return !!character && typeof absent === 'boolean' && (!absent || character.absent || gameManager.characterManager.characterCount() > 1);
+    return !!character && gameManager.characterManager.canSetAbsent(character, absent);
   }
 
   executeWithParameters(number: number, absent: boolean) {
     const character = findCharacter(number);
     if (character) {
-      character.absent = absent;
-      if (character.absent && character.active) {
-        gameManager.roundManager.toggleFigure(character);
-      }
+      gameManager.characterManager.setAbsent(character, absent);
     } else {
       this.executionError('character not found');
     }

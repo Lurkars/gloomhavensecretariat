@@ -16,7 +16,6 @@ import {
 import { PartyCampaignTreasuresComponent } from 'src/app/ui/figures/party/sheet/sections/campaign-treasures';
 import { PartySheetFhCalendarComponent } from 'src/app/ui/figures/party/sheet/sections/fh-calendar';
 import { PartySheetFhCampaignStickersComponent } from 'src/app/ui/figures/party/sheet/sections/fh-campaign-stickers';
-import { moraleDefense } from 'src/app/ui/figures/party/sheet/sections/fh-morale';
 import { PartySheetFhSoldiersComponent } from 'src/app/ui/figures/party/sheet/sections/fh-soldiers';
 import { PartySheetGh2eFactionsComponent } from 'src/app/ui/figures/party/sheet/sections/gh2e-factions';
 import { PartySheetNotesComponent } from 'src/app/ui/figures/party/sheet/sections/notes';
@@ -46,7 +45,7 @@ describe('Party sheet sections', () => {
     gameManager.game.party.weekSections = {};
     gameManager.game.party.campaignStickers = [];
     gameManager.game.party.factionReputation = {};
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
   });
 
   it('every section renders without throwing', () => {
@@ -87,7 +86,7 @@ describe('Party sheet sections', () => {
       gameManager.game.party.treasures = [new Identifier('10', 'gh'), new Identifier('2', 'gh')];
       const component = create(PartyCampaignTreasuresComponent);
       component.treasureEdition = '';
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { url: 'gh' })];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { url: 'gh' })];
       expect(component.treasures().map((t) => t.name)).toEqual(['2', '10']);
     });
 
@@ -181,15 +180,6 @@ describe('Party sheet sections', () => {
   describe('campaignStickerImage', () => {
     it('is undefined when the campaign has no matching sticker', () => {
       expect(create(PartySheetFhCampaignStickersComponent).campaignStickerImage('unknown-sticker', 0)).toBeUndefined();
-    });
-  });
-
-  describe('moraleDefense', () => {
-    it('maps morale to the defense bonus', () => {
-      expect(moraleDefense(0)).toEqual(-10);
-      expect(moraleDefense(6)).toEqual(0);
-      expect(moraleDefense(12)).toEqual(10);
-      expect(moraleDefense(20)).toEqual(15);
     });
   });
 

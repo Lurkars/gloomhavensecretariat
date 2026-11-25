@@ -14,8 +14,8 @@ describe('ObjectiveManager', () => {
   beforeEach(() => {
     gameManager.game.figures = [];
     gameManager.game.state = GameState.next;
-    vi.spyOn(gameManager, 'addEntityCount').mockImplementation(() => {});
-    vi.spyOn(gameManager, 'sortFigures').mockImplementation(() => {});
+    vi.spyOn(gameManager.entityCounterManager, 'addEntityCount').mockImplementation(() => {});
+    vi.spyOn(gameManager.roundManager, 'sortFigures').mockImplementation(() => {});
     objectiveManager = gameManager.objectiveManager;
   });
 
@@ -180,7 +180,7 @@ describe('ObjectiveManager', () => {
       objective.active = true;
       gameManager.game.figures = [objective];
       gameManager.game.state = GameState.next;
-      const toggleSpy = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+      const toggleSpy = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
       const entity = objectiveManager.addObjectiveEntity(objective);
 
       objectiveManager.removeObjectiveEntity(objective, entity);
@@ -263,7 +263,7 @@ describe('ObjectiveManager', () => {
     it('returns true when objectiveData for the objectiveId cannot be resolved', () => {
       const identifier = new AdditionalIdentifier('unknown', 'gh', 'objective');
       const objective = new ObjectiveContainer('u1', identifier);
-      vi.spyOn(gameManager, 'figuresByIdentifier').mockReturnValue([]);
+      vi.spyOn(gameManager.entityManager, 'figuresByIdentifier').mockReturnValue([]);
       expect(objectiveManager.skipObjective(objective)).toBe(true);
     });
   });
@@ -274,7 +274,7 @@ describe('ObjectiveManager', () => {
       scenarioData.index = '1';
       const objectiveData = new ObjectiveData('crate', 5);
       scenarioData.objectives = [objectiveData];
-      vi.spyOn(gameManager, 'scenarioData').mockReturnValue([scenarioData]);
+      vi.spyOn(gameManager.editionManager, 'scenarioData').mockReturnValue([scenarioData]);
 
       const identifier = new ScenarioObjectiveIdentifier();
       identifier.edition = 'gh';
@@ -286,7 +286,7 @@ describe('ObjectiveManager', () => {
     });
 
     it('returns undefined when the scenario cannot be found', () => {
-      vi.spyOn(gameManager, 'scenarioData').mockReturnValue([]);
+      vi.spyOn(gameManager.editionManager, 'scenarioData').mockReturnValue([]);
 
       const identifier = new ScenarioObjectiveIdentifier();
       identifier.edition = 'gh';
@@ -302,7 +302,7 @@ describe('ObjectiveManager', () => {
       sectionData.group = 'g';
       const objectiveData = new ObjectiveData('crate', 5);
       sectionData.objectives = [objectiveData];
-      vi.spyOn(gameManager, 'sectionData').mockReturnValue([sectionData]);
+      vi.spyOn(gameManager.editionManager, 'sectionData').mockReturnValue([sectionData]);
 
       const identifier = new ScenarioObjectiveIdentifier();
       identifier.edition = 'gh';
@@ -371,6 +371,22 @@ describe('ObjectiveManager', () => {
       objectiveManager.draw();
 
       expect(objective.off).toBe(true);
+    });
+  });
+
+  describe('nextObjectiveNumber', () => {
+    it('skips numbers in use and is used when adding entities', () => {
+      const objective = new ObjectiveContainer('u1');
+      gameManager.game.figures = [objective];
+      expect(objectiveManager.nextObjectiveNumber(objective)).toBe(0);
+      const first = objectiveManager.addObjectiveEntity(objective);
+      objectiveManager.addObjectiveEntity(objective);
+      objectiveManager.addObjectiveEntity(objective);
+      expect(objective.entities.map((entity) => entity.number)).toEqual([1, 2, 3]);
+      objective.entities.splice(objective.entities.indexOf(first), 1);
+      // two alive entities (2, 3): number 3 is used, so the next one gets 4
+      expect(objectiveManager.nextObjectiveNumber(objective)).toBe(3);
+      expect(objectiveManager.addObjectiveEntity(objective).number).toBe(4);
     });
   });
 });

@@ -3,7 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ConditionName } from 'src/app/game/model/data/Condition';
 import { ItemSlot } from 'src/app/game/model/data/ItemData';
@@ -100,7 +100,7 @@ export class LabelToolComponent implements OnInit {
 
   private buildEditionLabel(locale: string): any {
     let result: any = {};
-    for (const ed of gameManager.editionData) {
+    for (const ed of gameManager.editionManager.editionData) {
       if (ed.label && (ed.label as any)[locale]) {
         result = this.deepMerge(result, (ed.label as any)[locale]);
       }
@@ -121,12 +121,12 @@ export class LabelToolComponent implements OnInit {
   }
 
   update() {
-    const allKeys = this.flattenLabelKeys(settingsManager.label, '');
+    const allKeys = this.flattenLabelKeys(labelManager.label, '');
     this.labels = allKeys
       .filter((key) => !this.filter || key.toLowerCase().includes(this.filter.toLowerCase()))
       .filter((key) => {
         if (this.translationFilter === 'all' || this.locale === 'en') return true;
-        const currentRaw = this.getRawLabel(settingsManager.label, key) || '';
+        const currentRaw = this.getRawLabel(labelManager.label, key) || '';
         const enRaw = this.getRawLabel(this.enLabel, key) || '';
         if (this.translationFilter === 'same') {
           return enRaw !== '' && currentRaw === enRaw;
@@ -156,7 +156,7 @@ export class LabelToolComponent implements OnInit {
         return true;
       })
       .map((key) => {
-        const raw = this.getRawLabel(settingsManager.label, key) || '';
+        const raw = this.getRawLabel(labelManager.label, key) || '';
         return { key, raw, args: this.defaultArgs(raw) };
       });
   }
@@ -203,7 +203,7 @@ export class LabelToolComponent implements OnInit {
     while ((m = tokenPairRegex.exec(raw)) !== null) {
       const charIdx = parseInt(m[1], 10);
       const tokenIdx = parseInt(m[2], 10);
-      const charData = gameManager.charactersData().find((c) => c.name === args[charIdx]);
+      const charData = gameManager.editionManager.charactersData().find((c) => c.name === args[charIdx]);
       if (charData && charData.tokens && charData.tokens.length > 0) {
         args[tokenIdx] = this.rand(charData.tokens);
       }
@@ -275,19 +275,19 @@ export class LabelToolComponent implements OnInit {
   }
 
   private sampleCharacter(): string {
-    return this.rand(gameManager.charactersData().map((c) => c.name)) || 'brute';
+    return this.rand(gameManager.editionManager.charactersData().map((c) => c.name)) || 'brute';
   }
 
   private sampleEdition(): string {
-    return this.rand(gameManager.editions()) || 'gh';
+    return this.rand(gameManager.editionManager.editions()) || 'gh';
   }
 
   private sampleMonster(): string {
-    return this.rand(gameManager.monstersData().map((m) => m.name)) || 'bandit-guard';
+    return this.rand(gameManager.editionManager.monstersData().map((m) => m.name)) || 'bandit-guard';
   }
 
   private sampleSummon(): string {
-    const summons = gameManager
+    const summons = gameManager.editionManager
       .charactersData()
       .flatMap((c) => c.availableSummons)
       .map((s) => s.name)
@@ -296,7 +296,7 @@ export class LabelToolComponent implements OnInit {
   }
 
   private sampleTrait(): string {
-    const traits = gameManager
+    const traits = gameManager.editionManager
       .charactersData()
       .flatMap((c) => c.traits)
       .filter((t) => !!t);
@@ -304,15 +304,15 @@ export class LabelToolComponent implements OnInit {
   }
 
   private sampleTokenCharacter(): string {
-    const withTokens = gameManager
+    const withTokens = gameManager.editionManager
       .charactersData()
       .filter((c) => c.tokens && c.tokens.length > 0)
       .map((c) => c.name);
-    return this.rand(withTokens.length ? withTokens : gameManager.charactersData().map((c) => c.name)) || 'brute';
+    return this.rand(withTokens.length ? withTokens : gameManager.editionManager.charactersData().map((c) => c.name)) || 'brute';
   }
 
   private sampleToken(): string {
-    const tokens = gameManager
+    const tokens = gameManager.editionManager
       .charactersData()
       .flatMap((c) => c.tokens || [])
       .filter((t) => !!t);

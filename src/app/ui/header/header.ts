@@ -53,7 +53,6 @@ export class HeaderComponent implements OnInit {
   readonly mainMenuButton = viewChild.required<ElementRef>('mainMenuButton');
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  GameState = GameState;
   WebSocket = WebSocket;
 
   SubMenu = SubMenu;
@@ -103,7 +102,7 @@ export class HeaderComponent implements OnInit {
     );
 
     setInterval(() => {
-      this.wsState = gameManager.stateManager.wsState();
+      this.wsState = gameManager.serverSyncManager.wsState();
       this.syncing = window.document.body.classList.contains('server-sync');
       this.cdr.markForCheck();
     }, 500);
@@ -210,7 +209,7 @@ export class HeaderComponent implements OnInit {
     gameManager.stateManager.before(
       'gameClock.' + (this.lastGameClockTimestamp && !this.lastGameClockTimestamp.clockOut ? 'clockOut' : 'clockIn')
     );
-    gameManager.toggleGameClock();
+    gameManager.gameClockManager.toggleGameClock();
     gameManager.stateManager.after();
   }
 }

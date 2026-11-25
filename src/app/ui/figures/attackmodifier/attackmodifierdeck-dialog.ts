@@ -143,30 +143,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   update() {
     this.upcomingCards = this.deck.cards.filter((attackModifier, index) => index > this.deck.current);
     this.discardedCards = this.deck.cards.filter((AttackModifier, index) => index <= this.deck.current).reverse();
-    let originalDeck: AttackModifierDeck | undefined;
-    if (this.character) {
-      originalDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
-    } else if (this.townGuard) {
-      originalDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
-        gameManager.game.party,
-        gameManager.campaignManager.campaignData()
-      );
-    } else {
-      originalDeck = gameManager.attackModifierManager.defaultDeck();
-    }
+    this.deletedCards = gameManager.attackModifierManager.deletedModifiers(this.deck, this.character, this.townGuard);
 
-    this.deck.cards.forEach((modifier) => {
-      if (originalDeck) {
-        const card = originalDeck.cards.find((orginalCard) => orginalCard.id === modifier.id);
-        if (card) {
-          originalDeck.cards.splice(originalDeck.cards.indexOf(card), 1);
-        }
-      }
-    });
-
-    this.deletedCards = originalDeck.cards;
-
-    if (!this.character || !gameManager.entityManager.isImmune(this.character, this.character, ConditionName.empower)) {
+    if (!this.character || !gameManager.conditionManager.isImmune(this.character, this.character, ConditionName.empower)) {
       this.empowerChars = gameManager.game.figures
         .filter(
           (figure) =>
@@ -178,7 +157,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
         .map((figure) => figure as Character);
     }
 
-    if (!this.character || !gameManager.entityManager.isImmune(this.character, this.character, ConditionName.enfeeble)) {
+    if (!this.character || !gameManager.conditionManager.isImmune(this.character, this.character, ConditionName.enfeeble)) {
       this.enfeebleChars = gameManager.game.figures
         .filter(
           (figure) =>
@@ -212,18 +191,18 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   restoreDefault(): void {
     this.before.emit(new AttackModiferDeckChange(this.deck, 'restoreDefault'));
     if (this.character) {
-      gameManager.attackModifierManager.mergeAttackModifierDeck(
+      gameManager.attackModifierBuildManager.mergeAttackModifierDeck(
         this.character.attackModifierDeck,
-        gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character)
+        gameManager.attackModifierBuildManager.buildCharacterAttackModifierDeck(this.character)
       );
-      gameManager.attackModifierManager.fromModel(this.deck, this.character.attackModifierDeck.toModel());
+      gameManager.attackModifierBuildManager.fromModel(this.deck, this.character.attackModifierDeck.toModel());
     } else if (this.townGuard) {
-      this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(
+      this.deck = gameManager.attackModifierBuildManager.buildTownGuardAttackModifierDeck(
         gameManager.game.party,
         gameManager.campaignManager.campaignData()
       );
     } else {
-      this.deck = gameManager.attackModifierManager.defaultMonsterAttackModifierDeck(this.ally);
+      this.deck = gameManager.attackModifierBuildManager.defaultMonsterAttackModifierDeck(this.ally);
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, 'restoreDefault'));
     this.update();
@@ -241,31 +220,30 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   }
 
   dropUpcoming(event: CdkDragDrop<AttackModifier[]>) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    gameManager.attackModifierManager.moveCard(
-      this.deck,
+    this.moveCard(
       event.container === event.previousContainer ? 'upcoming' : 'discarded',
       event.previousIndex,
       'upcoming',
-      event.currentIndex,
-      this.keepRevealed
+      event.currentIndex
     );
-    this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    this.update();
   }
 
   dropDiscarded(event: CdkDragDrop<AttackModifier[]>) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    gameManager.attackModifierManager.moveCard(
-      this.deck,
+    this.moveCard(
       event.container === event.previousContainer ? 'discarded' : 'upcoming',
       event.previousIndex,
       'discarded',
-      event.currentIndex,
-      this.keepRevealed
+      event.currentIndex
     );
-    this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
-    this.update();
+  }
+
+  private moveCard(fromList: string, fromIndex: number, toList: string, toIndex: number) {
+    if (gameManager.attackModifierManager.canMoveCard(this.deck, fromList, fromIndex, toList, toIndex)) {
+      this.before.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
+      gameManager.attackModifierManager.moveCard(this.deck, fromList, fromIndex, toList, toIndex, this.keepRevealed);
+      this.after.emit(new AttackModiferDeckChange(this.deck, 'reorder'));
+      this.update();
+    }
   }
 
   toggleKeepRevealed(index: number) {
@@ -278,6 +256,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   }
 
   remove(index: number) {
+    if (!gameManager.attackModifierManager.canRemoveCard(this.deck, index)) {
+      return;
+    }
     this.before.emit(new AttackModiferDeckChange(this.deck, 'removeCard', index));
     gameManager.attackModifierManager.removeCard(this.deck, index);
     this.currentAttackModifier = this.deck.current;
@@ -286,8 +267,12 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   }
 
   restore(index: number) {
+    const attackModifier = this.deletedCards[index];
+    if (!attackModifier || !gameManager.attackModifierManager.canRestoreCard(this.deck, attackModifier, this.character, this.townGuard)) {
+      return;
+    }
     this.before.emit(new AttackModiferDeckChange(this.deck, 'restoreCard', index));
-    gameManager.attackModifierManager.restoreCard(this.deck, this.deletedCards[index]);
+    gameManager.attackModifierManager.restoreCard(this.deck, attackModifier, this.character, this.townGuard);
     this.after.emit(new AttackModiferDeckChange(this.deck, 'restoreCard', index));
     this.update();
   }
@@ -334,40 +319,39 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }).length;
   }
 
-  countUpcomingAttackModifier(type: AttackModifierType, idPrefix: string | undefined = undefined): number {
+  countUpcomingAdditional(type: AttackModifierType, character: Character): number {
+    return gameManager.attackModifierManager.countUpcomingAdditionalModifiers(this.deck, type, character);
+  }
+
+  countUpcomingAttackModifier(type: AttackModifierType): number {
     return this.deck.cards.filter((attackModifier, index) => {
-      return (
-        attackModifier.type === type &&
-        index > this.deck.current &&
-        (!idPrefix || (attackModifier.id && attackModifier.id.startsWith(idPrefix)))
-      );
+      return attackModifier.type === type && index > this.deck.current;
     }).length;
   }
 
-  changeAttackModifier(type: AttackModifierType, value: number) {
-    gameManager.attackModifierManager.changeModifierCount(this.deck, type, value, !this.character && !this.ally);
-    this.update();
+  canChangeAttackModifier(type: AttackModifierType, value: number): boolean {
+    return gameManager.attackModifierManager.canChangeModifierCount(this.deck, type, value, !this.character && !this.ally);
+  }
+
+  changeAttackModifier(type: AttackModifierType, value: number, label: string) {
+    if (this.canChangeAttackModifier(type, value)) {
+      this.before.emit(new AttackModiferDeckChange(this.deck, (value < 0 ? 'remove' : 'add') + label));
+      gameManager.attackModifierManager.changeModifierCount(this.deck, type, value, !this.character && !this.ally);
+      this.after.emit(new AttackModiferDeckChange(this.deck, (value < 0 ? 'remove' : 'add') + label));
+      this.update();
+    }
   }
 
   changeBless(value: number) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeBless' : 'addBless'));
-    this.changeAttackModifier(AttackModifierType.bless, value);
-    this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeBless' : 'addBless'));
-    this.update();
+    this.changeAttackModifier(AttackModifierType.bless, value, 'Bless');
   }
 
   changeCurse(value: number) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeCurse' : 'addCurse'));
-    this.changeAttackModifier(AttackModifierType.curse, value);
-    this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeCurse' : 'addCurse'));
-    this.update();
+    this.changeAttackModifier(AttackModifierType.curse, value, 'Curse');
   }
 
   changeMinus1Extra(value: number) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeMinus1' : 'addMinus1'));
-    this.changeAttackModifier(AttackModifierType.minus1extra, value);
-    this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeMinus1' : 'addMinus1'));
-    this.update();
+    this.changeAttackModifier(AttackModifierType.minus1extra, value, 'Minus1');
   }
 
   onRevealedChange(attackModifier: AttackModifier, revealed: boolean) {
@@ -423,42 +407,37 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.update();
   }
 
+  private countAdditional(character: Character | undefined, type: AttackModifierType, all: boolean): number {
+    if (!character) {
+      return -1;
+    }
+    const available = gameManager.attackModifierManager.additionalAvailable(character, type);
+    return all ? available + gameManager.attackModifierManager.countUpcomingAdditional(character, type) : available;
+  }
+
   countEmpower(index: number, all: boolean = false): number {
-    return this.empowerChars[index]
-      ? this.empowerChars[index].additionalModifier
-          .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.empower)
-          .map((perk) => perk.count)
-          .reduce((a, b) => a + b) -
-          (all ? 0 : gameManager.attackModifierManager.countUpcomingAdditional(this.empowerChars[index], AttackModifierType.empower))
-      : -1;
+    return this.countAdditional(this.empowerChars[index], AttackModifierType.empower, all);
   }
 
   countEnfeeble(index: number, all: boolean = false): number {
-    return this.enfeebleChars[index]
-      ? this.enfeebleChars[index].additionalModifier
-          .filter((perk) => perk.attackModifier && perk.attackModifier.type === AttackModifierType.enfeeble)
-          .map((perk) => perk.count)
-          .reduce((a, b) => a + b) -
-          (all ? 0 : gameManager.attackModifierManager.countUpcomingAdditional(this.enfeebleChars[index], AttackModifierType.enfeeble))
-      : -1;
+    return this.countAdditional(this.enfeebleChars[index], AttackModifierType.enfeeble, all);
+  }
+
+  private changeAdditional(character: Character | undefined, type: AttackModifierType, value: number, label: string) {
+    if (gameManager.attackModifierManager.canChangeAdditionalCount(this.deck, character, type, value, this.character)) {
+      this.before.emit(new AttackModiferDeckChange(this.deck, (value < 0 ? 'remove' : 'add') + label));
+      gameManager.attackModifierManager.changeAdditionalCount(this.deck, character, type, value, this.character);
+      this.after.emit(new AttackModiferDeckChange(this.deck, (value < 0 ? 'remove' : 'add') + label));
+      this.update();
+    }
   }
 
   changeEmpower(index: number, value: number) {
-    if (this.empowerChars[index]) {
-      this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeEmpower' : 'addEmpower'));
-      gameManager.attackModifierManager.changeAdditionalCount(this.deck, this.empowerChars[index], AttackModifierType.empower, value);
-      this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeEmpower' : 'addEmpower'));
-      this.update();
-    }
+    this.changeAdditional(this.empowerChars[index], AttackModifierType.empower, value, 'Empower');
   }
 
   changeEnfeeble(index: number, value: number) {
-    if (this.enfeebleChars[index]) {
-      this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeEnfeeble' : 'addEnfeeble'));
-      gameManager.attackModifierManager.changeAdditionalCount(this.deck, this.enfeebleChars[index], AttackModifierType.enfeeble, value);
-      this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? 'removeEnfeeble' : 'addEnfeeble'));
-      this.update();
-    }
+    this.changeAdditional(this.enfeebleChars[index], AttackModifierType.enfeeble, value, 'Enfeeble');
   }
 
   toggleFaction(faction: string) {
@@ -472,14 +451,15 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   }
 
   toggleFactionAm(attackModifier: AttackModifier, force: boolean = false) {
-    if (this.hasFactionModifier(attackModifier)) {
-      this.before.emit(new AttackModiferDeckChange(this.deck, 'removeFactionModifier', attackModifier.id));
-      gameManager.attackModifierManager.setFactionModifier(this.deck, attackModifier, false);
-      this.after.emit(new AttackModiferDeckChange(this.deck, 'removeFactionModifier', attackModifier.id));
-    } else if (!this.anyHasFactionModifier(attackModifier) || force) {
-      this.before.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
-      gameManager.attackModifierManager.setFactionModifier(this.deck, attackModifier, true, force);
-      this.after.emit(new AttackModiferDeckChange(this.deck, 'addFactionModifier', attackModifier.id));
+    const value = !this.hasFactionModifier(attackModifier);
+    if (
+      this.character &&
+      gameManager.attackModifierManager.canSetFactionModifier(this.deck, this.character, attackModifier, value, force)
+    ) {
+      const type = value ? 'addFactionModifier' : 'removeFactionModifier';
+      this.before.emit(new AttackModiferDeckChange(this.deck, type, attackModifier.id));
+      gameManager.attackModifierManager.setFactionModifier(this.deck, this.character, attackModifier, value, force);
+      this.after.emit(new AttackModiferDeckChange(this.deck, type, attackModifier.id));
     }
   }
 

@@ -18,8 +18,10 @@ import {
 import { PartyBattleGoalEditionCommand } from 'src/app/game/commands/party/PartySetup';
 import {
   PartyEnvelopeBCommand,
+  PartyFactionReputationCommand,
   PartyMoraleCommand,
   PartyPlayerCommand,
+  PartyProsperityCommand,
   PartyReputationCommand,
   PartyResourceCommand,
   PartySetCommand,
@@ -80,7 +82,30 @@ describe('Party commands', () => {
       expect(gameManager.game.party.soldiers).toBe(1);
       expect(character.progress.gold).toBe(2);
       expect(gameManager.game.party.loot[LootType.hide]).toBe(1);
-      expect(new PartySoldiersCommand(1, 1, 'gold').validParameters(1, 1, 'gold')).toBe(false);
+      expect(new PartySoldiersCommand(1, 1, 'gold').validParameters(1)).toBe(false);
+      expect(new PartySoldiersCommand(2, 1, 'gold', 2, -1, 'hide', 1).validParameters(2)).toBe(false);
+      expect(new PartySoldiersCommand(3).validParameters(3)).toBe(false);
+      new PartySoldiersCommand(5, true).execute();
+      expect(gameManager.game.party.soldiers).toBe(5);
+      new PartySoldiersCommand(2).execute();
+      expect(gameManager.game.party.soldiers).toBe(2);
+    });
+
+    it('limits prosperity and faction reputation', () => {
+      vi.spyOn(gameManager.campaignManager, 'prosperitySteps').mockReturnValue([4, 9]);
+      vi.spyOn(gameManager.buildingsManager, 'unlockBuildings').mockReturnValue(false);
+      expect(new PartyProsperityCommand(11).validParameters(11)).toBe(false);
+      new PartyProsperityCommand(10).execute();
+      expect(gameManager.game.party.prosperity).toBe(10);
+      vi.spyOn(gameManager.campaignManager, 'gh2eFactionUnlock').mockReturnValue(false);
+      vi.spyOn(gameManager.campaignManager, 'unlockGh2eFaction').mockImplementation(() => {});
+      expect(new PartyFactionReputationCommand('military', 13).validParameters('military', 13)).toBe(false);
+      new PartyFactionReputationCommand('military', 13, true).execute();
+      expect(gameManager.campaignManager.unlockGh2eFaction).toHaveBeenCalledWith('military');
+      expect(gameManager.game.party.factionReputation['military']).toBe(13);
+      expect(new PartySetCommand('inspiration', -1).validParameters('inspiration', -1)).toBe(false);
+      expect(new PartySetCommand('defense', -1).validParameters('defense', -1)).toBe(true);
+      expect(new PartyEnvelopeBCommand(false).validParameters(false)).toBe(false);
     });
 
     it('sets and removes players', () => {
@@ -109,7 +134,9 @@ describe('Party commands', () => {
 
   describe('parties', () => {
     it('adds, changes and removes parties', () => {
-      const changeParty = vi.spyOn(gameManager, 'changeParty').mockImplementation((party) => (gameManager.game.party = party));
+      const changeParty = vi
+        .spyOn(gameManager.campaignManager, 'changeParty')
+        .mockImplementation((party) => (gameManager.game.party = party));
       const first = gameManager.game.party;
       new PartyAddCommand('Second').execute();
       expect(gameManager.game.parties.length).toBe(2);

@@ -20,11 +20,11 @@ export class Monster extends MonsterData implements Figure {
   type: string = 'monster';
 
   getInitiative(): number {
-    const abilityCard: AbilityCard | undefined = gameManager.monsterManager.getAbilityCard(
+    const abilityCard: AbilityCard | undefined = gameManager.monsterAbilityManager.getAbilityCard(
       this,
-      gameManager.monsterManager.hasBottomActions(this)
+      gameManager.monsterAbilityManager.hasBottomActions(this)
     );
-    let initiative = (gameManager.gameplayFigure(this) && abilityCard && abilityCard.initiative) || 100;
+    let initiative = (gameManager.entityManager.gameplayFigure(this) && abilityCard && abilityCard.initiative) || 100;
 
     if (this.statEffect && this.statEffect.initiative) {
       initiative = this.statEffect.absolute
@@ -117,7 +117,7 @@ export class Monster extends MonsterData implements Figure {
   fromModel(model: GameMonsterModel) {
     this.edition = model.edition;
     if (!this.edition) {
-      const monsterData = gameManager.monstersData().find((monsterData) => monsterData.name === model.name);
+      const monsterData = gameManager.editionManager.monstersData().find((monsterData) => monsterData.name === model.name);
       if (monsterData) {
         this.edition = monsterData.edition;
       } else {
@@ -131,7 +131,7 @@ export class Monster extends MonsterData implements Figure {
     this.lastDraw = model.lastDraw;
     this.abilities =
       (model.abilities && model.abilities.length > 0 && model.abilities) ||
-      (gameManager.abilityCards(this) && gameManager.abilityCards(this).map((abilityCard, index) => index)) ||
+      (gameManager.editionManager.abilityCards(this) && gameManager.editionManager.abilityCards(this).map((abilityCard, index) => index)) ||
       [];
     this.revealedAbilities = model.revealedAbilities || [];
     // local only like Character.initiativeVisible: keep visibility while neither speed nor chosen actions changed

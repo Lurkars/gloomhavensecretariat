@@ -104,7 +104,7 @@
     <span class="separator">|</span>
     <a
       class="state"
-      [ngClass]="{ disabled: gameManager.stateManager.log.length === 0, confirm: confirm === 'clearLog' }"
+      [ngClass]="{ disabled: gameManager.historyManager.log.length === 0, confirm: confirm === 'clearLog' }"
       (mouseleave)="confirm = ''"
       tabclick
       (click)="clear('clearLog')"

@@ -10,7 +10,7 @@ export class CampaignStartCommand extends CommandImpl {
     if (!validSeed(seed)) {
       return false;
     }
-    return gameManager.editions().includes(edition);
+    return gameManager.editionManager.editions().includes(edition);
   }
 
   executeWithParameters(edition: string, seed: number) {

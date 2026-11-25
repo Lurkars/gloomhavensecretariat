@@ -50,7 +50,7 @@ export class BuildingsListComponent {
   }
 
   upgrade(building: Building, force: boolean = false) {
-    if (building.model.level < building.data.upgrades.length + 1) {
+    if (gameManager.buildingsManager.canUpgrade(building.data, building.model, undefined, true)) {
       if (this.upgradeable(building) || force) {
         this.dialog
           .open(BuildingUpgradeDialog, {
@@ -64,7 +64,11 @@ export class BuildingsListComponent {
           })
           .closed.subscribe({
             next: (result) => {
-              if ((force && result === true) || result instanceof SelectResourceResult) {
+              const payment = !force && result instanceof SelectResourceResult ? result : undefined;
+              if (
+                ((force && result === true) || result instanceof SelectResourceResult) &&
+                gameManager.buildingsManager.canUpgrade(building.data, building.model, payment, force)
+              ) {
                 setTimeout(() => {
                   gameManager.stateManager.before(
                     building.model.level ? 'upgradeBuilding' : 'buildBuilding',
@@ -72,11 +76,7 @@ export class BuildingsListComponent {
                     building.model.name,
                     building.model.level + 1
                   );
-                  const rewards = gameManager.buildingsManager.upgradeBuilding(
-                    building.data,
-                    building.model,
-                    !force && result instanceof SelectResourceResult ? result : undefined
-                  );
+                  const rewards = gameManager.buildingsManager.upgradeBuilding(building.data, building.model, payment, force);
                   if (rewards && rewards.section) {
                     this.openConclusion(rewards.section);
                   }
@@ -91,7 +91,9 @@ export class BuildingsListComponent {
   }
 
   openConclusion(index: string) {
-    const conclusion = gameManager.sectionData(gameManager.currentEdition()).find((sectionData) => sectionData.index === index);
+    const conclusion = gameManager.editionManager
+      .sectionData(gameManager.editionManager.currentEdition())
+      .find((sectionData) => sectionData.index === index);
     if (conclusion) {
       const scenario = new Scenario(conclusion as ScenarioData);
       if (this.hasConclusions(scenario.index)) {
@@ -109,16 +111,16 @@ export class BuildingsListComponent {
   }
 
   hasConclusions(section: string): boolean {
-    return gameManager.scenarioManager.hasOpenConclusions(section);
+    return gameManager.campaignManager.hasOpenConclusions(section);
   }
 
   openConclusions(section: string) {
-    const conclusions: ScenarioData[] = gameManager.scenarioManager.sectionConclusions(section, gameManager.game.edition, true);
+    const conclusions: ScenarioData[] = gameManager.campaignManager.sectionConclusions(section, gameManager.game.edition, true);
     openConclusionChoice(this.dialog, section, conclusions, (conclusion) => this.openConclusion(conclusion.index));
   }
 
   rebuild(building: Building, force: boolean = false) {
-    if (building.model.state === 'wrecked') {
+    if (building.model.state === 'wrecked' && gameManager.buildingsManager.canRepair(building.data, building.model, undefined, true)) {
       if (this.upgradeable(building) || force) {
         this.dialog
           .open(BuildingUpgradeDialog, {
@@ -132,12 +134,13 @@ export class BuildingsListComponent {
           })
           .closed.subscribe({
             next: (result) => {
-              if ((force && result === true) || result instanceof SelectResourceResult) {
+              const payment = !force && result instanceof SelectResourceResult ? result : undefined;
+              if (
+                ((force && result === true) || result instanceof SelectResourceResult) &&
+                gameManager.buildingsManager.canRepair(building.data, building.model, payment, force)
+              ) {
                 gameManager.stateManager.before('rebuildBuilding', building.data.id, building.model.name);
-                gameManager.buildingsManager.rebuildBuilding(
-                  building.model,
-                  !force && result instanceof SelectResourceResult ? result : undefined
-                );
+                gameManager.buildingsManager.repairBuilding(building.data, building.model, payment, force);
                 gameManager.stateManager.after();
                 this.cdr.markForCheck();
               }
@@ -149,16 +152,16 @@ export class BuildingsListComponent {
 
   repair(building: Building, force: boolean = false) {
     if (building.model.state === 'damaged') {
-      if (force) {
+      if (force && gameManager.buildingsManager.canRepair(building.data, building.model, undefined, true)) {
         gameManager.stateManager.before('repairBuilding', building.data.id, building.data.name);
-        gameManager.buildingsManager.repairBuilding(building.model);
+        gameManager.buildingsManager.repairBuilding(building.data, building.model, undefined, true);
         gameManager.stateManager.after();
       } else if (this.upgradeable(building)) {
         this.dialog
           .open(BuildingUpgradeDialog, {
             panelClass: ['dialog'],
             data: {
-              repair: building.data.repair && building.data.repair[building.model.level - 1],
+              repair: gameManager.buildingsManager.repairValue(building.data, building.model),
               building: building,
               action: 'repair',
               force: force
@@ -166,9 +169,9 @@ export class BuildingsListComponent {
           })
           .closed.subscribe({
             next: (result) => {
-              if (result instanceof SelectResourceResult) {
+              if (result instanceof SelectResourceResult && gameManager.buildingsManager.canRepair(building.data, building.model, result)) {
                 gameManager.stateManager.before('repairBuilding', building.data.id, building.data.name);
-                gameManager.buildingsManager.repairBuilding(building.model, result);
+                gameManager.buildingsManager.repairBuilding(building.data, building.model, result);
                 gameManager.stateManager.after();
                 this.cdr.markForCheck();
               }
@@ -203,9 +206,9 @@ export class BuildingsListComponent {
 
   toggleState(building: Building, force: boolean = false) {
     const state = gameManager.buildingsManager.nextBuildingState(building.data, building.model, force);
-    if (state) {
+    if (state && gameManager.buildingsManager.canSetBuildingState(building.data, building.model, state, force)) {
       gameManager.stateManager.before('changeBuildingState', building.data.id, building.model.name, state);
-      building.model.state = state;
+      gameManager.buildingsManager.setBuildingState(building.data, building.model, state, force);
       gameManager.stateManager.after();
     }
   }
@@ -213,7 +216,7 @@ export class BuildingsListComponent {
   downgrade(building: Building, force: boolean = false) {
     if (gameManager.game.party.buildings.includes(building.model)) {
       const remove = gameManager.buildingsManager.removableBuilding(building.data) && (building.model.level === 0 || force);
-      if (remove || gameManager.buildingsManager.downgradeable(building.data, building.model)) {
+      if (gameManager.buildingsManager.canDowngrade(building.data, building.model)) {
         if (remove) {
           gameManager.stateManager.before('removeBuilding', building.data.id, building.model.name);
         } else {
@@ -261,14 +264,14 @@ export class BuildingsListComponent {
         })
         .closed.subscribe({
           next: (result) => {
-            if (result instanceof SelectResourceResult) {
+            if (result instanceof SelectResourceResult && gameManager.buildingsManager.canApplyTrade(building.model, result)) {
               gameManager.stateManager.before(
                 'buildingTrade',
                 building.model.name,
                 this.tradeResources([...result.characterSpent, result.fhSupportSpent]),
                 this.tradeResources([...result.characterReceived, result.fhSupportReceived])
               );
-              gameManager.lootManager.applySelectResources(result);
+              gameManager.buildingsManager.applyTrade(building.model, result);
               gameManager.stateManager.after();
               this.changed.emit();
             }

@@ -43,14 +43,14 @@ export class DecksToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     gameManager.stateManager.init(true);
-    this.edition = gameManager.editions(true)[0];
+    this.edition = gameManager.editionManager.editions(true)[0];
     this.update();
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (queryParams) => {
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
+          if (this.edition && gameManager.editionManager.editions(!true).includes(this.edition)) {
             this.edition = undefined;
           }
           this.update();
@@ -63,7 +63,7 @@ export class DecksToolComponent implements OnInit {
     this.monsters = [];
     this.characters = [];
     if (!this.character) {
-      const monsterData = gameManager.editionData
+      const monsterData = gameManager.editionManager.editionData
         .filter((editionData) => editionData.edition === this.edition)
         .map((editionData) => editionData.monsters)
         .flat()
@@ -98,12 +98,14 @@ export class DecksToolComponent implements OnInit {
           return monster;
         });
     } else {
-      const characterData = gameManager.editionData
+      const characterData = gameManager.editionManager.editionData
         .filter((editionData) => editionData.edition === this.edition)
         .map((editionData) => editionData.characters)
         .flat()
         .filter((characterData) =>
-          gameManager.decksData().some((deckData) => deckData.name === characterData.deck || deckData.name === characterData.name)
+          gameManager.editionManager
+            .decksData()
+            .some((deckData) => deckData.name === characterData.deck || deckData.name === characterData.name)
         );
 
       this.characters = characterData
@@ -117,7 +119,7 @@ export class DecksToolComponent implements OnInit {
   }
 
   deck(figure: Monster | Character): DeckData {
-    return gameManager.deckData(figure);
+    return gameManager.editionManager.deckData(figure);
   }
 
   updateQueryParams() {

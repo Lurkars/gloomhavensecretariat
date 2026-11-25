@@ -56,8 +56,13 @@ export class PartySheetDialogComponent implements OnInit {
     this.party = gameManager.game.party;
     this.disableShortcuts = !!this.data && this.data.disableShortcuts;
 
-    if (gameManager.game.edition && !this.party.edition) {
-      this.party.edition = gameManager.game.edition;
+    if ((gameManager.game.edition && !this.party.edition) || gameManager.campaignManager.campaignSetupMissing()) {
+      gameManager.stateManager.before('setupCampaign');
+      if (gameManager.game.edition && !this.party.edition) {
+        this.party.edition = gameManager.game.edition;
+      }
+      gameManager.campaignManager.setupCampaign();
+      gameManager.stateManager.after();
     }
 
     if (this.party.edition) {
@@ -131,7 +136,9 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   get worldMap(): boolean {
-    const editionData = gameManager.editionData.find((editionData) => this.partyEdition && editionData.edition === this.partyEdition);
+    const editionData = gameManager.editionManager.editionData.find(
+      (editionData) => this.partyEdition && editionData.edition === this.partyEdition
+    );
     return !!editionData && (!!editionData.worldMap || !!editionData.extendWorldMap);
   }
 

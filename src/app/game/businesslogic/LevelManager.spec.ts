@@ -315,7 +315,7 @@ describe('LevelManager', () => {
       const monster = buildMonster('m', 2);
       gameManager.game.figures = [monster];
       gameManager.game.level = 2;
-      vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => {});
+      vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => true);
 
       levelManager.setLevel(4);
 
@@ -327,7 +327,7 @@ describe('LevelManager', () => {
       const monster = buildMonster('m', 6);
       gameManager.game.figures = [monster];
       gameManager.game.level = 6;
-      vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => {});
+      vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => true);
 
       levelManager.setLevel(7);
       // diff = 1, monster level goes from 6 -> 7 (still within range)
@@ -340,7 +340,7 @@ describe('LevelManager', () => {
       const monster = buildMonster('m', 2);
       gameManager.game.figures = [monster];
       gameManager.game.level = 2;
-      vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => {});
+      vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => true);
 
       levelManager.setLevel(-5, true);
       expect(monster.level).toBe(0);
@@ -350,7 +350,7 @@ describe('LevelManager', () => {
       const monster = buildMonster('m', 2);
       gameManager.game.figures = [monster];
       gameManager.game.level = 3;
-      const spy = vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => {});
+      const spy = vi.spyOn(gameManager.monsterManager, 'setLevel').mockImplementation(() => true);
 
       levelManager.setLevel(3);
 

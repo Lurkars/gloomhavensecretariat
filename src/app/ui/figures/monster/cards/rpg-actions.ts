@@ -85,7 +85,7 @@ export class MonsterRpgActionsComponent implements OnInit {
   }
 
   update() {
-    this.speeds = gameManager.abilityCards(this.monster);
+    this.speeds = gameManager.editionManager.abilityCards(this.monster);
     this.round = gameManager.game.state === GameState.next;
     // hide speed chosen by other clients before round start, same as character initiative
     this.hidden = !this.round && !this.monster.abilityVisible;
@@ -187,24 +187,18 @@ export class MonsterRpgActionsComponent implements OnInit {
   }
 
   setSpeed(speed: number) {
-    if (this.round) {
-      return;
-    }
-    if (this.speed !== speed) {
+    if (this.speed !== speed && gameManager.monsterManager.canSetRpgSpeed(this.monster, speed)) {
       gameManager.stateManager.before('setRpgSpeed', 'data.monster.' + this.monster.name, 'data.ability.' + this.speeds[speed].name);
       gameManager.monsterManager.setRpgSpeed(this.monster, speed);
-      gameManager.sortFigures();
       gameManager.stateManager.after();
     }
   }
 
   setAction(view: RpgActionView) {
-    if (this.round) {
-      return;
-    }
-    if (view.available) {
+    const targets = this.actionTargets(view.index);
+    if (gameManager.monsterManager.canSetRpgAction(this.monster, view.index, targets)) {
       gameManager.stateManager.before('setRpgAction', 'data.monster.' + this.monster.name, view.action.label);
-      gameManager.monsterManager.setRpgAction(this.monster, view.index, this.actionTargets(view.index));
+      gameManager.monsterManager.setRpgAction(this.monster, view.index, targets);
       this.selected = [];
       gameManager.stateManager.after();
     }

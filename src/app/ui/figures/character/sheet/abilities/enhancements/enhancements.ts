@@ -115,7 +115,7 @@ export class EnhancementsComponent implements OnInit {
     const inputActionIndex = this.inputActionIndex();
     const inputEnhancementIndex = this.inputEnhancementIndex();
     if (inputAction && inputActionIndex && this.inputCardId() && inputEnhancementIndex !== undefined && this.inputCharacter) {
-      const abilityCard = gameManager
+      const abilityCard = gameManager.editionManager
         .deckData(this.inputCharacter)
         .abilities.find((abilityCard) => abilityCard.cardId === this.inputCardId());
       const rootIndex = +inputActionIndex.replace('bottom-', '').split('-')[0];
@@ -340,7 +340,14 @@ export class EnhancementsComponent implements OnInit {
       inputCardId &&
       inputEnhancementIndex !== undefined &&
       this.inputCharacter &&
-      (gameManager.enhancementsManager.canEnhance(this.inputCharacter, inputCardId, costs) || force)
+      gameManager.enhancementsManager.canAddEnhancement(
+        this.inputCharacter,
+        inputCardId,
+        inputActionIndex,
+        inputEnhancementIndex,
+        force ? 0 : costs,
+        force
+      )
     ) {
       gameManager.stateManager.before(
         'enhanceCard',
@@ -354,7 +361,8 @@ export class EnhancementsComponent implements OnInit {
         inputActionIndex,
         inputEnhancementIndex,
         this.enhancementAction,
-        force ? 0 : costs
+        force ? 0 : costs,
+        force
       );
 
       gameManager.stateManager.after();

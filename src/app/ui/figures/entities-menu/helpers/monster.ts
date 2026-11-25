@@ -1,9 +1,8 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 import { SummonState } from 'src/app/game/model/Summon';
 import type { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { MonsterNumberPickerDialog } from 'src/app/ui/figures/monster/dialogs/numberpicker-dialog';
@@ -13,11 +12,7 @@ export class MonsterHelper {
   constructor(private component: EntitiesMenuDialogComponent) {}
 
   update() {
-    this.component.isMonster =
-      (this.component.figure instanceof Monster &&
-        ((!this.component.figure.isAlly && !this.component.figure.isAllied) ||
-          (!settingsManager.settings.alwaysAllyAttackModifierDeck && !gameManager.fhRules(true)))) ||
-      (this.component.figure instanceof ObjectiveContainer && this.component.figure.amDeck === 'M');
+    this.component.isMonster = !!this.component.figure && gameManager.attackModifierManager.isMonsterDeck(this.component.figure);
 
     if (
       gameManager.buildingsManager.petsEnabled &&
@@ -73,7 +68,7 @@ export class MonsterHelper {
       }
 
       this.component.before('setSummonState', summonState);
-      this.component.entity.summon = summonState;
+      gameManager.monsterManager.setSummonState(this.component.entity, summonState);
       gameManager.stateManager.after();
     }
   }

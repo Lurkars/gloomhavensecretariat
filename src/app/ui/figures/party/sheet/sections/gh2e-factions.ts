@@ -46,16 +46,9 @@ export class PartySheetGh2eFactionsComponent extends PartySheetSection {
   }
 
   setFactionReputation(faction: string, value: number, force: boolean = false) {
-    if (!force && value > 12 && !this.factionUnlocks.includes(faction)) {
-      return;
-    }
-
-    if (this.party.factionReputation[faction] !== value) {
+    if (this.party.factionReputation[faction] !== value && gameManager.campaignManager.canSetFactionReputation(faction, value, force)) {
       gameManager.stateManager.before('setFactionReputation', faction, value);
-      if (force && value > 12) {
-        gameManager.campaignManager.unlockGh2eFaction(faction);
-      }
-      gameManager.campaignManager.changeFactionReputation(faction, value - (this.party.factionReputation[faction] || 0), force);
+      gameManager.campaignManager.setFactionReputation(faction, value, force);
       gameManager.stateManager.after();
 
       this.reputationSections
@@ -91,7 +84,8 @@ export class PartySheetGh2eFactionsComponent extends PartySheetSection {
       reputationSection.requires.every(
         (s) =>
           this.party.scenarios.find(
-            (scenarioData) => scenarioData.edition === gameManager.currentEdition() && scenarioData.index === s && !scenarioData.group
+            (scenarioData) =>
+              scenarioData.edition === gameManager.editionManager.currentEdition() && scenarioData.index === s && !scenarioData.group
           ) !== undefined
       )
     );

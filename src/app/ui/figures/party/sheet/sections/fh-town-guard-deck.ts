@@ -24,9 +24,9 @@ export class PartySheetFhTownGuardDeckComponent extends PartySheetSection {
     if (this.townGuardDeck && this.deckModel === this.modelKey()) {
       return;
     }
-    this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
+    this.townGuardDeck = gameManager.attackModifierBuildManager.buildTownGuardAttackModifierDeck(this.party, campaign);
     if (this.party.townGuardDeck && gameManager.outpostAttackManager.hasTownGuardDeck()) {
-      gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
+      gameManager.attackModifierBuildManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
     } else {
       gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
       this.townGuardDeck.active = false;

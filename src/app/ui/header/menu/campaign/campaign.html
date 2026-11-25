@@ -9,7 +9,7 @@
       &lt;<span [ghs-label]="'edition.all'"></span>&gt;
     </label>
   </div>
-  @for (edition of gameManager.editions(); track edition) {
+  @for (edition of gameManager.editionManager.editions(); track edition) {
     <div class="line">
       <label
         [ngClass]="{
@@ -98,11 +98,11 @@
         <a tabclick (click)="openCharacterSheet(character)">
           <img class="icon" [src]="character.iconUrl" />
           <span>{{ gameManager.characterManager.characterName(character, true) }}</span>
-          @if (gameManager.getEdition(character)) {
+          @if (gameManager.editionManager.getEdition(character)) {
             <span class="edition"
               >&nbsp;
               <span>[</span>
-              <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
+              <span [ghs-label]="'data.edition.' + gameManager.editionManager.getEdition(character)"></span>
               <span>]</span>
             </span>
           }

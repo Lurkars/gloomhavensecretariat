@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 
@@ -6,13 +7,14 @@ export class CharacterPersonalQuestAutotrackCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(number: number, autotrack: boolean): boolean {
-    return !!findCharacter(number) && typeof autotrack === 'boolean';
+    const character = findCharacter(number);
+    return !!character && gameManager.personalQuestManager.canSetAutotrack(character, autotrack);
   }
 
   executeWithParameters(number: number, autotrack: boolean) {
     const character = findCharacter(number);
     if (character) {
-      character.progress.personalQuestAutotrack = autotrack;
+      gameManager.personalQuestManager.setAutotrack(character, autotrack);
     } else {
       this.executionError('character not found');
     }

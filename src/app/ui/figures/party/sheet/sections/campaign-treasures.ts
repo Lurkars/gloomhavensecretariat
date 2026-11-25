@@ -39,7 +39,7 @@ export class PartyCampaignTreasuresComponent extends PartySheetSection {
       .filter((identifier) => !this.treasureEdition || identifier.edition === this.treasureEdition)
       .sort((a, b) => {
         if (!this.treasureEdition && a.edition !== b.edition) {
-          return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
+          return gameManager.editionManager.editions().indexOf(a.edition) - gameManager.editionManager.editions().indexOf(b.edition);
         }
 
         return +a.name - +b.name;
@@ -52,7 +52,7 @@ export class PartyCampaignTreasuresComponent extends PartySheetSection {
         indexElement.classList.add('warning');
       } else {
         indexElement.classList.add('error');
-        const editionData = gameManager.editionData.find((editionData) => editionData.edition === edition);
+        const editionData = gameManager.editionManager.editionData.find((editionData) => editionData.edition === edition);
         if (editionData && editionData.treasures) {
           const treasureIndex = +treasure - (editionData.treasureOffset || 0) - 1;
           if (treasureIndex >= 0 && treasureIndex < editionData.treasures.length) {

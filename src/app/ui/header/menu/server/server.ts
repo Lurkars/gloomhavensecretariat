@@ -73,7 +73,7 @@ export class ServerMenuComponent implements OnInit {
   connect(url: string, port: string, code: string): void {
     if (url && !isNaN(+port) && code) {
       settingsManager.setServer(url, +port, code);
-      gameManager.stateManager.connect();
+      gameManager.serverSyncManager.connect();
       this.tryConnect = true;
     }
   }
@@ -90,20 +90,20 @@ export class ServerMenuComponent implements OnInit {
   }
 
   disconnect() {
-    gameManager.stateManager.disconnect();
+    gameManager.serverSyncManager.disconnect();
     this.permissions = gameManager.stateManager.permissions;
   }
 
   reconnect() {
     this.disconnect();
-    gameManager.stateManager.connect();
+    gameManager.serverSyncManager.connect();
     this.tryConnect = true;
   }
 
   selectServer(event: any) {
     this.selectedServerIndex = -1;
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.serverVersion = '';
+      gameManager.serverSyncManager.serverVersion = '';
       this.selectedServerIndex = +event.target.value;
       if (this.selectedServerIndex > -1 && this.selectedServerIndex < this.publicServer.length) {
         const server = this.publicServer[this.selectedServerIndex];
@@ -131,7 +131,7 @@ export class ServerMenuComponent implements OnInit {
   async checkServerVersion() {
     this.serverUpdateVersion = undefined;
     if (!this.branded) return;
-    if (gameManager.stateManager.serverVersion) {
+    if (gameManager.serverSyncManager.serverVersion) {
       await fetch('https://api.github.com/repos/lurkars/ghs-server/releases/latest')
         .then((response) => {
           if (!response.ok) {
@@ -142,7 +142,8 @@ export class ServerMenuComponent implements OnInit {
         .then((value: any) => {
           this.serverUpdateVersion = {
             latest:
-              value.tag_name === gameManager.stateManager.serverVersion || value.tag_name === 'v' + gameManager.stateManager.serverVersion,
+              value.tag_name === gameManager.serverSyncManager.serverVersion ||
+              value.tag_name === 'v' + gameManager.serverSyncManager.serverVersion,
             version: value.tag_name,
             url: value.html_url
           };

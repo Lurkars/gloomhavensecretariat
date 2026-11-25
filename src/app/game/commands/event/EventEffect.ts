@@ -30,7 +30,7 @@ export class EventEffectCommand extends CommandImpl {
         gameManager.campaignManager.changeMorale(value);
         break;
       case 'inspiration':
-        gameManager.game.party.inspiration += value;
+        gameManager.campaignManager.changeInspiration(value);
         break;
       case 'factionReputation':
         gameManager.campaignManager.changeFactionReputation(faction, value);
@@ -91,7 +91,7 @@ export class EventEffectRandomItemCommand extends CommandImpl {
     if (edition) {
       item = findItem(edition, this.parameters[2]);
     } else {
-      item = gameManager.itemManager.drawRandomItem(gameManager.currentEdition(), blueprint);
+      item = gameManager.itemManager.drawRandomItem(gameManager.editionManager.currentEdition(), blueprint);
       if (item) {
         fillParameter(this, 1, [blueprint], item.edition);
         this.parameters[2] = item.id;
@@ -119,8 +119,8 @@ export class EventEffectRandomScenarioCommand extends CommandImpl {
       scenarioData = this.find(section, edition, index, group);
     } else {
       scenarioData = section
-        ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.currentEdition())
-        : gameManager.scenarioManager.drawRandomScenario(gameManager.currentEdition());
+        ? gameManager.scenarioManager.drawRandomScenarioSection(gameManager.editionManager.currentEdition())
+        : gameManager.scenarioManager.drawRandomScenario(gameManager.editionManager.currentEdition());
       if (scenarioData) {
         fillParameter(this, 1, [section], scenarioData.edition);
         this.parameters[2] = scenarioData.index;

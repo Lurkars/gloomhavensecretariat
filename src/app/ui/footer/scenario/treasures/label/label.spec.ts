@@ -33,9 +33,9 @@ describe('TreasureLabelComponent', () => {
     drawRandomScenario = settingsManager.settings.drawRandomScenario;
     drawRandomItem = settingsManager.settings.drawRandomItem;
     editions = settingsManager.settings.editions;
-    editionData = gameManager.editionData;
+    editionData = gameManager.editionManager.editionData;
     settingsManager.settings.editions = ['fh'];
-    gameManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
+    gameManager.editionManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
     gameManager.game.edition = 'fh';
     settingsManager.settings.drawRandomScenario = true;
     settingsManager.settings.drawRandomItem = true;
@@ -46,7 +46,7 @@ describe('TreasureLabelComponent', () => {
     settingsManager.settings.drawRandomScenario = drawRandomScenario;
     settingsManager.settings.drawRandomItem = drawRandomItem;
     settingsManager.settings.editions = editions;
-    gameManager.editionData = editionData;
+    gameManager.editionManager.editionData = editionData;
   });
 
   describe('random scenario', () => {

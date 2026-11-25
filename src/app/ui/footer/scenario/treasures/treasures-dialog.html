@@ -53,7 +53,7 @@
                     class="text placeholder text-white"
                     [edition]="edition"
                     [index]="+('' + treasure).split(':')[0] - 1"
-                    [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"
+                    [rewardResults]="gameManager.treasureManager.treasureRewardsFromString('' + treasure)"
                   ></ghs-treasure-label>
                 }
               </span>
@@ -65,7 +65,9 @@
   </div>
 
   <div class="loot">
-    @if (!!character && treasureIndex !== -1 && !gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)) {
+    @if (
+      !!character && treasureIndex !== -1 && !gameManager.treasureManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)
+    ) {
       <p>
         <span
           [ghs-label]="'game.loot.lootTreasure'"
@@ -102,7 +104,9 @@
       </p>
     }
 
-    @if (!!character && treasureIndex !== -1 && gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)) {
+    @if (
+      !!character && treasureIndex !== -1 && gameManager.treasureManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)
+    ) {
       <p>
         <span
           [ghs-label]="'game.loot.lootTreasure.looted'"

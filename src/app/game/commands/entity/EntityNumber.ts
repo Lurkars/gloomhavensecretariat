@@ -19,7 +19,7 @@ export class EntityNumberCommand extends CommandImpl {
     if (figure instanceof Monster && entity instanceof MonsterEntity) {
       return number === 0 || (number > 0 && number <= gameManager.monsterManager.monsterStandeeMax(figure));
     } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
-      return number > 0 && number <= 12 && !figure.entities.some((other) => other !== entity && other.number === number);
+      return gameManager.objectiveManager.canSetObjectiveNumber(figure, entity, number);
     }
     return false;
   }
@@ -33,8 +33,8 @@ export class EntityNumberCommand extends CommandImpl {
     const entity = findEntity(figure, entityId);
     if (figure instanceof Monster && entity instanceof MonsterEntity) {
       gameManager.monsterManager.renumberStandee(figure, entity, this.newNumber(figure, number));
-    } else if (entity instanceof ObjectiveEntity) {
-      entity.number = number;
+    } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
+      gameManager.objectiveManager.setObjectiveNumber(figure, entity, number);
     } else {
       this.executionError('entity not found');
     }

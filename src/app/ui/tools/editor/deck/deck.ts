@@ -142,13 +142,13 @@ export class DeckEditorComponent implements OnInit {
       this.deckDataFromJson();
     });
 
-    this.editions = gameManager.editions(true);
+    this.editions = gameManager.editionManager.editions(true);
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (queryParams) => {
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
+          if (this.edition && gameManager.editionManager.editions(!true).includes(this.edition)) {
             this.edition = undefined;
           }
         }
@@ -186,7 +186,7 @@ export class DeckEditorComponent implements OnInit {
   }
 
   updateDecksData() {
-    this.decksData = gameManager.decksData(this.edition).filter((deckData) => {
+    this.decksData = gameManager.editionManager.decksData(this.edition).filter((deckData) => {
       if (this.character) {
         return deckData.character;
       } else if (this.monster) {
@@ -287,12 +287,11 @@ export class DeckEditorComponent implements OnInit {
   }
 
   changeCardId(event: any, abilityCard: AbilityCard) {
-    if (event.target.value) {
-      abilityCard.cardId = +event.target.value;
-      event.target.value = (abilityCard.cardId < 100 ? '0' : '') + (abilityCard.cardId < 10 ? '0' : '') + abilityCard.cardId;
-    }
-
-    if (abilityCard.cardId !== undefined && abilityCard.cardId < 1) {
+    const cardId = +event.target.value;
+    if (event.target.value && Number.isInteger(cardId) && cardId >= 1) {
+      abilityCard.cardId = cardId;
+      event.target.value = (cardId < 100 ? '0' : '') + (cardId < 10 ? '0' : '') + cardId;
+    } else {
       abilityCard.cardId = undefined;
     }
 

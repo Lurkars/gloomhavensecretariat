@@ -167,7 +167,7 @@ export class ConditionsComponent implements OnInit {
         (this.immunityEnabled &&
           !!this.entity &&
           !!this.figure &&
-          !gameManager.entityManager.isImmune(this.entity, this.figure, condition.name, true)))
+          !gameManager.conditionManager.isImmune(this.entity, this.figure, condition.name, true)))
     ) {
       this.toggleCondition(condition);
     }
@@ -183,18 +183,18 @@ export class ConditionsComponent implements OnInit {
     this.conditions = [];
     this.conditionSeparator = [];
     let negativeConditions: Condition[] = [];
-    negativeConditions.push(...gameManager.conditionsForTypes('standard', 'negative', this.type));
-    negativeConditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', this.type));
-    negativeConditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
+    negativeConditions.push(...gameManager.conditionManager.conditionsForTypes('standard', 'negative', this.type));
+    negativeConditions.push(...gameManager.conditionManager.conditionsForTypes('upgrade', 'negative', this.type));
+    negativeConditions.push(...gameManager.conditionManager.conditionsForTypes('stack', 'negative', this.type));
     negativeConditions = negativeConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
     if (negativeConditions.length && (!this.isTrapEntity || (this.entity instanceof Summon && this.entity.name !== 'positive-trap'))) {
       this.conditions.push(...negativeConditions);
     }
     let positiveConditions: Condition[] = [];
-    positiveConditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
-    positiveConditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
-    positiveConditions.push(...gameManager.conditionsForTypes('stack', 'positive', this.type));
+    positiveConditions.push(...gameManager.conditionManager.conditionsForTypes('standard', 'positive', this.type));
+    positiveConditions.push(...gameManager.conditionManager.conditionsForTypes('upgrade', 'positive', this.type));
+    positiveConditions.push(...gameManager.conditionManager.conditionsForTypes('stack', 'positive', this.type));
     positiveConditions = positiveConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
     if (positiveConditions.length && (!this.isTrapEntity || (this.entity instanceof Summon && this.entity.name !== 'negative-trap'))) {
@@ -203,9 +203,9 @@ export class ConditionsComponent implements OnInit {
     }
 
     let neutralConditions: Condition[] = [];
-    neutralConditions.push(...gameManager.conditionsForTypes('standard', 'neutral', this.type));
-    neutralConditions.push(...gameManager.conditionsForTypes('upgrade', 'neutral', this.type));
-    neutralConditions.push(...gameManager.conditionsForTypes('stack', 'neutral', this.type));
+    neutralConditions.push(...gameManager.conditionManager.conditionsForTypes('standard', 'neutral', this.type));
+    neutralConditions.push(...gameManager.conditionManager.conditionsForTypes('upgrade', 'neutral', this.type));
+    neutralConditions.push(...gameManager.conditionManager.conditionsForTypes('stack', 'neutral', this.type));
     neutralConditions = neutralConditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) === i);
 
     if (neutralConditions.length) {
@@ -263,9 +263,11 @@ export class ConditionsComponent implements OnInit {
           (!this.permanentEnabled || ((permanent || this.permanentEnabled) && entityCondition.permanent))
       );
     } else if (this.entity) {
-      return gameManager.entityManager.hasCondition(this.entity, condition, permanent || this.permanentEnabled);
+      return gameManager.conditionManager.hasCondition(this.entity, condition, permanent || this.permanentEnabled);
     } else {
-      return this.entities.every((entity) => gameManager.entityManager.hasCondition(entity, condition, permanent || this.permanentEnabled));
+      return this.entities.every((entity) =>
+        gameManager.conditionManager.hasCondition(entity, condition, permanent || this.permanentEnabled)
+      );
     }
   }
 
@@ -278,10 +280,10 @@ export class ConditionsComponent implements OnInit {
 
     if (!immune) {
       if (!!this.entity && !!this.figure) {
-        immune = gameManager.entityManager.isImmune(this.entity, this.figure, conditionName, true);
+        immune = gameManager.conditionManager.isImmune(this.entity, this.figure, conditionName, true);
       } else if (this.entities && !!this.figure) {
         immune = this.entities.every(
-          (entity) => !!this.figure && gameManager.entityManager.isImmune(entity, this.figure, conditionName, true)
+          (entity) => !!this.figure && gameManager.conditionManager.isImmune(entity, this.figure, conditionName, true)
         );
       }
     }

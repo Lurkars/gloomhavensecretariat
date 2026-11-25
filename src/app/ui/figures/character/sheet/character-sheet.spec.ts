@@ -41,7 +41,7 @@ describe('CharacterSheetComponent', () => {
   });
 
   it('renders the rpg sheet for rpg characters', () => {
-    vi.spyOn(gameManager.attackModifierManager, 'isRpgCharacter').mockReturnValue(true);
+    vi.spyOn(gameManager.characterRpgManager, 'isRpgCharacter').mockReturnValue(true);
     const fixture = TestBed.createComponent(CharacterSheetComponent);
     fixture.componentRef.setInput('character', buildCharacter());
     expect(() => fixture.detectChanges()).not.toThrow();

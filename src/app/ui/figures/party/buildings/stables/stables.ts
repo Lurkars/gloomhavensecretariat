@@ -50,7 +50,9 @@ export class StablesComponent implements OnInit {
     }
 
     if (this.showAll) {
-      const editionData = gameManager.editionData.find((editionData) => editionData.edition === gameManager.currentEdition());
+      const editionData = gameManager.editionManager.editionData.find(
+        (editionData) => editionData.edition === gameManager.editionManager.currentEdition()
+      );
       if (editionData && editionData.pets) {
         editionData.pets.forEach((petCard) => {
           const model = gameManager.game.party.pets.find((value) => value.edition === petCard.edition && value.name === petCard.id);
@@ -64,7 +66,7 @@ export class StablesComponent implements OnInit {
 
     gameManager.game.party.pets.forEach((value) => {
       if (this.pets.find((pet) => pet.model && pet.model.edition && value.edition && pet.model.name === value.name) === undefined) {
-        const editionData = gameManager.editionData.find((editionData) => editionData.edition === value.edition);
+        const editionData = gameManager.editionManager.editionData.find((editionData) => editionData.edition === value.edition);
         if (editionData && editionData.pets) {
           const petCard = editionData.pets.find((petCard) => petCard.edition === value.edition && petCard.id === value.name);
           this.pets.push({ card: petCard, model: value });
@@ -111,11 +113,7 @@ export class StablesComponent implements OnInit {
   }
 
   addPet(pet: { card: PetCard | undefined; model: PetIdentifier | undefined }) {
-    if (
-      pet.card &&
-      gameManager.game.party.pets.find((value) => pet.card && value.edition === pet.card.edition && value.name === pet.card.id) ===
-        undefined
-    ) {
+    if (pet.card && gameManager.buildingsManager.canAddPet(pet.card.edition, pet.card.id)) {
       gameManager.stateManager.before('buildings.stables.pets.add', pet.card.edition, pet.card.id);
       pet.model = gameManager.buildingsManager.addPet(pet.card.edition, pet.card.id);
       this.used++;
@@ -124,7 +122,7 @@ export class StablesComponent implements OnInit {
   }
 
   updatePet(event: any, model: PetIdentifier | undefined) {
-    if (model && event.target) {
+    if (model && event.target && gameManager.buildingsManager.canSetPetName(model, event.target.value)) {
       const name = event.target.value;
       gameManager.stateManager.before(
         name ? 'buildings.stables.pets.setName' : 'buildings.stables.pets.unsetName',
@@ -132,13 +130,13 @@ export class StablesComponent implements OnInit {
         model.name,
         name
       );
-      model.petname = name;
+      gameManager.buildingsManager.setPetName(model, name);
       gameManager.stateManager.after();
     }
   }
 
   removePet(model: PetIdentifier | undefined) {
-    if (model) {
+    if (model && gameManager.buildingsManager.canRemovePet(model.edition, model.name)) {
       gameManager.stateManager.before('buildings.stables.pets.remove', model.edition, model.name);
       gameManager.buildingsManager.removePet(model.edition, model.name);
       this.update();
@@ -147,19 +145,19 @@ export class StablesComponent implements OnInit {
   }
 
   toggleLost(model: PetIdentifier | undefined, force: boolean = false) {
-    if (model && (!model.lost || force)) {
+    if (model && gameManager.buildingsManager.canSetPetLost(model, !model.lost, force)) {
       gameManager.stateManager.before(
         model.lost ? 'buildings.stables.pets.restore' : 'buildings.stables.pets.play',
         model.edition,
         model.name
       );
-      model.lost = !model.lost;
+      gameManager.buildingsManager.setPetLost(model, !model.lost, force);
       gameManager.stateManager.after();
     }
   }
 
   toggleActive(model: PetIdentifier | undefined, force: boolean = false) {
-    if (model && !this.edit && (this.select || force)) {
+    if (model && !this.edit && gameManager.buildingsManager.canSetPetActive(model, force)) {
       gameManager.stateManager.before(
         model.active ? 'buildings.stables.pets.setInactive' : 'buildings.stables.pets.setActive',
         model.edition,

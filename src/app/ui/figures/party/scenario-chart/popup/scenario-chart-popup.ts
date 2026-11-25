@@ -66,10 +66,10 @@ export class ScenarioChartPopupDialog {
   }
 
   update() {
-    this.isSuccess = gameManager.scenarioManager.isSuccess(this.scenario);
+    this.isSuccess = gameManager.scenarioRequirementsManager.isSuccess(this.scenario);
     this.hasStatistics = settingsManager.settings.scenarioStats && gameManager.scenarioStatsManager.hasScenarioStats(this.scenario);
-    this.isBlocked = gameManager.scenarioManager.isBlocked(this.scenario);
-    this.isLocked = gameManager.scenarioManager.isLocked(this.scenario);
+    this.isBlocked = gameManager.scenarioRequirementsManager.isBlocked(this.scenario);
+    this.isLocked = gameManager.scenarioRequirementsManager.isLocked(this.scenario);
     this.showSetup = this.isSuccess;
     this.randomItemLooted = gameManager.game.party.randomItemLooted.some(
       (model) =>
@@ -77,10 +77,10 @@ export class ScenarioChartPopupDialog {
         (model.group ?? '') === (this.scenario.group ?? '') &&
         model.index === this.scenario.index
     );
-    this.hasRequirements = gameManager.scenarioManager.getRequirements(this.scenario, true).length > 0;
-    this.hasMissingRequirements = gameManager.scenarioManager.getRequirements(this.scenario).length > 0;
+    this.hasRequirements = gameManager.scenarioRequirementsManager.getRequirements(this.scenario, true).length > 0;
+    this.hasMissingRequirements = gameManager.scenarioRequirementsManager.getRequirements(this.scenario).length > 0;
     this.lootedTreasures = [];
-    this.treasures = gameManager.scenarioManager
+    this.treasures = gameManager.treasureManager
       .getTreasures(
         this.scenario,
         gameManager.scenarioManager.getSections(this.scenario).map((sectionData) => new Scenario(sectionData)),
@@ -102,12 +102,12 @@ export class ScenarioChartPopupDialog {
 
     this.showTreasures = (this.treasures.length > 0 && this.treasures.length === this.lootedTreasures.length) || this.showSetup;
 
-    this.predecessors = gameManager.scenarioManager.getPredecessors(this.scenario, this.forceAll);
+    this.predecessors = gameManager.scenarioRequirementsManager.getPredecessors(this.scenario, this.forceAll);
   }
 
   setScenario() {
-    if (!gameManager.scenarioManager.isCurrent(this.scenario)) {
-      if (gameManager.scenarioManager.isLocked(this.scenario)) {
+    if (!gameManager.scenarioRequirementsManager.isCurrent(this.scenario)) {
+      if (gameManager.scenarioRequirementsManager.isLocked(this.scenario)) {
         this.dialog
           .open(ScenarioRequirementsDialogComponent, {
             panelClass: ['dialog'],
@@ -120,9 +120,9 @@ export class ScenarioChartPopupDialog {
               }
             }
           });
-      } else {
+      } else if (gameManager.scenarioManager.canSelectScenario(this.scenario)) {
         gameManager.stateManager.before('setScenario', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.scenario)));
-        gameManager.scenarioManager.setScenario(new Scenario(this.scenario));
+        gameManager.scenarioManager.selectScenario(this.scenario);
         gameManager.stateManager.after();
         ghsDialogClosingHelper(this.dialogRef, true);
       }
@@ -150,7 +150,7 @@ export class ScenarioChartPopupDialog {
       .filter((value) => value.edition === this.scenario.edition)
       .map(
         (value) =>
-          gameManager
+          gameManager.editionManager
             .sectionData(this.scenario.edition)
             .find(
               (sectionData) =>
@@ -178,17 +178,9 @@ export class ScenarioChartPopupDialog {
     });
   }
 
+  // the chart allows to mark any scenario as finished
   addSuccess() {
-    const conclusions = gameManager
-      .sectionData(this.scenario.edition)
-      .filter(
-        (sectionData) =>
-          sectionData.edition === this.scenario.edition &&
-          sectionData.parent === this.scenario.index &&
-          sectionData.group === this.scenario.group &&
-          sectionData.conclusion &&
-          gameManager.scenarioManager.getRequirements(sectionData).length === 0
-      );
+    const conclusions = gameManager.scenarioFinishManager.successConclusions(this.scenario);
     if (conclusions.length === 0) {
       this.addSuccessIntern();
     } else {
@@ -209,23 +201,8 @@ export class ScenarioChartPopupDialog {
 
   addSuccessIntern(conclusionSection: ScenarioData | undefined = undefined) {
     gameManager.stateManager.before('finishScenario.success', ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.scenario)));
-    gameManager.scenarioManager.finishScenario(
-      new Scenario(this.scenario),
-      true,
-      conclusionSection,
-      false,
-      false,
-      false,
-      gameManager.game.party.campaignMode && this.countFinished() === 0,
-      true
-    );
+    gameManager.scenarioFinishManager.addScenarioSuccess(this.scenario, conclusionSection, true);
     gameManager.stateManager.after();
     this.update();
-  }
-
-  countFinished(): number {
-    return (!gameManager.game.party.campaignMode ? gameManager.game.party.casualScenarios : gameManager.game.party.scenarios).filter(
-      (value) => this.scenario.index === value.index && this.scenario.edition === value.edition && this.scenario.group === value.group
-    ).length;
   }
 }

@@ -1305,6 +1305,7 @@
         "": "Search…",
         "affordable": "Only affordable Items",
         "all": "Show all items",
+        "available": "Show available items",
         "filtered": "Removed",
         "owned": "Only owned Items",
         "sorted": "Sorted"
@@ -1550,6 +1551,12 @@
   "menu": {
     "backToMain": "Back to %menu.main%",
     "main": "Main menu"
+  },
+  "missingData": {
+    "": "The game data for <b>{0}</b> could not be loaded, but your game uses it. To keep your game from being saved incomplete (e.g. without the current scenario or challenge cards), it was not loaded. Please check your connection and reload.",
+    "force": "Continue anyway",
+    "forceHint": "Attention: everything in your game that uses the missing data gets lost!",
+    "reload": "Reload"
   },
   "monster": {
     "": "Monster",
@@ -3617,8 +3624,12 @@
         "slotBack": "{0} marked slot on item {1} \"{3}\"",
         "spent": "{0} refreshed item {1} \"{3}\""
       },
+      "characterItemsHide": "Hide items of {0}",
+      "characterItemsShow": "Show items of {0}",
       "characterLongRest": "Set Long Rest for {0}",
       "characterLongRestOff": "Disable Long Rest for {0}",
+      "characterLootCardsHide": "Hide loot cards of {0}",
+      "characterLootCardsShow": "Show loot cards of {0}",
       "characterReplay": "Play {0} again for player {1}",
       "characterSetAside": "Set {0} aside for player {1}",
       "clearDiscardedScenarioRules": "Clear discarded scenario rules",
@@ -4087,6 +4098,7 @@
         "trial": "Toggle Trial for {0}"
       },
       "gameClock": {
+        "automaticGameClockIn": "Auto. clock in",
         "automaticGameClockOut": "Auto. clock out",
         "clockIn": "Clock In",
         "clockOut": "Clock out",
@@ -4340,6 +4352,7 @@
       "setSummonState": "Set summon {1} {2} for {0}",
       "setTitle": "Title '{1}' for {0}",
       "setTrial": "Trial {1} for {0}",
+      "setupCampaign": "Set up campaign",
       "setXP": "XP {1} for {0}",
       "shareItem": "{0} shares \"%data.items.{3}-{2}%\" (Item {2}) with {1}",
       "shuffleAbilityDeck": "Shuffle ability cards of {0}",

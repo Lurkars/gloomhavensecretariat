@@ -42,7 +42,7 @@ describe('openPendingWeekSections', () => {
     gameManager.game.edition = 'fh';
     gameManager.game.party.conclusions = [];
     gameManager.game.party.weekSections = {};
-    gameManager.editionData = [
+    gameManager.editionManager.editionData = [
       new EditionData(
         'fh',
         [],
@@ -71,7 +71,7 @@ describe('openPendingWeekSections', () => {
   });
 
   afterEach(() => {
-    gameManager.scenarioManager.pendingWeekSections = [];
+    gameManager.campaignManager.pendingWeekSections = [];
     vi.restoreAllMocks();
   });
 
@@ -81,7 +81,7 @@ describe('openPendingWeekSections', () => {
   });
 
   it('opens conclusions and a single hint for consecutive sections without data, one after another', () => {
-    gameManager.scenarioManager.pendingWeekSections = [
+    gameManager.campaignManager.pendingWeekSections = [
       { week: 1, index: '10.1', edition: 'fh', group: undefined },
       { week: 1, index: '50.1', edition: 'fh', group: undefined },
       { week: 1, index: '50.2', edition: 'fh', group: undefined }
@@ -89,7 +89,7 @@ describe('openPendingWeekSections', () => {
 
     openPendingWeekSections(dialog);
 
-    expect(gameManager.scenarioManager.pendingWeekSections).toEqual([]);
+    expect(gameManager.campaignManager.pendingWeekSections).toEqual([]);
     expect(opened.length).toBe(1);
     expect(opened[0].component).toBe(ScenarioSummaryComponent);
     expect(opened[0].data.conclusionOnly).toBe(true);
@@ -105,7 +105,7 @@ describe('openPendingWeekSections', () => {
   it('lets select a continuing conclusion and keeps it in the calendar', () => {
     vi.spyOn(gameManager.stateManager, 'before').mockImplementation(() => {});
     vi.spyOn(gameManager.stateManager, 'after').mockImplementation(async () => {});
-    gameManager.scenarioManager.pendingWeekSections = [{ week: 3, index: '20.1', edition: 'fh', group: undefined }];
+    gameManager.campaignManager.pendingWeekSections = [{ week: 3, index: '20.1', edition: 'fh', group: undefined }];
 
     openPendingWeekSections(dialog);
 
@@ -120,7 +120,7 @@ describe('openPendingWeekSections', () => {
   });
 
   it('offers sections continued by further sections and opens their choice after selection', () => {
-    gameManager.scenarioManager.pendingWeekSections = [{ week: 1, index: '30.1', edition: 'fh', group: undefined }];
+    gameManager.campaignManager.pendingWeekSections = [{ week: 1, index: '30.1', edition: 'fh', group: undefined }];
 
     openPendingWeekSections(dialog);
 
@@ -135,7 +135,7 @@ describe('openPendingWeekSections', () => {
   });
 
   it('opens the choice of continuing sections after a solved conclusion', () => {
-    gameManager.scenarioManager.pendingWeekSections = [{ week: 2, index: '40.1', edition: 'fh', group: undefined }];
+    gameManager.campaignManager.pendingWeekSections = [{ week: 2, index: '40.1', edition: 'fh', group: undefined }];
 
     openPendingWeekSections(dialog);
 
@@ -147,7 +147,7 @@ describe('openPendingWeekSections', () => {
     opened[0].closed.next(undefined);
     expect(opened.length).toBe(1);
 
-    gameManager.scenarioManager.pendingWeekSections = [{ week: 2, index: '40.1', edition: 'fh', group: undefined }];
+    gameManager.campaignManager.pendingWeekSections = [{ week: 2, index: '40.1', edition: 'fh', group: undefined }];
     openPendingWeekSections(dialog);
     gameManager.game.party.conclusions = [{ index: '40.1', edition: 'fh', group: undefined } as any];
     opened[1].closed.next(undefined);

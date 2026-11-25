@@ -14,14 +14,8 @@ export class SummonAddCustomCommand extends CommandImpl {
     const character = findCharacter(number);
     return (
       !!character &&
-      typeof name === 'string' &&
       typeof summonNumber === 'number' &&
-      summonNumber > 0 &&
-      Object.values(SummonColor).includes(color as SummonColor) &&
-      !character.summons.some(
-        (summon) =>
-          gameManager.entityManager.isAlive(summon) && summon.name === name && summon.number === summonNumber && summon.color === color
-      )
+      gameManager.summonManager.canAddCustomSummon(character, name, summonNumber, color as SummonColor)
     );
   }
 
@@ -29,7 +23,7 @@ export class SummonAddCustomCommand extends CommandImpl {
     gameManager.game.seed = seed;
     const character = findCharacter(number);
     if (character) {
-      gameManager.characterManager.addCustomSummon(character, name, summonNumber, color);
+      gameManager.summonManager.addCustomSummon(character, name, summonNumber, color);
     } else {
       this.executionError('character not found');
     }

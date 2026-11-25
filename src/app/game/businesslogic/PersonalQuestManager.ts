@@ -21,15 +21,15 @@ export class PersonalQuestManager {
   }
 
   personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
-    return gameManager.editionData
-      .filter((editionData) => gameManager.isEditionRelevant(editionData.edition, edition))
+    return gameManager.editionManager.editionData
+      .filter((editionData) => gameManager.editionManager.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.personalQuests)
       .find((pq) => pq.cardId === cardId || pq.cardId === '0' + cardId || pq.altId === cardId || pq.altId === '0' + cardId);
   }
 
   personalQuestsForEdition(edition: string): PersonalQuest[] {
-    return gameManager.editionData
-      .filter((editionData) => gameManager.isEditionRelevant(editionData.edition, edition))
+    return gameManager.editionManager.editionData
+      .filter((editionData) => gameManager.editionManager.isEditionRelevant(editionData.edition, edition))
       .flatMap((editionData) => editionData.personalQuests);
   }
 
@@ -83,11 +83,27 @@ export class PersonalQuestManager {
     character.progress.personalQuestProgress = [];
     character.progress.personalQuestAutotrack = false;
     character.tags = character.tags.filter((tag) => tag !== RETIREMENT_DIALOG_DISMISSED_TAG);
-    const personalQuest = this.personalQuestByCard(gameManager.currentEdition(), cardId);
+    const personalQuest = this.personalQuestByCard(gameManager.editionManager.currentEdition(), cardId);
     if (personalQuest) {
       character.progress.personalQuest = personalQuest.cardId;
       this.personalQuestAssigned(character);
     }
+  }
+
+  retirementDismissed(character: Character): boolean {
+    return character.tags.includes(RETIREMENT_DIALOG_DISMISSED_TAG);
+  }
+
+  canDismissRetirement(character: Character): boolean {
+    return !character.progress.retired && !this.retirementDismissed(character);
+  }
+
+  dismissRetirement(character: Character): boolean {
+    if (!this.canDismissRetirement(character)) {
+      return false;
+    }
+    character.tags.push(RETIREMENT_DIALOG_DISMISSED_TAG);
+    return true;
   }
 
   drawPersonalQuests(edition: string, count: number = 2): PersonalQuest[] {
@@ -322,6 +338,65 @@ export class PersonalQuestManager {
         character.progress.personalQuestProgress[i] = value | PERSONAL_QUEST_SCENARIO_CONCLUDED;
       }
     });
+  }
+
+  canSetProgress(character: Character, index: number, value: number): boolean {
+    const personalQuest = character.progress.personalQuest
+      ? this.personalQuestByCard(gameManager.editionManager.currentEdition(), character.progress.personalQuest)
+      : undefined;
+    return (
+      Number.isInteger(index) &&
+      index >= 0 &&
+      (!personalQuest || index < personalQuest.requirements.length) &&
+      Number.isInteger(value) &&
+      value >= 0
+    );
+  }
+
+  canSetAutotrack(character: Character, autotrack: boolean): boolean {
+    const personalQuest = character.progress.personalQuest
+      ? this.personalQuestByCard(gameManager.editionManager.currentEdition(), character.progress.personalQuest)
+      : undefined;
+    return (
+      typeof autotrack === 'boolean' &&
+      character.progress.personalQuestAutotrack !== autotrack &&
+      (!autotrack ||
+        (!!personalQuest && personalQuest.requirements.some((requirement, i) => this.personalQuestAutotrackSupported(personalQuest, i))))
+    );
+  }
+
+  setAutotrack(character: Character, autotrack: boolean): boolean {
+    if (!this.canSetAutotrack(character, autotrack)) {
+      return false;
+    }
+    character.progress.personalQuestAutotrack = autotrack;
+    return true;
+  }
+
+  setProgress(character: Character, index: number, value: number): boolean {
+    if (!this.canSetProgress(character, index, value)) {
+      return false;
+    }
+    for (let i = 0; i <= index; i++) {
+      character.progress.personalQuestProgress[i] = character.progress.personalQuestProgress[i] || 0;
+    }
+    character.progress.personalQuestProgress[index] = value;
+
+    const personalQuest = character.progress.personalQuest
+      ? this.personalQuestByCard(gameManager.editionManager.currentEdition(), character.progress.personalQuest)
+      : undefined;
+    if (personalQuest) {
+      personalQuest.requirements.forEach((requirement, i) => {
+        if (
+          requirement.requires &&
+          requirement.requires.some((j) => !this.personalQuestRequirementFulfilled(character, personalQuest, j - 1))
+        ) {
+          character.progress.personalQuestProgress[i] = 0;
+        }
+      });
+      this.unlockPersonalQuestScenarios(character);
+    }
+    return true;
   }
 
   unlockPersonalQuestScenarios(character: Character): boolean {

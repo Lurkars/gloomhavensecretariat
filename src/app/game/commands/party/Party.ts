@@ -15,7 +15,7 @@ export class PartyAddCommand extends CommandImpl {
   }
 
   executeWithParameters(name: string = '') {
-    gameManager.addParty(name);
+    gameManager.campaignManager.addParty(name);
   }
 }
 
@@ -30,7 +30,7 @@ export class PartyRemoveCommand extends CommandImpl {
   executeWithParameters(id: number) {
     const party = findParty(id);
     if (party) {
-      gameManager.removeParty(party);
+      gameManager.campaignManager.removeParty(party);
     } else {
       this.executionError('party not found');
     }
@@ -49,7 +49,7 @@ export class PartyChangeCommand extends CommandImpl {
   executeWithParameters(id: number) {
     const party = findParty(id);
     if (party) {
-      gameManager.changeParty(party);
+      gameManager.campaignManager.changeParty(party);
     } else {
       this.executionError('party not found');
     }

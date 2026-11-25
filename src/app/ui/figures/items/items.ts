@@ -7,7 +7,6 @@ import { gameManager, settingsManager } from 'src/app/game/businesslogic/Manager
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { ItemData } from 'src/app/game/model/data/ItemData';
-import { GameState } from 'src/app/game/model/Game';
 import { ItemsBrewDialog } from 'src/app/ui/figures/items/brew/brew';
 import { ItemDistillDialogComponent } from 'src/app/ui/figures/items/character/item-distill';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
@@ -39,7 +38,6 @@ export class CharacterItemsComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  GameState = GameState;
 
   constructor() {
     this.ghsManager.uiChangeEffect(() => this.updateItems());
@@ -47,7 +45,7 @@ export class CharacterItemsComponent implements OnInit {
 
   ngOnInit() {
     this.updateItems();
-    this.itemEdition = gameManager.currentEdition(this.character.edition);
+    this.itemEdition = gameManager.editionManager.currentEdition(this.character.edition);
   }
 
   updateItems() {
@@ -69,7 +67,7 @@ export class CharacterItemsComponent implements OnInit {
   }
 
   brewDialog(force: boolean = false) {
-    if (!gameManager.itemManager.brewingDisabled() || force) {
+    if (!gameManager.itemManager.brewingBlocked() || force) {
       this.dialog.open(ItemsBrewDialog, {
         panelClass: ['dialog'],
         data: this.character
@@ -80,7 +78,7 @@ export class CharacterItemsComponent implements OnInit {
   itemDialog() {
     this.dialog.open(ItemsDialogComponent, {
       panelClass: ['dialog'],
-      data: { edition: gameManager.game.edition, select: this.character }
+      data: { edition: gameManager.game.edition, select: this.character, owned: false }
     });
   }
 
@@ -90,7 +88,7 @@ export class CharacterItemsComponent implements OnInit {
       data: {
         character: settingsManager.settings.characterItems ? this.character : undefined,
         item: itemData,
-        setup: gameManager.game.state === GameState.draw && gameManager.roundManager.firstRound
+        setup: !gameManager.scenarioManager.scenarioRunning()
       }
     });
   }
@@ -110,7 +108,7 @@ export class CharacterItemsComponent implements OnInit {
         })
         .closed.subscribe({
           next: (result) => {
-            if (result) {
+            if (result && gameManager.itemManager.canRemoveItem(itemData, this.character)) {
               gameManager.stateManager.before(
                 'removeItem',
                 gameManager.characterManager.characterName(this.character, true, true),
@@ -130,7 +128,7 @@ export class CharacterItemsComponent implements OnInit {
     const item = this.character.progress.items.find(
       (identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition
     );
-    if (item && gameManager.itemManager.itemSellValue(itemData)) {
+    if (item && gameManager.itemManager.canSellItem(itemData, this.character)) {
       this.dialog
         .open(ConfirmDialogComponent, {
           panelClass: ['dialog'],
@@ -141,7 +139,7 @@ export class CharacterItemsComponent implements OnInit {
         })
         .closed.subscribe({
           next: (result) => {
-            if (result) {
+            if (result && gameManager.itemManager.canSellItem(itemData, this.character)) {
               gameManager.stateManager.before(
                 'sellItem',
                 gameManager.characterManager.characterName(this.character, true, true),
@@ -171,11 +169,9 @@ export class CharacterItemsComponent implements OnInit {
   }
 
   toggleEquippedItem(itemData: ItemData, force: boolean = false) {
-    const disabled = gameManager.game.state !== GameState.draw || gameManager.game.round > 0;
     if (
-      (!disabled || force) &&
-      this.character.progress.items.find((identifier) => identifier.name === '' + itemData.id && identifier.edition === itemData.edition) !=
-        undefined
+      gameManager.itemManager.owned(itemData, this.character) &&
+      gameManager.itemManager.canToggleEquippedItem(itemData, this.character, force)
     ) {
       gameManager.stateManager.before(
         gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem',
@@ -189,13 +185,16 @@ export class CharacterItemsComponent implements OnInit {
   }
 
   setItemNotes(event: any) {
-    if (this.character.progress.itemNotes !== event.target.value) {
+    if (
+      this.character.progress.itemNotes !== event.target.value &&
+      gameManager.characterManager.canSetProgressValue(this.character, 'itemNotes', event.target.value)
+    ) {
       gameManager.stateManager.before(
         'setItems',
         gameManager.characterManager.characterName(this.character, true, true),
         event.target.value
       );
-      this.character.progress.itemNotes = event.target.value;
+      gameManager.characterManager.setProgressValue(this.character, 'itemNotes', event.target.value);
       gameManager.stateManager.after();
     }
   }

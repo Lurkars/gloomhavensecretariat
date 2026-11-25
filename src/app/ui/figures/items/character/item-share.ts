@@ -53,7 +53,7 @@ export class ItemShareDialogComponent {
   }
 
   apply() {
-    if (this.selected) {
+    if (this.selected && gameManager.itemManager.canShareItem(this.item, this.character, this.selected)) {
       gameManager.stateManager.before(
         'shareItem',
         gameManager.characterManager.characterName(this.character, true, true),
@@ -61,8 +61,7 @@ export class ItemShareDialogComponent {
         this.item.id,
         this.item.edition
       );
-      gameManager.itemManager.removeItem(this.item, this.character);
-      gameManager.itemManager.addItem(this.item, this.selected);
+      gameManager.itemManager.shareItem(this.item, this.character, this.selected);
       gameManager.stateManager.after();
       ghsDialogClosingHelper(this.dialogRef);
     }

@@ -4,7 +4,7 @@ import { Component, forwardRef, inject, input, OnInit, output } from '@angular/c
 import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager } from 'src/app/game/businesslogic/Managers';
 import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from 'src/app/game/model/ActionHex';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
@@ -87,7 +87,7 @@ export class EditorActionComponent implements OnInit {
   gameManager: GameManager = gameManager;
 
   ngOnInit(): void {
-    this.monsters = gameManager.monstersData().map((monsterData) => monsterData.name);
+    this.monsters = gameManager.editionManager.monstersData().map((monsterData) => monsterData.name);
     if (this.action && this.action.type === ActionType.area) {
       this.hexAction.value = this.action.value ? '' + this.action.value : '(0,0,invisible)';
       const hexes: ActionHex[] = [];
@@ -326,7 +326,7 @@ export class EditorActionComponent implements OnInit {
   }
 
   changeSpecialTarget(value: string, subValue: string) {
-    if (settingsManager.getLabel('game.specialTarget.' + !value).includes('{0}')) {
+    if (labelManager.getLabel('game.specialTarget.' + !value).includes('{0}')) {
       subValue = '';
     } else if (!subValue) {
       subValue = '1';

@@ -3,13 +3,6 @@ import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 
-function keepAvailable(): number {
-  const building = gameManager.game.party.buildings.find(
-    (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
-  );
-  return building ? Math.ceil(building.level / 2) : 0;
-}
-
 function challengeCardIndex(cardId: BASE_TYPE | undefined): number {
   return typeof cardId === 'number' ? gameManager.game.challengeDeck.cards.findIndex((card) => card.cardId === cardId) : -1;
 }
@@ -18,13 +11,12 @@ export class ChallengeDeckDrawCommand extends CommandImpl {
   id: string = 'challengeDeck.draw';
   requiredParameters: number = 0;
 
-  validParameters(): boolean {
-    const deck = gameManager.game.challengeDeck;
-    return deck.cards.length > 0 && deck.current < deck.cards.length - 1;
+  validParameters(force: boolean = false): boolean {
+    return typeof force === 'boolean' && gameManager.challengesManager.canDrawCard(gameManager.game.challengeDeck, force);
   }
 
-  executeWithParameters() {
-    gameManager.challengesManager.drawCard(gameManager.game.challengeDeck);
+  executeWithParameters(force: boolean = false) {
+    gameManager.challengesManager.drawCard(gameManager.game.challengeDeck, force);
   }
 }
 
@@ -59,18 +51,19 @@ export class ChallengeDeckKeepCommand extends CommandImpl {
   id: string = 'challengeDeck.keep';
   requiredParameters: number = 2;
 
-  validParameters(cardId: number, keep: boolean): boolean {
+  validParameters(cardId: number, keep: boolean, force: boolean = false): boolean {
+    const deck = gameManager.game.challengeDeck;
     const index = challengeCardIndex(cardId);
     return (
-      index !== -1 &&
-      index <= gameManager.game.challengeDeck.current &&
       typeof keep === 'boolean' &&
-      gameManager.game.challengeDeck.keep.includes(index) !== keep
+      typeof force === 'boolean' &&
+      deck.keep.includes(index) !== keep &&
+      gameManager.challengesManager.canToggleKeep(deck, index, force)
     );
   }
 
-  executeWithParameters(cardId: number) {
-    gameManager.challengesManager.toggleKeep(gameManager.game.challengeDeck, challengeCardIndex(cardId), keepAvailable());
+  executeWithParameters(cardId: number, keep: boolean, force: boolean = false) {
+    gameManager.challengesManager.toggleKeep(gameManager.game.challengeDeck, challengeCardIndex(cardId), force);
   }
 }
 
@@ -79,19 +72,11 @@ export class ChallengeDeckRemoveCardCommand extends CommandImpl {
   requiredParameters: number = 1;
 
   validParameters(cardId: number): boolean {
-    return challengeCardIndex(cardId) !== -1;
+    return gameManager.challengesManager.canRemoveCard(gameManager.game.challengeDeck, challengeCardIndex(cardId));
   }
 
   executeWithParameters(cardId: number) {
-    const deck = gameManager.game.challengeDeck;
-    const index = challengeCardIndex(cardId);
-    if (index <= deck.finished) {
-      deck.finished--;
-    }
-    if (index <= deck.current) {
-      deck.current--;
-    }
-    deck.cards.splice(index, 1);
+    gameManager.challengesManager.removeCard(gameManager.game.challengeDeck, challengeCardIndex(cardId));
   }
 }
 
@@ -100,12 +85,9 @@ export class ChallengeDeckRestoreCardCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   card(cardId: BASE_TYPE): ChallengeCard | undefined {
-    return gameManager
-      .challengesData(gameManager.game.edition)
-      .find(
-        (challengeCard) =>
-          challengeCard.cardId === cardId && !gameManager.game.challengeDeck.cards.some((other) => other.cardId === challengeCard.cardId)
-      );
+    return gameManager.challengesManager
+      .removedCards(gameManager.game.challengeDeck)
+      .find((challengeCard) => challengeCard.cardId === cardId);
   }
 
   validParameters(cardId: number, seed: number): boolean {
@@ -126,30 +108,38 @@ export class ChallengeDeckRestoreCardCommand extends CommandImpl {
   }
 }
 
-const CHALLENGE_LISTS = ['upcoming', 'discarded', 'finished'];
-
 export class ChallengeDeckMoveCommand extends CommandImpl {
   id: string = 'challengeDeck.move';
   requiredParameters: number = 3;
 
+  position(cardId: BASE_TYPE): { list: string; index: number } | undefined {
+    const deck = gameManager.game.challengeDeck;
+    const index = challengeCardIndex(cardId);
+    if (index === -1) {
+      return undefined;
+    } else if (index <= deck.finished) {
+      return { list: 'finished', index: deck.finished - index };
+    } else if (index <= deck.current) {
+      return { list: 'discarded', index: deck.current - index };
+    }
+    return { list: 'upcoming', index: index - deck.current - 1 };
+  }
+
   validParameters(cardId: number, toList: string, toIndex: number): boolean {
-    return challengeCardIndex(cardId) !== -1 && CHALLENGE_LISTS.includes(toList) && typeof toIndex === 'number' && toIndex >= 0;
+    const position = this.position(cardId);
+    return (
+      !!position &&
+      typeof toList === 'string' &&
+      typeof toIndex === 'number' &&
+      gameManager.challengesManager.canMoveCard(gameManager.game.challengeDeck, position.list, position.index, toList, toIndex)
+    );
   }
 
   executeWithParameters(cardId: number, toList: string, toIndex: number) {
-    const deck = gameManager.game.challengeDeck;
-    const index = challengeCardIndex(cardId);
-    if (index <= deck.finished) {
-      this.move('finished', deck.finished - index, toList, toIndex);
-    } else if (index <= deck.current) {
-      this.move('discarded', deck.current - index, toList, toIndex);
-    } else {
-      this.move('upcoming', index - deck.current - 1, toList, toIndex);
+    const position = this.position(cardId);
+    if (position) {
+      gameManager.challengesManager.moveCard(gameManager.game.challengeDeck, position.list, position.index, toList, toIndex);
     }
-  }
-
-  move(fromList: string, fromIndex: number, toList: string, toIndex: number) {
-    gameManager.challengesManager.moveCard(gameManager.game.challengeDeck, fromList, fromIndex, toList, toIndex);
   }
 }
 

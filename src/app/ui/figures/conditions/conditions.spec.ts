@@ -23,7 +23,7 @@ describe('ConditionsComponent', () => {
 
     gameManager.game.edition = 'gh';
     gameManager.game.conditions = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
   });
 

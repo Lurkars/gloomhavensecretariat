@@ -1,4 +1,4 @@
-import { moveItemInArray } from '@angular/cdk/drag-drop';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -13,18 +13,18 @@ export class CharacterBattleGoalSelectCommand extends CommandImpl {
 
   validParameters(number: number, edition: string, name: string): boolean {
     const character = findCharacter(number);
-    return !!character && (name === '' || this.index(character, edition, name) !== -1);
+    return (
+      !!character &&
+      typeof name === 'string' &&
+      (name === '' || this.index(character, edition, name) !== -1) &&
+      gameManager.battleGoalManager.canSelectBattleGoal(character, name === '' ? -1 : this.index(character, edition, name))
+    );
   }
 
   executeWithParameters(number: number, edition: string, name: string) {
     const character = findCharacter(number);
     if (character) {
-      if (name === '') {
-        character.battleGoal = false;
-      } else {
-        character.battleGoal = true;
-        moveItemInArray(character.battleGoals, this.index(character, edition, name), 0);
-      }
+      gameManager.battleGoalManager.selectBattleGoal(character, name === '' ? -1 : this.index(character, edition, name));
     } else {
       this.executionError('character not found');
     }

@@ -1,4 +1,4 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, validSeed } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -10,34 +10,23 @@ export class SummonAddCommand extends CommandImpl {
   requiredParameters: number = 3;
 
   summonData(character: Character, name: BASE_TYPE, cardId: BASE_TYPE): SummonData | undefined {
-    const summons: SummonData[] = character.availableSummons.filter(
-      (summonData) => !summonData.level || summonData.level <= character.level
-    );
-    if (settingsManager.settings.characterItems && character.progress && character.progress.items) {
-      character.progress.items.forEach((identifier) => {
-        const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
-        if (item && item.summon) {
-          summons.push(Object.assign(new SummonData(), item.summon, { name: item.summon.name || item.name }));
-        }
-      });
-    }
-    return summons.find((summonData) => summonData.name === name && (!cardId || summonData.cardId === cardId));
+    return gameManager.summonManager
+      .availableSummons(character)
+      .find((summonData) => summonData.name === name && (!cardId || summonData.cardId === cardId));
   }
 
   color(character: Character, color: BASE_TYPE): SummonColor {
     if (color && Object.values(SummonColor).includes(color as SummonColor)) {
       return color as SummonColor;
     }
-    return gameManager.isEditionRelevant(character.edition, 'fh') || gameManager.attackModifierManager.isRpgCharacter(character)
-      ? SummonColor.fh
-      : SummonColor.blue;
+    return gameManager.summonManager.defaultSummonColor(character);
   }
 
   number(character: Character, summonData: SummonData, color: SummonColor, number: BASE_TYPE): number {
     if (!summonData.special && typeof number === 'number' && number > 0) {
       return number;
     }
-    return gameManager.characterManager.nextSummonNumber(character, summonData, color);
+    return gameManager.summonManager.nextSummonNumber(character, summonData, color);
   }
 
   validParameters(number: number, name: string, seed: number, cardId: string = ''): boolean {
@@ -46,14 +35,7 @@ export class SummonAddCommand extends CommandImpl {
     }
     const character = findCharacter(number);
     const summonData = character && this.summonData(character, name, cardId);
-    return (
-      !!character &&
-      !!summonData &&
-      (summonData.count || 1) >
-        character.summons.filter(
-          (summon) => summon.name === summonData.name && summon.cardId === summonData.cardId && gameManager.entityManager.isAlive(summon)
-        ).length
-    );
+    return !!character && !!summonData && gameManager.summonManager.canAddSummon(character, summonData);
   }
 
   executeWithParameters(
@@ -69,7 +51,7 @@ export class SummonAddCommand extends CommandImpl {
     const summonData = character && this.summonData(character, name, cardId);
     if (character && summonData) {
       const color = this.color(character, summonColor);
-      gameManager.characterManager.addSummonFromData(character, summonData, this.number(character, summonData, color, summonNumber), color);
+      gameManager.summonManager.addSummonFromData(character, summonData, this.number(character, summonData, color, summonNumber), color);
     } else {
       this.executionError('character or summon not found');
     }

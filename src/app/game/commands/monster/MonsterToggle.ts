@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findMonster } from 'src/app/game/commands/CommandHelper';
 import { Monster } from 'src/app/game/model/Monster';
@@ -41,6 +42,6 @@ export class MonsterDormantCommand extends MonsterFlagCommandImpl {
   id: string = 'monster.dormant';
 
   set(monster: Monster, value: boolean) {
-    monster.entities.forEach((entity) => (entity.dormant = value));
+    gameManager.monsterManager.setDormant(monster, value);
   }
 }

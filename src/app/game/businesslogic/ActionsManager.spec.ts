@@ -1,10 +1,11 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { Action, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
+import { Action, ActionHint, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/data/Action';
 import { Element, ElementModel, ElementState } from 'src/app/game/model/data/Element';
 import { MonsterData } from 'src/app/game/model/data/MonsterData';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
+import { Summon, SummonColor } from 'src/app/game/model/Summon';
 
 function buildMonsterEntity(type: MonsterType): MonsterEntity {
   const monster = new Monster(Object.assign(new MonsterData(), { name: 'bandit-guard', edition: 'gh' }), 1);
@@ -237,6 +238,68 @@ describe('ActionsManager', () => {
       gameManager.game.elementBoard = [Object.assign(new ElementModel(Element.fire), { state: ElementState.inert })];
       const action = new Action(ActionType.element, 'fire', ActionValueType.minus);
       expect(actionsManager.getElementsToConsume(action)).toEqual([]);
+    });
+  });
+
+  describe('extra actions', () => {
+    function entity(): MonsterEntity {
+      return new MonsterEntity(1, MonsterType.normal, new Monster(new MonsterData()));
+    }
+
+    it('removes extra actions by index', () => {
+      const target = entity();
+      target.extraActions = [new Action(ActionType.shield, 1), new Action(ActionType.retaliate, 2)];
+      expect(actionsManager.extraActionIndex(target, ActionType.retaliate, 2)).toBe(1);
+      expect(actionsManager.removeExtraAction(target, 3)).toBe(false);
+      expect(actionsManager.removeExtraAction(target, 0)).toBe(true);
+      expect(target.extraActions.map((action) => action.type)).toEqual([ActionType.retaliate]);
+    });
+
+    it('replaces an accepted extra action by its sub actions', () => {
+      const target = entity();
+      const extra = new Action(ActionType.extra, 'x', ActionValueType.fixed, [new Action(ActionType.shield, 1)]);
+      target.extraActionsPersistent = [extra];
+      target.extraActions = [new Action(ActionType.shield, 1)];
+      expect(actionsManager.canResolveExtraAction(target, 0)).toBe(false);
+      expect(actionsManager.resolveExtraAction(target, 0, true, true)).toBe(true);
+      expect(target.extraActionsPersistent.map((action) => action.type)).toEqual([ActionType.shield]);
+      target.extraActionsPersistent = [extra];
+      actionsManager.resolveExtraAction(target, 0, false, true);
+      expect(target.extraActionsPersistent).toEqual([]);
+    });
+  });
+
+  describe('action hints and traps', () => {
+    function entity(): MonsterEntity {
+      return new MonsterEntity(1, MonsterType.normal, new Monster(new MonsterData()));
+    }
+
+    it('removes the extra actions of an action hint, retaliates only with the same range', () => {
+      const target = entity();
+      const retaliate = new Action(ActionType.retaliate, 1);
+      const rangedRetaliate = new Action(ActionType.retaliate, 1, ActionValueType.fixed, [new Action(ActionType.range, 3)]);
+      target.extraActions = [new Action(ActionType.shield, 1), retaliate, rangedRetaliate];
+      target.extraActionsPersistent = [new Action(ActionType.shield, 2)];
+      expect(actionsManager.removeActionHint(target, new ActionHint(ActionType.shield, 3))).toBe(true);
+      expect(target.extraActions).toEqual([retaliate, rangedRetaliate]);
+      expect(target.extraActionsPersistent).toEqual([]);
+      expect(actionsManager.removeActionHint(target, new ActionHint(ActionType.retaliate, 1, 3))).toBe(true);
+      expect(target.extraActions).toEqual([retaliate]);
+      expect(actionsManager.canRemoveActionHint(target, new ActionHint(ActionType.retaliate, 1, 2))).toBe(false);
+    });
+
+    it('shows damage and heal of traps without changing the summon', () => {
+      const trap = new Summon('uuid', 'trap', '1', 1, 1, SummonColor.blue);
+      trap.trap = true;
+      trap.movement = 2;
+      trap.attack = 1;
+      expect(actionsManager.trapActions(trap).map((action) => [action.type, action.value])).toEqual([
+        [ActionType.damage, 2],
+        [ActionType.heal, 1]
+      ]);
+      expect(trap.extraActions).toEqual([]);
+      trap.trap = false;
+      expect(actionsManager.trapActions(trap)).toEqual([]);
     });
   });
 });

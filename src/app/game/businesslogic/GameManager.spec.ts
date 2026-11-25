@@ -15,7 +15,7 @@ import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 // GameManager owns the central Game object plus a large collection of mostly-pure lookup
 // helpers over `editionData`. These tests exercise those helpers directly; they populate
-// `gameManager.editionData` / `settingsManager.settings.editions` with small fixtures
+// `gameManager.editionManager.editionData` / `settingsManager.settings.editions` with small fixtures
 // instead of loading real game data.
 
 function buildEdition(edition: string, overrides: Partial<EditionData> = {}): EditionData {
@@ -39,7 +39,7 @@ function buildMonster(name: string, edition: string = 'gh'): Monster {
 
 describe('GameManager', () => {
   beforeEach(() => {
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = [];
     gameManager.game.figures = [];
     gameManager.game.edition = undefined;
@@ -52,83 +52,83 @@ describe('GameManager', () => {
 
   describe('editions / editionsData / editionLogo', () => {
     it('only returns editions enabled in settings by default', () => {
-      gameManager.editionData = [buildEdition('gh'), buildEdition('fh')];
+      gameManager.editionManager.editionData = [buildEdition('gh'), buildEdition('fh')];
       settingsManager.settings.editions = ['gh'];
-      expect(gameManager.editions()).toEqual(['gh']);
+      expect(gameManager.editionManager.editions()).toEqual(['gh']);
     });
 
     it('excludes content-type editions unless extraContent is requested', () => {
-      gameManager.editionData = [buildEdition('gh'), buildEdition('extra', { type: 'content' })];
+      gameManager.editionManager.editionData = [buildEdition('gh'), buildEdition('extra', { type: 'content' })];
       settingsManager.settings.editions = ['gh', 'extra'];
-      expect(gameManager.editions()).toEqual(['gh']);
-      expect(gameManager.editions(false, true)).toEqual(['gh', 'extra']);
+      expect(gameManager.editionManager.editions()).toEqual(['gh']);
+      expect(gameManager.editionManager.editions(false, true)).toEqual(['gh', 'extra']);
     });
 
     it('all=true ignores the settings.editions allow-list but still filters content type', () => {
-      gameManager.editionData = [buildEdition('gh'), buildEdition('extra', { type: 'content' })];
+      gameManager.editionManager.editionData = [buildEdition('gh'), buildEdition('extra', { type: 'content' })];
       settingsManager.settings.editions = [];
-      expect(gameManager.editions(true)).toEqual(['gh']);
-      expect(gameManager.editions(true, true)).toEqual(['gh', 'extra']);
+      expect(gameManager.editionManager.editions(true)).toEqual(['gh']);
+      expect(gameManager.editionManager.editions(true, true)).toEqual(['gh', 'extra']);
     });
 
     it('editionsData returns the full EditionData objects for the resolved editions', () => {
       const gh = buildEdition('gh');
-      gameManager.editionData = [gh, buildEdition('fh')];
+      gameManager.editionManager.editionData = [gh, buildEdition('fh')];
       settingsManager.settings.editions = ['gh'];
-      expect(gameManager.editionsData()).toEqual([gh]);
+      expect(gameManager.editionManager.editionsData()).toEqual([gh]);
     });
 
     it('editionLogo returns the logoUrl when present', () => {
-      gameManager.editionData = [buildEdition('gh', { logoUrl: 'logo.png' })];
-      expect(gameManager.editionLogo('gh')).toEqual('logo.png');
+      gameManager.editionManager.editionData = [buildEdition('gh', { logoUrl: 'logo.png' })];
+      expect(gameManager.editionManager.editionLogo('gh')).toEqual('logo.png');
     });
 
     it('editionLogo returns an empty string for an unknown edition', () => {
-      gameManager.editionData = [];
-      expect(gameManager.editionLogo('unknown')).toEqual('');
+      gameManager.editionManager.editionData = [];
+      expect(gameManager.editionManager.editionLogo('unknown')).toEqual('');
     });
   });
 
   describe('currentEdition', () => {
     it('prefers game.edition when set', () => {
       gameManager.game.edition = 'fh';
-      expect(gameManager.currentEdition()).toEqual('fh');
+      expect(gameManager.editionManager.currentEdition()).toEqual('fh');
     });
 
     it('falls back to the active scenario edition', () => {
       gameManager.game.edition = undefined;
       gameManager.game.scenario = { edition: 'jotl' } as any;
-      expect(gameManager.currentEdition()).toEqual('jotl');
+      expect(gameManager.editionManager.currentEdition()).toEqual('jotl');
     });
 
     it('falls back to the shared edition of all character figures', () => {
       gameManager.game.edition = undefined;
       gameManager.game.scenario = undefined;
       gameManager.game.figures = [buildCharacter('brute', 'gh'), buildCharacter('spellweaver', 'gh')];
-      expect(gameManager.currentEdition()).toEqual('gh');
+      expect(gameManager.editionManager.currentEdition()).toEqual('gh');
     });
 
     it('does not use character edition when characters are mixed', () => {
       gameManager.game.edition = undefined;
       gameManager.game.scenario = undefined;
       gameManager.game.figures = [buildCharacter('brute', 'gh'), buildCharacter('pyroclast', 'fh')];
-      gameManager.editionData = [buildEdition('gh')];
+      gameManager.editionManager.editionData = [buildEdition('gh')];
       settingsManager.settings.editions = ['gh'];
-      expect(gameManager.currentEdition()).toEqual('gh'); // falls back to editions()[0]
+      expect(gameManager.editionManager.currentEdition()).toEqual('gh'); // falls back to editions()[0]
     });
 
     it('uses the provided fallback when nothing else resolves', () => {
       gameManager.game.edition = undefined;
       gameManager.game.scenario = undefined;
       gameManager.game.figures = [];
-      gameManager.editionData = [];
-      expect(gameManager.currentEdition('customFallback')).toEqual('customFallback');
+      gameManager.editionManager.editionData = [];
+      expect(gameManager.editionManager.currentEdition('customFallback')).toEqual('customFallback');
     });
   });
 
   describe('isEditionRelevant / relevantEditions', () => {
     beforeEach(() => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         buildEdition('gh'),
         buildEdition('fh-crossover', { type: 'extension', extends: ['gh'] }),
         buildEdition('content-a', { type: 'content', extends: ['gh'] })
@@ -137,79 +137,79 @@ describe('GameManager', () => {
     });
 
     it('relevantEditions includes the edition itself, its dependencies and matching content', () => {
-      expect(gameManager.relevantEditions('gh')).toEqual(['gh', 'content-a']);
+      expect(gameManager.editionManager.relevantEditions('gh')).toEqual(['gh', 'content-a']);
     });
 
     it('relevantEditions for an extension includes the base edition it extends', () => {
-      expect(gameManager.relevantEditions('fh-crossover')).toEqual(['fh-crossover', 'gh']);
+      expect(gameManager.editionManager.relevantEditions('fh-crossover')).toEqual(['fh-crossover', 'gh']);
     });
 
     it('relevantEditions without edition uses the game edition', () => {
       gameManager.game.edition = 'fh-crossover';
-      expect(gameManager.relevantEditions()).toEqual(['fh-crossover', 'gh']);
+      expect(gameManager.editionManager.relevantEditions()).toEqual(['fh-crossover', 'gh']);
     });
 
     it('relevantEditions without edition and no game edition returns all enabled editions', () => {
-      gameManager.editionData.push(buildEdition('jotl'));
+      gameManager.editionManager.editionData.push(buildEdition('jotl'));
       gameManager.game.scenario = { edition: 'jotl' } as any;
-      expect(gameManager.relevantEditions()).toEqual(['gh', 'fh-crossover', 'content-a']);
-      expect(gameManager.relevantEditions(undefined, false, false)).toEqual(['gh', 'fh-crossover']);
+      expect(gameManager.editionManager.relevantEditions()).toEqual(['gh', 'fh-crossover', 'content-a']);
+      expect(gameManager.editionManager.relevantEditions(undefined, false, false)).toEqual(['gh', 'fh-crossover']);
     });
 
     it('isEditionRelevant is true when the other edition is a dependency of the given edition', () => {
-      expect(gameManager.isEditionRelevant('gh', 'fh-crossover')).toBe(true);
+      expect(gameManager.editionManager.isEditionRelevant('gh', 'fh-crossover')).toBe(true);
     });
 
     it('isEditionRelevant is true for content attached to the given edition', () => {
-      expect(gameManager.isEditionRelevant('content-a', 'gh')).toBe(true);
+      expect(gameManager.editionManager.isEditionRelevant('content-a', 'gh')).toBe(true);
     });
 
     it('isEditionRelevant is false for content attached to a different edition', () => {
-      expect(gameManager.isEditionRelevant('content-a', 'fh-crossover')).toBe(false);
+      expect(gameManager.editionManager.isEditionRelevant('content-a', 'fh-crossover')).toBe(false);
     });
 
     it('isEditionRelevant is false when the other edition is unknown', () => {
-      expect(gameManager.isEditionRelevant('does-not-exist', 'gh')).toBe(false);
+      expect(gameManager.editionManager.isEditionRelevant('does-not-exist', 'gh')).toBe(false);
     });
 
     it('isEditionRelevant is false when the other edition is not enabled in settings', () => {
       settingsManager.settings.editions = ['gh'];
-      expect(gameManager.isEditionRelevant('fh-crossover', 'gh')).toBe(false);
+      expect(gameManager.editionManager.isEditionRelevant('fh-crossover', 'gh')).toBe(false);
     });
 
     it('isEditionRelevant is true regardless of context when no edition is given (and other is enabled)', () => {
-      expect(gameManager.isEditionRelevant('fh-crossover', undefined)).toBe(true);
+      expect(gameManager.editionManager.isEditionRelevant('fh-crossover', undefined)).toBe(true);
     });
   });
 
   describe('newItemStyle / newAmStyle', () => {
     it('returns false for an unknown edition', () => {
-      expect(gameManager.newItemStyle('unknown')).toBe(false);
+      expect(gameManager.editionManager.newItemStyle('unknown')).toBe(false);
     });
 
     it('returns true when the edition itself declares the new style', () => {
-      gameManager.editionData = [buildEdition('gh2e', { newItemStyle: true })];
-      expect(gameManager.newItemStyle('gh2e')).toBe(true);
+      gameManager.editionManager.editionData = [buildEdition('gh2e', { newItemStyle: true })];
+      expect(gameManager.editionManager.newItemStyle('gh2e')).toBe(true);
     });
 
     it('inherits the new style from an extended edition', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         buildEdition('gh2e', { newItemStyle: true }),
         buildEdition('gh2e-ext', { type: 'extension', extends: ['gh2e'] })
       ];
-      expect(gameManager.newItemStyle('gh2e-ext')).toBe(true);
+      expect(gameManager.editionManager.newItemStyle('gh2e-ext')).toBe(true);
     });
 
     it('newAmStyle mirrors the same inheritance logic independently of newItemStyle', () => {
-      gameManager.editionData = [buildEdition('gh2e', { newAmStyle: true })];
-      expect(gameManager.newAmStyle('gh2e')).toBe(true);
-      expect(gameManager.newItemStyle('gh2e')).toBe(false);
+      gameManager.editionManager.editionData = [buildEdition('gh2e', { newAmStyle: true })];
+      expect(gameManager.editionManager.newAmStyle('gh2e')).toBe(true);
+      expect(gameManager.editionManager.newItemStyle('gh2e')).toBe(false);
     });
   });
 
   describe('fhRules / bbRules / gh2eRules / editionRules', () => {
     beforeEach(() => {
-      gameManager.editionData = [buildEdition('gh'), buildEdition('fh'), buildEdition('bb'), buildEdition('gh2e')];
+      gameManager.editionManager.editionData = [buildEdition('gh'), buildEdition('fh'), buildEdition('bb'), buildEdition('gh2e')];
       settingsManager.settings.editions = ['gh', 'fh', 'bb', 'gh2e'];
     });
 
@@ -275,15 +275,15 @@ describe('GameManager', () => {
 
   describe('hasBottomAbility', () => {
     it('is false for undefined ability', () => {
-      expect(gameManager.hasBottomAbility(undefined)).toBe(false);
+      expect(gameManager.editionManager.hasBottomAbility(undefined)).toBe(false);
     });
 
     it('is false when bottomActions is empty', () => {
-      expect(gameManager.hasBottomAbility({ bottomActions: [] } as any)).toBe(false);
+      expect(gameManager.editionManager.hasBottomAbility({ bottomActions: [] } as any)).toBe(false);
     });
 
     it('is true when bottomActions has entries', () => {
-      expect(gameManager.hasBottomAbility({ bottomActions: [{}] } as any)).toBe(true);
+      expect(gameManager.editionManager.hasBottomAbility({ bottomActions: [{}] } as any)).toBe(true);
     });
   });
 
@@ -291,31 +291,31 @@ describe('GameManager', () => {
     it('sorts characters before monsters', () => {
       const character = buildCharacter('brute');
       const monster = buildMonster('bandit-guard');
-      expect(gameManager.sortFiguresByTypeAndName(character, monster)).toEqual(-1);
-      expect(gameManager.sortFiguresByTypeAndName(monster, character)).toEqual(1);
+      expect(gameManager.roundManager.sortFiguresByTypeAndName(character, monster)).toEqual(-1);
+      expect(gameManager.roundManager.sortFiguresByTypeAndName(monster, character)).toEqual(1);
     });
 
     it('reverses character/monster order when reverse is true', () => {
       const character = buildCharacter('brute');
       const monster = buildMonster('bandit-guard');
-      expect(gameManager.sortFiguresByTypeAndName(character, monster, true)).toEqual(1);
+      expect(gameManager.roundManager.sortFiguresByTypeAndName(character, monster, true)).toEqual(1);
     });
 
     it('sorts figures with off=true after figures with off=false', () => {
       const a = buildCharacter('brute');
       const b = buildCharacter('spellweaver');
       a.off = true;
-      expect(gameManager.sortFiguresByTypeAndName(a, b)).toEqual(1);
-      expect(gameManager.sortFiguresByTypeAndName(b, a)).toEqual(-1);
+      expect(gameManager.roundManager.sortFiguresByTypeAndName(a, b)).toEqual(1);
+      expect(gameManager.roundManager.sortFiguresByTypeAndName(b, a)).toEqual(-1);
     });
 
     it('falls back to alphabetic name comparison for two monsters', () => {
       const a = buildMonster('bandit-archer');
       const b = buildMonster('bandit-guard');
-      // settingsManager.getLabel falls back to the raw key when no label data is loaded,
+      // labelManager.getLabel falls back to the raw key when no label data is loaded,
       // so 'data.monster.bandit-archer' < 'data.monster.bandit-guard' alphabetically.
-      expect(gameManager.sortFiguresByTypeAndName(a, b)).toEqual(-1);
-      expect(gameManager.sortFiguresByTypeAndName(b, a)).toEqual(1);
+      expect(gameManager.roundManager.sortFiguresByTypeAndName(a, b)).toEqual(-1);
+      expect(gameManager.roundManager.sortFiguresByTypeAndName(b, a)).toEqual(1);
     });
   });
 
@@ -325,7 +325,7 @@ describe('GameManager', () => {
       const b = buildCharacter('spellweaver', 'gh');
       a.marker = true;
       gameManager.game.figures = [a, b];
-      expect(gameManager.markers()).toEqual(['gh-brute']);
+      expect(gameManager.entityManager.markers()).toEqual(['gh-brute']);
     });
 
     it('excludes absent characters', () => {
@@ -333,7 +333,7 @@ describe('GameManager', () => {
       a.marker = true;
       a.absent = true;
       gameManager.game.figures = [a];
-      expect(gameManager.markers()).toEqual([]);
+      expect(gameManager.entityManager.markers()).toEqual([]);
     });
   });
 
@@ -341,7 +341,7 @@ describe('GameManager', () => {
     it('builds a character identifier', () => {
       const character = buildCharacter('brute', 'gh');
       character.tags = ['tag1'];
-      const identifier = gameManager.additionalIdentifier(character);
+      const identifier = gameManager.entityManager.additionalIdentifier(character);
       expect(identifier.name).toEqual('brute');
       expect(identifier.edition).toEqual('gh');
       expect(identifier.type).toEqual('character');
@@ -353,7 +353,7 @@ describe('GameManager', () => {
       const entity = new MonsterEntity(1, MonsterType.normal, monster);
       entity.marker = 'm1';
       entity.tags = ['t1'];
-      const identifier = gameManager.additionalIdentifier(monster, entity);
+      const identifier = gameManager.entityManager.additionalIdentifier(monster, entity);
       expect(identifier.name).toEqual('bandit-guard');
       expect(identifier.type).toEqual('monster');
       expect(identifier.marker).toEqual('m1');
@@ -363,7 +363,7 @@ describe('GameManager', () => {
     it('builds an objective identifier using "objective" or "escort" as the edition slot', () => {
       const objective = new ObjectiveContainer('uuid-1');
       objective.name = 'chest';
-      const identifier = gameManager.additionalIdentifier(objective);
+      const identifier = gameManager.entityManager.additionalIdentifier(objective);
       expect(identifier.edition).toEqual('objective');
       expect(identifier.type).toEqual('objective');
     });
@@ -386,9 +386,11 @@ describe('GameManager', () => {
 
       const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-      gameManager.checkEntitiesKilled();
+      gameManager.entityCounterManager.checkEntitiesKilled();
 
-      const counter = gameManager.entityCounter(gameManager.additionalIdentifier(monster, monster.entities[0]));
+      const counter = gameManager.entityCounterManager.entityCounter(
+        gameManager.entityManager.additionalIdentifier(monster, monster.entities[0])
+      );
       expect(counter?.total).toEqual(3);
       expect(counter?.killed).toEqual(0);
       expect(warnSpy).not.toHaveBeenCalled();
@@ -399,25 +401,25 @@ describe('GameManager', () => {
 
   describe('getCharacterData / getMonsterData (unknown fallback)', () => {
     it('returns a placeholder CharacterData with an unknown-figure error for an unmatched name', () => {
-      gameManager.editionData = [];
-      const data = gameManager.getCharacterData('does-not-exist', 'gh');
+      gameManager.editionManager.editionData = [];
+      const data = gameManager.editionManager.getCharacterData('does-not-exist', 'gh');
       expect(data.name).toEqual('does-not-exist');
       expect(data.errors && data.errors.some((e) => e.type === FigureErrorType.unknown)).toBe(true);
     });
 
     it('returns a placeholder MonsterData with an unknown-figure error for an unmatched name', () => {
-      gameManager.editionData = [];
-      const data = gameManager.getMonsterData('does-not-exist', 'gh');
+      gameManager.editionManager.editionData = [];
+      const data = gameManager.editionManager.getMonsterData('does-not-exist', 'gh');
       expect(data.name).toEqual('does-not-exist');
       expect(data.errors && data.errors.some((e) => e.type === FigureErrorType.unknown)).toBe(true);
     });
 
     it('finds an existing character by name and edition', () => {
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         buildEdition('gh', { characters: [Object.assign(new CharacterData(), { name: 'brute', edition: 'gh' })] })
       ];
       settingsManager.settings.editions = ['gh'];
-      const data = gameManager.getCharacterData('brute', 'gh');
+      const data = gameManager.editionManager.getCharacterData('brute', 'gh');
       expect(data.name).toEqual('brute');
       expect(data.errors).toEqual([]);
     });
@@ -427,56 +429,56 @@ describe('GameManager', () => {
     it('keeps the entry with the later clockOut when ranges overlap', () => {
       const a = [new GameClockTimestamp(100, 200)];
       const b = [new GameClockTimestamp(100, 300)];
-      const merged = gameManager.mergeGameClocks(a, b);
+      const merged = gameManager.gameClockManager.mergeGameClocks(a, b);
       expect(merged).toEqual([new GameClockTimestamp(100, 300)]);
     });
 
     it('keeps open (still running) entries', () => {
       const a = [new GameClockTimestamp(100, undefined)];
       const b: GameClockTimestamp[] = [];
-      const merged = gameManager.mergeGameClocks(a, b);
+      const merged = gameManager.gameClockManager.mergeGameClocks(a, b);
       expect(merged).toEqual([new GameClockTimestamp(100, undefined)]);
     });
 
     it('includes entries unique to either side, sorted by clockIn descending', () => {
       const a = [new GameClockTimestamp(100, 200)];
       const b = [new GameClockTimestamp(300, 400)];
-      const merged = gameManager.mergeGameClocks(a, b);
+      const merged = gameManager.gameClockManager.mergeGameClocks(a, b);
       expect(merged.map((c) => c.clockIn)).toEqual([300, 100]);
     });
   });
 
   describe('nextElementState', () => {
     it('bb rules toggle only between strong and inert', () => {
-      gameManager.editionData = [buildEdition('bb')];
+      gameManager.editionManager.editionData = [buildEdition('bb')];
       settingsManager.settings.editions = ['bb'];
       gameManager.game.edition = 'bb';
       const element = new ElementModel(GhsElement.fire);
       element.state = ElementState.inert;
-      expect(gameManager.nextElementState(element)).toEqual(ElementState.strong);
+      expect(gameManager.elementManager.nextElementState(element)).toEqual(ElementState.strong);
       element.state = ElementState.strong;
-      expect(gameManager.nextElementState(element)).toEqual(ElementState.inert);
+      expect(gameManager.elementManager.nextElementState(element)).toEqual(ElementState.inert);
     });
 
     it('draw state progresses new -> strong (single) and inert -> new', () => {
-      gameManager.editionData = [buildEdition('gh')];
+      gameManager.editionManager.editionData = [buildEdition('gh')];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       const element = new ElementModel(GhsElement.fire);
       element.state = ElementState.new;
-      expect(gameManager.nextElementState(element, false, true)).toEqual(ElementState.strong);
+      expect(gameManager.elementManager.nextElementState(element, false, true)).toEqual(ElementState.strong);
 
       element.state = ElementState.inert;
-      expect(gameManager.nextElementState(element, false, true)).toEqual(ElementState.new);
+      expect(gameManager.elementManager.nextElementState(element, false, true)).toEqual(ElementState.new);
     });
 
     it('waning progresses to inert while drawing', () => {
-      gameManager.editionData = [buildEdition('gh')];
+      gameManager.editionManager.editionData = [buildEdition('gh')];
       settingsManager.settings.editions = ['gh'];
       gameManager.game.edition = 'gh';
       const element = new ElementModel(GhsElement.fire);
       element.state = ElementState.waning;
-      expect(gameManager.nextElementState(element, false, true)).toEqual(ElementState.inert);
+      expect(gameManager.elementManager.nextElementState(element, false, true)).toEqual(ElementState.inert);
     });
   });
 
@@ -484,7 +486,7 @@ describe('GameManager', () => {
     function assignPersonalQuest(character: Character, autotrack: string) {
       character.progress.personalQuest = 'PQ1';
       character.progress.personalQuestAutotrack = true;
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         buildEdition('gh', {
           personalQuests: [
             Object.assign(new PersonalQuest(), {
@@ -510,7 +512,7 @@ describe('GameManager', () => {
       gameManager.game.figures = [character];
       const element = new ElementModel(GhsElement.fire);
 
-      gameManager.applyElementState(element, ElementState.new);
+      gameManager.elementManager.applyElementState(element, ElementState.new);
 
       expect(element.state).toEqual(ElementState.new);
       expect(character.progress.personalQuestProgress[0]).toEqual(1);
@@ -523,7 +525,7 @@ describe('GameManager', () => {
       gameManager.game.figures = [character];
       const element = new ElementModel(GhsElement.fire);
 
-      gameManager.applyElementState(element, ElementState.strong);
+      gameManager.elementManager.applyElementState(element, ElementState.strong);
 
       expect(element.state).toEqual(ElementState.strong);
       expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
@@ -536,7 +538,7 @@ describe('GameManager', () => {
       gameManager.game.figures = [character];
       const element = new ElementModel(GhsElement.fire);
 
-      gameManager.applyElementState(element, ElementState.new);
+      gameManager.elementManager.applyElementState(element, ElementState.new);
 
       expect(character.progress.personalQuestProgress[0] || 0).toEqual(0);
     });

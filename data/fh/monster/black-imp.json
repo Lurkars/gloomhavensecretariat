@@ -135,7 +135,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.black-imp.1%",
+          "value": "%game.custom.disadvantage%",
           "small": true
         },
         {
@@ -152,7 +152,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.black-imp.1%",
+          "value": "%game.custom.disadvantage%",
           "small": true
         },
         {
@@ -169,7 +169,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.black-imp.1%",
+          "value": "%game.custom.disadvantage%",
           "small": true
         },
         {
@@ -186,7 +186,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.black-imp.1%",
+          "value": "%game.custom.disadvantage%",
           "small": true
         },
         {
@@ -203,7 +203,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.black-imp.1%",
+          "value": "%game.custom.disadvantage%",
           "small": true
         },
         {

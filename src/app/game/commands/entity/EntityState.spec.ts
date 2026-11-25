@@ -42,8 +42,7 @@ describe('Entity state commands', () => {
       const entity = createTestMonsterEntity(monster, 1);
       gameManager.game.state = GameState.next;
       const toggleActive = vi.spyOn(gameManager.entityManager, 'toggleActive').mockImplementation(() => {});
-      new EntityActiveCommand('test-testmonster', 1, false).execute();
-      expect(toggleActive).not.toHaveBeenCalled();
+      expect(new EntityActiveCommand('test-testmonster', 1, false).validParameters('test-testmonster', 1, false)).toBe(false);
       new EntityActiveCommand('test-testmonster', 1, true).execute();
       expect(toggleActive).toHaveBeenCalledWith(monster, entity);
     });

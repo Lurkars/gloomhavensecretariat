@@ -11,16 +11,13 @@ export class CharacterTrialCommand extends CommandImpl {
   }
 
   validParameters(number: number, trial: number): boolean {
-    if (!findCharacter(number) || typeof trial !== 'number') {
-      return false;
-    }
-    const cardId = this.cardId(trial);
-    return gameManager.trialsManager.trialCardExists(cardId) && !gameManager.trialsManager.trialAssigned(cardId);
+    const character = findCharacter(number);
+    return !!character && typeof trial === 'number' && gameManager.trialsManager.canSetTrial(character, this.cardId(trial));
   }
 
   executeWithParameters(number: number, trial: number) {
     const character = findCharacter(number);
-    if (character && gameManager.trialsManager.trialsEditionData()) {
+    if (character) {
       gameManager.trialsManager.setTrial(character, this.cardId(trial));
     } else {
       this.executionError('character or trials not found');

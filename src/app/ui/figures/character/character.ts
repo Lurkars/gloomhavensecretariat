@@ -32,7 +32,6 @@ import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/
 import { HighlightConditionsComponent } from 'src/app/ui/figures/conditions/highlight';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { FigureErrorsComponent } from 'src/app/ui/figures/errors/errors';
-import { ItemsCharacterDialogComponent } from 'src/app/ui/figures/items/character/items-character-dialog';
 import { ItemsDialogComponent } from 'src/app/ui/figures/items/dialog/items-dialog';
 import { LootComponent } from 'src/app/ui/figures/loot/loot-card';
 import { EntityIndexKeyComponent } from 'src/app/ui/figures/standee/entity-index-key/entity-index-key';
@@ -147,7 +146,7 @@ export class CharacterComponent implements OnInit {
     this.summonsAfterTurn = this.character.summons.filter((summon) => summon.afterTurn);
     this.summonCount = this.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.summonsAfterTurnCount = this.summonsAfterTurn.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
-    this.activeConditions = gameManager.entityManager.activeConditions(this.character);
+    this.activeConditions = gameManager.conditionManager.activeConditions(this.character);
     this.character.immunities.forEach((immunity) => {
       if (!this.activeConditions.find((entityCondition) => entityCondition.name === immunity)) {
         this.activeConditions.push(new EntityCondition(immunity));
@@ -168,7 +167,7 @@ export class CharacterComponent implements OnInit {
     this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme !== 'modern';
     this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.editionRules === 'bb';
-    this.rpg = gameManager.attackModifierManager.isRpgCharacter(this.character);
+    this.rpg = gameManager.characterRpgManager.isRpgCharacter(this.character);
     this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.includes(specialAction.name));
     this.off = this.character.off || this.character.exhausted || this.character.health <= 0;
     this.battleGoalSelected = this.character.battleGoal && this.character.battleGoals.length > 0;
@@ -179,7 +178,7 @@ export class CharacterComponent implements OnInit {
     this.extraActions = [...this.character.extraActions.filter((action) => action.type !== ActionType.extra)];
     this.extraActionsPersistent = [...this.character.extraActionsPersistent.filter((action) => action.type !== ActionType.extra)];
     const attributes = this.character.progress.rpg?.attributes || {};
-    this.rpgAttributes = gameManager.attackModifierManager.isRpgCharacter(this.character)
+    this.rpgAttributes = gameManager.characterRpgManager.isRpgCharacter(this.character)
       ? Object.values(RpgAttribute)
           .map((attribute) => ({ attribute, value: attributes[attribute] || 0 }))
           .filter((rpgAttribute) => rpgAttribute.value > 0)
@@ -209,22 +208,17 @@ export class CharacterComponent implements OnInit {
   dragInitiativeEnd(value: number) {
     value = gameManager.roundManager.clampInitiative(value);
 
-    if (this.character.initiative !== this.initiative) {
-      this.character.initiative = this.initiative;
+    if (this.character.initiative !== value && gameManager.roundManager.validInitiative(value)) {
       gameManager.entityManager.before(this.character, this.character, 'setInitiative', value);
       gameManager.roundManager.setInitiative(this.character, value);
-      this.initiative = -1;
       gameManager.stateManager.after();
     }
+    this.initiative = -1;
   }
 
   toggleFigure(event: any): void {
     if (!this.character.absent) {
-      if (
-        gameManager.game.state === GameState.next &&
-        !this.character.exhausted &&
-        (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)
-      ) {
+      if (gameManager.characterManager.canToggleActive(this.character)) {
         gameManager.stateManager.before(...gameManager.characterManager.toggleActiveUndoInfos(this.character));
         gameManager.characterManager.toggleActive(this.character);
         gameManager.stateManager.after();
@@ -239,13 +233,9 @@ export class CharacterComponent implements OnInit {
 
   nextIdentity(event: any): void {
     if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
-      if (gameManager.specialActionsManager.isIdentityLocked(this.character)) {
+      const next = gameManager.characterManager.nextIdentity(this.character);
+      if (!gameManager.characterManager.canSetIdentity(this.character, next)) {
         return;
-      }
-
-      let next = this.character.identity + 1;
-      if (next >= this.character.identities.length) {
-        next = 0;
       }
 
       gameManager.entityManager.before(
@@ -257,7 +247,7 @@ export class CharacterComponent implements OnInit {
         next,
         this.character.identities[next]
       );
-      this.character.identity = next;
+      gameManager.characterManager.setIdentity(this.character, next);
       gameManager.stateManager.after();
       event.preventDefault();
     } else {
@@ -314,7 +304,7 @@ export class CharacterComponent implements OnInit {
   dragXpEnd() {
     if (this.experience !== 0) {
       gameManager.entityManager.before(this.character, this.character, 'changeXP', ghsValueSign(this.experience));
-      this.character.experience += this.experience;
+      gameManager.characterManager.changeExperience(this.character, this.experience);
       this.experience = 0;
       gameManager.stateManager.after();
     }
@@ -324,7 +314,7 @@ export class CharacterComponent implements OnInit {
     this.experience = value;
     if (this.character.experience + this.experience >= 0) {
       gameManager.entityManager.before(this.character, this.character, 'changeXP', ghsValueSign(this.experience));
-      this.character.experience += this.experience;
+      gameManager.characterManager.changeExperience(this.character, this.experience);
       gameManager.stateManager.after();
     }
     this.experience = 0;
@@ -352,9 +342,9 @@ export class CharacterComponent implements OnInit {
           this.character,
           'characterToken',
           this.character.name,
-          this.character.token + this.token
+          gameManager.characterManager.tokenAfter(this.character, this.token)
         );
-        this.character.token += this.token;
+        gameManager.characterManager.changeToken(this.character, this.token);
         this.token = 0;
         gameManager.stateManager.after();
       } else {
@@ -364,14 +354,9 @@ export class CharacterComponent implements OnInit {
           'characterTokenValue',
           this.character.name,
           this.character.tokens[this.character.primaryToken],
-          this.character.tokenValues[this.character.primaryToken] + this.token
+          gameManager.characterManager.tokenValueAfter(this.character, this.character.primaryToken, this.token)
         );
-        this.character.tokenValues[this.character.primaryToken] += this.token;
-
-        const maxTokenValue = gameManager.specialActionsManager.maxTokenValue(this.character, this.character.primaryToken);
-        if (maxTokenValue !== undefined && this.character.tokenValues[this.character.primaryToken] > maxTokenValue) {
-          this.character.tokenValues[this.character.primaryToken] = maxTokenValue;
-        }
+        gameManager.characterManager.changeTokenValue(this.character, this.character.primaryToken, this.token);
 
         this.token = 0;
         gameManager.stateManager.after();
@@ -458,19 +443,13 @@ export class CharacterComponent implements OnInit {
   }
 
   removeCondition(entityCondition: EntityCondition) {
-    if (gameManager.entityManager.removeImmunityPlaceholder(this.character, this.character, entityCondition)) {
-      return;
-    }
-    gameManager.entityManager.before(this.character, this.character, 'removeCondition', entityCondition.name);
-    const immunityIndex = this.character.immunities.indexOf(entityCondition.name);
-    if (immunityIndex !== -1) {
-      this.character.immunities.splice(immunityIndex, 1);
-    }
-    if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
-      entityCondition.value--;
-    } else {
-      gameManager.entityManager.removeCondition(this.character, this.character, entityCondition, entityCondition.permanent);
-    }
+    gameManager.entityManager.before(
+      this.character,
+      this.character,
+      gameManager.conditionManager.isImmunityPlaceholder(this.character, entityCondition) ? 'removeImmunity' : 'removeCondition',
+      entityCondition.name
+    );
+    gameManager.conditionManager.reduceCondition(this.character, this.character, entityCondition);
     gameManager.stateManager.after();
   }
 
@@ -478,7 +457,7 @@ export class CharacterComponent implements OnInit {
     const edition = marker.split('-')[0];
     const name = marker.split('-').slice(1).join('-');
     gameManager.entityManager.before(this.character, this.character, 'removeCharacterMarker', marker, edition + '.' + name);
-    this.character.markers = this.character.markers.filter((value) => value !== marker);
+    gameManager.entityManager.setMarker([this.character], marker, false);
     gameManager.stateManager.after();
   }
 
@@ -491,18 +470,16 @@ export class CharacterComponent implements OnInit {
 
   openItems(force: boolean = false): void {
     if (settingsManager.settings.characterItemsPermanent && !force) {
-      this.character.itemsVisible = !this.character.itemsVisible;
-      gameManager.stateManager.saveLocal();
-      this.ghsManager.triggerUiChange();
-    } else if ((this.character.progress.items.length === 0 || force) && !this.bb) {
+      gameManager.stateManager.before(
+        this.character.itemsVisible ? 'characterItemsHide' : 'characterItemsShow',
+        gameManager.characterManager.characterName(this.character, true, true)
+      );
+      gameManager.characterManager.toggleItemsVisible(this.character);
+      gameManager.stateManager.after();
+    } else {
       this.dialog.open(ItemsDialogComponent, {
         panelClass: ['dialog'],
-        data: { edition: gameManager.game.edition, select: this.character, affordable: true }
-      });
-    } else {
-      this.dialog.open(ItemsCharacterDialogComponent, {
-        panelClass: ['dialog'],
-        data: this.character
+        data: { edition: gameManager.game.edition, select: this.character, affordable: true, owned: force && !this.bb ? false : undefined }
       });
     }
   }
@@ -518,38 +495,16 @@ export class CharacterComponent implements OnInit {
   }
 
   toggleAttackModifierDeckVisible() {
-    if (settingsManager.settings.characterAttackModifierDeckActiveBottom) {
-      if (!this.character.attackModifierDeckVisible) {
-        gameManager.game.figures.forEach((figure) => {
-          if (figure instanceof Character) {
-            figure.attackModifierDeckVisible = false;
-          }
-        });
-        this.character.attackModifierDeckVisible = true;
-      } else {
-        this.character.attackModifierDeckVisible = false;
-        if (settingsManager.settings.characterAttackModifierDeckPermanentActive && !this.character.active) {
-          gameManager.game.figures.forEach((figure) => {
-            if (figure instanceof Character && figure.active) {
-              figure.attackModifierDeckVisible = true;
-            }
-          });
-        }
-      }
-    } else if (
-      this.character.attackModifierDeckVisible &&
-      (!settingsManager.settings.characterAttackModifierDeckPermanent ||
-        !settingsManager.settings.characterAttackModifierDeckPermanentActive ||
-        !this.character.active)
+    const hides = gameManager.characterManager.attackModifierDeckToggleHides(this.character);
+    if (
+      ghsCompactPortrait() &&
+      !hides &&
+      !settingsManager.settings.characterAttackModifierDeckActiveBottom &&
+      !settingsManager.settings.characterAttackModifierDeckPermanent
     ) {
-      this.character.attackModifierDeck.active = false;
-      this.character.attackModifierDeckVisible = false;
-    } else if (settingsManager.settings.characterAttackModifierDeckPermanent) {
-      this.character.attackModifierDeck.active = true;
-      this.character.attackModifierDeckVisible = true;
-      this.character.lootCardsVisible = false;
-    } else if (ghsCompactPortrait()) {
-      this.character.lootCardsVisible = false;
+      if (this.character.lootCardsVisible) {
+        this.toggleLootCardsVisible();
+      }
 
       const before = new EventEmitter<AttackModiferDeckChange>();
       const after = new EventEmitter<AttackModiferDeckChange>();
@@ -577,26 +532,26 @@ export class CharacterComponent implements OnInit {
         }
       });
     } else {
-      this.character.attackModifierDeck.active = true;
-      this.character.attackModifierDeckVisible = true;
-      this.character.lootCardsVisible = false;
+      gameManager.stateManager.before(
+        'updateAttackModifierDeck.' + (hides ? 'amDeckHide' : 'amDeckShow'),
+        gameManager.characterManager.characterName(this.character, true, true)
+      );
+      gameManager.characterManager.toggleAttackModifierDeckVisible(this.character);
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.saveLocal();
-    this.ghsManager.triggerUiChange();
   }
 
   toggleLootCardsVisible() {
-    if (this.character.lootCardsVisible) {
-      this.character.lootCardsVisible = false;
-    } else if (ghsCompactPortrait()) {
-      this.character.lootCardsVisible = false;
+    if (!this.character.lootCardsVisible && ghsCompactPortrait()) {
       this.openLootDeckDialog();
     } else {
-      this.character.lootCardsVisible = true;
-      this.character.attackModifierDeck.active = false;
-      this.character.attackModifierDeckVisible = false;
+      gameManager.stateManager.before(
+        this.character.lootCardsVisible ? 'characterLootCardsHide' : 'characterLootCardsShow',
+        gameManager.characterManager.characterName(this.character, true, true)
+      );
+      gameManager.characterManager.toggleLootCardsVisible(this.character);
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.saveLocal();
   }
 
   openLootDeckDialog() {
@@ -607,9 +562,11 @@ export class CharacterComponent implements OnInit {
   }
 
   removeExtraAction(action: Action, persistent: boolean = false) {
-    const actions = persistent
-      ? this.character.extraActionsPersistent.filter((other) => other != action)
-      : this.character.extraActions.filter((other) => other != action);
+    const index = gameManager.actionsManager.extraActions(this.character, persistent).indexOf(action);
+    if (!gameManager.actionsManager.canRemoveExtraAction(this.character, index, persistent)) {
+      return;
+    }
+    const actions = gameManager.actionsManager.extraActionsWithout(this.character, index, persistent);
 
     gameManager.entityManager.before(
       this.character,
@@ -620,24 +577,21 @@ export class CharacterComponent implements OnInit {
         : gameManager.actionsManager.extraActionLabel(action)
     );
 
-    if (persistent) {
-      this.character.extraActionsPersistent = actions;
-    } else {
-      this.character.extraActions = actions;
-    }
-
+    gameManager.actionsManager.removeExtraAction(this.character, index, persistent);
     gameManager.stateManager.after();
   }
 
   removeSpecialAction(specialAction: string) {
+    if (!gameManager.specialActionsManager.canSetSpecialAction(this.character, this.character, specialAction, false)) {
+      return;
+    }
     gameManager.entityManager.before(
       this.character,
       this.character,
       'removeSpecialTags',
       '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%'
     );
-    gameManager.specialActionsManager.removeSpecialAction(this.character, this.character, specialAction);
-
+    gameManager.specialActionsManager.setSpecialAction(this.character, this.character, specialAction, false);
     gameManager.stateManager.after();
   }
 
@@ -656,7 +610,7 @@ export class CharacterComponent implements OnInit {
   }
 
   openAbilityCards() {
-    if (gameManager.deckData(this.character, true).abilities.length > 0) {
+    if (gameManager.editionManager.deckData(this.character, true).abilities.length > 0) {
       this.dialog.open(AbilityCardsDialogComponent, {
         panelClass: ['dialog'],
         data: { character: this.character }

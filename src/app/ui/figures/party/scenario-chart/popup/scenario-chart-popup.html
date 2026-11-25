@@ -77,7 +77,7 @@
                   class="text placeholder text-white"
                   [edition]="scenario.edition"
                   [index]="+('' + treasure).split(':')[0] - 1"
-                  [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"
+                  [rewardResults]="gameManager.treasureManager.treasureRewardsFromString('' + treasure)"
                 ></ghs-treasure-label>
               }
             </span>

@@ -63,7 +63,7 @@ export class AttackModifierDrawComponent extends DeckDrawDirective implements On
     this.deck = this.character.attackModifierDeck;
     this.characterIcon = this.character.iconUrl;
     this.numeration = '' + this.character.number;
-    this.newStyle = gameManager.newAmStyle(this.character.edition);
+    this.newStyle = gameManager.editionManager.newAmStyle(this.character.edition);
 
     if (settingsManager.settings.fhStyle) {
       this.newStyle = true;
@@ -73,8 +73,9 @@ export class AttackModifierDrawComponent extends DeckDrawDirective implements On
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['deck']) {
-      this.update();
+    if (changes['inputCharacter'] && !changes['inputCharacter'].firstChange) {
+      this.ngOnInit();
+      this.resetQueue();
     }
   }
 

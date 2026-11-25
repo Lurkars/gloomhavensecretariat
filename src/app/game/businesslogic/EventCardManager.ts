@@ -10,7 +10,8 @@ import {
   EventCardConditionType,
   EventCardEffect,
   EventCardEffectType,
-  EventCardIdentifier
+  EventCardIdentifier,
+  EventCardResult
 } from 'src/app/game/model/data/EventCard';
 import { AdditionalIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData, ItemFlags } from 'src/app/game/model/data/ItemData';
@@ -100,16 +101,16 @@ export class EventCardManager {
   }
 
   getEventTypesForEdition(edition: string): string[] {
-    return gameManager.editionData
-      .filter((e) => gameManager.isEditionRelevant(e.edition, edition, true))
+    return gameManager.editionManager.editionData
+      .filter((e) => gameManager.editionManager.isEditionRelevant(e.edition, edition, true))
       .flatMap((e) => e.events)
       .flatMap((event) => event.type)
       .filter((type, index, self) => index === self.indexOf(type));
   }
 
   getEventCardsForEdition(edition: string, type: string): EventCard[] {
-    return gameManager.editionData
-      .filter((e) => gameManager.isEditionRelevant(e.edition, edition, true))
+    return gameManager.editionManager.editionData
+      .filter((e) => gameManager.editionManager.isEditionRelevant(e.edition, edition, true))
       .flatMap((e) => e.events)
       .filter(
         (card, i, self) => card.edition === edition || !self.some((other) => other.cardId === card.cardId && other.edition === edition)
@@ -119,8 +120,8 @@ export class EventCardManager {
   }
 
   getEventCardForEdition(edition: string, type: string, cardId: string): EventCard | undefined {
-    return gameManager.editionData
-      .filter((e) => gameManager.isEditionRelevant(e.edition, edition, true))
+    return gameManager.editionManager.editionData
+      .filter((e) => gameManager.editionManager.isEditionRelevant(e.edition, edition, true))
       .flatMap((e) => e.events)
       .filter(
         (card, i, self) =>
@@ -143,38 +144,40 @@ export class EventCardManager {
       if (campaignData.events) {
         Object.keys(campaignData.events).forEach((eventType) => {
           if (campaignData.events[eventType] && campaignData.events[eventType].length) {
-            this.buildPartyDeck(edition || gameManager.currentEdition(), eventType);
+            this.buildPartyDeck(edition || gameManager.editionManager.currentEdition(), eventType);
             console.debug('Build ' + eventType + ' Event Deck');
           }
         });
 
         if (this.game.party.eventDecks && Object.keys(this.game.party.eventDecks).length) {
           this.game.party.scenarios
-            .filter((s) => gameManager.isEditionRelevant(s.edition, edition, true))
+            .filter((s) => gameManager.editionManager.isEditionRelevant(s.edition, edition, true))
             .map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group))
             .forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
           this.game.party.conclusions
-            .filter((s) => gameManager.isEditionRelevant(s.edition, edition, true))
+            .filter((s) => gameManager.editionManager.isEditionRelevant(s.edition, edition, true))
             .map((s) => gameManager.scenarioManager.getSection(s.index, s.edition, s.group, true))
             .forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
           this.game.unlockedCharacters
-            .map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0]))
+            .map((unlock) => gameManager.editionManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0]))
             .forEach((characterData) => this.addEvents(characterData.unlockEvent));
 
           this.game.party.retirements
-            .map((c) => gameManager.getCharacterData(c.name, c.edition))
+            .map((c) => gameManager.editionManager.getCharacterData(c.name, c.edition))
             .forEach((characterData) => this.addEvents(characterData.retireEvent));
 
-          const treasures = gameManager.editionData
-            .filter((editionData) => editionData.treasures && gameManager.isEditionRelevant(editionData.edition, edition, true))
+          const treasures = gameManager.editionManager.editionData
+            .filter(
+              (editionData) => editionData.treasures && gameManager.editionManager.isEditionRelevant(editionData.edition, edition, true)
+            )
             .flatMap((editionData) =>
               editionData.treasures.map((treasure, i) => new TreasureData(treasure, i + 1 + editionData.treasureOffset || 0))
             );
 
           this.game.party.treasures.forEach((id) => {
-            if (gameManager.isEditionRelevant(id.edition, edition, true)) {
+            if (gameManager.editionManager.isEditionRelevant(id.edition, edition, true)) {
               const treasure = treasures.find((treasureData) => treasureData.index === +id.name);
               if (treasure && treasure.rewards) {
                 treasure.rewards.forEach((reward) => {
@@ -245,7 +248,7 @@ export class EventCardManager {
     distribution.spend.forEach((entry) => this.distributeCharacter(entry.character, entry.values, -1));
     this.distributeParty(distribution.spendParty, -1);
 
-    distribution.itemsReceive.forEach((entry) => gameManager.itemManager.addItem(entry.item, entry.character));
+    distribution.itemsReceive.forEach((entry) => gameManager.itemManager.grantItem(entry.item, entry.character));
 
     distribution.itemsConsume.forEach((entry) => {
       const item = entry.item;
@@ -409,8 +412,19 @@ export class EventCardManager {
     }
   }
 
+  eventDeck(type: string): string[] {
+    return this.game.party.eventDecks[type] || [];
+  }
+
+  canAddEvent(type: string, cardId: string): boolean {
+    return (
+      !!this.getEventCardForEdition(this.game.edition || gameManager.editionManager.currentEdition(), type, cardId) &&
+      !this.eventDeck(type).includes(cardId)
+    );
+  }
+
   addEvent(type: string, cardId: string, newOnly: boolean = false) {
-    const edition = this.game.edition || gameManager.currentEdition();
+    const edition = this.game.edition || gameManager.editionManager.currentEdition();
     const eventCard = this.getEventCardForEdition(edition, type, cardId);
     if (eventCard !== undefined) {
       if (!this.game.party.eventDecks[type]) {
@@ -440,6 +454,10 @@ export class EventCardManager {
     this.game.party.eventDecks[type].push(cardId);
   }
 
+  canRemoveEvent(type: string, cardId: string): boolean {
+    return this.eventDeck(type).includes(cardId);
+  }
+
   removeEvent(type: string, cardId: string) {
     if (!this.game.party.eventDecks[type]) {
       this.game.party.eventDecks[type] = [];
@@ -451,22 +469,44 @@ export class EventCardManager {
     }
   }
 
-  insertEvent(type: string, cardId: string, index: number) {
+  canInsertEvent(type: string, cardId: string, index: number): boolean {
+    return this.canAddEvent(type, cardId) && Number.isInteger(index) && index >= 0 && index <= this.eventDeck(type).length;
+  }
+
+  insertEvent(type: string, cardId: string, index: number): boolean {
+    if (!this.canInsertEvent(type, cardId, index)) {
+      return false;
+    }
     if (!this.game.party.eventDecks[type]) {
       this.game.party.eventDecks[type] = [];
     }
-    this.game.party.eventDecks[type].splice(Math.max(index, 0), 0, cardId);
+    this.game.party.eventDecks[type].splice(index, 0, cardId);
+    return true;
   }
 
-  moveEvent(type: string, from: number, to: number) {
-    const deck = this.game.party.eventDecks[type] || [];
-    if (from >= 0 && from < deck.length) {
-      const cardId = deck.splice(from, 1)[0];
-      deck.splice(Math.min(Math.max(to, 0), deck.length), 0, cardId);
+  canMoveEvent(type: string, from: number, to: number): boolean {
+    const length = this.eventDeck(type).length;
+    return Number.isInteger(from) && Number.isInteger(to) && from >= 0 && from < length && to >= 0 && to < length;
+  }
+
+  moveEvent(type: string, from: number, to: number): boolean {
+    if (!this.canMoveEvent(type, from, to)) {
+      return false;
     }
+    const deck = this.eventDeck(type);
+    const cardId = deck.splice(from, 1)[0];
+    deck.splice(to, 0, cardId);
+    return true;
   }
 
-  markEventDrawn(eventCard: EventCard, index: number = -1) {
+  canMarkEventDrawn(index: number = -1): boolean {
+    return Number.isInteger(index) && index >= -1 && index <= this.game.party.eventCards.length;
+  }
+
+  markEventDrawn(eventCard: EventCard, index: number = -1): boolean {
+    if (!this.canMarkEventDrawn(index)) {
+      return false;
+    }
     const checks = this.lastEventCardResult(eventCard.edition, eventCard.type, eventCard.cardId)?.checks || [];
     const identifier = new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, -1, [], [...checks], false, false);
     if (index < 0) {
@@ -474,6 +514,94 @@ export class EventCardManager {
     } else {
       this.game.party.eventCards.splice(index, 0, identifier);
     }
+    return true;
+  }
+
+  canRemoveDrawnEvent(identifier: EventCardIdentifier): boolean {
+    return this.game.party.eventCards.includes(identifier);
+  }
+
+  removeDrawnEvent(identifier: EventCardIdentifier): boolean {
+    if (!this.canRemoveDrawnEvent(identifier)) {
+      return false;
+    }
+    this.game.party.eventCards.splice(this.game.party.eventCards.indexOf(identifier), 1);
+    return true;
+  }
+
+  canSetDrawnEventResult(identifier: EventCardIdentifier, result: EventCardResult): boolean {
+    const integers = (values: number[]) => (values || []).every((value) => Number.isInteger(value) && value >= 0);
+    return (
+      this.canRemoveDrawnEvent(identifier) &&
+      Number.isInteger(result.selected) &&
+      result.selected >= -1 &&
+      integers(result.subSelections) &&
+      (result.checks || []).every((value) => value === undefined || value === null || (Number.isInteger(value) && value >= 0)) &&
+      typeof result.attack === 'boolean'
+    );
+  }
+
+  setDrawnEventResult(identifier: EventCardIdentifier, result: EventCardResult): boolean {
+    if (!this.canSetDrawnEventResult(identifier, result)) {
+      return false;
+    }
+    identifier.selected = result.selected;
+    identifier.subSelections = [...(result.subSelections || [])];
+    identifier.checks = [...(result.checks || [])];
+    identifier.attack = result.attack;
+    return true;
+  }
+
+  canCancelEventDraw(): boolean {
+    return !!this.game.eventDraw;
+  }
+
+  cancelEventDraw(): boolean {
+    if (!this.canCancelEventDraw()) {
+      return false;
+    }
+    this.game.eventDraw = undefined;
+    return true;
+  }
+
+  canDrawNewEvent(type: string, cardId: string): boolean {
+    return this.eventDeck(type).includes(cardId) && this.eventDeck(type).length > 1;
+  }
+
+  drawNewEvent(type: string, cardId: string): string | undefined {
+    if (!this.canDrawNewEvent(type, cardId)) {
+      return undefined;
+    }
+    this.removeEvent(type, cardId);
+    this.addEvent(type, cardId);
+    return this.eventDeck(type)[0];
+  }
+
+  canAcceptEvent(eventCard: EventCard, selected: number, apply: boolean = true): boolean {
+    return Number.isInteger(selected) && selected >= -1 && selected < eventCard.options.length && (selected !== -1 || !apply);
+  }
+
+  acceptEvent(
+    eventCard: EventCard,
+    selected: number,
+    subSelections: number[],
+    checks: number[],
+    attack: boolean,
+    apply: boolean = true
+  ): (EventCardEffect | EventCardCondition | EventCardAttack)[] | undefined {
+    if (!this.canAcceptEvent(eventCard, selected, apply)) {
+      return undefined;
+    }
+    this.game.eventDraw = undefined;
+    return this.applyEvent(
+      eventCard,
+      selected,
+      subSelections,
+      checks,
+      this.game.scenario !== undefined && gameManager.roundManager.firstRound,
+      attack,
+      apply
+    );
   }
 
   resetEventDeck(edition: string, type: string) {
@@ -626,6 +754,46 @@ export class EventCardManager {
     return resolved;
   }
 
+  eventOutpostAttack(type: string, cardId: string): { attack: EventCardAttack; effects: EventCardEffect[] } | undefined {
+    let identifier: EventCardIdentifier | undefined;
+    for (let i = this.game.party.eventCards.length - 1; i >= 0 && !identifier; i--) {
+      const eventCard = this.game.party.eventCards[i];
+      if (eventCard.type === type && eventCard.cardId === cardId) {
+        identifier = eventCard;
+      }
+    }
+    const eventCard = identifier && identifier.attack ? this.getEventCardForEdition(identifier.edition, type, cardId) : undefined;
+    if (!identifier || !eventCard) {
+      return undefined;
+    }
+    const isEffect = (effect: string | EventCardEffect): effect is EventCardEffect => typeof effect === 'object';
+    const option = eventCard.options[identifier.selected];
+    const subSelections = identifier.subSelections || [];
+    const selectedEffects = (option && option.outcomes ? option.outcomes : [])
+      .filter((outcome, index) => !outcome.condition || subSelections.includes(index))
+      .flatMap((outcome) => outcome.effects || [])
+      .filter(isEffect);
+    if (selectedEffects.some((effect) => effect.type === EventCardEffectType.skipThreat)) {
+      return undefined;
+    }
+    const outcome = eventCard.options
+      .filter((value) => !value.label && value.outcomes)
+      .flatMap((value) => value.outcomes)
+      .find((value) => !!value.attack);
+    if (!outcome || !outcome.attack) {
+      return undefined;
+    }
+    const effects = [
+      ...selectedEffects,
+      ...(outcome.effects || []).filter(isEffect),
+      ...((outcome.attack.effects || []) as (string | EventCardEffect)[]).filter(isEffect)
+    ];
+    return {
+      attack: this.resolveAttack(eventCard, outcome.attack),
+      effects: effects.filter((effect) => [EventCardEffectType.outpostAttack, EventCardEffectType.outpostTarget].includes(effect.type))
+    };
+  }
+
   applyEventOutcomes(
     eventCard: EventCard,
     selected: number,
@@ -704,385 +872,9 @@ export class EventCardManager {
               );
             }
           } else if (scenario) {
-            switch (effect.type) {
-              case EventCardEffectType.scenarioCondition:
-              case EventCardEffectType.traitScenarioCondition: {
-                if (effect.values) {
-                  let values = effect.values;
-                  if (effect.type === EventCardEffectType.traitScenarioCondition) {
-                    values = values.slice(1);
-                  }
-                  values
-                    .filter((value) => typeof value === 'string')
-                    .forEach((value) => {
-                      const condition = value.split(':')[0] as ConditionName;
-                      if (condition !== ConditionName.bless && condition !== ConditionName.curse) {
-                        characters
-                          .filter(
-                            (c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0])
-                          )
-                          .forEach((c) => {
-                            gameManager.entityManager.addCondition(c, c, new Condition(condition));
-                          });
-                      } else if (condition === ConditionName.curse || condition == ConditionName.bless) {
-                        const count = value.split(':')[1] ? +value.split(':')[1] : 1;
-                        for (let i = 0; i < count; i++) {
-                          characters
-                            .filter(
-                              (c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0])
-                            )
-                            .forEach((c) => {
-                              gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType[condition]);
-                            });
-                        }
-                      }
-                    });
-                }
-                break;
-              }
-              case EventCardEffectType.scenarioDamage: {
-                const damage = +effect.values[0];
-                if (damage) {
-                  characters.forEach((c) => {
-                    gameManager.entityManager.changeHealth(c, c, -damage, true);
-                  });
-                }
-                break;
-              }
-              case EventCardEffectType.traitScenarioDamage: {
-                const damage = +effect.values[1];
-                if (damage) {
-                  characters
-                    .filter((c) => c.traits.some((t) => t === effect.values[0]))
-                    .forEach((c) => {
-                      gameManager.entityManager.changeHealth(c, c, -damage, true);
-                    });
-                }
-                break;
-              }
-              case EventCardEffectType.scenarioSingleMinus1:
-                const minus1 = +effect.values[0];
-                if (minus1) {
-                  for (let i = 0; i < minus1; i++) {
-                    characters.forEach((c) => {
-                      gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.minus1extra);
-                    });
-                  }
-                }
-                break;
-            }
+            this.applyScenarioEffect(effect, characters);
           } else {
-            switch (effect.type) {
-              case EventCardEffectType.battleGoal: {
-                const battleGoalValue = +effect.values[0];
-                characters.forEach((c) => {
-                  c.progress.battleGoals += battleGoalValue;
-                  if (battleGoalValue > 0) {
-                    gameManager.personalQuestManager.trackPersonalQuestProgress(
-                      c,
-                      PersonalQuestAutotrackType.battleGoals,
-                      undefined,
-                      battleGoalValue
-                    );
-                  }
-                });
-                break;
-              }
-              case EventCardEffectType.campaignSticker:
-                this.game.party.campaignStickers.push(...effect.values.filter((v) => typeof v === 'string'));
-                break;
-              case EventCardEffectType.campaignStickerMap: {
-                const section = gameManager.scenarioManager.getSection(effect.values[0] as string, eventCard.edition, undefined, true);
-                if (section) {
-                  this.game.party.conclusions.push(new GameScenarioModel(section.index, section.edition, section.group));
-                }
-                break;
-              }
-              case EventCardEffectType.campaignStickerReplace:
-                {
-                  const replaceIndex = this.game.party.campaignStickers.indexOf(effect.values[1] as string);
-                  if (replaceIndex !== -1) {
-                    this.game.party.campaignStickers.splice(replaceIndex, 1);
-                  }
-                  this.game.party.campaignStickers.push(effect.values[0] as string);
-                }
-                break;
-              case EventCardEffectType.checkbox:
-                if (checks[i] && !!effect.values && effect.values.length) {
-                  if (!scenario) {
-                    results.push(
-                      ...this.applyEffects(
-                        eventCard,
-                        effect.values.filter((e): e is string | EventCardEffect => typeof e !== 'number' && e !== ''),
-                        checks,
-                        scenario
-                      )
-                    );
-                  }
-                }
-                break;
-              case EventCardEffectType.collectiveResource:
-                if (settingsManager.settings.fhShareResources) {
-                  const type = effect.values[1] as LootType;
-                  this.game.party.loot[type] = (this.game.party.loot[type] || 0) + +effect.values[0];
-                }
-                break;
-              case EventCardEffectType.drawAnotherEvent:
-              case EventCardEffectType.drawEvent:
-                this.game.eventDraw = effect.values && effect.values[0] ? (effect.values[0] as string) : eventCard.type;
-                break;
-              case EventCardEffectType.event:
-              case EventCardEffectType.eventReturn:
-                this.addEvent(effect.values[0] as string, effect.values[1] as string);
-                break;
-              case EventCardEffectType.eventsToTop: {
-                const deck = this.game.party.eventDecks[effect.values[0] as string];
-                const card = deck ? deck.find((cardId) => effect.values.includes(cardId)) : undefined;
-                if (deck && card) {
-                  const index = deck.indexOf(card);
-                  deck.splice(index, 1);
-                  deck.unshift(card);
-                }
-                break;
-              }
-              case EventCardEffectType.experience:
-                characters.forEach((c) => {
-                  c.progress.experience += +effect.values[0];
-                });
-                break;
-              case EventCardEffectType.globalAchievement:
-                this.game.party.globalAchievementsList.push(...effect.values.filter((v) => typeof v === 'string'));
-                break;
-              case EventCardEffectType.gold:
-              case EventCardEffectType.goldAdditional: {
-                const goldValue = +effect.values[0];
-                characters.forEach((c) => {
-                  c.progress.gold += goldValue;
-                  if (goldValue > 0) {
-                    gameManager.personalQuestManager.trackPersonalQuestProgress(c, PersonalQuestAutotrackType.gold, undefined, goldValue);
-                  }
-                });
-                break;
-              }
-              case EventCardEffectType.inspiration:
-                this.game.party.inspiration += +effect.values[0];
-                break;
-              case EventCardEffectType.loseBattleGoal:
-                characters.forEach((c) => {
-                  c.progress.battleGoals -= +effect.values[0];
-                  if (c.progress.battleGoals < 0) {
-                    c.progress.battleGoals = 0;
-                  }
-                });
-                break;
-              case EventCardEffectType.loseCollectiveResource:
-                if (settingsManager.settings.fhShareResources) {
-                  const type = effect.values[1] as LootType;
-                  this.game.party.loot[type] = Math.max(0, (this.game.party.loot[type] || 0) - +effect.values[0]);
-                }
-                break;
-              case EventCardEffectType.loseExperience:
-                characters.forEach((c) => {
-                  c.progress.experience -= +effect.values[0];
-                  if (c.progress.experience < 0) {
-                    c.progress.experience = 0;
-                  }
-                });
-                break;
-              case EventCardEffectType.loseGold:
-                characters.forEach((c) => {
-                  c.progress.gold -= +effect.values[0];
-                  if (c.progress.gold < 0) {
-                    c.progress.gold = 0;
-                  }
-                });
-                break;
-              case EventCardEffectType.loseGoldOne:
-                characters.forEach((c) => {
-                  c.progress.gold -= +effect.values[0];
-                  if (c.progress.gold < 1) {
-                    c.progress.gold = 1;
-                  }
-                });
-                break;
-              case EventCardEffectType.loseResource: {
-                const loseType = effect.values[1] as LootType;
-                characters.forEach((c) => {
-                  c.progress.loot[loseType] = Math.max(0, (c.progress.loot[loseType] || 0) - +effect.values[0]);
-                });
-                break;
-              }
-              case EventCardEffectType.loseMorale:
-                gameManager.campaignManager.changeMorale(-effect.values[0]);
-                break;
-              case EventCardEffectType.loseProsperity:
-                gameManager.campaignManager.changeProsperity(-effect.values[0]);
-                break;
-              case EventCardEffectType.loseReputation:
-                gameManager.campaignManager.changeReputation(-effect.values[0]);
-                break;
-              case EventCardEffectType.loseReputationFaction:
-                gameManager.campaignManager.changeFactionReputation(effect.values[0] as string, -effect.values[1]);
-                break;
-              case EventCardEffectType.morale:
-                gameManager.campaignManager.changeMorale(+effect.values[0]);
-                break;
-              case EventCardEffectType.removeEvent:
-                this.removeEvent(effect.values[0] as string, effect.values[1] as string);
-                break;
-              case EventCardEffectType.reputation:
-              case EventCardEffectType.reputationAdditional:
-                gameManager.campaignManager.changeReputation(effect.values[0] as number);
-                break;
-              case EventCardEffectType.reputationFaction:
-                gameManager.campaignManager.changeFactionReputation(effect.values[0] as string, effect.values[1] as number);
-                break;
-              case EventCardEffectType.resource:
-                characters.forEach((c) => {
-                  c.progress.loot[effect.values[1] as LootType] = (c.progress.loot[effect.values[1] as LootType] || 0) + +effect.values[0];
-                });
-                break;
-              case EventCardEffectType.partyAchievement:
-                this.game.party.achievementsList.push(...effect.values.filter((v) => typeof v === 'string'));
-                break;
-              case EventCardEffectType.prosperity:
-                gameManager.campaignManager.changeProsperity(+effect.values[0]);
-                break;
-              case EventCardEffectType.scenarioCondition:
-              case EventCardEffectType.scenarioDamage:
-              case EventCardEffectType.scenarioSingleMinus1:
-                break;
-              case EventCardEffectType.sectionWeek:
-              case EventCardEffectType.sectionWeeks: {
-                const week = this.game.party.weeks + (effect.values[1] ? +effect.values[1] : 1);
-                const section = effect.values[0] as string;
-                this.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
-                break;
-              }
-              case EventCardEffectType.sectionWeekSeasonFinal: {
-                const section = effect.values[0] as string;
-                const season = effect.values[1] as string;
-                const isSummer = Math.max(this.game.party.weeks, 0) % 20 < 10;
-                let week = 0;
-                if (isSummer) {
-                  week = Math.floor(this.game.party.weeks / 10) + (season === 'summer' ? 3 : 2);
-                } else {
-                  week = Math.floor(this.game.party.weeks / 10) + (season === 'winter' ? 3 : 2);
-                }
-                this.game.party.weekSections[week * 10] = [...(gameManager.game.party.weekSections[week * 10] || []), section];
-                break;
-              }
-              case EventCardEffectType.sectionWeeksSeason: {
-                const section = effect.values[0] as string;
-                const season = effect.values[2] as string;
-                let week = this.game.party.weeks + (effect.values[1] ? +effect.values[1] : 1);
-                const summer = Math.max(week, 0) % 20 < 10;
-                if ((summer && season === 'summer') || (!summer && season === 'winter')) {
-                  week = week - (Math.max(week, 0) % 20) + +effect.values[3] + 20;
-                }
-                this.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
-                break;
-              }
-              case EventCardEffectType.soldier:
-              case EventCardEffectType.soldiers:
-                this.game.party.soldiers += +(effect.values[0] || 1);
-                if (this.game.party.soldiers > 10) {
-                  this.game.party.soldiers = 10;
-                }
-                break;
-              case EventCardEffectType.townGuardDeckCard:
-              case EventCardEffectType.townGuardDeckCards: {
-                if (this.game.party.townGuardDeck) {
-                  const count = effect.values[1] ? +effect.values[1] : 1;
-                  for (let i = 0; i < count; i++) {
-                    this.game.party.townGuardDeck.cards = [...this.game.party.townGuardDeck.cards, effect.values[0] as string];
-                    this.game.party.townGuardDeck.current = -1;
-                    gameManager.randomManager.shuffle(this.game.party.townGuardDeck.cards);
-                  }
-                }
-                break;
-              }
-              case EventCardEffectType.townGuardDeckCardRemove:
-              case EventCardEffectType.townGuardDeckCardRemovePermanently: {
-                if (this.game.party.townGuardDeck) {
-                  const card = this.game.party.townGuardDeck.cards.find((value) => value === (effect.values[0] as string));
-                  if (card) {
-                    this.game.party.townGuardDeck.cards.splice(this.game.party.townGuardDeck.cards.indexOf(card), 1);
-                  }
-                }
-                break;
-              }
-              case EventCardEffectType.traitExperience: {
-                characters
-                  .filter((c) => c.traits.some((t) => t === effect.values[0]))
-                  .forEach((c) => {
-                    c.progress.experience += +effect.values[1];
-                  });
-                break;
-              }
-              case EventCardEffectType.traitScenarioCondition:
-              case EventCardEffectType.traitScenarioDamage:
-                break;
-              case EventCardEffectType.unlockEnvelope: {
-                if (eventCard.edition === 'fh') {
-                  const building = gameManager.campaignManager
-                    .campaignData(eventCard.edition)
-                    .buildings.find((building) => building.id === effect.values[0]);
-                  if (building) {
-                    if (this.game.party.buildings.find((model) => model.name === building.name) === undefined) {
-                      this.game.party.buildings.push(new BuildingModel(building.name, 0));
-                    }
-                  } else {
-                    console.warn('Building not found to apply event effect', effect, scenario);
-                    if (!scenario) {
-                      results.push(effect);
-                    }
-                  }
-                } else {
-                  console.warn('Building not found to apply event effect', effect, scenario);
-                  if (!scenario) {
-                    results.push(effect);
-                  }
-                }
-                break;
-              }
-              case EventCardEffectType.unlockScenario:
-              case EventCardEffectType.unlockScenarioGroup: {
-                const index = effect.values[0] as string;
-                const group = effect.values[1] ? (effect.values[1] as string) : '';
-                this.game.party.manualScenarios.push(new GameScenarioModel(index, eventCard.edition, group));
-                break;
-              }
-              case EventCardEffectType.upgradeBuilding: {
-                const building = this.game.party.buildings.find((model) => model.name === (effect.values[0] as string));
-                if (building) {
-                  if (building.level >= +effect.values[1]) {
-                    gameManager.campaignManager.changeMorale(+effect.values[2]);
-                  } else {
-                    building.level += 1;
-                  }
-                } else {
-                  console.warn('Building not found to apply event effect', effect, scenario);
-                  if (!scenario) {
-                    results.push(effect);
-                  }
-                }
-                break;
-              }
-              case EventCardEffectType.wreckBuilding: {
-                const buildingName = effect.values[0] as string;
-                const building = this.game.party.buildings.find((value) => value.name === buildingName);
-                if (building) {
-                  building.state = 'wrecked';
-                }
-                break;
-              }
-              default:
-                if (!scenario) {
-                  results.push(effect);
-                }
-                break;
-            }
+            this.applyCampaignEffect(eventCard, effect, characters, checks, i, results, scenario);
           }
         } else if (effect.type !== EventCardEffectType.noEffect) {
           if (!scenario) {
@@ -1096,6 +888,394 @@ export class EventCardManager {
     });
 
     return results;
+  }
+
+  private applyScenarioEffect(effect: EventCardEffect, characters: Character[]) {
+    switch (effect.type) {
+      case EventCardEffectType.scenarioCondition:
+      case EventCardEffectType.traitScenarioCondition: {
+        if (effect.values) {
+          let values = effect.values;
+          if (effect.type === EventCardEffectType.traitScenarioCondition) {
+            values = values.slice(1);
+          }
+          values
+            .filter((value) => typeof value === 'string')
+            .forEach((value) => {
+              const condition = value.split(':')[0] as ConditionName;
+              if (condition !== ConditionName.bless && condition !== ConditionName.curse) {
+                characters
+                  .filter((c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0]))
+                  .forEach((c) => {
+                    gameManager.conditionManager.addCondition(c, c, new Condition(condition));
+                  });
+              } else if (condition === ConditionName.curse || condition == ConditionName.bless) {
+                const count = value.split(':')[1] ? +value.split(':')[1] : 1;
+                for (let i = 0; i < count; i++) {
+                  characters
+                    .filter((c) => effect.type === EventCardEffectType.scenarioCondition || c.traits.some((t) => t === effect.values[0]))
+                    .forEach((c) => {
+                      gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType[condition]);
+                    });
+                }
+              }
+            });
+        }
+        break;
+      }
+      case EventCardEffectType.scenarioDamage: {
+        const damage = +effect.values[0];
+        if (damage) {
+          characters.forEach((c) => {
+            gameManager.entityManager.changeHealth(c, c, -damage, true);
+          });
+        }
+        break;
+      }
+      case EventCardEffectType.traitScenarioDamage: {
+        const damage = +effect.values[1];
+        if (damage) {
+          characters
+            .filter((c) => c.traits.some((t) => t === effect.values[0]))
+            .forEach((c) => {
+              gameManager.entityManager.changeHealth(c, c, -damage, true);
+            });
+        }
+        break;
+      }
+      case EventCardEffectType.scenarioSingleMinus1:
+        const minus1 = +effect.values[0];
+        if (minus1) {
+          for (let i = 0; i < minus1; i++) {
+            characters.forEach((c) => {
+              gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.minus1extra);
+            });
+          }
+        }
+        break;
+    }
+  }
+
+  private applyCampaignEffect(
+    eventCard: EventCard,
+    effect: EventCardEffect,
+    characters: Character[],
+    checks: number[],
+    i: number,
+    results: (EventCardEffect | EventCardCondition)[],
+    scenario: boolean
+  ) {
+    switch (effect.type) {
+      case EventCardEffectType.battleGoal: {
+        const battleGoalValue = +effect.values[0];
+        characters.forEach((c) => {
+          c.progress.battleGoals += battleGoalValue;
+          if (battleGoalValue > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(
+              c,
+              PersonalQuestAutotrackType.battleGoals,
+              undefined,
+              battleGoalValue
+            );
+          }
+        });
+        break;
+      }
+      case EventCardEffectType.campaignSticker:
+        this.game.party.campaignStickers.push(...effect.values.filter((v) => typeof v === 'string'));
+        break;
+      case EventCardEffectType.campaignStickerMap: {
+        const section = gameManager.scenarioManager.getSection(effect.values[0] as string, eventCard.edition, undefined, true);
+        if (section) {
+          this.game.party.conclusions.push(new GameScenarioModel(section.index, section.edition, section.group));
+        }
+        break;
+      }
+      case EventCardEffectType.campaignStickerReplace:
+        {
+          const replaceIndex = this.game.party.campaignStickers.indexOf(effect.values[1] as string);
+          if (replaceIndex !== -1) {
+            this.game.party.campaignStickers.splice(replaceIndex, 1);
+          }
+          this.game.party.campaignStickers.push(effect.values[0] as string);
+        }
+        break;
+      case EventCardEffectType.checkbox:
+        if (checks[i] && !!effect.values && effect.values.length) {
+          if (!scenario) {
+            results.push(
+              ...this.applyEffects(
+                eventCard,
+                effect.values.filter((e): e is string | EventCardEffect => typeof e !== 'number' && e !== ''),
+                checks,
+                scenario
+              )
+            );
+          }
+        }
+        break;
+      case EventCardEffectType.collectiveResource:
+        if (settingsManager.settings.fhShareResources) {
+          const type = effect.values[1] as LootType;
+          this.game.party.loot[type] = (this.game.party.loot[type] || 0) + +effect.values[0];
+        }
+        break;
+      case EventCardEffectType.drawAnotherEvent:
+      case EventCardEffectType.drawEvent:
+        this.game.eventDraw = effect.values && effect.values[0] ? (effect.values[0] as string) : eventCard.type;
+        break;
+      case EventCardEffectType.event:
+      case EventCardEffectType.eventReturn:
+        this.addEvent(effect.values[0] as string, effect.values[1] as string);
+        break;
+      case EventCardEffectType.eventsToTop: {
+        const deck = this.game.party.eventDecks[effect.values[0] as string];
+        const card = deck ? deck.find((cardId) => effect.values.includes(cardId)) : undefined;
+        if (deck && card) {
+          const index = deck.indexOf(card);
+          deck.splice(index, 1);
+          deck.unshift(card);
+        }
+        break;
+      }
+      case EventCardEffectType.experience:
+        characters.forEach((c) => {
+          c.progress.experience += +effect.values[0];
+        });
+        break;
+      case EventCardEffectType.globalAchievement:
+        this.game.party.globalAchievementsList.push(...effect.values.filter((v) => typeof v === 'string'));
+        break;
+      case EventCardEffectType.gold:
+      case EventCardEffectType.goldAdditional: {
+        const goldValue = +effect.values[0];
+        characters.forEach((c) => {
+          c.progress.gold += goldValue;
+          if (goldValue > 0) {
+            gameManager.personalQuestManager.trackPersonalQuestProgress(c, PersonalQuestAutotrackType.gold, undefined, goldValue);
+          }
+        });
+        break;
+      }
+      case EventCardEffectType.inspiration:
+        this.game.party.inspiration += +effect.values[0];
+        break;
+      case EventCardEffectType.loseBattleGoal:
+        characters.forEach((c) => {
+          c.progress.battleGoals -= +effect.values[0];
+          if (c.progress.battleGoals < 0) {
+            c.progress.battleGoals = 0;
+          }
+        });
+        break;
+      case EventCardEffectType.loseCollectiveResource:
+        if (settingsManager.settings.fhShareResources) {
+          const type = effect.values[1] as LootType;
+          this.game.party.loot[type] = Math.max(0, (this.game.party.loot[type] || 0) - +effect.values[0]);
+        }
+        break;
+      case EventCardEffectType.loseExperience:
+        characters.forEach((c) => {
+          c.progress.experience -= +effect.values[0];
+          if (c.progress.experience < 0) {
+            c.progress.experience = 0;
+          }
+        });
+        break;
+      case EventCardEffectType.loseGold:
+        characters.forEach((c) => {
+          c.progress.gold -= +effect.values[0];
+          if (c.progress.gold < 0) {
+            c.progress.gold = 0;
+          }
+        });
+        break;
+      case EventCardEffectType.loseGoldOne:
+        characters.forEach((c) => {
+          c.progress.gold -= +effect.values[0];
+          if (c.progress.gold < 1) {
+            c.progress.gold = 1;
+          }
+        });
+        break;
+      case EventCardEffectType.loseResource: {
+        const loseType = effect.values[1] as LootType;
+        characters.forEach((c) => {
+          c.progress.loot[loseType] = Math.max(0, (c.progress.loot[loseType] || 0) - +effect.values[0]);
+        });
+        break;
+      }
+      case EventCardEffectType.loseMorale:
+        gameManager.campaignManager.changeMorale(-effect.values[0]);
+        break;
+      case EventCardEffectType.loseProsperity:
+        gameManager.campaignManager.changeProsperity(-effect.values[0]);
+        break;
+      case EventCardEffectType.loseReputation:
+        gameManager.campaignManager.changeReputation(-effect.values[0]);
+        break;
+      case EventCardEffectType.loseReputationFaction:
+        gameManager.campaignManager.changeFactionReputation(effect.values[0] as string, -effect.values[1]);
+        break;
+      case EventCardEffectType.morale:
+        gameManager.campaignManager.changeMorale(+effect.values[0]);
+        break;
+      case EventCardEffectType.removeEvent:
+        this.removeEvent(effect.values[0] as string, effect.values[1] as string);
+        break;
+      case EventCardEffectType.reputation:
+      case EventCardEffectType.reputationAdditional:
+        gameManager.campaignManager.changeReputation(effect.values[0] as number);
+        break;
+      case EventCardEffectType.reputationFaction:
+        gameManager.campaignManager.changeFactionReputation(effect.values[0] as string, effect.values[1] as number);
+        break;
+      case EventCardEffectType.resource:
+        characters.forEach((c) => {
+          c.progress.loot[effect.values[1] as LootType] = (c.progress.loot[effect.values[1] as LootType] || 0) + +effect.values[0];
+        });
+        break;
+      case EventCardEffectType.partyAchievement:
+        this.game.party.achievementsList.push(...effect.values.filter((v) => typeof v === 'string'));
+        break;
+      case EventCardEffectType.prosperity:
+        gameManager.campaignManager.changeProsperity(+effect.values[0]);
+        break;
+      case EventCardEffectType.scenarioCondition:
+      case EventCardEffectType.scenarioDamage:
+      case EventCardEffectType.scenarioSingleMinus1:
+        break;
+      case EventCardEffectType.sectionWeek:
+      case EventCardEffectType.sectionWeeks: {
+        const week = this.game.party.weeks + (effect.values[1] ? +effect.values[1] : 1);
+        const section = effect.values[0] as string;
+        this.game.party.weekSections[week] = [...(this.game.party.weekSections[week] || []), section];
+        break;
+      }
+      case EventCardEffectType.sectionWeekSeasonFinal: {
+        const section = effect.values[0] as string;
+        const season = effect.values[1] as string;
+        const isSummer = Math.max(this.game.party.weeks, 0) % 20 < 10;
+        let week = 0;
+        if (isSummer) {
+          week = Math.floor(this.game.party.weeks / 10) + (season === 'summer' ? 3 : 2);
+        } else {
+          week = Math.floor(this.game.party.weeks / 10) + (season === 'winter' ? 3 : 2);
+        }
+        this.game.party.weekSections[week * 10] = [...(this.game.party.weekSections[week * 10] || []), section];
+        break;
+      }
+      case EventCardEffectType.sectionWeeksSeason: {
+        const section = effect.values[0] as string;
+        const season = effect.values[2] as string;
+        let week = this.game.party.weeks + (effect.values[1] ? +effect.values[1] : 1);
+        const summer = Math.max(week, 0) % 20 < 10;
+        if ((summer && season === 'summer') || (!summer && season === 'winter')) {
+          week = week - (Math.max(week, 0) % 20) + +effect.values[3] + 20;
+        }
+        this.game.party.weekSections[week] = [...(this.game.party.weekSections[week] || []), section];
+        break;
+      }
+      case EventCardEffectType.soldier:
+      case EventCardEffectType.soldiers:
+        this.game.party.soldiers += +(effect.values[0] || 1);
+        if (this.game.party.soldiers > 10) {
+          this.game.party.soldiers = 10;
+        }
+        break;
+      case EventCardEffectType.townGuardDeckCard:
+      case EventCardEffectType.townGuardDeckCards: {
+        if (this.game.party.townGuardDeck) {
+          const count = effect.values[1] ? +effect.values[1] : 1;
+          for (let i = 0; i < count; i++) {
+            this.game.party.townGuardDeck.cards = [...this.game.party.townGuardDeck.cards, effect.values[0] as string];
+            this.game.party.townGuardDeck.current = -1;
+            gameManager.randomManager.shuffle(this.game.party.townGuardDeck.cards);
+          }
+        }
+        break;
+      }
+      case EventCardEffectType.townGuardDeckCardRemove:
+      case EventCardEffectType.townGuardDeckCardRemovePermanently: {
+        if (this.game.party.townGuardDeck) {
+          const card = this.game.party.townGuardDeck.cards.find((value) => value === (effect.values[0] as string));
+          if (card) {
+            this.game.party.townGuardDeck.cards.splice(this.game.party.townGuardDeck.cards.indexOf(card), 1);
+          }
+        }
+        break;
+      }
+      case EventCardEffectType.traitExperience: {
+        characters
+          .filter((c) => c.traits.some((t) => t === effect.values[0]))
+          .forEach((c) => {
+            c.progress.experience += +effect.values[1];
+          });
+        break;
+      }
+      case EventCardEffectType.traitScenarioCondition:
+      case EventCardEffectType.traitScenarioDamage:
+        break;
+      case EventCardEffectType.unlockEnvelope: {
+        if (eventCard.edition === 'fh') {
+          const building = gameManager.campaignManager
+            .campaignData(eventCard.edition)
+            .buildings.find((building) => building.id === effect.values[0]);
+          if (building) {
+            if (this.game.party.buildings.find((model) => model.name === building.name) === undefined) {
+              this.game.party.buildings.push(new BuildingModel(building.name, 0));
+            }
+          } else {
+            console.warn('Building not found to apply event effect', effect, scenario);
+            if (!scenario) {
+              results.push(effect);
+            }
+          }
+        } else {
+          console.warn('Building not found to apply event effect', effect, scenario);
+          if (!scenario) {
+            results.push(effect);
+          }
+        }
+        break;
+      }
+      case EventCardEffectType.unlockScenario:
+      case EventCardEffectType.unlockScenarioGroup: {
+        const index = effect.values[0] as string;
+        const group = effect.values[1] ? (effect.values[1] as string) : '';
+        this.game.party.manualScenarios.push(new GameScenarioModel(index, eventCard.edition, group));
+        break;
+      }
+      case EventCardEffectType.upgradeBuilding: {
+        const building = this.game.party.buildings.find((model) => model.name === (effect.values[0] as string));
+        if (building) {
+          if (building.level >= +effect.values[1]) {
+            gameManager.campaignManager.changeMorale(+effect.values[2]);
+          } else {
+            building.level += 1;
+          }
+        } else {
+          console.warn('Building not found to apply event effect', effect, scenario);
+          if (!scenario) {
+            results.push(effect);
+          }
+        }
+        break;
+      }
+      case EventCardEffectType.wreckBuilding: {
+        const buildingName = effect.values[0] as string;
+        const building = this.game.party.buildings.find((value) => value.name === buildingName);
+        if (building) {
+          building.state = 'wrecked';
+        }
+        break;
+      }
+      default:
+        if (!scenario) {
+          results.push(effect);
+        }
+        break;
+    }
   }
 
   applyCondition(condition: string | EventCardCondition): EventCardCondition | undefined {

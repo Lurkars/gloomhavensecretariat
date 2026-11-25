@@ -2,7 +2,7 @@ import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { NgClass } from '@angular/common';
 import { Component, HostListener, inject } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Entity } from 'src/app/game/model/Entity';
@@ -46,7 +46,7 @@ export function trapTargetArgs(entity: Entity, figure: Figure): (string | number
 
 export function trapTargetLabel(entity: Entity, figure: Figure): string {
   return applyPlaceholder(
-    settingsManager.getLabel(
+    labelManager.getLabel(
       'entities.title.' + trapTargetType(entity),
       trapTargetArgs(entity, figure).map((value) => '' + value)
     )

@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit, ViewEncapsulation, inject, input } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { TreasureData, TreasureReward, TreasureRewardType } from 'src/app/game/model/data/RoomData';
 import { ItemDialogComponent } from 'src/app/ui/figures/items/dialog/item-dialog';
@@ -48,7 +48,7 @@ export class TreasureLabelComponent implements OnInit {
     this.treasure = this.inputTreasure();
     this.index = this.inputIndex();
     if (!this.treasure) {
-      const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
+      const editionData = gameManager.editionManager.editionData.find((editionData) => editionData.edition === this.edition);
       if (editionData && editionData.treasures) {
         const index = this.index < 0 ? this.index : this.index - (editionData.treasureOffset || 0);
         if (index >= 0 && index < editionData.treasures.length) {
@@ -182,7 +182,7 @@ export class TreasureLabelComponent implements OnInit {
                 '%game.item% ' + (itemEdition === this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]')
               );
             }
-            itemNameValues.push('"' + settingsManager.getLabel('data.items.' + item.edition + '-' + item.id) + '"');
+            itemNameValues.push('"' + labelManager.getLabel('data.items.' + item.edition + '-' + item.id) + '"');
           } else {
             console.warn(
               "Invalid Item '" + itemId + "' (Edition " + itemEdition + ") on treasure '" + this.index + "' for Edition " + this.edition

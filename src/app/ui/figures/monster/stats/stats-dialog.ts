@@ -43,7 +43,7 @@ export class MonsterStatsDialogComponent {
     this.levels.forEach((level) => {
       this.monsters.push(this.getMonsterForLevel(level));
     });
-    this.edition = gameManager.getEdition(this.monster);
+    this.edition = gameManager.editionManager.getEdition(this.monster);
     this.dormant = this.monster.entities.every((e) => e.dormant);
   }
 
@@ -68,7 +68,7 @@ export class MonsterStatsDialogComponent {
   toggleDormant() {
     gameManager.stateManager.before(this.dormant ? 'unsetDormant' : 'setDormant', 'data.monster.' + this.monster.name);
     this.dormant = !this.dormant;
-    this.monster.entities.forEach((e) => (e.dormant = this.dormant));
+    gameManager.monsterManager.setDormant(this.monster, this.dormant);
     gameManager.stateManager.after();
   }
 
@@ -90,7 +90,7 @@ export class MonsterStatsDialogComponent {
   openAbilities(): void {
     const monster = new Monster(this.monster, this.monster.level);
     monster.statEffect = this.monster.statEffect;
-    gameManager.monsterManager.resetMonsterAbilities(monster);
+    gameManager.monsterAbilityManager.resetMonsterAbilities(monster);
     if (monster.statEffect) {
       this.dialog.open(StatsListComponent, {
         panelClass: ['dialog'],

@@ -25,11 +25,12 @@ describe('Challenge deck commands', () => {
   });
 
   it('draws a card through the challenges manager', () => {
-    const drawCard = vi.spyOn(gameManager.challengesManager, 'drawCard').mockImplementation(() => {});
-    new ChallengeDeckDrawCommand().execute();
-    expect(drawCard).toHaveBeenCalledWith(gameManager.game.challengeDeck);
-    gameManager.game.challengeDeck.current = 4;
+    const drawCard = vi.spyOn(gameManager.challengesManager, 'drawCard').mockImplementation(() => true);
     expect(new ChallengeDeckDrawCommand().validParameters()).toBe(false);
+    new ChallengeDeckDrawCommand(true).execute();
+    expect(drawCard).toHaveBeenCalledWith(gameManager.game.challengeDeck, true);
+    gameManager.game.challengeDeck.current = 4;
+    expect(new ChallengeDeckDrawCommand(true).validParameters(true)).toBe(false);
   });
 
   it('shuffles the deck', () => {
@@ -40,15 +41,17 @@ describe('Challenge deck commands', () => {
   });
 
   it('keeps a drawn card', () => {
-    const toggleKeep = vi.spyOn(gameManager.challengesManager, 'toggleKeep').mockImplementation(() => {});
-    expect(new ChallengeDeckKeepCommand(1, true).validParameters(1, true)).toBe(false);
+    const toggleKeep = vi.spyOn(gameManager.challengesManager, 'toggleKeep').mockImplementation(() => true);
+    vi.spyOn(gameManager.challengesManager, 'keepAvailable').mockReturnValue(1);
+    expect(new ChallengeDeckKeepCommand(1, true, true).validParameters(1, true, true)).toBe(false);
     gameManager.game.challengeDeck.current = 1;
-    new ChallengeDeckKeepCommand(1, true).execute();
-    expect(toggleKeep).toHaveBeenCalledWith(gameManager.game.challengeDeck, 0, 0);
-    expect(new ChallengeDeckKeepCommand(1, false).validParameters(1, false)).toBe(false);
-    gameManager.game.challengeDeck.keep = [0];
     expect(new ChallengeDeckKeepCommand(1, true).validParameters(1, true)).toBe(false);
-    expect(new ChallengeDeckKeepCommand(1, false).validParameters(1, false)).toBe(true);
+    new ChallengeDeckKeepCommand(1, true, true).execute();
+    expect(toggleKeep).toHaveBeenCalledWith(gameManager.game.challengeDeck, 0, true);
+    expect(new ChallengeDeckKeepCommand(1, false, true).validParameters(1, false, true)).toBe(false);
+    gameManager.game.challengeDeck.keep = [0];
+    expect(new ChallengeDeckKeepCommand(1, true, true).validParameters(1, true, true)).toBe(false);
+    expect(new ChallengeDeckKeepCommand(1, false, true).validParameters(1, false, true)).toBe(true);
   });
 
   it('removes a card', () => {

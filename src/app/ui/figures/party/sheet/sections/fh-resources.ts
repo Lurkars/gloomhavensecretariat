@@ -32,9 +32,11 @@ export class PartySheetFhResourcesComponent extends PartySheetSection {
     if (!isNaN(+event.target.value)) {
       const value = Math.max(0, +event.target.value);
       event.target.value = value;
-      gameManager.stateManager.before('setPartyResource', this.party.name, 'game.loot.' + type, value);
-      this.party.loot[type] = value;
-      gameManager.stateManager.after();
+      if (gameManager.campaignManager.canSetPartyResource(type, value)) {
+        gameManager.stateManager.before('setPartyResource', this.party.name, 'game.loot.' + type, value);
+        gameManager.campaignManager.setPartyResource(type, value);
+        gameManager.stateManager.after();
+      }
     }
   }
   moveResources(character: Character) {

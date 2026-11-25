@@ -33,7 +33,7 @@ export class PartyCampaignItemsComponent extends PartySheetSection {
       .filter((identifier) => !this.itemEdition || identifier.edition === this.itemEdition)
       .sort((a, b) => {
         if (!this.edition() && a.edition !== b.edition) {
-          return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
+          return gameManager.editionManager.editions().indexOf(a.edition) - gameManager.editionManager.editions().indexOf(b.edition);
         }
 
         return +a.name - +b.name;
@@ -75,7 +75,7 @@ export class PartyCampaignItemsComponent extends PartySheetSection {
     );
     if (identifier) {
       gameManager.stateManager.before('removeUnlockedItem', item.edition, item.id, item.name);
-      this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(identifier), 1);
+      gameManager.itemManager.setItemUnlocked(item, false);
       gameManager.stateManager.after();
       this.update();
     }
@@ -87,16 +87,12 @@ export class PartyCampaignItemsComponent extends PartySheetSection {
       data: { item: item }
     });
   }
-  incItemCount(item: ItemData, itemIdentifier: CountIdentifier) {
-    gameManager.stateManager.before('updateUnlockedItemCount', item.edition, item.id, item.name);
-    if (itemIdentifier.count < 0) {
-      itemIdentifier.count = 1;
-    } else {
-      itemIdentifier.count += 1;
-      if (itemIdentifier.count >= item.count) {
-        itemIdentifier.count = -1;
-      }
+  incItemCount(item: ItemData) {
+    const count = gameManager.itemManager.nextUnlockedItemCount(item);
+    if (gameManager.itemManager.canSetUnlockedItemCount(item, count)) {
+      gameManager.stateManager.before('updateUnlockedItemCount', item.edition, item.id, item.name);
+      gameManager.itemManager.setUnlockedItemCount(item, count);
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 }

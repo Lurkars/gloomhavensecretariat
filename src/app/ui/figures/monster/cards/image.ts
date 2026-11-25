@@ -3,7 +3,8 @@ import { NgClass } from '@angular/common';
 import { Component, inject, input, OnInit } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { LabelManager } from 'src/app/game/businesslogic/LabelManager';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -28,6 +29,7 @@ export class MonsterImageComponent {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  labelManager: LabelManager = labelManager;
   GameState = GameState;
   disabled: boolean = false;
   off: boolean = false;
@@ -46,7 +48,7 @@ export class MonsterImageComponent {
   toggleFigure() {
     if (gameManager.game.state === GameState.next && gameManager.monsterManager.monsterEntityCount(this.monster)) {
       gameManager.stateManager.before(this.monster.active ? 'unsetActive' : 'setActive', 'data.monster.' + this.monster.name);
-      gameManager.roundManager.toggleFigure(this.monster);
+      gameManager.turnManager.toggleFigure(this.monster);
       gameManager.stateManager.after();
     } else {
       this.imageDialog();

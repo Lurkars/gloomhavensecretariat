@@ -1,5 +1,5 @@
 import { Component, input, OnInit, ViewEncapsulation } from '@angular/core';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import {
   AttackModifier,
   AttackModifierEffect,
@@ -36,7 +36,7 @@ export class PerkLabelComponent implements OnInit {
     if (perk.cards) {
       perk.cards.forEach((card) => {
         cardLabel.push(
-          settingsManager.getLabel('game.attackModifiers.perks.cardLabel', [
+          labelManager.getLabel('game.attackModifiers.perks.cardLabel', [
             'game.attackModifiers.perks.cards.' + card.count,
             this.attackModifierHtml(card.attackModifier),
             card.count > 1 ? 'game.attackModifiers.perks.cards' : 'game.attackModifiers.perks.card'
@@ -45,7 +45,7 @@ export class PerkLabelComponent implements OnInit {
       });
 
       if (perk.type === PerkType.replace) {
-        const replace = gameManager.attackModifierManager.replaceCount(perk);
+        const replace = gameManager.attackModifierBuildManager.replaceCount(perk);
         if (replace === 1 && cardLabel.length === 2) {
           label = cardLabel;
         } else {
@@ -55,7 +55,7 @@ export class PerkLabelComponent implements OnInit {
               if (!multiLabel) {
                 multiLabel = cardLabel[i];
               } else {
-                multiLabel = settingsManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[i], multiLabel]);
+                multiLabel = labelManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[i], multiLabel]);
               }
             }
             label.push(multiLabel);
@@ -71,7 +71,7 @@ export class PerkLabelComponent implements OnInit {
               if (!multiLabel) {
                 multiLabel = cardLabel[i];
               } else {
-                multiLabel = settingsManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[i], multiLabel]);
+                multiLabel = labelManager.getLabel('game.attackModifiers.perks.additional', [cardLabel[i], multiLabel]);
               }
             }
             label.push(multiLabel);
@@ -83,14 +83,14 @@ export class PerkLabelComponent implements OnInit {
       } else if (cardLabel.length < 3) {
         cardLabel.forEach((value, index, self) => {
           if (index % 2 === 0 && index < self.length - 1) {
-            label.push(settingsManager.getLabel('game.attackModifiers.perks.additional', [value, cardLabel[index + 1]]));
+            label.push(labelManager.getLabel('game.attackModifiers.perks.additional', [value, cardLabel[index + 1]]));
           }
         });
       } else if (cardLabel.length < 4) {
         cardLabel.forEach((value, index, self) => {
           if (index % 2 === 0 && index < self.length - 2) {
             label.push(
-              settingsManager.getLabel('game.attackModifiers.perks.additionalTwo', [value, cardLabel[index + 1], cardLabel[index + 2]])
+              labelManager.getLabel('game.attackModifiers.perks.additionalTwo', [value, cardLabel[index + 1], cardLabel[index + 2]])
             );
           }
         });
@@ -179,7 +179,7 @@ export class PerkLabelComponent implements OnInit {
         condition = condition.replace('_x', '');
         html +=
           '<span class="attack-modifier-effect condition">' +
-          (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.condition.' + condition)) +
+          (settingsManager.settings.fhStyle ? '' : labelManager.getLabel('game.condition.' + condition)) +
           '<img class="action-icon sw" src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'condition/' +
@@ -241,7 +241,7 @@ export class PerkLabelComponent implements OnInit {
         } else {
           html +=
             '<span class="placeholder attack-modifier-effect target">' +
-            settingsManager.getLabel(+effect.value <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [
+            labelManager.getLabel(+effect.value <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [
               effect.value + ''
             ]) +
             '<img class="action-icon" src="./assets/images/attackmodifier/target.svg"></span>';
@@ -251,43 +251,43 @@ export class PerkLabelComponent implements OnInit {
         if (effect.value.split(':').length > 1) {
           html +=
             '<span class="placeholder attack-modifier-effect special-target">' +
-            settingsManager.getLabel('game.specialTarget.' + effect.value.split(':')[0], effect.value.split(':').slice(1)) +
+            labelManager.getLabel('game.specialTarget.' + effect.value.split(':')[0], effect.value.split(':').slice(1)) +
             '</span>';
         } else if (settingsManager.settings.fhStyle && effect.value === 'allyShort') {
           html +=
             '<span class="placeholder attack-modifier-effect special-target">' +
-            settingsManager.getLabel('game.specialTarget.ally') +
+            labelManager.getLabel('game.specialTarget.ally') +
             '</span>';
         } else {
           html +=
             '<span class="placeholder attack-modifier-effect special-target">' +
-            settingsManager.getLabel('game.specialTarget.' + effect.value) +
+            labelManager.getLabel('game.specialTarget.' + effect.value) +
             '</span>';
         }
         break;
       case AttackModifierEffectType.refreshItem:
         html +=
           '<span class="placeholder attack-modifier-effect card">' +
-          settingsManager.getLabel('game.attackModifiers.perks.effects.' + effect.type + (settingsManager.settings.fhStyle ? 'Fh' : '')) +
+          labelManager.getLabel('game.attackModifiers.perks.effects.' + effect.type + (settingsManager.settings.fhStyle ? 'Fh' : '')) +
           '</span>';
         break;
       case AttackModifierEffectType.refreshSpentItem:
         html +=
           '<span class="placeholder attack-modifier-effect card">' +
-          settingsManager.getLabel('game.attackModifiers.perks.effects.' + effect.type) +
+          labelManager.getLabel('game.attackModifiers.perks.effects.' + effect.type) +
           '</span>';
         break;
       case AttackModifierEffectType.recoverRandomDiscard:
         html +=
           '<span class="placeholder attack-modifier-effect card">' +
-          settingsManager.getLabel('game.attackModifiers.perks.effects.' + effect.type) +
+          labelManager.getLabel('game.attackModifiers.perks.effects.' + effect.type) +
           '</span>';
         break;
       case AttackModifierEffectType.custom:
         if (effect.hint) {
-          html += '<span class="placeholder attack-modifier-effect custom-hint">' + settingsManager.getLabel(effect.hint) + '</span>';
+          html += '<span class="placeholder attack-modifier-effect custom-hint">' + labelManager.getLabel(effect.hint) + '</span>';
         } else {
-          html += '<span class="placeholder attack-modifier-effect custom">' + settingsManager.getLabel('' + effect.value) + '</span>';
+          html += '<span class="placeholder attack-modifier-effect custom">' + labelManager.getLabel('' + effect.value) + '</span>';
         }
         quotes = true;
         break;
@@ -296,7 +296,7 @@ export class PerkLabelComponent implements OnInit {
           effect.effects.forEach((subEffect, index) => {
             html += this.attackModifierEffectHtml(subEffect, true);
             if (index < effect.effects.length - 1) {
-              html += ' ' + settingsManager.getLabel('or') + ' ';
+              html += ' ' + labelManager.getLabel('or') + ' ';
             }
           });
         }
@@ -344,7 +344,7 @@ export class PerkLabelComponent implements OnInit {
           '<span class="placeholder attack-modifier-effect default ' +
           effect.type +
           '">' +
-          (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) +
+          (settingsManager.settings.fhStyle ? '' : labelManager.getLabel('game.action.' + effect.type)) +
           '<img  class="action-icon" src="./assets/images/' +
           (settingsManager.settings.fhStyle ? 'fh/' : '') +
           'action/' +

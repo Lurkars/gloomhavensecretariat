@@ -10,8 +10,10 @@ describe('EventHelper outpost attack', () => {
 
   beforeEach(() => {
     gameManager.game.party.outpostAttack = undefined;
+    vi.spyOn(gameManager.outpostAttackManager, 'canStart').mockReturnValue(true);
     vi.spyOn(gameManager.outpostAttackManager, 'start').mockImplementation(() => {
       gameManager.game.party.outpostAttack = new OutpostAttackModel();
+      return true;
     });
   });
 
@@ -24,7 +26,7 @@ describe('EventHelper outpost attack', () => {
     const helper = new EventHelper(component);
     const effect = new EventCardEffect(EventCardEffectType.outpostAttack, [5]);
     helper.createEventResults([attack, effect]);
-    expect(gameManager.outpostAttackManager.start).toHaveBeenCalledWith(attack, [effect]);
+    expect(gameManager.outpostAttackManager.start).toHaveBeenCalledWith(attack, [effect], true);
     expect(helper.outpostAttack).toBeDefined();
   });
 
@@ -40,7 +42,7 @@ describe('EventHelper outpost attack', () => {
     gameManager.game.party.outpostAttack = running;
     const helper = new EventHelper(component);
     helper.createEventResults([attack]);
-    expect(gameManager.outpostAttackManager.start).toHaveBeenCalledWith(attack, []);
+    expect(gameManager.outpostAttackManager.start).toHaveBeenCalledWith(attack, [], true);
     expect(gameManager.game.party.outpostAttack).not.toBe(running);
   });
 
@@ -56,6 +58,13 @@ describe('EventHelper outpost attack', () => {
     const helper = new EventHelper(component);
     helper.cancelOutpostAttack();
     expect(gameManager.game.party.outpostAttack).toBeUndefined();
+  });
+
+  it('does not start an attack without town guard', () => {
+    vi.mocked(gameManager.outpostAttackManager.canStart).mockReturnValue(false);
+    const helper = new EventHelper(component);
+    helper.createEventResults([attack]);
+    expect(gameManager.outpostAttackManager.start).not.toHaveBeenCalled();
   });
 
   it('shows the event attack or the manual attack values', () => {

@@ -38,7 +38,7 @@ describe('EntityHpCommand', () => {
     createTestMonsterEntity(monster, 2);
     gameManager.game.state = GameState.next;
     monster.active = true;
-    const toggleFigure = vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+    const toggleFigure = vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
 
     new EntityHpCommand('test-testmonster', '', -10).execute();
 

@@ -6,7 +6,7 @@ import { CharacterClass, CharacterData, CharacterGender } from 'src/app/game/mod
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { Identifier } from 'src/app/game/model/data/Identifier';
-import { TrialCard } from 'src/app/game/model/data/Trials';
+import { Favor, TrialCard } from 'src/app/game/model/data/Trials';
 
 function buildCharacter(name: string = 'test-char'): Character {
   const data = new CharacterData();
@@ -42,12 +42,12 @@ describe('TrialsManager', () => {
     gameManager.game.favorPoints = [];
     gameManager.game.favors = [];
     gameManager.game.monsterAttackModifierDeck = new AttackModifierDeck();
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.fhTrials = false;
     settingsManager.settings.fhTrialsApply = false;
     settingsManager.settings.battleGoals = true;
     vi.spyOn(gameManager, 'fhRules').mockReturnValue(true);
-    vi.spyOn(gameManager, 'currentEdition').mockReturnValue('fh');
+    vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('fh');
 
     trialsManager = gameManager.trialsManager;
     trialsManager.available = false;
@@ -64,7 +64,7 @@ describe('TrialsManager', () => {
 
   describe('setTrial', () => {
     it('validates, assigns trials and tracks the furthest trial of the party', () => {
-      gameManager.editionData = [buildEditionData('fh', [buildTrialCard(10), buildTrialCard(11), buildTrialCard(12)])];
+      gameManager.editionManager.editionData = [buildEditionData('fh', [buildTrialCard(10), buildTrialCard(11), buildTrialCard(12)])];
       const a = buildCharacter('a');
       const b = buildCharacter('b');
       gameManager.game.figures = [a, b];
@@ -146,7 +146,7 @@ describe('TrialsManager', () => {
   describe('applyTrialCards', () => {
     it('does nothing to characters that already have a trial in progress', () => {
       trialsManager.trialsEnabled = true;
-      gameManager.editionData = [buildEditionData('fh', [buildTrialCard(100)])];
+      gameManager.editionManager.editionData = [buildEditionData('fh', [buildTrialCard(100)])];
 
       const character = buildCharacter();
       character.progress.trial = new Identifier('999', 'fh');
@@ -159,7 +159,7 @@ describe('TrialsManager', () => {
 
     it('assigns the next trial card from the edition trial deck to characters without one', () => {
       trialsManager.trialsEnabled = true;
-      gameManager.editionData = [buildEditionData('fh', [buildTrialCard(100), buildTrialCard(200)])];
+      gameManager.editionManager.editionData = [buildEditionData('fh', [buildTrialCard(100), buildTrialCard(200)])];
 
       const character = buildCharacter();
       gameManager.game.figures = [character];
@@ -172,7 +172,7 @@ describe('TrialsManager', () => {
 
     it('restores a retired character trial from party retirements instead of drawing a new one', () => {
       trialsManager.trialsEnabled = true;
-      gameManager.editionData = [buildEditionData('fh', [buildTrialCard(100)])];
+      gameManager.editionManager.editionData = [buildEditionData('fh', [buildTrialCard(100)])];
 
       const character = buildCharacter();
       gameManager.game.party.retirements = [{ number: character.number, progress: { trial: new Identifier('55', 'fh') } } as any];
@@ -186,7 +186,7 @@ describe('TrialsManager', () => {
 
     it('does not redraw when party.trials===0 ("first card already drawn") with a single-card deck', () => {
       trialsManager.trialsEnabled = true;
-      gameManager.editionData = [buildEditionData('fh', [buildTrialCard(100)])];
+      gameManager.editionManager.editionData = [buildEditionData('fh', [buildTrialCard(100)])];
       gameManager.game.party.trials = 0; // already drawn the only card (index 0)
 
       const character = buildCharacter();
@@ -200,7 +200,7 @@ describe('TrialsManager', () => {
 
     it('does not exceed the length of the edition trial deck once the counter is above 0', () => {
       trialsManager.trialsEnabled = true;
-      gameManager.editionData = [buildEditionData('fh', [buildTrialCard(100), buildTrialCard(200)])];
+      gameManager.editionManager.editionData = [buildEditionData('fh', [buildTrialCard(100), buildTrialCard(200)])];
       gameManager.game.party.trials = 1; // already drawn both cards (indices 0 and 1)
 
       const character = buildCharacter();
@@ -397,6 +397,48 @@ describe('TrialsManager', () => {
       trialsManager.draw(character);
 
       expect(character.tags).toContain('trial-fh-356');
+    });
+  });
+
+  describe('favor selection', () => {
+    function favorEdition(): EditionData {
+      const data = buildEditionData('fh', []);
+      data.favors = [Object.assign(new Favor(), { name: 'f1', edition: 'fh', points: 2 })];
+      return data;
+    }
+
+    beforeEach(() => {
+      gameManager.editionManager.editionData = [favorEdition()];
+      gameManager.roundManager.firstRound = true;
+    });
+
+    it('limits favor points by the remaining modifiers and the 7 point cap', () => {
+      gameManager.game.monsterAttackModifierDeck.cards = [
+        new AttackModifier(AttackModifierType.minus1),
+        new AttackModifier(AttackModifierType.minus2)
+      ];
+      expect(trialsManager.favorPointsLeft([])).toEqual([1, 2]);
+      expect(trialsManager.favorPointsLeft([2])).toEqual([1]);
+      expect(trialsManager.canAddFavorPoint([2], 2)).toBe(false);
+      expect(trialsManager.canAddFavorPoint([2], 1)).toBe(true);
+      expect(trialsManager.canAddFavorPoint([2, 2, 2], 1, true)).toBe(true);
+      gameManager.roundManager.firstRound = false;
+      expect(trialsManager.canAddFavorPoint([], 1)).toBe(false);
+    });
+
+    it('keeps enough points for the selected favors', () => {
+      const favor = new Identifier('f1', 'fh');
+      expect(trialsManager.canSelectFavor([], [1], favorEdition().favors[0])).toBe(false);
+      expect(trialsManager.canSelectFavor([], [2], favorEdition().favors[0])).toBe(true);
+      expect(trialsManager.canRemoveFavorPoint([favor], [2], 0)).toBe(false);
+      expect(trialsManager.canRemoveFavorPoint([favor], [2, 1], 1)).toBe(true);
+      expect(trialsManager.canRemoveFavorPoint([favor], [2], 0, true)).toBe(true);
+    });
+
+    it('sets keeping favors', () => {
+      expect(trialsManager.setKeepFavors(true)).toBe(true);
+      expect(gameManager.game.keepFavors).toBe(true);
+      trialsManager.setKeepFavors(false);
     });
   });
 });

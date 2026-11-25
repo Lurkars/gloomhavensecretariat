@@ -1,4 +1,4 @@
-import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { RandomManager, randomSeed, randomUUID } from 'src/app/game/businesslogic/RandomManager';
 import { Game } from 'src/app/game/model/Game';
 
@@ -125,7 +125,7 @@ describe('RandomManager', () => {
 
   it('serializes the seed with the game model', () => {
     settingsManager.settings.locale = settingsManager.defaultLocale;
-    settingsManager.label.data = { partyAchievements: {}, globalAchievements: {} };
+    labelManager.label.data = { partyAchievements: {}, globalAchievements: {} };
     const source = new Game();
     source.seed = 12345;
     new RandomManager(source).next();

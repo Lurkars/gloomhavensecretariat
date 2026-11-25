@@ -22,7 +22,7 @@ describe('ScenarioRulesComponent', () => {
 
     gameManager.game.scenario = undefined;
     gameManager.game.scenarioRules = [];
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
     settingsManager.settings.scenarioRooms = true;
   });

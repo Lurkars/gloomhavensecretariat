@@ -8,6 +8,7 @@ import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { DeckData } from 'src/app/game/model/data/DeckData';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/ability-cards-dialog';
+import { abilityCardsEditing } from 'src/app/ui/helper/ability-edit';
 
 // AbilityCardsDialogComponent's constructor does real work eagerly (unlike its ngOnInit-driven
 // sibling AbilityDeckDialogComponent): it resolves the character's ability deck and computes
@@ -39,7 +40,7 @@ function buildCharacter(level: number = 2): Character {
 }
 
 function createComponent(character: Character, abilityCards: AbilityCard[]): AbilityCardsDialogComponent {
-  gameManager.editionData = [new EditionData('gh', [], [], [new DeckData('gh', 'brute', true, abilityCards)], [], [], [])];
+  gameManager.editionManager.editionData = [new EditionData('gh', [], [], [new DeckData('gh', 'brute', true, abilityCards)], [], [], [])];
   TestBed.configureTestingModule({
     imports: [AbilityCardsDialogComponent],
     providers: [
@@ -60,7 +61,9 @@ describe('AbilityCardsDialogComponent', () => {
 
   it('renders the template without throwing', () => {
     const character = buildCharacter();
-    gameManager.editionData = [new EditionData('gh', [], [], [new DeckData('gh', 'brute', true, buildAbilities())], [], [], [])];
+    gameManager.editionManager.editionData = [
+      new EditionData('gh', [], [], [new DeckData('gh', 'brute', true, buildAbilities())], [], [], [])
+    ];
     TestBed.configureTestingModule({
       imports: [AbilityCardsDialogComponent],
       providers: [
@@ -106,7 +109,8 @@ describe('AbilityCardsDialogComponent', () => {
       const component = createComponent(character, buildAbilities());
       component.update();
       expect(component.levelToPick).toEqual(0);
-      expect(component.character.tags).toContain('edit-abilities');
+      expect(abilityCardsEditing(component.character)).toBe(true);
+      expect(component.character.tags).not.toContain('edit-abilities');
     });
   });
 

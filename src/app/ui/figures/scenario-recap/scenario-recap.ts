@@ -1,7 +1,7 @@
 import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { Component, forwardRef, inject, input, OnInit } from '@angular/core';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager } from 'src/app/game/businesslogic/Managers';
 import { ScenarioData, ScenarioRecap } from 'src/app/game/model/data/ScenarioData';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { TrackUUIDPipe } from 'src/app/ui/helper/trackUUID';
@@ -56,7 +56,7 @@ export class ScenarioRecapComponent implements OnInit {
           if (recap.type === 'scenario' && recap.value) {
             const scenarioData =
               gameManager.scenarioManager.getScenario(recap.value, this.scenario.edition, this.scenario.group) || undefined;
-            if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || this.forceAll())) {
+            if (scenarioData && (gameManager.scenarioRequirementsManager.isSuccess(scenarioData) || this.forceAll())) {
               return true;
             }
           } else if (recap.type === 'section' && recap.value) {
@@ -67,7 +67,7 @@ export class ScenarioRecapComponent implements OnInit {
               if (sectionData.parent) {
                 const scenarioData =
                   gameManager.scenarioManager.getScenario(sectionData.parent, this.scenario.edition, this.scenario.group) || undefined;
-                if (scenarioData && (gameManager.scenarioManager.isSuccess(scenarioData) || forceAll)) {
+                if (scenarioData && (gameManager.scenarioRequirementsManager.isSuccess(scenarioData) || forceAll)) {
                   return true;
                 }
               }
@@ -96,7 +96,7 @@ export class ScenarioRecapComponent implements OnInit {
       this.recaps.forEach((recap, i) => {
         if (this.scenario) {
           if (recap.type === 'scenario' && recap.value) {
-            this.label = settingsManager.labelExists(prefix + this.scenario.index + '.' + recap.value.replaceAll(/[A-Z]+/g, ''))
+            this.label = labelManager.labelExists(prefix + this.scenario.index + '.' + recap.value.replaceAll(/[A-Z]+/g, ''))
               ? prefix + this.scenario.index + '.' + recap.value.replaceAll(/[A-Z]+/g, '')
               : false;
             this.scenarios[i] = gameManager.scenarioManager.getScenario(recap.value, this.scenario.edition, this.scenario.group);
@@ -109,9 +109,7 @@ export class ScenarioRecapComponent implements OnInit {
                   gameManager.scenarioManager.getScenario(sectionData.parent, this.scenario.edition, this.scenario.group) || undefined;
                 if (scenarioData) {
                   this.scenarios[i] = scenarioData;
-                  this.label = settingsManager.labelExists(
-                    prefix + this.scenario.index + '.' + scenarioData.index.replaceAll(/[A-Z]+/g, '')
-                  )
+                  this.label = labelManager.labelExists(prefix + this.scenario.index + '.' + scenarioData.index.replaceAll(/[A-Z]+/g, ''))
                     ? prefix + this.scenario.index + '.' + scenarioData.index.replaceAll(/[A-Z]+/g, '')
                     : false;
                 }
@@ -119,10 +117,10 @@ export class ScenarioRecapComponent implements OnInit {
             }
 
             if (!this.label) {
-              this.label = settingsManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
+              this.label = labelManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
             }
           } else {
-            this.label = settingsManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
+            this.label = labelManager.labelExists(prefix + this.scenario.index) ? prefix + this.scenario.index : false;
           }
         }
       });

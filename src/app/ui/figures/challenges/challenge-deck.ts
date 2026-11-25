@@ -76,13 +76,8 @@ export class ChallengeDeckComponent extends DeckDrawDirective implements OnInit,
     this.internalDraw = -99;
     this.compact = this.deck.cards.length > 0 && ghsCompactPortrait();
 
-    const building = gameManager.game.party.buildings.find(
-      (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
-    );
-    if (building) {
-      this.drawAvailable = building.level;
-      this.keepAvailable = Math.ceil(building.level / 2);
-    }
+    this.drawAvailable = gameManager.challengesManager.drawAvailable();
+    this.keepAvailable = gameManager.challengesManager.keepAvailable();
 
     this.disabled =
       !gameManager.roundManager.firstRound ||
@@ -101,19 +96,14 @@ export class ChallengeDeckComponent extends DeckDrawDirective implements OnInit,
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['deck']) {
+    if (changes['inputChallengeDeck']) {
       this.update();
     }
   }
 
   update(fromServer: boolean = false) {
-    const building = gameManager.game.party.buildings.find(
-      (buildingModel) => buildingModel.name === 'town-hall' && buildingModel.level && buildingModel.state !== 'wrecked'
-    );
-    if (building) {
-      this.drawAvailable = building.level;
-      this.keepAvailable = Math.ceil(building.level / 2);
-    }
+    this.drawAvailable = gameManager.challengesManager.drawAvailable();
+    this.keepAvailable = gameManager.challengesManager.keepAvailable();
 
     this.disabled =
       !gameManager.roundManager.firstRound ||
@@ -124,14 +114,18 @@ export class ChallengeDeckComponent extends DeckDrawDirective implements OnInit,
 
     this.updateQueue(this.deck.active, fromServer);
 
-    this.compact = ghsCompactPortrait();
+    this.compact = this.deck.cards.length > 0 && ghsCompactPortrait();
   }
 
   draw(event: any) {
     if (this.compact && this.fullscreen()) {
       this.openFullscreen(event);
     } else if (!this.drawDisabled && this.deck.cards.length > 0) {
-      if (!this.drawTimeout && this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1)) {
+      if (
+        !this.drawTimeout &&
+        this.deck.current < this.deck.cards.length - (this.queue === 0 ? 0 : 1) &&
+        gameManager.challengesManager.canDrawCard(this.deck)
+      ) {
         this.delayedDraw(() => {
           this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
           gameManager.challengesManager.drawCard(this.deck);
@@ -170,9 +164,9 @@ export class ChallengeDeckComponent extends DeckDrawDirective implements OnInit,
   clickCard(index: number, event: any) {
     if (this.disabled) {
       this.open(event);
-    } else if (index <= this.current) {
+    } else if (gameManager.challengesManager.canToggleKeep(this.deck, index)) {
       this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.toggle', index));
-      gameManager.challengesManager.toggleKeep(this.deck, index, this.keepAvailable);
+      gameManager.challengesManager.toggleKeep(this.deck, index);
       this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.toggle', index));
     }
   }

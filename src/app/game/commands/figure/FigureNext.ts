@@ -7,21 +7,15 @@ export class FigureNextCommand extends CommandImpl {
   id: string = 'figure.next';
   requiredParameters: number = 1;
 
-  validParameters(seed: number): boolean {
-    if (!validSeed(seed)) {
-      return false;
-    }
-    return true;
+  validParameters(seed: number, reverse: boolean = false): boolean {
+    return validSeed(seed) && gameManager.game.state === GameState.next && !!gameManager.turnManager.nextFigure(!!reverse);
   }
 
-  executeWithParameters(seed: number, reverse: boolean) {
+  executeWithParameters(seed: number, reverse: boolean = false) {
     gameManager.game.seed = seed;
-    if (gameManager.game.state !== GameState.next) {
-      this.executionError('invalid game state');
-    }
-    const figure = gameManager.roundManager.nextFigure(reverse);
+    const figure = gameManager.turnManager.nextFigure(!!reverse);
     if (figure) {
-      gameManager.roundManager.toggleNextFigure(figure, reverse);
+      gameManager.turnManager.toggleNextFigure(figure, !!reverse);
     }
   }
 }

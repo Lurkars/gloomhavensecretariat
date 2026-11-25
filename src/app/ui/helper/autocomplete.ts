@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnInit, inject, input, output } from '@angular/core';
 import autocomplete, { AutocompleteEvent } from 'autocompleter';
-import { settingsManager } from 'src/app/game/businesslogic/Managers';
+import { labelManager } from 'src/app/game/businesslogic/Managers';
 
 export class AutocompleteItem {
   label: string;
@@ -34,7 +34,7 @@ export class AutocompleteDirective implements OnInit {
     autocomplete({
       input: this.el.nativeElement,
       container: container,
-      emptyMsg: emptyLabel ? settingsManager.getLabel(emptyLabel) : '',
+      emptyMsg: emptyLabel ? labelManager.getLabel(emptyLabel) : '',
       minLength: 3,
       disableAutoSelect: true,
       fetch: (text: string, update: (items: AutocompleteItem[] | false) => void) => {

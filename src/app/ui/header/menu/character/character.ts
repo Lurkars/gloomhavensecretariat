@@ -2,7 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameManager } from 'src/app/game/businesslogic/GameManager';
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
@@ -40,7 +40,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   editions(): string[] {
-    return this.allEditions ? gameManager.editions(true, true) : gameManager.relevantEditions();
+    return this.allEditions ? gameManager.editionManager.editions(true, true) : gameManager.editionManager.relevantEditions();
   }
 
   update() {
@@ -51,7 +51,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   getCharacterData(filter: string, edition: string): CharacterData[] {
-    return gameManager
+    return gameManager.editionManager
       .charactersData(edition)
       .filter((characterData) => gameManager.matchesEditionRules(characterData))
       .filter(
@@ -59,13 +59,13 @@ export class CharacterMenuComponent implements OnInit {
           ((!characterData.locked || this.unlocked(characterData)) &&
             (ghsTextSearch(characterData.name, filter) ||
               (this.unlocked(characterData) &&
-                ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter)))) ||
+                ghsTextSearch(labelManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter)))) ||
           (characterData.locked &&
-            ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter, true))
+            ghsTextSearch(labelManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter, true))
       )
       .sort((a, b) => {
-        const aName = settingsManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
-        const bName = settingsManager.getLabel('data.character.' + b.edition + '.' + b.name).toLowerCase();
+        const aName = labelManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
+        const bName = labelManager.getLabel('data.character.' + b.edition + '.' + b.name).toLowerCase();
 
         if (a.spoiler && !b.spoiler) {
           return 1;
@@ -125,7 +125,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   unlockAll(edition: string) {
-    const chars: string[] = gameManager
+    const chars: string[] = gameManager.editionManager
       .charactersData(edition)
       .filter((characterData) => characterData.spoiler && !this.unlocked(characterData))
       .map((characterData) => characterData.name);

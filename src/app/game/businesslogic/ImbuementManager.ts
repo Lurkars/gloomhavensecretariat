@@ -20,8 +20,8 @@ export class ImbuementManager {
   update() {
     this.available =
       gameManager.gh2eRules() &&
-      gameManager.game.party.conclusions.some((s) => s.edition === 'gh2e' && s.index === '48.2') &&
-      (gameManager.game.party.conclusions.some((s) => s.edition === 'gh2e' && s.index === '16.5') ? 'advanced' : true);
+      this.game.party.conclusions.some((s) => s.edition === 'gh2e' && s.index === '48.2') &&
+      (this.game.party.conclusions.some((s) => s.edition === 'gh2e' && s.index === '16.5') ? 'advanced' : true);
 
     if (settingsManager.settings.alwaysGh2eImbuement || (!this.available && !settingsManager.settings.partySheet)) {
       this.available = 'advanced';
@@ -30,10 +30,10 @@ export class ImbuementManager {
     this.enabled = settingsManager.settings.alwaysGh2eImbuement || (this.available && settingsManager.settings.gh2eImbuement);
 
     if (!settingsManager.settings.gh2eImbuementKeep || !this.imbuement) {
-      this.imbuement = gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type === AttackModifierType.imbue) !== undefined;
+      this.imbuement = this.game.monsterAttackModifierDeck.cards.find((am) => am.type === AttackModifierType.imbue) !== undefined;
       if (
         this.imbuement &&
-        gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type === AttackModifierType.advancedImbue) !== undefined
+        this.game.monsterAttackModifierDeck.cards.find((am) => am.type === AttackModifierType.advancedImbue) !== undefined
       ) {
         this.imbuement = 'advanced';
       }

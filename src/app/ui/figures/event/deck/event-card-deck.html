@@ -136,15 +136,18 @@
               <div class="container drag-hidden" cdkDrag [cdkDragDisabled]="true">
                 <ghs-event-card
                   [event]="model.card"
-                  [select]="model.identifier.selected"
-                  [identifier]="model.identifier"
-                  [subSelect]="model.identifier.subSelections"
-                  [checks]="model.identifier.checks || []"
-                  (selectCard)="updateDrawnSelect(model.identifier, $event)"
+                  [select]="model.flipped ? model.identifier.selected : -1"
+                  [identifier]="model.flipped ? model.identifier : undefined"
+                  [subSelect]="model.flipped ? model.identifier.subSelections : []"
+                  [checks]="model.flipped ? model.identifier.checks || [] : []"
+                  (selectCard)="model.flipped && updateDrawnSelect(model.identifier, $event)"
                 ></ghs-event-card>
                 @if (model.card) {
                   <a class="button open" (click)="showEventCard(model.card, model.identifier)" [ghs-tooltip]="'game.events.deck.show'">
                     <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
+                  </a>
+                  <a class="button flip" (click)="model.flipped = !model.flipped" [ghs-tooltip]="'game.events.deck.flipCard'">
+                    <img class="ghs-svg" src="./assets/images/sync.svg" />
                   </a>
                 }
                 @if (model.identifier.selected !== -1) {

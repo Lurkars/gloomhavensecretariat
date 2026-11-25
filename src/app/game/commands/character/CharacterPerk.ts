@@ -6,22 +6,21 @@ export class CharacterPerkCommand extends CommandImpl {
   id: string = 'character.perk';
   requiredParameters: number = 3;
 
-  validParameters(number: number, index: number, value: number): boolean {
+  validParameters(number: number, index: number, value: number, force: boolean = false): boolean {
     const character = findCharacter(number);
     return (
       !!character &&
       typeof index === 'number' &&
-      !!character.perks[index] &&
       typeof value === 'number' &&
-      value >= 0 &&
-      value <= character.perks[index].count
+      typeof force === 'boolean' &&
+      gameManager.characterManager.canSetPerk(character, index, value, force)
     );
   }
 
-  executeWithParameters(number: number, index: number, value: number) {
+  executeWithParameters(number: number, index: number, value: number, force: boolean = false) {
     const character = findCharacter(number);
     if (character) {
-      gameManager.characterManager.setPerk(character, index, value);
+      gameManager.characterManager.setPerk(character, index, value, force);
     } else {
       this.executionError('character not found');
     }

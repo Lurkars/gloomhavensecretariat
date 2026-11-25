@@ -97,7 +97,7 @@ export class ItemsBrewDialog implements OnInit {
         } else if (b === this.character) {
           return 1;
         }
-        return gameManager.sortFiguresByTypeAndName(a, b);
+        return gameManager.roundManager.sortFiguresByTypeAndName(a, b);
       });
     this.selectedCharacter = this.characters.length ? this.characters[0] : undefined;
     this.applied = false;
@@ -168,7 +168,7 @@ export class ItemsBrewDialog implements OnInit {
     }
 
     const specialItem = gameManager.itemManager
-      .getItems(gameManager.currentEdition(), true)
+      .getItems(gameManager.editionManager.currentEdition(), true)
       .find(
         (itemData) =>
           (!itemData.requiredItems || !itemData.requiredItems.length) &&
@@ -259,9 +259,16 @@ export class ItemsBrewDialog implements OnInit {
   }
 
   brew(force: boolean = false) {
-    if ((!gameManager.itemManager.brewingDisabled() && !this.forced.includes(true)) || force) {
+    const recipe = this.receipe.filter((herb) => !!herb) as LootType[];
+    const characterSpent = force ? {} : this.characterSpent;
+    const partySpent = force ? {} : this.fhSupportSpent;
+    if (
+      (!this.forced.includes(true) || force) &&
+      this.selectedCharacter &&
+      gameManager.itemManager.canBrewPotion(recipe, this.selectedCharacter, this.character, characterSpent, partySpent, force)
+    ) {
       this.brewed = this.getItem();
-      if (this.selectedCharacter && this.brewed) {
+      if (this.brewed) {
         gameManager.stateManager.before(
           this.selectedCharacter === this.character ? 'brewPotion' : 'brewPotionOther',
           (!!this.character && gameManager.characterManager.characterName(this.character, true, true)) || '',
@@ -269,13 +276,7 @@ export class ItemsBrewDialog implements OnInit {
           this.brewed.edition,
           gameManager.characterManager.characterName(this.selectedCharacter, true, true)
         );
-        gameManager.itemManager.brewPotion(
-          this.brewed,
-          this.selectedCharacter,
-          this.character,
-          force ? {} : this.characterSpent,
-          force ? {} : this.fhSupportSpent
-        );
+        gameManager.itemManager.brewPotion(recipe, this.selectedCharacter, this.character, characterSpent, partySpent, force);
         this.applied = true;
         this.computeGridState();
         gameManager.stateManager.after();

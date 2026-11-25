@@ -21,9 +21,7 @@
               class="section"
               [ngClass]="{
                 checked: party.townGuardPerkSections.includes(section),
-                disabled:
-                  !party.townGuardPerkSections.includes(section) &&
-                  party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)
+                disabled: !gameManager.outpostAttackManager.townGuardPerkSectionAvailable(section)
               }"
               ghs-pointer-input
               (singleClick)="toggleTownGuardPerkSection(section)"
@@ -37,7 +35,7 @@
       </div>
     }
   </div>
-  @if (party.townGuardPerkSections.length > (party.townGuardPerks / 3 | ghsFloor)) {
+  @if (gameManager.outpostAttackManager.townGuardPerkSectionsExceeded()) {
     <div class="warning" [ghs-label]="'game.attackModifiers.perks.warning'" [ghs-label-attribute]="'title'">
       <img class="ghs-svg" src="./assets/images/warning.svg" />
       <span [ghs-label]="'game.attackModifiers.perks.warning'"></span>

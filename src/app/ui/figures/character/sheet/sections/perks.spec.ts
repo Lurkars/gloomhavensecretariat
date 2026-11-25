@@ -23,6 +23,7 @@ function createComponent(character: Character, availablePerks: number = 0, force
   const fixture = TestBed.createComponent(CharacterSheetPerksComponent);
   fixture.componentRef.setInput('character', character);
   fixture.componentRef.setInput('forceEdit', forceEdit);
+  character.progress.extraPerks = availablePerks;
   fixture.componentInstance.availablePerks = availablePerks;
   return fixture.componentInstance;
 }

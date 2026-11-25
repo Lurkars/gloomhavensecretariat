@@ -22,21 +22,21 @@ describe('Entity condition commands', () => {
       const character = createTestCharacter(1);
       new EntityConditionCommand(1, '', ConditionName.wound, true).execute();
       new EntityConditionCommand(1, '', ConditionName.wound, true).execute();
-      expect(gameManager.entityManager.hasCondition(character, new Condition(ConditionName.wound))).toBe(true);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.wound))).toBe(true);
       expect(character.entityConditions.filter((entityCondition) => entityCondition.name === ConditionName.wound).length).toBe(1);
 
       new EntityConditionCommand(1, '', ConditionName.wound, false).execute();
-      expect(gameManager.entityManager.hasCondition(character, new Condition(ConditionName.wound))).toBe(false);
+      expect(gameManager.conditionManager.hasCondition(character, new Condition(ConditionName.wound))).toBe(false);
     });
 
     it('adds a condition to all standees of a monster that miss it', () => {
       const monster = createTestMonster();
       const first = createTestMonsterEntity(monster, 1);
       const second = createTestMonsterEntity(monster, 2);
-      gameManager.entityManager.addCondition(first, monster, new Condition(ConditionName.poison));
+      gameManager.conditionManager.addCondition(first, monster, new Condition(ConditionName.poison));
       new EntityConditionCommand('test-testmonster', '', ConditionName.poison, true).execute();
-      expect(gameManager.entityManager.hasCondition(first, new Condition(ConditionName.poison))).toBe(true);
-      expect(gameManager.entityManager.hasCondition(second, new Condition(ConditionName.poison))).toBe(true);
+      expect(gameManager.conditionManager.hasCondition(first, new Condition(ConditionName.poison))).toBe(true);
+      expect(gameManager.conditionManager.hasCondition(second, new Condition(ConditionName.poison))).toBe(true);
     });
   });
 
@@ -71,8 +71,8 @@ describe('Entity condition commands', () => {
       const character = createTestCharacter(1);
       const wound = new EntityCondition(ConditionName.wound);
       character.entityConditions.push(wound);
-      const apply = vi.spyOn(gameManager.entityManager, 'applyCondition').mockImplementation(() => {});
-      const decline = vi.spyOn(gameManager.entityManager, 'declineApplyCondition').mockImplementation(() => {});
+      const apply = vi.spyOn(gameManager.conditionManager, 'applyCondition').mockImplementation(() => {});
+      const decline = vi.spyOn(gameManager.conditionManager, 'declineApplyCondition').mockImplementation(() => {});
 
       new EntityConditionApplyCommand(1, '', ConditionName.wound, false, true).execute();
       expect(apply).toHaveBeenCalledTimes(2);

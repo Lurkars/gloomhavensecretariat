@@ -26,7 +26,7 @@ export function openLootRandomItemDialog(dialog: Dialog, item: ItemData, charact
     .closed.subscribe({
       next: (result) => {
         const characterName = gameManager.characterManager.characterName(character, true, true);
-        if (result) {
+        if (result && gameManager.lootManager.canApplyRandomItem(character, index)) {
           gameManager.stateManager.before('lootRandomItem', item.id, item.edition, item.name, characterName);
           gameManager.lootManager.applyRandomItem(character, index, item);
           gameManager.stateManager.after();

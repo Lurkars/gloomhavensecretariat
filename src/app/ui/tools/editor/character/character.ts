@@ -60,21 +60,21 @@ export class CharacterEditorComponent implements OnInit {
       this.characterDataFromJson();
     });
 
-    this.editions = gameManager.editions(true);
-    this.charactersData = gameManager.charactersData(this.edition);
+    this.editions = gameManager.editionManager.editions(true);
+    this.charactersData = gameManager.editionManager.charactersData(this.edition);
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (queryParams) => {
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
+          if (this.edition && gameManager.editionManager.editions(!true).includes(this.edition)) {
             this.edition = undefined;
           }
-          this.charactersData = gameManager.charactersData(this.edition);
+          this.charactersData = gameManager.editionManager.charactersData(this.edition);
         }
 
         if (queryParams['character']) {
-          const characterData = gameManager
+          const characterData = gameManager.editionManager
             .charactersData(this.edition)
             .find((characterData) => characterData.name === queryParams['character']);
           if (characterData) {
@@ -147,13 +147,13 @@ export class CharacterEditorComponent implements OnInit {
     } else {
       this.edition = undefined;
     }
-    this.charactersData = gameManager.charactersData(this.edition);
+    this.charactersData = gameManager.editionManager.charactersData(this.edition);
   }
 
   loadCharacterData(event: any) {
     const index = +event.target.value;
     if (index !== -1) {
-      this.characterData = gameManager.charactersData(this.edition)[index];
+      this.characterData = gameManager.editionManager.charactersData(this.edition)[index];
     } else {
       this.characterData = new CharacterData();
       this.characterData.iconUrl = './assets/images/warning.svg';

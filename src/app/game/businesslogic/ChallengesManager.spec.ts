@@ -25,7 +25,7 @@ describe('ChallengesManager', () => {
     challengesManager.available = false;
     gameManager.game.state = GameState.draw;
     gameManager.roundManager.firstRound = false;
-    gameManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
+    gameManager.editionManager.editionData = [new EditionData('fh', [], [], [], [], [], [])];
     settingsManager.settings.editions = ['fh'];
   });
 
@@ -47,6 +47,7 @@ describe('ChallengesManager', () => {
 
   describe('restoreCard', () => {
     it('inserts the card at a seeded position among the upcoming cards', () => {
+      vi.spyOn(gameManager.editionManager, 'challengesData').mockReturnValue([new ChallengeCard(9, 'fh', 'fully')]);
       const restore = (seed: number) => {
         const deck = buildDeck([1, 2, 3, 4, 5]);
         deck.current = 1;
@@ -61,6 +62,7 @@ describe('ChallengesManager', () => {
         expect(cards.length).toBe(6);
         expect(restore(seed)).toEqual(cards);
       }
+      vi.restoreAllMocks();
     });
   });
 
@@ -68,7 +70,7 @@ describe('ChallengesManager', () => {
     it('advances current by one', () => {
       const deck = buildDeck([1, 2, 3]);
       deck.current = 0;
-      challengesManager.drawCard(deck);
+      challengesManager.drawCard(deck, true);
       expect(deck.current).toEqual(1);
     });
 
@@ -109,24 +111,83 @@ describe('ChallengesManager', () => {
   });
 
   describe('toggleKeep', () => {
-    it('adds an index to keep when not already present', () => {
+    beforeEach(() => {
+      vi.spyOn(challengesManager, 'keepAvailable').mockReturnValue(2);
+    });
+
+    afterEach(() => vi.restoreAllMocks());
+
+    function drawnDeck(): ChallengeDeck {
       const deck = buildDeck([1, 2, 3]);
-      challengesManager.toggleKeep(deck, 1, 2);
+      deck.current = 2;
+      deck.finished = -1;
+      return deck;
+    }
+
+    it('adds an index to keep when not already present', () => {
+      const deck = drawnDeck();
+      expect(challengesManager.toggleKeep(deck, 1, true)).toBe(true);
       expect(deck.keep).toEqual([1]);
     });
 
     it('removes an index from keep when already present', () => {
-      const deck = buildDeck([1, 2, 3]);
+      const deck = drawnDeck();
       deck.keep = [0, 1];
-      challengesManager.toggleKeep(deck, 1, 2);
+      challengesManager.toggleKeep(deck, 1, true);
       expect(deck.keep).toEqual([0]);
     });
 
     it('drops the oldest kept index once keepAvailable is reached', () => {
-      const deck = buildDeck([1, 2, 3]);
+      const deck = drawnDeck();
       deck.keep = [0, 1];
-      challengesManager.toggleKeep(deck, 2, 2);
+      challengesManager.toggleKeep(deck, 2, true);
       expect(deck.keep).toEqual([1, 2]);
+    });
+
+    it('keeps only drawn, unfinished cards in the draw phase unless forced', () => {
+      const deck = drawnDeck();
+      deck.current = 1;
+      deck.finished = 0;
+      expect(challengesManager.canToggleKeep(deck, 0, true)).toBe(false);
+      expect(challengesManager.canToggleKeep(deck, 2, true)).toBe(false);
+      expect(challengesManager.toggleKeep(deck, 1)).toBe(false);
+      vi.spyOn(challengesManager, 'drawPhase').mockReturnValue(true);
+      expect(challengesManager.toggleKeep(deck, 1)).toBe(true);
+      vi.mocked(challengesManager.keepAvailable).mockReturnValue(0);
+      expect(challengesManager.canToggleKeep(deck, 1)).toBe(true);
+      deck.keep = [];
+      expect(challengesManager.canToggleKeep(deck, 1)).toBe(false);
+    });
+  });
+
+  describe('drawCard', () => {
+    afterEach(() => vi.restoreAllMocks());
+
+    it('draws up to the town hall level in the draw phase unless forced', () => {
+      const deck = buildDeck([1, 2, 3]);
+      deck.current = -1;
+      deck.finished = -1;
+      vi.spyOn(challengesManager, 'drawAvailable').mockReturnValue(1);
+      expect(challengesManager.drawCard(deck)).toBe(false);
+      vi.spyOn(challengesManager, 'drawPhase').mockReturnValue(true);
+      expect(challengesManager.drawCard(deck)).toBe(true);
+      expect(challengesManager.drawCard(deck)).toBe(false);
+      expect(challengesManager.drawCard(deck, true)).toBe(true);
+      expect(challengesManager.drawCard(deck, true)).toBe(true);
+      expect(challengesManager.drawCard(deck, true)).toBe(false);
+      expect(deck.current).toBe(2);
+    });
+
+    it('validates move positions over finished, discarded and upcoming cards', () => {
+      const deck = buildDeck([1, 2, 3, 4]);
+      deck.current = 1;
+      deck.finished = 0;
+      expect(challengesManager.canMoveCard(deck, 'finished', 0, 'upcoming', 2)).toBe(true);
+      expect(challengesManager.canMoveCard(deck, 'finished', 1, 'upcoming', 0)).toBe(false);
+      expect(challengesManager.canMoveCard(deck, 'upcoming', 1, 'upcoming', 1)).toBe(true);
+      expect(challengesManager.canMoveCard(deck, 'upcoming', 0, 'upcoming', 2)).toBe(false);
+      expect(challengesManager.canMoveCard(deck, 'archive', 0, 'upcoming', 0)).toBe(false);
+      expect(challengesManager.removeCard(deck, 4)).toBe(false);
     });
   });
 
@@ -208,6 +269,18 @@ describe('ChallengesManager', () => {
   });
 });
 
+describe('ChallengesManager removeCard', () => {
+  it('keeps the finished and discarded split when removing a finished card', () => {
+    const deck = buildDeck([1, 2, 3, 4]);
+    deck.finished = 1;
+    deck.current = 3;
+    gameManager.challengesManager.removeCard(deck, 0);
+    expect(deck.finished).toBe(0);
+    expect(deck.current).toBe(2);
+    expect(deck.cards.length).toBe(3);
+  });
+});
+
 describe('ChallengesManager stat effects', () => {
   const challengesManager = gameManager.challengesManager;
 
@@ -256,5 +329,24 @@ describe('ChallengesManager stat effects', () => {
     challengesManager.applyCardsAlways();
 
     expect(entity.maxHealth).toEqual(10);
+  });
+
+  it('stat effects still apply to monsters allied during the scenario', () => {
+    const { monster, entity } = buildEntity();
+    monster.isAllied = true;
+    challengesManager.applyCardStatEffect(monster, new ChallengeCard(1492, 'fh', 'fully'));
+    expect(entity.tags).toContain('challenge-fh-1492');
+  });
+
+  it('removes enemy effects once a monster is an ally', () => {
+    const { monster, entity } = buildEntity();
+    const card1492 = new ChallengeCard(1492, 'fh', 'fully');
+    challengesManager.applyCardStatEffect(monster, card1492);
+    expect(entity.extraActionsPersistent.length).toEqual(1);
+
+    monster.isAlly = true;
+    challengesManager.applyCardStatEffect(monster, card1492);
+    expect(entity.tags).not.toContain('challenge-fh-1492');
+    expect(entity.extraActionsPersistent).toEqual([]);
   });
 });

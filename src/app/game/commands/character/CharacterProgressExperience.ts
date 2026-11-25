@@ -8,7 +8,7 @@ export class CharacterProgressExperienceCommand extends CommandImpl {
 
   validParameters(number: number, value: number): boolean {
     const character = findCharacter(number);
-    return !!character && typeof value === 'number' && value !== 0 && character.progress.experience + value >= 0;
+    return !!character && typeof value === 'number' && gameManager.characterManager.canAddXP(character, value);
   }
 
   executeWithParameters(number: number, value: number) {

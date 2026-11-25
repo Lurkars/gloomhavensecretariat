@@ -7,9 +7,10 @@ export class MarkerHelper {
 
   update() {
     const applicableEntities = this.component.applicableEntities;
-    this.component.characterMarker = [...gameManager.markers(), ...applicableEntities.flatMap((entity) => entity.markers)].filter(
-      (marker, index, self) => index === self.indexOf(marker)
-    );
+    this.component.characterMarker = [
+      ...gameManager.entityManager.markers(),
+      ...applicableEntities.flatMap((entity) => entity.markers)
+    ].filter((marker, index, self) => index === self.indexOf(marker));
 
     this.component.characterMarker.forEach((marker) => {
       if (applicableEntities.length > 0 && applicableEntities.every((entity) => entity.markers.includes(marker))) {
@@ -21,7 +22,7 @@ export class MarkerHelper {
   toggleCharacterMarker() {
     if (this.component.entity instanceof Character) {
       this.component.before(this.component.entity.marker ? 'disableCharacterMarker' : 'enableCharacterMarker');
-      this.component.entity.marker = !this.component.entity.marker;
+      gameManager.characterManager.setCharacterMarker(this.component.entity, !this.component.entity.marker);
       gameManager.stateManager.after();
       this.update();
     }
@@ -46,11 +47,11 @@ export class MarkerHelper {
           const edition = marker.split('-')[0];
           const name = marker.split('-').slice(1).join('-');
           this.component.before('addCharacterMarker', marker, edition + '.' + name);
-          applicableEntities.forEach((entity) => {
-            if (!entity.markers.includes(marker)) {
-              entity.markers.push(marker);
-            }
-          });
+          gameManager.entityManager.setMarker(
+            applicableEntities.filter((entity) => !entity.markers.includes(marker)),
+            marker,
+            true
+          );
           gameManager.stateManager.after();
         }
       });
@@ -62,9 +63,7 @@ export class MarkerHelper {
           const edition = marker.split('-')[0];
           const name = marker.split('-').slice(1).join('-');
           this.component.before('removeCharacterMarker', marker, edition + '.' + name);
-          applicableEntities.forEach((entity) => {
-            entity.markers = entity.markers.filter((m) => m !== marker);
-          });
+          gameManager.entityManager.setMarker(applicableEntities, marker, false);
           gameManager.stateManager.after();
         }
       });

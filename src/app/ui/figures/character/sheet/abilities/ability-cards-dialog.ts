@@ -9,6 +9,7 @@ import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { AbilityCardComponent } from 'src/app/ui/figures/ability-card/ability-card';
 import { AbilityCardDialogComponent } from 'src/app/ui/figures/ability-card/ability-card-dialog';
 import { EnhancementDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog';
+import { setAbilityCardsEditing } from 'src/app/ui/helper/ability-edit';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { GhsRangePipe } from 'src/app/ui/helper/Pipes';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';
@@ -56,7 +57,7 @@ export class AbilityCardsDialogComponent implements OnInit {
     this.ghsManager.uiChangeEffect(() => this.update());
     this.character = this.data.character;
     this.level = this.character.level;
-    this.abilityCards = gameManager.deckData(this.character).abilities;
+    this.abilityCards = gameManager.editionManager.deckData(this.character).abilities;
     this.abilityCards
       .filter(
         (abilityCard) =>
@@ -70,7 +71,7 @@ export class AbilityCardsDialogComponent implements OnInit {
       });
     this.dialogRef.closed.subscribe({
       next: () => {
-        this.character.tags = this.character.tags.filter((tag) => tag !== 'edit-abilities');
+        setAbilityCardsEditing(this.character, false);
       }
     });
   }
@@ -80,14 +81,9 @@ export class AbilityCardsDialogComponent implements OnInit {
   }
 
   update() {
-    this.cardsToPick = this.character.level - this.character.progress.deck.length - 1;
-    this.character.tags = this.character.tags.filter((tag) => tag !== 'edit-abilities');
-
-    if (this.cardsToPick < 0) {
-      this.cardsToPick = 0;
-    }
-    this.character.progress.deck = this.character.progress.deck || [];
-    this.levelToPick = this.deck && this.cardsToPick ? this.character.level - this.cardsToPick + 1 : 0;
+    this.cardsToPick = gameManager.characterAbilityManager.abilityCardsToPick(this.character);
+    this.levelToPick = this.deck ? gameManager.characterAbilityManager.abilityLevelToPick(this.character) : 0;
+    setAbilityCardsEditing(this.character, false);
     this.maxLevel = Math.max(
       ...this.abilityCards
         .filter((abilityCard, i) => typeof abilityCard.level === 'number' && this.character.progress.deck.includes(i))
@@ -135,7 +131,7 @@ export class AbilityCardsDialogComponent implements OnInit {
             (typeof abilityCard.level === 'string' && abilityCard.level === this.level) ||
             this.character.progress.deck.indexOf(this.abilityCards.indexOf(abilityCard)) !== -1
         );
-        this.character.tags.push('edit-abilities');
+        setAbilityCardsEditing(this.character, true);
       }
 
       if (this.sort === 'cardId') {
@@ -224,15 +220,18 @@ export class AbilityCardsDialogComponent implements OnInit {
   }
 
   undoLastCard() {
+    if (!gameManager.characterAbilityManager.canUndoAbilityDeck(this.character)) {
+      return;
+    }
     gameManager.stateManager.before('character.undoLastCard', gameManager.characterManager.characterName(this.character, true, true));
-    this.character.progress.deck.splice(-1, 1);
+    gameManager.characterAbilityManager.undoAbilityDeck(this.character);
     gameManager.stateManager.after();
     this.update();
   }
 
   resetDeck() {
     gameManager.stateManager.before('character.resetDeck', gameManager.characterManager.characterName(this.character, true, true));
-    this.character.progress.deck = [];
+    gameManager.characterAbilityManager.resetAbilityDeck(this.character);
     gameManager.stateManager.after();
     this.update();
   }
@@ -247,26 +246,18 @@ export class AbilityCardsDialogComponent implements OnInit {
   }
 
   toggleDeck(abilityCard: AbilityCard, force: boolean = false) {
-    const inDeck = this.character.progress.deck.indexOf(this.abilityCards.indexOf(abilityCard)) !== -1;
-    if (inDeck || force || (this.levelToPick >= +abilityCard.level && this.cardsToPick > 0)) {
-      if (inDeck) {
-        gameManager.stateManager.before(
-          'character.cardFromDeck',
-          gameManager.characterManager.characterName(this.character, true, true),
-          abilityCard.name || abilityCard.cardId || ''
-        );
-        this.character.progress.deck = this.character.progress.deck.filter((value) => value !== this.abilityCards.indexOf(abilityCard));
-      } else {
-        gameManager.stateManager.before(
-          'character.cardToDeck',
-          gameManager.characterManager.characterName(this.character, true, true),
-          abilityCard.name || abilityCard.cardId || ''
-        );
-        this.character.progress.deck.push(this.abilityCards.indexOf(abilityCard));
-      }
-      gameManager.stateManager.after();
-      this.update();
+    const index = this.abilityCards.indexOf(abilityCard);
+    if (!gameManager.characterAbilityManager.canToggleAbilityDeck(this.character, index, force)) {
+      return;
     }
+    gameManager.stateManager.before(
+      this.character.progress.deck.includes(index) ? 'character.cardFromDeck' : 'character.cardToDeck',
+      gameManager.characterManager.characterName(this.character, true, true),
+      abilityCard.name || abilityCard.cardId || ''
+    );
+    gameManager.characterAbilityManager.toggleAbilityDeck(this.character, index, force);
+    gameManager.stateManager.after();
+    this.update();
   }
 
   openDialog(abilityCard: AbilityCard) {

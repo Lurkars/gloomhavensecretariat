@@ -61,11 +61,11 @@ describe('MainMenuComponent', () => {
   beforeEach(() => {
     gameManager.game.figures = [];
     gameManager.game.edition = 'gh';
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
     settingsManager.settings.editions = ['gh'];
     gameManager.stateManager.undos = [];
     gameManager.stateManager.redos = [];
-    gameManager.stateManager.log = [];
+    gameManager.historyManager.log = [];
   });
 
   it('constructs and applies the requested subMenu/standalone from DIALOG_DATA', () => {
@@ -211,7 +211,7 @@ describe('MainMenuComponent', () => {
 
     it('resolves the latest non-serverSync undo entry', () => {
       gameManager.stateManager.undos = [{ revision: 1, revisionOffset: 0 } as any];
-      gameManager.stateManager.log = [new LogEntry('update', 1, ['setInitiative', 'brute', '5'])];
+      gameManager.historyManager.log = [new LogEntry('update', 1, ['setInitiative', 'brute', '5'])];
       gameManager.game.revision = 1;
       const component = createComponent();
       component.update();

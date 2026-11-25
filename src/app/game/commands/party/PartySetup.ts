@@ -39,7 +39,9 @@ export class PartyBattleGoalEditionCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(edition: string, value: boolean): boolean {
-    return gameManager.editions().includes(edition) && !gameManager.editionRules(edition, false) && typeof value === 'boolean';
+    return (
+      gameManager.editionManager.editions().includes(edition) && !gameManager.editionRules(edition, false) && typeof value === 'boolean'
+    );
   }
 
   executeWithParameters(edition: string, value: boolean) {

@@ -1,3 +1,4 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 
@@ -7,13 +8,13 @@ export class CharacterAbilityDeckUndoCommand extends CommandImpl {
 
   validParameters(number: number): boolean {
     const character = findCharacter(number);
-    return !!character && character.progress.deck.length > 0;
+    return !!character && gameManager.characterAbilityManager.canUndoAbilityDeck(character);
   }
 
   executeWithParameters(number: number) {
     const character = findCharacter(number);
     if (character) {
-      character.progress.deck.splice(-1, 1);
+      gameManager.characterAbilityManager.undoAbilityDeck(character);
     } else {
       this.executionError('character not found');
     }

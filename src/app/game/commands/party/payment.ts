@@ -1,4 +1,3 @@
-import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE } from 'src/app/game/commands/Command';
 import { findCharacter } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
@@ -65,12 +64,42 @@ export function payment(values: (BASE_TYPE | undefined)[]): SelectResourceResult
   return new SelectResourceResult(characters, characterSpent, fhSupportSpent, morale);
 }
 
-export function applyPayment(values: (BASE_TYPE | undefined)[]) {
-  const result = payment(values);
-  if (result) {
-    if (result.morale) {
-      gameManager.campaignManager.changeMorale(-result.morale);
+export const TRADE_RECEIVE = 'receive';
+
+function tradeParts(values: (BASE_TYPE | undefined)[]): { spent: (BASE_TYPE | undefined)[]; received: (BASE_TYPE | undefined)[] } {
+  const index = values.indexOf(TRADE_RECEIVE);
+  return index === -1 ? { spent: values, received: [] } : { spent: values.slice(0, index), received: values.slice(index + 1) };
+}
+
+export function tradeValid(values: (BASE_TYPE | undefined)[]): boolean {
+  const { spent, received } = tradeParts(values);
+  return paymentValid(spent) && paymentValid(received) && values.filter((value) => value === TRADE_RECEIVE).length === 1;
+}
+
+export function tradeResult(values: (BASE_TYPE | undefined)[]): SelectResourceResult {
+  const { spent, received } = tradeParts(values);
+  const spentResult = payment(spent) || new SelectResourceResult([], [], emptyCosts());
+  const receivedResult = payment(received) || new SelectResourceResult([], [], emptyCosts());
+  const characters = [...spentResult.characters];
+  receivedResult.characters.forEach((character) => {
+    if (!characters.includes(character)) {
+      characters.push(character);
     }
-    gameManager.lootManager.applySelectResources(result);
-  }
+  });
+  const characterSpent = characters.map((character) => {
+    const index = spentResult.characters.indexOf(character);
+    return index === -1 ? emptyCosts() : spentResult.characterSpent[index];
+  });
+  const characterReceived = characters.map((character) => {
+    const index = receivedResult.characters.indexOf(character);
+    return index === -1 ? emptyCosts() : receivedResult.characterSpent[index];
+  });
+  return new SelectResourceResult(
+    characters,
+    characterSpent,
+    spentResult.fhSupportSpent,
+    0,
+    characterReceived,
+    receivedResult.fhSupportSpent
+  );
 }

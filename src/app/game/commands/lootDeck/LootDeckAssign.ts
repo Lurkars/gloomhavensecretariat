@@ -2,7 +2,6 @@ import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findCharacter, findItem, validSeed } from 'src/app/game/commands/CommandHelper';
 import { lootCardIndex } from 'src/app/game/commands/lootDeck/LootDeckEdit';
-import { LootType } from 'src/app/game/model/data/Loot';
 
 export class LootDeckAssignCommand extends CommandImpl {
   id: string = 'lootDeck.assign';
@@ -12,14 +11,8 @@ export class LootDeckAssignCommand extends CommandImpl {
     if (!validSeed(seed)) {
       return false;
     }
-    const index = lootCardIndex(cardId);
     const character = findCharacter(number);
-    return (
-      index !== -1 &&
-      index <= gameManager.game.lootDeck.current &&
-      (number === -1 || !!character) &&
-      gameManager.lootManager.lootCardHolder(index) !== character
-    );
+    return (number === -1 || !!character) && gameManager.lootManager.canAssignLootCard(lootCardIndex(cardId), character);
   }
 
   executeWithParameters(cardId: number, number: number, seed: number) {
@@ -33,8 +26,8 @@ export class LootDeckRandomItemCommand extends CommandImpl {
   requiredParameters: number = 4;
 
   validParameters(cardId: number, number: number, edition: string, id: string | number): boolean {
-    const loot = gameManager.game.lootDeck.cards[lootCardIndex(cardId)];
-    return !!loot && loot.type === LootType.random_item && !!findCharacter(number) && !!findItem(edition, id);
+    const character = findCharacter(number);
+    return !!character && !!findItem(edition, id) && gameManager.lootManager.canApplyRandomItem(character, lootCardIndex(cardId));
   }
 
   executeWithParameters(cardId: number, number: number, edition: string, id: string | number) {

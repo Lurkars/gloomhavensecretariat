@@ -23,9 +23,9 @@ export class PartySheetReputationComponent extends PartySheetSection {
   }
 
   setReputation(value: number) {
-    if (this.party.reputation !== value) {
+    if (this.party.reputation !== value && gameManager.campaignManager.canSetReputation(value)) {
       gameManager.stateManager.before('setPartyReputation', value);
-      gameManager.campaignManager.changeReputation(value - this.party.reputation);
+      gameManager.campaignManager.setReputation(value);
       gameManager.stateManager.after();
       this.update();
     }

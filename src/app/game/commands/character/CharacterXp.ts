@@ -1,5 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
+import { findCharacter } from 'src/app/game/commands/CommandHelper';
 import { Character } from 'src/app/game/model/Character';
 
 export class CharacterXpCommand extends CommandImpl {
@@ -11,19 +12,14 @@ export class CharacterXpCommand extends CommandImpl {
   }
 
   validParameters(number: number, xp: number): boolean {
-    return (
-      (gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) !== undefined && xp !== 0) ||
-      false
-    );
+    const character = findCharacter(number);
+    return !!character && typeof xp === 'number' && gameManager.characterManager.canChangeExperience(character, xp);
   }
 
   executeWithParameters(number: number, xp: number) {
     const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number === number) as Character;
     if (character) {
-      character.experience += xp;
-      if (character.experience < 0) {
-        character.experience = 0;
-      }
+      gameManager.characterManager.changeExperience(character, xp);
     } else {
       this.executionError('character not found or invalid');
     }

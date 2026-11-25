@@ -85,7 +85,7 @@
     </div>
   }
 
-  @if (!settingsManager.settings.standees && gameManager.gameplayFigure(monster)) {
+  @if (!settingsManager.settings.standees && gameManager.entityManager.gameplayFigure(monster)) {
     <ghs-pointer-input class="entity-menu" [ngClass]="{ boss: monster.boss }" (singleClick)="openEntityMenu()"> </ghs-pointer-input>
   }
 

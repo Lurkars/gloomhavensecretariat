@@ -16,10 +16,6 @@
       font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
-
-      &.management {
-        cursor: pointer;
-      }
     }
 
     .resources {
@@ -141,6 +137,18 @@
         cursor: pointer;
         color: var(--ghs-color-white);
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+        .count {
+          margin-left: 0.3em;
+          padding: 0 0.4em;
+          min-width: 1.2em;
+          text-align: center;
+          font-family: var(--ghs-font-text);
+          font-size: 0.7em;
+          border-radius: 0.6em;
+          color: var(--ghs-color-black);
+          background-color: var(--ghs-color-gray);
+        }
       }
     }
 
@@ -297,11 +305,24 @@
 
     .empty {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-yellow);
+
+      .show-available {
+        cursor: pointer;
+        margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-green);
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
     }
 
     .item {
@@ -309,6 +330,17 @@
       margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+      transition: width calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
+
+      &.spent {
+        width: calc(var(--ghs-unit) * 41.5 * var(--ghs-dialog-factor));
+
+        ghs-character-item {
+          left: calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+          transform: rotate(90deg);
+        }
+      }
 
       .open-item {
         position: absolute;
@@ -319,6 +351,15 @@
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         cursor: zoom-in;
         z-index: 4;
+      }
+
+      ghs-character-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: all calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
+        z-index: 1;
       }
 
       ghs-item {
@@ -401,54 +442,35 @@
 
         z-index: 3;
       }
-
-      .button-equip {
-        z-index: 1;
-        position: absolute;
-        display: flex;
-        cursor: pointer;
-        bottom: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
-        left: calc(var(--ghs-unit) * 11.8 * var(--ghs-dialog-factor));
-        justify-content: center;
-        align-items: center;
-        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-        opacity: 0.4;
-        z-index: 4;
-
-        .ghs-svg {
-          width: 100%;
-          height: auto;
-          filter: var(--ghs-filter-white);
-        }
-
-        &.equipped {
-          opacity: 0.6;
-
-          .ghs-svg {
-            filter: var(--ghs-filter-green);
-          }
-        }
-
-        &:hover {
-          opacity: 1;
-
-          .ghs-svg {
-            filter: var(--ghs-filter-green);
-          }
-
-          &.equipped {
-            .ghs-svg {
-              filter: var(--ghs-filter-red);
-            }
-          }
-        }
-      }
     }
 
     @media (max-width: 600px), (orientation: portrait) {
       flex-direction: column;
       align-items: center;
+    }
+  }
+
+  .party-title {
+    display: flex;
+    justify-content: center;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-gray);
+  }
+
+  .item-list.party {
+    margin-top: 0;
+    min-height: initial;
+
+    .item {
+      width: calc(var(--ghs-unit) * 13.5 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 20.25 * var(--ghs-dialog-factor));
+      cursor: zoom-in;
+
+      ghs-item {
+        border: none;
+        cursor: zoom-in;
+      }
     }
   }
 

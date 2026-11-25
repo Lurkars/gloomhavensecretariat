@@ -132,22 +132,6 @@ describe('StandeeComponent', () => {
     });
   });
 
-  describe('normalizedRetaliateRange', () => {
-    it('defaults to 1 with no range sub-action', () => {
-      const { monster, entity } = buildMonster();
-      const component = createComponent(monster, entity);
-      const action = new Action(ActionType.retaliate, 1);
-      expect(component.normalizedRetaliateRange(action)).toEqual(1);
-    });
-
-    it('reads the range sub-action value when >1', () => {
-      const { monster, entity } = buildMonster();
-      const component = createComponent(monster, entity);
-      const action = new Action(ActionType.retaliate, 1, undefined, [new Action(ActionType.range, 3)]);
-      expect(component.normalizedRetaliateRange(action)).toEqual(3);
-    });
-  });
-
   describe('actionHintLabel', () => {
     it('builds a placeholder label without range for range<=1', () => {
       const { monster, entity } = buildMonster();

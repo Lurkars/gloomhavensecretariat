@@ -1,7 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { BASE_TYPE, CommandImpl } from 'src/app/game/commands/Command';
 import { validSeed } from 'src/app/game/commands/CommandHelper';
-import { openScenarioFinish } from 'src/app/game/commands/scenario/ScenarioFinish';
 import { ScenarioRule, ScenarioRuleIdentifier } from 'src/app/game/model/data/ScenarioRule';
 
 function sameRule(
@@ -57,9 +56,13 @@ export class ScenarioRuleApplyCommand extends CommandImpl {
     const scenario = model && gameManager.scenarioRulesManager.getScenarioForRule(model.identifier).scenario;
     if (model && scenario) {
       const result = gameManager.scenarioRulesManager.applyScenarioRule(model);
-      result.conclusions.forEach((conclusion) => openScenarioFinish(true, conclusion));
       if (result.finish) {
-        openScenarioFinish(result.finish.success, result.finish.conclusions.length === 1 ? result.finish.conclusions[0] : undefined);
+        gameManager.scenarioFinishManager.openFinish(
+          result.finish.success,
+          result.finish.conclusions.length === 1 ? result.finish.conclusions[0] : undefined
+        );
+      } else if (result.conclusions.length) {
+        gameManager.scenarioFinishManager.openFinish(true, result.conclusions[result.conclusions.length - 1]);
       }
       gameManager.scenarioRulesManager.resolveScenarioRule(model);
     } else {

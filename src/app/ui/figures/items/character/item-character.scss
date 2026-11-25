@@ -33,6 +33,14 @@
       border-color: var(--ghs-color-red);
     }
 
+    &.selectable {
+      cursor: pointer;
+    }
+
+    &.owned {
+      border-color: var(--ghs-color-blue);
+    }
+
     &.selected {
       cursor: pointer;
       border-color: var(--ghs-color-green);

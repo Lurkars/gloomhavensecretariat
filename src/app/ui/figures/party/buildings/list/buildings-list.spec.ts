@@ -26,6 +26,7 @@ function buildBuilding(overrides: Partial<BuildingData> = {}, modelOverrides: Pa
 function createComponent(buildings: Building[] = []): BuildingsListComponent {
   const fixture = TestBed.createComponent(BuildingsListComponent);
   fixture.componentRef.setInput('buildings', buildings);
+  gameManager.game.party.buildings = buildings.map((building) => building.model);
   return fixture.componentInstance;
 }
 
@@ -113,8 +114,8 @@ describe('BuildingsListComponent', () => {
 
     it('is a no-op when the building is not part of the party', () => {
       const building = buildBuilding({}, { level: 2 });
-      gameManager.game.party.buildings = [];
       const component = createComponent([building]);
+      gameManager.game.party.buildings = [];
       component.downgrade(building);
       expect(building.model.level).toEqual(2);
     });
@@ -128,7 +129,7 @@ describe('BuildingsListComponent', () => {
         conclusion: true,
         parentSections: [['s1']]
       });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [conclusion], []))];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [conclusion], []))];
       const component = createComponent();
       expect(component.hasConclusions('s1')).toBe(true);
     });
@@ -140,7 +141,7 @@ describe('BuildingsListComponent', () => {
         conclusion: true,
         parentSections: [['s1']]
       });
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [conclusion], []))];
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [conclusion], []))];
       gameManager.game.party.conclusions = [{ edition: 'gh', index: 'c1', group: undefined } as any];
       const component = createComponent();
       expect(component.hasConclusions('s1')).toBe(false);

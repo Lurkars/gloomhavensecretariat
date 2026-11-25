@@ -15,7 +15,7 @@ export class PartySheetSelectComponent extends PartySheetSection {
     const party = gameManager.game.parties.find((party) => !isNaN(+event.target.value) && party.id === +event.target.value);
     if (party) {
       gameManager.stateManager.before('changeParty', party.name || '%party% ' + party.id);
-      gameManager.changeParty(party);
+      gameManager.campaignManager.changeParty(party);
       gameManager.stateManager.after();
     }
   }

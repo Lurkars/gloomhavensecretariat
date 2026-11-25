@@ -240,9 +240,13 @@ for (edition_path of edition_dirs) {
 
   // console.debug("\n> Write file: '" + output_path + "'");
 
-  fs.writeFile(output_path, JSON.stringify(edition_data), 'utf8', (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
+  const content = JSON.stringify(edition_data);
+  if (fs.existsSync(output_path) && fs.readFileSync(output_path, 'utf8') === content) {
+    continue;
+  }
+
+  // write atomically, a running dev server must never serve a partially written file
+  const tmp_path = path.join(output_dir, '.' + edition_data['edition'] + '.json.tmp');
+  fs.writeFileSync(tmp_path, content, 'utf8');
+  fs.renameSync(tmp_path, output_path);
 }

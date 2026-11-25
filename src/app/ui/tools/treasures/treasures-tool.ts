@@ -30,14 +30,14 @@ export class TreasuresToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init(!environment.production);
     gameManager.stateManager.init(true);
-    this.edition = gameManager.editions(true)[0];
+    this.edition = gameManager.editionManager.editions(true)[0];
     this.update();
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (queryParams) => {
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
-          if (this.edition && gameManager.editions(!true).includes(this.edition)) {
+          if (this.edition && gameManager.editionManager.editions(!true).includes(this.edition)) {
             this.edition = undefined;
           }
           this.update();
@@ -48,7 +48,7 @@ export class TreasuresToolComponent implements OnInit {
 
   update() {
     this.treasures = [];
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition === this.edition);
+    const editionData = gameManager.editionManager.editionData.find((editionData) => editionData.edition === this.edition);
     if (editionData && editionData.treasures) {
       editionData.treasures.forEach((treasureString, index) => {
         this.treasures.push(new TreasureData(treasureString, index + 1 + (editionData.treasureOffset || 0)));

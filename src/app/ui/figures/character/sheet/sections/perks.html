@@ -18,7 +18,7 @@
             [ngClass]="{
               checked: character.progress.perks[i] && character.progress.perks[i] > count,
               disabled:
-                (!forceEdit() && (gameManager.game.state !== GameState.draw || gameManager.game.round > 0)) ||
+                (!forceEdit() && !gameManager.characterManager.progressEditable()) ||
                 (character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1)
             }"
             ghs-pointer-input
@@ -32,10 +32,7 @@
         (singleClick)="togglePerk(i)"
         (doubleClick)="togglePerk(i, true)"
         [ngClass]="{
-          disabled:
-            gameManager.game.state !== GameState.draw ||
-            gameManager.game.round > 0 ||
-            (availablePerks === 0 && !character.progress.perks[i])
+          disabled: !gameManager.characterManager.progressEditable() || (availablePerks === 0 && !character.progress.perks[i])
         }"
         [perk]="perk"
       ></ghs-perk-label>

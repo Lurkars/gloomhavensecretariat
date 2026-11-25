@@ -144,10 +144,21 @@ describe('CharacterSheetPersonalQuestComponent', () => {
       const component = createComponent(CharacterSheetPersonalQuestComponent, character);
 
       component.togglePersonalQuestAutotrack();
+      expect(character.progress.personalQuestAutotrack).toBe(false);
+
+      character.progress.personalQuest = 'PQ-auto';
+      const spy = vi.spyOn(gameManager.personalQuestManager, 'personalQuestByCard').mockReturnValue(
+        Object.assign(new PersonalQuest(), {
+          edition: 'gh',
+          requirements: [Object.assign(new PersonalQuestRequirement(), { counter: 1, autotrack: 'loot' })]
+        })
+      );
+      component.togglePersonalQuestAutotrack();
       expect(character.progress.personalQuestAutotrack).toBe(true);
 
       component.togglePersonalQuestAutotrack();
       expect(character.progress.personalQuestAutotrack).toBe(false);
+      spy.mockRestore();
     });
 
     it('personalQuestRequirementAutotracked reflects the toggle, per requirement', () => {

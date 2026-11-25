@@ -33,7 +33,9 @@ describe('EventCardDeckComponent', () => {
   afterEach(() => vi.restoreAllMocks());
 
   function identifier(): EventCardIdentifier {
-    return new EventCardIdentifier('SO-26', 'fh', 'summer-outpost', 0, [], [0, 1], true, false);
+    const value = new EventCardIdentifier('SO-26', 'fh', 'summer-outpost', 0, [], [0, 1], true, false);
+    gameManager.game.party.eventCards.push(value);
+    return value;
   }
 
   it('checking a box of a resolved event keeps its selection and stores the checks', () => {

@@ -205,19 +205,21 @@ export class BuildingUpgradeDialog implements OnInit {
   }
 
   get tradeComplete(): boolean {
-    if (!this.trade) {
-      return false;
-    }
-    const trade = this.trade;
-    const trades = this.spent[tradeCostType(trade.pay)] / trade.payAmount;
-    const receivedByType = trade.receive
-      .map(tradeCostType)
-      .map((type) => (this.fhSupportReceived[type] || 0) + this.characterReceived.reduce((total, values) => total + values[type], 0));
-    const received = receivedByType.reduce((sum, value) => sum + value, 0);
-    if (trade.distinct && receivedByType.some((value) => value > trade.receiveAmount)) {
-      return false;
-    }
-    return Number.isInteger(trades) && trades > 0 && trades <= this.tradeMax && received === trades * trade.receiveAmount;
+    return (
+      !!this.trade &&
+      !!this.building &&
+      gameManager.buildingsManager.canApplyTrade(
+        this.building.model,
+        new SelectResourceResult(
+          this.characters,
+          this.characterSpent,
+          this.fhSupportSpent,
+          0,
+          this.characterReceived,
+          this.fhSupportReceived
+        )
+      )
+    );
   }
 
   ngOnInit(): void {
@@ -279,10 +281,12 @@ export class BuildingUpgradeDialog implements OnInit {
   }
 
   sectionRewards(index: string, edition: string = '') {
-    const section = gameManager.sectionData(edition || gameManager.currentEdition()).find((sectionData) => sectionData.index === index);
+    const section = gameManager.editionManager
+      .sectionData(edition || gameManager.editionManager.currentEdition())
+      .find((sectionData) => sectionData.index === index);
     if (this.rewardsOnly && section) {
       const conclusion = gameManager.buildingsManager.rewardSection(section);
-      const conclusions = gameManager.scenarioManager.sectionConclusions(section.index, section.edition, true);
+      const conclusions = gameManager.campaignManager.sectionConclusions(section.index, section.edition, true);
 
       if (conclusion || conclusions.length === 0) {
         const scenario = new Scenario(conclusion || section);
@@ -319,12 +323,7 @@ export class BuildingUpgradeDialog implements OnInit {
       ghsDialogClosingHelper(this.dialogRef, true);
     } else if (morale) {
       ghsDialogClosingHelper(this.dialogRef, new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent, 1));
-    } else if (
-      this.trade
-        ? this.tradeComplete
-        : this.paidResources >= this.requiredResources - (this.discount ? 1 : 0) &&
-          (!this.costs.gold || this.costs.gold === this.spent.gold)
-    ) {
+    } else if (this.trade ? this.tradeComplete : this.paymentComplete()) {
       ghsDialogClosingHelper(
         this.dialogRef,
         new SelectResourceResult(
@@ -337,6 +336,14 @@ export class BuildingUpgradeDialog implements OnInit {
         )
       );
     }
+  }
+
+  paymentComplete(): boolean {
+    return gameManager.buildingsManager.paymentCovers(
+      this.costs,
+      new SelectResourceResult(this.characters, this.characterSpent, this.fhSupportSpent),
+      this.repair
+    );
   }
 
   close() {

@@ -1,4 +1,4 @@
-import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { Settings } from 'src/app/game/model/Settings';
 
@@ -10,7 +10,27 @@ import { Settings } from 'src/app/game/model/Settings';
 describe('SettingsManager', () => {
   beforeEach(() => {
     settingsManager.settings = new Settings();
-    gameManager.editionData = [];
+    gameManager.editionManager.editionData = [];
+  });
+
+  describe('loadEditionData', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+      gameManager.editionManager.failedEditionDataUrls = [];
+    });
+
+    it('tracks edition data urls that failed to load until they load', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      vi.spyOn(labelManager, 'loadEditionLabel').mockImplementation(() => {});
+      const fetchSpy = vi.spyOn(window, 'fetch').mockRejectedValue(new Error('offline'));
+      expect(await gameManager.editionManager.loadEditionData('./assets/data/fh.json')).toBeUndefined();
+      expect(await gameManager.editionManager.loadEditionData('./assets/data/fh.json')).toBeUndefined();
+      expect(gameManager.editionManager.failedEditionDataUrls).toEqual(['./assets/data/fh.json']);
+
+      fetchSpy.mockResolvedValue({ ok: true, json: () => Promise.resolve({ edition: 'fh' }) } as Response);
+      expect((await gameManager.editionManager.loadEditionData('./assets/data/fh.json'))?.edition).toBe('fh');
+      expect(gameManager.editionManager.failedEditionDataUrls).toEqual([]);
+    });
   });
 
   describe('apply maxLog / maxUndo', () => {
@@ -172,17 +192,17 @@ describe('SettingsManager', () => {
 
   describe('isObject', () => {
     it('is true for plain objects, false for arrays/null/primitives', () => {
-      expect(settingsManager.isObject({})).toBe(true);
-      expect(settingsManager.isObject([])).toBe(false);
-      expect(settingsManager.isObject(null)).toBeFalsy();
-      expect(settingsManager.isObject('x')).toBe(false);
+      expect(labelManager.isObject({})).toBe(true);
+      expect(labelManager.isObject([])).toBe(false);
+      expect(labelManager.isObject(null)).toBeFalsy();
+      expect(labelManager.isObject('x')).toBe(false);
     });
   });
 
   describe('merge', () => {
     it('merges nested objects and concatenates duplicate array values into a set', () => {
       const target = { a: 1, list: [1, 2], nested: { x: 1 } };
-      const result = settingsManager.merge(target, false, { a: 2, list: [2, 3], nested: { y: 2 } });
+      const result = labelManager.merge(target, false, { a: 2, list: [2, 3], nested: { y: 2 } });
       expect(result.a).toEqual(1); // overwrite=false keeps existing scalar
       expect(result.list).toEqual([1, 2, 3]);
       expect(result.nested).toEqual({ x: 1, y: 2 });
@@ -190,64 +210,64 @@ describe('SettingsManager', () => {
 
     it('overwrites scalars when overwrite is true', () => {
       const target = { a: 1 };
-      const result = settingsManager.merge(target, true, { a: 2 });
+      const result = labelManager.merge(target, true, { a: 2 });
       expect(result.a).toEqual(2);
     });
 
     it('returns target unchanged when there are no sources', () => {
       const target = { a: 1 };
-      expect(settingsManager.merge(target, true)).toBe(target);
+      expect(labelManager.merge(target, true)).toBe(target);
     });
   });
 
   describe('getEditionByUrl', () => {
     it('returns the matching edition data url', () => {
-      gameManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { url: 'gh.json' })];
-      expect(settingsManager.getEditionByUrl('gh.json')).toEqual('gh.json');
+      gameManager.editionManager.editionData = [Object.assign(new EditionData('gh', [], [], [], [], [], []), { url: 'gh.json' })];
+      expect(gameManager.editionManager.getEditionByUrl('gh.json')).toEqual('gh.json');
     });
 
     it('is an empty string when no edition matches the url', () => {
-      expect(settingsManager.getEditionByUrl('missing.json')).toEqual('');
+      expect(gameManager.editionManager.getEditionByUrl('missing.json')).toEqual('');
     });
   });
 
   describe('emptyLabel', () => {
     it('renders the key alone when there are no args', () => {
-      expect(settingsManager.emptyLabel('some.key', [])).toEqual('some.key');
+      expect(labelManager.emptyLabel('some.key', [])).toEqual('some.key');
     });
 
     it('appends bracketed args when present', () => {
-      expect(settingsManager.emptyLabel('some.key', ['a', 'b'])).toEqual('some.key &#91;a,b&#93;');
+      expect(labelManager.emptyLabel('some.key', ['a', 'b'])).toEqual('some.key &#91;a,b&#93;');
     });
   });
 
   describe('labelExists', () => {
     it('is true for a string leaf value found via dotted path', () => {
       const from = { game: { title: 'Gloomhaven' } };
-      expect(settingsManager.labelExists('game.title', false, from)).toBe(true);
+      expect(labelManager.labelExists('game.title', false, from)).toBe(true);
     });
 
     it('is false for a missing path', () => {
       const from = { game: { title: 'Gloomhaven' } };
-      expect(settingsManager.labelExists('game.missing', false, from)).toBe(false);
+      expect(labelManager.labelExists('game.missing', false, from)).toBe(false);
     });
 
     it('requires includeObject to accept a plain nested object without a "" entry', () => {
       const from = { game: { nested: { deeper: 'x' } } };
-      expect(settingsManager.labelExists('game.nested', false, from)).toBeFalsy();
-      expect(settingsManager.labelExists('game.nested', true, from)).toBe(true);
+      expect(labelManager.labelExists('game.nested', false, from)).toBeFalsy();
+      expect(labelManager.labelExists('game.nested', true, from)).toBe(true);
     });
   });
 
   describe('insertLabelArguments', () => {
     it('substitutes {index} placeholders with the given args', () => {
-      expect(settingsManager.insertLabelArguments('Hello {0}, you have {1} items', ['world', '5'], false)).toEqual(
+      expect(labelManager.insertLabelArguments('Hello {0}, you have {1} items', ['world', '5'], false)).toEqual(
         'Hello world, you have 5 items'
       );
     });
 
     it('leaves the label unchanged when there are no matching placeholders', () => {
-      expect(settingsManager.insertLabelArguments('Hello world', ['unused'], false)).toEqual('Hello world');
+      expect(labelManager.insertLabelArguments('Hello world', ['unused'], false)).toEqual('Hello world');
     });
   });
 });

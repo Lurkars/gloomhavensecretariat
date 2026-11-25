@@ -34,7 +34,7 @@ export class EditionEditorComponent implements OnInit {
   );
 
   editionData: EditionData;
-  // copy of the loaded edition data: the trackUUID pipe is pure and does not see changes of the mutated gameManager.editionData array
+  // copy of the loaded edition data: the trackUUID pipe is pure and does not see changes of the mutated gameManager.editionManager.editionData array
   editionsData: EditionData[] = [];
   editionError: any;
 
@@ -44,7 +44,7 @@ export class EditionEditorComponent implements OnInit {
 
   async ngOnInit() {
     await settingsManager.init(!environment.production);
-    this.editionsData = [...gameManager.editionData];
+    this.editionsData = [...gameManager.editionManager.editionData];
     this.editionDataToJson();
     // zoneless: render the loaded edition data
     this.changeDetectorRef.markForCheck();

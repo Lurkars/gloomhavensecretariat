@@ -1,22 +1,10 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findObjectiveContainer, validSeed } from 'src/app/game/commands/CommandHelper';
-import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
 
 export class ObjectiveEntityAddCommand extends CommandImpl {
   id: string = 'objective.entity.add';
   requiredParameters: number = 2;
-
-  number(objectiveContainer: ObjectiveContainer): number {
-    const objectiveCount = objectiveContainer.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
-    let number = objectiveCount % 12;
-    if (objectiveCount < 12) {
-      while (objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number - 1 === number)) {
-        number++;
-      }
-    }
-    return number;
-  }
 
   validParameters(figureId: string, seed: number): boolean {
     if (!validSeed(seed)) {
@@ -29,7 +17,7 @@ export class ObjectiveEntityAddCommand extends CommandImpl {
     gameManager.game.seed = seed;
     const objectiveContainer = findObjectiveContainer(figureId);
     if (objectiveContainer) {
-      gameManager.objectiveManager.addObjectiveEntity(objectiveContainer, this.number(objectiveContainer));
+      gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
     } else {
       this.executionError('objective not found');
     }

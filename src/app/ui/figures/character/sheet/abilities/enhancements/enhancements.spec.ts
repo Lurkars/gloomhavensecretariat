@@ -174,7 +174,7 @@ describe('EnhancementsComponent', () => {
       character.progress.enhancements = [];
       character.progress.personalQuest = 'PQ1';
       character.progress.personalQuestAutotrack = true;
-      gameManager.editionData = [
+      gameManager.editionManager.editionData = [
         Object.assign(new EditionData('gh', [], [], [], [], [], []), {
           personalQuests: [
             Object.assign(new PersonalQuest(), {

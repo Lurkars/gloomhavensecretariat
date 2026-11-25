@@ -1,5 +1,5 @@
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
-import { CommandExecutionError } from 'src/app/game/commands/Command';
+import { CommandInvalidParametersError } from 'src/app/game/commands/Command';
 import { createTestCharacter, resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
 import { FigureNextCommand } from 'src/app/game/commands/figure/FigureNext';
 import { GameState } from 'src/app/game/model/Game';
@@ -10,18 +10,22 @@ import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 // is covered elsewhere. So `toggleFigure` is spied on (no-op) here to observe what the command decides
 // to hand off, without re-exercising RoundManager's own internals.
 describe('FigureNextCommand', () => {
+  const initiativeRequired = settingsManager.settings.initiativeRequired;
+
   beforeEach(() => {
     resetTestGame();
     gameManager.game.state = GameState.next;
     settingsManager.settings.activeSummons = true;
+    settingsManager.settings.initiativeRequired = false;
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
+    settingsManager.settings.initiativeRequired = initiativeRequired;
   });
 
   function spyToggleFigure() {
-    return vi.spyOn(gameManager.roundManager, 'toggleFigure').mockImplementation(() => {});
+    return vi.spyOn(gameManager.turnManager, 'toggleFigure').mockImplementation(() => {});
   }
 
   function addSummon(character: ReturnType<typeof createTestCharacter>, active: boolean, afterTurn: boolean = false): Summon {
@@ -34,15 +38,23 @@ describe('FigureNextCommand', () => {
   }
 
   describe('checkParameters / validParameters', () => {
-    it('never throws (no required parameters, always valid)', () => {
+    it('is valid when a figure can take the next turn', () => {
+      createTestCharacter(1);
       expect(() => new FigureNextCommand(1).checkParameters()).not.toThrow();
+    });
+
+    it('is invalid without a figure for the next turn', () => {
+      const character = createTestCharacter(1);
+      character.exhausted = true;
+      expect(() => new FigureNextCommand(1).checkParameters()).toThrow(CommandInvalidParametersError);
     });
   });
 
   describe('game state gate', () => {
-    it('throws CommandExecutionError when the game state is not "next"', () => {
+    it('is invalid when the game state is not "next"', () => {
+      createTestCharacter(1);
       gameManager.game.state = GameState.draw;
-      expect(() => new FigureNextCommand(1).execute()).toThrow(CommandExecutionError);
+      expect(() => new FigureNextCommand(1).execute()).toThrow(CommandInvalidParametersError);
     });
   });
 
@@ -75,7 +87,7 @@ describe('FigureNextCommand', () => {
   });
 
   describe('forward with an already-active figure', () => {
-    it('keeps delegating to roundManager.toggleFigure with the currently active figure', () => {
+    it('keeps delegating to gameManager.turnManager.toggleFigure with the currently active figure', () => {
       const figure1 = createTestCharacter(1);
       createTestCharacter(2);
       figure1.active = true;

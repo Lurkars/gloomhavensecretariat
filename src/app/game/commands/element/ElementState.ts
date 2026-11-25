@@ -21,7 +21,7 @@ export class ElementStateCommand extends CommandImpl {
   executeWithParameters(type: string, state: ElementState) {
     const element = this.element(type);
     if (element) {
-      gameManager.applyElementState(element, state);
+      gameManager.elementManager.applyElementState(element, state);
     } else {
       this.executionError('element not found');
     }

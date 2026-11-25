@@ -2,7 +2,15 @@ import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { EventEmitter } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { Character } from 'src/app/game/model/Character';
+import {
+  AttackModifier,
+  AttackModifierDeck,
+  AttackModifierType,
+  Gh2ESealedDeckAttackModifier
+} from 'src/app/game/model/data/AttackModifier';
+import { CharacterData } from 'src/app/game/model/data/CharacterData';
+import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
 import { AttackModiferDeckChange } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierDeckDialogComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck-dialog';
 
@@ -107,13 +115,14 @@ describe('AttackModifierDeckDialogComponent', () => {
       expect(component.countUpcomingAttackModifier(AttackModifierType.plus1)).toEqual(1);
     });
 
-    it('countUpcomingAttackModifier filters by an id prefix when given', () => {
-      const deck = buildDeck([AttackModifierType.plus1, AttackModifierType.plus1]);
+    it('countUpcomingAdditional only counts additional cards of the character', () => {
+      const deck = buildDeck([AttackModifierType.empower, AttackModifierType.empower, AttackModifierType.empower]);
       deck.current = -1;
-      deck.cards[0].id = 'additional-brute-1';
-      deck.cards[1].id = 'other-1';
+      deck.cards[0].id = 'additional-brute0';
+      deck.cards[1].id = 'additional-bruteling0';
+      deck.cards[2].id = 'other-1';
       const component = createComponent(deck);
-      expect(component.countUpcomingAttackModifier(AttackModifierType.plus1, 'additional-brute')).toEqual(1);
+      expect(component.countUpcomingAdditional(AttackModifierType.empower, { name: 'brute' } as Character)).toEqual(1);
     });
   });
 
@@ -235,20 +244,38 @@ describe('AttackModifierDeckDialogComponent', () => {
       expect(component.hasFactionModifier(new AttackModifier(AttackModifierType.minus1, 0, undefined, 'other'))).toBe(false);
     });
 
+    function factionCharacter(deck: AttackModifierDeck): Character {
+      const character = new Character(
+        Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+        1
+      );
+      character.attackModifierDeck = deck;
+      gameManager.game.figures = [character];
+      return character;
+    }
+
     it('toggleFactionAm removes a present card', () => {
+      const am = Gh2ESealedDeckAttackModifier[0];
       const deck = buildDeck([AttackModifierType.plus1]);
-      deck.cards[0].id = 'gh2e-jekserah-1';
-      const component = createComponent(deck);
-      component.toggleFactionAm(deck.cards[0]);
+      deck.cards[0].id = am.id;
+      const component = createComponent(deck, { character: factionCharacter(deck) });
+      component.toggleFactionAm(am);
       expect(component.deck.cards.length).toEqual(0);
     });
 
     it('toggleFactionAm adds a not-yet-present card', () => {
+      const am = Gh2ESealedDeckAttackModifier[0];
+      const deck = buildDeck([]);
+      const component = createComponent(deck, { character: factionCharacter(deck) });
+      component.toggleFactionAm(am);
+      expect(component.deck.cards.some((c) => c.id === am.id)).toBe(true);
+    });
+
+    it('toggleFactionAm does nothing without a character', () => {
       const deck = buildDeck([]);
       const component = createComponent(deck);
-      const am = Object.assign(new AttackModifier(AttackModifierType.plus1), { id: 'gh2e-jekserah-1' });
-      component.toggleFactionAm(am);
-      expect(component.deck.cards.some((c) => c.id === 'gh2e-jekserah-1')).toBe(true);
+      component.toggleFactionAm(Gh2ESealedDeckAttackModifier[0]);
+      expect(component.deck.cards.length).toEqual(0);
     });
   });
 });

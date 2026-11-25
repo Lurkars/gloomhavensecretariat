@@ -1,3 +1,4 @@
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { gameManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
 import { BattleGoal } from 'src/app/game/model/data/BattleGoal';
@@ -44,7 +45,7 @@ export class BattleGoalManager {
   }
 
   getBattleGoalEditions(): string[] {
-    return gameManager.editionData
+    return gameManager.editionManager.editionData
       .filter(
         (editionData) =>
           settingsManager.settings.editions.includes(editionData.edition) && editionData.battleGoals && editionData.battleGoals.length > 0
@@ -53,13 +54,13 @@ export class BattleGoalManager {
   }
 
   getBattleGoals(filtered: boolean = true, aliases: boolean = false): BattleGoal[] {
-    const edition = gameManager.game.edition;
-    return gameManager.editionData
+    const edition = this.game.edition;
+    return gameManager.editionManager.editionData
       .filter(
         (editionData) =>
           settingsManager.settings.editions.includes(editionData.edition) &&
-          ((gameManager.game.edition && gameManager.editionRules(editionData.edition)) ||
-            gameManager.game.battleGoalEditions.includes(editionData.edition))
+          ((this.game.edition && gameManager.editionRules(editionData.edition)) ||
+            this.game.battleGoalEditions.includes(editionData.edition))
       )
       .flatMap((editionData) =>
         editionData.battleGoals.filter(
@@ -116,10 +117,11 @@ export class BattleGoalManager {
   }
 
   getBattleGoalsForEdition(edition: string): BattleGoal[] {
-    return gameManager.editionData
+    return gameManager.editionManager.editionData
       .filter(
         (editionData) =>
-          settingsManager.settings.editions.includes(editionData.edition) && gameManager.isEditionRelevant(editionData.edition, edition)
+          settingsManager.settings.editions.includes(editionData.edition) &&
+          gameManager.editionManager.isEditionRelevant(editionData.edition, edition)
       )
       .flatMap((editionData) => editionData.battleGoals);
   }
@@ -128,6 +130,25 @@ export class BattleGoalManager {
     return this.getBattleGoals(undefined, true).find(
       (battleGoal) => battleGoal.edition === identifier.edition && battleGoal.name === identifier.name
     );
+  }
+
+  canSelectBattleGoal(character: Character, index: number): boolean {
+    return Number.isInteger(index) && index >= -1 && index < character.battleGoals.length;
+  }
+
+  selectBattleGoal(character: Character, index: number): boolean {
+    if (!this.canSelectBattleGoal(character, index)) {
+      return false;
+    }
+    if (gameManager.trialsManager.characterTrial(character, '349')) {
+      character.battleGoal = true;
+    } else if (index === -1) {
+      character.battleGoal = false;
+    } else {
+      character.battleGoal = true;
+      moveItemInArray(character.battleGoals, index, 0);
+    }
+    return true;
   }
 
   drawBattleGoals(character: Character) {

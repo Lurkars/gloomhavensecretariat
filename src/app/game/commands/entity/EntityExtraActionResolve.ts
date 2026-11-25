@@ -1,6 +1,6 @@
+import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { CommandImpl } from 'src/app/game/commands/Command';
 import { findEntity, findFigure } from 'src/app/game/commands/CommandHelper';
-import { extraActionIndex, extraActions, setExtraActions } from 'src/app/game/commands/entity/EntityExtraActionRemove';
 import { ActionType } from 'src/app/game/model/data/Action';
 
 export class EntityExtraActionResolveCommand extends CommandImpl {
@@ -15,7 +15,15 @@ export class EntityExtraActionResolveCommand extends CommandImpl {
     persistent: boolean = false
   ): boolean {
     const entity = findEntity(findFigure(figureId), entityId);
-    return !!entity && typeof accept === 'boolean' && extraActionIndex(entity, ActionType.extra, value, persistent) !== -1;
+    return (
+      !!entity &&
+      typeof accept === 'boolean' &&
+      gameManager.actionsManager.canResolveExtraAction(
+        entity,
+        gameManager.actionsManager.extraActionIndex(entity, ActionType.extra, value, !!persistent),
+        !!persistent
+      )
+    );
   }
 
   executeWithParameters(
@@ -27,13 +35,12 @@ export class EntityExtraActionResolveCommand extends CommandImpl {
   ) {
     const entity = findEntity(findFigure(figureId), entityId);
     if (entity) {
-      const index = extraActionIndex(entity, ActionType.extra, value, persistent);
-      const action = extraActions(entity, persistent)[index];
-      const actions = extraActions(entity, persistent).filter((other, i) => i !== index);
-      if (accept && action.subActions) {
-        actions.push(...action.subActions);
-      }
-      setExtraActions(entity, actions, persistent);
+      gameManager.actionsManager.resolveExtraAction(
+        entity,
+        gameManager.actionsManager.extraActionIndex(entity, ActionType.extra, value, !!persistent),
+        accept,
+        !!persistent
+      );
     } else {
       this.executionError('entity not found');
     }

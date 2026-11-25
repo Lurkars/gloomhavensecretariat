@@ -25,11 +25,12 @@ export class ChallengeDeck {
     this.current = model.current;
     this.finished = model.finished;
     this.keep = model.keep || [];
+    // keep cards whose data is not loaded, otherwise the deck gets rebuilt and reshuffled
     this.cards = model.cards
-      ? model.cards
-          .map((identifier) => gameManager.challengesManager.getChallengeCard(identifier))
-          .filter((value) => value)
-          .map((value) => value as ChallengeCard)
+      ? model.cards.map(
+          (identifier) =>
+            gameManager.challengesManager.getChallengeCard(identifier) || new ChallengeCard(+identifier.name, identifier.edition, undefined)
+        )
       : [];
     this.active = model.active;
   }

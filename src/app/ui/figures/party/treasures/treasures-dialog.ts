@@ -53,7 +53,7 @@ export class TreasuresDialogComponent implements OnInit {
       .filter(
         (scenarioData) =>
           (!this.data.scenario &&
-            (gameManager.scenarioManager.isSuccess(scenarioData) ||
+            (gameManager.scenarioRequirementsManager.isSuccess(scenarioData) ||
               gameManager.game.party.casualScenarios.find(
                 (value) =>
                   scenarioData.index === value.index && scenarioData.edition === value.edition && scenarioData.group === value.group
@@ -64,7 +64,7 @@ export class TreasuresDialogComponent implements OnInit {
             scenarioData.group === this.data.scenario.group)
       )
       .forEach((scenarioData) => {
-        let treasures: number[] = gameManager.scenarioManager
+        let treasures: number[] = gameManager.treasureManager
           .getAllTreasures(scenarioData)
           .filter((value) => typeof value === 'number')
           .map((value) => +value);
@@ -111,7 +111,7 @@ export class TreasuresDialogComponent implements OnInit {
   }
 
   hasTreasure(treasure: string | number, edition: string): boolean {
-    return gameManager.lootManager.hasPartyTreasure(edition, treasure);
+    return gameManager.treasureManager.hasPartyTreasure(edition, treasure);
   }
 
   apply() {
@@ -119,13 +119,13 @@ export class TreasuresDialogComponent implements OnInit {
     const addTreasures = this.selected.filter((index) => !this.looted.includes(index));
     if (removeTreasures.length > 0) {
       gameManager.stateManager.before('removeTreasures', this.edition, '[' + removeTreasures.join(',') + ']');
-      removeTreasures.forEach((treasure) => gameManager.lootManager.setPartyTreasure(this.edition, treasure, false));
+      removeTreasures.forEach((treasure) => gameManager.treasureManager.setPartyTreasure(this.edition, treasure, false));
       gameManager.stateManager.after();
     }
 
     if (addTreasures.length > 0) {
       gameManager.stateManager.before('addTreasures', this.edition, '[' + addTreasures.join(',') + ']');
-      addTreasures.forEach((treasure) => gameManager.lootManager.setPartyTreasure(this.edition, treasure, true));
+      addTreasures.forEach((treasure) => gameManager.treasureManager.setPartyTreasure(this.edition, treasure, true));
       gameManager.stateManager.after();
     }
 
