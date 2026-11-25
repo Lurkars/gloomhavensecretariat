@@ -881,6 +881,7 @@ export class CharacterManager {
 
         gameManager.specialActionsManager.next(figure);
         gameManager.trialsManager.next(figure);
+        gameManager.characterAbilityManager.endRound(figure);
 
         if (
           figure.progress.equippedItems.find((identifier) => identifier.edition === 'cs' && identifier.name === '57') &&

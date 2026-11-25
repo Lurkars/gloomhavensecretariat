@@ -1,4 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
+import { CharacterAbilityCards } from 'src/app/game/model/CharacterAbilityCards';
 import { CharacterProgress, ScenarioStats } from 'src/app/game/model/CharacterProgress';
 import { Action } from 'src/app/game/model/data/Action';
 import { AttackModifierDeck, GameAttackModifierDeckModel } from 'src/app/game/model/data/AttackModifier';
@@ -46,6 +47,8 @@ export class Character extends CharacterData implements Entity, Figure {
   retaliatePersistent: Action[] = [];
   extraActions: Action[] = [];
   extraActionsPersistent: Action[] = [];
+
+  abilityCards: CharacterAbilityCards | undefined;
 
   // from figure
   level: number;
@@ -169,7 +172,8 @@ export class Character extends CharacterData implements Entity, Figure {
       this.retaliatePersistent,
       this.extraActions,
       this.extraActionsPersistent,
-      this.fullview
+      this.fullview,
+      this.abilityCards
     );
   }
 
@@ -314,6 +318,9 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.extraActions = (model.extraActions || []).map((value) => JSON.parse(value) as Action);
     this.extraActionsPersistent = (model.extraActionsPersistent || []).map((value) => JSON.parse(value) as Action);
+    this.abilityCards = model.abilityCards
+      ? Object.assign(new CharacterAbilityCards(), JSON.parse(JSON.stringify(model.abilityCards)))
+      : undefined;
 
     if (this.shield) {
       this.extraActions.push(this.shield);
@@ -390,6 +397,7 @@ export class GameCharacterModel {
   extraActions: string[];
   extraActionsPersistent: string[];
   fullView: boolean;
+  abilityCards: CharacterAbilityCards | undefined;
 
   constructor(
     name: string,
@@ -434,7 +442,8 @@ export class GameCharacterModel {
     retaliatePersistent: Action[],
     extraActions: Action[],
     extraActionsPersistent: Action[],
-    fullView: boolean
+    fullView: boolean,
+    abilityCards: CharacterAbilityCards | undefined = undefined
   ) {
     this.name = name;
     this.edition = edition;
@@ -479,5 +488,6 @@ export class GameCharacterModel {
     this.extraActions = extraActions.map((action) => JSON.stringify(action));
     this.extraActionsPersistent = extraActionsPersistent.map((action) => JSON.stringify(action));
     this.fullView = fullView;
+    this.abilityCards = abilityCards ? JSON.parse(JSON.stringify(abilityCards)) : undefined;
   }
 }

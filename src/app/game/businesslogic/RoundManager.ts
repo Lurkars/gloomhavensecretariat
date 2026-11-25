@@ -72,6 +72,9 @@ export class RoundManager {
     if (character.longRest === longRest) {
       return;
     }
+    if (longRest) {
+      gameManager.characterAbilityManager.clearSelection(character);
+    }
     if (longRest && character.initiative !== 99 && !gameManager.specialActionsManager.keepInitiativeOnLongRest(character)) {
       character.initiative = 99;
       character.initiativeVisible = true;
@@ -413,6 +416,7 @@ export class RoundManager {
         figure.battleGoals = [];
         figure.extraActions = [];
         figure.extraActionsPersistent = [];
+        gameManager.characterAbilityManager.resetAbilityCards(figure);
         figure.scenarioStats = new ScenarioStats();
         figure.tokenValues = figure.tokens.map(() => 0);
 
