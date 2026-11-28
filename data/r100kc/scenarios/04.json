@@ -1,0 +1,167 @@
+{
+  "index": "4",
+  "name": "The Decomposing Composer",
+  "edition": "r100kc",
+  "initial": true,
+  "rewards": {
+    "prosperity": 1,
+    "custom": "%data.scenario.rewards.r100kc.4%"
+  },
+  "monsters": [
+    "cultist::gh",
+    "living-bones::gh",
+    "living-corpse::gh",
+    "living-spirit::gh"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "%data.scenario.rules.r100kc.4.1%"
+    },
+    {
+      "round": "R == 3",
+      "once": true,
+      "note": "%data.scenario.rules.r100kc.4.2%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "player2": "normal"
+          },
+          "count": 4,
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "count": 4,
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.r100kc.4.3%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "A4b+L1b+L3a",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "cultist::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones::gh",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse::gh",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse::gh",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse::gh",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit::gh",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "C2b",
+      "monster": [
+        {
+          "name": "cultist::gh",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse::gh",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse::gh",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

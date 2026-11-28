@@ -1,6 +1,12 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { AbilityCardHalf, AbilityCardPile, ActiveAbilityCard, CharacterAbilityCards } from 'src/app/game/model/CharacterAbilityCards';
+import {
+  AbilityCardHalf,
+  AbilityCardPile,
+  AbilityCardPlay,
+  ActiveAbilityCard,
+  CharacterAbilityCards
+} from 'src/app/game/model/CharacterAbilityCards';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { Game, GameState } from 'src/app/game/model/Game';
 
@@ -90,87 +96,101 @@ export class CharacterAbilityManager {
   // hand is editable until the first card left the hand
   handEditable(character: Character): boolean {
     const cards = character.abilityCards;
-    return (
-      !!cards &&
-      this.game.state === GameState.draw &&
-      !cards.selected.length &&
-      !cards.discard.length &&
-      !cards.lost.length &&
-      !cards.active.length
-    );
+    return !!cards && !cards.selected.length && !cards.discard.length && !cards.lost.length && !cards.active.length;
   }
 
   handComplete(character: Character): boolean {
     return !character.abilityCards || character.abilityCards.hand.length >= this.handSize(character);
   }
 
-  // characters with digital ability cards still choosing their hand
-  handPending(): boolean {
-    return this.game.figures.some(
-      (figure) => figure instanceof Character && !figure.absent && this.handEditable(figure) && !this.handComplete(figure)
+  // ability cards still to select for the round, a declared long rest needs its card lost (empty discard)
+  cardsPending(character: Character): boolean {
+    return (
+      !!character.abilityCards &&
+      character.abilityCards.selected.length < 2 &&
+      !(character.longRest && !character.abilityCards.discard.length) &&
+      !character.absent &&
+      !character.exhausted &&
+      gameManager.entityManager.isAlive(character)
     );
   }
 
-  canToggleHand(character: Character, index: number, force: boolean = false): boolean {
-    const cards = character.abilityCards;
-    if (!cards || !this.abilityCard(character, index) || (!force && !this.handEditable(character))) {
-      return false;
-    }
-    if (force || cards.hand.includes(index)) {
-      return true;
-    }
-    return this.availableAbilityCards(character).includes(index) && !this.handComplete(character);
+  selectionPending(): boolean {
+    return this.game.figures.some((figure) => figure instanceof Character && this.cardsPending(figure));
   }
 
-  toggleHand(character: Character, index: number, force: boolean = false): boolean {
-    if (!this.canToggleHand(character, index, force) || !character.abilityCards) {
+  canSetHand(character: Character, hand: number[], force: boolean = false): boolean {
+    if (
+      !this.canEnableAbilityCards(character) ||
+      new Set(hand).size !== hand.length ||
+      !hand.every((index) => this.abilityCard(character, index))
+    ) {
       return false;
     }
-    const cards = character.abilityCards;
-    cards.hand = cards.hand.includes(index) ? cards.hand.filter((value) => value !== index) : [...cards.hand, index];
+    if (force) {
+      return true;
+    }
+    const available = this.availableAbilityCards(character);
+    return (
+      (!character.abilityCards || this.handEditable(character)) &&
+      hand.length <= this.handSize(character) &&
+      hand.every((index) => available.includes(index))
+    );
+  }
+
+  // current hand, e.g. kept from the last scenario
+  defaultHand(character: Character): number[] {
+    return character.abilityCards ? [...character.abilityCards.hand] : [];
+  }
+
+  // enables ability cards if needed
+  setHand(character: Character, hand: number[], force: boolean = false): boolean {
+    if (!this.canSetHand(character, hand, force)) {
+      return false;
+    }
+    if (!character.abilityCards) {
+      character.abilityCards = new CharacterAbilityCards();
+    }
+    character.abilityCards.hand = [...hand];
     return true;
   }
 
-  canSelectCard(character: Character, index: number, force: boolean = false): boolean {
+  // current selection, otherwise both cards when only two are left in hand
+  defaultSelection(character: Character): number[] {
     const cards = character.abilityCards;
-    if (!cards || (!force && (this.game.state !== GameState.draw || character.exhausted || character.absent))) {
-      return false;
+    if (!cards) {
+      return [];
     }
-    if (cards.selected.includes(index)) {
-      return true;
+    if (cards.selected.length) {
+      return [...cards.selected];
     }
-    return cards.hand.includes(index) && cards.selected.length < 2 && (force || !character.longRest);
+    return cards.hand.length === 2 ? [...cards.hand] : [];
   }
 
-  // toggles a card between hand and selection, initiative is taken from the leading card
-  toggleSelectCard(character: Character, index: number, force: boolean = false): boolean {
-    if (!this.canSelectCard(character, index, force) || !character.abilityCards) {
+  // up to two cards from hand or current selection, leading card first
+  canSelectCards(character: Character, selection: number[], force: boolean = false): boolean {
+    const cards = character.abilityCards;
+    if (!cards || selection.length > 2 || new Set(selection).size !== selection.length) {
+      return false;
+    }
+    if (
+      !force &&
+      (this.game.state !== GameState.draw || character.exhausted || character.absent || (character.longRest && selection.length > 0))
+    ) {
+      return false;
+    }
+    return selection.every((index) => cards.hand.includes(index) || cards.selected.includes(index));
+  }
+
+  // replaces the selection, initiative is taken from the leading card
+  selectCards(character: Character, selection: number[], force: boolean = false): boolean {
+    if (!this.canSelectCards(character, selection, force) || !character.abilityCards) {
       return false;
     }
     const cards = character.abilityCards;
-    if (cards.selected.includes(index)) {
-      cards.selected = cards.selected.filter((value) => value !== index);
-      cards.hand.push(index);
-    } else {
-      cards.hand = cards.hand.filter((value) => value !== index);
-      cards.selected.push(index);
-    }
+    cards.hand = [...cards.hand, ...cards.selected].filter((index) => !selection.includes(index));
+    cards.selected = [...selection];
     cards.shortRest = [];
-    this.updateInitiative(character);
-    return true;
-  }
-
-  canSetLeadingCard(character: Character, index: number, force: boolean = false): boolean {
-    const cards = character.abilityCards;
-    return !!cards && cards.selected.includes(index) && (force || this.game.state === GameState.draw);
-  }
-
-  setLeadingCard(character: Character, index: number, force: boolean = false): boolean {
-    if (!this.canSetLeadingCard(character, index, force) || !character.abilityCards) {
-      return false;
-    }
-    const cards = character.abilityCards;
-    cards.selected = [index, ...cards.selected.filter((value) => value !== index)];
     this.updateInitiative(character);
     return true;
   }
@@ -222,6 +242,32 @@ export class CharacterAbilityManager {
     return this.discardOrLose(cards, abilityCard, index, bottom);
   }
 
+  // selected cards with halves of different sides, also to the half already played this round
+  canPlayCards(character: Character, plays: AbilityCardPlay[], force: boolean = false): boolean {
+    const cards = character.abilityCards;
+    if (!cards || !plays.length || plays.length > 2 || new Set(plays.map((play) => play.index)).size !== plays.length) {
+      return false;
+    }
+    if (!plays.every((play) => cards.selected.includes(play.index))) {
+      return false;
+    }
+    if (force) {
+      return true;
+    }
+    const sides = plays.map((play) => this.bottomHalf(play.half));
+    if (cards.played) {
+      sides.push(this.bottomHalf(cards.played));
+    }
+    return this.game.state === GameState.next && new Set(sides).size === sides.length;
+  }
+
+  playCards(character: Character, plays: AbilityCardPlay[], force: boolean = false): AbilityCardPile[] | undefined {
+    if (!this.canPlayCards(character, plays, force)) {
+      return undefined;
+    }
+    return plays.map((play) => this.playCard(character, play.index, play.half, true) || 'discard');
+  }
+
   canRemoveActiveCard(character: Character, index: number): boolean {
     return !!character.abilityCards && character.abilityCards.active.some((activeCard) => activeCard.index === index);
   }
@@ -259,6 +305,7 @@ export class CharacterAbilityManager {
     cards.hand.push(...returned);
     cards.discard = [];
     cards.shortRest = [lost, ...returned];
+    this.checkExhausted(character);
     return lost;
   }
 
@@ -279,27 +326,49 @@ export class CharacterAbilityManager {
     cards.hand = [...cards.hand.filter((value) => value !== lost), previous];
     cards.shortRest = [];
     gameManager.entityManager.changeHealth(character, character, -1);
+    this.checkExhausted(character);
     return lost;
   }
 
+  // instead of selecting cards, needs two discarded cards
+  canDeclareLongRest(character: Character): boolean {
+    const cards = character.abilityCards;
+    return (
+      !!cards &&
+      this.game.state === GameState.draw &&
+      cards.discard.length >= 2 &&
+      !character.longRest &&
+      !character.exhausted &&
+      !character.absent
+    );
+  }
+
+  // during card selection or on the turn of an already declared long rest
   canLongRest(character: Character, lostIndex: number, force: boolean = false): boolean {
     const cards = character.abilityCards;
     return (
       !!cards &&
       cards.discard.length >= 2 &&
-      cards.discard.includes(lostIndex) &&
-      (force || (this.game.state === GameState.next && character.longRest))
+      (cards.discard.includes(lostIndex) ||
+        cards.hand.includes(lostIndex) ||
+        cards.active.some((activeCard) => activeCard.index === lostIndex)) &&
+      (force || ((this.game.state === GameState.draw || character.longRest) && !character.exhausted && !character.absent))
     );
   }
 
-  // loses the chosen card from discard and returns the others to hand
+  // declares the long rest if needed (returning selected cards), loses the chosen card from hand, discard or active and returns the discard to hand
   longRest(character: Character, lostIndex: number, force: boolean = false): boolean {
     if (!this.canLongRest(character, lostIndex, force) || !character.abilityCards) {
       return false;
     }
+    this.clearSelection(character);
+    if (!character.longRest) {
+      gameManager.roundManager.setLongRest(character, true);
+    }
     const cards = character.abilityCards;
     cards.lost.push(lostIndex);
-    cards.hand.push(...cards.discard.filter((value) => value !== lostIndex));
+    cards.active = cards.active.filter((activeCard) => activeCard.index !== lostIndex);
+    cards.hand = [...cards.hand, ...cards.discard].filter((value) => value !== lostIndex);
     cards.discard = [];
     return true;
   }
@@ -349,6 +418,11 @@ export class CharacterAbilityManager {
         return abilityCard && (activeCard.bottom ? abilityCard.bottomRound : abilityCard.round);
       })
       .forEach((activeCard) => this.removeActiveCard(character, activeCard.index));
+    this.checkExhausted(character);
+  }
+
+  // exhausted when neither two cards can be played nor a rest is possible
+  checkExhausted(character: Character) {
     if (!character.exhausted && !character.absent && this.cardsExhausted(character)) {
       gameManager.entityManager.setExhausted(character, true);
     }
@@ -389,8 +463,6 @@ export class CharacterAbilityManager {
         character,
         cards.selected.length === 2 ? this.cardInitiative(character, cards.selected[0]) : 0
       );
-      // a leading card with initiative 99 is no long rest
-      character.longRest = false;
     }
   }
 }

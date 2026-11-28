@@ -89,6 +89,44 @@
   "character": {
     "": "Character",
     "abilities": {
+      "cards": {
+        "active": "Active",
+        "apply": "Apply",
+        "changeHand": "Change hand",
+        "continue": "Continue",
+        "declareLongRest": "Long rest",
+        "disable": {
+          "": "Disable",
+          "hint": "Double click to disable ability cards for this character"
+        },
+        "discard": "Discard ({0})",
+        "editDeck": "Edit Deck",
+        "half": {
+          "bottom": "Bottom",
+          "defaultBottom": "Move 2",
+          "defaultTop": "Attack 2",
+          "top": "Top"
+        },
+        "hand": "Hand ({0})",
+        "lost": "Lost ({0})",
+        "prompt": {
+          "cardsSelected": "Initiative {0} - apply to confirm your cards",
+          "chooseHand": "Choose your hand: {0}/{1} cards",
+          "handComplete": "Hand complete: {0}/{1} cards - apply to continue",
+          "longRest": "Long rest: choose a card to lose, then apply",
+          "longRestDeclared": "Long rest declared",
+          "mustRest": "Less than 2 cards in hand - take a short or long rest",
+          "playCards": "Click the half you play on each card, again for its default action, then apply",
+          "selectCards": "Choose 2 cards from your hand for this round: {0}/2",
+          "selectCardsOrRest": "Choose 2 cards from your hand for this round or declare a long rest: {0}/2"
+        },
+        "removeActive": "Remove",
+        "rerollShortRest": "Keep '{0}' and lose another card (1 damage)",
+        "selected": "Selected",
+        "shortRest": "Short rest",
+        "shortRestLost": "Lost by short rest",
+        "switch": "Switch leading card"
+      },
       "currentDeck": "Current Deck",
       "deckWarning": "No correct card selection possible as there are too many cards in the deck!",
       "enhancements": {
@@ -1938,8 +1976,10 @@
   "round": {
     "draw": "Draw",
     "hint": {
+      "abilityCards": "Not all characters with ability cards selected their cards or chose the card to lose for their long rest!",
       "active": "Not all figures are done yet. End round anyway?",
       "battleGoals": "Not all characters chose a Battle Goal. Start round anyway?",
+      "challenges": "Not all Challenge cards are drawn yet. Start round anyway?",
       "confirm": "Confirm",
       "confirmFailed": "Finish Scenario with failure",
       "confirmFinish": "Finish Scenario with success",
@@ -2857,6 +2897,10 @@
       "": "Auto. active AM Deck",
       "hint": "Automatically toggle AM Deck for active Character."
     },
+    "characterAbilityCards": {
+      "": "Ability Cards",
+      "hint": "Enables playing with ability cards per character: choose your hand, select cards for the round and play them. Click on the hand size to manage the cards."
+    },
     "characterCompact": {
       "": "Compact Character Boards",
       "hint": "Display narrow character board. (currently not supported on modern theme)"
@@ -3028,6 +3072,10 @@
       "": "Apply Challenges",
       "hint": "Automatically apply (if possible) active challenge cards."
     },
+    "fhChallengesReminder": {
+      "": "Challenges Reminder",
+      "hint": "Show a reminder before first round if not all challenge cards are drawn."
+    },
     "fhGarden": {
       "": "Support for Garden",
       "hint": "Plant and Harvest Herbs (Building 24 Garden)"
@@ -3080,6 +3128,12 @@
       "hint": "Set font size of ability and stats cards",
       "inc": "Increase ability fontsize",
       "reset": "Reset ability fontsize"
+    },
+    "forteller": {
+      "": "Forteller Campaign Link",
+      "hint": "Paste the link of your Forteller campaign (forteller.gg/play/...). Scenarios, sections and events will link to their narration in Forteller.",
+      "open": "Open in Forteller",
+      "placeholder": "https://forteller.gg/play/..."
     },
     "fullscreen": {
       "": "Fullscreen",
@@ -3603,9 +3657,17 @@
       "changeSummonRange": "Range {2} for summon '{1}' of {0}",
       "changeXP": "XP {1} for {0}",
       "character": {
+        "abilityCardsDisable": "Disable ability cards for {0}",
         "cardFromDeck": "Remove card '{1}' from ability deck of {0}",
         "cardToDeck": "Add card '{1}' to ability deck of {0}",
+        "longRestCard": "Long rest of {0}, lose card '{1}'",
+        "playCards": "{0} played {1}",
+        "removeActiveCard": "Remove active card '{1}' of {0}",
+        "rerollShortRest": "Reroll short rest of {0}",
         "resetDeck": "Reset ability deck of {0}",
+        "selectCards": "Select cards {1} for {0}",
+        "setHand": "Set hand of {0} ({1} cards)",
+        "shortRest": "Short rest of {0}",
         "undoLastCard": "Undo last drawn ability card of {0}"
       },
       "characterItemApply": {

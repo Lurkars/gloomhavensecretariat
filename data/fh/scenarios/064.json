@@ -2,6 +2,7 @@
   "index": "64",
   "name": "The Frosthaven Seal",
   "flowChartGroup": "puzzle-book",
+  "forteller": "RbvYcRDNbBIseOVVtfjfRr",
   "coordinates": {
     "x": 872,
     "y": 2356.25,
@@ -92,7 +93,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Tree"
           },
           "type": "dead"

@@ -1,0 +1,191 @@
+{
+  "index": "32",
+  "name": "Oblivious Minds",
+  "edition": "ir2",
+  "rewards": {
+    "partyAchievements": [
+      "head-of-the-hydra"
+    ],
+    "gold": 15,
+    "prosperity": 1,
+    "custom": "%data.scenario.rewards.ir2.32%"
+  },
+  "monsters": [
+    "cave-bear",
+    "merciless-overseer",
+    "vermling-scout"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.ir2.32.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "merciless-overseer",
+            "type": "boss"
+          },
+          "marker": "mo"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "merciless-overseer"
+          },
+          "type": "setHp",
+          "value": "[Math.ceil(H/2)]"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "note": "%data.scenario.rules.ir2.32.2%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "merciless-overseer",
+            "type": "boss"
+          },
+          "marker": "mo"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "K2b",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "treasures": [
+        24
+      ],
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "K1a",
+      "marker": "1",
+      "rooms": [
+        3
+      ],
+      "treasures": [
+        31
+      ],
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "H3b",
+      "marker": "2",
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

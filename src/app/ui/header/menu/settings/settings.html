@@ -213,6 +213,7 @@
       <div class="column">
         <div class="line" ghs-setting-menu="characterSortIndex"></div>
         <div class="line" ghs-setting-menu="characterHandSize"></div>
+        <div class="line" ghs-setting-menu="characterAbilityCards"></div>
         <div class="line" ghs-setting-menu="characterTraits"></div>
         <div class="line" ghs-setting-menu="characterIdentities"></div>
         <div class="line" ghs-setting-menu="characterIdentityHint" [requires]="['characterIdentities']"></div>
@@ -298,6 +299,7 @@
         @if (gameManager.challengesManager.available) {
           <div class="line" ghs-setting-menu="fhChallenges"></div>
           <div class="line" ghs-setting-menu="fhChallengesApply" [requires]="['fhChallenges']"></div>
+          <div class="line" ghs-setting-menu="fhChallengesReminder" [requires]="['fhChallenges']"></div>
         }
         @if (gameManager.trialsManager.available) {
           <div class="line" ghs-setting-menu="fhTrials" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''"></div>
@@ -377,6 +379,32 @@
       <div class="column">
         <div class="line" ghs-setting-menu="bbStandeeLimit" [requires]="['standees']"></div>
       </div>
+
+      @if (gameManager.editionManager.fortellerEditions(); as fortellerEditions) {
+        @if (fortellerEditions.length) {
+          <div class="line title span">
+            <div class="hint-container">
+              <label [ghs-label]="'settings.forteller'"></label>
+              <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg" />
+              <span class="hint">
+                <span class="text" [ghs-label]="'settings.forteller.hint'"></span>
+              </span>
+            </div>
+          </div>
+          @for (edition of fortellerEditions; track edition) {
+            <div class="line span forteller-link">
+              <label [ghs-label]="'data.edition.' + edition"></label>
+              <input
+                type="text"
+                [value]="settingsManager.settings.fortellerLinks[edition] || ''"
+                (change)="settingsManager.setFortellerLink(edition, $any($event.target).value)"
+                [ghs-label]="'settings.forteller.placeholder'"
+                [ghs-label-attribute]="'placeholder'"
+              />
+            </div>
+          }
+        }
+      }
     </div>
 
     <!-- DISPLAY -->

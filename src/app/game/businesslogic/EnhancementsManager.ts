@@ -286,9 +286,26 @@ export class EnhancementsManager {
       .filter((cardId, index, self) => (!excludeCardId || excludeCardId !== cardId) && index === self.indexOf(cardId)).length;
   }
 
+  enhancementsAvailable(): boolean {
+    if (!gameManager.editionManager.currentEdition()) {
+      return true;
+    }
+    if (gameManager.fhRules()) {
+      return this.game.party.buildings.some(
+        (buildingModel) => buildingModel.name === 'enhancer' && buildingModel.level > 0 && buildingModel.state !== 'wrecked'
+      );
+    }
+    if (gameManager.editionRules('gh') || gameManager.gh2eRules()) {
+      return this.game.party.globalAchievementsList.some((achievement) => achievement.toLowerCase().trim() === 'the-power-of-enhancement');
+    }
+    return true;
+  }
+
   canEnhance(character: Character, cardId: number, costs: number): boolean {
     return (
-      character.progress.gold >= costs && (this.fh || this.enhancedCards(character, cardId) < gameManager.campaignManager.prosperityLevel())
+      this.enhancementsAvailable() &&
+      character.progress.gold >= costs &&
+      (this.fh || this.enhancedCards(character, cardId) < gameManager.campaignManager.prosperityLevel())
     );
   }
 

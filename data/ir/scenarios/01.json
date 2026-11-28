@@ -24,7 +24,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "B3a+I1a",
+      "ref": "B4a+I1a",
       "initial": true,
       "rooms": [
         2,
@@ -79,7 +79,7 @@
         },
         {
           "name": "thrax",
-          "player4": "elite"
+          "type": "normal"
         }
       ]
     },

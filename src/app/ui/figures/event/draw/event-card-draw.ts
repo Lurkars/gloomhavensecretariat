@@ -53,6 +53,10 @@ export class EventCardDrawComponent {
     }
   }
 
+  fortellerLink(): string | undefined {
+    return this.event && gameManager.editionManager.fortellerLink(this.event.edition, this.event.forteller);
+  }
+
   resetResult() {
     const stored = this.event
       ? gameManager.eventCardManager.lastEventCardResult(this.event.edition, this.event.type, this.event.cardId)

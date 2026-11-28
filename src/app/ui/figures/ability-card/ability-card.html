@@ -38,7 +38,8 @@
       class="card-front ability-front"
       [ngClass]="{
         'bottom-actions': abilityCard && abilityCard.bottomActions && abilityCard.bottomActions.length > 0 && !character,
-        'character-actions': character
+        'character-actions': character,
+        'inactive-actions': !!inactiveActions()
       }"
     >
       @if (!!abilityCard) {
@@ -79,10 +80,17 @@
           </div>
         }
         <span class="name">{{ abilityLabel }}</span>
-        <div class="ability-actions-container" [ngClass]="{ disabled: activeActions() && activeActions() === 'bottom' }">
+        <div
+          class="ability-actions-container"
+          [ngClass]="{
+            disabled: activeActions() && activeActions() === 'bottom',
+            inactive: inactiveActions() === 'top',
+            selectable: selectableActions() && inactiveActions() !== 'top'
+          }"
+        >
           <div class="ability-actions">
             <ghs-actions
-              [actions]="abilityCard.actions"
+              [actions]="topActions() || abilityCard.actions"
               [monster]="monster"
               [character]="character"
               [statsCalculation]="statsCalculation()"
@@ -112,10 +120,17 @@
           <span class="level">
             <span class="text" [ghs-label]="abilityCard.level || 0"></span>
           </span>
-          <div class="ability-actions-container" [ngClass]="{ disabled: activeActions() && activeActions() === 'top' }">
+          <div
+            class="ability-actions-container"
+            [ngClass]="{
+              disabled: activeActions() && activeActions() === 'top',
+              inactive: inactiveActions() === 'bottom',
+              selectable: selectableActions() && inactiveActions() !== 'bottom'
+            }"
+          >
             <div class="ability-actions ability-bottom-actions">
               <ghs-actions
-                [actions]="abilityCard.bottomActions"
+                [actions]="bottomActions() || abilityCard.bottomActions"
                 [monster]="monster"
                 [character]="character"
                 [statsCalculation]="statsCalculation()"
@@ -163,7 +178,7 @@
           <span class="logo"><img [src]="character.iconUrl" /></span>
         }
         @if (abilityCard.lost || abilityCard.persistent || abilityCard.loss || abilityCard.round || abilityCard.xp) {
-          <div class="required-container">
+          <div class="required-container" [ngClass]="{ inactive: inactiveActions() === 'top' }">
             <span class="label">!</span>
             <div class="box">
               @if (abilityCard.xp) {
@@ -206,7 +221,7 @@
           abilityCard.bottomRound ||
           abilityCard.bottomXp
         ) {
-          <div class="required-container bottom">
+          <div class="required-container bottom" [ngClass]="{ inactive: inactiveActions() === 'bottom' }">
             <span class="label">!</span>
             <div class="box">
               @if (abilityCard.bottomXp) {

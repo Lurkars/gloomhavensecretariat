@@ -1,0 +1,146 @@
+{
+  "index": "41",
+  "name": "Sanctuary of Despair",
+  "edition": "ir2",
+  "conclusion": true,
+  "rewards": {
+    "globalAchievements": [
+      "enlightenment"
+    ],
+    "gold": 25,
+    "experience": 25,
+    "reputation": 2,
+    "prosperity": 2,
+    "battleGoals": 1
+  },
+  "monsters": [
+    "bandit-archer",
+    "corrupted-celestial",
+    "night-demon",
+    "sun-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Dark Pit",
+      "health": "Cx3",
+      "initiative": 99
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir2.41.1%"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "note": "%data.scenario.rules.ir2.41.2%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "I1a+I2b",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "C2b",
+      "marker": "1",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "M1a",
+      "marker": "2",
+      "monster": [
+        {
+          "name": "corrupted-celestial",
+          "type": "boss"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

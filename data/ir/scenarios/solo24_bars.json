@@ -1,0 +1,170 @@
+{
+  "index": "24",
+  "group": "solo",
+  "name": "The Perfect Prediction",
+  "edition": "ir",
+  "spoiler": true,
+  "initial": true,
+  "solo": "bars",
+  "rewards": {
+    "items": [
+      "14"
+    ]
+  },
+  "monsters": [
+    "bandit-guard",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir.24.1%"
+    },
+    {
+      "round": "R == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "spawns": [
+        {
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "spawns": [
+        {
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R >= 9",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "type": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "vermling-shaman",
+            "type": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "D2a+C1b+A3a+A4a",
+      "initial": true
+    }
+  ]
+}

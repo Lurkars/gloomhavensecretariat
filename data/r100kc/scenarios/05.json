@@ -1,0 +1,241 @@
+{
+  "index": "5",
+  "name": "The Ghost Train",
+  "edition": "r100kc",
+  "initial": true,
+  "rewards": {
+    "gold": 10,
+    "experience": 5,
+    "custom": "%data.scenario.rewards.r100kc.5%"
+  },
+  "monsters": [
+    "ancient-artillery::gh",
+    "living-bones::gh",
+    "living-spirit::gh"
+  ],
+  "objectives": [
+    {
+      "name": "Drizzle",
+      "escort": true,
+      "health": "2+L+(2xC)",
+      "initiative": 1,
+      "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "%data.scenario.rules.r100kc.5.1%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.r100kc.5.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Drizzle",
+            "marker": "a"
+          },
+          "type": "damage",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "note": "%data.scenario.rules.r100kc.5.3%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        4
+      ],
+      "note": "%data.scenario.rules.r100kc.5.4%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.r100kc.5.5%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "G2b",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "objectives": [
+        1
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "I2b+L1a",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery::gh",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery::gh",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "G1a+D1a",
+      "rooms": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "B2b+L2b",
+      "monster": [
+        {
+          "name": "ancient-artillery::gh",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones::gh",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit::gh",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit::gh",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

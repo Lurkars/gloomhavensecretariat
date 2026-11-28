@@ -10,6 +10,7 @@ export class EventCard implements Editional {
   options: EventCardOption[];
   attack?: EventCardAttack;
   requirement: EventCardRequirement | undefined;
+  forteller: string | undefined;
 
   constructor(
     cardId: string,

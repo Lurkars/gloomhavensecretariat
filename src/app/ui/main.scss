@@ -243,6 +243,11 @@ main {
         }
       }
 
+      img + .text:not(.small) {
+        margin-top: -0.5em;
+        text-shadow: var(--ghs-outline-white);
+      }
+
       &.selected {
         max-width: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor));
 

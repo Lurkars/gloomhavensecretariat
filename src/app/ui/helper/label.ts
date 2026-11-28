@@ -277,7 +277,7 @@ export const applyPlaceholder = function (
         const characterName = split[2];
         const identity = +split[3];
         image = '<img class="icon" src="' + gameManager.characterManager.characterIdentityIcon(characterName, identity) + '">';
-        replace = '<span class="placeholder-character-icon">' + image + '</span>';
+        replace = '<span class="placeholder-character-icon identity">' + image + '</span>';
       } else if (type === 'characterIconIdentityColored' && split.length === 4) {
         const characterName = split[2];
         const identity = +split[3];

@@ -30,6 +30,11 @@
           <img class="ghs-svg" src="./assets/images/scenario/treasure.svg" />
         </span>
       }
+      @if (gameManager.editionManager.fortellerLink(scenario.edition, scenario.forteller); as fortellerLink) {
+        <a class="forteller" [href]="fortellerLink" target="_blank" [ghs-label]="'settings.forteller.open'" [ghs-label-attribute]="'title'">
+          <img class="ghs-svg" src="./assets/images/forteller.svg" />
+        </a>
+      }
     </div>
 
     @if (settingsManager.settings.scenarioDialogSetup || gameManager.game.round < 1) {
@@ -65,6 +70,17 @@
           }
           @if (section.marker) {
             <span class="marker" [ghs-label]="'%game.mapMarker.' + section.marker + '%'"></span>
+          }
+          @if (gameManager.editionManager.fortellerLink(section.edition, section.forteller); as fortellerLink) {
+            <a
+              class="forteller"
+              [href]="fortellerLink"
+              target="_blank"
+              [ghs-label]="'settings.forteller.open'"
+              [ghs-label-attribute]="'title'"
+            >
+              <img class="ghs-svg" src="./assets/images/forteller.svg" />
+            </a>
           }
         </span>
       }

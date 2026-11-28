@@ -2,6 +2,7 @@
   "index": "50",
   "name": "Explosive Descent",
   "flowChartGroup": "lurker",
+  "forteller": "RbvYcRDNbBIseOVVtfjeed",
   "coordinates": {
     "x": 1531.75,
     "y": 371.75,
@@ -101,7 +102,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Pulse Emitter"
           },
           "type": "dead"

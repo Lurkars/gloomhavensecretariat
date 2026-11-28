@@ -162,6 +162,25 @@ describe('RoundManager', () => {
       expect(gameManager.roundManager.nextBlocked()).toBe(true);
     });
 
+    it('blocks draw while challenge cards can still be drawn and the reminder is enabled', () => {
+      settingsManager.settings.initiativeRequired = false;
+      settingsManager.settings.fhChallengesReminder = true;
+      gameManager.challengesManager.enabled = true;
+      gameManager.game.figures = [buildCharacter('test-char')];
+      const canDrawCard = vi.spyOn(gameManager.challengesManager, 'canDrawCard').mockReturnValue(true);
+      expect(gameManager.roundManager.challengesPending()).toBe(true);
+      expect(gameManager.roundManager.drawBlocked()).toBe(true);
+      settingsManager.settings.fhChallengesReminder = false;
+      expect(gameManager.roundManager.challengesPending()).toBe(false);
+      settingsManager.settings.fhChallengesReminder = true;
+      gameManager.challengesManager.enabled = false;
+      expect(gameManager.roundManager.challengesPending()).toBe(false);
+      gameManager.challengesManager.enabled = true;
+      canDrawCard.mockReturnValue(false);
+      expect(gameManager.roundManager.challengesPending()).toBe(false);
+      gameManager.challengesManager.enabled = false;
+    });
+
     it('fails the scenario once no character is alive and nothing is active', () => {
       const character = buildCharacter('test-char');
       gameManager.game.figures = [character];

@@ -1,0 +1,168 @@
+{
+  "index": "19",
+  "name": "Under Siege - Bridge of Ice",
+  "edition": "ir",
+  "conclusion": true,
+  "monsters": [
+    "city-archer",
+    "earth-demon",
+    "frost-demon",
+    "living-bones",
+    "living-corpse",
+    "stone-golem",
+    "tothran",
+    "wind-demon"
+  ],
+  "allies": [
+    "city-archer"
+  ],
+  "objectives": [
+    {
+      "name": "Gloomhaven Gate",
+      "health": "(Lx4)+1",
+      "marker": "a",
+      "initiative": 99
+    },
+    {
+      "name": "Portal",
+      "health": "Cx3",
+      "marker": "b"
+    },
+    {
+      "name": "Portal",
+      "health": "Cx3",
+      "marker": "c"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir.19.1%"
+    },
+    {
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "I1b+L1b+L2a+L3a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "tothran",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ]
+    }
+  ]
+}

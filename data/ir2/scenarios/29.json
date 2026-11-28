@@ -1,0 +1,291 @@
+{
+  "index": "29",
+  "name": "Portals in the Snow",
+  "edition": "ir2",
+  "unlocks": [
+    "30"
+  ],
+  "blocks": [
+    "27"
+  ],
+  "rewards": {
+    "reputation": 1,
+    "prosperity": 1,
+    "custom": "%data.scenario.rewards.ir2.29%"
+  },
+  "monsters": [
+    "andreas",
+    "black-imp",
+    "hound",
+    "living-bones"
+  ],
+  "objectives": [
+    {
+      "name": "Nalia",
+      "health": "4+(2xL)",
+      "marker": "d",
+      "initiative": 1
+    },
+    {
+      "name": "Belchor",
+      "health": "2+(3xL)",
+      "marker": "e",
+      "initiative": 99
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir2.29.1%"
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "note": "%data.scenario.rules.ir2.29.5%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "f"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "f"
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "andreas",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "hound",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R > 12",
+      "start": true,
+      "finish": "lost"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "G2a+N1a",
+      "initial": true,
+      "objectives": [
+        1,
+        2
+      ]
+    }
+  ]
+}

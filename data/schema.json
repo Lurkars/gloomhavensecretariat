@@ -646,6 +646,11 @@
                     ],
                     "type": "string"
                 },
+                "baseColor": {
+                    "default": "",
+                    "description": "Text color for the edition name, e.g. in edition selection.",
+                    "type": "string"
+                },
                 "campaign": {
                     "$ref": "#/definitions/CampaignData"
                 },
@@ -1475,6 +1480,9 @@
                 },
                 "edition": {
                     "default": "",
+                    "type": "string"
+                },
+                "forteller": {
                     "type": "string"
                 },
                 "forcedLinks": {

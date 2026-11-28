@@ -3,6 +3,7 @@
     "cardId": "B-01",
     "edition": "fh",
     "type": "boat",
+    "forteller": "d899d620-2e34-4827-a99e-af99a2954c4c",
     "narrative": "data.events.fh.boat.B-01.narrative",
     "options": [
       {
@@ -139,6 +140,7 @@
     "cardId": "B-02",
     "edition": "fh",
     "type": "boat",
+    "forteller": "33f7ca2c-0efb-480e-b1ae-99df721da773",
     "narrative": "data.events.fh.boat.B-02.narrative",
     "options": [
       {
@@ -231,6 +233,7 @@
     "cardId": "B-03",
     "edition": "fh",
     "type": "boat",
+    "forteller": "e5692d9f-0cf6-47da-b307-cb773bf12670",
     "narrative": "data.events.fh.boat.B-03.narrative",
     "options": [
       {
@@ -296,6 +299,7 @@
     "cardId": "B-04",
     "edition": "fh",
     "type": "boat",
+    "forteller": "06ae1be6-451d-4191-a358-b37c8bbbc60f",
     "narrative": "data.events.fh.boat.B-04.narrative",
     "options": [
       {
@@ -347,6 +351,7 @@
     "cardId": "B-05",
     "edition": "fh",
     "type": "boat",
+    "forteller": "60b37729-60fa-4ba8-a75b-a180a5d10ed3",
     "narrative": "data.events.fh.boat.B-05.narrative",
     "options": [
       {
@@ -420,6 +425,7 @@
     "cardId": "B-06",
     "edition": "fh",
     "type": "boat",
+    "forteller": "6a3c4c4c-cdc1-4431-a10e-91bf319c9f54",
     "narrative": "data.events.fh.boat.B-06.narrative",
     "options": [
       {
@@ -476,6 +482,7 @@
     "cardId": "B-07",
     "edition": "fh",
     "type": "boat",
+    "forteller": "35eb1b7d-d653-4506-b430-4a180b89794b",
     "narrative": "data.events.fh.boat.B-07.narrative",
     "options": [
       {
@@ -534,6 +541,7 @@
     "cardId": "B-08",
     "edition": "fh",
     "type": "boat",
+    "forteller": "dacead5f-207c-4e05-ace0-fa8fdf4e58c3",
     "narrative": "data.events.fh.boat.B-08.narrative",
     "options": [
       {
@@ -599,6 +607,7 @@
     "cardId": "B-09",
     "edition": "fh",
     "type": "boat",
+    "forteller": "d8173a13-a083-4e2f-a623-a4d17f7a0b6c",
     "narrative": "data.events.fh.boat.B-09.narrative",
     "options": [
       {
@@ -665,6 +674,7 @@
     "cardId": "B-10",
     "edition": "fh",
     "type": "boat",
+    "forteller": "2a4522c3-26f8-4622-81c4-2ae8280d7d70",
     "narrative": "data.events.fh.boat.B-10.narrative",
     "options": [
       {
@@ -742,6 +752,7 @@
     "cardId": "B-11",
     "edition": "fh",
     "type": "boat",
+    "forteller": "7299b1a1-45b7-4347-a799-5cd973b14acf",
     "narrative": "data.events.fh.boat.B-11.narrative",
     "options": [
       {
@@ -785,6 +796,7 @@
     "cardId": "B-12",
     "edition": "fh",
     "type": "boat",
+    "forteller": "093a1d25-3959-491b-a123-f15f1ff17e8f",
     "narrative": "data.events.fh.boat.B-12.narrative",
     "options": [
       {
@@ -868,6 +880,7 @@
     "cardId": "B-13",
     "edition": "fh",
     "type": "boat",
+    "forteller": "e1b52d69-00a4-4c7b-81f9-1300073f3601",
     "narrative": "data.events.fh.boat.B-13.narrative",
     "options": [
       {
@@ -919,6 +932,7 @@
     "cardId": "B-14",
     "edition": "fh",
     "type": "boat",
+    "forteller": "1d063ec5-e5d1-4f6e-9944-341d55e36ce3",
     "narrative": "data.events.fh.boat.B-14.narrative",
     "options": [
       {
@@ -969,6 +983,7 @@
     "cardId": "B-15",
     "edition": "fh",
     "type": "boat",
+    "forteller": "fc348f78-2425-42a7-8c46-b7ccef41eb39",
     "narrative": "data.events.fh.boat.B-15.narrative",
     "options": [
       {
@@ -1009,6 +1024,7 @@
     "cardId": "B-16",
     "edition": "fh",
     "type": "boat",
+    "forteller": "9977bbc2-ed2b-4266-9933-d60fff0a6a31",
     "narrative": "data.events.fh.boat.B-16.narrative",
     "options": [
       {
@@ -1054,6 +1070,7 @@
     "cardId": "B-17",
     "edition": "fh",
     "type": "boat",
+    "forteller": "7b03d67d-0fe0-40c9-9207-d1e68a0d0a3b",
     "narrative": "data.events.fh.boat.B-17.narrative",
     "options": [
       {
@@ -1125,6 +1142,7 @@
     "cardId": "B-18",
     "edition": "fh",
     "type": "boat",
+    "forteller": "c9addfd6-b659-4d40-80e7-370cd02db593",
     "narrative": "data.events.fh.boat.B-18.narrative",
     "options": [
       {
@@ -1185,6 +1203,7 @@
     "cardId": "B-19",
     "edition": "fh",
     "type": "boat",
+    "forteller": "5459c418-aba7-4004-bce2-9af250ecdebe",
     "narrative": "data.events.fh.boat.B-19.narrative",
     "options": [
       {
@@ -1229,6 +1248,7 @@
     "cardId": "SO-01",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtuuv",
     "narrative": "data.events.fh.summer-outpost.SO-01.narrative",
     "options": [
       {
@@ -1273,6 +1293,7 @@
     "cardId": "SO-02",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtv6j",
     "narrative": "data.events.fh.summer-outpost.SO-02.narrative",
     "options": [
       {
@@ -1339,6 +1360,7 @@
     "cardId": "SO-03",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtvMT",
     "narrative": "data.events.fh.summer-outpost.SO-03.narrative",
     "options": [
       {
@@ -1408,6 +1430,7 @@
     "cardId": "SO-04",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtvYH",
     "narrative": "data.events.fh.summer-outpost.SO-04.narrative",
     "options": [
       {
@@ -1470,6 +1493,7 @@
     "cardId": "SO-05",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtvo1",
     "narrative": "data.events.fh.summer-outpost.SO-05.narrative",
     "options": [
       {
@@ -1529,6 +1553,7 @@
     "cardId": "SO-06",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtw3l",
     "narrative": "data.events.fh.summer-outpost.SO-06.narrative",
     "options": [
       {
@@ -1566,6 +1591,7 @@
     "cardId": "SO-07",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtwFZ",
     "narrative": "data.events.fh.summer-outpost.SO-07.narrative",
     "options": [
       {
@@ -1647,6 +1673,7 @@
     "cardId": "SO-08",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtwVJ",
     "narrative": "data.events.fh.summer-outpost.SO-08.narrative",
     "options": [
       {
@@ -1710,6 +1737,7 @@
     "cardId": "SO-09",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtwl3",
     "narrative": "data.events.fh.summer-outpost.SO-09.narrative",
     "options": [
       {
@@ -1756,6 +1784,7 @@
     "cardId": "SO-10",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtwwr",
     "narrative": "data.events.fh.summer-outpost.SO-10.narrative",
     "options": [
       {
@@ -1833,6 +1862,7 @@
     "cardId": "SO-11",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtxCb",
     "narrative": "data.events.fh.summer-outpost.SO-11.narrative",
     "options": [
       {
@@ -1895,6 +1925,7 @@
     "cardId": "SO-12",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtxOP",
     "narrative": "data.events.fh.summer-outpost.SO-12.narrative",
     "options": [
       {
@@ -1966,6 +1997,7 @@
     "cardId": "SO-13",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtxe9",
     "narrative": "data.events.fh.summer-outpost.SO-13.narrative",
     "options": [
       {
@@ -2048,6 +2080,7 @@
     "cardId": "SO-14",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtxxp",
     "narrative": "data.events.fh.summer-outpost.SO-14.narrative",
     "options": [
       {
@@ -2141,6 +2174,7 @@
     "cardId": "SO-15",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVty9d",
     "narrative": "data.events.fh.summer-outpost.SO-15.narrative",
     "options": [
       {
@@ -2203,6 +2237,7 @@
     "cardId": "SO-16",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtyLR",
     "narrative": "data.events.fh.summer-outpost.SO-16.narrative",
     "options": [
       {
@@ -2245,6 +2280,7 @@
     "cardId": "SO-17",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtyXF",
     "narrative": "data.events.fh.summer-outpost.SO-17.narrative",
     "options": [
       {
@@ -2287,6 +2323,7 @@
     "cardId": "SO-18",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtyj3",
     "narrative": "data.events.fh.summer-outpost.SO-18.narrative",
     "options": [
       {
@@ -2353,6 +2390,7 @@
     "cardId": "SO-19",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtz2j",
     "narrative": "data.events.fh.summer-outpost.SO-19.narrative",
     "options": [
       {
@@ -2399,6 +2437,7 @@
     "cardId": "SO-20",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtzEX",
     "narrative": "data.events.fh.summer-outpost.SO-20.narrative",
     "options": [
       {
@@ -2456,6 +2495,7 @@
     "cardId": "SO-21",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtzUH",
     "narrative": "data.events.fh.summer-outpost.SO-21.narrative",
     "options": [
       {
@@ -2558,6 +2598,7 @@
     "cardId": "SO-22",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtznx",
     "narrative": "data.events.fh.summer-outpost.SO-22.narrative",
     "options": [
       {
@@ -2607,6 +2648,7 @@
     "cardId": "SO-23",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVtzzl",
     "narrative": "data.events.fh.summer-outpost.SO-23.narrative",
     "options": [
       {
@@ -2710,6 +2752,7 @@
     "cardId": "SO-24",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu0NN",
     "narrative": "data.events.fh.summer-outpost.SO-24.narrative",
     "options": [
       {
@@ -2752,6 +2795,7 @@
     "cardId": "SO-25",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu0VF",
     "narrative": "data.events.fh.summer-outpost.SO-25.narrative",
     "options": [
       {
@@ -2831,6 +2875,7 @@
     "cardId": "SO-26",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu0h3",
     "narrative": "data.events.fh.summer-outpost.SO-26.narrative",
     "options": [
       {
@@ -2904,6 +2949,7 @@
     "cardId": "SO-27",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu0wn",
     "narrative": "data.events.fh.summer-outpost.SO-27.narrative",
     "options": [
       {
@@ -2999,6 +3045,7 @@
     "cardId": "SO-28",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu1GT",
     "narrative": "data.events.fh.summer-outpost.SO-28.narrative",
     "options": [
       {
@@ -3072,6 +3119,7 @@
     "cardId": "SO-29",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu1WD",
     "narrative": "data.events.fh.summer-outpost.SO-29.narrative",
     "options": [
       {
@@ -3135,6 +3183,7 @@
     "cardId": "SO-30",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu1lx",
     "narrative": "data.events.fh.summer-outpost.SO-30.narrative",
     "options": [
       {
@@ -3179,6 +3228,7 @@
     "cardId": "SO-31",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu29Z",
     "narrative": "data.events.fh.summer-outpost.SO-31.narrative",
     "options": [
       {
@@ -3241,6 +3291,7 @@
     "cardId": "SO-32",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu2LN",
     "narrative": "data.events.fh.summer-outpost.SO-32.narrative",
     "options": [
       {
@@ -3303,6 +3354,7 @@
     "cardId": "SO-33",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu2b7",
     "narrative": "data.events.fh.summer-outpost.SO-33.narrative",
     "options": [
       {
@@ -3372,6 +3424,7 @@
     "cardId": "SO-34",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu2qr",
     "narrative": "data.events.fh.summer-outpost.SO-34.narrative",
     "options": [
       {
@@ -3434,6 +3487,7 @@
     "cardId": "SO-35",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu36b",
     "narrative": "data.events.fh.summer-outpost.SO-35.narrative",
     "options": [
       {
@@ -3496,6 +3550,7 @@
     "cardId": "SO-36",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu3IP",
     "narrative": "data.events.fh.summer-outpost.SO-36.narrative",
     "options": [
       {
@@ -3547,6 +3602,7 @@
     "cardId": "SO-37",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu3UD",
     "narrative": "data.events.fh.summer-outpost.SO-37.narrative",
     "options": [
       {
@@ -3606,6 +3662,7 @@
     "cardId": "SO-38",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu3g1",
     "narrative": "data.events.fh.summer-outpost.SO-38.narrative",
     "options": [
       {
@@ -3687,6 +3744,7 @@
     "cardId": "SO-39",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu3rp",
     "narrative": "data.events.fh.summer-outpost.SO-39.narrative",
     "options": [
       {
@@ -3727,6 +3785,7 @@
     "cardId": "SO-40",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu43d",
     "narrative": "data.events.fh.summer-outpost.SO-40.narrative",
     "options": [
       {
@@ -3777,6 +3836,7 @@
     "cardId": "SO-41",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu4FR",
     "narrative": "data.events.fh.summer-outpost.SO-41.narrative",
     "options": [
       {
@@ -3833,6 +3893,7 @@
     "cardId": "SO-42",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu4RF",
     "narrative": "data.events.fh.summer-outpost.SO-42.narrative",
     "options": [
       {
@@ -3876,6 +3937,7 @@
     "cardId": "SO-43",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu4d3",
     "narrative": "data.events.fh.summer-outpost.SO-43.narrative",
     "options": [
       {
@@ -3942,6 +4004,7 @@
     "cardId": "SO-44",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu4or",
     "narrative": "data.events.fh.summer-outpost.SO-44.narrative",
     "options": [
       {
@@ -3986,6 +4049,7 @@
     "cardId": "SO-45",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu50f",
     "narrative": "data.events.fh.summer-outpost.SO-45.narrative",
     "options": [
       {
@@ -4034,6 +4098,7 @@
     "cardId": "SO-46",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu5CT",
     "narrative": "data.events.fh.summer-outpost.SO-46.narrative",
     "options": [
       {
@@ -4097,6 +4162,7 @@
     "cardId": "SO-47",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu5OH",
     "narrative": "data.events.fh.summer-outpost.SO-47.narrative",
     "options": [
       {
@@ -4239,6 +4305,7 @@
     "cardId": "SO-48",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu5tl",
     "narrative": "data.events.fh.summer-outpost.SO-48.narrative",
     "options": [
       {
@@ -4283,6 +4350,7 @@
     "cardId": "SO-49",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu65Z",
     "narrative": "data.events.fh.summer-outpost.SO-49.narrative",
     "options": [
       {
@@ -4373,6 +4441,7 @@
     "cardId": "SO-50",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu6PF",
     "narrative": "data.events.fh.summer-outpost.SO-50.narrative",
     "options": [
       {
@@ -4456,6 +4525,7 @@
     "cardId": "SO-51",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu6ez",
     "narrative": "data.events.fh.summer-outpost.SO-51.narrative",
     "options": [
       {
@@ -4548,6 +4618,7 @@
     "cardId": "SO-52",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu6uj",
     "narrative": "data.events.fh.summer-outpost.SO-52.narrative",
     "options": [
       {
@@ -4597,6 +4668,7 @@
     "cardId": "SO-53",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu76X",
     "narrative": "data.events.fh.summer-outpost.SO-53.narrative",
     "options": [
       {
@@ -4635,6 +4707,7 @@
     "cardId": "SO-54",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu7EP",
     "narrative": "data.events.fh.summer-outpost.SO-54.narrative",
     "options": [
       {
@@ -4699,6 +4772,7 @@
     "cardId": "SO-55",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu7QD",
     "narrative": "data.events.fh.summer-outpost.SO-55.narrative",
     "options": [
       {
@@ -4765,6 +4839,7 @@
     "cardId": "SO-56",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu7jt",
     "narrative": "data.events.fh.summer-outpost.SO-56.narrative",
     "options": [
       {
@@ -4820,6 +4895,7 @@
     "cardId": "SO-57",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu7zd",
     "narrative": "data.events.fh.summer-outpost.SO-57.narrative",
     "options": [
       {
@@ -4872,6 +4948,7 @@
     "cardId": "SO-58",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu8BR",
     "narrative": "data.events.fh.summer-outpost.SO-58.narrative",
     "options": [
       {
@@ -4920,6 +4997,7 @@
     "cardId": "SO-59",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu8NF",
     "narrative": "data.events.fh.summer-outpost.SO-59.narrative",
     "options": [
       {
@@ -4992,6 +5070,7 @@
     "cardId": "SO-60",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu8Z3",
     "narrative": "data.events.fh.summer-outpost.SO-60.narrative",
     "options": [
       {
@@ -5053,6 +5132,7 @@
     "cardId": "SO-61",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "e00836ef-c8a6-4fe1-b480-344533cf219e",
     "narrative": "data.events.fh.summer-outpost.SO-61.narrative",
     "options": [
       {
@@ -5107,6 +5187,7 @@
     "cardId": "SO-62",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu8wf",
     "narrative": "data.events.fh.summer-outpost.SO-62.narrative",
     "options": [
       {
@@ -5188,6 +5269,7 @@
     "cardId": "SO-63",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu98T",
     "narrative": "data.events.fh.summer-outpost.SO-63.narrative",
     "options": [
       {
@@ -5249,6 +5331,7 @@
     "cardId": "SO-64",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu9OD",
     "narrative": "data.events.fh.summer-outpost.SO-64.narrative",
     "options": [
       {
@@ -5303,6 +5386,7 @@
     "cardId": "SO-65",
     "edition": "fh",
     "type": "summer-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu9a1",
     "narrative": "data.events.fh.summer-outpost.SO-65.narrative",
     "options": [
       {
@@ -5352,6 +5436,7 @@
     "cardId": "SR-01",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmowNF",
     "narrative": "data.events.fh.summer-road.SR-01.narrative",
     "options": [
       {
@@ -5398,6 +5483,7 @@
     "cardId": "SR-02",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmowZ3",
     "narrative": "data.events.fh.summer-road.SR-02.narrative",
     "options": [
       {
@@ -5486,6 +5572,7 @@
     "cardId": "SR-03",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmowkr",
     "narrative": "data.events.fh.summer-road.SR-03.narrative",
     "options": [
       {
@@ -5541,6 +5628,7 @@
     "cardId": "SR-04",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmox0b",
     "narrative": "data.events.fh.summer-road.SR-04.narrative",
     "options": [
       {
@@ -5616,6 +5704,7 @@
     "cardId": "SR-05",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoxCP",
     "narrative": "data.events.fh.summer-road.SR-05.narrative",
     "options": [
       {
@@ -5671,6 +5760,7 @@
     "cardId": "SR-06",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoxS9",
     "narrative": "data.events.fh.summer-road.SR-06.narrative",
     "options": [
       {
@@ -5717,6 +5807,7 @@
     "cardId": "SR-07",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoxdx",
     "narrative": "data.events.fh.summer-road.SR-07.narrative",
     "options": [
       {
@@ -5764,6 +5855,7 @@
     "cardId": "SR-08",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoxpl",
     "narrative": "data.events.fh.summer-road.SR-08.narrative",
     "options": [
       {
@@ -5807,6 +5899,7 @@
     "cardId": "SR-09",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoy1Z",
     "narrative": "data.events.fh.summer-road.SR-09.narrative",
     "options": [
       {
@@ -5860,6 +5953,7 @@
     "cardId": "SR-10",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmozzZ",
     "narrative": "data.events.fh.summer-road.SR-10.narrative",
     "options": [
       {
@@ -5908,6 +6002,7 @@
     "cardId": "SR-11",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoyDN",
     "narrative": "data.events.fh.summer-road.SR-11.narrative",
     "options": [
       {
@@ -5980,6 +6075,7 @@
     "cardId": "SR-12",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoyev",
     "narrative": "data.events.fh.summer-road.SR-12.narrative",
     "options": [
       {
@@ -6064,6 +6160,7 @@
     "cardId": "SR-13",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmoyuf",
     "narrative": "data.events.fh.summer-road.SR-13.narrative",
     "options": [
       {
@@ -6170,6 +6267,7 @@
     "cardId": "SR-14",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmozEL",
     "narrative": "data.events.fh.summer-road.SR-14.narrative",
     "options": [
       {
@@ -6235,6 +6333,7 @@
     "cardId": "SR-15",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmozft",
     "narrative": "data.events.fh.summer-road.SR-15.narrative",
     "options": [
       {
@@ -6304,6 +6403,7 @@
     "cardId": "SR-16",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp0BN",
     "narrative": "data.events.fh.summer-road.SR-16.narrative",
     "options": [
       {
@@ -6374,6 +6474,7 @@
     "cardId": "SR-17",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp0cv",
     "narrative": "data.events.fh.summer-road.SR-17.narrative",
     "options": [
       {
@@ -6444,6 +6545,7 @@
     "cardId": "SR-18",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp18P",
     "narrative": "data.events.fh.summer-road.SR-18.narrative",
     "options": [
       {
@@ -6510,6 +6612,7 @@
     "cardId": "SR-19",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp1KD",
     "narrative": "data.events.fh.summer-road.SR-19.narrative",
     "options": [
       {
@@ -6569,6 +6672,7 @@
     "cardId": "SR-20",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp1dt",
     "narrative": "data.events.fh.summer-road.SR-20.narrative",
     "options": [
       {
@@ -6632,6 +6736,7 @@
     "cardId": "SR-21",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp1xZ",
     "narrative": "data.events.fh.summer-road.SR-21.narrative",
     "options": [
       {
@@ -6705,6 +6810,7 @@
     "cardId": "SR-22",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp2HF",
     "narrative": "data.events.fh.summer-road.SR-22.narrative",
     "options": [
       {
@@ -6753,6 +6859,7 @@
     "cardId": "SR-23",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp2T3",
     "narrative": "data.events.fh.summer-road.SR-23.narrative",
     "options": [
       {
@@ -6810,6 +6917,7 @@
     "cardId": "SR-24",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp2er",
     "narrative": "data.events.fh.summer-road.SR-24.narrative",
     "options": [
       {
@@ -6853,6 +6961,7 @@
     "cardId": "SR-25",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp2qf",
     "narrative": "data.events.fh.summer-road.SR-25.narrative",
     "options": [
       {
@@ -6919,6 +7028,7 @@
     "cardId": "SR-26",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp3AL",
     "narrative": "data.events.fh.summer-road.SR-26.narrative",
     "options": [
       {
@@ -7002,6 +7112,7 @@
     "cardId": "SR-27",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp3M9",
     "narrative": "data.events.fh.summer-road.SR-27.narrative",
     "options": [
       {
@@ -7084,6 +7195,7 @@
     "cardId": "SR-28",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp3Xx",
     "narrative": "data.events.fh.summer-road.SR-28.narrative",
     "options": [
       {
@@ -7154,6 +7266,7 @@
     "cardId": "SR-29",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp3jl",
     "narrative": "data.events.fh.summer-road.SR-29.narrative",
     "options": [
       {
@@ -7195,6 +7308,7 @@
     "cardId": "SR-30",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp3vZ",
     "narrative": "data.events.fh.summer-road.SR-30.narrative",
     "options": [
       {
@@ -7262,6 +7376,7 @@
     "cardId": "SR-31",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp4FF",
     "narrative": "data.events.fh.summer-road.SR-31.narrative",
     "options": [
       {
@@ -7344,6 +7459,7 @@
     "cardId": "SR-32",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp4Uz",
     "narrative": "data.events.fh.summer-road.SR-32.narrative",
     "options": [
       {
@@ -7389,6 +7505,7 @@
     "cardId": "SR-33",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp4gn",
     "narrative": "data.events.fh.summer-road.SR-33.narrative",
     "options": [
       {
@@ -7431,6 +7548,7 @@
     "cardId": "SR-34",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp4sb",
     "narrative": "data.events.fh.summer-road.SR-34.narrative",
     "options": [
       {
@@ -7511,6 +7629,7 @@
     "cardId": "SR-35",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp5CH",
     "narrative": "data.events.fh.summer-road.SR-35.narrative",
     "options": [
       {
@@ -7608,6 +7727,7 @@
     "cardId": "SR-36",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp5dp",
     "narrative": "data.events.fh.summer-road.SR-36.narrative",
     "options": [
       {
@@ -7651,6 +7771,7 @@
     "cardId": "SR-37",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp5pd",
     "narrative": "data.events.fh.summer-road.SR-37.narrative",
     "options": [
       {
@@ -7696,6 +7817,7 @@
     "cardId": "SR-38",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp61R",
     "narrative": "data.events.fh.summer-road.SR-38.narrative",
     "options": [
       {
@@ -7748,6 +7870,7 @@
     "cardId": "SR-39",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp6DF",
     "narrative": "data.events.fh.summer-road.SR-39.narrative",
     "options": [
       {
@@ -7803,6 +7926,7 @@
     "cardId": "SR-40",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp6P3",
     "narrative": "data.events.fh.summer-road.SR-40.narrative",
     "options": [
       {
@@ -7835,6 +7959,7 @@
     "cardId": "SR-41",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp6ar",
     "narrative": "data.events.fh.summer-road.SR-41.narrative",
     "options": [
       {
@@ -7903,6 +8028,7 @@
     "cardId": "SR-42",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp6uX",
     "narrative": "data.events.fh.summer-road.SR-42.narrative",
     "options": [
       {
@@ -7952,6 +8078,7 @@
     "cardId": "SR-43",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp7ED",
     "narrative": "data.events.fh.summer-road.SR-43.narrative",
     "options": [
       {
@@ -8035,6 +8162,7 @@
     "cardId": "SR-44",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp7Tx",
     "narrative": "data.events.fh.summer-road.SR-44.narrative",
     "options": [
       {
@@ -8120,6 +8248,7 @@
     "cardId": "SR-45",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp7vV",
     "narrative": "data.events.fh.summer-road.SR-45.narrative",
     "options": [
       {
@@ -8201,6 +8330,7 @@
     "cardId": "SR-46",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp8FB",
     "narrative": "data.events.fh.summer-road.SR-46.narrative",
     "options": [
       {
@@ -8246,6 +8376,7 @@
     "cardId": "SR-47",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp8Qz",
     "narrative": "data.events.fh.summer-road.SR-47.narrative",
     "options": [
       {
@@ -8345,6 +8476,7 @@
     "cardId": "SR-48",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp8kf",
     "narrative": "data.events.fh.summer-road.SR-48.narrative",
     "options": [
       {
@@ -8446,6 +8578,7 @@
     "cardId": "SR-49",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp94L",
     "narrative": "data.events.fh.summer-road.SR-49.narrative",
     "options": [
       {
@@ -8533,6 +8666,7 @@
     "cardId": "SR-50",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp9O1",
     "narrative": "data.events.fh.summer-road.SR-50.narrative",
     "options": [
       {
@@ -8590,6 +8724,7 @@
     "cardId": "SR-51",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp9Zp",
     "narrative": "data.events.fh.summer-road.SR-51.narrative",
     "options": [
       {
@@ -8626,6 +8761,7 @@
     "cardId": "SR-52",
     "edition": "fh",
     "type": "summer-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmp9ld",
     "narrative": "data.events.fh.summer-road.SR-52.narrative",
     "options": [
       {
@@ -8670,6 +8806,7 @@
     "cardId": "WO-01",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVu9lp",
     "narrative": "data.events.fh.winter-outpost.WO-01.narrative",
     "options": [
       {
@@ -8756,6 +8893,7 @@
     "cardId": "WO-02",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuA5V",
     "narrative": "data.events.fh.winter-outpost.WO-02.narrative",
     "options": [
       {
@@ -8855,6 +8993,7 @@
     "cardId": "WO-03",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuAPB",
     "narrative": "data.events.fh.winter-outpost.WO-03.narrative",
     "options": [
       {
@@ -8941,6 +9080,7 @@
     "cardId": "WO-04",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuAev",
     "narrative": "data.events.fh.winter-outpost.WO-04.narrative",
     "options": [
       {
@@ -9015,6 +9155,7 @@
     "cardId": "WO-05",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuAuf",
     "narrative": "data.events.fh.winter-outpost.WO-05.narrative",
     "options": [
       {
@@ -9081,6 +9222,7 @@
     "cardId": "WO-06",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuBAP",
     "narrative": "data.events.fh.winter-outpost.WO-06.narrative",
     "options": [
       {
@@ -9204,6 +9346,7 @@
     "cardId": "WO-07",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuBU5",
     "narrative": "data.events.fh.winter-outpost.WO-07.narrative",
     "options": [
       {
@@ -9264,6 +9407,7 @@
     "cardId": "WO-08",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuBft",
     "narrative": "data.events.fh.winter-outpost.WO-08.narrative",
     "options": [
       {
@@ -9321,6 +9465,7 @@
     "cardId": "WO-09",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuBrh",
     "narrative": "data.events.fh.winter-outpost.WO-09.narrative",
     "options": [
       {
@@ -9379,6 +9524,7 @@
     "cardId": "WO-10",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuC7R",
     "narrative": "data.events.fh.winter-outpost.WO-10.narrative",
     "options": [
       {
@@ -9479,6 +9625,7 @@
     "cardId": "WO-11",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuCR7",
     "narrative": "data.events.fh.winter-outpost.WO-11.narrative",
     "options": [
       {
@@ -9517,6 +9664,7 @@
     "cardId": "WO-12",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuCcv",
     "narrative": "data.events.fh.winter-outpost.WO-12.narrative",
     "options": [
       {
@@ -9578,6 +9726,7 @@
     "cardId": "WO-13",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuCoj",
     "narrative": "data.events.fh.winter-outpost.WO-13.narrative",
     "options": [
       {
@@ -9650,6 +9799,7 @@
     "cardId": "WO-14",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuD0X",
     "narrative": "data.events.fh.winter-outpost.WO-14.narrative",
     "options": [
       {
@@ -9722,6 +9872,7 @@
     "cardId": "WO-15",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuDCL",
     "narrative": "data.events.fh.winter-outpost.WO-15.narrative",
     "options": [
       {
@@ -9761,6 +9912,7 @@
     "cardId": "WO-16",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuDO9",
     "narrative": "data.events.fh.winter-outpost.WO-16.narrative",
     "options": [
       {
@@ -9806,6 +9958,7 @@
     "cardId": "WO-17",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuDZx",
     "narrative": "data.events.fh.winter-outpost.WO-17.narrative",
     "options": [
       {
@@ -9856,6 +10009,7 @@
     "cardId": "WO-18",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuDll",
     "narrative": "data.events.fh.winter-outpost.WO-18.narrative",
     "options": [
       {
@@ -9966,6 +10120,7 @@
     "cardId": "WO-19",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuE1V",
     "narrative": "data.events.fh.winter-outpost.WO-19.narrative",
     "options": [
       {
@@ -10012,6 +10167,7 @@
     "cardId": "WO-20",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuEDJ",
     "narrative": "data.events.fh.winter-outpost.WO-20.narrative",
     "options": [
       {
@@ -10074,6 +10230,7 @@
     "cardId": "WO-21",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuEP7",
     "narrative": "data.events.fh.winter-outpost.WO-21.narrative",
     "options": [
       {
@@ -10153,6 +10310,7 @@
     "cardId": "WO-22",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuEer",
     "narrative": "data.events.fh.winter-outpost.WO-22.narrative",
     "options": [
       {
@@ -10211,6 +10369,7 @@
     "cardId": "WO-23",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuEub",
     "narrative": "data.events.fh.winter-outpost.WO-23.narrative",
     "options": [
       {
@@ -10305,6 +10464,7 @@
     "cardId": "WO-24",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuFEH",
     "narrative": "data.events.fh.winter-outpost.WO-24.narrative",
     "options": [
       {
@@ -10398,6 +10558,7 @@
     "cardId": "WO-25",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuFXx",
     "narrative": "data.events.fh.winter-outpost.WO-25.narrative",
     "options": [
       {
@@ -10476,6 +10637,7 @@
     "cardId": "WO-26",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuFrd",
     "narrative": "data.events.fh.winter-outpost.WO-26.narrative",
     "options": [
       {
@@ -10561,6 +10723,7 @@
     "cardId": "WO-27",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuG7N",
     "narrative": "data.events.fh.winter-outpost.WO-27.narrative",
     "options": [
       {
@@ -10668,6 +10831,7 @@
     "cardId": "WO-28",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuGR3",
     "narrative": "data.events.fh.winter-outpost.WO-28.narrative",
     "options": [
       {
@@ -10731,6 +10895,7 @@
     "cardId": "WO-29",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuGgn",
     "narrative": "data.events.fh.winter-outpost.WO-29.narrative",
     "options": [
       {
@@ -10773,6 +10938,7 @@
     "cardId": "WO-30",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuGsb",
     "narrative": "data.events.fh.winter-outpost.WO-30.narrative",
     "options": [
       {
@@ -10807,6 +10973,7 @@
     "cardId": "WO-31",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuH4P",
     "narrative": "data.events.fh.winter-outpost.WO-31.narrative",
     "options": [
       {
@@ -10939,6 +11106,7 @@
     "cardId": "WO-32",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuHGD",
     "narrative": "data.events.fh.winter-outpost.WO-32.narrative",
     "options": [
       {
@@ -11011,6 +11179,7 @@
     "cardId": "WO-33",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuHS1",
     "narrative": "data.events.fh.winter-outpost.WO-33.narrative",
     "options": [
       {
@@ -11072,6 +11241,7 @@
     "cardId": "WO-34",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuHdp",
     "narrative": "data.events.fh.winter-outpost.WO-34.narrative",
     "options": [
       {
@@ -11146,6 +11316,7 @@
     "cardId": "WO-35",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuHtZ",
     "narrative": "data.events.fh.winter-outpost.WO-35.narrative",
     "options": [
       {
@@ -11232,6 +11403,7 @@
     "cardId": "WO-36",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuIDF",
     "narrative": "data.events.fh.winter-outpost.WO-36.narrative",
     "options": [
       {
@@ -11302,6 +11474,7 @@
     "cardId": "WO-37",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuISz",
     "narrative": "data.events.fh.winter-outpost.WO-37.narrative",
     "options": [
       {
@@ -11362,6 +11535,7 @@
     "cardId": "WO-38",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuIij",
     "narrative": "data.events.fh.winter-outpost.WO-38.narrative",
     "options": [
       {
@@ -11446,6 +11620,7 @@
     "cardId": "WO-39",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuIyT",
     "narrative": "data.events.fh.winter-outpost.WO-39.narrative",
     "options": [
       {
@@ -11509,6 +11684,7 @@
     "cardId": "WO-40",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuJAH",
     "narrative": "data.events.fh.winter-outpost.WO-40.narrative",
     "options": [
       {
@@ -11601,6 +11777,7 @@
     "cardId": "WO-41",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuJQ1",
     "narrative": "data.events.fh.winter-outpost.WO-41.narrative",
     "options": [
       {
@@ -11687,6 +11864,7 @@
     "cardId": "WO-42",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuJjh",
     "narrative": "data.events.fh.winter-outpost.WO-42.narrative",
     "options": [
       {
@@ -11761,6 +11939,7 @@
     "cardId": "WO-43",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuK3N",
     "narrative": "data.events.fh.winter-outpost.WO-43.narrative",
     "options": [
       {
@@ -11827,6 +12006,7 @@
     "cardId": "WO-44",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuKJ7",
     "narrative": "data.events.fh.winter-outpost.WO-44.narrative",
     "options": [
       {
@@ -11882,6 +12062,7 @@
     "cardId": "WO-45",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuKYr",
     "narrative": "data.events.fh.winter-outpost.WO-45.narrative",
     "options": [
       {
@@ -11946,6 +12127,7 @@
     "cardId": "WO-46",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuKob",
     "narrative": "data.events.fh.winter-outpost.WO-46.narrative",
     "options": [
       {
@@ -11997,6 +12179,7 @@
     "cardId": "WO-47",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuL0P",
     "narrative": "data.events.fh.winter-outpost.WO-47.narrative",
     "options": [
       {
@@ -12062,6 +12245,7 @@
     "cardId": "WO-48",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuLCD",
     "narrative": "data.events.fh.winter-outpost.WO-48.narrative",
     "options": [
       {
@@ -12118,6 +12302,7 @@
     "cardId": "WO-49",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuLO1",
     "narrative": "data.events.fh.winter-outpost.WO-49.narrative",
     "options": [
       {
@@ -12196,6 +12381,7 @@
     "cardId": "WO-50",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuLdl",
     "narrative": "data.events.fh.winter-outpost.WO-50.narrative",
     "options": [
       {
@@ -12263,6 +12449,7 @@
     "cardId": "WO-51",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuLtV",
     "narrative": "data.events.fh.winter-outpost.WO-51.narrative",
     "options": [
       {
@@ -12346,6 +12533,7 @@
     "cardId": "WO-52",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuM9F",
     "narrative": "data.events.fh.winter-outpost.WO-52.narrative",
     "options": [
       {
@@ -12400,6 +12588,7 @@
     "cardId": "WO-53",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuML3",
     "narrative": "data.events.fh.winter-outpost.WO-53.narrative",
     "options": [
       {
@@ -12459,6 +12648,7 @@
     "cardId": "WO-54",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuMan",
     "narrative": "data.events.fh.winter-outpost.WO-54.narrative",
     "options": [
       {
@@ -12527,6 +12717,7 @@
     "cardId": "WO-55",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuMqX",
     "narrative": "data.events.fh.winter-outpost.WO-55.narrative",
     "options": [
       {
@@ -12577,6 +12768,7 @@
     "cardId": "WO-56",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuN6H",
     "narrative": "data.events.fh.winter-outpost.WO-56.narrative",
     "options": [
       {
@@ -12637,6 +12829,7 @@
     "cardId": "WO-57",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuNM1",
     "narrative": "data.events.fh.winter-outpost.WO-57.narrative",
     "options": [
       {
@@ -12699,6 +12892,7 @@
     "cardId": "WO-58",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuNXp",
     "narrative": "data.events.fh.winter-outpost.WO-58.narrative",
     "options": [
       {
@@ -12792,6 +12986,7 @@
     "cardId": "WO-59",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuNzN",
     "narrative": "data.events.fh.winter-outpost.WO-59.narrative",
     "options": [
       {
@@ -12865,6 +13060,7 @@
     "cardId": "WO-60",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuOF7",
     "narrative": "data.events.fh.winter-outpost.WO-60.narrative",
     "options": [
       {
@@ -12930,6 +13126,7 @@
     "cardId": "WO-61",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuOUr",
     "narrative": "data.events.fh.winter-outpost.WO-61.narrative",
     "options": [
       {
@@ -12987,6 +13184,7 @@
     "cardId": "WO-62",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuOgf",
     "narrative": "data.events.fh.winter-outpost.WO-62.narrative",
     "options": [
       {
@@ -13055,6 +13253,7 @@
     "cardId": "WO-63",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuOwP",
     "narrative": "data.events.fh.winter-outpost.WO-63.narrative",
     "options": [
       {
@@ -13090,6 +13289,7 @@
     "cardId": "WO-64",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuP8D",
     "narrative": "data.events.fh.winter-outpost.WO-64.narrative",
     "options": [
       {
@@ -13161,6 +13361,7 @@
     "cardId": "WO-65",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuPNx",
     "narrative": "data.events.fh.winter-outpost.WO-65.narrative",
     "options": [
       {
@@ -13223,6 +13424,7 @@
     "cardId": "WO-66",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuPZl",
     "narrative": "data.events.fh.winter-outpost.WO-66.narrative",
     "options": [
       {
@@ -13287,6 +13489,7 @@
     "cardId": "WO-67",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuPlZ",
     "narrative": "data.events.fh.winter-outpost.WO-67.narrative",
     "options": [
       {
@@ -13345,6 +13548,7 @@
     "cardId": "WO-68",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuQ1J",
     "narrative": "data.events.fh.winter-outpost.WO-68.narrative",
     "options": [
       {
@@ -13439,6 +13643,7 @@
     "cardId": "WO-69",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuQD7",
     "narrative": "data.events.fh.winter-outpost.WO-69.narrative",
     "options": [
       {
@@ -13494,6 +13699,7 @@
     "cardId": "WO-70",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuQOv",
     "narrative": "data.events.fh.winter-outpost.WO-70.narrative",
     "options": [
       {
@@ -13548,6 +13754,7 @@
     "cardId": "WO-71",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuQaj",
     "narrative": "data.events.fh.winter-outpost.WO-71.narrative",
     "options": [
       {
@@ -13614,6 +13821,7 @@
     "cardId": "WO-72",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuQqT",
     "narrative": "data.events.fh.winter-outpost.WO-72.narrative",
     "options": [
       {
@@ -13684,6 +13892,7 @@
     "cardId": "WO-73",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuR6D",
     "narrative": "data.events.fh.winter-outpost.WO-73.narrative",
     "options": [
       {
@@ -13727,6 +13936,7 @@
     "cardId": "WO-74",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuRI1",
     "narrative": "data.events.fh.winter-outpost.WO-74.narrative",
     "options": [
       {
@@ -13788,6 +13998,7 @@
     "cardId": "WO-75",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuRXl",
     "narrative": "data.events.fh.winter-outpost.WO-75.narrative",
     "options": [
       {
@@ -13864,6 +14075,7 @@
     "cardId": "WO-76",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuRrR",
     "narrative": "data.events.fh.winter-outpost.WO-76.narrative",
     "options": [
       {
@@ -13917,6 +14129,7 @@
     "cardId": "WO-77",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuS3F",
     "narrative": "data.events.fh.winter-outpost.WO-77.narrative",
     "options": [
       {
@@ -13959,6 +14172,7 @@
     "cardId": "WO-78",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuSF3",
     "narrative": "data.events.fh.winter-outpost.WO-78.narrative",
     "options": [
       {
@@ -13996,6 +14210,7 @@
     "cardId": "WO-79",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuSQr",
     "narrative": "data.events.fh.winter-outpost.WO-79.narrative",
     "options": [
       {
@@ -14030,6 +14245,7 @@
     "cardId": "WO-80",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuScf",
     "narrative": "data.events.fh.winter-outpost.WO-80.narrative",
     "options": [
       {
@@ -14086,6 +14302,7 @@
     "cardId": "WO-81",
     "edition": "fh",
     "type": "winter-outpost",
+    "forteller": "1VdJMUBGN05L4Sq3pVuSoT",
     "narrative": "data.events.fh.winter-outpost.WO-81.narrative",
     "options": [
       {
@@ -14159,6 +14376,7 @@
     "cardId": "WR-01",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpA1N",
     "narrative": "data.events.fh.winter-road.WR-01.narrative",
     "options": [
       {
@@ -14226,6 +14444,7 @@
     "cardId": "WR-02",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpAL3",
     "narrative": "data.events.fh.winter-road.WR-02.narrative",
     "options": [
       {
@@ -14290,6 +14509,7 @@
     "cardId": "WR-03",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpAej",
     "narrative": "data.events.fh.winter-road.WR-03.narrative",
     "options": [
       {
@@ -14330,6 +14550,7 @@
     "cardId": "WR-04",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpAqX",
     "narrative": "data.events.fh.winter-road.WR-04.narrative",
     "options": [
       {
@@ -14388,6 +14609,7 @@
     "cardId": "WR-05",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpB2L",
     "narrative": "data.events.fh.winter-road.WR-05.narrative",
     "options": [
       {
@@ -14484,6 +14706,7 @@
     "cardId": "WR-06",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpBTt",
     "narrative": "data.events.fh.winter-road.WR-06.narrative",
     "options": [
       {
@@ -14533,6 +14756,7 @@
     "cardId": "WR-07",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpBfh",
     "narrative": "data.events.fh.winter-road.WR-07.narrative",
     "options": [
       {
@@ -14570,6 +14794,7 @@
     "cardId": "WR-08",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpBrV",
     "narrative": "data.events.fh.winter-road.WR-08.narrative",
     "options": [
       {
@@ -14623,6 +14848,7 @@
     "cardId": "WR-09",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpC3J",
     "narrative": "data.events.fh.winter-road.WR-09.narrative",
     "options": [
       {
@@ -14678,6 +14904,7 @@
     "cardId": "WR-10",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpCMz",
     "narrative": "data.events.fh.winter-road.WR-10.narrative",
     "options": [
       {
@@ -14722,6 +14949,7 @@
     "cardId": "WR-11",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpCsT",
     "narrative": "data.events.fh.winter-road.WR-11.narrative",
     "options": [
       {
@@ -14789,6 +15017,7 @@
     "cardId": "WR-12",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpCYn",
     "narrative": "data.events.fh.winter-road.WR-12.narrative",
     "options": [
       {
@@ -14859,6 +15088,7 @@
     "cardId": "WR-13",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpDC9",
     "narrative": "data.events.fh.winter-road.WR-13.narrative",
     "options": [
       {
@@ -14949,6 +15179,7 @@
     "cardId": "WR-14",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpDdh",
     "narrative": "data.events.fh.winter-road.WR-14.narrative",
     "options": [
       {
@@ -15018,6 +15249,7 @@
     "cardId": "WR-15",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpDxN",
     "narrative": "data.events.fh.winter-road.WR-15.narrative",
     "options": [
       {
@@ -15087,6 +15319,7 @@
     "cardId": "WR-16",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpESr",
     "narrative": "data.events.fh.winter-road.WR-16.narrative",
     "options": [
       {
@@ -15137,6 +15370,7 @@
     "cardId": "WR-17",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "81807018-f23e-4eff-9f57-4e347c5f710d",
     "narrative": "data.events.fh.winter-road.WR-17.narrative",
     "options": [
       {
@@ -15170,6 +15404,7 @@
     "cardId": "WR-18",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpEaj",
     "narrative": "data.events.fh.winter-road.WR-18.narrative",
     "options": [
       {
@@ -15211,6 +15446,7 @@
     "cardId": "WR-19",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpEmX",
     "narrative": "data.events.fh.winter-road.WR-19.narrative",
     "options": [
       {
@@ -15263,6 +15499,7 @@
     "cardId": "WR-20",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpF6D",
     "narrative": "data.events.fh.winter-road.WR-20.narrative",
     "options": [
       {
@@ -15352,6 +15589,7 @@
     "cardId": "WR-21",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpFXl",
     "narrative": "data.events.fh.winter-road.WR-21.narrative",
     "options": [
       {
@@ -15412,6 +15650,7 @@
     "cardId": "WR-22",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpFrR",
     "narrative": "data.events.fh.winter-road.WR-22.narrative",
     "options": [
       {
@@ -15469,6 +15708,7 @@
     "cardId": "WR-23",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpG3F",
     "narrative": "data.events.fh.winter-road.WR-23.narrative",
     "options": [
       {
@@ -15524,6 +15764,7 @@
     "cardId": "WR-24",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpGF3",
     "narrative": "data.events.fh.winter-road.WR-24.narrative",
     "options": [
       {
@@ -15584,6 +15825,7 @@
     "cardId": "WR-25",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpGQr",
     "narrative": "data.events.fh.winter-road.WR-25.narrative",
     "options": [
       {
@@ -15656,6 +15898,7 @@
     "cardId": "WR-26",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpGkX",
     "narrative": "data.events.fh.winter-road.WR-26.narrative",
     "options": [
       {
@@ -15733,6 +15976,7 @@
     "cardId": "WR-27",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpH4D",
     "narrative": "data.events.fh.winter-road.WR-27.narrative",
     "options": [
       {
@@ -15788,6 +16032,7 @@
     "cardId": "WR-28",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpHRp",
     "narrative": "data.events.fh.winter-road.WR-28.narrative",
     "options": [
       {
@@ -15828,6 +16073,7 @@
     "cardId": "WR-29",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpHdd",
     "narrative": "data.events.fh.winter-road.WR-29.narrative",
     "options": [
       {
@@ -15875,6 +16121,7 @@
     "cardId": "WR-30",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpHpR",
     "narrative": "data.events.fh.winter-road.WR-30.narrative",
     "options": [
       {
@@ -15938,6 +16185,7 @@
     "cardId": "WR-31",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpI97",
     "narrative": "data.events.fh.winter-road.WR-31.narrative",
     "options": [
       {
@@ -15980,6 +16228,7 @@
     "cardId": "WR-32",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpIKv",
     "narrative": "data.events.fh.winter-road.WR-32.narrative",
     "options": [
       {
@@ -16010,6 +16259,7 @@
     "cardId": "WR-33",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpISn",
     "narrative": "data.events.fh.winter-road.WR-33.narrative",
     "options": [
       {
@@ -16048,6 +16298,7 @@
     "cardId": "WR-34",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpIeb",
     "narrative": "data.events.fh.winter-road.WR-34.narrative",
     "options": [
       {
@@ -16110,6 +16361,7 @@
     "cardId": "WR-35",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpIuL",
     "narrative": "data.events.fh.winter-road.WR-35.narrative",
     "options": [
       {
@@ -16201,6 +16453,7 @@
     "cardId": "WR-36",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpJLt",
     "narrative": "data.events.fh.winter-road.WR-36.narrative",
     "options": [
       {
@@ -16241,6 +16494,7 @@
     "cardId": "WR-37",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpJXh",
     "narrative": "data.events.fh.winter-road.WR-37.narrative",
     "options": [
       {
@@ -16298,6 +16552,7 @@
     "cardId": "WR-38",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpJjV",
     "narrative": "data.events.fh.winter-road.WR-38.narrative",
     "options": [
       {
@@ -16349,6 +16604,7 @@
     "cardId": "WR-39",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpJvJ",
     "narrative": "data.events.fh.winter-road.WR-39.narrative",
     "options": [
       {
@@ -16405,6 +16661,7 @@
     "cardId": "WR-40",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpK77",
     "narrative": "data.events.fh.winter-road.WR-40.narrative",
     "options": [
       {
@@ -16427,6 +16684,7 @@
     "cardId": "WR-41",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpKEz",
     "narrative": "data.events.fh.winter-road.WR-41.narrative",
     "options": [
       {
@@ -16512,6 +16770,7 @@
     "cardId": "WR-42",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpKYf",
     "narrative": "data.events.fh.winter-road.WR-42.narrative",
     "options": [
       {
@@ -16582,6 +16841,7 @@
     "cardId": "WR-43",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpKoP",
     "narrative": "data.events.fh.winter-road.WR-43.narrative",
     "options": [
       {
@@ -16648,6 +16908,7 @@
     "cardId": "WR-44",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpL85",
     "narrative": "data.events.fh.winter-road.WR-44.narrative",
     "options": [
       {
@@ -16690,6 +16951,7 @@
     "cardId": "WR-45",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpLJt",
     "narrative": "data.events.fh.winter-road.WR-45.narrative",
     "options": [
       {
@@ -16789,6 +17051,7 @@
     "cardId": "WR-46",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpLdZ",
     "narrative": "data.events.fh.winter-road.WR-46.narrative",
     "options": [
       {
@@ -16890,6 +17153,7 @@
     "cardId": "WR-47",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpLxF",
     "narrative": "data.events.fh.winter-road.WR-47.narrative",
     "options": [
       {
@@ -16977,6 +17241,7 @@
     "cardId": "WR-48",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpMGv",
     "narrative": "data.events.fh.winter-road.WR-48.narrative",
     "options": [
       {
@@ -17039,6 +17304,7 @@
     "cardId": "WR-49",
     "edition": "fh",
     "type": "winter-road",
+    "forteller": "1VdJMUBGN05L4Sq3pmpMWf",
     "narrative": "data.events.fh.winter-road.WR-49.narrative",
     "options": [
       {

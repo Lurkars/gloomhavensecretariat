@@ -498,7 +498,7 @@
         class="character-sheet-button"
         [ghs-label]="'character.progress'"
         [ghs-label-attribute]="'title'"
-        [ngClass]="{ 'hand-size-margin': settingsManager.settings.characterHandSize }"
+        [ngClass]="{ 'hand-size-margin': settingsManager.settings.characterHandSize || settingsManager.settings.characterAbilityCards }"
         ghs-pointer-input
         (singleClick)="settingsManager.settings.characterSheet ? openCharacterSheet() : openEntityMenu()"
         (doubleClick)="characterFullView()"
@@ -507,8 +507,12 @@
       </a>
     }
 
-    @if (character.editionRules !== 'bb' && settingsManager.settings.characterHandSize && !character.absent) {
-      <div class="hand-size" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="openAbilityCards()">
+    @if (
+      character.editionRules !== 'bb' &&
+      (settingsManager.settings.characterHandSize || settingsManager.settings.characterAbilityCards) &&
+      !character.absent
+    ) {
+      <div class="hand-size" ghs-pointer-input (singleClick)="handSizeClick()" (doubleClick)="openAbilityCards()">
         {{ character.handSize }}
       </div>
     }

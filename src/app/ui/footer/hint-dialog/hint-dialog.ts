@@ -24,8 +24,10 @@ export class HintDialogComponent {
 
   isEmpty: boolean = false;
   isMissingInitiative: boolean = false;
+  isAbilityCards: boolean = false;
   isActive: boolean = false;
   isBattleGoals: boolean = false;
+  isChallenges: boolean = false;
   isEventDraw: boolean = false;
   isFinish: boolean = false;
   isFailed: boolean = false;
@@ -34,8 +36,10 @@ export class HintDialogComponent {
     this.ghsManager.uiChangeEffect(() => {
       this.isEmpty = this.empty();
       this.isMissingInitiative = this.missingInitiative();
+      this.isAbilityCards = gameManager.characterAbilityManager.selectionPending();
       this.isActive = this.active();
       this.isBattleGoals = this.battleGoals();
+      this.isChallenges = gameManager.roundManager.challengesPending();
       this.isEventDraw = this.eventDraw();
       this.isFinish = this.finish();
       this.isFailed = this.failed();
@@ -108,6 +112,8 @@ export class HintDialogComponent {
       } else if (this.isFailed) {
         this.finishScenario(false);
       } else if (this.isBattleGoals) {
+        this.confirm();
+      } else if (this.isChallenges) {
         this.confirm();
       } else if (this.isEventDraw) {
         this.confirm();

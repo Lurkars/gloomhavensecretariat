@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { GhsManager } from 'src/app/game/businesslogic/GhsManager';
 import { gameManager } from 'src/app/game/businesslogic/Managers';
-import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/ability-cards-dialog';
+import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/abilities/ability-cards-dialog';
 import { CharacterSheetFhComponent } from 'src/app/ui/figures/character/sheet/layouts/fh-sheet';
 import { CharacterSheetGhComponent } from 'src/app/ui/figures/character/sheet/layouts/gh-sheet';
 import { CharacterSheetRpgComponent } from 'src/app/ui/figures/character/sheet/layouts/rpg-sheet';
@@ -56,7 +56,7 @@ export class CharacterSheetComponent extends CharacterSheetSection implements On
   openAbilityCards() {
     this.dialog.open(AbilityCardsDialogComponent, {
       panelClass: ['dialog'],
-      data: { character: this.character }
+      data: { character: this.character, view: 'deck' }
     });
   }
 }

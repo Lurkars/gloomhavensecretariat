@@ -1,0 +1,291 @@
+{
+  "index": "2",
+  "name": "Toxic Contraband",
+  "edition": "r100kc",
+  "initial": true,
+  "rewards": {
+    "gold": 15,
+    "experience": 10,
+    "custom": "%data.scenario.rewards.r100kc.2%"
+  },
+  "monsters": [
+    "bandit-archer::gh",
+    "bandit-guard::gh",
+    "ooze::gh",
+    "vermling-shaman::gh"
+  ],
+  "objectives": [
+    {
+      "name": "Crate",
+      "health": "(L+1)xC",
+      "marker": "a"
+    },
+    {
+      "name": "Barrel",
+      "health": "(L+1)xC",
+      "marker": "b"
+    },
+    {
+      "name": "Barrel",
+      "health": "(L+1)xC",
+      "marker": "c"
+    },
+    {
+      "name": "Barrel",
+      "health": "(L+1)xC",
+      "marker": "d"
+    },
+    {
+      "name": "Vat",
+      "health": "(L+1)x2",
+      "marker": "e"
+    },
+    {
+      "name": "Vat",
+      "health": "(L+1)x2",
+      "marker": "f"
+    },
+    {
+      "name": "Vat",
+      "health": "(L+1)x2",
+      "marker": "g"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "%data.scenario.rules.r100kc.2.1%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "note": "%data.scenario.rules.r100kc.2.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Crate",
+            "marker": "a"
+          },
+          "type": "dead"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.r100kc.2.3%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "note": "%data.scenario.rules.r100kc.2.4%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vat",
+            "marker": "e"
+          },
+          "type": "dead"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "type": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vat",
+            "marker": "f"
+          },
+          "type": "dead"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "type": "normal"
+          },
+          "marker": "f"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vat",
+            "marker": "g"
+          },
+          "type": "dead"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "type": "elite"
+          },
+          "marker": "g"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "I1a",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer::gh",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard::gh",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard::gh",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "G2b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "I2b",
+      "monster": [
+        {
+          "name": "bandit-guard::gh",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze::gh",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        5,
+        "6:C>2",
+        "7:C>3"
+      ]
+    }
+  ]
+}

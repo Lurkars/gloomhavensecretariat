@@ -1,0 +1,209 @@
+{
+  "index": "7",
+  "name": "Xain's Bad Day",
+  "edition": "r100kc",
+  "initial": true,
+  "rewards": {
+    "custom": "%data.scenario.rewards.r100kc.7%"
+  },
+  "monsters": [
+    "forest-imp::fh",
+    "hound::fh",
+    "polar-bear::fh"
+  ],
+  "objectives": [
+    {
+      "name": "Squabbles",
+      "escort": true,
+      "health": "(C+1)xL",
+      "initiative": 99,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "fly",
+              "value": "",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "%data.scenario.rules.r100kc.7.1%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.r100kc.7.2%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        3
+      ],
+      "note": "%data.scenario.rules.r100kc.7.3%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        4
+      ],
+      "note": "%data.scenario.rules.r100kc.7.4%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "requiredRooms": [
+        4
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "10-D",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "forest-imp::fh",
+          "type": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "type": "normal"
+        },
+        {
+          "name": "hound::fh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound::fh",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "11-A",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "forest-imp::fh",
+          "type": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear::fh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "05-B",
+      "rooms": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "forest-imp::fh",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp::fh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "01-C",
+      "monster": [
+        {
+          "name": "forest-imp::fh",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound::fh",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear::fh",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

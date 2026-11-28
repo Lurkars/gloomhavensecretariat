@@ -49,7 +49,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "The Chosen"
           },
           "type": "remove"

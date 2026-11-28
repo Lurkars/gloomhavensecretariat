@@ -1,0 +1,99 @@
+{
+  "name": "arborian-root",
+  "noArtwork": true,
+  "edition": "r100kc",
+  "deck": "arborian-root",
+  "hidden": true,
+  "count": 2,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 1
+    },
+    {
+      "level": 1,
+      "health": 2,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": 2,
+      "attack": 6
+    },
+    {
+      "level": 3,
+      "health": 3,
+      "attack": 9
+    },
+    {
+      "level": 4,
+      "health": 3,
+      "attack": 12
+    },
+    {
+      "level": 5,
+      "health": 4,
+      "attack": 15
+    },
+    {
+      "level": 6,
+      "health": 4,
+      "attack": 18
+    },
+    {
+      "level": 7,
+      "health": 5,
+      "attack": 21
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 1
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 2,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 2,
+      "attack": 6
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 3,
+      "attack": 9
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 3,
+      "attack": 12
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 4,
+      "attack": 15
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 4,
+      "attack": 18
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 5,
+      "attack": 21
+    }
+  ]
+}

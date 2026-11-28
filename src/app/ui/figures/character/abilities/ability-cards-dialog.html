@@ -1,0 +1,144 @@
+<div class="ability-cards-dialog">
+  <ng-template #editDeck>
+    @if (settingsManager.settings.characterAbilityCards) {
+      <label class="edit-deck"
+        ><input type="checkbox" (click)="toggleView()" [checked]="view === 'deck'" /><span
+          [ghs-label]="'character.abilities.cards.editDeck'"
+        ></span
+      ></label>
+    }
+  </ng-template>
+  <div class="scroll-container">
+    @if (view === 'play') {
+      <ghs-ability-cards-play [character]="character"><ng-container [ngTemplateOutlet]="editDeck"></ng-container></ghs-ability-cards-play>
+    } @else {
+      <div class="menu">
+        @if (levelToPick) {
+          <p class="title" [ghs-label]="'character.abilities.pickCard'" [ghs-label-args]="[levelToPick]"></p>
+        }
+        @if (character.progress.deck.length && deck) {
+          <a
+            ghs-pointer-input
+            (singleClick)="undoLastCard()"
+            (doubleClick)="resetDeck()"
+            [ghs-label]="'character.abilities.undoLastPick'"
+            [ghs-label-args]="[levelToPick ? levelToPick - 1 : character.level]"
+            [ghs-tooltip]="'character.abilities.undoLastPick.hint'"
+          ></a>
+        }
+        @if (!levelToPick) {
+          <div class="levels">
+            @for (l of additionalLevels; track l) {
+              <a
+                class="level"
+                ghs-pointer-input
+                (singleClick)="setLevel(l)"
+                (doubleClick)="setLevel(l, true)"
+                [ngClass]="{ active: level === l, exclusive: exclusiveLevel === l }"
+                [ghs-label]="l"
+              ></a>
+            }
+            @if (additionalLevels.length) {
+              <span class="separator">|</span>
+            }
+            @for (l of [] | ghsRange: (deck ? maxLevel : 9); track l) {
+              <a
+                class="level"
+                ghs-pointer-input
+                (singleClick)="setLevel(l + 1)"
+                (doubleClick)="setLevel(l + 1, true)"
+                [ngClass]="{ active: level === l + 1, exclusive: exclusiveLevel === l + 1 }"
+                >{{ l + 1 }}</a
+              >
+            }
+          </div>
+        }
+        @if (!levelToPick) {
+          <select [(ngModel)]="sort" (change)="update()">
+            @for (value of sorts; track value) {
+              <option [value]="value" [ghs-label]="'character.abilities.sort.' + value"></option>
+            }
+          </select>
+        }
+        <a [ghs-label]="deck ? 'character.abilities.show' : 'character.abilities.showDeck'" (click)="togglePick()"></a>
+
+        @if (!levelToPick) {
+          <img
+            class="enhancement"
+            src="./assets/images/character/enhancements.svg"
+            ghs-pointer-input
+            (singleClick)="toggleEnhanced()"
+            (doubleClick)="openEnhancementDialog()"
+            [ngClass]="{ active: enhanced, unavailable: !enhancementsAvailable }"
+          />
+        }
+        @if (character.progress.deck.length > character.level - 1) {
+          <p class="warning" [ghs-label]="'character.abilities.deckWarning'"></p>
+        }
+        @if (maxLevel > character.level) {
+          <p class="warning" [ghs-label]="'character.abilities.levelWarning'"></p>
+        }
+        <ng-container [ngTemplateOutlet]="editDeck"></ng-container>
+      </div>
+      <div class="cards">
+        <div class="abilities">
+          @if (!exclusiveLevel && !levelToPick && !enhanced) {
+            <div class="container">
+              <ghs-ability-card [character]="character"></ghs-ability-card>
+            </div>
+          }
+          @for (abilityCard of visibleAbilityCards | trackUUID; track abilityCard._trackUUID) {
+            <div
+              class="container ability"
+              [ngClass]="{
+                pick: levelToPick,
+                'in-deck':
+                  abilityCard.level === 1 ||
+                  abilityCard.level === 'X' ||
+                  character.progress.deck.indexOf(abilityCards.indexOf(abilityCard)) !== -1,
+                always: abilityCard.level === 1 || abilityCard.level === 'X',
+                disabled:
+                  character.progress.deck.indexOf(abilityCards.indexOf(abilityCard)) === -1 &&
+                  (levelToPick < +abilityCard.level || cardsToPick < 1)
+              }"
+            >
+              <ghs-ability-card
+                [abilityCard]="abilityCard"
+                [character]="character"
+                [flipped]="true"
+                ghs-pointer-input
+                (singleClick)="clickAbility(abilityCard)"
+                (doubleClick)="openDialog(abilityCard)"
+              ></ghs-ability-card>
+              @if (!deck) {
+                <img
+                  class="deck"
+                  src="./assets/images/character/deck.svg"
+                  ghs-pointer-input
+                  (doubleClick)="toggleDeck(abilityCard, true)"
+                  [ghs-tooltip]="
+                    character.progress.deck.indexOf(abilityCards.indexOf(abilityCard)) !== -1
+                      ? 'character.abilities.removeFromDeck'
+                      : 'character.abilities.forceDeck'
+                  "
+                />
+              }
+            </div>
+          }
+        </div>
+        @if (smallAbilityCards.length) {
+          <p class="title" [ghs-label]="'character.abilities.currentDeck'"></p>
+        }
+        @if (smallAbilityCards.length) {
+          <div class="abilities">
+            @for (abilityCard of smallAbilityCards | trackUUID; track abilityCard._trackUUID) {
+              <div class="container small ability" (click)="openDialog(abilityCard)">
+                <ghs-ability-card [abilityCard]="abilityCard" [character]="character" [flipped]="true"></ghs-ability-card>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

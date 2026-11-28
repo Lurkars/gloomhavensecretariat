@@ -15,13 +15,30 @@
     }
   },
   "edition": {
-    "ir": "Ice Rift &lt;%wip%(!)&gt;"
+    "ir": "Ice Rift"
   },
   "monster": {
     "beast-rider": "Beast Rider",
     "frost-wurm": "Frost Wurm",
     "savvas-bookkeeper": "Savvas Bookkeeper",
-    "thrax": "Thrax"
+    "thrax": "Thrax",
+    "tothran": "Tothran",
+    "zaide": "Zaide"
+  },
+  "objective": {
+    "Caravan": "Caravan",
+    "Crystal": "Crystal",
+    "Gloomhaven Gate": "Gloomhaven Gate",
+    "Portal": "Portal",
+    "Wheel": "Wheel"
+  },
+  "partyAchievements": {
+    "head-of-the-lion": "Head of the Lion",
+    "preparations": "Preparations",
+    "sand-in-the-machine": "Sand in the Machine",
+    "ship-repaired": "Ship Repaired",
+    "where-the-money-flows": "Where the Money Flows",
+    "where-the-snow-is-trodden": "Where the Snow is Trodden"
   },
   "personalQuest": {
     "ir": {
@@ -64,7 +81,85 @@
     "rewards": {
       "ir": {
         "04": "Minus 10 gold for each further upgrade to the ship.",
-        "05": "Minus 10 gold for each further upgrade to the ship. If you spend at least 20 gold each for upgrades, +1 reputation instead."
+        "05": "Minus 10 gold for each further upgrade to the ship. If you spend at least 20 gold each for upgrades, +1 reputation instead.",
+        "09": "Event: choose the Spirit of the Drake (treasure 42), the Spirit of the Viper (treasure 49), the Spirit of the Imp (treasure 34) or refuse the offer (treasure 21).",
+        "10": "Note how many Rock Columns were destroyed.",
+        "11": "Event: Option A - keep the gold and kill the merchant (treasure 47). Option B - return the money (treasure 19).",
+        "12": "Event (before the scenario): pay 10xC collective gold for an expensive captain (treasure 13) or 2xC collective gold for a crazy captain (treasure 27).",
+        "14": "Note how many portals were destroyed.",
+        "16": "Each player that looted treasure tiles randomly draws two grey numbered tokens for each looted treasure and gains that much gold.",
+        "17": "Event: each player may donate 10 gold to the Tracker Guild. If at least one donation is made, read treasure 29."
+      }
+    },
+    "rules": {
+      "ir": {
+        "4": {
+          "1": "All Ancient Artillery are inactive. Living Bones are automatons: they do not perform their ability card actions, instead they perform %game.action.push:1% on all adjacent characters and summons (L+1 damage, L+3 if they cannot be pushed) and move one hex around their obstacle (odd initiative clockwise, even initiative counter-clockwise). Living Bones and Ancient Artillery can not be targeted. Randomly place the grey numbered tokens (2 players: 1-6 on %game.mapMarker.a%, 3 players: 1-10 on %game.mapMarker.a% and %game.mapMarker.b%, 4 players: all on %game.mapMarker.a%, %game.mapMarker.b% and %game.mapMarker.c%). When the first even token is looted, all enemies become active. For every even token looted, spawn a Living Corpse in the empty hex closest to the token. Door %game.mapMarker.d% is locked and opens when a character occupies the pressure plate at the end of their turn."
+        },
+        "5": {
+          "1": "Door %game.mapMarker.a% is locked. Ancient Artillery and Living Corpses are dormant and raise the alarm at initiative 99 if a character is within range 2. Living Bones do not perform their ability card actions but move clockwise around their obstacle (even initiative: move 1, odd initiative: move 2) and raise the alarm if a character is within range 2 during that move. An enemy that has damage at the start of its turn raises the alarm. When the alarm is raised, all enemies become active. Occupying the pressure plate opens door %game.mapMarker.a% and raises the alarm. When all goal treasures are looted, escape through the stairs."
+        },
+        "6": {
+          "1": "Doors 4 are locked and only become unlocked when both pressure plates %game.mapMarker.a% are occupied at the end of a character's turn."
+        },
+        "7": {
+          "1": "All characters subtract 1 range from all ranged attacks. Water hexes are difficult terrain for all figures and hazardous terrain for characters and character summons. Whenever a character or character summon is adjacent to a mist tile, reveal it. The crystal %game.mapMarker.e% can not be targeted while there are mist tiles on the map.",
+          "2": "Mist tiles: %game.mapMarker.a% treasure 37 (normal Ooze for 3 or 4 players), %game.mapMarker.b% treasure 33, %game.mapMarker.c% treasure 44 (normal Rending Drake), %game.mapMarker.d% treasure 5."
+        },
+        "8": {
+          "1": "Your starting location depends on the gold spent on ship upgrades in scenario 4 or 5 (0 gold: %game.mapMarker.a%, 10 gold: %game.mapMarker.b%, 20 gold: %game.mapMarker.c%, 30 gold: %game.mapMarker.d%, 40 gold: %game.mapMarker.e%). Each failed attempt lets you start one location further. Only open the rooms set up for your starting location.",
+          "2": "Before monster ability cards are drawn, the party may collectively spend 2xC coins collected in this scenario to prevent the Beast Rider from performing the actions on its ability card."
+        },
+        "9": {
+          "1": "Door 3 is locked. Every looted coin is a dose of foul essence. When an enemy is killed, all remaining enemies of the same type gain %game.condition.strengthen%. At the end of every round, if %game.element.earth% is strong, all enemies perform %game.action.heal:1%, self. If %game.element.dark% is strong, all characters and character allies gain %game.condition.poison%.",
+          "2": "Open door 3 and teleport Zaide to %game.mapMarker.a%. Zaide starts with 1 hit point and her hit points can never be reduced below 1. She summons two Giant Vipers instead of Living Bones. Each character ending its turn adjacent to hot coals may burn one vial of foul essence (turn a coin face down): Zaide performs %game.action.heal:2%, self for each burned vial. Heal abilities of characters and character allies can target Zaide. When Zaide is fully healed, the scenario is complete."
+        },
+        "10": {
+          "1": "All monsters are one level higher than the scenario level. Doors 2 are locked and open when a character occupies pressure plate %game.mapMarker.a% at the end of their turn.",
+          "2": "Whenever a Rock Column is destroyed, all enemies suffer 2 damage."
+        },
+        "12": {
+          "1": "Wheels (2 players: %game.mapMarker.a%, 3 players: also %game.mapMarker.b%, 4 players: also %game.mapMarker.c%) can only be targeted while the pressure plate across from them is occupied. Door 2 unlocks when all wheels are sabotaged. If any character becomes exhausted before reaching map tile C1b, the scenario is lost.",
+          "2": "All characters and character allies deduct 1 move from all their move actions. Start counting rounds now (this is round one): as long as there are undamaged wheels, a Stone Golem spawns at %game.mapMarker.d% at the start of every fourth round."
+        },
+        "13": {
+          "1": "Gather C+1 clues. All Savvas have a willpower of C, decreased by 1 each time they suffer damage (minimum 1). To interrogate, perform a loot action or forgo a top action while adjacent to a Savvas. All adjacent characters draw the top two cards of their attack modifier deck: if the number of cards with a positive value is higher than the willpower, a clue is gathered (null counts as -2, x2 as +2, effects without number as +1). Only one clue per Savvas. If a Savvas is killed before it is successfully interrogated, the scenario is lost."
+        },
+        "14": {
+          "1": "At the end of every odd round, spawn a Frost Demon at each %game.mapMarker.a% and a Wind Demon at %game.mapMarker.b%. At the end of every even round, spawn a Sun Demon at each %game.mapMarker.c% and a Night Demon at %game.mapMarker.d%. Destroyed portals no longer spawn enemies. When all characters are exhausted, read Conclusion A."
+        },
+        "15": {
+          "1": "You may freely place the three tables and two damage traps in the starting room (without blocking doors) and choose your starting hexes. All doors are locked: doors 1 open at the start of round 1, door 2 at the start of round 3 and doors 3 at the start of round 5.",
+          "2": "Remove all table obstacles from map tile N1b, the Frost Wurm spawns at %game.mapMarker.a%."
+        },
+        "16": {
+          "1": "Treasures can only be looted one at a time: a loot action loots only one treasure.",
+          "2": "The Savvas Lavaflow summons a normal Inox Guard instead of an Earth Demon and a normal Inox Archer instead of a Flame Demon."
+        },
+        "17": {
+          "1": "Do not set up the goal treasure yet. A character standing on this map tile may forgo both actions to find the hidden goal treasure."
+        },
+        "18": {
+          "1": "At initiative 99, the caravan moves two hexes towards %game.mapMarker.g%. Map tiles G1a and F1b can not be entered or affected by characters. If the caravan takes damage, or is within two hexes of a large boulder while the adjacent room is unrevealed or contains only enemies, the scenario is lost. A character ending its turn on a pressure plate disarms the explosives of that room. Dark pits are tunnel entrances leading to the pit with the preceding or following letter."
+        },
+        "19": {
+          "1": "Land army depending on the Rock Columns destroyed in scenario 10: none - Earth Demons and Stone Golems; one - Stone Golems and Living Corpses; two or three - Earth Demons and Living Bones; all - Living Bones and Living Corpses. Gate %game.mapMarker.a% is closed, if it is destroyed the scenario is lost. Tothran is the elite Savvas Icestorm: as long as he is alive, portals can not be damaged. City Archers do not draw ability cards, instead they perform %game.action.attack:0% at initiative 01 using the attack modifier deck of any character. When all three portals around %game.mapMarker.b% (or %game.mapMarker.c%) are destroyed, no more enemies spawn there."
+        },
+        "20": {
+          "1": "Crystals %game.mapMarker.d% have (L+N)xC hit points, where N is the number of portals remaining in scenario 14 - reduce their hit points accordingly. Gate %game.mapMarker.a% is closed, if it is destroyed the scenario is lost. The battering ram is an obstacle: as long as Stone Golems are adjacent, at initiative 99 they move it one hex closer to the gate instead of their normal actions (they are immune to %game.condition.stun%, %game.condition.immobilize% and forced movement). If the ram moves over the gate, the scenario is lost. Tothran is the elite Savvas Lavaflow: as long as he is alive, Stone Golems can not be damaged. City Archers do not draw ability cards, instead they perform %game.action.attack:0% at initiative 01 using the attack modifier deck of any character."
+        },
+        "21": {
+          "1": "The heat of the torch starts at 10. At the start of each round and each time %game.element.ice% is infused, lower it by 1. Each time %game.element.fire% is infused, increase it by 1. If the heat is ever zero, the scenario is lost. Kill all enemies and bring the burning torch to your house (map tile B1a)."
+        },
+        "22": {
+          "1": "Each map tile is a different plane: abilities only affect the plane the figure occupies. Portals %game.mapMarker.a% and %game.mapMarker.d% as well as %game.mapMarker.b% and %game.mapMarker.c% are connected (push 1 an occupying figure). Sun Demons and Night Demons are enemies to you and all other monster types. Once a Sun Demon or Night Demon is next to the altar %game.mapMarker.e%, it no longer performs any actions. At the start of round 3, reveal tile L1b if not yet revealed."
+        },
+        "23": {
+          "1": "Heal actions can target stumps %game.mapMarker.a%, replace a healed stump with a bush. Characters and summons within range 1 of a bush are immune to %game.condition.poison%. %game.condition.poison% stacks on enemies: for each instance you and your summons add +1 attack to attacks against them."
+        },
+        "24": {
+          "1": "Put the grey numbered tokens 1-12 without 9 and 11 next to the map. Each time you deal damage to an enemy, remove the token with the number equal to the damage dealt. Whenever you end your movement next to the altar, add one %game.condition.bless% to your attack modifier deck. From round 9 on, elite enemies spawn at the end of every round."
+        }
       }
     },
     "title": {
@@ -73,7 +168,26 @@
         "2": "Unusual Customs",
         "3": "A Ship Besieged",
         "4": "Gloomhaven Secure Storage",
-        "5": "Gloomhaven Secure Storage"
+        "5": "Secure Storage Heist",
+        "6": "Savvas Light Temple",
+        "7": "Plane of Mist",
+        "8": "Cape Horn",
+        "9": "Telling Fortunes",
+        "10": "Mountain Army",
+        "11": "Spoils of War",
+        "12": "Stormsinger",
+        "13": "Temple of the Four Elements",
+        "14": "Cold War",
+        "15": "The Calm Before the Storm",
+        "16": "War Economy",
+        "17": "A Ship Imperiled",
+        "18": "Boulder Pass",
+        "19": "Under Siege - Bridge of Ice",
+        "20": "Under Siege - Roaring Earth",
+        "21": "Sleeping Beauty",
+        "22": "Opposites Attract",
+        "23": "Unpoisoning the Well",
+        "24": "The Perfect Prediction"
       }
     }
   }

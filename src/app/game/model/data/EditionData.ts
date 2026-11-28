@@ -47,6 +47,7 @@ export class EditionData implements Editional {
   labelEvents: any = {};
   url: string = '';
   logoUrl: string = '';
+  baseColor: string = '';
   type: EditionType = 'standalone';
   extends: string[] = [];
   newAmStyle: boolean = false;

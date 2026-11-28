@@ -1,0 +1,194 @@
+{
+  "index": "18",
+  "name": "Boulder Pass",
+  "edition": "ir",
+  "unlocks": [
+    "19"
+  ],
+  "rewards": {
+    "gold": 20,
+    "reputation": 1,
+    "prosperity": 2
+  },
+  "monsters": [
+    "ancient-artillery",
+    "bandit-archer",
+    "bandit-guard",
+    "inox-archer",
+    "inox-guard"
+  ],
+  "objectives": [
+    {
+      "name": "Caravan",
+      "escort": true,
+      "health": 1,
+      "marker": "a",
+      "initiative": 99,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir.18.1%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "D1b+G1a+F1b",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "C2a",
+      "marker": "c",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "B1b",
+      "marker": "d",
+      "rooms": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "A2b",
+      "marker": "e",
+      "rooms": [
+        5
+      ],
+      "monster": [
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "M1b",
+      "marker": "f",
+      "treasures": [
+        35
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

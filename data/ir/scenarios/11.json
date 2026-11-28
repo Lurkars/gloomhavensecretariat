@@ -1,0 +1,159 @@
+{
+  "index": "11",
+  "name": "Spoils of War",
+  "edition": "ir",
+  "unlocks": [
+    "13"
+  ],
+  "requirements": [
+    {
+      "party": [
+        "preparations:3"
+      ]
+    }
+  ],
+  "rewards": {
+    "experience": 20,
+    "custom": "%data.scenario.rewards.ir.11%"
+  },
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "inox-archer",
+    "inox-guard",
+    "savvas-lavaflow"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "H2b+G1a",
+      "initial": true,
+      "rooms": [
+        2,
+        3,
+        4
+      ],
+      "treasures": [
+        48,
+        20,
+        25
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "B4a",
+      "treasures": [
+        39
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "elite",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "B1a",
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "B3a",
+      "marker": "1",
+      "treasures": [
+        24
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

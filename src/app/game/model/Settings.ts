@@ -75,6 +75,7 @@ export class Settings {
   calculateShieldStats: boolean = true;
   calculateStats: boolean = true;
   calendarLocked: boolean | 'permissive' = false;
+  characterAbilityCards: boolean = false;
   characterAttackModifierAnimate: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckActiveBottom: boolean = false;
@@ -143,6 +144,7 @@ export class Settings {
   fhBrewGrid: boolean = false;
   fhChallenges: boolean = false;
   fhChallengesApply: boolean = true;
+  fhChallengesReminder: boolean = true;
   fhGarden: boolean = true;
   fhGhItems: boolean = false;
   fhGh2eItems: boolean = false;
@@ -153,6 +155,7 @@ export class Settings {
   fhTrials: boolean = false;
   fhTrialsApply: boolean = true;
   fontsize: number = 1;
+  fortellerLinks: Partial<Record<string, string>> = {};
   gameClock: boolean = false;
   gameClockMerge: boolean = true;
   gh2eFhItems: boolean = false;
@@ -294,6 +297,7 @@ export const localSettings: string[] = [
   'fhBrewGrid',
   'fhStyle',
   'fontsize',
+  'fortellerLinks',
   'gameClock',
   'gameClockMerge',
   'globalFontsize',

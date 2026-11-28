@@ -49,6 +49,7 @@ describe('StandeeComponent', () => {
     await TestBed.configureTestingModule({ imports: [StandeeComponent] }).compileComponents();
 
     gameManager.game.figures = [];
+    gameManager.game.state = GameState.next;
     settingsManager.settings.standeeStats = false;
     settingsManager.settings.activeStandees = true;
     settingsManager.settings.activeSummons = true;

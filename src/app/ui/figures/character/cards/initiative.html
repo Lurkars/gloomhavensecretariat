@@ -2,7 +2,9 @@
   class="initiative"
   [ngClass]="{
     empty:
-      initiative() <= 0 && figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || (character && character.exhausted))
+      initiative() <= 0 &&
+      figure.initiative <= 0 &&
+      (!settingsManager.settings.initiativeRequired || (character && (character.exhausted || character.abilityCards)))
   }"
   [ghs-label]="'game.figure.setInitiative'"
   [ghs-label-attribute]="'title'"

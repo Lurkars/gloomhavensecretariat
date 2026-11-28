@@ -43,6 +43,11 @@
         &:hover .ghs-svg {
           filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
         }
+
+        &.forteller {
+          left: auto;
+          right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        }
       }
     }
   }

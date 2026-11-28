@@ -11,7 +11,7 @@ import { ConditionName } from 'src/app/game/model/data/Condition';
 import { Element } from 'src/app/game/model/data/Element';
 import { EnhancementAction, EnhancementType } from 'src/app/game/model/data/Enhancement';
 import { SummonData } from 'src/app/game/model/data/SummonData';
-import { EnhancementDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog';
+import { EnhancementDialogComponent } from 'src/app/ui/figures/character/abilities/enhancements/enhancement-dialog';
 import { abilityCardsEditing } from 'src/app/ui/helper/ability-edit';
 import { GhsLabelDirective } from 'src/app/ui/helper/label';
 import { PointerInputDirective } from 'src/app/ui/helper/pointer-input';

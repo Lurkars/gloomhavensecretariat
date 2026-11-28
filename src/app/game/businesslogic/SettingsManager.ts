@@ -200,6 +200,21 @@ export class SettingsManager {
     gameManager.triggerUiChange(false);
   }
 
+  setFortellerLink(edition: string, link: string) {
+    // a link copied from any Forteller page is reduced to the campaign link (drops node id, query, trailing slash)
+    const value = link.trim();
+    const campaignLink = value.match(/^https?:\/\/[^/]+\/play\/[^/]+\/[^/?#]+/);
+    if (!this.settings.fortellerLinks) {
+      this.settings.fortellerLinks = {};
+    }
+    if (value) {
+      this.settings.fortellerLinks[edition] = campaignLink ? campaignLink[0] : value.replace(/\/+$/, '');
+    } else {
+      delete this.settings.fortellerLinks[edition];
+    }
+    this.storeSettings();
+  }
+
   reset() {
     storageManager.remove('settings');
     this.loadSettings();

@@ -2,6 +2,7 @@
   "index": "28",
   "name": "Summit Meeting",
   "flowChartGroup": "algox-3",
+  "forteller": "RbvYcRDNbBIseOVVtfjdPH",
   "errata": "scenario28",
   "coordinates": {
     "x": 1264.75,
@@ -122,7 +123,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "fh",
+            "edition": "escort",
             "name": "Emissary"
           },
           "type": "dead",

@@ -2,6 +2,7 @@
   "index": "35",
   "name": "Scrap Pit",
   "flowChartGroup": "unfettered",
+  "forteller": "RbvYcRDNbBIseOVVtfjdnt",
   "coordinates": {
     "x": 1876.25,
     "y": 1396.25,
@@ -89,7 +90,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Crain"
           },
           "type": "dead"

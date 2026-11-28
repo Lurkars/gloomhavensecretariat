@@ -50,6 +50,7 @@ export class ScenarioData implements Editional, Spoilable {
   overlays: ScenarioOverlay[] = [];
   spotlight: boolean = false;
   recaps: ScenarioRecap[] = [];
+  forteller: string | undefined;
 
   // from Editional
   edition: string = '';
@@ -100,6 +101,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.overlays = scenarioData.overlays;
       this.spotlight = scenarioData.spotlight;
       this.recaps = scenarioData.recaps;
+      this.forteller = scenarioData.forteller;
     }
   }
 }

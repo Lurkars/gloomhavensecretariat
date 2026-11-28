@@ -28,7 +28,7 @@
 
 ## Introduction
 
-_Gloomhaven Secretariat_ is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, **Gloomhaven 2nd Edition**, **Buttons & Bugs**, **Gloomhaven: The Roleplaying Game** and the **Mercenary Packs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content from **Custom Content Unity Guild**.
+_Gloomhaven Secretariat_ is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles**, **Gloomhaven 2nd Edition**, **Buttons & Bugs**, **Gloomhaven: The Roleplaying Game**, **Skulls in the Snow** and the **Mercenary Packs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content from **Custom Content Unity Guild**.
 
 _GHS_ is a complete replacement for the abandoned [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, _GHS_ helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. _GHS_ also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manage your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
@@ -57,9 +57,9 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 - Tracking:
   - **Initiative** sorting
   - **Health** automatic exhaust/dead, max values for each level
-  - **Conditions** auto expire + auto apply (wound, wound_x, regen, bane, poison, poison_x, ward, brittle)
+  - **Conditions** auto expire + auto apply (wound, wound_x, regen, bane, poison, poison_x, ward, brittle, safeguard, infect, rupture)
   - **Level**, **Loot**, **Experience** of characters
-  - **Character Progression** level, loot, experience, items, battle goals, perks, masteries
+  - **Character Progression** level, loot, experience, items, battle goals, perks, masteries, personal quests (incl. automatic progress tracking), retirement
   - **Character Attack Modifier Deck** including Perks & CS Oak Cards
   - **Elements** automatic update status
   - **Monster Stats**
@@ -70,11 +70,13 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Scenarios** and **Sections** with automatic level calculation, displays and applies special rules, and applies scenario results to character progression
   - **Party Sheet**
   - **Campaign Management** (some special rules for CS are missing)
+  - **Frosthaven Outpost** calendar, resources, buildings, town guard, pets
   - **Markers**
   - **Treasures**
   - **Character Items** (must be enabled in Settings!) manage state of items during a scenario
   - **Battle Goals** (must be enabled in Settings!)
   - **Event Decks** (must be enabled in Settings!)
+  - **Character Ability Cards** ability deck, enhancements and playing with ability cards: choose hand, select cards for the round, play card halves, manage discard/lost/active piles and rests (must be enabled in Settings!). Card data is available for GH, GH2E (except two classes), FH, JOTL, FC, CS, TOA and Envelope X/V
 - Elimination of the following physical components
   - Monster ability cards
   - Monster stat cards
@@ -86,6 +88,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Character boards
   - Character sheets
   - Character attack modifier deck
+  - Character ability cards
   - Event decks
   - Loot deck
   - Town guard deck
@@ -157,6 +160,12 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
     </details>
     <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-coral.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+    > Perk 9: Gain Shield 1 for the round when declaring a long rest
+
+    </details>
+    <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-kelp.svg" height="20px" style="filter:grayscale(1);"></summary>
 
     > Perk 11: Start each scenario with 2 Trophy Tokens
@@ -169,7 +178,11 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
     > Repair Drone Mode: Heal 2 self at start of turn
 
+    > Code Geminate (level 5): Allow multiple summons in Prism Mode
+
     > Spider Mode (level 8): Gain Ward at start of turn
+
+    > Perk 8: Long rest with any initiative value (initiative is not set to 99)
 
     </details>
     <details>
@@ -229,7 +242,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-envx.svg" height="20px" style="filter:grayscale(1);"> (GH/GH2E)</summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-envx.svg" height="20px" style="filter:grayscale(1);"> (GH/GH2E/FH Crossover)</summary>
 
     > Call of the Grave (level 1): Wound deals +1 damage to monsters
 
@@ -240,6 +253,14 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     > Blood Pact: Suffer 1 damage at the start of each of your turns (not when at 1 HP)
 
     > Perk 9: Heal 3 instead of 2 during long rest
+
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"> FH Crossover</summary>
+
+    > Same as GH (Blood Pact, Unbridled Power, Careless Charge)
+
+    > Perk 10: Heal 3 instead of 2 during long rest
 
     </details>
     <details>
@@ -268,12 +289,25 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     > Spirits: Spirit summons gain +1 HP at the start of Skull's turn, lose 1 HP at the end of Skull's turn
 
     </details>
+    <details>
+      <summary>SPOILER WARNING: Gloomhaven: The Roleplaying Game</summary>
+
+    > Berserker - Strength in Agony: Suffer 1 damage at the start of each of your turns (not when at 1 HP)
+
+    > Bladeswarm - Call of the Grave (level 1): Wound deals +1 damage to monsters
+
+    </details>
 
   - Random Dungeons
   - Scenario Flow Chart
   - Scenario Stats (damage/heal provided and received)
-  - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
+  - Data editors for editions, characters, monsters and decks (e.g. https://gloomhaven-secretariat.de/editor/monster)
+  - Tools for browsing cards and decks (attack modifiers, ability decks, events, items, treasures, random monster cards, labels)
+  - Standalone loot deck (`/loot`), attack modifier deck (`/am`) and enhancement calculator (`/calc`)
+  - Remote commands via [GHS Server](https://github.com/Lurkars/ghs-server) for external devices (e.g. an initiative input pad)
   - Includes Solo scenarios
+  - Includes the updated digital Solo items: can be enabled under _Data Management_.
+  - Includes the ConQuest personal quests for FH and GH2E: can be enabled under _Data Management_.
   - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under _Data Management_.
   - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under _Data Management_.
   - Includes [Ice Rift](https://boardgamegeek.com/thread/2341619/custom-campaign-ice-rift): can be enabled under _Data Management_.
@@ -286,14 +320,6 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     > To add Envelope X (or V for ToA), enable it under _Data Management_, then enter the full name in the _Character Filter_ (not case sensitive).
 
     </details>
-
-### Planned next
-
-- Finish Event Deck Support
-
-### Long term plans
-
-- Finish all character ability cards
 
 ## Contributing
 

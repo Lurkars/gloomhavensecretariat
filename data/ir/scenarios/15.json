@@ -1,0 +1,176 @@
+{
+  "index": "15",
+  "name": "The Calm Before the Storm",
+  "edition": "ir",
+  "unlocks": [
+    "20"
+  ],
+  "rewards": {
+    "reputation": 1,
+    "prosperity": 2
+  },
+  "monsters": [
+    "frost-wurm",
+    "harrower-infester",
+    "living-bones",
+    "living-corpse",
+    "living-spirit"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir.15.1%",
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "rooms": [
+        3
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "rooms": [
+        4
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "note": "%data.scenario.rules.ir.15.2%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-wurm",
+            "type": "boss"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "N1b",
+      "initial": true
+    },
+    {
+      "roomNumber": 2,
+      "ref": "F1a",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "I2b",
+      "marker": "2",
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "G1a",
+      "marker": "3",
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

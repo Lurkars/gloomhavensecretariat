@@ -1,6 +1,6 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
 import { Character } from 'src/app/game/model/Character';
-import { ActiveAbilityCard } from 'src/app/game/model/CharacterAbilityCards';
+import { AbilityCardPlay, ActiveAbilityCard } from 'src/app/game/model/CharacterAbilityCards';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
 import { CharacterStat } from 'src/app/game/model/data/CharacterStat';
@@ -92,30 +92,39 @@ describe('CharacterAbilityManager', () => {
     });
 
     it('chooses the hand from available cards up to hand size', () => {
-      const character = buildPlayer();
+      const character = buildCharacter('test-char');
+      character.handSize = 4;
       expect(characterAbilityManager.availableAbilityCards(character)).toEqual([0, 1, 2, 3, 4, 6]);
-      expect(characterAbilityManager.toggleHand(character, 5)).toBe(false);
-      expect(characterAbilityManager.toggleHand(character, 5, true)).toBe(true);
-      [0, 1, 2].forEach((index) => characterAbilityManager.toggleHand(character, index));
+      expect(characterAbilityManager.defaultHand(character)).toEqual([]);
+      expect(characterAbilityManager.setHand(character, [0, 5])).toBe(false);
+      expect(characterAbilityManager.setHand(character, [0, 1, 2, 3, 4])).toBe(false);
+      expect(characterAbilityManager.setHand(character, [0, 0])).toBe(false);
+      expect(character.abilityCards).toBeUndefined();
+      expect(characterAbilityManager.setHand(character, [0, 1, 2, 5], true)).toBe(true);
       expect(characterAbilityManager.handComplete(character)).toBe(true);
-      expect(characterAbilityManager.toggleHand(character, 3)).toBe(false);
-      expect(characterAbilityManager.toggleHand(character, 5)).toBe(true);
-      expect(characterAbilityManager.toggleHand(character, 3)).toBe(true);
+      expect(characterAbilityManager.setHand(character, [0, 1, 2, 3])).toBe(true);
       expect(character.abilityCards?.hand).toEqual([0, 1, 2, 3]);
+      character.abilityCards!.lost = [4];
+      expect(characterAbilityManager.setHand(character, [0, 1])).toBe(false);
     });
 
     it('selects two cards and takes initiative from the leading card', () => {
       const character = buildPlayer();
       character.abilityCards!.hand = [0, 1, 2, 3];
-      expect(characterAbilityManager.toggleSelectCard(character, 1)).toBe(true);
+      expect(characterAbilityManager.defaultSelection(character)).toEqual([]);
+      expect(characterAbilityManager.selectCards(character, [1])).toBe(true);
+      expect(characterAbilityManager.defaultSelection(character)).toEqual([1]);
       expect(character.initiative).toBe(0);
-      expect(characterAbilityManager.toggleSelectCard(character, 2)).toBe(true);
+      expect(characterAbilityManager.selectCards(character, [1, 2])).toBe(true);
       expect(character.initiative).toBe(20);
-      expect(characterAbilityManager.toggleSelectCard(character, 0)).toBe(false);
-      expect(characterAbilityManager.setLeadingCard(character, 2)).toBe(true);
+      expect(characterAbilityManager.selectCards(character, [0, 1, 2])).toBe(false);
+      expect(characterAbilityManager.selectCards(character, [2, 2])).toBe(false);
+      expect(characterAbilityManager.selectCards(character, [5, 1])).toBe(false);
+      expect(characterAbilityManager.selectCards(character, [2, 1])).toBe(true);
       expect(character.initiative).toBe(30);
       expect(character.abilityCards?.hand).toEqual([0, 3]);
       expect(characterAbilityManager.handEditable(character)).toBe(false);
+      character.abilityCards!.discard = [4, 6];
       gameManager.roundManager.setLongRest(character, true);
       expect(character.abilityCards?.selected).toEqual([]);
       expect(character.abilityCards?.hand).toEqual([0, 3, 2, 1]);
@@ -143,6 +152,64 @@ describe('CharacterAbilityManager', () => {
       expect(characterAbilityManager.removeActiveCard(character, 2)).toBe('lost');
       expect(cards.discard).toEqual([0, 1]);
       expect(cards.lost).toEqual([1, 2]);
+    });
+
+    it('blocks the round until cards are selected or a long rest is declared', () => {
+      const character = buildPlayer();
+      character.abilityCards!.hand = [0, 1, 2];
+      gameManager.game.figures = [character];
+      expect(characterAbilityManager.selectionPending()).toBe(true);
+      expect(gameManager.roundManager.drawBlocked()).toBe(true);
+      characterAbilityManager.selectCards(character, [0, 1]);
+      expect(characterAbilityManager.selectionPending()).toBe(false);
+      characterAbilityManager.selectCards(character, []);
+      character.abilityCards!.discard = [3, 4];
+      gameManager.roundManager.setLongRest(character, true);
+      expect(characterAbilityManager.selectionPending()).toBe(true);
+      characterAbilityManager.longRest(character, 3);
+      expect(characterAbilityManager.selectionPending()).toBe(false);
+      gameManager.game.figures = [];
+    });
+
+    it('needs two discarded cards to declare a long rest, initiative 99 is no long rest', () => {
+      const character = buildPlayer();
+      character.abilityCards!.discard = [0];
+      expect(gameManager.roundManager.setLongRest(character, true)).toBe(false);
+      expect(character.longRest).toBe(false);
+      expect(gameManager.roundManager.setInitiative(character, 99)).toBe(true);
+      expect(character.longRest).toBe(false);
+      character.abilityCards!.discard = [0, 1];
+      expect(gameManager.roundManager.setLongRest(character, true)).toBe(true);
+      expect(character.longRest).toBe(true);
+    });
+
+    it('preselects the last two cards in hand', () => {
+      const character = buildPlayer();
+      character.abilityCards!.hand = [3, 1];
+      expect(characterAbilityManager.defaultSelection(character)).toEqual([3, 1]);
+    });
+
+    it('plays both selected cards with halves of different sides', () => {
+      const character = buildPlayer();
+      const cards = character.abilityCards!;
+      cards.selected = [0, 1];
+      gameManager.game.state = GameState.next;
+      expect(characterAbilityManager.canPlayCards(character, [])).toBe(false);
+      expect(characterAbilityManager.canPlayCards(character, [new AbilityCardPlay(0, 'top'), new AbilityCardPlay(1, 'defaultTop')])).toBe(
+        false
+      );
+      expect(characterAbilityManager.canPlayCards(character, [new AbilityCardPlay(0, 'top'), new AbilityCardPlay(5, 'bottom')])).toBe(
+        false
+      );
+      expect(characterAbilityManager.playCards(character, [new AbilityCardPlay(0, 'bottom')])).toEqual(['discard']);
+      expect(characterAbilityManager.canPlayCards(character, [new AbilityCardPlay(1, 'defaultBottom')])).toBe(false);
+      expect(characterAbilityManager.playCards(character, [new AbilityCardPlay(1, 'top')])).toEqual(['lost']);
+      cards.selected = [0, 2];
+      cards.played = undefined;
+      expect(
+        characterAbilityManager.playCards(character, [new AbilityCardPlay(0, 'defaultTop'), new AbilityCardPlay(2, 'bottom')])
+      ).toEqual(['discard', 'active']);
+      expect(cards.selected).toEqual([]);
     });
 
     it('ends the round with unplayed and round bonus cards', () => {
@@ -186,17 +253,65 @@ describe('CharacterAbilityManager', () => {
       expect(characterAbilityManager.canRerollShortRest(character)).toBe(false);
     });
 
+    it('exhausts directly when a short rest leaves too few cards', () => {
+      const character = buildPlayer();
+      const cards = character.abilityCards!;
+      cards.hand = [];
+      cards.discard = [0, 1];
+      characterAbilityManager.shortRest(character);
+      expect(cards.hand.length).toBe(1);
+      expect(character.exhausted).toBe(true);
+    });
+
     it('long rests losing the chosen card', () => {
       const character = buildPlayer();
       const cards = character.abilityCards!;
+      cards.discard = [0];
+      expect(characterAbilityManager.canDeclareLongRest(character)).toBe(false);
       cards.discard = [0, 1];
-      character.longRest = true;
-      expect(characterAbilityManager.longRest(character, 1)).toBe(false);
+      expect(characterAbilityManager.canDeclareLongRest(character)).toBe(true);
       gameManager.game.state = GameState.next;
+      expect(characterAbilityManager.longRest(character, 1)).toBe(false);
+      gameManager.game.state = GameState.draw;
       expect(characterAbilityManager.longRest(character, 2)).toBe(false);
       expect(characterAbilityManager.longRest(character, 1)).toBe(true);
+      expect(character.longRest).toBe(true);
+      expect(character.initiative).toBe(99);
       expect(cards.lost).toEqual([1]);
       expect(cards.hand).toEqual([0]);
+      expect(characterAbilityManager.canDeclareLongRest(character)).toBe(false);
+    });
+
+    it('long rests after cards were already selected', () => {
+      const character = buildPlayer();
+      const cards = character.abilityCards!;
+      cards.hand = [2, 3];
+      cards.discard = [0, 1];
+      characterAbilityManager.selectCards(character, [2, 3]);
+      expect(characterAbilityManager.canLongRest(character, 0)).toBe(true);
+      expect(characterAbilityManager.longRest(character, 0)).toBe(true);
+      expect(cards.selected).toEqual([]);
+      expect(cards.lost).toEqual([0]);
+      expect(cards.hand).toEqual([2, 3, 1]);
+      expect(character.longRest).toBe(true);
+    });
+
+    it('long rests on the turn of an already declared long rest', () => {
+      const character = buildPlayer();
+      const cards = character.abilityCards!;
+      cards.discard = [0, 1];
+      cards.hand = [2, 3];
+      character.longRest = true;
+      gameManager.game.state = GameState.next;
+      cards.active = [new ActiveAbilityCard(6, true)];
+      expect(characterAbilityManager.longRest(character, 4)).toBe(false);
+      expect(characterAbilityManager.longRest(character, 3)).toBe(true);
+      expect(cards.lost).toEqual([3]);
+      expect(cards.hand).toEqual([2, 0, 1]);
+      cards.discard = [0, 1];
+      expect(characterAbilityManager.longRest(character, 6)).toBe(true);
+      expect(cards.active).toEqual([]);
+      expect(cards.lost).toEqual([3, 6]);
     });
 
     it('loses one hand or two discarded cards for damage', () => {

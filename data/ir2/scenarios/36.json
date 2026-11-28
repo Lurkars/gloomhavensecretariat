@@ -1,0 +1,229 @@
+{
+  "index": "36",
+  "name": "Taking Back Jerran A",
+  "edition": "ir2",
+  "unlocks": [
+    "38"
+  ],
+  "requirements": [
+    {
+      "party": [
+        "siege-engine"
+      ]
+    }
+  ],
+  "rewards": {
+    "reputation": 1,
+    "prosperity": 2
+  },
+  "monsters": [
+    "ancient-artillery",
+    "city-guard",
+    "harrower-infester",
+    "living-corpse"
+  ],
+  "objectives": [
+    {
+      "name": "Table",
+      "health": "Cx3",
+      "marker": "c",
+      "initiative": 99
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir2.36.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "manual": true
+        },
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "manual": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        5
+      ],
+      "note": "%data.scenario.rules.ir2.36.3%"
+    },
+    {
+      "round": "true",
+      "requiredRooms": [
+        5
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Table"
+          },
+          "type": "damage",
+          "value": "2"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "I1b",
+      "initial": true,
+      "rooms": [
+        2,
+        3,
+        4
+      ],
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "B1a",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "B2a",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "H1b",
+      "marker": "a",
+      "rooms": [
+        5
+      ],
+      "treasures": [
+        22
+      ],
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "K2b",
+      "marker": "2",
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1
+      ]
+    }
+  ]
+}

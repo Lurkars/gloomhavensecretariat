@@ -87,6 +87,36 @@ describe('GameManager', () => {
       gameManager.editionManager.editionData = [];
       expect(gameManager.editionManager.editionLogo('unknown')).toEqual('');
     });
+
+    it('editionBaseLogo returns the logo of the single standalone edition an extension extends', () => {
+      gameManager.editionManager.editionData = [
+        buildEdition('gh', { logoUrl: 'gh.png' }),
+        buildEdition('ir', { type: 'extension', extends: ['gh'] }),
+        buildEdition('ir2', { type: 'extension', extends: ['gh', 'ir'] })
+      ];
+      expect(gameManager.editionManager.editionBaseLogo('ir')).toEqual('gh.png');
+      expect(gameManager.editionManager.editionBaseLogo('ir2')).toEqual('gh.png');
+    });
+
+    it('editionBaseLogo returns an empty string for own logos, non-extensions or multiple standalone parents', () => {
+      gameManager.editionManager.editionData = [
+        buildEdition('gh', { logoUrl: 'gh.png' }),
+        buildEdition('fh', { logoUrl: 'fh.png' }),
+        buildEdition('cs', { type: 'extension', extends: ['gh'], logoUrl: 'cs.png' }),
+        buildEdition('fc', { type: 'addon', extends: ['gh'] }),
+        buildEdition('bas', { type: 'extension', extends: ['gh', 'fh'] })
+      ];
+      expect(gameManager.editionManager.editionBaseLogo('cs')).toEqual('');
+      expect(gameManager.editionManager.editionBaseLogo('fc')).toEqual('');
+      expect(gameManager.editionManager.editionBaseLogo('bas')).toEqual('');
+      expect(gameManager.editionManager.editionBaseLogo('unknown')).toEqual('');
+    });
+
+    it('editionBaseColor returns the baseColor or an empty string', () => {
+      gameManager.editionManager.editionData = [buildEdition('ir', { baseColor: '#00ffff' }), buildEdition('gh')];
+      expect(gameManager.editionManager.editionBaseColor('ir')).toEqual('#00ffff');
+      expect(gameManager.editionManager.editionBaseColor('gh')).toEqual('');
+    });
   });
 
   describe('currentEdition', () => {

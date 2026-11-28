@@ -1,0 +1,154 @@
+{
+  "name": "tothran",
+  "edition": "ir",
+  "deck": "savvas-icestorm",
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "savvas-icestorm",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "elite"
+  },
+  "stats": [
+    {
+      "type": "elite",
+      "level": 0,
+      "health": "[Math.ceil(Cx12/2)]",
+      "movement": 2,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": "[Math.ceil(Cx12/2)]",
+      "movement": 2,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": "[Math.ceil(Cx15/2)]",
+      "movement": 3,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": "[Math.ceil(Cx18/2)]",
+      "movement": 3,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": "[Math.ceil(Cx19/2)]",
+      "movement": 4,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": "[Math.ceil(Cx21/2)]",
+      "movement": 4,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": "[Math.ceil(Cx23/2)]",
+      "movement": 4,
+      "attack": 6,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": "[Math.ceil(Cx24/2)]",
+      "movement": 4,
+      "attack": 6,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

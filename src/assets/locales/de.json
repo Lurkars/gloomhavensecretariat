@@ -89,6 +89,44 @@
   "character": {
     "": "Charakter",
     "abilities": {
+      "cards": {
+        "active": "Aktiv",
+        "apply": "Übernehmen",
+        "changeHand": "Handkarten ändern",
+        "continue": "Weiter",
+        "declareLongRest": "Lange Rast",
+        "disable": {
+          "": "Deaktivieren",
+          "hint": "Doppelklick, um Fertigkeitskarten für diesen Charakter zu deaktivieren"
+        },
+        "discard": "Ablage ({0})",
+        "editDeck": "Deck bearbeiten",
+        "half": {
+          "bottom": "Unten",
+          "defaultBottom": "Bewegung 2",
+          "defaultTop": "Angriff 2",
+          "top": "Oben"
+        },
+        "hand": "Hand ({0})",
+        "lost": "Verloren ({0})",
+        "prompt": {
+          "cardsSelected": "Initiative {0} - übernehmen, um die Karten zu bestätigen",
+          "chooseHand": "Handkarten wählen: {0}/{1} Karten",
+          "handComplete": "Handkarten vollständig: {0}/{1} Karten - übernehmen, um fortzufahren",
+          "longRest": "Lange Rast: eine Karte zum Verlieren wählen, dann übernehmen",
+          "longRestDeclared": "Lange Rast angekündigt",
+          "mustRest": "Weniger als 2 Handkarten - kurze oder lange Rast machen",
+          "playCards": "Gespielte Hälfte jeder Karte anklicken, erneut für die Standardaktion, dann übernehmen",
+          "selectCards": "2 Handkarten für diese Runde wählen: {0}/2",
+          "selectCardsOrRest": "2 Handkarten für diese Runde wählen oder eine lange Rast ankündigen: {0}/2"
+        },
+        "removeActive": "Entfernen",
+        "rerollShortRest": "'{0}' behalten und andere Karte verlieren (1 Schaden)",
+        "selected": "Ausgewählt",
+        "shortRest": "Kurze Rast",
+        "shortRestLost": "Durch kurze Rast verloren",
+        "switch": "Initiativkarte tauschen"
+      },
       "currentDeck": "Aktuelles Kartendeck",
       "deckWarning": "Keine korrekte Kartenauswahl möglich, da zu viele Karten im Kartendeck sind!",
       "enhancements": {
@@ -1875,8 +1913,10 @@
   "round": {
     "draw": "Ziehen",
     "hint": {
+      "abilityCards": "Nicht alle Charaktere mit Fertigkeitskarten haben ihre Karten gewählt oder die Karte für ihre lange Rast verloren!",
       "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
       "battleGoals": "Es haben noch nicht alle Charaktere ein Kampfziel ausgewählt. Trotzdem die Runde starten?",
+      "challenges": "Es wurden noch nicht alle Herausforderungskarten gezogen. Trotzdem die Runde starten?",
       "confirm": "Bestätigen",
       "confirmFailed": "Szenario mit Niederlage beenden",
       "confirmFinish": "Szenario mit Erfolg beenden",
@@ -2760,6 +2800,10 @@
       "": "Auto. aktives AM-Deck",
       "hint": "Automatisch das AM-Deck des aktiven Charakters umschalten."
     },
+    "characterAbilityCards": {
+      "": "Fertigkeitskarten",
+      "hint": "Ermöglicht das Spielen mit Fertigkeitskarten pro Charakter: Handkarten wählen, Karten für die Runde auswählen und ausspielen. Klick auf die Handkartenanzahl, um die Karten zu verwalten."
+    },
     "characterCompact": {
       "": "Kompaktes Charakterboard",
       "hint": "Zeige eine schmaleres Charakterboard an. (Aktuell keine Unterstützung für das Moderne Thema)"
@@ -2931,6 +2975,10 @@
       "": "Herausforderungen anwenden",
       "hint": "Automatisch aktive Herausforderungskarten anwenden (wenn möglich)."
     },
+    "fhChallengesReminder": {
+      "": "Herausforderungen Erinnerung",
+      "hint": "Zeigt eine Erinnerung vor dem Start der ersten Runde falls noch nicht alle Herausforderungskarten gezogen wurden."
+    },
     "fhGarden": {
       "": "Unterstützung für Garten",
       "hint": "Pflanzen und Ernten von Kräutern (Gebäude 24 Garten)"
@@ -2983,6 +3031,12 @@
       "hint": "Schriftgröße von Fertigkeiten und Werten einstellen",
       "inc": "Fertigkeit Schriftgröße erhöhen",
       "reset": "Fertigkeit Schriftgröße zurücksetzen"
+    },
+    "forteller": {
+      "": "Forteller Kampagnen-Link",
+      "hint": "Link der eigenen Forteller-Kampagne einfügen (forteller.gg/play/...). Szenarien, Abschnitte und Ereignisse verlinken dann auf ihre Vertonung in Forteller.",
+      "open": "In Forteller öffnen",
+      "placeholder": "https://forteller.gg/play/..."
     },
     "fullscreen": {
       "": "Vollbild",
@@ -3500,9 +3554,17 @@
       "changeSummonRange": "Reichweite {2} für Beschwörung '{1}' von {0}",
       "changeXP": "EP {1} für {0}",
       "character": {
+        "abilityCardsDisable": "Fertigkeitskarten für {0} deaktivieren",
         "cardFromDeck": "Karte '{1}' aus den Fertigkeitskarten von {0} entfernen",
         "cardToDeck": "Karte '{1}' zu den Fertigkeitskarten von {0} hinzufügen",
+        "longRestCard": "Lange Rast von {0}, Karte '{1}' verlieren",
+        "playCards": "{0} spielt {1}",
+        "removeActiveCard": "Aktive Karte '{1}' von {0} entfernen",
+        "rerollShortRest": "Kurze Rast von {0} neu ziehen",
         "resetDeck": "Fertigkeitskarten von {0} zurücksetzen",
+        "selectCards": "Karten {1} für {0} auswählen",
+        "setHand": "Handkarten von {0} festlegen ({1} Karten)",
+        "shortRest": "Kurze Rast von {0}",
         "undoLastCard": "Zuletzt gezogene Fertigkeitskarte von {0} zurücknehmen"
       },
       "characterItemApply": {

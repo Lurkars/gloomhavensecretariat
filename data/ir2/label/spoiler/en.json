@@ -1,0 +1,29 @@
+{
+  "treasures": {
+    "ir2": {
+      "2": "You find the medical ward and discover a closet with untouched first aid kits. Lose 1 reputation. Each character gains a first aid kit (treasure tile) that can be discarded to prevent all damage from one attack.",
+      "5": "The monsters are taken by surprise. All enemies in the starting tile start the scenario with %game.condition.muddle%.",
+      "6": "All spawned enemies drop money tokens when they are killed.",
+      "8": "With explosives you create a bridge across the lava stream. No effect. Otherwise all characters must spend one item.",
+      "9": "You set fire to the dead wood. Party achievement: Smoke Signals. A=5, B=4. Read treasure index 35.",
+      "10": "You tell the guards about Nalia's plans. No effect.",
+      "13": "Wael finds another way. Discard 2 cards each.",
+      "14": "Spend Lucky Eye: no effect. Otherwise all start the scenario with 1 damage and %game.condition.poison%.",
+      "15": "All characters add %game.action.jump% to all their moves.",
+      "16": "You sneak inside unnoticed. All characters start the scenario with %game.condition.strengthen%.",
+      "17": "You reach your destination ahead of schedule. During the first round, return your played cards to your hand instead of your discard pile.",
+      "19": "The trees provide great cover. A=4, B=4. Read treasure index 35.",
+      "21": "Illusionist classes: no effect. Otherwise all characters discard two cards at the start of the scenario.",
+      "23": "Each character may donate 10 gold to add two %game.condition.bless% cards to their attack modifier deck. If at least one character does, gain 1 prosperity.",
+      "25": "The Skeleton distracts the snakes. No effect (Ring of Skulls remains spent).",
+      "27": "Lose 5 gold each. Each character gains %game.condition.bless%. In the first round, the Bandit Guards perform their move twice.",
+      "29": "Statistician: A=4, B=5, read treasure index 35, before resolution look at the top 6 cards of your attack modifier deck and return 4 to the top and 2 to the bottom. Otherwise A=4, B=5, read treasure index 35.",
+      "30": "Characters may move up to two spawn locations up to two hexes each.",
+      "32": "Spawn one Stone Golem on the treasure hex (normal for 2 characters, elite for 3-4). If killed within 1 round, read treasure 03, 12 and 26; within 2 rounds 03 and 12; within 3 rounds 03.",
+      "33": "Your aim is way off. All start the scenario with 1 damage and %game.condition.poison%.",
+      "34": "You climb over the lava. All start the scenario with 2 damage and %game.condition.wound%.",
+      "35": "Each character draws the top A cards of their attack modifier deck. If the sum of the values is smaller than BxC, characters spend an unspent item or suffer 2 damage to draw two more cards and replace one, until the sum is at least BxC.",
+      "36": "Creature-commanding classes: no effect. Spend Ring of Skulls: read treasure index 25. Otherwise read treasure index 33."
+    }
+  }
+}

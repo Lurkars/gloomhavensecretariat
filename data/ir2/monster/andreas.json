@@ -1,0 +1,158 @@
+{
+  "name": "andreas",
+  "edition": "ir2",
+  "deck": "stone-golem",
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "stone-golem",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "elite"
+  },
+  "stats": [
+    {
+      "type": "elite",
+      "level": 0,
+      "health": "[Math.ceil(Cx10/2)]",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": "[Math.ceil(Cx11/2)]",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": "[Math.ceil(Cx14/2)]",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": "[Math.ceil(Cx15/2)]",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": "[Math.ceil(Cx17/2)]",
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": "[Math.ceil(Cx19/2)]",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": "[Math.ceil(Cx20/2)]",
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": "[Math.ceil(Cx21/2)]",
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun",
+        "disarm"
+      ]
+    }
+  ]
+}

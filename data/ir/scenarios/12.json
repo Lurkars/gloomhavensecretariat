@@ -1,0 +1,181 @@
+{
+  "index": "12",
+  "name": "Stormsinger",
+  "edition": "ir",
+  "unlocks": [
+    "14"
+  ],
+  "requirements": [
+    {
+      "party": [
+        "!head-of-the-lion"
+      ]
+    }
+  ],
+  "rewards": {
+    "partyAchievements": [
+      "sand-in-the-machine"
+    ],
+    "experience": 10,
+    "battleGoals": 1,
+    "custom": "%data.scenario.rewards.ir.12%"
+  },
+  "monsters": [
+    "deep-terror",
+    "harrower-infester",
+    "lurker",
+    "stone-golem"
+  ],
+  "objectives": [
+    {
+      "name": "Wheel",
+      "health": "L+(2xC)",
+      "marker": "e"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir.12.1%"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.ir.12.2%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d",
+          "manual": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L3a",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        "1:C > 2",
+        "1:C > 3"
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "L2b+A2b+A3a",
+      "marker": "1",
+      "rooms": [
+        3
+      ],
+      "treasures": [
+        45,
+        35
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "J2b+C1b",
+      "marker": "2",
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

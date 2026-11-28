@@ -3,5 +3,6 @@
   "type": "extension",
   "extends": [
     "gh"
-  ]
+  ],
+  "baseColor": "#05497b"
 }

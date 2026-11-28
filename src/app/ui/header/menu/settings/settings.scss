@@ -220,3 +220,18 @@
     color: var(--ghs-color-darkgray);
   }
 }
+
+.forteller-link {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+  label {
+    white-space: nowrap;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+  }
+}

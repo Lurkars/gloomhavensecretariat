@@ -49,14 +49,31 @@ export class RoundManager {
     return value === 0 && this.game.state === GameState.next && settingsManager.settings.initiativeRequired ? 1 : value;
   }
 
+  // characters with ability cards need two discarded cards to declare a long rest
+  canSetLongRest(character: Character, longRest: boolean): boolean {
+    return !longRest || character.longRest || !character.abilityCards || character.abilityCards.discard.length >= 2;
+  }
+
+  // initiative 99 declares a long rest, characters with ability cards declare it explicitly
+  private declaresLongRest(figure: Character | ObjectiveContainer, initiative: number): boolean {
+    return figure instanceof Character && initiative === 99 && !figure.abilityCards;
+  }
+
+  canSetInitiative(figure: Character | ObjectiveContainer, initiative: number): boolean {
+    return (
+      this.validInitiative(initiative) &&
+      (!(figure instanceof Character) || !this.declaresLongRest(figure, initiative) || this.canSetLongRest(figure, true))
+    );
+  }
+
   setInitiative(figure: Character | ObjectiveContainer, initiative: number): boolean {
-    if (!this.validInitiative(initiative)) {
+    if (!this.canSetInitiative(figure, initiative)) {
       return false;
     }
     figure.initiative = initiative;
     if (figure instanceof Character) {
       figure.initiativeVisible = true;
-      if (initiative === 99) {
+      if (this.declaresLongRest(figure, initiative)) {
         figure.longRest = true;
       } else if (!initiative || !gameManager.specialActionsManager.keepInitiativeOnLongRest(figure)) {
         figure.longRest = false;
@@ -68,9 +85,9 @@ export class RoundManager {
     return true;
   }
 
-  setLongRest(character: Character, longRest: boolean) {
-    if (character.longRest === longRest) {
-      return;
+  setLongRest(character: Character, longRest: boolean): boolean {
+    if (character.longRest === longRest || !this.canSetLongRest(character, longRest)) {
+      return false;
     }
     if (longRest) {
       gameManager.characterAbilityManager.clearSelection(character);
@@ -83,6 +100,7 @@ export class RoundManager {
     if (this.game.state === GameState.next) {
       gameManager.roundManager.sortFigures(character);
     }
+    return true;
   }
 
   missingInitiative(): boolean {
@@ -90,7 +108,7 @@ export class RoundManager {
       settingsManager.settings.initiativeRequired &&
       this.game.figures.some(
         (figure) =>
-          ((figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) ||
+          ((figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent && !figure.abilityCards) ||
             figure instanceof ObjectiveContainer) &&
           figure.getInitiative() <= 0
       )
@@ -121,6 +139,15 @@ export class RoundManager {
     );
   }
 
+  challengesPending(): boolean {
+    return (
+      !this.missingInitiative() &&
+      settingsManager.settings.fhChallengesReminder &&
+      gameManager.challengesManager.enabled &&
+      gameManager.challengesManager.canDrawCard(this.game.challengeDeck)
+    );
+  }
+
   eventDrawPending(): boolean {
     return (
       !this.missingInitiative() &&
@@ -144,7 +171,9 @@ export class RoundManager {
     return (
       this.game.figures.length === 0 ||
       this.missingInitiative() ||
+      gameManager.characterAbilityManager.selectionPending() ||
       this.battleGoalsPending() ||
+      this.challengesPending() ||
       this.scenarioFailed() ||
       this.eventDrawPending()
     );

@@ -9,8 +9,8 @@ import { Condition, ConditionName, ConditionType } from 'src/app/game/model/data
 import { GameState } from 'src/app/game/model/Game';
 import { Party } from 'src/app/game/model/Party';
 import { BattleGoalSetupDialog } from 'src/app/ui/figures/battlegoal/setup/battlegoal-setup';
+import { EnhancementDialogComponent } from 'src/app/ui/figures/character/abilities/enhancements/enhancement-dialog';
 import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/character-sheet-dialog';
-import { EnhancementDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog';
 import { EventCardDeckComponent } from 'src/app/ui/figures/event/deck/event-card-deck';
 import { ItemsDialogComponent } from 'src/app/ui/figures/items/dialog/items-dialog';
 import { PartySheetDialogComponent } from 'src/app/ui/figures/party/party-sheet-dialog';

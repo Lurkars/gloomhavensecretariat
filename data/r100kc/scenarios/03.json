@@ -1,0 +1,153 @@
+{
+  "index": "3",
+  "name": "Sand in the Hourglass",
+  "edition": "r100kc",
+  "initial": true,
+  "rewards": {
+    "gold": 10,
+    "custom": "%data.scenario.rewards.r100kc.3%"
+  },
+  "monsters": [
+    "giant-viper::gh",
+    "harrower-infester::gh",
+    "living-corpse::gh"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "%data.scenario.rules.r100kc.3.1%"
+    },
+    {
+      "round": "true",
+      "start": true,
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.r100kc.3.2%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "G1a+A4a+B1b",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "giant-viper::gh",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper::gh",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper::gh",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper::gh",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "N1b",
+      "rooms": [
+        3,
+        4,
+        5
+      ],
+      "monster": [
+        {
+          "name": "living-corpse::gh",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse::gh",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse::gh",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse::gh",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "A1a",
+      "monster": [
+        {
+          "name": "harrower-infester::gh",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "B3b",
+      "monster": [
+        {
+          "name": "harrower-infester::gh",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester::gh",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "A3b",
+      "monster": [
+        {
+          "name": "harrower-infester::gh",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

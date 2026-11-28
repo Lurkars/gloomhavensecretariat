@@ -1,0 +1,9 @@
+{
+  "edition": "ir2",
+  "type": "extension",
+  "extends": [
+    "gh",
+    "ir"
+  ],
+  "baseColor": "#05497b"
+}

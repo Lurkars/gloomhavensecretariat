@@ -1,4 +1,5 @@
 import { gameManager } from 'src/app/game/businesslogic/Managers';
+import { BuildingModel } from 'src/app/game/model/Building';
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { CharacterData } from 'src/app/game/model/data/CharacterData';
@@ -19,6 +20,52 @@ describe('EnhancementsManager', () => {
     enhancementsManager.fh = false;
     enhancementsManager.temporary = false;
     enhancementsManager.enhancerLevel = 0;
+  });
+
+  describe('enhancementsAvailable', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+      gameManager.game.party.buildings = [];
+      gameManager.game.party.globalAchievementsList = [];
+    });
+
+    it('needs a built enhancer with FH rules', () => {
+      vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('fh');
+      vi.spyOn(gameManager, 'fhRules').mockReturnValue(true);
+      expect(enhancementsManager.enhancementsAvailable()).toBe(false);
+      gameManager.game.party.buildings = [new BuildingModel('enhancer', 1, 'wrecked')];
+      expect(enhancementsManager.enhancementsAvailable()).toBe(false);
+      gameManager.game.party.buildings = [new BuildingModel('enhancer', 1)];
+      expect(enhancementsManager.enhancementsAvailable()).toBe(true);
+    });
+
+    it('needs The Power of Enhancement with GH rules', () => {
+      vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('gh');
+      vi.spyOn(gameManager, 'fhRules').mockReturnValue(false);
+      vi.spyOn(gameManager, 'editionRules').mockImplementation((edition) => edition === 'gh');
+      expect(enhancementsManager.enhancementsAvailable()).toBe(false);
+      gameManager.game.party.globalAchievementsList = ['The-Power-of-Enhancement'];
+      expect(enhancementsManager.enhancementsAvailable()).toBe(true);
+    });
+
+    it('blocks enhancing while not available', () => {
+      vi.spyOn(enhancementsManager, 'enhancementsAvailable').mockReturnValue(false);
+      const character = new Character(
+        Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }),
+        1
+      );
+      character.progress.gold = 1000;
+      expect(enhancementsManager.canEnhance(character, 1, 0)).toBe(false);
+    });
+
+    it('is always available without edition or for other editions', () => {
+      vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('');
+      expect(enhancementsManager.enhancementsAvailable()).toBe(true);
+      vi.spyOn(gameManager.editionManager, 'currentEdition').mockReturnValue('jotl');
+      vi.spyOn(gameManager, 'fhRules').mockReturnValue(false);
+      vi.spyOn(gameManager, 'editionRules').mockReturnValue(false);
+      expect(enhancementsManager.enhancementsAvailable()).toBe(true);
+    });
   });
 
   describe('calculateBaseCosts', () => {
@@ -138,6 +185,8 @@ describe('EnhancementsManager', () => {
     function buildCharacter(): Character {
       return new Character(Object.assign(new CharacterData(), { name: 'brute', edition: 'gh', stats: [new CharacterStat(1, 10)] }), 1);
     }
+
+    beforeEach(() => vi.spyOn(enhancementsManager, 'enhancementsAvailable').mockReturnValue(true));
 
     afterEach(() => vi.restoreAllMocks());
 

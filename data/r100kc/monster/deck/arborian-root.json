@@ -1,0 +1,29 @@
+{
+  "name": "arborian-root",
+  "edition": "r100kc",
+  "abilities": [
+    {
+      "name": "Root",
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.arborian-root.1%",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

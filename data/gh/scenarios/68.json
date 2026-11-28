@@ -2,6 +2,7 @@
   "index": "68",
   "name": "Toxic Moor",
   "flowChartGroup": "random-scenarios",
+  "forteller": "57f19f80-e778-41a4-ae10-afae7b617fe2",
   "coordinates": {
     "x": 1184.5,
     "y": 2006,
@@ -55,7 +56,7 @@
           "value": 2,
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Tree",
             "marker": "a"
           }

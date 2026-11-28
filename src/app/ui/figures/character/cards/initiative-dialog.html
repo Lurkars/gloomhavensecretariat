@@ -42,7 +42,7 @@
     <span></span>
   </div>
   @if (!!character) {
-    <span class="long-rest-button" [ngClass]="{ active: character.longRest }" (click)="longRest()">
+    <span class="long-rest-button" [ngClass]="{ active: character.longRest, disabled: !canLongRest() }" (click)="longRest()">
       <img class="ghs-svg" src="./assets/images/long-rest.svg" />
       <span [ghs-label]="'game.figure.longRest' + (character.longRest ? 'Off' : '')"></span>
     </span>

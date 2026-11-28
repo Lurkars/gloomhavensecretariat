@@ -1,0 +1,248 @@
+{
+  "index": "34",
+  "name": "Bloodshed Beach",
+  "edition": "ir2",
+  "rewards": {
+    "partyAchievements": [
+      "head-of-the-hydra"
+    ],
+    "reputation": 1,
+    "battleGoals": 1,
+    "custom": "%data.scenario.rewards.ir2.34%"
+  },
+  "monsters": [
+    "inox-archer",
+    "lurker",
+    "savvas-icestorm",
+    "savvas-lavaflow",
+    "sun-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir2.34.1%"
+    },
+    {
+      "round": "R == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "type": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lurker",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "inox-archer",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "inox-archer",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "inox-archer",
+            "player4": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "inox-archer",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 3",
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker",
+            "type": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "sun-demon",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "spawns": [
+        {
+          "monster": {
+            "name": "sun-demon",
+            "type": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "sun-demon",
+            "player4": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "spawns": [
+        {
+          "monster": {
+            "name": "inox-archer",
+            "type": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "inox-archer",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "inox-archer",
+            "player4": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "lurker",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 8",
+      "note": "%data.scenario.rules.ir2.34.8%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "sun-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "inox-archer",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-icestorm",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "finish": "won"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L1b+L3a",
+      "initial": true
+    }
+  ]
+}

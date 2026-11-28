@@ -35,9 +35,9 @@ export class EditionManager {
     './assets/data/gh-solo-items.json',
     './assets/data/sox.json',
     './assets/data/bas.json',
-    './assets/data/cc.json',
     './assets/data/cq.json',
     './assets/data/ir.json',
+    './assets/data/ir2.json',
     './assets/data/r100kc.json',
     './assets/data/sits.json'
   ];
@@ -69,6 +69,44 @@ export class EditionManager {
       return editionData.logoUrl;
     }
     return '';
+  }
+
+  editionBaseLogo(edition: string): string {
+    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
+    if (!editionData || editionData.logoUrl || editionData.type !== 'extension') {
+      return '';
+    }
+    const standalones = this.editionData.filter(
+      (other) => editionData.extends.includes(other.edition) && (!other.type || other.type === 'standalone')
+    );
+    return standalones.length === 1 ? standalones[0].logoUrl : '';
+  }
+
+  editionBaseColor(edition: string): string {
+    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
+    return (editionData && editionData.baseColor) || '';
+  }
+
+  hasForteller(edition: string): boolean {
+    const editionData = this.editionData.find((editionData) => editionData.edition === edition);
+    return (
+      !!editionData &&
+      (editionData.scenarios.some((scenario) => !!scenario.forteller) ||
+        editionData.sections.some((section) => !!section.forteller) ||
+        editionData.events.some((event) => !!event.forteller))
+    );
+  }
+
+  fortellerEditions(): string[] {
+    return this.editions().filter((edition) => this.hasForteller(edition));
+  }
+
+  fortellerLink(edition: string, forteller: string | undefined): string | undefined {
+    const campaignLink = settingsManager.settings.fortellerLinks?.[edition];
+    if (!forteller || !campaignLink) {
+      return undefined;
+    }
+    return campaignLink + '/' + forteller;
   }
 
   currentEdition(fallback: string | undefined = undefined): string {
@@ -487,6 +525,7 @@ export class EditionManager {
           value.labelEvents = value.labelEvents || {};
           value.url = url;
           value.logoUrl = value.logoUrl || '';
+          value.baseColor = value.baseColor || '';
           value.extends = value.extends || [];
           value.newAmStyle = value.newAmStyle || false;
           value.newItemStyle = value.newItemStyle || false;

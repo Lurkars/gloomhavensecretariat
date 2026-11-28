@@ -1,0 +1,254 @@
+{
+  "index": "33",
+  "name": "Role Reversal",
+  "edition": "ir2",
+  "level": 3,
+  "rewards": {
+    "partyAchievements": [
+      "head-of-the-hydra"
+    ],
+    "experience": 15,
+    "battleGoals": 1,
+    "custom": "%data.scenario.rewards.ir2.33%"
+  },
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "forest-imp",
+    "frost-demon",
+    "giant-viper",
+    "hound",
+    "lurker",
+    "night-demon",
+    "ooze",
+    "rending-drake",
+    "sun-demon",
+    "wind-demon"
+  ],
+  "allies": [
+    "forest-imp",
+    "hound",
+    "ooze",
+    "giant-viper",
+    "rending-drake",
+    "lurker"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir2.33.1%"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        7
+      ],
+      "note": "%data.scenario.rules.ir2.33.2%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "rooms": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "rooms": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "G2b",
+      "rooms": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "rooms": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "rooms": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 6,
+      "rooms": [
+        7
+      ],
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 7,
+      "ref": "G1b",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

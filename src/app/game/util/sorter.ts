@@ -456,6 +456,7 @@ export const sortScenario = function (scenario: any): any {
     'group',
     'name',
     'flowChartGroup',
+    'forteller',
     'errata',
     'coordinates',
     'edition',
@@ -540,5 +541,5 @@ export const sortEvent = function (event: any): any {
     event.options = event.options.map((option: any) => sortEventOption(option));
     event.options.sort((a: any, b: any) => (a.label < b.label ? -1 : 1));
   }
-  return sortObjectKeys(event, 'cardId', 'edition', 'type', 'narrative', 'options');
+  return sortObjectKeys(event, 'cardId', 'edition', 'type', 'forteller', 'narrative', 'options');
 };

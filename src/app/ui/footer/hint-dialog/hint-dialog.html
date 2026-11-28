@@ -6,6 +6,9 @@
     @if (isMissingInitiative) {
       <p><span [ghs-label]="'round.hint.missingInitiative'"></span></p>
     }
+    @if (isAbilityCards) {
+      <p><span [ghs-label]="'round.hint.abilityCards'"></span></p>
+    }
     @if (isActive) {
       <p><span [ghs-label]="'round.hint.active'"></span></p>
     }
@@ -39,6 +42,12 @@
       <p><span [ghs-label]="'round.hint.battleGoals'"></span></p>
     }
     @if (isBattleGoals) {
+      <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
+    }
+    @if (isChallenges) {
+      <p><span [ghs-label]="'round.hint.challenges'"></span></p>
+    }
+    @if (isChallenges) {
       <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
     }
     @if (isEventDraw && gameManager.game.eventDraw) {

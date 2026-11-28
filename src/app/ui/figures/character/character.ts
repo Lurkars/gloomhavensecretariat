@@ -21,6 +21,7 @@ import { AttackModifierDrawComponent } from 'src/app/ui/figures/attackmodifier/a
 import { AttackModiferDeckChange, AttackModifierDeckComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierDeckFullscreenComponent } from 'src/app/ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
 import { CharacterBattleGoalsDialog } from 'src/app/ui/figures/battlegoal/dialog/battlegoal-dialog';
+import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/abilities/ability-cards-dialog';
 import { CharacterImageComponent } from 'src/app/ui/figures/character/cards/image';
 import { CharacterInitiativeComponent } from 'src/app/ui/figures/character/cards/initiative';
 import { CharacterInitiativeDialogComponent } from 'src/app/ui/figures/character/cards/initiative-dialog';
@@ -28,7 +29,6 @@ import { CharacterSheetDialog } from 'src/app/ui/figures/character/dialogs/chara
 import { CharacterLootCardsDialog } from 'src/app/ui/figures/character/dialogs/loot-cards';
 import { CharacterSummonDialog } from 'src/app/ui/figures/character/dialogs/summondialog';
 import { CharacterItemListComponent } from 'src/app/ui/figures/character/item-list/item-list';
-import { AbilityCardsDialogComponent } from 'src/app/ui/figures/character/sheet/abilities/ability-cards-dialog';
 import { HighlightConditionsComponent } from 'src/app/ui/figures/conditions/highlight';
 import { EntitiesMenuDialogComponent } from 'src/app/ui/figures/entities-menu/entities-menu-dialog';
 import { FigureErrorsComponent } from 'src/app/ui/figures/errors/errors';
@@ -208,7 +208,7 @@ export class CharacterComponent implements OnInit {
   dragInitiativeEnd(value: number) {
     value = gameManager.roundManager.clampInitiative(value);
 
-    if (this.character.initiative !== value && gameManager.roundManager.validInitiative(value)) {
+    if (this.character.initiative !== value && gameManager.roundManager.canSetInitiative(this.character, value)) {
       gameManager.entityManager.before(this.character, this.character, 'setInitiative', value);
       gameManager.roundManager.setInitiative(this.character, value);
       gameManager.stateManager.after();
@@ -222,6 +222,8 @@ export class CharacterComponent implements OnInit {
         gameManager.stateManager.before(...gameManager.characterManager.toggleActiveUndoInfos(this.character));
         gameManager.characterManager.toggleActive(this.character);
         gameManager.stateManager.after();
+      } else if (this.character.abilityCards && gameManager.game.state === GameState.draw) {
+        this.openAbilityCards();
       } else if (
         (settingsManager.settings.initiativeRequired && this.character.initiative <= 0) ||
         gameManager.game.state === GameState.draw
@@ -606,6 +608,14 @@ export class CharacterComponent implements OnInit {
       );
       gameManager.specialActionsManager.setSlot(this.character, specialAction, index, force);
       gameManager.stateManager.after();
+    }
+  }
+
+  handSizeClick(entityMenu: boolean = true) {
+    if (settingsManager.settings.characterAbilityCards) {
+      this.openAbilityCards();
+    } else if (entityMenu) {
+      this.openEntityMenu();
     }
   }
 

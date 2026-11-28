@@ -38,13 +38,17 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Character Scenario XP                                                           | ✅             | ✅          | ✅        | ✅         | ✅        |
 | Character Scenario Gold                                                         | ✅             | ⛔          | ✅        | ✅         | ✅        |
 | Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
-| Character Ability Cards                                                         | ❗[^1.4]       | ⛔          | ⛔        | ✅         | ⛔        |
+| Character Ability Cards                                                         | ✅❗[^1.4]     | ⛔          | ⛔        | ✅         | ⛔        |
+| Character Ability Deck (pick cards on level up)                                 | ✅❗[^1.4]     | ⛔          | ⛔        | ✅         | ⛔        |
+| Play with Character Ability Cards (hand, card selection, piles, rests)          | ✅❗[^1] [^1.4] | ⛔          | ⛔        | ✅         | ⛔        |
+| Personal Quests (incl. automatic progress tracking)                             | ✅             | ⛔          | ⛔        | ❔         | ⛔        |
 | Campaign Progress                                                               | ✅             | ⛔          | ✅❗      | ✅         | ⛔        |
-| Event-Decks                                                                     | ✅[^1]❗[^1.5] | ⛔          | ⛔        | ✅         | ⛔        |
+| Event-Decks                                                                     | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
 | Battle Goal Deck                                                                | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
 | Multiple Parties/Campaigns                                                      | ✅             | ✅❗[^1.3]  | ✅        | ✅         | ⛔        |
 | Loot Deck                                                                       | ✅             | ✅          | ✅        | ✅         | ⛔        |
 | Frosthaven Outpost (Calendar, Resources, Buildings, Town Guard etc.)            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Frosthaven Pets                                                                 | ✅             | ⛔          | ⛔        | ❔         | ⛔        |
 | Town Guard Deck                                                                 | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | Item Management (automatic unlocks, buy, craft etc.)                            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | Integrated Scenario Map (interactive)                                           | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
@@ -72,12 +76,15 @@ There are a few other apps that are specialised or niche and therefore not taken
 | supports Frosthaven Crossover Characters                                        | ✅[^3]         | ➖[^19]     | ➖[^19]   | ✅         | ➖[^19]   |
 | support Satire's Extended Battle Goals                                          | ✅[^3.1]       | ⛔          | ⛔        | ✅         | ⛔        |
 | Skulls in the Snow (FH Mini Campaign)                                           | ✅[^3]         | ⛔          | ⛔        | ✅         | ⛔        |
+| ConQuest Personal Quests (FH/GH2E)                                              | ✅[^3]         | ⛔          | ⛔        | ❔         | ⛔        |
+| Updated digital Solo Items                                                      | ✅[^3]         | ⛔          | ⛔        | ❔         | ⛔        |
 | Buttons & Bugs - Promotional Content                                            | ✅[^3]         | ⛔          | ⛔        | ⛔         | ⛔        |
 | CCUG classes                                                                    | ✅[^3]         | ✅          | ⛔        | ✅         | ⛔        |
 |                                                                                 |                |             |           |            |           |
 | **Additional Features**                                                         | _GHS_          | _XHA_       | _FOC_     | _GHFS_     | _GHH_     |
 | Synchronize multiple clients                                                    | ✅[^4]         | ✅          | ✅        | ✅         | ✅        |
 | Right Management for clients                                                    | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
+| Remote Commands (e.g. for external input devices)                               | ✅[^4]         | ⛔          | ⛔        | ⛔         | ⛔        |
 | Undo/Redo function                                                              | ✅             | ✅          | ✅        | ✅[^13]    | ✅        |
 | Undo/Redo history                                                               | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | Calculate Abilities (based on stats)                                            | ✅             | ✅          | ✅        | ✅         | ✅        |
@@ -89,9 +96,11 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Advanced Element Tracking (Turn created, consumed)                              | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | Expire Conditions                                                               | ✅             | ✅          | ✅        | ✅         | ✅        |
 | Automatic Advantage/Disadvantage Draw for AM Decks                              | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
-| Automaitc apply Conditions (like wound, regenarate etc.)                        | ✅             | ⛔          | ✅        | ✅         | ⛔        |
+| Automatic apply Conditions (like wound, regenerate etc.)                        | ✅             | ⛔          | ✅        | ✅         | ⛔        |
 | Automatic ask for applying Conditions (like poison, ward etc.)                  | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | Track Character Shield/Retaliate                                                | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
+| Character Forms (e.g. Blinkblade, Geminate)                                     | ✅             | ⛔          | ⛔        | ❔         | ⛔        |
+| Character Retirement                                                            | ✅             | ⛔          | ⛔        | ❔         | ⛔        |
 | Character Ability Cards Enhancements                                            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | Character Items (manage item states)                                            | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | automatic Loot Deck Setup                                                       | ✅             | ✅          | ⛔        | ✅         | ⛔        |
@@ -128,7 +137,10 @@ There are a few other apps that are specialised or niche and therefore not taken
 | Absent Characters                                                               | ✅             | ⛔          | ⛔        | ✅         | ⛔        |
 | Scenario Statistics                                                             | ✅[^1]         | ⛔          | ⛔        | ✅         | ⛔        |
 | Scenario Recaps                                                                 | ✅             | ⛔          | ⛔        | ⛔         | ⛔        |
-| Forteller Links                                                                 | ⛔             | ⛔          | ⛔        | ✅         | ⛔        |
+| Game Clock (playtime tracking)                                                  | ✅[^1]         | ⛔          | ⛔        | ❔         | ⛔        |
+| Errata Hints                                                                    | ✅[^1]         | ⛔          | ⛔        | ❔         | ⛔        |
+| Character Full View for player devices                                          | ✅[^1]         | ❔          | ❔        | ❔         | ❔        |
+| Forteller Links                                                                 | ✅[^22]      | ⛔          | ⛔        | ✅         | ⛔        |
 | Localization                                                                    | ✅             | ✅          | ⛔        | ⛔         | ✅❗[^6]  |
 | Keyboard Shortcuts                                                              | ✅             | ❗          | ⛔        | ⛔         | ✅        |
 | Offline Support                                                                 | ✅[^10]        | ✅          | ✅        | ⛔         | ✅        |
@@ -154,9 +166,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 
 [^1.3]: Manually save/load states for multiple parties
 
-[^1.4]: Some ability data still missing (mostly FH, community editions, all of GH2E)
-
-[^1.5]: data must be validated, GH2E and community editions missing
+[^1.4]: Card data available for GH, GH2E (except Bladeswarm and Plagueherald), FH, JOTL, FC, CS, TOA and Envelope X/V
 
 [^2.1]: Some special rules data not complete, but fully playable
 
@@ -166,11 +176,11 @@ There are a few other apps that are specialised or niche and therefore not taken
 
 [^3.1]: Need to be enabled in **Data Management** Menu, afterwards added in **Battle Goals Setup**
 
-[^3.2]: Work in Progress, scenario data may contain errors and be missing some special rules, some sections missing, as is some data, such as events and items
+[^3.2]: Work in Progress, scenario data may contain errors and be missing some special rules, most non-scenario sections and most artwork missing
 
 [^3.3]: Some mechanics that are anyway used sparingly in the game may be ignored by the app
 
-[^3.4]: except events, includes appending F, envelopes, and random dungeon cards (No card images)
+[^3.4]: except events, includes Appendix F, envelopes, and random dungeon cards (No card images)
 
 [^3.5]: Combat support for the GM (monster actions, RPG modifier decks with attributes, Pacify condition) and RPG character sheet, no scenarios, party or campaign sheet yet
 
@@ -194,7 +204,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 
 [^12]: Level only shown, must be set manually
 
-[^13]: Unlimitied Undo/Redo
+[^13]: Unlimited Undo/Redo
 
 [^14]: [Source Code](https://github.com/Lurkars/gloomhavensecretariat) ([AGPL 3.0](https://github.com/Lurkars/gloomhavensecretariat/blob/main/LICENSE))
 
@@ -204,7 +214,7 @@ There are a few other apps that are specialised or niche and therefore not taken
 
 [^16.2]: Only spawns rules yet
 
-[^17.1]: By default only shown on hovering card or fullscreen card, can be activated permenent in settings
+[^17.1]: By default only shown on hovering card or fullscreen card, can be activated permanently in settings
 
 [^17.2]: only shown on full screen card view
 
@@ -215,3 +225,5 @@ There are a few other apps that are specialised or niche and therefore not taken
 [^20]: See README for details
 
 [^21]: Unlocked during gameplay
+
+[^22]: Only for Frosthaven and Gloomhaven 1E yet

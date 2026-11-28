@@ -1,6 +1,7 @@
 {
   "index": "119.2",
   "name": "A Contained Fire",
+  "forteller": "RbvYcRDNbBIseOVVtfk6Gz",
   "edition": "fh",
   "parent": "89",
   "parentSections": [
@@ -36,7 +37,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Faye"
           },
           "type": "setHp",

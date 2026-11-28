@@ -13,7 +13,7 @@ export class FigureInitiativeCommand extends CommandImpl {
     return (
       (figure instanceof Character || figure instanceof ObjectiveContainer) &&
       typeof initiative === 'number' &&
-      gameManager.roundManager.validInitiative(initiative)
+      gameManager.roundManager.canSetInitiative(figure, initiative)
     );
   }
 

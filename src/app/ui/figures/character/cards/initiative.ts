@@ -180,7 +180,7 @@ export class CharacterInitiativeComponent implements OnInit, OnChanges, AfterVie
   }
 
   setInitiative(initiative: number) {
-    if (gameManager.roundManager.validInitiative(initiative) && initiative !== this.figure.initiative) {
+    if (gameManager.roundManager.canSetInitiative(this.figure, initiative) && initiative !== this.figure.initiative) {
       gameManager.entityManager.before(this.character, this.figure, 'setInitiative', initiative);
       gameManager.roundManager.setInitiative(this.figure, initiative);
       gameManager.stateManager.after();

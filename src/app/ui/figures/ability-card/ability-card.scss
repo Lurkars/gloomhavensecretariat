@@ -64,6 +64,33 @@
         }
       }
 
+      &.inactive {
+        filter: grayscale(0.5);
+        overflow: hidden;
+
+        .ability-actions {
+          max-height: none !important;
+        }
+
+        .ability-actions::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 3;
+          border-radius: 0.3em;
+          background-color: rgba(0, 0, 0, 0.7);
+          pointer-events: none;
+        }
+      }
+
+      &.selectable {
+        cursor: pointer;
+
+        &:hover {
+          filter: brightness(1.2);
+        }
+      }
+
       .ability-actions {
         position: relative;
         margin-top: 2em;
@@ -344,6 +371,10 @@
       bottom: 16.5em;
       right: 3.3em;
       display: flex;
+
+      &.inactive {
+        filter: brightness(0.3) grayscale(0.5);
+      }
 
       .label {
         display: none;
@@ -712,4 +743,8 @@
       background-image: url('../../../../assets/images/bb/monster/abilities/monster-ability-back.png');
     }
   }
+}
+
+.ability-front.inactive-actions .initiative {
+  z-index: 4;
 }

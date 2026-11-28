@@ -1,0 +1,595 @@
+{
+  "name": "carnivorous-plant",
+  "noArtwork": true,
+  "edition": "r100kc",
+  "count": 10,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.1%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.1%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 5,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 3,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 7,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 7,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 9,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.3%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 9,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.3%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 5,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.1%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 6,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.1%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 7,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 2,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 8,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 3,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 9,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 11,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.2%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 13,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.3%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 16,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.carnivorous-plant.3%",
+              "small": true
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

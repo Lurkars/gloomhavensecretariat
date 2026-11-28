@@ -1,0 +1,307 @@
+{
+  "name": "corrupted-tree",
+  "edition": "r100kc",
+  "abilities": [
+    {
+      "name": "Bark Growth",
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.corrupted-tree.10%"
+        },
+        {
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.corrupted-tree.11%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cascading Twine",
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.corrupted-tree.9%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.r100kc.corrupted-tree.8%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Revitalizing Surge",
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.corrupted-tree.6%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "spawn",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "forest-imp",
+                    "type": "normal"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.corrupted-tree.7%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "forest-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Smashing Branch",
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,2,active)|(1,2,target)|(2,2,target)|(3,1,target)|(3,2,target)|(3,3,target)|(4,0,target)|(4,4,target)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 1,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.r100kc.corrupted-tree.5%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uproot",
+      "initiative": 47,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)|(4,0,target)|(5,0,target)"
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Proxy",
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.corrupted-tree.2%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.corrupted-tree.3%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "spawn",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "hound",
+                    "type": "normal"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.corrupted-tree.4%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "hound",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 69,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 6,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Noxious Pollen",
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

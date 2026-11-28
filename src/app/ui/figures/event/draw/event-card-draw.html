@@ -12,6 +12,11 @@
         <a class="open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
           <img class="ghs-svg" src="./assets/images/fullscreen.svg" />
         </a>
+        @if (fortellerLink(); as fortellerLink) {
+          <a class="open forteller" [href]="fortellerLink" target="_blank" [ghs-tooltip]="'settings.forteller.open'">
+            <img class="ghs-svg" src="./assets/images/forteller.svg" />
+          </a>
+        }
       </div>
     </div>
     @if (requirementWarning) {

@@ -2,6 +2,7 @@
   "index": "63",
   "name": "The Savvas Seal",
   "flowChartGroup": "puzzle-book",
+  "forteller": "RbvYcRDNbBIseOVVtfjfOL",
   "coordinates": {
     "x": 1496.5,
     "y": 1536,
@@ -102,7 +103,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Crain"
           },
           "type": "dead"

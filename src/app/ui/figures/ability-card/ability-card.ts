@@ -7,7 +7,7 @@ import { gameManager, labelManager, settingsManager } from 'src/app/game/busines
 import { SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { AbilityCard } from 'src/app/game/model/data/AbilityCard';
-import { ActionValueType } from 'src/app/game/model/data/Action';
+import { Action, ActionValueType } from 'src/app/game/model/data/Action';
 import { Monster } from 'src/app/game/model/Monster';
 import { ActionsComponent } from 'src/app/ui/figures/actions/actions';
 import { InteractiveActionsComponent } from 'src/app/ui/figures/actions/interactive/interactive-actions';
@@ -49,6 +49,10 @@ export class AbilityCardComponent implements OnInit, OnChanges {
   readonly interactiveAbilities = input<boolean>(false);
   readonly statsCalculation = input<boolean>(true);
   readonly activeActions = input<'top' | 'bottom' | false>(false);
+  readonly inactiveActions = input<'top' | 'bottom' | false>(false);
+  readonly selectableActions = input<boolean>(false);
+  readonly topActions = input<Action[]>();
+  readonly bottomActions = input<Action[]>();
   readonly revealedChanged = output<boolean>();
 
   gameManager: GameManager = gameManager;

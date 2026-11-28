@@ -2,6 +2,7 @@
   "index": "59",
   "name": "Automaton Uprising",
   "flowChartGroup": "unfettered",
+  "forteller": "RbvYcRDNbBIseOVVtfjfAH",
   "coordinates": {
     "x": 2048.75,
     "y": 1400.75,
@@ -81,7 +82,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Orphan"
           },
           "type": "dead"

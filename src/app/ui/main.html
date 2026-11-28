@@ -70,8 +70,10 @@
               <a tabclick class="edition" (click)="startCampaign(editionData.edition)">
                 @if (editionData.logoUrl) {
                   <img [src]="editionData.logoUrl" [ghs-tooltip]="'data.edition.' + editionData.edition" />
+                } @else if (gameManager.editionManager.editionBaseLogo(editionData.edition)) {
+                  <img [src]="gameManager.editionManager.editionBaseLogo(editionData.edition)" />
                 }
-                <span class="text" [ngClass]="{ small: editionData.logoUrl }">
+                <span class="text" [ngClass]="{ small: editionData.logoUrl }" [style.color]="editionData.baseColor || null">
                   <span [ghs-label]="'data.edition.' + editionData.edition"></span>
                 </span>
               </a>
@@ -93,8 +95,14 @@
                   [src]="gameManager.editionManager.editionLogo(gameManager.game.edition)"
                   [ghs-tooltip]="'data.edition.' + gameManager.game.edition"
                 />
+              } @else if (gameManager.editionManager.editionBaseLogo(gameManager.game.edition)) {
+                <img [src]="gameManager.editionManager.editionBaseLogo(gameManager.game.edition)" />
               }
-              <span class="text" [ngClass]="{ small: gameManager.editionManager.editionLogo(gameManager.game.edition) }">
+              <span
+                class="text"
+                [ngClass]="{ small: gameManager.editionManager.editionLogo(gameManager.game.edition) }"
+                [style.color]="gameManager.editionManager.editionBaseColor(gameManager.game.edition) || null"
+              >
                 <span [ghs-label]="'data.edition.' + gameManager.game.edition"></span>
               </span>
             </a>

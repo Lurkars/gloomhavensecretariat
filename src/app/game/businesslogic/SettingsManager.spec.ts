@@ -1,5 +1,6 @@
 import { gameManager, labelManager, settingsManager } from 'src/app/game/businesslogic/Managers';
 import { EditionData } from 'src/app/game/model/data/EditionData';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { Settings } from 'src/app/game/model/Settings';
 
 // SettingsManager also covers init()/loadSettings()/apply() (DOM/fetch/IndexedDB-backed I/O)
@@ -157,6 +158,42 @@ describe('SettingsManager', () => {
       settingsManager.settings.editions = ['gh', 'fh'];
       settingsManager.removeEdition('gh');
       expect(settingsManager.settings.editions).toEqual(['fh']);
+    });
+  });
+
+  describe('forteller links', () => {
+    const fhData = (forteller: string | undefined) =>
+      new EditionData('fh', [], [], [], [Object.assign(new ScenarioData(), { index: '1', edition: 'fh', forteller })], [], []);
+
+    it('reduces a pasted node link to the campaign link', () => {
+      settingsManager.setFortellerLink('fh', ' https://forteller.gg/play/frosthaven/abc123/RbvYcRDNbBIseOVVtfjkGj?x=1 ');
+      expect(settingsManager.settings.fortellerLinks['fh']).toBe('https://forteller.gg/play/frosthaven/abc123');
+    });
+
+    it('removes the link when cleared', () => {
+      settingsManager.setFortellerLink('fh', 'https://forteller.gg/play/frosthaven/abc123/');
+      expect(settingsManager.settings.fortellerLinks['fh']).toBe('https://forteller.gg/play/frosthaven/abc123');
+      settingsManager.setFortellerLink('fh', '  ');
+      expect(settingsManager.settings.fortellerLinks['fh']).toBeUndefined();
+    });
+
+    it('builds node links only with campaign link and node id', () => {
+      expect(gameManager.editionManager.fortellerLink('fh', 'node')).toBeUndefined();
+      settingsManager.settings.fortellerLinks = { fh: 'https://forteller.gg/play/frosthaven/abc123' };
+      expect(gameManager.editionManager.fortellerLink('fh', undefined)).toBeUndefined();
+      expect(gameManager.editionManager.fortellerLink('gh', 'node')).toBeUndefined();
+      expect(gameManager.editionManager.fortellerLink('fh', 'node')).toBe('https://forteller.gg/play/frosthaven/abc123/node');
+    });
+
+    it('detects editions with forteller data', () => {
+      gameManager.editionManager.editionData = [fhData(undefined)];
+      expect(gameManager.editionManager.hasForteller('fh')).toBe(false);
+      gameManager.editionManager.editionData = [fhData('node')];
+      expect(gameManager.editionManager.hasForteller('fh')).toBe(true);
+      expect(gameManager.editionManager.hasForteller('gh')).toBe(false);
+      gameManager.editionManager.editionData.push(new EditionData('gh', [], [], [], [], [], []));
+      settingsManager.settings.editions = ['fh', 'gh'];
+      expect(gameManager.editionManager.fortellerEditions()).toEqual(['fh']);
     });
   });
 

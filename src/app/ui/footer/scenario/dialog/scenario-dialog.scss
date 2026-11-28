@@ -49,6 +49,23 @@
     margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
   }
 
+  .forteller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+    .ghs-svg {
+      height: 0.8em;
+      width: auto;
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+    }
+
+    &:hover .ghs-svg {
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+    }
+  }
+
   .section {
     display: flex;
     justify-content: center;

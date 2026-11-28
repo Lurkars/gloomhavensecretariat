@@ -1,0 +1,226 @@
+{
+  "name": "arborian",
+  "edition": "r100kc",
+  "abilities": [
+    {
+      "name": "Deeper Roots",
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Stomp",
+      "initiative": 26,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vine Wrap",
+      "initiative": 34,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.arborian.3%",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vine Shoot",
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "The Forest Is Moving",
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "forest-imp",
+                "type": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "forest-imp",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Summon Roots",
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.arborian.2%"
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "arborian-root",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Summon Roots",
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.arborian.2%"
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "arborian-root",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -52,7 +52,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "trio"
           },
           "type": "dead"

@@ -12,6 +12,16 @@ export class ActiveAbilityCard {
   }
 }
 
+export class AbilityCardPlay {
+  index: number;
+  half: AbilityCardHalf;
+
+  constructor(index: number, half: AbilityCardHalf) {
+    this.index = index;
+    this.half = half;
+  }
+}
+
 export class CharacterAbilityCards {
   hand: number[] = [];
   selected: number[] = [];

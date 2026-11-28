@@ -2,6 +2,7 @@
   "index": "70",
   "name": "The True Oak",
   "flowChartGroup": "personal-quests",
+  "forteller": "RbvYcRDNbBIseOVVtfjfmx",
   "errata": "scenario70",
   "coordinates": {
     "x": 446.75,
@@ -67,7 +68,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "The Great Oak"
           },
           "type": "dead"

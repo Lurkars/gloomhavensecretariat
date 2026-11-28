@@ -1,0 +1,323 @@
+{
+  "name": "harrower-pestbringer",
+  "edition": "r100kc",
+  "abilities": [
+    {
+      "name": "Sermon of Sacrifice",
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "ward",
+              "small": true
+            },
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.harrower-pestbringer.7%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.r100kc.harrower-pestbringer.6%",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Incite Frenzy",
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.r100kc.harrower-pestbringer.4%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemyAdjacent",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Contagious Gift",
+      "initiative": 34,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "ward",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "grant",
+          "value": "%data.custom.r100kc.harrower-pestbringer.4%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Feed on the Afflicted",
+      "initiative": 49,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.harrower-pestbringer.8%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Share the Blessing",
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.harrower-pestbringer.5%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Outbreak",
+      "initiative": 63,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.harrower-pestbringer.9%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesRange:2",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.harrower-pestbringer.10%"
+        }
+      ]
+    },
+    {
+      "name": "A Gift to All",
+      "initiative": 72,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.harrower-pestbringer.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Progressive Disease",
+      "initiative": 78,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.r100kc.harrower-pestbringer.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.r100kc.harrower-pestbringer.3%",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

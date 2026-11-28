@@ -1,0 +1,249 @@
+<div class="ability-cards-play">
+  <div class="menu">
+    @if (!chooseHand) {
+      @if (handEditable) {
+        <a (click)="changeHand()" [ghs-label]="'character.abilities.cards.changeHand'"></a>
+      }
+      @if (canShortRest && !longResting) {
+        <a (click)="shortRest()" [ghs-label]="'character.abilities.cards.shortRest'"></a>
+      }
+      @if (canDeclareLongRest && !longResting) {
+        <a (click)="startLongRest()" [ghs-label]="'character.abilities.cards.declareLongRest'"></a>
+      }
+    }
+    <ng-content></ng-content>
+    @if (cards) {
+      <a
+        class="disable"
+        ghs-pointer-input
+        (doubleClick)="disable()"
+        [ghs-label]="'character.abilities.cards.disable'"
+        [ghs-tooltip]="'character.abilities.cards.disable.hint'"
+      ></a>
+    }
+  </div>
+
+  @if (prompt) {
+    <p class="prompt" [ghs-label]="'character.abilities.cards.prompt.' + prompt" [ghs-label-args]="promptArgs"></p>
+  }
+
+  <div class="cards">
+    @if (chooseHand) {
+      <div class="abilities">
+        @for (index of handCandidates; track index) {
+          <div
+            class="container ability pick"
+            [ngClass]="{ 'in-hand': handSelection.includes(index), disabled: !canToggleSelection(index) }"
+          >
+            <ghs-ability-card
+              [abilityCard]="abilityCards[index]"
+              [character]="character()"
+              [flipped]="true"
+              ghs-pointer-input
+              (singleClick)="toggleSelection(index)"
+              (doubleClick)="openDialog(index)"
+            ></ghs-ability-card>
+          </div>
+        }
+      </div>
+    } @else if (cards) {
+      @if (shortRestLost !== undefined) {
+        <p class="title" [ghs-label]="'character.abilities.cards.shortRestLost'"></p>
+        <div class="abilities">
+          <div class="container ability lost">
+            <ghs-ability-card
+              [abilityCard]="abilityCards[shortRestLost]"
+              [character]="character()"
+              [flipped]="true"
+              (click)="openDialog(shortRestLost)"
+            ></ghs-ability-card>
+          </div>
+        </div>
+        <div class="buttons">
+          @if (canRerollShortRest) {
+            <a class="reroll" (click)="rerollShortRest()"
+              ><span [ghs-label]="'character.abilities.cards.rerollShortRest'" [ghs-label-args]="[cardName(shortRestLost)]"></span
+            ></a>
+          }
+          <a class="apply" (click)="continueShortRest()"><span [ghs-label]="'character.abilities.cards.continue'"></span></a>
+        </div>
+      }
+
+      @if (longRestPending) {
+        @for (pile of [cards.discard, activeIndices(), cards.hand]; track $index; let discardPile = $first) {
+          @if (pile.length) {
+            <p
+              class="title"
+              [ghs-label]="'character.abilities.cards.' + ($index === 0 ? 'discard' : $index === 1 ? 'active' : 'hand')"
+              [ghs-label-args]="[pile.length]"
+            ></p>
+            <div class="abilities">
+              @for (index of pile; track index) {
+                <div class="container ability pick selectable" [ngClass]="{ chosen: longRestCard === index, small: !discardPile }">
+                  <ghs-ability-card
+                    [abilityCard]="abilityCards[index]"
+                    [character]="character()"
+                    [flipped]="true"
+                    ghs-pointer-input
+                    (singleClick)="chooseLongRestCard(index)"
+                    (doubleClick)="openDialog(index)"
+                  ></ghs-ability-card>
+                </div>
+              }
+            </div>
+          }
+        }
+        <div class="buttons">
+          <a class="cancel" (click)="cancelLongRest()"><span [ghs-label]="'cancel'"></span></a>
+          <a class="apply" [ngClass]="{ disabled: !canApplyLongRest() }" (click)="applyLongRest()"
+            ><span [ghs-label]="'character.abilities.cards.apply'"></span
+          ></a>
+        </div>
+      }
+
+      @if (selectedView.length || emptySlots) {
+        <div class="abilities">
+          @for (index of selectedView; track index; let first = $first) {
+            <div class="container ability" [ngClass]="{ leading: selecting && first && selectedView.length > 1, pick: selecting }">
+              <ghs-ability-card
+                [abilityCard]="abilityCards[index]"
+                [character]="character()"
+                [flipped]="true"
+                [inactiveActions]="playing && inactiveHalf(index)"
+                [selectableActions]="playing"
+                [topActions]="playedHalf(index, false) === 'defaultTop' ? defaultTopActions : undefined"
+                [bottomActions]="playedHalf(index, true) === 'defaultBottom' ? defaultBottomActions : undefined"
+                ghs-pointer-input
+                (singleClick)="clickSelected(index, $event)"
+                (doubleClick)="doubleClickSelected(index, $event)"
+              ></ghs-ability-card>
+            </div>
+            @if (first && selecting) {
+              <a
+                class="switch"
+                (click)="switchSelection()"
+                [ghs-tooltip]="'character.abilities.cards.switch'"
+                [ngClass]="{ disabled: emptySlots }"
+                ><img class="ghs-svg" src="./assets/images/switch.svg"
+              /></a>
+            }
+          }
+          @for (slot of [] | ghsRange: emptySlots; track slot; let first = $first) {
+            <div class="container slot"></div>
+            @if (first && selecting && !selectedView.length) {
+              <a
+                class="switch"
+                (click)="switchSelection()"
+                [ghs-tooltip]="'character.abilities.cards.switch'"
+                [ngClass]="{ disabled: emptySlots }"
+                ><img class="ghs-svg" src="./assets/images/switch.svg"
+              /></a>
+            }
+          }
+        </div>
+        @if (selecting || playing) {
+          <div class="buttons">
+            <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+            <a
+              class="apply"
+              [ngClass]="{ disabled: selecting ? !canApplySelection() : !canApplyPlays() }"
+              (click)="selecting ? applySelection() : applyPlays()"
+              ><span [ghs-label]="'character.abilities.cards.apply'"></span
+            ></a>
+          </div>
+        }
+      }
+
+      @if (!draw && !longRestPending) {
+        <ng-container [ngTemplateOutlet]="activeCards" [ngTemplateOutletContext]="{ small: false }"></ng-container>
+      }
+
+      @if (!longRestPending) {
+        <p class="title" [ghs-label]="'character.abilities.cards.hand'" [ghs-label-args]="[handView.length]"></p>
+        <div class="abilities">
+          @for (index of handView; track index) {
+            <div class="container ability" [ngClass]="{ small: !draw, pick: emptySlots > 0, selectable: emptySlots > 0 }">
+              <ghs-ability-card
+                [abilityCard]="abilityCards[index]"
+                [character]="character()"
+                [flipped]="true"
+                ghs-pointer-input
+                (singleClick)="clickHand(index)"
+                (doubleClick)="openDialog(index)"
+              ></ghs-ability-card>
+            </div>
+          }
+        </div>
+      }
+
+      @if (draw && !longRestPending) {
+        <ng-container [ngTemplateOutlet]="activeCards" [ngTemplateOutletContext]="{ small: true }"></ng-container>
+      }
+
+      <ng-template #activeCards let-small="small">
+        @if (cards.active.length) {
+          <p class="title" [ghs-label]="'character.abilities.cards.active'"></p>
+          <div class="abilities">
+            @for (activeCard of cards.active; track activeCard.index) {
+              <div class="container ability play" [ngClass]="{ small: small }">
+                <div class="card">
+                  <ghs-ability-card
+                    [abilityCard]="abilityCards[activeCard.index]"
+                    [character]="character()"
+                    [flipped]="true"
+                    [inactiveActions]="activeCard.bottom ? 'top' : 'bottom'"
+                    (click)="openDialog(activeCard.index)"
+                  ></ghs-ability-card>
+                </div>
+                <div class="halves">
+                  <a class="half" (click)="removeActiveCard(activeCard.index)" [ghs-label]="'character.abilities.cards.removeActive'"></a>
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </ng-template>
+
+      @if (cards.discard.length && !longRestPending) {
+        <p class="title" [ghs-label]="'character.abilities.cards.discard'" [ghs-label-args]="[cards.discard.length]"></p>
+        <div class="abilities">
+          @for (index of cards.discard; track index) {
+            <div class="container small ability">
+              <ghs-ability-card
+                [abilityCard]="abilityCards[index]"
+                [character]="character()"
+                [flipped]="true"
+                (click)="openDialog(index)"
+              ></ghs-ability-card>
+            </div>
+          }
+        </div>
+      }
+
+      @if (cards.lost.length) {
+        <p class="title" [ghs-label]="'character.abilities.cards.lost'" [ghs-label-args]="[cards.lost.length]"></p>
+        <div class="abilities">
+          @for (index of cards.lost; track index) {
+            <div class="container small ability lost">
+              <ghs-ability-card
+                [abilityCard]="abilityCards[index]"
+                [character]="character()"
+                [flipped]="true"
+                (click)="openDialog(index)"
+              ></ghs-ability-card>
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+
+  @if (chooseHand) {
+    <div class="buttons">
+      <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+      <a class="apply" [ngClass]="{ disabled: !canApplyHand() }" (click)="applyHand()"
+        ><span [ghs-label]="'character.abilities.cards.apply'"></span
+      ></a>
+    </div>
+  }
+</div>

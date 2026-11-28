@@ -208,6 +208,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.characterAttackModifierDeck = false;
     settingsManager.settings.characterIdentities = false;
     settingsManager.settings.characterItems = false;
+    settingsManager.settings.characterAbilityCards = false;
     settingsManager.settings.characterHandSize = false;
     settingsManager.settings.characterSheet = false;
     settingsManager.settings.disabledTurnConfirmation = true;
@@ -257,6 +258,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.characterAttackModifierDeck = false;
     settingsManager.settings.characterIdentities = false;
     settingsManager.settings.characterItems = false;
+    settingsManager.settings.characterAbilityCards = false;
     settingsManager.settings.characterHandSize = false;
     settingsManager.settings.characterSheet = false;
     settingsManager.settings.disabledTurnConfirmation = true;
@@ -335,6 +337,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.calculate = true;
     settingsManager.settings.calculateStats = true;
     settingsManager.settings.calculateShieldStats = false;
+    settingsManager.settings.characterAbilityCards = false;
     settingsManager.settings.characterAttackModifierAnimate = true;
     settingsManager.settings.characterAttackModifierDeck = true;
     settingsManager.settings.characterAttackModifierDeckPermanent = true;

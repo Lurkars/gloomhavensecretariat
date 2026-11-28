@@ -2,6 +2,7 @@
   "index": "38",
   "name": "The Way Forward",
   "flowChartGroup": "algox-3",
+  "forteller": "RbvYcRDNbBIseOVVtfjdyR",
   "coordinates": {
     "x": 1510.25,
     "y": 1075.25,
@@ -76,7 +77,7 @@
         {
           "identifier": {
             "type": "objective",
-            "edition": "objective",
+            "edition": "escort",
             "name": "Emissary"
           },
           "type": "dead",

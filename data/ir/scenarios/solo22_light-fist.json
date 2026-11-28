@@ -1,0 +1,113 @@
+{
+  "index": "22",
+  "group": "solo",
+  "name": "Opposites Attract",
+  "edition": "ir",
+  "spoiler": true,
+  "initial": true,
+  "solo": "light-fist",
+  "rewards": {
+    "items": [
+      "12"
+    ]
+  },
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "night-demon",
+    "savvas-lavaflow",
+    "sun-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir.22.1%"
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "rooms": [
+        3
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L2b",
+      "initial": true,
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "L3b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "L1b",
+      "marker": "b",
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

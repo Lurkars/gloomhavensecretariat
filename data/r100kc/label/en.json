@@ -1,13 +1,56 @@
 {
   "custom": {
     "r100kc": {
+      "arborian": {
+        "1": "Before performing an attack ability, any character can %game.element.consume.fire% to add %game.condition.brittle% to every attack in that ability targeting an Arborian or a Root summon.",
+        "2": "Place a numbered token within %game.action.range:7%, adjacent to focus and as many other enemies as possible. This represents a Root summon. Set this card aside until the summon is dead, then shuffle.<br>Only one Root summon is placed by the first acting Arborian; remaining Arborians do not act this round.",
+        "3": "+1 %game.action.target%"
+      },
+      "arborian-root": {
+        "1": "Root summons act immediately before the Arborians and die when all Arborians are dead."
+      },
       "black-cat": {
         "1": "Focus the nearest unoccupied obstacle.<br>Until start of next turn, the Black Cat can occupy the hex. Afterwards move to the next empty hex.<br><br>If no obstacle is present, focus an empty hex farthest away from all characters.",
         "2": "%game.action.target% all adjacent Black Cats",
         "3": "%game.action.target% all Black Cats in %game.action.range:2%"
       },
+      "carnivorous-plant": {
+        "1": "+1 to all attacks",
+        "2": "+2 to all attacks",
+        "3": "+3 to all attacks",
+        "4": "If the attack is performed, summon one normal Carnivorous Plant with a hit point value equal to the monster level +1 adjacent to the target.",
+        "5": "%game.element.consume.ice% or %game.element.consume.fire%: Carnivorous Plant suffers 1 damage per element consumed.",
+        "6": "All adjacent enemies also suffer 2 damage"
+      },
+      "corrupted-tree": {
+        "1": "Ranged attacks against the Corrupted Tree have disadvantage",
+        "2": "%game.action.target% 1 ally within %game.action.range:3% (except Corrupted Tree):<br>The target immediately performs an additional turn with its current ability card",
+        "3": "If there is no valid target for the above effect, spawn a Hound instead",
+        "4": "Spawn an elite Hound instead",
+        "5": "All allies in the target hexes",
+        "6": "If there is no valid target for the above effect, spawn a Forest Imp instead",
+        "7": "Spawn an elite Forest Imp instead",
+        "8": "%game.action.target% another enemy within %game.action.range:3% of the original target",
+        "9": "If the target has %game.condition.poison%:",
+        "10": "All allies within %game.action.range:3% add +1 %game.action.attack% to all their attacks this round",
+        "11": "Add %game.action.range:3% to all %game.action.retaliate% this round"
+      },
       "evil-eyeball": {
-        "1": "in the same hex the elite died"
+        "1": "in the same hex the elite died",
+        "2": "Focus on the closest normal Evil Eyeball",
+        "3": "Remove self and 1 adjacent normal Evil Eyeball to spawn 1 elite Evil Eyeball in the hex you occupied"
+      },
+      "harrower-pestbringer": {
+        "1": "Target all allies in the red hexes of the attack ability",
+        "2": "If the target has %game.condition.muddle% add %game.condition.poison%<br>If the target has %game.condition.poison% add %game.condition.wound%",
+        "3": "If the target of the attack ability has now 3 or more<br>negative conditions, replace them all with %game.condition.bane%",
+        "4": "Control the target of the heal ability:",
+        "5": "Add all negative and positive conditions this figure has to the attack.",
+        "6": "Add all negative conditions this figure has on it to the attack.",
+        "7": "All allies within %game.action.range:3% perform on death:",
+        "8": "Add +1 %game.action.attack% if the target has at least one negative condition",
+        "9": "Target self and all adjacent figures",
+        "10": "All enemies with %game.condition.poison% and within %game.action.range:3% suffer 2 damage."
       },
       "resonator-bot": {
         "1": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%",
@@ -15,15 +58,82 @@
         "3": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%",
         "4": "%game.condition.stun% 1 Resonator Bot without<br>%game.condition.stun% and within %game.action.range:3% to perform:",
         "5": "%game.condition.stun% 2 Resonator Bots without<br>%game.condition.stun% and within %game.action.range:3% to perform:"
+      },
+      "whitefire-toad": {
+        "1": "Only %game.action.range:3%",
+        "2": "+1 %game.action.attack%"
       }
     }
   },
   "edition": {
-    "r100kc": "Reddit 100k Subscriber Contest &lt;%wip%(!)&gt;"
+    "r100kc": "Reddit 100k Subscriber Contest"
   },
   "monster": {
+    "arborian": "Arborian",
+    "arborian-root": "Arborian Root",
     "black-cat": "Black Cat",
+    "carnivorous-plant": "Carnivorous Plant",
+    "corrupted-tree": "Corrupted Tree",
     "evil-eyeball": "Evil Eyeball",
-    "resonator-bot": "Resonator Bot"
+    "harrower-pestbringer": "Harrower Pestbringer",
+    "resonator-bot": "Resonator Bot",
+    "whitefire-toad": "Whitefire Toad"
+  },
+  "scenario": {
+    "rules": {
+      "r100kc": {
+        "1": {
+          "1": "All characters start the scenario with %game.condition.bless% and %game.condition.curse% as a scenario effect.<br>Each Chaos Demon gets its own monster ability card that is executed at its own initiative value. Ability cards are assigned to Chaos Demons in order of their initiative. If you are ever unable to draw enough ability cards for all Chaos Demons, shuffle the remaining cards in the Chaos Demon ability card discard pile and draw as many more as are needed.",
+          "2": "The Dark Fog token %game.mapMarker.a% is an obstacle. It can't be affected by character abilities."
+        },
+        "2": {
+          "1": "Crate %game.mapMarker.a% is an objective with (L+1)xC hit points. When crate %game.mapMarker.a% is destroyed, read Section 2A.",
+          "2": "Section 2A: Immediately spawn one Ooze at %game.mapMarker.a%.",
+          "3": "Section 2B: The three barrel tiles are objectives with (L+1)xC hit points each. They are also hazardous terrain that move forward (towards door %game.mapMarker.1%) each round, acting immediately before the initiative on the Guard's ability card in the order of %game.mapMarker.b%, %game.mapMarker.c%, then %game.mapMarker.d%.<br>Shuffle numbered tokens 1-12 and place them face-down in a pile. At the start of each round, after ability cards have been revealed, flip over one token for each barrel. If odd, move the barrel forward 1 hex, if even 2 hexes. If a barrel would end its movement on another barrel, an obstacle, or a poison gas trap, move it one additional hex.<br>A barrel may only be targeted if it is not sharing a hex with any figure. Barrels are immune to all conditions, but can be affected by forced movement. When a barrel is destroyed, replace it with a poison gas trap (Damage, %game.condition.poison% and %game.condition.muddle%). Barrels are unaffected by these traps. If a barrel reaches a hex adjacent to door %game.mapMarker.1%, remove it, then all figures on the G2b tile suffer trap damage and gain %game.condition.poison% and %game.condition.muddle% (the barrel counts as destroyed).",
+          "4": "Section 3A: Overlay tiles %game.mapMarker.e%, %game.mapMarker.f% and %game.mapMarker.g% are obstacles or objectives depending on the number of characters (2: %game.mapMarker.e%; 3: %game.mapMarker.e% and %game.mapMarker.f%; 4: all). Each objective has (L+1)x2 hit points, is immune to all conditions and cannot be moved. When an objective is destroyed, spawn one Ooze in the hex: elite at %game.mapMarker.e%, normal at %game.mapMarker.f%, elite at %game.mapMarker.g%.<br>The Bandit Guards treat objectives as enemies with initiative 99. Objectives destroyed by Guards count towards the scenario goal.<br>When all objectives are destroyed and all enemies are dead, read Section 3B."
+        },
+        "3": {
+          "1": "Monsters draw two ability cards each round, taking each turn at its respective initiative (for focusing purposes, figures taking multiple turns use their first turn's initiative). Characters and their allies have %game.action.shield:1%.",
+          "2": "All doors %game.mapMarker.2% are locked. When a character ends their turn adjacent to %game.mapMarker.a%, read 1a: Skip all remaining monster turns this round. At the end of the round, open all doors %game.mapMarker.2%.<br>Instead of the previous special rules, monsters now have %game.action.shield:1%. Characters with three or more cards in hand must choose an additional (third) card to play at the start of each round, used during a separate turn at its own initiative for either its top or bottom action."
+        },
+        "4": {
+          "1": "The Living Spirit is named Hotep's Spirit, it is immune to damage. On each turn after Hotep's Spirit performs its normal actions, it performs %game.action.heal:1% targeting all allies. The door %game.mapMarker.1% is locked until all revealed enemies other than Hotep's Spirit have been killed.<br>All Earth hexes are difficult terrain. Trees block line of sight like walls. Thorns are both difficult and hazardous terrain. If any obstacle is destroyed, the hexes it occupied are considered Earth hexes.",
+          "2": "Summon in the nearest empty hex adjacent to each boulder %game.mapMarker.a%.",
+          "3": "The sarcophagus cannot be destroyed. The elite Living Corpse is named Hotep's Corpse, it is immune to %game.condition.wound% and has %game.action.retaliate:2%. If a character enters or starts their turn in a hex adjacent to Hotep's Corpse they suffer damage equal to half the current trap damage. Hotep's Corpse has advantage on all attacks until all Cultists have been killed."
+        },
+        "5": {
+          "1": "Drizzle %game.mapMarker.a% is an ally to you and an enemy to all monster types. They do not act, are immune to all forced movement and have an initiative of 01 for monster focusing. They take no damage and cannot be healed: whenever they would take damage, add as many Fear tokens instead (tracked as damage here). Once the Fear reaches 2+L+(2xC), read Section A.<br>The sarcophagi on tile G2b represent the Train Cart (difficult terrain). The track corridor tiles are hazardous terrain (difficult while the cart is on them). At the start of the second and all subsequent rounds, the Train Cart moves 2 spaces along the track towards the next lowest numbered door, opening any door it moves onto or through. Figures and tokens on the cart move with it. A figure in the cart's way suffers hazardous terrain damage and is moved to an adjacent unoccupied hex away from the cart's path.<br>All doors are locked and can only be opened by the Train.",
+          "2": "At the beginning of each round add 1 Fear token.",
+          "3": "Reveal the Exit: For two characters pressure plate %game.mapMarker.b% exists, for three or four characters plates %game.mapMarker.b% and %game.mapMarker.d%. When all existing plates are occupied, immediately read Section B.<br>Reprogram the Ride: Any character may forgo a top action (by discarding a card) while adjacent to the table %game.mapMarker.c% to re-program the ride. Then immediately read Section C.",
+          "4": "Any time a figure ends a round adjacent to or on a single hex obstacle tile, remove the obstacle tile and all figures occupying or adjacent to the hex suffer 2 damage.",
+          "5": "Section A: Drizzle has fainted. The numbered token can now be looted by characters. A character carrying it adds +1 %game.action.attack% to all attacks and -1 to all %game.action.move% abilities, and can transfer it to an adjacent character at the end of any action. If the carrying character becomes exhausted, the scenario is lost.<br>Section B: Now and at the beginning of each round spawn 1 Living Bones at each %game.mapMarker.f% (normal for 2, elite for 3 or 4 characters). Now and at the beginning of each even round spawn 1 Living Spirit at %game.mapMarker.g% (normal for 2 or 3, elite for 4 characters). The entrance tiles are now escape tiles.<br>Section C: All Ancient Artillery are now allies to you and enemies to all other monster types. The Train Cart no longer moves. The track is no longer hazardous, it is now difficult terrain. Any remaining locked doors are unlocked."
+        },
+        "6": {
+          "1": "Requirement: Enhancement is unlocked.<br>Once per action, you may perform an ability with one or more unoccupied enhancement dots as if one of those dots were occupied by any enhancement sticker that the dot allows. (For persistent abilities with enhancement dots, including summon abilities, choose when you perform the ability; this effect persists as long as the persistent ability remains active.)",
+          "2": "You may now perform all abilities as though any number of unoccupied enhancement dots were occupied by any enhancement sticker the dot allows."
+        },
+        "7": {
+          "1": "Squabbles %game.mapMarker.a% is an ally to you and an enemy to all monsters. On initiative 99 each round Squabbles moves 2 towards %game.mapMarker.b% (flying, able to open doors). Any character may lose one card from their hand or two from their discard pile to negate one source of damage to Squabbles. If Squabbles dies or any character exhausts, the scenario is lost.<br>The scenario is complete when the goal treasure tile is looted and all characters and Squabbles have escaped.",
+          "2": "Squabbles is now moving towards %game.mapMarker.c% instead of %game.mapMarker.b%.",
+          "3": "Squabbles is now moving towards %game.mapMarker.d% instead of %game.mapMarker.c%. Door %game.mapMarker.e% cannot be opened. Once both pressure plates have a character or ally on them, read Section 3.",
+          "4": "Section 3: Door %game.mapMarker.e% is now open. Squabbles is now moving towards %game.mapMarker.f% instead of %game.mapMarker.d%. The %game.mapMarker.f% tokens are escape hexes. Replace token %game.mapMarker.1% with the goal Treasure tile."
+        },
+        "8": {
+          "1": "Requirement: 100 gold.<br>Use the Gloomhaven random dungeon rules. There is no defined conclusion: play until you choose to exit the dungeon or until your strength is depleted. If the party exhausts, the scenario ends in failure and characters receive no gold or items found in the dungeon.<br>The first random dungeon is always scenario level 2 (regardless of party level) with no penalty in the first room, minor penalty in the second room, and major penalty in the third room.<br>After clearing a dungeon (3 rooms) you may return to Gloomhaven (ending the scenario successfully, keeping all gold and items found) or continue with a new random dungeon: first take a special rest (gain all lost cards back except for 1 of your choice, which may not be used again in this scenario; reset health, special tokens and items, re-select cards), then increase the scenario level by 1.",
+          "2": "Rewards (all up to the completed level): Start (L2) 2 gold, L3 10 gold, L4 50 gold, L5 50 gold, L6 100 gold, L7 200 gold, L8 100 gold and 1 available purchasable item, L9 300 gold each.<br>Further dungeons stay at level 9 with increasing penalties: 300 gold (minor/minor/major), 1 enhancement (minor/major/major), 1 enhancement (major/major/major, all enemies elite), 2 enhancements (major/major/major, all enemies elite, repeat until the party exhausts or leaves)."
+        }
+      }
+    },
+    "rewards": {
+      "r100kc": {
+        "1": "Global Achievement: The Power of Enhancement",
+        "2": "Section 3C treasure: Ooze Toxin",
+        "3": "If you have Frosthaven, unlock the Blinkblade class",
+        "4": "Unlock scenario D15 \"The Crypt Beneath\"",
+        "5": "Each character may gain 1 enhancement costing no more than 50 gold. New Location: The Big Top (S28)",
+        "6": "Each player gains up to 50 gold worth of enhancements on Level 1 (or X) cards.",
+        "7": "Reduce the cost of the next item you buy from the Trading Post by 10 gold. Gain 1 checkmark each."
+      }
+    }
   }
 }

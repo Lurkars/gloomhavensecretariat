@@ -7,7 +7,8 @@ export class CharacterLongRestCommand extends CommandImpl {
   requiredParameters: number = 2;
 
   validParameters(number: number, longRest: boolean): boolean {
-    return !!findCharacter(number) && typeof longRest === 'boolean';
+    const character = findCharacter(number);
+    return !!character && typeof longRest === 'boolean' && gameManager.roundManager.canSetLongRest(character, longRest);
   }
 
   executeWithParameters(number: number, longRest: boolean) {

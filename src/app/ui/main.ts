@@ -1,7 +1,7 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, CdkDragRelease, CdkDragStart, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, inject, isDevMode, OnInit } from '@angular/core';
+import { afterNextRender, ChangeDetectorRef, Component, ElementRef, inject, Injector, isDevMode, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
@@ -60,6 +60,7 @@ export class MainComponent implements OnInit {
   private ghsManager = inject(GhsManager);
 
   private cdr = inject(ChangeDetectorRef);
+  private injector = inject(Injector);
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -361,47 +362,55 @@ export class MainComponent implements OnInit {
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined, skipAnimation: boolean = false): void {
     this.grid = [999];
+    // measure and position figures only after the pending render, otherwise freshly added figures stay at scale(0)
+    this.cdr.markForCheck();
     if (!settingsManager.settings.columns) {
-      setTimeout(() => {
-        const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
-        if (containerElement) {
-          this.translate(scrollTo, skipAnimation);
-        }
-        this.cdr.markForCheck();
-      }, 1);
-    } else {
-      setTimeout(() => {
-        const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
-        if (containerElement) {
-          this.lastScroll = this.lastActive();
-          const figureElements: any[] = Array.from(containerElement.getElementsByClassName('figure'));
-          if (figureElements.length > 0) {
-            const figureWidth = figureElements[0].firstChild.clientWidth;
-            const maxColumns = Math.floor(containerElement.clientWidth / (figureWidth * 1.025));
-            if (maxColumns > 1) {
-              const activeFigureElementHeights = figureElements.slice(0, this.lastScroll + 1).map((element) => element.clientHeight);
-              const columns = this.calcColumnsHelper(
-                activeFigureElementHeights,
-                containerElement.clientHeight,
-                containerElement.clientWidth,
-                figureWidth * 1.025
-              ).filter((column) => column.length);
-              this.grid = columns.map(
-                (column, index, self) =>
-                  self
-                    .map((value) => value.length)
-                    .slice(0, index + 1)
-                    .reduce((a, b) => a + b),
-                0
-              );
-            }
+      afterNextRender(
+        () => {
+          const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
+          if (containerElement) {
+            this.translate(scrollTo, skipAnimation);
           }
-          this.lastScrollColumn = this.grid.length > 1 ? this.grid.length - 1 : -1;
+          this.cdr.markForCheck();
+        },
+        { injector: this.injector }
+      );
+    } else {
+      afterNextRender(
+        () => {
+          const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
+          if (containerElement) {
+            this.lastScroll = this.lastActive();
+            const figureElements: any[] = Array.from(containerElement.getElementsByClassName('figure'));
+            if (figureElements.length > 0) {
+              const figureWidth = figureElements[0].firstChild.clientWidth;
+              const maxColumns = Math.floor(containerElement.clientWidth / (figureWidth * 1.025));
+              if (maxColumns > 1) {
+                const activeFigureElementHeights = figureElements.slice(0, this.lastScroll + 1).map((element) => element.clientHeight);
+                const columns = this.calcColumnsHelper(
+                  activeFigureElementHeights,
+                  containerElement.clientHeight,
+                  containerElement.clientWidth,
+                  figureWidth * 1.025
+                ).filter((column) => column.length);
+                this.grid = columns.map(
+                  (column, index, self) =>
+                    self
+                      .map((value) => value.length)
+                      .slice(0, index + 1)
+                      .reduce((a, b) => a + b),
+                  0
+                );
+              }
+            }
+            this.lastScrollColumn = this.grid.length > 1 ? this.grid.length - 1 : -1;
 
-          this.translate(scrollTo, skipAnimation);
-        }
-        this.cdr.markForCheck();
-      }, 1);
+            this.translate(scrollTo, skipAnimation);
+          }
+          this.cdr.markForCheck();
+        },
+        { injector: this.injector }
+      );
     }
   }
 

@@ -118,6 +118,7 @@ describe('ScenarioSummaryComponent', () => {
     it('opens nothing without apply retirement setting or outside campaign mode', () => {
       const component = createComponent(scenario);
       const open = mockDialog(component);
+      settingsManager.settings.applyRetirement = false;
       gameManager.game.party.campaignMode = true;
       component.openRetirements([buildCharacter()]);
 

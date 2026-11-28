@@ -1,0 +1,100 @@
+{
+  "name": "zaide",
+  "edition": "ir",
+  "deck": "cultist",
+  "hidden": true,
+  "count": 1,
+  "standeeShare": "cultist",
+  "standeeShareEdition": "gh",
+  "baseStat": {
+    "type": "elite"
+  },
+  "stats": [
+    {
+      "type": "elite",
+      "level": 0,
+      "health": "[Math.ceil(Cx7/2)]",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": "[Math.ceil(Cx9/2)]",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": "[Math.ceil(Cx12/2)]",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": "[Math.ceil(Cx13/2)]",
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": "[Math.ceil(Cx15/2)]",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": "[Math.ceil(Cx18/2)]",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": "[Math.ceil(Cx22/2)]",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": "[Math.ceil(Cx25/2)]",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    }
+  ]
+}

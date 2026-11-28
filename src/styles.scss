@@ -1429,6 +1429,11 @@ input[type='radio'] {
       width: auto;
       filter: brightness(0);
     }
+
+    // identity icons keep their own colors (e.g. fast/slow)
+    &.identity img {
+      filter: none;
+    }
   }
 
   .placeholder-element {
@@ -1765,7 +1770,7 @@ input[type='radio'] {
   }
 
   &.text-white {
-    .placeholder-character-icon {
+    .placeholder-character-icon:not(.identity) {
       img {
         filter: brightness(99);
       }

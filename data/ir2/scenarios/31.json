@@ -1,0 +1,143 @@
+{
+  "index": "31",
+  "name": "Hot Springs",
+  "edition": "ir2",
+  "unlocks": [
+    "32",
+    "33",
+    "34",
+    "35"
+  ],
+  "rewards": {
+    "prosperity": 1,
+    "items": [
+      "27-gh",
+      "27-gh"
+    ]
+  },
+  "monsters": [
+    "frost-demon",
+    "rending-drake",
+    "spitting-drake"
+  ],
+  "objectives": [
+    {
+      "name": "Nest",
+      "health": "(Cx2)+2",
+      "initiative": 99
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.ir2.31.1%"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "requiredRooms": [
+        2
+      ],
+      "note": "%data.scenario.rules.ir2.31.2%"
+    },
+    {
+      "round": "true",
+      "requiredRooms": [
+        2
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "rending-drake",
+            "type": "normal"
+          },
+          "marker": "a",
+          "manual": true
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b",
+          "manual": true
+        },
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "type": "normal"
+          },
+          "marker": "c",
+          "manual": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "J2b",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "N1a",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

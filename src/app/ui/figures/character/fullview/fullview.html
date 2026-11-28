@@ -178,15 +178,24 @@
         }
       </div>
 
-      @if (settingsManager.settings.characterHandSize || (character.editionRules !== 'bb' && settingsManager.settings.playerNumber)) {
+      @if (
+        settingsManager.settings.characterHandSize ||
+        (character.editionRules !== 'bb' && (settingsManager.settings.characterAbilityCards || settingsManager.settings.playerNumber))
+      ) {
         <div class="badges">
           @if (settingsManager.settings.characterHandSize) {
             @if (character.editionRules !== 'bb') {
-              <span class="hand-size" ghs-pointer-input (doubleClick)="openAbilityCards()">{{ character.handSize }}</span>
+              <span class="hand-size" ghs-pointer-input (singleClick)="handSizeClick(false)" (doubleClick)="openAbilityCards()">{{
+                character.handSize
+              }}</span>
             } @else {
               <span class="hand-size">{{ character.level - 1 }}|4</span>
             }
             <span class="character-level">{{ character.level }}</span>
+          } @else if (character.editionRules !== 'bb' && settingsManager.settings.characterAbilityCards) {
+            <span class="hand-size" ghs-pointer-input (singleClick)="handSizeClick(false)" (doubleClick)="openAbilityCards()">{{
+              character.handSize
+            }}</span>
           }
           @if (character.editionRules !== 'bb' && settingsManager.settings.playerNumber) {
             <span class="player-number">#{{ character.number }}</span>

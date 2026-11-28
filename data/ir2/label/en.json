@@ -1,0 +1,154 @@
+{
+  "edition": {
+    "ir2": "Ice Rift II"
+  },
+  "monster": {
+    "andreas": "Andreas",
+    "corrupted-celestial": "The Corrupted Celestial"
+  },
+  "deck": {
+    "corrupted-celestial": {
+      "": "The Corrupted Celestial",
+      "1": "All Dark Pit obstacles gain %game.action.retaliate:2%, %game.action.range:2%",
+      "2": "Place a Dark Pit obstacle in empty hexes adjacent to as many enemies as possible. Each enemy adjacent to that Dark Pit obstacle suffers 3 damage.",
+      "3": "Target all Dark Pit obstacles",
+      "3a": "+C %game.action.heal%",
+      "4": "Enemies targeting the Corrupted Celestial gain %game.condition.curse%.",
+      "5": "Target all adjacent enemies",
+      "6": "Place a Dark Pit obstacle in empty hexes as close to the Corrupted Celestial as possible",
+      "6a": "The summoned Night Demon immediately takes a turn",
+      "7": "Attack all enemies within the two rings around the Corrupted Celestial",
+      "8": "All enemies adjacent to a Dark Pit obstacle suffer L damage.",
+      "8a": "All Dark Pit obstacles perform %game.action.heal:C%, self.",
+      "8b": "Place one Dark Pit obstacle in empty hexes adjacent to as many enemies as possible."
+    }
+  },
+  "objective": {
+    "Altar": "Altar",
+    "Belchor": "Belchor",
+    "Citizen": "Citizen",
+    "Dark Pit": "Dark Pit",
+    "Gunpowder Keg": "Gunpowder Keg",
+    "Nalia": "Nalia",
+    "Nest": "Nest",
+    "Table": "Table",
+    "Wheel Cart": "Wheel Cart"
+  },
+  "globalAchievements": {
+    "enlightenment": "Enlightenment"
+  },
+  "partyAchievements": {
+    "exceeds-expectations": "Exceeds Expectations",
+    "exceptional-bravery": "Exceptional Bravery",
+    "head-of-the-hydra": "Head of the Hydra",
+    "shattered": "Shattered",
+    "siege-engine": "Siege Engine",
+    "smoke-signals": "Smoke Signals",
+    "the-bare-essentials": "The Bare Essentials"
+  },
+  "scenario": {
+    "rewards": {
+      "ir2": {
+        "25": "Event: tell the guard about Nalia (treasure 10) or give her the seeds (treasure 27). 3 gold each for each killed Bandit Guard.",
+        "26": "Conclusion A (3 clues): party achievement The Bare Essentials. Conclusion B (4 clues): Exceeds Expectations and +1 prosperity. Conclusion C (5 clues): Exceptional Bravery and +1 prosperity.",
+        "27": "Characters may redistribute the items that were looted during the scenario.",
+        "29": "5 experience each for each round left.",
+        "32": "Event: build a bridge (treasure 08), find another way (treasure 13) or climb over the lava (treasure 34).",
+        "33": "Event: say a prayer at the shrine (treasure 23), plunder the medical ward (treasure 02) or keep your pace (treasure 17).",
+        "34": "Event: Song of Solidification (treasure 06), Song of Fading (treasure 15) or Song of Dislocation (treasure 30).",
+        "35": "Event: distract the snakes (treasure 36), sneak past (treasure 14) or wait (treasure 21). Conclusion A: party achievement Siege Engine and Mask of Terror (item 066). Conclusion B: party achievement Shattered and Skull of Hatred (item 119).",
+        "38": "Event: run to the Boggy Forest (treasure 19), find the attack pattern (treasure 29) or light a fire (treasure 09).",
+        "39": "Each character gains a +1 enhancement to any level 1 or X card.",
+        "40": "Each character chooses one ability card with a lost action from their unchosen cards: once during the next scenario they may additionally play this action."
+      }
+    },
+    "rules": {
+      "ir2": {
+        "25": {
+          "1": "Instead of their ability card actions, Bandit Guards perform %game.action.move:2% towards the closest exit %game.mapMarker.a% and are removed when they reach it. If three or more Bandit Guards escape, the scenario is lost. Figures cannot end their turn on an exit. Savvas Icestorms perform %game.condition.immobilize%, target all enemies instead of summoning a Frost Demon and %game.action.push:2%, target all enemies instead of summoning a Wind Demon."
+        },
+        "26": {
+          "1": "Citizens %game.mapMarker.a% are allies with an initiative of 99 for focusing. If 3 or more citizens are killed, the scenario is lost. A citizen only gives a clue when there are no enemies in their room: a character adjacent to the citizen performs a loot action or forgoes a bottom action. At the end of the round when 3, 4 or 5 clues are obtained and all revealed enemies are killed, decide to end the scenario (Conclusion A or B) or to continue."
+        },
+        "27": {
+          "1": "City Guards and City Archers are allies. When a room is revealed, all City Guards and City Archers in that room gain %game.condition.strengthen%. Gunpowder kegs %game.mapMarker.b%: when destroyed, all figures within range 1 suffer L damage. Looted items may be equipped and used immediately, ignoring equip limitations."
+        },
+        "28": {
+          "1": "Bare Essentials: add one %game.condition.bless% to the monster attack modifier deck. Exceeds Expectations: add one -1 card. Exceptional Bravery: add two -1 cards. Monsters within range 2 of altar %game.mapMarker.a% are immune to %game.condition.stun%, %game.condition.disarm% and %game.condition.immobilize%, of %game.mapMarker.b% add +1 attack, of %game.mapMarker.c% gain %game.action.retaliate:1%, of %game.mapMarker.d% add %game.condition.wound% to their attacks. When an altar is destroyed, draw a grey numbered token and spawn the demon: 1 Sun, 2 Wind, 3 Flame, 4 Night, 5 Frost, 6 Earth (2 characters: no spawn for the first and third altar; 4 characters: second and fourth spawn elite).",
+          "3": "At the end of every round each character and character summon suffers N damage, where N is the number of remaining altars. Boss Special 1 and 2: the Prime Demon jumps to the next altar (%game.mapMarker.a%, %game.mapMarker.b%, %game.mapMarker.c%, %game.mapMarker.d%), destroys it and performs %game.action.move:+2%, %game.action.attack:-1%. When all altars are destroyed it performs %game.action.move:+0%, %game.action.attack:+0% instead."
+        },
+        "29": {
+          "1": "Portals %game.mapMarker.a%, %game.mapMarker.b% and %game.mapMarker.c% cannot be entered or affected by characters. Monsters can move from one portal to another. Nalia %game.mapMarker.d% (initiative 01) and Belchor %game.mapMarker.e% (initiative 99) are allies: Nalia moves a stalagmite up to two hexes or performs %game.action.heal:1%, %game.action.range:3%; Belchor lets a stalagmite explode (L damage to all adjacent figures) or performs %game.action.heal:1%, %game.action.range:3%. Players may lose one card from hand or two from discard to prevent damage to them. If Nalia or Belchor dies or not all enemies are killed by the end of round 12, the scenario is lost.",
+          "5": "Place a dark pit overlay on hexes %game.mapMarker.f%, it is now portal %game.mapMarker.f%."
+        },
+        "30": {
+          "1": "No more than half the characters (rounded up) may start in the same room. Vermling Scouts are allies. Cultists summon normal Hounds instead of Living Bones. Killed elite Cultists drop a Key of Sacrifice instead of a loot token. Doors 1 open only when all three keys are collected: each time a key is collected, each character suffers 1 damage for each Vermling Scout already killed.",
+          "2": "When one door 1 opens, also open the other."
+        },
+        "31": {
+          "1": "At the start of each round, draw a Boss ability card: Boss Special 1 - all figures on water suffer L damage; Boss Special 2 - all figures on water gain %game.condition.immobilize%.",
+          "2": "Dark fog tiles are concealed and hide numbered tokens 1-8, revealed when a character or summon is adjacent: 1, 6, 8 nest; 2 Frost Demon (elite for 4 characters); 3 Rending Drake for 3-4 characters; 4 geyser (L damage); 5 Spitting Drake (elite for 4 characters); 7 treasure 20. At the end of every round, spawn at %game.mapMarker.a%, %game.mapMarker.b% or %game.mapMarker.c% in turn. Each destroyed nest removes the next spawn point. The scenario is complete at the end of the round when all three nests are destroyed."
+        },
+        "32": {
+          "1": "The Merciless Overseer starts at half its maximum hit points. Boss Special 1: all Vermling Scouts act again and each character passes one random card from their hand to the character on their right. Boss Special 2: summon 1 normal Vermling Scout (2 characters), 1 elite (3 characters) or 2 normal (4 characters).",
+          "2": "The Merciless Overseer starts at full hit points."
+        },
+        "33": {
+          "1": "Each character chooses one of the six elements and controls the monsters near it, playing with their monster ability cards instead of their own (no items, own attack modifier deck). Only set up the rooms of chosen elements. This scenario is always played at scenario level 3.",
+          "2": "Only set up the demons of the chosen elements."
+        },
+        "34": {
+          "1": "Before the scenario, characters may place up to four damage traps and four boulders and choose any starting hex. Savvas Lavaflows move the nearest log to two hexes adjacent to as many enemies as possible (2 damage each) instead of summoning on their 97 card. Savvas Icestorms perform %game.condition.immobilize%, target all enemies instead of summoning on their 98 card. Survive 10 rounds.",
+          "8": "Spawn treasure tile 37 at %game.mapMarker.e%."
+        },
+        "35": {
+          "1": "The wheel cart %game.mapMarker.a% is an ally and performs %game.action.move:2% towards %game.mapMarker.b% at initiative 99. It cannot enter logs and cannot be affected by character abilities. If it is destroyed, it becomes an allied Stone Golem (read 1). If it reaches %game.mapMarker.b%, read Conclusion A."
+        },
+        "36": {
+          "1": "Door %game.mapMarker.a% is locked. When both pressure plates %game.mapMarker.b% are occupied at the end of a turn, remove both rubble tiles on I1b and spawn a Harrower Infester on each, then door %game.mapMarker.a% unlocks.",
+          "3": "Tables %game.mapMarker.c% suffer 2 damage at the end of every round."
+        },
+        "37": {
+          "1": "No more than half the characters (rounded up) may start in the same room. Sarcophagi cannot be targeted. Ending a turn on pressure plate %game.mapMarker.a% removes sarcophagus %game.mapMarker.d% and spawns a Living Corpse, plate %game.mapMarker.b% removes sarcophagus %game.mapMarker.c% and spawns a Living Corpse. When both are removed, place a corridor on %game.mapMarker.e%.",
+          "4": "Tables %game.mapMarker.f% suffer 2 damage at the end of every round."
+        },
+        "38": {
+          "1": "Cultists summon normal Giant Vipers instead of Living Bones. With Smoke Signals, all enemies have 20 lower initiative in the first round. At the start of every round, %game.element.dark% is strong and %game.element.light% cannot be infused. Every time a Night Demon ability card is drawn, place the light token on the hex with that numbered token: it can be looted (read 2).",
+          "2": "The character carrying the Orb of Light adds +3 attack against Night Demons and ignores their disadvantage. %game.element.light% is now strong and can be infused. The scenario is complete at the end of the round the Orb is brought to %game.mapMarker.a%."
+        },
+        "39": {
+          "1": "At the end of each round, one (odd rounds) or two (even rounds) rows of hexes collapse: figures there suffer trap damage and move to the nearest empty hex. Boulders have C+3 hit points and can be pushed for one movement point. Door 1 opens when all Frost Demons are dead, door 2 when all Living Spirits are dead. All characters must escape through %game.mapMarker.a%."
+        },
+        "40": {
+          "1": "Obstacles cannot be destroyed, targeted or moved through but do not block line of sight. Characters may spend one movement to teleport between hexes with the same letter.",
+          "2": "Characters cannot long rest on map tile M1a."
+        },
+        "41": {
+          "1": "Add two -1 cards to the monster attack modifier deck for each Head of the Hydra. Each -1 or -2 drawn by a monster is removed after the attack.",
+          "2": "For each Dark Pit in excess of four, the Corrupted Celestial adds +1 attack, for each under four it suffers -1 attack. Dark Pits have Cx3 hit points; each destroyed Dark Pit deals C damage to the Corrupted Celestial. If a seventh Dark Pit would be placed, the scenario is lost."
+        }
+      }
+    },
+    "title": {
+      "ir2": {
+        "25": "Guard Duty",
+        "26": "Evil within the Gates",
+        "27": "Armory",
+        "28": "Glowing Temple",
+        "29": "Portals in the Snow",
+        "30": "The Frozen Swamps",
+        "31": "Hot Springs",
+        "32": "Oblivious Minds",
+        "33": "Role Reversal",
+        "34": "Bloodshed Beach",
+        "35": "A Gift for Jerran",
+        "36": "Taking Back Jerran A",
+        "37": "Taking Back Jerran B",
+        "38": "Shattered Light",
+        "39": "The Cursed Caves",
+        "40": "Terror Crypt",
+        "41": "Sanctuary of Despair"
+      }
+    }
+  }
+}

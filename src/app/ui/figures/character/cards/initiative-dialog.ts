@@ -69,15 +69,19 @@ export class CharacterInitiativeDialogComponent {
 
   updateInitiative(initiative: number) {
     const value = initiative > 0 && initiative < 100 ? initiative : 0;
-    if (this.figure.initiative !== value && gameManager.roundManager.validInitiative(value)) {
+    if (this.figure.initiative !== value && gameManager.roundManager.canSetInitiative(this.figure, value)) {
       gameManager.entityManager.before(this.character, this.figure, 'setInitiative', value);
       gameManager.roundManager.setInitiative(this.figure, value);
       gameManager.stateManager.after();
     }
   }
 
+  canLongRest(): boolean {
+    return !!this.character && gameManager.roundManager.canSetLongRest(this.character, !this.character.longRest);
+  }
+
   longRest() {
-    if (this.character) {
+    if (this.character && this.canLongRest()) {
       if (this.character.longRest) {
         gameManager.entityManager.before(this.character, this.character, 'setInitiative', this.character.initiative);
       } else {

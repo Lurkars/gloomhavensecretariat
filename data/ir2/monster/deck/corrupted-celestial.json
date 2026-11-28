@@ -1,0 +1,274 @@
+{
+  "name": "corrupted-celestial",
+  "edition": "ir2",
+  "abilities": [
+    {
+      "name": "Who Touches The Flames...",
+      "cardId": 1,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.deck.corrupted-celestial.1%"
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "name": "Walls of Dread",
+      "cardId": 2,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.deck.corrupted-celestial.2%"
+        },
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "name": "Reviving Firebrand",
+      "cardId": 3,
+      "initiative": 17,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.deck.corrupted-celestial.3%"
+            },
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.deck.corrupted-celestial.3a%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,invisible)|(0,1,target)|(1,1,target)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Instill Terror",
+      "cardId": 4,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,1,target)"
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.deck.corrupted-celestial.4%"
+        }
+      ]
+    },
+    {
+      "name": "Introspective Sweep",
+      "cardId": 5,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.deck.corrupted-celestial.5%"
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "minus",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rampant Darkness",
+      "cardId": 6,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "night-demon",
+                "type": "normal"
+              }
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.deck.corrupted-celestial.6a%"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.deck.corrupted-celestial.6%"
+        }
+      ]
+    },
+    {
+      "name": "Outburst of Rage",
+      "cardId": 7,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.deck.corrupted-celestial.7%"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "night-demon",
+                "type": "normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Feed on Despair",
+      "cardId": 8,
+      "initiative": 85,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.deck.corrupted-celestial.8%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.deck.corrupted-celestial.8a%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.deck.corrupted-celestial.8b%"
+        }
+      ]
+    }
+  ]
+}
