@@ -222,6 +222,7 @@
           "disabled": "Il monitoraggio automatico dei progressi è disabilitato per questa missione personale. Fare clic per abilitarlo per i requisiti che può monitorare.",
           "enabled": "Il monitoraggio automatico dei progressi è abilitato per questa missione personale. Fare clic per disattivarlo e monitorare nuovamente l'avanzamento manualmente."
         },
+        "concluded": "Concluso",
         "counter": "Contatore",
         "draw": "Pesca una carta Missione Personale",
         "drawDialog": {
@@ -241,6 +242,7 @@
           "randomScenario": "Apri %data.section:{0}%, sblocca %data.scenarioNumber:{1}%",
           "randomScenarioInfo": "Ottieni uno scenario secondario casuale."
         },
+        "scenarioChain": "Scenario completo della catena",
         "unlockCharacter": {
           "": "Apri la custodia %game.characterIcon.{0}%",
           "itemDesign": {
@@ -289,6 +291,14 @@
           "grit": "Determinazione",
           "intuition": "Intuizione",
           "logic": "Logica",
+          "short": {
+            "cunning": "AS",
+            "finesse": "FI",
+            "grit": "DE",
+            "intuition": "IN",
+            "logic": "LO",
+            "understanding": "CO"
+          },
           "understanding": "Comprensione"
         },
         "availablePerks": "Vantaggi disponibili: {0}",
@@ -298,8 +308,30 @@
         "currentHp": "PV Attuali",
         "effect": "Effetto",
         "equip": "Equipaggia",
-        "expended": "Impiegato",
-        "faction": "Fazione"
+        "expended": "Speso",
+        "faction": "Fazione",
+        "factions": "Allineamento delle fazioni",
+        "gained": "Ottenuto",
+        "hostile": "Ostile",
+        "init": "Iniz",
+        "itemName": "Nome",
+        "items": "Oggetti",
+        "lost": "Perso",
+        "maxHp": "PV Max",
+        "modifiers": "Tabella dei modificatori",
+        "passiveTalent": "Talento passivo",
+        "perks": "Vantaggi ottenuti",
+        "personalGoal": "Obiettivo personale",
+        "playerName": "Nome del giocatore",
+        "prepared": "Preparato",
+        "primary": "Primario",
+        "pronouns": "Pronomi",
+        "secondary": "Secondario",
+        "skill": "Abilità",
+        "slot": "Slot",
+        "special": "Speciale",
+        "talent": "Talento",
+        "talents": "Talenti attivi e passivi"
       },
       "title": "{1} {0}",
       "trial": "Prova",
@@ -646,6 +678,7 @@
       "swing": "Oscilla",
       "target": "Bersaglio",
       "targets": "Obiettivi",
+      "taunt": "Provocazione",
       "teleport": "Teletrasporta",
       "trigger": "Innesca"
     },
@@ -777,6 +810,10 @@
         "": "Benedizione",
         "hint": "%game.conditionIcon.bless% Benedizione: mescola una carta %game.attackmodifier.bless% nel mazzo modificatori attacco"
       },
+      "blind": {
+        "": "Cieco",
+        "hint": "%game.conditionIcon.blind% Cieco: Riduci il range a 1. Rimuovi alla fine del prossimo turno."
+      },
       "brittle": {
         "": "Fragile",
         "hint": "%game.conditionIcon.brittle% Fragile: raddoppia la prossima fonte di %game.damage%, quindi rimuovila. Rimuovila anche quando guarito."
@@ -810,8 +847,8 @@
         "hint": "Non è una condizione, ma aiuta se devi applicare %game.action.heal% per aumentare i punti ferita."
       },
       "immobilize": {
-        "": "Immobilizzare",
-        "hint": "%game.conditionIcon.immobilize% Immobilizzare: Non ti puoi muovere. Rimuovi alla fine del turno successivo."
+        "": "Immobilizza",
+        "hint": "%game.conditionIcon.immobilize% Immobilizza: Non ti puoi muovere. Rimuovi alla fine del turno successivo."
       },
       "immune": {
         "": "Immune",
@@ -830,8 +867,12 @@
         "hint": "%game.conditionIcon.invisible% Invisibile: Non può essere bersagliato. Rimuovi alla fine del turno successivo."
       },
       "muddle": {
-        "": "Confondere",
-        "hint": "%game.conditionIcon.muddle% Confondere: Svantaggio su tutti gli attacchi. Rimuovi alla fine del prossimo turno."
+        "": "Confondi",
+        "hint": "%game.conditionIcon.muddle% Confondi: Svantaggio su tutti gli attacchi. Rimuovi alla fine del prossimo turno."
+      },
+      "pacify": {
+        "": "Pacifica",
+        "hint": "%game.conditionIcon.pacify% Pacifica: non può eseguire alcuna abilità di attacco. Rimuovilo alla fine del turno successivo."
       },
       "permanent": {
         "": "Permanente",
@@ -889,6 +930,7 @@
       "advantage": "Vantaggio",
       "disadvantage": "Gli attaccanti ottengono svantaggio",
       "instead": "Al posto di",
+      "materialResource": "+{0} risorsa materiale",
       "math": {
         "ceil": "(arrotondato per eccesso)",
         "floor": "(arrotondato per difetto)",
@@ -1718,6 +1760,10 @@
           "hint": "Fare doppio clic per impostare/modificare le sezioni per la settimana",
           "lock": "Blocca il calendario per evitare modifiche accidentali. Doppio clic per creare un blocco permissivo, consentendo di aggiungere o rimuovere esattamente una settimana.",
           "openConclusion": "Seleziona la sezione continua",
+          "readHint": {
+            "": "Leggi la sezione {0} nel Libro delle sezioni.",
+            "title": "Sezioni del calendario"
+          },
           "section": "Sezione"
         },
         "winter": "Inverno"
@@ -2058,10 +2104,13 @@
         "": "Richiede che i seguenti scenari siano finiti",
         "and": "e",
         "or": "oppure",
-        "scenario": "%data.scenarioNumber:{0}%"
+        "scenario": "%data.scenarioNumber:{0}%",
+        "scenarioNot": "%data.scenarioNumber:{0}% NON completato"
       },
       "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Livello 5 o superiore",
-      "start": "Avvia comunque lo scenario"
+      "start": "Avvia comunque lo scenario",
+      "traits": "Personaggio con %game.trait:{0}% presente",
+      "traitsMissing": "Nessun personaggio con %game.trait:{0}% presente"
     },
     "reset": "Ricomincia scenario",
     "rewards": {
@@ -2069,7 +2118,9 @@
       "addWeek": {
         "": "Calendario",
         "next": "Sposta automaticamente il calendario alla settimana {0}",
+        "read": "Leggi la sezione {0} nel Libro delle sezioni",
         "section": "Apri %data.section:{0}% (applicato automaticamente)",
+        "sectionDialog": "Apri %data.section:{0}% (aperto al termine)",
         "summer": "Nuova stagione: estate <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
         "winter": "Nuova stagione: inverno <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
@@ -2083,8 +2134,8 @@
         }
       },
       "campaignSticker": "Adesivo campagna",
-      "characterRetirement": "Il personaggio con la missione personale \"%data.personalQuest.{0}.{1}%\" si ritira durante la fase cittadina successiva.",
-      "characterRetirementSkipEvents": "Il personaggio con la missione personale \"%data.personalQuest.{0}.{1}%\" si ritira durante la fase cittadina successiva, ma non aggiunge i normali eventi per il ritiro della propria classe.",
+      "characterRetirement": "Il personaggio con la missione personale \"%data.personalQuest.{0}.{1}%\" {2} si ritira durante la fase cittadina successiva.",
+      "characterRetirementSkipEvents": "Il personaggio con la missione personale \"%data.personalQuest.{0}.{1}%\" {2} si ritira durante la fase cittadina successiva, ma non aggiunge i normali eventi per il ritiro della propria classe.",
       "chooseItem": "Scegli di ottenere uno dei seguenti",
       "chooseLocation": "Scegli di sbloccare solo uno dei seguenti",
       "collectiveGold": "{0} oro collettivo",
@@ -2094,12 +2145,18 @@
       "event": {
         "boat": "Aggiungi l'evento {0} al mazzo della barca",
         "city": "Aggiungi evento città {0} al mazzo",
-        "rift": "Aggiungi l'evento di varco {0} to the deck",
-        "road": "Aggiungi l'evento di strada {0} al mazzo",
+        "rift": "Aggiungi l'evento varco {0} to the deck",
+        "road": "Aggiungi l'evento strada {0} al mazzo",
         "summer-outpost": "Aggiungi l'evento {0} al mazzo avamposto estivo",
         "summer-road": "Aggiungi l'evento{0} al mazzo strada estiva",
         "winter-outpost": "Aggiungi l'evento {0} al mazzo avamposto invernale",
         "winter-road": "Aggiungi l'evento {0} al mazzo strada invernale"
+      },
+      "eventRange": {
+        "boat": "Aggiungi eventi da {0} a {1} al mazzo della barca",
+        "city": "Aggiungi gli eventi città da {0} a {1} al mazzo",
+        "rift": "Aggiungi gli eventi varco da {0} a {1} al mazzo",
+        "road": "Aggiungi gli eventi strada da {0} a {1} al mazzo"
       },
       "experience": "{0} esperienza ciascuno",
       "factionUnlock": "%data.gh2eFaction:{0}% la reputazione ora può essere aumentata oltre 12.",
@@ -2613,7 +2670,7 @@
     },
     "automaticPassTime": {
       "": "Avanzamento autom. del tempo sul calendario",
-      "hint": "Fai avanzare il tempo automaticamente aggiungendo una settimana al calendario dopo aver finito uno scenario. Ciò aggiunge automaticamente effetti alle sezioni del calendario in questa settimana."
+      "hint": "Fai avanzare il tempo automaticamente aggiungendo una settimana al calendario dopo aver terminato uno scenario. Le sezioni del calendario di questa settimana verranno risolte in seguito (vedi Applicazione automatica delle sezioni del calendario)."
     },
     "automaticStandees": {
       "": "Pedine automatiche",
@@ -2630,6 +2687,10 @@
     "automaticUnlocking": {
       "": "Sblocco autom. dei personaggi",
       "hint": "Sblocca automaticamente i personaggi dai premi dello scenario."
+    },
+    "automaticWeekSections": {
+      "": "Applica autom. le sezioni del calendario",
+      "hint": "Applica automaticamente gli effetti delle sezioni del calendario quando passa una settimana, invece di aprire ciascuna sezione per distribuire ricompense e mostrare un suggerimento per le sezioni da leggere nel Libro delle sezioni."
     },
     "automation": "Automazione",
     "autoscroll": {
@@ -2777,8 +2838,8 @@
       "hint": "Ordina i personaggi per numero del giocatore # tra i round."
     },
     "characterTraits": {
-      "": "Mostra i tratti",
-      "hint": "Mostra i tratti sulla plancia del personaggio."
+      "": "Mostra i tratti/attributi",
+      "hint": "Mostra i tratti o gli attributi RPG sulla plancia del personaggio."
     },
     "columns": {
       "": "Struttura a colonne",
@@ -2794,6 +2855,10 @@
     },
     "conditions": "Condizioni/elementi",
     "controls": "Controlli",
+    "customCss": {
+      "": "CSS personalizzato",
+      "placeholder": "/* p.e. corpo { background: red; } */"
+    },
     "damageHP": {
       "": "Danno invece di PV",
       "hint": "Mostra danni inferti al posto dei punti ferita rimanenti"
@@ -2940,7 +3005,16 @@
     "gameplay": "Gameplay",
     "gamerules": "Specifico del gioco",
     "ge5Player": {
-      "": "Regole giocatori ≥ 5"
+      "": "Regole giocatori ≥ 5",
+      "capped": "Usa ancora C=4 per i calcoli"
+    },
+    "gh2eFhItems": {
+      "": "Aggiungi oggetti di Frosthaven",
+      "hint": "Aggiungi gli oggetti di Frosthaven alla riserva disponibile come indicato nelle FAQ ufficiali."
+    },
+    "gh2eForceFactionEnvelopes": {
+      "": "Sempre buste di fazione",
+      "hint": "Sblocca e abilita i contenuti delle buste sigillate delle fazioni per tutte le campagne."
     },
     "gh2eImbuement": {
       "": "Abilita le Infusioni dei Mostri",
@@ -3211,6 +3285,7 @@
   "state": {
     "clear": {
       "": "Elimina",
+      "log": "Pulisci lista",
       "redos": "Elimina i Ripeti",
       "undos": "Elimina i Cancella"
     },
@@ -3458,7 +3533,9 @@
       "finishScenario": {
         "battleGoal": "Imposta i segni di spunta dell'obiettivo di battaglia per %data.character.{0}.{1}% a {2}",
         "close": "Chiudi il riepilogo dello scenario",
-        "dialog": "Riepilogo dello scenario per #{0} {1} ({2})",
+        "dialog": {
+          "calendarSectionManual": "Imposta le settimane della sezione del calendario su {1}"
+        },
         "failure": "Scenario #{0} {1} ({2}) fallito",
         "linked": "Scenario #{0} {1} superato, continua con #{3} ({2})",
         "remove": "Rimuovi lo scenario #{0} {1} ({2}) superato",
@@ -3900,7 +3977,7 @@
       "toggleFullscreen": "Attiva/disattiva <i>Schermo intero</i>",
       "toggleHandSize": "Attiva/disattiva <i>Mostra le dimensioni e il livello della mano</i>",
       "togglePlayerNumber": "Attiva/disattiva <i>Mostra il numero del giocatore</i>",
-      "toggleTraits": "Attiva/disattiva <i>Mostra tratti</i>",
+      "toggleTraits": "Attiva/disattiva <i>Mostra tratti/attributi</i>",
       "undo": "Cancella",
       "zoomIn": "Avvicina",
       "zoomOut": "Allontana",

@@ -1,0 +1,1 @@
+import{B as ti}from"./main-GQSFEXNZ.js";export{ti as WorldMapComponent};

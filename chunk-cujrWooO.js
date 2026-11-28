@@ -1,0 +1,3 @@
+import{n as o}from"./chunk-DJiPQ8Tm.js";function y(c){let n=/* @__PURE__ */ new WeakMap;function o$1(t){if(t===null||typeof t!=`object`)return t;let s=n.get(t);if(s!==void 0)return s;if(Array.isArray(t)){let r=new Array(t.length);return n.set(t,r),t.forEach((p,f)=>{r[f]=o$1(p)}),r}let e={};n.set(t,e);for(let r of Object.keys(t))r===`__proto__`||r===`constructor`||r===`prototype`||(e[r]=o$1(t[r]));return e}return o(o$1,`sanitize`),o$1(c)}o(y,`stripPrototypeKeys`);export{y as t};
+//# debugId=2156edab-757b-5a8e-92b7-9369e60571ac
+//# sourceMappingURL=chunk-cujrWooO.js.map

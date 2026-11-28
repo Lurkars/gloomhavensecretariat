@@ -1,1 +1,0 @@
-import{c as v,s as C}from"./chunk-LiZy2ct7.js";import"./main-A4YAQ23V.js";export{v as createArchitectureServices};

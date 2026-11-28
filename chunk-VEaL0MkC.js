@@ -1,0 +1,1 @@
+import{b as v,y as C}from"./chunk-BddOdThy.js";import"./main-GQSFEXNZ.js";export{v as createArchitectureServices};
