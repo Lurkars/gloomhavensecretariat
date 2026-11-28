@@ -2994,13 +2994,12 @@
       "rightClick": "Always enable Right-Click",
       "soundboardSounds": {
         "": "Soundboard",
-        "hint": "Sounds of the soundboard. Add a sound by id and URL (e.g. https://example.com/sound.ogg), using the id of a built-in sound replaces it. Leave the URL empty or remove a built-in sound to disable it. Sync this setting across clients, as sounds are played by their position in the list.",
+        "hint": "Sounds of the soundboard. Add a sound by id and URL (e.g. https://example.com/sound.ogg). Sync this setting across clients, as sounds are played by their position in the list.",
         "id": "Id",
         "src": "URL",
         "play": "Play sound",
         "add": "Add sound",
-        "remove": "Remove sound",
-        "restore": "Restore default sound"
+        "remove": "Remove sound"
       }
     },
     "display": "Display",

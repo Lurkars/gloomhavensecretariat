@@ -2897,13 +2897,12 @@
       "rightClick": "Rechtsklick immer erlauben",
       "soundboardSounds": {
         "": "Soundboard",
-        "hint": "Sounds des Soundboards. Einen Sound per ID und URL (z.B. https://example.com/sound.ogg) hinzufügen, die ID eines eingebauten Sounds ersetzt diesen. URL leer lassen oder einen eingebauten Sound entfernen, um ihn zu deaktivieren. Diese Einstellung sollte zwischen allen Clients synchronisiert werden, da Sounds über ihre Position in der Liste abgespielt werden.",
+        "hint": "Sounds des Soundboards. Einen Sound per ID und URL (z.B. https://example.com/sound.ogg) hinzufügen. Diese Einstellung sollte zwischen allen Clients synchronisiert werden, da Sounds über ihre Position in der Liste abgespielt werden.",
         "id": "ID",
         "src": "URL",
         "play": "Sound abspielen",
         "add": "Sound hinzufügen",
-        "remove": "Sound entfernen",
-        "restore": "Standard-Sound wiederherstellen"
+        "remove": "Sound entfernen"
       }
     },
     "display": "Anzeige",

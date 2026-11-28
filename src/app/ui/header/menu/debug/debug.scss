@@ -28,6 +28,7 @@
 
     .id {
       flex-shrink: 0;
+      color: var(--ghs-color-white);
     }
 
     .src {
@@ -41,10 +42,6 @@
 
     .spacer {
       flex-grow: 1;
-    }
-
-    &.custom .id {
-      color: var(--ghs-color-white);
     }
 
     &.off .id {
@@ -66,10 +63,6 @@
 
       &.play {
         clip-path: polygon(15% 0, 100% 50%, 15% 100%);
-      }
-
-      &.restore {
-        clip-path: polygon(0 35%, 35% 35%, 35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%);
       }
 
       &.remove {

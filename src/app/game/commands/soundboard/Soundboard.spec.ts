@@ -1,4 +1,4 @@
-import { gameManager, soundboardManager } from 'src/app/game/businesslogic/Managers';
+import { gameManager, settingsManager, soundboardManager } from 'src/app/game/businesslogic/Managers';
 import { CommandMissingParameterError } from 'src/app/game/commands/Command';
 import { CommandManager } from 'src/app/game/commands/CommandManager';
 import { resetTestGame } from 'src/app/game/commands/commandsTestHelpers';
@@ -7,6 +7,7 @@ import { SoundboardCommand } from 'src/app/game/commands/soundboard/Soundboard';
 describe('SoundboardCommand', () => {
   beforeEach(() => {
     resetTestGame();
+    settingsManager.settings.soundboardSounds = ['a', 'b', 'c'].map((id) => ({ id, src: 'https://example.com/' + id + '.ogg' }));
     vi.spyOn(soundboardManager, 'play').mockImplementation(() => undefined);
   });
 
@@ -26,6 +27,7 @@ describe('SoundboardCommand', () => {
 
   describe('validParameters', () => {
     it('accepts every sound index', () => {
+      expect(soundboardManager.sounds.length).toBe(3);
       soundboardManager.sounds.forEach((_, index) => expect(new SoundboardCommand(index).validParameters(index)).toBe(true));
     });
 

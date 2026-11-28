@@ -32,14 +32,6 @@ export class SettingsDebugMenuComponent {
     this.closed.emit();
   }
 
-  isDefault(id: string): boolean {
-    return soundboardManager.defaultSounds.some((sound) => sound.id === id);
-  }
-
-  isCustom(id: string): boolean {
-    return (settingsManager.settings.soundboardSounds || []).some((sound) => sound.id === id);
-  }
-
   setCustomSound(sound: Sound) {
     const sounds = [...(settingsManager.settings.soundboardSounds || [])];
     const index = sounds.findIndex((value) => value.id === sound.id);
@@ -62,14 +54,6 @@ export class SettingsDebugMenuComponent {
   }
 
   removeSound(id: string) {
-    if (this.isDefault(id)) {
-      this.setCustomSound({ id, src: null });
-    } else {
-      this.restoreSound(id);
-    }
-  }
-
-  restoreSound(id: string) {
     settingsManager.set(
       'soundboardSounds',
       (settingsManager.settings.soundboardSounds || []).filter((sound) => sound.id !== id)

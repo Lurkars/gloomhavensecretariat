@@ -84,7 +84,7 @@
   </div>
   <div class="line sounds">
     @for (sound of soundboardManager.sounds; track sound.id) {
-      <a class="sound" [ngClass]="{ off: !sound.src, custom: isCustom(sound.id) }">
+      <a class="sound" [ngClass]="{ off: !sound.src }">
         <span class="id">{{ sound.id }}</span>
         <span class="src">{{ sound.src || '' }}</span>
         <span class="spacer"></span>
@@ -96,22 +96,12 @@
             [ghs-label-attribute]="'title'"
           ></span>
         }
-        @if (isDefault(sound.id) && isCustom(sound.id)) {
-          <span
-            class="sound-button restore"
-            (click)="restoreSound(sound.id)"
-            [ghs-label]="'settings.debug.soundboardSounds.restore'"
-            [ghs-label-attribute]="'title'"
-          ></span>
-        }
-        @if (sound.src || !isDefault(sound.id)) {
-          <span
-            class="sound-button remove"
-            (click)="removeSound(sound.id)"
-            [ghs-label]="'settings.debug.soundboardSounds.remove'"
-            [ghs-label-attribute]="'title'"
-          ></span>
-        }
+        <span
+          class="sound-button remove"
+          (click)="removeSound(sound.id)"
+          [ghs-label]="'settings.debug.soundboardSounds.remove'"
+          [ghs-label-attribute]="'title'"
+        ></span>
       </a>
     }
   </div>
@@ -122,18 +112,12 @@
         tabclick
         type="text"
         class="sound-id"
-        list="soundboard-default-ids"
         #soundId
         (keyup)="(0)"
         (keyup.enter)="addSound(soundId, soundSrc)"
         [ghs-label]="'settings.debug.soundboardSounds.id'"
         [ghs-label-attribute]="'placeholder'"
       />
-      <datalist id="soundboard-default-ids">
-        @for (sound of soundboardManager.defaultSounds; track sound.id) {
-          <option [value]="sound.id"></option>
-        }
-      </datalist>
       <input
         tabclick
         type="text"
